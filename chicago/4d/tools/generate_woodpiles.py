@@ -24,11 +24,11 @@ pile is cut down (a second rick dropped, a stove rick shortened), and only then 
 in writing. Every point of a pile must stand on dry ground inside the heightfield, inside
 no footprint and clear of every other one, off every street's track and every plank walk,
 clear of every committed fence line and outside every dooryard, clear of every committed
-tree and bush, and clear of every other pile and of the trade goods and wagons already
-standing.
+tree and bush, and clear of every other pile, of the trade goods and wagons already
+standing, and of every privy and stable T-1960 dealt to the yards.
 
 WHAT IS INVENTED is every pile's position, size and count — `reconstructed`, docs/
-LIBERTIES.md L350. The FACT that a household kept firewood is `inferred`: the town priced
+LIBERTIES.md L356. The FACT that a household kept firewood is `inferred`: the town priced
 firewood by the cord every week of the summer, and the record's `existence` block says so.
 
     python3 tools/generate_woodpiles.py            write the record
@@ -81,6 +81,9 @@ STEM_MARGIN_M = 1.0
 GOODS_MARGIN_M = 1.2
 WAGON_MARGIN_M = 3.6
 PILE_MARGIN_M = 0.5
+# A privy or a stable is walked round and into, so a pile keeps a full metre off it on
+# every side rather than the 0.6 m it keeps off a house's wall: no rick across a door.
+OUTBUILDING_M = 1.0
 DRY_FLOOR_M = 0.6
 NEAR_M = 45.0              # how far round a house anything is looked for
 
@@ -116,6 +119,18 @@ def area(poly) -> float:
                for i in range(len(poly))) / 2.0
 
 
+def outbuilding_footprint(ob: dict) -> list[tuple[float, float]]:
+    """A yard outbuilding's four corners in ENU, in the frame yard.js draws it in: along
+    the face is (cos b, sin b) in world XZ and out of it (sin b, -cos b), world z being
+    -north, so along is (cos b, -sin b) in ENU and out is (sin b, cos b)."""
+    e, n = ob["at_local_enu_m"]
+    b = math.radians(ob.get("bearing_deg") or 0.0)
+    ha, ho = (ob.get("along_m") or 0.0) / 2, (ob.get("depth_m") or 0.0) / 2
+    al, out = (math.cos(b), -math.sin(b)), (math.sin(b), math.cos(b))
+    return [(e + al[0] * sa * ha + out[0] * so * ho, n + al[1] * sa * ha + out[1] * so * ho)
+            for sa, so in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
+
+
 class Ground:
     """Everything a pile must stand clear of, read once and bucketed by house."""
 
@@ -135,7 +150,7 @@ class Ground:
                 pts = [tuple(p) for p in run.get("path_local_enu_m") or []]
                 if len(pts) >= 3:
                     self.dooryards.append(pts)
-        self.goods, self.wagons = [], []
+        self.goods, self.wagons, self.outbuildings = [], [], []
         for path in sorted(YARD.glob("*.json")):
             if path.name in ("index.json", OUT.name):
                 continue
@@ -148,6 +163,9 @@ class Ground:
                 for thing in rec.get(key) or []:
                     if thing.get("at_local_enu_m"):
                         self.wagons.append(tuple(thing["at_local_enu_m"]))
+            for ob in rec.get("outbuildings") or []:
+                if ob.get("at_local_enu_m"):
+                    self.outbuildings.append(outbuilding_footprint(ob))
         self.street_segs = []
         for pts, track_w, _banks in self.w.streets:
             clear = track_w / 2 + TRACK_SHOULDER_M + TRACK_MARGIN_M
@@ -174,6 +192,7 @@ class Ground:
             "stems": [s for s in self.stems if close(s)],
             "goods": [g for g in self.goods if close(g)],
             "wagons": [g for g in self.wagons if close(g)],
+            "outbuildings": [o for o in self.outbuildings if any(close(q) for q in o)],
         }
 
     def clear(self, p, own, near, wagon_ok=False) -> str | None:
@@ -213,6 +232,9 @@ class Ground:
         for g in near["wagons"]:
             if math.hypot(e - g[0], n - g[1]) < WAGON_MARGIN_M:
                 return "at a wagon"
+        for o in near["outbuildings"]:
+            if poly_contains(p, o) or poly_edge_dist(p, o) < OUTBUILDING_M:
+                return "at a privy or stable"
         for pile in self.piles:
             if poly_contains(p, pile) or poly_edge_dist(p, pile) < PILE_MARGIN_M:
                 return "on another woodpile"
@@ -456,7 +478,7 @@ def record(lots, refused, counts):
             "thing standing on ground this project has already drawn, so it is derived "
             "from the committed footprints and drawn at load by renderers/web/js/yard.js, "
             "and a pick on it opens the card of the house it stands behind. docs/"
-            "LIBERTIES.md L350 claims what is invented."),
+            "LIBERTIES.md L356 claims what is invented."),
         "id": "town_woodpiles",
         "name": "Woodpiles at the town's dwellings",
         "kind": "yard_goods",
@@ -537,7 +559,7 @@ def record(lots, refused, counts):
                 "then the next wall round; then the pile cut down (a rick dropped, a stove "
                 f"rick shortened to no less than {MIN_STOVE_RICK_M} m); then refused in "
                 "writing. Every point clear of every roof, street, walk, fence, dooryard, "
-                "tree, trade good, wagon and other pile."),
+                "tree, trade good, wagon, privy, stable and other pile."),
             "july": ("every rick is dealt at or below a full cord's 4 ft: a winter's wood "
                      "was laid in from the autumn, and July is the year's low."),
         },

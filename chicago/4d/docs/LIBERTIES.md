@@ -10908,7 +10908,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 97 structures (94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 98 structures (97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -13275,7 +13275,7 @@ programme itself raised as a lodging place, at the trade that roof's own `functi
 states. Nothing is hand-authored: every value comes from a seed a reader can retype, and
 `--check` re-derives all twelve cards and the ledger byte for byte.
 
-**Scope:** `residents.persons[lodgers]` — 134 people in 22 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (56 seats come from the layer; these 134 are the invention on top of them — 109 boarders and keepers, and the 25 keepers' children T-1533 draws). **T-1951 grew it from 121 in 20 to 134 in 22 on 2026-10-02, and most of the new beds stand empty, said.** It raised the South's three boarding houses the plan still held (`recon_1835_blk_washington_market_h3_01` and `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L348**), so the lodging model apportions the class over fifteen places. The stage draws a keeper for each — Louis Robillard, Michel Laframboise and Edward McCarthy, with five children between them — mints two boarders, and re-seats thirteen people already standing towards the new houses, which therefore sleep **4 of 10, 6 of 12 and 8 of 12**. The other sixteen ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`): every adult `lodging/none` cell of the South is filled to what the book orders, so a house raised on the plan's headroom gets a keeper and the people the town already counts, and nobody is invented to fill it. The houses the thirteen came from give up a bed or two each — the Clark block's second and third houses now sleep thirteen apiece, Chapin's house six of its twelve — and the Steamboat Hotel's one minted lodger is no longer minted, so its lodging card retires with three of its eleven beds empty, as Kelsey's did under T-1952. Thirty ordinary-night beds stand empty in all, every one with its reason, and nobody is over-dealt. **T-1950 grew it from 110 in 19 to 121 in 20 on 2026-10-02** by raising the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**): the house's drawn keeper, Baptiste Trottier, and his four children are minted with five boarders, and eight people already standing re-seat towards it, which fills its fourteen ordinary-night beds. The houses they came from give up a bed or two each, and two more of the North's beds go empty and said: Chapin's house on `blk_indiana_north_cass` now sleeps eight of its thirteen and the Steamboat Hotel nine of its eleven, both under the stage's own refusal (`no order left, no mint`), beside Kelsey's four. Eleven ordinary-night beds stand empty in all, and nobody is over-dealt. **T-1808 shrank it from 116 to 108 on 2026-10-02, and documented people displaced invented ones again.** The placement pass had seated Mark Beaubien's household on `recon_1835_blk_washington_clark_h3_05` and Alanson Sweet's on `_h3_06` under `lodging_near_the_landings`, while this stage, reading keepers off `works_at` alone, drew a keeper of its own for both roofs — so two households answered for each. The stage now reads an adoption under a keeper clause as the house's keeper (its refusal 6): each man takes the bed a drawn keeper took, as a seat that writes nothing into his card, and the two drawn keepers and their six children are retired. Not one boarder moved. **T-1952 grew it from 108 to 110, still in 19 cards, on 2026-10-02** by raising the North Division's H3 boarding house (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**): the lodging model now apportions the boarding-house class over twelve places, the new house's keeper and her children are drawn, and the North's solitary people re-seat towards it — which empties Kelsey's boarding-house, whose card is withdrawn: its four ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`), because every adult `lodging/none` cell of the North is filled to what the book orders. Nobody is over-dealt and nobody is lost; the people Kelsey's held sleep in the new house. A minted keeper's surname is now drawn clear of every keeper minted before her, since a keeper's surname is her house's trade style (T-1952's change to the name draw; no standing keeper's name moved). **T-1809 grew it from 106 in 18 to 116 in 19 on 2026-10-01** by raising the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**): the class is apportioned over eleven places, the new house takes 16 ordinary-night beds and its keeper's three children, and seven standing houses give up an ordinary-night bed. Two of Kelsey's beds now stand empty and said: the layer's solitary people re-seat towards the new house, and the South's adult lodging cells have no open order left for the last two. **T-1778 grew it from 94 in 17 to 106 in 18 on 2026-10-01** by raising the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**): the lodging model apportions the boarding-house class over ten places instead of nine, the new house takes 12 ordinary-night beds, and the beds already standing are re-cut by a bed at most. **T-1717 grew it from 84 in 16 to 94 in 17 on 2026-09-28, and a roof is only half the reason.** That ticket raised `kelsey_boarding_house` — the house Eve Kelsey kept, which Bonnell's walk of an August morning in 1835 describes as full of boarders — so the stage gained an eighteenth lodging place and the five ordinary-night beds that came with it; the other five of the ten are beds that appeared in houses already standing, because the roof programme moved under the lodging model and re-sized them. TWO THINGS IN THE MACHINERY MOVED WITH IT, both of them the same fault caught from two sides. **The order a house is dealt in is part of the deal.** The loop spends the room house by house, so a house inserted ahead of another by nothing more than its own name takes the cells the second one was going to draw: `kelsey_boarding_house` sorts fourth of eighteen, and raising it re-dealt ten of the seventeen houses already standing for no reason a reader could give. T-1535 had already answered this for the two houses it added, by dealing them last; the answer is now carried for every house, as `quota_basis.houses_the_deal_was_dealt_to` beside the room the deal was dealt against, and a lodging place that is not on that list is dealt after every one that is. **And an order that is already slept in is not an open order.** The frozen room is a cell's `to_reconstruct` read gross, which is right for a quota and wrong for a ceiling: the re-family programme (T-1563) lands 129 heads of the town's own model into these same lodging cells, and four of the ten new people were minted into cells those heads had already filled — `build_order_book_1835.py` refused the book for it, correctly, because "a move needs an open order to fill". The deal now clamps on the book's OPEN orders — its order less those arrivals — as well as on the frozen room, and sheds what will not fit onto cells that still have one; where a whole division is closed it mints nobody and the beds stand empty and said, exactly as T-1535 wrote. THAT CEILING IS FROZEN TOO, in `quota_basis.open_orders_the_deal_was_capped_at`, for the same reason the room is: read live it would be a second live reading of the book, and a re-cut that removes one undrawn slot would change which cells enter the proportional split and move somebody already standing — this stage's own self-test demonstrates exactly that, and it now passes. Not one bed went empty here: all 162 are slept in, and the four shed people stand in north and west cells the book still orders. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
+**Scope:** `residents.persons[lodgers]` — 134 people in 22 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (56 seats come from the layer; these 134 are the invention on top of them — 109 boarders and keepers, and the 25 keepers' children T-1533 draws). **T-1951 grew it from 121 in 20 to 134 in 22 on 2026-10-02, and most of the new beds stand empty, said.** It raised the South's three boarding houses the plan still held (`recon_1835_blk_washington_market_h3_01` and `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**), so the lodging model apportions the class over fifteen places. The stage draws a keeper for each — Louis Robillard, Michel Laframboise and Edward McCarthy, with five children between them — mints two boarders, and re-seats thirteen people already standing towards the new houses, which therefore sleep **4 of 10, 6 of 12 and 8 of 12**. The other sixteen ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`): every adult `lodging/none` cell of the South is filled to what the book orders, so a house raised on the plan's headroom gets a keeper and the people the town already counts, and nobody is invented to fill it. The houses the thirteen came from give up a bed or two each — the Clark block's second and third houses now sleep thirteen apiece, Chapin's house six of its twelve — and the Steamboat Hotel's one minted lodger is no longer minted, so its lodging card retires with three of its eleven beds empty, as Kelsey's did under T-1952. Thirty ordinary-night beds stand empty in all, every one with its reason, and nobody is over-dealt. **T-1950 grew it from 110 in 19 to 121 in 20 on 2026-10-02** by raising the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**): the house's drawn keeper, Baptiste Trottier, and his four children are minted with five boarders, and eight people already standing re-seat towards it, which fills its fourteen ordinary-night beds. The houses they came from give up a bed or two each, and two more of the North's beds go empty and said: Chapin's house on `blk_indiana_north_cass` now sleeps eight of its thirteen and the Steamboat Hotel nine of its eleven, both under the stage's own refusal (`no order left, no mint`), beside Kelsey's four. Eleven ordinary-night beds stand empty in all, and nobody is over-dealt. **T-1808 shrank it from 116 to 108 on 2026-10-02, and documented people displaced invented ones again.** The placement pass had seated Mark Beaubien's household on `recon_1835_blk_washington_clark_h3_05` and Alanson Sweet's on `_h3_06` under `lodging_near_the_landings`, while this stage, reading keepers off `works_at` alone, drew a keeper of its own for both roofs — so two households answered for each. The stage now reads an adoption under a keeper clause as the house's keeper (its refusal 6): each man takes the bed a drawn keeper took, as a seat that writes nothing into his card, and the two drawn keepers and their six children are retired. Not one boarder moved. **T-1952 grew it from 108 to 110, still in 19 cards, on 2026-10-02** by raising the North Division's H3 boarding house (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**): the lodging model now apportions the boarding-house class over twelve places, the new house's keeper and her children are drawn, and the North's solitary people re-seat towards it — which empties Kelsey's boarding-house, whose card is withdrawn: its four ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`), because every adult `lodging/none` cell of the North is filled to what the book orders. Nobody is over-dealt and nobody is lost; the people Kelsey's held sleep in the new house. A minted keeper's surname is now drawn clear of every keeper minted before her, since a keeper's surname is her house's trade style (T-1952's change to the name draw; no standing keeper's name moved). **T-1809 grew it from 106 in 18 to 116 in 19 on 2026-10-01** by raising the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**): the class is apportioned over eleven places, the new house takes 16 ordinary-night beds and its keeper's three children, and seven standing houses give up an ordinary-night bed. Two of Kelsey's beds now stand empty and said: the layer's solitary people re-seat towards the new house, and the South's adult lodging cells have no open order left for the last two. **T-1778 grew it from 94 in 17 to 106 in 18 on 2026-10-01** by raising the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**): the lodging model apportions the boarding-house class over ten places instead of nine, the new house takes 12 ordinary-night beds, and the beds already standing are re-cut by a bed at most. **T-1717 grew it from 84 in 16 to 94 in 17 on 2026-09-28, and a roof is only half the reason.** That ticket raised `kelsey_boarding_house` — the house Eve Kelsey kept, which Bonnell's walk of an August morning in 1835 describes as full of boarders — so the stage gained an eighteenth lodging place and the five ordinary-night beds that came with it; the other five of the ten are beds that appeared in houses already standing, because the roof programme moved under the lodging model and re-sized them. TWO THINGS IN THE MACHINERY MOVED WITH IT, both of them the same fault caught from two sides. **The order a house is dealt in is part of the deal.** The loop spends the room house by house, so a house inserted ahead of another by nothing more than its own name takes the cells the second one was going to draw: `kelsey_boarding_house` sorts fourth of eighteen, and raising it re-dealt ten of the seventeen houses already standing for no reason a reader could give. T-1535 had already answered this for the two houses it added, by dealing them last; the answer is now carried for every house, as `quota_basis.houses_the_deal_was_dealt_to` beside the room the deal was dealt against, and a lodging place that is not on that list is dealt after every one that is. **And an order that is already slept in is not an open order.** The frozen room is a cell's `to_reconstruct` read gross, which is right for a quota and wrong for a ceiling: the re-family programme (T-1563) lands 129 heads of the town's own model into these same lodging cells, and four of the ten new people were minted into cells those heads had already filled — `build_order_book_1835.py` refused the book for it, correctly, because "a move needs an open order to fill". The deal now clamps on the book's OPEN orders — its order less those arrivals — as well as on the frozen room, and sheds what will not fit onto cells that still have one; where a whole division is closed it mints nobody and the beds stand empty and said, exactly as T-1535 wrote. THAT CEILING IS FROZEN TOO, in `quota_basis.open_orders_the_deal_was_capped_at`, for the same reason the room is: read live it would be a second live reading of the book, and a re-cut that removes one undrawn slot would change which cells enter the proportional split and move somebody already standing — this stage's own self-test demonstrates exactly that, and it now passes. Not one bed went empty here: all 162 are slept in, and the four shed people stand in north and west cells the book still orders. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
 
 **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at
 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822
@@ -13693,7 +13693,7 @@ adoption there claims a STREET FACE, and a roof off the alley has none.
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
 **Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which FOURTEEN are this
-entry's. **T-1951 added the twelfth, thirteenth and fourteenth on 2026-10-02 the same way:** the South's three H3 boarding houses on `blk_washington_market` and `blk_washington_dearborn` (`recon_1835_blk_washington_market_h3_01`, `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L348**) got beds and drawn keepers, and *Louis Robillard's*, *Laframboise's* and *Edward McCarthy's boarding house* follow the roofs. **T-1950 added the eleventh on 2026-10-02 the same way:** the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**) got beds and a drawn keeper, and *Trottier's boarding house* follows the roof. **T-1952 added the tenth on 2026-10-02 the same way:** the North Division's one H3 boarding house the plan offers (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**) got beds and a drawn keeper, and *Chapin's boarding house* follows the roof. **T-1809 added the ninth on 2026-10-01 the same way:** the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**) got beds and a drawn keeper, and *Stebbins's boarding house* follows the roof. **T-1778 added the eighth on 2026-10-01 the same way:** it raised the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**), the lodging model gave it beds, the lodgers stage gave it a keeper, and *Lynch's boarding house* follows the roof. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty are **L254**'s apothecaries, **L255**'s Black-owned firms,
+entry's. **T-1951 added the twelfth, thirteenth and fourteenth on 2026-10-02 the same way:** the South's three H3 boarding houses on `blk_washington_market` and `blk_washington_dearborn` (`recon_1835_blk_washington_market_h3_01`, `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**) got beds and drawn keepers, and *Louis Robillard's*, *Laframboise's* and *Edward McCarthy's boarding house* follow the roofs. **T-1950 added the eleventh on 2026-10-02 the same way:** the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**) got beds and a drawn keeper, and *Trottier's boarding house* follows the roof. **T-1952 added the tenth on 2026-10-02 the same way:** the North Division's one H3 boarding house the plan offers (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**) got beds and a drawn keeper, and *Chapin's boarding house* follows the roof. **T-1809 added the ninth on 2026-10-01 the same way:** the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**) got beds and a drawn keeper, and *Stebbins's boarding house* follows the roof. **T-1778 added the eighth on 2026-10-01 the same way:** it raised the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**), the lodging model gave it beds, the lodgers stage gave it a keeper, and *Lynch's boarding house* follows the roof. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
 yards, **L262**'s services and **L307**'s four Canal approach firms; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
@@ -18565,7 +18565,7 @@ model now gives this house **16 ordinary and 35 crowded** beds (a larger footpri
 crosswalk's 10 and then to the **8** sashes a 9.96 m front carries; and **6** stovepipes, the most
 the crosswalk's "multiple" is held to here. It faces Washington Street, which the committed
 hierarchy grades `light`, where the first house faces Madison's `none`. Once T-1952's North house, T-1950's third house on this block and T-1951's three on the Market and Dearborn blocks took their shares of the class, the model reads this house at
-**13 ordinary and 31 crowded** beds, and its stovepipes at **5** (**L344**, **L345**, **L348**); the sashes hold at 8.
+**13 ordinary and 31 crowded** beds, and its stovepipes at **5** (**L344**, **L345**, **L349**); the sashes hold at 8.
 
 **THE YARD MIX IS NOT THE SCHEDULE'S, AND THAT IS THE LIBERTY.** The 665-roof schedule apportions
 this block's remaining yard as one stable, one barn or carriage shed, one privy and one smokehouse —
@@ -19118,7 +19118,7 @@ one slot request**: `hh_beaubien_john_s`'s D5 stood on lot 1. The placement pass
 
 **THE HOUSE IS L318's FORM, SIZED FROM ITS OWN BEDS.** The lodging model gives it **14 ordinary
 and 32 crowded** beds, which asks for 11 chambers, is held to the crosswalk's 10 and then to the
-**8** sashes its 9.88 m front carries; and **5** stovepipes. **Restated after T-1951 (2026-10-02, L348)**: with three more South houses sharing the class the model reads it at **12 ordinary and 28 crowded** beds, so the sashes hold at 8 and the stovepipes fall to **4**, and six of the twelve beds are slept in. It stands 3.0 m off the Illinois
+**8** sashes its 9.88 m front carries; and **5** stovepipes. **Restated after T-1951 (2026-10-02, L349)**: with three more South houses sharing the class the model reads it at **12 ordinary and 28 crowded** beds, so the sashes hold at 8 and the stovepipes fall to **4**, and six of the twelve beds are slept in. It stands 3.0 m off the Illinois
 Street line: nearer than the block's cottages (4.5-7.0 m), because an inn stands to its street,
 and deeper than the Washington houses' 1.55 m, because this is a speculative addition street and
 not a town street.
@@ -19175,7 +19175,7 @@ form and place on the lot. No source puts a boarding house, a stable, a keeper o
 tavern's cues left off, the same kitchen wing and kitchen door, and the same two ratios: the lodging
 model gives this house **14 ordinary and 33 crowded** beds on a 10.00 × 14.61 m footprint, which
 asks for 11 chambers, is held to the crosswalk's 10 and then to the **8** sashes a 10.00 m front
-carries; and **5** stovepipes, one to three ordinary beds. **Restated after T-1951 (2026-10-02, L348)**: with three more South houses sharing the class the model reads it at **13 ordinary and 31 crowded** beds, which still asks for 11 chambers, so the sashes hold at 8 and the stovepipes at 5. It faces Washington Street, graded
+carries; and **5** stovepipes, one to three ordinary beds. **Restated after T-1951 (2026-10-02, L349)**: with three more South houses sharing the class the model reads it at **13 ordinary and 31 crowded** beds, which still asks for 11 chambers, so the sashes hold at 8 and the stovepipes at 5. It faces Washington Street, graded
 `light`, with Clark Street — the street that runs down to the river — along its side: the clause
 that admits a lodging roof reads its nine documented ones as standing "on a corner, an approach or
 the water", and this is the block's one corner lot left that the schedule does not keep open.
@@ -19398,10 +19398,335 @@ households retires their owed row without touching these houses.
 owes), **L318** (the form), **L326** (the yard mix), **L344** and **L345** (the North's house and the
 Clark block's third, raised the same day), **T-1951** (these deals, a piece of **T-1810**, of
 **T-1779**), **T-1957** (what the cell still owes), **T-1209** (the boarding houses built to their beds).
-
 **Recorded:** 2026-10-02.
 
-### L350 — A woodpile at every dwelling: where it stands, how big it is and how it is stacked are invented by whose house it is
+### L350 — The walls' grain: a generated board and log face bound to every clapboarded and laid-log wall, and a coat showing three tenths of it
+
+**Decision:** every clapboarded wall on the three frame archetypes and every laid-log wall in
+the town is drawn with the library's generated wood face as relief (T-1963,
+`renderers/web/js/wall-relief.js`, `renderers/web/js/wall-grain.js`). Clapboard takes
+`clapboard_board_face` (one board's face, tiling at 4.48 m: grain along the board, raised
+grain, drying checks, broad weathering). Laid logs take `hewn_log_face` (4.08 m: adze
+scallops across the grain, checks). Neither map has a course line, so the only courses on
+a wall are the modelled laps and logs. The household's colour stays the wall's mean, and
+the wood's own figure is the variation around it. A wall wearing a coat (whitewash, red
+oxide or white lead, the three finishes the material sheet marks as coatings) lets **0.3**
+of that figure's colour through and keeps all of its relief. Bare stock lets all of it
+through. The three storefronts dealt vertical board, every palisade and bridge, trim,
+casings, sash, chinking and outbuilding boards are left as they were.
+
+**Why:** the owner set photographic quality as the standard, with Glessner House v4 as the
+benchmark (T-1769). T-1962's lay and wear were real but measured small, because a
+flat-shaded colour has nothing in it for the eye to read at walking distance. The fabric
+proof (`docs/RESEARCH/1835_fabric_proof.md`) showed that a no-course face over the modelled
+lap reads as weathered board at 2.5 m and dissolves into tone by 9 m. The 0.3 is that
+proof's reading of how much a weathered coat shows: at full strength, white lead read as a
+photograph of wood painted over. **No source says how any 1835 Chicago wall's grain looked,
+how far a coat hid it, or which walls were checked or weathered more than others.** The
+maps are deterministic procedural syntheses (seeds 18350701 and 18351283, the library's
+own licence), not photographs of any surviving 1830s fabric.
+
+**Consequence:** 250 clapboarded walls (49 under a coat) and 105 laid-log walls carry the
+grain. That costs two more building batches, one per substrate, drawn once in the colour
+pass and once in the shadow pass, and four textures (two at 1024 px, 512 px on a coarse
+device). The figures are in `docs/RESEARCH/1835_wall_relief.md`. Roughness keeps every
+household's own gloss through the map's ratio, so whitewash stays the dullest wall and
+white lead the glossiest.
+
+**Not done, and why:** upright boards (battens, vertical board, casings) need a grain axis
+per board, which the shader cannot know from a position and a normal (the fabric proof's
+defect 4). The recessed sash, a material name pinned in the GLB contract, and chinking
+relief are later parcels.
+
+**How to resolve:** a surviving 1830s Chicago clapboard or log wall, a close description of
+one, or a measured study of how weathered lead and lime coats showed grain outranks the
+look. A different coat strength is one number in `wall-grain.js`.
+
+**Related:** **L126** (the facade tones' bounds), **L320** (the street timber's grain),
+**L346** (the signboards' wear), **T-1769** (the preparation), **T-1801** (the proof),
+**T-1962** (the lay and the wear), **T-1963** (this layer).
+**Recorded:** 2026-10-02.
+
+### L351 — The working trades' yards: casks, barrels, boards, hides, hay ricks and yard wagons, dealt by trade
+
+**Applies to:** `data/yard/town_trade_yards.json` (written by `tools/generate_trade_yards.py`).
+
+**Decision:** every standing structure whose function is a working trade gets its trade's
+goods in its own rear or side yard, never on its street front (T-1961, piece 4 of T-1212).
+A cooperage gets a rank of six finished casks. A packing or slaughter house gets a rank of
+eight barrels. A carpenter's or joiner's shop gets a stickered pile of boards (12 ft x 12 in
+x 2 in, three a course, six courses). The tannery gets two drying rails of hides. A
+stable outside the hay limits gets one rick (3.0 x 2.0 m, 1.5 m to the eave, 2.4 m to the
+ridge). A forwarding house gets a farm wagon, and the teamster's yard gets a farm wagon and
+a covered freight wagon. Named and reconstructed trades are dealt alike. Where each stands
+is the first clear ground a fixed search of the building's rear and side faces finds. It
+is refused near any wall, on a walk, in a garden or pen, in a travelled track, on a wharf,
+in the water, across a fence run, or within 2.6 m of anything already standing.
+
+**Why:** the owner asked for it (T-1212): *barrels at the coopers and packers, wagons at the
+forwarders and the teamsters, lumber at the joiners, hides at the tannery, hay at the
+stables within the hay limits*, every record belonging to its business, and his standing
+ruling of 2026-08-18 lets reconstructed items be added when he asks, labelled as such.
+**No source places any of these objects in any of these yards on 1 July 1835**, and none
+gives a count, a size, a shape or a colour. Every object is reconstructed and every size
+is invented. The tones are reconstructed too: the rick a weathered straw (`#a89160`) and
+the hides a raw brown (`#5e4231`).
+
+**The hay limits:** Sec. 22 of the ordinance of 5 August 1835 forbids stacking hay inside
+the line `data/reconstruction/1835_hay_limits.json` derives. It postdates the scene by five
+weeks, and that record places nothing. This one reads it conservatively at the owner's
+instruction: no rick stands inside the ring, and the 22 stables inside it keep their hay
+in the mow and are refused in writing. The opposite reading (a corporation legislates
+against what people already do, so ricks stood inside the line in July) is declined, not
+disproved.
+
+**Not done, and why:** the yard casks carry no marks. The frontage goods' mark rule (L166)
+deals a merchant's commodity words, and nothing here says what a cooper's or a packer's
+cask was marked with. Newberry & Dole's forwarding warehouse gets no wagon: the search
+finds no clear ground round it, and the last stand it tries is in the river. Woodpiles, wells,
+privies and household stables are T-1959 and T-1960, not this.
+
+**How to resolve:** a lot description, insurance survey, sale notice or view naming what
+stood in any of these yards; a cooper's or packer's advertisement stating a stock; a
+description of the tannery; any 1835 complaint about a rick inside the line.
+
+**Related:** **L131** (the frontage goods), **L162** (the town's wagons), **L173** (the
+building material), **L306** (the bridge timber), **T-0334** (the hay limits),
+**T-1212**, **T-1961**.
+**Recorded:** 2026-10-02.
+
+### L352 — The frame houses' trim, chimney heads and siding stock are dealt by whose house it is
+
+**Decision:** the fabric rule (L330, L338, L343, `tools/fabric_rule_1835.py`) now deals two more
+form values to every reconstructed frame dwelling, and `frame_dwelling` builds them (T-1839, piece
+2 of T-1832):
+- **`trim`** — **merchant** and **keeper**: `boxed`, corner boards 7 cm wider than the frame's own
+  and a crown board standing 7.5 cm proud under the street eave, returned a short way round each
+  gable and carried along the back eave where no ell rises against it; **tradesman**: `plain`,
+  the trim the archetype has always built; **labourer**: `scant`, corner boards 3 cm narrower and
+  a 0.14 m frieze.
+- **`chimney_head`** — **merchant** and **keeper**: `double_corbel`, a second and wider corbel
+  course above the first; **tradesman**: `corbel`, the one course every stack has always carried;
+  **labourer**: `plain`, the shaft carried straight to the same top.
+
+And it bounds the **siding stock** T-0112 deals in every parcel recipe (`tools/siding_stock.py`,
+L148): a roof's stock is drawn on its own key from its class's stocks only — **merchant** 4.5 or
+5 in to the weather, **keeper** 5 or 5.5, **tradesman** 5, 5.5 or 6, **labourer** 5.5 or 6, any
+other class all four — and the 60 m neighbour separation then walks inside those stocks. A roof
+whose class's stocks are all worn by its neighbours keeps the last one tried rather than
+borrowing a board its household did not hang.
+
+**Why:** a narrower exposure is more boards, more nailing and more planing for the same wall,
+so the finest stock went on the houses that could pay for it; boxed corners and a cornice were
+what a house built to be seen added to the trim a sided frame needs anyway; a corbelled head is
+brickwork a mason was paid for, course by course. These are arguments about cost, not sources.
+**No source trims, sides or caps any particular house here.** Every value written is
+`reconstructed`; an attested or inferred value is never touched (`apply_form`, held by
+`--self-test`, which also refuses a trim or head the archetype cannot build, a boxed trim or a
+doubled head on a labourer's house, and a merchant's stock as wide as a labourer's). The
+`double_corbel` only ever adds height above the course the 1835 by-law census measured
+(chimneys.md §7), and `plain` stops at the same top, so no stack drops under the by-law's line.
+
+**Consequence:** across the 162 reconstructed frame dwellings: 18 merchants' houses `boxed` with
+`double_corbel` heads, 144 tradesmen's cottages `plain` with `corbel` heads — so the cottages'
+trim and stacks did not move. No reconstructed frame dwelling is a labourer's or a keeper's
+today, so those rows are dealt to none yet. The class bound moved the siding stock on 121 recipe
+roofs (97 frame dwellings, 18 storefronts, 6 taverns) and re-advanced 3 named buildings off them;
+merchants' houses now hang 4.5 in (11) and 5 in (7), tradesmen's 5, 5.5 and 6 in (44 / 51 / 49).
+The cost is stated: pairs of clapboard walls within 60 m sharing a stock rose from 45 to 54 of
+455 (9.9 % → 11.9 %), because two classes standing side by side now draw from fewer stocks.
+210 meshes rebaked (the frame dwelling archetype's source moved), 126 of them changed.
+
+**Not dealt, and why:** the cladding — the archetype builds clapboard only, and every class in a
+frame house wore it; a vertical-board wall is a freight or works building's. The chimney's brick
+— inferred for every interior stack (chimneys.md §2), which a class cannot argue further. The
+trim's colour — still derived from the wall's finish (materials.md §2.3). The frame storefront's
+and tavern's trim and heads.
+
+**How to resolve:** any source on the siding, trim or chimney of a particular 1835 Chicago house,
+which outranks the rule for that roof; a lumber dealer's advertisement or invoice giving the
+clapboard widths sold at Chicago in 1833–35, which re-grades the class bounds.
+
+**Covers:** `recon_*.*.form.trim`, `recon_*.*.form.chimney_head`, `recon_*.*.form.siding_exposure_m`
+**Related:** **L343** (the glazing, the same rule), **L338** (the form), **L330** (the finish),
+**L148** (the siding stock set), **L26** (where the stacks stand), **T-0112**, **T-1832**,
+**T-1839** (this rule).
+**Recorded:** 2026-10-02.
+
+### L353 — A privy behind every house and a stable for the horse-keepers, dealt to the yards by whose house it is
+
+**Decision:** `data/yard/town_yard_outbuildings.json` (T-1960, written by
+`tools/generate_yard_outbuildings.py`) stands **122 privies and 16 stables** on the yard layer,
+drawn at load by `renderers/web/js/yard.js` and baked into nothing. Every improved platted lot with
+a dwelling on it, a yard behind the house and no committed privy takes one privy in a rear corner,
+its back 0.75 m inside the rear lot line (off the alley). A lot whose household kept a horse takes
+a stable in the other rear corner, unless a committed stable, barn or carriage shed already stands
+there. "Kept a horse" is T-1212's list read off fields the town already carries: the house's class
+is `merchant`, `keeper` or `freight` (L330), the house is a tavern, inn, hotel or boarding house, or
+its reconstructed occupation is a teamster's. All of it is `reconstructed`.
+
+- **The house decides the size and the finish.** A labourer's privy is a 3½-ft box of sawmill slabs.
+  A tradesman's is a 4-ft board privy. A keeper's and a merchant's is a 5 × 4-ft two-seat, and the
+  merchant's is whitewashed. A keeper's stable is 20 × 14 ft with four stalls; the others are
+  16 × 12 ft. All are gabled board-and-batten with a pair of doors to the yard and a loft door in
+  one gable. The boards weather by the house's own `age_state` (L348's years).
+- **What is invented:** every dimension, the finish rule, the corner (a hash of the lot id), the
+  door, the loft and the tones. What is NOT invented is that a town house of 1835 had a privy
+  behind it — there was no other arrangement before sewers — and that a horse was stabled on its
+  owner's lot. That is the norm of the period, not a reading of any yard here.
+- **What is refused, on the record:** 8 deals — 7 lots whose buildings leave no yard and one corner
+  taken by a committed building. The record counts **114 dwellings standing off the platted lots**
+  and draws nothing for them, because they have no lot line to put an alley behind. Physicians are
+  on T-1212's list and on no committed field, so none is reached. No well is dealt:
+  `docs/RESEARCH/wells.md` § 4 refuses a well class, and that ruling stands.
+
+**How to resolve:** any source placing a privy, stable or barn on a particular 1835 Chicago lot; an
+1830s account or builder's bill giving a town privy's or stable's size; a source naming which
+households kept a horse. A named outbuilding replaces the dealt one on its lot.
+
+**Related:** **L330** (the household class this reads), **L348** (the weather years), **L326** (the
+yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960** (this deal, piece
+3 of **T-1212**), **T-1983** (the baked stable and outbuilding roofs the order book still counts;
+T-1967 handed them on).
+
+**Recorded:** 2026-10-02 (T-1960).
+
+### L354 — The present housed: every household in the town on 1 July 1835 seated under a standing dwelling by a deal, the room deciding
+
+**Applies to:** `data/reconstruction/1835_housing_seats.json` (written by
+`tools/house_the_present_1835.py`) and the `residents[]` rows `tools/compile_scene.py`
+(`overlay_housing`) puts on 205 building cards from it.
+
+**Decision:** every household the residents layer holds present on the scene date that no
+card and no other overlay puts under a roof — 1,003 of them, 1,675 people — is given one
+(T-1971, piece 1 of T-1965). The deal is taken in this order. (1) A household the platted
+or off-plat seating already dealt a standing roof (T-1613, T-1614) takes that roof: 83.
+(2) Families of two or more, largest first, take a dwelling of the families their
+placement-policy clause admits, in their own division (169). A household the address book
+never banded — the reconstructed trades, the readmitted, the underdocumented — takes any
+dwelling of its division; a household with no division at all is offered the whole town.
+(3) Single people take a free ordinary-night bed of the lodging model in their division
+(14), and otherwise board in the division's dwellings (737). Among the roofs a household
+may take it takes the one that leaves the fewest people per square metre of floor
+(footprint × storeys), ties broken by a seeded hash. **No source places any of these
+households under any of these roofs**: the people are the layer's and keep their own
+grades and evidence on their own cards, which the seat does not touch; the roof is the
+invention, and any other roof the deal admits would have done as well.
+
+**The ceiling:** the November 1835 census counted 3,265 people in 398 dwellings, 8.204 a
+roof (`data/reconstruction/1835_town_model.json`). After the deal 2,048 people sleep under
+294 standing dwellings, 6.966 a roof, and `--check` refuses any deal above the census's
+figure. The deal is not level across the town: it uses only the 203 reconstruction
+dwellings no record already claims, so the 233 roofs anybody sleeps in average 8.79, and
+the most crowded (a two-storey H2 house on Washington at Wells, 212 m² of floor) holds 29.
+That is printed in the ledger beside the mean, not hidden in it.
+
+**Refused, on T-1613's rules:** every documented building (a policy deal that put an
+invented boarder under a researched house would read back as a fact about that house);
+every roof whose sidecar already states its occupants, including those that say
+"Anonymous stock; no occupant is claimed" — except a roof whose `resident_assignment` names
+the very household being seated (5); and stores, workshops, warehouses, outbuildings and
+civic works.
+
+**The ruled in (T-1972):** 885 more unhoused households have cards that still read
+`uncertain`, but T-1386's presence rulings put them in the town by the project's standing
+rule (an attested or inferred resident is present unless evidence says otherwise). They
+are seated by the same deal AFTER the households present on their cards, so no T-1971
+seat moves, and they queue by the strength of the ruling: a reading on the day, then a
+span, then a bracket, then the carried, the nearest last reading first, ties by seeded
+hash. They take roofs while the town stays within the census's 8.204 people per dwelling,
+and **the line stops at the first household the ceiling cannot take**. 362 households are
+seated; the town then stands at 8.201 people per dwelling (2,411 under 294), the most
+crowded roof the same Washington-at-Wells H2 house, now 36 people. The other 523 (525
+people) are written to the ledger's `counted_apart` as `waiting_on_a_roof`, with their
+place in the queue. They are not housed and the audit does not call the join total while
+they wait: the roof programme orders 377 dwelling roofs on the scene date and the scene
+stands 294, and the remaining dwelling builds (T-1755, T-1759, T-1829, T-1957) are what
+lengthens the line, with no edit to the deal. The 29 households the town holds out of the
+day (28 ruled `absent` on their cards by T-1172's persistence draw, and Alexander
+Wolcott, whose card reads him `absent` on the old settlers' death notice) are counted
+apart as `absent_on_the_scene_date` with the first sentence of their own
+evidence. They are owed no roof in July 1835. **The invention added here is the ORDER of
+the queue**: which ruled-in household waits is decided by the ruling's strength and the
+age of its last reading, not by any source about where these people slept.
+
+**Not done, and why:** the town
+census screen's housed count reads card links and does not yet count these seats; that
+screen is T-1983 (T-1967's City card completion row does count them, by household). The People view's "Go to" is not pointed at these roofs.
+
+**How to resolve:** any 1835 source that puts a named person under a named roof — a lot
+sale, a tax or assessment list, a letter's address, a later reminiscence — replaces the
+deal for that household; the next run of the tool then seats it nowhere, because the join
+already houses it.
+
+**Related:** **L167** (houses to let), **L270** (the platted deal), **L271** (the off-plat
+deal), **L276** (the card says so), **T-1199**, **T-1215**, **T-1964**, **T-1965**,
+**T-1971**.
+**Recorded:** 2026-10-02.
+
+### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
+
+**Decision:** two camps stand on the two grounds `data/reconstruction/1835_camp_grounds.json`
+offers and grades `conjectural` (T-1804, the second piece of T-1214).
+`land_sale_camp_shore` is a scatter of 12 tents (wall and wedge alternately), 3 covered
+wagons, a brush lean-to, 6 cold fire rings, 3 woodpiles and 4 heaps of baggage on a 50 x 40 m
+ground of the United States Reservation between local E +1130 and E +1180, N −40 to 0:
+north-east of the Fort Cemetery, south-east of the garrison garden, south-west of the factor's
+house, short of the lake beach, and in view from the fort's south-west corner past the
+factor's house. `west_approach_wagon_camp` is a ring of
+4 covered wagons and 2 wedge tents about 2 fire rings on a 34 x 34 m ground of prairie
+beyond the Des Plaines Street line, between E −700 and E −666, just north of the line
+Randolph would carry west. **Everything drawn is invented, and so is the use of the ground.**
+**Why:** the owner asked for both by name (T-1214: "the land-sale crowd south of the fort, the
+immigrants' wagons at the west approach"), and AGENTS.md § RECONSTRUCTED IS A TIER is the rule
+for a thing the scene needs and nothing states. The camp-grounds file offers the shore as the
+nearest open, unplatted, unsold ground to the landing — and says no source puts anybody on
+it — and the prairie edge as where a wagon party stops without entering the town, resting on
+the direction of the traffic and nothing else. The spots are the placer's
+(`tools/place_camp_grounds_1835.py`): level ground (under 0.25 m of fall) at least 0.5 m above
+the water, at least 3 m from every drawn roadway's edge, fence run and committed footprint,
+and the shore camp outside the cemetery's 30 m skirt. `1835_no_build_ground.json` refuses
+the reservation to a builder and permits this camp by name, because the camp-grounds file
+rules that a crowd sleeping rough for a fortnight is not a dwelling. The counts are bounded,
+not derived: the transient model reserves 77 land-sale visitors the Public Domain register
+names at the sale of 26-27 June 1835 and seats none of them, and 12 tents is the share drawn
+as having come with canvas; four wagons is a party, not a count.
+**Consequence:** from the fort's south-west corner a visitor sees canvas and wagons on the
+shore to the south; at the west edge of town, a ring of wagons on the prairie. **Neither camp
+seats anybody**: `occupants` says so on both, and no resident or transient count moves. **L1
+stands over every vertex** — no figure, no flame, no smoke. **These are not Native or Métis
+camps.** T-1177 refused a count for the unnamed Native and Métis people at Chicago on
+1 July 1835 (`1835_native_and_metis.json` § the_counted_but_unnamed), and a camp with no count
+would be the population that refusal declined to invent; that question is the owner's.
+**How to resolve:** an account of the June 1835 land sale saying where the crowd that came for
+it slept; a letter or diary of an overland party reaching Chicago in 1835 saying where it
+stopped; either would move a camp to its ground or retire it.
+**Covers:** `land_sale_camp_shore.camp_1835.position`, `land_sale_camp_shore.camp_1835.footprint`,
+`land_sale_camp_shore.camp_1835.documented_range`, `land_sale_camp_shore.camp_1835.form.tents`,
+`land_sale_camp_shore.camp_1835.form.tent_kind`, `land_sale_camp_shore.camp_1835.form.wagons`,
+`land_sale_camp_shore.camp_1835.form.brush_shelters`,
+`land_sale_camp_shore.camp_1835.form.fire_rings`, `land_sale_camp_shore.camp_1835.form.woodpiles`,
+`land_sale_camp_shore.camp_1835.form.baggage_heaps`,
+`land_sale_camp_shore.camp_1835.form.arrangement`,
+`land_sale_camp_shore.camp_1835.form.canvas_condition`, `land_sale_camp_shore.function`,
+`land_sale_camp_shore.occupants`,
+`west_approach_wagon_camp.camp_1835.position`, `west_approach_wagon_camp.camp_1835.footprint`,
+`west_approach_wagon_camp.camp_1835.documented_range`,
+`west_approach_wagon_camp.camp_1835.form.tents`,
+`west_approach_wagon_camp.camp_1835.form.tent_kind`,
+`west_approach_wagon_camp.camp_1835.form.wagons`,
+`west_approach_wagon_camp.camp_1835.form.brush_shelters`,
+`west_approach_wagon_camp.camp_1835.form.fire_rings`,
+`west_approach_wagon_camp.camp_1835.form.woodpiles`,
+`west_approach_wagon_camp.camp_1835.form.baggage_heaps`,
+`west_approach_wagon_camp.camp_1835.form.arrangement`,
+`west_approach_wagon_camp.camp_1835.form.canvas_condition`,
+`west_approach_wagon_camp.function`, `west_approach_wagon_camp.occupants`
+**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **L321** (the
+landing-place camps), **T-1803** (the archetype), **T-1804** (this entry).
+**Recorded:** 2026-10-02.
+
+### L356 — A woodpile at every dwelling: where it stands, how big it is and how it is stacked are invented by whose house it is
 
 **Decision:** every dwelling standing on the scene date — 299 roofs, the T-0052 houses, the
 dwelling families of the reconstruction spec, and the store-residences, taverns, inns, hotels and

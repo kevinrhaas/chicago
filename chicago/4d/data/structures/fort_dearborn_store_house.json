@@ -111,6 +111,15 @@
     ],
     "note": "The garrison's provision store. Destroyed with the barracks in the September 1827 lightning fire and standing again on the 1830 plan; see fort_dearborn_barracks for what that does and does not establish.\n\nTHE ARMY'S OWN CONTRACT NOTICES NAME THIS BUILDING AND SAY WHAT WENT IN AT ITS DOOR (T-1591). Two printings of the Fort Dearborn beef proposals — Chicago Democrat 28 May 1834, claim chicago_democrat_1834_05_28#c006, and 4 June 1834, claim chicago_democrat_1834_06_04#c013 — require the contractor's fresh beef to be delivered in quarters 'at the store house of Fort Dearborn', which the second printing calls 'the subsistance store house of Fort Dearborn', 'in such quarters and at such times as the Assistant Commissary of Subsistence may require', not more than three times a week nor less than once, 'amounting probably to 400 pounds per week'. So this range was the post's PROVISION store: the receiving door for the garrison's meat, worked by the commissary, reached by a contractor's cart two or three mornings a week. The weekly poundage is the notice's own estimate of what the garrison ate and is recorded as an estimate. WHAT IS NOT TAKEN FROM IT: the notices do not say which range, which face or which door, so no position, footprint or opening is changed here — the fort's buildings stand where the 1830 survey and Andreas put them. Nor is the thirteen-month gap to the scene date closed: the fresh-beef contract advertised over the same fort in the scene month names no building at all."
   },
+  "part_of": {
+    "value": "fort_dearborn_palisade",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "It stands inside the south wall, on the parade, and the Army's own beef proposals of May and June 1834 (claims chicago_democrat_1834_05_28#c006 and chicago_democrat_1834_06_04#c013) call it 'the subsistance store house of Fort Dearborn'. The post was garrisoned continuously from June 1832 to 29 December 1836 (the stockade's own occupants block, after Andreas), so on 1 July 1835 its service buildings were the garrison's; the people are seated on the stockade and are not repeated here."
+  },
   "research_note": "The eastern building at the south gate. Nothing distinguishes it from its neighbour in the sources except its name and the side it stands on, and this project's reason for putting it east rather than west is written on fort_dearborn_guard_house.",
   "review_required": false,
   "land_owner": {

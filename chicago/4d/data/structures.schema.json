@@ -60,6 +60,10 @@
     "occupants": {
       "$ref": "#/$defs/attested"
     },
+    "part_of": {
+      "$ref": "#/$defs/attested",
+      "description": "The standing structure whose establishment this building is one building of, as a structure id — the fort's barn is part of the post, a tannery's bark shed is part of the tannery, a homestead's second house is part of the homestead. T-1980. It answers the completion audit's fourth question (is this roof occupied, or does it have a use that needs nobody of its own?) for a building whose keepers are the principal's: the people are seated on the principal and are NOT repeated here, so this claims a relation between two buildings and never a person. The value must name a structure the scene carries, and tools/audit_town_completion_1835.py refuses one that does not, or one whose principal is itself empty. The note says what ties the two — the same plate, the same yard, the same sentence of the same source — and `confidence` grades that tie, not the building."
+    },
     "present_status": {
       "$ref": "#/$defs/attested",
       "description": "Optional sourced present-day survival/status, separate from historical phase ranges. The note must state when it was checked; never extends a modeled phase."
@@ -760,6 +764,7 @@
             "hotel_stable",
             "hotel_under_construction",
             "jail",
+            "land_sale_camp",
             "large_boarding_house",
             "large_workshop",
             "larger_one_and_a_half_story_house",

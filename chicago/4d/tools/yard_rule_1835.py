@@ -50,7 +50,7 @@ ricks of 2 ft wood by the back door, with a chopping block. A labourer's househo
 hauled its own, so its pile is unsplit lengths on two skids, worked off with an axe at the
 block; and a shanty kept what came to hand — mill slabs and drift — in a heap. None of this is
 a reading of any one house. It is a bound on a reconstruction, written down where it can be
-argued with, and it is docs/LIBERTIES.md L350.
+argued with, and it is docs/LIBERTIES.md L356.
 
     python3 tools/yard_rule_1835.py              print the rule as the policy carries it
     python3 tools/yard_rule_1835.py --self-test  the rule's guarantees, by breaking them
@@ -240,7 +240,7 @@ def policy_table() -> dict:
                          for kk, vv in v.items()} for k, v in WOODPILE.items()},
         "row_of_class_and_house": {f"{k[0]} x {k[1]}": v for k, v in ROW_OF.items()},
         "still_to_write": "wells, privies and stables (T-1960); trade goods by trade (T-1961)",
-        "liberty": "L350",
+        "liberty": "L356",
     }
 
 

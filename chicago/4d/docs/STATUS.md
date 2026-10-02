@@ -13,7 +13,7 @@ under `yard`: the household class is the fabric rule's (250 roofs), else a resid
 trade (10), a reconstruction's occupation (14), a keeper's by function (6), or a tradesman's by
 default (18, said so on the record); the house is the roof's own family. Wells, privies, stables
 (T-1960) and trade goods (T-1961) are the columns still to write. `generate_woodpiles.py --check`
-and the rule's `--self-test` are in `check.sh`. L350 claims the invention; the fact of household
+and the rule's `--self-test` are in `check.sh`. L356 claims the invention; the fact of household
 firewood is `inferred` from the 1835 price current.
 
 **Frame cost, measured on the published mirror, desktop, `full`** (`tools/woodpile_shots.mjs
@@ -29,6 +29,39 @@ one mesh exactly 2. The sticks are painted on the yard atlas, not built: about s
 
 **Unverified / open.** The silvered end-grain cell reads dark in a north wall's shade; the split ends
 are polygons that can read as cobbles at a metre. A woodshed, a sawbuck and the axe are not drawn.
+
+## T-1975 — the full and balanced ceilings and the draw-call budget re-measured and set (2026-10-02)
+
+Piece 1 of T-1974 (T-1969 → T-1215, the owner's *"the budgets re-measured and set"*). A conscious
+re-budget at the place the numbers are defined, not a weakened assertion.
+
+**Measured first.** `tools/measure_detail_ceilings.mjs`, published mirror of dev @ 652ca8ea, T-0135's
+five stands, both release viewports (`docs/measurements/t-1975-detail-ceilings-{desktop,mobile}.json`):
+
+| tier | ceiling was | desktop worst | mobile worst | ceiling now | clear |
+| --- | --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,705,768 (Lake at Canal) | 1,556,676 (Lake at Canal) | **1,725,000** | 19,232 (1.1 %) |
+| `balanced` | 1,280,000 | 1,472,889 (Lake at Canal) | 1,332,135 (Lake at Canal) | **1,490,000** | 17,111 (1.1 %) |
+| `light` | 825,000 | 944,550 (the forks) | 845,385 (Lake at Canal) | 825,000 — **not moved** | over by 119,550 |
+| calls | 215 | 222 (`full`, Lake at Canal) | 215 | **240** | 18 |
+
+**The rule** is the sixth re-basing's and T-0672's: the worst stand at either viewport plus the
+absolute headroom T-0672 recorded (18,059 / 16,806), rounded up to 5,000. The call budget keeps the 15
+calls 215 carried over the 200 it was set against: 222 + 15, rounded up to 240. No pre-emptive room;
+T-1959's woodpiles (+70,928 tris, +2 calls at Lake at Canal, PR #272) still bring their own number.
+
+**No parcel to bisect.** `full` read 1,383,428 worst on 2026-09-26; the 322,340 since is spread over
+about sixty owner-requested parcels merged 2026-09-26..10-02. None is a regression to take back.
+
+**`light` stays the floor** (AGENTS.md: keep it inside its own ceiling, spend new headroom above it).
+It is over on both viewports and at 102 calls against its 90-call floor, so smoke part 5 stays red
+on `light` alone. That is **T-1976**, a trim, with the layer-by-layer reading of the forks
+(structures 249,774 · terrain 222,772 · trees 146,608 · frontage 121,484 · streets 106,891).
+
+**T-1154 reconciled** in its own ticket: its 2026-09-15 figures against today's, and why its
+"trim, not re-budget" stance is overtaken for `full`/`balanced` by the owner's T-1215 ask but still
+holds for `light`. The timber's per-level thinning ratio (trees.js, read off these ceilings on
+2026-09-15) is deliberately not re-derived: that would change the drawn wood, not a budget.
 
 ## T-1823 — the walk by business carried to the new fronts: fronts-only faces beyond the covered streets (2026-10-02)
 

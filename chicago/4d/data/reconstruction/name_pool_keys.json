@@ -28,6 +28,7 @@
       "phases[].form.brush_shelters.note",
       "phases[].form.cabin_count.note",
       "phases[].form.canvas_condition.note",
+      "phases[].form.chimney_head.note",
       "phases[].form.chimney_material.note",
       "phases[].form.chimney_placement.note",
       "phases[].form.chimneys.note",
@@ -134,9 +135,11 @@
       "phases[].form.tent_kind.note",
       "phases[].form.tents.note",
       "phases[].form.tower.note",
+      "phases[].form.trim.note",
       "phases[].form.upper_overhang_m.note",
       "phases[].form.upper_windows.note",
       "phases[].form.wagon_yard.note",
+      "phases[].form.wagons.note",
       "phases[].form.wall_height_m.note",
       "phases[].form.wall_kind.note",
       "phases[].form.width_m.note",
@@ -310,6 +313,7 @@
   },
   "ignored": {
     "structures": {
+      "part_of.note": "T-1980. Names a relation between two buildings and never a person: the fort's barn is part of the post, a tannery's shed part of the tannery. Every name it quotes — the source's author, the firm, the homestead's owner — is one the same record's function.note or the principal's own occupants block already carries, and those ARE read, so reading this note again would add no name the town has not said something about and could only let a quotation take a man out of the deal.",
       "reconstruction.fabric_basis.words": "T-1816. The building card's Built-line sentence, a COPY: where 1835_roof_keepers.json wrote a keeper onto the roof it repeats that household's card name (\"The Brown household's, a blacksmith\"), the name its own household card already carries; everywhere else its capitalised words are the sentence's own. It says nothing new about any name.",
       "resident_assignment.note": "T-1675. The machine-readable half of an occupancy, and the one note on a structure record that deliberately names nobody: it says whether the platted deal reached this roof and what refused the seat, and the household is named in data/reconstruction/1835_roof_keepers.json instead — on a refused seat because the letter-list ruling of 2026-08-30 forbids the name here, and on a written one because the id belongs in `household_id` where tools/generate_dooryard_pickets.py does not read it as a garden. Its capitalised words are therefore the prose's own sentence openings and the project's file and ticket names, not names the town has said anything about. `occupants.note` beside it IS read, and that is the one that carries a keeper's name."
     },

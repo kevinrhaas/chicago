@@ -666,15 +666,24 @@ const STANDS = [
  * paying once in the colour pass and once in the shadow pass, exactly as the
  * paragraph above predicts. The reach's headroom is 4 calls smaller and its
  * budget is 80.
+ *
+ * **3 -> 5 ON 2026-10-02 (T-1963), the same deliberate edit for the walls.**
+ * `wall-relief.js` binds one shared normal + packed ORL pair to every
+ * clapboarded wall and one to every laid-log wall, so the key splits off ONE
+ * clapboard batch (250 walls) and ONE log batch (105). Measured through
+ * `tools/wall_relief_shots.mjs` with `?walls=flat` against the default, published
+ * mirror: lake_market 189 -> 193 and south_water 173 -> 177 at 1280x800, 83 -> 87
+ * and 80 -> 84 at 390x780, and +4 at every close stand too — the two batches once
+ * in each pass, triangles unchanged to the triangle.
  */
-const STRUCTURE_BATCHES = 3;
+const STRUCTURE_BATCHES = 5;
 /**
  * …and of those three, exactly two are roof coverings — T-1488. The count above
  * would pass identically on a town that had split into three batches by LOSING
  * the merge, which is the failure R-W5a2 wrote it to catch; this says WHICH
  * three, so a regression that re-splits the walls cannot hide behind the raise.
  */
-const TEXTURED_STRUCTURE_BATCHES = 2;
+const TEXTURED_STRUCTURE_BATCHES = 4; // two roof coverings (T-1488) + clapboard and log walls (T-1963)
 /**
  * How many distinct roughness values the merged batch must still carry, and how
  * far the frame must move when they are flattened.
@@ -3596,6 +3605,27 @@ for (const [label, viewport, touch] of [
       const wagons = y?.wagons ?? [];
       const benches = y?.benches ?? [];
       const sheds = y?.sheds ?? [];
+      // T-1960. The privies and stables in the house yards: measured by their OWN box,
+      // like the shed, so a 6 m stable is not read against a barrel's 0.75 m bar.
+      const outbuildings = (y?.outbuildings ?? []).map((ob) => ({
+        id: ob.id, kind: ob.kind, e: ob.at_local_enu_m[0], n: ob.at_local_enu_m[1],
+        b: ((ob.bearing_deg ?? 0) * Math.PI) / 180,
+        reachA: (ob.along_m ?? 0) / 2 + 0.45, reachO: (ob.depth_m ?? 0) / 2 + 0.45,
+        head: ob.head_m ?? 0 }));
+      const obAt = (e, n) => {
+        for (const ob of outbuildings) {
+          const de = e - ob.e;
+          const dn = n - ob.n;
+          if (Math.abs(de) > 6 || Math.abs(dn) > 6) continue;
+          const along = de * Math.cos(ob.b) - dn * Math.sin(ob.b);
+          const out = de * Math.sin(ob.b) + dn * Math.cos(ob.b);
+          if (Math.abs(along) <= ob.reachA && Math.abs(out) <= ob.reachO) return ob;
+        }
+        return null;
+      };
+      let obVerts = 0;
+      let obHigh = 0;           // tallest a vertex stands over its own building's base
+      const obTones = new Set();
       const items = [];
       for (const f of frontages) {
         for (const it of f.items ?? []) {
@@ -3728,6 +3758,16 @@ for (const [label, viewport, touch] of [
           // The shed's bay first: along the wall and out of it, in the shed's own
           // frame. The wagon's tongue reaches past the bay and is left to the
           // wagon bound below, which is exactly where it belongs.
+          const ob = obAt(e, n);
+          if (ob) {
+            obVerts++;
+            const c = geo.getAttribute('color');
+            if (c) obTones.add(`${c.getX(i).toFixed(4)},${c.getY(i).toFixed(4)},${c.getZ(i).toFixed(4)}`);
+            ob.minY = Math.min(ob.minY ?? Infinity, pos.getY(i));
+            ob.maxY = Math.max(ob.maxY ?? -Infinity, pos.getY(i));
+            obHigh = Math.max(obHigh, ob.maxY - ob.minY);
+            continue;
+          }
           let inBay = false;
           for (const sh of sheds) {
             const sb = ((sh.bearing_deg ?? 0) * Math.PI) / 180;
@@ -3851,6 +3891,22 @@ for (const [label, viewport, touch] of [
         bridgeRecord: bridgeRecord ? { counts: bridgeRecord.counts,
           confidence: bridgeRecord.existence?.confidence } : null,
         bridgePiles: piles.filter((pl) => pl.bridge),
+        // T-1961. The working trades' yards: what the record stands, and how much
+        // of it reached the screen as piles.
+        tradeYards: (() => {
+          const rec = y?.records?.find((r) => r.id === 'town_trade_yards');
+          if (!rec) return null;
+          const ids = new Set((rec.lots ?? []).map((l) => l.structure_id));
+          const drawn = piles.filter((pl) => ids.has(pl.structure_id));
+          const kinds = {};
+          for (const pl of drawn) kinds[pl.kind] = (kinds[pl.kind] ?? 0) + 1;
+          return { counts: rec.counts, confidence: rec.existence?.confidence,
+            lots: (rec.lots ?? []).length, drawn: drawn.length, kinds,
+            belongs: (rec.lots ?? []).every((l) => l.belongs_to === l.structure_id)
+              && (rec.wagons ?? []).every((w) => !!w.belongs_to),
+            wagonsDrawn: (y?.wagons ?? []).filter((w) => w.in_yard_of).length,
+            wagons: (rec.wagons ?? []).length };
+        })(),
         piles: piles.length,
         shedVerts,
         shedOut,
@@ -3858,6 +3914,11 @@ for (const [label, viewport, touch] of [
         shedSpan: Number.isFinite(shedLow) ? shedHigh - shedLow : null,
         shed: sheds[0] ?? null,
         sheds: sheds.length,
+        outbuildings: outbuildings.length,
+        obVerts,
+        obHigh,
+        obTones: obTones.size,
+        obUndrawn: outbuildings.filter((ob) => !(ob.maxY > ob.minY)).length,
         // One material and the tilt still reads as canvas: the colour is per
         // vertex, so the whole layer must carry exactly its OWN tones and no
         // more. It was two — timber and duck — until T-0057 put brick and stone
@@ -3868,7 +3929,10 @@ for (const [label, viewport, touch] of [
           for (const geo of geos) {
             const c = geo.getAttribute('color');
             if (!c) return 0;
+            const pos = geo.getAttribute('position');
             for (let i = 0; i < c.count; i++) {
+              // The yard outbuildings carry their own tones (T-1960), counted below.
+              if (obAt(pos.getX(i), -pos.getZ(i))) continue;
               seen.add(`${c.getX(i).toFixed(4)},${c.getY(i).toFixed(4)},`
                 + `${c.getZ(i).toFixed(4)}`);
             }
@@ -3920,8 +3984,16 @@ for (const [label, viewport, touch] of [
     // frame. It chunks now, the way `frontage.js` and `enclosures.js` do. What
     // must still hold, and is the whole reason chunking is cheap: ONE material
     // across every chunk, and every chunk carrying its own bounding sphere.
+    // THE CEILING WAS 64 AND IS 96 SINCE T-1960, a conscious re-budget and not a
+    // weakened assertion (AGENTS.md, the frame budget): the privies and stables put
+    // the layer on 122 more house lots, many in 110 m cells no barrel or wagon
+    // reached, and the layer went from 64 chunks to 71. 96 is that plus headroom for
+    // the yard pieces still to come (T-1961), and the town's draw calls stayed
+    // inside their own budget (142 of 215 at the boot stand) when it moved.
+    const YARD_CHUNK_CEILING = 96;
     check(`${label}: the yard layer chunks for culling on a single material`,
-      goods.meshes > 1 && goods.meshes <= 64 && goods.meshes === goods.census?.chunks
+      goods.meshes > 1 && goods.meshes <= YARD_CHUNK_CEILING
+        && goods.meshes === goods.census?.chunks
         && goods.materials === 1 && goods.bounded
         && goods.mergedNames.every((name) => name === 'yard-far-merge'),
       `${goods.meshes} chunk mesh(es) (census ${goods.census?.chunks}), `
@@ -4072,6 +4144,19 @@ for (const [label, viewport, touch] of [
     // turned its outward normal the wrong way on its first run and put every
     // one of the nine piles inside the building, which clause 5 caught then and
     // this catches now.
+    // T-1961: the goods in the working trades' yards are drawn through the same
+    // lots contract, so the pile bound below measures them too. What has to hold
+    // here is that every object the record stands reaches the screen, in every
+    // kind the trades deal, and that each one belongs to its business.
+    check(`${label}: the working trades' yards stand their goods by trade`,
+      goods.tradeYards?.confidence === 'reconstructed'
+        && goods.tradeYards.lots >= 20
+        && goods.tradeYards.drawn === goods.tradeYards.counts?.objects
+        && ['barrel', 'boards', 'hides', 'hay'].every((k) => goods.tradeYards.kinds[k] > 0)
+        && goods.tradeYards.wagons >= 2
+        && goods.tradeYards.wagonsDrawn === goods.tradeYards.wagons
+        && goods.tradeYards.belongs,
+      JSON.stringify(goods.tradeYards));
     check(`${label}: no pile of material stands inside the building it is for`,
       goods.pileStray > 0 && goods.pileStray <= 2.1 && goods.pileInLot === 0,
       `furthest vertex ${goods.pileStray?.toFixed(2)} m from its own pile's anchor, `
@@ -4081,9 +4166,28 @@ for (const [label, viewport, touch] of [
     // only possible because the colour moved onto the geometry — so the whole
     // layer, chunks and all, has to carry exactly two tones: timber and duck.
     check(`${label}: the tilt is drawn in canvas on the layer's one material`,
-      goods.tones === 4 && goods.materials === 1,
+      // Six since T-1961: timber, duck, brick, stone, and the hay and hides of
+      // the working trades' yards.
+      goods.tones === 6 && goods.materials === 1,
       `${goods.tones} vertex tone(s) across ${goods.meshes} chunk(s) on `
       + `${goods.materials} material(s)`);
+
+    // ---- T-1960: a privy behind every house, a stable for the horse-keepers ---- //
+    // Every record the layer loaded is drawn — a privy no taller than a man can
+    // reach the eaves of, a stable no taller than its ridge plus the sill run below
+    // grade — and they differ house to house, which is the point of dealing them by
+    // household: the boards weather with the house and a merchant's is whitewashed.
+    check(`${label}: a privy stands behind the town's houses and a stable for the horse-keepers`,
+      goods.outbuildings >= 100 && goods.census?.outbuildings === goods.outbuildings
+        && (goods.census?.byOutbuilding?.privy ?? 0) >= 100
+        && (goods.census?.byOutbuilding?.stable ?? 0) >= 10
+        && goods.obUndrawn === 0 && goods.obVerts > 0 && goods.obHigh <= 4.8,
+      `${goods.outbuildings} outbuilding(s) ${JSON.stringify(goods.census?.byOutbuilding ?? {})}, `
+      + `${goods.obVerts} vertices, ${goods.obUndrawn} with no geometry, tallest `
+      + `${goods.obHigh?.toFixed(2)} m sill to ridge`);
+    check(`${label}: the outbuildings differ house to house`,
+      goods.obTones >= 12,
+      `${goods.obTones} distinct tone(s) across the privies and stables`);
 
     // ---- T-0064: more wagons, all over a frontier town ---------------------- //
     //
@@ -8885,8 +8989,15 @@ for (const [label, viewport, touch] of [
     // reset from `DETAIL[level]`), so it reads 600,000 on a phone booting into
     // `light` and 1,000,000 on a desktop. The three tier ceilings have their own
     // check further down, which is where a re-budget of those would show.
+    //
+    // T-1975, 2026-10-02: 215 -> 240, moved here in the same commit as `BUDGET`
+    // in `main.js`, where the measurement is written (worst frame 222 calls at
+    // `full`, Lake Street at Canal, 1280x800, dev @ 652ca8ea; 215 carried 15
+    // over the 200 it was set against, and 222 + 15 rounds up to 240). A
+    // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
+    // below is untouched and still red at 102 until T-1976's trim.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 215,
+      stats.budget.drawCalls === 240,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -10095,7 +10206,7 @@ for (const [label, viewport, touch] of [
         textured: bs.filter((b) => b.material?.normalMap).length,
       };
     });
-    check(`${label}: the town is its one untextured batch and its two roof coverings`,
+    check(`${label}: the town is its one untextured batch, its two roof coverings and its two wall substrates`,
       batchCensus.batches === STRUCTURE_BATCHES
         && batchCensus.textured === TEXTURED_STRUCTURE_BATCHES,
       `${batchCensus.batches} structure batch(es), want ${STRUCTURE_BATCHES}, of which `
@@ -13463,6 +13574,13 @@ for (const [label, viewport, touch] of [
         oldMount: !!document.getElementById('gate-census'),
         fits: city.scrollWidth <= city.clientWidth + 1,
         scrollsInSheet: panelScroll?.id === 'panel-scroll',
+        done: {
+          figure: city.querySelector('.gc-done-n')?.textContent.trim() || '',
+          joins: [...city.querySelectorAll('.gc-joins li')].map((el) => ({
+            closed: el.classList.contains('is-closed'), text: el.textContent.replace(/\s+/g, ' ').trim() })),
+          segs: city.querySelectorAll('.gc-done-seg').length,
+          shares: city.querySelector('.gc-done-shares')?.textContent.trim() || '',
+        },
       };
       document.getElementById('panel-back').click();
       api.evidenceHub.showTopic('liberties');
@@ -13567,6 +13685,26 @@ for (const [label, viewport, touch] of [
       && hub.city.text.includes(`roughly ${grouped(cityScene.target)}`)
       && !hub.city.text.includes(`roughly ${grouped(hub.city.data?.people?.town_total)}`),
       hub.city.text);
+    // T-1967: the completion row reads the audit's four joins, and the tiers' shares of
+    // the households with a home — the committed file's figures, not the page's own.
+    let completionDoc = null;
+    try {
+      completionDoc = JSON.parse(fs.readFileSync(
+        path.join(ROOT, 'data', 'render', 'town_completion_1835.json'), 'utf8'));
+    } catch { completionDoc = null; }
+    const doneJoins = completionDoc?.joins || [];
+    const doneHomed = completionDoc?.tiers?.households?.housed || {};
+    const doneHomedAll = ['attested', 'inferred', 'reconstructed'].reduce((n, t) => n + Number(doneHomed[t] || 0), 0);
+    check(`${label}: City's completion row shows the audit's joins and the tiers' shares`,
+      doneJoins.length === 4
+      && hub.city.done.figure === `${doneJoins.filter((j) => j.open === 0).length} of ${doneJoins.length}`
+      && hub.city.done.joins.length === doneJoins.length
+      && doneJoins.every((j, i) => hub.city.done.joins[i].closed === (j.open === 0)
+        && hub.city.done.joins[i].text.startsWith(j.label)
+        && (j.open === 0 || hub.city.done.joins[i].text.includes(`${grouped(j.open)} ${j.what_keeps_it_open}`)))
+      && hub.city.done.segs === 3
+      && hub.city.done.shares.startsWith(`The ${grouped(doneHomedAll)} households with a home rest on `),
+      JSON.stringify({ shown: hub.city.done, joins: doneJoins }));
     check(`${label}: City drops the projected count and structures line`,
       !/projected/i.test(hub.city.text) && !/projected/i.test(hub.city.aria)
       && !/structures?\b/i.test(hub.city.text),
@@ -13646,7 +13784,12 @@ for (const [label, viewport, touch] of [
 
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const wn = await page.evaluate(() => {
       const host = document.getElementById('whatsnew');
       return {
@@ -13680,7 +13823,12 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => document.exitPointerLock?.());
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const ret = await page.evaluate(() => ({
       flagged: [...document.querySelectorAll('#whatsnew .wn-entry.is-new .wn-title')]
         .map((n) => n.textContent),

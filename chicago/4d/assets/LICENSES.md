@@ -63,7 +63,11 @@ the measurements that say which maps may be bound to a surface are in
 **Not published.** `tools/publish.sh` copies named files and `assets/web/*.glb`; it does not
 walk `assets/`, so this directory stays in the repository and off the live site. It is carried
 for the web renderer's relief maps and for the Unreal target's DirectX normals, packed ORM and
-16-bit displacement.
+16-bit displacement. The `.webp` beside fourteen of the maps is a lossless derivative of
+its PNG master, the same pixels in fewer bytes, written and held pixel-identical by
+`tools/web_textures.py` (T-1973). Those fourteen are the one exception to "not published":
+`tools/publish.sh` copies them by name to `data/textures/`, where the relief modules bind them.
+They carry the library's licence and its one condition unchanged.
 
 Every file, as the checker matches them one by one:
 
@@ -157,10 +161,12 @@ textures/chicago_1835_pbr/props/blue_painted_shutter/material.json
 textures/chicago_1835_pbr/props/signboard_weathered/material.json
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_ao.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_basecolor.png
+textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_basecolor.webp
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_height16.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_metallic.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_dx.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_gl.png
+textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_gl.webp
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_orm.png
 textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_roughness.png
 textures/chicago_1835_pbr/props/wrought_iron_forged/material.json
@@ -179,7 +185,9 @@ textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_heig
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_metallic.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_dx.png
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.png
+textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.webp
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.png
+textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.webp
 textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_roughness.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/material.json
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_ao.png
@@ -188,7 +196,9 @@ textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_metallic.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_dx.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.png
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.webp
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.png
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.webp
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_roughness.png
 textures/chicago_1835_pbr/timber/fresh_sawn_framing/fresh_sawn_framing_ao.png
 textures/chicago_1835_pbr/timber/fresh_sawn_framing/fresh_sawn_framing_basecolor.png
@@ -201,10 +211,12 @@ textures/chicago_1835_pbr/timber/fresh_sawn_framing/fresh_sawn_framing_roughness
 textures/chicago_1835_pbr/timber/fresh_sawn_framing/material.json
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_ao.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_basecolor.png
+textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_basecolor.webp
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_height16.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_metallic.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_dx.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_gl.png
+textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_gl.webp
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_orm.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_roughness.png
 textures/chicago_1835_pbr/timber/heavy_timber_weathered/material.json
@@ -230,11 +242,14 @@ textures/chicago_1835_pbr/walls/board_and_batten_weathered/board_and_batten_weat
 textures/chicago_1835_pbr/walls/board_and_batten_weathered/material.json
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_ao.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_basecolor.png
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_basecolor.webp
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_height16.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_metallic.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_dx.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.png
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.webp
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.png
+textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.webp
 textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_roughness.png
 textures/chicago_1835_pbr/walls/clapboard_board_face/material.json
 textures/chicago_1835_pbr/walls/clapboard_red_oxide/clapboard_red_oxide_ao.png
@@ -275,11 +290,14 @@ textures/chicago_1835_pbr/walls/clapboard_whitewash/clapboard_whitewash_roughnes
 textures/chicago_1835_pbr/walls/clapboard_whitewash/material.json
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_ao.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_basecolor.png
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_basecolor.webp
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_height16.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_metallic.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_dx.png
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.png
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.webp
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orm.png
+textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orm.webp
 textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_roughness.png
 textures/chicago_1835_pbr/walls/hewn_log_face/material.json
 textures/chicago_1835_pbr/walls/hewn_log_oak_chinked/hewn_log_oak_chinked_ao.png

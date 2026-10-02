@@ -30,7 +30,7 @@
   "scene_date": "1835-07-01",
   "ordinance_date": "1835-08-05",
   "days_after_the_scene_date": 35,
-  "note": "THE ORDINANCE IS FIVE WEEKS LATER THAN THE SCENE. It is carried here as evidence about the town of 1835 and not as something standing in the scene on 1 July: nothing is placed, moved or drawn because of it. A line the Trustees walked on 5 August describes ground that was already built up when they walked it, which is exactly why it is worth having; it is still a claim about August and it says so."
+  "note": "THE ORDINANCE IS FIVE WEEKS LATER THAN THE SCENE. It is carried here as evidence about the town of 1835 and not as something standing in the scene on 1 July: nothing is placed, moved or drawn because of it. A line the Trustees walked on 5 August describes ground that was already built up when they walked it, which is exactly why it is worth having; it is still a claim about August and it says so. ONE THING READS IT, at the owner's instruction (T-1212, T-1961): data/yard/town_trade_yards.json stands no hay rick inside the ring, and a stable inside it is refused one in writing. Nothing is moved and the line itself is still not drawn."
  },
  "walk": [
   {
@@ -315,12 +315,12 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 326,
-  "outside": 213,
+  "outside": 215,
   "no_committed_position": 0,
   "outside_by_where": {
-   "on_the_united_states_reservation": 27,
+   "on_the_united_states_reservation": 28,
    "north_of_the_limit": 45,
-   "west_of_canal_street": 82,
+   "west_of_canal_street": 83,
    "south_of_washington_street": 58,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
@@ -353,7 +353,8 @@
     "fort_dearborn_sutlers_store",
     "fort_dearborn_us_factors_house",
     "fort_dearborn_wash_house",
-    "jb_beaubien_homestead"
+    "jb_beaubien_homestead",
+    "land_sale_camp_shore"
    ],
    "north_of_the_limit": [
     "clybourn_cabins",
@@ -484,7 +485,8 @@
     "recon_1835_west_052",
     "recon_1835_west_053",
     "recon_1835_west_054",
-    "recon_1835_west_055"
+    "recon_1835_west_055",
+    "west_approach_wagon_camp"
    ],
    "south_of_washington_street": [
     "heacock_house_monroe",

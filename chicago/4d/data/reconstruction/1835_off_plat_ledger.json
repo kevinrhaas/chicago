@@ -52,7 +52,7 @@
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
   "principal_roofs_standing": 137,
-  "ground_m2": 7314855.3
+  "ground_m2": 7314847.5
  },
  "what_the_roof_programme_does_not_carry": {
   "parcels": 150,
@@ -6947,7 +6947,8 @@
     "fort_dearborn_sutlers_store",
     "fort_dearborn_us_factors_house",
     "fort_dearborn_wash_house",
-    "jb_beaubien_homestead"
+    "jb_beaubien_homestead",
+    "land_sale_camp_shore"
    ],
    "standing_families": {
     "beaubien_barn": "A2",
@@ -6976,7 +6977,8 @@
     "fort_dearborn_sutlers_store": "M1",
     "fort_dearborn_us_factors_house": "C2",
     "fort_dearborn_wash_house": "A5",
-    "jb_beaubien_homestead": "D1"
+    "jb_beaubien_homestead": "D1",
+    "land_sale_camp_shore": null
    },
    "principal_roofs_standing": 18
   },
@@ -6997,7 +6999,7 @@
    "street_class": "unplatted",
    "frontage_m": null,
    "depth_m": null,
-   "area_m2": 1035933.6,
+   "area_m2": 1035925.8,
    "ground_reading": null,
    "ground_tokens": [
     "outside_plat",
@@ -7417,7 +7419,8 @@
     "recon_1835_west_052",
     "recon_1835_west_053",
     "recon_1835_west_054",
-    "recon_1835_west_055"
+    "recon_1835_west_055",
+    "west_approach_wagon_camp"
    ],
    "standing_families": {
     "clybourn_cabins": "D1",
@@ -7456,7 +7459,8 @@
     "recon_1835_west_052": "D1",
     "recon_1835_west_053": "A2",
     "recon_1835_west_054": "D1",
-    "recon_1835_west_055": "A2"
+    "recon_1835_west_055": "A2",
+    "west_approach_wagon_camp": null
    },
    "principal_roofs_standing": 31
   },

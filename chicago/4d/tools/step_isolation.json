@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-01",
+  "measured": "2026-10-02",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 683,
   "exempt": {
@@ -2389,6 +2389,9 @@
     "tools/audit_step_isolation.mjs": {
       "wrote": []
     },
+    "tools/audit_town_completion_1835.py": {
+      "wrote": []
+    },
     "tools/audit_wright_watercourses.py": {
       "wrote": []
     },
@@ -2522,6 +2525,9 @@
       "wrote": []
     },
     "tools/check_unique_ids.py": {
+      "wrote": []
+    },
+    "tools/check_wall_relief.py": {
       "wrote": []
     },
     "tools/check_wright_nara_registration.py": {
@@ -2722,6 +2728,9 @@
     "tools/generate_school_section_grid.py": {
       "wrote": []
     },
+    "tools/generate_trade_yards.py": {
+      "wrote": []
+    },
     "tools/generate_west_freight.py": {
       "wrote": []
     },
@@ -2734,7 +2743,13 @@
     "tools/generate_yard_goods.py": {
       "wrote": []
     },
+    "tools/generate_yard_outbuildings.py": {
+      "wrote": []
+    },
     "tools/georef_prairie_1904.py": {
+      "wrote": []
+    },
+    "tools/house_the_present_1835.py": {
       "wrote": []
     },
     "tools/identity_master_guard.py": {
@@ -3068,6 +3083,9 @@
       "wrote": []
     },
     "tools/pinned_sources.py": {
+      "wrote": []
+    },
+    "tools/place_camp_grounds_1835.py": {
       "wrote": []
     },
     "tools/place_landing_camps_1835.py": {
@@ -3758,6 +3776,9 @@
       "wrote": []
     },
     "tools/verify_fergus_1839_first_ward.py": {
+      "wrote": []
+    },
+    "tools/web_textures.py": {
       "wrote": []
     },
     "tools/write_entry_pages.mjs": {

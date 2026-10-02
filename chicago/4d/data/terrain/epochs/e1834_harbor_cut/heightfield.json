@@ -64,8 +64,8 @@
     "cell_max": 73.528
    },
    "approach_lasalle_crossing_west": {
-    "cells": 14,
-    "cell_max": 61.072
+    "cells": 13,
+    "cell_max": 59.897
    },
    "approach_north_branch_east": {
     "cells": 25,
@@ -124,7 +124,7 @@
     "cell_max": 213.175
    },
    "street_section": {
-    "cells": 21355,
+    "cells": 21097,
     "cell_max": 186.376
    },
    "swales": {
@@ -144,5 +144,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "a2609f279224cea095035f98e34ef33b653ff27081ddea059a67f8ca11ef95fc"
+ "inputs_sha256": "0305d106c2221fb6395aa1ae589983a30758ae869a564256b658583e045ef96e"
 }

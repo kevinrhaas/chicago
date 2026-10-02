@@ -2153,7 +2153,7 @@ def compile_lodging() -> dict[str, dict]:
     return out
 
 
-def compile_residents() -> dict[str, list[dict]]:
+def compile_residents(housing: bool = True) -> dict[str, list[dict]]:
     """structure_id -> the households the residents layer attaches to it.
 
     THE REASON THIS EXISTS. `data/residents/` is a dataset layer with no geometry
@@ -2225,6 +2225,8 @@ def compile_residents() -> dict[str, list[dict]]:
                 "research_note": hh.get("research_note", ""),
             })
     overlay_lodgers(out)
+    if housing:
+        overlay_housing(out)
     for households in out.values():
         households.sort(key=lambda h: h["household"])
     return out
@@ -2328,6 +2330,58 @@ def overlay_lodgers(out: dict[str, list[dict]]) -> None:
         })
 
 
+def overlay_housing(out: dict[str, list[dict]]) -> None:
+    """Put T-1971's housing deal on the building card of the roof it names.
+
+    THE PRESENT WITH NO ROOF. 1,003 households the residents layer holds present on
+    1 July 1835 (and, since T-1972, the households T-1386's rulings put in the town as far
+    as the census's people per dwelling allows) reached no roof through their own card, and their cards cannot be given
+    one: every folder is re-derived whole and two stages refuse a roof outright. So
+    `tools/house_the_present_1835.py` writes the seat beside the card, exactly as the
+    lodgers' seats travel, and this carries it to the one surface where a visitor meets
+    a resident. `housing=False` on `compile_residents` is how that tool reads the town
+    without reading its own deal back.
+
+    The block says which half is invented: the people are the layer's, with their own
+    grades and their own evidence on their cards; the roof over them is the deal's
+    (docs/LIBERTIES.md L354), and any other roof the deal admits would have done.
+    """
+    path = DATA / "reconstruction" / "1835_housing_seats.json"
+    if not path.exists():
+        return
+    for seat in load(path).get("seats", []):
+        card_path = DATA / "residents" / seat["file"]
+        if not card_path.exists():
+            continue
+        hh = load(card_path)
+        out.setdefault(seat["place"], []).append({
+            "household": hh["id"],
+            "name": hh["name"],
+            "division": hh.get("division", ""),
+            "relation": seat["relation"],
+            "why": seat["words"],
+            "sources": [],
+            "basis": ("HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was "
+                      "present in the town on 1 July 1835 and no source says where it slept; "
+                      "the roof is the invention and the people are not. Their card carries "
+                      "their evidence and is not touched by the seat."
+                      if seat.get("presence") != "ruled_in" else
+                      "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop "
+                      "short of 1 July 1835 for this household and nothing puts it anywhere "
+                      "else; the town's rule (T-1386) counts it present, and no source says "
+                      "where it slept. The roof is the invention and the people are not."),
+            "persons": [{
+                "name": person.get("name", ""),
+                "relationship": person.get("relationship", ""),
+                "grade": person.get("grade", "reconstructed"),
+                "occupation": ((person.get("occupation") or {}).get("value", "")
+                               if isinstance(person.get("occupation"), dict) else ""),
+                "note": person.get("note", ""),
+            } for person in hh.get("persons", [])],
+            "research_note": hh.get("research_note", ""),
+        })
+
+
 def compile_versions(scene_id: str, target: dt.date, outdir: Path, build_sidecar,
                      resolved: dict[str, dict]) -> int:
     """STRUCTURE VERSIONS, compiled beside the scene and fetched only on request (T-1727).
@@ -2427,6 +2481,9 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     lodging = compile_lodging()
     # id -> the phase that resolves into this scene, for the watch list below
     resolved: dict[str, dict] = {}
+    # id -> name, so a `part_of` row can print the principal's name (T-1980)
+    structure_names = {p.stem: load(p).get("name", p.stem)
+                       for p in (DATA / "structures").glob("*.json")}
 
     # ONE SIDECAR BUILDER, TWO CALLERS (T-1727). The canonical records below and the
     # structure VERSIONS after them (data/structures/versions/<id>/<label>.json) are
@@ -2448,7 +2505,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                     collect(v)
 
         collect(phase)
-        for key in ("function", "occupants", "present_status", "lot_address", "land_owner"):
+        for key in ("function", "occupants", "present_status", "lot_address", "land_owner",
+                    "part_of"):
             collect(st.get(key, {}))
         if st.get("reconstruction", {}).get("source_id"):
             cited.add(st["reconstruction"]["source_id"])
@@ -2512,6 +2570,20 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": st["land_owner"]["confidence"],
                 "sources": st["land_owner"]["sources"],
                 "note": st["land_owner"]["note"],
+            }
+
+        # T-1980. THE BUILDING THIS ONE IS PART OF — the fort's barn, the tannery's
+        # bark shed. The record names the principal by id; the card wants its name,
+        # so the row's `value` is the principal's own `name` (the id where a record
+        # is missing, which the completion audit refuses anyway). The keepers are
+        # the principal's and stay on the principal's card.
+        if "part_of" in st:
+            principal = st["part_of"]["value"]
+            attributes["part_of"] = {
+                "value": structure_names.get(principal, principal),
+                "confidence": st["part_of"]["confidence"],
+                "sources": st["part_of"].get("sources", []),
+                "note": st["part_of"]["note"],
             }
 
         # THE PHASE'S CLAIM ABOUT ITSELF. Every `form` attribute has carried its

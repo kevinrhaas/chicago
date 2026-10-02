@@ -1452,7 +1452,7 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 540,
+    "roofs_standing": 542,
     "roofs_to_build": 144,
     "persons_standing": 2381,
     "persons_still_owed": 250,
@@ -1475,9 +1475,9 @@
     "still_owed": 1227,
     "roofs_adopted": 222,
     "slots_requested": 29,
-    "roofs_standing": 540,
-    "roofs_standing_unseated": 318,
-    "share_of_standing_roofs_seated": 0.4111,
+    "roofs_standing": 542,
+    "roofs_standing_unseated": 320,
+    "share_of_standing_roofs_seated": 0.4096,
     "passes": [
       {
         "key": "platted",
@@ -5008,11 +5008,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 540,
-        "standing_with_an_occupant": 169,
+        "standing_records": 542,
+        "standing_with_an_occupant": 171,
         "standing_without_an_occupant": 371,
         "to_build_total": 144,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 371 of the 540 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 371 of the 542 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5026,7 +5026,7 @@
           "to_build": 3,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1960",
+          "owning_ticket": "T-1983",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 3 of them to build"
         },
@@ -5041,7 +5041,7 @@
           "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1960",
+          "owning_ticket": "T-1983",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5058,7 +5058,7 @@
           "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1960",
+          "owning_ticket": "T-1983",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 17; the 668-roof programme leaves 6 of them to build"
         },
@@ -5291,7 +5291,7 @@
           "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1960",
+          "owning_ticket": "T-1983",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 6 of them to build"
         },
@@ -5306,7 +5306,7 @@
           "to_build": 8,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1960",
+          "owning_ticket": "T-1983",
           "ground_waits_on": [
             "T-1414"
           ],
@@ -5323,7 +5323,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1960",
+          "owning_ticket": "T-1983",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 20; the 668-roof programme leaves 0 of them to build"
         },
@@ -5929,7 +5929,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "371 of 540 standing records carry no occupants block."
+      "measured_now": "371 of 542 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

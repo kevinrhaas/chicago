@@ -97,6 +97,34 @@
 [data-theme="light"] .city-census .gc-seg-inf,
 [data-theme="light"] .city-census .gc-sw-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
 [data-theme="light"] .city-census .gc-seg-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
+/* The completion row (T-1967): the four joins as a checklist, and the tiers' shares of
+   the households with a home on a bar of their own. */
+.city-census .gc-done-n {
+  font-size: 26px; font-weight: 640; line-height: 1.05; color: var(--accent);
+  font-variant-numeric: tabular-nums; letter-spacing: -0.02em;
+}
+.city-census .gc-joins { list-style: none; margin: 2px 0 0; padding: 0; display: grid; gap: 5px; }
+.city-census .gc-joins li { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; color: var(--ink); min-width: 0; }
+.city-census .gc-joins svg {
+  flex: none; width: 14px; height: 14px; margin-top: 1px;
+  fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.city-census .gc-joins .is-closed svg { color: var(--doc); }
+.city-census .gc-joins .is-open svg { color: var(--ink-dim); }
+.city-census .gc-joins em { display: block; font-style: normal; font-size: 11px; color: var(--ink-dim); overflow-wrap: anywhere; }
+.city-census .gc-done-bar {
+  display: flex; height: 6px; margin-top: 4px; overflow: hidden; border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.city-census .gc-done-seg { display: block; height: 100%; }
+.city-census .gc-done-att { background: var(--doc); }
+.city-census .gc-done-inf { background: var(--inf); }
+.city-census .gc-done-rec { background: var(--con); }
+[data-theme="light"] .city-census .gc-done-att { background: color-mix(in srgb, var(--doc) 52%, var(--ink)); }
+[data-theme="light"] .city-census .gc-done-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
+[data-theme="light"] .city-census .gc-done-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
+.city-census .gc-done-shares,
+.city-census .gc-done-def { margin: 0; font-size: 11px; line-height: 1.45; color: var(--ink-dim); }
 .city-meta {
   display: grid;
   gap: 4px;
