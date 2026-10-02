@@ -5063,3 +5063,8 @@ See `docs/RESEARCH/canal_approach_trade.md` for evidence limits and validation.
 
 ### T-1768 - Owner-requested temporal menu
 The front door offers 1835, 1904 and 1812 with acquisition and transfer animation. Interface skins are secondary and shared with the viewer; 1812 is identified as pending reconstruction. Existing year doors and explicit query links remain available.
+
+
+## T-1830 - Glessner west wing and north porch
+
+Owner follow-up after T-1805; reasoning and recovery instructions in RESEARCH/glessner-west-wing-alcove/work.md. Rebuild roof and dormer, carve entry recess, preserve HABS dimensional control, verify full/light elevations and stage to dev.

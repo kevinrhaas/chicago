@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1279, ts: '2026-10-01T23:50:54.518Z', date: 'Oct 1, 2026, 6:50 PM CT', title: 'Glessner’s west roof and north entrance take shape', kind: 'change',
+    items: [
+      'The stable wing has a full northern gable, lower rear roof, and hooded alley dormer. The roof sections meet at clean valleys.',
+      'The north entrance is an open stone alcove with approach steps, a left-turn stair, a recessed door, and a back-wall window.',
+      'HABS plans control the footprint. Unmeasured roof and porch details remain labeled reconstructions.'
+    ] },
   { v: 1278, ts: '2026-10-01T23:40:01.180Z', date: 'Oct 1, 2026, 6:40 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
     items: [
       'Walk out onto the open prairie west of the town and look at the ground between the grass. It used to be one flat olive. Now it shows stands of thicker, darker growth beside thinner ones, where last year\u2019s dry litter and a little bare earth show through.',
