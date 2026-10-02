@@ -1114,7 +1114,7 @@ def build_field(spec, feats, origin, streets=None):
     # is one surface. It runs before the approaches, whose max()/min() then
     # still meet every deck exactly as authored. A structure standing inside a
     # worked width keeps its ground (`keep_clear`). Every depth is the spec's
-    # (L330); the width is streets.js's WORKED_SHARE, held equal to the spec's
+    # (L338); the width is streets.js's WORKED_SHARE, held equal to the spec's
     # `worked_share` by tools/check_street_section.py.
     ss = spec.get("street_sections")
     if ss and streets:

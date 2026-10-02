@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+    items: [
+      'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
+      'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
+      'When you step off a walk into the street you now step down, and you walk on the lower roadway. The board crossings step down into the street and back up again.',
+      'The walks, doors and buildings stayed where they were. Six wagons that stood on the lowest ground by the river are gone for now.',
+      'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L338).',
+    ] },
   { v: 1278, ts: '2026-10-01T23:40:01.180Z', date: 'Oct 1, 2026, 6:40 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
     items: [
       'Walk out onto the open prairie west of the town and look at the ground between the grass. It used to be one flat olive. Now it shows stands of thicker, darker growth beside thinner ones, where last year\u2019s dry litter and a little bare earth show through.',

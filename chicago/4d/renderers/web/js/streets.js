@@ -496,8 +496,9 @@ function sampled(path) {
  * coarser panel's own acceptance test ran on that very row.
  */
 function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
-  const build = (level) => {
-    const R = 1 << level;
+  const build = (levelR, levelC = levelR) => {
+    const R = 1 << levelR;
+    const C = 1 << levelC;
     const rows = [];
     for (let r = 0; r <= R; r++) {
       const t = r / R;
@@ -520,15 +521,15 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
         right = [pe - ue * reachR, pn - un * reachR];
       }
       const row = [];
-      for (let c = 0; c <= R; c++) {
-        const f = c / R;
+      for (let c = 0; c <= C; c++) {
+        const f = c / C;
         // Rounded to the float32 the position buffer will store, and sampled
         // AT that value: on the ~1:1 ramp flanks the double-precision position
         // and its stored float32 stand on ground ~1e-5 m apart, which is
         // exactly the drape budget the smoke holds vertices to.
         const e = Math.fround(left[0] * (1 - f) + right[0] * f);
         const n = Math.fround(left[1] * (1 - f) + right[1] * f);
-        const interior = (r > 0 && r < R) || (c > 0 && c < R);
+        const interior = (r > 0 && r < R) || (c > 0 && c < C);
         if (interior && terrain.isWater(e, n)) return null;
         row.push([e, n, terrain.surfaceHeight(e, n) + LIFT_M]);
       }
@@ -564,13 +565,23 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
   };
   let grid = build(0);
   if (grid.some((row) => row.some(([e, n]) => !terrain.inBounds(e, n)))) return grid;
-  let level = 0;
+  // T-1812. ACROSS FIRST. The graded street section (terrain_gen.py) crowns the
+  // bed and drops it into a gutter at each shoulder, so a panel one quad wide
+  // misses its own ground ACROSS the street on every graded panel in the town,
+  // while along the street the section barely changes. Halving both axes
+  // together answered that with up to 8 x 8 sub-quads per panel and took the
+  // layer from 59 k to 466 k triangles. Columns are halved first, to the same
+  // limit; rows only when the columns alone cannot settle it (a bend, an
+  // approach fill), which is the case the joint refinement was written for.
+  let levelR = 0;
+  let levelC = 0;
   let miss = residual(grid);
-  while (miss > DRAPE_TOL_M && level < MAX_DRAPE_LEVEL) {
-    const next = build(level + 1);
+  while (miss > DRAPE_TOL_M && (levelC < MAX_DRAPE_LEVEL || levelR < MAX_DRAPE_LEVEL)) {
+    const across = levelC < MAX_DRAPE_LEVEL;
+    const next = across ? build(levelR, levelC + 1) : build(levelR + 1, levelC);
     if (!next) break;
     grid = next;
-    level += 1;
+    if (across) levelC += 1; else levelR += 1;
     miss = residual(grid);
   }
   return grid;
@@ -842,7 +853,7 @@ function addRecord(buffers, record, terrain, stats) {
       }
     }
     stats.panels += 1;
-    if (rows > 1) stats.refinedPanels += 1;
+    if (rows > 1 || cols > 1) stats.refinedPanels += 1;
     panelDrawn[i] = true;
   }
 
