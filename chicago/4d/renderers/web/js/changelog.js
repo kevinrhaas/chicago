@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A real building found later can now take the place of an invented one', kind: 'change',
+  { v: 1326, ts: '2026-10-02T22:26:17.153Z', date: 'Oct 2, 2026, 5:26 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
     items: [
       'Most of the town\u2019s buildings are our reconstruction: no record says which house stood on which lot in July 1835. When research does find one, it should replace the invented house on that lot rather than be added beside it, so the town never grows past what it held.',
       'That swap can now be planned before it is made, for every one of the 297 invented buildings on a surveyed lot. The plan names the house that would go, who lives or works in it and moves into the real building, and why the town\u2019s count of buildings stays the same.',
