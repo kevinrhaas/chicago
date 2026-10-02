@@ -604,8 +604,8 @@ async function loadWood(assetBase, problems) {
       const meta = await getJSON(new URL(`${dir}material.json`, assetBase));
       const id = meta.id;
       const [colour, normal] = await Promise.all([
-        loadBitmap(new URL(`${dir}${id}_basecolor.png`, assetBase)),
-        loadBitmap(new URL(`${dir}${id}_normal_gl.png`, assetBase)),
+        loadBitmap(new URL(`${dir}${id}_basecolor.webp`, assetBase)),
+        loadBitmap(new URL(`${dir}${id}_normal_gl.webp`, assetBase)),
       ]);
       const grain = grainOf(turned(colour, false));
       colour.close?.();
