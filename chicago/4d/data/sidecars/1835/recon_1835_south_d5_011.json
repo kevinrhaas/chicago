@@ -197,5 +197,14 @@
       "household": null,
       "words": "silvered clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass and a stoop, under a weathered roof — a deep-plan frame cottage, a year old (rule F-T: a tradesman's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

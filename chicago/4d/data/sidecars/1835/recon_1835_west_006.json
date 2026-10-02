@@ -287,6 +287,15 @@
       }
     }
   },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "merchant",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 0.5,
+    "lay_m": 0.003,
+    "confidence": "reconstructed"
+  },
   "lodging": {
     "class": "boarding_house",
     "beds_ordinary": 6,

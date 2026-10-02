@@ -245,5 +245,14 @@
       "household": "hh_aspam_josette",
       "words": "silvered clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and a stoop, under a weather-darkened roof — The Aspam household's, in Chicago since 1833 (rule F-T)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

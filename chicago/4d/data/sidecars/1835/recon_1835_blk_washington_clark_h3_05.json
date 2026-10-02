@@ -344,6 +344,15 @@
       }
     }
   },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "keeper",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 0.75,
+    "lay_m": 0.004,
+    "confidence": "reconstructed"
+  },
   "lodging": {
     "class": "boarding_house",
     "beds_ordinary": 10,
