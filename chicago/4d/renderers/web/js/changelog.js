@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+    items: [
+      'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
+      'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fifteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
+      'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
+      'The town is still filling up. A family that had asked for this corner now has a lot further along the block. Kelsey\u2019s boarding house on the North Side stands empty tonight because no lodgers were left to send there.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L341) says how each was placed and sized.',
+    ] },
   { v: 1283, ts: '2026-10-02T02:10:37.412Z', date: 'Oct 1, 2026, 9:10 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
