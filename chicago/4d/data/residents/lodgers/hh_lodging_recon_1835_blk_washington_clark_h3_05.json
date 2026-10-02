@@ -12,15 +12,15 @@
   "place_name": "Reconstructed H3 boarding house #05",
   "class": "boarding_house",
   "beds_ordinary": 11,
-  "beds_crowded": 27,
+  "beds_crowded": 25,
   "on_the_house_before_this_stage": 0,
   "seated_from_the_layer": [
-   "brown_jesse_b",
-   "donner_jacob",
-   "holsman_george",
-   "montgomery_w",
-   "smith_george",
-   "rc_flynn_owen",
+   "derocher_jean_baptiste",
+   "glaumbake_frank",
+   "laird_william",
+   "roberts_edmund",
+   "ulrich_nicholas",
+   "rc_stiles_abigail",
    "beaubien_mark"
   ],
   "minted_here": 4,
@@ -53,7 +53,7 @@
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 25 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
   "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:lives_at",
   "replaceable_by": {

@@ -1,7 +1,7 @@
 {
   "id": "rcb_cavanagh_boarding_house",
   "register_id": null,
-  "name": "Ellen Cavanagh's boarding house",
+  "name": "Cavanagh's boarding house",
   "provenance": "reconstructed",
   "type": [
     "other"
@@ -12,14 +12,14 @@
   "firm_styles": [],
   "proprietors": [
     {
-      "name": "Ellen Cavanagh",
-      "person_id": "rc_cavanagh_ellen",
+      "name": "Johanna Cavanagh",
+      "person_id": "rc_cavanagh_johanna",
       "register_person_id": null,
       "role": "proprietor",
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "ADOPTED, NOT MINTED. Ellen Cavanagh is the keeper the lodgers stage (T-1371) drew for this house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; that card reads the trade off the building it stands in and heads hh_lodging_recon_1835_north_h2_028. One quota, filled once: this record is the house they keep, not a second person.",
+      "basis": "ADOPTED, NOT MINTED. Johanna Cavanagh is the keeper the lodgers stage (T-1371) drew for this house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; that card reads the trade off the building it stands in and heads hh_lodging_recon_1835_north_h2_028. One quota, filled once: this record is the house they keep, not a second person.",
       "source_id": null,
       "claim_ids": []
     }
@@ -36,7 +36,7 @@
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_north_h2_028 stands in data/structures/ with 11 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
+      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_north_h2_028 stands in data/structures/ with 10 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
       "limit_reason": null
     }
   ],
@@ -58,8 +58,8 @@
     "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
     "from": [
       {
-        "person_id": "rc_cavanagh_ellen",
-        "name": "Ellen Cavanagh",
+        "person_id": "rc_cavanagh_johanna",
+        "name": "Johanna Cavanagh",
         "role": "proprietor",
         "community": "unknown",
         "tier": null
@@ -82,16 +82,16 @@
     "roof": {
       "structure_id": "recon_1835_north_h2_028",
       "class": "boarding_house",
-      "beds_ordinary": 11,
-      "keeper_person_id": "rc_cavanagh_ellen",
+      "beds_ordinary": 10,
+      "keeper_person_id": "rc_cavanagh_johanna",
       "keeper_household_id": "hh_lodging_recon_1835_north_h2_028",
-      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_north_h2_028 stands, the lodging model apportioned it 11 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Ellen Cavanagh their keeper. The firm is what was missing, and it is withdrawn with the roof."
+      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_north_h2_028 stands, the lodging model apportioned it 10 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Johanna Cavanagh their keeper. The firm is what was missing, and it is withdrawn with the roof."
     },
-    "seed": "lodging_river_and_transport:lodging/boarding_house/north:003",
+    "seed": "lodging_river_and_transport:lodging/boarding_house/north:004",
     "basis": {
       "kind": "model",
       "id": "1835_lodging_model",
-      "note": "the lodging model gives 5 standing boarding house roof(s) in the north division their beds and the lodgers stage named a keeper for each. the keeper is a woman. The style is dealt on the seed printed beside it from the keeper's possessive, form 5 of the naming guide: the possessive in full, as the structure layer's own *Rufus Brown's Boarding House* prints it. No honorific is dealt, because nothing on this keeper's card says whether they were married, widowed or single and a sign that said so would be inventing it."
+      "note": "the lodging model gives 6 standing boarding house roof(s) in the north division their beds and the lodgers stage named a keeper for each. the keeper is a woman. The style is dealt on the seed printed beside it from the keeper's possessive, form 5 of the naming guide: the possessive with the forename cut, as *Ingersoll's tavern stand* and *Stuart's confectionary and perfumery* print it in the register. No honorific is dealt, because nothing on this keeper's card says whether they were married, widowed or single and a sign that said so would be inventing it."
     },
     "withdrawn_if": "the retirement of the roof itself, a re-cut lodging model that gives this house no beds, or a source naming whoever really kept it; the retirement runs through --build, never by hand"
   }
