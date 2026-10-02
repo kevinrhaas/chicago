@@ -106,7 +106,7 @@ NOTE_CLASSED = NOTE.replace(
     "drawn from the set on this record's stable key, then advanced so that no roof of "
     "the parcel",
     "drawn on this record's stable key from the stocks its household class may hang "
-    "({allowed}; T-1839, docs/LIBERTIES.md L350), then advanced within them so that no "
+    "({allowed}; T-1839, docs/LIBERTIES.md L351), then advanced within them so that no "
     "roof of the parcel")
 assert NOTE_CLASSED != NOTE
 

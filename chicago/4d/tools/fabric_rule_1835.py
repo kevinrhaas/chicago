@@ -60,7 +60,7 @@ trim and the chimney's head on a frame house by the class, and bounds the siding
 by it: `tools/siding_stock.py` still deals the stock and still separates neighbours
 (T-0112), but only inside the stocks the class's row allows (`SIDING_OF_CLASS`). The
 cladding is not dealt — the archetype builds clapboard and nothing else — and nor is
-the chimney's brick, which is inferred (chimneys.md §2). The reasoning is L338 and L350.
+the chimney's brick, which is inferred (chimneys.md §2). The reasoning is L338 and L351.
 
     python3 tools/fabric_rule_1835.py --check      every record agrees with the rule
     python3 tools/fabric_rule_1835.py --self-test  the rule's guarantees, by breaking them
@@ -268,7 +268,7 @@ GLAZING_WHY = {
 #: so a tradesman's cottage does not move; a house that took in or impressed the public
 #: boxed its corners in wider boards under a deeper frieze, and a labourer's house had
 #: the narrowest boards that would keep the weather out of a corner. No source trims any
-#: house here (docs/LIBERTIES.md L350).
+#: house here (docs/LIBERTIES.md L351).
 TRIM: dict[str, str] = {"merchant": "boxed", "keeper": "boxed", "tradesman": "plain",
                         "labourer": "scant"}
 TRIM_WHY = {
@@ -550,7 +550,7 @@ def policy_table() -> dict:
             "chimney_fabric": "brick on every framed house, inferred (chimneys.md §2), "
                               "never dealt; the class deals only the head",
             "never_moved": "an attested or inferred value, and any construction that is not a frame",
-            "liberty": "L338, L343, L350"},
+            "liberty": "L338, L343, L351"},
     }
 
 

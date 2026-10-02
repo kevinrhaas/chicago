@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1299, ts: '2026-10-02T11:51:43.746Z', date: 'Oct 2, 2026, 6:51 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
     items: [
       'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
       'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
       'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
-      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L350).',
+      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L351).',
+    ] },
+  { v: 1300, ts: '2026-10-02T12:00:26.932Z', date: 'Oct 2, 2026, 7:00 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
+    items: [
+      'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',
+    ] },
+  { v: 1299, ts: '2026-10-02T11:30:11.198Z', date: 'Oct 2, 2026, 6:30 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
+    items: [
+      'Walk up to any frame house or log cabin. The walls now show wood: grain along each clapboard, raised grain and drying cracks, and adze marks across each hewn log. Before this, every wall was a flat colour.',
+      'Painted and whitewashed walls hide the wood\u2019s colour but keep its texture. Look at the Sauganash\u2019s white lead beside the bare boards on Lake Street.',
+      'Each house keeps its own colour and sheen. Whitewash is still the dullest wall in town and the Sauganash\u2019s paint the glossiest.',
+      'The grain is our reconstruction. No source describes how any 1835 Chicago wall\u2019s wood looked. The Liberties page says how we chose it (L350).',
     ] },
   { v: 1298, ts: '2026-10-02T11:02:19.710Z', date: 'Oct 2, 2026, 6:02 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
     items: [
