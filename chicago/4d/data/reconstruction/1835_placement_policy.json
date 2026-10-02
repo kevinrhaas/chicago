@@ -662,9 +662,82 @@
           "why": "the attested 6 x 8 in pane in the fewest lights, six or nine to a sash"
         }
       },
+      "trim_by_class": {
+        "merchant": {
+          "trim": "boxed",
+          "why": "wide corner boards under a deep frieze, the trim of a house built to be seen"
+        },
+        "keeper": {
+          "trim": "boxed",
+          "why": "wide corner boards under a deep frieze, the trim of a house built to be seen"
+        },
+        "tradesman": {
+          "trim": "plain",
+          "why": "the plain corner boards and frieze a sided frame needs to keep water out"
+        },
+        "labourer": {
+          "trim": "scant",
+          "why": "the narrowest corner boards and frieze that keep the weather out"
+        }
+      },
+      "chimney_head_by_class": {
+        "merchant": {
+          "head": "double_corbel",
+          "why": "a brick stack finished in two corbelled courses"
+        },
+        "keeper": {
+          "head": "double_corbel",
+          "why": "a brick stack finished in two corbelled courses"
+        },
+        "tradesman": {
+          "head": "corbel",
+          "why": "a brick stack finished in one corbelled course"
+        },
+        "labourer": {
+          "head": "plain",
+          "why": "a brick stack carried straight up, with no corbel at its head"
+        }
+      },
+      "siding_stock_by_class": {
+        "ticket": "T-1839",
+        "dealt_by": "tools/siding_stock.py deal_records, inside the class's stocks and then off every neighbour within 60 m (T-0112)",
+        "classes": {
+          "merchant": {
+            "stocks_m": [
+              0.114,
+              0.127
+            ],
+            "why": "the narrowest stock, 4.5 or 5 in to the weather"
+          },
+          "keeper": {
+            "stocks_m": [
+              0.127,
+              0.14
+            ],
+            "why": "a 5 or 5.5 in stock"
+          },
+          "tradesman": {
+            "stocks_m": [
+              0.127,
+              0.14,
+              0.152
+            ],
+            "why": "the common stock, 5 to 6 in to the weather"
+          },
+          "labourer": {
+            "stocks_m": [
+              0.14,
+              0.152
+            ],
+            "why": "the widest stock, 5.5 or 6 in to the weather"
+          }
+        },
+        "other_classes": "all four stocks"
+      },
+      "cladding": "clapboard on every frame dwelling — the one wall the archetype builds; a vertical-board wall is a freight or works building's and is not dealt here",
+      "chimney_fabric": "brick on every framed house, inferred (chimneys.md §2), never dealt; the class deals only the head",
       "never_moved": "an attested or inferred value, and any construction that is not a frame",
-      "not_dealt": "cladding, trim, chimney fabric, siding stock (T-0112) — T-1839",
-      "liberty": "L338, L343"
+      "liberty": "L338, L343, L352"
     }
   },
   "clauses": [
