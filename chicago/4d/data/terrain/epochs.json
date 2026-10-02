@@ -7,7 +7,7 @@
       "from": "1780-01-01",
       "to": "1833-06-30",
       "title": "Natural mouth, before the cut",
-      "note": "The baymouth bar deflects the river south, parallel to the shore, for nearly half a mile before it loses itself in the lake; the natural outlet lies near present Madison Street. Lake vessels anchor half a mile offshore and lighter their cargo. The half mile has a period eyewitness behind it as of 2026-08-11: Swearingen, arriving 17 August 1803, puts the fort site 'a half mile above the mouth' and gives the reason the mouth was where it was \u2014 the river stood 'dead water, owing to its being stopped up at the mouth, by the washing of sand, from the lakes'. That is this epoch's defining condition stated by a man standing in it, and it is why it cannot be carried into e1834_harbor_cut, where the bar is cut. See docs/RESEARCH/swearingen_1803.md \u00a7 7. As of T-1242 this epoch's SHORELINE exists: shore_1812_pre_cut carries its own derived geometry with the cut and the piers absent and the mouth at Swearingen's half mile. The epoch stays `planned` because no ground has been generated from it - the terrain spec, the heightfield and the meshes are T-1243.",
+      "note": "The baymouth bar deflects the river south, parallel to the shore, for nearly half a mile before it loses itself in the lake; the natural outlet lies near present Madison Street. Lake vessels anchor half a mile offshore and lighter their cargo. The half mile has a period eyewitness behind it as of 2026-08-11: Swearingen, arriving 17 August 1803, puts the fort site 'a half mile above the mouth' and gives the reason the mouth was where it was \u2014 the river stood 'dead water, owing to its being stopped up at the mouth, by the washing of sand, from the lakes'. That is this epoch's defining condition stated by a man standing in it, and it is why it cannot be carried into e1834_harbor_cut, where the bar is cut. See docs/RESEARCH/swearingen_1803.md \u00a7 7. As of T-1242 this epoch's SHORELINE exists: shore_1812_pre_cut carries its own derived geometry with the cut and the piers absent and the mouth at Swearingen's half mile. As of T-2002 its TERRAIN SPEC exists: an overlay on the e1834_harbor_cut zone table that carries the natural ground, drops the harbour works, the bridges and the streets, surfaces the spit's isthmus at the spit's own +4 ft, and grades the old channel's west bank conjectural between Harrison's old mouth and the adopted outlet. The epoch stays `planned` because no ground has been generated from it - the river polygon, the heightfield and the meshes are T-2003.",
       "status": "planned",
       "sources": [
         "quaife_1913_swearingen",
@@ -16,14 +16,15 @@
         "wikipedia_chicago_river"
       ],
       "layers": {
-        "shoreline": "e1830_natural/shoreline.geojson"
+        "shoreline": "e1830_natural/shoreline.geojson",
+        "terrain_spec": "e1830_natural/terrain_spec.json"
       },
       "layer_status": {
         "shoreline": "derived by tools/derive_shore_1812.py from data/terrain/1812_mouth_readings.json and the Wright 1834 trace: the pre-cut mouth, the continuous baymouth spit, the channel behind it and the lake shore south of the outlet - planform only",
-        "river": "not written - the 1812 water polygon and its banks follow the terrain spec, and both belong to T-1243",
-        "hydrology": "not written - T-1243",
-        "terrain_spec": "not written - T-1243 owns it, and it is where any 1812 ELEVATION has to be argued for. Nothing in the shoreline layer claims a height.",
-        "heightfield": "not written - T-1243"
+        "river": "not written - the 1812 water polygon follows water_bodies_1812 in the spec (the 1834 harbour reach with the isthmus and spit taken out), and is T-2003's",
+        "hydrology": "not written - T-2003",
+        "terrain_spec": "authored overlay (T-2002) - every block of the e1834_harbor_cut spec is carried, excepted, replaced or dropped with its reason, and the 1812 blocks cite dossier zones; tools/check_terrain_e1830.py holds it and its resolve() is the effective table the generator reads",
+        "heightfield": "not written - T-2003"
       }
     },
     {

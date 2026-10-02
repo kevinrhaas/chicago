@@ -1,0 +1,391 @@
+{
+  "_doc": "The AUTHORED half of the terrain for epoch e1830_natural: the ground before the cut, the 1812 landscape of Fort Dearborn and the lake shore south of it (T-2002, piece 1 of T-1243). It is written as an OVERLAY on the e1834_harbor_cut zone table rather than a copy of it, because almost all of the natural ground is the same ground: what the 1834 spec models is a natural surface with a harbour, three bridges and a platted town laid on it, and those works are what twenty-two years earlier did not exist. `inherits` names every top-level block of the 1834 spec and says what this epoch does with it - carried, carried with stated exceptions, replaced by a block below, dropped because the thing it models did not exist yet, or owned by this file - so nothing reaches the 1812 ground by default. tools/check_terrain_e1830.py refuses a block of the 1834 spec that is not accounted for, and `resolve()` there builds the effective table the generator (T-2003) reads. Every elevation the blocks below author cites a numbered zone in docs/research/01-terrain-hydrology.md, and the 1812-specific reasoning is docs/RESEARCH/terrain_e1830_natural.md. Elevations are FEET above the internal datum of data/datum.json (Z = 0 at the summer-1835 water surface), so the two epochs share one vertical frame and can be compared.",
+  "epoch": "e1830_natural",
+  "research_doc": "docs/RESEARCH/terrain_e1830_natural.md",
+  "describes": "1812-08-15",
+  "describes_note": "The epoch runs 1780 to the cut of 1833 (data/terrain/epochs.json); the scene it was opened for is the Fort Dearborn battle landscape of 15 August 1812 (T-0468), so that is the day every block below describes. Nothing in it is dated by an 1812 reading: the planform is Wright's 1834 survey with the harbour works taken out (docs/RESEARCH/shore_1812_pre_cut.md), and the heights are the 1835 dossier's natural-ground zones, carried back on the argument that nothing but the works moved the ground in between.",
+  "scope": "The 1834 box, whole: the forks, the main stem to the fort, the river turned south behind the baymouth spit to its natural outlet at Swearingen's half mile, the lake shore south of the outlet, and the ground south to the box floor at N -3800 - which takes in the Fort-to-Eighteenth-Street corridor the 1812 scene needs. South of Twelfth Street every vertex is conjectural, by the carried evidence_limit; the battle ground is therefore modelled ground and is NOT a reconstruction from evidence, and this spec says so rather than letting the box's extent imply otherwise.",
+  "critical_caveat": "No survey of this ground exists before Wright's of 1834, and no level of it before the 1850s. Every land elevation here is an 1835 dossier zone carried back twenty-three years, every planform line is a reading of 1834 with the works removed, and the lake stage of 1812 is not recorded at all. So nothing in this spec is better than `inferred`, every surface it AUTHORS for 1812 is `reconstructed`, and the generator must emit no land vertex `documented`.",
+  "inherits": {
+    "from": "e1834_harbor_cut",
+    "spec": "data/terrain/epochs/e1834_harbor_cut/terrain_spec.json",
+    "rule": "Every top-level key of the 1834 spec appears in `blocks` exactly once, with a `take` of carry | carry_except | replace | drop | own, and a `why`. `carry` takes the block as the 1834 spec states it; `carry_except` takes it less the named list items or keys; `replace` names the block of this file that stands in its place; `drop` says why the thing it models did not exist in 1812; `own` means this file writes its own (prose and identity). A key added to the 1834 spec later is refused by tools/check_terrain_e1830.py until somebody decides what it means for 1812.",
+    "rename_runs": {
+      "_doc": "The 1834 waterline runs the 1812 planform splits or ends. Wherever a carried block names the 1834 run on the left, the 1812 field reads the runs on the right instead.",
+      "north_shore_harbor_reach": [
+        "north_shore_pre_cut_1812",
+        "north_lake_shore_1812"
+      ],
+      "south_shore_harbor_reach": [
+        "channel_west_bank_1812",
+        "lake_shore_south_of_outlet_1812"
+      ]
+    },
+    "blocks": {
+      "_doc": {
+        "take": "own",
+        "why": "This file states its own purpose."
+      },
+      "epoch": {
+        "take": "own",
+        "why": "The epoch is e1830_natural."
+      },
+      "scope": {
+        "take": "own",
+        "why": "The scope is the same box with a different river mouth; said in this file's own words."
+      },
+      "critical_caveat": {
+        "take": "own",
+        "why": "The 1812 caveat is stronger than the 1835 one: no stage, no survey before 1834."
+      },
+      "grid": {
+        "take": "carry",
+        "why": "The 1834 box was carried to Twenty-Second Street by T-0464 explicitly as 'a frame the 1812 and 1880s epochs can stand in'; it already contains the fort, the whole pre-cut mouth and the corridor to Eighteenth Street, and one grid lets the two epochs' heightfields be differenced cell for cell."
+      },
+      "box_derivation": {
+        "take": "carry",
+        "why": "The walls are derived from what the box must contain; the 1812 planform lies inside every one of them (the bar's east edge E +1497.5 is the 1834 bar's, carried whole)."
+      },
+      "vertical": {
+        "take": "carry",
+        "why": "One vertical frame for every epoch, Z = 0 at the summer-1835 water surface."
+      },
+      "water": {
+        "take": "replace",
+        "by": "lake_stage_1812",
+        "why": "The 1835 water plane is `attested` because the datum is DEFINED on it; the 1812 stage is not recorded, so it is a different claim and is graded as one."
+      },
+      "water_polygons": {
+        "take": "replace",
+        "by": "water_bodies_1812",
+        "why": "harbor_reach_water carries the 1833-34 cut as open water, which in 1812 was the spit's isthmus; the other four polygons are natural channel and are carried."
+      },
+      "splices": {
+        "take": "carry",
+        "why": "The forks/branch splices are where two tracing windows abut, not a date."
+      },
+      "open_lake": {
+        "take": "carry",
+        "why": "A rule against the traced wash, east of +1200; the bar is no longer an island but the spit and isthmus are subtracted after it exactly as the island was, so the rule's argument holds."
+      },
+      "southern_lake": {
+        "take": "carry",
+        "why": "The same rule on the same surveyed Fractional Section 15 line, read through rename_runs: south of the outlet that line is the 1812 lake shore."
+      },
+      "northern_lake": {
+        "take": "carry",
+        "why": "North of N +1112.5 the lake shore is the 1834 line on either reading; read through rename_runs."
+      },
+      "northern_branch": {
+        "take": "carry",
+        "why": "The North Branch above the forks: natural channel, no works in it."
+      },
+      "trace_carries": {
+        "take": "carry",
+        "why": "Carries of traced banks to the box walls; the harbour-reach one is read through rename_runs and lands on north_lake_shore_1812."
+      },
+      "shore_runs": {
+        "take": "replace",
+        "by": "shore_runs_1812",
+        "why": "The waterline is the runs list; 1812 ends two of them and adds the spit's own faces."
+      },
+      "shore_runs_note": {
+        "take": "carry",
+        "why": "The rule it states - distance is measured to runs, never to polygon edges - is the same rule in 1812."
+      },
+      "reaches": {
+        "take": "carry_except",
+        "drop": [
+          "harbour_cut_1834"
+        ],
+        "replace": {
+          "old_south_channel": "outlet_channel_1812"
+        },
+        "why": "The cut did not exist (zone 23 is an 1833-34 work), and the old channel was not old: in 1812 it carried the whole river to the lake."
+      },
+      "channel_profile": {
+        "take": "carry",
+        "why": "The section shape of a natural channel; nothing dates it."
+      },
+      "bank": {
+        "take": "carry",
+        "why": "Bank faces of the natural river (zone 12, Swearingen 1803 - which is itself an 1803 reading)."
+      },
+      "divisions": {
+        "take": "carry",
+        "why": "The three divisions' ground is natural ground: zones 8, 9, 10, 12, 13, 18 and 19 describe the plain and ridge the town was later platted on, not anything built."
+      },
+      "islands": {
+        "take": "replace",
+        "by": "spit_1812",
+        "why": "In 1812 the bar was not an island: it was a spit joined to the mainland (L240). Its surface is spit_1812 and the join is isthmus_1812."
+      },
+      "mounds": {
+        "take": "carry",
+        "why": "The fort stood on a NATURAL 'flattened mound' (zone 6); the first fort of 1803-12 stood on the same ground as the second."
+      },
+      "dunes": {
+        "take": "carry_except",
+        "drop_keys": {
+          "north_lake_dunes": [
+            "keep_clear"
+          ]
+        },
+        "why": "The sand hills are natural (zone 5); the one keep-clear is for the 1835 Kelsey boarding house and no building stood there in 1812."
+      },
+      "marsh_strips": {
+        "take": "carry",
+        "why": "Natural margin marsh (zone 11)."
+      },
+      "swales": {
+        "take": "carry",
+        "why": "Natural sloughs (zone 14) drawn off Wright 1834; nothing dug them."
+      },
+      "watercourses": {
+        "take": "carry",
+        "why": "The north-side slough is a natural backwater."
+      },
+      "approaches_note": {
+        "take": "drop",
+        "why": "Bridge approaches: there was no bridge on the Chicago River before 1832."
+      },
+      "approaches": {
+        "take": "drop",
+        "why": "Every approach is an earth ramp to an 1832-35 bridge deck."
+      },
+      "street_sections": {
+        "take": "drop",
+        "why": "The town was platted in 1830 and its streets opened after; in 1812 there was no street to section."
+      },
+      "micro_relief": {
+        "take": "carry",
+        "why": "A texture standing for natural unevenness; nothing dates it."
+      },
+      "flatness_rule": {
+        "take": "carry",
+        "why": "The dossier's rule 1. The spit and isthmus are zone 7 and therefore inside its exemption."
+      },
+      "relief_bands": {
+        "take": "carry",
+        "why": "Natural breaks of slope (zones 3, 10)."
+      },
+      "surface_materials": {
+        "take": "carry_except",
+        "replace": {
+          "sand_bar_1834": "spit_1812"
+        },
+        "why": "The bar's material is carried under the spit; nothing else dates."
+      },
+      "vegetation_note": {
+        "take": "carry",
+        "why": "For the flora parcel, and the timber it records was older than the town."
+      },
+      "not_modelled_in_this_box": {
+        "take": "replace",
+        "by": "not_modelled_1812",
+        "why": "Five of its ten zones are harbour works or their consequences, which in 1812 are not unmodelled but ABSENT; the list is restated with that distinction."
+      },
+      "evidence_limit": {
+        "take": "carry",
+        "why": "Twelfth Street is where the record stops, and it stops there for 1812 too: the battle corridor south of it is conjectural ground, which is the honest grade."
+      }
+    }
+  },
+  "lake_stage_1812": {
+    "surface_ft": 0.0,
+    "range_ft": [
+      -4.0,
+      2.0
+    ],
+    "dossier_zone": 2,
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "No lake stage of 1812 is recorded, and the dossier grades even the 1835 one conjectural (zone 2, 580 +/- 1.5 ft ASL). The water stands at the 1835 plane so the two epochs' ground can be compared and so every carried bank keeps the freeboard its zone gives it; the historic range of 576-582 ft ASL (dossier section 1.2) is the bound, Z -4 to +2. A lower 1812 lake would widen every beach and lower the river against its banks; a higher one would drown the spit, whose chosen crest is +4. Replaced by any stage reconstruction for the 1810s (NOAA/GLERL Michigan-Huron series)."
+  },
+  "water_bodies_1812": {
+    "carried": [
+      "chicago_river_forks",
+      "south_branch_school_section",
+      "north_branch_wabansia",
+      "south_branch_below_twelfth_water"
+    ],
+    "mouth": {
+      "id": "river_mouth_water_1812",
+      "from": "harbor_reach_water",
+      "subtract": [
+        "isthmus_1812",
+        "spit_1812"
+      ],
+      "end_at": "mouth_outlet_reading_band_1812",
+      "rule": "The 1834 harbour-reach water with the isthmus corridor and the spit taken out of it. What is left is the main stem from the fort bend, turning south behind the spit down the channel, and opening to the lake between channel_west_bank_1812's adopted outlet station (E +1163.84, N -426.75) and the bar's south tip (E +1346.94, N -435.95); the lake east of the spit is water by open_lake as before. T-2003 writes this polygon into e1830_natural/river.geojson with its banks; it is not drawn by hand."
+    },
+    "confidence": "inferred",
+    "sources": [
+      "wright_1834",
+      "quaife_1913_swearingen"
+    ],
+    "note": "Every water polygon here is Wright's 1834 tracing, and four are carried untouched because no work touched the branches or the main stem above the fort before 1833. The mouth is the planform shore_1812_pre_cut already derived (T-1242) closed at the isthmus: inferred, because the closure is a deduction from the landform (a baymouth spit is the reason the river ran south at all) and the outlet is an eyewitness distance that an 1834 instrument reading agrees with to 9.2 m."
+  },
+  "shore_runs_1812": {
+    "carried": [
+      "south_division_shore",
+      "north_division_shore",
+      "west_division_shore",
+      "south_branch_west_bank",
+      "south_branch_east_bank",
+      "north_branch_west_bank",
+      "north_branch_east_bank",
+      "south_branch_west_bank_below_twelfth",
+      "south_branch_east_bank_below_twelfth",
+      "lake_shore_below_twelfth"
+    ],
+    "from_shoreline_1812": [
+      "north_shore_pre_cut_1812",
+      "channel_west_bank_1812",
+      "lake_shore_south_of_outlet_1812"
+    ],
+    "authored": [
+      "north_lake_shore_1812",
+      "isthmus_1812",
+      "spit_1812"
+    ],
+    "note": "The 1834 runs less the two the cut and the piers changed. north_shore_harbor_reach and south_shore_harbor_reach are replaced by the three runs tools/derive_shore_1812.py already writes, the lake shore north of the spit root (north_lake_shore_1812, below), and the two long faces of the isthmus and the ring of the spit, which are the 1812 waterline where the 1834 one was a cut and an island."
+  },
+  "north_lake_shore_1812": {
+    "run": {
+      "from": "north_shore_pre_cut_1812, its last vertex (1834 north_shore_harbor_reach index 29, E +1234.93 N +314.65)",
+      "chord_to": "1834 north_shore_harbor_reach index 39 (E +1372.7 N +405.9), data/terrain/1812_mouth_readings.json accretion_bound_first_index",
+      "then": "1834 north_shore_harbor_reach index 39 to its end, and the carried trace to the box wall"
+    },
+    "dossier_zone": 28,
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834"
+    ],
+    "note": "THE 1812 SHORE NORTH OF THE SPIT ROOT IS NOT READ ANYWHERE, AND A WATERLINE HAS TO BE SOMEWHERE. derive_shore_1812.py deliberately claims none of it: from index 30 to the pier head the 1834 line is the drafted pier, and from index 39 north it is a shore the 1834 epoch says is accreting against the pier (zone 28, a wedge 100-300 ft wide tapering north). Sand caught updrift of a pier was not there before the pier, so the 1812 shore lay WEST of the 1834 one near the root; that sets the direction, and nothing sets the amount. So the line is the least-land one the two committed points allow: a straight chord from the spit root to the first 1834 vertex past the pier head, then the 1834 line north. The chord cuts off the drafted pier and the sand inside it, up to 120.8 m (396 ft) east of the chord at index 34. That is more than zone 28's 300 ft because the drafted pier head and the pier's own width stand inside the triangle beside the sand it caught, and both are absent in 1812. North of index 39 the 1834 line is carried AS the 1812 shore, which overstates the land by whatever the wedge still held there. Both errors run one way, toward too much beach north of the root and never toward an invented headland. docs/LIBERTIES.md records it; a pre-1833 chart of the lake shore replaces it."
+  },
+  "spit_1812": {
+    "feature": "baymouth_bar_1812",
+    "crest_ft": 4.0,
+    "face_m": 12.0,
+    "range_ft": [
+      4.0,
+      8.0
+    ],
+    "dossier_zone": 7,
+    "confidence": "reconstructed",
+    "sources": [
+      "chicagology_prefire274",
+      "chicago_architecture_history_115",
+      "wikipedia_chicago_river"
+    ],
+    "material": "beach_and_dune_sand",
+    "note": "The 1834 bar's surface carried onto the 1812 spit, at the same +4 ft crest and 12 m face (1:9.8, zone 4's beach slope). Of the five reasons the 1834 spec gives for taking zone 7's LOW end, four hold for 1812 and one does not. Holding: the soldiers of Fort Dearborn trenched this bar with hand tools between 1816 and 1828, so it was low enough to dig through in the years after this scene; the 1839 Fort Dearborn Addition reading of the ground east of Michigan Avenue as 'at best ... a low sandbar'; the direction of the error, because an 8 ft ridge here would hide the river behind a dune it never was; and the dossier's own zone 3 ridge at +9 to +10, which the young end of the same littoral system cannot equal. Not holding: the mid-1830s high-water phase, which is an 1835 fact. The 1812 stage is unknown (lake_stage_1812), so it neither raises nor lowers the choice, and +4 stands on the other four. The planform is Wright's 1834 bar carried whole; over most of its length it is 108-164 m wide, wider than zone 7's 100-300 ft, and that is the trace's reading and is not narrowed here. The surface is emitted CONJECTURAL in the confidence channel: its shape is evidence, its height is not."
+  },
+  "isthmus_1812": {
+    "decision": "surfaced",
+    "feature": "spit_attachment_gap_1812",
+    "centreline": "the gap line itself, 129.1 m from the spit root (E +1234.93, N +314.65) to the bar's north-west corner (E +1318.62, N +216.38), bearing 139.6 deg",
+    "width_ft": 100.0,
+    "crest_ft": 4.0,
+    "face_m": 12.0,
+    "dossier_zone": 7,
+    "width_dossier_zone": 7,
+    "range_ft": [
+      4.0,
+      8.0
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834",
+      "quaife_1913_swearingen"
+    ],
+    "note": "L240 left this as a stated hole: the attachment inferred, no ground asserted across it. It gets a SURFACE here, because an 1812 scene with a gap in the spit has the river running out through the place the cut was later dug - the 1834 mouth drawn into 1812, which is the error shore_1812_pre_cut exists to prevent - and because the ground is continuous by the same deduction that made the attachment inferred. What it is: a ribbon of sand 100 ft wide centred on the gap line, its south-west face the river's turn south and its north-east face the lake, at the spit's own +4 ft crest with the spit's own 12 m faces. Width: zone 7's LOW end. The ends of the line are fixed, so a wider neck has to go somewhere, and neither face has a reading; the narrowest neck zone 7 allows is the least land invented, and a neck soldiers cut through again and again with spades is not a broad one. The bar's own width a little south of it (108 m at N +205, the trace) is the upper alternative and is recorded, not adopted. Height: the spit's, because a neck LOWER than the spit is a breach - which is the 1834 storm's landform, not 1812's - and one higher is the zone 3 ridge, which it is not. A pre-1833 chart or sounding of the mouth replaces all of it. docs/LIBERTIES.md records it."
+  },
+  "outlet_channel_1812": {
+    "anchor_e": 1290.0,
+    "anchor_n": -100.0,
+    "bed_ft": -4.0,
+    "e_fold_m": 8.0,
+    "dossier_zone": 26,
+    "range_ft": [
+      -4.0,
+      -1.0
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "chicagology_prefire274",
+      "chicago_architecture_history_115"
+    ],
+    "note": "The channel behind the spit, from the fort south to the outlet. The 1834 spec's old_south_channel takes zone 26's middle, -2.5 ft, for a backwater silting into a lagoon after the cut took the river; in 1812 the whole river ran down it, so the DEEP end of zone 26's range is taken, -4 ft. It is not carried down to the main stem's -12 to -18 (zone 20): the bar 'admitted only boats' (dossier section 3.2), the schooner Tracy anchored half a mile out in 1803 for that reason, and Harrison's 1830 plat letters the old mouth 'very shallow'. So the channel is graded shallow and the error, if any, is too shallow for a live river - the direction that does not invent a navigable mouth the record says was not there. Same anchor and e-fold as the 1834 reach so the two epochs differ in depth only."
+  },
+  "channel_west_bank_ruling": {
+    "bank_run": "channel_west_bank_1812",
+    "disagreement": "T-1286: Harrison 1830 (the one pre-cut sheet, traced by tools/trace_shoreline_1830.py) against the derived shore_1812_pre_cut. Near the fort they agree (median 9 m, worst 31 m within 100 m) and Harrison draws the bar attached where L240 attaches it (median 7 m). Down the old channel they do not: Harrison's west bank is 40 m west of Wright's at 150 m from the fort, 71 m at 200 m, then a median 120 m and worst 157 m; he letters 'Old Mouth of River very shallow' at local N -69, 357 m north of the adopted station.",
+    "readings": {
+      "a": {
+        "is": "the single-anchor transform failing away from the fort",
+        "weighs": "against: a rotation large enough to move the bank 120-157 m at 400 m would throw the main stem out by about 85 m where the two agree to about 20. A local, non-rigid distortion of the 1884 re-engraving is not excluded, and nothing held can test it."
+      },
+      "b": {
+        "is": "the plate's admitted settler-memory additions",
+        "weighs": "open: the title admits them and the source record names the separation as something the plate does not supply, so no line on it can be assigned to the 1830 survey rather than to memory."
+      },
+      "c": {
+        "is": "a mouth that really moved",
+        "weighs": "split. For the MOUTH, against: littoral drift here runs south (dossier section 3.2), so a natural outlet migrates SOUTH as its spit grows, not 357 m north; and Wright's 1834 bar tip stands 9.2 m from Swearingen's 1803 station, so the outlet of 1834 was where the outlet of 1803 was. Harrison's 'old mouth' at N -69 is better read as one of the soldiers' cuts of 1816-1828, which were dug near the fort, than as the natural outlet. For the BANK, open: a channel that carried the river until 1833 and silted after it could have been wider in 1812 than in 1834, which is the direction Harrison draws, but one year of silting does not move a bank 120 m and nothing dates the difference."
+      }
+    },
+    "verdict": "undecided",
+    "band_n_m": [
+      -426.75,
+      -69.0
+    ],
+    "ground_confidence": "conjectural",
+    "confidence": "inferred",
+    "sources": [
+      "wright_1834",
+      "quaife_1913_swearingen"
+    ],
+    "note": "THE BANK STAYS ON WRIGHT AND THE GROUND BESIDE IT IS GRADED LOWEST. The owner's ruling of 2026-09-17 holds Wright 1834 as the line, and none of the three readings is decided by what is held, so this spec moves nothing and does the one thing T-1286 asked for when the question cannot be closed: every vertex of the channel, its west bank and the ground within Harrison's worst separation (157 m) west of it, between N -69 and the adopted outlet at N -426.75, is emitted CONJECTURAL rather than inferred. The mouth itself is not in doubt on this evidence (reading c, first half), so the outlet station is not moved either. What would decide it: the 1830 Thompson plat or any pre-1833 survey of the reservation's south line, or a second sheet that draws the channel and states a scale."
+  },
+  "not_modelled_1812": {
+    "absent_by_date": [
+      {
+        "dossier_zone": 23,
+        "why": "the 1833-34 cut through the bar: its place is the isthmus."
+      },
+      {
+        "dossier_zone": 24,
+        "why": "the north pier, begun 1833."
+      },
+      {
+        "dossier_zone": 25,
+        "why": "the south pier, begun 1833."
+      },
+      {
+        "dossier_zone": 27,
+        "why": "bar shoals flanking the cut; with no cut there is nothing to flank. The outlet's own shoal is outlet_channel_1812's shallow bed."
+      },
+      {
+        "dossier_zone": 29,
+        "why": "the erosional scarp south of the cut is the cut's consequence."
+      }
+    ],
+    "overstated": [
+      {
+        "dossier_zone": 28,
+        "why": "the accretion wedge north of the north pier is absent in 1812 but its outer edge is carried north of index 39 as the shore; north_lake_shore_1812 says which way that is wrong."
+      }
+    ],
+    "carried_from_1834": [
+      5,
+      15,
+      16,
+      17,
+      18
+    ],
+    "note": "Zones 5 and 15-18 keep the 1834 spec's reasons, which are about evidence and not about date; zone 5 (the sand hills) is modelled since T-1824 and is carried in `dunes`."
+  },
+  "evidence_limit_note": "Carried, and it matters more here than in 1835: the 1812 scene's whole reason for existing - the evacuation route and the battle ground near Eighteenth Street - lies south of Twelfth, where the record of the ground stops. That ground is built so the scene has a floor, and every vertex of it is conjectural."
+}

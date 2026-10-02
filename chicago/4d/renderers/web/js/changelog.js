@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1331, ts: '2026-10-03T00:10:04.612Z', date: 'Oct 2, 2026, 7:10 PM CT', title: 'The ground of 1812 is written down, ready to be built', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. This is the plan for the ground the 1812 Fort Dearborn landscape will stand on, written before any of it is built.',
+      'It starts from the 1835 ground and takes out what did not exist yet: the harbour cut, the bridges and the streets. Everything else is kept, with a reason for each.',
+      'The sand spit that turned the river south now joins the mainland. It is a neck of sand 100 feet wide at the spit\u2019s own height of 4 feet, and it is recorded as our reconstruction.',
+      'Where an 1830 map and the 1834 survey disagree about the old channel\u2019s west bank, we keep the survey and mark that stretch of ground as the least certain in the scene.',
+    ] },
   { v: 1330, ts: '2026-10-02T23:49:18.714Z', date: 'Oct 2, 2026, 6:49 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
       'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',

@@ -1,3 +1,41 @@
+## T-2002 — the 1812 ground's zone table, written as what 1834 had that 1812 did not (2026-10-02)
+
+Piece 1 of 2 of T-1243 (of T-0468, the owner's e1812 battle landscape). T-1243 asked for the
+spec, the heightfield and the meshes in one run. The 1871 epoch took two runs for the same
+shape (#170 the spec, #173 the generation), so it was split: the spec here, and **T-2003**
+generates and bakes from it.
+
+**What changed. Nothing you can see in the 1835 town.** The 1812 epoch has no scene yet, and
+no ground is generated from this.
+- **`data/terrain/epochs/e1830_natural/terrain_spec.json`** is an overlay on the 1834 zone
+  table, not a copy. All 37 1834 blocks are accounted for: 22 carry, 3 carry_except,
+  5 replace, 3 drop (the bridge approaches and the street sections) and 4 own. Five 1812
+  blocks each cite a dossier zone: the lake stage (2), the spit (7), the **isthmus** (7), the
+  live outlet channel (26) and the lake shore north of the spit root (28). All are
+  `reconstructed`. Reasoning: `docs/RESEARCH/terrain_e1830_natural.md`.
+- **L240's hole is decided: surfaced.** It is 100 ft of sand at the spit's own +4 ft on
+  `spit_attachment_gap_1812`. Liberties **L361** (isthmus), **L362** (the shore north of the
+  root, a chord to 1834 index 39) and **L363** (stage at the 1835 plane; outlet bed −4 ft).
+- **T-1286's west-bank question is answered: undecided.** Reading (a) is weighed against, (b)
+  stays open, and (c) splits: the mouth did not move, and the bank is open. So the bank and
+  the outlet stay on Wright. The channel and the ground within 157 m west of it, from N −69 to
+  N −426.75, are graded **conjectural**.
+- **`tools/check_terrain_e1830.py`** is in check.sh with 18 self-tests. It refuses an 1834
+  block that is not decided for 1812, a harbour work carried back, an 1812 height not
+  `reconstructed` or citing a zone the dossier lacks, a breached or over-wide isthmus, an
+  outlet as deep as the main stem, and an undecided bank left at `inferred`. Its `resolve()`
+  is the effective table T-2003's generator reads.
+
+**Unverified / open.**
+- **Generation (T-2003)** is not done: the river polygon, heightfield and meshes don't exist.
+- **The battle corridor south of Twelfth Street is conjectural ground.** The carried
+  evidence limit says so, and nothing here changes it.
+- **The 1812 blocks avoid `compile_scene.GROUND_GROUPS` names on purpose** until the
+  generator's `CONSUMED` map is wired.
+
+**Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff` names;
+see the PR.
+
 ## T-1997 — the 38 boarding-house keepers on their own account with no house (2026-10-02)
 
 Piece 2 of 3 of T-1992 (T-1982 → T-1966 → T-1215). The trade-households stage (T-1347) drew 38
