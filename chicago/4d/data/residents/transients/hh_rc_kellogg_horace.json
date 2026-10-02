@@ -37,7 +37,7 @@
  "lodged_at": [
   {
    "kind": "camp",
-   "place_id": "the_landing_place",
+   "place_id": "the_lake_shore_south_of_the_fort",
    "resolves_to": "camp_ground_candidate",
    "sleeping_class": "a_tent_at_the_landing_place",
    "tier": "reconstructed",
@@ -45,13 +45,13 @@
    "basis": {
     "kind": "source",
     "id": "1835_camp_grounds",
-    "note": "The one ground a committed source puts people on. the American, 13 June 1835: “'Some build tents upon the spot they were landed from the boats'”"
+    "note": "THE TENT IS THE PAPER'S, THE GROUND IS OURS. the American, 13 June 1835: “'Some build tents upon the spot they were landed from the boats'” — SOME, and then 'Westward Ho!'. The first 4 tent households stand at the landing; this one is dealt off the working wharf frontage to the nearest open ground that carried no lot line, which no committed source says anybody camped on (T-1979, on the owner's report of 2026-10-02)."
    },
    "replaceable_by": {
     "kind": "place",
-    "match": "T-1214's placement of the camp grounds, which owns where a camp stands and how large it is; this row names a CANDIDATE and never a polygon"
+    "match": "a source placing the emigrants' tents of 1835 anywhere, which retires this ground outright; T-1214's placement owns where the camp stands and how large it is"
    },
-   "note": "A CANDIDATE, NOT A PLACEMENT. No coordinate is authored here and none may be: docs/LIBERTIES.md refuses a fabricated location outright."
+   "note": "A CONJECTURAL CANDIDATE, NOT A PLACEMENT. No coordinate is authored here and none may be: docs/LIBERTIES.md refuses a fabricated location outright."
   }
  ],
  "arrival": {
@@ -137,7 +137,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:head:rc_kellogg_horace",
    "replaceable_by": {
@@ -201,7 +201,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:household_member:rc_kellogg_harvey",
    "replaceable_by": {
@@ -265,7 +265,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:household_member:rc_kellogg_anna",
    "replaceable_by": {
@@ -329,7 +329,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:household_member:rc_kellogg_ruth",
    "replaceable_by": {
@@ -393,7 +393,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:household_member:rc_kellogg_benjamin",
    "replaceable_by": {
@@ -457,7 +457,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:household_member:rc_kellogg_nancy",
    "replaceable_by": {
@@ -521,7 +521,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:household_member:rc_kellogg_levi",
    "replaceable_by": {
@@ -585,7 +585,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a tent at the landing place' and so sleeping in a camp on the lake shore south of the fort."
    },
    "seed": "transients:a_tent_at_the_landing_place:007:household_member:rc_kellogg_george",
    "replaceable_by": {

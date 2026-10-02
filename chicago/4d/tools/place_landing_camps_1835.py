@@ -6,16 +6,24 @@ WHAT THIS PLACES. `data/reconstruction/1835_camp_grounds.json` offers five groun
 grades one `documented`: the landing place, where the Chicago American of 13 June 1835
 puts the emigrants "under the open sky upon the wharves" and says "Some build tents
 upon the spot they were landed from the boats". `1835_transient_persons.json` (T-1353)
-deals 28 camp households to that ground and to no other — 15 in "a tent at the landing
-place" and 13 under "the open sky upon the wharves". This tool gives those 28 ground.
+deals 4 tent households to that ground — "Some build tents", and then "Westward Ho!" —
+and this tool gives those 4 ground.
+
+T-1979 (the owner's report of 2026-10-02). This tool stood two camps here, 15 tents and
+13 heaps of baggage, until the owner questioned a row of canvas along the town's working
+frontage. Re-read, the sentence carries less than that: the "open sky upon the wharves"
+is what the opened store houses SPARED the emigrants ("who had else remained"), so its 13
+households are roofed now, and "some" built tents, people pressing on west. So one small camp stands here, of the paper's "some", and the rest of the tent class
+is dealt to the lake shore south of the fort, which tools/place_camp_grounds_1835.py
+places at the conjectural tier.
 
 WHERE, AND WHAT BOUNDS IT. The candidate's own rule: the bank the landings layer stands
 its decks on, taken landward of the deck line. Measured, that is the strip between
 South Water Street's roadway and the traced 1834 south bank, and it is only wide enough
 for a row of tents from about E +262 to E +342 — between J. H. Kinzie's landing and
 Jones's, the stretch where the dry bank runs 9 to 16 m. West of it the bank closes on
-the street; east of it the river walk takes the strip. Two camps stand there, a row
-each, opening south onto the street they came up from the boats by.
+the street; east of it the river walk takes the strip. One short row stands at its west
+end, opening south onto the street they came up from the boats by.
 
 THE STREET LINE. This tool reads `data/streets/1835.json`'s DRAWN centreline for South
 Water and keeps every camp clear of the corridor that line draws. That is the line the
@@ -66,17 +74,15 @@ GROUND = "the_landing_place"
 CLEARANCE_M = 1.0
 DRY_M = 0.20
 
-# The two camps: (id, the camp's west and east ends along the bank, its south and
-# north edges, its arrangement, its share of the 28). The ends are the measured strip
-# (module doc); the split between the two is at the narrowing by E +299, where the
-# beached rowboats lie and the bank comes in.
+# The one camp: (id, its west and east ends along the bank, its south and north edges,
+# its share of the households). The ends are the measured strip's west end (module doc),
+# long enough for four tents at the archetype's pitch (camp_params.row_length, 15.2 m).
+# The id is the one T-1803 gave the west camp, kept so the layers that count it keep
+# their key; `landing_camp_east` is withdrawn (T-1979).
 CAMPS = (
-    {"id": "landing_camp_west", "name": "The emigrants' camp at the landing, west",
-     "e": (264.0, 297.0), "n": (20.0, 26.4), "tents": 7, "sky": 6,
-     "wagons": 1, "brush_shelters": 0},
-    {"id": "landing_camp_east", "name": "The emigrants' camp at the landing, east",
-     "e": (300.5, 342.5), "n": (20.5, 27.5), "tents": 8, "sky": 7,
-     "wagons": 1, "brush_shelters": 1},
+    {"id": "landing_camp_west", "name": "The emigrants' tents at the landing",
+     "e": (264.0, 280.0), "n": (20.0, 26.4), "tents": 4, "sky": 0,
+     "wagons": 0, "brush_shelters": 0},
 )
 
 
@@ -238,7 +244,7 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                 "polygon": [[0, 0], [length, 0], [length, depth], [0, depth]],
                 "confidence": "reconstructed",
                 "note": f"The camp's ground, {length} x {depth} m: the length of bank "
-                        "this camp's share of the row needs at the archetype's pitch "
+                        "this camp's tents need at the archetype's pitch "
                         "(camp_params.row_length), inside the measured strip. "
                         "INVENTED in its extent; bounded by the roadway, the bank and "
                         "the landings either side. L321.",
@@ -249,9 +255,13 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                     "confidence": "reconstructed",
                     "note": f"ONE TENT A HOUSEHOLD, for the {len(tent)} households "
                             "1835_transient_persons.json deals to 'a tent at the "
-                            "landing place' and this record seats. The American "
-                            "says some built tents; how many people a tent held is "
-                            "not stated, and one family to one tent is the reading "
+                            "landing place' AND to this ground. The American says "
+                            "SOME built tents, and then 'Westward Ho!': a handful, "
+                            "pitched by people pressing on west, so the count here is "
+                            "kept to four "
+                            "and the rest of the class is dealt to the shore south "
+                            "of the fort (T-1979, L356). How many people a tent held "
+                            "is not stated, and one family to one tent is the reading "
                             "that invents no sharing. L321.",
                 },
                 "tent_kind": {
@@ -266,11 +276,10 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                 "wagons": {
                     "value": camp["wagons"],
                     "confidence": "reconstructed",
-                    "note": "NOT ATTESTED AT THE LANDING. An emigrant family that "
-                            "came by lake shipped its wagon on the schooner and "
-                            "drove it west from here; one wagon to a camp is the "
-                            "restrained reading, and the owner has asked that "
-                            "wagons not be rationed (AGENTS.md, 2026-08-18). L321.",
+                    "note": "NOT ATTESTED AT THE LANDING, AND NONE IS DRAWN. A family "
+                            "that brought a wagon off a schooner drove it off the "
+                            "working bank; the wagons stand at the shore camp and the "
+                            "west approach instead (T-1979). L321.",
                 },
                 "brush_shelters": {
                     "value": camp["brush_shelters"],
@@ -292,12 +301,12 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                 "baggage_heaps": {
                     "value": len(sky),
                     "confidence": "reconstructed",
-                    "note": f"ONE HEAP A HOUSEHOLD, for the {len(sky)} households "
-                            "dealt to 'the open sky upon the wharves'. They had no "
-                            "tent, so what stands for them is what they had landed "
-                            "with — chests, a barrel, a blanket roll — set down beside "
-                            "the tents rather than on the decks, which are working "
-                            "landings. L321.",
+                    "note": f"ONE HEAP A HOUSEHOLD dealt to 'the open sky upon the "
+                            f"wharves', and that is {len(sky)}: the American says the "
+                            "store houses were thrown open to receive the emigrants "
+                            "'who had else remained under the open sky upon the "
+                            "wharves', so the open sky is what they were spared and "
+                            "its households sleep under a roof (T-1979, L356). L321.",
                 },
                 "arrangement": {
                     "value": "row",
@@ -313,8 +322,8 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                             "cream. L321.",
                 },
             },
-            "change_note": "Canvas on the South Water bank where the emigrants landed. "
-                           "T-1803.",
+            "change_note": "Canvas on the South Water bank where the emigrants landed "
+                           "(T-1803), thinned to the paper's 'some' (T-1979).",
         }],
         "function": {
             "value": "emigrant_camp",
@@ -330,8 +339,8 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
         },
         "occupants": {
             "value": f"{len(tent) + len(sky)} households of the summer's crowd, "
-                     f"{persons} persons: in tents, {names}; in the open beside "
-                     f"them, {sky_names}.",
+                     f"{persons} persons, in tents: {names}."
+                     + (f" In the open beside them: {sky_names}." if sky else ""),
             "confidence": "reconstructed",
             "note": "Every one of these households is RECONSTRUCTED by "
                     "tools/reconstruct_transients_1835.py (T-1353): a name off the "

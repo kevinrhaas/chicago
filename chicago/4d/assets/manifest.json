@@ -865,15 +865,6 @@
       "phase_id": "camp_1835",
       "structure_id": "land_sale_camp_shore"
     },
-    "landing_camp_east__camp_1835.glb": {
-      "archetype": "camp",
-      "baked_ao": false,
-      "bytes": 146072,
-      "inputs_sha256": "cf81f4b0c5675902f5b90fb7ade72d5dd332e5918a6f5aeb9ac32e669f1d1008",
-      "kind": "generated",
-      "phase_id": "camp_1835",
-      "structure_id": "landing_camp_east"
-    },
     "landing_camp_west__camp_1835.glb": {
       "archetype": "camp",
       "baked_ao": false,

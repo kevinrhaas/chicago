@@ -76,11 +76,21 @@ printed order.
     fills no bed: the lodging places' beds are dealt by T-1371 and T-1372 out of the
     lodging model's surge, and a transient seated into a tavern here would be booked into
     a bed that stage is about to sell twice.
-  * The two OUT-OF-DOORS classes — the open sky upon the wharves, a tent at the landing
-    place — become `camp` households whose `lodged_at` row names `the_landing_place`, the
-    one camp ground a committed source actually puts people on ("Some build tents upon the
-    spot they were landed from the boats"). It is a CANDIDATE, not a placement: T-1214
-    owns where a camp stands and how large it is, and the row says so.
+  * THE OPEN SKY UPON THE WHARVES IS A ROOFED CLASS (T-1979, on the owner's report of
+    2026-10-02). The American's sentence is "even some store houses have been thrown open
+    to receive the unsheltered emigrants, who had else remained under the open sky upon
+    the wharves": the open sky is what the store houses SPARED them, in the paper's own
+    grammar. Its households are dealt as before — the slot keeps its class key, so no name
+    is redrawn — and become `party` households whose `lodged_at` row resolves to the class
+    `a_store_house_thrown_open`, with the sentence that moves them there.
+  * The one OUT-OF-DOORS class — a tent at the landing place — becomes `camp` households.
+    The paper says "Some build tents upon the spot they were landed from the boats", and
+    then "Westward Ho!": SOME, pitched by people pressing on west. So the
+    first LANDING_TENTS of them in slot order name `the_landing_place`, the one camp
+    ground a committed source puts people on, and the rest name `the lake shore south of
+    the fort` — the nearest open ground off the working wharf frontage, a CONJECTURAL
+    candidate (1835_camp_grounds.json) and graded so on the row. Both are CANDIDATES, not
+    placements: T-1214 owns where a camp stands and how large it is, and the row says so.
 
 WHY `lodged_at[]` AND NOT `lives_at`. `lives_at` is the residence a household kept in this
 town, and the town census counts a person as housed when it names a structure the scene
@@ -163,10 +173,24 @@ CLASSES = (
     ("the_floor_of_that_room", "the floor of that room", ROOFED),
     ("the_floor_of_a_private_house", "the floor of a private house", ROOFED),
     ("a_store_house_thrown_open", "a store house thrown open", ROOFED),
-    ("the_open_sky_upon_the_wharves", "the open sky upon the wharves", OUT_OF_DOORS),
+    ("the_open_sky_upon_the_wharves", "the open sky upon the wharves", ROOFED),
     ("a_tent_at_the_landing_place", "a tent at the landing place", OUT_OF_DOORS),
 )
 CAMP_GROUND = "the_landing_place"
+
+# T-1979. The class the American names as what the opened store houses spared the
+# emigrants: dealt as before (its slots keep their key and so their names), sheltered as
+# the class it names. And how many tents stand at the landing: "Some build tents" is the
+# paper's word, so a handful, and the rest of the class is dealt to the nearest open ground
+# off the wharf frontage. Four is a reasoned count, not a reading; docs/LIBERTIES.md L356.
+SHELTERED_AS = {"the_open_sky_upon_the_wharves": "a_store_house_thrown_open"}
+LANDING_TENTS = 4
+SHORE_GROUND = "the_lake_shore_south_of_the_fort"
+
+
+def camp_ground(index: int) -> str:
+    """The candidate ground a tent household's `lodged_at` names, by its ordinal."""
+    return CAMP_GROUND if index <= LANDING_TENTS else SHORE_GROUND
 
 # The keys this stage writes and --check re-derives. Everything else on a card belongs to
 # another stage of the same programme and is that stage's to prove.
@@ -397,9 +421,13 @@ def band_block(band: str, seed: str, why: str) -> dict:
 
 def person_record(pid: str, name: str, relationship: str, sex: str, band: str,
                   slot: str, community: dict, class_key: str, place: str,
-                  kind: str) -> dict:
-    where = ("in a camp at the landing place" if kind == OUT_OF_DOORS
-             else "under a roof in the town")
+                  kind: str, index: int) -> dict:
+    if kind != OUT_OF_DOORS:
+        where = "under a roof in the town"
+    elif camp_ground(index) == CAMP_GROUND:
+        where = "in a camp at the landing place"
+    else:
+        where = "in a camp on the lake shore south of the fort"
     return {
         "id": pid,
         "name": name,
@@ -468,8 +496,62 @@ def person_record(pid: str, name: str, relationship: str, sex: str, band: str,
     }
 
 
-def lodged_at_row(kind: str, class_key: str, place: str, says: str, source: str) -> dict:
+def lodged_at_row(kind: str, class_key: str, place: str, says: str, source: str,
+                  index: int) -> dict:
     """Where this household slept, at the rung the sources actually reach."""
+    if kind == OUT_OF_DOORS and camp_ground(index) == SHORE_GROUND:
+        return {
+            "kind": "camp",
+            "place_id": SHORE_GROUND,
+            "resolves_to": "camp_ground_candidate",
+            "sleeping_class": class_key,
+            "tier": RECONSTRUCTED,
+            "confidence": "conjectural",
+            "basis": {
+                "kind": "source",
+                "id": "1835_camp_grounds",
+                "note": f"THE TENT IS THE PAPER'S, THE GROUND IS OURS. {source}: “{says}” — "
+                        f"SOME, and then 'Westward Ho!'. The first {LANDING_TENTS} tent "
+                        f"households stand at the landing; this one is dealt off the working "
+                        f"wharf frontage to the nearest open ground that carried no lot "
+                        f"line, which no committed source says anybody camped on (T-1979, "
+                        f"on the owner's report of 2026-10-02).",
+            },
+            "replaceable_by": {
+                "kind": "place",
+                "match": "a source placing the emigrants' tents of 1835 anywhere, which "
+                         "retires this ground outright; T-1214's placement owns where the "
+                         "camp stands and how large it is",
+            },
+            "note": "A CONJECTURAL CANDIDATE, NOT A PLACEMENT. No coordinate is authored "
+                    "here and none may be: docs/LIBERTIES.md refuses a fabricated location "
+                    "outright.",
+        }
+    if kind == ROOFED and class_key in SHELTERED_AS:
+        return {
+            "kind": "roofed_in_the_town",
+            "place_id": SHELTERED_AS[class_key],
+            "resolves_to": "sleeping_class",
+            "sleeping_class": class_key,
+            "tier": RECONSTRUCTED,
+            "confidence": "conjectural",
+            "basis": {
+                "kind": "source",
+                "id": "1835_transient_cohort",
+                "note": f"THE OPEN SKY IS WHAT THE STORE HOUSES SPARED THEM. {source}: "
+                        f"“even some store houses have been thrown open to receive the "
+                        f"unsheltered emigrants, {says.strip(chr(39))}”. The class is dealt "
+                        f"as T-1352 prints it and sheltered as the sentence says (T-1979).",
+            },
+            "replaceable_by": {
+                "kind": "place",
+                "match": "T-1371 and T-1372, which deal the lodging model's surge beds; a "
+                         "re-reading of the American's 'had else' that puts these people "
+                         "out of doors on 1 July returns them to the wharves",
+            },
+            "note": "NO HOUSE IS NAMED. The paper does not say whose store houses were "
+                    "opened; this row reaches the class and not the building.",
+        }
     if kind == OUT_OF_DOORS:
         return {
             "kind": "camp",
@@ -570,7 +652,7 @@ def household_record(slot: str, hid: str, head_id: str, surname: str, persons: l
                          "season, which would make them residents and not visitors",
             },
         },
-        "lodged_at": [lodged_at_row(kind, class_key, place, says, source)],
+        "lodged_at": [lodged_at_row(kind, class_key, place, says, source, index)],
         "arrival": {
             "value": None,
             "confidence": RECONSTRUCTED,
@@ -681,7 +763,7 @@ def plan() -> dict:
                 if n == 0:
                     head_id = pid
                 persons.append(person_record(pid, name, relationship, sex, band, slot,
-                                             community, class_key, place, kind))
+                                             community, class_key, place, kind, index))
             hid = f"hh_{head_id}"
             households.append({
                 "slot": slot,
@@ -953,10 +1035,16 @@ def self_test() -> int:
     case("every minted household says where it slept",
          all(h["record"]["lodged_at"] and h["record"]["lodged_at"][0]["place_id"]
              for h in p["households"]))
-    case("the camps name the one documented ground and nothing else",
-         all(r["place_id"] == CAMP_GROUND
-             for h in p["households"] if h["kind"] == OUT_OF_DOORS
-             for r in h["record"]["lodged_at"]))
+    camps = [h for h in p["households"] if h["kind"] == OUT_OF_DOORS]
+    case("only the first LANDING_TENTS camps name the landing, the rest the shore",
+         [r["place_id"] for h in camps for r in h["record"]["lodged_at"]]
+         == [camp_ground(i + 1) for i in range(len(camps))]
+         and sum(1 for h in camps
+                 if h["record"]["lodged_at"][0]["place_id"] == CAMP_GROUND) == LANDING_TENTS)
+    case("nobody is dealt to the open sky the store houses spared them",
+         all(h["kind"] == ROOFED and h["record"]["lodged_at"][0]["place_id"]
+             == SHELTERED_AS[h["class_key"]]
+             for h in p["households"] if h["class_key"] in SHELTERED_AS))
     case("no roofed party names a house",
          all(r["resolves_to"] == "sleeping_class"
              for h in p["households"] if h["kind"] == ROOFED
