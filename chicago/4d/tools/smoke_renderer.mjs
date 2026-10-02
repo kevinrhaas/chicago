@@ -2458,6 +2458,11 @@ for (const [label, viewport, touch] of [
     // Whether a garden should follow the HOUSE instead of the household is a claim
     // about the town rather than a bug, and it is the owner's: T-0727 asks him. If he
     // rules that way this floor rises again, and it should.
+    //
+    // He did (T-0772, 2026-09-21: the garden follows the HOUSE), and T-1958 spent the
+    // ruling: forty-six plots on the day it landed. The floor rises to thirty — far
+    // enough under the rule's output to survive the town's lots being re-dealt, far
+    // enough over one to fail if clause 4 ever slides back to the household reading.
     const pickets = await page.evaluate(() => {
       const e = window.__chicago4d.enclosures;
       const rec = (e?.records ?? []).find((r) => r.id === 'town_dooryard_pickets');
@@ -2470,7 +2475,7 @@ for (const [label, viewport, touch] of [
       };
     });
     check(`${label}: the town's house lots carry generated picket gardens`,
-      pickets.found && pickets.runs >= 1 && pickets.type === 'picket'
+      pickets.found && pickets.runs >= 30 && pickets.type === 'picket'
       && pickets.ids.includes('blk_randolph_franklin_lot2'),
       `record ${pickets.found}, ${pickets.runs} plot(s) [${pickets.ids.join(', ')}], `
       + `fence type ${pickets.type}`);
