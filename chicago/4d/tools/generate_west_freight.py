@@ -149,7 +149,8 @@ def make_record(recipe: dict, datum: dict) -> dict:
                 "polygon": [[0, 0], [width, 0], [width, depth], [0, depth]],
                 "confidence": "reconstructed",
                 "note": f"Deterministically sampled {width:.3f} by {depth:.3f} metre rectangle inside the {family} typology band; neither dimension is attested for this invented roof."},
-            "form": form_for(family, spec, seed, width, depth, paint),
+            "form": fabric_rule_1835.apply_form(
+                form_for(family, spec, seed, width, depth, paint), fabric),
             "change_note": "T-1773 adds the West Division's second freight roof without moving an existing building."}],
         "function": invented(FUNCTIONS[family],
                              f"The {family} type fills the West Division's freight row in the order book. No forwarder, owner or cargo is recovered for it."),

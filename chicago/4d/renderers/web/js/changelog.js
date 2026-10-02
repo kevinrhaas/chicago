@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1281, ts: '2026-10-02T01:00:41.586Z', date: 'Oct 1, 2026, 8:00 PM CT', title: 'Twelve boarding houses and shops hang their own signboards', kind: 'change',
+  { v: 1282, ts: '2026-10-02T01:31:30.170Z', date: 'Oct 1, 2026, 8:31 PM CT', title: 'Twelve boarding houses and shops hang their own signboards', kind: 'change',
     items: [
       'Walk the north side and you can now pick out its boarding houses from the road. Five of them hang a painted board under a hood, on a bracket or on a post: BARDWELL\u2019S, BARNES\u2019S, NEWELL\u2019S and two more, with Boarding House beneath.',
       'On Canal Street the two grocers hang boards and the smith and the joiner have their names painted across their fronts. Two west-side boarding houses and Cornelius Lynch\u2019s on Washington Street have boards too.',
       'Tap a board and the card opens on the same house. Each board says what the house\u2019s own record calls it, and adds nothing.',
       'These houses are our reconstruction, and so are their boards. No source names them, and each board says so (liberty L340). The town\u2019s other 34 boards are unchanged.',
+    ] },
+  { v: 1281, ts: '2026-10-02T00:56:47.419Z', date: 'Oct 1, 2026, 7:56 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
+    items: [
+      'Walk Washington, Randolph or Wells and the merchants\u2019 and professional men\u2019s houses now stand apart. Most have a small roofed porch over the door, and most hang board shutters, green or black, at their front windows.',
+      'Tradesmen\u2019s cottages have a plank stoop at the door, or step straight onto the ground. Labourers\u2019 houses have neither.',
+      'The frame follows the house\u2019s age. Houses built in the 1834\u201335 boom are balloon framed. Houses from 1833 or earlier are braced, with a heavier board at each corner, and a line across the wall at the upper floor.',
+      'Open a house\u2019s card. The Built line now names its frame, shutters and porch. These are our reconstruction: no source records them for any of these houses. The rule is on the Liberties page (L338).',
     ] },
   { v: 1280, ts: '2026-10-02T00:30:46.880Z', date: 'Oct 1, 2026, 7:30 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
