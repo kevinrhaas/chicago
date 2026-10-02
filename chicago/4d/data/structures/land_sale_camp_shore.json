@@ -23,7 +23,7 @@
         "rotation_deg": 0.0,
         "symbolic_location": "On the United States Reservation south of Fort Dearborn, between local E +1130 and E +1180 and N -40 to +0: north-east of the Fort Cemetery, south-east of the garrison garden, south-west of the factor's house, and short of the lake beach.",
         "confidence": "reconstructed",
-        "note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the lake shore south of the fort as the nearest open ground to the landing that carried no lot line in July 1835 — unplatted, unsold, with no street across it — and grades the candidacy conjectural: no source says anybody camped there. This camp stands on the stretch of it a visitor at the fort's south-west corner looks across: every sampled point of its ground between 2.51 and 2.54 m above the water plane on the committed heightfield; 50.5 m clear of the drawn edge of the nearest roadway (fort_road); 42.6 m clear of the nearest committed footprint; 66.0 m clear of the nearest fence run; 33.7 m clear of the Fort Cemetery's ring, outside its 30 m skirt. It stands on ground 1835_no_build_ground.json refuses to a builder, and that file permits it by name: the camp-grounds file rules that a crowd sleeping rough on the shore for a fortnight is not a dwelling and asked nobody's leave. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L353.",
+        "note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the lake shore south of the fort as the nearest open ground to the landing that carried no lot line in July 1835 — unplatted, unsold, with no street across it — and grades the candidacy conjectural: no source says anybody camped there. This camp stands on the stretch of it a visitor at the fort's south-west corner looks across: every sampled point of its ground between 2.51 and 2.54 m above the water plane on the committed heightfield; 50.5 m clear of the drawn edge of the nearest roadway (fort_road); 42.6 m clear of the nearest committed footprint; 66.0 m clear of the nearest fence run; 33.7 m clear of the Fort Cemetery's ring, outside its 30 m skirt. It stands on ground 1835_no_build_ground.json refuses to a builder, and that file permits it by name: the camp-grounds file rules that a crowd sleeping rough on the shore for a fortnight is not a dwelling and asked nobody's leave. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L354.",
         "derivation": {
           "method": "not_derivable",
           "reason": "Placed against the drawn street lines, the heightfield, the fences, the refused regions and every footprint by tools/place_camp_grounds_1835.py, which re-derives it with --check; it is not a street line or a traced waterline validate.py can re-derive a coordinate from."
@@ -49,43 +49,43 @@
           ]
         ],
         "confidence": "reconstructed",
-        "note": "The camp's ground, 50.0 x 40.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L353."
+        "note": "The camp's ground, 50.0 x 40.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L354."
       },
       "form": {
         "tents": {
           "value": 12,
           "confidence": "reconstructed",
-          "note": "12 TENTS, AND NOT A COUNT OF ANYBODY. The register's 77 unseated visitors at the sale would fill this many wall tents about one and a half times over at four men to a tent; most of them slept where the transient model already sleeps the crowd, in rooms and on floors, and twelve is the share drawn as having come with canvas. Invented. L353."
+          "note": "12 TENTS, AND NOT A COUNT OF ANYBODY. The register's 77 unseated visitors at the sale would fill this many wall tents about one and a half times over at four men to a tent; most of them slept where the transient model already sleeps the crowd, in rooms and on floors, and twelve is the share drawn as having come with canvas. Invented. L354."
         },
         "tent_kind": {
           "value": "mixed",
           "confidence": "reconstructed",
-          "note": "NO SOURCE DESCRIBES THE TENTS. Wall and wedge tents alternately, the two forms an outfitter of the 1830s sold. L353."
+          "note": "NO SOURCE DESCRIBES THE TENTS. Wall and wedge tents alternately, the two forms an outfitter of the 1830s sold. L354."
         },
         "wagons": {
           "value": 3,
           "confidence": "reconstructed",
-          "note": "THE COUNTRY CAME TO THE SALE BY ROAD. A buyer from the settlements west of the town drove in, and the owner has asked that wagons not be rationed (AGENTS.md, 2026-08-18); the number is invented. L353."
+          "note": "THE COUNTRY CAME TO THE SALE BY ROAD. A buyer from the settlements west of the town drove in, and the owner has asked that wagons not be rationed (AGENTS.md, 2026-08-18); the number is invented. L354."
         },
         "brush_shelters": {
           "value": 1,
           "confidence": "reconstructed",
-          "note": "A lean-to of poles and cut brush, the cheapest roof there is. Invented. L353."
+          "note": "A lean-to of poles and cut brush, the cheapest roof there is. Invented. L354."
         },
         "fire_rings": {
           "value": 6,
           "confidence": "reconstructed",
-          "note": "One cooking fire to two tents. The fires are drawn out: no flame, no smoke, nobody at them (L1). L353."
+          "note": "One cooking fire to two tents. The fires are drawn out: no flame, no smoke, nobody at them (L1). L354."
         },
         "woodpiles": {
           "value": 3,
           "confidence": "reconstructed",
-          "note": "Cordwood for the fires. Invented. L353."
+          "note": "Cordwood for the fires. Invented. L354."
         },
         "baggage_heaps": {
           "value": 4,
           "confidence": "reconstructed",
-          "note": "Chests and a barrel set down where a buyer had no tent of his own. Invented. L353."
+          "note": "Chests and a barrel set down where a buyer had no tent of his own. Invented. L354."
         },
         "arrangement": {
           "value": "scatter",
@@ -105,7 +105,7 @@
     "value": "land_sale_camp",
     "confidence": "reconstructed",
     "sources": [],
-    "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. Open, level, unplatted, unsold, and the nearest large ground to the landing that carried no lot line in July 1835 — 22.57 ha of United States Reservation and 9.53 ha of sand bar, by the no-build file's own measurement, with no street across either. No committed source says anybody camped there. It is offered because a crowd turned out of the public houses walks to the nearest open ground, and that sentence is an argument about crowds and not a reading of Chicago. Built at the reconstructed tier on the owner's ask (T-1214) and labelled so; L353."
+    "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. Open, level, unplatted, unsold, and the nearest large ground to the landing that carried no lot line in July 1835 — 22.57 ha of United States Reservation and 9.53 ha of sand bar, by the no-build file's own measurement, with no street across either. No committed source says anybody camped there. It is offered because a crowd turned out of the public houses walks to the nearest open ground, and that sentence is an argument about crowds and not a reading of Chicago. Built at the reconstructed tier on the owner's ask (T-1214) and labelled so; L354."
   },
   "occupants": {
     "value": "Nobody this layer counts. The land-sale crowd is the transient model's first refusal (1835_transient_persons.json § refusals): 77 visitors the Public Domain register names at the sale of 26-27 June 1835 whom no resident card places, reserved and left unminted because a drawn person may never stand in for a named one. So this camp seats none of them and moves no count; its tents stand for that crowd's ground. No figure is drawn (L1).",
