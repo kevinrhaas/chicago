@@ -292,6 +292,10 @@ frame rate.
   the L\* 33–62 bound, in the layer's existing material and draw calls (L320). Measured lit at
   1280×800 on Lake Street: the walk went from L\* 75 to L\* 44. The per-business key is still
   T-1211's, and the relief (grain, end grain, wear) is T-1801's proof.
+  *Done in T-1815 (piece 3 of T-1211), 2026-10-02:* `clapboard_board_face` bound to the whole
+  street-edge layer with a per-board grain axis, end grain, contact darkening, and stoop treads.
+  The fittings and hitching posts take the weathered tones per business. See
+  `docs/RESEARCH/street-edge-benchmark/README.md`.
 - **T-1770 / T-1771:** `roadTexture`'s paired 0.29/0.71 ruts and 0.28–0.93 alpha body are what
   reads as "two treads on grass". The full-width opaque roadbed is geometry plus the § 4 mask.
   Never tile the 8 m mud as the roadway.
