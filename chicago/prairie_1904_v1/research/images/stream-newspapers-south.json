@@ -1059,5 +1059,37 @@
   "rights_basis": "Published in the United States before 1929",
   "verified": "viewed",
   "period": "in-period"
+ },
+ {
+  "id": "nps-2140-tribune-1928-07-15-famous-homes-photo-spires",
+  "kind": "newspaper item",
+  "title": "\"Famous Homes\" [photograph of the Byron L. Smith residence, 2140 Prairie avenue] (Tribune photo)",
+  "building_ids": [
+   "pa-2140-21"
+  ],
+  "addresses": [
+   "2140 S. Prairie Avenue"
+  ],
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": "from the street near the corner of Prairie Avenue and 22nd Street, looking at the corner of the house",
+  "date": "July 15, 1928",
+  "date_earliest": 1928,
+  "date_latest": 1928,
+  "creator": "Chicago Sunday Tribune (Tribune photo)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, July 15, 1928 (vol. 87 no. 29)",
+  "call_number": "per_chicago-daily-tribune_1928-07-15_87_29, page index 88 (same cut repeated at index 91)",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1928-07-15_87_29/page/n88/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1928-07-15_87_29/page/n88_w1200.jpg",
+  "found_via": "IA full-text search '\"2140 prairie\" AND collection:pub_chicago-daily-tribune'; photograph and caption read on the page image (IIIF crop)",
+  "notes": "Caption read on the page: \"On the high iron fence of this old home at 2140 Prairie avenue now hangs the sign 'To lease.' At one time it was the residence of Byron L. Smith, who was president of the Northern Trust company. At his death, Mr. Smith left an estate of $5,500,000. It was to this home that the Chicago banker returned in 1910 after a 120-day trip around the world.\" The halftone shows the corner of the house with THREE TALL CONICAL SPIRES (two round corner towers and a central projecting bay, each under a steep pointed roof with finials), dormers, a high iron fence on stone posts and a canopied side entrance. It is a DATED example (by July 1928) of the conical-spire roof state; the collection's cresting-crowned state is dated pre-1881 (stereograph) and 1898 (Van Osdel book plate). So the spires were added at some point between 1898 and 1928 — this item fixes the later bound only; the 1904 roof remains undecided (see worklog). The house had stood empty/for lease since Smith's widow's tenure; no other alteration is mentioned.",
+  "measurements": [],
+  "streetscape": false,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
  }
 ]

@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 74278737,
+ "bytes": 76232480,
  "files": {
   "a16-albertype-1890-pullman-residence-thumb.jpg": {
    "bytes": 35938,
@@ -1669,6 +1669,14 @@
    "bytes": 253358,
    "sha256": "cfeb8628c4f998ec8daa46e624a6b15420d1a67c973ac783e7ad664507a76f21"
   },
+  "cgs-1900-tribune-1871-keith-bros-916-prairie-thumb.jpg": {
+   "bytes": 20110,
+   "sha256": "140e11e788d5271cbd91d597e7cc237276626f509dbb984e4921fcb30b8a9615"
+  },
+  "cgs-1900-tribune-1871-keith-bros-916-prairie.jpg": {
+   "bytes": 117677,
+   "sha256": "78a233f03a141fd83311cfebc9566524e2e7f6fa83e55c9bd86f6f2d196f79ea"
+  },
   "cgs-1901-robinson-1886-thumb.jpg": {
    "bytes": 15160,
    "sha256": "94fb9a172043109958258c5a983fc38cb5cdaed0eab5f24f14f0d6c6f47d714d"
@@ -1685,6 +1693,22 @@
    "bytes": 253474,
    "sha256": "521b77cb68a35e65a3e81f29256fc1027f7f6f5dcd1768ed1c57129613e436a0"
   },
+  "cgs-1906-tribune-1896-keith-headline-thumb.jpg": {
+   "bytes": 22682,
+   "sha256": "ef382a1b1576681d16124c08b3dcb36c194ea31642a030c0e1a23e13fd788dd2"
+  },
+  "cgs-1906-tribune-1896-keith-headline.jpg": {
+   "bytes": 60783,
+   "sha256": "d82f350328e04e4867bf35d103d4a6613c974e1c66dfb28f92dd1eca4efcc520"
+  },
+  "cgs-1906-tribune-1896-keith-suicide-scene-thumb.jpg": {
+   "bytes": 28868,
+   "sha256": "606c53a3edb1d4df8d55591e0d8d2ca633badc1a453b95182a605f609811c5ae"
+  },
+  "cgs-1906-tribune-1896-keith-suicide-scene.jpg": {
+   "bytes": 286718,
+   "sha256": "93b1e4f0ec88d3fa762a726613e6844506d1c7621edcd8cf25541afaa8c1c949"
+  },
   "cgs-1912-robinson-1886-thumb.jpg": {
    "bytes": 15093,
    "sha256": "be8c93435c820c8a5904642b7faad5b6cd945b69d4cdca0a1eb3d7adbd528dd7"
@@ -1692,6 +1716,30 @@
   "cgs-1912-robinson-1886.jpg": {
    "bytes": 253463,
    "sha256": "017971383ff3b2b31b08c6475157b019e235da4bbc1394d70f38ddfc3dcc1388"
+  },
+  "cgs-1919-gatlin-program-1919-thumb.jpg": {
+   "bytes": 22394,
+   "sha256": "a6ae0740dfd86a44aabe85db037a9842c31384a50c70eca5e67da58c8b278183"
+  },
+  "cgs-1919-gatlin-program-1919.jpg": {
+   "bytes": 121945,
+   "sha256": "ea845bca0465b8b2d11fc97efe3f9b21ac4b569ee9a9b1c8743d605bf00b8f5e"
+  },
+  "cgs-1919-inter-ocean-1905-field-jr-headline-thumb.jpg": {
+   "bytes": 18674,
+   "sha256": "3b417ca2fa9580f98a57a2d2e17eea5915f01c9f331e76fb0064f8b57b6bd388"
+  },
+  "cgs-1919-inter-ocean-1905-field-jr-headline.jpg": {
+   "bytes": 90048,
+   "sha256": "6252f46dd46234fb4c7f009176a07b69edcd07db9aad640b12e61bf6062b521f"
+  },
+  "cgs-1919-inter-ocean-1905-field-jr-portrait-thumb.jpg": {
+   "bytes": 12609,
+   "sha256": "f4d2129501f859c57af54f23ceebf4b24f209672c715834ae273e56d019d51e1"
+  },
+  "cgs-1919-inter-ocean-1905-field-jr-portrait.jpg": {
+   "bytes": 115349,
+   "sha256": "24a574195bd23ef586364bc5ce9f39b7c343e7a6a0cdb9baa8d1269601f7d207"
   },
   "cgs-1919-robinson-1886-thumb.jpg": {
    "bytes": 15207,
@@ -1773,6 +1821,14 @@
    "bytes": 254145,
    "sha256": "4b07f36a79d388c949faf23690d2382f0246dcd94554ea124754c1c8193f9f68"
   },
+  "cgs-2011-tribune-1882-auction-thumb.jpg": {
+   "bytes": 25418,
+   "sha256": "4f665e0aaac616302f7ed06344f8caa35c4f681f429ca212954df280023262ce"
+  },
+  "cgs-2011-tribune-1882-auction.jpg": {
+   "bytes": 126321,
+   "sha256": "918d4c07ab0a392535719f5eb81682c32eabc6bd03f0bca1eab7fbd1529d6b42"
+  },
   "cgs-2013-robinson-1886-thumb.jpg": {
    "bytes": 15183,
    "sha256": "adaffe62357208b4ded12f5044073155ff447c6342db5c316ce60a1f51b7504b"
@@ -1789,6 +1845,14 @@
    "bytes": 254211,
    "sha256": "605ad330fcd15a7dbf16e1baf53eee6d535051be8d475f7c5e08c52530924e1e"
   },
+  "cgs-2017-tribune-1900-cobb-headline-thumb.jpg": {
+   "bytes": 20184,
+   "sha256": "8c0953ecc04736842b9c024903d0a708feff91de2a510ad60d17637c03e6c9cd"
+  },
+  "cgs-2017-tribune-1900-cobb-headline.jpg": {
+   "bytes": 93931,
+   "sha256": "f8974f8943b9a65cff604a8686fe390cc3ac6772aad0ce35268f4703577dc61b"
+  },
   "cgs-2021-robinson-1886-thumb.jpg": {
    "bytes": 14436,
    "sha256": "d28923479199f6031976102db9dbad4f550cd158f88d2daa1ce39fe43c3eaf62"
@@ -1804,6 +1868,22 @@
   "cgs-2026-robinson-1886.jpg": {
    "bytes": 272543,
    "sha256": "179caac466f516352c1e97ccb06abfd7f5744244697e0d37e5d63b873d179735"
+  },
+  "cgs-2026-tribune-1876-wahl-headline-thumb.jpg": {
+   "bytes": 14266,
+   "sha256": "2cc2a76ad925ef56d156a31d2422e5393dce87ac56a4518308b63b1250b5a5e8"
+  },
+  "cgs-2026-tribune-1876-wahl-headline.jpg": {
+   "bytes": 15896,
+   "sha256": "b49cc701c3f37e01f8eef85dfbc04299e8e567ee0b54a68595aba0f8024f2bc2"
+  },
+  "cgs-2026-tribune-1876-wahl-programme-thumb.jpg": {
+   "bytes": 27719,
+   "sha256": "8323d6622c0440f5b24b78b4daee19c6dee55fab58512bf5d01c2492e7380a91"
+  },
+  "cgs-2026-tribune-1876-wahl-programme.jpg": {
+   "bytes": 35031,
+   "sha256": "9a9bd706f854d2bde3373fb43effd6f8278a2222bdab782518759d685a874261"
   },
   "cgs-2027-robinson-1886-thumb.jpg": {
    "bytes": 15134,
@@ -1836,6 +1916,22 @@
   "cgs-2036-robinson-1886.jpg": {
    "bytes": 272363,
    "sha256": "cd507fe337943eaa79dc8bd6531658d6a2362a5dd1f224c96a26a8856bda91c2"
+  },
+  "cgs-2100-tribune-1902-sherman-headline-thumb.jpg": {
+   "bytes": 27466,
+   "sha256": "cb259e599f649d5f74438f7243a3ec1204730f66c9f0cd3de3d4b075dbad1619"
+  },
+  "cgs-2100-tribune-1902-sherman-headline.jpg": {
+   "bytes": 101486,
+   "sha256": "0cfca3400c01594643a5cecbedf5a878e7ea07999d1710baac01f5b8b292a69a"
+  },
+  "cgs-2100-tribune-1902-sherman-portrait-thumb.jpg": {
+   "bytes": 34962,
+   "sha256": "e4acedf7206a559580cc45ce076c503a5a9b27dd3ae7ccc74a572fdb4f687827"
+  },
+  "cgs-2100-tribune-1902-sherman-portrait.jpg": {
+   "bytes": 326295,
+   "sha256": "4fb4176117813c3241b8f80e18e6c6054c7191df4af2c6b783d05a2f4dcf0423"
   },
   "cgs-2101-robinson-1886-thumb.jpg": {
    "bytes": 14413,
@@ -1932,6 +2028,14 @@
   "cgs-2140-robinson-1886.jpg": {
    "bytes": 272487,
    "sha256": "a20fee4982c36e3c8004ce370a3b694bb16aab06e57b3882c65824a222693572"
+  },
+  "cgs-tribune-1898-01-09-death-strip-thumb.jpg": {
+   "bytes": 15581,
+   "sha256": "f25c45ead22620fd538fd6aeda2e5a8890e9cc861486dd5cb2fdae774ba7a767"
+  },
+  "cgs-tribune-1898-01-09-death-strip.jpg": {
+   "bytes": 171330,
+   "sha256": "2f3996a6175dafb0fbcab651b2e44fc7f810c45ed0b88371561fa1f298bbb29c"
   },
   "dw-aabn-1876-09-30-sherman-2100-plate-thumb.jpg": {
    "bytes": 37876,
