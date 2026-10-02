@@ -603,6 +603,9 @@ def opening(b,o,courtyard=False):
     if kind=='dark' and o.get('face')=='west' and o.get('at',0)>30 and z0<.1 and c-a>2:
         # The porte-cochere is a through passage, not a panel of black glazing.
         return
+    if o.get('style')=='north_entry_alcove':
+        ring(b,o,(a+c)/2,o['spring_z'],(c-a)/2,o['r_out'],o.get('voussoirs') or 15,conf)
+        return
     poly=aperture(o)
     front=[legacy._plane_point(o,u,z,.016) for u,z in poly]
     back=[legacy._plane_point(o,u,z,-.29) for u,z in poly]
@@ -741,11 +744,8 @@ def ring(b,pl,uc,zs,rin,rout,count,conf):
 
 def roof_ridges(b,params):
     from archetypes.masonry_house_v4_roof_crests import add_ridge_crest
-    for r in params.ranges:
-        a0,a1=(r['y0'],r['y1']) if r['axis']=='y' else (r['x0'],r['x1'])
-        for side,v in r['roof_extend'].items():
-            if side in ('south','west'):a0=min(a0,v)
-            else:a1=max(a1,v)
+    from archetypes.masonry_house_v4_west_roof import ridge_ranges
+    for r,a0,a1 in (segment for source in params.ranges for segment in ridge_ranges(source)):
         step=.36
         for i in range(math.ceil((a1-a0)/step)):
             lo=a0+i*step+.006;hi=min(a1,lo+step-.012)
@@ -1311,7 +1311,97 @@ def date_stones(b,params):
     if ledge:
         slab(b,ledge,ledge['u0'],ledge['u1'],ledge['z0'],ledge['z1'],0,ledge['projection_m'],params.detail['conf'],GRANITE)
 
+def north_entry(b,p):
+    """Open vaulted porch, west-facing door up the left-turn stair (HABS 2–3)."""
+    d=p.detail.get('north_entry_alcove')
+    if not d:return
+    a,c=d['x'];yf,yb=d['front_y'],d['back_y'];east=d['east_x'];conf=p.detail['conf']
+    landing,threshold=d['landing_z'],d['threshold_z']
+    arch=next(o for o in p.openings if o.get('style')=='north_entry_alcove')
+    poly=aperture(arch)
+    # The arch return passes through the outer masonry only. Extruding its
+    # low spring line across the room blocks the rising left-turn flight.
+    for (u,z),(v,zz) in zip(poly,poly[1:]+poly[:1]):
+        if max(z,zz)<.01:continue
+        end=yf-.35
+        b.raw([(u,yf,z),(v,yf,zz),(v,end,zz),(u,end,z)],conf,GRANITE)
+    wp={'axis':'y','sign':1,'at':yb,'face':'north','kind':'window',
+        'u0':d['window_x'][0],'u1':d['window_x'][1],'z0':d['window_z'][0],
+        'z1':d['window_z'][1],'conf':conf,'style':'courtyard_sash'}
+    dp={'axis':'x','sign':-1,'at':east,'face':'west','kind':'door',
+        'u0':d['door_y'][0],'u1':d['door_y'][1],'z0':threshold,
+        'z1':d['door_top'],'conf':conf,'style':'service_door'}
+    b.openings.extend([wp,dp])
+    top=d['door_top']+.3
+    b.wall([(a,yb,landing),(a,yb,top),(east,yb,top),(east,yb,landing)],conf,GRANITE)
+    b.wall([(east,yb,landing),(east,yb,top),(east,yf-.3,top),(east,yf-.3,landing)],conf,GRANITE)
+    b.wall([(a,yb,landing),(a,yf-.35,landing),(a,yf-.35,top),(a,yb,top)],conf,GRANITE)
+    b.raw([(a,yb,top),(east,yb,top),(east,yf-.35,top),(a,yf-.35,top)],conf,GRANITE,(0,0,-1))
+    opening(b,wp);opening(b,dp)
+    old=b.decorate;b.decorate=False
+    legacy._box(b,a,yb,0,east,yf,landing,conf,TRIM)
+    # Front approach uses the right half of the arch; the left half has the
+    # low stone cheek, leaving the turn and ascending treads visible behind it.
+    ca,cc=d['cheek_x'];n=d['front_steps'];run=d['front_run']/n
+    for i in range(n):
+        h=landing*(i+1)/n;front=yf+run*(n-i)
+        legacy._box(b,a-.12,front-run,0,ca+.05,front,h,conf,TRIM)
+        legacy._box(b,a-.15,front-run,h-.045,ca+.08,front+.025,h,conf,TRIM)
+    sx0,sx1=d['stair_x'];sy0,sy1=d['stair_y'];n=d['stair_steps'];run=(sx1-sx0)/n
+    for i in range(n):
+        x=sx0+i*run;h=landing+(threshold-landing)*(i+1)/n
+        legacy._box(b,x,sy0,landing,x+run,sy1,h,conf,TRIM)
+        legacy._box(b,x-.025,sy0-.025,h-.045,x+run,sy1+.025,h,conf,TRIM)
+    legacy._box(b,ca,yf-.52,landing,cc,yf-.08,d['cheek_top'],conf,GRANITE)
+    legacy._box(b,ca-.035,yf-.55,d['cheek_top'],cc+.035,yf-.05,d['cheek_top']+.10,conf,TRIM)
+    b.decorate=old
+
+
+def west_hood(b,p,d):
+    """Timber dormer with tile cheeks and the hood generated in the roof union."""
+    from archetypes.masonry_house_v4_west_roof import height
+    r=next(r for r in p.ranges if r.get('stable_roof'))
+    a,c=d['u0'],d['u1'];front,back=d['front'],d['back'];conf=d['conf']
+    pl={'axis':'x','sign':-1,'at':front}
+    # The wide opening in sheet 3 belongs up here, above the four lower lights.
+    o={**pl,'face':'west','kind':'window','u0':a+.22,'u1':c-.22,
+       'z0':d['eave_z']-1.35,'z1':d['eave_z']-.13,'conf':conf,'style':'courtyard_sash'}
+    apron_front=r['x0']-.10
+    apron_z=height(r,apron_front,(a+c)/2)+.025
+    old=b.decorate;b.decorate=False
+    # Wooden boards around an actual aperture; no opaque panel behind the glass.
+    # The sash is set into the roof, above a steep tiled apron. A tall wooden
+    # face here falsely turns the small hood into a box rising from the eave.
+    b.decorate=old
+    legacy._two_sided_roof(b,[(apron_front,a,apron_z),(front,a,o['z0']),
+                            (front,c,o['z0']),(apron_front,c,apron_z)],conf,ROOF)
+    b.decorate=False
+    slab(b,pl,a,c,o['z1'],d['eave_z'],-.03,.03,conf,23)
+    slab(b,pl,a,o['u0'],o['z0'],o['z1'],-.03,.03,conf,23)
+    slab(b,pl,o['u1'],c,o['z0'],o['z1'],-.03,.03,conf,23)
+    for u in (a,c):
+        zf=height(r,front,u);zb=height(r,back,u)
+        b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,19,
+              (0,-1 if u==a else 1,0))
+        cheek=[(front,u,zf),(back,u,zb),(back,u,d['eave_z']),(front,u,d['eave_z'])]
+        b.raw(cheek,conf,19,(0,-1 if u==a else 1,0))
+        # Restrained overlapping tile courses on the cheeks (not masonry).
+        low=min(zf,zb);step=.13
+        for i in range(max(0,int((d['eave_z']-low)/step))):
+            zl=low+i*step;zh=min(d['eave_z'],zl+step)
+            if zh<=max(zf,zb):continue
+            at=u+(-.014 if u==a else .014)
+            b.raw([(front,at,max(zl,zf)),(back,at,max(zl,zb)),(back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
+    opening(b,o)
+    # Outward fascia, sill and small hood brackets are visible from below.
+    slab(b,pl,a-.25,c+.25,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
+    for u in (a+.1,c-.1):
+        slab(b,pl,u-.06,u+.06,d['eave_z']-.42,d['eave_z']-.08,0,.22,conf,23)
+    b.decorate=old
+
+
 def supplemental(b,p):
+    north_entry(b,p)
     g=p.detail.get('west_cross_gable')
     if g and not any(r.get('north_cross_gable') for r in p.ranges):
         lo,hi=g['u0'],g['u1'];base=min(g['eave_lo_z'],g['eave_hi_z'])
@@ -1320,7 +1410,9 @@ def supplemental(b,p):
         pts=[legacy._plane_point(g,u,z,.012) for u,z in poly]
         legacy._poly_facing(b,pts,g['conf'],GRANITE,legacy._plane_dir(g))
     d=p.detail.get('west_dormer')
-    if d:
+    if d and d.get('style')=='hipped_flared_hood':
+        west_hood(b,p,d)
+    elif d:
         a,c=d['u0'],d['u1'];mid=(a+c)/2;pl={'axis':'x','sign':-1,'at':d['front']}
         o={**pl,'face':'west','kind':'window','u0':a+.35,'u1':c-.35,'z0':d['z0']+.15,'z1':d['eave_z']-.10,'conf':d['conf']}
         b.openings.append(o)
