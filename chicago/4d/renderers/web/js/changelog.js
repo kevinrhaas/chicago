@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1285, ts: '2026-10-02T03:50:38.120Z', date: 'Oct 1, 2026, 10:50 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
+    items: [
+      'Walk down Dearborn to Washington Street. The two boarding houses there now hang boards reading MARK BEAUBIEN\u2019S and SWEET\u2019S, Boarding House beneath.',
+      'Tap either house. Its card names the keeper who lives there, Mark Beaubien or Alanson Sweet: two tavern keepers the town plan had already placed on these lots. Before, each house also had a keeper we made up, so two families answered for one roof.',
+      'The two made-up keepers, Cornelius Lynch and Alvah Stebbins, are gone, along with the six children drawn for them. The boarders in both houses are unchanged.',
+      'This is our reconstruction. No source puts either man in either house on 1 July 1835, and his own card still says where he was is not known (liberties L318 and L326).',
+    ] },
   { v: 1284, ts: '2026-10-02T02:44:49.927Z', date: 'Oct 1, 2026, 9:44 PM CT', title: 'South Water and Lake Street hang the newspapers\u2019 own firms\u2019 boards', kind: 'change',
     items: [
       'Walk South Water Street and twenty-five more houses of trade now name themselves: A. FILER & CO., JONES, KING & CO., BRIGGS & HUMPHREY and PETER COHEN among them, and more on Lake, Randolph and the cross streets. Some boards hang on brackets or under hoods, and some names are painted across the front.',

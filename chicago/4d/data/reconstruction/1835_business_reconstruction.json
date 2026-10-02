@@ -14,7 +14,8 @@
       "title": "lodging, the river and transport",
       "records": 13,
       "by_class": {
-        "other": 13
+        "other": 11,
+        "tavern": 2
       },
       "by_street": {
         "Canal Street": 1,
@@ -35,31 +36,31 @@
       "ids": [
         "rcb_bardwell_boarding_house",
         "rcb_barnes_boarding_house",
+        "rcb_beaubien_boarding_house",
         "rcb_cavanagh_boarding_house",
         "rcb_dufresne_livery_stable",
         "rcb_fitzgerald_boarding_house",
         "rcb_gilbert_boarding_house",
         "rcb_hubbard_lumber_yard",
         "rcb_leland_livery_stable",
-        "rcb_lynch_boarding_house",
         "rcb_newell_boarding_house",
         "rcb_pelletier_boarding_house",
-        "rcb_stebbins_boarding_house",
+        "rcb_sweet_boarding_house",
         "rcb_woodruff_lumber_yard"
       ],
       "proprietors_adopted": [
         "rc_bardwell_esther",
         "rc_barnes_ezra",
+        "beaubien_mark",
         "rc_cavanagh_ellen",
         "rc_dufresne_joseph",
         "rc_fitzgerald_martin",
         "rc_gilbert_benjamin",
         "rc_hubbard_asa",
         "rc_leland_warren",
-        "rc_lynch_cornelius",
         "rc_newell_lydia",
         "rc_pelletier_victoire",
-        "rc_stebbins_alvah",
+        "sweet_alanson",
         "rc_woodruff_calvin"
       ]
     },
@@ -202,8 +203,8 @@
         "standing": "reconstructed",
         "beds_ordinary": 11,
         "beds_crowded": 27,
-        "keeper_person": "rc_lynch_cornelius",
-        "firm": "rcb_lynch_boarding_house",
+        "keeper_person": "beaubien_mark",
+        "firm": "rcb_beaubien_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
         "kept_by": "this programme",
         "why_not": null
@@ -215,8 +216,8 @@
         "standing": "reconstructed",
         "beds_ordinary": 16,
         "beds_crowded": 35,
-        "keeper_person": "rc_stebbins_alvah",
-        "firm": "rcb_stebbins_boarding_house",
+        "keeper_person": "sweet_alanson",
+        "firm": "rcb_sweet_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
         "kept_by": "this programme",
         "why_not": null

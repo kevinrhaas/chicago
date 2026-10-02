@@ -2305,7 +2305,9 @@ def overlay_lodgers(out: dict[str, list[dict]]) -> None:
             "household": seat["household"],
             "name": seat["name"],
             "division": "",
-            "relation": "lodged here",
+            # T-1808: the household the placement pass seated here keeps the house.
+            "relation": ("keeps this house" if seat.get("relationship") == "keeper"
+                         else "lodged here"),
             "why": (seat.get("basis") or {}).get("note", ""),
             "sources": [],
             "basis": ("SEATED HERE, NOT RECORDED HERE. This person is one the residents "

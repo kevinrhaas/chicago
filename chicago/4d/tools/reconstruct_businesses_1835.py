@@ -63,6 +63,7 @@ STREETS = DATA / "streets" / "1835.json"
 LEDGER = DATA / "reconstruction" / "1835_business_reconstruction.json"
 LODGING_MODEL = DATA / "reconstruction" / "1835_lodging_model.json"
 LODGERS = DATA / "residents" / "lodgers"
+HOUSEHOLDS = DATA / "residents" / "households"
 VESSELS_IN_PORT = DATA / "reconstruction" / "1835_vessels_in_port.json"
 
 PROGRAMME = "chicago_1835_business_reconstruction"
@@ -1214,6 +1215,27 @@ def roof_keepers(root=None):
         doc = load_json(path)
         block = doc.get("lodging_household") or {}
         head = next((p for p in doc.get("persons", []) if p.get("id") == doc.get("head")), None)
+        kept = block.get("kept_by")
+        if block.get("place") and head is None and kept:
+            # T-1808. A house the platted deal keeps names its keeper's OWN household
+            # card, which is where that person stands; the lodging card holds only the
+            # boarders. Adopted from that card, exactly as a drawn head is from this one.
+            card = load_json(HOUSEHOLDS / ("%s.json" % kept["household"]))
+            keeper = next((p for p in card.get("persons", [])
+                           if p.get("id") == kept["person"]), None)
+            if keeper is not None:
+                out[block["place"]] = {
+                    "household_id": card["id"],
+                    "person_id": keeper["id"],
+                    "name": keeper["name"],
+                    "sex": keeper.get("sex"),
+                    "division": card["division"],
+                    "community": (keeper.get("reconstruction") or {}).get("community"),
+                    "by": kept.get("by"),
+                    "occupation": (keeper.get("occupation") or {}).get("value")
+                    if isinstance(keeper.get("occupation"), dict) else keeper.get("occupation"),
+                }
+            continue
         if not block.get("place") or head is None:
             continue
         out[block["place"]] = {
@@ -1287,23 +1309,41 @@ def record_for_roof(group, bucket, place, ordinal, communities):
         "to": None,
         "tier": "reconstructed",
         "basis": (
-            "ADOPTED, NOT MINTED. %s is the keeper the lodgers stage (T-1371) drew for this "
-            "house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; "
-            "that card reads the trade off the building it stands in and heads %s. One "
-            "quota, filled once: this record is the house they keep, not a second person."
+            ("ADOPTED, NOT MINTED. %s heads %s, which the placement pass seated on this roof "
+             "under a keeper clause (L270); the lodgers stage reads that seat as the house's "
+             "keeper and draws none (T-1808), printed in "
+             "data/reconstruction/1835_lodgers_seated.json § keepers. No source puts them in "
+             "this house on 1 July 1835. One quota, filled once: this record is the house "
+             "they keep, not a second person."
+             if keeper.get("by") == "platted_seat" else
+             "ADOPTED, NOT MINTED. %s is the keeper the lodgers stage (T-1371) drew for this "
+             "house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; "
+             "that card reads the trade off the building it stands in and heads %s. One "
+             "quota, filled once: this record is the house they keep, not a second person.")
             % (keeper["name"], keeper["household_id"])),
         "source_id": None,
         "claim_ids": [],
     }
+
+    # T-1808. A KEEPER THE PLACEMENT PASS SEATED KEEPS THEIR OWN TRADE'S CENSUS CLASS.
+    # Mark Beaubien and Alanson Sweet are tavern keepers on their own cards, and the
+    # in-window trade pass classed each one's house `tavern` while it could place
+    # neither. This roof is now the house they keep, so it answers that firm and that
+    # pass retires it; the class moves with the man rather than being re-ruled `other`
+    # for a placement reason. The trade and the occupation stay the building's — what
+    # the house is and what its board says. A drawn keeper keeps `other`.
+    census_type, trade, occupation = spec["type"], spec["trade"], spec["occupation"]
+    if keeper.get("by") == "platted_seat" and keeper.get("occupation") == "tavern_keeper":
+        census_type = "tavern"
 
     record = {
         "id": "rcb_%s_boarding_house" % surname.lower().replace("'", "").replace(".", ""),
         "register_id": None,
         "name": name,
         "provenance": "reconstructed",
-        "type": [spec["type"]],
-        "trade": spec["trade"],
-        "occupation": spec["occupation"],
+        "type": [census_type],
+        "trade": trade,
+        "occupation": occupation,
         "goods": [],
         "firm_styles": [],
         "proprietors": [proprietor],

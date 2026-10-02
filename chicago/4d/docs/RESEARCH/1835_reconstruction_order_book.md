@@ -9,10 +9,10 @@
 |---|---:|---:|---:|
 | Persons | 2,543 | 1,402 | 1,543 |
 | Households | 644 | 82 | 564 |
-| Businesses (enumerated classes) | 109 | 130 | 7 |
+| Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 525 | 159 |
 
-**2,381 people stand in the layer today** and **268** are still owed after the counters, so the town this book converges to is **2,649** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,381 people stand in the layer today** and **276** are still owed after the counters, so the town this book converges to is **2,657** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,381 standing plus 268 still owed is 2,649, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 106 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,381 standing plus 276 still owed is 2,657, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 114 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -107,9 +107,9 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **A move is not** a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).
 
-396 held head(s) stand across 45 refused bucket(s), and 268 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
+396 held head(s) stand across 45 refused bucket(s), and 276 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
 
-**129 move(s) have been made**, carrying 0 adoption(s) out of 39 bucket(s) and into 41. The book is owed 268 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
+**129 move(s) have been made**, carrying 0 adoption(s) out of 39 bucket(s) and into 41. The book is owed 276 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
@@ -338,8 +338,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1174 | 680 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 295 | 19 |
-| T-1371 | 113 | 33 |
-| T-1533 | 22 | 5 |
+| T-1371 | 111 | 31 |
+| T-1533 | 16 | 3 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
 | T-1418 | 1 | 1 |
@@ -496,14 +496,14 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/under_10/north/family/none` | 55 | 29 | 41 | 41 | T-1174 |
 | `persons/female/under_10/north/lodging/none` | 19 | 11 | 8 | 8 | T-1536 |
 | `persons/female/under_10/south/family/none` | 132 | 75 | 100 | 100 | T-1174 |
-| `persons/female/under_10/south/lodging/none` | 46 | 26 | 20 | 14 | T-1536 |
+| `persons/female/under_10/south/lodging/none` | 46 | 26 | 20 | 11 | T-1536 |
 | `persons/female/under_10/west/family/none` | 49 | 26 | 34 | 34 | T-1174 |
 | `persons/female/under_10/west/lodging/none` | 17 | 9 | 8 | 4 | T-1536 |
 | `persons/male/10_19/north/family/none` | 37 | 20 | 28 | 28 | T-1174 |
 | `persons/male/10_19/north/lodging/trade` | 0 | 0 | 1 | 1 | T-1532 |
 | `persons/male/10_19/north/lodging/none` | 13 | 7 | 6 | 4 | T-1536 |
 | `persons/male/10_19/south/family/none` | 88 | 49 | 65 | 65 | T-1174 |
-| `persons/male/10_19/south/lodging/trade` | 7 | 0 | 7 | 1 | T-1532 |
+| `persons/male/10_19/south/lodging/trade` | 7 | 0 | 7 | 0 | T-1532 |
 | `persons/male/10_19/south/lodging/none` | 24 | 18 | 6 | 4 | T-1536 |
 | `persons/male/10_19/west/family/none` | 33 | 18 | 23 | 23 | T-1174 |
 | `persons/male/10_19/west/lodging/trade` | 0 | 0 | 1 | 1 | T-1532 |
@@ -538,7 +538,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/40_49/north/lodging/none` | 3 | 1 | 2 | 2 | T-1538 |
 | `persons/male/40_49/south/family/trade` | 12 | 7 | 9 | 9 | T-1347 |
 | `persons/male/40_49/south/family/none` | 24 | 13 | 11 | 0 | T-1171 |
-| `persons/male/40_49/south/lodging/trade` | 4 | 2 | 2 | 2 | T-1532 |
+| `persons/male/40_49/south/lodging/trade` | 4 | 2 | 2 | 1 | T-1532 |
 | `persons/male/40_49/south/lodging/none` | 9 | 6 | 3 | 1 | T-1538 |
 | `persons/male/40_49/west/family/trade` | 4 | 2 | 3 | 3 | T-1347 |
 | `persons/male/40_49/west/family/none` | 9 | 5 | 4 | 0 | T-1171 |
@@ -559,7 +559,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/under_10/north/family/none` | 62 | 34 | 44 | 44 | T-1174 |
 | `persons/male/under_10/north/lodging/none` | 22 | 12 | 10 | 10 | T-1536 |
 | `persons/male/under_10/south/family/none` | 148 | 84 | 109 | 109 | T-1174 |
-| `persons/male/under_10/south/lodging/none` | 52 | 30 | 22 | 20 | T-1536 |
+| `persons/male/under_10/south/lodging/none` | 52 | 30 | 22 | 17 | T-1536 |
 | `persons/male/under_10/west/family/none` | 55 | 29 | 34 | 34 | T-1174 |
 | `persons/male/under_10/west/lodging/none` | 19 | 10 | 9 | 9 | T-1536 |
 | `persons/garrison/fort` | — | 2 | — | 0 | T-1176 |
@@ -599,7 +599,7 @@ The households the model wants, by kind and division.
 The December 1835 State census set against the register the town already holds.
 
 - `register_total`: 196
-- `at_scene_date`: 210
+- `at_scene_date`: 208
 - `census_enumerated_total`: 118
 - `register_businesses_read`: 196
 - `division_note`: EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY, and that is a reading rather than a hole: the register carries a street where the paper printed one and no division at all, and assigning premises to a division is T-1182's audit and T-1198's seating. The key carries the axis so those tickets fill it rather than re-cut the book.
@@ -623,7 +623,7 @@ The December 1835 State census set against the register the town already holds.
 | `businesses/steam_saw_mill` | 1 | 2 | 0 | 0 | T-1187 |
 | `businesses/storage_and_forwarding` | 4 | 7 | 0 | 0 | T-1187 |
 | `businesses/store` | 44 | 65 | 0 | 0 | T-1184 |
-| `businesses/tavern` | 8 | 11 | 0 | 0 | T-1187 |
+| `businesses/tavern` | 8 | 9 | 0 | 0 | T-1187 |
 | `businesses/tin_and_copper_manufactory` | 2 | 4 | 0 | 0 | T-1185 |
 
 ## Structures
@@ -650,9 +650,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-1202 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
-| `structures/larger_boarding_houses/south` | 28 | 19 | 9 | 0 | T-1810 |
-| `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 0 | T-1810 |
-| `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1810 |
+| `structures/larger_boarding_houses/south` | 28 | 19 | 9 | 0 | T-1951 |
+| `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 0 | T-1953 |
+| `structures/larger_boarding_houses/north` | 8 | 7 | 1 | 0 | T-1952 |
 | `structures/ordinary_dwellings/south` | 176 | 126 | 50 | 0 | T-1758 |
 | `structures/ordinary_dwellings/west` | 75 | 59 | 16 | 0 | T-1829 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1746 |
@@ -711,13 +711,13 @@ The streets, terrain and lots a structure bucket waits on.
 
 ## Where the model and the roof programme disagree
 
-The book carries THE MODEL. Every difference is listed here for T-1196, which re-cuts the 668-roof schedule against it. `programme groups` names the `district_group_matrix` groups summed on the programme side; a row marked NOT A CHECK reads its model figure off those same groups and therefore cannot disagree (2 of 5 do).
+The book carries THE MODEL. Every difference is listed here for T-1196, which re-cuts the 668-roof schedule against it. `programme groups` names the `district_group_matrix` groups summed on the programme side; a row marked NOT A CHECK reads its model figure off those same groups and therefore cannot disagree (3 of 5 do).
 
 | | model | programme | delta | programme groups |
 |---|---:|---:|---:|---|
 | **households_against_dwellings** — The household model wants 644 households and the programme schedules 335 ordinary dwellings (335-377 in the model's own reading). More than one household to a roof is the resolution the census's own 8.204 people per dwelling implies; T-1196 re-cuts the schedule to say how many. | 644 | 335 | +309 | `ordinary_dwellings` |
 | **boarding_houses** — NOT A CHECK: the model's 42 larger boarding houses ARE district_group_matrix.larger_boarding_houses — model_town_1835.build_lodging reads the figure straight off the roof programme — so this row cannot disagree, and its zero says nothing about whether 42 is the right number of boarding roofs. An independent count is owed to T-1196 with the re-cut. | 42 | 42 | +0 | `larger_boarding_houses` |
-| **inns_and_taverns** — The model reads 11-11 inns and taverns; the programme schedules 10. This one is a real disagreement: the model's ceiling is the business layer's count at the scene date, not a figure read back off the programme. | 11 | 10 | +1 | `inns_taverns` |
+| **inns_and_taverns** — NOT A CHECK: the model reads 9-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again (T-1808). | 10 | 10 | +0 | `inns_taverns` |
 | **institutional_and_public** — NOT A CHECK: the model reads 9-19 institutional and public roofs — 9 outside the fort and 10 principal roofs inside it — and the programme schedules those same two groups, institutional_public (9) and fort_principal (10), for 19. Both ends of the model are read off that matrix, so the row cannot disagree. Until T-1439 it reported a delta of ten by taking the fort's roofs on the model's side and not on the programme's, which is the schedule charged for ten roofs it already had. | 19 | 19 | +0 | `institutional_public`, `fort_principal` |
 | **people_per_roof** — 2,543 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings. | 2,543 | 668 | +0 | — |
 
