@@ -475,8 +475,9 @@ def make_record(row: list, datum: dict) -> dict:
                 "confidence": "reconstructed",
                 "note": f"A {width:.2f} × {depth:.2f} m rectangle sampled deterministically inside the {family} family's authored footprint band in the reconstruction specification; no individual dimensions are documented."
             },
-            "form": form_for(family, spec, sid, int(seq), paint,
-                             archetype_for(family), width, depth),
+            "form": fabric_rule_1835.apply_form(
+                form_for(family, spec, sid, int(seq), paint, archetype_for(family),
+                         width, depth), fabric),
             "change_note": "Reconstructed anonymous July 1835 North Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
         "function": inferred(function, f"Assigned from the {family} family to satisfy the aggregate North Division mix; no occupant or individual use is known."),

@@ -1141,7 +1141,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
                 "confidence": "reconstructed",
                 "note": f"A {width:.2f} × {depth:.2f} m rectangle sampled deterministically inside the {family} family's authored footprint band; no individual dimensions are documented."
             },
-            "form": form_for(family, spec, sid, width, depth, paint),
+            "form": fabric_rule_1835.apply_form(
+                form_for(family, spec, sid, width, depth, paint), fabric),
             "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
         "function": invented(function, f"Assigned from the {family} family to satisfy the block's scheduled mix; no occupant or individual use is known."),

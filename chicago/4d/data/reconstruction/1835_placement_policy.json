@@ -539,7 +539,83 @@
       "established"
     ],
     "white_paint": "the Sauganash's alone — no class deals it",
-    "liberty": "L330"
+    "liberty": "L330",
+    "form": {
+      "ticket": "T-1817",
+      "construction_by_age": {
+        "new": "balloon_frame",
+        "recent": "balloon_frame",
+        "established": "braced_frame",
+        "older_frontier": "braced_frame"
+      },
+      "frame_archetypes": [
+        "frame_dwelling",
+        "frame_storefront",
+        "frame_tavern"
+      ],
+      "porch_and_shutters_by_class": {
+        "merchant": {
+          "porch": [
+            [
+              "roofed",
+              0.75
+            ],
+            [
+              "stoop",
+              1.0
+            ]
+          ],
+          "shutters": {
+            "share": 0.6,
+            "colours": [
+              "green",
+              "green",
+              "black"
+            ]
+          },
+          "why": "the house money built faced the street with a roofed porch over the door and hung board shutters at most of its windows"
+        },
+        "keeper": {
+          "porch": [
+            [
+              "roofed",
+              1.0
+            ]
+          ],
+          "shutters": {
+            "share": 0.3,
+            "colours": [
+              "green"
+            ]
+          },
+          "why": "a house that took in the public sheltered its door, and a few hung shutters"
+        },
+        "tradesman": {
+          "porch": [
+            [
+              "stoop",
+              0.6
+            ]
+          ],
+          "shutters": {
+            "share": 0.0,
+            "colours": []
+          },
+          "why": "a plank stoop at the door on most, and no shutters"
+        },
+        "labourer": {
+          "porch": [],
+          "shutters": {
+            "share": 0.0,
+            "colours": []
+          },
+          "why": "neither porch nor shutters: the door opens onto the ground"
+        }
+      },
+      "never_moved": "an attested or inferred value, and any construction that is not a frame",
+      "not_dealt": "glazing (one window arrangement, L23), cladding, trim, siding stock (T-0112)",
+      "liberty": "L338"
+    }
   },
   "clauses": [
     {

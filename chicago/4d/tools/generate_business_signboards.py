@@ -72,7 +72,10 @@ sign iff
      words: *never invent business, sign text or goods for an anonymous slot*. An
      anonymous roof dealt a trade by a schedule has no proprietor to announce, and now
      that the boards carry NAMES the clause matters more than it did when they were
-     blank: there would be no name to paint;
+     blank: there would be no name to paint — EXCEPT, SINCE T-1834, a
+     reconstructed roof the business layer records a reconstructed firm IN: that roof
+     is not anonymous any more, its card names the firm, and the firm's own style is
+     what the board letters (RECON_FIRM_TRADE and `_recon_wording`, below);
   2. its `function` is a trade this project will announce. Two classes of them now:
      a PUBLIC TRADE, whose customer was a stranger arriving on foot off the street (a
      public house, a lodging house, a shop counter, the auction room, the printing
@@ -82,7 +85,9 @@ sign iff
      nobody walked. Stables, churches, schools, the court-house, the jail, the agency
      house and the fort stay outside both lists;
   3. that function is `attested` or `inferred`. A `reconstructed` trade gets no sign —
-     inventing a sign for an invented business is invention squared;
+     inventing a sign for an invented business is invention squared — and T-1834 makes the
+     one exception clause 1 makes, for the same firms, graded `reconstructed` on the
+     board, the trade and the wording alike, and claimed at docs/LIBERTIES.md L340;
   4. it is standing on the scene date (it is in `data/sidecars/1835/index.json`);
   5. it does not already carry a sign. One record does, and duplicating it would put
      two boards on the Wolf Point Tavern;
@@ -125,6 +130,8 @@ wall. That test is `data/streets/1835.json`'s, the same one
 
     python3 tools/generate_business_signboards.py            write the record
     python3 tools/generate_business_signboards.py --check    re-derive and diff
+    python3 tools/generate_business_signboards.py --prove-recon-yields
+                                     the evidenced boards never move for an invented one
 """
 
 from __future__ import annotations
@@ -972,6 +979,99 @@ SIGN_WORDING = {
 # What a wording may be graded. `attested` is deliberately absent: see PENDING.
 WORDING_GRADES = {"inferred", "reconstructed"}
 
+# --- THE RECONSTRUCTED FIRMS' BOARDS (T-1834, piece 1 of T-1213) --------------
+#
+# CLAUSES 1 AND 3 STOOD ON A FACT THAT IS NO LONGER TRUE. They refused a board to any
+# `recon_*` roof because "an anonymous roof dealt a trade by a schedule has no
+# proprietor to announce", and to any reconstructed trade because a sign for it "would
+# be an invention resting on an invention". Since T-1187/T-1190 the business layer
+# records reconstructed HOUSES OF TRADE inside some of those roofs — a keeper, a firm
+# style written to T-1184's guide (docs/RESEARCH/business-naming-1835.md), and a card a
+# visitor opens. The roof is no longer anonymous: it has a proprietor, and the card
+# already names him or her. And the owner ruled in August that signs are fine as
+# reconstructions (T-0066). So a roof the business layer records a reconstructed firm IN
+# (`where.kind: premises`, present on the scene date) now takes a board, and one
+# without such a firm is still refused under clause 1, in words.
+#
+# THE WORDING IS THE FIRM'S OWN STYLE, SPLIT AT ITS JOINT, and never typed here. T-1184
+# gave each firm one of the register's six forms, and two of them reach these roofs:
+# the sole trader ("Lemuel Lyman, blacksmith shop" — proprietor, comma, trade) and the
+# keeper's possessive ("Bardwell's boarding house"). The proprietor half is line 1,
+# lettered large; the trade half is line 2; the street the firm stands on is line 3
+# where the mounting has room. Nothing is added to the firm's own words, so the board
+# cannot say more than the card the tap opens — which leads with this firm
+# (`popup.js`, `fromSign`). The identity is the proprietor's surname off the firm's own
+# people list, and `_sign_wording` refuses unless it is in both.
+#
+# THE TRADE IS THE FIRM'S, NOT THE ROOF'S. A reconstructed boarding house stands in an
+# H-family roof whose `function` is a size (`medium_boarding_house`), which neither set
+# above names — and adding the size terms to PUBLIC_TRADES would move the frontage
+# layer, which imports that set. So the firm's `occupation` picks the trade the board
+# is hung for, and an occupation not in this table hangs no board and says so.
+RECON_FIRM_TRADE = {
+    "boarding_house_keeper": "boarding_house",
+    "grocer": "grocery_and_provision_store",
+    "blacksmith": "blacksmith_shop",
+    "carpenter": "carpenter_or_joiner_shop",
+}
+BUSINESSES = DATA / "businesses" / "index.json"
+RECON_SMALL_WORDS = {"and", "of", "the", "at", "in", "on"}
+
+
+def _recon_firms() -> dict:
+    """The reconstructed firms the business layer records IN a roof, by roof id."""
+    out: dict[str, list] = {}
+    for f in _load(BUSINESSES).get("businesses", []):
+        where = f.get("where") or {}
+        if f.get("provenance") != "reconstructed" or where.get("kind") != "premises":
+            continue
+        if not f.get("present_at_scene_date"):
+            continue
+        out.setdefault(where.get("structure_id"), []).append(f)
+    for firms in out.values():
+        firms.sort(key=lambda f: f["id"])
+    return out
+
+
+def _period_case(words: str) -> str:
+    return " ".join(w if w.lower() in RECON_SMALL_WORDS else w[:1].upper() + w[1:]
+                    for w in words.split())
+
+
+def _recon_wording(firm: dict) -> dict | None:
+    """A SIGN_WORDING entry for a reconstructed firm, out of its own style, or None
+    where the style has no joint to split at (neither form T-1184 gave these roofs)."""
+    style = firm["name"]
+    if ", " in style:
+        who, trade, form = *style.split(", ", 1), "the sole trader's (T-1184 form 1)"
+    elif "'s " in style:
+        head, trade = style.split("'s ", 1)
+        who, form = head + "'s", "the keeper's possessive (T-1184 form 5)"
+    else:
+        return None
+    keepers = [p for p in firm.get("people") or [] if p.get("role") == "proprietor"]
+    if not keepers:
+        return None
+    surname = keepers[0]["name"].split()[-1]
+    entry = {
+        "name": who.upper(), "trade": _period_case(trade), "identity": surname,
+        "grade": "reconstructed",
+        "why": (
+            f"A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer "
+            f"records {firm['name']} ({firm['id']}) in this roof, a reconstructed house "
+            f"of trade with no advertisement, because the firm itself is reconstructed. "
+            f"Its style is {form}, written to the register's own forms by T-1184 "
+            f"(docs/RESEARCH/business-naming-1835.md); the board letters the proprietor "
+            f"half large and the trade half beneath, and adds nothing the firm's record "
+            f"does not say. Tap the board and the card leads with the same firm. "
+            f"Reconstructed: no source records this house, its keeper or its board "
+            f"(docs/LIBERTIES.md L340)."),
+    }
+    street = (firm.get("where") or {}).get("street")
+    if street:
+        entry["place"] = street
+    return entry
+
 # Clause 6, added 2026-08-18 with ticket T-0082 and kept by T-0066. A frontage whose OWN
 # reference view shows a board on a POST at the corner does not also get a second board
 # hung on its wall by this rule. The Green Tree is the only one: images 6 and 7 of the
@@ -1265,6 +1365,36 @@ def _neighbours_differ(signs: list) -> list:
                           % (p["a"], p["b"], p["gap_m"], p["share"], p["value"])
                           for p in broken)))
     return pairs
+
+
+def _prove_recon_yields() -> int:
+    """THE EVIDENCED BOARDS NEVER YIELD TO A RECONSTRUCTED FIRM'S (T-1834).
+
+    Re-derives the town with no reconstructed firm admitted and holds every board the
+    evidence carries — every board not hung for a firm `_recon_firms` supplies — against
+    the full build, byte for byte. A difference is a named board that moved, changed
+    style or changed what it says because an invented firm stood near it, which is the
+    one thing extending the rule to reconstructed roofs was not allowed to do.
+    """
+    full = {s["structure_id"]: s for s in build_record()[0]}
+    original = _recon_firms
+    globals()["_recon_firms"] = lambda: {}
+    try:
+        bare = {s["structure_id"]: s for s in build_record()[0]}
+    finally:
+        globals()["_recon_firms"] = original
+    added = sorted(set(full) - set(bare))
+    moved = sorted(k for k in bare if full.get(k) != bare[k])
+    print(f"recon yield: {len(bare)} evidenced board(s), {len(added)} reconstructed "
+          f"firm board(s) added")
+    for k in moved:
+        print(f"  MOVED {k}: an evidenced board changed when the reconstructed firms "
+              "were admitted")
+    if moved or any(not k.startswith("recon_") for k in added):
+        print("RECON YIELD FAILED")
+        return 1
+    print("recon yield: every evidenced board is byte-identical with and without them")
+    return 0
 
 
 def _prove_locality() -> int:
@@ -1668,7 +1798,7 @@ def _norm(s: str) -> str:
     return "".join(ch for ch in s.upper() if ch.isalnum())
 
 
-def _sign_wording(sid: str, name: str, mounting: str) -> dict:
+def _sign_wording(sid: str, name: str, mounting: str, entry: dict | None = None) -> dict:
     """What is lettered on THIS board, and why it is not the record's own name.
 
     THE TWO OBJECTS ARE DIFFERENT AND T-0066 COLLAPSED THEM. A record's `name` is this
@@ -1682,7 +1812,7 @@ def _sign_wording(sid: str, name: str, mounting: str) -> dict:
     not word would otherwise quietly go back to carrying the museum caption, which is the
     exact defect this replaced.
     """
-    entry = SIGN_WORDING.get(sid)
+    entry = entry or SIGN_WORDING.get(sid)
     if entry is None:
         raise SystemExit(
             f"SIGN WORDING MISSING: {sid} is selected for a board and "
@@ -1753,6 +1883,7 @@ def _candidates() -> tuple[list, list]:
     standing = [s["id"] for s in index.get("structures", [])]
     picked: list[dict] = []
     refused: list[dict] = []
+    recon_firms = _recon_firms()
 
     for sid in standing:
         sc_path = SIDECARS / f"{sid}.json"
@@ -1762,18 +1893,46 @@ def _candidates() -> tuple[list, list]:
         attrs = sc.get("attributes") or {}
         fn = attrs.get("function") or {}
         trade = fn.get("value")
-        if trade not in PUBLIC_TRADES and trade not in WORKS_TRADES:
-            continue                                            # clause 2
-        name = sc.get("name") or ""
-        if sid.startswith(("inf_", "recon_")) or name.startswith("Reconstructed"):
+        wording = None
+        firms = recon_firms.get(sid) if sid.startswith("recon_") else None
+        if firms:
+            # T-1834: a reconstructed roof with a reconstructed firm IN it. The firm's
+            # trade and the firm's name stand in for the roof's, and the board is
+            # graded as what it is — an invention resting on an invention, declared.
+            firm = firms[0]
+            trade = RECON_FIRM_TRADE.get(firm.get("occupation"))
+            if trade is None:
+                refused.append({"structure_id": sid, "trade": fn.get("value"), "why": (
+                    f"the firm the business layer records in this roof, {firm['name']} "
+                    f"({firm['id']}), keeps a trade — {firm.get('occupation')} — that "
+                    "RECON_FIRM_TRADE does not hang a board for. Add the occupation "
+                    "there with the trade it is hung as, or leave the wall blank.")})
+                continue                                        # T-1834
+            wording = _recon_wording(firm)
+            if wording is None:
+                refused.append({"structure_id": sid, "trade": trade, "why": (
+                    f"{firm['name']} ({firm['id']}) is styled in neither form a "
+                    "reconstructed firm's board is split from — proprietor, comma, "
+                    "trade, or the keeper's possessive — or names no proprietor, so "
+                    "there is no line 1 to letter without writing one here.")})
+                continue                                        # T-1834
+            name, grade = firm["name"], "reconstructed"
+        else:
+            if trade not in PUBLIC_TRADES and trade not in WORKS_TRADES:
+                continue                                        # clause 2
+            name = sc.get("name") or ""
+        if wording is None and (sid.startswith(("inf_", "recon_"))
+                                or name.startswith("Reconstructed")):
             refused.append({"structure_id": sid, "trade": trade, "why": (
                 "an anonymous slot. The archetype tables' own rule — never invent "
                 "business, sign text or goods for an anonymous slot — and this record "
                 "keeps it. Now that a board carries a NAME there is not even one to "
-                "paint.")})
+                "paint. (T-1834 hangs a board on a reconstructed roof only where the "
+                "business layer records a firm IN it, and it records none here.)")})
             continue                                            # clause 1
-        grade = fn.get("confidence")
-        if grade not in TRADE_GRADES:
+        if wording is None:
+            grade = fn.get("confidence")
+        if wording is None and grade not in TRADE_GRADES:
             refused.append({"structure_id": sid, "trade": trade, "why": (
                 f"the trade itself is {grade}. A sign for a business this project "
                 "reconstructed would be an invention resting on an invention.")})
@@ -1802,7 +1961,8 @@ def _candidates() -> tuple[list, list]:
                 "would be this layer duplicating the only real one.")})
             continue                                            # clause 5
 
-        if trade in WORKS_TRADES and not ("'s" in name or "&" in name):
+        if wording is None and trade in WORKS_TRADES \
+                and not ("'s" in name or "&" in name):
             refused.append({"structure_id": sid, "trade": trade, "why": (
                 f"'{name}' carries no proprietor — no possessive and no ampersand. A "
                 "works painted WHOSE it was, and this project names this building by a "
@@ -1827,9 +1987,15 @@ def _candidates() -> tuple[list, list]:
             "sc": sc, "place": place, "poly": poly,
             "u0": u0, "u1": u1, "vmax": vmax,
             "cls": TRADE_CLASS[trade],
+            "wording": wording,
         })
 
-    picked.sort(key=lambda c: c["sid"])
+    # THE EVIDENCED BOARDS DEAL FIRST (T-1834). A board de-conflicts against the boards
+    # dealt before it, so a reconstructed firm's board taken in id order could move a
+    # named board it stands within NEIGHBOUR_M of. Dealing every reconstructed firm
+    # after every named frontage means the boards the evidence carries never yield to
+    # one this file invented, and the self-test holds the named ones byte-identical.
+    picked.sort(key=lambda c: (c["wording"] is not None, c["sid"]))
     refused.sort(key=lambda r: r["structure_id"])
     return picked, refused
 
@@ -2022,7 +2188,7 @@ def build_record() -> tuple[list, list, list]:
         # A signwriter letters what fits, so the wording is resolved AFTER the mounting
         # rather than before it: a plank swinging over a footway takes the man and his
         # trade, and a name painted across a whole front has room for his street too.
-        word = _sign_wording(sid, cand["name"], mounting)
+        word = _sign_wording(sid, cand["name"], mounting, cand["wording"])
         text = word["text"]
         n_lines = len(word["lines"])
         longest = max(len(ln["text"]) for ln in word["lines"])
@@ -2379,9 +2545,14 @@ def record(signs: list, refused: list, separation: list) -> dict:
                 "reconstructed, standing on the scene date, no sign on the record "
                 "already, no named board already standing on a post at its corner on "
                 "the frontage layer, and (for a works only) a proprietor in its own "
-                "name. Read the clauses and their reasons in "
-                "tools/generate_business_signboards.py."
+                "name. AND, SINCE T-1834, a reconstructed roof the business layer "
+                "records a reconstructed firm IN: its board letters that firm's own "
+                "style, its trade is the firm's (`recon_firm_trades`), every grade on "
+                "it is `reconstructed`, and it is dealt after every named frontage so "
+                "it can move none of them (docs/LIBERTIES.md L340). Read the clauses "
+                "and their reasons in tools/generate_business_signboards.py."
             ),
+            "recon_firm_trades": RECON_FIRM_TRADE,
             "public_trades": sorted(PUBLIC_TRADES),
             "works_trades": sorted(WORKS_TRADES),
             "mounting_cycles": MOUNTING_CYCLE,
@@ -2503,7 +2674,12 @@ def main() -> int:
     ap.add_argument("--prove-locality", action="store_true",
                     help="withhold each board in turn and prove that admitting one "
                          "frontage reaches no board further off than NEIGHBOUR_M")
+    ap.add_argument("--prove-recon-yields", action="store_true",
+                    help="re-derive without the reconstructed firms and prove every "
+                         "evidenced board is byte-identical (T-1834)")
     args = ap.parse_args()
+    if args.prove_recon_yields:
+        return _prove_recon_yields()
     if args.prove_locality:
         return _prove_locality()
     signs, refused, separation = build_record()

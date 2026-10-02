@@ -84,7 +84,7 @@
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H1 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
         },
         "plan": {
           "value": "centre_passage",
@@ -126,6 +126,22 @@
           ],
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. It is the H3 boarding house's stove ratio (L318) carried to the small house the lodging model also counts as a boarding house; the count indicates capacity and is not a recovered interior plan, and docs/LIBERTIES.md (L325) owns the carry."
         },
+        "porch": {
+          "value": "stoop",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: merchant class — the house money built faced the street with a roofed porch over the door and hung board shutters at most of its windows (rule FORM-P)."
+        },
+        "shutters": {
+          "value": "green",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: merchant class — the house money built faced the street with a roofed porch over the door and hung board shutters at most of its windows (rule FORM-S)."
+        },
         "siding_exposure_m": {
           "value": 0.14,
           "confidence": "reconstructed",
@@ -159,7 +175,7 @@
       "class": "merchant",
       "by": "type",
       "household": null,
-      "words": "whitewashed clapboard under a new roof — a larger one-and-a-half-story house, new-built (rule F-M: a merchant's or professional man's by its type)"
+      "words": "whitewashed clapboard on a balloon frame, green shutters and a stoop, under a new roof — a larger one-and-a-half-story house, new-built (rule F-M: a merchant's or professional man's by its type)"
     },
     "capacity": {
       "beds_ordinary": 7,
