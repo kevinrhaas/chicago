@@ -93,12 +93,12 @@
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the C3 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
     },
     "construction": {
-      "value": "braced_frame",
+      "value": "balloon_frame",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the C3 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "cladding": {
       "value": "clapboard",
@@ -247,7 +247,7 @@
       "class": "merchant",
       "by": "type",
       "household": null,
-      "words": "ochre-washed clapboard under a new roof — a narrow two-story store, a year old (rule F-M: a merchant's or professional man's by its type)"
+      "words": "ochre-washed clapboard on a balloon frame under a new roof — a narrow two-story store, a year old (rule F-M: a merchant's or professional man's by its type)"
     }
   }
 }

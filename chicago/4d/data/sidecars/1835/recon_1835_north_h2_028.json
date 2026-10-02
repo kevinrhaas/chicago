@@ -85,12 +85,12 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous North Division instance."
     },
     "construction": {
-      "value": "braced_frame",
+      "value": "balloon_frame",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous North Division instance."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "paint": {
       "value": "red",
@@ -156,8 +156,8 @@
   },
   "residents": [
     {
-      "household": "hh_beaubien_archange",
-      "name": "Archange Beaubien",
+      "household": "hh_cook_thomas",
+      "name": "Thomas Cook",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -165,7 +165,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Archange Beaubien",
+          "name": "Thomas Cook",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -175,8 +175,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_derocher_jean_baptiste",
-      "name": "Jean Baptiste Derocher",
+      "household": "hh_glaumbake_frank",
+      "name": "Frank Glaumbake",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -184,7 +184,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Jean Baptiste Derocher",
+          "name": "Frank Glaumbake",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -194,8 +194,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_holsman_george",
-      "name": "George Holsman",
+      "household": "hh_laird_william",
+      "name": "William Laird",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -203,7 +203,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "George Holsman",
+          "name": "William Laird",
           "relationship": "boarder",
           "grade": "attested",
           "occupation": "",
@@ -217,7 +217,7 @@
       "name": "The lodgers of Reconstructed H2 medium boarding house #028",
       "division": "north",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 25 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
       "sources": [],
       "basis": "BEDS, AND ONE FAMILY. 5 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 2 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
       "persons": [
@@ -274,27 +274,27 @@
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
-      "household": "hh_merrill_george_w",
-      "name": "George W Merrill",
+      "household": "hh_rc_stiles_abigail",
+      "name": "Abigail Stiles",
       "division": "",
       "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at domestic in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
       "sources": [],
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "George W Merrill",
+          "name": "Abigail Stiles",
           "relationship": "boarder",
-          "grade": "attested",
-          "occupation": "",
+          "grade": "reconstructed",
+          "occupation": "domestic",
           "note": ""
         }
       ],
       "research_note": ""
     },
     {
-      "household": "hh_shatttuck_walter",
-      "name": "Walter Shatttuck",
+      "household": "hh_roberts_edmund",
+      "name": "Edmund Roberts",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -302,7 +302,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Walter Shatttuck",
+          "name": "Edmund Roberts",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -312,8 +312,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_wright_robert_c",
-      "name": "Robert C Wright",
+      "household": "hh_trowbridge_g_g",
+      "name": "G G Trowbridge",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -321,9 +321,9 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Robert C Wright",
+          "name": "G G Trowbridge",
           "relationship": "boarder",
-          "grade": "attested",
+          "grade": "inferred",
           "occupation": "",
           "note": ""
         }
@@ -379,15 +379,15 @@
       "class": "merchant",
       "by": "type",
       "household": null,
-      "words": "red-painted clapboard under a new roof — a merchant's or professional house, new-built (rule F-M: a merchant's or professional man's by its type)"
+      "words": "red-painted clapboard on a balloon frame under a new roof — a merchant's or professional house, new-built (rule F-M: a merchant's or professional man's by its type)"
     },
     "capacity": {
       "beds_ordinary": 11,
-      "beds_crowded": 27,
+      "beds_crowded": 25,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_north_h2_028]",
       "sizes": {
-        "upper_windows": "ceil(27 crowded beds / 3 to a chamber) = 9, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 9, then to the 7 sashes a front of 8.88 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
+        "upper_windows": "ceil(25 crowded beds / 3 to a chamber) = 9, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 9, then to the 7 sashes a front of 8.88 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
         "stovepipes": "ceil(11 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
         "chimneys": "not sized by the beds: the two brick stacks are the household's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
@@ -396,7 +396,7 @@
   "lodging": {
     "class": "boarding_house",
     "beds_ordinary": 11,
-    "beds_crowded": 27,
+    "beds_crowded": 25,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
     "enclosed_floor_m2": 195.48,

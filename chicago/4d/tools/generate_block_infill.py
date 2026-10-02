@@ -1141,7 +1141,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
                 "confidence": "reconstructed",
                 "note": f"A {width:.2f} × {depth:.2f} m rectangle sampled deterministically inside the {family} family's authored footprint band; no individual dimensions are documented."
             },
-            "form": form_for(family, spec, sid, width, depth, paint),
+            "form": fabric_rule_1835.apply_form(
+                form_for(family, spec, sid, width, depth, paint), fabric),
             "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
         "function": invented(function, f"Assigned from the {family} family to satisfy the block's scheduled mix; no occupant or individual use is known."),
@@ -1893,10 +1894,27 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
         raise SystemExit(f"{block['block_id']}: the yard building on lot {index} "
                          f"stands behind {holder}, which this parcel did not build. A "
                          f"yard building is a claim about the household on its own lot")
+    # T-1809 (of T-1779). AN EARLIER DEAL'S HOUSE IS THIS PARCEL'S HOUSE TOO. A yard building
+    # serves the lot it stands in the yard of, and until a block was dealt a house in
+    # one entry and its outbuildings in the next, "the lot carries a principal roof"
+    # and "this entry built a principal roof on it" were the same question. T-1778
+    # raised the first boarding house with no stable or privy, on purpose, and left
+    # them to T-1779; read against this entry's own records alone, that stable stands
+    # behind no roof. The lots the block's OTHER deals built principal roofs on are
+    # read off the committed records — the same parcel `occupied` excludes above, so
+    # a lot somebody else's building holds is still refused there and not here.
+    served = set(used)
+    for path in sorted(STRUCTURES.glob("*.json")):
+        if path.stem in parcel and path.stem not in mine_ids:
+            recon = (load(path).get("reconstruction") or {})
+            if (recon.get("inventory_class") == "principal_functional"
+                    and recon.get("block_id") == block["block_id"]
+                    and "lot_index" in recon):
+                served.add(int(recon["lot_index"]))
     for record in records:
         recon = record["reconstruction"]
         if (recon["inventory_class"] != "principal_functional"
-                and recon.get("lot_index") not in set(used)):
+                and recon.get("lot_index") not in served):
             raise SystemExit(f"{block['block_id']}: the yard building on lot "
                              f"{recon['lot_index']} stands behind no roof — an ancillary "
                              f"building serves the lot it is in the yard of")

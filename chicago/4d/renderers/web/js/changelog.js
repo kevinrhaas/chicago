@@ -1,11 +1,33 @@
 export const CHANGELOG = [ // newest first
-  { v: 1281, ts: '2026-10-02T01:06:27.229Z', date: 'Oct 1, 2026, 8:06 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+  { v: 1284, ts: '2026-10-02T02:38:00.965Z', date: 'Oct 1, 2026, 9:38 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
       'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
       'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
       'When you step off a walk into the street you now step down, and you walk on the lower roadway. The board crossings step down into the street and back up again.',
       'The walks, doors and buildings stayed where they were. Six wagons that stood on the lowest ground by the river are gone for now.',
-      'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L338).',
+      'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L341).',
+    ] },
+  { v: 1283, ts: '2026-10-02T02:10:37.412Z', date: 'Oct 1, 2026, 9:10 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
+      'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
+      'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
+      'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1282, ts: '2026-10-02T01:31:30.170Z', date: 'Oct 1, 2026, 8:31 PM CT', title: 'Twelve boarding houses and shops hang their own signboards', kind: 'change',
+    items: [
+      'Walk the north side and you can now pick out its boarding houses from the road. Five of them hang a painted board under a hood, on a bracket or on a post: BARDWELL\u2019S, BARNES\u2019S, NEWELL\u2019S and two more, with Boarding House beneath.',
+      'On Canal Street the two grocers hang boards and the smith and the joiner have their names painted across their fronts. Two west-side boarding houses and Cornelius Lynch\u2019s on Washington Street have boards too.',
+      'Tap a board and the card opens on the same house. Each board says what the house\u2019s own record calls it, and adds nothing.',
+      'These houses are our reconstruction, and so are their boards. No source names them, and each board says so (liberty L340). The town\u2019s other 34 boards are unchanged.',
+    ] },
+  { v: 1281, ts: '2026-10-02T00:56:47.419Z', date: 'Oct 1, 2026, 7:56 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
+    items: [
+      'Walk Washington, Randolph or Wells and the merchants\u2019 and professional men\u2019s houses now stand apart. Most have a small roofed porch over the door, and most hang board shutters, green or black, at their front windows.',
+      'Tradesmen\u2019s cottages have a plank stoop at the door, or step straight onto the ground. Labourers\u2019 houses have neither.',
+      'The frame follows the house\u2019s age. Houses built in the 1834\u201335 boom are balloon framed. Houses from 1833 or earlier are braced, with a heavier board at each corner, and a line across the wall at the upper floor.',
+      'Open a house\u2019s card. The Built line now names its frame, shutters and porch. These are our reconstruction: no source records them for any of these houses. The rule is on the Liberties page (L338).',
     ] },
   { v: 1280, ts: '2026-10-02T00:30:46.880Z', date: 'Oct 1, 2026, 7:30 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
