@@ -1,3 +1,27 @@
+## T-1994 — the 25 attested at a no-premises trade, each joined or told why no house is owed (2026-10-02)
+
+Piece 2 of 3 of T-1991 (→ T-1982 → T-1966 → T-1215). After T-1990, **25** working-age people
+still read `trade_attested_no_house_named`: a source attests their trade, its premises ruling
+sends them to an establishment they did not keep, and nothing joined them to one. Each is now
+ruled on BY NAME in the authored `data/residents/attested_trade_houses.json`, which
+`tools/employment_coverage_1835.py` applies (a row whose person no longer reads that reason is
+refused as stale). **5 joined** to a house the register holds: Oscar Pratt and Beckford to the
+Democrat printing office (`inferred` — Andreas's "in the employ of Mr. Calhoun" is 1833), T. O.
+Davis to the Chicago American (`attested`), Capt. Hiram Hugunin to the North Western Fire and
+Marine agency (`attested` — the register's own proprietor string is his printing), John S. Wright
+to his father's store (`inferred`, the card's own reasoning). **20 stated, none owed**, under four
+new reasons: the garrison or an agency held outside the register (Greene, Maxwell, Allen,
+E. K. Hubbard); not held by the establishment on the day (Baxley and Jamison, refused by T-1348;
+postmasters Arnold and Galaher, whose office was not Chicago's — Hogan holds that one; Lathrop,
+a church member and not its minister; Legg, read off 1838; Eliza Chappel, whose school closed in
+1834; Myers, quartermaster clerk 1831-33); a civic seat and not a house (two sheriffs, two
+justices, H. Crocker, a school district's clerk); work on other people's ground (Norton, Steele,
+Snow). Owed a workplace **230 → 205**, and the 205 are now exactly the other two pieces of T-1991:
+71 class-held (T-1993, T-1995) and 134 own-account houses the register does not hold (T-1992).
+
+**Found, not fixed:** Arnold's and Galaher's cards carry an `associated_with` civic seat at the
+Chicago post office corner; on this reading they kept other offices, so that row is likely wrong.
+
 ## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
 
 Piece 1 of 3 of T-1982 (T-1966 → T-1215, the owner's *"a place to work"*). The completion audit
