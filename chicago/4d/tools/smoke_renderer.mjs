@@ -6635,6 +6635,7 @@ for (const [label, viewport, touch] of [
         stats: wb?.stats ?? null,
         meshes: wb?.group?.children?.length ?? 0,
         hasConfidence: !!conf,
+        notReconstructed,
         hasRoad: !!road,
         onStreet,
         vertices: road?.count ?? 0,
@@ -6672,10 +6673,16 @@ for (const [label, viewport, touch] of [
         + `${p.trees ? 'cleared' : 'STANDING'}`).join('; ')
         + `; across the river wear ${bank.across}`);
     // AND IT READS, from the street looking across the bank at Carpenter's
-    // landing, held clock, with and without the layer.
+    // landing, held clock, with and without the layer. T-1987: the stand sat
+    // at n 9, pitch -9, where most of what the layer changed was the band of
+    // prairie it painted over the street itself (the bug the owner reported,
+    // 2026-10-02); with that gone the view read worst 4.0, mean 0.21 at phone
+    // size. It stands at the worked edge now, looking down across the bank
+    // to the water (worst 13, mean 1.1 at 390x780; 15 / 2.6 at 1280x800), and
+    // the bar is unchanged.
     await page.evaluate(() => { window.__chicago4d.setAnimationHold(false); });
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 372, local_n: 9, yaw_deg: 8, pitch_deg: -9 }));
+      { local_e: 372, local_n: 13, yaw_deg: 8, pitch_deg: -12 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const bankWith = await page.evaluate(() => window.__chicago4d.capture());
