@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1278, ts: '2026-10-01T23:43:37.837Z', date: 'Oct 1, 2026, 6:43 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
+  { v: 1279, ts: '2026-10-02T00:05:23.174Z', date: 'Oct 1, 2026, 7:05 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
     items: [
       'Walk Washington, Randolph or Wells and the merchants\u2019 and professional men\u2019s houses now stand apart. Most have a small roofed porch over the door, and most hang board shutters, green or black, at their front windows.',
       'Tradesmen\u2019s cottages have a plank stoop at the door, or step straight onto the ground. Labourers\u2019 houses have neither.',
       'The frame follows the house\u2019s age. Houses built in the 1834\u201335 boom are balloon framed. Houses from 1833 or earlier are braced, with a heavier board at each corner, and a line across the wall at the upper floor.',
       'Open a house\u2019s card. The Built line now names its frame, shutters and porch. These are our reconstruction: no source records them for any of these houses. The rule is on the Liberties page (L338).',
+    ] },
+  { v: 1278, ts: '2026-10-01T23:40:01.180Z', date: 'Oct 1, 2026, 6:40 PM CT', title: 'The prairie grows in patches now, not in rows', kind: 'change',
+    items: [
+      'Walk out onto the open prairie west of the town and look at the ground between the grass. It used to be one flat olive. Now it shows stands of thicker, darker growth beside thinner ones, where last year\u2019s dry litter and a little bare earth show through.',
+      'The grass near you rises and falls with those stands. Clumps in a lush patch grow taller and darker together, and in a thin one they stay lower and lighter, with more dead blades. Before, every clump was drawn the same.',
+      'The prairie\u2019s overall colour is unchanged, and so are each grass\u2019s recorded heights. Only where the tall and short plants stand has changed. The frame rate is unchanged too.',
+      'Where the thick and thin stands fall is our reconstruction. No survey of 1835 maps them. The Liberties page says so (L337).',
     ] },
   { v: 1277, ts: '2026-10-01T23:04:15.031Z', date: 'Oct 1, 2026, 6:04 PM CT', title: 'The streets are worked dirt now, not two wheel tracks on grass', kind: 'change',
     items: [
