@@ -91,6 +91,12 @@
       "value": "woodshed_or_storage_shed",
       "confidence": "reconstructed",
       "note": "The closed vocabulary has no `bark shed`; `woodshed_or_storage_shed` is family A4's own name and a bark shed is a store. The specific use is in the record's NAME and in this note. The use comes from the tannery's own record, which says in as many words that 'a tannery is its yard - bark mill, lime pits, tan vats, drying sheds, and a water supply - and none of that is in this polygon or in the model'. This is the first of those. No occupant is claimed."
+    },
+    "part_of": {
+      "value": "John Miller's Tannery",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "This building was raised as the bark shed of John Miller's tannery, in the yard behind it, out of the tannery record's own sentence that 'a tannery is its yard'; it has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284, the works rule of T-1709). The tannery's keepers are seated on the tannery and are not repeated here."
     }
   },
   "residents": [],

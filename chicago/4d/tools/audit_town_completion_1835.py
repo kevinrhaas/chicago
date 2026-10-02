@@ -21,7 +21,8 @@ T-1215's first clause turns it into four joins over committed data:
    T-1147's limits, preserved and printed.
 4. **Occupied.** Every standing structure carries somebody (a household, a lodger, a
    business, a reconstructed occupation), or a use that needs nobody (an outbuilding
-   that names its yard, a civic or harbour work, a camp ground, a house to let). A
+   that names its yard, a civic or harbour work, a camp ground, a house to let), or is
+   one building of an establishment whose principal answers (`part_of`, T-1980). A
    sidecar whose `occupants` attribute names people in prose but whose household card
    is not linked is counted on its own row, `occupants_in_prose_only`: the roof is not
    empty, but the person it names is not yet housed by the join, and that link is owed.
@@ -327,41 +328,51 @@ def audit(inputs: dict) -> dict:
     occupied = {"structures": len(structures), "occupied": by_tier(),
                 "occupants_in_prose_only": by_tier(), "use_stated": Counter(),
                 "empty_owing_somebody": Counter(), "empty": []}
-    for sid, s in sorted(structures.items()):
+    def bucket_of(sid: str) -> tuple[str, str, str]:
+        """(bucket, key, tier) for one roof on its OWN evidence — `part_of` aside."""
+        s = structures[sid]
         record = s["record"]
         function = value_of(record.get("function")) or ""
         recon = record.get("reconstruction") if isinstance(record.get("reconstruction"), dict) else {}
         tier = "reconstructed" if recon else tier_of(
             (record.get("function") or {}).get("confidence") if isinstance(record.get("function"), dict) else None)
         if s["residents"] or lived_in[sid] or business_at[sid] or recon.get("occupation"):
-            occupied["occupied"][tier] += 1
-            tiers["structures"]["occupied"][tier] += 1
-            continue
-        if s["occupants"] and function not in TO_LET | CAMP:
-            tiers["structures"]["occupants_in_prose_only"][tier] += 1
-        elif function in TO_LET | CAMP | CIVIC or (
-                function in OUTBUILDING and (recon.get("yard_group") or recon.get("stands_on")
-                                             or record.get("outbuilding_of"))):
-            tiers["structures"]["use_stated"][tier] += 1
-        else:
-            tiers["structures"]["empty_owing_somebody"][tier] += 1
+            return "occupied", tier, tier
         if function in TO_LET:
-            occupied["use_stated"]["vacant_to_let"] += 1
-        elif function in CAMP:
-            occupied["use_stated"]["camp_ground"] += 1
-        elif s["occupants"]:
-            occupied["occupants_in_prose_only"][tier] += 1
-        elif function in CIVIC:
-            occupied["use_stated"]["civic_or_works"] += 1
-        elif function in OUTBUILDING and (recon.get("yard_group") or recon.get("stands_on")
-                                          or record.get("outbuilding_of")):
-            occupied["use_stated"]["outbuilding_of_a_yard"] += 1
-        else:
-            kind = ("outbuilding_naming_no_yard" if function in OUTBUILDING
-                    else "dwelling" if any(w in function for w in DWELLING_WORDS)
-                    else "house_of_trade")
-            occupied["empty_owing_somebody"][kind] += 1
+            return "use_stated", "vacant_to_let", tier
+        if function in CAMP:
+            return "use_stated", "camp_ground", tier
+        if s["occupants"]:
+            return "occupants_in_prose_only", tier, tier
+        if function in CIVIC:
+            return "use_stated", "civic_or_works", tier
+        if function in OUTBUILDING and (recon.get("yard_group") or recon.get("stands_on")):
+            return "use_stated", "outbuilding_of_a_yard", tier
+        kind = ("outbuilding_naming_no_yard" if function in OUTBUILDING
+                else "dwelling" if any(w in function for w in DWELLING_WORDS)
+                else "house_of_trade")
+        return "empty", kind, tier
+
+    # T-1980. A roof that is ONE BUILDING OF AN ESTABLISHMENT — the post's barn, the
+    # tannery's bark shed — names its principal in `part_of`, and its keepers are the
+    # principal's. It is answered by that only while the principal answers on its own
+    # evidence: a `part_of` naming a structure the scene does not carry, or one that is
+    # itself empty, is a broken link and is reported as one, never counted as a use.
+    for sid, s in sorted(structures.items()):
+        bucket, key, tier = bucket_of(sid)
+        principal = value_of(s["record"].get("part_of"))
+        if principal and principal not in structures:
+            dangling.append(f"structure {sid} is part of {principal}, which the scene does not carry")
+        elif principal and bucket_of(principal)[0] == "empty":
+            dangling.append(f"structure {sid} is part of {principal}, which is itself empty")
+        elif principal and bucket == "empty":
+            bucket, key = "use_stated", "part_of_an_establishment"
+        tiers["structures"]["empty_owing_somebody" if bucket == "empty" else bucket][tier] += 1
+        if bucket == "empty":
+            occupied["empty_owing_somebody"][key] += 1
             occupied["empty"].append(sid)
+        else:
+            occupied[bucket][key] += 1
 
     # --- 5. the streets: where each ran, and what it was surfaced with --------------------
     for street in inputs["streets"]:
@@ -608,11 +619,24 @@ def self_test(inputs: dict) -> int:
     expect("a lives_at naming no structure", bad_lives_at)
     expect("a sidecar seating no card", bad_seat)
     expect("a workplace naming no business", bad_workplace)
+    def bad_part_of(i):
+        sid = next(iter(sorted(i["structures"])))
+        i["structures"][sid]["record"]["part_of"] = {"value": "no_such_structure"}
+
+    def empty_principal(i):
+        # a principal made for the test, so it still bites once no real roof is empty
+        i["structures"]["zz_self_test_empty_house"] = {
+            "record": {"function": {"value": "dwelling"}}, "residents": [], "occupants": None}
+        sid = next(iter(sorted(i["structures"])))
+        i["structures"][sid]["record"]["part_of"] = {"value": "zz_self_test_empty_house"}
+
     expect("a premises naming no structure", bad_premises)
+    expect("a part_of naming no structure", bad_part_of)
+    expect("a part_of naming an empty principal", empty_principal)
     if failures:
         print("SELF-TEST FAILED — the check did not see: " + "; ".join(failures))
         return 1
-    print("self-test: all four broken links are refused")
+    print("self-test: all six broken links are refused")
     return 0
 
 
