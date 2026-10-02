@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
+  { v: 1323, ts: '2026-10-02T20:54:07.101Z', date: 'Oct 2, 2026, 3:54 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
     items: [
       'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
       'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
