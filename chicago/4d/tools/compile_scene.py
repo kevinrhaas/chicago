@@ -2481,6 +2481,9 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     lodging = compile_lodging()
     # id -> the phase that resolves into this scene, for the watch list below
     resolved: dict[str, dict] = {}
+    # id -> name, so a `part_of` row can print the principal's name (T-1980)
+    structure_names = {p.stem: load(p).get("name", p.stem)
+                       for p in (DATA / "structures").glob("*.json")}
 
     # ONE SIDECAR BUILDER, TWO CALLERS (T-1727). The canonical records below and the
     # structure VERSIONS after them (data/structures/versions/<id>/<label>.json) are
@@ -2502,7 +2505,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                     collect(v)
 
         collect(phase)
-        for key in ("function", "occupants", "present_status", "lot_address", "land_owner"):
+        for key in ("function", "occupants", "present_status", "lot_address", "land_owner",
+                    "part_of"):
             collect(st.get(key, {}))
         if st.get("reconstruction", {}).get("source_id"):
             cited.add(st["reconstruction"]["source_id"])
@@ -2566,6 +2570,20 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": st["land_owner"]["confidence"],
                 "sources": st["land_owner"]["sources"],
                 "note": st["land_owner"]["note"],
+            }
+
+        # T-1980. THE BUILDING THIS ONE IS PART OF — the fort's barn, the tannery's
+        # bark shed. The record names the principal by id; the card wants its name,
+        # so the row's `value` is the principal's own `name` (the id where a record
+        # is missing, which the completion audit refuses anyway). The keepers are
+        # the principal's and stay on the principal's card.
+        if "part_of" in st:
+            principal = st["part_of"]["value"]
+            attributes["part_of"] = {
+                "value": structure_names.get(principal, principal),
+                "confidence": st["part_of"]["confidence"],
+                "sources": st["part_of"].get("sources", []),
+                "note": st["part_of"]["note"],
             }
 
         # THE PHASE'S CLAIM ABOUT ITSELF. Every `form` attribute has carried its

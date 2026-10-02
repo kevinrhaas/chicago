@@ -91,6 +91,12 @@
       "value": "stable",
       "confidence": "reconstructed",
       "note": "The closed vocabulary has no `stock shed`; `stable` is family A1's own term and the nearest it carries. The specific use - holding beasts before the kill, and the plant's own draught oxen - is in the record's NAME and in this note. The use comes from the plant. A slaughter-house that took 300 head of cattle and 1,400 hogs in a season held stock somewhere before it killed them, and the plant's own record says the pens and the stock yard are outside its footprint and outside its archetype. This record models the roofed half of that; the pens themselves are a fence line and this archetype builds buildings. No occupant is claimed and no animal is drawn."
+    },
+    "part_of": {
+      "value": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "This building was raised as the roofed half of Newberry & Dole's stock yard, the southernmost of the plant's buildings, because a slaughter-house holds its beasts before the kill; it has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284, the works rule of T-1709). The firm is placed on the packing house and is not repeated here."
     }
   },
   "residents": [],

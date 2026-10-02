@@ -825,12 +825,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1936prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire2/chicagotribuneheadline30oct1869thompson.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Secondary website reproduction; original source and rights not stated (same treatment as data/sources.csv pa-chicagology-* rows)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 30 October 1869 in the Chicago Tribune (pre-1929, US); chicagology reproduction",
+  "local": {
+   "display": "research/images/files/a19-cgy-1936-tribune-1869.jpg",
+   "display_bytes": 37118,
+   "thumb": "research/images/files/a19-cgy-1936-tribune-1869-thumb.jpg",
+   "thumb_bytes": 11217,
+   "original_px": [
+    1046,
+    747
+   ],
+   "original_sha256": "06b0716cf71116514d434bf1e27dffb7a7cbf972bb4c998e0f33b36f60820e35",
+   "original_bytes": 115718,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire2/chicagotribuneheadline30oct1869thompson.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages",
-  "notes": "Full building notice (transcribed on page): Italian style; L. B. Dixon architect; lot 193 ft on Prairie × 175 ft to alley; house 66'6\" on Prairie × 94' deep; Connecticut (Portland) brownstone ashlar 6 ft high base, Baltimore pressed brick above, brownstone trim; east front; stone porch with fluted Corinthian columns; entrance tower 73 ft; main floor 6 ft above grade; main block 44 ft to top of cornice, rear part 37 ft; storey heights basement 9 ft, principal 14'9\", second 13'6\"; slate roof; barn 39×80 ft of same materials. Later notes on page: Tribune 30 Mar 1879 sale to S. W. Allerton (192 ft frontage); Tribune 9 Jan 1898 'big red brick house and ample grounds'; Tribune 19–21 Sep 1912 Hump Hairpin Co. lease, lot 193×177 ft, house 'large four story brick dwelling' to be torn down for a two-storey factory by Alfred S. Alschuler. Primary text should be re-checked in the Tribune archive (ProQuest) before final use.",
+  "notes": "Full building notice (transcribed on page): Italian style; L. B. Dixon architect; lot 193 ft on Prairie × 175 ft to alley; house 66'6\" on Prairie × 94' deep; Connecticut (Portland) brownstone ashlar 6 ft high base, Baltimore pressed brick above, brownstone trim; east front; stone porch with fluted Corinthian columns; entrance tower 73 ft; main floor 6 ft above grade; main block 44 ft to top of cornice, rear part 37 ft; storey heights basement 9 ft, principal 14'9\", second 13'6\"; slate roof; barn 39×80 ft of same materials. Later notes on page: Tribune 30 Mar 1879 sale to S. W. Allerton (192 ft frontage); Tribune 9 Jan 1898 'big red brick house and ample grounds'; Tribune 19–21 Sep 1912 Hump Hairpin Co. lease, lot 193×177 ft, house 'large four story brick dwelling' to be torn down for a two-storey factory by Alfred S. Alschuler. Primary text should be re-checked in the Tribune archive (ProQuest) before final use. Rights reviewed 2026-10-02: reclassified public domain (published 1869 newspaper; a clipping, not a page scan).",
   "measurements": [
    {
     "what": "lot",
@@ -903,12 +916,12 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1912prairie/",
   "image_url": null,
-  "rights": "unknown — link only",
-  "rights_basis": "Secondary website reproduction; original source and rights not stated (same treatment as data/sources.csv pa-chicagology-* rows)",
+  "rights": "public domain",
+  "rights_basis": "published 18 June 1882 in the Chicago Tribune (pre-1929, US); chicagology transcription",
   "local": null,
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages",
-  "notes": "Transcribed permit notice: two-storey dwelling 45×80 ft, cost $75,000. Same page transcribes Tribune 8 June 1887 (sale to Mosier T. Greene: Connecticut brownstone; lot 55×176 'between the homes of Samuel Allerton and Edson Keith, and overlooking the open grounds of Mr. Field'; lot bought 1881 at $722/front ft) and Inter Ocean 24 July 1908 (Frank O. Lowden sells to Mrs. Isabella F. Blackstone for $69,000) — so Lowden owned it in 1904. Treat & Foltz named as architect by the hosting page. Verify against Tribune archive.",
+  "notes": "Transcribed permit notice: two-storey dwelling 45×80 ft, cost $75,000. Same page transcribes Tribune 8 June 1887 (sale to Mosier T. Greene: Connecticut brownstone; lot 55×176 'between the homes of Samuel Allerton and Edson Keith, and overlooking the open grounds of Mr. Field'; lot bought 1881 at $722/front ft) and Inter Ocean 24 July 1908 (Frank O. Lowden sells to Mrs. Isabella F. Blackstone for $69,000) — so Lowden owned it in 1904. Treat & Foltz named as architect by the hosting page. Verify against Tribune archive. Rights reviewed 2026-10-02: reclassified public domain (published 1882 newspaper text); a transcription only — no image to store.",
   "measurements": [
    {
     "what": "dwelling (permit)",
@@ -949,12 +962,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1923prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1923prairie1893randmcnally.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Secondary website reproduction; original source and rights not stated (same treatment as data/sources.csv pa-chicagology-* rows)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1893 in Rand, McNally & Co.'s Bird's-Eye Views and Guide to Chicago (pre-1929, US); chicagology reproduction",
+  "local": {
+   "display": "research/images/files/a19-cgy-1923-randmcnally-1893.jpg",
+   "display_bytes": 370379,
+   "thumb": "research/images/files/a19-cgy-1923-randmcnally-1893-thumb.jpg",
+   "thumb_bytes": 19906,
+   "original_px": [
+    2800,
+    1049
+   ],
+   "original_sha256": "90efdbf6fad96ca4593b83714183402970e5a323ef0ab889d7e267c2a160454f",
+   "original_bytes": 1623492,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1923prairie1893randmcnally.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages",
-  "notes": "Line view of the EAST side of the 1800–1900 blocks of Prairie looking northeast, with house numbers lettered under the houses (legible: 1901, 1905, 1919, 1923, 1945 and others to the north), carriages in the street, regular street trees. 1923 (Kellogg) is marked with an arrow by the hosting site. A schematic but complete row elevation for 1893 — massing, roof types and setbacks of every east-side house between 18th and 20th. Original: Rand McNally & Co.'s Bird's-eye Views and Guide to Chicago (1893); a public-domain scan should be sought on archive.org/HathiTrust for a primary record. PRIMARY: this is a crop of the left strip on printed p.269 of IA randmcnallycosbi00lawr (leaf n280), recorded in stream-streetscape as st-randmcnally-1893-p269-east-1800-1900 (with the west-side strip st-randmcnally-1893-p269-west-1800-1900) — use those; this record only documents the Chicagology derivative.",
+  "notes": "Line view of the EAST side of the 1800–1900 blocks of Prairie looking northeast, with house numbers lettered under the houses (legible: 1901, 1905, 1919, 1923, 1945 and others to the north), carriages in the street, regular street trees. 1923 (Kellogg) is marked with an arrow by the hosting site. A schematic but complete row elevation for 1893 — massing, roof types and setbacks of every east-side house between 18th and 20th. Original: Rand McNally & Co.'s Bird's-eye Views and Guide to Chicago (1893); a public-domain scan should be sought on archive.org/HathiTrust for a primary record. PRIMARY: this is a crop of the left strip on printed p.269 of IA randmcnallycosbi00lawr (leaf n280), recorded in stream-streetscape as st-randmcnally-1893-p269-east-1800-1900 (with the west-side strip st-randmcnally-1893-p269-west-1800-1900) — use those; this record only documents the Chicagology derivative. Rights reviewed 2026-10-02: reclassified public domain — the same 1893 Rand McNally view as the cgn-*-randmcnally-1893-strip crops and st-randmcnally-1893-*.",
   "measurements": []
  },
  {
@@ -1013,7 +1039,20 @@
   "image_url": "https://archive.org/download/Artistichouses2/page/n52_w600.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-ah-field-text.jpg",
+   "display_bytes": 177541,
+   "thumb": "research/images/files/a19-ah-field-text-thumb.jpg",
+   "thumb_bytes": 12748,
+   "original_px": [
+    2617,
+    3899
+   ],
+   "original_sha256": "96ef02926fb56cc9d71e6404860412939e6adea8006d03f03b856908abd9cc9a",
+   "original_bytes": 947236,
+   "fetched_from": "https://archive.org/download/Artistichouses2/page/n52_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
   "notes": "Contemporary (1883–84) description of the house exterior and plan — the best period text for the 1904 model: 'red pressed brick, with trimmings of light sandstone, three stories in height, with main entrance in the center of the west front, at the head of a broad flight of granite steps, a high porte-cochère on the northern side, and a fine large conservatory on the southern. Stables and other out-buildings are in the rear, on the side nearest the lake'; 'spacious lawn and scattered shade-trees' on the south side; vestibule floored in varied marbles; main hall runs the entire depth ending at a winding stairway under a large stained-glass window; reception room (right of hall) with a window into the conservatory (fountain); drawing-room left of hall; library behind it with fireplace at the east end; dining room opposite, glass doors into the conservatory. Field lived here until his death in Jan 1906, so the exterior description should still apply in 1904 (porte-cochère/conservatory survival to 1904 to be checked against the 1911 Sanborn).",
@@ -1045,7 +1084,20 @@
   "image_url": "https://archive.org/download/Artistichouses2/page/n160_w600.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-ah-field-hall-plate.jpg",
+   "display_bytes": 98315,
+   "thumb": "research/images/files/a19-ah-field-hall-plate-thumb.jpg",
+   "thumb_bytes": 8791,
+   "original_px": [
+    2512,
+    3898
+   ],
+   "original_sha256": "b32acf1623961c2f314bc6f6ca74d560642b7e0c05dfc4f07bb53ae80443791b",
+   "original_bytes": 689720,
+   "fetched_from": "https://archive.org/download/Artistichouses2/page/n160_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
   "notes": "The published photogravure plate of the entrance hall, Smithsonian copy; same photograph as LoC LC-DIG-ppmsca-56274 (recorded in stream-drawings as dw-field-1905-artistic-houses-entrance-hall). Recorded here as the publication context and a second public-domain source; not downloaded (duplicate image).",
@@ -1077,7 +1129,20 @@
   "image_url": "https://archive.org/download/Artistichouses2/page/n162_w600.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-ah-field-library-plate.jpg",
+   "display_bytes": 100592,
+   "thumb": "research/images/files/a19-ah-field-library-plate-thumb.jpg",
+   "thumb_bytes": 9956,
+   "original_px": [
+    2512,
+    3898
+   ],
+   "original_sha256": "088118cd12581038faf26886ecfac0c3105f28792ba536a4c9d4b1f6d831ed47",
+   "original_bytes": 673262,
+   "fetched_from": "https://archive.org/download/Artistichouses2/page/n162_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
   "notes": "Published plate of the library (bound sideways), Smithsonian copy; same photograph as LoC LC-DIG-ppmsca-56275 (stream-drawings dw-field-1905-artistic-houses-library). Text (p.46) places the library behind the drawing-room with its fireplace and a stained-glass Muse window at the east end.",
@@ -2068,7 +2133,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-article.jpg",
+   "display_bytes": 241934,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-article-thumb.jpg",
+   "thumb_bytes": 24822,
+   "original_px": [
+    1724,
+    2274
+   ],
+   "original_sha256": "4c06d2e1c00ab1f70b19ecd2dc880a7c6bb22907a873989f7bb9a3a54576b474",
+   "original_bytes": 509333,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
   "notes": "Contemporary account (read in OCR text): 'the present interior rose phoenix-like from the ashes, replacing the old auditorium that was destroyed by fire in the spring of 1900. The outer walls were left intact, and Mr. Shaw followed the general plan of the old building … designed about 1870 by Renwick and Addison [sic] of New York'; nave wider than a cathedral's, no chancel; galleries; recessed Gothic windows 'twelve in number, six on either side' framing Bartlett's murals; Shaw designed the carvings, hanging lamps, chandeliers and organ screen; Bartlett the decorations above the organ; four bronze 'holy trumpeters'; windows incl. Burne-Jones/Morris St Cecilia and St Margaret, John Crerar memorial by Sperry, Cobb memorial by Shaw. Five illustrations (frontispiece n6; 'Instrumental and vocal music' n7; St Cecilia and St Margaret windows n8; candelabra by Shaw and Bartlett executed by Will H. Lau n9).",
@@ -2106,7 +2184,20 @@
   "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-mural.jpg",
+   "display_bytes": 241934,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-mural-thumb.jpg",
+   "thumb_bytes": 24822,
+   "original_px": [
+    1724,
+    2274
+   ],
+   "original_sha256": "4c06d2e1c00ab1f70b19ecd2dc880a7c6bb22907a873989f7bb9a3a54576b474",
+   "original_bytes": 509333,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
   "notes": "Halftone of two of Bartlett's angel figures from the arch frescoes, as published Dec 1904. Interior decoration only.",
@@ -2138,7 +2229,20 @@
   "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n8_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-windows.jpg",
+   "display_bytes": 222527,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-windows-thumb.jpg",
+   "thumb_bytes": 26011,
+   "original_px": [
+    1724,
+    2274
+   ],
+   "original_sha256": "26f7cad2471fbd8f2b32b07c72b8c8ae6cfa5f0f9e48f0d1c544e9ba73284b01",
+   "original_bytes": 453137,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n8_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
   "notes": "Two Morris & Co. windows designed by Burne-Jones, installed by Dec 1904 (vestibule/narthex per the article). Confirms these windows were in place in 1904 (HABS 2010 records window sheets — use this to date them).",
@@ -2170,7 +2274,20 @@
   "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n9_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-candelabra.jpg",
+   "display_bytes": 231823,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-candelabra-thumb.jpg",
+   "thumb_bytes": 26464,
+   "original_px": [
+    1724,
+    2278
+   ],
+   "original_sha256": "a4075c9d5dc749e8e0c5b6bc0615135d0f5f3127d0ddaa323da93d6b5f0c3511",
+   "original_bytes": 479694,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n9_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
   "notes": "Seven-branch candlestick for the 1900–01 interior, as published Dec 1904 (same object as HABS IL-328 sheet 19).",
@@ -2292,7 +2409,20 @@
   "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n88_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published in the United States 1893/1896",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-pictorial-1896-field.jpg",
+   "display_bytes": 180390,
+   "thumb": "research/images/files/a19-pictorial-1896-field-thumb.jpg",
+   "thumb_bytes": 22023,
+   "original_px": [
+    1708,
+    1364
+   ],
+   "original_sha256": "df3c0b4bb62f26878606b7901e01f1227c9599504d0ea4b23f746bad23816e6a",
+   "original_bytes": 256104,
+   "fetched_from": "https://archive.org/download/randmcnallycospi1892chic/page/n88_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org djvu.xml caption search",
   "notes": "Same photograph as the 1893 edition plate (a19-pictorial-1893-field), reprinted in the later edition — confirms the view was still current for the publisher in the mid-1890s. Not downloaded (duplicate image).",
@@ -2324,7 +2454,20 @@
   "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n98_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published in the United States 1893/1896",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-pictorial-1896-ream.jpg",
+   "display_bytes": 166533,
+   "thumb": "research/images/files/a19-pictorial-1896-ream-thumb.jpg",
+   "thumb_bytes": 20425,
+   "original_px": [
+    1708,
+    1364
+   ],
+   "original_sha256": "a070e508e0de6603933a28b2092b2ce0eb99c7125c72a99c10e3c18fc91e281a",
+   "original_bytes": 237159,
+   "fetched_from": "https://archive.org/download/randmcnallycospi1892chic/page/n98_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org page browse near the Field plate (caption OCR missed it)",
   "notes": "Reprint of the Ream plate in the later edition (page viewed; printed sideways, left-hand image this time). Not downloaded (duplicate image).",
@@ -3224,12 +3367,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1905prairie1886map.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Secondary website crops of an 1886 atlas (the atlas itself is public domain; locate the original plate for reuse)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1886 in Robinson's Atlas of the City of Chicago (pre-1929, US); chicagology reproduction (crop and arrow added)",
+  "local": {
+   "display": "research/images/files/a19-cgy-robinson-1886-crops-1900-block.jpg",
+   "display_bytes": 254226,
+   "thumb": "research/images/files/a19-cgy-robinson-1886-crops-1900-block-thumb.jpg",
+   "thumb_bytes": 15162,
+   "original_px": [
+    3841,
+    1482
+   ],
+   "original_sha256": "d212dfbda6620474ff3ea74804d7f1bec02092707f552408783b8e5769888661",
+   "original_bytes": 2778789,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1905prairie1886map.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology.com Prairie Avenue house pages (each page ends with a '…Robinson Fire Insurance Map 1886' crop)",
-  "notes": "Each house page carries the same colour plate of the blocks between 16th/18th and 22nd Streets (Indiana–Prairie–Calumet) with an arrow on the house: brick (pink) and frame (yellow) footprints, lot lines and numbers; viewed for 1905 and 1936. Gives 1886 footprints and outbuildings (stables) for every house in this stream — pre-dates the 1902 Field Jr. enlargement and the 1887 Ream rebuild. Same-plate crops at …/chicagoimages9/{1900,1901,1906,1912,1919,1923,1936,1945}prairie1886map.jpg. Already listed in data/sources.csv for 1905 (pa-chicagology-1905prairie1886map). Stream-2000-2100 has the equivalent record for the 2000–2100 blocks; the full atlas sheet belongs with stream-streetscape.",
+  "notes": "Each house page carries the same colour plate of the blocks between 16th/18th and 22nd Streets (Indiana–Prairie–Calumet) with an arrow on the house: brick (pink) and frame (yellow) footprints, lot lines and numbers; viewed for 1905 and 1936. Gives 1886 footprints and outbuildings (stables) for every house in this stream — pre-dates the 1902 Field Jr. enlargement and the 1887 Ream rebuild. Same-plate crops at …/chicagoimages9/{1900,1901,1906,1912,1919,1923,1936,1945}prairie1886map.jpg. Already listed in data/sources.csv for 1905 (pa-chicagology-1905prairie1886map). Stream-2000-2100 has the equivalent record for the 2000–2100 blocks; the full atlas sheet belongs with stream-streetscape. Rights reviewed 2026-10-02: reclassified public domain, matching the chicagology-north/south Robinson crop records.",
   "measurements": []
  },
  {
@@ -3261,7 +3417,20 @@
   "image_url": "https://collections.carli.illinois.edu/digital/api/singleitem/image/chm_pp/1296/default.jpg",
   "rights": "no known restrictions",
   "rights_basis": "CHM record: 'No known copyright restrictions'; CHM nonetheless asks that reproduction be licensed via images.chicagohistory.org — kept link-only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-chm-ichi66015-west-side-north-from-allerton.jpg",
+   "display_bytes": 31595,
+   "thumb": "research/images/files/a19-chm-ichi66015-west-side-north-from-allerton-thumb.jpg",
+   "thumb_bytes": 12405,
+   "original_px": [
+    750,
+    565
+   ],
+   "original_sha256": "bd142745422cacf872cbcb807a1765267f9b9b07d49b723ead8bb1d686f5a477",
+   "original_bytes": 32459,
+   "fetched_from": "https://collections.carli.illinois.edu/digital/api/singleitem/image/chm_pp/1296/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "CARLI CONTENTdm API (collections.carli.illinois.edu) title search 'prairie avenue' → chm_pp/1296",
   "notes": "THE closest-dated streetscape of this stream's west-side houses (c.1905; 4.5×3.25 in nitrate negative): at the left edge the bracketed cornice of the Allerton (Thompson) house; then the brownstone château of 1912 Prairie (Moulton/Lowden — Lowden owned it until 1908) with its round corner turret, steep slate roof with crocketed dormers and finial, tall chimney and stone balustrade along the front; then a stone-fronted house with arched porch and bay (1906 Edson Keith); then the mansard of 1900 Elbridge Keith and the long line of the 1800-block houses toward 18th Street; wide paved street with granite-curbed parkway, young street trees, a horse-drawn vehicle in the distance. The catalogue title's 'at 18th Street' conflicts with 'north from the Allerton residence' (Allerton stood at 20th); the image shows the 1900 block from near 20th. House identifications are by comparison with other views, not captioned.",
@@ -3527,7 +3696,20 @@
   "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/1872-1945-prairie-avenue-looking-north.jpg",
   "rights": "public domain",
   "rights_basis": "Commons: public domain in the US (faithful reproduction of a public-domain work)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-commons-1945-prairie-looking-north.jpg",
+   "display_bytes": 138529,
+   "thumb": "research/images/files/a19-commons-1945-prairie-looking-north-thumb.jpg",
+   "thumb_bytes": 21057,
+   "original_px": [
+    926,
+    1128
+   ],
+   "original_sha256": "f15d194ee61f4977b1ec46019bb7fda9fcbcfc089961653ebc4b97d9a2f88a03",
+   "original_bytes": 197564,
+   "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/c/c2/1872-1945-prairie-avenue-looking-north.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "WebFetch of Commons Category:Prairie_Avenue file list; image itself seen as Chicagology '1945sprairie.jpg' (a19-cgy-1945-armour)",
   "notes": "Same photograph as a19-cgy-1945-armour: the Armour house at the SE end of the block with its turned-baluster stone railing and corner bay, and the east-side frontage of the 1900 block receding north (stoops, iron fences, parkway trees) — includes the fronts of 1923 Kellogg and 1919 at a distance though not individually legible at Commons resolution (926×1128). Commons date 'circa 1872' is doubtful; the mature trees suggest the 1880s–90s. A companion PNG (File:1872-1945-prairie-avenue-chicago-il.png, 353×438, 'source: Google Books') shows 1945 Prairie as well. Not downloaded (Commons upload server rate-limited this session).",
