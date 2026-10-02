@@ -93,6 +93,7 @@ from block_faces import face_frame, project
 # the table is imported from where it is argued, and there is one answer in this
 # repository rather than two that can drift apart.
 from generate_business_signboards import PUBLIC_TRADES, TRADE_GRADES, WORKS_TRADES
+import generate_entrances as entrances  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -700,7 +701,7 @@ def business_class(trade):
 # a mounting block is two stepped timber blocks; a tie rail is two posts and a rail;
 # an apron is 3-inch plank across the verge. The sizes are ordinary carpentry —
 # nothing in this repository measures any of them in Chicago in 1835.
-FIT_DOOR_ALONG = 0.5          # the door is not on any record: the middle of the front
+FIT_DOOR_ALONG = 0.5          # where no front elevation is read: the middle of the front
 STOOP_W_M = 1.52              # 5 ft along the wall
 STOOP_LANDING_M = 1.07        # 3 ft 6 in out from the wall
 STOOP_SILL_M = 0.38           # the landing's top over the ground at the wall
@@ -3533,6 +3534,36 @@ FITTING_WORDS = {
 }
 
 
+def _door_along(frame, sid: str, f0: float, f1: float) -> float | None:
+    """Where along this face the building's street door stands, or None.
+
+    T-1984. A stoop was laid at the middle of the front because "the door is not on
+    any record" — but since T-0459/T-0520 it is: the archetypes state their front
+    elevations (`facade_openings`), and a shop's door is off the centre of its front,
+    so the steps stood under the show window and the owner walked past a stoop with
+    no door behind it. The door is read off the same set-out the mesh is built from
+    (`generate_entrances.front_doors`); of several, the one nearest the middle.
+    """
+    path = SIDECARS / f"{sid}.json"
+    if not path.exists():
+        return None
+    sc = _load(path)
+    doors, _reader = entrances.front_doors(sc)
+    poly = (sc.get("footprint") or {}).get("polygon") or []
+    if not doors or len(poly) < 3:
+        return None
+    from generate_business_signboards import _front_edge, _to_enu
+    _u0, _u1, vmax = _front_edge(poly)
+    place = sc.get("placement") or {}
+    mid = (f0 + f1) / 2.0
+    best = None
+    for d in doors:
+        t = project(frame, _to_enu((d["u0"] + d["u1"]) / 2.0, vmax, place))[0]
+        if f0 - 1e-6 <= t <= f1 + 1e-6 and (best is None or abs(t - mid) < abs(best - mid)):
+            best = t
+    return best
+
+
 def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused, decked=(),
                    bare_fronts=()) -> list:
     """The fittings a business's front takes beyond the walk and the posts (T-1813):
@@ -3578,10 +3609,13 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused, decked=
         f0, f1 = min(spans), max(spans)
         wanted = [k for k in ("stoop", "mounting_block", "tie_rail", "wagon_apron")
                   if spec.get(k)]
+        door_t = _door_along(frame, b["id"], f0, f1)
         for kind in wanted:
             frac = {"stoop": FIT_DOOR_ALONG, "mounting_block": MOUNT_ALONG,
                     "tie_rail": RAIL_ALONG, "wagon_apron": APRON_ALONG}[kind]
             t = f0 + frac * (f1 - f0)
+            if kind == "stoop" and door_t is not None:
+                t = door_t
 
             def refuse(why, kind=kind):
                 refused.append({"structure_id": b["id"], "wall": where, "why": (
@@ -3719,7 +3753,8 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused, decked=
                 "business_class": cls,
                 "at_local_enu_m": [_round(centre[0]), _round(centre[1])],
                 "facade_bearing_deg": _round(face_out, 1),
-                "along_frontage_frac": frac,
+                "along_frontage_frac": _round((t - f0) / (f1 - f0), 3)
+                if f1 > f0 else frac,
                 "parts": parts,
                 "note": (
                     f"{FITTING_WORDS[kind][0].upper()}{FITTING_WORDS[kind][1:]}, at "
@@ -3729,9 +3764,12 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused, decked=
                     f"{cls}, and {'an' if cls == 'inn' else 'a'} {cls}'s front takes "
                     f"{', '.join(k.replace('_', ' ') for k in wanted)}"
                     + (" and its post(s)" if spec['posts'] else "") + ". WHERE is "
-                    f"derived: {frac:.2f} of the building's own frontage along "
-                    f"{block['id']}'s {face} face — no record places a door, so the "
-                    f"middle of the front stands in for one — {detail}, on committed "
+                    f"derived: {(t - f0) / max(f1 - f0, 1e-9):.2f} of the building's own "
+                    f"frontage along {block['id']}'s {face} face — "
+                    + ("at the door its front elevation states (T-1984)"
+                       if kind == "stoop" and door_t is not None else
+                       "the middle of the front, where no elevation places a door")
+                    + f" — {detail}, on committed "
                     f"ground at {ground:+.2f} m. WHAT IS INVENTED: that it stood here "
                     "on 1 July 1835, and every dimension, which is ordinary carpentry "
                     "rather than anything measured in Chicago. docs/LIBERTIES.md "

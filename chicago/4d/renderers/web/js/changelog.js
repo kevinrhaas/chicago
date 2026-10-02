@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1321, ts: '2026-10-02T20:16:27.699Z', date: 'Oct 2, 2026, 3:16 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
+  { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [
       'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
       'Twenty more say why no shop is owed them. Major Greene and Dr Maxwell served the garrison at the fort. The two sheriffs and two justices held public offices, not shops. A plasterer, a surveyor and a ship carpenter worked on other people\u2019s ground.',
       'Some were not at their post on the day. Two army officers are not placed at the fort, the Chicago post office was John Hogan\u2019s and not the two other postmasters\u2019, and Eliza Chappel\u2019s school had closed. Each card gives its reason.',
-      'On the City card, working people owed a workplace drop from 169 to 144.',
+      'On the City card, working people owed a workplace drop from 167 to 142.',
+    ] },
+  { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
+    items: [
+      'Open Rufus Nichols\u2019s card, a blacksmith on the West Side, and look under Were they at work? It used to say the town owed another smithy to take him on as a hand. It now says he worked on his own account, as a smith\u2019s trade did, and that his own shop is still to be placed.',
+      'The same goes for three more smiths, two butchers, a house painter and a dressmaker. Every shop of their trade already had as many hands as it could take, and their trade kept its own shop, so they kept one too.',
+      'Two schoolteachers, Victoire Pothier and Lydia Rice, now say no school is missing. The town had six schools open in July 1835 and all six are in the reconstruction, each with its one assistant. These two followed the trade with no school to teach in.',
+      'All ten people are our reconstruction, and so are these answers. On the City card, people owed a workplace drop from 169 to 167.',
+    ] },
+  { v: 1321, ts: '2026-10-02T20:08:04.793Z', date: 'Oct 2, 2026, 3:08 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
+    items: [
+      'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',
+      'Twelve signs used to be fixed across a door. Seven are now lettered on the shop\u2019s fascia above the door, as G. Blanchard\u2019s is, and five are smaller boards on clear wall.',
+      'The front steps of 34 stores now stand at the door instead of the middle of the front. Casks and crates are set to either side of a door, and fences no longer cross the doors of nine houses and sheds.',
+      'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L359).',
     ] },
   { v: 1320, ts: '2026-10-02T19:45:34.002Z', date: 'Oct 2, 2026, 2:45 PM CT', title: 'Sixty-one servants are now in service, not waiting for a hotel', kind: 'change',
     items: [

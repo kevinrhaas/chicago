@@ -131,7 +131,7 @@ STATUSES = {
                                     "drawn_onto_a_house_s_staff"),
     "on_their_own_account": ("keeps_their_own_house", "keeps_a_house_the_register_holds"),
     "at_a_trade_with_no_house_to_join": (
-        "no_employer_named", "class_held_no_house",
+        "no_employer_named", "class_held_no_house", "class_full_none_owed",
         "trade_attested_no_house_named", "no_ruling_on_the_trade",
         "in_service_in_another_household", *ATTESTED_NONE_OWED),
     "no_trade_recorded": ("no_trade_recorded",),
@@ -166,6 +166,12 @@ WORDS = {
         "layer holds none of it trading on 1 July 1835, or every one is full to the "
         "band's high end. The town is owed more houses of the kind; the person is not "
         "put in one that is already full.",
+    "class_full_none_owed":
+        "The staffing model names the class of house that employed this trade, the layer "
+        "holds every house of it the model counts on 1 July 1835, and each is full to the "
+        "band's high end. The trade keeps no house of its own, so none is owed: the town "
+        "is not short a house, and the person follows the trade with no room in it to "
+        "join (T-1995).",
     "trade_attested_no_house_named":
         "The sources name this person's trade and name no house for it. Drawing one "
         "would put a man the record knows into a shop nobody put him in, so no seat is "
@@ -384,12 +390,14 @@ def age_scope(band, floor: int) -> str:
     return "age_is_not_settled"
 
 
-#: T-1433's five kinds, mapped onto this pass's answers. The mapping is the whole of what
-#: this pass says about those 524 people: it re-words nothing and re-decides nothing.
+#: T-1433's six kinds (T-1995 added `class_full_none_owed`), mapped onto this pass's
+#: answers. The mapping is the whole of what this pass says about those 524 people: it
+#: re-words nothing and re-decides nothing.
 FROM_SEATING = {
     "seated": ("at_a_seat_this_project_drew", "seated_by_the_staffing_model"),
     "keeps_their_own_house": ("on_their_own_account", "keeps_their_own_house"),
     "class_held_no_house": ("at_a_trade_with_no_house_to_join", "class_held_no_house"),
+    "class_full_none_owed": ("at_a_trade_with_no_house_to_join", "class_full_none_owed"),
     "no_employer_named": ("at_a_trade_with_no_house_to_join", "no_employer_named"),
     "no_ruling": ("at_a_trade_with_no_house_to_join", "no_ruling_on_the_trade"),
 }
@@ -944,7 +952,11 @@ def cmd_self_test() -> int:
 
     def servant_at_a_forge():
         bent = json.loads(json.dumps(committed))
-        row = next(r for r in bent["rows"] if r["reason"] == "class_held_no_house")
+        # Any row at a trade with no house that is not already in service: since T-1995
+        # emptied `class_held_no_house` of its tradesmen, the domestics were all it held.
+        row = next(r for r in bent["rows"]
+                   if r["status"] == "at_a_trade_with_no_house_to_join"
+                   and r["reason"] != "in_service_in_another_household")
         row["reason"] = "in_service_in_another_household"
         row["trade"] = "blacksmith"
         verify(data, coverage, bent)

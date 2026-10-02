@@ -17,12 +17,73 @@ a church member and not its minister; Legg, read off 1838; Eliza Chappel, whose 
 1834; Myers, quartermaster clerk 1831-33); a civic seat and not a house (two sheriffs, two
 justices, H. Crocker, a school district's clerk); work on other people's ground (Norton, Steele,
 Snow). Owed a workplace **230 → 205** on this ticket alone; merged after T-1993 (the 61 domestics)
-it is **169 → 144**, and what is left is the last two pieces of T-1991: the 10 class-held at a
-class with no room (T-1995) and the own-account houses the register does not hold (T-1992).
+and T-1995 (the 10 at a class with no room) it is **167 → 142**, and what is left of T-1991 is
+T-1992: the own-account houses the register does not hold.
 
 **Found, not fixed:** Arnold's and Galaher's cards carry an `associated_with` civic seat at the
 Chicago post office corner; on this reading they kept other offices, so that row is likely wrong.
 
+
+## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
+
+Piece 3 of 3 of T-1991 (T-1982 → T-1966 → T-1215). Ten reconstructed trade-holders read
+`class_held_no_house` for a reason other than domestic service: the staffing model hires their
+trade in a class of house, every house of it the layer holds is full to the band's high end, and
+`tools/seat_reconstructed_trades_1835.py` concluded *the town is owed more houses of the kind*.
+For eight of them that skipped the premises ruling, and for two it was false:
+
+* **Eight carried their trade on their own account** (the smiths Rufus Nichols, Willard
+  Nichols, Alvah Parmelee and Harvey Thayer; the butchers Samuel Nichols and Alvah Stiles; the painter Rufus Tuttle; the dressmaker Maria
+  Wilcox). Their premises rulings say the trade kept a house of its own. The keeper branch stands
+  aside where the model hires the trade so that a hand is seated in a house the layer holds; once
+  every such house is full, that reason is spent and the ruling stands. They now read
+  `keeps_their_own_house` under a new basis id,
+  `every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own` — the house owed, and T-1992 owns it with the other own-account houses.
+* **Two schoolteachers are owed no house** (Victoire Pothier, Lydia Rice). The model counts six
+  schools trading on 1 July 1835; the layer holds all six (the two high schools open in August),
+  each with its one assistant (`count_high` 1). The count is met, so a new kind,
+  `class_full_none_owed`, states it: the town is not short a school, and the teacher follows the
+  trade with no room in it. The completion audit reads it as stated, not owed.
+
+The domestics are left alone by name (`RULED_ELSEWHERE`): their ruling puts the work in another
+household's house, which is T-1993's answer, given in the coverage join. Owed a workplace
+**169 → 167** (after T-1993); placed at
+work **457 → 465**. In the seating, `class_held_no_house` 71 → 61, every one a domestic, and
+T-1993's coverage reads all 61 as in another household's service.
+
+## T-1984 — nothing in a doorway, no sign over a door, no door run into a window, worn ground at every entrance (2026-10-02)
+
+The owner, walking Lake Street on dev with five screenshots: goods and furniture in front of doors,
+signs on the face of a building covering a door or window, doors and windows that run together,
+and prairie grass right up to the entrances. One cause per symptom, each fixed where it starts:
+
+- **Merged openings.** `frame_storefront_params.front_window_rects` set out a plain store's
+  ground-storey windows without asking where the door was (11 stores: the bakery, barber,
+  butcher, shoemaker, tailor, physician, Old Bank, Temple building and three freight stores).
+  `frame_dwelling` snapped two windows into one stud bay on four single-pen cottages, 3 cm
+  apart. The dwelling's set-out moved into `frame_dwelling_params.facade_bays`, which parts a
+  clash by a stud bay or drops the window; `facade_openings` now reads `frame_dwelling` too.
+  `generate_entrances.py --check` refuses any two holes on a read front that run together.
+  15 GLBs rebaked; every other asset rebuilt byte-identical.
+- **Signs over doors.** `generate_business_signboards` had a "shrunk to the door" move. It is
+  gone: a shop with a fascia has its name lettered there (7, Blanchard's among them); otherwise
+  the board keeps its proportions and shrinks onto clear wall (5). 77 signs, none on a door;
+  the renderer smoke now treats any fixing but a fascia as over an opening.
+- **Things in doorways.** Stoops stood at `FIT_DOOR_ALONG = 0.5`; 34 now stand at the door.
+  Trade goods were laid from the wall's left end and now step round the door; lot-line fences
+  crossed 9 doors and are now cut round them. `measure_doorways.py --gate` (new check.sh step)
+  sweeps every placed object in the town against every doorway: 11 goods at 5 doors and
+  fences across 9 before, none now. The woodpiles T-1959 landed meanwhile keep off doorways too: 4 stood
+  in one, and 16 piles moved.
+- **Worn ground.** `generate_entrances.py` writes `town_entrance_aprons.json`: every door
+  (509), and a trodden-earth ring per front — a strip along the wall and a path from each door
+  to the street's track (167 doors) or 3.4 m into the yard. `yards.js` draws it and the sward
+  gives way to it, as inside the fort apron; wagon stands on it are refused (73 wagons, was 79).
+  Reconstructed, docs/LIBERTIES.md L359.
+
+**Known gap, not widened here:** the staleness hash covers builder modules and resolved params
+but not `*_params.py` bytes, so a set-out change living in a params module (`front_window_rects`,
+now `facade_bays`) does not mark its assets stale by itself; these were rebaked by hand.
 ## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
 
 Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990
