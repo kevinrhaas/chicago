@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1327, ts: '2026-10-02T22:37:58.800Z', date: 'Oct 2, 2026, 5:37 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
       'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',
       'Eleven more keepers read the same. The other 26 now say which unbuilt or unsettled roof their house is waiting for.',
-      'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 48 to 36.',
+      'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 40 to 28.',
+    ] },
+  { v: 1327, ts: '2026-10-02T22:38:22.537Z', date: 'Oct 2, 2026, 5:38 PM CT', title: 'Three refectories, a mill and four more houses of trade open', kind: 'feature',
+    items: [
+      'Open Hannah Barnes\u2019s card and look under Were they at work? It used to say the town owed her a house. It now names her own refectory on South Water Street. Hannah Pratt and H. Ingalls keep refectories too.',
+      'Four more keepers have their own houses now: J. Nichols\u2019s auction room, T. Vieau\u2019s mill on West Water, Thomas Nolan\u2019s brickyard on Market and J. Kellogg\u2019s soap and candle manufactory. Each is in the Businesses list.',
+      'John Bates Jr., the auctioneer whose building held the 1835 land sales, is now joined to his own Auction Store on Dearborn Street. It was always in the register, but nothing linked him to it.',
+      'The seven new houses are our reconstruction (liberty L360). Dr John McGuire still waits for his office. On the City card, people owed a workplace drop from 48 to 40.',
     ] },
   { v: 1326, ts: '2026-10-02T21:59:53.325Z', date: 'Oct 2, 2026, 4:59 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer owed a shop', kind: 'change',
     items: [
