@@ -1,0 +1,59 @@
+{
+  "status": "Full and corrected light static geometry accepted; browser/source gate pending.",
+  "full_sha256": "aecf5e9407fb7aafd34b585b27b9f126c1b569670c31cb67ca5891a0025c8ef9",
+  "selected_render_paths": {
+    "west-street": "west-street.png",
+    "north-detail": "north-detail.png",
+    "courtyard": "courtyard.png"
+  },
+  "metrics": {
+    "north_eave_m": 7.0409,
+    "ordinary_north_upper_head_max_m": 6.7818,
+    "head_clearance_m": 0.2591000000000001,
+    "turret_center_y_m": 16.9469,
+    "west_cross_gable_peak_y_m": 16.9469,
+    "turret_alignment_error_m": 0.0,
+    "west_street_window_count": 8,
+    "west_rear_window_count": 4,
+    "west_rear_window_widths_m": [
+      0.5486,
+      0.5486,
+      0.5486,
+      0.5486
+    ],
+    "west_rear_window_centers_m": [
+      5.6007,
+      7.2771,
+      8.9535,
+      10.6299
+    ],
+    "west_rear_center_gaps_m": [
+      1.6764,
+      1.6764,
+      1.6764
+    ],
+    "rear_ridge_height_m": 7.7724,
+    "rear_west_eave_m": 5.0292,
+    "west_cross_gable_height_m": 11.7653,
+    "full_opening_probe_count": 186,
+    "full_obstruction_hits": 0,
+    "light_opening_probe_count": 186,
+    "light_obstruction_hits": 0
+  },
+  "visual_findings": [
+    "West foreground now has the tall asymmetric gable, lower rear unhipped range, two broad low front lights, two upper slits and four regular rear lights.",
+    "Turret center aligns exactly to the west-gable apex in true west orthographic projection. Perspective still shows depth/parallax; no geometry was hidden for captures.",
+    "North windows no longer protrude through the eaves; the grazing view shows a continuous roof/cornice.",
+    "North stable door carries5x2upper glazing per leaf and lower vertical boards, while measured opening width is preserved; loft is a deep opening with relieving arch and stone appendage.",
+    "Dormer broad dark opening has no center post or shade; square projecting hip, finial and side supports remain.",
+    "South/courtyard final views show no roof holes, floating windows or exposed wall/roof gaps. Rear roof is asymmetric in cross-section to retain court window clearance, as recorded by the implementation.",
+    "The initially floating light ridge cap was corrected. The exact shipped light north-detail now follows the sloped roof, and emitted cap vertices pass the independent host-envelope regression."
+  ],
+  "limitations": [
+    "Reference image(2) is an owner-directed reconstruction target, not a surveyed elevation.",
+    "CIE overcast render scene adds neutral ground and lighting only; no mesh/material retouching.",
+    "Render review supports visible corrections, not a quantitative claim of photographic perfection.",
+    "Official stage13 desktop first attempt timed out at unrelated1835boot under heavy resource contention; zero page errors but no stage body executed. Custom1904attempt was stopped during the same contention; no browser pass claimed."
+  ],
+  "light_sha256": "fd5c851a8a05dcf8aa28a6bf3f9abf2c5ccf2651728890c2f80f6e064baf3bb2"
+}

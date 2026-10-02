@@ -1,3 +1,12 @@
+## T-1999 — Glessner north and west elevation repair (2026-10-02)
+
+The owner references drive a new west silhouette, regularized rear openings,
+clear dormer joinery and west rainwater fittings. North window heads are
+reconciled to HABS printed stone courses; north entrance widths remain measured.
+Roof and façade detail changes are reconstructed where unmeasured (L360).
+Build and validation are in progress; receipts belong in
+`docs/RESEARCH/glessner-elevation-rebuild/work.md`.
+
 ## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
 
 Piece 3 of 3 of T-1991 (T-1982 → T-1966 → T-1215). Ten reconstructed trade-holders read
