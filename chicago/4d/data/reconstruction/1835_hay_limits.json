@@ -560,7 +560,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 12,
+    "roofs_scheduled": 8,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -570,7 +570,7 @@
    {
     "id": "blk_washington_dearborn",
     "state": "open",
-    "roofs_scheduled": 27,
+    "roofs_scheduled": 26,
     "centre_local_enu_m": [
      760.04,
      -456.51
@@ -662,7 +662,7 @@
    {
     "id": "blk_washington_clark",
     "state": "open",
-    "roofs_scheduled": 12,
+    "roofs_scheduled": 8,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -672,7 +672,7 @@
    {
     "id": "blk_washington_dearborn",
     "state": "open",
-    "roofs_scheduled": 27,
+    "roofs_scheduled": 26,
     "centre_local_enu_m": [
      760.04,
      -456.51
