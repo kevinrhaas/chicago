@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
+  { v: 1296, ts: '2026-10-02T10:19:45.782Z', date: 'Oct 2, 2026, 5:19 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
     items: [
       'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
       'Walk east to Dearborn Street and cross it. One lot along, a third boarding house faces Washington. Edward McCarthy keeps it. Each house is two storeys of clapboard with a kitchen wing, and a log stable and a privy stand behind it off the alley.',
