@@ -573,12 +573,17 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
   // layer from 59 k to 466 k triangles. Columns are halved first, to the same
   // limit; rows only when the columns alone cannot settle it (a bend, an
   // approach fill), which is the case the joint refinement was written for.
+  // A finer split that would put a vertex on water is refused (above); refused
+  // across, the panel still tries along before it settles.
   let levelR = 0;
   let levelC = 0;
+  let acrossShut = false;
   let miss = residual(grid);
-  while (miss > DRAPE_TOL_M && (levelC < MAX_DRAPE_LEVEL || levelR < MAX_DRAPE_LEVEL)) {
-    const across = levelC < MAX_DRAPE_LEVEL;
+  while (miss > DRAPE_TOL_M
+    && ((!acrossShut && levelC < MAX_DRAPE_LEVEL) || levelR < MAX_DRAPE_LEVEL)) {
+    const across = !acrossShut && levelC < MAX_DRAPE_LEVEL;
     const next = across ? build(levelR, levelC + 1) : build(levelR + 1, levelC);
+    if (!next && across) { acrossShut = true; continue; }
     if (!next) break;
     grid = next;
     if (across) levelC += 1; else levelR += 1;
