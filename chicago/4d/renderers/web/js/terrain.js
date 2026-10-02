@@ -1349,7 +1349,9 @@ ${blocks}
  * of `<map_fragment>`, lifted out unchanged so a second surface can paint the SAME
  * prairie rather than a copy of it (T-1797: the ground strip feathers into the
  * terrain at its edges, and a copy would drift the first time this one is tuned).
- * The compiled ground shader is byte for byte the one it was. It expects
+ * The compiled ground shader was byte for byte the one it had been; T-1825 has
+ * since moved the fetch below the mosaic, which it borrows to break the tile's
+ * repeat (see the comment at the fetch). It expects
  * `varying vec3 vChiWorld` and `uniform sampler2D uGround` (the prairie tile) and
  * leaves `chiTex`, `chiPatch`, `chiWet` and `chiPrairie` declared.
  */
@@ -1360,8 +1362,8 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
   // and halved the frame rate under software rasterisation. The finer octaves
   // are therefore baked INTO that one texture (see prairieTexture) and the
   // patch-scale variation above the tile is arithmetic, which costs a fraction
-  // of a filtered fetch.
-  vec3 chiTex = texture2D(uGround, vChiWorld.xz * 0.0909).rgb;
+  // of a filtered fetch. The fetch itself sits below the mosaic, which it
+  // borrows.
 
   // Community mosaic — 42 m by 48 m, broken by a 15 m diagonal. The two sines
   // this replaces beat at ~200 m, a soft blur the size of a city block that read
@@ -1370,10 +1372,21 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
   // heightfield's own relief works at. THREE sines total, one more than before
   // and no more: this runs once per ground fragment and the ground is most of
   // the screen, so the count is a budget, not a taste (the same reason there is
-  // exactly one texture fetch above). Amplitude is held near +/-14 % — past that
+  // exactly one texture fetch below). Amplitude is held near +/-14 % — past that
   // the pattern competes with the sward instead of sitting under it.
   float chiPatch = sin(vChiWorld.x * 0.1496 + 1.7) * sin(vChiWorld.z * 0.1309)
                  + 0.6 * sin(vChiWorld.x * 0.3307 - vChiWorld.z * 0.2712 + 4.1);
+
+  // The one fetch, made AFTER the mosaic so it can borrow it (T-1825). The tile
+  // repeats every 11 m and now carries 1.4-2.75 m patches of growth and thatch,
+  // which a strict 11 m lattice would show as rows across the middle distance.
+  // Offsetting the lookup by the mosaic already in hand shears each repeat
+  // against its neighbours by up to about 1.5 m. That costs no fetch and no
+  // sine, and it stretches the tile locally by at most a fifth, because the
+  // mosaic changes over 15-48 m and the tile over 11 m.
+  vec3 chiTex = texture2D(uGround,
+    vChiWorld.xz * 0.0909 + vec2(0.090, 0.070) * chiPatch).rgb;
+
   // Wet ground: the marshy shore strip, keyed on height above the datum.
   // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
   // it at +1.25 ft, so elevation is the honest driver — it paints the mud wide

@@ -1,6 +1,36 @@
 # T-1830 — Glessner west roof and recessed north entrance — 2026-10-01
 
-Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through e565dcea. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through cffaef54. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+
+## T-1825 — the inland prairie grows in stands: a growth field under the ground and the near sward (2026-10-01)
+
+Piece 2 of T-1820 (under T-1772). T-1824 holds the dunes. This piece is the prairie away
+from the lake. Full write-up, captures and critique:
+`docs/RESEARCH/inland-prairie-t1825/README.md`.
+
+- **The ground tile** gains 2.75 m and 1.4 m growth octaves on their own seed. Lush stands
+  are darker and bluer, thin ones show thatch and a speckle of loam. The tile is returned
+  to the previous mean channel by channel (94.95, 107.22, 61.92, unchanged), and
+  `measure_ground_albedo.mjs --gate` still reads 0.00. Luminance SD across the tile goes
+  from 5.1 to 9.8.
+- **The repeat is sheared**: `PRAIRIE_FRAGMENT` fetches after the community mosaic and
+  offsets the lookup by it (up to about 1.5 m). That adds no fetch and no sine. The
+  ground strip shares the fragment.
+- **The near sward** takes a `vigourOf` field (2.8 m and 1.4 m) for where each tuft stands
+  inside its record's height range, its tone, and whether it carries the thatch tint.
+  Field means are measured over 200 m: vigour 0.500, thatch 7.00 %, tone 1.000. Mid
+  cards take the tone only, so the boundary part 11 measures keeps its heights.
+- **Visible**: at `prairie_west` the near ground's block-luminance spread goes from 14.2
+  to 16.7 at 390×780 and from 18.2 to 19.2 at 1280×800. **Frame cost unmoved**: medians
+  are within 0.25 % at both stands and both viewports, and draws, triangles and textures
+  are identical.
+- **Liberty L337** records the seeded field as a pattern, not a place.
+
+**Unverified / open:** the ground still shows between tuft bundles (L32's budget), so
+density and tuft form are the next gains, and both are frame-budget questions. The
+critic rig's `prairie_south` stand now looks into a house and no longer measures open
+prairie. The `public_square` foreground's roadbed-edge seam predates this ticket and
+belongs to T-1812.
 
 ## T-1826 — Wolf Point's books closed: the store on the teamster road states its use, T-1208 handed on (2026-10-01)
 

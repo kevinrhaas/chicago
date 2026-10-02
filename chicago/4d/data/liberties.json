@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 328,
+  "count": 329,
   "liberties": [
     {
       "id": "L1",
@@ -20829,6 +20829,41 @@
         {
           "label": "Recorded",
           "text": "2026-10-01 (T-1811)."
+        }
+      ]
+    },
+    {
+      "id": "L337",
+      "title": "The prairie grows in stands: an invented growth field under the ground and the near sward",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "What",
+          "text": "the July ground tile carries a coherent field of vigour at 1.4–2.75 m, darker and bluer where a stand closes up, with last year's litter and a speckle of bare loam showing where it thins. The near tufts take the same kind of field (2.8 m and 1.4 m) to decide where in their record's own height range they stand, how dark they are, and whether they carry the dead-thatch tint. The tile's lookup is sheared by the community mosaic so its 11 m repeat does not line up in rows. No survey of the 1835 plain records where a stand was vigorous or thin. The field is a seeded pattern, and the loam's tone (78, 66, 48) is reconstructed, not measured."
+        },
+        {
+          "label": "Why",
+          "text": "a sward drawn with every tuft's height independent, on a ground of one olive, reads as a planted crop on a mown lawn. Glessner v4's lawn study found the same uniform mat and fixed it with coherent 0.5–2 m growth variation. A prairie's version of that is vigour and litter, and the owner asked for the prairie to be improved toward that benchmark (T-1772, T-1825)."
+        },
+        {
+          "label": "Consequence",
+          "text": "nothing a record states has moved. The tile's mean colour is returned exactly to the July measurement (prairieTexture in terrain.js), and the substrate zones' albedo gate still reads zero. Every tuft still stands inside its record's height range, the thatch tint still falls on 7 % of tufts over the field (L32), and the mean tone is unchanged. What moved is WHERE in the field the tall, dark, thin and dry plants stand. A visitor reading one stand's height or colour as a measurement of that spot is reading this pattern."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a plant-community or soil-moisture record for the 1835 plain that says where growth was heavier, which would replace the seeded field with that record's map. Until then it is a pattern, not a place."
+        },
+        {
+          "label": "Related",
+          "text": "**L32** (the sward's density is a budget; the 7 % thatch), **L329** (the lake's sand, T-1824's sibling piece), **T-1772**, **T-1820**, **T-1825**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01."
         }
       ]
     },
