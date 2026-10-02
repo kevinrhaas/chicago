@@ -25,7 +25,7 @@
     "rotation_deg": 0.0,
     "position_confidence": "reconstructed",
     "position_sources": [],
-    "position_note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the prairie edge beyond the westernmost platted corridor as where a wagon party stops without entering the town, and grades the candidacy conjectural: it rests on the direction of the traffic and nothing else. The camp stands at the western edge of the modelled ground, off the end of Randolph's drawn line: every sampled point of its ground between 1.32 and 1.33 m above the water plane on the committed heightfield; 134.1 m clear of the drawn edge of the nearest roadway (des_plaines); 48.0 m clear of the nearest committed footprint; 178.2 m clear of the nearest fence run. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L354.",
+    "position_note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the prairie edge beyond the westernmost platted corridor as where a wagon party stops without entering the town, and grades the candidacy conjectural: it rests on the direction of the traffic and nothing else. The camp stands at the western edge of the modelled ground, off the end of Randolph's drawn line: every sampled point of its ground between 1.32 and 1.33 m above the water plane on the committed heightfield; 134.1 m clear of the drawn edge of the nearest roadway (des_plaines); 48.0 m clear of the nearest committed footprint; 178.2 m clear of the nearest fence run. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L355.",
     "symbolic_location": "On the prairie west of the Des Plaines Street line, between local E -700 and E -666 and N -236 to -202: beyond the last drawn street of the West Division, just north of the line Randolph would carry west, where the road out to the Des Plaines crossing left the town.",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -53,43 +53,43 @@
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "The camp's ground, 34.0 x 34.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L354."
+    "note": "The camp's ground, 34.0 x 34.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L355."
   },
   "attributes": {
     "tents": {
       "value": 2,
       "confidence": "reconstructed",
-      "note": "2 WEDGE TENTS for a party of four wagons: the wagon beds carried the bedding and the tents took who did not fit. Invented. L354."
+      "note": "2 WEDGE TENTS for a party of four wagons: the wagon beds carried the bedding and the tents took who did not fit. Invented. L355."
     },
     "tent_kind": {
       "value": "wedge",
       "confidence": "reconstructed",
-      "note": "NO SOURCE DESCRIBES THE TENTS. The wedge tent is the smaller and cheaper of the two forms the archetype carries, and the one a family going on by wagon would carry. L354."
+      "note": "NO SOURCE DESCRIBES THE TENTS. The wedge tent is the smaller and cheaper of the two forms the archetype carries, and the one a family going on by wagon would carry. L355."
     },
     "wagons": {
       "value": 4,
       "confidence": "reconstructed",
-      "note": "A PARTY OF FOUR WAGONS, invented: families came overland to Chicago from Indiana and Ohio in 1835 as well as by lake, and a party travelled together. L354."
+      "note": "A PARTY OF FOUR WAGONS, invented: families came overland to Chicago from Indiana and Ohio in 1835 as well as by lake, and a party travelled together. L355."
     },
     "brush_shelters": {
       "value": 0,
       "confidence": "reconstructed",
-      "note": "A lean-to of poles and cut brush, the cheapest roof there is. Invented. L354."
+      "note": "A lean-to of poles and cut brush, the cheapest roof there is. Invented. L355."
     },
     "fire_rings": {
       "value": 2,
       "confidence": "reconstructed",
-      "note": "Two cooking fires inside the ring of wagons. Drawn out: no flame, no smoke, nobody at them (L1). L354."
+      "note": "Two cooking fires inside the ring of wagons. Drawn out: no flame, no smoke, nobody at them (L1). L355."
     },
     "woodpiles": {
       "value": 1,
       "confidence": "reconstructed",
-      "note": "Cordwood for the fires. Invented. L354."
+      "note": "Cordwood for the fires. Invented. L355."
     },
     "baggage_heaps": {
       "value": 2,
       "confidence": "reconstructed",
-      "note": "What came off the wagons for the night. Invented. L354."
+      "note": "What came off the wagons for the night. Invented. L355."
     },
     "arrangement": {
       "value": "ring",
@@ -105,7 +105,7 @@
       "value": "emigrant_camp",
       "confidence": "reconstructed",
       "sources": [],
-      "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. The overland road came in from the west and the wagons that carried immigrant families came with it; the ground beyond the westernmost platted corridor is where a wagon party stops without entering the town. No committed source names a camp here. The candidacy rests on the direction of the traffic and nothing else. Built at the reconstructed tier on the owner's ask (T-1214) and labelled so; L354."
+      "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. The overland road came in from the west and the wagons that carried immigrant families came with it; the ground beyond the westernmost platted corridor is where a wagon party stops without entering the town. No committed source names a camp here. The candidacy rests on the direction of the traffic and nothing else. Built at the reconstructed tier on the owner's ask (T-1214) and labelled so; L355."
     },
     "occupants": {
       "value": "Nobody this layer counts. The transient model (T-1352/T-1353) counts the lake arrivals the papers describe and deals all 28 of its camp households to the landing place; no overland party is a row of it. So this camp seats nobody and moves no count. No figure is drawn (L1).",
