@@ -675,6 +675,13 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "hip_y": fr.y(rework["south_hip_S"]),
                 "front_hip_y": fr.y(rework["front_hip_S"]),
                 "north_range": dict(north)}
+            west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
+            if west["stable_roof"]["continuous_south_gable"]:
+                # The owner's reconstructed section now drives both the roof
+                # and the masonry silhouette; retain that tier in both meshes.
+                west["conf_roof"] = max(west["conf_roof"], cf("v4_detail"))
+                west["conf_plan"] = max(west["conf_plan"], cf("v4_detail"))
+            west["stable_roof"]["cross_foot_eave"] = fr.zval(rework.get("cross_foot_eave",rework["rear_eave_west"]))
             dormer = p.detail.get("west_dormer")
             if dormer:
                 dormer["style"] = wd.get("style")
