@@ -11964,6 +11964,12 @@
       "asset": "gltf/recon_1835_blk_washington_clark_a1_09__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clark_a1_12",
+      "name": "Reconstructed A1 stable #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a1_12.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a1_12__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_clark_a3_03",
       "name": "Reconstructed A3 privy #03",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a3_03.json",
@@ -11980,6 +11986,12 @@
       "name": "Reconstructed A3 privy #10",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a3_10.json",
       "asset": "gltf/recon_1835_blk_washington_clark_a3_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_a3_13",
+      "name": "Reconstructed A3 privy #13",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a3_13.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a3_13__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_clark_a4_04",
@@ -12010,6 +12022,12 @@
       "name": "Reconstructed H3 boarding house #06",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_h3_06.json",
       "asset": "gltf/recon_1835_blk_washington_clark_h3_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_h3_11",
+      "name": "Reconstructed H3 boarding house #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_h3_11.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_h3_11__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_franklin_a1_10",

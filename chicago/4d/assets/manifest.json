@@ -2575,6 +2575,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a1_09"
     },
+    "recon_1835_blk_washington_clark_a1_12__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 80784,
+      "inputs_sha256": "9c7f08eacfaf47f2f22df058df97be8ae5279eb4d9896cc00ab39d7cfc29c280",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a1_12"
+    },
     "recon_1835_blk_washington_clark_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -2601,6 +2610,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a3_10"
+    },
+    "recon_1835_blk_washington_clark_a3_13__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 29848,
+      "inputs_sha256": "c9faa14c80224881649f23fe872aa8b42a41b3b1bc4aa2d68ee2011c1cf0a81f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a3_13"
     },
     "recon_1835_blk_washington_clark_a4_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2646,6 +2664,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
+    },
+    "recon_1835_blk_washington_clark_h3_11__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 37740,
+      "inputs_sha256": "ba2d10a057e5a736b66ef4e576278eb820cf28e9d7cebca6685c698b52652b9e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_h3_11"
     },
     "recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -3568,8 +3595,8 @@
     "recon_1835_north_h2_045__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 27788,
-      "inputs_sha256": "334abe5b893fd1c00275063116546bf8dbb6315d21acd6484190ff6cc0f13896",
+      "bytes": 27008,
+      "inputs_sha256": "069f62fca0fafd4a4005b35c55bd42ae440a196c1b935777b7466a354446bad5",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_045"

@@ -174,13 +174,13 @@
       "words": "whitewashed clapboard on a braced frame under a weather-darkened roof — a boarding house, from the 1832–33 town (rule F-B: a boarding-house or tavern keeper's by its type)"
     },
     "capacity": {
-      "beds_ordinary": 11,
-      "beds_crowded": 25,
+      "beds_ordinary": 10,
+      "beds_crowded": 24,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_blk_washington_clark_h3_05]",
       "sizes": {
-        "upper_windows": "ceil(25 crowded beds / 3 to a chamber) = 9, held to the crosswalk's 6-10 = 9, then to the 7 sashes a front of 8.47 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(11 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
+        "upper_windows": "ceil(24 crowded beds / 3 to a chamber) = 8, held to the crosswalk's 6-10 = 8, then to the 7 sashes a front of 8.47 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(10 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }

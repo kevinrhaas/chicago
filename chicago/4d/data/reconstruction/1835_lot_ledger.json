@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 125,
-   "free": 163,
+   "at_capacity": 126,
+   "free": 162,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 180,
-  "lots_barring_another_roof": 178,
+  "lots_with_a_roof": 181,
+  "lots_barring_another_roof": 179,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 239,
+  "principal_roofs_standing": 240,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8462,14 +8462,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clark_a1_12",
+    "recon_1835_blk_washington_clark_a3_13",
+    "recon_1835_blk_washington_clark_h3_11"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clark_a1_12": "A1",
+    "recon_1835_blk_washington_clark_a3_13": "A3",
+    "recon_1835_blk_washington_clark_h3_11": "H3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#01",
