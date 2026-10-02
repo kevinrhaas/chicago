@@ -19267,6 +19267,7 @@ summer of 1835 would replace the 0.35 m floor.
 **Related:** **L132** (the docks' invented size), **L146** (the boats), **L342** (the graded
 street section the aprons lead to), **T-0041**, **T-0058**, **T-0062**, **T-1771** (this
 layer), **T-1797** (the ground-strip method).
+**Recorded:** 2026-10-02.
 
 ### L348 — The South's last three planned boarding houses: two back to back on blk_washington_market, one on blk_washington_dearborn, each with its stable and privy
 
