@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1322, ts: '2026-10-02T20:44:17.833Z', date: 'Oct 2, 2026, 3:44 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
+  { v: 1324, ts: '2026-10-02T21:04:24.828Z', date: 'Oct 2, 2026, 4:04 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
     items: [
       'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter, now works there. Louis Bertrand keeps the narrow warehouse at the forks, and Silas Bacon, a grocer, keeps the two-storey store on Lake Street.',
       'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L360).',
       'The big riverside work shop on Wolcott stays empty, and its card now says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
       'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five lives there, and nine more households that were waiting now have a roof.',
+    ] },
+  { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
+    items: [
+      'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
+      'Twenty more say why no shop is owed them. Major Greene and Dr Maxwell served the garrison at the fort. The two sheriffs and two justices held public offices, not shops. A plasterer, a surveyor and a ship carpenter worked on other people\u2019s ground.',
+      'Some were not at their post on the day. Two army officers are not placed at the fort, the Chicago post office was John Hogan\u2019s and not the two other postmasters\u2019, and Eliza Chappel\u2019s school had closed. Each card gives its reason.',
+      'On the City card, working people owed a workplace drop from 167 to 142.',
+    ] },
+  { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
+    items: [
+      'Open Rufus Nichols\u2019s card, a blacksmith on the West Side, and look under Were they at work? It used to say the town owed another smithy to take him on as a hand. It now says he worked on his own account, as a smith\u2019s trade did, and that his own shop is still to be placed.',
+      'The same goes for three more smiths, two butchers, a house painter and a dressmaker. Every shop of their trade already had as many hands as it could take, and their trade kept its own shop, so they kept one too.',
+      'Two schoolteachers, Victoire Pothier and Lydia Rice, now say no school is missing. The town had six schools open in July 1835 and all six are in the reconstruction, each with its one assistant. These two followed the trade with no school to teach in.',
+      'All ten people are our reconstruction, and so are these answers. On the City card, people owed a workplace drop from 169 to 167.',
     ] },
   { v: 1321, ts: '2026-10-02T20:08:04.793Z', date: 'Oct 2, 2026, 3:08 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
     items: [

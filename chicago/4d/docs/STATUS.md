@@ -1,3 +1,56 @@
+## T-1994 — the 25 attested at a no-premises trade, each joined or told why no house is owed (2026-10-02)
+
+Piece 2 of 3 of T-1991 (→ T-1982 → T-1966 → T-1215). After T-1990, **25** working-age people
+still read `trade_attested_no_house_named`: a source attests their trade, its premises ruling
+sends them to an establishment they did not keep, and nothing joined them to one. Each is now
+ruled on BY NAME in the authored `data/residents/attested_trade_houses.json`, which
+`tools/employment_coverage_1835.py` applies (a row whose person no longer reads that reason is
+refused as stale). **5 joined** to a house the register holds: Oscar Pratt and Beckford to the
+Democrat printing office (`inferred` — Andreas's "in the employ of Mr. Calhoun" is 1833), T. O.
+Davis to the Chicago American (`attested`), Capt. Hiram Hugunin to the North Western Fire and
+Marine agency (`attested` — the register's own proprietor string is his printing), John S. Wright
+to his father's store (`inferred`, the card's own reasoning). **20 stated, none owed**, under four
+new reasons: the garrison or an agency held outside the register (Greene, Maxwell, Allen,
+E. K. Hubbard); not held by the establishment on the day (Baxley and Jamison, refused by T-1348;
+postmasters Arnold and Galaher, whose office was not Chicago's — Hogan holds that one; Lathrop,
+a church member and not its minister; Legg, read off 1838; Eliza Chappel, whose school closed in
+1834; Myers, quartermaster clerk 1831-33); a civic seat and not a house (two sheriffs, two
+justices, H. Crocker, a school district's clerk); work on other people's ground (Norton, Steele,
+Snow). Owed a workplace **230 → 205** on this ticket alone; merged after T-1993 (the 61 domestics)
+and T-1995 (the 10 at a class with no room) it is **167 → 142**, and what is left of T-1991 is
+T-1992: the own-account houses the register does not hold.
+
+**Found, not fixed:** Arnold's and Galaher's cards carry an `associated_with` civic seat at the
+Chicago post office corner; on this reading they kept other offices, so that row is likely wrong.
+
+
+## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
+
+Piece 3 of 3 of T-1991 (T-1982 → T-1966 → T-1215). Ten reconstructed trade-holders read
+`class_held_no_house` for a reason other than domestic service: the staffing model hires their
+trade in a class of house, every house of it the layer holds is full to the band's high end, and
+`tools/seat_reconstructed_trades_1835.py` concluded *the town is owed more houses of the kind*.
+For eight of them that skipped the premises ruling, and for two it was false:
+
+* **Eight carried their trade on their own account** (the smiths Rufus Nichols, Willard
+  Nichols, Alvah Parmelee and Harvey Thayer; the butchers Samuel Nichols and Alvah Stiles; the painter Rufus Tuttle; the dressmaker Maria
+  Wilcox). Their premises rulings say the trade kept a house of its own. The keeper branch stands
+  aside where the model hires the trade so that a hand is seated in a house the layer holds; once
+  every such house is full, that reason is spent and the ruling stands. They now read
+  `keeps_their_own_house` under a new basis id,
+  `every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own` — the house owed, and T-1992 owns it with the other own-account houses.
+* **Two schoolteachers are owed no house** (Victoire Pothier, Lydia Rice). The model counts six
+  schools trading on 1 July 1835; the layer holds all six (the two high schools open in August),
+  each with its one assistant (`count_high` 1). The count is met, so a new kind,
+  `class_full_none_owed`, states it: the town is not short a school, and the teacher follows the
+  trade with no room in it. The completion audit reads it as stated, not owed.
+
+The domestics are left alone by name (`RULED_ELSEWHERE`): their ruling puts the work in another
+household's house, which is T-1993's answer, given in the coverage join. Owed a workplace
+**169 → 167** (after T-1993); placed at
+work **457 → 465**. In the seating, `class_held_no_house` 71 → 61, every one a domestic, and
+T-1993's coverage reads all 61 as in another household's service.
+
 ## T-1984 — nothing in a doorway, no sign over a door, no door run into a window, worn ground at every entrance (2026-10-02)
 
 The owner, walking Lake Street on dev with five screenshots: goods and furniture in front of doors,

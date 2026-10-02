@@ -1505,6 +1505,7 @@ function employmentHtml(seatingByPerson, personId) {
   const drawn = {
     seated: 'Seated by the staffing model',
     class_held_no_house: 'No house of this kind has room',
+    class_full_none_owed: 'Every house of this kind is full, and none is owed',
     keeps_their_own_house: 'Owed a house of their own',
     no_employer_named: 'No employer can be named',
     no_ruling: 'No ruling on this trade yet',
@@ -1582,11 +1583,14 @@ function employmentCoverageHtml(coverage, personId) {
   // T-1990: where the answer is the business register's own row, the house is named on
   // the row itself — no other block on the card prints it.
   const houses = (row.house_names || []).filter(Boolean);
+  // T-1994: an attested trade ruled on by name carries the ruling's own words, which say
+  // whose house it is or why none is owed — the closed sentence above cannot.
   return `<dt>Were they at work?</dt>
     <dd><span class="res-chip ${placed ? 'res-research' : 'res-role-off'}">${
   escapeHtml(headline)}</span>
       ${houses.length ? `<br><b>${houses.map(escapeHtml).join('</b> · <b>')}</b>` : ''}
       ${sentence ? `<br><span class="res-why">${escapeHtml(sentence)}</span>` : ''}
+      ${row.ruling ? `<br><span class="res-why">${escapeHtml(row.ruling)}</span>` : ''}
       ${age ? `<br><span class="res-why">${escapeHtml(age)}</span>` : ''}
       ${row.decided_by ? `<br><span class="res-why">Decided by <code>${
     escapeHtml(row.decided_by)}</code>.</span>` : ''}
