@@ -61,6 +61,26 @@ The viewer's **Images** section reads the merged file `../../data/images.json`
    `WORKLOG.md` as a lead, not in a stream file.
 2. **Rights decide what is copied.** Local files only for `public domain` or
    `no known restrictions`. Everything else is a link and a description.
+   - **The public-domain cutoff rolls forward.** A work PUBLISHED in the United States more
+     than 95 years before the current 1 January is public domain. As of 2026 that is
+     **publication in 1930 or earlier** (owner, 2026-10-02, widened from "before 1929"); each
+     January it advances one year.
+   - **What counts as evidence.** The publication — the book, periodical, newspaper issue,
+     atlas or catalogue — must be stated in the record, or verifiable at its catalog page. A
+     date guessed from a file name or style is not evidence.
+   - **Unpublished photographs** (family snapshots, museum-held prints) do not qualify by date.
+     They follow the holder's statement, or stay link-only.
+   - **A holder's own licence or restriction** governs its copies, whatever the date (for
+     example the Houghton finding-aid images).
+   - **`pending — permission requested`** (owner, 2026-10-02). An item MAY be stored and shown
+     while a permission request to its holder is outstanding, but only when all three hold:
+     - the request is written in `research/images/rights-requests/`;
+     - the record names that file in `rights_request`;
+     - `rights_basis` says why copying is defensible meanwhile (for example, an unpublished work
+       whose author died more than 70 years ago).
+
+     The viewer badges these items "Rights pending". If a holder refuses, delete the stored copies
+     (fetch_image.py output in the store) and set the record back to link-only.
 3. **A later image is evidence of its own date.** Say what changed between 1904 and the
    image date where it is known (HABS 1960s photos post-date alterations and demolitions).
 4. Prefer front elevations; collect every angle.

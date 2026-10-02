@@ -207,6 +207,15 @@
       "phase_id": "works_1833",
       "structure_id": "elston_soap_candle_manufactory"
     },
+    "emigrant_camp_shore__camp_1835.glb": {
+      "archetype": "camp",
+      "baked_ao": false,
+      "bytes": 171676,
+      "inputs_sha256": "5835777702da51ccad8df1185f7a5eade07afef42d0100befd2ba66d5a19f311",
+      "kind": "generated",
+      "phase_id": "camp_1835",
+      "structure_id": "emigrant_camp_shore"
+    },
     "exchange_coffee_house__frame_1834.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
@@ -865,20 +874,11 @@
       "phase_id": "camp_1835",
       "structure_id": "land_sale_camp_shore"
     },
-    "landing_camp_east__camp_1835.glb": {
-      "archetype": "camp",
-      "baked_ao": false,
-      "bytes": 146072,
-      "inputs_sha256": "cf81f4b0c5675902f5b90fb7ade72d5dd332e5918a6f5aeb9ac32e669f1d1008",
-      "kind": "generated",
-      "phase_id": "camp_1835",
-      "structure_id": "landing_camp_east"
-    },
     "landing_camp_west__camp_1835.glb": {
       "archetype": "camp",
       "baked_ao": false,
-      "bytes": 134476,
-      "inputs_sha256": "29b4c4e5f9b5ab7e1a5f3f11bb68e04882933a173be439b6c27e281b642251aa",
+      "bytes": 49724,
+      "inputs_sha256": "6091085d5be16cf83071bb4c44b80a4355011b3fcaac0c6102aabe84266884c8",
       "kind": "generated",
       "phase_id": "camp_1835",
       "structure_id": "landing_camp_west"

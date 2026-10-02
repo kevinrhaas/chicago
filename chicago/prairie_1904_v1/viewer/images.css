@@ -31,6 +31,7 @@
 .img-body .meta{margin:0;font-size:.8rem}
 .img-badges{display:flex;flex-wrap:wrap;gap:4px}.img-badges .badge{margin:0}
 .badge.period-in-period{background:#f2d9cf;color:#7a2a1a}.badge.period-near-period{background:#dcebee;color:#14576a}
+.badge.pending-badge{background:#fff3cd;color:#7a5a00;border:1px solid #e6c65c}
 .badge.link-badge{background:transparent;border:1px dashed var(--line);color:var(--muted)}
 .img-chips{display:flex;flex-wrap:wrap;gap:4px}
 .img-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
