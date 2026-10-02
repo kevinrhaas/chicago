@@ -19552,3 +19552,40 @@ clapboard widths sold at Chicago in 1833–35, which re-grades the class bounds.
 **L148** (the siding stock set), **L26** (where the stacks stand), **T-0112**, **T-1832**,
 **T-1839** (this rule).
 **Recorded:** 2026-10-02.
+
+### L353 — A privy behind every house and a stable for the horse-keepers, dealt to the yards by whose house it is
+
+**Decision:** `data/yard/town_yard_outbuildings.json` (T-1960, written by
+`tools/generate_yard_outbuildings.py`) stands **122 privies and 16 stables** on the yard layer,
+drawn at load by `renderers/web/js/yard.js` and baked into nothing. Every improved platted lot with
+a dwelling on it, a yard behind the house and no committed privy takes one privy in a rear corner,
+its back 0.75 m inside the rear lot line (off the alley). A lot whose household kept a horse takes
+a stable in the other rear corner, unless a committed stable, barn or carriage shed already stands
+there. "Kept a horse" is T-1212's list read off fields the town already carries: the house's class
+is `merchant`, `keeper` or `freight` (L330), the house is a tavern, inn, hotel or boarding house, or
+its reconstructed occupation is a teamster's. All of it is `reconstructed`.
+
+- **The house decides the size and the finish.** A labourer's privy is a 3½-ft box of sawmill slabs.
+  A tradesman's is a 4-ft board privy. A keeper's and a merchant's is a 5 × 4-ft two-seat, and the
+  merchant's is whitewashed. A keeper's stable is 20 × 14 ft with four stalls; the others are
+  16 × 12 ft. All are gabled board-and-batten with a pair of doors to the yard and a loft door in
+  one gable. The boards weather by the house's own `age_state` (L348's years).
+- **What is invented:** every dimension, the finish rule, the corner (a hash of the lot id), the
+  door, the loft and the tones. What is NOT invented is that a town house of 1835 had a privy
+  behind it — there was no other arrangement before sewers — and that a horse was stabled on its
+  owner's lot. That is the norm of the period, not a reading of any yard here.
+- **What is refused, on the record:** 8 deals — 7 lots whose buildings leave no yard and one corner
+  taken by a committed building. The record counts **114 dwellings standing off the platted lots**
+  and draws nothing for them, because they have no lot line to put an alley behind. Physicians are
+  on T-1212's list and on no committed field, so none is reached. No well is dealt:
+  `docs/RESEARCH/wells.md` § 4 refuses a well class, and that ruling stands.
+
+**How to resolve:** any source placing a privy, stable or barn on a particular 1835 Chicago lot; an
+1830s account or builder's bill giving a town privy's or stable's size; a source naming which
+households kept a horse. A named outbuilding replaces the dealt one on its lot.
+
+**Related:** **L330** (the household class this reads), **L348** (the weather years), **L326** (the
+yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960** (this deal, piece
+3 of **T-1212**), **T-1967** (the baked stable and outbuilding roofs the order book still counts).
+
+**Recorded:** 2026-10-02 (T-1960).

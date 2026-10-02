@@ -613,6 +613,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 22s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_yard_outbuildings.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-02 — directly after tools/generate_yard_goods.py, whose wagons it reads; see the manifest step"
+    },
     "lift_letter_list_1834_unread.py": {
       "placement": "not_a_writer",
       "write_mode": null,
