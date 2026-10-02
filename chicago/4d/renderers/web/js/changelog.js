@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
+  { v: 1321, ts: '2026-10-02T20:12:41.423Z', date: 'Oct 2, 2026, 3:12 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [
       'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
       'Twenty more say why no shop is owed them. Major Greene and Dr Maxwell served the garrison at the fort. The two sheriffs and two justices held public offices, not shops. A plasterer, a surveyor and a ship carpenter worked on other people\u2019s ground.',
