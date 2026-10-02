@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
+      'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
+      'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
   { v: 1327, ts: '2026-10-02T22:38:22.537Z', date: 'Oct 2, 2026, 5:38 PM CT', title: 'Three refectories, a mill and four more houses of trade open', kind: 'feature',
     items: [
       'Open Hannah Barnes\u2019s card and look under Were they at work? It used to say the town owed her a house. It now names her own refectory on South Water Street. Hannah Pratt and H. Ingalls keep refectories too.',
