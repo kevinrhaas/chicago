@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A new jaunt: Outfit for the West', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Outfit for the West. You have an imagined fifteen dollars to get ready for the road west.',
+      'Five stops: the Green Tree, Peck\u2019s store, the Jones grocery, Cobb\u2019s saddlery and Pierce\u2019s smithy. Each sells what its own advertisement or history says it sold: hardware from the merchant, provisions from the grocer, harness from the saddler, ironwork from the smith.',
+      'Your purchases decide the ending: you leave prepared, or you set out light. Either way the keepsake Ready for the Road goes in your daybook under Provisions.',
+      'The errand, the purse and every price are our reconstruction (liberty L-jaunt-outfit-west). The trades and their dates come from the 1833\u201335 newspapers and Andreas.',
+    ] },
   { v: 1329, ts: '2026-10-02T23:07:46.373Z', date: 'Oct 2, 2026, 6:07 PM CT', title: 'Reconstructing the town now says whether the town is finished', kind: 'change',
     items: [
       'Open the Evidence tab and choose \u201cReconstructing the town\u201d. A new first section, \u201cIs the town finished?\u201d, answers that before anything else.',

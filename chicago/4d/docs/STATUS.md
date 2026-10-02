@@ -1,3 +1,25 @@
+## T-1260 — Outfit for the West, the second published 1835 jaunt (2026-10-02)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Outfit for the West* (Migration,
+Wagon) beside *New in Chicago*. It has five exterior stops: the Green Tree, Peck's store, the
+Jones grocery, Cobb's saddlery and Pierce's smithy. The visitor has an imagined $15 purse and a
+readiness count. Four optional purchases each go to the trade its own source names. The ending
+is *prepared* at readiness 3 or more and *light* otherwise. The keepsake *Ready for the Road*
+goes to Provisions. Content only: one JSON file, a liberty (`L-jaunt-outfit-west`), the
+regenerated catalog and source-use edges. There is no engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 23 paths to both endings, with one keepsake.
+The harness path cannot also afford the repair, which is deliberate. The estimator's
+primary-path figures use the unrouted straight line × 1.3: Wagon about 9 min, Horse 6.5, Fly
+4, Instantly 3. **Wagon is over the brief's 4–6 min.** The five owner-named stops straddle the
+South Branch, so no order of them comes under about 7 min at the 3.6 m/s wagon pace. The
+route was re-ordered to cut 240 m, and the reasoning is in brief 01's route note.
+
+**Unverified.** The published mirror's routed figure was not taken, and neither were the
+acceptance stills at 390×780 and 1280×800. The routed bridge detour may lengthen the two
+river legs beyond the × 1.3 fallback. Jones's initial (B. or H.) stays open, and the stop says
+it is disputed.
+
 ## T-1970 — the visible walk, fort to Wolf Point, and the card that says whether the town is finished (2026-10-02)
 
 The last piece of T-1215. **Acceptance, stated before the work:** (1) a walk from the fort to
