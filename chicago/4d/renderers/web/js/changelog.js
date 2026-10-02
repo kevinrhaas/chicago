@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+  { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
     items: [
       'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
       'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
