@@ -6,6 +6,7 @@ export const CHANGELOG = [ // newest first
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
   { v: 1279, ts: '2026-10-01T23:50:54.518Z', date: 'Oct 1, 2026, 6:50 PM CT', title: 'Glessner’s west roof and north entrance take shape', kind: 'change',
     items: [
       'The stable wing has a full northern gable, lower rear roof, and hooded alley dormer. The roof sections meet at clean valleys.',
