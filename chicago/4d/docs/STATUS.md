@@ -29,6 +29,46 @@ figures it reads off the lodging model and the order book (`roof_draw`, `ROOF_TR
 Who is owed and who is not is a SEEDED DRAW over person and trade (`rank_key`), and each block
 carries its `draw` (rank of 38, against 26 roofs): nothing in the layer orders them, and the block
 says so. Owed a workplace **40 → 28** (after T-2001); placed at work unchanged at 375.
+## T-1970 — the visible walk, fort to Wolf Point, and the card that says whether the town is finished (2026-10-02)
+
+The last piece of T-1215. **Acceptance, stated before the work:** (1) a walk from the fort to
+Wolf Point along South Water, Lake and Canal with a screenshot at each stand, committed under
+`docs/RESEARCH/shots/`; (2) the "Reconstructing the town" card reads the completion audit and
+says *complete* exactly when `the_join_is_total` does — and until then says what keeps each join
+open, in the audit's words; (3) this section lists what remains unverified.
+
+**What a visitor sees.** Evidence → Reconstructing the town now opens on *Is the town finished?*,
+the four joins of `data/render/town_completion_1835.json` (T-1964) with the count still open on
+each. It reads, at this build: **1 of 4 joins closed** — every business roofed or its limit
+stated; 523 households waiting on a roof, 40 working people owed a workplace, 5 standing roofs
+empty and owed somebody. The City tile already read the same joins (T-1967); the card that is
+*about* reconstructing the town never did. **The card does not read complete, because the town is
+not**, and that is the honest reading of T-1215's "the card reads complete": the card is now the
+place that will say so, and it will say so through the audit, not by an edit to the card.
+
+**The walk.** Eight of the scene's own anchors (`tools/shoot.mjs --anchors`, new): fort_dearborn →
+south_water → newberry_dole_wharf → first_post_office → lake_market → green_tree → lake_at_canal →
+forks. Eight 960 px JPGs and their table are in `docs/RESEARCH/shots/README.md`. The shooting
+run reported zero page errors and 540 of 540 expected structures standing.
+
+**What remains unverified — read this before calling T-1215 finished:**
+
+1. **The forks are not visible from "The forks, from Wolf Point".** At the `forks` anchor
+   (-100, -28, yaw 75°) a log cabin stands a few metres in front of the camera and fills the
+   frame; the forks are behind it. Either the anchor moves to a clear stand or the cabin's seat is
+   re-read. Not done here: moving a scene anchor moves a smoke station.
+2. **The town is not complete.** 523 households waiting on a roof, 40 working people owed a
+   workplace and 5 empty roofs owed somebody — T-1965 and T-1966's open pieces own them. The
+   stop condition ("every door has a name, a trade, a family and a reason behind it") is not met.
+3. **Doors were not opened.** The walk is exterior frames only; nobody clicked a door at any
+   stand, so "every door has a name" is unread by this walk.
+4. **Desktop only, full detail only.** The frames are 1280 × 800 at `full`; 390 × 780 and the
+   `balanced` and `light` tiers were not shot on this walk.
+5. **The core only.** The walk does not reach the North Division (the Kinzie block), the West
+   Division beyond Canal, or the South Division's outer band — each has its own anchors.
+6. **The wharf stand frames the deck, not the warehouse.** `newberry_dole_wharf` stands *in*
+   the warehouse door and looks out across the river, so the frame shows planking and posts; the
+   building it is named for is behind the camera.
 
 ## T-2001 — the ten at a trade no count reaches, and the physician T-1529 owes (2026-10-02)
 
