@@ -1,0 +1,26 @@
+[
+  {
+    "worktree": "chicago",
+    "base_commit": "10bd9c07e7bf1e02dd0344315aaa435a980167d0",
+    "patch": "chicago.patch",
+    "bytes": 356323,
+    "sha256": "60ea2630f9f1bfa51d73562c664d89c61819d9eec5706d872511f563fcda600f",
+    "validation": "git apply --cached --check against recorded base passed; implementation remains unvalidated"
+  },
+  {
+    "worktree": "north-work",
+    "base_commit": "10bd9c07e7bf1e02dd0344315aaa435a980167d0",
+    "patch": "north-work.patch",
+    "bytes": 34891,
+    "sha256": "419b9800b23d230b73ada013cbc702f0cf9e75eb3f9d2d9395e708e65d2f8f94",
+    "validation": "git apply --cached --check against recorded base passed; implementation remains unvalidated"
+  },
+  {
+    "worktree": "roof-work",
+    "base_commit": "10bd9c07e7bf1e02dd0344315aaa435a980167d0",
+    "patch": "roof-work.patch",
+    "bytes": 13611,
+    "sha256": "3695aae984f17b162bf928eabc31716d52d277121ed2286cb9281759241f561c",
+    "validation": "git apply --cached --check against recorded base passed; implementation remains unvalidated"
+  }
+]

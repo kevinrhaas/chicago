@@ -35,3 +35,18 @@ The canonical source paths in this recovery branch include the north working tre
 ## Validation at this checkpoint
 
 Pending. No full source gate, bake, or published browser gate was run for this recovery snapshot. The owner explicitly requested intermediate branch commits to prevent session loss; that is why this work is preserved before completion.
+
+## Second snapshot: all three working trees
+
+`checkpoints/manifest.json` indexes complete binary-capable patches for the integration, north and roof worktrees. These were captured after the first north-only checkpoint and include newer west fabric/drainage, source/provenance notes, and west-roof implementation work. Each patch includes tracked edits and untracked files and has passed `git apply --cached --check` against its recorded base. That proves recoverability only; it is not a build/test result.
+
+The integration patch (`chicago.patch`) and roof patch (`roof-work.patch`) are separate unfinished workstreams. Do not stack them blindly: both change the structure and parameter files. Recover in separate worktrees, compare the diffs and integrate deliberately. The `north-work.patch` snapshot preserves the north task independently.
+
+Example, from a checkout of this checkpoint branch:
+
+```sh
+git worktree add -b recovery/t-1999-integration ../t1999-integration 10bd9c07e7bf1e02dd0344315aaa435a980167d0
+git -C ../t1999-integration apply --binary /absolute/path/to/this-checkpoint/chicago/4d/docs/RESEARCH/glessner-elevation-rebuild/checkpoints/chicago.patch
+```
+
+Use the same pattern for each patch with a separate branch/worktree. Read `work.md` recovered by the integration patch for the current architecture plan. A live worker may have advanced since capture: inspect the active branch and ticket before using any snapshot.

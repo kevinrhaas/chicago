@@ -1,0 +1,376 @@
+diff --git a/chicago/4d/data/structures/glessner_house.json b/chicago/4d/data/structures/glessner_house.json
+index bb815355..8a745737 100644
+--- a/chicago/4d/data/structures/glessner_house.json
++++ b/chicago/4d/data/structures/glessner_house.json
+@@ -1237,8 +1237,8 @@
+                   110.1
+                 ],
+                 "z": [
+-                  20.0,
+-                  23.7
++                  19.25,
++                  22.25
+                 ],
+                 "lights": 3
+               },
+@@ -1317,7 +1317,7 @@
+             "habs_glessner_photo_01_nw_1963",
+             "habs_glessner_photo_15_north_stable_1965"
+           ],
+-          "note": "No HABS elevation of 18th Street exists: positions are read as gaps in the granite on the first- and second-floor plans (sheets 2-3, +/- 0.4 ft). The great arch (12'-0\" clear at 96'-6\", sheet 2; springing 4.6, crown 10.8, voussoir ring 19 ft across, sheet 5) and the 12-ft window over it (20.0-23.7 ft, sheet 5) carry their own heights. HABS photograph 1 (1963) shows the same rhythm of narrow slit windows along the range. The 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' are Glessner's (1923). Items without a height take opening_heights. V4: the opening at W 122.8-125.2 is a full-height service door, not a first-floor slit window: sheet 2 shows a doorway, and HABS photograph 15 shows its sill at street grade. Its head at 10.4 ft is a photographic reading (+/- 1 ft)."
++          "note": "No HABS elevation of 18th Street exists: positions are read as gaps in the granite on the first- and second-floor plans (sheets 2-3, +/- 0.4 ft). The great arch (12'-0\" clear at 96'-6\", sheet 2; springing 4.6, crown 10.8, voussoir ring 19 ft across, sheet 5) and the 12-ft window over it (19.25-22.25 ft, sheet 5 printed stone-course sum re-read for T-1999) carry their own heights. HABS photograph 1 (1963) shows the same rhythm of narrow slit windows along the range. The 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' are Glessner's (1923). Items without a height take opening_heights. V4: the opening at W 122.8-125.2 is a full-height service door, not a first-floor slit window: sheet 2 shows a doorway, and HABS photograph 15 shows its sill at street grade. Its head at 10.4 ft is a photographic reading (+/- 1 ft)."
+         },
+         "openings_18th_photo": {
+           "value": {
+@@ -1357,7 +1357,8 @@
+                 "z": [
+                   17.4,
+                   24.4
+-                ]
++                ],
++                "style": "stable_loft_opening"
+               },
+               {
+                 "what": "small windows flanking the loft opening",
+@@ -1411,9 +1412,10 @@
+           "confidence": "reconstructed",
+           "sources": [
+             "habs_glessner_house_il_1015_drawings",
+-            "habs_glessner_house_il_1015_data_pages"
++            "habs_glessner_house_il_1015_data_pages",
++            "owner_glessner_v4_reconstruction_brief_2026"
+           ],
+-          "note": "The DOORWAY is attested: rectangular, 11.9-12.1 ft wide, 12.6 ft to the soffit of a single flat granite lintel (sheets 2, 5). The DOORS of 1904 are not known \u2014 HABS records the stable door replaced in 1946, and HABS photograph 1 shows the 1946 overhead door. Drawn as a pair of plain oak leaves filling the opening; the panel drawn carries the reconstructed grade because the leaves are ours. docs/LIBERTIES.md L295."
++          "note": "The DOORWAY is attested: rectangular, 11.9-12.1 ft wide, 12.6 ft to the soffit of a single flat granite lintel (sheets 2, 5); T-1999 preserves that measured clear width. HABS records the stable door replaced in 1946. The owner-supplied historical northwest view received 2026-10-02 shows paired lower vertical-board leaves and a gridded upper glazed zone below the lintel, replacing the former generic raised panels. Its capture date is not independently established; the 1904 leaf composition, 7.8-ft board height, five-by-two upper panes per leaf, board widths and hardware remain reconstructed from that visual arrangement. No image pixels are reused. docs/LIBERTIES.md L295; T-1999 reconstruction entry."
+         },
+         "openings_alley": {
+           "value": {
+@@ -1698,18 +1700,18 @@
+           "value": {
+             "openings_18th": {
+               "first": [
+-                9.3,
+-                15.2
++                9.25,
++                14.4583333333
+               ],
+               "second": [
+-                20.5,
+-                23.8
++                19.25,
++                22.25
+               ]
+             },
+             "openings_18th_photo": {
+               "first": [
+-                9.3,
+-                15.2
++                9.25,
++                14.4583333333
+               ]
+             },
+             "openings_alley": {
+@@ -1738,7 +1740,7 @@
+             "habs_glessner_house_il_1015_drawings",
+             "habs_glessner_photo_01_nw_1963"
+           ],
+-          "note": "Heights for openings whose positions are read off plans. 18th Street: sheet 5 draws one pair of the narrow corridor windows beside the great arch (first floor 9.3-15.2, second 20.5-23.8 ft above grade), and those heights are applied to every narrow opening on the face \u2014 the spec called that step inferred; it is carried here at the grade of the weakest row this attribute also holds. The alley wall's ground-floor lights are set high, as stable lights are (7.0-10.5 ft), and its loft lights take the 17.8-22.9 ft HABS photograph 1 shows on the stable's 18th Street face. The north range's courtyard rows take the house's first- and second-floor window rows. docs/LIBERTIES.md L295."
++          "note": "Heights for openings whose positions are read off plans. T-1999 re-reads the PRINTED north-wall course dimensions on HABS sheet 5: the lower corridor aperture spans cumulative courses 8-15, 111-173.5 inches (9.25-14.4583 ft ng), and the upper spans courses 19-23, 231-267 inches (19.25-22.25 ft ng), leaving the 4-inch cap above. Applying that pair to the other plan-listed north corridor windows remains inferred. This corrects the previous raster-scale estimate of 20.5-23.8 ft, which put heads above the 23.1-ft eave. No roof is raised to clear an incorrect opening. The alley wall's ground-floor lights are set high, as stable lights are (7.0-10.5 ft), and its loft lights take the 17.8-22.9 ft HABS photograph 1 shows on the stable's 18th Street face. The north range's courtyard rows retain their separate heights. The containing attribute remains reconstructed at the grade of its weakest rows. docs/LIBERTIES.md L295."
+         },
+         "eave_cornice": {
+           "value": {
+@@ -2753,9 +2755,73 @@
+                 102.5
+               ],
+               "cheek_top": [
+-                4.4,
++                4.291666666666667,
+                 "ng"
+-              ]
++              ],
++              "cheek_cap_top": [
++                5.083333333333333,
++                "ng"
++              ],
++              "cheek_depth_ft": 1.75,
++              "cheek_corner_radius_ft": 0.45
++            },
++            "north_stable_fabric": {
++              "door_board_top": [
++                7.8,
++                "ng"
++              ],
++              "door_upper_panes": [
++                5,
++                2
++              ],
++              "door_boards_per_leaf": 8,
++              "lintels": [
++                {
++                  "W": [
++                    133.5,
++                    148.4
++                  ],
++                  "z": [
++                    12.6,
++                    14.2
++                  ]
++                },
++                {
++                  "W": [
++                    136.65,
++                    145.55
++                  ],
++                  "z": [
++                    24.4,
++                    25.55
++                  ]
++                }
++              ],
++              "relieving_arch": {
++                "W": [
++                  135.45,
++                  146.75
++                ],
++                "spring": [
++                  25.55,
++                  "ng"
++                ],
++                "rise_ft": 2.05,
++                "ring_ft": 1.35,
++                "voussoirs": 17
++              },
++              "hoist_stone": {
++                "W": [
++                  140.5,
++                  141.7
++                ],
++                "z": [
++                  26.45,
++                  27.45
++                ],
++                "projection_ft": 1.75
++              },
++              "loft_frame_ft": 0.22
+             }
+           },
+           "confidence": "reconstructed",
+@@ -2766,7 +2832,7 @@
+             "habs_glessner_photo_14_north_inclined_1965",
+             "habs_glessner_photo_15_north_stable_1965"
+           ],
+-          "note": "V4 detail schedule. The 24 ashlar course heights are TRANSCRIBED IN INCHES, bottom-to-top, from HABS sheet 5's dimension string, totalling 271 in (22.5833 ft); carrying the sequence around other granite faces and repeating shorter upper courses above it is reconstructed. Stable courtyard and south upper opening horizontal bounds are measurements from sheets 2-3, rounded to half-foot-scale accuracy; their heights and the unrecorded garden/south lower lights are reconstructed. East court garden light and bow basement pair are visible on sheet 4; dining garden lights are visible in photograph 5. Cross-gable roof dimensions use the canonical ranges and the HABS footprint; the smaller alley dormer, the copper return and chimney-flue layouts are reconstructed forms, bounded by the owner's requested omissions and surviving fabric comparisons without tracing modern imagery. The corner copper roof remains a copper-clad bow joined to a shallow pitched north-range return, not a separate floating awning. Full per-feature evidence and uncertainty: docs/RESEARCH/glessner_house_v4.md. Surface joint width and relief are artistic reconstructions; they are not survey measurements. docs/LIBERTIES.md v4 entry. HABS photographs 14-15 also supply the omitted east-wing high arched slit and the stable gable's 5-3-1 pigeon-hole arrangement and ledge. Their dimensions are reconstructed photographic proportions (+/- 1 ft), not survey labels. Joinery recesses, sash widths, carved detail depths and grille thicknesses are reconstructed; the Prairie basement 3-by-3 stone grilles and the porte-cochere's two leaves with 3-by-6 panels each are attested by sheets 5-6 and the c.1888 door photograph. The 7-by-7 front door iron grid is a simplified reconstruction of the denser grille shown on sheet 5. The stair tower has four staggered slit windows and an upper three-light front lantern row, heights measured from sheet 4 (+/-1 ft); angles/widths are reconstructed on the measured drum. A low projecting bowed terrace carries TWO basement grilles and a main-level central door, as sheet 4/photo 5 show. Terrace radius 14 ft and coping dimensions are reconstructed. The underpass is an actual opening through the east range with stone returns, its plan bounds from sheet 2 and entrance heads from sheets 4/6; it is not an opaque dark panel. Later owner views image(9), image(10), and the courtyard westward view received 2026-09-29 confirm those distinctions qualitatively. That westward view also resolves the stable upper windows as nearly square, not transoms: z18\u201322.5 with the sheet3 widths; lower narrow lights z7.5\u201313.5. These unprinted heights remain reconstructed. The historical paired porte-cochere leaves are posed 82 degrees inward, a reconstructed momentary operating position chosen to reveal the full passage; their documented construction is retained. Modern images inform feature arrangement, counts and material boundaries where explicitly named; no photographed pixels are reused. The modern courtyard image(9) refines the reconstructed bow-terrace grille height to z 1\u20133.8 ft ng (beneath a 6.1-ft platform) and dining garden lights to z 1\u20135 ft ng; these are proportion estimates, not HABS dimensions. Image(10) also supports a parapet above the walking platform that partly hides the central door. Its 2.2-ft height (about 0.67 m, bounded 0.55\u20130.8 m) is a proportional reconstruction; nine risers are reconstructed from the 1.68-m rise, not counted in the partially visible photograph. The doorway threshold aligns with the platform. HABS photograph 5 and supplied courtyard image(9) show garden grilles alternating beneath the principal dining-bay sash: three openings on normalized principal facets 0, 2 and 4, with brick beneath facets 1 and 3. The tower lantern retains the six-pane (2 columns by 3 rows) lights visible in HABS photograph 5, rather than the replacement 1-over-1 sash in modern views. The raised north-court service door has the landing and south-descending stair drawn on HABS sheet 2. Plan bounds are scaled against the four-foot door, approximately +/- 0.5 ft; the ten risers and three-foot rail are reconstructed. Stone slab/treads, two slender brick landing supports, a brick stair cheek and iron rail are bounded by the supplied tunnel-facing courtyard photograph, not claimed as measured original details. This is separate from the later wooden stairs outside the stable south wall. T-1805: HABS photographs 1 and 15 show the stable north gable returning to the north-range eave BEFORE the alley corner. The former full-width asymmetric triangle was a misreading. The north gable is reconstructed between W 125.75 and 156.25, centered on the existing W 141 loft/door/pigeon axis, with both feet at the north-range eave z 23.1 ft ng. The remaining 5 ft to W 161.25 continues that eave. These feet have about 1 ft photographic uncertainty. The rear tie-in to the unchanged stable roof is a bounded continuous reconstruction inside the crossing north-range roof; it is not a surveyed roof plan. No opening is moved to accommodate the old incorrect slope. T-1830 supersedes T-1805's continuous interpolated roof and unchanged rear profile. The full west-facing northern gable returns to the lower alley eave at S32; the rear range is asymmetric with a hipped south end. Cross ridge 34.1, rear ridge 31, west eave 15.5, east/south eaves 23.1 ft ng are bounded reconstructions, about +/-1.5 ft where not measured. The measured north-range section is preserved at the east join with a planar valley connector. The west dormer is timber with tile cheeks and a hipped projecting hood, not a stone miniature gable. Roof planes are clipped at their actual intersections. The north porch is a 12-ft arch, 6-ft-deep reconstructed recess, 3 front risers and 8 left-turn risers to the 6-ft raised threshold; plan footprint and side-door arrangement are checked against sheets 2\u20133, unprinted tread heights and window heights remain reconstructed. Modern references bound feature arrangement, not 1904 testimony. See docs/RESEARCH/glessner-west-wing-alcove/work.md and LIBERTIES L331. T-1833 supersedes the T-1830 reconstructed south hip and asymmetric rear eaves following the owner's 2026-10-01 south-gable sketch and two model screenshots. The south end is a solid centered gable, ridge W143.5 at 38.6 ft ng and equal 26.5-ft shoulders. The ridge stays at the north gable height while moving 2.5 ft in plan between S14.6 and S26.83 to preserve the north door/loft axis and center the rear gable. The rear eaves share the north-court roof's 5.7-ft, 26.6-degree kick. These shapes/heights are owner-directed reconstructions, not an attested south elevation; the HABS footprint and window positions remain unchanged. The raised rear roof carries the existing west dormer 7 ft higher (eave 33, apex 37 ft ng) to keep its sash and tile cheeks clear of the host roof; its footprint and hood proportions stay fixed. The courtyard overhang matches the north range at 0.20 m."
++          "note": "V4 detail schedule. The 24 ashlar course heights are TRANSCRIBED IN INCHES, bottom-to-top, from HABS sheet 5's dimension string, totalling 271 in (22.5833 ft); carrying the sequence around other granite faces and repeating shorter upper courses above it is reconstructed. Stable courtyard and south upper opening horizontal bounds are measurements from sheets 2-3, rounded to half-foot-scale accuracy; their heights and the unrecorded garden/south lower lights are reconstructed. East court garden light and bow basement pair are visible on sheet 4; dining garden lights are visible in photograph 5. Cross-gable roof dimensions use the canonical ranges and the HABS footprint; the smaller alley dormer, the copper return and chimney-flue layouts are reconstructed forms, bounded by the owner's requested omissions and surviving fabric comparisons without tracing modern imagery. The corner copper roof remains a copper-clad bow joined to a shallow pitched north-range return, not a separate floating awning. Full per-feature evidence and uncertainty: docs/RESEARCH/glessner_house_v4.md. Surface joint width and relief are artistic reconstructions; they are not survey measurements. docs/LIBERTIES.md v4 entry. HABS photographs 14-15 also supply the omitted east-wing high arched slit and the stable gable's 5-3-1 pigeon-hole arrangement and ledge. Their dimensions are reconstructed photographic proportions (+/- 1 ft), not survey labels. Joinery recesses, sash widths, carved detail depths and grille thicknesses are reconstructed; the Prairie basement 3-by-3 stone grilles and the porte-cochere's two leaves with 3-by-6 panels each are attested by sheets 5-6 and the c.1888 door photograph. The 7-by-7 front door iron grid is a simplified reconstruction of the denser grille shown on sheet 5. The stair tower has four staggered slit windows and an upper three-light front lantern row, heights measured from sheet 4 (+/-1 ft); angles/widths are reconstructed on the measured drum. A low projecting bowed terrace carries TWO basement grilles and a main-level central door, as sheet 4/photo 5 show. Terrace radius 14 ft and coping dimensions are reconstructed. The underpass is an actual opening through the east range with stone returns, its plan bounds from sheet 2 and entrance heads from sheets 4/6; it is not an opaque dark panel. Later owner views image(9), image(10), and the courtyard westward view received 2026-09-29 confirm those distinctions qualitatively. That westward view also resolves the stable upper windows as nearly square, not transoms: z18\u201322.5 with the sheet3 widths; lower narrow lights z7.5\u201313.5. These unprinted heights remain reconstructed. The historical paired porte-cochere leaves are posed 82 degrees inward, a reconstructed momentary operating position chosen to reveal the full passage; their documented construction is retained. Modern images inform feature arrangement, counts and material boundaries where explicitly named; no photographed pixels are reused. The modern courtyard image(9) refines the reconstructed bow-terrace grille height to z 1\u20133.8 ft ng (beneath a 6.1-ft platform) and dining garden lights to z 1\u20135 ft ng; these are proportion estimates, not HABS dimensions. Image(10) also supports a parapet above the walking platform that partly hides the central door. Its 2.2-ft height (about 0.67 m, bounded 0.55\u20130.8 m) is a proportional reconstruction; nine risers are reconstructed from the 1.68-m rise, not counted in the partially visible photograph. The doorway threshold aligns with the platform. HABS photograph 5 and supplied courtyard image(9) show garden grilles alternating beneath the principal dining-bay sash: three openings on normalized principal facets 0, 2 and 4, with brick beneath facets 1 and 3. The tower lantern retains the six-pane (2 columns by 3 rows) lights visible in HABS photograph 5, rather than the replacement 1-over-1 sash in modern views. The raised north-court service door has the landing and south-descending stair drawn on HABS sheet 2. Plan bounds are scaled against the four-foot door, approximately +/- 0.5 ft; the ten risers and three-foot rail are reconstructed. Stone slab/treads, two slender brick landing supports, a brick stair cheek and iron rail are bounded by the supplied tunnel-facing courtyard photograph, not claimed as measured original details. This is separate from the later wooden stairs outside the stable south wall. T-1805: HABS photographs 1 and 15 show the stable north gable returning to the north-range eave BEFORE the alley corner. The former full-width asymmetric triangle was a misreading. The north gable is reconstructed between W 125.75 and 156.25, centered on the existing W 141 loft/door/pigeon axis, with both feet at the north-range eave z 23.1 ft ng. The remaining 5 ft to W 161.25 continues that eave. These feet have about 1 ft photographic uncertainty. The rear tie-in to the unchanged stable roof is a bounded continuous reconstruction inside the crossing north-range roof; it is not a surveyed roof plan. No opening is moved to accommodate the old incorrect slope. T-1830 supersedes T-1805's continuous interpolated roof and unchanged rear profile. The full west-facing northern gable returns to the lower alley eave at S32; the rear range is asymmetric with a hipped south end. Cross ridge 34.1, rear ridge 31, west eave 15.5, east/south eaves 23.1 ft ng are bounded reconstructions, about +/-1.5 ft where not measured. The measured north-range section is preserved at the east join with a planar valley connector. The west dormer is timber with tile cheeks and a hipped projecting hood, not a stone miniature gable. Roof planes are clipped at their actual intersections. The north porch is a 12-ft arch, 6-ft-deep reconstructed recess, 3 front risers and 8 left-turn risers to the 6-ft raised threshold; plan footprint and side-door arrangement are checked against sheets 2\u20133, unprinted tread heights and window heights remain reconstructed. Modern references bound feature arrangement, not 1904 testimony. See docs/RESEARCH/glessner-west-wing-alcove/work.md and LIBERTIES L331. T-1833 supersedes the T-1830 reconstructed south hip and asymmetric rear eaves following the owner's 2026-10-01 south-gable sketch and two model screenshots. The south end is a solid centered gable, ridge W143.5 at 38.6 ft ng and equal 26.5-ft shoulders. The ridge stays at the north gable height while moving 2.5 ft in plan between S14.6 and S26.83 to preserve the north door/loft axis and center the rear gable. The rear eaves share the north-court roof's 5.7-ft, 26.6-degree kick. These shapes/heights are owner-directed reconstructions, not an attested south elevation; the HABS footprint and window positions remain unchanged. The raised rear roof carries the existing west dormer 7 ft higher (eave 33, apex 37 ft ng) to keep its sash and tile cheeks clear of the host roof; its footprint and hood proportions stay fixed. The courtyard overhang matches the north range at 0.20 m. T-1999: north corridor and over-arch upper windows are corrected to the HABS sheet 5 printed-course heads at 22.25 ft ng. The porch cheek uses course boundaries at 51.5/61 inches for its body/coping and a rounded exposed coping corner, with the surveyed 12-ft arch and left-turn stair retained. Stable north lintels, a shallow relieving arch with projecting central hoist stone, recessed timber loft frame and glazed-over-board carriage leaves are reconstructed from the owner-supplied historical northwest view of 2026-10-02. The stable opening widths/heights stay fixed. Lintel projection, voussoir geometry, upper-pane subdivisions and coping depth/radius are proportional reconstructions, not measured historical dimensions."
+         }
+       }
+     }
+diff --git a/chicago/4d/generators/archetypes/masonry_house_params.py b/chicago/4d/generators/archetypes/masonry_house_params.py
+index dbd95432..ac3e6af8 100644
+--- a/chicago/4d/generators/archetypes/masonry_house_params.py
++++ b/chicago/4d/generators/archetypes/masonry_house_params.py
+@@ -706,10 +706,33 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
+                 "window_x": sorted(fr.x(v) for v in alcove["window_W"]),
+                 "window_z": [fr.z(v) for v in alcove["window_z"]],
+                 "cheek_x": sorted(fr.x(v) for v in alcove["cheek_W"]),
+-                "cheek_top": fr.zval(alcove["cheek_top"])}
++                "cheek_top": fr.zval(alcove["cheek_top"]),
++                "cheek_cap_top": fr.zval(alcove.get("cheek_cap_top", alcove["cheek_top"])) +
++                    (0 if "cheek_cap_top" in alcove else .10),
++                "cheek_depth": float(alcove.get("cheek_depth_ft", 1.75))*FT,
++                "cheek_corner_radius": float(alcove.get("cheek_corner_radius_ft", .45))*FT}
+             for o in p.openings:
+                 if o["face"] == "north" and o["kind"] == "arch" and o["u1"]-o["u0"] > 3:
+                     o["style"] = "north_entry_alcove"
++        stable_fabric = raw.get("north_stable_fabric")
++        if stable_fabric:
++            arch = stable_fabric["relieving_arch"]
++            hoist = stable_fabric["hoist_stone"]
++            p.detail["north_stable_fabric"] = {
++                "plane": _face(fr, "north", 0),
++                "door_board_top": fr.zval(stable_fabric["door_board_top"]),
++                "door_upper_panes": stable_fabric["door_upper_panes"],
++                "door_boards_per_leaf": stable_fabric["door_boards_per_leaf"],
++                "lintels": [{"u": sorted(fr.x(v) for v in s["W"]),
++                             "z": [fr.z(v) for v in s["z"]]}
++                            for s in stable_fabric["lintels"]],
++                "relieving_arch": {"u": sorted(fr.x(v) for v in arch["W"]),
++                    "spring": fr.zval(arch["spring"]), "rise": arch["rise_ft"]*FT,
++                    "ring": arch["ring_ft"]*FT, "voussoirs": arch["voussoirs"]},
++                "hoist_stone": {"u": sorted(fr.x(v) for v in hoist["W"]),
++                    "z": [fr.z(v) for v in hoist["z"]],
++                    "projection": hoist["projection_ft"]*FT},
++                "loft_frame": stable_fabric["loft_frame_ft"]*FT}
+         cr = raw.get("copper_return")
+         if cr:
+             p.detail["copper_return"] = {"x0": min(fr.x(w) for w in cr["W"]),
+diff --git a/chicago/4d/generators/archetypes/masonry_house_v4_detail.py b/chicago/4d/generators/archetypes/masonry_house_v4_detail.py
+index edd310d3..36124452 100644
+--- a/chicago/4d/generators/archetypes/masonry_house_v4_detail.py
++++ b/chicago/4d/generators/archetypes/masonry_house_v4_detail.py
+@@ -628,6 +628,10 @@ def opening(b,o,courtyard=False):
+         return
+     if kind in ('door','doors'):
+         style=o.get('style','')
++        if style=='stable_carriage_doors' and b.params.detail.get('north_stable_fabric'):
++            from archetypes.masonry_house_v4_north import carriage_doors
++            carriage_doors(b,o,b.params.detail['north_stable_fabric'])
++            return
+         if style in ('prairie_front_door','porte_cochere') or (o.get('face')=='east' and o['at']>45):
+             detailed_door(b,o,'porte_cochere' if kind=='doors' else 'prairie_front_door')
+             return
+@@ -641,6 +645,10 @@ def opening(b,o,courtyard=False):
+             slab(b,o,lc-.055,lc,z0+.05,z1-.05,-.24,-.18,conf,WOOD)
+             slab(b,o,lc-.16,lc-.12,z0+(z1-z0)*.43,z0+(z1-z0)*.55,-.20,-.15,conf,IRON)
+         return
++    if o.get('style')=='stable_loft_opening' and b.params.detail.get('north_stable_fabric'):
++        from archetypes.masonry_house_v4_north import loft_opening
++        loft_opening(b,o,b.params.detail['north_stable_fabric'])
++        return
+     # Small basement grid apertures have stone mullions and only recessed glass.
+     small=min(c-a,z1-z0)<.45
+     frame=.025 if small else .062
+@@ -1352,8 +1360,8 @@ def north_entry(b,p):
+         x=sx0+i*run;h=landing+(threshold-landing)*(i+1)/n
+         legacy._box(b,x,sy0,landing,x+run,sy1,h,conf,TRIM)
+         legacy._box(b,x-.025,sy0-.025,h-.045,x+run,sy1+.025,h,conf,TRIM)
+-    legacy._box(b,ca,yf-.52,landing,cc,yf-.08,d['cheek_top'],conf,GRANITE)
+-    legacy._box(b,ca-.035,yf-.55,d['cheek_top'],cc+.035,yf-.05,d['cheek_top']+.10,conf,TRIM)
++    from archetypes.masonry_house_v4_north import porch_cheek
++    porch_cheek(b,d,landing)
+     b.decorate=old
+ 
+ 
+@@ -1415,6 +1423,8 @@ def west_hood(b,p,d):
+ 
+ def supplemental(b,p):
+     north_entry(b,p)
++    from archetypes.masonry_house_v4_north import stable_fabric
++    stable_fabric(b,p)
+     g=p.detail.get('west_cross_gable')
+     if g and not any(r.get('north_cross_gable') for r in p.ranges):
+         lo,hi=g['u0'],g['u1'];base=min(g['eave_lo_z'],g['eave_hi_z'])
+diff --git a/chicago/4d/generators/archetypes/masonry_house_v4_north.py b/chicago/4d/generators/archetypes/masonry_house_v4_north.py
+new file mode 100644
+index 00000000..5964a6d4
+--- /dev/null
++++ b/chicago/4d/generators/archetypes/masonry_house_v4_north.py
+@@ -0,0 +1,119 @@
++"""North stable joinery and masonry reconstructed from the supplied NW view.
++
++HABS owns the apertures; the data record owns the bounded fabric dimensions.
++The photo's date is not established, so this 1904 treatment is reconstructed.
++No photograph is sampled into a texture and no measured doorway is widened.
++"""
++from __future__ import annotations
++
++import math
++import random
++
++
++def carriage_doors(b, o, detail):
++    from archetypes import masonry_house_v4_detail as v
++    a,c,z0,z1 = o['u0'],o['u1'],o['z0'],o['z1']
++    conf=1.0
++    board_top=detail['door_board_top']
++    cols,rows=detail['door_upper_panes']
++    for leaf in range(2):
++        la=a+(c-a)*leaf/2+.022;lc=a+(c-a)*(leaf+1)/2-.022
++        # Upper panes remain transparent: no full-height wooden backing card.
++        count=detail['door_boards_per_leaf']
++        for i in range(count):
++            l=la+(lc-la)*i/count;r=la+(lc-la)*(i+1)/count
++            v.slab(b,o,l+.0025,r-.0025,z0+.025,board_top,-.30,-.245,conf,v.WOOD)
++        frame=.070
++        lo=board_top+.09;hi=z1-.11;left=la+frame;right=lc-frame
++        v.interior_recess(b,[(left,lo),(right,lo),(right,hi),(left,hi)],
++            lambda u,z,off:v.legacy._plane_point(o,u,z,off),v.legacy._plane_dir(o),front=-.30)
++        v.glass_pane(b,[v.legacy._plane_point(o,u,z,-.285) for u,z in
++                       [(left,lo),(right,lo),(right,hi),(left,hi)]],v.legacy._plane_dir(o),conf)
++        for l,r,bot,top in [(la,la+frame,z0+.025,z1-.025),
++                            (lc-frame,lc,z0+.025,z1-.025),
++                            (la,lc,z0+.025,z0+.13),(la,lc,board_top-.055,lo),
++                            (la,lc,z1-.11,z1-.025)]:
++            v.slab(b,o,l,r,bot,top,-.30,-.18,conf,v.WOOD)
++        for col in range(1,cols):
++            x=left+(right-left)*col/cols
++            v.slab(b,o,x-.017,x+.017,lo,hi,-.29,-.205,conf,v.WOOD)
++        for row in range(1,rows):
++            z=lo+(hi-lo)*row/rows
++            v.slab(b,o,left,right,z-.025,z+.025,-.29,-.195,conf,v.WOOD)
++        # Modest, unornamented hardware; stock sizes are reconstruction.
++        hinge=la+.09 if leaf==0 else lc-.09
++        for z in [z0+.50,board_top-.30]:
++            v.slab(b,o,hinge-.06,hinge+.06,z-.026,z+.026,-.24,-.155,conf,v.IRON)
++        handle=lc-.16 if leaf==0 else la+.16
++        v.slab(b,o,handle-.018,handle+.018,z0+1.10,z0+1.30,-.19,-.13,conf,v.IRON)
++
++
++def loft_opening(b,o,detail):
++    from archetypes import masonry_house_v4_detail as v
++    a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1'];w=detail['loft_frame']
++    # A loft aperture, not a domestic sash with a meeting rail and linen shade.
++    v.interior_recess(b,[(a+w,z0+w),(c-w,z0+w),(c-w,z1-w),(a+w,z1-w)],
++        lambda u,z,off:v.legacy._plane_point(o,u,z,off),v.legacy._plane_dir(o),
++        front=-.29,back=-1.10)
++    for l,r,bot,top in [(a,a+w,z0,z1),(c-w,c,z0,z1),
++                        (a,c,z0,z0+w),(a,c,z1-w,z1)]:
++        v.slab(b,o,l,r,bot,top,-.30,-.18,1.0,v.WOOD)
++
++
++def rough_stone(b,plane,poly,seed):
++    from archetypes import masonry_house_v4_detail as v
++    # Set above the field's maximum 70 mm rock face, so underlying courses
++    # cannot pop through these monolithic lintels and radial voussoirs.
++    v.solid_polygon(b,plane,poly,.058,.085,1.0,v.GRANITE)
++    def point(q,off):return v.legacy._plane_point(plane,q[0],q[1],off+.095)
++    b.block(poly,point,v.legacy._plane_dir(plane),1.0,v.GRANITE,random.Random(seed))
++
++
++def stable_fabric(b,p):
++    from archetypes import masonry_house_v4_detail as v
++    d=p.detail.get('north_stable_fabric')
++    if not d:return
++    pl=d['plane']
++    for i,s in enumerate(d['lintels']):
++        a,c=s['u'];lo,hi=s['z']
++        rough_stone(b,pl,[(a,lo),(c,lo),(c,hi),(a,hi)],19990+i)
++    s=d['relieving_arch'];a,c=s['u'];mid=(a+c)/2;half=(c-a)/2
++    radius=(half*half+s['rise']**2)/(2*s['rise'])
++    center=s['spring']+s['rise']-radius
++    theta=math.atan2(radius-s['rise'],half)
++    count=s['voussoirs'];outer=radius+s['ring']
++    for i in range(count):
++        start=theta+(math.pi-2*theta)*i/count+.002
++        end=theta+(math.pi-2*theta)*(i+1)/count-.002
++        poly=[(mid+rad*math.cos(ang),center+rad*math.sin(ang)) for rad,ang in
++              [(radius,start),(outer,start),(outer,end),(radius,end)]]
++        rough_stone(b,pl,poly,20000+i)
++    h=d['hoist_stone'];a,c=h['u'];lo,hi=h['z'];depth=h['projection']
++    back=[v.legacy._plane_point(pl,u,z,.065) for u,z in
++          [(a,lo),(c,lo),(c,hi),(a,hi)]]
++    front=[v.legacy._plane_point(pl,u,z,depth) for u,z in
++           [(a,lo+(hi-lo)*.40),(c,lo+(hi-lo)*.40),(c,hi),(a,hi)]]
++    v.solid_polygon(b,pl,[(a,lo),(c,lo),(c,hi),(a,hi)],0,.067,1.0,v.GRANITE)
++    b.raw(front,1.0,v.GRANITE,v.legacy._plane_dir(pl))
++    for i in range(4):
++        j=(i+1)%4;b.raw([back[i],back[j],front[j],front[i]],1.0,v.GRANITE)
++
++
++def porch_cheek(b,d,landing):
++    from archetypes import masonry_house_v4_detail as v
++    a,c=d['cheek_x'];yf=d['front_y'];lo=d['cheek_top'];hi=d['cheek_cap_top']
++    # HABS sheet 5 draws real ashlar below one deep coping with a rounded end.
++    old=b.decorate;openings=b.openings;b.decorate=True
++    # The low cheek occupies the porch aperture. Cutting that same arch out
++    # of it would remove its front face instead of building the stone barrier.
++    b.openings=[o for o in openings if o.get('style')!='north_entry_alcove']
++    v.legacy._box(b,a,yf-d['cheek_depth'],landing,c,yf+.025,lo,1.0,v.GRANITE)
++    b.decorate=old;b.openings=openings
++    r=min(d['cheek_corner_radius'],hi-lo)
++    left=a-.025;right=c+.025
++    poly=[(left,lo),(right,lo),(right,hi),(left+r,hi)]
++    for i in range(1,9):
++        theta=math.pi/2+math.pi/2*i/8
++        poly.append((left+r+r*math.cos(theta),hi-r+r*math.sin(theta)))
++    plane={'axis':'y','sign':1,'at':yf}
++    v.solid_polygon(b,plane,poly,-d['cheek_depth']-.035,.075,1.0,v.GRANITE)
