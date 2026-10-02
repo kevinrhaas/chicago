@@ -1,15 +1,15 @@
-# RETIRED — do not add files here
+# Moved — the Prairie image files live in kevinrhaas/chicago-images
 
-**The Prairie image collection moved to [kevinrhaas/chicago-images](https://github.com/kevinrhaas/chicago-images)
-(`prairie-1904/files/`) on 2026-10-02**, on the owner's decision, so it can grow past what this
-site's GitHub Pages limit allows. It is served at
-https://kevinrhaas.github.io/chicago-images/prairie-1904/files/.
+**This folder held the collection's first image store. Its files were deleted on 2026-10-02**, with
+the owner's approval, after checking two things:
+- Every one of its 295 files is in
+  [kevinrhaas/chicago-images](https://github.com/kevinrhaas/chicago-images) (`prairie-1904/files/`).
+  73 Robinson 1886 thumbnails there are newer re-derivations, and those are the ones the records
+  cite.
+- Nothing in the pre-fire, postfire or Prairie sites referenced the folder.
 
-- `tools/fetch_image.py` writes there now, not here.
+- The images are served at https://kevinrhaas.github.io/chicago-images/prairie-1904/files/.
 - Records keep the logical path `research/images/files/<id>.jpg`, and the viewer maps it onto the
   image host (`research/images/STORE.json`, written by `tools/sync_image_store.py`).
-- The files below are the frozen first store, listed in `RETIRED.json`. They are still published
-  as the viewer's fallback while the image host is new. `tools/validate.py` refuses any file that is
-  not on that list.
-- Once the image host is confirmed serving, this folder can be dropped from `tools/publish.py`
-  and deleted.
+- `tools/fetch_image.py` writes new images straight into the image store.
+- `tools/validate.py` refuses any image file placed here.
