@@ -259,6 +259,12 @@ const COVERAGE = [
   ['renderers/web/js/agencies.js', [3, 13], 'the agency on the card, and on the person'],
   ['renderers/web/js/people.js', [13], 'the directory of everyone in the town'],
   ['data/reconstruction/1835_agencies.json', [3, 13], 'the compiled relation both cards read'],
+  // T-1959. The placement policy is the seating and yard generators' rule book: what
+  // it decides reaches the scene only through the records those generators write (the
+  // structures, data/yard/), which are priced by their own rows. No module under
+  // renderers/ fetches it, so it is priced as read by nothing rather than at the whole
+  // gate that `data/reconstruction/` would otherwise charge a rule's every new column.
+  ['data/reconstruction/1835_placement_policy.json', NONE, 'the generators\u2019 rule book \u2014 fetched by no renderer'],
   // T-1160. The Evidence hub is asserted in PART 12 (ten tiles since T-1292, each
   // counting its own mount) and its mounts are stress-measured for overflow in PART 13, so the
   // population profile and the hub itself are read by both and by nothing else.

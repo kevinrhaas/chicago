@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1316, ts: '2026-10-02T18:43:19.595Z', date: 'Oct 2, 2026, 1:43 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
+  { v: 1317, ts: '2026-10-02T18:56:30.086Z', date: 'Oct 2, 2026, 1:56 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
     items: [
       'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',
       'Twelve signs used to be fixed across a door. Seven are now lettered on the shop\u2019s fascia above the door, as G. Blanchard\u2019s is, and five are smaller boards on clear wall.',
       'The front steps of 34 stores now stand at the door instead of the middle of the front. Casks and crates are set to either side of a door, and fences no longer cross the doors of nine houses and sheds.',
-      'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L357).',
+      'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L359).',
+    ] },
+  { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
+    items: [
+      'Walk round the back of any house in the town and its winter wood is stacked against the back wall: 298 woodpiles at 299 dwellings. Only one house has none, because the ground behind it is wet.',
+      'What a household kept depends on who it was. A shanty has a loose heap of mill slabs. A log cabin has unsplit logs on two skids beside a chopping block. A tradesman\u2019s cottage has a short rick of stove-length wood. A merchant\u2019s house has bought cords, 8 ft long and 4 ft high, and an inn or boarding house has two or three of them.',
+      'Every pile is different, and in July they stand low: some ricks are drawn down at one end, the split ends show fresh, seasoned or silvered wood, and split sticks lie by the block.',
+      'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L357) says how.',
+      'On the Light setting, the one a phone starts on, the woodpiles are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
     ] },
   { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
     items: [

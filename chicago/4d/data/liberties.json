@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 350,
+  "count": 351,
   "liberties": [
     {
       "id": "L1",
@@ -22239,6 +22239,45 @@
     },
     {
       "id": "L357",
+      "title": "A woodpile at every dwelling: where it stands, how big it is and how it is stacked are invented by whose house it is",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every dwelling standing on the scene date — 299 roofs, the T-0052 houses, the dwelling families of the reconstruction spec, and the store-residences, taverns, inns, hotels and boarding houses — has a woodpile dealt by the yard-by-household rule (`tools/yard_rule_1835.py`, printed in the placement policy under `yard`) and written to `data/yard/town_woodpiles.json` by `tools/generate_woodpiles.py`. Its household is the fabric rule's (L330) where that rule dealt one, else a household that lives there by its trade, else the occupation a reconstruction names, else a keeper's by the function, else a tradesman's, said so on the record. Its house is the roof's own family and archetype. The row of the rule: - a labourer's **shanty** — a loose heap of mill slabs and shore wood, 7-12 pieces; - a labourer's **log cabin** — 3-5 unsplit lengths of 2.4-3.6 m on two skids, and a block; - a tradesman's **cottage** — one rick of 2 ft stove wood, 1.6-2.6 m long and 0.6-1.1 m high; - a tradesman's **larger house** (D5-D7, or a documented frame house of 55 m2 or more) — one or two such ricks, 2.2-3.4 m long and 0.7-1.2 m high; - a **merchant's or professional man's** house — one or two cords of 4 ft wood racked 8 ft long; - a **boarding house, tavern or hotel** — two or three such cords. Every pile stands against its own house's back wall — the edge whose outward ground is furthest from the nearest street on the house's own bank — a hand's gap (0.45 m) off it, then the next wall round, then cut down, then refused in writing (one refusal: wet ground). Every rick is dealt at or below a full cord's 4 ft, because July is the low point of a household's year in wood."
+        },
+        {
+          "label": "What is evidence",
+          "text": "that the town burned wood and bought it by the cord — the Chicago Democrat's weekly price current quotes firewood at $2.50 the cord on 27 May 1835 and $2.00 on 12 August — and the cord's own size and the country's species, from the quartermaster's notice for five hundred cords at Fort Dearborn (4 June 1835, again 1 July): 8 ft by 4 ft by 4 ft, white oak, hickory, white ash and maple. The record grades the fact of a household woodpile `inferred` on those, and the cord's measure `inferred`."
+        },
+        {
+          "label": "What we invented",
+          "text": "every pile's place, size, count, kind and stacking; the stove stick's 2 ft; the stick's 0.13 m; the slab, the log and the block sizes; that money is what separates a cord from a stove rick from a log heap from a slab heap; and the look of the wood — the stick ends, sides and sawn rounds are painted procedurally on the yard layer's own canvas atlas, three end-grain cells (fresh, a season stacked, silvered), not photographs of any Chicago woodpile. Every pile is `reconstructed` at the vertex, so hiding that tier hides the layer."
+        },
+        {
+          "label": "Not drawn",
+          "text": "a woodshed (an A4 roof the build tickets raise), a sawbuck, an axe, and anyone working the pile — L1."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a probate inventory, insurance survey or sale notice of 1834-36 naming wood or a woodshed at a particular house puts that house's pile on its evidence; a dated view of a Chicago back lot says how town wood was stacked; a household account says how much a family burned in a summer month."
+        },
+        {
+          "label": "Related",
+          "text": "**L330** (the fabric rule whose class this reads), **L131** and **L173** (the yard layer's goods and building material), **L151** (the dooryard stems the piles keep clear of), **T-1212** (parent), **T-1959** (this rule and layer), **T-1960** and **T-1961** (the rule's next columns)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02 (T-1959)."
+        }
+      ]
+    },
+    {
+      "id": "L359",
       "title": "The trodden ground at every door: a strip along each front and a path from each door to the street",
       "section": "per_subject",
       "subjects": [],
