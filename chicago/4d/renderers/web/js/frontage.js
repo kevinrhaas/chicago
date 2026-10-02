@@ -964,8 +964,11 @@ export async function createFrontage({
    * standing meshes would have cost twenty-six of each and made the trade a
    * loss.
    */
-  const standingChunk = (record, item) => (
-    item.street ? `${record.id}__${item.street}__standing` : item.chunk);
+  // T-1823 — an item may name its own standing mesh: the fronts-only faces'
+  // posts and fittings do, so a lone post far down a street does not stretch that
+  // street's mesh (and its fences) into a shadow box it never reached before.
+  const standingChunk = (record, item) => (item.standing_chunk
+    ?? (item.street ? `${record.id}__${item.street}__standing` : item.chunk));
   const cards = new Map();
   for (const [id, record, why] of loaded) {
     if (!record) { problems.push(`frontage: ${id} — ${why}`); continue; }

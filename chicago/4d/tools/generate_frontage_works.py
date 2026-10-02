@@ -2970,14 +2970,7 @@ def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused, decked=
     # post with the SAME id at the SAME coordinate as the first. So a building is
     # met once per face, at the first of its lots, and that lot is what its
     # refusal names.
-    met: dict[str, tuple[dict, str]] = {}
-    for index, lot in enumerate(block.get("lots", [])):
-        if lot.get("tier") != face:
-            continue
-        for b in sorted((x for x in buildings if _stands_on(x, lot)),
-                        key=lambda x: x["id"]):
-            met.setdefault(b["id"], (b, f"{block['id']} {face} face, lot {index}"))
-    for b, where in met.values():
+    for b, where in _face_meets(entry, buildings):
         trade = b["trade"]
         if b["id"] in EDGE_OWN_POSTS:
             refused.append({"structure_id": b["id"], "wall": where, "why": (
@@ -3136,7 +3129,10 @@ def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused, decked=
 
 def _face_meets(entry, buildings) -> list:
     """Every committed building standing on this face's own lots, met once, with
-    the lot it was first met on — `_edge_hitching`'s T-0461 enumeration."""
+    the lot it was first met on — `_edge_hitching`'s T-0461 enumeration. A
+    fronts-only face (T-1823) meets its buildings by their DOORS instead."""
+    if entry.get("fronts_only"):
+        return _door_meets(entry, buildings)
     block = entry["block"]
     face = entry["face"]
     met: dict[str, tuple[dict, str]] = {}
@@ -3147,6 +3143,145 @@ def _face_meets(entry, buildings) -> list:
                         key=lambda x: x["id"]):
             met.setdefault(b["id"], (b, f"{block['id']} {face} face, lot {index}"))
     return list(met.values())
+
+
+# THE WALK BY BUSINESS CARRIED TO THE NEW FRONTS (T-1823, the second piece of
+# T-1814). Everything above lays a STREET: a covered street's every improved face
+# is marched end to end, dwellings and all, and that is what the frame budget
+# refused the cross streets and the West Division for (T-0192, T-0193 — 3,557.7 m
+# of walk and 1,227.7 m, measured OVER at every tier). The owner's ask on T-1211
+# is narrower than a street and it is the thing this rule can afford: "plank
+# sidewalks for each business", "extended to the new fronts town-wide". So a face
+# the covered tuples do not reach is laid FRONTS-ONLY — no walk at all except in
+# front of a business, the walk FRONTAGE_BY_BUSINESS deals that business, and its
+# fittings with it. A street of houses stays the prairie verge it was; a store on
+# it gets its boards. The street tuples above do not move.
+#
+# WHICH FACE A BUSINESS FRONTS, asked of its DOOR and not of its lot. Every lot in
+# the Original Town fronts an east-west street, and the West Division's lots front
+# its north-south ones, so a lot answers "which street" with the plat's opinion and
+# not the building's: the auction room on Dearborn stands on a South Water lot and
+# opens east, onto Dearborn, and the Western Hotel stands on a block cut into no
+# lots at all. So a building fronts a face iff (1) it stands on the face's block,
+# (2) its committed facing is within EDGE_HITCH_FACE_TOL_DEG of the face's outward
+# look — the T-0426 test the hitching post already uses — and (3) its nearest wall
+# stands no more than EDGE_FRONT_DEPTH_M behind the lot line, because a door across
+# a deep yard opens on the yard and not on the street. 10 m is invented: it takes
+# every new front within a dooryard of its line (the deepest is 8.8 m) and refuses
+# the next population, which stands 19 m and more back behind somebody else's lot.
+#
+# HOW MUCH WALK A FRONT TAKES: the march steps that overlap its own frontage
+# widened by half a step at each end, so even a narrow shop meets two steps — and
+# where two of a face's steps still fall short of the 10.4 m least run the street
+# rule keeps, the next clear step nearer the shop's middle — so the walk runs a
+# little past its corners rather than stopping flush with its walls. A works takes none (it
+# fronts bare ground, T-1814) and its tie rail stands on that ground. A fronts-only
+# face takes NO street fence: the fence lines a STREET (the jail plate), and a
+# fronts-only face lays a business's walk, not a street's.
+#
+# AND ITS STANDING TIMBER IS ITS OWN MESH, measured rather than assumed. The
+# renderer gathers a street's posts, fences and fittings into ONE standing mesh per
+# street (`frontage.js` `standingChunk`) and that mesh casts into the sun's shadow
+# box. Put the Western Hotel's two posts into Randolph's and the West Division
+# store's post into Lake's, and those two meshes' bounding spheres grew 120-170 m
+# west, into the shadow box at T-0135's `lake_at_canal` stand: +48,588 triangles
+# at `balanced` there for about 2,000 triangles of new timber, all of it Lake's
+# and Randolph's EXISTING fences being drawn a second time into the shadow map.
+# So a fronts-only face's posts and fittings name `standing_chunk`, one small mesh
+# for all of them, and the covered streets' meshes keep the bounds they had.
+EDGE_FRONT_DEPTH_M = 10.0
+EDGE_FRONT_PAD_M = EDGE_SPAN_M / 2.0
+EDGE_FRONT_STANDING = "town_street_edge__fronts_only__standing"
+
+
+def _door_meets(entry, buildings) -> list:
+    """The businesses that front this face by their own door, each met once as
+    (building, where): standing on the face's block, facing the face, and built
+    within EDGE_FRONT_DEPTH_M of its lot line."""
+    block = entry["block"]
+    face = entry["face"]
+    frame = entry["frame"]
+    ground = {"polygon": block["boundary_local_enu_m"]}
+    face_out = math.degrees(math.atan2(frame["outward"][0], frame["outward"][1])) % 360.0
+    out = []
+    for b in sorted(buildings, key=lambda x: x["id"]):
+        if business_class(b["trade"]) is None or not _stands_on(b, ground):
+            continue
+        if abs((b["bearing"] - face_out + 180.0) % 360.0 - 180.0) > EDGE_HITCH_FACE_TOL_DEG:
+            continue
+        pr = [project(frame, tuple(p)) for p in b["pts"]]
+        if max(q[1] for q in pr) < -EDGE_FRONT_DEPTH_M:
+            continue
+        if max(q[0] for q in pr) <= 0.0 or min(q[0] for q in pr) >= frame["length"]:
+            continue
+        out.append((b, f"{block['id']} {face} face, at its door"))
+    return out
+
+
+def _front_faces(lots_doc, buildings, streets, covered) -> list:
+    """Every platted face the covered tuples do not reach that a business fronts
+    by its door — laid FRONTS-ONLY (T-1823). A face no business fronts is not
+    enumerated at all: under this rule there is nothing on it to lay or refuse."""
+    out = []
+    trading = [b for b in buildings if business_class(b["trade"]) is not None]
+    for block in lots_doc.get("blocks", []):
+        bounded = block.get("bounded_by") or {}
+        ground = {"polygon": block["boundary_local_enu_m"]}
+        on_block = [b for b in trading if _stands_on(b, ground)]
+        if not on_block:
+            continue
+        for face, (_run, side, axis) in EDGE_FACES.items():
+            street = bounded.get(face)
+            if not street or street not in streets or (block["id"], face) in covered:
+                continue
+            entry = {"block": block, "face": face, "street": street, "side": side,
+                     "axis": axis, "frame": face_frame(block, face), "fronts_only": True}
+            if _door_meets(entry, on_block):
+                out.append(entry)
+    out.sort(key=lambda f: (f["street"], f["side"], f["frame"]["origin"][f["axis"]]))
+    return out
+
+
+def _fronts_only_cut(entry, spans, buildings) -> None:
+    """T-1823 — on a fronts-only face, refuse every march step no walk-carrying
+    business front reaches, so what is left is the walk in front of each business
+    and nothing between them. Runs after `_bare_cut`, so a works keeps its own
+    refusal and its bare ground."""
+    keep = set()
+    for kind in ("board", "decked"):
+        for _b, _where, _cls, f0, f1 in _business_fronts(entry, buildings, kind):
+            lo, hi = f0 - EDGE_FRONT_PAD_M, f1 + EDGE_FRONT_PAD_M
+            got = [i for i, sp in enumerate(spans) if sp["lo"] < hi and sp["hi"] > lo]
+            # A face's step is its length over a whole number of steps, so it can
+            # come out a little under EDGE_SPAN_M and two of them under the least
+            # run. Then the reach takes the next clear step on the side nearer the
+            # front's middle, and the walk is a sidewalk rather than a landing.
+            while got and spans[got[-1]]["hi"] - spans[got[0]]["lo"] < EDGE_MIN_RUN_M:
+                mid = (f0 + f1) / 2.0
+                sides = [i for i in (got[0] - 1, got[-1] + 1)
+                         if 0 <= i < len(spans) and spans[i]["why"] is None]
+                if not sides:
+                    break
+                i = min(sides, key=lambda k: abs((spans[k]["lo"] + spans[k]["hi"]) / 2.0 - mid))
+                got = sorted(got + [i])
+            keep.update(got)
+    for i, sp in enumerate(spans):
+        if sp["why"] is None and i not in keep:
+            sp["why"] = ("no business fronts this step — a face beyond the covered "
+                         "streets is laid fronts-only, the walk in front of each "
+                         "business and nothing between (T-1823)")
+
+
+def _fronts_note(entry, buildings, lo, hi) -> str:
+    """The sentence a fronts-only run adds to its note: whose front it is."""
+    served = [f"{b['name'] or b['id']} ({b['trade']}, held `{b['trade_grade']}`)"
+              for kind in ("board", "decked")
+              for b, _w, _c, f0, f1 in _business_fronts(entry, buildings, kind)
+              if f0 < hi and f1 > lo]
+    return (" LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so "
+            "the walk is laid only in front of the business that opens onto it — "
+            f"{'; '.join(served)} — and half a march step past each end of its "
+            "frontage, and nowhere else on the face.")
 
 
 def _business_fronts(entry, buildings, walk_kind) -> list:
@@ -3477,7 +3612,10 @@ def _edge_fittings(entry, laid, chunks, buildings, hf, streets, refused, decked=
                 gap = EDGE_FENCE_CLEAR_M - wall
                 if -wall >= EDGE_FENCE_SETBACK_M:
                     refuse(f"the front wall stands {-wall:.2f} m back from the lot line, "
-                           "behind the street fence this layer lines that lot with; the "
+                           + ("across a dooryard no street fence lines (a fronts-only "
+                              "face takes none, T-1823); the "
+                              if entry.get("fronts_only") else
+                              "behind the street fence this layer lines that lot with; the ") +
                            "door is reached through the yard, not off the walk.")
                     continue
                 if gap < STOOP_MIN_GAP_M:
@@ -3613,6 +3751,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
     lots_doc = _lots()
     buildings = _placed_footprints()
     faces = _edge_faces(lots_doc)
+    covered = {(f["block"]["id"], f["face"]) for f in faces}
+    faces += _front_faces(lots_doc, buildings, streets, covered)
     half_w = WALK_W_M / 2.0
 
     walks: list = []
@@ -3622,7 +3762,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
     laid_by_face: dict = {}
     census = {"faces": 0, "runs": 0, "walk_m": 0.0, "crossings": 0, "cross_m": 0.0,
               "fences": 0, "fence_m": 0.0, "decks": 0, "hitching": 0, "fittings": {},
-              "decked_walks": 0, "decked_m": 0.0, "bare_fronts": 0, "bare": []}
+              "decked_walks": 0, "decked_m": 0.0, "bare_fronts": 0, "bare": [],
+              "front_faces": 0, "front_runs": 0, "front_walk_m": 0.0}
     fittings: list = []
 
     for entry in faces:
@@ -3672,16 +3813,28 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
             continue
         spans = _march(frame, EDGE_OFFSET_M, half_w, hf, buildings)
         bare_fronts = _bare_cut(entry, spans, buildings, refused)
+        if entry.get("fronts_only"):
+            _fronts_only_cut(entry, spans, buildings)
         census["bare_fronts"] += len(bare_fronts)
         census["bare"].extend(q[4] for q in bare_fronts)
         runs = _runs_from(spans)
         if not runs:
-            worst = spans[0]["why"] if spans else "the face has no length"
+            # On a fronts-only face the step that matters is the one in front of
+            # the business, not the first step of the face (T-1823).
+            kept = [sp for sp in spans if sp["why"] is None]
+            worst = next((sp["why"] for sp in spans if sp["why"] and "(T-1823)" not in sp["why"]),
+                         spans[0]["why"] if spans else "the face has no length")
+            if entry.get("fronts_only") and kept:
+                worst = (f"the march reaches {len(kept)} clear step(s), "
+                         f"{sum(sp['hi'] - sp['lo'] for sp in kept):.1f} m, in front of the "
+                         "business on it — its frontage stands past the face's last whole "
+                         "step or between refused ones")
             refused.append({"structure_id": key, "wall": f"{block['id']} {face} face", "why": (
                 f"no stretch of this face {EDGE_MIN_RUN_M:.1f} m long passed the march "
                 f"(first refusal: {worst}) — no walk is laid.")})
             continue
         census["faces"] += 1
+        census["front_faces"] += 1 if entry.get("fronts_only") else 0
         laid = []
         for k, (a, b) in enumerate(runs, start=1):
             lo = spans[a]["lo"]
@@ -3696,6 +3849,9 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
             decks = _decks(spans, a, b, frame, EDGE_OFFSET_M, half_w, WALK_RISE_M)
             census["runs"] += 1
             census["walk_m"] += hi - lo
+            if entry.get("fronts_only"):
+                census["front_runs"] += 1
+                census["front_walk_m"] += hi - lo
             census["decks"] += len(decks)
             walks.append({
                 "id": f"{key}_walk_{k}",
@@ -3733,7 +3889,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                     "invented is the width, the rise, the plank pitch and that a walk "
                     "stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md "
                     f"{STREET_EDGE_LIBERTY}."
-                ),
+                ) + (_fronts_note(entry, buildings, lo, hi)
+                     if entry.get("fronts_only") else ""),
             })
         face_chunks = [f"{key}_{k}" for k in range(1, len(runs) + 1)]
         laid_by_face[key] = {"entry": entry, "laid": laid, "verge": verge,
@@ -3746,7 +3903,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
         # street. A cross-street face is the END of a lot row: no lot fronts it,
         # so neither rule has anything to stand on. Said here rather than left
         # as a silence, because a reader counting fences will otherwise wonder.
-        if entry["axis"] == 1:
+        if entry["axis"] == 1 and not entry.get("fronts_only"):
             refused.append({"structure_id": f"{key}_fences", "wall": f"{block['id']} {face} face", "why": (
                 f"no fence and no hitching post are laid on this {name} frontage: both "
                 "rules are per-lot, and not one of this block's platted lots fronts a "
@@ -3769,14 +3926,20 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
         # for after it rather than beside it.
         for post in _edge_hitching(entry, laid, face_chunks, buildings, hf,
                                    streets, refused, decked):
+            if entry.get("fronts_only"):
+                post["standing_chunk"] = EDGE_FRONT_STANDING
             census["hitching"] += 1
             posts.append(post)
         # T-1813 — and the rest of what this front's business takes: the stoop, the
         # mounting block, the tie rail and the wagon apron FRONTAGE_BY_BUSINESS deals.
         for fit in _edge_fittings(entry, laid, face_chunks, buildings, hf, streets,
                                   refused, decked, bare_fronts):
+            if entry.get("fronts_only"):
+                fit["standing_chunk"] = EDGE_FRONT_STANDING
             census["fittings"][fit["kind"]] = census["fittings"].get(fit["kind"], 0) + 1
             fittings.append(fit)
+        if entry.get("fronts_only"):
+            continue          # a business's walk, not a street's: no street fence (T-1823)
         for run in _fence_runs(entry, laid, buildings, hf, refused):
             a = run["a"]
             b = run["b"]

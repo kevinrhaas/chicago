@@ -4942,8 +4942,12 @@ for (const [label, viewport, touch] of [
       // blk_lake_dearborn north run in two (+1 walk) and three forwarding houses
       // front a decked walk (+3), 51 to 55; refusals 113 to 117, the bare front
       // stated and the three warehouse fronts with no walk to widen.
-      frontage.census?.records === 5 && frontage.census?.walks === 55
-        && frontage.census?.crossings === 46
+      // T-1823 — the walk by business carried to the new fronts: five fronts-only
+      // runs (the Western Hotel, four West Division stores) and the freight house's
+      // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
+      // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
+      frontage.census?.records === 5 && frontage.census?.walks === 61
+        && frontage.census?.crossings === 47
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5000,7 +5004,9 @@ for (const [label, viewport, touch] of [
         // Their reconstructed residential trades earn no new hitching posts.
         // T-1813 — the street edge is dealt by business: a reconstructed trade
         // takes its post at its own tier (+25), an inn stands two (+5), 18 + 30.
-        && frontage.census?.posts === 48 && frontage.census?.fences === 32
+        // T-1823 — the fronts-only faces: the Western Hotel's two and three West
+        // Division stores' one each, 48 to 53. A fronts-only face takes no fence.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 32
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -5071,7 +5077,7 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 117
+        && frontage.census?.refused === 128
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5434,11 +5440,13 @@ for (const [label, viewport, touch] of [
     // posts at the thirds of its front, as the Sauganash does (+5). The
     // street-edge population is forty-six; the two on a record's own ground do
     // not move.
-    check(`${label}: the forty-eight hitching posts stand on their own ground, carrying nothing`,
-      frontage.hitching.length === 48
-        && frontage.census?.hitching === 48
+    // T-1823 makes it FIFTY-THREE: the fronts-only faces beyond the covered
+    // streets stand the Western Hotel's two posts and three stores' one each.
+    check(`${label}: the fifty-three hitching posts stand on their own ground, carrying nothing`,
+      frontage.hitching.length === 53
+        && frontage.census?.hitching === 53
         && frontage.hitching.filter((h) => !h.street).length === 2
-        && frontage.hitching.filter((h) => h.street).length === 46
+        && frontage.hitching.filter((h) => h.street).length === 51
         && postsBad.length === 0
         // T-1580 — the clause this carried was `lettered === 1`, and what it is
         // FOR is that none of these eighteen is the boarded post: the layer's
@@ -5472,10 +5480,12 @@ for (const [label, viewport, touch] of [
     const fitBad = (frontage.fittings ?? []).filter((q) => !(q.parts.length > 0
       && q.parts.every((p) => p.found > 0 && p.top >= p.recorded - 0.02
         && p.top <= p.recorded + 0.25)));
-    check(`${label}: the forty-six business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 46 && (frontage.fittings ?? []).length === 46
-        && fitKinds.stoop === 37 && fitKinds.mounting_block === 5
-        && fitKinds.wagon_apron === 3 && fitKinds.tie_rail === 1
+    // T-1823 — the Western Hotel's mounting block and the West Water freight
+    // house's wagon apron, 46 to 48.
+    check(`${label}: the forty-eight business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 48 && (frontage.fittings ?? []).length === 48
+        && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
+        && fitKinds.wagon_apron === 4 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
       + `${fitBad.length} bad: `
@@ -5911,8 +5921,20 @@ for (const [label, viewport, touch] of [
       // …and nothing is planted on the bare front: the layer hands the planting
       // its patch, as it does each walk's deck.
       const bareKept = (f?.keepOut ?? []).filter((k) => k.id === 'town_street_edge__bare').length;
+      // T-1823 — and the fronts-only walks beyond the covered streets: stand on the
+      // middle of each and the boot is on planks.
+      const frontsRecs = (rec?.walks ?? []).filter((w) => (w.note ?? '').includes('LAID FRONTS-ONLY'));
+      const frontsDrawn = walks.filter((w) => (w.note ?? '').includes('LAID FRONTS-ONLY'));
+      const frontsOn = frontsDrawn.filter((w) => {
+        const [[ae, an], [be, bn]] = w.centreline_local_enu_m;
+        const e = (ae + be) / 2;
+        const n = (an + bn) / 2;
+        a.walker.teleport({ local_e: e, local_n: n, yaw_deg: 90 });
+        return a.walker.state.groundY - a.terrain.walkHeight(e, n) > 0.04;
+      }).length;
       const byBusiness = { records: deckedRecs.length, drawn: deckedDrawn.length, onDeck,
-        bareLift, bareGap, bareKept, bareRecs: (rec?.bare_fronts ?? []).length };
+        bareLift, bareGap, bareKept, bareRecs: (rec?.bare_fronts ?? []).length,
+        frontsRecs: frontsRecs.length, frontsDrawn: frontsDrawn.length, frontsOn };
       return {
         hasRecord: !!rec,
         cardId: rec?.card?.id ?? null,
@@ -5951,8 +5973,9 @@ for (const [label, viewport, touch] of [
       // T-1752 — Clark, Wells, La Salle and Franklin each add one improved
       // Washington north face under the existing T-1707 rule: 36+4=40.
       // Walk-length, fence and deck floors retain their existing strength.
+      // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 40 && edge.walkM >= 3050 && edge.fences >= 31
+        && edge.faces === 45 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -5965,16 +5988,26 @@ for (const [label, viewport, touch] of [
     // ground, a gap of one march step in the Lake Street walk with the boot on
     // the mud in the middle of it.
     check(`${label}: the forwarding houses' decked walks are under the boot, the smith's front is bare`,
-      edge.byBusiness.records === 3 && edge.byBusiness.drawn === 3
-        && edge.byBusiness.onDeck === 3
+      // T-1823 — the West Water freight house's deck makes four, and two West
+      // Division works front bare ground (the Pierce smithy, a joiner on Randolph).
+      edge.byBusiness.records === 4 && edge.byBusiness.drawn === 4
+        && edge.byBusiness.onDeck === 4
         && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
         && edge.byBusiness.bareLift <= 0.04
-        && edge.byBusiness.bareRecs === 1 && edge.byBusiness.bareKept === 1,
+        && edge.byBusiness.bareRecs === 3 && edge.byBusiness.bareKept === 3,
       `${edge.byBusiness.drawn} of ${edge.byBusiness.records} decked walk(s) drawn, `
       + `${edge.byBusiness.onDeck} stood on; the smith's gap `
       + `${edge.byBusiness.bareGap?.toFixed(2)} m, lift there `
       + `${edge.byBusiness.bareLift?.toFixed(3)} m, ${edge.byBusiness.bareKept} of `
       + `${edge.byBusiness.bareRecs} bare front(s) kept clear of planting`);
+    // T-1823 — THE WALK BY BUSINESS CARRIED TO THE NEW FRONTS. Beyond the covered
+    // streets a face is laid fronts-only; each of its five runs is drawn and the
+    // boot is on planks in the middle of it.
+    check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
+      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
+        && edge.byBusiness.frontsOn === 5,
+      `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
+      + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
       edge.march.missing === 0 && edge.march.samples > 100
         && edge.march.onPlanks === edge.march.samples
