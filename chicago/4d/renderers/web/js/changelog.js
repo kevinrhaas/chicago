@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+  { v: 1279, ts: '2026-10-02T00:33:48.206Z', date: 'Oct 1, 2026, 7:33 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
       'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
       'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
