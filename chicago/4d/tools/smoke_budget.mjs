@@ -221,6 +221,7 @@ const COVERAGE = [
   ['renderers/web/js/frontage.js', [2], 'the frontage layer (T-0082, T-0090)'],
   ['renderers/web/js/yard.js', [2], 'the yard goods at the trading frontages (T-0040)'],
   ['renderers/web/js/wharves.js', [2], 'the river wharves (T-0041) and walking one (T-0058)'],
+  ['renderers/web/js/working-bank.js', [2], 'the worked river bank and its landing aprons (T-1771)'],
   ['renderers/web/js/boats.js', [2], 'the boats on the river (T-0063)'],
   ['renderers/web/js/confidence.js', [2, 3, 6], 'the confidence view, its card and its menu'],
   ['data/frontage/', [2], 'the frontage records'],

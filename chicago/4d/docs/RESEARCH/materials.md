@@ -1064,4 +1064,4 @@ fabric rule, and keeps them to the roofs the rule reaches (`fabric_basis.class`)
 of pixels move by more than 3/255. Seen up close, a lap line off by 3 mm reads as nothing
 without relief. The walls are still flat-shaded colour, so neither the lay nor the jitter
 reaches the photographic benchmark. That needs T-1769's strategy A, a shared relief and ORM per
-wall substrate, and it is T-1963's work. L347.
+wall substrate, and it is T-1963's work. L348.

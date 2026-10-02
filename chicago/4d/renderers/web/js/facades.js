@@ -47,7 +47,7 @@
  * **Since T-1962 that second reconstruction exists, and it is not invented here.**
  * The fabric rule (T-1816) deals every reconstructed roof an `age_state` from its
  * household's arrival year, and the material sheet turns it into years of weather
- * (`materials.WEATHER_YEARS_BY_AGE`, rule FIN-W, L347), carried on the sidecar as
+ * (`materials.WEATHER_YEARS_BY_AGE`, rule FIN-W, L348), carried on the sidecar as
  * `fabric_tone`. Where it is present it replaces the programme date; where it is
  * not — every researched building — the dated age above stands unchanged.
  *

@@ -18233,8 +18233,10 @@ beds, whose second piece this is).
 **Recorded:** 2026-10-01.
 ### L320 — The plank walks' weathered tones, and which stretch of walk wears which
 
-**Applies to:** `renderers/web/js/frontage.js` (`WALK_TONES`, `walkTone`, `boardTone`) — every
-walk and board crossing the street-edge layer lays, from `data/frontage/*.json`
+**Applies to:** `renderers/web/js/frontage.js` (`WALK_TONES`, `walkTone`, `boardTone`,
+`inOwnerTone`, `END_GRAIN_K`, `CONTACT_K`, `layTreads`) — every walk and board crossing the
+street-edge layer lays, from `data/frontage/*.json`, and since T-1815 every stoop, mounting block,
+tie rail, wagon apron and hitching post on it
 
 **What we invented:** The colour of every plank walk and crossing in the town. They were drawn in
 the signboard's tone (`TIMBER`, L\* 78.7), which read as white boards; they are now drawn in four
@@ -18251,17 +18253,32 @@ darkens and silvers within a season, and the owner ruled on 2026-09-30 (T-1770, 
 walks must read as worn grey, brown, grey-brown and dark grey-brown, varied by owner and age, and
 not white unless a source says painted. None does.
 
-**Omission:** The fences and hitching posts on the same layer keep the signboard tone, which the
-yard and the signboards share; no plank carries a texture yet (grain, end grain, wear and damp are
-T-1801's proof and T-1211's), and the variation is by block face rather than by business, because
-the town street edge names one record as the owner of all 87 of its walks.
+**Extended by T-1815 (2026-10-02):** the business fittings and the hitching posts, which had kept
+the signboard tone and read as the palest timber on Lake Street, take the same four tones keyed
+on the business each one serves (`serves`, or the house a post `stands_at`). Every timber now
+carries the grain of the library's `clapboard_board_face` (a generated board face, no course
+line) along its longest side at a seeded offset per board, its colour varied by the face's own
+luminance at 0.65 strength. Three further readings are invented to make the boards sit in the
+street: a board's END is drawn at 0.72 of its face (end grain darkens), the foot of every upright
+face is darkened by up to 40 % where it meets the ground (splash and damp, fading to about 14 %
+on a post), and a stoop's or mounting block's step is a framed carcass under a tread of
+0.2 m boards, 0.045 m thick with 0.012 m seams, standing 0.03 m proud as a nosing. No source
+gives any of these for a Chicago walk or stoop in 1835; they are bounded by sawn-plank stock and
+by the library's board face.
+
+**Omission:** The fences and the sign posts keep the signboard tone, which the yard and the
+signboards share. A board's arrises are still square: worn and rounded edges would be geometry,
+and are not built. The walks' own tone is keyed by block face rather than by business, because
+the town street edge names one record as the owner of all its walks.
 
 **Would replace:** A description, view or account naming a particular walk's finish or age
 replaces that walk's tone; T-1211's per-business `belongs_to` replaces the block face as the key.
 
-**Ticket:** T-1800 (piece 1 of T-1796).
+**Ticket:** T-1800 (piece 1 of T-1796); extended by T-1815.
 
 **Recorded:** 2026-10-01 (T-1800).
+
+**Revised:** 2026-10-02 (T-1815).
 
 ### L318 — The town's first boarding house: an invented H3 on blk_washington_clark's Madison-and-Dearborn corner, its windows and stovepipes sized from modelled beds
 
@@ -19202,7 +19219,59 @@ replaces the seeded wear on that board.
 **T-1836**.
 **Recorded:** 2026-10-02 (T-1836).
 
-### L347 — The lay of a wall's boards and the years it has weathered are dealt by whose house it is
+### L347 — The working river bank: South Water's river side worn to earth, and the docks lowered to meet it
+
+**Decision:** the bank between South Water Street and the river, from the forks (E 140) to
+past the platted end (E 800), is drawn as trodden earth that darkens to mud at the water,
+not as the terrain's wet prairie (T-1771, `data/wharves/working_bank.json`,
+`renderers/web/js/working-bank.js`). Every drawn landing gets a bare haul apron running back
+from its deck: to the street's worked edge on South Water, and 14 m up the bank at Kinzie &
+Hunter's and Robert A. Kinzie's docks. The band starts inside the street's worked
+shoulder, so no strip of sward stands between the street and the bank. Grass survives in
+seeded patches covering about a fourteenth of the bank away from the aprons, a few clumps
+to each, and none on an apron. No reed stands in the river within 4 m
+of the worked bank or under or off a deck, and no tree stands anywhere the wear exceeds 0.35.
+The wharf record's freeboard floor drops from **0.90 m to 0.35 m**, so every South Water deck
+now meets the bank crest behind it (0.32–0.39 m over the water) instead of standing about
+half a metre proud of it on a boarding stair.
+
+**Why:** the owner asked for it on 2026-09-30: worn dirt on South Water's river work areas,
+low docks, ramps between river and street, grass mainly in unworn patches. The town's own
+evidence bounds where: the merchants' stores face the river across South Water, and five of
+the seven drawn landings tie into that bank (T-0041, T-0062), so every barrel landed was
+carried across it. The owner's four comparative views (St Louis Front Street 1840, Detroit
+Jefferson Avenue 1837, Cincinnati Fourth Street 1835) are analogues, not Chicago evidence. The
+St Louis levee shows a bare earth bank falling to low landings at the water, and that is the
+look, not a measurement. The tones are the ground-strip proof's (T-1797), not a source's.
+**No source in this project describes the surface of any Chicago river bank in 1835, where it
+was trodden, or how high any dock stood.**
+
+**Consequence:** on the five South Water aprons the ground lies 0.22–0.45 m over the water and
+nowhere steeper than 1 in 52 over the 2.5 m lattice. The deck sill stands 0.10–0.13 m above the
+earth at its edge, so the ramp is that earth and no timber ramp is invented. At the two
+high-bank docks the deck now stands at its heel's own ground (0.58 and 0.52 m, was 0.90 m) and
+the apron climbs the bank face to its 1.0–1.1 m crest at about 1 in 6. No dock takes a boarding
+stair tread any more. The riverbank willows that stood on the South Water bank between the
+forks and Wells Street are gone. The banks across the river keep their sward and timber. The
+land itself is not regraded: the relief is the committed heightfield's. The layer costs one
+draw call and about 11,600 triangles at `full` and `balanced` (half that at `light`).
+
+**Not done, and why:** no timber ramp, slip or quay is drawn, because on South Water the earth
+already makes the ramp and a continuous quay is what the ask rules out. The deck timber keeps
+the wharf layer's one flat tone; the Glessner-level timber relief the ask also names is not
+in this layer. The North Water bank and the West Division bank are not worn: no landing works
+them.
+
+**How to resolve:** a harbour engineer's report, a view or a description that shows the South
+Water bank or any of its landings in 1833–36 outranks all of it. A river-stage record for the
+summer of 1835 would replace the 0.35 m floor.
+
+**Related:** **L132** (the docks' invented size), **L146** (the boats), **L342** (the graded
+street section the aprons lead to), **T-0041**, **T-0058**, **T-0062**, **T-1771** (this
+layer), **T-1797** (the ground-strip method).
+**Recorded:** 2026-10-02.
+
+### L348 — The lay of a wall's boards and the years it has weathered are dealt by whose house it is
 
 **Decision:** every reconstructed roof the fabric rule reaches (T-1816, L330) has two more values
 dealt on the material sheet (`generators/common/materials.py`, rules **FIN-L** and **FIN-W**,
