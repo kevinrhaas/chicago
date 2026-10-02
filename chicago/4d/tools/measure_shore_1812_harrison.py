@@ -110,7 +110,7 @@ def stations(line):
 
 def weighted_pct(rows, q):
     rows = sorted(rows)
-    total = sum(w for _, w in rows)
+    total = math.fsum(w for _, w in rows)
     acc = 0.0
     for d, w in rows:
         acc += w
@@ -123,13 +123,13 @@ def summary(rows):
     if not rows:
         return {"length_m": 0.0}
     return {
-        "length_m": round(sum(w for _, w in rows), 1),
+        "length_m": round(math.fsum(w for _, w in rows), 1),
         "median_m": round(weighted_pct(rows, 0.5), 1),
         "p90_m": round(weighted_pct(rows, 0.9), 1),
         "max_m": round(max(d for d, _ in rows), 1),
-        "mean_m": round(sum(d * w for d, w in rows) / sum(w for _, w in rows), 1),
-        "share_within_20_m": round(sum(w for d, w in rows if d <= 20.0)
-                                   / sum(w for _, w in rows), 3),
+        "mean_m": round(math.fsum(d * w for d, w in rows) / math.fsum(w for _, w in rows), 1),
+        "share_within_20_m": round(math.fsum(w for d, w in rows if d <= 20.0)
+                                   / math.fsum(w for _, w in rows), 3),
     }
 
 

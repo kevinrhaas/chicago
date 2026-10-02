@@ -4,9 +4,9 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here \u2014 --write carries that field forward \u2014 and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 180,
+    "check_capable": 181,
     "gated": 173,
-    "ungated": 7
+    "ungated": 8
   },
   "ungated": [
     {
@@ -32,6 +32,12 @@
       "tool": "tools/trace_shoreline.py",
       "other_modes_in_check_sh": [],
       "why_not_gated": "Not gateable per commit, for the reason check.sh already states about trace_river.py: `--check` re-traces a Digital Commonwealth scan over the network and needs numpy, scipy and Pillow. Its three sibling traces carry a `--check-properties` offline half the gate does run; this one does not, and writing it is how this gets gated. Measured GREEN \u2014 24 s, all 316 water vertices and both harbour shore runs stand."
+    },
+    {
+      "tool": "tools/trace_shoreline_1830.py",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "Not gateable per commit, for the same reason as trace_shoreline.py: `--check` re-fetches the Harrison plate from the Internet Archive and needs numpy, scipy and Pillow. What the gate runs instead is tools/measure_shore_1812_harrison.py --check, offline, over the committed reading this tool writes (T-1286). Measured GREEN 2026-10-02 \u2014 the reading re-traced byte for byte, stockade 8.0 px inside its 12 px tolerance.",
+      "owner_ticket": "T-1243"
     },
     {
       "tool": "tools/verify_fergus_1839_first_ward.py",
