@@ -66,6 +66,15 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
+## Image store status (2026-10-02)
+
+The bytes live in kevinrhaas/chicago-images (`prairie-1904/files/`, 824 files, 102.9 MB at PR #283).
+Its Pages site (`kevinrhaas.github.io/chicago-images/`) is NOT live yet. The owner has to switch it on
+once (Settings → Pages → Source: GitHub Actions), then re-run its `pages` workflow. Until then the
+viewer serves the package's frozen copy (`research/images/files/`), or the holder's URL for files
+only in the store. When the store serves, drop `research/images/files` from `tools/publish.py` and
+delete the folder (see its README).
+
 ## Fourth pass — south half and adjacent buildings, by address and owner (2026-10-02)
 
 `stream-newspapers-south.json`: 45 records. Five are illustrations stored in the image store; the
