@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1315, ts: '2026-10-02T18:10:58.422Z', date: 'Oct 2, 2026, 1:10 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
+  { v: 1316, ts: '2026-10-02T18:43:19.595Z', date: 'Oct 2, 2026, 1:43 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
     items: [
       'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',
       'Twelve signs used to be fixed across a door. Seven are now lettered on the shop\u2019s fascia above the door, as G. Blanchard\u2019s is, and five are smaller boards on clear wall.',
       'The front steps of 34 stores now stand at the door instead of the middle of the front. Casks and crates are set to either side of a door, and fences no longer cross the doors of nine houses and sheds.',
       'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L357).',
+    ] },
+  { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+    items: [
+      'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
+      'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
+      'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
+      'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
     ] },
   { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [

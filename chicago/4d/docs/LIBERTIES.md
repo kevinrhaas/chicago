@@ -19726,6 +19726,33 @@ stopped; either would move a camp to its ground or retire it.
 landing-place camps), **T-1803** (the archetype), **T-1804** (this entry).
 **Recorded:** 2026-10-02.
 
+### L356 — The far treeline's top is drawn level and low, with its crown texture fading with distance
+
+**Decision:** the horizon timber band (`renderers/web/js/trees.js` § 5) draws each far body's
+top at a steady **64 %** of its solved canopy (`HORIZON_TOP_K`), lets the crowns move it by at
+most **±14 %** at the nearest bodies (`HORIZON_CROWN_AMP`) and narrows both that and the canopy's
+own swing inside the dossier's range to a quarter by 1.2 km (`farRelief`). Sky opens through a
+stand only within about 700 m, and a gap cuts at most **45 %** of the height
+(`HORIZON_GAP_DEPTH`), never to the ground. An open body's end steps down over its last crown
+and a half, and a body coming within the band's 330 m cut steps down over its last 60 m, so
+neither end is a sheer cliff. The texture is keyed on metres along each body's
+near edge, so it belongs to the world and not to the eye. **The shape of the top is invented.**
+**Why:** the owner, 2026-10-02, from Lake Street at Clark facing west (T-1978): *"it probably
+should be much less wobble if any at this distance, be more stable and lower."* The previous
+modulation ran the top between 40 % and 100 % of the canopy with notches to 5 % at every
+distance, and was keyed on bearing × distance from the eye, so the South Water Street belt
+330–530 m out drew as a range of hills that re-dealt itself with every step. No source gives
+the outline of a treeline seen from the town; the figures are bounded by the dossier's canopy
+ranges (unchanged), by the old modulation's own average (0.70: the new top sits under it, so
+filling the notches does not raise the band), and by the owner's report, which asked for it lower.
+**How to resolve:** a period view from the town toward the river timber (an engraving or a
+traveller's sketch with a horizon) that shows how the far woods' outline read, or a measured
+photograph of a comparable lake-plain treeline at 0.3–1.5 km, to set the top share and the
+relief from evidence.
+**Related:** **L35** (the band's haze cap — the same band), **L182** (the South Water Street
+belt), **T-0120** (the band's eye-height term), **T-1978** (this entry).
+**Recorded:** 2026-10-02.
+
 ### L357 — The trodden ground at every door: a strip along each front and a path from each door to the street
 
 **Applies to:** `data/enclosures/town_entrance_aprons.json` (written by
