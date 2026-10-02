@@ -1,0 +1,170 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/audit_town_completion_1835.py; tools/check.sh re-derives it. Do not hand-edit.",
+  "id": "1835_town_completion_audit",
+  "ticket": "T-1964",
+  "parent_ticket": "T-1215",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/audit_town_completion_1835.py",
+  "not_a_remedy": "A measurement over committed files: nobody is written, seated or roofed here. The gaps are the work T-1215's remaining pieces close (T-1965 the unhoused, T-1966 the work and the empty roofs); only a dangling id fails the gate.",
+  "inputs": [
+    "data/sidecars/1835/index.json",
+    "data/sidecars/1835/*.json",
+    "data/structures/*.json",
+    "data/boats/index.json",
+    "data/residents/{households,reconstructed_trades,lodgers,underdocumented,readmitted,institutional,transients}/*.json",
+    "data/residents/employment_coverage.json",
+    "data/businesses/*.json",
+    "data/businesses/authored/*.json"
+  ],
+  "summary": {
+    "households_housed": 1146,
+    "households_unhoused": 914,
+    "working_age_persons_owed_a_workplace": 308,
+    "businesses_neither_roofed_nor_stated": 0,
+    "structures_empty_owing_somebody": 39,
+    "dangling_ids": 0,
+    "the_join_is_total": false
+  },
+  "housed": {
+    "households": {
+      "housed": 1146,
+      "unhoused": 914
+    },
+    "persons_housed": {
+      "attested": 164,
+      "inferred": 354,
+      "reconstructed": 1616
+    },
+    "persons_unhoused": {
+      "attested": 248,
+      "inferred": 638,
+      "reconstructed": 31
+    },
+    "present_on_scene_date": {
+      "persons_housed": 2076,
+      "persons_unhoused": 0
+    },
+    "housed_through": {
+      "lives_at": 56,
+      "seated_by_a_structure": 1090
+    },
+    "unhoused_by_folder": {
+      "households": 886,
+      "readmitted": 10,
+      "underdocumented": 18
+    },
+    "unhoused_present_households": []
+  },
+  "visitors_counted_apart": {
+    "persons": 307,
+    "lodged_at_stated": 307
+  },
+  "at_work": {
+    "working_age": 2068,
+    "placed": {
+      "attested": 112,
+      "inferred": 0,
+      "reconstructed": 121
+    },
+    "stated_no_fixed_premises": {
+      "attested": 0,
+      "inferred": 0,
+      "reconstructed": 147
+    },
+    "owed": {
+      "attested": 67,
+      "inferred": 7,
+      "reconstructed": 234
+    },
+    "no_trade_recorded": {
+      "attested": 233,
+      "inferred": 934,
+      "reconstructed": 213
+    },
+    "owed_by_reason": {
+      "class_held_no_house": 71,
+      "keeps_their_own_house": 206,
+      "trade_attested_no_house_named": 31
+    }
+  },
+  "roofed": {
+    "businesses": 280,
+    "at_a_standing_structure": {
+      "attested": 29,
+      "inferred": 17,
+      "reconstructed": 18
+    },
+    "stated_limit": {
+      "anchored": 28,
+      "street_only": 86,
+      "unplaceable": 102
+    },
+    "open": []
+  },
+  "occupied": {
+    "structures": 539,
+    "occupied": {
+      "attested": 50,
+      "inferred": 9,
+      "reconstructed": 244
+    },
+    "occupants_in_prose_only": {
+      "attested": 9,
+      "inferred": 10,
+      "reconstructed": 61
+    },
+    "use_stated": {
+      "camp_ground": 2,
+      "civic_or_works": 18,
+      "outbuilding_of_a_yard": 96,
+      "vacant_to_let": 1
+    },
+    "empty_owing_somebody": {
+      "dwelling": 7,
+      "house_of_trade": 11,
+      "outbuilding_naming_no_yard": 21
+    },
+    "empty": [
+      "beaubien_new_residence",
+      "beaubien_trading_post",
+      "caldwell_agency_log_house",
+      "clybourn_cabins",
+      "elston_ash_house",
+      "fort_dearborn_big_barn",
+      "fort_dearborn_out_building_a",
+      "fort_dearborn_out_building_b",
+      "fort_dearborn_root_house",
+      "fort_dearborn_root_house_b",
+      "fort_dearborn_shop",
+      "fort_dearborn_store_house",
+      "fort_dearborn_us_factors_house",
+      "fort_dearborn_wash_house",
+      "miller_house",
+      "miller_tanyard_bark_shed",
+      "miller_tanyard_drying_shed",
+      "newberry_dole_salt_house_south_branch",
+      "newberry_dole_stock_shed_south_branch",
+      "north_bank_shed_dearborn_e1",
+      "north_bank_shed_dearborn_e2",
+      "north_bank_shed_dearborn_e3",
+      "north_bank_shed_dearborn_w",
+      "recon_1835_blk_west_randolph_des_plaines_w2_01",
+      "recon_1835_forks_freight_f2_001",
+      "recon_1835_north_a1_047",
+      "recon_1835_north_w5_040",
+      "recon_1835_south_a2_037",
+      "recon_1835_south_c3_015",
+      "recon_1835_west_012",
+      "recon_1835_west_013",
+      "recon_1835_west_022",
+      "recon_1835_west_023",
+      "recon_1835_west_024",
+      "recon_1835_west_025",
+      "recon_1835_west_053",
+      "recon_1835_west_055",
+      "south_bank_shed_dearborn_e1",
+      "south_bank_shed_dearborn_e2"
+    ]
+  },
+  "dangling": []
+}

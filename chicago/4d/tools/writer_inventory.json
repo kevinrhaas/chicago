@@ -13,6 +13,12 @@
       "measured": "continuously",
       "finding": "In the manifest immediately before compile_scene: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. Run bare it writes data/reconstruction/1835_housing_seats.json; a second run changes no byte."
     },
+    "audit_town_completion_1835.py": {
+      "placement": "manifest",
+      "write_mode": null,
+      "measured": "continuously",
+      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+    },
     "check_terrain_e1871.py": {
       "placement": "manifest",
       "write_mode": "--write",

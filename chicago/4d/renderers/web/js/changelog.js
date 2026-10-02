@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
+  { v: 1303, ts: '2026-10-02T13:46:17.083Z', date: 'Oct 2, 2026, 8:46 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
     items: [
       'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',
       'Families take a house of the kind their trade and means suggest, in their own part of town. People on their own take a free bed in a boarding house, or board with a family when the beds run out.',
       'The town now averages seven people a dwelling, under the 1835 census\u2019s eight. Some houses are crowded: one large house on Washington Street holds 29.',
       'The people are real records. Which roof each one slept under is our reconstruction, and the card says so. The Liberties page explains how they were placed (L352).',
+    ] },
+  { v: 1302, ts: '2026-10-02T13:17:54.396Z', date: 'Oct 2, 2026, 8:17 AM CT', title: 'Counting what the town still owes', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind the scenes we now count how far it is from finished: who has a house, who has a place to work, which shops have a roof, and which roofs have somebody under them.',
+      'Today 143 households have a house and 1,917 do not yet. 308 working people still need a workplace, and 228 standing buildings have nobody in them yet. Every shop has a roof or a stated reason it has none.',
+      'The next steps fill those gaps, house by house.',
     ] },
   { v: 1301, ts: '2026-10-02T12:50:19.308Z', date: 'Oct 2, 2026, 7:50 AM CT', title: 'Hay ricks, barrels, boards and hides in the working yards', kind: 'change',
     items: [

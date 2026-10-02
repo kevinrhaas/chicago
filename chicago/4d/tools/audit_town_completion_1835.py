@@ -1,0 +1,436 @@
+#!/usr/bin/env python3
+"""The town's completion audit: how far the four joins T-1215 names are from total.
+
+T-1964, piece 1 of T-1215 (the closeout of the whole reconstruction). The owner's stop
+condition is *"every person in Chicago has a place to live and a place to work"*, and
+T-1215's first clause turns it into four joins over committed data:
+
+1. **Housed.** Every resident card's household reaches a standing structure, a vessel or
+   a camp — through its own `lives_at`, or because a structure's sidecar seats it under
+   `residents[]` (the lodging houses and the reconstructed roofs carry their people that
+   way round, and a card cannot point back at a bed).
+2. **At work.** Every person of working age carries a workplace, or a stated reason why
+   none is owed. This is a read of `data/residents/employment_coverage.json` (T-1461),
+   which already adjudicates one employment answer per person; it is not re-decided here.
+3. **Roofed.** Every business's primary location is a standing structure, or a stated
+   limit (`street_only`, `unplaceable`, `anchored`) with the reason the limit holds —
+   T-1147's limits, preserved and printed.
+4. **Occupied.** Every standing structure carries somebody (a household, a lodger, a
+   business, a reconstructed occupation), or a use that needs nobody (an outbuilding
+   that names its yard, a civic or harbour work, a camp ground, a house to let). A
+   sidecar whose `occupants` attribute names people in prose but whose household card
+   is not linked is counted on its own row, `occupants_in_prose_only`: the roof is not
+   empty, but the person it names is not yet housed by the join, and that link is owed.
+
+**This is a measurement, not a remedy.** It writes nobody, seats nobody and raises no
+roof. What it writes is the gap list the remaining pieces of T-1215 close: T-1965 the
+unhoused, T-1966 the work and the empty roofs. The gaps are therefore NOT a failure of
+the gate — they are the work the town still owes, counted where a run can read them.
+
+**What IS a failure is a dangling id**: a `lives_at` naming a structure the scene does
+not carry, a sidecar seating a household no card holds, a workplace naming a business
+that does not exist, a business premises naming a structure that is not standing. Those
+are broken links, not headroom, and `--check` refuses them.
+
+Every count is split by tier — `attested` / `inferred` / `reconstructed` — because the
+closeout's own rule is that a reader can see how much of the finished town rests on
+which rung.
+
+    tools/audit_town_completion_1835.py              write data/render/town_completion_1835.json
+    tools/audit_town_completion_1835.py --check      fail on drift from the committed file,
+                                                     or on any dangling id
+    tools/audit_town_completion_1835.py --self-test  break one link of each kind in memory
+                                                     and prove the check sees it
+"""
+
+from __future__ import annotations
+
+import argparse
+import copy
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+YEAR = "1835"
+OUT = DATA / "render" / "town_completion_1835.json"
+
+TIERS = ("attested", "inferred", "reconstructed")
+
+# The folders of `data/residents/` whose cards are people of the town. `merged` is not
+# one (its cards were folded into another), and `transients` is counted APART: the
+# visitors of the season kept no residence by construction (T-1353), so they are never
+# housed and never unhoused — they are reported on their own row, as town_census does.
+RESIDENT_FOLDERS = ("households", "reconstructed_trades", "lodgers", "underdocumented",
+                    "readmitted", "institutional")
+TRANSIENT_FOLDER = "transients"
+
+# A structure's `function.value`, read for the one question this file asks of it: does
+# an EMPTY one of these owe somebody? A dwelling or a shop with nobody in it does. An
+# outbuilding does not, once it names the yard it serves; a civic or harbour work, a
+# camp ground and a house recorded to let do not at all.
+OUTBUILDING = {
+    "barn", "barn_or_carriage_shed", "hotel_stable", "outbuilding", "privy", "root_cellar",
+    "sawpit_shed", "small_utility_building", "stable", "stable_and_wagon_yard",
+    "tavern_stable", "wash_house", "woodshed_or_storage_shed", "military_barn",
+}
+CIVIC = {
+    "artillery_house", "block_house", "church", "commanding_officers_quarters",
+    "company_gardens", "council_house", "enlisted_mens_barracks", "garrison_flagstaff",
+    "guard_house", "harbour_light", "harbour_works", "jail", "livestock_pound",
+    "meeting_house_and_school", "meeting_house_school", "military_post_enclosure",
+    "officers_quarters", "parade_and_drill_ground", "powder_magazine", "river_crossing",
+    "school", "street_crossing", "hotel_under_construction",
+}
+CAMP = {"emigrant_camp"}
+TO_LET = {"dwelling_to_let"}
+DWELLING_WORDS = ("dwelling", "cottage", "house", "residence", "shanty", "cabin",
+                  "boarding", "quarters", "hotel", "tavern")
+
+# The employment ledger's reasons, read into the three answers this audit gives.
+WORK_STATED = {"no_employer_named"}          # the trade kept no premises: stated, not owed
+WORK_OWED = {"class_held_no_house", "trade_attested_no_house_named",
+             "no_ruling_on_the_trade", "keeps_their_own_house"}
+
+
+def load(path: Path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def value_of(field) -> str | None:
+    if isinstance(field, dict):
+        return field.get("value")
+    return field
+
+
+def tier_of(grade) -> str:
+    return grade if grade in TIERS else "reconstructed"
+
+
+def read_inputs() -> dict:
+    sidecar_index = load(DATA / "sidecars" / YEAR / "index.json")
+    structures = {}
+    for row in sidecar_index["structures"]:
+        record_path = DATA / "structures" / f"{row['id']}.json"
+        record = load(record_path) if record_path.exists() else {}
+        sidecar = load(DATA / row["sidecar"])
+        attributes = sidecar.get("attributes") if isinstance(sidecar.get("attributes"), dict) else {}
+        structures[row["id"]] = {"record": record, "residents": sidecar.get("residents") or [],
+                                 "occupants": value_of(attributes.get("occupants"))}
+
+    cards = {}
+    for folder in RESIDENT_FOLDERS + (TRANSIENT_FOLDER,):
+        for path in sorted((DATA / "residents" / folder).glob("*.json")):
+            card = load(path)
+            if isinstance(card, dict) and card.get("id"):
+                cards[card["id"]] = {"folder": folder, "card": card}
+
+    businesses = {}
+    for path in sorted((DATA / "businesses").glob("*.json")) + \
+            sorted((DATA / "businesses" / "authored").glob("*.json")):
+        record = load(path)
+        if isinstance(record, dict) and record.get("id") and "locations" in record:
+            businesses[record["id"]] = record
+
+    boats = load(DATA / "boats" / "index.json").get("boats") or []
+    vessels = {b["id"] for b in boats if isinstance(b, dict) and b.get("id")}
+
+    return {
+        "structures": structures,
+        "cards": cards,
+        "businesses": businesses,
+        "vessels": vessels,
+        "employment": load(DATA / "residents" / "employment_coverage.json")["rows"],
+    }
+
+
+def by_tier() -> dict:
+    return {t: 0 for t in TIERS}
+
+
+def audit(inputs: dict) -> dict:
+    structures = inputs["structures"]
+    cards = inputs["cards"]
+    businesses = inputs["businesses"]
+    vessels = inputs["vessels"]
+    camps = {sid for sid, s in structures.items()
+             if value_of(s["record"].get("function")) in CAMP}
+    dangling: list[str] = []
+
+    # --- 1. housed ----------------------------------------------------------------------
+    seated_at: dict[str, str] = {}
+    for sid, s in sorted(structures.items()):
+        for entry in s["residents"]:
+            hid = entry.get("household")
+            if hid not in cards:
+                dangling.append(f"structure {sid} seats household {hid}, which no card holds")
+            else:
+                seated_at.setdefault(hid, sid)
+
+    housed = {"households": {"housed": 0, "unhoused": 0},
+              "persons_housed": by_tier(), "persons_unhoused": by_tier(),
+              "present_on_scene_date": {"persons_housed": 0, "persons_unhoused": 0},
+              "housed_through": Counter(), "unhoused_by_folder": Counter(),
+              "unhoused_present_households": []}
+    lives_at_of: dict[str, str] = {}
+    for hid, entry in sorted(cards.items()):
+        if entry["folder"] == TRANSIENT_FOLDER:
+            continue
+        card = entry["card"]
+        where = value_of(card.get("lives_at"))
+        through = None
+        if where:
+            if where in structures:
+                through = "camp" if where in camps else "lives_at"
+                lives_at_of[hid] = where
+            elif where in vessels:
+                through = "vessel"
+            else:
+                dangling.append(f"household {hid} lives_at {where}, which the scene does not carry")
+        if through is None and hid in seated_at:
+            through = "seated_by_a_structure"
+        persons = card.get("persons") or []
+        present = value_of(card.get("present_on_scene_date")) == "present"
+        if through:
+            housed["households"]["housed"] += 1
+            housed["housed_through"][through] += 1
+        else:
+            housed["households"]["unhoused"] += 1
+            housed["unhoused_by_folder"][entry["folder"]] += 1
+            if present:
+                housed["unhoused_present_households"].append(hid)
+        side = "persons_housed" if through else "persons_unhoused"
+        for p in persons:
+            housed[side][tier_of(p.get("grade"))] += 1
+        if present:
+            housed["present_on_scene_date"][side] += len(persons)
+
+    visitors = {"persons": 0, "lodged_at_stated": 0}
+    for entry in cards.values():
+        if entry["folder"] != TRANSIENT_FOLDER:
+            continue
+        for p in entry["card"].get("persons") or []:
+            visitors["persons"] += 1
+            if p.get("lodged_at") or entry["card"].get("lodged_at"):
+                visitors["lodged_at_stated"] += 1
+
+    # --- 2. at work ---------------------------------------------------------------------
+    work = {"working_age": 0, "placed": by_tier(), "stated_no_fixed_premises": by_tier(),
+            "owed": by_tier(), "no_trade_recorded": by_tier(), "owed_by_reason": Counter()}
+    grade_of = {p.get("id"): p.get("grade")
+                for e in cards.values() for p in e["card"].get("persons") or []}
+    employed_at: Counter = Counter()
+    for row in inputs["employment"]:
+        for house in row.get("houses") or []:
+            if house not in businesses:
+                dangling.append(f"person {row['person_id']} works at {house}, "
+                                "which no business record holds")
+            else:
+                employed_at[house] += 1
+        if row.get("age_scope") != "working_age" or row.get("record_folder") == TRANSIENT_FOLDER:
+            continue
+        work["working_age"] += 1
+        tier = tier_of(grade_of.get(row["person_id"]))
+        reason = row.get("reason")
+        if row.get("houses"):
+            work["placed"][tier] += 1
+        elif reason in WORK_STATED:
+            work["stated_no_fixed_premises"][tier] += 1
+        elif reason in WORK_OWED:
+            work["owed"][tier] += 1
+            work["owed_by_reason"][reason] += 1
+        else:
+            work["no_trade_recorded"][tier] += 1
+
+    # --- 3. roofed ----------------------------------------------------------------------
+    roofed = {"businesses": len(businesses), "at_a_standing_structure": by_tier(),
+              "stated_limit": Counter(), "open": []}
+    business_at: Counter = Counter()
+    for bid, b in sorted(businesses.items()):
+        locations = b.get("locations") or []
+        for loc in locations:
+            sid = loc.get("structure_id")
+            if sid and sid not in structures:
+                dangling.append(f"business {bid} names premises {sid}, which the scene does not carry")
+            elif sid:
+                business_at[sid] += 1
+        primary = next((l for l in locations if l.get("primary")), locations[0] if locations else None)
+        if primary and primary.get("structure_id") in structures:
+            roofed["at_a_standing_structure"][tier_of(primary.get("tier"))] += 1
+        elif primary and primary.get("limit_reason"):
+            roofed["stated_limit"][primary.get("kind") or "unstated_kind"] += 1
+        else:
+            roofed["open"].append(bid)
+
+    # --- 4. occupied --------------------------------------------------------------------
+    lived_in = Counter(lives_at_of.values())
+    occupied = {"structures": len(structures), "occupied": by_tier(),
+                "occupants_in_prose_only": by_tier(), "use_stated": Counter(),
+                "empty_owing_somebody": Counter(), "empty": []}
+    for sid, s in sorted(structures.items()):
+        record = s["record"]
+        function = value_of(record.get("function")) or ""
+        recon = record.get("reconstruction") if isinstance(record.get("reconstruction"), dict) else {}
+        tier = "reconstructed" if recon else tier_of(
+            (record.get("function") or {}).get("confidence") if isinstance(record.get("function"), dict) else None)
+        if s["residents"] or lived_in[sid] or business_at[sid] or recon.get("occupation"):
+            occupied["occupied"][tier] += 1
+        elif function in TO_LET:
+            occupied["use_stated"]["vacant_to_let"] += 1
+        elif function in CAMP:
+            occupied["use_stated"]["camp_ground"] += 1
+        elif s["occupants"]:
+            occupied["occupants_in_prose_only"][tier] += 1
+        elif function in CIVIC:
+            occupied["use_stated"]["civic_or_works"] += 1
+        elif function in OUTBUILDING and (recon.get("yard_group") or recon.get("stands_on")
+                                          or record.get("outbuilding_of")):
+            occupied["use_stated"]["outbuilding_of_a_yard"] += 1
+        else:
+            kind = ("outbuilding_naming_no_yard" if function in OUTBUILDING
+                    else "dwelling" if any(w in function for w in DWELLING_WORDS)
+                    else "house_of_trade")
+            occupied["empty_owing_somebody"][kind] += 1
+            occupied["empty"].append(sid)
+
+    def plain(o):
+        if isinstance(o, Counter):
+            return dict(sorted(o.items()))
+        if isinstance(o, dict):
+            return {k: plain(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return sorted(o)
+        return o
+
+    housed_n = housed["households"]["housed"]
+    unhoused_n = housed["households"]["unhoused"]
+    owed_n = sum(work["owed"].values())
+    open_roofs = len(roofed["open"])
+    empty_n = len(occupied["empty"])
+    return {
+        "$schema_note": "DERIVED — regenerate with tools/audit_town_completion_1835.py; "
+                        "tools/check.sh re-derives it. Do not hand-edit.",
+        "id": "1835_town_completion_audit",
+        "ticket": "T-1964",
+        "parent_ticket": "T-1215",
+        "target_date": "1835-07-01",
+        "generated_by": "tools/audit_town_completion_1835.py",
+        "not_a_remedy": "A measurement over committed files: nobody is written, seated or "
+                        "roofed here. The gaps are the work T-1215's remaining pieces close "
+                        "(T-1965 the unhoused, T-1966 the work and the empty roofs); only a "
+                        "dangling id fails the gate.",
+        "inputs": [
+            "data/sidecars/1835/index.json", "data/sidecars/1835/*.json",
+            "data/structures/*.json", "data/boats/index.json",
+            "data/residents/{" + ",".join(RESIDENT_FOLDERS + (TRANSIENT_FOLDER,)) + "}/*.json",
+            "data/residents/employment_coverage.json",
+            "data/businesses/*.json", "data/businesses/authored/*.json",
+        ],
+        "summary": {
+            "households_housed": housed_n,
+            "households_unhoused": unhoused_n,
+            "working_age_persons_owed_a_workplace": owed_n,
+            "businesses_neither_roofed_nor_stated": open_roofs,
+            "structures_empty_owing_somebody": empty_n,
+            "dangling_ids": len(dangling),
+            "the_join_is_total": not (unhoused_n or owed_n or open_roofs or empty_n or dangling),
+        },
+        "housed": plain(housed),
+        "visitors_counted_apart": visitors,
+        "at_work": plain(work),
+        "roofed": plain(roofed),
+        "occupied": plain(occupied),
+        "dangling": sorted(dangling),
+    }
+
+
+def render(doc: dict) -> str:
+    return json.dumps(doc, indent=2, ensure_ascii=False) + "\n"
+
+
+def report(doc: dict) -> str:
+    s = doc["summary"]
+    h = doc["housed"]
+    return "\n".join([
+        f"town completion (T-1215): the join is {'TOTAL' if s['the_join_is_total'] else 'not yet total'}",
+        f"  housed      {s['households_housed']} households, {s['households_unhoused']} unhoused "
+        f"({len(h['unhoused_present_households'])} of them present on the scene date)",
+        f"  at work     {s['working_age_persons_owed_a_workplace']} working-age persons owed a workplace",
+        f"  roofed      {s['businesses_neither_roofed_nor_stated']} businesses neither roofed nor stated",
+        f"  occupied    {s['structures_empty_owing_somebody']} standing structures empty and owing somebody",
+        f"  dangling    {s['dangling_ids']}",
+    ])
+
+
+def check(doc: dict) -> list[str]:
+    errors = [f"DANGLING: {d}" for d in doc["dangling"]]
+    if not OUT.exists():
+        errors.append(f"{OUT.relative_to(ROOT)} is missing — run tools/audit_town_completion_1835.py")
+    elif OUT.read_text(encoding="utf-8") != render(doc):
+        errors.append(f"{OUT.relative_to(ROOT)} is stale — run tools/audit_town_completion_1835.py")
+    return errors
+
+
+def self_test(inputs: dict) -> int:
+    """Break one link of each kind and prove each is reported as dangling."""
+    failures = []
+    base = len(audit(inputs)["dangling"])
+
+    def expect(label: str, mutate) -> None:
+        broken = copy.deepcopy(inputs)
+        mutate(broken)
+        if len(audit(broken)["dangling"]) <= base:
+            failures.append(label)
+
+    def bad_lives_at(i):
+        hid = next(h for h, e in sorted(i["cards"].items()) if e["folder"] == "households")
+        i["cards"][hid]["card"]["lives_at"] = {"value": "no_such_structure"}
+
+    def bad_seat(i):
+        sid = next(iter(sorted(i["structures"])))
+        i["structures"][sid]["residents"] = [{"household": "hh_no_such_household"}]
+
+    def bad_workplace(i):
+        i["employment"] = i["employment"] + [{"person_id": "nobody", "houses": ["biz_no_such_house"]}]
+
+    def bad_premises(i):
+        bid = next(iter(sorted(i["businesses"])))
+        i["businesses"][bid]["locations"] = [{"primary": True, "structure_id": "no_such_structure"}]
+
+    expect("a lives_at naming no structure", bad_lives_at)
+    expect("a sidecar seating no card", bad_seat)
+    expect("a workplace naming no business", bad_workplace)
+    expect("a premises naming no structure", bad_premises)
+    if failures:
+        print("SELF-TEST FAILED — the check did not see: " + "; ".join(failures))
+        return 1
+    print("self-test: all four broken links are refused")
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--check", action="store_true")
+    ap.add_argument("--self-test", action="store_true")
+    args = ap.parse_args()
+    inputs = read_inputs()
+    if args.self_test:
+        return self_test(inputs)
+    doc = audit(inputs)
+    if args.check:
+        errors = check(doc)
+        print(report(doc))
+        if errors:
+            print("TOWN COMPLETION AUDIT FAILED\n  - " + "\n  - ".join(errors))
+            return 1
+        return 0
+    OUT.write_text(render(doc), encoding="utf-8")
+    print(report(doc))
+    print(f"wrote {OUT.relative_to(ROOT)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
