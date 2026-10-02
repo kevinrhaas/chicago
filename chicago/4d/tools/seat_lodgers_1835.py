@@ -1184,11 +1184,20 @@ def child_card(slot_id: str, sex: str, bucket_key: str, place: dict, keeper: dic
 
 
 def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
-                    taken_names: set, taken_ids: set) -> tuple:
-    """(child fills, the per-house family rows). Mutates `cards` and `room`.
+                    taken_names: set, taken_ids: set, open_left: dict | None = None,
+                    dealt_before: list | None = None,
+                    live_left: dict | None = None) -> tuple:
+    """(child fills, the per-house family rows). Mutates `cards`, `room` and `open_left`.
 
     Runs AFTER every bed is dealt, so the room a child is ordered out of is what the
     boarders left — one quota ledger, spent once, in one tool.
+
+    T-1782: a child is under the open-order ceiling too (`open_left`, T-1717's, and
+    `live_left`, what the live book still orders once the boarders are drawn), and a
+    house that is not in the committed deal (`dealt_before`) has its children drawn
+    after every house that is. Otherwise a new keeper's children took the last open
+    places in a cell ahead of children already standing in it, or past the re-family
+    arrivals the book already counts there.
     """
     mf = household_model()
     sizes = mf.size_rows()
@@ -1201,7 +1210,10 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
 
     fills = Counter()
     families = []
-    for house in sorted(houses, key=lambda h: h["id"]):
+    committed = set(dealt_before or [])
+    live_left = dict(live_left or {})
+    for house in sorted(houses, key=lambda h: (bool(committed) and h["id"] not in committed,
+                                               h["id"])):
         if not house["minted_keeper"]:
             continue
         card = cards[f"hh_lodging_{house['id']}"]
@@ -1239,7 +1251,8 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
             sex = "male" if unit(f"{slot_id}:sex_ratio") < boy_rate else "female"
             at = (house["division"], sex, CHILD_BAND, "none")
             key, left = room[at]
-            if left <= 0:
+            if left <= 0 or (open_left is not None and (
+                    open_left.get(key, 0) <= 0 or live_left.get(key, 0) <= 0)):
                 refused.append({
                     "child": index,
                     "refusal": "the cell is spent",
@@ -1276,6 +1289,9 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
             drawn.append(child["id"])
             fills[key] += 1
             room[at] = (key, left - 1)
+            if open_left is not None:
+                open_left[key] = open_left.get(key, 0) - 1
+                live_left[key] = live_left.get(key, 0) - 1
 
         house["minted_children"] = len(drawn)
         if drawn:
@@ -1530,6 +1546,38 @@ def fill() -> tuple:
             if weights:
                 sex, band = pick(f"{STAGE}:{house['id']}:keeper", weights)
                 key = room[(house["division"], sex, band, "trade")][0]
+                # T-1782: THE KEEPER IS UNDER THE SAME OPEN-ORDER CEILING AS THE BOARDERS.
+                # T-1717 capped the boarders' deal and left this pick on the frozen room
+                # alone, which held only while no new house needed a keeper: when
+                # recon_1835_west_046 was re-dealt to H2 its keeper landed in a West
+                # `10_19/trade` cell the book had already filled, and `refuse()` failed
+                # the build. A pick that lands in a spent cell is re-drawn over the
+                # cells that still have an order, so every keeper already standing in
+                # an open cell keeps the pick it had; with none open, no keeper is
+                # minted and the house says so.
+                def has_order(cell_key: str) -> bool:
+                    return (open_left.get(cell_key, 0) > 0
+                            and fills[cell_key] < live_by_key.get(cell_key, 0))
+
+                if not has_order(key):
+                    still_open = [(cell, n) for cell, n in weights
+                                  if has_order(room[(house["division"], cell[0],
+                                                     cell[1], "trade")][0])]
+                    if still_open:
+                        sex, band = pick(f"{STAGE}:{house['id']}:keeper:open", still_open)
+                        key = room[(house["division"], sex, band, "trade")][0]
+                    else:
+                        refusals.append({
+                            "place": house["id"],
+                            "refusal": "no order left, no keeper",
+                            "note": "Every adult `lodging/trade` cell of the %s division "
+                                    "is filled to what the book orders there, so this "
+                                    "house's keeper is not minted (T-1782). The beds are "
+                                    "still dealt below, under their own ceiling."
+                                    % house["division"],
+                        })
+                        weights = []
+            if weights:
                 slot_id = f"{STAGE}:{house['id']}:keeper:001"
                 persons.append(person_card(slot_id, sex, band, key, house, "head", pool,
                                            taken_names, taken_ids, keeper=True))
@@ -1620,7 +1668,10 @@ def fill() -> tuple:
     # THE KEEPERS' OWN CHILDREN, LAST (T-1533) — after every bed is dealt, so a child is
     # ordered out of the room the boarders left rather than out from under one.
     child_fills, families = keeper_children(cards, houses, room, pool,
-                                            taken_names, taken_ids)
+                                            taken_names, taken_ids, open_left,
+                                            dealt_before,
+                                            {key: n - fills[key]
+                                             for key, n in live_by_key.items()})
 
     ledger = {
         "$schema_note": "DERIVED. Written by tools/seat_lodgers_1835.py --build; "

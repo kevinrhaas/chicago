@@ -114,6 +114,48 @@ CORRIDOR_LINE_WHY = (
 OCCUPANCY = occupancy()
 FAMILIES = families()
 
+# T-1827. A WEST H2 IS A BOARDING HOUSE BY `FUNCTIONS` BELOW, EXCEPT WHERE THE PLATTED DEAL
+# HAS ALREADY GIVEN IT A HOUSEHOLD. The crosswalk's H2 is `house_frame_large:merchant_two_
+# story` and the South's H2 records carry `merchant_or_professional_house`; the lodging
+# model classifies on `function` alone (tools/build_lodging_model_1835.py). So an H2 the
+# deal seats under `merchant_and_professional_dwellings` keeps that function here, and
+# stays out of the boarding-house class: left a `medium_boarding_house`, the lodger stage
+# would mint an invented keeper and boarders into a house the deal had already given to
+# somebody else, and re-cut the beds of every boarding house already standing. Keyed by
+# slot, and refused (below) the moment the deal stops seating a merchant household there.
+MERCHANT_H2 = {
+    "west_rec_046": "T-1827",   # the F1 freight shed T-1445 re-dealt to H2
+}
+PLATTED_SEATS = ROOT / "data" / "reconstruction" / "1835_platted_seats.json"
+MERCHANT_SIDS = {"recon_1835_west_" + slot.split("_")[-1] for slot in MERCHANT_H2}
+
+
+def merchant_household_on(sid: str) -> str:
+    """The household the platted deal adopts `sid` for under the merchant clause."""
+    found: list[str] = []
+
+    def walk(node) -> None:
+        if isinstance(node, dict):
+            if (node.get("kind") == "household" and node.get("how") == "adopted"
+                    and node.get("structure_id") == sid
+                    and node.get("clause") == "merchant_and_professional_dwellings"):
+                found.append(node["id"])
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+
+    walk(json.loads(PLATTED_SEATS.read_text(encoding="utf-8")))
+    if len(set(found)) != 1:
+        raise SystemExit(
+            f"{sid} is listed in MERCHANT_H2 as a merchant's house, but the platted deal "
+            f"adopts it for {len(set(found))} merchant_and_professional_dwellings "
+            "household(s), not one. Take its slot out of MERCHANT_H2 (it is then a "
+            "boarding house again, and the lodger stage seats it) or re-run "
+            "tools/seat_platted_ground_1835.py --build.")
+    return found[0]
+
 
 def spec_for(family: str) -> dict:
     """The crosswalk's entry for a family, which is where its bands are authored."""
@@ -420,7 +462,7 @@ def _form_body(family: str, seq: int, paint: str, width: float, depth: float,
             "construction": inferred("braced_frame", why), "paint": inferred(paint, why),
             "gallery": inferred(False, why), "chimneys": inferred(2, why),
         }
-        if sid is not None:
+        if sid is not None and sid not in MERCHANT_SIDS:
             _, windows, pipes = size_from_beds(sid, width)
             body["upper_windows"] = inferred(windows, CAPACITY_WHY)
             body["stovepipes"] = inferred(pipes, CAPACITY_WHY)
@@ -704,6 +746,22 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
     finish_key, paint = fabric["finish_key"], fabric["paint"]
     function = FUNCTIONS[family]
     label = LABELS[family]
+    function_why = (f"Assigned from the {family} family to satisfy the aggregate West "
+                    "Division mix; no occupant or individual use is known.")
+    if row["id"] in MERCHANT_H2:
+        merchant_household_on(sid)   # refuses the reading once the deal stops holding it
+        function, label = "merchant_or_professional_house", "merchant or professional house"
+        # The household is NOT named, here or on the card: the deal's household is a
+        # letter-list name, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof,
+        # and tools/name_the_keepers_1835.py refuses it accordingly. What the deal decides
+        # is the CLAUSE that holds the roof, and that is all this reads.
+        function_why = (
+            f"The {family} family read as the crosswalk's merchant two-storey house "
+            "(`house_frame_large:merchant_two_story`), the function the South's H2 records "
+            "carry: the platted deal holds this roof under its "
+            f"merchant_and_professional_dwellings clause ({MERCHANT_H2[row['id']]}), so it "
+            "stands as a merchant's house and not a boarding house, and the lodging model "
+            "counts no beds in it. No occupant is named; the clause, not a source, sets the use.")
     where = CLUSTER_PLACE.get(row["cluster"], "the West Division approaches")
     setback = (f" Set back {math.hypot(de, dn):.1f} m from the recipe coordinate, which "
                "placed it inside a platted street corridor; the move is well inside the "
@@ -726,12 +784,15 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
         "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
         "fabric_basis": fabric["fabric_basis"],
     }
-    if family == "H2":
+    if family == "H2" and row["id"] not in MERCHANT_H2:
         reconstruction["capacity"] = size_from_beds(sid, width)[0]
     elif family == "H1":
         reconstruction["capacity"] = stovepipes_from_beds(sid)[0]
     mapping_note = (" H2 boarding-house massing currently uses a generic rectangular "
                     "frame block because no boarding-house generator is implemented."
+                    if family == "H2" and row["id"] not in MERCHANT_H2 else
+                    " H2 merchant-house massing uses the same generic rectangular frame block "
+                    "as the West's boarding houses, without the beds' windows and stovepipes."
                     if family == "H2" else "")
     return {
         "id": sid, "name": f"Reconstructed {family} {label} #{seq:03d}",
@@ -763,7 +824,7 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
             "form": form_for(family, seq, paint, width, depth, sid),
             "change_note": "Reconstructed anonymous July 1835 West Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
-        "function": inferred(function, f"Assigned from the {family} family to satisfy the aggregate West Division mix; no occupant or individual use is known."),
+        "function": inferred(function, function_why),
         **({"occupants": OCCUPANCY[sid]} if sid in OCCUPANCY else {}),
         "reconstruction": reconstruction,
         "research_note": ("RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. "
