@@ -1296,6 +1296,76 @@
       "note": "T-0129. The east approach to the La Salle slough crossing, from the town side. Same footing as lasalle_crossing_west: a fill because the deck stands over its banks, form invented at 1 in 12, and the same one-metre overhang so the fill does not close the channel it crosses."
     }
   ],
+  "street_sections": {
+    "streets_file": "data/streets/1835.json",
+    "water_floor_ft": 0.33,
+    "shelf_clear_m": 2.5,
+    "shelf_clear_note": "The cut reaches nothing one heightfield cell INSIDE the worked edge, not at it. The renderer reads the ground bilinearly between 2.5 m samples, so a sample lowered at the worked edge drags the ground down across the next 2.5 m - which on a principal street is the plank walk's own strip, and the walk rule (tools/generate_frontage_works.py, 0.04 m under one stringer bay) refuses a walk on ground that rolls. Held one cell clear, no lowered sample can reach a walk, and the worked earth's outer 2.5 m is the shoulder climbing back to the shelf.",
+    "classes": [
+      {
+        "id": "principal",
+        "traffic": "principal",
+        "worked_share": 0.8,
+        "crown_depth_ft": 0.5,
+        "gutter_depth_ft": 1.0,
+        "gutter_inset_m": 1.75,
+        "confidence": "reconstructed",
+        "sources": []
+      },
+      {
+        "id": "ordinary",
+        "traffic": "ordinary",
+        "worked_share": 0.64,
+        "crown_depth_ft": 0.4,
+        "gutter_depth_ft": 0.75,
+        "gutter_inset_m": 1.5,
+        "confidence": "reconstructed",
+        "sources": []
+      },
+      {
+        "id": "light",
+        "traffic": "light",
+        "worked_share": 0.44,
+        "crown_depth_ft": 0.25,
+        "gutter_depth_ft": 0.4,
+        "gutter_inset_m": 1.25,
+        "confidence": "reconstructed",
+        "sources": []
+      }
+    ],
+    "note": "T-1812 (piece 2 of T-1770). The worked roadway is graded DOWN below the ground its walks stand on: the ground at the corridor's edges - the walk and the shelf it sits on, at the level the doors already stand at - is left exactly where the plain put it, and inside the worked width the roadbed is lowered, crowned at the centreline and deepest in a gutter just inside each shoulder, rising to the shelf across the last `gutter_inset_m`. The centreline is the line streets.js DRAWS (`drawn_track_local_enu_m` where a street carries one, else `path_local_enu_m`), and `worked_share` is streets.js's WORKED_SHARE (T-1811), so the cut and the painted road are one width; tools/check_street_section.py holds the two tables equal. Where streets cross, the deeper cut wins, so an intersection is one surface with no seam. The cut never takes land below `water_floor_ft` over the water (or below where it already was, if lower), never touches water, and runs BEFORE the bridge approaches, whose fills and cuts still meet their decks. EVERY DEPTH IS INVENTED: the owner's peer views (St Louis 1840, Detroit 1837, Cincinnati 1835) show a broad carriageway below entrance-level walks and print no dimension, and no Chicago source of 1835 gives a section; the depths are sized under the walker's 0.35 m step so every crossing is a step down, not a climb, and scaled by traffic class because wear is what lowered an unpaved frontier street. Recorded as L342.",
+    "keep_clear": [
+      {
+        "id": "beaubien_trading_post",
+        "e": 1148.0,
+        "n": 160.9,
+        "flat_m": 5.4,
+        "outer_m": 8.4
+      },
+      {
+        "id": "hogan_store",
+        "e": 113.2,
+        "n": -95.1,
+        "flat_m": 9.0,
+        "outer_m": 12.0
+      },
+      {
+        "id": "newberry_dole_slaughterhouse_south_branch",
+        "e": 69.3,
+        "n": -259.8,
+        "flat_m": 9.3,
+        "outer_m": 12.3
+      },
+      {
+        "id": "slough_log_bridge",
+        "e": 826.9,
+        "n": -8.4,
+        "flat_m": 5.8,
+        "outer_m": 8.8
+      }
+    ],
+    "keep_clear_note": "A structure that stands inside a worked width keeps the ground it was seated on: the cut is held at nothing within `flat_m` of the footprint's centroid (its circumradius plus 1.5 m) and eases back to the full section by `outer_m`. Each is a building or bridge whose contact outline the cut otherwise left more than the walker's 0.35 m step off the terrain (tools/validate.py's ground-contact check named all four), so this list is that gate's answer and the gate is what adds to it. A building is not dug round, and a road does not run under a door."
+  },
   "micro_relief": {
     "amplitude_ft": 0.1,
     "wavelengths_m": [
