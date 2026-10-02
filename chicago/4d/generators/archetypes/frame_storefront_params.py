@@ -1294,6 +1294,12 @@ def front_window_rects(p: "FrameStorefrontParams", x0: float, x1: float,
     front_w = x1 - x0
     bays = max(2, min(7, int(round(front_w / 2.45))))
     module = module_m(p)
+    # THE DOOR TAKES ITS BAY (T-1984). A store with no shopfront shows the street one
+    # plain door on its ground storey, and this list used to be set out by bay count
+    # without asking where that door was — so on eleven stores a window overlapped the
+    # door and the two holes drew as one notched opening. A ground-storey window that
+    # would come within OPENING_GAP_M of the door is not cut: the door stands in its bay.
+    door = None if shop is not None else plain_door_rect(x0, x1)
     out: list[tuple] = []
     for story in range(p.full_stories):
         z0 = storey_sill_z(p, story)
@@ -1302,8 +1308,17 @@ def front_window_rects(p: "FrameStorefrontParams", x0: float, x1: float,
         for i in range(bays):
             cx = snap(x0 + front_w * (i + 0.5) / bays, x0, module)
             cx = min(max(cx, x0 + win_w), x1 - win_w)
+            if (story == 0 and door is not None
+                    and cx + win_w / 2 > door[0] - OPENING_GAP_M
+                    and cx - win_w / 2 < door[1] + OPENING_GAP_M):
+                continue
             out.append((cx - win_w / 2, cx + win_w / 2, z0, z0 + win_h))
     return out
+
+
+# The least blank wall between two holes on one front (T-1984): a cased opening's
+# trim is ~75 mm a side, so two holes closer than this read as one hole.
+OPENING_GAP_M = 0.15
 
 
 def plain_door_rect(u0: float, u1: float) -> tuple[float, float, float, float]:

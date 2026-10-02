@@ -1,3 +1,36 @@
+## T-1984 — nothing in a doorway, no sign over a door, no door run into a window, worn ground at every entrance (2026-10-02)
+
+The owner, walking Lake Street on dev with five screenshots: goods and furniture in front of doors,
+signs on the face of a building covering a door or window, doors and windows that run together,
+and prairie grass right up to the entrances. One cause per symptom, each fixed where it starts:
+
+- **Merged openings.** `frame_storefront_params.front_window_rects` set out a plain store's
+  ground-storey windows without asking where the door was (11 stores: the bakery, barber,
+  butcher, shoemaker, tailor, physician, Old Bank, Temple building and three freight stores).
+  `frame_dwelling` snapped two windows into one stud bay on four single-pen cottages, 3 cm
+  apart. The dwelling's set-out moved into `frame_dwelling_params.facade_bays`, which parts a
+  clash by a stud bay or drops the window; `facade_openings` now reads `frame_dwelling` too.
+  `generate_entrances.py --check` refuses any two holes on a read front that run together.
+  15 GLBs rebaked; every other asset rebuilt byte-identical.
+- **Signs over doors.** `generate_business_signboards` had a "shrunk to the door" move. It is
+  gone: a shop with a fascia has its name lettered there (7, Blanchard's among them); otherwise
+  the board keeps its proportions and shrinks onto clear wall (5). 77 signs, none on a door;
+  the renderer smoke now treats any fixing but a fascia as over an opening.
+- **Things in doorways.** Stoops stood at `FIT_DOOR_ALONG = 0.5`; 34 now stand at the door.
+  Trade goods were laid from the wall's left end and now step round the door; lot-line fences
+  crossed 9 doors and are now cut round them. `measure_doorways.py --gate` (new check.sh step)
+  sweeps every placed object in the town against every doorway: 11 goods at 5 doors and
+  fences across 9 before, none now. The woodpiles T-1959 landed meanwhile keep off doorways too: 4 stood
+  in one, and 16 piles moved.
+- **Worn ground.** `generate_entrances.py` writes `town_entrance_aprons.json`: every door
+  (509), and a trodden-earth ring per front — a strip along the wall and a path from each door
+  to the street's track (167 doors) or 3.4 m into the yard. `yards.js` draws it and the sward
+  gives way to it, as inside the fort apron; wagon stands on it are refused (73 wagons, was 79).
+  Reconstructed, docs/LIBERTIES.md L359.
+
+**Known gap, not widened here:** the staleness hash covers builder modules and resolved params
+but not `*_params.py` bytes, so a set-out change living in a params module (`front_window_rects`,
+now `facade_bays`) does not mark its assets stale by itself; these were rebaked by hand.
 ## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
 
 Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990

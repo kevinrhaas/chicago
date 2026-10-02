@@ -361,9 +361,14 @@ function paintCell(ctx, x, y, cellW, sign) {
   // smallest whatever the board turns out to be. A `trade` or `place` line that
   // is long may take TWO rows rather than dragging the whole block down with it,
   // which is why the arrangements are enumerated instead of one being assumed.
-  const given = Array.isArray(sign.sign_lines) && sign.sign_lines.length
+  const all = Array.isArray(sign.sign_lines) && sign.sign_lines.length
     ? sign.sign_lines
     : [{ text: String(sign.sign_text || ''), role: 'name' }];
+  // T-1984: a name lettered on a shop's FASCIA carries only the roles the record
+  // names — a fascia is a hand's breadth deep and three lines would read as none.
+  const keep = Array.isArray(sign.geometry?.lines) ? sign.geometry.lines : null;
+  const kept = keep ? all.filter((l) => keep.includes(l.role)) : all;
+  const given = kept.length ? kept : all;
   const src = given
     .map((l) => ({
       words: String(l.text || '').toUpperCase().split(/\s+/).filter(Boolean),
@@ -1308,9 +1313,13 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
       const cy = y - bh / 2;
       pushBoard(buf, ax + ox * (proud + bt / 2), cy, az + oz * (proud + bt / 2),
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
-      pushBox(buf,
-        ax + ox * (proud + bt), y + WALL_CAP_T_M / 2, az + oz * (proud + bt),
-        wx, wz, bw / 2 + 0.05, bt, WALL_CAP_T_M / 2, level, solid);
+      // A name lettered on a shop's fascia sits under the fascia's own cornice
+      // and carries no cap (T-1984, `capped: false`).
+      if (g.capped !== false) {
+        pushBox(buf,
+          ax + ox * (proud + bt), y + WALL_CAP_T_M / 2, az + oz * (proud + bt),
+          wx, wz, bw / 2 + 0.05, bt, WALL_CAP_T_M / 2, level, solid);
+      }
       break;
     }
     case 'post_board': {
