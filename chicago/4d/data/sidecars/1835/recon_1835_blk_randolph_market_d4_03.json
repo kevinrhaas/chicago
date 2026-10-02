@@ -245,5 +245,14 @@
       "household": "hh_bouchard_adelaide",
       "words": "patched clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and a stoop, under a weather-darkened roof — The Bouchard household's, in Chicago since 1831 (rule F-T)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "older_frontier",
+    "weather_years": 5.0,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

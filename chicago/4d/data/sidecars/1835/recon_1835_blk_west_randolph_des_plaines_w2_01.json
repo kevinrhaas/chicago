@@ -186,5 +186,14 @@
       "abuts": null,
       "why": "T-0024 sends a workshop to its block's better face, and this block's better face is Randolph Street, the ordinary road west out of the town, while every West Division lot fronts the north-south street on the outer side of its column. So the carpenter's or joiner's shop does not stand on a lot frame at all: it stands in a one-lot frontage run on the Randolph face of plat lot 2, against the Des Plaines corner and on the street line, at the 1.5 m margin the plat module allows, because the placement policy's mechanics_streets clause stands a workshop at its street, where a wagon bringing timber or a customer coming out along Randolph meets it first. The run is one lot long and holds one roof; nothing is built shoulder to shoulder here, and the rest of the face stays as open as the recipe's outer edge requires."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "works",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

@@ -177,5 +177,14 @@
       "words": "new-sawn boards under a new roof — a barn or carriage shed, new-built (rule F-Y: a yard building's by its type)"
     },
     "yard_group": "block_interior_service_yards"
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "yard",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

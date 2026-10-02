@@ -259,5 +259,14 @@
       "abuts": "frederick_thomas_shop",
       "why": "T-0432, piece 4 of 4 of T-0420, and the last of the four South Water blocks T-0009 unblocked. T-0143 and T-0188 each refused to tighten a party-line row against a street line that might move, and T-0317 inherited the refusal; T-0009 closed it on 2026-08-29 under the owner's ruling that the drawn South Water line does NOT move — the corridor was re-derived from committed control (`recentred`, +8.58 m) and data/streets/1835.json was not touched — so this face may carry a row again. THE ROW STILL STANDS ON THE BLOCK FACE AND NOT ON THAT CORRIDOR, which is the distinction the two refusals were protecting: the face is committed geometry read from data/traces/vectors/thompson_lots.json, and this run takes its line, its bearing and both walls it packs against off that boundary. The 8.58 m the corridor moved is therefore not in this placement, and if the strip between the corridor and the block faces is later resolved (T-0419) neither of these roofs moves with it. THE FACE IS THIS BLOCK'S OWN RECORD: South Water is the town's business front and the first deal's own note reads it as such, and the party wall this run builds against is a DOCUMENTED one — Frederick Thomas's shop, seated back onto the committed line by T-0198 and T-0199 and measured here at off -1.500 m, exactly the plat module's lot margin, so it stands ON the platted line and a row may share its wall rather than break around it. NO COORDINATE IS AUTHORED: the line, its bearing and the lot's own stretch of it are read from the committed block boundary, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

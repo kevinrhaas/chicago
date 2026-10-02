@@ -216,5 +216,14 @@
       "household": null,
       "words": "new-sawn boards under a new roof — a rough plank dwelling or shanty, new-built (rule F-L: a labourer's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

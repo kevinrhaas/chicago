@@ -220,5 +220,14 @@
       "household": "hh_clark_john_k",
       "words": "patched boards under a patched roof — The Clark household's, in Chicago since 1817 (rule F-L)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "older_frontier",
+    "weather_years": 5.0,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }
