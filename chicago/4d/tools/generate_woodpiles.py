@@ -45,6 +45,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import generate_dooryard_plantings as dooryard  # noqa: E402
+import generate_entrances as entrances  # noqa: E402
 import yard_rule_1835 as rule  # noqa: E402
 from generate_dooryard_plantings import (  # noqa: E402
     footprint_world, load, path_dist, poly_contains, poly_edge_dist, seg_dist)
@@ -81,6 +82,7 @@ STEM_MARGIN_M = 1.0
 GOODS_MARGIN_M = 1.2
 WAGON_MARGIN_M = 3.6
 PILE_MARGIN_M = 0.5
+DOORWAY_MARGIN_M = 0.3     # off a door's clear doorway (T-1984)
 # A privy or a stable is walked round and into, so a pile keeps a full metre off it on
 # every side rather than the 0.6 m it keeps off a house's wall: no rick across a door.
 OUTBUILDING_M = 1.0
@@ -175,6 +177,9 @@ class Ground:
         for pts in self.w.fences:
             for i in range(len(pts) - 1):
                 self.fence_segs.append((tuple(pts[i]), tuple(pts[i + 1])))
+        # T-1984: nothing stands in a doorway — the same zones the doorway sweep
+        # (tools/measure_doorways.py) holds every placed object to.
+        self.doorways = [[tuple(q) for q in ring] for _eid, ring in entrances.doorway_zones()]
         self.piles: list[list[tuple[float, float]]] = []
 
     def near(self, cx, cy):
@@ -193,6 +198,7 @@ class Ground:
             "goods": [g for g in self.goods if close(g)],
             "wagons": [g for g in self.wagons if close(g)],
             "outbuildings": [o for o in self.outbuildings if any(close(q) for q in o)],
+            "doorways": [d for d in self.doorways if any(close(q) for q in d)],
         }
 
     def clear(self, p, own, near, wagon_ok=False) -> str | None:
@@ -235,6 +241,9 @@ class Ground:
         for o in near["outbuildings"]:
             if poly_contains(p, o) or poly_edge_dist(p, o) < OUTBUILDING_M:
                 return "at a privy or stable"
+        for d in near["doorways"]:
+            if poly_contains(p, d) or poly_edge_dist(p, d) < DOORWAY_MARGIN_M:
+                return "in a doorway"
         for pile in self.piles:
             if poly_contains(p, pile) or poly_edge_dist(p, pile) < PILE_MARGIN_M:
                 return "on another woodpile"

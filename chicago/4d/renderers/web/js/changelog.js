@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1320, ts: '2026-10-02T19:48:42.751Z', date: 'Oct 2, 2026, 2:48 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
+  { v: 1322, ts: '2026-10-02T20:44:17.833Z', date: 'Oct 2, 2026, 3:44 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
     items: [
       'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter, now works there. Louis Bertrand keeps the narrow warehouse at the forks, and Silas Bacon, a grocer, keeps the two-storey store on Lake Street.',
-      'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L359).',
+      'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L360).',
       'The big riverside work shop on Wolcott stays empty, and its card now says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
       'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five lives there, and nine more households that were waiting now have a roof.',
+    ] },
+  { v: 1321, ts: '2026-10-02T20:08:04.793Z', date: 'Oct 2, 2026, 3:08 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
+    items: [
+      'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',
+      'Twelve signs used to be fixed across a door. Seven are now lettered on the shop\u2019s fascia above the door, as G. Blanchard\u2019s is, and five are smaller boards on clear wall.',
+      'The front steps of 34 stores now stand at the door instead of the middle of the front. Casks and crates are set to either side of a door, and fences no longer cross the doors of nine houses and sheds.',
+      'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L359).',
+    ] },
+  { v: 1320, ts: '2026-10-02T19:45:34.002Z', date: 'Oct 2, 2026, 2:45 PM CT', title: 'Sixty-one servants are now in service, not waiting for a hotel', kind: 'change',
+    items: [
+      'Open Bridget Hayes\u2019s card and look under Were they at work? It used to say the town owed her a place in a tavern. It now says she was in domestic service in another family\u2019s house, as our ruling on the trade says domestic service was.',
+      'The same is true for all 61 domestics the taverns had no room for. Taverns and hotels were the only places our staffing model could put them, so the overflow looked like a shortage of hotels. It never was.',
+      'Which family each one worked for is not recorded, so the card does not name one.',
+      'On the City card, people owed a workplace drop from 230 to 169.',
     ] },
   { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [

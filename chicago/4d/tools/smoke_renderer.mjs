@@ -3277,7 +3277,7 @@ for (const [label, viewport, touch] of [
       // record now carries, per flat sign, the door and window rectangles of the
       // wall it hangs on — derived from the same archetype set-out the MESH is
       // built from — and the one rectangle it is deliberately fixed to, which is
-      // only ever a door a board was shrunk onto. Anything else it covers is the
+      // only ever a fascia a name is lettered on (T-1984). Anything else it covers is the
       // fault coming back.
       let flatSigns = 0;
       const overOpening = [];
@@ -3288,7 +3288,8 @@ for (const [label, viewport, touch] of [
         const [ba, bc] = fit.board_span_local_m;
         // `arm_height_m` is the board's HEAD; a wall board carries a rain cap over
         // it, which signage.js stands 0.09 m proud of the same wall.
-        const top = sg.arm_height_m + (sg.mounting === 'wall_board' ? 0.09 : 0);
+        const top = sg.arm_height_m
+          + (sg.mounting === 'wall_board' && sg.geometry?.capped !== false ? 0.09 : 0);
         const bot = sg.arm_height_m - sg.board_h_m;
         const on = fit.fixed_to;
         for (const o of fit.openings || []) {
@@ -3297,6 +3298,11 @@ for (const [label, viewport, touch] of [
             && o.u1 === on.u1 && o.z0 === on.z0 && o.z1 === on.z1
             && ba >= on.u0 && bc <= on.u1 && bot >= on.z0 && top <= on.z1;
           if (!isFixture) overOpening.push(`${sg.structure_id} over ${o.kind}`);
+          // T-1984: the one rectangle a board may stand over is a FASCIA it is
+          // lettered on, never a door leaf or the glass.
+          else if (!['fascia', 'archetype_sign'].includes(on.kind)) {
+            overOpening.push(`${sg.structure_id} fixed to a ${on.kind}`);
+          }
         }
       }
       // The South Water row, which is the street the town actually reads as one:

@@ -86,6 +86,7 @@ from pathlib import Path
 
 from generate_dooryard_pickets import footprint_world, poly_contains
 import enclosure_owners
+import generate_entrances
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -377,6 +378,12 @@ def yard_for(entry):
 def build(entries, sidecars):
     all_footprints = [footprint_world(sc) for sc in sidecars.values()]
     all_footprints = [(fp, bbox(fp)) for fp in all_footprints if len(fp) >= 3]
+    # T-1984 — NO FENCE ACROSS A DOOR. A stable's or a house's door that faces a lot
+    # line had the line's fence run straight across its doorway, a step out from the
+    # sill. The doorway (`generate_entrances.doorway_zones`: the door's width and a hand
+    # either side, two paces out) is cut out of a line exactly as a footprint standing
+    # on it is, so the fence stops either side of the way out.
+    doorways = [(ring, bbox(ring)) for _eid, ring in generate_entrances.doorway_zones()]
     standing = [(path, bbox(path)) for path in standing_runs()]
 
     # A side line proposed by two neighbours is ONE fence: keyed on the pair of committed
@@ -439,6 +446,10 @@ def build(entries, sidecars):
             if bbox_apart(line, box, BUILDING_CLEAR_M):
                 continue
             cuts += seg_polygon_gaps(a, b, fp, BUILDING_CLEAR_M)
+        for ring, box in doorways:
+            if bbox_apart(line, box, 0.30):
+                continue
+            cuts += seg_polygon_gaps(a, b, ring, 0.30)
         out = []
         for lo, hi in subtract(spans, cuts):
             p, q = lerp(a, b, lo), lerp(a, b, hi)

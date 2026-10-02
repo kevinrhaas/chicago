@@ -1360,6 +1360,17 @@ step "an adopted register firm's signboard moves no board already hung" \
 # committed sidecars and the wagon-yard perimeter (ROADMAP K5 (c), T-0040).
 step "the yard goods re-derive from the rule that chose their frontages" \
   python3 tools/generate_yard_goods.py --check
+# T-1984. EVERY DOOR, ONCE, AND NOTHING IN FRONT OF IT. The owner, walking Lake Street on
+# 2026-10-02, found goods in front of doors, a sign on a door leaf, a window run into a door
+# and prairie up to every threshold. `generate_entrances` reads each door off the front
+# elevation its mesh is built from, re-derives the trodden apron in front of it, and
+# refuses any front whose holes run together; `measure_doorways` holds every placed object
+# in the town — goods, carts, posts, fittings, fences, sign posts, wells, planted stems —
+# out of every doorway.
+step "every door is read once, its apron re-derives, and no two holes on a front run together (T-1984)" \
+  python3 tools/generate_entrances.py --check
+step "nothing placed in the town stands in a doorway (T-1984)" \
+  python3 tools/measure_doorways.py --gate
 # The yard outbuildings (T-1960) are the same shape again: a privy in a rear corner of every
 # dwelling lot the plat reaches and a stable for the horse-keeping households, dealt from the
 # lot survey the fences read and the house's own class and age — a rule, so re-derived here.
@@ -6106,7 +6117,7 @@ selftest "…and its guards still fire when broken" \
 # take states why. Refused: a roof outside the deal's scope or answered twice or not at
 # all, a keeper given two roofs, a keeper the ledger owes no house, a keeper of the wrong
 # trade or division, and a roof called unseatable while keepers of its trade wait.
-# docs/LIBERTIES.md L359.
+# docs/LIBERTIES.md L360.
 step "every empty trade roof is kept by a keeper of its trade, or says why none is left" \
   python3 tools/seat_trade_roofs_1835.py --check
 
