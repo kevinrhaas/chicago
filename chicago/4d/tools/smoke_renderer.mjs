@@ -3605,6 +3605,27 @@ for (const [label, viewport, touch] of [
       const wagons = y?.wagons ?? [];
       const benches = y?.benches ?? [];
       const sheds = y?.sheds ?? [];
+      // T-1960. The privies and stables in the house yards: measured by their OWN box,
+      // like the shed, so a 6 m stable is not read against a barrel's 0.75 m bar.
+      const outbuildings = (y?.outbuildings ?? []).map((ob) => ({
+        id: ob.id, kind: ob.kind, e: ob.at_local_enu_m[0], n: ob.at_local_enu_m[1],
+        b: ((ob.bearing_deg ?? 0) * Math.PI) / 180,
+        reachA: (ob.along_m ?? 0) / 2 + 0.45, reachO: (ob.depth_m ?? 0) / 2 + 0.45,
+        head: ob.head_m ?? 0 }));
+      const obAt = (e, n) => {
+        for (const ob of outbuildings) {
+          const de = e - ob.e;
+          const dn = n - ob.n;
+          if (Math.abs(de) > 6 || Math.abs(dn) > 6) continue;
+          const along = de * Math.cos(ob.b) - dn * Math.sin(ob.b);
+          const out = de * Math.sin(ob.b) + dn * Math.cos(ob.b);
+          if (Math.abs(along) <= ob.reachA && Math.abs(out) <= ob.reachO) return ob;
+        }
+        return null;
+      };
+      let obVerts = 0;
+      let obHigh = 0;           // tallest a vertex stands over its own building's base
+      const obTones = new Set();
       const items = [];
       for (const f of frontages) {
         for (const it of f.items ?? []) {
@@ -3737,6 +3758,16 @@ for (const [label, viewport, touch] of [
           // The shed's bay first: along the wall and out of it, in the shed's own
           // frame. The wagon's tongue reaches past the bay and is left to the
           // wagon bound below, which is exactly where it belongs.
+          const ob = obAt(e, n);
+          if (ob) {
+            obVerts++;
+            const c = geo.getAttribute('color');
+            if (c) obTones.add(`${c.getX(i).toFixed(4)},${c.getY(i).toFixed(4)},${c.getZ(i).toFixed(4)}`);
+            ob.minY = Math.min(ob.minY ?? Infinity, pos.getY(i));
+            ob.maxY = Math.max(ob.maxY ?? -Infinity, pos.getY(i));
+            obHigh = Math.max(obHigh, ob.maxY - ob.minY);
+            continue;
+          }
           let inBay = false;
           for (const sh of sheds) {
             const sb = ((sh.bearing_deg ?? 0) * Math.PI) / 180;
@@ -3867,6 +3898,11 @@ for (const [label, viewport, touch] of [
         shedSpan: Number.isFinite(shedLow) ? shedHigh - shedLow : null,
         shed: sheds[0] ?? null,
         sheds: sheds.length,
+        outbuildings: outbuildings.length,
+        obVerts,
+        obHigh,
+        obTones: obTones.size,
+        obUndrawn: outbuildings.filter((ob) => !(ob.maxY > ob.minY)).length,
         // One material and the tilt still reads as canvas: the colour is per
         // vertex, so the whole layer must carry exactly its OWN tones and no
         // more. It was two — timber and duck — until T-0057 put brick and stone
@@ -3877,7 +3913,10 @@ for (const [label, viewport, touch] of [
           for (const geo of geos) {
             const c = geo.getAttribute('color');
             if (!c) return 0;
+            const pos = geo.getAttribute('position');
             for (let i = 0; i < c.count; i++) {
+              // The yard outbuildings carry their own tones (T-1960), counted below.
+              if (obAt(pos.getX(i), -pos.getZ(i))) continue;
               seen.add(`${c.getX(i).toFixed(4)},${c.getY(i).toFixed(4)},`
                 + `${c.getZ(i).toFixed(4)}`);
             }
@@ -3929,8 +3968,16 @@ for (const [label, viewport, touch] of [
     // frame. It chunks now, the way `frontage.js` and `enclosures.js` do. What
     // must still hold, and is the whole reason chunking is cheap: ONE material
     // across every chunk, and every chunk carrying its own bounding sphere.
+    // THE CEILING WAS 64 AND IS 96 SINCE T-1960, a conscious re-budget and not a
+    // weakened assertion (AGENTS.md, the frame budget): the privies and stables put
+    // the layer on 122 more house lots, many in 110 m cells no barrel or wagon
+    // reached, and the layer went from 64 chunks to 71. 96 is that plus headroom for
+    // the yard pieces still to come (T-1961), and the town's draw calls stayed
+    // inside their own budget (142 of 215 at the boot stand) when it moved.
+    const YARD_CHUNK_CEILING = 96;
     check(`${label}: the yard layer chunks for culling on a single material`,
-      goods.meshes > 1 && goods.meshes <= 64 && goods.meshes === goods.census?.chunks
+      goods.meshes > 1 && goods.meshes <= YARD_CHUNK_CEILING
+        && goods.meshes === goods.census?.chunks
         && goods.materials === 1 && goods.bounded
         && goods.mergedNames.every((name) => name === 'yard-far-merge'),
       `${goods.meshes} chunk mesh(es) (census ${goods.census?.chunks}), `
@@ -4093,6 +4140,23 @@ for (const [label, viewport, touch] of [
       goods.tones === 4 && goods.materials === 1,
       `${goods.tones} vertex tone(s) across ${goods.meshes} chunk(s) on `
       + `${goods.materials} material(s)`);
+
+    // ---- T-1960: a privy behind every house, a stable for the horse-keepers ---- //
+    // Every record the layer loaded is drawn — a privy no taller than a man can
+    // reach the eaves of, a stable no taller than its ridge plus the sill run below
+    // grade — and they differ house to house, which is the point of dealing them by
+    // household: the boards weather with the house and a merchant's is whitewashed.
+    check(`${label}: a privy stands behind the town's houses and a stable for the horse-keepers`,
+      goods.outbuildings >= 100 && goods.census?.outbuildings === goods.outbuildings
+        && (goods.census?.byOutbuilding?.privy ?? 0) >= 100
+        && (goods.census?.byOutbuilding?.stable ?? 0) >= 10
+        && goods.obUndrawn === 0 && goods.obVerts > 0 && goods.obHigh <= 4.8,
+      `${goods.outbuildings} outbuilding(s) ${JSON.stringify(goods.census?.byOutbuilding ?? {})}, `
+      + `${goods.obVerts} vertices, ${goods.obUndrawn} with no geometry, tallest `
+      + `${goods.obHigh?.toFixed(2)} m sill to ridge`);
+    check(`${label}: the outbuildings differ house to house`,
+      goods.obTones >= 12,
+      `${goods.obTones} distinct tone(s) across the privies and stables`);
 
     // ---- T-0064: more wagons, all over a frontier town ---------------------- //
     //
