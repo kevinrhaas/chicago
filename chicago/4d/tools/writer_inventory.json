@@ -211,6 +211,13 @@
       "measured": "2026-10-02",
       "finding": "Run bare on the working tree it prints its verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: it runs renderers/web/js/wall-grain.js under node over the committed sidecars and compares it with generators/common/materials.py. A checker (T-1963)."
     },
+    "web_textures.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: staged its 14 .webp derivatives, ran --write, and git status reported no byte moved (libwebp's lossless encoder is deterministic at method 6). Its --check holds each derivative pixel-identical to its PNG master, so even an encoder that changed bytes could not change a pixel (T-1973).",
+      "placed": "not yet — it reads only the committed PNG masters under assets/textures/chicago_1835_pbr/, which no manifest step writes (the library's generator is not in the manifest), so it has no ordering hazard; the manifest covers data/ derivations and joining it is its own measured pass"
+    },
     "check_unique_ids.py": {
       "placement": "not_a_writer",
       "write_mode": null,
@@ -1699,6 +1706,13 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: run bare on a clean tree in under a second, it rewrote data/structures/landing_camp_west.json and landing_camp_east.json and `git status --porcelain` was identical before and after \u2014 not one committed byte moved. T-1803. PENDING rather than manifest because it reads the committed street lines, the traced bank, the heightfield, the wharf decks, river walks, beached boats and every footprint, and writes two structure records the sidecar compile and the town census then read, so its slot in the re-derivation order is a question a measured pass of the manifest owns.",
       "placed": "not yet \u2014 measured to reproduce. T-1803: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
+    },
+    "place_camp_grounds_1835.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: run bare twice on a clean tree in under a second, it rewrote data/structures/land_sale_camp_shore.json and west_approach_wagon_camp.json with identical bytes. T-1804. PENDING rather than manifest for the reason place_landing_camps_1835.py is: it reads the committed street lines, fences, refused regions, the heightfield and every footprint, and writes two structure records the sidecar compile and the town census then read.",
+      "placed": "not yet \u2014 measured to reproduce. T-1804: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those; its slot is the manifest's own measured pass, as T-1803's is."
     }
   }
 }

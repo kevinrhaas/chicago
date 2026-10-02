@@ -10818,6 +10818,12 @@
       "asset": "gltf/lake_house_construction__shell_1835.glb"
     },
     {
+      "id": "land_sale_camp_shore",
+      "name": "The land-sale camp on the lake shore south of the fort",
+      "sidecar": "sidecars/1835/land_sale_camp_shore.json",
+      "asset": "gltf/land_sale_camp_shore__camp_1835.glb"
+    },
+    {
       "id": "landing_camp_east",
       "name": "The emigrants' camp at the landing, east",
       "sidecar": "sidecars/1835/landing_camp_east.json",
@@ -13450,6 +13456,12 @@
       "name": "Richard J. Hamilton's house on Michigan Street",
       "sidecar": "sidecars/1835/watkins_school_house.json",
       "asset": "gltf/watkins_school_house__house_1833.glb"
+    },
+    {
+      "id": "west_approach_wagon_camp",
+      "name": "The emigrants' wagon camp at the west approach",
+      "sidecar": "sidecars/1835/west_approach_wagon_camp.json",
+      "asset": "gltf/west_approach_wagon_camp__camp_1835.glb"
     },
     {
       "id": "western_hotel",

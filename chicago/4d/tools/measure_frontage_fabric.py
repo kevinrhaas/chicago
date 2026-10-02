@@ -899,9 +899,13 @@ def self_test() -> int:
     # corridor edge of `kinzie_west` — but tools/plat_corridors.py carries no corridor for
     # any Wabansia street, so this census reads them as fronting none and reports them here
     # rather than dropping them. They leave this count when Wabansia enters the corridors.
+    # 41 -> 43 on 2026-10-02 (T-1804): `land_sale_camp_shore` on the reservation shore and
+    # `west_approach_wagon_camp` on the prairie beyond the Des Plaines Street line. Neither
+    # ground carried a street in 1835 — that is why a camp stands on it — so both are
+    # reported here rather than dropped.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 41 and all(
+                   "leaving it out", len(absent) == 43 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))

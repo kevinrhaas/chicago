@@ -381,6 +381,16 @@ step "the walls' relief rule matches the substrate and finish the generators bui
 selftest "…and a coat read as bare, a vertical board bound as clapboard or a finish_key outranking a coating still fails it" \
   python3 tools/check_wall_relief.py --self-test
 
+# T-1973. The relief maps the walls, roofs, street edge and signboards bind ship as
+# lossless WebP beside their PNG masters — boot bytes every visitor downloads, a third
+# smaller on the wire. "Lossless" is a claim about pixels, so the gate reads them back:
+# every derivative decodes to exactly its master, and none is an orphan.
+step "the WebP maps the renderer binds decode pixel-identical to their PNG masters (T-1973)" \
+  python3 tools/web_textures.py --check
+
+selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
+  python3 tools/web_textures.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and
@@ -1439,6 +1449,13 @@ step "the river wharves re-derive from the records that state a dock" \
 # deck, walk, boat or footprint must move a camp with it or fail here.
 step "the landing-place camps re-derive from the bank they stand on" \
   python3 tools/place_landing_camps_1835.py --check
+
+# The camps of the two conjectural grounds (T-1804) — the land-sale crowd on the
+# reservation shore and a wagon party at the west approach — are placed against every
+# drawn roadway, fence run, footprint, refused region and the heightfield, so anything
+# built or drawn into their ground must move a camp with it or fail here.
+step "the shore and west-approach camps re-derive from the ground they stand on" \
+  python3 tools/place_camp_grounds_1835.py --check
 
 # ROADMAP K5 (e) also asked for "a river-wharf mode of pier_crib", so that a town
 # assembled from GLBs alone would carry its docks; T-0059 was that clause and was

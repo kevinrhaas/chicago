@@ -66,6 +66,54 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
+## Third pass — newspapers for the north half's thin buildings (2026-10-02)
+
+`stream-newspapers-north.json`: 43 records, all link-only. The per-building log is
+`worklog-newspapers-north.md`.
+
+**Where the material came from.** Internet Archive's full-text search over the Chicago Tribune
+microfilm (`per_chicago-daily-tribune_*`, 1860s–1920s) was by far the richest source. It also
+covers the Abendpost, Blue Books and trade weeklies. Chronicling America has no Inter Ocean and
+gave 4 records.
+
+**Findings for the 1904 model.** None of these has been applied to library.json or
+building-research.json yet.
+
+- **1609 and 1611:** two-storey, nine-room frame houses. 1609 was to rent in Oct 1904.
+- **1612:** remodelled for C. E. Brown by Frost & Granger in 1901.
+- **1620:** 16 rooms, with a two-storey double brick stable (1908).
+- **1700 and 1706:** 1901 permit for two three-storey brick houses, 36 × 66 ft each. American
+  Artisan gives 36 × 60.
+- **1702:** brownstone, three storeys, footprint 55 × 90 (1899).
+- **1708:** A. A. Carpenter Jr. was the 1904 occupant.
+- **1709 Kellogg:** completed 15 Oct 1883, not "c.1882". Jesse Spalding's household in 1904;
+  three-storey brick or brownstone, 18 rooms.
+- **1630:** the Brust family, 1876 to at least 1917. This resolves "owner unresolved".
+- **1635:** the Springer family, occupied through 1903–04.
+- **1824:** Connecticut brownstone; a two-storey brick barn with rooms over it.
+- **1811:** 16 rooms plus billiard and ball rooms, and a two-storey stable.
+- **1736:** 1875 permit for a two-storey-and-basement brick house.
+- **1726:** a brick house and brick stable, occupied 1875–1915.
+
+**Conflicts with what the library or collection holds:**
+
+- **1635 "likely absent":** it was occupied in 1903–04 and is gone by 1911. Its material also
+  conflicts: brick in 1886 and 1893, frame in 1895.
+- **1726–1728 (id 51, "frame, demolished 1880s"):** the newspapers show a brick house occupied
+  1875–1915.
+- **`dw-aabn-1889-mcbirney-1736-permit`:** belongs to 1625 (Hugh J. McBirney, the son). The
+  father stayed at 1736.
+- **1620:** the 1922 "large brick residence" ad is 1616, because the 1911 Sanborn has no house
+  at 1620.
+- **Lot and footprint figures that disagree:**
+  - 1811: 40 ft vs 46½ ft
+  - 1824: 67 × 171 vs 67 × 115
+  - 1700/1706: 36 × 66 vs 36 × 60
+- **1702:** two storeys (1879) vs three (1899). The 1878 addition explains it.
+- **1625–1635 (the AABN 1896 flats item):** not built, and on the east side, not the west.
+- **1834:** no newspaper item on its form. The lead is Wilbur F. Storey's 1884 funeral "in his
+  residence, No. 1834 Prairie Avenue", which bears on the construction date.
+
 ## Findings that bear on the 1904 model
 
 Each needs a building-research.json update or a ruling. None has been applied to library.json yet.
@@ -119,7 +167,7 @@ Each needs a building-research.json update or a ruling. None has been applied to
 
 ## Best leads for the next pass
 
-0. **Chronicling America OCR for the north half's thin buildings.** The second pass was cut short by a restart; see `worklog-chicagology-north.md`.
+0. **Owner-name full-text searches.** The third pass searched by address only. Owner-name searches over IA's Tribune run, plus the Chicago Economist and Real Estate and Building Journal runs, are untried (`worklog-newspapers-north.md`).
 
 These are mostly blocked from a sandbox, so they need a browser or a reference request:
 
