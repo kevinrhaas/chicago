@@ -19480,6 +19480,6 @@ households kept a horse. A named outbuilding replaces the dealt one on its lot.
 
 **Related:** **L330** (the household class this reads), **L348** (the weather years), **L326** (the
 yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960** (this deal, piece
-3 of **T-1212**), **T-1215** (the baked stable and outbuilding roofs the order book still counts).
+3 of **T-1212**), **T-1967** (the baked stable and outbuilding roofs the order book still counts).
 
 **Recorded:** 2026-10-02 (T-1960).
