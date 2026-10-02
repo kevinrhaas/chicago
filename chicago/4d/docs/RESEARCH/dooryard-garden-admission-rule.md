@@ -103,3 +103,33 @@ Named here so the run that spends the ruling has no room to interpret it:
 **Links:** T-0772 (this question) · T-0516 (the withdrawal that caused it) · T-0637
 (`belongs_to`) · T-0514 (the address work a real `lives_at` count waits on) ·
 `docs/LIBERTIES.md` L129 · `tools/generate_lot_line_fences.py` (the other answer).
+
+## The ruling, and what it moved (2026-10-02, T-1958)
+
+**The owner ruled on 2026-09-21: the garden follows the HOUSE** (T-0772's own record carries
+the ruling in full). The tables above were taken against an earlier tree; re-taken with
+`python3 tools/generate_dooryard_pickets.py --compare-rules` on the day the ruling was spent:
+
+| | lots admitted | gardens drawn | refused for want of room |
+|---|---|---|---|
+| the HOUSEHOLD rule — retired | 1 | 1 | 0 |
+| **the HOUSE rule — in force** | 54 | **46** | 8 |
+
+The 45 added gardens stand behind 3 `attested` houses (`lasalle_lake_house` and John Wright's
+two buildings to let) and 42 `reconstructed` ones. The four things § What the ruling has to move
+named, moved in the same PR:
+
+1. **Clause 4** of `tools/generate_dooryard_pickets.py` now admits a house lot without asking
+   who lived in it, and its docstring quotes the ruling. `--compare-rules` still counts the
+   retired reading beside it.
+2. **`docs/LIBERTIES.md` L129** states the rule in force and its revision, not a frozen count.
+3. **The count**, above.
+4. **Every run's note and the record's `research_note`** argue the house reading, and each note
+   names the grade of the house the garden stands behind — a garden behind a reconstructed house
+   is an invention resting on an invention, admitted at the house's own tier as T-1212 asked —
+   and says plainly when no household is joined to the house.
+
+And the inconsistency § The lot-line fences already answer it the other way named is gone: the
+yard fence and the garden inside it now both follow the house. Regenerating the gardens moved
+the layers that read them — one lot-line rail run and a handful of dooryard stems now clear the
+new plots — and nothing else.

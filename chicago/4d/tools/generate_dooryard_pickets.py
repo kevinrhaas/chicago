@@ -21,10 +21,18 @@ THE RULE, and every clause of it is doing work. A lot gets a dooryard picket iff
      and function (`dwelling`, or a cottage/house band of the reconstruction
      schedule) — the Mansion House, Eliza Chappel's infant school and the Temple
      Building all sit alone on a platted lot and none of them is a house lot;
-  4. a household is recorded as living there. A garden is a HOUSEHOLD'S. John Wright's
-     two buildings to let are excluded by this clause and by their own records, which
-     say in as many words that "the honest reading of 'to let' is a building whose
-     tenant this project cannot name";
+  4. it is therefore a HOUSE LOT, and that is the whole of the clause: the garden follows
+     the HOUSE, not the household (the owner's ruling on T-0772, 2026-09-21 — "a dooryard
+     garden is GROUND, not a family's possession. It belongs to the lot and the
+     structure standing on it"). Until then this clause asked for a household recorded
+     as living on the lot, and when T-0516 withdrew the stale `occupants` prose that
+     test read, twelve gardens went with households that had been retired. Under the
+     ruling a garden stays when its household goes — inherited by whoever the roof is
+     next dealt to, or standing unworked if it is dealt to nobody — so John Wright's
+     two buildings to let, whose tenants this project cannot name, keep theirs. A
+     reconstructed house takes a garden at its own tier, as T-1212 asked ("the
+     admission rule extended to reconstructed households at its own tier"): each run's
+     note states the grade of the house it stands behind;
   5. the plot the first four clauses leave — the rear of the lot, clear of the house
      and inside the lot lines — is big enough to be a garden and hits no other
      building's committed footprint.
@@ -36,11 +44,12 @@ record byte for byte in `tools/check.sh`.
 
 HOW MANY IS AN OUTPUT, NOT A SETTING. No count is written down here, because the rule
 above decides it afresh on every run and the committed record is the only place it is
-true. It has been eighteen (2026-08-18), fifteen, thirteen and — since T-0516 withdrew
-the stale `occupants` prose clause 4 reads — ONE. Whether clause 4 is the right test at
-all is the owner's open question, T-0772: a garden could follow the HOUSE rather than
-the HOUSEHOLD. Do not restate a count in this docstring or in `docs/LIBERTIES.md` L129;
-both went stale by seventeen once already.
+true. It has been eighteen (2026-08-18), fifteen, thirteen, ONE (once T-0516 withdrew
+the `occupants` prose the household reading of clause 4 stood on), and has risen again
+since the owner ruled for the house. Do not restate a count in this docstring or in
+`docs/LIBERTIES.md` L129; both went stale by seventeen once already.
+`--compare-rules` still counts the retired household reading beside the house rule, so
+the cost of the ruling stays a measurement anyone can re-take.
 
 WHAT IS INVENTED is the treatment and the plot geometry — the fence type, its height,
 its pale rhythm, the size of the plot, its position at the back of the lot and the gate
@@ -170,8 +179,13 @@ def lot_frame(block, lot):
     return fm, (ux, uy), (vx, vy), lu, lv
 
 
-def candidates(require_household=True):
-    """Every platted lot that passes clauses 1–4, with its house."""
+def candidates(require_household=False):
+    """Every platted lot that passes clauses 1–4, with its house.
+
+    `require_household` is the RETIRED reading of clause 4 — a lot admitted only where
+    the structure record's `occupants` prose names an `hh_` id — kept so
+    `--compare-rules` can still count what the owner's ruling (T-0772) changed. The
+    record is built on the house rule, which is the default."""
     lots = load(LOTS_PATH)
     sidecars = {}
     for path in sorted(SIDECARS.glob("*.json")):
@@ -260,6 +274,12 @@ def plot_for(block, index, lot, sid, sc, all_sidecars):
             "depth_m": round(d, 2)}, None
 
 
+def house_grade(sid) -> str:
+    """The project's own grade on what the house IS — `function.confidence`."""
+    fn = load(STRUCTURES / f"{sid}.json").get("function")
+    return fn.get("confidence", "ungraded") if isinstance(fn, dict) else "ungraded"
+
+
 def build_record():
     cands, sidecars = candidates()
     runs, openings, refused = [], [], []
@@ -271,26 +291,38 @@ def build_record():
             continue
         ring = plot["corners"] + [plot["corners"][0]]
         lot_id = f"{block['id']}_lot{index}"
+        belongs_to = enclosure_owners.owners_for(
+            [(lot_id, lot["polygon"], [sid])], ring, links)
+        worked_by = [h["id"] for entry in belongs_to for h in entry.get("households", [])]
+        grade = house_grade(sid)
         runs.append({
             "id": lot_id,
             "path_local_enu_m": ring,
             # WHOSE GARDEN THIS IS (T-0637), by the same derivation the lot-line fences
-            # use — and it lands on ONE of these thirteen plots, which is a finding and not
-            # a bug in the join. Clause 4 above admits a lot on the strength of the
-            # structure record's `occupants` PROSE naming a household; the committed
-            # household index carries a real `lives_at` for twenty households in the whole
-            # town, and only Elijah Harmon's is on a lot this record reaches. The gap is
-            # the address work's (T-0514) and the stale-prose problem is T-0516's;
-            # tools/enclosure_owners.py counts both rather than papering over them.
-            "belongs_to": enclosure_owners.owners_for(
-                [(lot_id, lot["polygon"], [sid])], ring, links),
+            # use. Under the house rule (T-0772) the garden belongs to the LOT and the
+            # structure on it, which every entry names; a household is joined only where
+            # the committed household index carries a real `lives_at` (T-0514's address
+            # work), and the note says plainly when none is.
+            "belongs_to": belongs_to,
             "note": (
                 f"THE HOUSE LOT: {block['id']} lot {index} of the platted grid, holding "
                 f"{sid} ({fn}) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT "
                 f"ON — one building on the lot, a dwelling by archetype and by function, "
-                f"and a household recorded as living in it — and the rule is the answer to "
-                f"'why this lot': no source puts a garden here or anywhere else in the "
-                f"town. THE RECTANGLE IS DERIVED AND NOT PLACED: "
+                f"so a house lot, and the garden follows the house (owner, T-0772) — and "
+                f"the rule is the answer to 'why this lot': no source puts a garden here "
+                f"or anywhere else in the town. THE HOUSE IS GRADED '{grade}' on its own "
+                f"record, and the garden stands at that tier or below it"
+                + (": a garden behind a reconstructed house is an invention resting on an "
+                   "invention, admitted at the house's own tier as T-1212 asked"
+                   if grade == "reconstructed" else "")
+                + ". "
+                + (f"WORKED BY {', '.join(worked_by)}, the household the committed index "
+                   f"puts here. " if worked_by else
+                   "NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the "
+                   "garden is drawn as the lot's ground and not as anyone's: under the "
+                   "ruling it passes to whoever the roof is next dealt to, or stands "
+                   "unworked. ")
+                + f"THE RECTANGLE IS DERIVED AND NOT PLACED: "
                 f"{plot['width_m']:.2f} x {plot['depth_m']:.2f} m at the back of the lot, "
                 f"{LOT_MARGIN_M:.3f} m inside the rear and side lot lines, "
                 f"{REAR_CLEAR_M:.3f} m or more clear of the house's own back face, and "
@@ -514,8 +546,11 @@ def record(runs, openings, refused):
             "tools/generate_dooryard_pickets.py — it is the answer to 'why this lot' and it "
             "is enforced on every commit, because tools/check.sh re-derives this file byte "
             "for byte. In short: one building on a platted lot, a dwelling by archetype and "
-            "by function, a household living in it, and room at the back for a plot that "
-            "hits nothing. WHAT THE CLAUSES COST is visible in the count — the platted grid "
+            "by function — a house lot, because the garden follows the HOUSE and not the "
+            "household (the owner's ruling on T-0772, 2026-09-21) — and room at the back for "
+            "a plot that hits nothing. A garden behind a reconstructed house is admitted at "
+            "that house's own tier (T-1212), and each run's note names the grade. WHAT THE "
+            "CLAUSES COST is visible in the count — the platted grid "
             "holds 144 lots and this record fences a fraction of them, because most lots "
             "hold more than one building or none, and the town's house lots outside the "
             "19 platted blocks (the West Division approaches, the reservation, the North "
@@ -530,12 +565,13 @@ def record(runs, openings, refused):
 
 
 def compare_rules() -> int:
-    """Both readings of clause 4, counted — the measurement T-0772 is blocked on.
+    """Both readings of clause 4, counted — the measurement T-0772 was ruled on.
 
-    Writes nothing. The HOUSEHOLD rule is the one in force: a garden is a household's,
-    and the lot is admitted on the structure record's `occupants` prose naming an `hh_`
-    id. The HOUSE rule is the alternative: one dwelling alone on a platted lot has a
-    kitchen garden behind it by archetype and by function, whoever lived in it. Clause 5
+    Writes nothing. The HOUSE rule is the one in force since the owner's ruling of
+    2026-09-21: one dwelling alone on a platted lot has a kitchen garden behind it by
+    archetype and by function, whoever lived in it. The HOUSEHOLD rule is the retired
+    reading: a lot admitted on the structure record's `occupants` prose naming an `hh_`
+    id. Clause 5
     — room at the back for a plot that hits nothing — is applied to both, so the two
     numbers below are gardens actually drawable and not pools.
     """
@@ -553,12 +589,12 @@ def compare_rules() -> int:
     hh_ok, hh_no = drawable(hh_pool)
     hh_ids = {r[0] for r in hh_ok}
     print("CLAUSE 4, BOTH WAYS — T-0772's question, counted against the tree in front of it")
-    print(f"  the HOUSEHOLD rule (in force): {len(hh_pool)} lot(s) admitted, "
+    print(f"  the HOUSEHOLD rule (retired, T-0772): {len(hh_pool)} lot(s) admitted, "
           f"{len(hh_ok)} garden(s) drawn, {len(hh_no)} refused for want of room")
-    print(f"  the HOUSE rule (the alternative): {len(house_pool)} lot(s) admitted, "
+    print(f"  the HOUSE rule (in force, owner 2026-09-21): {len(house_pool)} lot(s) admitted, "
           f"{len(house_ok)} garden(s) drawn, {len(house_no)} refused for want of room")
     added = [(lot_id, sid) for lot_id, sid, _ in house_ok if lot_id not in hh_ids]
-    print(f"  gardens the house rule would ADD: {len(added)}")
+    print(f"  gardens the house rule ADDS: {len(added)}")
     # HOW WELL FOUNDED IS THE HOUSE UNDER EACH ADDED GARDEN, in the project's own grading
     # of what the building IS. A garden behind a reconstructed cottage is an invention
     # resting on an invention, which is the cost the owner is being asked to weigh.

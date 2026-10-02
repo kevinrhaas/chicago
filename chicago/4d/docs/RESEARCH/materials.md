@@ -1036,4 +1036,49 @@ and every class that lives in a frame house wore it. The chimney's brick: §2 of
 `docs/RESEARCH/chimneys.md` infers brick for every interior stack and a class cannot argue that
 further; the class reads only in the head. The trim's COLOUR: §2.3 still derives it from the
 wall's finish. The frieze cannot deepen on the better house, because the upper sash heads rise
-to 0.28 m under the plate; the crown board is what says it instead. L345.
+to 0.28 m under the plate; the crown board is what says it instead. L349.
+
+## 16. WIRED IN — T-1962, 2026-10-02: the lay and the wear are dealt by whose house it is
+
+Piece 1 of T-1818. T-0002 asked for per-building board
+tone, board-width irregularity and weathering by age. The tone has been the renderer's since
+T-0048/T-0047 (`facades.js`, L126). This piece puts the other two on the sheet, under the
+fabric rule, and keeps them to the roofs the rule reaches (`fabric_basis.class`).
+
+| rule | value | by | merchant | keeper | tradesman | labourer / freight / works / yard |
+|---|---|---|---|---|---|---|
+| FIN-L | `lay_m`: the most one course's exposure stands off the stock | class | 0.003 m | 0.004 m | 0.006 m | 0.008 m |
+| FIN-W | `weather_years`: years of exposure | age | `new` 0.5 · `recent` 1.5 · `established` 2.5 · `older_frontier` 5.0 | | | |
+| FIN-W | `weather_rate`: how far the class kept its walls up | class | 0.5 | 0.75 | 1.0 | 1.0 |
+
+- **The lay is geometry.** `materials.course_lines` lays the lap lines. Each line stands off its
+  even height by at most `lay / 2`, drawn by a hash of the record's id and phase. So a course
+  stays within `stock ± lay`, the error never climbs the wall, and a line keeps one height all
+  round the house. The archetypes have always laid the same number of courses, and they still
+  do, so there are **no more triangles** (south_water: −2 of 1.27 M, one course lost to the
+  plate's 0.02 m margin). `frame_dwelling`, `frame_storefront` and `frame_tavern` build it on
+  their main walls and wings. A wall with no class builds its even courses to the bit, as before.
+- **The wear is a sidecar value.** `compile_scene` writes `fabric_tone` from `materials.fabric_tone`.
+  `facades.js` reads `weather_years` in place of `documented_range.from`, which on every
+  reconstructed roof is the programme's 1835-01-01 and not a construction date, and it
+  multiplies the silvering by `weather_rate`. L126's bounds (`silverMax`, `soilMax`,
+  `ageFullYears`) are not touched. An attested paint is still never modulated.
+
+**Measured** over the 374 roofs that carry a class:
+- **Silvering:** the mean is 0.014 → 0.051 and the most is 0.014 → 0.146. 226 roofs now read
+  silvered (>0.03), against none before.
+- **Nearest-neighbour pairs within 60 m (370):**
+  - the applied-value 10th percentile is 0.068 → 0.075 and the median 0.135 → 0.137, so the
+    acceptance ratio is 0.502 → 0.551;
+  - pairs sharing a paint within 0.03 of tone: 1 → 1. That pair is a stable and a store, 21 m
+    apart, which differ in warmth by 0.031.
+- **Rebake:** 199 frame masters rebaked (byte sizes unchanged but one), and their web
+  derivatives regenerated.
+- **Critic frames** (lake_market, south_water, both viewports): draw calls 159 / 138 / 172 / 157
+  are unchanged, and triangles are unchanged but the −2 above.
+
+**What it does not reach — T-1963.** At the critic stations the change is real but small: 0.02-2.6 %
+of pixels move by more than 3/255. Seen up close, a lap line off by 3 mm reads as nothing
+without relief. The walls are still flat-shaded colour, so neither the lay nor the jitter
+reaches the photographic benchmark. That needs T-1769's strategy A, a shared relief and ORM per
+wall substrate, and it is T-1963's work. L348.

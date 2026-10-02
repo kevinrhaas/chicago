@@ -1,0 +1,450 @@
+{
+  "entry": "/4d/walk/",
+  "detail": "full",
+  "viewports": {
+    "desktop": {
+      "atlas": {
+        "atlas": {
+          "cells": 73,
+          "size": [
+            4096,
+            3072
+          ],
+          "wood": [
+            "signboard_weathered",
+            "heavy_timber_weathered"
+          ]
+        },
+        "maps": {
+          "map": true,
+          "normalMap": true,
+          "roughnessMap": true
+        },
+        "problems": []
+      },
+      "stands": [
+        {
+          "stand": "carpenter_south_water_store-close",
+          "stats": {
+            "drawCalls": 156,
+            "triangles": 1354557,
+            "programs": 44,
+            "geometries": 158,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "carpenter_south_water_store-oblique",
+          "stats": {
+            "drawCalls": 177,
+            "triangles": 1506423,
+            "programs": 44,
+            "geometries": 185,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": false
+          }
+        },
+        {
+          "stand": "carpenter_south_water_store-context",
+          "stats": {
+            "drawCalls": 160,
+            "triangles": 1361291,
+            "programs": 44,
+            "geometries": 187,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "peck_store-close",
+          "stats": {
+            "drawCalls": 158,
+            "triangles": 1357624,
+            "programs": 44,
+            "geometries": 190,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "peck_store-oblique",
+          "stats": {
+            "drawCalls": 182,
+            "triangles": 1516313,
+            "programs": 44,
+            "geometries": 190,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": false
+          }
+        },
+        {
+          "stand": "peck_store-context",
+          "stats": {
+            "drawCalls": 162,
+            "triangles": 1372702,
+            "programs": 44,
+            "geometries": 192,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "tremont_house_1-close",
+          "stats": {
+            "drawCalls": 116,
+            "triangles": 1215990,
+            "programs": 44,
+            "geometries": 234,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "tremont_house_1-oblique",
+          "stats": {
+            "drawCalls": 118,
+            "triangles": 1048586,
+            "programs": 46,
+            "geometries": 244,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "tremont_house_1-context",
+          "stats": {
+            "drawCalls": 121,
+            "triangles": 1220028,
+            "programs": 46,
+            "geometries": 245,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        }
+      ],
+      "errors": []
+    },
+    "mobile": {
+      "atlas": {
+        "atlas": {
+          "cells": 73,
+          "size": [
+            4096,
+            3072
+          ],
+          "wood": [
+            "signboard_weathered",
+            "heavy_timber_weathered"
+          ]
+        },
+        "maps": {
+          "map": true,
+          "normalMap": true,
+          "roughnessMap": true
+        },
+        "problems": []
+      },
+      "stands": [
+        {
+          "stand": "carpenter_south_water_store-close",
+          "stats": {
+            "drawCalls": 138,
+            "triangles": 1249417,
+            "programs": 44,
+            "geometries": 147,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "carpenter_south_water_store-oblique",
+          "stats": {
+            "drawCalls": 149,
+            "triangles": 1271628,
+            "programs": 44,
+            "geometries": 162,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "carpenter_south_water_store-context",
+          "stats": {
+            "drawCalls": 140,
+            "triangles": 1258862,
+            "programs": 44,
+            "geometries": 164,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "peck_store-close",
+          "stats": {
+            "drawCalls": 134,
+            "triangles": 1226699,
+            "programs": 44,
+            "geometries": 167,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "peck_store-oblique",
+          "stats": {
+            "drawCalls": 157,
+            "triangles": 1298367,
+            "programs": 44,
+            "geometries": 168,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "peck_store-context",
+          "stats": {
+            "drawCalls": 137,
+            "triangles": 1232755,
+            "programs": 44,
+            "geometries": 169,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "tremont_house_1-close",
+          "stats": {
+            "drawCalls": 111,
+            "triangles": 1094060,
+            "programs": 44,
+            "geometries": 210,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "tremont_house_1-oblique",
+          "stats": {
+            "drawCalls": 112,
+            "triangles": 942424,
+            "programs": 46,
+            "geometries": 220,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        },
+        {
+          "stand": "tremont_house_1-context",
+          "stats": {
+            "drawCalls": 114,
+            "triangles": 1095759,
+            "programs": 46,
+            "geometries": 220,
+            "textures": 27,
+            "batches": 3,
+            "structures": 527,
+            "structuresExpected": 526,
+            "structuresStanding": 526,
+            "bytes": 8328440,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 215,
+              "triangles": 1460000
+            },
+            "withinBudget": true
+          }
+        }
+      ],
+      "errors": []
+    }
+  }
+}

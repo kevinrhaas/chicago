@@ -157,7 +157,7 @@ DEFAULT_GLAZING = "12_over_12_6x8"
 # balloon frame (0.19 m on a braced one), a 0.20 m frieze and no crown. `boxed` widens
 # the board and runs a crown board under the eaves, standing proud of the frieze; the
 # frieze itself cannot deepen, because the upper sash heads rise to 0.28 m under the
-# plate. `scant` narrows the board and the frieze. Dealt by class (docs/LIBERTIES.md L345).
+# plate. `scant` narrows the board and the frieze. Dealt by class (docs/LIBERTIES.md L349).
 TRIMS = {"scant": (-0.03, 0.14, 0.0), "plain": (0.0, 0.20, 0.0),
          "boxed": (0.07, 0.20, 0.075)}
 CROWN_M = 0.09
@@ -165,7 +165,7 @@ DEFAULT_TRIM = "plain"
 # T-1839 — how many corbelled courses finish a stack's head. `corbel` is the one course
 # every frame_dwelling stack has always carried; it is the head the 1835 by-law census
 # measured (docs/RESEARCH/chimneys.md §7), and `double_corbel` adds a second course
-# ABOVE it, so no stack is lowered. Dealt by class (L345). The brick is not dealt.
+# ABOVE it, so no stack is lowered. Dealt by class (L349). The brick is not dealt.
 CHIMNEY_HEADS = {"plain": 0, "corbel": 1, "double_corbel": 2}
 DEFAULT_CHIMNEY_HEAD = "corbel"
 INCH_M = 0.0254
@@ -432,6 +432,11 @@ class FrameDwellingParams:
     # colours it had. `common/materials.py` is what turns either into a surface.
     finish_key: str | None = None
     roof_condition: str | None = None
+    # FIN-L (T-1962): how far one lap course may stand off the stock, and the seed its
+    # lines are drawn from — `common/materials.py`'s `board_lay` and `course_lines`.
+    # 0.0 on every record the fabric rule never reached, which keeps its even courses.
+    siding_lay_m: float = 0.0
+    siding_seed: str = ""
 
     # per-attribute confidence, keyed by the attribute name in the record
     confidence: dict = field(default_factory=dict)
@@ -550,6 +555,9 @@ class FrameDwellingParams:
         if not 0.10 <= self.siding_exposure_m <= 0.16:
             raise ParamError(f"siding_exposure_m {self.siding_exposure_m} outside "
                              f"0.10-0.16 m (~4-6.3 in): not a period clapboard exposure")
+        if not 0.0 <= self.siding_lay_m <= 0.010:
+            raise ParamError(f"siding_lay_m {self.siding_lay_m} outside 0-0.010 m: a lay "
+                             f"that wide would climb a course over its 0.018 m lip")
         if self.construction not in CONSTRUCTIONS:
             raise ParamError(
                 f"construction '{self.construction}' not in {CONSTRUCTIONS}. A log house "
@@ -843,6 +851,12 @@ def read_plan(poly: list) -> dict:
             "ell_width_m": ell_width, "ell_depth_m": ell_depth, "ell_side": side}
 
 
+
+def _board_lay(recon: dict) -> float:
+    """The fabric rule's lay for this roof (FIN-L), from the material sheet."""
+    from common.materials import board_lay  # noqa: E402 — generators/ is on the path
+    return board_lay(recon)
+
 def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
     """Resolve one structure phase into generator parameters.
 
@@ -928,6 +942,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         # applied in and why a stated coating outranks them.
         finish_key=recon.get("finish_key"),
         roof_condition=recon.get("roof_condition"),
+        siding_lay_m=_board_lay(recon),
+        siding_seed=f"{(record or {}).get('id', '')}|{phase.get('id', '')}",
         confidence=confidences,
     )
     p.resolve()

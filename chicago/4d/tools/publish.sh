@@ -181,6 +181,21 @@ for covering in wood_shingles_weathered roof_boards_weathered; do
         "$dst/"
 done
 
+# The street edge's board face (T-1815) — `renderers/web/js/frontage.js` binds
+# its grain to every plank, stoop and post the layer lays. Same asset-base
+# rename and the same reason as the roof relief above. FOUR FILES: the relief
+# pair, material.json for the tile and the mean roughness, and the basecolor,
+# which the layer reads only for its luminance ratio (the albedo modulation) —
+# the timber's own colour stays on the vertex.
+src="assets/textures/chicago_1835_pbr/walls/clapboard_board_face"
+dst="$SITE/data/textures/chicago_1835_pbr/walls/clapboard_board_face"
+mkdir -p "$dst"
+cp -f "$src/material.json" \
+      "$src/clapboard_board_face_normal_gl.png" \
+      "$src/clapboard_board_face_orm.png" \
+      "$src/clapboard_board_face_basecolor.png" \
+      "$dst/"
+
 # The T-1797 ground strip's two library substrates — `renderers/web/js/ground-strip.js`,
 # drawn only under `?proof=ground`. Same asset-base rename and the same reason as
 # the roof relief above: material.json carries the metric tile the strip reads.
@@ -193,6 +208,24 @@ for ground in wet_prairie_muck lake_michigan_dune_sand; do
   mkdir -p "$dst"
   cp -f "$src/material.json" \
         "$src/${ground}_basecolor.png" \
+        "$dst/"
+done
+
+# The signboards' wood (T-1836). `renderers/web/js/signage.js` lays the grain of
+# these two library sheets under the lettering atlas and builds its relief and
+# roughness atlases from their normals, resolving them against the same asset
+# base as the roof relief above. THREE FILES OF EACH SHEET: basecolor (read for its
+# grain only, never its tone) and normal_gl, plus material.json for the metric
+# span. Missing on the deployed site, the boards fall back to flat paint with a
+# recorded problem — a loss nobody would see as an error, which is why it is here.
+for sheet in props/signboard_weathered timber/heavy_timber_weathered; do
+  name="${sheet#*/}"
+  src="assets/textures/chicago_1835_pbr/$sheet"
+  dst="$SITE/data/textures/chicago_1835_pbr/$sheet"
+  mkdir -p "$dst"
+  cp -f "$src/material.json" \
+        "$src/${name}_basecolor.png" \
+        "$src/${name}_normal_gl.png" \
         "$dst/"
 done
 

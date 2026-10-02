@@ -2458,6 +2458,11 @@ for (const [label, viewport, touch] of [
     // Whether a garden should follow the HOUSE instead of the household is a claim
     // about the town rather than a bug, and it is the owner's: T-0727 asks him. If he
     // rules that way this floor rises again, and it should.
+    //
+    // He did (T-0772, 2026-09-21: the garden follows the HOUSE), and T-1958 spent the
+    // ruling: forty-six plots on the day it landed. The floor rises to thirty — far
+    // enough under the rule's output to survive the town's lots being re-dealt, far
+    // enough over one to fail if clause 4 ever slides back to the household reading.
     const pickets = await page.evaluate(() => {
       const e = window.__chicago4d.enclosures;
       const rec = (e?.records ?? []).find((r) => r.id === 'town_dooryard_pickets');
@@ -2470,7 +2475,7 @@ for (const [label, viewport, touch] of [
       };
     });
     check(`${label}: the town's house lots carry generated picket gardens`,
-      pickets.found && pickets.runs >= 1 && pickets.type === 'picket'
+      pickets.found && pickets.runs >= 30 && pickets.type === 'picket'
       && pickets.ids.includes('blk_randolph_franklin_lot2'),
       `record ${pickets.found}, ${pickets.runs} plot(s) [${pickets.ids.join(', ')}], `
       + `fence type ${pickets.type}`);
@@ -4778,6 +4783,7 @@ for (const [label, viewport, touch] of [
         letterVerts: letters?.geometry?.getAttribute('position')?.count ?? 0,
         letterMap: !!letters?.material?.map,
         timberMap: !!mesh?.material?.map,
+        timberMapName: mesh?.material?.map?.name ?? null,
         lettering: f?.lettering ?? null,
         recordText: post?.text ?? null,
         textGrade: post?.text_confidence ?? null,
@@ -4942,8 +4948,12 @@ for (const [label, viewport, touch] of [
       // blk_lake_dearborn north run in two (+1 walk) and three forwarding houses
       // front a decked walk (+3), 51 to 55; refusals 113 to 117, the bare front
       // stated and the three warehouse fronts with no walk to widen.
-      frontage.census?.records === 5 && frontage.census?.walks === 55
-        && frontage.census?.crossings === 46
+      // T-1823 — the walk by business carried to the new fronts: five fronts-only
+      // runs (the Western Hotel, four West Division stores) and the freight house's
+      // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
+      // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
+      frontage.census?.records === 5 && frontage.census?.walks === 61
+        && frontage.census?.crossings === 47
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5000,7 +5010,9 @@ for (const [label, viewport, touch] of [
         // Their reconstructed residential trades earn no new hitching posts.
         // T-1813 — the street edge is dealt by business: a reconstructed trade
         // takes its post at its own tier (+25), an inn stands two (+5), 18 + 30.
-        && frontage.census?.posts === 48 && frontage.census?.fences === 32
+        // T-1823 — the fronts-only faces: the Western Hotel's two and three West
+        // Division stores' one each, 48 to 53. A fronts-only face takes no fence.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 32
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -5071,7 +5083,7 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 117
+        && frontage.census?.refused === 128
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5252,8 +5264,11 @@ for (const [label, viewport, touch] of [
     // chunks + the shared mesh = 58, plus the same optional lettering.
     // T-1814 — the smith's bare front splits one Lake run in two: 44 named walk
     // chunks, 59. The decked walks ride their run's own chunk and add none.
+    // T-1823 — five fronts-only runs name their own chunk (+5) and their posts and
+    // fittings share ONE standing mesh of their own (+1), 65; the crossing over
+    // Canal rides the Randolph run's chunk.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
+      frontage.authored === (frontage.census?.lettered === 1 ? 66 : 65)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5283,15 +5298,25 @@ for (const [label, viewport, touch] of [
     // lettering claim from the record, and the wording is the one part of this
     // that no ticket may quietly drop — it is the plate's, not the renderer's,
     // and T-1547 needs it back the moment the post returns.
+    //
+    // T-1815 — THE TIMBER NOW CARRIES ITS GRAIN, AND STILL NO LETTERING. The street
+    // edge binds the clapboard board-face sheet onto the timber material, so its
+    // `map` is no longer empty: it is the grain's albedo ratio, named
+    // `frontage-grain:<sheet>` by frontage.js. What this line refuses is unchanged
+    // — painted text anywhere but the lettering mesh — so "carries no texture"
+    // becomes "carries no texture but the grain the census says it was bound".
+    const timberPlain = frontage.timberMap === false
+      || (frontage.census?.relief != null
+        && frontage.timberMapName === `frontage-grain:${frontage.census.relief}`);
     check(`${label}: the board carries the record's own name, painted, or none is drawn and the name is kept`,
       frontage.census?.lettered === 1
         ? frontage.letterVerts >= 6
-          && frontage.letterMap === true && frontage.timberMap === false
+          && frontage.letterMap === true && timberPlain
           && frontage.lettering === frontage.recordText
           && frontage.recordText === 'GREEN TREE'
           && frontage.textGrade === 'inferred'
         : frontage.census?.lettered === 0 && frontage.letterVerts === 0
-          && frontage.letterMesh === false && frontage.timberMap === false
+          && frontage.letterMesh === false && timberPlain
           && frontage.letteringValue === 'GREEN TREE'
           && frontage.letteringGrade === 'inferred',
       frontage.census?.lettered === 1
@@ -5299,7 +5324,8 @@ for (const [label, viewport, touch] of [
           + `"${frontage.recordText}" graded ${frontage.textGrade}`
         : `no board lettered (${frontage.letterVerts} lettering vertices, `
           + `lettering mesh ${frontage.letterMesh}); the record keeps its wording `
-          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}`);
+          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}; `
+          + `timber map ${frontage.timberMapName ?? 'none'}`);
 
     // AND IT READS FROM THE STREET, which is what a walk and a signboard are FOR.
     // Stand out on Lake Street where a traveller coming up to the inn stands and
@@ -5443,11 +5469,13 @@ for (const [label, viewport, touch] of [
     // posts at the thirds of its front, as the Sauganash does (+5). The
     // street-edge population is forty-six; the two on a record's own ground do
     // not move.
-    check(`${label}: the forty-eight hitching posts stand on their own ground, carrying nothing`,
-      frontage.hitching.length === 48
-        && frontage.census?.hitching === 48
+    // T-1823 makes it FIFTY-THREE: the fronts-only faces beyond the covered
+    // streets stand the Western Hotel's two posts and three stores' one each.
+    check(`${label}: the fifty-three hitching posts stand on their own ground, carrying nothing`,
+      frontage.hitching.length === 53
+        && frontage.census?.hitching === 53
         && frontage.hitching.filter((h) => !h.street).length === 2
-        && frontage.hitching.filter((h) => h.street).length === 46
+        && frontage.hitching.filter((h) => h.street).length === 51
         && postsBad.length === 0
         // T-1580 — the clause this carried was `lettered === 1`, and what it is
         // FOR is that none of these eighteen is the boarded post: the layer's
@@ -5481,10 +5509,12 @@ for (const [label, viewport, touch] of [
     const fitBad = (frontage.fittings ?? []).filter((q) => !(q.parts.length > 0
       && q.parts.every((p) => p.found > 0 && p.top >= p.recorded - 0.02
         && p.top <= p.recorded + 0.25)));
-    check(`${label}: the forty-six business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 46 && (frontage.fittings ?? []).length === 46
-        && fitKinds.stoop === 37 && fitKinds.mounting_block === 5
-        && fitKinds.wagon_apron === 3 && fitKinds.tie_rail === 1
+    // T-1823 — the Western Hotel's mounting block and the West Water freight
+    // house's wagon apron, 46 to 48.
+    check(`${label}: the forty-eight business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 48 && (frontage.fittings ?? []).length === 48
+        && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
+        && fitKinds.wagon_apron === 4 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
       + `${fitBad.length} bad: `
@@ -5920,8 +5950,20 @@ for (const [label, viewport, touch] of [
       // …and nothing is planted on the bare front: the layer hands the planting
       // its patch, as it does each walk's deck.
       const bareKept = (f?.keepOut ?? []).filter((k) => k.id === 'town_street_edge__bare').length;
+      // T-1823 — and the fronts-only walks beyond the covered streets: stand on the
+      // middle of each and the boot is on planks.
+      const frontsRecs = (rec?.walks ?? []).filter((w) => (w.note ?? '').includes('LAID FRONTS-ONLY'));
+      const frontsDrawn = walks.filter((w) => (w.note ?? '').includes('LAID FRONTS-ONLY'));
+      const frontsOn = frontsDrawn.filter((w) => {
+        const [[ae, an], [be, bn]] = w.centreline_local_enu_m;
+        const e = (ae + be) / 2;
+        const n = (an + bn) / 2;
+        a.walker.teleport({ local_e: e, local_n: n, yaw_deg: 90 });
+        return a.walker.state.groundY - a.terrain.walkHeight(e, n) > 0.04;
+      }).length;
       const byBusiness = { records: deckedRecs.length, drawn: deckedDrawn.length, onDeck,
-        bareLift, bareGap, bareKept, bareRecs: (rec?.bare_fronts ?? []).length };
+        bareLift, bareGap, bareKept, bareRecs: (rec?.bare_fronts ?? []).length,
+        frontsRecs: frontsRecs.length, frontsDrawn: frontsDrawn.length, frontsOn };
       return {
         hasRecord: !!rec,
         cardId: rec?.card?.id ?? null,
@@ -5960,8 +6002,9 @@ for (const [label, viewport, touch] of [
       // T-1752 — Clark, Wells, La Salle and Franklin each add one improved
       // Washington north face under the existing T-1707 rule: 36+4=40.
       // Walk-length, fence and deck floors retain their existing strength.
+      // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 40 && edge.walkM >= 3050 && edge.fences >= 31
+        && edge.faces === 45 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -5974,16 +6017,26 @@ for (const [label, viewport, touch] of [
     // ground, a gap of one march step in the Lake Street walk with the boot on
     // the mud in the middle of it.
     check(`${label}: the forwarding houses' decked walks are under the boot, the smith's front is bare`,
-      edge.byBusiness.records === 3 && edge.byBusiness.drawn === 3
-        && edge.byBusiness.onDeck === 3
+      // T-1823 — the West Water freight house's deck makes four, and two West
+      // Division works front bare ground (the Pierce smithy, a joiner on Randolph).
+      edge.byBusiness.records === 4 && edge.byBusiness.drawn === 4
+        && edge.byBusiness.onDeck === 4
         && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
         && edge.byBusiness.bareLift <= 0.04
-        && edge.byBusiness.bareRecs === 1 && edge.byBusiness.bareKept === 1,
+        && edge.byBusiness.bareRecs === 3 && edge.byBusiness.bareKept === 3,
       `${edge.byBusiness.drawn} of ${edge.byBusiness.records} decked walk(s) drawn, `
       + `${edge.byBusiness.onDeck} stood on; the smith's gap `
       + `${edge.byBusiness.bareGap?.toFixed(2)} m, lift there `
       + `${edge.byBusiness.bareLift?.toFixed(3)} m, ${edge.byBusiness.bareKept} of `
       + `${edge.byBusiness.bareRecs} bare front(s) kept clear of planting`);
+    // T-1823 — THE WALK BY BUSINESS CARRIED TO THE NEW FRONTS. Beyond the covered
+    // streets a face is laid fronts-only; each of its five runs is drawn and the
+    // boot is on planks in the middle of it.
+    check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
+      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
+        && edge.byBusiness.frontsOn === 5,
+      `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
+      + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
       edge.march.missing === 0 && edge.march.samples > 100
         && edge.march.onPlanks === edge.march.samples
@@ -6093,6 +6146,20 @@ for (const [label, viewport, touch] of [
           faceWet: [faceL, faceR].every((p) => terrain.isWater(p[0], p[1])),
           bankY: Math.max(...[heelL, heelR].map((p) => terrain.surfaceHeight(p[0], p[1]))),
           depth: Math.min(...[faceL, faceR].map((p) => -terrain.surfaceHeight(p[0], p[1]))),
+          // The bank's crest behind the heel (T-1771): the highest ground in the
+          // four metres landward of the deck's middle, which is what "low" is
+          // asked against — a deck should meet its bank, not stand over it.
+          crestY: (() => {
+            const mid = [(heelL[0] + heelR[0]) / 2, (heelL[1] + heelR[1]) / 2];
+            const span = Math.hypot(faceL[0] - heelL[0], faceL[1] - heelL[1]) || 1;
+            const le = -(faceL[0] - heelL[0]) / span;
+            const ln = -(faceL[1] - heelL[1]) / span;
+            let best = -Infinity;
+            for (let v = 0.5; v <= 4; v += 0.5) {
+              best = Math.max(best, terrain.surfaceHeight(mid[0] + le * v, mid[1] + ln * v));
+            }
+            return best;
+          })(),
         };
       });
       // What the layer PUBLISHES to the walker, as against what it drew: one
@@ -6105,7 +6172,9 @@ for (const [label, viewport, touch] of [
         .filter((d) => d.id.endsWith('__wharf'))
         .every((d) => d.y === deckY.get(d.id));
       const stairCeiling = w?.records?.[0]?.form?.boarding_stair_rise_m?.value ?? null;
+      const freeboard = w?.records?.[0]?.form?.freeboard_m?.value ?? null;
       return {
+        freeboard,
         census: w?.census ?? null,
         decks,
         publishedMatchesDrawn,
@@ -6180,13 +6249,27 @@ for (const [label, viewport, touch] of [
     // The deck is neither floating over the bank nor drowned in the river, and
     // its crib reaches the bed under it — T-0001's finding, asked of a layer
     // that has no walk surface to catch it a second time.
+    // The floor is READ off the record (T-1771 lowered it from 0.90 to 0.35 m on
+    // the owner's ask for low docks), and pinned between 0.25 and 0.9 m so a
+    // record edited to put the planks in the river, or back up on a stair, is
+    // still caught here rather than agreed with.
     check(`${label}: no deck floats and every crib reaches the bed`,
-      docks.stands.every((s) => s.deckTop >= 0.9 - 1e-6 && s.deckTop >= s.bankY - 1e-6
+      docks.freeboard !== null && docks.freeboard >= 0.25 && docks.freeboard <= 0.9
+      && docks.stands.every((s) => s.deckTop >= docks.freeboard - 1e-6 && s.deckTop >= s.bankY - 1e-6
         && s.deckTop <= s.bankY + 1.0 && s.depth > 0.5)
         && docks.lowest !== null && docks.lowest < -0.5,
       docks.stands.map((s) => `${s.id} deck ${s.deckTop?.toFixed(2)} m over a bank at `
         + `${s.bankY?.toFixed(2)} m, ${s.depth?.toFixed(2)} m of water at the face`).join('; ')
-      + `; lowest vertex ${docks.lowest?.toFixed(2)} m`);
+      + `; lowest vertex ${docks.lowest?.toFixed(2)} m, floor ${docks.freeboard} m`);
+    // LOW DOCKS (T-1771, the owner's ask). Until it, the 0.90 m floor stood all
+    // five South Water decks about half a metre proud of a bank whose crest is
+    // 0.32-0.39 m over the water, each on a boarding stair. A deck meets its bank
+    // now: none stands more than 0.15 m above the crest behind it.
+    check(`${label}: every deck is low — it meets the bank crest behind it`,
+      docks.stands.length === 7
+        && docks.stands.every((s) => Number.isFinite(s.crestY) && s.deckTop - s.crestY <= 0.15),
+      docks.stands.map((s) => `${s.id} deck ${s.deckTop?.toFixed(2)} m, crest `
+        + `${s.crestY?.toFixed(2)} m`).join('; '));
 
     // --- and a visitor can walk out along one (T-0058) ---------------------
     //
@@ -6199,18 +6282,20 @@ for (const [label, viewport, touch] of [
     //
     // That alone does not buy boarding, which is the half of this ticket that is
     // easy to declare done and is not. The deck top is the ground's, floored at
-    // the record's 0.90 m freeboard over the water, and this terrain puts the
-    // bank at these seven heels between 0.12 and 0.58 m — a 0.32 to 0.78 m riser
-    // against the walker's 0.35 m step-up rule, which refuses six of the seven.
-    // So the layer draws a boarding stair and the bar here is the WALK, not the
-    // publication: start on the ground behind each dock, push forward, and be
-    // standing on the planks over the water at the far end having been refused
-    // nothing on the way.
+    // the record's freeboard over the water. Under the old 0.90 m floor this
+    // terrain put the bank at the seven heels between 0.12 and 0.58 m, a 0.32 to
+    // 0.78 m riser against the walker's 0.35 m step-up rule, so the layer drew a
+    // boarding stair at every dock. Under T-1771's 0.35 m floor a deck meets its
+    // bank and the stair takes no tread anywhere the terrain does not ask for one
+    // — which is why this no longer counts stairs, and why the bar is still the
+    // WALK, not the publication: start on the ground behind each dock, push
+    // forward, and be standing on the planks over the water at the far end having
+    // been refused nothing on the way.
     check(`${label}: every plank a wharf drew is published to the walker at the height it drew it`,
       docks.decks.length === 7 + (docks.census?.treads ?? -1)
         && docks.publishedMatchesDrawn
         && docks.decks.every((d) => d.pts === 4)
-        && docks.census?.stairs === 7,
+        && docks.stands.every((s) => s.treads !== null),
       `${docks.decks.length} walk surface(s) for 7 deck(s) and `
       + `${docks.census?.treads} tread(s) on ${docks.census?.stairs} stair(s), `
       + `heights ${docks.publishedMatchesDrawn ? 'match' : 'DISAGREE WITH'} the drawn slabs`);
@@ -6392,6 +6477,79 @@ for (const [label, viewport, touch] of [
       floors.wharves.decks > 0 && floors.wharves.rootable === 0 && floors.wharves.speciesHits === 0,
       `${floors.wharves.decks} deck(s), ${floors.wharves.rootable} rootable, `
         + `${floors.wharves.speciesHits} of ${floors.wharves.speciesAsked} species stations granted`);
+
+    // --- the working bank (T-1771) ---------------------------------------
+    //
+    // South Water's river side as trodden earth, a haul apron behind every
+    // landing and the sward left to the unworn patches. Derived at load from
+    // the record, the street and the decks just checked, so it is asked here of
+    // the scene the browser built and not of the record: that it was laid, that
+    // it is one draw call and graded reconstructed at every vertex, that every
+    // dock got an apron and the five on South Water reach the street, that the
+    // planters are told to leave an apron bare, and that it stays off the bank
+    // across the river, which no landing works.
+    const bank = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const wb = a.workingBank;
+      const mesh = wb?.group?.children?.[0] ?? null;
+      const conf = mesh?.geometry?.getAttribute('_confidence') ?? null;
+      let notReconstructed = 0;
+      for (let i = 0; i < (conf?.count ?? 0); i++) if (conf.getX(i) !== 1) notReconstructed++;
+      const apronProbe = (wb?.aprons ?? []).map((ap) => {
+        // Two metres landward of the deck's heel on its centreline, or half way
+        // along an apron shorter than four (Newberry & Dole's meets the street
+        // 1.5 m from its deck).
+        const v = Math.min(2, ap.L / 2);
+        const e = ap.mid[0] + ap.le * v;
+        const n = ap.mid[1] + ap.ln * v;
+        return { id: ap.id, wear: wb.wearAt(e, n), sward: wb.blocksGrowth(e, n),
+          trees: wb.blocksTrees(e, n), toStreet: ap.toStreet };
+      });
+      return {
+        stats: wb?.stats ?? null,
+        meshes: wb?.group?.children?.length ?? 0,
+        hasConfidence: !!conf,
+        notReconstructed,
+        apronProbe,
+        // The North Division bank across the river from Jones's landing.
+        across: wb ? wb.wearAt(365, 116) : null,
+        acrossTrees: wb ? wb.blocksTrees(365, 116) : null,
+      };
+    });
+    check(`${label}: the working bank is laid along South Water and behind every landing`,
+      bank.stats?.drawn === true && bank.stats.triangles > 0 && bank.stats.reaches === 1
+        && bank.stats.columns > 600 && bank.stats.aprons === 7
+        && bank.apronProbe.filter((p) => p.toStreet).length === 5,
+      `${bank.stats?.triangles} triangle(s), ${bank.stats?.columns} bank column(s), `
+        + `${bank.stats?.aprons} apron(s), `
+        + `${bank.apronProbe.filter((p) => p.toStreet).length} running back to the street`);
+    check(`${label}: the working bank is one draw call, reconstructed at every vertex`,
+      bank.meshes === 1 && bank.hasConfidence && bank.notReconstructed === 0,
+      `${bank.meshes} mesh(es), attribute ${bank.hasConfidence ? 'present' : 'MISSING'}, `
+        + `${bank.notReconstructed} vertex/vertices claiming better than reconstructed`);
+    check(`${label}: every landing's apron is bare earth with no tree, and the far bank is left alone`,
+      bank.apronProbe.length === 7
+        && bank.apronProbe.every((p) => p.wear >= 0.99 && p.trees === true)
+        && bank.across === 0 && bank.acrossTrees === false,
+      bank.apronProbe.map((p) => `${p.id} wear ${p.wear.toFixed(2)} trees `
+        + `${p.trees ? 'cleared' : 'STANDING'}`).join('; ')
+        + `; across the river wear ${bank.across}`);
+    // AND IT READS, from the street looking across the bank at Carpenter's
+    // landing, held clock, with and without the layer.
+    await page.evaluate(() => { window.__chicago4d.setAnimationHold(false); });
+    await page.evaluate(() => window.__chicago4d.walker.teleport(
+      { local_e: 372, local_n: 9, yaw_deg: 8, pitch_deg: -9 }));
+    await page.waitForTimeout(350);
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    const bankWith = await page.evaluate(() => window.__chicago4d.capture());
+    await page.evaluate(() => { window.__chicago4d.workingBank.group.visible = false; });
+    const bankWithout = await page.evaluate(() => window.__chicago4d.capture());
+    await page.evaluate(() => { window.__chicago4d.workingBank.group.visible = true; });
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    const dBank = signatureDistance(bankWith, bankWithout);
+    check(`${label}: the working bank changes what a visitor sees from South Water`,
+      dBank.worst >= 6 && dBank.mean >= 0.3,
+      `signature distance worst ${dBank.worst?.toFixed(1)}, mean ${dBank.mean?.toFixed(2)}`);
 
     // --- the boats on the river (T-0063) ---------------------------------
     //

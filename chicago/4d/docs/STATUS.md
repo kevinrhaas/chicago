@@ -1,3 +1,54 @@
+## T-1823 — the walk by business carried to the new fronts: fronts-only faces beyond the covered streets (2026-10-02)
+
+This is the second piece of T-1814, which is itself the second piece of T-1211 (owner: *"include their
+correct plank sidewalks for each business that varies because business vary and fill it in so it is
+complete"*). T-1822 dealt the walk by business on the four covered streets. This ticket carries it
+to the business fronts those streets do not reach: the cross streets and the West Division.
+
+**Why not the streets.** The cross streets (T-0192) and the West Division (T-0193) were refused as
+*streets*. Laying every improved face end to end is 3,557.7 m and 1,227.7 m of walk, and it was
+measured over every tier. The owner's ask is *for each business*, and that is much cheaper. So a
+face the covered tuples do not reach is now laid **fronts-only**: walk only in front of a business
+that opens onto it, its trade's walk and fittings, and nothing between businesses. `EDGE_STREETS`,
+`EDGE_CROSS_STREETS` and `EDGE_SKIP_GRIDS` did not move.
+
+**Which face a business fronts** is asked of its door, not its lot. Original Town lots all front
+east-west streets, and West Division lots front north-south ones, so the lot would give the plat's
+answer. A business fronts a face when it stands on that block, faces it (T-0426's 45°), and its
+nearest wall is within 10 m of the lot line. The walk covers the march steps the frontage overlaps
+plus half a step at each end, and takes one more clear step where that falls short of the 10.4 m
+least run.
+
+**On today's town:** 5 fronts-only faces laid, 5 runs, 83.4 m of walk. They are the Western Hotel
+on Randolph (two posts and a mounting block) and stores on Lake (`recon_1835_west_007`), Clinton
+(`recon_1835_west_020`) and Fulton (`inf_grocery_west`). The West Water freight house fronts a
+decked walk with its wagon apron. The Pierce smithy on Lake and a joiner on Randolph front bare
+ground. The Western Hotel's walk reaches its corner, so **a board crossing over Canal** now joins
+it to the Randolph walk on `blk_randolph_clinton`. That is the first corner crossing on a principal
+street west of the river. The auction room's Dearborn front is refused because the Tremont House
+stands on the walk line. Faces 40 → 45, walks 55 → 61, crossings 46 → 47, posts 48 → 53, fittings
+46 → 48, refusals 117 → 128. One farm-box wagon on Canal is refused off the new crossing (79 → 78).
+
+**The cost, measured** (`docs/measurements/T-1823-frontage-cost.md`). The first build put the new
+posts in Lake's and Randolph's per-street standing meshes. That stretched their spheres 120-170 m
+west into the sun's shadow box at `lake_at_canal`: **+48,588** triangles at `balanced`, all of it
+existing fences drawn into the shadow map. Fronts-only posts and fittings now name their own
+`standing_chunk` (honoured in `frontage.js`). As shipped, the worst stand moves −1,850 / +436 / +1,136
+(full / balanced / light) at both viewports, and draw calls go 205 → 208 of 215 on desktop. Mobile is
+inside every ceiling. On this runner desktop reads `dev` itself as over every ceiling (CI passed it
+on 2026-10-01), so the delta is the figure to trust.
+
+**Verified.** `generate_frontage_works.py --check`, `generate_yard_goods.py --check`,
+`test_frontage_faces.py`, `compile_liberties.py --check`, `check.sh`, and smoke desktop part 2 and
+mobile parts 1-2. A new walked check stands on the middle of each fronts-only walk (5 of 5 on
+planks).
+
+**Honest gaps.** The two West Division works have bare ground but **no tie rail**. A tie rail is a
+fitting of a laid run, and a fronts-only face with only a works on it lays no run. **28 businesses
+stand on no platted block** (the Canal approach stores east of Canal, Wolf Point, the North
+Division sheds), so no face reaches them. They need a frontage of their own, which is not a
+block face. All widths and the 10 m depth are invented (docs/LIBERTIES.md L160, amended).
+
 ## T-1808 — the boarding houses' books: the Washington-tier keepers settled (2026-10-02)
 
 Piece 3 of 3 of T-1780 (of T-1209). Closes T-1779's keeper seam on the two Washington-tier

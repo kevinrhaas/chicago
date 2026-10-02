@@ -398,8 +398,10 @@ STRUCTURE_TICKETS = {
     # T-1810, the piece that raises every house the book still orders past the two
     # Washington-tier seats; T-1809 raises one South house and closes first, so a cell left
     # on it would order work from a done ticket the moment it settles (swept by T-1802).
-    # T-1810 WAS SPLIT on 2026-10-02 (T-1950..T-1953): the South's cell to T-1951, which
-    # holds what is left after T-1950's one house; the West's to T-1953, the North's to T-1952.
+    # T-1810 WAS SPLIT in turn on 2026-10-02 (T-1950..T-1953). T-1950 raises the plan's last
+    # H3 on blk_washington_clark and closes first, so no cell stays on it; the South's cell
+    # moves to T-1951 (the plan's H3s on the Dearborn and Market blocks, whose free lots are
+    # all requested), the West's to T-1953 (on T-1414's ground) and the North's to T-1952.
     ("south", "larger_boarding_houses"): "T-1951",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
@@ -444,8 +446,10 @@ STRUCTURE_TICKETS = {
     # half that would still owe. It is not read while the bands stand.
     ("south", "warehouses_freight"): "T-1673",
     ("south", "institutional_public"): "T-1202",
-    ("south", "barns_stables"): "T-1212",
-    ("south", "small_outbuildings"): "T-1212",
+    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies are
+    # T-1960's, "wells, privies and stables by household", in all three divisions.
+    ("south", "barns_stables"): "T-1960",
+    ("south", "small_outbuildings"): "T-1960",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -498,8 +502,8 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-1829",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-1212",
-    ("west", "small_outbuildings"): "T-1212",
+    ("west", "barns_stables"): "T-1960",
+    ("west", "small_outbuildings"): "T-1960",
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -568,8 +572,8 @@ STRUCTURE_TICKETS = {
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-1212",
-    ("north", "small_outbuildings"): "T-1212",
+    ("north", "barns_stables"): "T-1960",
+    ("north", "small_outbuildings"): "T-1960",
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
     ("fort", "workshops"): "T-1204",
@@ -4723,8 +4727,12 @@ def cmd_self_test() -> int:
     # Washington-tier slots the same way, hh_berger_f_c in and hh_cleaveland_wm_p out. The
     # house itself is adopted by no one (no North banded row is admitted by the one clause
     # that takes an H3), so the platted pass reads 184 -> 183 at the chain's fixpoint.
+    # 255 -> 254 on 2026-10-02 (T-1950): the third H3 boarding house on blk_washington_clark
+    # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves along the
+    # block, the slots behind her shift a lot, and hh_berger_f_c, left with only kept-open
+    # lots, is owed to T-1614 (183 -> 182 platted seats, L270, L345).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 255
+        data["inventory"], data["programme"], occ))["seated"] == 254
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -159,7 +159,7 @@
     "siding_exposure_m": {
       "value": 0.114,
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 4.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (4.5 in or 5 in; T-1839, docs/LIBERTIES.md L345), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 4.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (4.5 in or 5 in; T-1839, docs/LIBERTIES.md L349), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
     },
     "function": {
       "value": "larger_one_and_a_half_story_house",
@@ -259,5 +259,14 @@
       "abuts": null,
       "why": "T-0143, the succession T-0105 owes. THE BLOCK'S BUSINESS FACE IS FULL, so the clause of the core density standard that tightens a commercial frontage has nothing left to bind here: the first deal and T-0105 between them took every free lot on Randolph, and the two lots this block has left are both on the Washington tier. WHAT DOES BIND IS THE STANDARD'S THIRD CLAUSE, and this is the first parcel in the project able to demonstrate it — T-0105 recorded in writing that lot 4 was an interior lot and the corner clause had nothing to bind on. Lot 1 is the block's one free CORNER lot, the south-west one, and it fronts Washington along its long edge and Dearborn Street along its short one. THE FACE IS MEASURED RATHER THAN ASSUMED, by the command T-A14 made of it — tools/measure_street_frontage.py randolph washington dearborn state — and on the committed dataset Washington carries 1 documented record and no inferred household while DEARBORN carries 6 and 1. So the ground this row is built to is not valuable because of the street it fronts; it is valuable because of the street it stands at the end of, and Dearborn in July 1835 is the only crossing of the main stem. The row is packed WEST to that corner rather than east away from it, which is exactly what `corner: west` is for, and it is graded on T-A11's end rule read the same way T-0105 read it: the best roof nearest the crossing. NO COORDINATE IS AUTHORED: the line, its bearing, the lot's own stretch of it and the end the run packs toward are all read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage. The Washington face carries no committed street wall for the run to adopt — the two roofs already standing on that tier are one-per-lot placements set back inside their own lots — so this run is the first line on the face and states the margin rather than adopting one."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "merchant",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 0.5,
+    "lay_m": 0.003,
+    "confidence": "reconstructed"
   }
 }
