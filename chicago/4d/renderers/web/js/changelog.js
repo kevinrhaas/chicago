@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The Light setting fits a slower machine again', kind: 'polish',
+  { v: 1312, ts: '2026-10-02T17:12:27.097Z', date: 'Oct 2, 2026, 12:12 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
     items: [
       'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
       'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
