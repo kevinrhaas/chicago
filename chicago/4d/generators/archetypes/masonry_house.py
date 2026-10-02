@@ -193,6 +193,8 @@ def _finial(b, x, y, z, h, conf, mat) -> None:
 
 def _range(b, r) -> None:
     """One gabled range: its walls, its roof, its gable ends."""
+    if r.get("stable_roof"):
+        return _stable_reworked(b, r)
     ax = r["axis"]                          # ridge runs along this metric axis
     x0, x1, y0, y1 = r["x0"], r["x1"], r["y0"], r["y1"]
     rz, elo, ehi, ra = r["ridge_z"], r["eave_lo_z"], r["eave_hi_z"], r["ridge_at"]
@@ -254,13 +256,33 @@ def _range(b, r) -> None:
             if end == "none":
                 continue
             lift = r["parapet_m"].get(face, 0.0) if end == "parapet" else 0.0
-            gprof = [(c, z + lift) for c, z in prof]
+            end_prof = prof
+            cross_gable = r.get("north_cross_gable") if face == "north" else None
+            if cross_gable:
+                g = cross_gable
+                end_prof = [(g["x0"], g["eave_z"]), (ra, rz),
+                            (g["x1"], g["eave_z"])]
+                # Only the projecting triangle has coping. The wall beside it
+                # returns to the ordinary north-range eave, not a raised parapet.
+                gprof = [(c0, g["eave_z"]), (g["x0"], g["eave_z"] + lift),
+                         (ra, rz + lift), (g["x1"], g["eave_z"] + lift),
+                         (c1, g["eave_z"])]
+                gprof = sorted(set(gprof))
+            else:
+                gprof = [(c, z + lift) for c, z in prof]
             _profile_wall(b, pl, gprof, spans, r["conf_ends"][face], mat)
             if end == "parapet":
-                _parapet(b, pl, prof, lift, r["conf_ends"][face], mat)
+                _parapet(b, pl, end_prof, lift, r["conf_ends"][face], mat)
         else:
             z = roof_z(c1) if (face in ("east", "north")) else roof_z(c0)
-            _profile_wall(b, pl, [(u0, z), (u1, z)], spans, r["conf_plan"], mat)
+            wall_prof = [(u0, z), (u1, z)]
+            if face == "west" and r.get("north_cross_gable"):
+                g = r["north_cross_gable"]
+                wall_prof = [(u0, z), (g["cross_y0"], z),
+                    (g["cross_y0"], g["cross_eave_lo_z"]),
+                    (g["cross_ridge_at"], g["cross_ridge_z"]),
+                    (u1, g["cross_eave_hi_z"])]
+            _profile_wall(b, pl, wall_prof, spans, r["conf_plan"], mat)
 
     # ---- roof, carried EAVE_OVERHANG past the eave walls and past any end that is
     # not a parapet, and to `roof_extend` where the range runs into a neighbour
@@ -274,6 +296,11 @@ def _range(b, r) -> None:
             a0 = min(a0, coord)
         else:
             a1 = max(a1, coord)
+    if "roof_min" in r:
+        a0 = max(a0, r["roof_min"])
+    if r.get("north_cross_gable"):
+        _crossed_stable_roof(b, r, roof_z)
+        return
     ov_prof = list(prof)
     # overhang: continue each outer slope EAVE_OVERHANG beyond its wall
     (ca, za), (cb, zb_) = prof[0], prof[1]
@@ -295,6 +322,97 @@ def _range(b, r) -> None:
             P(ra, a1, rz + cr * 1.4), P(ra - cr, a1, rz + 0.02)], r["conf_roof"], ROOF)
     _up(b, [P(ra, a0, rz + cr * 1.4), P(ra + cr, a0, rz + 0.02),
             P(ra + cr, a1, rz + 0.02), P(ra, a1, rz + cr * 1.4)], r["conf_roof"], ROOF)
+
+
+def _stable_reworked(b, r):
+    from archetypes.masonry_house_v4_west_roof import patches, profile
+    g = r["stable_roof"]
+    for face in ("north", "west", "east", "south"):
+        kind = r["walls"][face]
+        if kind == "none": continue
+        axis = "x" if face in ("west", "east") else "y"
+        sign = -1 if face in ("west", "south") else 1
+        at = r["x0"] if face == "west" else r["x1"] if face == "east" else r["y0"] if face == "south" else r["y1"]
+        pl = {"axis": axis, "sign": sign, "at": at}
+        prof = profile(r, face)
+        if face == "north":
+            # The masonry gable has coping only on its two slopes. No raised
+            # diagonal runs from its foot to the ordinary alley eave.
+            lift = r["parapet_m"].get("north", 0)
+            gp = [(g["front_x0"],g["north_eave"]),(r["ridge_at"],r["ridge_z"]),(g["front_x1"],g["north_eave"])]
+            prof = [(r["x0"],g["north_eave"]),(g["front_x0"],g["north_eave"]),
+                (g["front_x0"],g["north_eave"]+lift),(r["ridge_at"],r["ridge_z"]+lift),
+                (g["front_x1"],g["north_eave"]+lift),(g["front_x1"],g["north_eave"])]
+            _parapet(b,pl,gp,lift,r["conf_ends"][face],WALL_MAT[kind])
+        spans=_kept(prof[0][0],prof[-1][0],r["wall_skip"].get(face,[]))
+        _profile_wall(b,pl,prof,spans,r["conf_plan"],WALL_MAT[kind])
+    for _,pts in patches(r):
+        _two_sided_roof(b,pts,r["conf_roof"],ROOF)
+    # A short ordinary eave beyond the north wall at the alley return only.
+    a,c=r["x0"]-.15,g["front_x0"]
+    if c>a:
+        ze=g["north_eave"];y=r["y1"]
+        _two_sided_roof(b,[(a,y,ze),(c,y,ze),(c,y+.15,ze-.1),(a,y+.15,ze-.1)],r["conf_roof"],ROOF)
+
+
+def _crossed_stable_roof(b, r, original_z):
+    """One continuous envelope at the stable/north-range crossing (T-1805).
+
+    The photographed street gable is narrower than the wing. Its exact hidden
+    tie-in is unsurveyed: interpolate to the retained rear roof within the
+    crossing range. The crossing roof wins wherever it is higher. This removes
+    buried duplicate skins, their visible front-edge stripe and coplanar flicker.
+    """
+    g = r["north_cross_gable"]
+    x0, x1, ra = r["x0"], r["x1"], r["ridge_at"]
+    y0, y1 = r["y0"] - EAVE_OVERHANG, r["y1"]
+    def north_z(y):
+        ridge = g["cross_ridge_at"]
+        if y >= ridge:
+            return g["cross_eave_hi_z"] + (g["cross_y1"]-y) * (
+                g["cross_ridge_z"]-g["cross_eave_hi_z"])/(g["cross_y1"]-ridge)
+        base, ze = g["cross_y0"], g["cross_eave_lo_z"]
+        kick = g["cross_kick"]
+        run = kick["run_m"] if kick else 0
+        zk = ze + run * math.tan(math.radians(kick["pitch_deg"])) if kick else ze
+        return ze+(y-base)*(zk-ze)/run if run and y < base+run else (
+            zk+(y-base-run)*(g["cross_ridge_z"]-zk)/(ridge-base-run))
+    def height(x, y):
+        old = original_z(min(x1, max(x0, x)))
+        if y < g["cross_y0"]:
+            # Continue the original slope to its eave overhang.
+            edge = x0 if x < x0 else x1
+            if x < x0 or x > x1:
+                old += (x-edge)*(original_z(edge)-original_z(ra))/(edge-ra)
+            return old
+        foot = g["x0"] if x <= ra else g["x1"]
+        front = g["eave_z"]+(x-foot)*(r["ridge_z"]-g["eave_z"])/(ra-foot)
+        t = min(1., max(0., (y1-y)/(y1-g["cross_ridge_at"])))
+        stable = front+(old-front)*t
+        return max(north_z(y), stable)
+    def subdivide(values, step=1.8):
+        values=sorted(set(values)); result=[]
+        for a,c in zip(values,values[1:]):
+            n=max(1,math.ceil((c-a)/step))
+            result.extend(a+(c-a)*i/n for i in range(n))
+        return result+[values[-1]]
+    xs=subdivide([x0-EAVE_OVERHANG,x0,g["x0"],ra,g["x1"],x1])
+    ys=subdivide([y0,r["y0"],g["cross_y0"],g["cross_ridge_at"],y1])
+    for a,c in zip(xs,xs[1:]):
+        for lo,hi in zip(ys,ys[1:]):
+            pts=[(a,lo,height(a,lo)),(c,lo,height(c,lo)),
+                 (c,hi,height(c,hi)),(a,hi,height(a,hi))]
+            # Explicit triangles also make the gently varying hidden tie-in
+            # unambiguous to both Blender and the engine-neutral light writer.
+            for indices in ((0,1,2),(0,2,3)):
+                _two_sided_roof(b,[pts[i] for i in indices],r["conf_roof"],ROOF)
+    # Carry only the exposed return past the street wall. There is NO roof edge
+    # across the gable face, loft door or narrow flanking windows.
+    for a,c in ((x0-EAVE_OVERHANG,g["x0"]),(g["x1"],x1)):
+        if c-a > 1e-6:
+            _two_sided_roof(b,[(a,y1,north_z(y1)),(c,y1,north_z(y1)),
+                (c,y1+EAVE_OVERHANG,north_z(y1+EAVE_OVERHANG)),
+                (a,y1+EAVE_OVERHANG,north_z(y1+EAVE_OVERHANG))],r["conf_roof"],ROOF)
 
 
 def _parapet(b, pl, prof, lift, conf, mat) -> None:

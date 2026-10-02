@@ -120,12 +120,32 @@ def _lot_frontages() -> dict[str, list[tuple[str, str]]]:
                 ends[row[0]], ends[row[-1]] = "west", "east"
         held = _held().get(block["id"], {})
         for index, structure_ids in held.items():
-            faces = [(bounds[lots[index]["tier"]], FRONT)]
-            if index in ends:
+            tier = lots[index]["tier"]
+            # T-1785. A Wabansia lot is not a tier of its block: the sheet rules no
+            # alley there, so each lot runs tier line to tier line and fronts BOTH the
+            # block's committed streets, and the block commits no east or west street
+            # at all (`bounded_by_uncommitted`). So the lot answers with every street
+            # it has, nearest the building first, and a side face only where one is
+            # committed. "Nearest" is measured to the lot's own two tier lines and not
+            # to the street centrelines, because a street the plat names need not be
+            # drawn out to this block (Kinzie is drawn east of the North Branch).
+            whole = tier not in bounds
+            faces = ([(bounds[side], FRONT) for side in ("south", "north") if side in bounds]
+                     if whole else [(bounds[tier], FRONT)])
+            if index in ends and ends[index] in bounds:
                 faces.append((bounds[ends[index]], SIDE))
             for structure_id in structure_ids:
+                mine = faces
+                if whole and structure_id in centroids():
+                    north = centroids()[structure_id][1]
+                    ys = sorted(y for _, y in lots[index]["polygon"])
+                    line = {"south": sum(ys[:2]) / 2, "north": sum(ys[-2:]) / 2}
+                    rank = {bounds[side]: abs(north - y) for side, y in line.items()
+                            if side in bounds}
+                    mine = sorted(faces, key=lambda f: (f[1] != FRONT,
+                                                        rank.get(f[0], float("inf"))))
                 out.setdefault(structure_id, []).extend(
-                    face for face in faces if face not in out.get(structure_id, []))
+                    face for face in mine if face not in out.get(structure_id, []))
     return out
 
 

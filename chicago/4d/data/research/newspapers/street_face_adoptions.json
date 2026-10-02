@@ -147,37 +147,37 @@
   "re_family_stability": {
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
-    "faces_with_two_or_more_free_roofs": 17,
-    "free_roof_places": 123,
+    "faces_with_two_or_more_free_roofs": 18,
+    "free_roof_places": 132,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2223,
-      "places_changed": 2721,
+      "re_families_tried": 2403,
+      "places_changed": 2773,
       "worst_single_re_family": 8,
-      "changed_nothing": 1260
+      "changed_nothing": 1414
      },
      "deal_order": {
-      "re_families_tried": 2223,
+      "re_families_tried": 2403,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2223
+      "changed_nothing": 2403
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 1959,
-      "places_changed": 2589,
+      "re_families_tried": 2085,
+      "places_changed": 2641,
       "worst_single_re_family": 8,
-      "changed_nothing": 1079
+      "changed_nothing": 1179
      },
      "deal_order": {
-      "re_families_tried": 1959,
-      "places_changed": 12388,
+      "re_families_tried": 2085,
+      "places_changed": 12826,
       "worst_single_re_family": 19,
-      "changed_nothing": 144
+      "changed_nothing": 205
      }
     }
    }
@@ -196,26 +196,26 @@
   "unplaceable_present_at_scene_date": 62,
   "adopted_into_a_house_of_trade": 26,
   "adopted_into_a_roof_of_no_trade": 13,
-  "roofs_free_and_a_house_of_trade": 28,
-  "houses_of_trade_left_free": 2,
-  "roofs_reserved_for_a_slot_request": 33,
-  "reserved_and_held_by_a_committed_occupancy": 0,
-  "reserved_without_a_committed_occupancy": 33,
+  "roofs_free_and_a_house_of_trade": 29,
+  "houses_of_trade_left_free": 3,
+  "roofs_reserved_for_a_slot_request": 43,
+  "reserved_and_held_by_a_committed_occupancy": 4,
+  "reserved_without_a_committed_occupancy": 39,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 6,
-    "roofs_corner_side": 4,
-    "roofs_on_the_adopted_face": 10,
+    "roofs_lot_front": 12,
+    "roofs_corner_side": 6,
+    "roofs_on_the_adopted_face": 18,
     "roofs_free": 5,
     "roofs_home": 1,
     "roofs_home_named": 0,
     "roofs_home_inferred": 1,
-    "roofs_yard": 4,
-    "roofs_requested_by_a_seat": 0,
-    "roofs_in_centreline_band_declined": 0,
+    "roofs_yard": 8,
+    "roofs_requested_by_a_seat": 4,
+    "roofs_in_centreline_band_declined": 4,
     "roofs_free_and_a_house_of_trade": 1,
     "adopted_into_a_house_of_trade": 1
    },
@@ -224,14 +224,14 @@
     "businesses_naming_it": 16,
     "adopted": 6,
     "roofs_lot_front": 0,
-    "roofs_corner_side": 17,
-    "roofs_on_the_adopted_face": 17,
+    "roofs_corner_side": 23,
+    "roofs_on_the_adopted_face": 23,
     "roofs_free": 6,
     "roofs_home": 7,
     "roofs_home_named": 0,
     "roofs_home_inferred": 7,
-    "roofs_yard": 4,
-    "roofs_requested_by_a_seat": 0,
+    "roofs_yard": 8,
+    "roofs_requested_by_a_seat": 2,
     "roofs_in_centreline_band_declined": 0,
     "roofs_free_and_a_house_of_trade": 2,
     "adopted_into_a_house_of_trade": 2
@@ -430,6 +430,50 @@
    "held_by_a_committed_occupancy": false
   },
   {
+   "structure_id": "recon_1835_blk_lake_clinton_d3_02",
+   "block_id": "blk_lake_clinton",
+   "programme_phase": "phase3_platted_block_lake_clinton",
+   "family": "D3",
+   "requested_by_seat": "hh_baxley_j_m",
+   "order_book_draw": "blk_lake_clinton / D3 / west",
+   "dealt_by_ticket": "T-1760",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_lake_clinton_d4_01",
+   "block_id": "blk_lake_clinton",
+   "programme_phase": "phase3_platted_block_lake_clinton",
+   "family": "D4",
+   "requested_by_seat": "hh_beaubien_b",
+   "order_book_draw": "blk_lake_clinton / D4 / west",
+   "dealt_by_ticket": "T-1760",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_clinton_d4_09",
+   "block_id": "blk_randolph_clinton",
+   "programme_phase": "phase3_platted_block_randolph_clinton_second_deal",
+   "family": "D4",
+   "requested_by_seat": "hh_bennett_h_c",
+   "order_book_draw": "blk_randolph_clinton / D4 / west",
+   "dealt_by_ticket": "T-1761",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_clinton_d7_08",
+   "block_id": "blk_randolph_clinton",
+   "programme_phase": "phase3_platted_block_randolph_clinton_second_deal",
+   "family": "D7",
+   "requested_by_seat": "hh_adams_james",
+   "order_book_draw": "blk_randolph_clinton / D7 / west",
+   "dealt_by_ticket": "T-1761",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
    "structure_id": "recon_1835_blk_south_water_franklin_d3_13",
    "block_id": "blk_south_water_franklin",
    "programme_phase": "phase3_platted_block_south_water_franklin_third_deal",
@@ -474,11 +518,33 @@
    "held_by_a_committed_occupancy": false
   },
   {
+   "structure_id": "recon_1835_blk_washington_clark_h3_05",
+   "block_id": "blk_washington_clark",
+   "programme_phase": "phase3_platted_block_washington_clark_second_deal",
+   "family": "H3",
+   "requested_by_seat": "hh_beaubien_mark",
+   "order_book_draw": "blk_washington_clark / H3 / south",
+   "dealt_by_ticket": "T-1778",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clark_h3_06",
+   "block_id": "blk_washington_clark",
+   "programme_phase": "phase3_platted_block_washington_clark_third_deal",
+   "family": "H3",
+   "requested_by_seat": "hh_sweet_alanson",
+   "order_book_draw": "blk_washington_clark / H3 / south",
+   "dealt_by_ticket": "T-1809",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
    "structure_id": "recon_1835_blk_washington_franklin_d3_05",
    "block_id": "blk_washington_franklin",
    "programme_phase": "phase3_platted_block_washington_franklin",
    "family": "D3",
-   "requested_by_seat": "hh_calhoun_alvin",
+   "requested_by_seat": "hh_chapman_george",
    "order_book_draw": "blk_washington_franklin / D3 / south",
    "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
@@ -489,7 +555,7 @@
    "block_id": "blk_washington_franklin",
    "programme_phase": "phase3_platted_block_washington_franklin",
    "family": "D3",
-   "requested_by_seat": "hh_cady_levi",
+   "requested_by_seat": "hh_chandler_catherine",
    "order_book_draw": "blk_washington_franklin / D3 / south",
    "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
@@ -500,7 +566,7 @@
    "block_id": "blk_washington_franklin",
    "programme_phase": "phase3_platted_block_washington_franklin",
    "family": "D3",
-   "requested_by_seat": "hh_campbell_james_b",
+   "requested_by_seat": "hh_chattin_clark",
    "order_book_draw": "blk_washington_franklin / D3 / south",
    "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
@@ -511,7 +577,7 @@
    "block_id": "blk_washington_franklin",
    "programme_phase": "phase3_platted_block_washington_franklin",
    "family": "D7",
-   "requested_by_seat": "hh_aspam_antoine",
+   "requested_by_seat": "hh_beddlecome_ash",
    "order_book_draw": "blk_washington_franklin / D7 / south",
    "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
@@ -522,7 +588,7 @@
    "block_id": "blk_washington_franklin",
    "programme_phase": "phase3_platted_block_washington_franklin",
    "family": "D7",
-   "requested_by_seat": "hh_ashbaugh_fre",
+   "requested_by_seat": "hh_beaubien_monique",
    "order_book_draw": "blk_washington_franklin / D7 / south",
    "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
@@ -533,7 +599,7 @@
    "block_id": "blk_washington_franklin",
    "programme_phase": "phase3_platted_block_washington_franklin",
    "family": "H1",
-   "requested_by_seat": "hh_aspam_jean_baptiste",
+   "requested_by_seat": "hh_beech_reuben",
    "order_book_draw": "blk_washington_franklin / H1 / south",
    "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
@@ -544,7 +610,7 @@
    "block_id": "blk_washington_franklin",
    "programme_phase": "phase3_platted_block_washington_franklin",
    "family": "H2",
-   "requested_by_seat": "hh_bailly_esther",
+   "requested_by_seat": "hh_benediet_loma",
    "order_book_draw": "blk_washington_franklin / H2 / south",
    "dealt_by_ticket": "T-1751",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
@@ -703,9 +769,61 @@
    "dealt_by_ticket": "T-1708",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_canal_trade_c3_001",
+   "block_id": null,
+   "programme_phase": "canal_approach_trade_1835",
+   "family": "C3",
+   "requested_by_seat": "rcb_canal_mahoney_martin",
+   "reservation_kind": "workplace",
+   "keeper_person_id": "rc_mahoney_martin",
+   "order_book_draw": "structures/stores_mixed_use/west",
+   "dealt_by_ticket": "T-1766",
+   "why": "The authored Canal trade allocation raised this roof for this existing keeper's reconstructed firm. It is already a workplace, not a home and not free supply for a second street-face business.",
+   "held_by_a_committed_occupancy": true
+  },
+  {
+   "structure_id": "recon_1835_canal_trade_c4_002",
+   "block_id": null,
+   "programme_phase": "canal_approach_trade_1835",
+   "family": "C4",
+   "requested_by_seat": "rcb_canal_pratt_seth",
+   "reservation_kind": "workplace",
+   "keeper_person_id": "rc_pratt_seth",
+   "order_book_draw": "structures/stores_mixed_use/west",
+   "dealt_by_ticket": "T-1766",
+   "why": "The authored Canal trade allocation raised this roof for this existing keeper's reconstructed firm. It is already a workplace, not a home and not free supply for a second street-face business.",
+   "held_by_a_committed_occupancy": true
+  },
+  {
+   "structure_id": "recon_1835_canal_trade_w1_003",
+   "block_id": null,
+   "programme_phase": "canal_approach_trade_1835",
+   "family": "W1",
+   "requested_by_seat": "rcb_canal_lyman_lemuel",
+   "reservation_kind": "workplace",
+   "keeper_person_id": "rc_lyman_lemuel",
+   "order_book_draw": "structures/workshops/west",
+   "dealt_by_ticket": "T-1766",
+   "why": "The authored Canal trade allocation raised this roof for this existing keeper's reconstructed firm. It is already a workplace, not a home and not free supply for a second street-face business.",
+   "held_by_a_committed_occupancy": true
+  },
+  {
+   "structure_id": "recon_1835_canal_trade_w2_004",
+   "block_id": null,
+   "programme_phase": "canal_approach_trade_1835",
+   "family": "W2",
+   "requested_by_seat": "rcb_canal_stebbins_horace",
+   "reservation_kind": "workplace",
+   "keeper_person_id": "rc_stebbins_horace",
+   "order_book_draw": "structures/workshops/west",
+   "dealt_by_ticket": "T-1766",
+   "why": "The authored Canal trade allocation raised this roof for this existing keeper's reconstructed firm. It is already a workplace, not a home and not free supply for a second street-face business.",
+   "held_by_a_committed_occupancy": true
   }
  ],
- "reserved_for_a_slot_request_note": "REFUSAL 7, T-1626. A roof raised in answer to a household's slot request is the household layer's and this pass may not take it. The link is data/reconstruction/1835_platted_block_parcels.json § dealt_against_a_request, which the build ticket writes beside the deal that answered the request; it is an authored recipe upstream of both passes, so reading it here closes no cycle. Which household finally occupies the roof is the seating pass's allocation and is not claimed here. `held_by_a_committed_occupancy` reads the roof's own structure record and nothing else: the platted deal writes no `occupants`, so a roof it has seated still reads false here, and the false count is an upper bound on what the reservation costs rather than the cost.",
+ "reserved_for_a_slot_request_note": "REFUSAL 7, T-1626. A roof raised in answer to a household's slot request is the household layer's and this pass may not take it. The link is data/reconstruction/1835_platted_block_parcels.json § dealt_against_a_request, which the build ticket writes beside the deal that answered the request; it is an authored recipe upstream of both passes, so reading it here closes no cycle. Which household finally occupies the roof is the seating pass's allocation and is not claimed here. `held_by_a_committed_occupancy` reads the roof's own structure record and nothing else: the platted deal writes no `occupants`, so a roof it has seated still reads false here, and the false count is an upper bound on what the reservation costs rather than the cost. T-1766 also reserves the five authored Canal workplace allocations from 1835_canal_approach_occupancy.json. Those rows have reservation_kind=workplace, claim no residence, and report held occupancy from their structure occupants block. The legacy slot-request keys count both kinds of authored reservation.",
  "adoptions": [
   {
    "business_id": "business_a_filer_co",
@@ -2288,7 +2406,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street",
@@ -2296,7 +2414,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_cooley_and_hol_b_man",
@@ -2304,7 +2422,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_elmira_fowler",
@@ -2312,7 +2430,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_george_holsman",
@@ -2320,7 +2438,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_j_curtiss_attorney_and_counsellor_at_law",
@@ -2336,7 +2454,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
@@ -2344,7 +2462,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "17 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 4 are yard buildings the parcels dealt behind a lot, 0 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",

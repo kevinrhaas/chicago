@@ -960,17 +960,21 @@ def cmd_self_test() -> int:
             == doc["what_the_re_cut_returned"]["why_it_stopped"]:
         failures.append("the re-cut block does not follow the order book's own words")
 
-    # 11. THE BED BOUND IS THE LODGING FILE'S, NOT THIS ONE'S. Empty beds on a copy and
-    #     `mintable_today` must rise with them. A bound this file asserted rather than
-    #     read would be a bound that stays true after the town stops being like that,
-    #     which is the failure mode the derived prose above was written against.
+    # 11. THE BED BOUND IS THE LODGING FILE'S, NOT THIS ONE'S. Fill every bed on a copy
+    #     and `mintable_today` must fall to nothing with them. A bound this file asserted
+    #     rather than read would be a bound that stays true after the town stops being
+    #     like that, which is the failure mode the derived prose above was written against.
+    #     (It used to EMPTY beds and ask for a rise, which only proves the bound while the
+    #     beds are what binds; on 2026-10-02 T-1950 left 11 beds empty against 11 people
+    #     needing one, so the people bind and a rise cannot happen. Filling them bites in
+    #     both states.)
     bedded = dict(data)
     lodgers = json.loads(json.dumps(data["lodgers"]))
-    lodgers["measurement"]["ordinary_night_beds_still_empty"] = 500
+    lodgers["measurement"]["ordinary_night_beds_still_empty"] = 0
     bedded["lodgers"] = lodgers
-    if order(bedded)["the_owner_s_ruling"]["mintable_today"] \
-            <= doc["the_owner_s_ruling"]["mintable_today"]:
-        failures.append("emptying the town's beds did not raise what the ruling can "
+    if doc["the_owner_s_ruling"]["mintable_today"] > 0 and \
+            order(bedded)["the_owner_s_ruling"]["mintable_today"] != 0:
+        failures.append("filling the town's beds did not stop what the ruling can "
                         "mint — the bed bound is not being read")
     fires("the bed bound survived a lodging file that states no bed count",
           lambda: the_bed_bound({"measurement": {}}))

@@ -5052,5 +5052,25 @@ only T-1207's crossing-furniture slice; shops remain with T-1766. See the
 bridge_head_timber research memo and liberty L306.
 
 
+### T-1766: the Canal approach trade remainder
+
+Two West store slots and three workshop slots are implemented as a bounded
+five-roof Canal frontage parcel. The live family budget, rather than the old
+first-parcel table, controls C3/C4 and W1/W2/W3. Exact sites, forms and firms remain
+reconstructed. The T-1764 successors retain freight and forks close-out; the T-1208 successors
+retain the outer clusters.
+See `docs/RESEARCH/canal_approach_trade.md` for evidence limits and validation.
+
 ### T-1768 - Owner-requested temporal menu
 The front door offers 1835, 1904 and 1812 with acquisition and transfer animation. Interface skins are secondary and shared with the viewer; 1812 is identified as pending reconstruction. Existing year doors and explicit query links remain available.
+
+
+## T-1830 - Glessner west wing and north porch
+
+Owner follow-up after T-1805; reasoning and recovery instructions in RESEARCH/glessner-west-wing-alcove/work.md. Rebuild roof and dormer, carve entry recess, preserve HABS dimensional control, verify full/light elevations and stage to dev.
+
+
+## T-1833 - Owner correction: Glessner rear roof
+
+Replace T-1830 rear hip with a level ridge and balanced south gable, matching the
+north courtyard eave. See RESEARCH/glessner-south-gable/work.md for evidence and progress.

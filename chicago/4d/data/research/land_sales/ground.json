@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 494,
-    "structures_reached": 91,
+    "structures_placed": 532,
+    "structures_reached": 97,
     "structures_reached_by_grade": {
-      "inferred": 23,
-      "reconstructed": 68
+      "inferred": 24,
+      "reconstructed": 73
     },
     "structures_unreached_by_section": {
-      "09": 400,
+      "09": 432,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -2113,7 +2113,16 @@
       },
       "refusal": null,
       "note": null,
-      "structures": []
+      "structures": [
+        {
+          "id": "wabansia_doctors_barn",
+          "margin_m": 28.8
+        },
+        {
+          "id": "wabansia_doctors_house",
+          "margin_m": 2.4
+        }
+      ]
     },
     {
       "record_id": "ls0055",
@@ -2661,8 +2670,16 @@
           "margin_m": 144.7
         },
         {
+          "id": "recon_1835_blk_indiana_north_cass_a1_10",
+          "margin_m": 108.1
+        },
+        {
           "id": "recon_1835_blk_indiana_north_cass_a3_03",
           "margin_m": 170.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_a3_11",
+          "margin_m": 118.0
         },
         {
           "id": "recon_1835_blk_indiana_north_cass_a4_04",
@@ -2687,6 +2704,10 @@
         {
           "id": "recon_1835_blk_indiana_north_cass_d4_06",
           "margin_m": 145.0
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_h3_09",
+          "margin_m": 118.8
         },
         {
           "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
@@ -2811,6 +2832,10 @@
         {
           "id": "steamboat_hotel",
           "margin_m": 41.7
+        },
+        {
+          "id": "steamboat_hotel_stable",
+          "margin_m": 63.3
         },
         {
           "id": "watkins_school_house",
@@ -2870,8 +2895,16 @@
           "margin_m": 144.7
         },
         {
+          "id": "recon_1835_blk_indiana_north_cass_a1_10",
+          "margin_m": 108.1
+        },
+        {
           "id": "recon_1835_blk_indiana_north_cass_a3_03",
           "margin_m": 170.6
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_a3_11",
+          "margin_m": 118.0
         },
         {
           "id": "recon_1835_blk_indiana_north_cass_a4_04",
@@ -2896,6 +2929,10 @@
         {
           "id": "recon_1835_blk_indiana_north_cass_d4_06",
           "margin_m": 145.0
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_cass_h3_09",
+          "margin_m": 118.8
         },
         {
           "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
@@ -3020,6 +3057,10 @@
         {
           "id": "steamboat_hotel",
           "margin_m": 41.7
+        },
+        {
+          "id": "steamboat_hotel_stable",
+          "margin_m": 63.3
         },
         {
           "id": "watkins_school_house",
@@ -39691,6 +39732,7 @@
       "elston_soap_candle_manufactory",
       "estray_pen",
       "exchange_coffee_house",
+      "exchange_coffee_house_stable",
       "first_presbyterian_church",
       "frederick_thomas_shop",
       "goss_cobb_saddlery",
@@ -39733,11 +39775,14 @@
       "jh_kinzie_forwarding_store",
       "john_holbrook_store",
       "kinzie_hunter_warehouse",
+      "landing_camp_east",
+      "landing_camp_west",
       "lasalle_lake_house",
       "lasalle_slough_crossing",
       "log_jail",
       "madore_beaubien_house",
       "mansion_house",
+      "mansion_house_stable",
       "mason_blacksmith_shop",
       "mckee_log_house",
       "miller_house",
@@ -39745,6 +39790,7 @@
       "miller_tanyard_bark_shed",
       "miller_tanyard_drying_shed",
       "new_york_house",
+      "new_york_house_stable",
       "newberry_dole_packing_house_south_branch",
       "newberry_dole_salt_house_south_branch",
       "newberry_dole_slaughterhouse_south_branch",
@@ -39767,6 +39813,9 @@
       "recon_1835_blk_lake_clark_c1_01",
       "recon_1835_blk_lake_clark_c2_02",
       "recon_1835_blk_lake_clark_c3_03",
+      "recon_1835_blk_lake_clinton_a1_03",
+      "recon_1835_blk_lake_clinton_d3_02",
+      "recon_1835_blk_lake_clinton_d4_01",
       "recon_1835_blk_lake_franklin_a1_03",
       "recon_1835_blk_lake_franklin_c2_01",
       "recon_1835_blk_lake_franklin_d1_02",
@@ -39788,10 +39837,14 @@
       "recon_1835_blk_randolph_clinton_a1_06",
       "recon_1835_blk_randolph_clinton_a2_05",
       "recon_1835_blk_randolph_clinton_a3_07",
+      "recon_1835_blk_randolph_clinton_a3_10",
+      "recon_1835_blk_randolph_clinton_a4_11",
       "recon_1835_blk_randolph_clinton_d1_03",
       "recon_1835_blk_randolph_clinton_d3_04",
       "recon_1835_blk_randolph_clinton_d4_02",
+      "recon_1835_blk_randolph_clinton_d4_09",
       "recon_1835_blk_randolph_clinton_d5_01",
+      "recon_1835_blk_randolph_clinton_d7_08",
       "recon_1835_blk_randolph_dearborn_a1_07",
       "recon_1835_blk_randolph_dearborn_a2_08",
       "recon_1835_blk_randolph_dearborn_a2_17",
@@ -39891,16 +39944,25 @@
       "recon_1835_blk_south_water_wells_d2_06",
       "recon_1835_blk_south_water_wells_d3_04",
       "recon_1835_blk_south_water_wells_d4_03",
+      "recon_1835_blk_washington_clark_a1_07",
+      "recon_1835_blk_washington_clark_a1_09",
+      "recon_1835_blk_washington_clark_a1_12",
       "recon_1835_blk_washington_clark_a3_03",
+      "recon_1835_blk_washington_clark_a3_08",
+      "recon_1835_blk_washington_clark_a3_10",
+      "recon_1835_blk_washington_clark_a3_13",
       "recon_1835_blk_washington_clark_a4_04",
       "recon_1835_blk_washington_clark_d4_02",
       "recon_1835_blk_washington_clark_d5_01",
-      "recon_1835_blk_washington_franklin_a1_08",
+      "recon_1835_blk_washington_clark_h3_05",
+      "recon_1835_blk_washington_clark_h3_06",
+      "recon_1835_blk_washington_clark_h3_11",
       "recon_1835_blk_washington_franklin_a1_10",
       "recon_1835_blk_washington_franklin_a2_09",
       "recon_1835_blk_washington_franklin_a3_13",
       "recon_1835_blk_washington_franklin_a4_11",
       "recon_1835_blk_washington_franklin_a4_12",
+      "recon_1835_blk_washington_franklin_a5_08",
       "recon_1835_blk_washington_franklin_d3_05",
       "recon_1835_blk_washington_franklin_d3_06",
       "recon_1835_blk_washington_franklin_d3_07",
@@ -39930,6 +39992,15 @@
       "recon_1835_blk_washington_wells_h1_02",
       "recon_1835_blk_washington_wells_h1_03",
       "recon_1835_blk_washington_wells_h2_07",
+      "recon_1835_blk_west_randolph_des_plaines_d4_02",
+      "recon_1835_blk_west_randolph_des_plaines_d5_04",
+      "recon_1835_blk_west_randolph_des_plaines_d6_03",
+      "recon_1835_blk_west_randolph_des_plaines_w2_01",
+      "recon_1835_canal_trade_c3_001",
+      "recon_1835_canal_trade_c4_002",
+      "recon_1835_canal_trade_w1_003",
+      "recon_1835_canal_trade_w2_004",
+      "recon_1835_forks_freight_f2_001",
       "recon_1835_north_a1_008",
       "recon_1835_north_a1_032",
       "recon_1835_north_a2_033",
@@ -40056,6 +40127,7 @@
       "robert_kinzie_store",
       "robinson_caldwell_cabins",
       "sauganash_hotel",
+      "sauganash_hotel_stable",
       "slough_log_bridge",
       "south_bank_shed_dearborn_e1",
       "south_bank_shed_dearborn_e2",
@@ -40065,6 +40137,7 @@
       "temple_lake_st_building",
       "thomas_church_store",
       "tremont_house_1",
+      "tremont_house_1_stable",
       "walker_meeting_house",
       "western_hotel",
       "western_hotel_stable",

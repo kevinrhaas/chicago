@@ -51,6 +51,7 @@ import * as THREE from 'three';
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
 import { SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
+import { softExtentWeight, ditherHash } from './lakeshore.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
 const LEVEL = { attested: 0.0, inferred: 0.5, reconstructed: 1.0 };
@@ -231,7 +232,10 @@ const TUNE = {
    */
   near: { radius: 7.6, cell: 0.74, perCell: 4, tuftsPerM2: 7.30, band: 2.2,
     spreadOuter: true },
-  mid: { inner: 4.5, radius: 27.0, cell: 1.55, perCell: 4, band: 7.0, innerBand: 3.0, fringe: 3.0,
+  // The full-detail edge needs more world-anchored variation: the published
+  // 1280x800, DPR-1 view stayed below a four-pixel spread at both 3 and 3.5 m.
+  // Light and balanced keep their explicit overrides.
+  mid: { inner: 4.5, radius: 27.0, cell: 1.55, perCell: 4, band: 7.0, innerBand: 3.0, fringe: 4.0,
     spreadInner: true },
   forb: { radius: 26.0, cell: 3.4, perCell: 4, band: 5.0, fringe: 3.0 },
   /**
@@ -449,7 +453,12 @@ function lobeNoise(e, n) {
  */
 function fringeOf(e, n, amp) {
   if (!amp) return 0;
-  const lobe = lobeNoise(e, n);
+  // T-1766: the retired swale had supplied screen-row variation that this
+  // field should carry itself. Give the world-anchored lobes 1.5x contrast
+  // about their midpoint, bounded to the same range. This keeps the lattice,
+  // fringe amplitude and primitive geometry unchanged; the symmetric mapping
+  // sharpens both inward and outward lobes rather than shrinking the ring.
+  const lobe = Math.max(0, Math.min(1, 0.5 + 1.5 * (lobeNoise(e, n) - 0.5)));
   const dither = unitHash(Math.round(e * 64), Math.round(n * 64), 0x2f1b3c59);
   return amp * (2 * (0.7 * lobe + 0.3 * dither) - 1);
 }
@@ -2955,14 +2964,23 @@ function zoneFinder(zones, terrain, water) {
  */
 function matches(x, e, n, terrain, water) {
   if (!x) return false;
-  if (x.box) {
+  // A box whose sides carry `edge` is soft (T-1819): its ramp reaches past the
+  // stated line, so the hard clip would cut the ramp's outer half off.
+  if (x.box && !x.edge) {
     const be = x.box.e;
     const bn = x.box.n;
     if (be && (e < be[0] || e > be[1])) return false;
     if (bn && (n < bn[0] || n > bn[1])) return false;
   }
   let ok = false;
-  switch (x.kind) {
+  // THE LAKE'S SAND (T-1819): a band from the lake's edge, or a box with
+  // wandering, ramped sides. lakeshore.js gives the weight the ground shader
+  // blends the zone's colour by; it is dithered here against a positional draw,
+  // so across a ramp a point belongs to the zone exactly as often as the ground
+  // there shows its sand — the sward thins into the beach rather than stopping.
+  const soft = softExtentWeight(x, e, n, terrain?.lakeShore ?? null);
+  if (soft !== null) ok = soft > ditherHash(e, n);
+  else switch (x.kind) {
     case 'everywhere':
       ok = true;
       break;
@@ -3719,6 +3737,25 @@ function patchOf(e, n) {
     * (0.72 + 0.42 * vnoise(e * 0.74 - 1.1, n * 0.74 + 6.2));
 }
 
+/** THE GROWTH FIELD (T-1825): coherent 1.4-2.8 m stands of vigorous and thin
+ *  growth, the scale the ground tile's own growth octaves work at (see
+ *  `prairie-tile.js`). A July sward is not a crop. Where the ground is a little
+ *  richer or wetter a stand closes up taller and darker, and beside it a thinner
+ *  one shows its litter. Drawing every tuft's height independently made the
+ *  near field read as a seedling row. Mean 0.5, so the averages it steers
+ *  (height within the record's range, the thatch minority, the tone) stay where
+ *  they were. It moves them around the field; it does not move their means. */
+function vigourOf(e, n) {
+  return 0.62 * vnoise(e * 0.36 + 3.1, n * 0.36 - 7.7)
+       + 0.38 * vnoise(e * 0.72 - 2.4, n * 0.72 + 1.9);
+}
+
+/** The tone a stand's vigour gives its plants: darker where the canopy closes,
+ *  lighter where it is thin. Mean 1.0 over the field. */
+function vigourTone(vig) {
+  return 0.86 + 0.28 * (1 - vig);
+}
+
 function tint(sp, u, v) {
   // Two greens per species, plus a small tonal jitter: the bar photographs show
   // several distinct greens within a metre, and one flat green reads as carpet.
@@ -3732,7 +3769,12 @@ function tint(sp, u, v) {
 }
 
 function placeGraminoid(set, sp, e, y, n, rng) {
-  const u = rng();
+  // Where in the record's own range this tuft stands is about a third its own
+  // draw and two thirds its stand's vigour (T-1825). The range is the
+  // record's, untouched: the field only decides which tufts sit high in it and
+  // which sit low.
+  const vig = vigourOf(e, n);
+  const u = rng() * 0.35 + vig * 0.65;
   // The record's own height, at full size. The ring fade that used to be baked
   // in here is applied per frame in the vertex shader instead: baked, it could
   // only change when the lattice was rebuilt, which made it a step rather than
@@ -3742,10 +3784,13 @@ function placeGraminoid(set, sp, e, y, n, rng) {
   // proportion of the height when it does not. The proportion had cordgrass
   // splaying 1.1 m against a recorded 0.5-0.9.
   const spread = (sp.width ? mid(sp.width) : h * sp.shape.spread) * (0.78 + rng() * 0.5);
-  const c = tint(sp, rng(), rng()).map((x) => x * patchOf(e, n));
+  const tone = patchOf(e, n) * vigourTone(vig);
+  const c = tint(sp, rng(), rng()).map((x) => x * tone);
   // A minority of dead thatch from last year's growth, at the base of the
-  // clump. Kept a minority on purpose: a straw-coloured sward is October.
-  const dry = rng() < 0.07;
+  // clump. Kept a minority on purpose: a straw-coloured sward is October. Still
+  // 7 % over the field, but gathered into the thin stands (0 % at full vigour,
+  // 14 % at none), which is where litter shows through a July canopy.
+  const dry = rng() < 0.14 * (1 - vig);
   const col = dry
     ? [c[0] * 0.6 + sp.dry[0] * 0.5, c[1] * 0.6 + sp.dry[1] * 0.45, c[2] * 0.6 + sp.dry[2] * 0.5]
     : c;
@@ -3762,7 +3807,11 @@ function placeCard(set, sp, zone, e, y, n, rng) {
   // A clump, not a hoarding. Width 1.25-2.15 x height made 2.5 m billboards
   // that tiled the mid-ground into flat-topped dark blocks.
   const w = h * (0.42 + rng() * 0.44);
-  const c = tint(sp, rng(), rng()).map((x) => x * patchOf(e, n));
+  // The stand's tone, not its height (T-1825): the mid ring's OUTER edge is the
+  // boundary the sward's reach is read off (part 11), so the cards' heights
+  // stay exactly as drawn and only the near tufts stand taller or lower.
+  const tone = patchOf(e, n) * vigourTone(vigourOf(e, n));
+  const c = tint(sp, rng(), rng()).map((x) => x * tone);
   // Mid-distance clumps carry a little of the zone's own mean, so the sea reads
   // as one community rather than as a spray of unrelated colours.
   const m = zone.matColor;

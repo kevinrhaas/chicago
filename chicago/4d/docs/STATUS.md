@@ -1,3 +1,575 @@
+## T-1823 — the walk by business carried to the new fronts: fronts-only faces beyond the covered streets (2026-10-02)
+
+This is the second piece of T-1814, which is itself the second piece of T-1211 (owner: *"include their
+correct plank sidewalks for each business that varies because business vary and fill it in so it is
+complete"*). T-1822 dealt the walk by business on the four covered streets. This ticket carries it
+to the business fronts those streets do not reach: the cross streets and the West Division.
+
+**Why not the streets.** The cross streets (T-0192) and the West Division (T-0193) were refused as
+*streets*. Laying every improved face end to end is 3,557.7 m and 1,227.7 m of walk, and it was
+measured over every tier. The owner's ask is *for each business*, and that is much cheaper. So a
+face the covered tuples do not reach is now laid **fronts-only**: walk only in front of a business
+that opens onto it, its trade's walk and fittings, and nothing between businesses. `EDGE_STREETS`,
+`EDGE_CROSS_STREETS` and `EDGE_SKIP_GRIDS` did not move.
+
+**Which face a business fronts** is asked of its door, not its lot. Original Town lots all front
+east-west streets, and West Division lots front north-south ones, so the lot would give the plat's
+answer. A business fronts a face when it stands on that block, faces it (T-0426's 45°), and its
+nearest wall is within 10 m of the lot line. The walk covers the march steps the frontage overlaps
+plus half a step at each end, and takes one more clear step where that falls short of the 10.4 m
+least run.
+
+**On today's town:** 5 fronts-only faces laid, 5 runs, 83.4 m of walk. They are the Western Hotel
+on Randolph (two posts and a mounting block) and stores on Lake (`recon_1835_west_007`), Clinton
+(`recon_1835_west_020`) and Fulton (`inf_grocery_west`). The West Water freight house fronts a
+decked walk with its wagon apron. The Pierce smithy on Lake and a joiner on Randolph front bare
+ground. The Western Hotel's walk reaches its corner, so **a board crossing over Canal** now joins
+it to the Randolph walk on `blk_randolph_clinton`. That is the first corner crossing on a principal
+street west of the river. The auction room's Dearborn front is refused because the Tremont House
+stands on the walk line. Faces 40 → 45, walks 55 → 61, crossings 46 → 47, posts 48 → 53, fittings
+46 → 48, refusals 117 → 128. One farm-box wagon on Canal is refused off the new crossing (79 → 78).
+
+**The cost, measured** (`docs/measurements/T-1823-frontage-cost.md`). The first build put the new
+posts in Lake's and Randolph's per-street standing meshes. That stretched their spheres 120-170 m
+west into the sun's shadow box at `lake_at_canal`: **+48,588** triangles at `balanced`, all of it
+existing fences drawn into the shadow map. Fronts-only posts and fittings now name their own
+`standing_chunk` (honoured in `frontage.js`). As shipped, the worst stand moves −1,850 / +436 / +1,136
+(full / balanced / light) at both viewports, and draw calls go 205 → 208 of 215 on desktop. Mobile is
+inside every ceiling. On this runner desktop reads `dev` itself as over every ceiling (CI passed it
+on 2026-10-01), so the delta is the figure to trust.
+
+**Verified.** `generate_frontage_works.py --check`, `generate_yard_goods.py --check`,
+`test_frontage_faces.py`, `compile_liberties.py --check`, `check.sh`, and smoke desktop part 2 and
+mobile parts 1-2. A new walked check stands on the middle of each fronts-only walk (5 of 5 on
+planks).
+
+**Honest gaps.** The two West Division works have bare ground but **no tie rail**. A tie rail is a
+fitting of a laid run, and a fronts-only face with only a works on it lays no run. **28 businesses
+stand on no platted block** (the Canal approach stores east of Canal, Wolf Point, the North
+Division sheds), so no face reaches them. They need a frontage of their own, which is not a
+block face. All widths and the 10 m depth are invented (docs/LIBERTIES.md L160, amended).
+
+## T-1808 — the boarding houses' books: the Washington-tier keepers settled (2026-10-02)
+
+Piece 3 of 3 of T-1780 (of T-1209). Closes T-1779's keeper seam on the two Washington-tier
+H3 houses.
+
+**The seam.** The platted deal seats `hh_beaubien_mark` on `recon_1835_blk_washington_clark_h3_05`
+and `hh_sweet_alanson` on `_h3_06` under `lodging_near_the_landings`. `seat_lodgers_1835.py` read
+keepers only off a card's `works_at`, so it also drew `rc_lynch_cornelius` and `rc_stebbins_alvah`
+for the two roofs. Two households answered for each house.
+
+**The close: option (a).** The lodgers stage now reads an adoption under a keeper clause as
+that house's keeper (refusal 6). Each man's head takes the keeper's bed as a seat
+(`relationship: keeper`) that writes nothing into his research card. Option (b), refusing a banded
+keeper the lodging roof, would loop: the slot it re-seated him to would raise a roof that this same
+stage would keep from him again.
+
+- Retired: the 2 drawn keepers and their 6 children. Every boarder is unchanged.
+  L252 goes from 116 in 19 cards to **108 in 19**. Seats from the layer go 54 → 56.
+- Firms: `rcb_beaubien_boarding_house` and `rcb_sweet_boarding_house` replace Lynch's and
+  Stebbins's. That leaves 35 houses of trade, unmoved.
+- The keepers' unplaced in-window firms (`biz_*_tavern_keeper`) are retired by
+  `complete_inwindow_trades.py`, because each man now holds a workplace. Each house keeps its
+  keeper's census class, `tavern`. Reconstructed firms are counted apart from known ones, so
+  the layer's scene-date taverns read **9** (was 11; the census's 8 is still met). The order
+  book's `inns_and_taverns` row now restates the programme (10) instead of disagreeing with it,
+  and its statement says so.
+- The boards now read MARK BEAUBIEN'S and SWEET'S, Boarding House. On the card each man
+  "keeps this house".
+- The order book owes 276 (was 268). These are the 8 lodging-cell slots the retired people
+  filled, now open for T-1950..T-1953's keepers.
+- T-1810 was split mid-run (T-1950..T-1953). The book's three `larger_boarding_houses` cells
+  move to T-1951 (south), T-1952 (north) and T-1953 (west), so no work order names a split ticket.
+
+**The frame budget, read on the published tree** (`measure_detail_ceilings.mjs --only desktop`,
+`docs/measurements/t-1808-detail-ceilings-desktop.json`): **all three tiers read over** —
+full 1,516,064 against 1,460,000 (Lake at Canal), balanced 1,330,437 against 1,280,000,
+light 885,296 against 825,000 (the forks). This PR moves no geometry and bakes nothing; only
+two boards' lettering changes. So the over-reading is the tree's own, not this diff's. It is
+handed on, not raised here: AGENTS.md's frame-budget rule says take the number before the next
+parcel deals.
+
+**The boarding-house row:** `docs/evidence/t-1808-boarding-houses-washington-dearborn-desktop.png`.
+It looks south-west from Dearborn and Washington at Sweet's house, with Beaubien's gable behind.
+
+**Handed on to T-1214** (the camps, the band's next build): the remaining H3 houses are on
+T-1950..T-1953, and the frame-budget over-reading above.
+
+# T-1833 — Glessner south gable and courtyard eave — 2026-10-01
+
+The owner requested a balanced solid south gable and continuous rear ridge after
+reviewing PR #243. Geometry and final full-model visual review are complete, including the raised
+dormer and closed hood seams. Full/light packaging and exact light visual review
+are complete. Re-gated on dev after T-1808 (#256); preflight and the published smoke parts
+for the diff pass. See `RESEARCH/glessner-south-gable/work.md`.
+
+# T-1830 — Glessner west roof and recessed north entrance — 2026-10-01
+
+Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through cffaef54. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
+
+## T-1825 — the inland prairie grows in stands: a growth field under the ground and the near sward (2026-10-01)
+
+Piece 2 of T-1820 (under T-1772). T-1824 holds the dunes. This piece is the prairie away
+from the lake. Full write-up, captures and critique:
+`docs/RESEARCH/inland-prairie-t1825/README.md`.
+
+- **The ground tile** gains 2.75 m and 1.4 m growth octaves on their own seed. Lush stands
+  are darker and bluer, thin ones show thatch and a speckle of loam. The tile is returned
+  to the previous mean channel by channel (94.95, 107.22, 61.92, unchanged), and
+  `measure_ground_albedo.mjs --gate` still reads 0.00. Luminance SD across the tile goes
+  from 5.1 to 9.8.
+- **The repeat is sheared**: `PRAIRIE_FRAGMENT` fetches after the community mosaic and
+  offsets the lookup by it (up to about 1.5 m). That adds no fetch and no sine. The
+  ground strip shares the fragment.
+- **The near sward** takes a `vigourOf` field (2.8 m and 1.4 m) for where each tuft stands
+  inside its record's height range, its tone, and whether it carries the thatch tint.
+  Field means are measured over 200 m: vigour 0.500, thatch 7.00 %, tone 1.000. Mid
+  cards take the tone only, so the boundary part 11 measures keeps its heights.
+- **Visible**: at `prairie_west` the near ground's block-luminance spread goes from 14.2
+  to 16.7 at 390×780 and from 18.2 to 19.2 at 1280×800. **Frame cost unmoved**: medians
+  are within 0.25 % at both stands and both viewports, and draws, triangles and textures
+  are identical.
+- **Liberty L337** records the seeded field as a pattern, not a place.
+
+**Unverified / open:** the ground still shows between tuft bundles (L32's budget), so
+density and tuft form are the next gains, and both are frame-budget questions. The
+critic rig's `prairie_south` stand now looks into a house and no longer measures open
+prairie. The `public_square` foreground's roadbed-edge seam predates this ticket and
+belongs to T-1812.
+
+## T-1826 — Wolf Point's books closed: the store on the teamster road states its use, T-1208 handed on (2026-10-01)
+
+**T-1774 was split** (T-1826, T-1827) before work began. Its acceptance asked for "the 55
+`phase2_west_wolf_point_approaches` roofs adopted/redealt", and `execute_roof_redeal.py --check`
+reads 0 West verdicts outstanding as an id migration — but `recon_1835_west_046` still stands F1
+under T-1445's `refamily → H2` verdict, and carrying it out re-deals the boarders already seated
+in nine houses (T-1782's finding on T-1774; the reference tree is
+`salvage/046-h2-lodgers-open-ceiling`, 82 files). That is its own demonstration and a bake, so it
+is T-1827 (needs_bake). This ticket closed the rest:
+
+- **The recipe's status restated.** `1835_phase2_west_wolf_point_approaches.json` read
+  `research_recipe_not_instantiated` while every one of its 55 placements has stood as a record
+  since T-1444 and `reconcile_665.py` reads `west_wolf_point_outer` complete. It now reads
+  `instantiated`, with a `status_restated` block naming what it was, why it moved, and that 046's
+  verdict is still open. No tool read the field; no record moved.
+- **`recon_1835_west_020` states its use** (row 4 of `1835_stated_uses.json`, L310 revised). The C2
+  store-residence on the Canal and Randolph teamster approach was the off-plat deal's one
+  `roofs_offered_and_unspent`: the placement policy admits C2 under `commercial_front` alone and no
+  band handed to that deal names it. The card now says what the building was for — a store with
+  attic rooms kept for the wagon trade, keeper unnamed — bounded by the C2 crosswalk line and the
+  recipe's `w2_canal_randolph_teamster` cluster; it names no trade goods or signboard, which the
+  signage and goods layers refuse for an anonymous slot. The deal now holds it back
+  (`roofs_held_back` 18 → 19, `roofs_offered_and_unspent` 1 → 0); no seat moved.
+  `inferred_occupancy.py` now credits a row's own `ticket` in the card's note, so 020 cites T-1826
+  and the T-1782 rows still cite T-1782.
+- **T-1208 handed on.** Every ticket in T-1208's chain is split or done, so the order book's four
+  rows that named T-1774 went to live owners: `ordinary_dwellings/west` (75 target, 59 standing,
+  **16 to build**), `stores_mixed_use/west` (6 of 6) and `workshops/west` (8 of 8) to **T-1829**,
+  filed for the West's remainder with `blk_west_lake_canal`'s three dealt cottages first;
+  `warehouses_freight/west` (2 of 2) to T-1827, because 046 is one of its two roofs and its verdict
+  takes it out of the row.
+- **The frame budget, read on the published tree** (`measure_detail_ceilings.mjs`, desktop): full
+  1,441,310 of 1,460,000 (Lake Street at Canal; the forks from Wolf Point 1,421,332), balanced
+  1,256,961 of 1,280,000, light 815,760 of 825,000 (the open aerial; the forks 815,727). Every tier
+  inside its ceiling. This ticket moved no mesh, so these are dev's numbers too.
+- **The screenshot from the Wolf Point tavern door**, looking west across its wagon yard to the
+  Canal Street roofs: `docs/evidence/t-1826-wolf-point-tavern-door-west-desktop.png` (local
+  E −86, N −44, yaw 270). `tools/shoot.mjs` now also answers the welcome card's "Enter Chicago";
+  since the start experience every `shoot.mjs` frame had the welcome card over its middle.
+
+**Not closed:** 046's H2 verdict (T-1827) and the West's 16 ordinary dwellings (T-1829).
+
+## T-1822 — the walk itself dealt by business: decked walks at the forwarding houses, bare ground at the smithy (2026-10-01)
+
+The first piece of T-1814, which is itself the second piece of T-1211 (owner: *"include their
+correct plank sidewalks for each business that varies because business vary"*). T-1814 was split
+in two. **T-1822** (this one) varies the walk on the four covered streets. **T-1823** carries the
+walk by business to the new fronts town-wide as the frame budget allows, with the cost measured.
+
+**What changed in the scene.** `FRONTAGE_BY_BUSINESS` in `tools/generate_frontage_works.py`
+gained a `walk` column. Inns and stores keep the 1.83 m board walk. A **forwarding house or
+warehouse** now fronts a **decked walk**. That is a 1.22 m strip of 75 mm plank laid on the board
+walk's street side for the length of the house's own frontage, making a 3.05 m (10 ft) deck. Each
+strip is a `decked_walk` record in its run's own chunk, so it adds no draw call. Each one
+publishes its own walking deck. Its post and wagon apron stand out past it by the same verge.
+Kinzie's post moved 1.22 m north. A **works** fronts **bare ground**. Every march step whose
+middle lies in front of it is refused. The walk stops either side, its tie rail stands on the
+ground, and a `bare_fronts` patch keeps the planting off it.
+
+**On today's town:** 3 decked walks, 39.8 m in all: J. H. Kinzie's forwarding store on South
+Water, and Dole's warehouse and the old bank building's packing house on Lake. There is 1 bare
+front, the Mason blacksmith shop on Lake, where a 5.2 m gap now splits `blk_lake_dearborn`'s north
+run in two. Walk 3,617.4 → 3,612.2 m, runs 43 → 44, walking decks 291 → 294, refusals 113 → 117.
+The four new refusals are the bare front, stated, and three South Water warehouse fronts that have
+no walk laid to widen. The yard rule now refuses one emigrant wagon (`south_water 10`) because it
+would have stood on Kinzie's deck: 84 → 83 wagons.
+
+**Verified.** `generate_frontage_works.py --check`, `generate_yard_goods.py --check`,
+`test_frontage_faces.py`, `compile_liberties.py --check` and `check-changelog.mjs` all pass. The
+smoke ran desktop part 2 and mobile parts 1-2, both green after the last change. A new walked
+check stands on the middle of each decked walk (3 of 3 on planks). It stands in the smith's gap
+(on the ground) and finds its planting patch. The track-verge check now holds decked walks too.
+
+**Honest gaps.** The bare front is bare of planting, but its ground is still the terrain's
+colour. A worn-earth surface is T-1811's (the worked roadway, in its own frame). The frame cost
+was **not measured** on this run. By the layer's own 43 triangles a metre the decks are roughly
++1,700 triangles where they are in view, and the smithy's cut gives back about 220. T-1815 owns
+the measured before/after, and T-1823 has to measure before it lays anything new. All widths are
+invented: docs/LIBERTIES.md L160, amended.
+
+## T-1813 — the street edge dealt by business: stoops, posts, mounting blocks, aprons and a tie rail (2026-10-01)
+
+The first piece of T-1211 (owner: *"include their correct plank sidewalks for each business
+that varies because business vary"*). T-1211 was split three ways: **T-1813** (this one, the
+fittings), **T-1814** (the walk itself varied by business and carried to every face) and
+**T-1815** (the photographic pass: captures, critique, frame costs).
+
+**What changed in the scene.** `tools/generate_frontage_works.py` now reads each business
+front on the four covered streets through one table, `FRONTAGE_BY_BUSINESS`, and lays what the
+trade implies. Inns get two posts, a stoop and a mounting block. Stores get one post and a
+stoop. Forwarding houses and warehouses get a wagon apron across the verge. Works get a tie
+rail. On today's town: **46 street-edge hitching posts (was 16), 37 stoops, 5 mounting blocks,
+3 wagon aprons and 1 tie rail.** `renderers/web/js/frontage.js` draws a fitting as the list of
+timber boxes the record carries (`parts`). Each box stands on the lowest ground under its
+corners, so nothing floats. The fittings sit in the street's existing standing chunk, so they
+add no draw call.
+
+**The grade clause is retired.** A reconstructed trade now takes its post and fittings at its
+own tier (24 grade refusals gone; 25 posts at reconstructed trades). Every record carries
+`trade_confidence`. Refusals across the layer: 119 → 113, the 18 new ones each naming their
+clause: no walk at the door, a wall 19.5 m back behind its fence, a neighbour standing on the
+ground. L160 is amended.
+
+**Honest gaps.** The door is the middle of the front, because no record places one. The walk
+is still the same 1.83 m everywhere (T-1814). The works still front a plank walk where the
+ticket wants bare ground (T-1814). The fittings use the walk's plain timber, not the
+photographic treatment (T-1815). And the frame cost was not measured on this run (T-1815
+owns the measurement).
+
+## T-1803 — the camps of the landing place: a new `camp` archetype and two emigrants' camps on the South Water bank (2026-10-01)
+
+**What a visitor sees.** Two rows of tents on the bank between South Water Street's roadway
+and the river, from Franklin toward Wells — 15 tents (wall and wedge, alternating), two covered
+wagons, a brush lean-to, eight cold fire rings with pot cranes, cordwood, and 13 heaps of
+chests and barrels for the households that slept in the open. No figure, no flame, no smoke (L1).
+
+**What it rests on.** The Chicago American of 13 June 1835 puts the strangers "under the open sky
+upon the wharves" and says "Some build tents upon the spot they were landed from the boats";
+`1835_camp_grounds.json` grades that ground documented, and `1835_transient_persons.json`
+(T-1353) deals 28 camp households to it — 15 tent, 13 open-sky, 102 persons. Each camp record
+names its households as occupants. Everything drawn — the stretch of bank, the tents' forms and
+sizes, the wagons, the fires — is reconstructed and covered by L321.
+
+**Where, measured.** `tools/place_landing_camps_1835.py` derives both records and re-derives them
+with `--check`. The dry strip between the DRAWN South Water roadway and the traced 1834 bank is
+9-16 m wide only between E +240 and E +450, and the river walk takes it east of Jones's landing;
+the camps stand at E +264-297 and E +300-342, at least 1 m clear of the roadway, the wharf decks,
+the river walk, the beached rowboats and every footprint, on ground 0.22 m or more above the
+water. On the CONTROL line the platted street ran to the water, so both camps are in the plat's
+roadway; the records say so (AGENTS.md rule 10).
+
+**The archetype.** `generators/archetypes/camp.py` + `camp_params.py`: tents (wall, wedge or
+mixed), covered wagons, brush shelters, fire rings, woodpiles, baggage heaps; `row`, `ring` and
+`scatter` layouts; canvas `new`/`weathered`/`patched`. Five materials, about 1,800 triangles a
+camp. A camp is not a roof: it is entered in `1835_existing_roof_reconciliation.json` at zero
+roofs, answers no family in the 668-roof programme, and the walker does not treat its footprint
+as a wall. **The ticket asked for an `X1` family in the inventory; it was not added**, because
+`family_targets` must sum to the roof total and `1835_camp_grounds.json` rules that a tent is not
+a building — a camp family belongs to whoever builds a transient ledger, not to the roof count.
+
+**Registering the archetype re-staled the town.** `generators/emit.py` is hashed into every
+structure mesh, so adding `camp` to its registry made all 516 assets stale; the whole town was
+rebaked in this PR (about two minutes). The GLB bytes came back identical and only the manifests'
+input hashes moved.
+
+**Not done here (T-1804).** The conjectural grounds — the shore south of the fort, the west
+approach — and the Native and Métis camps from T-1177's evidence, which carry the standing
+constraint's review. The camp households' own `lodged_at` still names the candidate ground, not
+these records.
+
+## T-1802 — the Franklin block's recipe corrected to the seating it landed on (2026-10-01)
+
+Owner-asked fix. #186 (T-1751) landed `blk_washington_franklin` with a recipe entry cut on
+an older seating than the one it merged onto. Two things in it were stale, and no gate could
+see either:
+
+- **The seven `dealt_against_a_request` seats** (hh_aspam_antoine, hh_ashbaugh_fre,
+  hh_bailly_esther, hh_aspam_jean_baptiste, hh_calhoun_alvin, hh_cady_levi,
+  hh_campbell_james_b) no longer asked for this block. `adopt_street_faces.py`
+  (`requested_roofs`) reads this list for refusal 7, so the derived adoptions file named
+  the wrong households.
+- **The yard mix** was two stables, where the block's 665-schedule plan holds one stable and
+  one small utility building.
+
+**How the fix was derived.** Dev today has the block built, so no household holds a slot on it
+any more. The requests were re-derived as a counterfactual, in a scratch copy: the block's
+recipe entry and its 13 records were taken off and the seating chain was walked to its
+fixpoint (2 passes). The placement pass then writes a slot against this block for
+hh_beddlecome_ash (lot 0, D7), hh_benediet_loma (lot 2, H2), hh_beech_reuben (lot 4, H1),
+hh_beaubien_monique (lot 6, D7), hh_chapman_george (lot 3, D3), hh_chandler_catherine
+(lot 5, D3) and hh_chattin_clark (lot 7, D3). The schedule plans A1 + A2 + A3 + 2 A4 + A5.
+
+- **Lot 7 stays a D3.** The closed re-cut #198 had moved it to a D4, because the 9/29
+  seating asked hh_chiney_ralph to have a D4 there. Today's seating asks for a D3 there, so the
+  D4 is stale too and was not carried over.
+- The new requests ask for exactly the families the deal raised. So the seven roofs refusal 7
+  holds back are the same seven, and only the names they record change.
+- **Lot 0's stable is now an A5 small utility building**
+  (`recon_1835_blk_washington_franklin_a5_08`, replacing `…_a1_08`). It was baked with
+  pinned Blender 4.5.3 (`generators/build.py --only`), its web derivative was made with
+  `web_derivatives.sh --only`, and the sidecars were recompiled with `compile_scene.py --all`.
+
+**Converged figures (chain at fixpoint, 2 passes, then `rederive.mjs --run`, then 2 more):**
+platted seats **183** (148 adopted, 35 slots), **1,295** handed on, off-plat **72**, keepers
+**23** (80 refused, 45 owed). None of these moved: the seating files are byte-identical to
+dev's. The programme reads **500 standing, 168 remaining**, also unmoved. The stable no longer built here goes back into the South's plan:
+barns and stables owed there go 8 → 9, small outbuildings 13 → 12. Assets: one GLB swapped,
+so the count is unchanged. **L304** carries the correction; **L263** (prose only, count
+unmoved at 483) and **L270** (a no-seat-moved restatement) are restated.
+
+## T-1783 — the outer West blocks opened at a West density; four roofs on plat block 47 (2026-10-01)
+
+Third piece of T-1208. The West Division's platted grid was withheld from the 665-roof schedule
+whole (T-1455) because its only density was the Original Town's party-line figure, measured on
+other frontage. `tools/reconcile_665.py` now gives the West grid a figure of its own:
+`west_lot_ceiling` reads the reviewed West recipe's densest lot-ruled block — six roofs on
+`blk_west_lake_des_plaines`'s ten lots — and sizes every lot-ruled West block at that ceiling
+(`density` on each unit says where it came from). Only the recipe's own placements count, so the
+ceiling cannot climb on what the schedule itself deals.
+
+- Opened: `blk_west_lake_des_plaines` (6 of 6, at its ceiling), `blk_west_lake_canal` (3 room)
+  and `blk_west_randolph_des_plaines` (4 room). The six West cells with no lot figures stay
+  gated with `waiting_on` naming T-1414. The district balance falls 36 → 28.
+- Built: `blk_west_randolph_des_plaines` (plat block 47) takes its four — D4 on plat lot 7 and a
+  W2 shop in a one-lot Randolph frontage run at the Des Plaines corner (T-0024 sends a
+  non-dwelling to the better face, and every West lot fronts a north-south street), D6 on plat
+  lot 5 and D5 on plat lot 9 of the Jefferson face. Four lots open. Baked with `bake.sh --only`.
+- Not built: `blk_west_lake_canal`'s deal (three frame cottages, with three households already
+  asking for slots on it). T-1773's warehouse now stands on lot 1 of that block and spends one
+  of its six. The order book's `structures/ordinary_dwellings/west` row (19 left) and its
+  `warehouses_freight/west` row (2 of 2) move from the done T-1794 and T-1773 to T-1774, the open
+  ticket that hands T-1208 on with the West's exact remainder. The finding is written on T-1774.
+- Seated: three households adopt the three new cottages (L270 restated, 177 → 183 seats; L276 restated, 24 → 23 keepers: the re-deal moves T-1761's Ballingale off `d3_04`). The
+  workshop stands on the street line, as the placement policy's `mechanics_streets` asks.
+- L313 records the ceiling and the four roofs; L263 restated (485 phases).
+- The re-deal moved the trade roofs: West's four are now weighted over four blocks, so the
+  Clinton blocks' unclaimed deals changed family (T-1760/T-1761 claim from the schedule they
+  read; a claimed parcel's `drawn_from_schedule` is frozen, so nothing built moves).
+
+**Not done here, and owned:** the shop has no keeper seated (the business layer owns that). The Jefferson and Fulton faces have
+no lot lines (T-1414). D1 cabins were not dealt here: the West's remaining D1 target is spent,
+so the deal carries frame cottages.
+
+## T-1799 — Wabansia's books closed, and the West's outer build with them (2026-10-01)
+
+Piece 2 of 2 of T-1785, which is piece 5 of 5 of T-1208. T-1798 raised the doctor's house in
+Wabansia; this piece answers the three clauses it left open, on the published tree, and
+**changes nothing in the town**. The reading is `data/render/west_close_out.json`.
+
+**Visible-progress rule, stated rather than dodged.** This run is invisible and no exemption
+covers it: two of the last four entries (v1252, v1253) were invisible already. It was taken
+because it is the owner-requested closer of a build whose visible half landed in v1254, and it
+was the topmost free workable ticket for this slot; the sibling runs in flight beside it (T-1766,
+T-1776, T-1778, T-1783) were all visible parcels, and T-1776 landed while this was open.
+
+**The frame budget, with the doctor's house standing: PASS at every tier, both viewports.**
+Read with `tools/smoke_renderer.mjs` part 5, the ceiling sweep `measure_detail_ceilings.mjs`
+copies. That tool itself ran past the 600 s foreground cap on desktop and printed nothing, so it
+was stopped; the smoke part reports each tier's worst stand rather than the five-stand spread.
+**Read twice.** Dev moved while this was open (T-1776's six hotel stables, #221), so the sweep
+was re-run on the merged tree; the tables are that reading. The stables cost 9,021 triangles at
+Lake and Canal at both viewports. The first read, at `08e0163c`, is kept in the reading.
+
+| tier | ceiling | worst desktop | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,436,965 (Lake Street at Canal, east down the axis) | 23,035 (1.58 %) | 205 |
+| `balanced` | 1,280,000 | 1,239,725 (Lake Street at Canal, east down the axis) | 40,275 (3.15 %) | 189 |
+| `light` | 825,000 | 803,666 (the open aerial) | 21,334 (2.59 %) | 83 |
+
+| tier | ceiling | worst mobile | margin | worst calls |
+| --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,307,831 (Lake Street at Canal, east down the axis) | 152,169 (10.42 %) | 188 |
+| `balanced` | 1,280,000 | 1,132,251 (Lake Street at Canal, east down the axis) | 147,749 (11.54 %) | 177 |
+| `light` | 825,000 | 736,228 (the open aerial) | 88,772 (10.76 %) | 76 |
+
+**The binding stand moved west.** T-1688 read desktop `balanced` worst at the forks (margin
+23,456, 1.83 %). It is now Lake Street at Canal for `full` and `balanced` at both viewports, and
+desktop `full` is the tightest tier, at 1.58 %. Lake and Canal's frame is also the town's worst
+for draw calls, at 205 of 215. The next West parcel inside that frustum should price itself first
+(`measure_detail_ceilings.mjs --price`). No re-budget is proposed.
+
+**The Canal-approach screenshot, looking west**: `docs/evidence/t-1799-canal-approach-west-desktop.png`
+and `-mobile.png`. This is the `lake_at_canal` anchor turned to yaw 270, on the published mirror
+with the clock held. The pose and hashes are in the reading.
+
+**T-1209 handed on with the West's remainder**, written into the ticket with each row's live owner.
+Read from the order book:
+
+| row | target | standing | to build | owner |
+| --- | --- | --- | --- | --- |
+| `structures/barns_stables/west` | 20 | 14 | 6 | T-1212 |
+| `structures/inns_taverns/west` | 3 | 3 | 0 | T-1762 |
+| `structures/institutional_public/west` | 1 | 1 | 0 | T-1785 |
+| `structures/larger_boarding_houses/west` | 6 | 2 | 4 | T-1779 |
+| `structures/ordinary_dwellings/west` | 75 | 56 | 19 | T-1783 |
+| `structures/small_outbuildings/west` | 14 | 6 | 8 | T-1212 |
+| `structures/stores_mixed_use/west` | 6 | 4 | 2 | T-1766 |
+| `structures/warehouses_freight/west` | 2 | 2 | 0 | T-1773 |
+| `structures/workshops/west` | 8 | 5 | 3 | T-1766 |
+
+42 roofs are still owed on modelled ground. Another 42 are gated in
+`ground/west_division_beyond_committed_control`, because there is no committed street control
+west of Clinton and Canal. `institutional_public/west` is full and names T-1785, which this
+closes. The owner gate skips a row with nothing left, and `ticket_liveness.py --closing T-1799`
+strands nothing.
+
+**Not closed:** T-1208's stop condition (every outer West slot built and seated). T-1774 closes
+Wolf Point's own books separately.
+
+## T-1776 — six public houses get a stable, sized from their beds (2026-10-01)
+
+Second piece of T-1209. Each licensed house the lodging model sizes is read for its
+horse-keeping against its beds. The ledger is `docs/RESEARCH/1835_tavern_horse_keeping.md`.
+Six houses get a new stable: the Tremont, the Exchange Coffee House, the New York House, the
+Mansion House, the Sauganash and the Steamboat Hotel. The Western's (T-1775) and the Wolf
+Point's already stood. The Green Tree's is a **stated absence**: a four-stall range behind it
+stood 2.64 m inside Lake Street's corridor, and the house's back wall is about 12 m from the
+bank. Every new stable is reconstructed under **L317**:
+
+- **Stalls:** one per two ordinary guests, never fewer than four. The Tremont gets one per
+  guest, because it was a stage stop.
+- **Size:** 5 ft a stall, 20 ft ranges (28 ft for the Tremont's two), plus a 6 ft harness bay.
+- **Place:** the alley end of the house's own lot, 1.5 m inside the alley line, or behind the
+  house off the plat.
+
+The service is the 1831 county tariff ("Keeping horse one night 50"). No source mentions a
+stable at any of these six houses. Baked with `bake.sh --only`.
+
+The six are A1 roofs in the existing-roof reconciliation. Like the other two stables, each
+substitutes for an anonymous A1 slot. The programme now reads **495 standing, 173 remaining**
+(dev before this PR: 489/179), and barns-and-stables left is 8 south and 7 north (was 13/8). The chain re-run
+to fixpoint holds the platted seats at 177 and the keepers at 24, and moves no standing roof.
+The Sauganash's corner lot is nearest Market from every point, so its stable carries an
+`OUTLIER_REASONS` line in `tools/placement_policy_1835.py`.
+## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
+
+**What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,
+was empty prairie. Its south-east block (Wright's block 59, `blk_wabansia_c_t7`) now carries a
+story-and-a-half frame house with a rear kitchen ell, fronting Kinzie Street; a plank barn with
+a loft behind it; and a picket-fenced kitchen garden on the house's river side. They are named
+records — `wabansia_doctors_house`, `wabansia_doctors_barn`, `data/enclosures/wabansia_doctors_garden.json`
+— not recipe roofs, because a source attests them: the Chicago Democrat of 16 July 1834
+(claim c017) offers to let "[a] convenient dwelling house, in W[a]bansia, now occupied by Doctor
+Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it."
+
+**What is attested and what is not.** The house, its four rooms, its kitchen, barn and garden,
+and the survey are attested; the house standing on 1 July 1835 is inferred (it was let, not
+removed). Block, lot, setbacks and every dimension are reconstructed under **L316**. No household
+is seated: the 1834 doctor is not merged with `kimberly_residence`'s Dr E. S. Kimberly, and
+spend_rulings' "reaches no seat" ruling on c017 is withdrawn because the claim now has a building.
+
+**Defects found on the way.** `tools/fronting_street.py` assumed every lot is a tier of its block;
+Wabansia's lots run tier line to tier line with no alley, and the first building on one raised a
+KeyError — it now fronts both tier streets, nearest first. `tools/plat_corridors.py` carries no
+corridor for any Wabansia street, so the frontage census and the placement policy read the house
+as fronting nothing although it stands 6.1 m behind `kinzie_west`'s corridor edge; stated as an
+outlier reason and in the census count, not fixed here.
+
+**Not done (T-1785's remaining clauses).** The district's frame budget was not read on the
+published tree and the Canal-approach screenshot west was not taken; T-1209 is not handed on.
+The Wabansia blocks' remaining slots stay `gated` on a placement policy for the survey.
+
+## T-1773 — the West Division's second freight roof, at Lake and West Water (2026-10-01)
+
+**T-1764 was split** (T-1773, T-1774). Its first clause — the cabins and boarding houses
+of the forks — sits in two rows the order book gives to other tickets (`ordinary_dwellings/west`,
+24 left, now T-1783; `larger_boarding_houses/west`, 4 left, now T-1779), and both parents were
+claimed by sibling runs at 04:09Z. Its closing clauses (the pre-plat roofs reconciled, the
+refusals resolved, the frame budget read, T-1208 handed on) cannot close honestly before those
+land, so they are T-1774. The one West row T-1764 owned outright was `warehouses_freight/west`,
+2 set and 1 standing, and that is this unit.
+
+**What stands now.** `recon_1835_forks_freight_f2_001`, an F2 narrow two-storey warehouse
+(hoist, two cargo bays, vertical boards), on the corner of plat lot 1 of `blk_west_lake_canal`
+— Lake and West Water, facing the South Branch at the forks — 1.5 m inside both street lines.
+Its own generator (`tools/generate_west_freight.py`, `--check` and `--self-test` in the gate)
+because the West grid is unscheduled (T-1455) and the block parcels cannot deal onto it. The
+first placement, centred on the lot, stood 8.15 m off Lake Street and the anonymous-roof audit
+refamilied it to H2 (`commercial_front` puts a freight roof on the line); moved to the corner,
+the audit keeps it. L308 records the invention; L263 (477) and L280 (three F2 roofs) are
+restated. The order book now reads the West freight row 2 of 2.
+
+**Verification.** See the PR: `check.sh` and the `--for-diff` smoke parts at both viewports.
+
+## T-1793 — the West farm ground measured before any farm is raised (2026-10-01)
+
+T-1784 asked for the 44 owed West farm households to be dealt as D1 cabin + A2 barn farmsteads on
+the extended ground. It turned out to be more than one run, so it was split: T-1793 measures, and
+T-1794 builds. `tools/measure_west_farm_ground_1835.py` writes
+`data/reconstruction/1835_west_farm_ground.json`, and `check.sh` re-derives it. It is listed in
+`tools/derived_manifest.json`, so PR laps rebuild it rather than conflict on it.
+Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
+
+- All 44 households are `policy_only`: post-office letter-list names whose division and class were
+  dealt. No source places one.
+- The West ground outside the 1833 corporation limits and off every subdivided tract is
+  **177.7 ha, 10.98 forties**, most of it south of Twelfth Street. At one farm per forty, the
+  modelled ground holds **at most 10 farmsteads**; **34 or more** must be stated as farming beyond it.
+- **13 roofs already stand on that ground** (the Des Plaines edge cluster). They include **2 D1+A2
+  pairs** a farm household could take with no new roof, if a farmstead rule seats it ahead of the
+  labourers.
+- **The programme carries 0 new farmsteads**: the West has 0 D1 and 3 A2 left to build. The 22
+  remaining dwellings are T-1783's and the 7 barns T-1212's.
+
+**Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
+the build. Nothing in the scene changed.
+## T-1781 — the Des Plaines edge farmsteads: five standing redeal verdicts carried out (2026-10-01)
+
+T-1208 (the West Division's outer clusters and Wabansia) was more than one demonstration, so it
+was split into T-1781 … T-1785; this is the first piece. When T-1444 released the thirty-five
+held West slots, the re-derived roof adjudication (T-1445) returned eight new West refamily
+verdicts and nobody carried them out. This carries out the five in `w5_desplaines_open_edge`:
+`recon_1835_west_050`, `_051`, `_052` and `_054` become D1 log cabins and `_053` an A2 barn beside
+`_055`. Same coordinates, rotations and inventory classes; `_050` widens 14 → 16 ft to the D1
+band's floor. Baked with `bake.sh --only` (five GLBs and their web derivatives).
+
+- `tools/execute_roof_redeal.py --apply` gained `--only/--ticket/--on`: a PARTIAL execution
+  that refuses a name with no standing verdict, stamps the later ticket on each roof's own
+  `redealt` entry, and lists the verdicts it left standing in
+  `docs/RESEARCH/1835_roof_redeal_execution.md`. The other three (`_013`, `_020`, `_046`) stay
+  for T-1764/T-1774 and T-1782.
+- The adjudication re-audits all five as `keep` (377 roofs: 374 keep, 3 refamily).
+- Seating re-derived: four labourer households in the four cabins; the two tradesman households
+  that held `_052`/`_053` move to `_043`/`_045` (Clinton cluster); Butterfield and Cappy lose
+  their roofs in the cascade and are owed to T-1615; Barnes and Doyle gain one.
+- The order book's owner table was swept off three tickets split this hour (T-1208, T-1209,
+  T-1764) onto their live children (T-1783, T-1785, T-1779, T-1774) — the gate refuses a book
+  ordering work from a split ticket.
+- L265 and L266 restated (11 re-dealt roofs; 83 log or fort phases).
+
+**Not done here, and owned:** no new ground is opened (T-1783 needs a measured West lot
+density, and the ground waits on T-1414); no farm household is seated on these cabins — the
+re-seating put labourers there, and the farms-and-country-seats band stays owed to T-1784.
+## T-1775 — the Western Hotel's stable re-sized to its guests (2026-10-01)
+
+First piece of T-1209 (split this run into T-1775..T-1780). `western_hotel_stable` was
+13.0 x 7.0 m — about eight horses, four teams — against the one sentence its trade is
+attested by, "the teams were as numerous as were the guests", and a house the lodging model
+sizes at 15 on an ordinary night. It is now **22.0 x 8.5 m (72 x 28 ft)**: sixteen double
+stalls in two ranges of eight either side of an 8 ft passage, for fifteen pair teams. Every
+stall, passage and team figure is ours and L72 carries it (revised, append-only). The north
+face the wagon yard's fence meets is unchanged at N -298.00; the stable grew east to
+E -118.90 and south to N -306.50, and the yard's east run now meets its north wall instead of
+its old north-east corner. Rebaked with `bake.sh --only western_hotel_stable`.
+
+Found on the way and fixed because the gate is shared: the order book named T-1209, T-1208 and
+T-1764 for live cells after all three were split this morning. Boarding houses (all three
+divisions) now point at T-1779, West dwellings at T-1783, West freight at T-1773.
+
+**Not done here:** the other named houses' horse-keeping (T-1776), and where the H3 boarding
+houses can stand at all — every scheduled H3 slot is refused today (T-1777).
+
 ## T-1460 — retire the invented west-prairie drains (2026-09-30)
 
 Owner option (a) is implemented: both conjectural west-prairie swales are record-only, with dossier evidence and retired liberty history retained. The recovered heightfield and terrain meshes remove their cuts; all eight reviewed roofs retain their positions. The West generator refuses reintroduction of either retired alignment. Recovery merged current dev and rebuilt the derived layer and compile-scene tail. Mesh freshness passes with zero errors. Full preflight passes: check.sh reports 710 steps, none red; changelog and ticket-ID checks also pass. The one off-plat ledger area changed by survey rounding was regenerated and checked without changing any seat. Published desktop/mobile smoke remains pending on the recovered branch.
@@ -383,6 +955,25 @@ supplied, so its line is carried between sheets 20 and 35. Michigan Avenue is we
 sheet and is not drawn. `data/street_grid/` is one dated file and carries no `index.json`, so
 `measure_generator_half.py` does not count it among the drawn-at-load layers; like them, it has no
 generator half.
+
+## T-1258 — the Chicago daybook (2026-10-01)
+
+Finishing a jaunt now keeps its keepsake in a daybook: five families (Provisions,
+Livelihood, Wayfinding, News & Knowledge, Neighbors), four ranks from New Arrival to
+Seasoned Chicagoan. Families, ranks, thresholds and each family's paper form (receipt,
+work chit, route note, clipping, calling card) are data in `data/jaunts/daybook.json`;
+`compile_jaunts.py` validates it against the keepsake schema's family list and ships it
+beside each scene's catalog. `jaunt-journal.js` awards on a completed, eligible ending
+only, idempotent per jaunt + keepsake, and counts a jaunt's `secondary_family` too.
+Storage is `c4d.daybook.v1` (1835) or `c4d.daybook.v1.<year>`; a damaged save is set
+aside under `.damaged` with a notice, an old schema is set aside, unreadable rows are
+dropped and counted aloud, and blocked storage runs in memory and says so.
+
+Unverified: only one jaunt (Wayfinding) is published for 1835, so a visitor can reach
+no rank above New Arrival yet. The ladder is proven on fifteen generated fixture
+outings in `tools/test_daybook.mjs`, not on authored content. The desktop leg of
+`test_jaunts_play.mjs` did not finish inside one 600 s foreground call on the runner;
+the 390×780 leg (pilot, outcome, daybook, reload) passed.
 
 ## T-1257 — optional history beside a jaunt (2026-09-28)
 
@@ -18653,6 +19244,26 @@ No roof or baked mesh changes. The project gate passed all 714 steps. The recove
 validation record carries the subsequent full mobile and desktop results.
 
 
+## T-1766: Canal approach trade roofs
+
+The parcel adds two stores and two workshops against the West Division
+remainder (built as five; the W3 wagon shop was withdrawn on 2026-10-01 when
+T-1783's carpenter's shop filled the West workshops row first — see
+`docs/RESEARCH/canal_approach_trade.md` § Built as five), with exact presence, placement and business assignments reconstructed.
+The existing roofs and prior workshop-to-dwelling rulings are retained.
+The canonical bake passed all 716 checks and supplied all five compressed models.
+Card naming, yard batching and the bounded grass-fringe repair are implemented. Final coverage for `ef515fab75dd9d989faa7ce6ee0fc09546aff7f5` includes dev `0d78fc1` (including `b18a034`) and the T-1782 metadata integration and all five Canal roofs. The full preflight passes; eight published CI jobs cover all 13 parts at desktop and mobile with zero failures. Published desktop triangle maxima: Full 1,424,307/1,460,000, Balanced 1,226,906/1,280,000, Light 807,664/825,000; all existing ceilings hold. Parts 1–2 and 7–9 retain their successful baseline SHA; parts 3–6 and 10–13 test the integrated SHA. Verified semantic scope preserves the unchanged drawing inputs; this is scoped coverage, not one exact-tree smoke run. Exact job URLs, checkout commits, start times and untouched logs are retained in `canal-approach-qa/final-ci-manifest.json`; the standing smoke ledger uses the existing parser and writer.
+See `docs/RESEARCH/canal_approach_trade.md` and liberty L307.
+
+The final evidence commit also integrates dev `773e956` (T-1793). Its new farm-ground report is an offline research output, omitted from the published site; no existing scene inputs, geometry, assets or runtime code change except the shared changelog. `docs/RESEARCH/canal-approach-qa/research-carryforward-scope.json` records that comparison separately from the eight smoke receipts and preserves their actual tested commits. The reader was regenerated against the completed Canal parcel: 47 West roofs remain, with the two store and three workshop slots removed; the 13 farm-ground roofs and their measurements are unchanged.
+
+**Combined T-1760 integration smoke.** The combined T-1766/T-1760 integration at `9446a07a87b92ae4920e69398e1d986ad91f0bb4` passes fresh published smoke parts 1–13 at both desktop and mobile, across ten completed jobs with zero failures. Actual job URLs, API start times, tested commit and untouched logs are retained in `docs/RESEARCH/canal-approach-qa/combined-ci-manifest.json` beside this evidence. These readings supersede the earlier 15fb79d/ef515fa scoped smoke coverage for the combined scene; those earlier receipts remain historical evidence. The standing smoke ledger retains each new job's actual provenance. Reported counts include repeated boot/vendor checks from this ten-job partition and are not compared with differently partitioned totals. This receipt describes the tested commit and does not assert equivalence to subsequent untested edits.
+
 ## T-1768 — Temporal observatory
 
 The root front door is a lightweight three-period menu. SVG orbital graphics and bounded CSS acquisition/departure animations introduce the year links. Shared skin tokens persist across menu and renderer panels; the gate has an appearance selector and All periods link. Explicit root query deep links route to the matching year without losing parameters. 1812 remains explicitly unbuilt. The decorative line drawings are interface illustrations, not reconstruction evidence. Published browser checks passed at 1280x800 and 390x844: all skins, persistent preferences, transfer to 1835, return to menu, dev-prefixed 1904 links, root query/fragment preservation, no horizontal overflow, and no JavaScript errors. All period links remain usable with JavaScript disabled. Published renderer part 1 passed 80/0 at both desktop (10m48s) and mobile (7m46s), with zero page errors. Initial desktop attempts timed out during startup under concurrent local validation; the solo retry passed. The standalone menu checks also cover the final Space Age light/dark synchronization. Full repository CI is pending; local full-gate attempts were interrupted without a complete verdict. Renderer parts 2–13 were not rerun for this interface change; the part-1 ledger deliberately carries no exact final-tree hash because tone synchronization was finalized during the smoke sequence.
+
+
+## T-1805 — Glessner west roof repair (2026-10-01)
+
+The stable north gable now has its photographed eave return toward the alley, and the crossing roof is emitted once instead of passing through the front wall and loft opening. The opening axis is unchanged. Actual-GLB north, northwest and alley reviews confirm the shortened cornice and clear loft opening in full/light variants. Sidewalk slope depth bias is removed to address the apparent slab drawn through the wall at grazing angles. The full/light derivatives and recovery package are saved; light is 196,687 triangles against the unchanged 200,000 ceiling. Package and staleness checks pass. The four Glessner masters and canonical web files reproduced byte-for-byte after the shared emitter changed. Source CI passed all 719 steps on b034b066 (36905203833). Published Chromium desktop 5,10–11 passed 62 checks (36905832670), mobile 10 passed 33 (36904172019), desktop 1,5 passed 96 (36899248098), and mobile 1,5,11,13 passed 223 (36899419433), all with zero page errors. Both viewports' 1904 Glessner loading, placement, picking, materials and draw-budget checks pass. The integration repairs retain the yard budget, place the camp anchors on their ground, verify drawn placement to 0.001 m, and give the desktop grass edge a measured 4.94 px spread against the unchanged 4 px floor. Final receipts and the subsequent app-title merge are recorded in PR #230 and tools/dev-smoke-state.json. Browser validation ran on GitHub because local Chromium is refused by this environment. See docs/RESEARCH/glessner-west-roof-repair/work.md.

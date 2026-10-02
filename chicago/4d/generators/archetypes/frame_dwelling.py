@@ -75,7 +75,8 @@ from common.mesh import (  # noqa: E402
     SHUTTER_RGBA, MeshBuilder, simple_material,
 )
 from archetypes.frame_dwelling_params import (  # noqa: E402
-    HALL_FRACTION, FrameDwellingParams,
+    HALL_FRACTION, MUNTIN_M, SASH_MEETING_M, SASH_STILE_M, FrameDwellingParams,
+    glazing_lights, sash_rows,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
@@ -92,6 +93,17 @@ M_WALL, M_ROOF, M_TRIM, M_DARK, M_SHUTTER = 0, 1, 2, 3, 4
 # one unconditionally would rewrite every chimneyless master in the archetype for
 # a colour none of them uses.
 M_CHIMNEY = 5
+# The stovepipe's slot follows the chimney's when there is one and takes it when there
+# is not, so a house drawing no pipe keeps exactly the material list it always had
+# (T-1807) — the same rule frame_tavern's slot follows.
+
+# Sheet iron, blacked, and a 6-in pipe drawn square: frame_tavern's values (T-1778),
+# repeated rather than imported, because an asset's input hash reads this module's
+# bytes and not frame_tavern's — an imported colour would be a geometry input the
+# staleness gate cannot see. NOT ON THE MATERIAL SHEET: no source gives the finish of
+# any 1835 Chicago stovepipe.
+PIPE_RGBA = (0.118, 0.112, 0.104, 1.0)
+PIPE_SIDE = 0.16
 
 # The exposed face of a course is `params.siding_exposure_m` — a record's own mill
 # stock since T-0049, defaulting to 0.14 m (~5.5 in), which was this constant.
@@ -103,6 +115,9 @@ TRIM_RELIEF_M = 0.032       # boarded trim standing off the siding
 # 6 x 8 in lights (chicagology_prefire127). Four panes across and three high per sash,
 # with stiles and rails, comes to roughly this — small, and nearly as wide as it is
 # tall by comparison with the tall sash of a later decade.
+# Since T-1838 a window here is built from the record's `glazing` instead — lights,
+# muntins and rails (`frame_dwelling_params.GLAZINGS`) — and the default glazing is
+# this same pane; these two stay as the size the T-1801 fabric proof was built at.
 WIN_W_M, WIN_H_M = 0.78, 1.25
 # The gable-end window of a half storey. "A small attic window in the gable end."
 GABLE_WIN_W_M, GABLE_WIN_H_M = 0.62, 0.70
@@ -148,7 +163,8 @@ def build(params: FrameDwellingParams, name: str):
     # neither, the archetype's own default plan is doing the talking and the geometry
     # says so.
     c_fen = max(params.conf("fenestration", "reconstructed"),
-                params.conf("plan", "reconstructed"), params.conf("bays", "reconstructed"))
+                params.conf("plan", "reconstructed"), params.conf("bays", "reconstructed"),
+                params.conf("glazing", "reconstructed"))
 
     # main range — omit the bottom, it is never seen and costs two triangles per
     # building across the whole town
@@ -172,6 +188,10 @@ def build(params: FrameDwellingParams, name: str):
     _chimneys(b, params, w, y0, d, wall_z, ridge_z, ell_ridge_z,
               params.conf("chimneys", "reconstructed"),
               M_CHIMNEY if params.chimneys > 0 else M_ROOF)
+
+    if params.stovepipes:
+        _stovepipes(b, params, w, y0, d, wall_z,
+                    M_CHIMNEY + (1 if params.chimneys > 0 else 0))
 
     if params.porch:
         _porch(b, params, openings, d, wall_z, params.conf("porch", "reconstructed"))
@@ -229,6 +249,8 @@ def build(params: FrameDwellingParams, name: str):
     if params.chimneys > 0:
         stack = materials.chimney_finish("interior")
         mats.append(simple_material("chimney", stack.rgba, roughness=stack.roughness))
+    if params.stovepipes:
+        mats.append(simple_material("stovepipe", PIPE_RGBA, roughness=0.62))
     return b.to_object(mats)
 
 
@@ -276,17 +298,78 @@ def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
            outward, conf, M_DARK)
 
 
-def _sash(sill: float, head_limit: float) -> float:
-    """How tall a window can be between this sill and the plate above it.
+def _sash(p: FrameDwellingParams, sill: float, head_limit: float) -> tuple:
+    """How tall a window can be between this sill and the plate above it, as
+    (height, upper rows, lower rows) of the house's glazing.
 
     Not a nicety. The window is sized from an attested pane, the wall height is the
     record's, and the two do not have to agree: a low one-storey house at the bottom of
     the range this archetype accepts has less wall between its sill and its frieze board
     than a full sash needs. Left unchecked the head pushes through the plate and out of
     the top of the building — visible, wrong, and only in the combinations no golden case
-    happens to use. So the opening shortens instead, which is what a builder did.
+    happens to use. So the opening shortens instead, which is what a builder did —
+    by a row of lights where there is a row to lose (`sash_rows`).
     """
-    return min(WIN_H_M, head_limit - sill)
+    up, lo, h = sash_rows(p.glazing, head_limit - sill)
+    return h, up, lo
+
+
+def _window(b: MeshBuilder, p: FrameDwellingParams, axis: str, plane: float,
+            uc: float, z0: float, sash: tuple, outward: int, conf: float) -> None:
+    """A full window centred on `uc`: the opening, then its double-hung sash."""
+    h, up, lo = sash
+    hw = p.window_w_m / 2.0
+    _opening(b, axis, plane, uc - hw, uc + hw, z0, z0 + h, outward, conf)
+    _sash_bars(b, p, axis, plane, uc - hw, uc + hw, z0, z0 + h, outward, conf,
+               rows=(up, lo))
+
+
+def _sash_bars(b: MeshBuilder, p: FrameDwellingParams, axis: str, plane: float,
+               u0: float, u1: float, z0: float, z1: float, outward: int,
+               conf: float, rows: tuple | None = None) -> None:
+    """The sash's timber over a dark opening: stiles, rails, muntins (T-1838).
+
+    Before this every window in the archetype was a dark rectangle in a boarded
+    surround, and a 6 x 8 in light was a number in a comment. The bars are what make
+    the glazing a thing a visitor sees: a merchant's 8 x 10 lights read as fewer,
+    larger panes than a labourer's 6-over-6 of the attested 6 x 8.
+
+    `rows` is (upper, lower) for a double-hung window, with the meeting rail between
+    them; None is the half storey's small fixed light, which takes as many whole
+    panes of the house's glass as its opening holds. Flat panels, in the trim's
+    colour, just in front of the dark panel `_opening` laid: the sash is painted with
+    the casing, and a box per bar would treble the cost of every window in the town.
+    """
+    across, _up, _lo, pw, ph = glazing_lights(p.glazing)
+    y = plane + outward * (TRIM_RELIEF_M + 0.010 + 0.010)
+    s = SASH_STILE_M
+
+    def bar(a0, a1, b0, b1):
+        _panel(b, axis, y, a0, a1, b0, b1, outward, conf, M_TRIM)
+
+    if rows is None:
+        across = max(1, round((u1 - u0 - 2 * s + MUNTIN_M) / (pw + MUNTIN_M)))
+        n = max(1, round((z1 - z0 - 2 * s + MUNTIN_M) / (ph + MUNTIN_M)))
+        bands = [(z0 + s, z1 - s, n)]
+    else:
+        up, lo = rows
+        pane = (z1 - z0 - 2 * s - SASH_MEETING_M - (up + lo - 2) * MUNTIN_M) / (up + lo)
+        zm = z0 + s + lo * pane + (lo - 1) * MUNTIN_M
+        bar(u0 + s, u1 - s, zm, zm + SASH_MEETING_M)
+        bands = [(z0 + s, zm, lo), (zm + SASH_MEETING_M, z1 - s, up)]
+    bar(u0, u0 + s, z0, z1)
+    bar(u1 - s, u1, z0, z1)
+    bar(u0 + s, u1 - s, z0, z0 + s)
+    bar(u0 + s, u1 - s, z1 - s, z1)
+    lw = (u1 - u0 - 2 * s - (across - 1) * MUNTIN_M) / across
+    for k in range(1, across):
+        u = u0 + s + k * lw + (k - 1) * MUNTIN_M
+        bar(u, u + MUNTIN_M, z0 + s, z1 - s)
+    for lo_z, hi_z, n in bands:
+        lh = (hi_z - lo_z - (n - 1) * MUNTIN_M) / n
+        for k in range(1, n):
+            z = lo_z + k * lh + (k - 1) * MUNTIN_M
+            bar(u0 + s, u1 - s, z, z + MUNTIN_M)
 
 
 def _band(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
@@ -536,7 +619,8 @@ def _facade(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: float,
     c_shut = p.conf("shutters", "reconstructed")
     # everything on this wall stops under the frieze board
     top_head = wall_z - 0.28
-    h = _sash(sill, story_h - 0.14 if p.stories >= 2.0 else top_head)
+    sash = _sash(p, sill, story_h - 0.14 if p.stories >= 2.0 else top_head)
+    h = sash[0]
     door_h = min(DOOR_H_M, top_head - DOOR_SILL_M)
 
     for cx, kind in openings:
@@ -547,23 +631,24 @@ def _facade(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: float,
             continue
         if h < 0.5:
             continue
-        _opening(b, "y", d, cx - WIN_W_M / 2, cx + WIN_W_M / 2, sill, sill + h, 1, conf)
+        _window(b, p, "y", d, cx, sill, sash, 1, conf)
         if p.shutters:
-            _shutters(b, d, cx, sill, sill + h, 1, c_shut)
+            _shutters(b, p, d, cx, sill, sill + h, 1, c_shut)
 
     if p.stories >= 2.0:
         z = story_h + sill
-        hu = _sash(z, top_head)
+        sash_u = _sash(p, z, top_head)
+        hu = sash_u[0]
         for cx, _kind in openings:
             if hu < 0.5:
                 continue
-            _opening(b, "y", d, cx - WIN_W_M / 2, cx + WIN_W_M / 2, z, z + hu, 1, conf)
+            _window(b, p, "y", d, cx, z, sash_u, 1, conf)
             if p.shutters:
-                _shutters(b, d, cx, z, z + hu, 1, c_shut)
+                _shutters(b, p, d, cx, z, z + hu, 1, c_shut)
 
 
-def _shutters(b: MeshBuilder, plane: float, cx: float, z0: float, z1: float,
-              outward: int, conf: float) -> None:
+def _shutters(b: MeshBuilder, p: FrameDwellingParams, plane: float, cx: float,
+              z0: float, z1: float, outward: int, conf: float) -> None:
     """Board shutters hung either side of a window, in the open position.
 
     Only ever built when a record states them. The Sauganash's bright-blue shutters are
@@ -571,8 +656,8 @@ def _shutters(b: MeshBuilder, plane: float, cx: float, z0: float, z1: float,
     that says nothing about shutters gets none rather than a plainer pair.
     """
     for side in (-1, 1):
-        x0 = cx + side * (WIN_W_M / 2 + 0.08)
-        x1 = x0 + side * (WIN_W_M * 0.46)
+        x0 = cx + side * (p.window_w_m / 2 + 0.08)
+        x1 = x0 + side * (p.window_w_m * 0.46)
         lo, hi = min(x0, x1), max(x0, x1)
         _panel(b, "y", plane + outward * (TRIM_RELIEF_M + 0.004), lo, hi, z0, z1,
                outward, conf, M_SHUTTER)
@@ -590,8 +675,8 @@ def _rear_windows(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: flo
     else:
         ex0 = ex1 = -1.0
     sill = min(0.95, (wall_z / 2.0 if p.stories >= 2.0 else wall_z) * 0.36)
-    h = _sash(sill, (wall_z / 2.0 - 0.14) if p.stories >= 2.0 else wall_z - 0.28)
-    if h < 0.5:
+    sash = _sash(p, sill, (wall_z / 2.0 - 0.14) if p.stories >= 2.0 else wall_z - 0.28)
+    if sash[0] < 0.5:
         return
     placed = 0
     for cx, kind in openings:
@@ -599,8 +684,7 @@ def _rear_windows(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: flo
             continue
         if ex0 - 0.5 < cx < ex1 + 0.5:
             continue
-        _opening(b, "y", y0, cx - WIN_W_M / 2, cx + WIN_W_M / 2, sill,
-                 sill + h, -1, conf)
+        _window(b, p, "y", y0, cx, sill, sash, -1, conf)
         placed += 1
 
 
@@ -632,17 +716,18 @@ def _gable_ends(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
             # wall because _roof insets it by the overhang
             _opening(b, "x", x, yc - GABLE_WIN_W_M / 2, yc + GABLE_WIN_W_M / 2,
                      wall_z + 0.16, top, out, c_mass)
+            _sash_bars(b, p, "x", x, yc - GABLE_WIN_W_M / 2, yc + GABLE_WIN_W_M / 2,
+                       wall_z + 0.16, top, out, c_mass)
 
     stack_x = _stack_positions(p, w)
     sill = min(0.95, (wall_z / 2.0 if p.stories >= 2.0 else wall_z) * 0.36)
-    h = _sash(sill, (wall_z / 2.0 - 0.14) if p.stories >= 2.0 else wall_z - 0.28)
-    if h < 0.5:
+    sash = _sash(p, sill, (wall_z / 2.0 - 0.14) if p.stories >= 2.0 else wall_z - 0.28)
+    if sash[0] < 0.5:
         return
     for x, out in ((0.0, -1), (w, 1)):
         if any(abs(sx - x) < 1.0 for sx in stack_x):
             continue
-        _opening(b, "x", x, yc - WIN_W_M / 2, yc + WIN_W_M / 2, sill,
-                 sill + h, out, c_fen)
+        _window(b, p, "x", x, yc, sill, sash, out, c_fen)
 
 
 # -------------------------------------------------------------------- the ell
@@ -700,10 +785,9 @@ def _ell(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
     side_x, out = (ex0, -1) if p.ell_side == "east" else (ex1, 1)
     yc = y0 / 2.0
     sill = 0.85
-    h = _sash(sill, ez - 0.26)
-    if h > 0.5:
-        _opening(b, "x", side_x, yc - WIN_W_M / 2, yc + WIN_W_M / 2, sill,
-                 sill + h, out, c_fen)
+    sash = _sash(p, sill, ez - 0.26)
+    if sash[0] > 0.5:
+        _window(b, p, "x", side_x, yc, sill, sash, out, c_fen)
     return ridge_z
 
 
@@ -761,6 +845,37 @@ def _stack(b: MeshBuilder, cx: float, cy: float, base_z: float, ridge_z: float,
     b.add_box(cx - half - 0.07, cy - half - 0.07, ridge_z + 0.62,
               cx + half + 0.07, cy + half + 0.07, ridge_z + 0.78, conf, mat,
               skip=("bottom",))
+
+
+def _stovepipes(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
+                d: float, wall_z: float, mat: int) -> None:
+    """Sheet-iron pipes up through the main roof — one per stove the record counts.
+
+    A boarding house heated its chambers with box stoves, and a stove's pipe went out
+    through the roof wherever the stove stood rather than into a brick stack, which is
+    why the pipes are scattered where the stacks stand at the gables (T-1807, carrying
+    frame_tavern's T-1778 deal to the half-storey house). The count is the record's.
+    Where each stands — which slope, how far along, how high it rises — is this
+    archetype's deal, made from the index alone so it is stable from bake to bake, and
+    docs/LIBERTIES.md (L325) owns it. They keep to the stretch of ridge between the two
+    gable stacks, so a pipe never stands inside a chimney, and to the front range: a
+    kitchen ell's stove is the kitchen hearth, which `_chimneys` already draws.
+    """
+    c = p.conf("stovepipes", "reconstructed")
+    n = p.stovepipes
+    t = math.tan(math.radians(p.roof_pitch_deg))
+    h = PIPE_SIDE / 2
+    span = d - y0
+    lo, hi = 1.35, w - 1.35           # clear of a gable stack's corbelled head
+    for i in range(n):
+        # spread along the ridge, nudged off the even spacing so the row does not read
+        # as a fence, and alternating slopes a fifth of the span off the ridge
+        x = lo + (hi - lo) * ((i + 0.5) / n + (0.035 if i % 2 else -0.035))
+        s = span * (0.70 if i % 2 == 0 else 0.30)
+        z_roof = wall_z + t * (span / 2 - abs(s - span / 2) + EAVE_M)
+        rise = (0.85, 1.20, 1.00, 1.35, 0.95, 1.10)[i % 6]
+        b.add_box(x - h, y0 + s - h, z_roof - 0.30, x + h, y0 + s + h, z_roof + rise,
+                  c, mat, skip=("bottom",))
 
 
 def _porch(b: MeshBuilder, p: FrameDwellingParams, openings: list, d: float,

@@ -40,24 +40,24 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 140,
+    "adopted_seats": 150,
     "written": 23,
-    "refused": 77,
-    "owed": 40,
-    "refused_letter_list": 75,
+    "refused": 81,
+    "owed": 46,
+    "refused_letter_list": 79,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
-    "refused_on_the_card": 35,
-    "refused_with_a_household_left": 35
+    "refused_on_the_card": 37,
+    "refused_with_a_household_left": 37
   },
   "written": [
     {
       "household_id": "hh_abbott_titus_h",
-      "structure_id": "recon_1835_blk_randolph_clinton_d5_01",
+      "structure_id": "recon_1835_blk_randolph_clinton_d4_09",
       "block_id": "blk_randolph_clinton",
-      "lot_id": "blk_randolph_clinton#06",
+      "lot_id": "blk_randolph_clinton#07",
       "clause": "tradesman_dwellings",
-      "family": "D5",
+      "family": "D4",
       "district": "west",
       "name": "The Abbott household — a name the town's own records carry",
       "sources": [
@@ -73,12 +73,12 @@
           "fergus_chicago_directory_1843",
           "norris_directory_1844"
         ],
-        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_randolph_clinton#06, fronting canal, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_randolph_clinton#07, fronting canal, a standing roof of family D4 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
       },
       "resident_assignment": {
         "status": "assigned",
         "confidence": "reconstructed",
-        "note": "T-1685: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_randolph_clinton#06 fronting canal — a standing anonymous roof of family D5 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "note": "T-1685: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_randolph_clinton#07 fronting canal — a standing anonymous roof of family D4 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
         "household_id": "hh_abbott_titus_h"
       }
     },
@@ -887,11 +887,11 @@
       "resident_assignment": {
         "status": "unassigned",
         "confidence": "reconstructed",
-        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_randolph_clinton#04 — a standing anonymous roof of family D1 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 8 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_randolph_clinton#04 — a standing anonymous roof of family D1 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 7 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
       }
     },
     {
-      "household_id": "hh_ayres_levi",
+      "household_id": "hh_barney_john",
       "structure_id": "recon_1835_blk_randolph_clinton_d3_04",
       "block_id": "blk_randolph_clinton",
       "lot_id": "blk_randolph_clinton#02",
@@ -903,7 +903,7 @@
       "resident_assignment": {
         "status": "unassigned",
         "confidence": "reconstructed",
-        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_randolph_clinton#02 — a standing anonymous roof of family D3 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 45 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_randolph_clinton#02 — a standing anonymous roof of family D3 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 44 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
       }
     },
     {
@@ -919,7 +919,39 @@
       "resident_assignment": {
         "status": "unassigned",
         "confidence": "reconstructed",
-        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_randolph_clinton#08 — a standing anonymous roof of family D4 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 45 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_randolph_clinton#08 — a standing anonymous roof of family D4 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 44 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
+    },
+    {
+      "household_id": "hh_allan_richard_b",
+      "structure_id": "recon_1835_blk_randolph_clinton_d5_01",
+      "block_id": "blk_randolph_clinton",
+      "lot_id": "blk_randolph_clinton#06",
+      "clause": "tradesman_dwellings",
+      "family": "D5",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_randolph_clinton#06 — a standing anonymous roof of family D5 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 44 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
+    },
+    {
+      "household_id": "hh_abbot_8_g",
+      "structure_id": "recon_1835_blk_randolph_clinton_d7_08",
+      "block_id": "blk_randolph_clinton",
+      "lot_id": "blk_randolph_clinton#09",
+      "clause": "merchant_and_professional_dwellings",
+      "family": "D7",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its merchant_and_professional_dwellings clause, on blk_randolph_clinton#09 — a standing anonymous roof of family D7 that clause admits — and T-1685 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 29 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
       }
     },
     {
@@ -1492,6 +1524,17 @@
       "on_the_card": false
     },
     {
+      "household_id": "hh_ayres_levi",
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
+      "block_id": "blk_west_randolph_des_plaines",
+      "lot_id": "blk_west_randolph_des_plaines#03",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
       "household_id": "hh_folliott_jonathan",
       "structure_id": "recon_1835_south_d1_003",
       "block_id": "blk_lake_franklin",
@@ -1668,6 +1711,17 @@
       "on_the_card": false
     },
     {
+      "household_id": "hh_bobinson_george_is",
+      "structure_id": "recon_1835_west_008",
+      "block_id": "blk_lake_clinton",
+      "lot_id": "blk_lake_clinton#00",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
       "household_id": "hh_bowen_air",
       "structure_id": "recon_1835_west_014",
       "block_id": "blk_lake_clinton",
@@ -1679,7 +1733,7 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_baldwin_eimer",
+      "household_id": "hh_barrows_mary",
       "structure_id": "recon_1835_west_016",
       "block_id": "blk_lake_clinton",
       "lot_id": "blk_lake_clinton#03",
@@ -1690,7 +1744,7 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_allan_richard_b",
+      "household_id": "hh_andress_stephen",
       "structure_id": "recon_1835_west_018",
       "block_id": "blk_randolph_clinton",
       "lot_id": "blk_randolph_clinton#05",
@@ -1701,29 +1755,18 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_abbot_8_g",
-      "structure_id": "recon_1835_west_019",
-      "block_id": "blk_randolph_clinton",
-      "lot_id": "blk_randolph_clinton#00",
-      "clause": "merchant_and_professional_dwellings",
-      "family": "D7",
-      "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
-      "on_the_card": false
-    },
-    {
-      "household_id": "hh_andress_stephen",
-      "structure_id": "recon_1835_west_034",
+      "household_id": "hh_baldwin_eimer",
+      "structure_id": "recon_1835_west_033",
       "block_id": "blk_west_lake_des_plaines",
       "lot_id": "blk_west_lake_des_plaines#08",
       "clause": "tradesman_dwellings",
-      "family": "D6",
+      "family": "D5",
       "district": "west",
       "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
       "on_the_card": false
     },
     {
-      "household_id": "hh_barrows_mary",
+      "household_id": "hh_boardman_elect",
       "structure_id": "recon_1835_west_042",
       "block_id": "blk_west_lake_des_plaines",
       "lot_id": "blk_west_lake_des_plaines#00",
@@ -1734,12 +1777,23 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_barney_john",
+      "household_id": "hh_bloget_josiah_i",
       "structure_id": "recon_1835_west_044",
       "block_id": "blk_west_lake_des_plaines",
       "lot_id": "blk_west_lake_des_plaines#04",
       "clause": "tradesman_dwellings",
       "family": "D4",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
+      "household_id": "hh_arrowsmith_sidney",
+      "structure_id": "recon_1835_west_046",
+      "block_id": "blk_west_randolph_des_plaines",
+      "lot_id": "blk_west_randolph_des_plaines#01",
+      "clause": "merchant_and_professional_dwellings",
+      "family": "H2",
       "district": "west",
       "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
       "on_the_card": false
@@ -1755,13 +1809,19 @@
     {
       "clause": "labourer_dwellings",
       "district": "west",
-      "households_left": 8,
+      "households_left": 7,
       "means": "the deal's own owed rows of this clause and division whose households neither the letter-list ruling nor the no-source refusal rejects — so a roof refused here could be seated by one of them if the deal consulted the ruling before it dealt"
     },
     {
       "clause": "merchant_and_professional_dwellings",
       "district": "south",
       "households_left": 94,
+      "means": "the deal's own owed rows of this clause and division whose households neither the letter-list ruling nor the no-source refusal rejects — so a roof refused here could be seated by one of them if the deal consulted the ruling before it dealt"
+    },
+    {
+      "clause": "merchant_and_professional_dwellings",
+      "district": "west",
+      "households_left": 29,
       "means": "the deal's own owed rows of this clause and division whose households neither the letter-list ruling nor the no-source refusal rejects — so a roof refused here could be seated by one of them if the deal consulted the ruling before it dealt"
     },
     {
@@ -1773,7 +1833,7 @@
     {
       "clause": "tradesman_dwellings",
       "district": "west",
-      "households_left": 45,
+      "households_left": 44,
       "means": "the deal's own owed rows of this clause and division whose households neither the letter-list ruling nor the no-source refusal rejects — so a roof refused here could be seated by one of them if the deal consulted the ruling before it dealt"
     }
   ],
@@ -1789,12 +1849,52 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
+      "household_id": "hh_barry_william",
+      "structure_id": "recon_1835_blk_lake_clinton_d3_02",
+      "block_id": "blk_lake_clinton",
+      "lot_id": "blk_lake_clinton#02",
+      "clause": "tradesman_dwellings",
+      "family": "D3",
+      "district": "west",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_allen_edward_richards",
+      "structure_id": "recon_1835_blk_lake_clinton_d4_01",
+      "block_id": "blk_lake_clinton",
+      "lot_id": "blk_lake_clinton#07",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "west",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
       "household_id": "hh_bousque_bernard",
       "structure_id": "recon_1835_blk_lake_market_d3_03",
       "block_id": "blk_lake_market",
       "lot_id": "blk_lake_market#02",
       "clause": "tradesman_dwellings",
       "family": "D3",
+      "district": "south",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_beaubien_mark",
+      "structure_id": "recon_1835_blk_washington_clark_h3_05",
+      "block_id": "blk_washington_clark",
+      "lot_id": "blk_washington_clark#07",
+      "clause": "lodging_near_the_landings",
+      "family": "H3",
+      "district": "south",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_sweet_alanson",
+      "structure_id": "recon_1835_blk_washington_clark_h3_06",
+      "block_id": "blk_washington_clark",
+      "lot_id": "blk_washington_clark#06",
+      "clause": "lodging_near_the_landings",
+      "family": "H3",
       "district": "south",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
@@ -1916,6 +2016,26 @@
       "clause": "merchant_and_professional_dwellings",
       "family": "H2",
       "district": "south",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_baxley_j_m",
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
+      "block_id": "blk_west_randolph_des_plaines",
+      "lot_id": "blk_west_randolph_des_plaines#09",
+      "clause": "tradesman_dwellings",
+      "family": "D5",
+      "district": "west",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
+      "household_id": "hh_aspam_magdeleine",
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_d6_03",
+      "block_id": "blk_west_randolph_des_plaines",
+      "lot_id": "blk_west_randolph_des_plaines#07",
+      "clause": "tradesman_dwellings",
+      "family": "D6",
+      "district": "west",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
@@ -2119,16 +2239,6 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_barry_william",
-      "structure_id": "recon_1835_west_008",
-      "block_id": "blk_lake_clinton",
-      "lot_id": "blk_lake_clinton#00",
-      "clause": "tradesman_dwellings",
-      "family": "D4",
-      "district": "west",
-      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
-    },
-    {
       "household_id": "hh_barry_j_r",
       "structure_id": "recon_1835_west_015",
       "block_id": "blk_lake_clinton",
@@ -2139,7 +2249,17 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_aspam_magdeleine",
+      "household_id": "hh_adams_james",
+      "structure_id": "recon_1835_west_019",
+      "block_id": "blk_randolph_clinton",
+      "lot_id": "blk_randolph_clinton#00",
+      "clause": "merchant_and_professional_dwellings",
+      "family": "D7",
+      "district": "west",
+      "why": "its roof is not one the platted block-infill generator owns, and this pass is only wired through that one"
+    },
+    {
+      "household_id": "hh_barnard_j_b",
       "structure_id": "recon_1835_west_021",
       "block_id": "blk_randolph_clinton",
       "lot_id": "blk_randolph_clinton#03",
@@ -2149,7 +2269,7 @@
       "why": "its roof is not one the platted block-infill generator owns, and this pass is only wired through that one"
     },
     {
-      "household_id": "hh_ballingale_p",
+      "household_id": "hh_beaubien_b",
       "structure_id": "recon_1835_west_030",
       "block_id": "blk_west_lake_des_plaines",
       "lot_id": "blk_west_lake_des_plaines#05",
@@ -2159,7 +2279,7 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_barnard_j_b",
+      "household_id": "hh_bennett_h_c",
       "structure_id": "recon_1835_west_031",
       "block_id": "blk_west_lake_des_plaines",
       "lot_id": "blk_west_lake_des_plaines#05",
@@ -2169,12 +2289,12 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_allen_edward_richards",
-      "structure_id": "recon_1835_west_033",
+      "household_id": "hh_ballingale_p",
+      "structure_id": "recon_1835_west_034",
       "block_id": "blk_west_lake_des_plaines",
       "lot_id": "blk_west_lake_des_plaines#08",
       "clause": "tradesman_dwellings",
-      "family": "D5",
+      "family": "D6",
       "district": "west",
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     }

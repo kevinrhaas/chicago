@@ -684,6 +684,98 @@
       "note": "The fort 'stood upon a flattened mound, formed by the curve of the river at its base on its three sides', and was 'as high as any other point'. Dossier zone 6 puts it at +10 to +12 ft, apex +12, about 300 x 300 ft and flat-topped. Built here as a 90 m flat top with a 60 m skirt, rising 3.8 ft over the reservation's 8.2 ft — an apex at +12.0, which is the apex the zone itself states. The first pass took the mid-range +11.0; T-0004 (the owner's K8: the banks read too low against the fort views) re-read the evidence and moved to the zone's own apex, because 'as high as any other point' is a superlative and +11.0 left the mound under two feet over the sand ridge's +9.4-9.5 while zone 5 puts the dune hummocks at +10 to +14. The tier-5 fort views read higher still, 10-20 ft to the eye; they are RECORDED, NOT AVERAGED IN — docs/RESEARCH/fort_reach_bank_heights.md holds that disagreement, and Swearingen's and Hubbard's eight feet stay where they were measured, on the BANK (zone 12, the divisions crest, unchanged, as are the forks banks). The CENTRE is the Wright 1834 FORT DEARBORN banner, read at local E +1152.4 / N +220.9 and cross-checked against the modern Michigan Avenue bridge at E +1127 / N +195 — 35 m apart from methods sharing no input. Wright LABELS the reservation and draws no plan, so this locates a landform and says nothing whatever about the fort's footprint, which must come from elsewhere. The mound's skirt reaches the river bank on its north side, which is what the source describes; the bank ramp still carries it to Z=0 at the waterline, so the north face carries the full +12 ft over about a 25 m run — 1:6.8, inside the 1:6 to 1:10 band the bank block holds every shore to. CORRECTED 2026-08-21 (T-0125): the sentence above about the north face carrying the full +12 ft over about a 25 m run at 1:6.8 described ground this spec did not build. The traced waterline runs 4.5 m north of the stockade's north-west corner, so there is no 25 m run there to carry anything; the reach's 20 m bank face instead ramped the ground DOWN inside the fort's own footprint, to 1.26 m against the parade's 3.65 m, and the rigid stockade mesh - which anchors at the lowest ground beneath it - sank until four feet of a twelve-foot wall showed. On the owner's ruling the ground gave: the south division's face_profile is narrowed to 8 m across E 1103-1180 (see face_profile_note), which holds the mound's level out to the wall line and puts the fall outside the stockade at about 1:1.5. The mound's own numbers - centre, flat and outer radii, and the +3.8 ft rise to the zone's stated +12 apex - are UNCHANGED; what moved is the width of the face at the fort, not the height of the mound."
     }
   ],
+  "dunes": [
+    {
+      "id": "north_lake_dunes",
+      "label": "The sand hills north of the harbour, between Sand Street and the lake",
+      "n_range": [
+        440.0,
+        920.0
+      ],
+      "end_fade_m": 60.0,
+      "west_limit_e_m": 1293.0,
+      "west_fade_m": 14.0,
+      "ridges": [
+        [
+          34.0,
+          4.5,
+          12.0
+        ],
+        [
+          58.0,
+          2.2,
+          10.0
+        ]
+      ],
+      "hollow": [
+        46.0,
+        1.1,
+        8.0
+      ],
+      "wander_m": 7.0,
+      "wander_wavelength_m": 160.0,
+      "hummock_wavelength_m": 42.0,
+      "seed": 18350821,
+      "keep_clear": [
+        {
+          "e": 1315.0,
+          "n": 485.0,
+          "flat_m": 22.0,
+          "outer_m": 42.0,
+          "for": "kelsey_boarding_house, its yard goods and its signboard: a reconstructed hummock may not stand under a building that is placed"
+        }
+      ],
+      "dossier_zone": 5,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "mesh": {
+        "dossier_zone": "record_only"
+      },
+      "note": "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. NORTH REACH: from N +440, clear of the main stem's north bank and the north pier's root, to N +920, where the traced shore turns west across the addition's shore-cut blocks and Sand Street's corridor runs out into the lake. Between Sand Street and the lake the strip is 50-60 m deep, so this reach carries a foredune and one low back ridge and no more. Its west limit is the east edge of the unopened Sand Street corridor (E +1278.8 + 11.1 m, with a 3 m margin), so the platted ground of Kinzie's Addition is untouched; the sand hills stand where Wright draws the shore-cut blocks."
+    },
+    {
+      "id": "south_lake_dunes",
+      "label": "The sand hills south of the fort, along the lake beyond the old channel",
+      "n_range": [
+        -2120.0,
+        -700.0
+      ],
+      "end_fade_m": 90.0,
+      "ridges": [
+        [
+          44.0,
+          4.4,
+          14.0
+        ],
+        [
+          96.0,
+          2.6,
+          18.0
+        ]
+      ],
+      "hollow": [
+        70.0,
+        1.6,
+        12.0
+      ],
+      "wander_m": 9.0,
+      "wander_wavelength_m": 190.0,
+      "hummock_wavelength_m": 46.0,
+      "seed": 18350822,
+      "keep_clear": [],
+      "dossier_zone": 5,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "mesh": {
+        "dossier_zone": "record_only"
+      },
+      "note": "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. SOUTH REACH: from N -700, south of where the old southward channel loses itself in the lake (north of it the lake's edge is the bar and the channel's west bank, and the 1839 Fort Dearborn Addition plat makes the strip beside the reservation 'at best a low sandbar' — CPL, dossier zone 5), to N -2120, inside evidence_limit at Twelfth Street, so no dune is carried into the conjectural frame. No structure stands within 300 m of the lake on this reach."
+    }
+  ],
   "marsh_strips": [
     {
       "id": "south_division_marsh",
@@ -1204,6 +1296,76 @@
       "note": "T-0129. The east approach to the La Salle slough crossing, from the town side. Same footing as lasalle_crossing_west: a fill because the deck stands over its banks, form invented at 1 in 12, and the same one-metre overhang so the fill does not close the channel it crosses."
     }
   ],
+  "street_sections": {
+    "streets_file": "data/streets/1835.json",
+    "water_floor_ft": 0.33,
+    "shelf_clear_m": 2.5,
+    "shelf_clear_note": "The cut reaches nothing one heightfield cell INSIDE the worked edge, not at it. The renderer reads the ground bilinearly between 2.5 m samples, so a sample lowered at the worked edge drags the ground down across the next 2.5 m - which on a principal street is the plank walk's own strip, and the walk rule (tools/generate_frontage_works.py, 0.04 m under one stringer bay) refuses a walk on ground that rolls. Held one cell clear, no lowered sample can reach a walk, and the worked earth's outer 2.5 m is the shoulder climbing back to the shelf.",
+    "classes": [
+      {
+        "id": "principal",
+        "traffic": "principal",
+        "worked_share": 0.8,
+        "crown_depth_ft": 0.5,
+        "gutter_depth_ft": 1.0,
+        "gutter_inset_m": 1.75,
+        "confidence": "reconstructed",
+        "sources": []
+      },
+      {
+        "id": "ordinary",
+        "traffic": "ordinary",
+        "worked_share": 0.64,
+        "crown_depth_ft": 0.4,
+        "gutter_depth_ft": 0.75,
+        "gutter_inset_m": 1.5,
+        "confidence": "reconstructed",
+        "sources": []
+      },
+      {
+        "id": "light",
+        "traffic": "light",
+        "worked_share": 0.44,
+        "crown_depth_ft": 0.25,
+        "gutter_depth_ft": 0.4,
+        "gutter_inset_m": 1.25,
+        "confidence": "reconstructed",
+        "sources": []
+      }
+    ],
+    "note": "T-1812 (piece 2 of T-1770). The worked roadway is graded DOWN below the ground its walks stand on: the ground at the corridor's edges - the walk and the shelf it sits on, at the level the doors already stand at - is left exactly where the plain put it, and inside the worked width the roadbed is lowered, crowned at the centreline and deepest in a gutter just inside each shoulder, rising to the shelf across the last `gutter_inset_m`. The centreline is the line streets.js DRAWS (`drawn_track_local_enu_m` where a street carries one, else `path_local_enu_m`), and `worked_share` is streets.js's WORKED_SHARE (T-1811), so the cut and the painted road are one width; tools/check_street_section.py holds the two tables equal. Where streets cross, the deeper cut wins, so an intersection is one surface with no seam. The cut never takes land below `water_floor_ft` over the water (or below where it already was, if lower), never touches water, and runs BEFORE the bridge approaches, whose fills and cuts still meet their decks. EVERY DEPTH IS INVENTED: the owner's peer views (St Louis 1840, Detroit 1837, Cincinnati 1835) show a broad carriageway below entrance-level walks and print no dimension, and no Chicago source of 1835 gives a section; the depths are sized under the walker's 0.35 m step so every crossing is a step down, not a climb, and scaled by traffic class because wear is what lowered an unpaved frontier street. Recorded as L342.",
+    "keep_clear": [
+      {
+        "id": "beaubien_trading_post",
+        "e": 1148.0,
+        "n": 160.9,
+        "flat_m": 5.4,
+        "outer_m": 8.4
+      },
+      {
+        "id": "hogan_store",
+        "e": 113.2,
+        "n": -95.1,
+        "flat_m": 9.0,
+        "outer_m": 12.0
+      },
+      {
+        "id": "newberry_dole_slaughterhouse_south_branch",
+        "e": 69.3,
+        "n": -259.8,
+        "flat_m": 9.3,
+        "outer_m": 12.3
+      },
+      {
+        "id": "slough_log_bridge",
+        "e": 826.9,
+        "n": -8.4,
+        "flat_m": 5.8,
+        "outer_m": 8.8
+      }
+    ],
+    "keep_clear_note": "A structure that stands inside a worked width keeps the ground it was seated on: the cut is held at nothing within `flat_m` of the footprint's centroid (its circumradius plus 1.5 m) and eases back to the full section by `outer_m`. Each is a building or bridge whose contact outline the cut otherwise left more than the walker's 0.35 m step off the terrain (tools/validate.py's ground-contact check named all four), so this list is that gate's answer and the gate is what adds to it. A building is not dug round, and a road does not run under a door."
+  },
   "micro_relief": {
     "amplitude_ft": 0.1,
     "wavelengths_m": [
@@ -1385,7 +1547,7 @@
   "not_modelled_in_this_box": [
     {
       "dossier_zone": 5,
-      "why": "the 'white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. Inventing hummocks in the quadrant where Fort Dearborn and the Beaubien houses stand would put relief under buildings on no evidence at all."
+      "why": "MODELLED SINCE T-1824, on the owner's request (T-1772/T-1820), and kept here so the old reason stays readable: 'the white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. That is still true, which is why `dunes` is graded reconstructed and every vertex it touches is conjectural. What the old reason guarded is kept: the quadrant where Fort Dearborn and the Beaubien houses stand carries no hummock — the reaches stop at N +440 and N -700 — and the one building inside a reach (kelsey_boarding_house) is held clear of them."
     },
     {
       "dossier_zone": 15,

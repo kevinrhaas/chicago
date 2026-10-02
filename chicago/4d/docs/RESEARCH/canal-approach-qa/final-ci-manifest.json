@@ -1,0 +1,88 @@
+{
+  "testedCommit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+  "testedRef": "steward/t1766-canal-grocery-workshops",
+  "coverageEvidence": "Implementation coverage: parts1-2 and7-9 at15fb79d6f52a3b029d116116340e1fbbb93ec7d7; parts3-6 and10-13 at ef515fab75dd9d989faa7ce6ee0fc09546aff7f5. Verified T1782 semantic delta affects only3,12,13; drawing inputs unchanged, per final-smoke-scope.json. Each receipt retains actual tested commit; no exact whole-tree claim. Subsequent T1793 research integration requires separately recorded carry-forward proof.",
+  "jobs": [
+    {
+      "path": "final-desktop-1-2.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36827314390",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36827314390/job/110255796116",
+      "startedAt": "2026-10-01T06:54:39Z",
+      "viewport": "desktop",
+      "stage": "1-2",
+      "testedCommit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    },
+    {
+      "path": "final-desktop-3-6.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36828312090",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36828312090/job/110258902293",
+      "startedAt": "2026-10-01T07:05:15Z",
+      "viewport": "desktop",
+      "stage": "3-6",
+      "testedCommit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    },
+    {
+      "path": "final-desktop-7-9.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36827122760",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36827122760/job/110255188296",
+      "startedAt": "2026-10-01T06:52:29Z",
+      "viewport": "desktop",
+      "stage": "7-9",
+      "testedCommit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    },
+    {
+      "path": "final-desktop-10-13.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36828132674",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36828132674/job/110258340571",
+      "startedAt": "2026-10-01T07:03:21Z",
+      "viewport": "desktop",
+      "stage": "10-13",
+      "testedCommit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    },
+    {
+      "path": "final-mobile-1-2.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36827407322",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36827407322/job/110256086665",
+      "startedAt": "2026-10-01T06:55:42Z",
+      "viewport": "mobile",
+      "stage": "1-2",
+      "testedCommit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    },
+    {
+      "path": "final-mobile-3-6.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36828389290",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36828389290/job/110259143007",
+      "startedAt": "2026-10-01T07:06:05Z",
+      "viewport": "mobile",
+      "stage": "3-6",
+      "testedCommit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    },
+    {
+      "path": "final-mobile-7-9.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36827199844",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36827199844/job/110255432653",
+      "startedAt": "2026-10-01T06:53:21Z",
+      "viewport": "mobile",
+      "stage": "7-9",
+      "testedCommit": "15fb79d6f52a3b029d116116340e1fbbb93ec7d7",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    },
+    {
+      "path": "final-mobile-10-13.log",
+      "runUrl": "https://github.com/kevinrhaas/chicago/actions/runs/36828219115",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/36828219115/job/110258610728",
+      "startedAt": "2026-10-01T07:04:17Z",
+      "viewport": "mobile",
+      "stage": "10-13",
+      "testedCommit": "ef515fab75dd9d989faa7ce6ee0fc09546aff7f5",
+      "testedRef": "steward/t1766-canal-grocery-workshops"
+    }
+  ],
+  "scopeProof": "final-smoke-scope.json"
+}

@@ -83,6 +83,11 @@ and records that state a rhythm rather than a glazing type". That is `bays` and 
   — puts the door in the middle of the larger room, so the front is asymmetric and the
   openings are unevenly spaced with a wider gap at the partition. `centre_passage` is
   the symmetrical alternative and has to be asked for by name.
+- `glazing` (T-1838) is the other half of L23's complaint: what is IN each opening.
+  It names the sash count and the pane — `12_over_12_6x8` by default, the attested
+  Green Tree light — and the window's size is built from it, lights, muntins and
+  rails, so a house glazed with 8 x 10 in glass has bigger windows than a cottage
+  glazed with 6 x 8, and every window shows its sash bars.
 
 The default therefore produces a plainer and less regular front than the taverns', on
 purpose. A whole-scene critic reading the existing frame buildings as 1850s Greek
@@ -124,6 +129,66 @@ PLANS = ("single_pen", "hall_parlour", "centre_passage")
 PORCHES = ("stoop", "roofed")
 
 ELL_SIDES = ("west", "east")
+
+# T-1838 — THE GLAZING: how many lights a sash carries and how big each one is. A key
+# is "<upper>_over_<lower>_<w>x<h>", the sash count and the pane in inches, and the
+# tuple is (lights across, rows in the upper sash, rows in the lower, pane width in,
+# pane height in). The 6 x 8 in pane is this dataset's one attested Chicago pane, twice:
+# the Green Tree's lights (`chicagology_prefire127`) and Gale's guest chamber "with two
+# windows 6x8". The larger lights are the boxed window-glass sizes of the period and
+# no source puts any of them in any particular house here — the fabric rule deals them
+# by class (docs/LIBERTIES.md L343), which is why a record that states nothing gets the
+# attested one.
+GLAZINGS = {
+    "12_over_12_6x8": (4, 3, 3, 6, 8),
+    "9_over_6_6x8": (3, 3, 2, 6, 8),
+    "6_over_6_6x8": (3, 2, 2, 6, 8),
+    "12_over_12_7x9": (4, 3, 3, 7, 9),
+    "12_over_12_8x10": (4, 3, 3, 8, 10),
+}
+DEFAULT_GLAZING = "12_over_12_6x8"
+INCH_M = 0.0254
+# The sash's own timber, seen from the street: a stile or a top or bottom rail, the
+# two meeting rails together where the sashes pass, and a muntin (7/8 in).
+SASH_STILE_M = 0.045
+SASH_MEETING_M = 0.035
+MUNTIN_M = 0.022
+
+
+def glazing_lights(key: str) -> tuple:
+    """(across, upper rows, lower rows, pane width m, pane height m) for a glazing."""
+    across, up, lo, pw, ph = GLAZINGS[key]
+    return across, up, lo, pw * INCH_M, ph * INCH_M
+
+
+def sash_width_m(key: str) -> float:
+    """The opening a double-hung sash of this glazing fills, across."""
+    across, _up, _lo, pw, _ph = glazing_lights(key)
+    return across * pw + (across - 1) * MUNTIN_M + 2 * SASH_STILE_M
+
+
+def sash_height_m(upper: int, lower: int, pane_h_m: float) -> float:
+    """The opening a double-hung sash of `upper` over `lower` rows fills, up."""
+    return ((upper + lower) * pane_h_m + (upper + lower - 2) * MUNTIN_M
+            + 2 * SASH_STILE_M + SASH_MEETING_M)
+
+
+def sash_rows(key: str, room_m: float) -> tuple:
+    """(upper rows, lower rows, opening height) for the sash that fits in `room_m`.
+
+    A storey too low for the whole sash loses a row of lights, the upper sash first,
+    rather than its panes being squashed: the glass came in boxed sizes and the joiner
+    made the sash to the glass. Below one row each the opening simply shortens to the
+    room there is, which is what `_sash` did before there were rows to drop.
+    """
+    _across, up, lo, _pw, ph = glazing_lights(key)
+    while sash_height_m(up, lo, ph) > room_m and up + lo > 2:
+        if up >= lo and up > 1:
+            up -= 1
+        else:
+            lo -= 1
+    return up, lo, min(sash_height_m(up, lo, ph), room_m)
+
 
 # The deepest range this archetype will carry on a given front, as a multiple of that
 # front. PUBLISHED, NOT CHANGED: this is the same 1.5 `_validate_massing` has always
@@ -224,7 +289,7 @@ HALL_FRACTION = 0.62
 CONSUMED = frozenset({
     "stories", "wall_height_m", "knee_wall_m", "roof_type", "roof_pitch_deg",
     "construction", "plan", "bays", "porch", "ell", "ell_wall_height_m",
-    "chimneys", "paint", "shutters", "siding_exposure_m",
+    "chimneys", "paint", "shutters", "siding_exposure_m", "stovepipes", "glazing",
 })
 # NOT in the set, and each absence is a decision rather than an oversight:
 #   `cladding`      — this archetype always builds clapboard over sheathing, so a
@@ -296,6 +361,10 @@ class FrameDwellingParams:
 
     # appearance
     paint: str = "unpainted"
+    # The sash every window carries: its lights and their size (T-1838). The default is
+    # the attested Chicago pane in a 12-over-12, which is the window this archetype has
+    # always been sized from.
+    glazing: str = DEFAULT_GLAZING
     shutters: str | None = None
     porch: str | None = None
 
@@ -310,6 +379,12 @@ class FrameDwellingParams:
     # the archetype's — first at one gable, second at the other or on the ell — and
     # docs/LIBERTIES.md L26 owns that arrangement for every archetype here.
     chimneys: int = 1
+
+    # Sheet-iron stovepipes through the main roof, beside the brick stacks (T-1807).
+    # A boarding house heated its chambers with box stoves, and the count is the
+    # record's, sized there from the house's beds; where each pipe stands is this
+    # archetype's deal. 0 draws none and is every other committed house's value.
+    stovepipes: int = 0
 
     # The rear wing. `ell` says whether one is built; its size and side come from the
     # footprint polygon and are filled in by from_phase, or stated directly by a golden
@@ -337,6 +412,11 @@ class FrameDwellingParams:
     confidence: dict = field(default_factory=dict)
 
     # ---------------------------------------------------------------- derived
+
+    @property
+    def window_w_m(self) -> float:
+        """The width of every full window on this house, off its glazing (T-1838)."""
+        return sash_width_m(self.glazing)
 
     @property
     def stud_spacing_m(self) -> float:
@@ -534,6 +614,8 @@ class FrameDwellingParams:
         if self.paint not in ("unpainted", "white", "whitewash", "red"):
             raise ParamError(f"paint '{self.paint}' is not a finish this archetype has "
                              f"a colour for")
+        if self.glazing not in GLAZINGS:
+            raise ParamError(f"glazing '{self.glazing}' not in {tuple(GLAZINGS)}")
         if not isinstance(self.bays, int) or isinstance(self.bays, bool):
             raise ParamError(f"bays {self.bays!r} is not a whole number of openings")
         # 0 is the unresolved state and from_phase never leaves it there; a golden case
@@ -571,6 +653,15 @@ class FrameDwellingParams:
                 f"archetype places one at each gable"
                 + (" and one on the ell" if self.ell else "")
                 + ", and has nowhere argued to put another")
+
+        # The same ceiling frame_tavern holds its pipes to: "multiple", and no more
+        # than a front range's ridge carries between its two gable stacks.
+        if (not isinstance(self.stovepipes, int) or isinstance(self.stovepipes, bool)
+                or not 0 <= self.stovepipes <= 6):
+            raise ParamError(f"stovepipes {self.stovepipes!r} not a count in 0..6")
+        if self.stovepipes and self.roof_type != "gable":
+            raise ParamError("stovepipes are set on the main gable's two slopes; this "
+                             f"roof is {self.roof_type!r}")
 
     def _validate_ell(self) -> None:
         if self.ell_side not in ELL_SIDES:
@@ -788,10 +879,12 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         plan=str(val("plan", "hall_parlour")),
         bays=int(val("bays", 0)),
         paint=str(val("paint", "unpainted")),
+        glazing=str(val("glazing", DEFAULT_GLAZING)),
         siding_exposure_m=float(val("siding_exposure_m", 0.14)),
         shutters=(None if shutters in (None, False, "") else str(shutters)),
         porch=(None if porch in (None, False, "") else str(porch)),
         chimneys=int(val("chimneys", 1)),
+        stovepipes=int(val("stovepipes", 0)),
         ell=ell,
         ell_width_m=round(plan_from_footprint["ell_width_m"], 3),
         ell_depth_m=round(plan_from_footprint["ell_depth_m"], 3),

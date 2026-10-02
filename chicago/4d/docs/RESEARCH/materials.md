@@ -937,3 +937,86 @@ came along with `M_ROOF`, the index the shared mesh helpers use for a second mat
 `gate` now, so that *"every material called roof states its covering"* is true of the town
 rather than true with one exception. This is the same defect §9.5 filed against
 `chimney_brick`: a slot named for the surface that happened to reach it first.
+
+## 12. WIRED IN — T-1816, 2026-10-01: the finish is dealt by whose house it is
+
+§1.1's vocabulary was dealt by a hash. `finish_for` picked the wall from the record id, and
+`roof_condition` and `age_state` were both `(…)[seq % 4]` on all six anonymous-roof
+generators. So the two were locked together, and nothing on a facade said who lived behind it.
+T-1210 asked for the opposite: "based on the type of person living there". Its first piece,
+T-1816, deals the same four fields from the household. It uses the same vocabulary, adds no new
+colour, and leaves materials.py untouched, so no GLB that keeps its finish re-bakes.
+
+**The rule** lives in `tools/fabric_rule_1835.py` (`--check`, `--self-test`, `--report`). It is
+printed whole in `1835_placement_policy.json` under `fabric`, and argued in **L330**.
+
+| class (rule) | whose | walls | roof as it ages (new → older) |
+|---|---|---|---|
+| merchant (F-M) | H1, H2, C3, C4, or a keeper whose trade the seat table makes a merchant or professional | always coated: `red_oxide`, `ochre` or `whitewash`, in equal shares | fresh, fresh, weathered, weathered |
+| keeper (F-B) | H3, T1, T2 | `whitewash` two in three, else `ochre` | fresh, weathered, darkened, darkened |
+| tradesman (F-T) | D3–D7, C1, C2 | `ochre` or `whitewash` on 3 in 10; otherwise bare by age | fresh, weathered, darkened, darkened |
+| labourer (F-L) | D1, D2 | never coated: new-sawn, patched, silvered, patched | fresh, weathered, patched, patched |
+| works (F-W) | W1–W5 | bare: new-sawn, silvered, patched | fresh, weathered, patched, patched |
+| freight (F-F) | F1–F4 | bare: new-sawn, then silvered | fresh, weathered, darkened, darkened |
+| yard (F-Y) | A1–A5 | bare: new-sawn, silvered, patched | fresh, weathered, darkened, patched |
+
+- **Age.** Where `1835_roof_keepers.json` wrote a keeper onto the roof, the age comes from that
+  household's arrival year: 1835 is new, 1834 recent, 1832–33 established, and earlier is older
+  than the boom. Everywhere else the age is dealt inside the family's window of the boom. An
+  older log cabin is established or older. A shanty, a better house, a store or a shed is new or
+  recent. A cottage is new, recent or established, weighted 2 : 2 : 1, because the November 1835
+  census counts 3,265 people in 398 dwellings, where two years earlier there was a village.
+- **Bare boards follow the age**, and §1.1's own row sets the clock: `weathered_timber` is "bare
+  stock silvered off by a season or two of weather". So only the scene year's own building is
+  new-sawn.
+- **`white_paint` stays attested-only**, for the Sauganash. `--self-test` refuses any class row
+  that could deal it, and any row naming a finish or roof condition that is not on this sheet.
+- **The grade is unchanged.** Every value is still `reconstructed`. The class bounds the
+  reconstruction; it is not evidence of any coat of paint.
+
+**Measured on the tree it shipped with:**
+- **Walls:** `weathered_timber` 141, `fresh_timber` 78, `mixed_patch` 61, `whitewash` 36, `ochre`
+  36, `red_oxide` 11.
+- **Coatings:** 47 of 363 roofs are lime or paint, where the hash dealt 84.
+- **Neighbours:** 101 roofs share a wall finish with their nearest reconstructed neighbour, where
+  the hash gave 73. 56 share both wall and roof, where the hash gave 10.
+
+A class rule clusters like with like. T-1818's per-building jitter is the part that answers for
+that.
+
+**Not this piece:**
+- Construction, cladding, siding exposure, glazing, shutters, porches, trim and chimney fabric
+  dealt by household. That is T-1817.
+- T-0002's tone jitter and weathering inside materials.py, under the photographic benchmark.
+  That is T-1818.
+
+## 13. WIRED IN — T-1817, 2026-10-01: the form is dealt by whose house it is
+
+`tools/fabric_rule_1835.py` now deals form as well as finish, from the same class and age as
+§12, through `apply_form`, which all six anonymous-roof generators call on their form body:
+
+| value | by | rule |
+|---|---|---|
+| `construction` (frame archetypes) | age | `new`/`recent` → `balloon_frame`; `established`/`older_frontier` → `braced_frame` |
+| `porch` (frame_dwelling) | class | merchant: roofed 3 in 4, else stoop · keeper: roofed · tradesman: stoop 6 in 10 · labourer: none |
+| `shutters` (frame_dwelling) | class | merchant: 6 in 10 (green 2 : black 1) · keeper: 3 in 10, green · others: none |
+
+Only a `reconstructed` value is written; an attested or inferred one, and any wall that is not a
+frame, is left exactly as it is. The Built line names the frame, shutters and porch. L338.
+
+**Not this piece:** glazing (one window arrangement, L23), cladding, trim, and the siding stock
+(T-0112's neighbour-separated deal). T-0002's jitter is T-1818.
+
+## 14. WIRED IN — T-1838, 2026-10-02: the glazing is dealt by whose house it is
+
+The rule deals one more form value, and `frame_dwelling` builds it:
+
+| value | by | rule |
+|---|---|---|
+| `glazing` (frame_dwelling) | class | merchant: 12/12 of 8×10 or 7×9 in (1 : 1) · keeper: 12/12 of 7×9 · tradesman: 12/12 of 6×8 seven in ten, else 9/6 of 6×8 · labourer: 6/6 of 6×8 seven in ten, else 9/6 |
+
+The window is built from its glazing: lights, 7/8 in muntins, the stiles and rails and the
+meeting rail, in the trim's colour over the dark opening. The default, for a record that states
+none, is 12/12 of the attested 6 × 8 in pane. The Built line names the sash. L343.
+
+**Not this piece:** cladding, trim, chimney fabric and the siding stock (T-1839).

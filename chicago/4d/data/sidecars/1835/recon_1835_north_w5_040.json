@@ -182,8 +182,15 @@
     "programme_phase": "phase2_north_division_initial",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 40,
-    "finish_key": "fresh_timber",
-    "roof_condition": "fresh",
-    "age_state": "new"
+    "finish_key": "mixed_patch",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-W",
+      "class": "works",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a patched roof — a riverside shop, from the 1832–33 town (rule F-W: a tradesman's shop by its type)"
+    }
   }
 }

@@ -1,4 +1,6 @@
 let model;
+// A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
+const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
 const $ = (id) => document.getElementById(id);
 const cleanYear = (value) => { const m = String(value || '').match(/\d{4}/); return m ? Number(m[0]) : null; };
 
@@ -53,7 +55,7 @@ function mediaMarkup(row) {
   return `<div class="building-media-gallery">${media.map(item => {
     const representation = (item.representation_type || 'historical image').replaceAll('_',' ');
     const caution = item.accuracy_note ? `<span class="image-caution">${escapeHtml(item.accuracy_note)}</span>` : '';
-    return `<figure class="building-media" data-note="image:${escapeHtml(item.media_id)}" data-note-label="${escapeHtml(item.title)}"><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer"><img src="../${escapeHtml(item.local_path)}" alt="${escapeHtml(item.title)}" loading="lazy"></a><figcaption><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a><span>${escapeHtml(item.depicted_year || 'date unknown')} · ${escapeHtml(representation)}</span>${caution}</figcaption></figure>`;
+    return `<figure class="building-media" data-note="image:${escapeHtml(item.media_id)}" data-note-label="${escapeHtml(item.title)}"><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer"><img src="${escapeHtml(packagePath(item.local_path))}" alt="${escapeHtml(item.title)}" loading="lazy"></a><figcaption><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a><span>${escapeHtml(item.depicted_year || 'date unknown')} · ${escapeHtml(representation)}</span>${caution}</figcaption></figure>`;
   }).join('')}</div>`;
 }
 
@@ -74,7 +76,7 @@ function render() {
   const map = selected?.reference_year === nearest.reference_year ? selected : nearest;
   variant.value = map.map_id;
   $('mapTitle').textContent = map.title; $('mapTitle').dataset.note = `map:${map.map_id}`; $('mapTitle').dataset.noteLabel = map.title; $('mapYear').textContent = `shows ${map.reference_year}`;
-  $('mapImage').src = `../${map.local_image_path.replace('maps/','maps/')}`;
+  $('mapImage').src = packagePath(map.local_image_path);
   $('mapImage').alt = `${map.title}, reference year ${map.reference_year}`;
   $('mapLink').href = map.source_url;
   $('mapMeta').textContent = `${map.map_type.replaceAll('_',' ')} · created ${map.map_date} · ${map.credit_line} · ${map.rights_statement.replaceAll('_',' ')}`;

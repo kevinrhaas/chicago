@@ -350,18 +350,16 @@
       "census_line": "eight taverns",
       "census_count": 8,
       "compared": true,
-      "town_records_in_town": 12,
-      "town_records_at_scene_date": 11,
+      "town_records_in_town": 10,
+      "town_records_at_scene_date": 9,
       "town_records_outside_town": 0,
       "records_opening_after_scene_date": 0,
       "business_ids_opening_after_scene_date": [],
       "business_ids": [
-        "biz_beaubien_mark_tavern_keeper",
         "biz_couch_ira_hotel_keeper",
         "biz_davis_john_hotel_keeper",
         "biz_murphy_john_tavern_keeper",
         "biz_stow_william_h_hotel_keeper",
-        "biz_sweet_alanson_tavern_keeper",
         "biz_walters_william_tavern_keeper",
         "business_e_wentworth_s_tavern_on_flag_creek",
         "business_eagle_hotel",
@@ -387,7 +385,7 @@
           "into": "business_eagle_tavern"
         }
       ],
-      "delta": 3,
+      "delta": 1,
       "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_more_than_the_census_counted",
       "note": null
@@ -700,16 +698,16 @@
   ],
   "totals": {
     "businesses_in_register": 196,
-    "authored_records_counted": 38,
-    "businesses_counted": 234,
-    "in_town": 231,
+    "authored_records_counted": 36,
+    "businesses_counted": 232,
+    "in_town": 229,
     "outside_town": 3,
-    "at_scene_date": 210,
+    "at_scene_date": 208,
     "folded_into_another_house": 5,
     "carrying_no_enumerated_class": 87,
     "not_stated": 5,
     "census_enumerated_total": 118,
-    "town_enumerated_total_at_scene_date": 130
+    "town_enumerated_total_at_scene_date": 128
   },
   "classes_the_town_holds_nothing_for": [
     "bank",
@@ -786,22 +784,6 @@
       "scope": "in_town",
       "ruled_by": "authored_record",
       "basis": "AUTHORED, NOT PRINTED. `biz_beaubien_madore_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
-      "present_at_scene_date": true,
-      "scene_date_exclusion": null,
-      "opened_after_scene_date": false,
-      "folded_into": null,
-      "folded_in_classes": []
-    },
-    {
-      "business_id": "biz_beaubien_mark_tavern_keeper",
-      "name": "Mark Beaubien, tavern keeper",
-      "trade": "tavern keeper",
-      "classes": [
-        "tavern"
-      ],
-      "scope": "in_town",
-      "ruled_by": "authored_record",
-      "basis": "AUTHORED, NOT PRINTED. `biz_beaubien_mark_tavern_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
       "present_at_scene_date": true,
       "scene_date_exclusion": null,
       "opened_after_scene_date": false,
@@ -1234,22 +1216,6 @@
       "scope": "in_town",
       "ruled_by": "authored_record",
       "basis": "AUTHORED, NOT PRINTED. `biz_stow_william_h_hotel_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
-      "present_at_scene_date": true,
-      "scene_date_exclusion": null,
-      "opened_after_scene_date": false,
-      "folded_into": null,
-      "folded_in_classes": []
-    },
-    {
-      "business_id": "biz_sweet_alanson_tavern_keeper",
-      "name": "Alanson Sweet, tavern keeper",
-      "trade": "tavern keeper",
-      "classes": [
-        "tavern"
-      ],
-      "scope": "in_town",
-      "ruled_by": "authored_record",
-      "basis": "AUTHORED, NOT PRINTED. `biz_sweet_alanson_tavern_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
       "present_at_scene_date": true,
       "scene_date_exclusion": null,
       "opened_after_scene_date": false,

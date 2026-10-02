@@ -844,31 +844,37 @@
       "priority": 45,
       "plantable_in_scene": true,
       "extent": {
-        "kind": "everywhere",
+        "kind": "lake_shore",
+        "distance_m": [
+          0,
+          75
+        ],
+        "ramp_m": 40,
+        "wander_m": 30,
         "box": {
           "e": [
-            1400,
-            1700
+            900,
+            1800
           ],
           "n": [
-            -400,
-            400
+            -3900,
+            1220
           ]
         },
         "priority": 45,
         "confidence": "inferred",
         "sources": [],
-        "note": "PRIORITY RAISED 12 -> 45, 2026-08-11. Planting this zone did nothing until now: at 12 it lost everywhere to z02_mesic_prairie (22) and z01_wet_prairie (20), which are ELEVATION BANDS matching the general plain, so the beach and the foredune were being rendered as mesic prairie. A zone defined by a specific geography and a specific SUBSTRATE has to outrank a band defined by height alone — the same reasoning that already puts the settled town (60) and the marsh (70) above both prairies. 45 keeps it below the marsh, the town and the sedge meadow, which is right: where the river mouth is marsh it is marsh, and where the fort stands it is settled ground, beach or no beach. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 7,353 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700: the lake shore, the beach face and the sand bar are modelled ground now, so this community has something to stand on. The box is the belt east of the sand-ridge crest, bounded north and south by the scene's own span; the beach continues well beyond it. NOT FIXED HERE, for the flora parcel: at priority 12 this zone loses everywhere to z02_mesic_prairie (priority 22), whose 1.18-3.0 m elevation band now covers the whole sand belt, so the beach and the bar are currently planted as mesic prairie. The priorities were set when nothing east of E +320 had ground under it and the question could not arise."
+        "note": "FOLLOWS THE LAKE SINCE T-1819, 2026-10-01 (the owner's T-1772: the fort's sand carried north and south along the lake, greyer, with no sharp beach boundary). The extent was a box, E +1400..+1700 by N -400..+400, so the beach stopped along two ruled east-west lines 400 m either side of the mouth and the lakeshore beyond them was planted as riverbank timber. It is now a band measured from the LAKE'S EDGE, which nobody draws: renderers/web/js/lakeshore.js reads it off the committed heightfield at load (per grid row the easternmost land, a median over +/-50 m, a running max over +/-120 m to bridge the mouth, a mean per 40 m), so the beach is wherever the modelled shore is, the sand bar included, the whole 4.9 km of the field. distance_m [0, 75] keeps the old box's reach at the fort (the bar's lake face to E +1400 is 95 m at N 0, and 75 m plus the ramp spans it). ramp_m and wander_m make the inner edge a 40 m ramp that wanders +/-30 m on three incommensurate scales (~310, ~97, ~18 m), because no survey drew this line and a hard edge would draw that admission as one; the shape of that edge is the project's (LIBERTIES L329), not evidence. The box only bounds the search. The ground shader blends this zone's colour by the band's weight and flora.js dithers the same weight for the sward and the trees, so plants thin into the sand across the ramp rather than stopping at a line. WHAT THE PREVIOUS NOTE SAID: PRIORITY RAISED 12 -> 45, 2026-08-11. Planting this zone did nothing until now: at 12 it lost everywhere to z02_mesic_prairie (22) and z01_wet_prairie (20), which are ELEVATION BANDS matching the general plain, so the beach and the foredune were being rendered as mesic prairie. A zone defined by a specific geography and a specific SUBSTRATE has to outrank a band defined by height alone — the same reasoning that already puts the settled town (60) and the marsh (70) above both prairies. 45 keeps it below the marsh, the town and the sedge meadow, which is right: where the river mouth is marsh it is marsh, and where the fort stands it is settled ground, beach or no beach. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 7,353 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700: the lake shore, the beach face and the sand bar are modelled ground now, so this community has something to stand on. The box is the belt east of the sand-ridge crest, bounded north and south by the scene's own span; the beach continues well beyond it. NOT FIXED HERE, for the flora parcel: at priority 12 this zone loses everywhere to z02_mesic_prairie (priority 22), whose 1.18-3.0 m elevation band now covers the whole sand belt, so the beach and the bar are currently planted as mesic prairie. The priorities were set when nothing east of E +320 had ground under it and the question could not arise."
       },
       "ground_rgb": [
-        198,
-        190,
+        186,
+        181,
         166
       ],
       "ground_wet_rgb": [
-        156,
-        148,
-        130
+        146,
+        142,
+        131
       ],
       "bare_soil_fraction": 0.55
     },
@@ -884,27 +890,31 @@
         "box": {
           "e": [
             840,
-            1400
+            1800
           ],
           "n": [
-            -400,
-            400
+            -3900,
+            1220
           ]
+        },
+        "edge": {
+          "ramp_m": 90,
+          "wander_m": 50
         },
         "priority": 40,
         "confidence": "inferred",
         "sources": [],
-        "note": "PRIORITY RAISED 11 -> 40, 2026-08-11. Same correction as z08 and for the same reason — the relict beach-ridge belt was losing to the mesic-prairie elevation band that runs across it. 40 sits just below the lakeshore at 45 so that where the two boxes meet at E +1400 the open beach wins over the older ridges, which is the seaward order. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 14,577 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700. The relict beach-ridge belt runs from the State Street break-of-slope — the terrain spec builds that band between E +780 and +880, centred on the two State Street ground-control points at E +837.6 and +822.5 — east to the lakeshore sand ridges, and all of it is modelled ground now, standing at +7.6 to +9.5 ft above the water. The north-south bounds are the scene's own, not the belt's. NOT FIXED HERE, for the flora parcel: at priority 11 this zone loses everywhere to z02_mesic_prairie (priority 22), so the dry sand prairie is currently planted as mesic prairie — the opposite of the 10-25 per cent bare sand this record exists to state."
+        "note": "CARRIED NORTH AND SOUTH SINCE T-1819, 2026-10-01 (the owner's T-1772). The box was N -400..+400, 'the scene's own' bounds as this note always said, so the beach-ridge belt ended along ruled lines either side of the mouth. It now runs the whole modelled field, N -3800..+1120 (the box reaches 100 m past each end so the soft edge falls off the ground, not on it), and east to the lake, where z08_lakeshore's band outranks it. The west side stays on the State Street break of slope this note has always reasoned from (E +840; the terrain spec builds that band between E +780 and +880), and `edge` makes it a 90 m ramp that wanders +/-50 m (renderers/web/js/lakeshore.js) instead of a meridian. Carrying the belt past the box is a reconstruction: the dossier places relict beach ridges along the lake, but no source in this project draws their north-south extent; LIBERTIES L329 states it. WHAT THE PREVIOUS NOTE SAID: PRIORITY RAISED 11 -> 40, 2026-08-11. Same correction as z08 and for the same reason — the relict beach-ridge belt was losing to the mesic-prairie elevation band that runs across it. 40 sits just below the lakeshore at 45 so that where the two boxes meet at E +1400 the open beach wins over the older ridges, which is the seaward order. PLANTABLE SINCE 2026-08-11. This community was written and then withheld: the ground it describes did not exist in the model. ROADMAP S2e has since extended the heightfield east from a 640 m square to E -320..+1700, and this zone's extent now matches 14,577 samples of the committed terrain, so it is planted. Nothing about the species, the July phenology or the confidence has changed — the records were always ready and the ground was not. WHAT THE ORIGINAL NOTE SAID, kept because it was correct when it was written: PLANTABLE SINCE 2026-08-11, when ROADMAP S2e parcel (b) carried the heightfield east to E +1700. The relict beach-ridge belt runs from the State Street break-of-slope — the terrain spec builds that band between E +780 and +880, centred on the two State Street ground-control points at E +837.6 and +822.5 — east to the lakeshore sand ridges, and all of it is modelled ground now, standing at +7.6 to +9.5 ft above the water. The north-south bounds are the scene's own, not the belt's. NOT FIXED HERE, for the flora parcel: at priority 11 this zone loses everywhere to z02_mesic_prairie (priority 22), so the dry sand prairie is currently planted as mesic prairie — the opposite of the 10-25 per cent bare sand this record exists to state."
       },
       "ground_rgb": [
-        168,
-        158,
-        124
+        124,
+        124,
+        94
       ],
       "ground_wet_rgb": [
-        132,
-        124,
-        100
+        100,
+        100,
+        80
       ],
       "bare_soil_fraction": 0.18
     },

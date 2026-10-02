@@ -3,7 +3,7 @@
  "name": "Beach, foredune and sand prairie, mid-July",
  "greens": [[72,92,56],[100,120,74],[128,146,96],[156,172,120]],
  "dry_accent": [186,178,142],
- "ground": {"rgb":[198,190,166],"wet_rgb":[156,148,130],"dry_rgb":[216,208,184]},
+ "ground": {"rgb":[186,181,166],"wet_rgb":[146,142,131],"dry_rgb":[204,200,186]},
  "wind": {"speed_mps":4.5,"gust":0.45,"sway_deg":13,"wave_m":6.0},
  "lod": {"near_m":14,"mid_m":70,"far_m":300},
  "budget": {"instances_near":6000,"instances_mid":16000},

@@ -555,8 +555,44 @@ def dwellings() -> dict[str, list[str]]:
     return out
 
 
+def requested_trade_workplaces() -> dict[str, dict]:
+    """Authored workplace allocations are already spent roofs, never spare supply.
+
+    T-1766 uses an upstream recipe, not compiled firms or this pass's own output.
+    This reserves a workplace without asserting that its keeper lives in it.
+    """
+    path = ROOT / "data/reconstruction/1835_canal_approach_occupancy.json"
+    if not path.exists():
+        return {}
+    out = {}
+    for row in load(path)["rows"]:
+        sid = row["structure_id"]
+        roof_path = STRUCTURES / (sid + ".json")
+        if not roof_path.exists():
+            raise AssertionError("workplace request has no standing roof: " + sid)
+        recon = load(roof_path).get("reconstruction", {})
+        if (recon.get("family") != row["family"] or
+                recon.get("programme_phase") != "canal_approach_trade_1835"):
+            raise AssertionError("workplace request does not match its trade roof: " + sid)
+        if sid in out:
+            raise AssertionError("duplicate workplace reservation: " + sid)
+        out[sid] = {
+            "structure_id": sid, "block_id": None,
+            "programme_phase": recon["programme_phase"], "family": row["family"],
+            "requested_by_seat": row["business_id"],
+            "reservation_kind": "workplace", "keeper_person_id": row["person_id"],
+            "order_book_draw": "structures/" + ("stores_mixed_use" if row["family"].startswith("C") else "workshops") + "/west",
+            "dealt_by_ticket": "T-1766",
+            "why": "The authored Canal trade allocation raised this roof for this existing keeper's reconstructed firm. It is already a workplace, not a home and not free supply for a second street-face business.",
+        }
+    return out
+
+
 def requested_roofs() -> dict[str, dict]:
-    """structure id -> the platted seat whose slot request raised it. Refusal 7's test.
+    """structure id -> the authored household or workplace seat that raised it.
+
+    Refusal 7 includes T-1766's explicitly allocated trade workplaces. Their authored
+    recipe is read by requested_trade_workplaces(), without making them homes.
 
     The link is DATA, and it is upstream of both passes, which is what keeps this
     derivation acyclic. `tools/seat_platted_ground_1835.py` writes a `slot` when it can
@@ -574,7 +610,7 @@ def requested_roofs() -> dict[str, dict]:
     `check.sh`'s re-derivation depend on which of the two ran last.
     """
     if not PARCELS.exists():
-        return {}
+        return requested_trade_workplaces()
     by_phase: dict[str, list[str]] = {}
     family_of: dict[str, str] = {}
     for path in sorted(STRUCTURES.glob("recon_*.json")):
@@ -610,6 +646,10 @@ def requested_roofs() -> dict[str, dict]:
                            "(refusal 7, T-1626)",
                 }
                 break
+    for sid, row in requested_trade_workplaces().items():
+        if sid in out:
+            raise AssertionError("a roof has both a household and workplace request: " + sid)
+        out[sid] = row
     return dict(sorted(out.items()))
 
 
@@ -1340,7 +1380,9 @@ def derive() -> dict:
     # never releasing the reservation, and that is the number to watch.
     reserved = []
     for structure_id, row in requested.items():
-        reserved.append(dict(row, held_by_a_committed_occupancy=structure_id in homes))
+        workplace = row.get("reservation_kind") == "workplace"
+        held = bool(load(STRUCTURES / (structure_id + ".json")).get("occupants")) if workplace else structure_id in homes
+        reserved.append(dict(row, held_by_a_committed_occupancy=held))
     return {
         "schema": 1,
         "generated_by": "tools/adopt_street_faces.py",
@@ -1447,7 +1489,11 @@ def derive() -> dict:
             "`held_by_a_committed_occupancy` reads the roof's own structure record and "
             "nothing else: the platted deal writes no `occupants`, so a roof it has "
             "seated still reads false here, and the false count is an upper bound on "
-            "what the reservation costs rather than the cost.",
+            "what the reservation costs rather than the cost. T-1766 also reserves the five "
+            "authored Canal workplace allocations from 1835_canal_approach_occupancy.json. "
+            "Those rows have reservation_kind=workplace, claim no residence, and report "
+            "held occupancy from their structure occupants block. The legacy slot-request "
+            "keys count both kinds of authored reservation.",
         "adoptions": adoptions,
         "refusals": refusals,
     }
@@ -1524,7 +1570,7 @@ def limits(doc: dict) -> list[str]:
     reserved_now = requested_roofs()
     for structure_id in sorted(seen & set(reserved_now)):
         bad.append("%s was raised to answer %s's slot request (%s, %s) and cannot also "
-                   "be adopted — refusal 7 reserves it for the household layer"
+                   "be adopted — refusal 7 reserves it for its authored seat"
                    % (structure_id,
                       reserved_now[structure_id].get("requested_by_seat"),
                       reserved_now[structure_id].get("block_id"),
@@ -1661,7 +1707,7 @@ def check() -> int:
              churn["within the bands"]["id_order"]["places_changed"],
              churn["within the bands"]["deal_order"]["worst_single_re_family"],
              churn["within the bands"]["id_order"]["worst_single_re_family"]))
-    print("  ok    %d roof(s) raised to answer a household's slot request are reserved "
+    print("  ok    %d roof(s) raised for an authored household or workplace seat are reserved "
           "from the deal; %d carry a committed occupancy, %d do not yet (refusal 7, "
           "T-1626 — the platted deal writes none, so that is an upper bound)"
           % (counts["roofs_reserved_for_a_slot_request"],
@@ -1895,7 +1941,12 @@ def self_test() -> int:
             case("a business seated in a roof raised to answer a slot request",
                  lambda b: first(b).update(structure_id=on_a_face[0][0],
                                            street_id=on_a_face[0][1]),
-                 "refusal 7 reserves it for the household layer")
+                 "refusal 7 reserves it for its authored seat")
+
+    for sid in requested_trade_workplaces():
+        case("a second business seated in an authored trade workplace: " + sid,
+             lambda b, sid=sid: first(b).update(structure_id=sid),
+             "refusal 7 reserves it for its authored seat")
 
     # LIMIT 5's THREE WAYS OF ROTTING, T-1651: a business put back into a dwelling while a
     # shop roof on the same face and the same reading stands free, and the two ways the

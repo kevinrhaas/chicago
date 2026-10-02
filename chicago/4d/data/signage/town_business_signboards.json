@@ -20,8 +20,8 @@
     "confidence": "reconstructed",
     "geometry": "canvas texture, drawn at load",
     "tiers": {
-      "inferred": 14,
-      "reconstructed": 20
+      "inferred": 39,
+      "reconstructed": 35
     },
     "note": "DRAWN SINCE 2026-08-21, AND RE-WORDED THE SAME DAY. This block used to read 'NOT DRAWN, AND THAT IS THE WHOLE DISCIPLINE OF THIS LAYER', on L25's reasoning generalised: no source gives the wording of any sign in this town, so every board stayed a blank plank. The owner's instruction of 2026-08-18 overruled it — 'you can and should put the name of the location on the sign board … it is fine if they are reconstructions' — and T-0066 then painted THE RECORD'S OWN `name` on every board. T-0130 CORRECTS THAT, on the owner's word of 2026-08-21: 'philo would not have referred to his own place as log drug store, it would be philo carpenter, drugs and medicines, or druggist or whatever he would have referred to himself as on the sign, that may be different than the name of the building for us, the sign may read differently historically' — and, widening it, 'i guess do a pass on all those signs and make sure they feel right for the era'. A record's `name` is OUR LABEL FOR A BUILDING ('Philo Carpenter's Log Drug Store'); a board carries what a signwriter lettered. The two are now separate fields and are allowed to differ. What they must still agree about is WHO: every sign declares a `sign_identity` that appears in the board AND in the card, the generator refuses to build without it, and tools/smoke_renderer.mjs asserts it at run time over every sign. THE REGISTER is the advertisements' own — proprietor or firm first and largest, the trade beneath, the place last and smallest — carried per line in `sign_lines` and lettered in that hierarchy by renderers/web/js/signage.js. Period spelling is theirs and is kept. THE TIERS: a wording taken off a firm's own advertisement is `inferred`; one built out of the evidenced trade vocabulary for a business that left no advertisement is `reconstructed`. NOT ONE IS `attested` YET, and each note says why and what would change it — the seven 1833-35 newspaper pages behind these wordings were supplied as images in conversation on 2026-08-21 and are not committed to data/sources/assets/, so they are transcriptions and a transcription is not a citation. The owner's ruling of that day is the authority for proceeding anyway: 'I will give you all those data sources later in a more comprehensive form proceed where you can and label reconstruction or inferred with a note as you like.' The LETTERFORM, the colours and the panel remain `style`, a table of the combinations the trade worked in rather than of anything Chicago recorded (docs/LIBERTIES.md L159; L169 for the wording). ONE DEVICE IS NOW PAINTED and it is the one a Chicago tradesman described himself: Carpenter's golden mortar, `sign_device` — see its own note. No other board carries an image, and L25 is untouched: it withholds the Wolf Point wolf because that IMAGE was never described, which is the opposite case to a shop whose own advertisement names its sign."
   },
@@ -29,21 +29,21 @@
     "confidence": "reconstructed",
     "note": "Five mountings, chosen by the trade's class and de-conflicted against every sign within 40 m so that no two neighbours hang alike: `bracket_board` (the wolf sign's own geometry — a plank hung by two straps 0.20 m under a 1.15 m bracket arm, 1.7 m to one side of the facade's centre and clear of the eave), `awning_board` (the same plank under a hood 1.45 m deep that falls 0.34 m to its outer edge), `wall_board` (a board fixed flat on the front under a cap), `post_board` (a pole at the street edge 1.9 m out from the wall, with a cross-arm and the board under it — the Green Tree's own arrangement, T-0082) and `facade_painted` (the name straight onto the boards of the building, no board at all — what image 5 of the owner's brief shows across the Tremont's row, standing with its foot 2.3 m up so it clears a door head, or lower where the wall has not the height for that and 0.25 m of eave besides). Not one of those numbers is a record's. A sign's SIZE is derived from the length of its own name inside the range its mounting allows and inside the frontage it stands on; its `aspect` comes from its style, so two boards on one street are not the same rectangle either.",
     "mountings": {
-      "awning_board": 6,
-      "bracket_board": 9,
-      "facade_painted": 10,
-      "post_board": 2,
-      "wall_board": 7
+      "awning_board": 16,
+      "bracket_board": 20,
+      "facade_painted": 23,
+      "post_board": 4,
+      "wall_board": 11
     }
   },
   "opening_sweep": {
     "note": "Every sign in the record, and what the opening test did with it. A board on a BRACKET, an AWNING or a POST stands off the wall on an arm, a hood or a stick of its own and cannot cover an opening, so it is swept as `not flat on the wall` rather than as clear — the test applies to the boards fixed flat against a facade and to the names painted straight on one. `already clear` is a measurement and not a silence: it means the board was tested against this building's own door and window rectangles and stood off all of them where the trade rule had already put it.",
-    "flat_mounted": 17,
+    "flat_mounted": 34,
     "counts": {
-      "moved": 11,
-      "not flat on the wall": 17,
-      "reshaped": 2,
-      "shrunk to the door": 4
+      "moved": 13,
+      "not flat on the wall": 40,
+      "reshaped": 9,
+      "shrunk to the door": 12
     },
     "signs": [
       {
@@ -283,6 +283,345 @@
         "done": "not flat on the wall"
       },
       {
+        "structure_id": "recon_1835_blk_indiana_north_cass_h3_09",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_lake_clark_c1_01",
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_blk_lake_clark_c2_02",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_lake_clark_c3_03",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_blk_lake_franklin_c2_01",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door"
+        ],
+        "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_blk_lake_market_c2_01",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_blk_randolph_clark_c2_01",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_randolph_clark_d6_04",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_randolph_wells_d4_04",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_clark_f2_01",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "window"
+        ],
+        "done": "moved"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
+      },
+      {
+        "structure_id": "recon_1835_blk_washington_clark_h3_05",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_washington_clark_h3_06",
+        "mounting": "post_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_washington_clark_h3_11",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_canal_trade_c3_001",
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_canal_trade_c4_002",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_canal_trade_w1_003",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_canal_trade_w2_004",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
+      },
+      {
+        "structure_id": "recon_1835_north_h1_007",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_north_h2_022",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_north_h2_028",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_north_h2_030",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_north_h2_045",
+        "mounting": "post_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_south_c3_040",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_south_f1_038",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_west_006",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_west_007",
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "shrunk to the door"
+      },
+      {
+        "structure_id": "recon_1835_west_035",
+        "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
         "structure_id": "robert_kinzie_store",
         "mounting": "wall_board",
         "covered_an_opening_before": true,
@@ -329,7 +668,13 @@
     ]
   },
   "rule": {
-    "note": "A named record (not inf_/recon_, not 'Reconstructed'), a trade this project will announce — a PUBLIC TRADE whose customer arrived on foot off the street, which gets a board, or a WORKS OR WAREHOUSE trade whose custom came by name and by cart, which gets its firm painted on the front — that trade attested or inferred rather than reconstructed, standing on the scene date, no sign on the record already, no named board already standing on a post at its corner on the frontage layer, and (for a works only) a proprietor in its own name. Read the clauses and their reasons in tools/generate_business_signboards.py.",
+    "note": "A named record (not inf_/recon_, not 'Reconstructed'), a trade this project will announce — a PUBLIC TRADE whose customer arrived on foot off the street, which gets a board, or a WORKS OR WAREHOUSE trade whose custom came by name and by cart, which gets its firm painted on the front — that trade attested or inferred rather than reconstructed, standing on the scene date, no sign on the record already, no named board already standing on a post at its corner on the frontage layer, and (for a works only) a proprietor in its own name. AND, SINCE T-1834, a reconstructed roof the business layer records a reconstructed firm IN: its board letters that firm's own style, its trade is the firm's (`recon_firm_trades`), every grade on it is `reconstructed`, and it is dealt after every named frontage so it can move none of them (docs/LIBERTIES.md L340). Read the clauses and their reasons in tools/generate_business_signboards.py.",
+    "recon_firm_trades": {
+      "boarding_house_keeper": "boarding_house",
+      "grocer": "grocery_and_provision_store",
+      "blacksmith": "blacksmith_shop",
+      "carpenter": "carpenter_or_joiner_shop"
+    },
     "public_trades": [
       "auction_room",
       "boarding_house",
@@ -412,9 +757,27 @@
       "note": "The promise above, MEASURED rather than assumed, every build: every pair of boards within 40 m that shares a mounting, a style or a ground colour. The generator REFUSES TO BUILD on any pair not listed here as allowed. A mounting may be shared only where one of the two trades belongs to a class whose cycle is a single mounting — a works paints its front and hangs nothing at all, so two works on one corner cannot differ, and this project would rather say so than hang a plank on a works to make a rule come out.",
       "pairs_within_neighbour_m_sharing_something": [
         {
+          "a": "chicago_american_office",
+          "b": "recon_1835_blk_south_water_dearborn_c1_08",
+          "gap_m": 22.1,
+          "share": "mounting",
+          "value": "facade_painted",
+          "allowed": true,
+          "why": "one of these two trades is a works, and the works cycle is a single mounting — a works paints its front and hangs nothing at all, so two of them inside 40 m cannot differ and this project would rather say so than hang a plank on a works to make a rule come out."
+        },
+        {
           "a": "dole_warehouse_south",
           "b": "mason_blacksmith_shop",
           "gap_m": 16.8,
+          "share": "mounting",
+          "value": "facade_painted",
+          "allowed": true,
+          "why": "one of these two trades is a works, and the works cycle is a single mounting — a works paints its front and hangs nothing at all, so two of them inside 40 m cannot differ and this project would rather say so than hang a plank on a works to make a rule come out."
+        },
+        {
+          "a": "recon_1835_canal_trade_w1_003",
+          "b": "recon_1835_canal_trade_w2_004",
+          "gap_m": 16.0,
           "share": "mounting",
           "value": "facade_painted",
           "allowed": true,
@@ -3560,6 +3923,3821 @@
           -263.38
         ]
       ]
+    },
+    {
+      "structure_id": "recon_1835_blk_indiana_north_cass_h3_09",
+      "name": "Chapin's boarding house",
+      "sign_text": "CHAPIN'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "CHAPIN'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Chapin",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Chapin's boarding house (rcb_chapin_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_red",
+        "ground": "#7c3020",
+        "letter": "#efe3c8",
+        "face": "fat_face",
+        "panel": "single_rule",
+        "aspect": 1.95,
+        "note": "cream fat face on Venetian red"
+      },
+      "anchor_local_enu_m": [
+        958.04,
+        494.23
+      ],
+      "facade_bearing_deg": 180.4,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.44,
+      "board_h_m": 0.74,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 6.5,
+      "wall_height_from": "the record",
+      "frontage_m": 9.88,
+      "ground_quad_local_enu_m": [
+        [
+          964.77,
+          507.48
+        ],
+        [
+          954.89,
+          507.55
+        ],
+        [
+          954.8,
+          494.25
+        ],
+        [
+          964.68,
+          494.19
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_clark_h3_05",
+      "name": "Mark Beaubien's boarding house",
+      "sign_text": "MARK BEAUBIEN'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "MARK BEAUBIEN'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Beaubien",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Mark Beaubien's boarding house (rcb_beaubien_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        669.52,
+        -505.3
+      ],
+      "facade_bearing_deg": 180.4,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.59,
+      "board_h_m": 0.79,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.49,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.03,
+      "wall_height_m": 5.71,
+      "wall_height_from": "the record",
+      "frontage_m": 8.47,
+      "ground_quad_local_enu_m": [
+        [
+          675.54,
+          -492.97
+        ],
+        [
+          667.07,
+          -492.92
+        ],
+        [
+          666.99,
+          -505.28
+        ],
+        [
+          675.46,
+          -505.34
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_clark_h3_06",
+      "name": "Sweet's boarding house",
+      "sign_text": "SWEET'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "SWEET'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Sweet",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Sweet's boarding house (rcb_sweet_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "post_board",
+      "mounting_note": null,
+      "style": {
+        "id": "red_on_white",
+        "ground": "#e9e2d1",
+        "letter": "#8c2f1f",
+        "face": "egyptian",
+        "panel": "oval",
+        "aspect": 1.8,
+        "note": "vermilion Egyptian on a white ground"
+      },
+      "anchor_local_enu_m": [
+        673.54,
+        -407.0
+      ],
+      "facade_bearing_deg": 0.4,
+      "arm_height_m": 2.55,
+      "height_datum": "the ground under the post itself, sampled where it stands: the post is in the street, not on the building. `post_height_m` is its head over that ground and `arm_height_m` does not apply",
+      "board_w_m": 1.58,
+      "board_h_m": 0.84,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "stand_m": 1.9,
+        "arm_m": 1.3,
+        "hanger_drop_m": 0.2,
+        "post_height_m": 3.66,
+        "post_square_m": 0.16
+      },
+      "reach_m": 2.67,
+      "wall_height_m": 5.97,
+      "wall_height_from": "the record",
+      "frontage_m": 9.96,
+      "ground_quad_local_enu_m": [
+        [
+          666.76,
+          -421.51
+        ],
+        [
+          676.73,
+          -421.57
+        ],
+        [
+          676.82,
+          -407.02
+        ],
+        [
+          666.85,
+          -406.96
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_clark_h3_11",
+      "name": "Trottier's boarding house",
+      "sign_text": "TROTTIER'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "TROTTIER'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Trottier",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Trottier's boarding house (rcb_trottier_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_timber",
+        "ground": "#cbc2b1",
+        "letter": "#241a10",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.0,
+        "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
+      },
+      "anchor_local_enu_m": [
+        599.57,
+        -406.4
+      ],
+      "facade_bearing_deg": 0.4,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.56,
+      "board_h_m": 0.66,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.46,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.02,
+      "wall_height_m": 6.17,
+      "wall_height_from": "the record",
+      "frontage_m": 10.0,
+      "ground_quad_local_enu_m": [
+        [
+          592.78,
+          -420.96
+        ],
+        [
+          602.78,
+          -421.03
+        ],
+        [
+          602.88,
+          -406.42
+        ],
+        [
+          592.87,
+          -406.36
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_c3_001",
+      "name": "Martin Mahoney, grocery and provision store",
+      "sign_text": "MARTIN MAHONEY / Grocery and Provision Store / Canal Street",
+      "sign_lines": [
+        {
+          "text": "MARTIN MAHONEY",
+          "role": "name"
+        },
+        {
+          "text": "Grocery and Provision Store",
+          "role": "trade"
+        },
+        {
+          "text": "Canal Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Mahoney",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Martin Mahoney, grocery and provision store (rcb_canal_mahoney_martin) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the sole trader's (T-1184 form 1), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "grocery_and_provision_store",
+      "trade_confidence": "reconstructed",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "wall_board",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        -151.63,
+        -18.48
+      ],
+      "facade_bearing_deg": 266.7,
+      "arm_height_m": 2.59,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 0.88,
+      "board_h_m": 0.39,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 0.57,
+      "wall_height_m": 6.05,
+      "wall_height_from": "the record",
+      "frontage_m": 6.02,
+      "ground_quad_local_enu_m": [
+        [
+          -136.8,
+          -21.41
+        ],
+        [
+          -137.14,
+          -15.39
+        ],
+        [
+          -151.76,
+          -16.24
+        ],
+        [
+          -151.42,
+          -22.25
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": {
+          "kind": "shop_door",
+          "u0": 3.26,
+          "u1": 4.28,
+          "z0": 0.0,
+          "z1": 2.69
+        },
+        "note": "this front has no 2.30 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.39 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          6.02
+        ],
+        "board_span_local_m": [
+          3.33,
+          4.21
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.56
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.69
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.69,
+            "z1": 2.97
+          },
+          {
+            "kind": "window",
+            "u0": 1.2,
+            "u1": 2.05,
+            "z0": 3.93,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 4.05,
+            "u1": 4.9,
+            "z0": 3.93,
+            "z1": 5.23
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_c4_002",
+      "name": "Seth Pratt, grocery and provision store",
+      "sign_text": "SETH PRATT / Grocery and Provision Store",
+      "sign_lines": [
+        {
+          "text": "SETH PRATT",
+          "role": "name"
+        },
+        {
+          "text": "Grocery and Provision Store",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Pratt",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Seth Pratt, grocery and provision store (rcb_canal_pratt_seth) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the sole trader's (T-1184 form 1), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340). The board is a bracket board, which carries 2 lines, so the place line — \"Canal Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "grocery_and_provision_store",
+      "trade_confidence": "reconstructed",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "red_on_white",
+        "ground": "#e9e2d1",
+        "letter": "#8c2f1f",
+        "face": "egyptian",
+        "panel": "oval",
+        "aspect": 1.8,
+        "note": "vermilion Egyptian on a white ground"
+      },
+      "anchor_local_enu_m": [
+        -150.65,
+        -35.54
+      ],
+      "facade_bearing_deg": 266.7,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.81,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 6.27,
+      "wall_height_from": "the record",
+      "frontage_m": 9.56,
+      "ground_quad_local_enu_m": [
+        [
+          -133.04,
+          -41.02
+        ],
+        [
+          -133.59,
+          -31.47
+        ],
+        [
+          -150.83,
+          -32.47
+        ],
+        [
+          -150.28,
+          -42.01
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_w1_003",
+      "name": "Lemuel Lyman, blacksmith shop",
+      "sign_text": "LEMUEL LYMAN / Blacksmith Shop / Canal Street",
+      "sign_lines": [
+        {
+          "text": "LEMUEL LYMAN",
+          "role": "name"
+        },
+        {
+          "text": "Blacksmith Shop",
+          "role": "trade"
+        },
+        {
+          "text": "Canal Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Lyman",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Lemuel Lyman, blacksmith shop (rcb_canal_lyman_lemuel) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the sole trader's (T-1184 form 1), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "blacksmith_shop",
+      "trade_confidence": "reconstructed",
+      "trade_class": "works",
+      "why_a_board": "a smith's shop, named on its front for the carter who needs one",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        -149.4,
+        -57.24
+      ],
+      "facade_bearing_deg": 266.7,
+      "arm_height_m": 2.9,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 2.76,
+      "board_h_m": 1.0,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 1.5,
+      "wall_height_m": 3.55,
+      "wall_height_from": "the record",
+      "frontage_m": 5.99,
+      "ground_quad_local_enu_m": [
+        [
+          -140.48,
+          -59.73
+        ],
+        [
+          -140.82,
+          -53.75
+        ],
+        [
+          -149.57,
+          -54.25
+        ],
+        [
+          -149.23,
+          -60.23
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": {
+          "kind": "door",
+          "u0": 1.54,
+          "u1": 4.44,
+          "z0": 0.0,
+          "z1": 3.0
+        },
+        "note": "this front has no 2.75 m of blank face at any height a name can be read at — every band is taken by door — so the board is shrunk to 2.76 x 1.00 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          5.99
+        ],
+        "board_span_local_m": [
+          1.61,
+          4.37
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 1.54,
+            "u1": 4.44,
+            "z0": 0.0,
+            "z1": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_canal_trade_w2_004",
+      "name": "Horace Stebbins, carpenter shop",
+      "sign_text": "HORACE STEBBINS / Carpenter Shop / Canal Street",
+      "sign_lines": [
+        {
+          "text": "HORACE STEBBINS",
+          "role": "name"
+        },
+        {
+          "text": "Carpenter Shop",
+          "role": "trade"
+        },
+        {
+          "text": "Canal Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Stebbins",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Horace Stebbins, carpenter shop (rcb_canal_stebbins_horace) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the sole trader's (T-1184 form 1), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "trade_class": "works",
+      "why_a_board": "a joiner's shop, named on its front for the builder who orders from it",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_brown",
+        "ground": "#4a3121",
+        "letter": "#e6dccb",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.45,
+        "note": "white fat face on a chocolate-brown ground"
+      },
+      "anchor_local_enu_m": [
+        -148.48,
+        -73.24
+      ],
+      "facade_bearing_deg": 266.7,
+      "arm_height_m": 3.09,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 2.75,
+      "board_h_m": 0.69,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 1.5,
+      "wall_height_m": 3.46,
+      "wall_height_from": "the record",
+      "frontage_m": 6.22,
+      "ground_quad_local_enu_m": [
+        [
+          -138.55,
+          -75.78
+        ],
+        [
+          -138.91,
+          -69.58
+        ],
+        [
+          -148.66,
+          -70.14
+        ],
+        [
+          -148.3,
+          -76.35
+        ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.10 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          6.22
+        ],
+        "board_span_local_m": [
+          1.73,
+          4.48
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 2.43,
+            "u1": 3.79,
+            "z0": 0.0,
+            "z1": 2.3
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_north_h1_007",
+      "name": "Bardwell's boarding house",
+      "sign_text": "BARDWELL'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "BARDWELL'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Bardwell",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Bardwell's boarding house (rcb_bardwell_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": "a post was refused here because no street lies in front of this wall within 22 m — a post here would stand in a yard",
+      "style": {
+        "id": "gold_on_black",
+        "ground": "#141009",
+        "letter": "#c9a227",
+        "face": "signwriter",
+        "panel": "plain",
+        "aspect": 1.85,
+        "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
+      },
+      "anchor_local_enu_m": [
+        643.3,
+        220.17
+      ],
+      "facade_bearing_deg": 180.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.56,
+      "board_h_m": 0.71,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.46,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.02,
+      "wall_height_m": 3.52,
+      "wall_height_from": "the record",
+      "frontage_m": 8.2,
+      "ground_quad_local_enu_m": [
+        [
+          649.1,
+          229.83
+        ],
+        [
+          640.9,
+          229.83
+        ],
+        [
+          640.9,
+          220.17
+        ],
+        [
+          649.1,
+          220.17
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_north_h2_022",
+      "name": "Ezra Barnes's boarding house",
+      "sign_text": "EZRA BARNES'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "EZRA BARNES'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Barnes",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Ezra Barnes's boarding house (rcb_barnes_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        873.3,
+        219.88
+      ],
+      "facade_bearing_deg": 180.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.44,
+      "board_h_m": 0.85,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 5.58,
+      "wall_height_from": "the record",
+      "frontage_m": 8.07,
+      "ground_quad_local_enu_m": [
+        [
+          879.03,
+          230.12
+        ],
+        [
+          870.97,
+          230.12
+        ],
+        [
+          870.97,
+          219.88
+        ],
+        [
+          879.03,
+          219.88
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_north_h2_028",
+      "name": "Cavanagh's boarding house",
+      "sign_text": "CAVANAGH'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "CAVANAGH'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Cavanagh",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Cavanagh's boarding house (rcb_cavanagh_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": null,
+      "style": {
+        "id": "gold_on_black",
+        "ground": "#141009",
+        "letter": "#c9a227",
+        "face": "signwriter",
+        "panel": "plain",
+        "aspect": 1.85,
+        "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
+      },
+      "anchor_local_enu_m": [
+        931.7,
+        350.5
+      ],
+      "facade_bearing_deg": 0.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.56,
+      "board_h_m": 0.71,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.46,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.02,
+      "wall_height_m": 5.92,
+      "wall_height_from": "the record",
+      "frontage_m": 8.88,
+      "ground_quad_local_enu_m": [
+        [
+          925.56,
+          339.5
+        ],
+        [
+          934.44,
+          339.5
+        ],
+        [
+          934.44,
+          350.5
+        ],
+        [
+          925.56,
+          350.5
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_north_h2_030",
+      "name": "Lydia Newell's boarding house",
+      "sign_text": "LYDIA NEWELL'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "LYDIA NEWELL'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Newell",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Lydia Newell's boarding house (rcb_newell_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_white",
+        "ground": "#e8e1cf",
+        "letter": "#191410",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.1,
+        "note": "black on a white lead ground, the cheapest board a signwriter could sell"
+      },
+      "anchor_local_enu_m": [
+        761.7,
+        370.3
+      ],
+      "facade_bearing_deg": 0.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.44,
+      "board_h_m": 0.69,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 5.74,
+      "wall_height_from": "the record",
+      "frontage_m": 8.18,
+      "ground_quad_local_enu_m": [
+        [
+          755.91,
+          359.7
+        ],
+        [
+          764.09,
+          359.7
+        ],
+        [
+          764.09,
+          370.3
+        ],
+        [
+          755.91,
+          370.3
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_north_h2_045",
+      "name": "Gilbert's boarding house",
+      "sign_text": "GILBERT'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "GILBERT'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Gilbert",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Gilbert's boarding house (rcb_gilbert_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "post_board",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        946.7,
+        370.54
+      ],
+      "facade_bearing_deg": 0.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the ground under the post itself, sampled where it stands: the post is in the street, not on the building. `post_height_m` is its head over that ground and `arm_height_m` does not apply",
+      "board_w_m": 1.58,
+      "board_h_m": 0.68,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "stand_m": 1.9,
+        "arm_m": 1.3,
+        "hanger_drop_m": 0.2,
+        "post_height_m": 3.3,
+        "post_square_m": 0.16
+      },
+      "reach_m": 2.67,
+      "wall_height_m": 6.33,
+      "wall_height_from": "the record",
+      "frontage_m": 8.56,
+      "ground_quad_local_enu_m": [
+        [
+          940.72,
+          359.46
+        ],
+        [
+          949.28,
+          359.46
+        ],
+        [
+          949.28,
+          370.54
+        ],
+        [
+          940.72,
+          370.54
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_west_006",
+      "name": "Martin Fitzgerald's boarding house",
+      "sign_text": "MARTIN FITZGERALD'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "MARTIN FITZGERALD'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Fitzgerald",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Martin Fitzgerald's boarding house (rcb_fitzgerald_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        -262.79,
+        27.39
+      ],
+      "facade_bearing_deg": 89.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.86,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 3.91,
+      "wall_height_from": "the record",
+      "frontage_m": 7.92,
+      "ground_quad_local_enu_m": [
+        [
+          -273.25,
+          32.87
+        ],
+        [
+          -273.11,
+          24.95
+        ],
+        [
+          -262.75,
+          25.13
+        ],
+        [
+          -262.89,
+          33.05
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_west_035",
+      "name": "Victoire Pelletier's boarding house",
+      "sign_text": "VICTOIRE PELLETIER'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "VICTOIRE PELLETIER'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Pelletier",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Victoire Pelletier's boarding house (rcb_pelletier_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": null,
+      "style": {
+        "id": "gold_on_black",
+        "ground": "#141009",
+        "letter": "#c9a227",
+        "face": "signwriter",
+        "panel": "plain",
+        "aspect": 1.85,
+        "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
+      },
+      "anchor_local_enu_m": [
+        -366.94,
+        -261.83
+      ],
+      "facade_bearing_deg": 1.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.66,
+      "board_h_m": 0.76,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.56,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.05,
+      "wall_height_m": 5.8,
+      "wall_height_from": "the record",
+      "frontage_m": 8.53,
+      "ground_quad_local_enu_m": [
+        [
+          -373.11,
+          -273.31
+        ],
+        [
+          -364.57,
+          -273.45
+        ],
+        [
+          -364.37,
+          -261.87
+        ],
+        [
+          -372.9,
+          -261.73
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c1_01",
+      "name": "W. G. Blanchard",
+      "sign_text": "W. G. BLANCHARD / House & Land Agent / Lake Street",
+      "sign_lines": [
+        {
+          "text": "W. G. BLANCHARD",
+          "role": "name"
+        },
+        {
+          "text": "House & Land Agent",
+          "role": "trade"
+        },
+        {
+          "text": "Lake Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Blanchard",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put W. G. Blanchard (biz_w_g_blanchard) on Lake Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"house and land agent\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "small_shop_or_office",
+      "trade_confidence": "inferred",
+      "trade_class": "office",
+      "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
+      "confidence": "reconstructed",
+      "mounting": "wall_board",
+      "mounting_note": null,
+      "style": {
+        "id": "gold_on_black",
+        "ground": "#141009",
+        "letter": "#c9a227",
+        "face": "signwriter",
+        "panel": "plain",
+        "aspect": 1.85,
+        "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
+      },
+      "anchor_local_enu_m": [
+        592.6,
+        -127.49
+      ],
+      "facade_bearing_deg": 0.5,
+      "arm_height_m": 2.21,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 0.88,
+      "board_h_m": 0.46,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 0.57,
+      "wall_height_m": 2.85,
+      "wall_height_from": "the record",
+      "frontage_m": 5.34,
+      "ground_quad_local_enu_m": [
+        [
+          588.77,
+          -134.43
+        ],
+        [
+          594.11,
+          -134.47
+        ],
+        [
+          594.17,
+          -127.51
+        ],
+        [
+          588.82,
+          -127.46
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": {
+          "kind": "shop_door",
+          "u0": 3.26,
+          "u1": 4.28,
+          "z0": 0.0,
+          "z1": 2.31
+        },
+        "note": "this front has no 2.14 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.46 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          5.34
+        ],
+        "board_span_local_m": [
+          3.33,
+          4.21
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.18
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.31
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.31,
+            "z1": 2.59
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c2_02",
+      "name": "G. Blanshard",
+      "sign_text": "G. BLANSHARD / Houses & Lots",
+      "sign_lines": [
+        {
+          "text": "G. BLANSHARD",
+          "role": "name"
+        },
+        {
+          "text": "Houses & Lots",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Blanshard",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put G. Blanshard (biz_g_blanshard) on Lake Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"houses and lots for sale or to let\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a bracket board, which carries 2 lines, so the place line — \"Lake Street\" — is not lettered here: a signwriter letters what fits. For the same reason the trade is shortened from \"Houses & Lots for Sale or to Let\" to \"Houses & Lots\".",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "small_shop_or_office",
+      "trade_confidence": "inferred",
+      "trade_class": "office",
+      "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_brown",
+        "ground": "#4a3121",
+        "letter": "#e6dccb",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.45,
+        "note": "white fat face on a chocolate-brown ground"
+      },
+      "anchor_local_enu_m": [
+        598.95,
+        -127.54
+      ],
+      "facade_bearing_deg": 0.5,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.41,
+      "board_h_m": 0.58,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.47,
+      "wall_height_m": 3.95,
+      "wall_height_from": "the record",
+      "frontage_m": 6.17,
+      "ground_quad_local_enu_m": [
+        [
+          594.07,
+          -139.15
+        ],
+        [
+          600.25,
+          -139.2
+        ],
+        [
+          600.34,
+          -127.56
+        ],
+        [
+          594.17,
+          -127.51
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_clark_c3_03",
+      "name": "Dr. W. G. Austin",
+      "sign_text": "DR. W. G. AUSTIN / Practice of Medicine, Botanic System / Lake Street",
+      "sign_lines": [
+        {
+          "text": "DR. W. G. AUSTIN",
+          "role": "name"
+        },
+        {
+          "text": "Practice of Medicine, Botanic System",
+          "role": "trade"
+        },
+        {
+          "text": "Lake Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Austin",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Dr. W. G. Austin (biz_dr_w_g_austin) on Lake Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"practice of medicine, botanic system\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "physicians_office",
+      "trade_confidence": "inferred",
+      "trade_class": "office",
+      "why_a_board": "a consulting room a stranger has to be able to find",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "red_on_white",
+        "ground": "#e9e2d1",
+        "letter": "#8c2f1f",
+        "face": "egyptian",
+        "panel": "oval",
+        "aspect": 1.8,
+        "note": "vermilion Egyptian on a white ground"
+      },
+      "anchor_local_enu_m": [
+        603.61,
+        -127.58
+      ],
+      "facade_bearing_deg": 0.5,
+      "arm_height_m": 4.24,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 4.57,
+      "board_h_m": 0.85,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 2.41,
+      "wall_height_m": 6.69,
+      "wall_height_from": "the record",
+      "frontage_m": 6.53,
+      "ground_quad_local_enu_m": [
+        [
+          600.24,
+          -140.09
+        ],
+        [
+          606.77,
+          -140.14
+        ],
+        [
+          606.87,
+          -127.61
+        ],
+        [
+          600.34,
+          -127.56
+        ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 3.38 x 1.15 m board, so the same words are lettered on a longer and narrower 4.57 x 0.85 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.53
+        ],
+        "board_span_local_m": [
+          0.98,
+          5.55
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.88
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 3.01
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 3.01,
+            "z1": 3.29
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 4.35,
+            "z1": 5.65
+          },
+          {
+            "kind": "window",
+            "u0": 2.83,
+            "u1": 3.68,
+            "z0": 4.35,
+            "z1": 5.65
+          },
+          {
+            "kind": "window",
+            "u0": 4.86,
+            "u1": 5.71,
+            "z0": 4.35,
+            "z1": 5.65
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_franklin_c2_01",
+      "name": "Sarah D. Howe",
+      "sign_text": "SARAH D. HOWE / Dress, Cloak & Habit Making / Lake Street",
+      "sign_lines": [
+        {
+          "text": "SARAH D. HOWE",
+          "role": "name"
+        },
+        {
+          "text": "Dress, Cloak & Habit Making",
+          "role": "trade"
+        },
+        {
+          "text": "Lake Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Howe",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Sarah D. Howe (biz_sarah_d_howe) on Lake Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"dress, cloak and habit making\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "shop",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a shop front on a street of stores",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": "a awning board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        288.68,
+        -125.72
+      ],
+      "facade_bearing_deg": 0.5,
+      "arm_height_m": 3.28,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 4.16,
+      "board_h_m": 0.65,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 2.2,
+      "wall_height_m": 3.54,
+      "wall_height_from": "the record",
+      "frontage_m": 6.14,
+      "ground_quad_local_enu_m": [
+        [
+          285.53,
+          -135.38
+        ],
+        [
+          291.67,
+          -135.43
+        ],
+        [
+          291.74,
+          -125.74
+        ],
+        [
+          285.61,
+          -125.69
+        ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door on a 3.11 x 0.87 m board, so the same words are lettered on a longer and narrower 4.16 x 0.65 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.14
+        ],
+        "board_span_local_m": [
+          0.99,
+          5.15
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.12
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.25
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.25,
+            "z1": 2.53
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_market_c2_01",
+      "name": "William Clay",
+      "sign_text": "WILLIAM CLAY / Hat Manufacturing & Dealing / Lake Street",
+      "sign_lines": [
+        {
+          "text": "WILLIAM CLAY",
+          "role": "name"
+        },
+        {
+          "text": "Hat Manufacturing & Dealing",
+          "role": "trade"
+        },
+        {
+          "text": "Lake Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Clay",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put William Clay (biz_william_clay) on Lake Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"hat manufacturing and dealing\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "shop",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a shop front on a street of stores",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_timber",
+        "ground": "#cbc2b1",
+        "letter": "#241a10",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.0,
+        "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
+      },
+      "anchor_local_enu_m": [
+        184.85,
+        -124.87
+      ],
+      "facade_bearing_deg": 0.3,
+      "arm_height_m": 3.47,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 4.66,
+      "board_h_m": 0.64,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 2.45,
+      "wall_height_m": 3.72,
+      "wall_height_from": "the record",
+      "frontage_m": 6.08,
+      "ground_quad_local_enu_m": [
+        [
+          181.74,
+          -135.56
+        ],
+        [
+          187.82,
+          -135.59
+        ],
+        [
+          187.89,
+          -124.89
+        ],
+        [
+          181.81,
+          -124.86
+        ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 3.11 x 0.96 m board, so the same words are lettered on a longer and narrower 4.66 x 0.64 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.08
+        ],
+        "board_span_local_m": [
+          0.71,
+          5.37
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.3
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.43
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.43,
+            "z1": 2.71
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_c2_01",
+      "name": "J. L. Wilson & Co.",
+      "sign_text": "J. L. WILSON & CO. / Dry Goods & Groceries",
+      "sign_lines": [
+        {
+          "text": "J. L. WILSON & CO.",
+          "role": "name"
+        },
+        {
+          "text": "Dry Goods & Groceries",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Wilson",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put J. L. Wilson & Co. (biz_j_l_wilson_co) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"dry goods, groceries, hardware and crockery\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a bracket board, which carries 2 lines, so the place line — \"Dearborn Street\" — is not lettered here: a signwriter letters what fits. For the same reason the trade is shortened from \"Dry Goods, Groceries, Hardware & Crockery\" to \"Dry Goods & Groceries\".",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "store",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "gold_on_green",
+        "ground": "#16261c",
+        "letter": "#c8a63c",
+        "face": "signwriter",
+        "panel": "oval",
+        "aspect": 1.75,
+        "note": "gilt letters in an oval field on a dark green ground"
+      },
+      "anchor_local_enu_m": [
+        672.88,
+        -271.64
+      ],
+      "facade_bearing_deg": 0.3,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.83,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 3.69,
+      "wall_height_from": "the record",
+      "frontage_m": 6.5,
+      "ground_quad_local_enu_m": [
+        [
+          667.86,
+          -282.42
+        ],
+        [
+          674.36,
+          -282.46
+        ],
+        [
+          674.43,
+          -271.65
+        ],
+        [
+          667.93,
+          -271.61
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_d6_04",
+      "name": "S. Abell, attorney and counsellor",
+      "sign_text": "S. ABELL / Attorney & Counsellor",
+      "sign_lines": [
+        {
+          "text": "S. ABELL",
+          "role": "name"
+        },
+        {
+          "text": "Attorney & Counsellor",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Abell",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put S. Abell, attorney and counsellor (biz_s_abell_attorney_and_counsellor) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"attorney, counsellor and land conveyancer\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a bracket board, which carries 2 lines, so the place line — \"Dearborn Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "small_shop_or_office",
+      "trade_confidence": "inferred",
+      "trade_class": "office",
+      "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        671.83,
+        -375.06
+      ],
+      "facade_bearing_deg": 180.4,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.86,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 3.52,
+      "wall_height_from": "the record",
+      "frontage_m": 6.98,
+      "ground_quad_local_enu_m": [
+        [
+          677.08,
+          -365.48
+        ],
+        [
+          670.1,
+          -365.44
+        ],
+        [
+          670.04,
+          -375.05
+        ],
+        [
+          677.02,
+          -375.09
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
+      "name": "J. B. Brown, Dearborn Street grocery",
+      "sign_text": "J. B. BROWN / Groceries",
+      "sign_lines": [
+        {
+          "text": "J. B. BROWN",
+          "role": "name"
+        },
+        {
+          "text": "Groceries",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Brown",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put J. B. Brown, Dearborn Street grocery (biz_j_b_brown_dearborn_street_grocery) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"groceries\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a awning board, which carries 2 lines, so the place line — \"Dearborn Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "grocery_and_provision_store",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": "a facade painted was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing; a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a wall board was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing",
+      "style": {
+        "id": "black_on_white",
+        "ground": "#e8e1cf",
+        "letter": "#191410",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.1,
+        "note": "black on a white lead ground, the cheapest board a signwriter could sell"
+      },
+      "anchor_local_enu_m": [
+        719.39,
+        -379.95
+      ],
+      "facade_bearing_deg": 180.5,
+      "arm_height_m": 2.21,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.47,
+      "board_h_m": 0.59,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.37,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.99,
+      "wall_height_m": 2.51,
+      "wall_height_from": "the record",
+      "frontage_m": 5.2,
+      "ground_quad_local_enu_m": [
+        [
+          723.75,
+          -373.27
+        ],
+        [
+          718.54,
+          -373.22
+        ],
+        [
+          718.49,
+          -379.94
+        ],
+        [
+          723.69,
+          -379.98
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
+      "name": "Cooley and Halsman",
+      "sign_text": "COOLEY AND HALSMAN / Tailors",
+      "sign_lines": [
+        {
+          "text": "COOLEY AND HALSMAN",
+          "role": "name"
+        },
+        {
+          "text": "Tailors",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Cooley and Halsman",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Cooley and Halsman (biz_cooley_and_halsman) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"tailors\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a bracket board, which carries 2 lines, so the place line — \"Dearborn Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "shop",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a shop front on a street of stores",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "gold_on_black",
+        "ground": "#141009",
+        "letter": "#c9a227",
+        "face": "signwriter",
+        "panel": "plain",
+        "aspect": 1.85,
+        "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
+      },
+      "anchor_local_enu_m": [
+        712.61,
+        -379.89
+      ],
+      "facade_bearing_deg": 180.5,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.79,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 3.4,
+      "wall_height_from": "the record",
+      "frontage_m": 8.36,
+      "ground_quad_local_enu_m": [
+        [
+          718.57,
+          -370.23
+        ],
+        [
+          710.2,
+          -370.16
+        ],
+        [
+          710.12,
+          -379.87
+        ],
+        [
+          718.49,
+          -379.94
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_wells_d4_04",
+      "name": "James Grant",
+      "sign_text": "JAMES GRANT / Attorney at Law",
+      "sign_lines": [
+        {
+          "text": "JAMES GRANT",
+          "role": "name"
+        },
+        {
+          "text": "Attorney at Law",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Grant",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put James Grant (biz_james_grant) on La Salle Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"attorney and counsellor at law\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a bracket board, which carries 2 lines, so the place line — \"La Salle Street\" — is not lettered here: a signwriter letters what fits. For the same reason the trade is shortened from \"Attorney & Counsellor at Law\" to \"Attorney at Law\".",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "small_shop_or_office",
+      "trade_confidence": "inferred",
+      "trade_class": "office",
+      "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": "a wall board was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing",
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        430.15,
+        -273.65
+      ],
+      "facade_bearing_deg": 0.3,
+      "arm_height_m": 2.34,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.66,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 2.64,
+      "wall_height_from": "the record",
+      "frontage_m": 6.38,
+      "ground_quad_local_enu_m": [
+        [
+          425.2,
+          -282.19
+        ],
+        [
+          431.59,
+          -282.23
+        ],
+        [
+          431.64,
+          -273.66
+        ],
+        [
+          425.26,
+          -273.62
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+      "name": "L. W. Montgomery, boot and shoe maker",
+      "sign_text": "L. W. MONTGOMERY / Boot & Shoe Maker / South Water Street",
+      "sign_lines": [
+        {
+          "text": "L. W. MONTGOMERY",
+          "role": "name"
+        },
+        {
+          "text": "Boot & Shoe Maker",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Montgomery",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put L. W. Montgomery, boot and shoe maker (biz_l_w_montgomery_boot_and_shoe_maker) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"boot and shoe making\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "shop",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a shop front on a street of stores",
+      "confidence": "reconstructed",
+      "mounting": "wall_board",
+      "mounting_note": "a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "style": {
+        "id": "gold_on_black",
+        "ground": "#141009",
+        "letter": "#c9a227",
+        "face": "signwriter",
+        "panel": "plain",
+        "aspect": 1.85,
+        "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
+      },
+      "anchor_local_enu_m": [
+        625.21,
+        -5.49
+      ],
+      "facade_bearing_deg": 0.9,
+      "arm_height_m": 2.29,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 0.88,
+      "board_h_m": 0.46,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 0.57,
+      "wall_height_m": 3.68,
+      "wall_height_from": "the record",
+      "frontage_m": 5.75,
+      "ground_quad_local_enu_m": [
+        [
+          621.26,
+          -16.19
+        ],
+        [
+          627.01,
+          -16.28
+        ],
+        [
+          627.19,
+          -5.52
+        ],
+        [
+          621.44,
+          -5.43
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": {
+          "kind": "shop_door",
+          "u0": 3.26,
+          "u1": 4.28,
+          "z0": 0.0,
+          "z1": 2.39
+        },
+        "note": "this front has no 2.14 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.46 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          5.75
+        ],
+        "board_span_local_m": [
+          3.33,
+          4.21
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.26
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.39
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.39,
+            "z1": 2.67
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_f2_01",
+      "name": "David Carver",
+      "sign_text": "DAVID CARVER / Lumber Yard / South Water Street",
+      "sign_lines": [
+        {
+          "text": "DAVID CARVER",
+          "role": "name"
+        },
+        {
+          "text": "Lumber Yard",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Carver",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put David Carver (biz_david_carver) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"lumber yard\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "freight_or_storage_shed",
+      "trade_confidence": "inferred",
+      "trade_class": "works",
+      "why_a_board": "a freight shed names its firm for the carter delivering to it",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_white",
+        "ground": "#e8e1cf",
+        "letter": "#191410",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.1,
+        "note": "black on a white lead ground, the cheapest board a signwriter could sell"
+      },
+      "anchor_local_enu_m": [
+        657.17,
+        -6.01
+      ],
+      "facade_bearing_deg": 0.9,
+      "arm_height_m": 4.3,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 2.84,
+      "board_h_m": 0.83,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 1.54,
+      "wall_height_m": 6.76,
+      "wall_height_from": "the record",
+      "frontage_m": 7.6,
+      "ground_quad_local_enu_m": [
+        [
+          653.12,
+          -21.5
+        ],
+        [
+          660.72,
+          -21.62
+        ],
+        [
+          660.97,
+          -6.07
+        ],
+        [
+          653.37,
+          -5.95
+        ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "window"
+        ],
+        "fixed_to": null,
+        "note": "moved 1.16 m up it, off window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          7.6
+        ],
+        "board_span_local_m": [
+          2.38,
+          5.22
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 3.28,
+            "u1": 4.32,
+            "z0": 0.02,
+            "z1": 2.06
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 1.01,
+            "z1": 2.31
+          },
+          {
+            "kind": "window",
+            "u0": 3.23,
+            "u1": 4.08,
+            "z0": 1.01,
+            "z1": 2.31
+          },
+          {
+            "kind": "window",
+            "u0": 6.08,
+            "u1": 6.93,
+            "z0": 1.01,
+            "z1": 2.31
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 4.4,
+            "z1": 5.7
+          },
+          {
+            "kind": "window",
+            "u0": 3.23,
+            "u1": 4.08,
+            "z0": 4.4,
+            "z1": 5.7
+          },
+          {
+            "kind": "window",
+            "u0": 6.08,
+            "u1": 6.93,
+            "z0": 4.4,
+            "z1": 5.7
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+      "name": "Clark, Filer & Co.",
+      "sign_text": "CLARK, FILER & CO. / Cabinet Shop / South Water Street",
+      "sign_lines": [
+        {
+          "text": "CLARK, FILER & CO.",
+          "role": "name"
+        },
+        {
+          "text": "Cabinet Shop",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Clark, Filer",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Clark, Filer & Co. (biz_clark_filer_co) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"cabinet shop; chairs\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "inferred",
+      "trade_class": "works",
+      "why_a_board": "a joiner's shop, named on its front for the builder who orders from it",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_brown",
+        "ground": "#4a3121",
+        "letter": "#e6dccb",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.45,
+        "note": "white fat face on a chocolate-brown ground"
+      },
+      "anchor_local_enu_m": [
+        743.06,
+        -7.95
+      ],
+      "facade_bearing_deg": 1.6,
+      "arm_height_m": 2.7,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 0.88,
+      "board_h_m": 0.22,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 0.56,
+      "wall_height_m": 3.34,
+      "wall_height_from": "the record",
+      "frontage_m": 5.3,
+      "ground_quad_local_enu_m": [
+        [
+          739.07,
+          -15.32
+        ],
+        [
+          744.38,
+          -15.47
+        ],
+        [
+          744.59,
+          -7.99
+        ],
+        [
+          739.29,
+          -7.84
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": {
+          "kind": "shop_door",
+          "u0": 3.26,
+          "u1": 4.28,
+          "z0": 0.0,
+          "z1": 2.8
+        },
+        "note": "this front has no 2.84 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.22 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          5.3
+        ],
+        "board_span_local_m": [
+          3.33,
+          4.21
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.67
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.8
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.8,
+            "z1": 3.08
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+      "name": "D. Graves",
+      "sign_text": "D. GRAVES / Bakery",
+      "sign_lines": [
+        {
+          "text": "D. GRAVES",
+          "role": "name"
+        },
+        {
+          "text": "Bakery",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Graves",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put D. Graves (biz_d_graves) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"bakery\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a awning board, which carries 2 lines, so the place line — \"South Water Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "shop",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a shop front on a street of stores",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": "a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "style": {
+        "id": "gold_on_green",
+        "ground": "#16261c",
+        "letter": "#c8a63c",
+        "face": "signwriter",
+        "panel": "oval",
+        "aspect": 1.75,
+        "note": "gilt letters in an oval field on a dark green ground"
+      },
+      "anchor_local_enu_m": [
+        758.78,
+        -8.39
+      ],
+      "facade_bearing_deg": 1.6,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.41,
+      "board_h_m": 0.68,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.31,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.97,
+      "wall_height_m": 3.72,
+      "wall_height_from": "the record",
+      "frontage_m": 6.38,
+      "ground_quad_local_enu_m": [
+        [
+          753.57,
+          -19.77
+        ],
+        [
+          759.95,
+          -19.95
+        ],
+        [
+          760.27,
+          -8.43
+        ],
+        [
+          753.9,
+          -8.25
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
+      "name": "Peter Cohen",
+      "sign_text": "PETER COHEN / Clothier, Grocer & Liquor Dealer / South Water Street",
+      "sign_lines": [
+        {
+          "text": "PETER COHEN",
+          "role": "name"
+        },
+        {
+          "text": "Clothier, Grocer & Liquor Dealer",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Cohen",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Peter Cohen (biz_peter_cohen) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"clothier, grocer and liquor dealer\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "store",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "wall_board",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        786.2,
+        -9.17
+      ],
+      "facade_bearing_deg": 1.6,
+      "arm_height_m": 2.53,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 0.88,
+      "board_h_m": 0.39,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 0.57,
+      "wall_height_m": 5.94,
+      "wall_height_from": "the record",
+      "frontage_m": 6.24,
+      "ground_quad_local_enu_m": [
+        [
+          781.64,
+          -22.35
+        ],
+        [
+          787.88,
+          -22.53
+        ],
+        [
+          788.26,
+          -9.23
+        ],
+        [
+          782.02,
+          -9.05
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": {
+          "kind": "shop_door",
+          "u0": 3.67,
+          "u1": 4.69,
+          "z0": 0.0,
+          "z1": 2.63
+        },
+        "note": "this front has no 2.30 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.39 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          6.24
+        ],
+        "board_span_local_m": [
+          3.74,
+          4.62
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.5
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.63
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.63,
+            "z1": 2.91
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 3.86,
+            "z1": 5.16
+          },
+          {
+            "kind": "window",
+            "u0": 2.83,
+            "u1": 3.68,
+            "z0": 3.86,
+            "z1": 5.16
+          },
+          {
+            "kind": "window",
+            "u0": 4.86,
+            "u1": 5.71,
+            "z0": 3.86,
+            "z1": 5.16
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+      "name": "J. H. Mulford",
+      "sign_text": "J. H. MULFORD / Watches, Jewelry & Fancy Goods / South Water Street",
+      "sign_lines": [
+        {
+          "text": "J. H. MULFORD",
+          "role": "name"
+        },
+        {
+          "text": "Watches, Jewelry & Fancy Goods",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Mulford",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put J. H. Mulford (biz_j_h_mulford) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"watches, jewelry, engravings and fancy goods\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "shop",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a shop front on a street of stores",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_white",
+        "ground": "#e8e1cf",
+        "letter": "#191410",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.1,
+        "note": "black on a white lead ground, the cheapest board a signwriter could sell"
+      },
+      "anchor_local_enu_m": [
+        264.72,
+        -7.29
+      ],
+      "facade_bearing_deg": 359.5,
+      "arm_height_m": 3.6,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 4.7,
+      "board_h_m": 0.64,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 2.47,
+      "wall_height_m": 3.87,
+      "wall_height_from": "the record",
+      "frontage_m": 6.41,
+      "ground_quad_local_enu_m": [
+        [
+          261.6,
+          -17.03
+        ],
+        [
+          268.01,
+          -16.98
+        ],
+        [
+          267.92,
+          -7.26
+        ],
+        [
+          261.51,
+          -7.32
+        ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 3.20 x 0.94 m board, so the same words are lettered on a longer and narrower 4.70 x 0.64 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.41
+        ],
+        "board_span_local_m": [
+          0.85,
+          5.55
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.45
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.58
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.58,
+            "z1": 2.86
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+      "name": "Jones, King & Co.",
+      "sign_text": "JONES, KING & CO. / Hardware & Cutlery",
+      "sign_lines": [
+        {
+          "text": "JONES, KING & CO.",
+          "role": "name"
+        },
+        {
+          "text": "Hardware & Cutlery",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Jones, King",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Jones, King & Co. (biz_jones_king_co) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a awning board, which carries 2 lines, so the place line — \"South Water Street\" — is not lettered here: a signwriter letters what fits. For the same reason the trade is shortened from \"Hardware, Cutlery, Nails, Iron & Steel\" to \"Hardware & Cutlery\".",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "store",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": "a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        260.2,
+        -7.33
+      ],
+      "facade_bearing_deg": 359.5,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.66,
+      "board_h_m": 0.64,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.56,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.05,
+      "wall_height_m": 3.57,
+      "wall_height_from": "the record",
+      "frontage_m": 6.04,
+      "ground_quad_local_enu_m": [
+        [
+          255.58,
+          -18.18
+        ],
+        [
+          261.61,
+          -18.13
+        ],
+        [
+          261.51,
+          -7.32
+        ],
+        [
+          255.48,
+          -7.37
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+      "name": "Briggs & Humphrey",
+      "sign_text": "BRIGGS & HUMPHREY / Carriage & Sleigh Making / South Water Street",
+      "sign_lines": [
+        {
+          "text": "BRIGGS & HUMPHREY",
+          "role": "name"
+        },
+        {
+          "text": "Carriage & Sleigh Making",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Briggs & Humphrey",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Briggs & Humphrey (biz_briggs_humphrey) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"carriage and sleigh making\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "cooper_wagon_or_wheelwright_shop",
+      "trade_confidence": "inferred",
+      "trade_class": "works",
+      "why_a_board": "a wright's shop, named on its front for the trade that brings him work",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        312.1,
+        -6.86
+      ],
+      "facade_bearing_deg": 359.5,
+      "arm_height_m": 4.19,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 3.96,
+      "board_h_m": 0.84,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 2.1,
+      "wall_height_m": 6.62,
+      "wall_height_from": "the record",
+      "frontage_m": 9.32,
+      "ground_quad_local_enu_m": [
+        [
+          307.56,
+          -20.01
+        ],
+        [
+          316.87,
+          -19.92
+        ],
+        [
+          316.75,
+          -6.81
+        ],
+        [
+          307.44,
+          -6.9
+        ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 3.02 x 1.10 m board, so the same words are lettered on a longer and narrower 3.96 x 0.84 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          9.32
+        ],
+        "board_span_local_m": [
+          2.68,
+          6.64
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.36,
+            "u1": 2.99,
+            "z0": 0.74,
+            "z1": 2.84
+          },
+          {
+            "kind": "show_window",
+            "u0": 3.09,
+            "u1": 4.73,
+            "z0": 0.74,
+            "z1": 2.84
+          },
+          {
+            "kind": "shop_door",
+            "u0": 4.83,
+            "u1": 5.85,
+            "z0": 0.0,
+            "z1": 2.97
+          },
+          {
+            "kind": "show_window",
+            "u0": 5.95,
+            "u1": 7.58,
+            "z0": 0.74,
+            "z1": 2.84
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 7.76,
+            "z0": 2.97,
+            "z1": 3.25
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 4.3,
+            "z1": 5.6
+          },
+          {
+            "kind": "window",
+            "u0": 3.23,
+            "u1": 4.08,
+            "z0": 4.3,
+            "z1": 5.6
+          },
+          {
+            "kind": "window",
+            "u0": 5.26,
+            "u1": 6.11,
+            "z0": 4.3,
+            "z1": 5.6
+          },
+          {
+            "kind": "window",
+            "u0": 7.7,
+            "u1": 8.55,
+            "z0": 4.3,
+            "z1": 5.6
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
+      "name": "A. Garrett",
+      "sign_text": "A. GARRETT / Auction & Commission",
+      "sign_lines": [
+        {
+          "text": "A. GARRETT",
+          "role": "name"
+        },
+        {
+          "text": "Auction & Commission",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Garrett",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put A. Garrett (biz_a_garrett) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"auction and commission\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a bracket board, which carries 2 lines, so the place line — \"South Water Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "auction_room",
+      "trade_confidence": "inferred",
+      "trade_class": "office",
+      "why_a_board": "a sale room whose whole trade is being found on the day",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "gold_on_green",
+        "ground": "#16261c",
+        "letter": "#c8a63c",
+        "face": "signwriter",
+        "panel": "oval",
+        "aspect": 1.75,
+        "note": "gilt letters in an oval field on a dark green ground"
+      },
+      "anchor_local_enu_m": [
+        306.23,
+        -6.91
+      ],
+      "facade_bearing_deg": 359.5,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.83,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 3.03,
+      "wall_height_from": "the record",
+      "frontage_m": 5.81,
+      "ground_quad_local_enu_m": [
+        [
+          301.7,
+          -15.33
+        ],
+        [
+          307.51,
+          -15.28
+        ],
+        [
+          307.44,
+          -6.9
+        ],
+        [
+          301.62,
+          -6.95
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
+      "name": "Rockwell, cabinet furniture warehouse",
+      "sign_text": "ROCKWELL / Cabinet Furniture Warehouse / South Water Street",
+      "sign_lines": [
+        {
+          "text": "ROCKWELL",
+          "role": "name"
+        },
+        {
+          "text": "Cabinet Furniture Warehouse",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Rockwell",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Rockwell, cabinet furniture warehouse (biz_rockwell_cabinet_furniture_warehouse) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"cabinet furniture\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "inferred",
+      "trade_class": "works",
+      "why_a_board": "a joiner's shop, named on its front for the builder who orders from it",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_brown",
+        "ground": "#4a3121",
+        "letter": "#e6dccb",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.45,
+        "note": "white fat face on a chocolate-brown ground"
+      },
+      "anchor_local_enu_m": [
+        495.67,
+        -5.34
+      ],
+      "facade_bearing_deg": 359.5,
+      "arm_height_m": 3.38,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 3.79,
+      "board_h_m": 0.64,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 2.02,
+      "wall_height_m": 3.63,
+      "wall_height_from": "the record",
+      "frontage_m": 5.72,
+      "ground_quad_local_enu_m": [
+        [
+          492.9,
+          -16.45
+        ],
+        [
+          498.62,
+          -16.4
+        ],
+        [
+          498.53,
+          -5.32
+        ],
+        [
+          492.81,
+          -5.36
+        ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 3.11 x 0.78 m board, so the same words are lettered on a longer and narrower 3.79 x 0.64 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          5.72
+        ],
+        "board_span_local_m": [
+          0.97,
+          4.76
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.21
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.34
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.34,
+            "z1": 2.62
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
+      "name": "E. L. Thrall",
+      "sign_text": "E. L. THRALL / Tailoring & Clothing",
+      "sign_lines": [
+        {
+          "text": "E. L. THRALL",
+          "role": "name"
+        },
+        {
+          "text": "Tailoring & Clothing",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Thrall",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put E. L. Thrall (biz_e_l_thrall) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"tailoring and ready made clothing\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a awning board, which carries 2 lines, so the place line — \"South Water Street\" — is not lettered here: a signwriter letters what fits. For the same reason the trade is shortened from \"Tailoring & Ready Made Clothing\" to \"Tailoring & Clothing\".",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "store",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": "a wall board was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing",
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        529.49,
+        -5.07
+      ],
+      "facade_bearing_deg": 359.5,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.66,
+      "board_h_m": 0.83,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.56,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.05,
+      "wall_height_m": 2.94,
+      "wall_height_from": "the record",
+      "frontage_m": 5.84,
+      "ground_quad_local_enu_m": [
+        [
+          524.94,
+          -13.26
+        ],
+        [
+          530.78,
+          -13.21
+        ],
+        [
+          530.72,
+          -5.06
+        ],
+        [
+          524.87,
+          -5.1
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+      "name": "A. Filer & Co.",
+      "sign_text": "A. FILER & CO. / Cabinet & Chair Manufactory / South Water Street",
+      "sign_lines": [
+        {
+          "text": "A. FILER & CO.",
+          "role": "name"
+        },
+        {
+          "text": "Cabinet & Chair Manufactory",
+          "role": "trade"
+        },
+        {
+          "text": "South Water Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Filer",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put A. Filer & Co. (biz_a_filer_co) on South Water Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"cabinet and chair manufactory\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "inferred",
+      "trade_class": "works",
+      "why_a_board": "a joiner's shop, named on its front for the builder who orders from it",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_ochre",
+        "ground": "#c19a52",
+        "letter": "#1a1309",
+        "face": "egyptian",
+        "panel": "plain",
+        "aspect": 2.35,
+        "note": "black Egyptian on a yellow-ochre ground"
+      },
+      "anchor_local_enu_m": [
+        405.33,
+        -6.08
+      ],
+      "facade_bearing_deg": 359.5,
+      "arm_height_m": 3.84,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 3.36,
+      "board_h_m": 0.76,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.03
+      },
+      "reach_m": 1.8,
+      "wall_height_m": 6.09,
+      "wall_height_from": "the record",
+      "frontage_m": 6.45,
+      "ground_quad_local_enu_m": [
+        [
+          402.21,
+          -18.82
+        ],
+        [
+          408.66,
+          -18.77
+        ],
+        [
+          408.55,
+          -6.05
+        ],
+        [
+          402.1,
+          -6.1
+        ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 3.11 x 0.82 m board, so the same words are lettered on a longer and narrower 3.36 x 0.76 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.45
+        ],
+        "board_span_local_m": [
+          1.55,
+          4.91
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.57
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.7
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.7,
+            "z1": 2.98
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 3.96,
+            "z1": 5.26
+          },
+          {
+            "kind": "window",
+            "u0": 2.83,
+            "u1": 3.68,
+            "z0": 3.96,
+            "z1": 5.26
+          },
+          {
+            "kind": "window",
+            "u0": 4.86,
+            "u1": 5.71,
+            "z0": 3.96,
+            "z1": 5.26
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_south_c3_040",
+      "name": "Fullerton & Botsford",
+      "sign_text": "FULLERTON & BOTSFORD / Pork & Provisions",
+      "sign_lines": [
+        {
+          "text": "FULLERTON & BOTSFORD",
+          "role": "name"
+        },
+        {
+          "text": "Pork & Provisions",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Fullerton & Botsford",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Fullerton & Botsford (biz_fullerton_botsford) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"pork and provisions\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a awning board, which carries 2 lines, so the place line — \"Dearborn Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "store",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "awning_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_red",
+        "ground": "#7c3020",
+        "letter": "#efe3c8",
+        "face": "fat_face",
+        "panel": "single_rule",
+        "aspect": 1.95,
+        "note": "cream fat face on Venetian red"
+      },
+      "anchor_local_enu_m": [
+        733.1,
+        -217.26
+      ],
+      "facade_bearing_deg": 1.0,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.66,
+      "board_h_m": 0.72,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "awning_projection_m": 1.45,
+        "awning_drop_m": 0.34,
+        "awning_width_m": 2.56,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 2.05,
+      "wall_height_m": 6.69,
+      "wall_height_from": "the record",
+      "frontage_m": 5.86,
+      "ground_quad_local_enu_m": [
+        [
+          728.22,
+          -231.51
+        ],
+        [
+          734.08,
+          -231.61
+        ],
+        [
+          734.33,
+          -217.29
+        ],
+        [
+          728.47,
+          -217.18
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_south_f1_038",
+      "name": "Magie & Wilkinson",
+      "sign_text": "MAGIE & WILKINSON / Dry Goods, Groceries & Hardware / La Salle Street",
+      "sign_lines": [
+        {
+          "text": "MAGIE & WILKINSON",
+          "role": "name"
+        },
+        {
+          "text": "Dry Goods, Groceries & Hardware",
+          "role": "trade"
+        },
+        {
+          "text": "La Salle Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Magie & Wilkinson",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Magie & Wilkinson (biz_magie_wilkinson) on La Salle Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "store",
+      "trade_confidence": "inferred",
+      "trade_class": "counter",
+      "why_a_board": "a counter open to the street",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_white",
+        "ground": "#e8e1cf",
+        "letter": "#191410",
+        "face": "fat_face",
+        "panel": "double_rule",
+        "aspect": 2.1,
+        "note": "black on a white lead ground, the cheapest board a signwriter could sell"
+      },
+      "anchor_local_enu_m": [
+        484.14,
+        -219.94
+      ],
+      "facade_bearing_deg": -1.4,
+      "arm_height_m": 2.25,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 2.06,
+      "board_h_m": 0.61,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 1.15,
+      "wall_height_m": 3.17,
+      "wall_height_from": "the record",
+      "frontage_m": 8.12,
+      "ground_quad_local_enu_m": [
+        [
+          482.12,
+          -231.32
+        ],
+        [
+          490.24,
+          -231.13
+        ],
+        [
+          489.97,
+          -219.8
+        ],
+        [
+          481.85,
+          -219.99
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": {
+          "kind": "door",
+          "u0": 1.19,
+          "u1": 3.39,
+          "z0": 0.0,
+          "z1": 2.35
+        },
+        "note": "this front has no 3.23 m of blank face at any height a name can be read at — every band is taken by door — so the board is shrunk to 2.06 x 0.61 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          8.12
+        ],
+        "board_span_local_m": [
+          1.26,
+          3.32
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 1.19,
+            "u1": 3.39,
+            "z0": 0.0,
+            "z1": 2.35
+          },
+          {
+            "kind": "door",
+            "u0": 4.73,
+            "u1": 6.93,
+            "z0": 0.0,
+            "z1": 2.35
+          }
+        ]
+      }
+    },
+    {
+      "structure_id": "recon_1835_west_007",
+      "name": "Pierce & French",
+      "sign_text": "PIERCE & FRENCH / Blacksmithing & Edge Tool Making / Canal Street",
+      "sign_lines": [
+        {
+          "text": "PIERCE & FRENCH",
+          "role": "name"
+        },
+        {
+          "text": "Blacksmithing & Edge Tool Making",
+          "role": "trade"
+        },
+        {
+          "text": "Canal Street",
+          "role": "place"
+        }
+      ],
+      "sign_identity": "Pierce & French",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put Pierce & French (biz_pierce_french) on Canal Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"blacksmithing and edge tool making\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_newspapers_1833_1835"
+      ],
+      "trade": "blacksmith_shop",
+      "trade_confidence": "inferred",
+      "trade_class": "works",
+      "why_a_board": "a smith's shop, named on its front for the carter who needs one",
+      "confidence": "reconstructed",
+      "mounting": "facade_painted",
+      "mounting_note": null,
+      "style": {
+        "id": "white_on_blue",
+        "ground": "#22344f",
+        "letter": "#e9e6dc",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.2,
+        "note": "white block letters on a Prussian-blue ground"
+      },
+      "anchor_local_enu_m": [
+        -208.32,
+        -120.21
+      ],
+      "facade_bearing_deg": 0.0,
+      "arm_height_m": 2.37,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
+      "board_w_m": 0.88,
+      "board_h_m": 0.25,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "proud_m": 0.06
+      },
+      "reach_m": 0.56,
+      "wall_height_m": 3.02,
+      "wall_height_from": "the record",
+      "frontage_m": 4.88,
+      "ground_quad_local_enu_m": [
+        [
+          -211.69,
+          -128.13
+        ],
+        [
+          -206.81,
+          -128.13
+        ],
+        [
+          -206.81,
+          -120.21
+        ],
+        [
+          -211.69,
+          -120.21
+        ]
+      ],
+      "opening_fit": {
+        "action": "shrunk to the door",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": {
+          "kind": "shop_door",
+          "u0": 2.86,
+          "u1": 3.87,
+          "z0": 0.0,
+          "z1": 2.47
+        },
+        "note": "this front has no 3.26 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.25 m and fixed to the door itself",
+        "wall_span_local_m": [
+          0.0,
+          4.88
+        ],
+        "board_span_local_m": [
+          2.93,
+          3.81
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.0,
+            "u1": 2.76,
+            "z0": 0.74,
+            "z1": 2.34
+          },
+          {
+            "kind": "shop_door",
+            "u0": 2.86,
+            "u1": 3.87,
+            "z0": 0.0,
+            "z1": 2.47
+          },
+          {
+            "kind": "fascia",
+            "u0": 0.77,
+            "u1": 4.1,
+            "z0": 2.47,
+            "z1": 2.75
+          }
+        ]
+      }
     }
   ],
   "refused": [
@@ -3581,12 +7759,12 @@
     {
       "structure_id": "inf_blacksmith_shop_west",
       "trade": "blacksmith_shop",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "inf_grocery_west",
       "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "newberry_dole_packing_house_south_branch",
@@ -3601,152 +7779,77 @@
     {
       "structure_id": "physicians_office",
       "trade": "physicians_office",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_blk_lake_clark_c1_01",
-      "trade": "small_shop_or_office",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "structure_id": "recon_1835_blk_lake_franklin_d1_02",
+      "trade": "older_log_dwelling",
+      "why": "the paper did not print this house's name whole — [uncertain: the dentist lodging near Lake Street, July 1834] (biz_uncertain_the_dentist_lodging_near_lake_street_july_1834) — so there is no name to letter without writing one here."
     },
     {
-      "structure_id": "recon_1835_blk_lake_clark_c2_02",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "structure_id": "recon_1835_blk_lake_market_d2_04",
+      "trade": "rough_plank_dwelling_or_shanty",
+      "why": "the register firm the street-face adoption houses here, Miss Bayne's Boarding and Day School (biz_miss_bayne_s_boarding_and_day_school), keeps a trade — schoolteacher — that ADOPTED_FIRM_TRADE hangs no board for (a school is outside both classes, by clause 2)."
     },
     {
-      "structure_id": "recon_1835_blk_lake_clark_c3_03",
-      "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "structure_id": "recon_1835_blk_lake_market_d4_02",
+      "trade": "two_room_frame_cottage",
+      "why": "the paper did not print this house's name whole — [boot, shoe and leather store, Lake street, proprietor not recovered] (biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered) — so there is no name to letter without writing one here."
     },
     {
-      "structure_id": "recon_1835_blk_lake_franklin_c2_01",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
+      "trade": "older_log_dwelling",
+      "why": "the paper did not print this house's name whole — [uncertain: W. H. Taylor], Dearborn Street boot and shoe store (biz_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store) — so there is no name to letter without writing one here."
     },
     {
-      "structure_id": "recon_1835_blk_lake_market_c2_01",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_randolph_clark_c2_01",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_clark_c2_06",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_clark_f2_01",
-      "trade": "narrow_two_story_warehouse",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
-      "trade": "small_shop_or_office",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
-      "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "structure_id": "recon_1835_blk_randolph_wells_d2_07",
+      "trade": "rough_plank_dwelling_or_shanty",
+      "why": "the paper did not print this house's name whole — [unnamed] New Store, La Salle street (biz_unnamed_new_store_la_salle_street) — so there is no name to letter without writing one here."
     },
     {
       "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
       "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "Harmon, Loomis & Co. already letters its name on a board the evidence hangs, at harmon_loomis_store; a second board for the same firm on a roof the adoption chose would put the house in two places."
     },
     {
       "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
       "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
-      "trade": "wide_two_story_store_or_mixed_block",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
-      "trade": "small_shop_or_office",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
-      "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "the paper names this house by a description — 'a new auction and commission room' — and not by a firm. Its proprietor is on the record and not in its name, so a board lettered with him would read differently from the card it opens."
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
       "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "the register firm the street-face adoption houses here, Samuel Lewis (biz_samuel_lewis), keeps a trade — schoolteacher — that ADOPTED_FIRM_TRADE hangs no board for (a school is outside both classes, by clause 2)."
     },
     {
-      "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
-      "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
-      "trade": "narrow_two_story_warehouse",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
+      "trade": "rough_plank_dwelling_or_shanty",
+      "why": "the paper did not print this house's name whole — [uncertain: DATID GAD], auction and commission merchant, South Water Street (biz_uncertain_datid_gad_auction_and_commission_merchant_south_water_street) — so there is no name to letter without writing one here."
     },
     {
       "structure_id": "recon_1835_blk_south_water_wells_c2_01",
       "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "the Chicago Democrat printed its office 'over Messrs. Jones & King['s] Hard[ware store]' on South Water Street in 1835 (T-0403), and the street-face adoption houses Jones, King & Co. in a different roof from this one. A board here would put the paper somewhere its own colophon says it was not; it waits on the adoption seating the office over its landlord's store."
     },
     {
-      "structure_id": "recon_1835_blk_south_water_wells_c3_02",
-      "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+      "trade": "carpenter_or_joiner_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
+    },
+    {
+      "structure_id": "recon_1835_forks_freight_f2_001",
+      "trade": "narrow_two_story_warehouse",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_south_c3_015",
       "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_south_c3_040",
-      "trade": "narrow_two_story_store",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_south_f1_038",
-      "trade": "freight_or_storage_shed",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_west_007",
-      "trade": "small_shop_or_office",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_west_020",
       "trade": "store_residence",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
-    },
-    {
-      "structure_id": "recon_1835_west_046",
-      "trade": "freight_or_storage_shed",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "wolf_point_tavern",
@@ -3757,6 +7860,26 @@
       "structure_id": "brickyard_north_side",
       "trade": "brickyard",
       "why": "a facade painted was refused here because this front has no 2.10 m of blank face at any height and no door to fix a board to — every elevation of it is open bay, and a name lettered there would hang in the air between the posts"
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
+      "trade": "forwarding_and_commission_store",
+      "why": "a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)"
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
+      "trade": "forwarding_and_commission_store",
+      "why": "a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)"
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
+      "trade": "store",
+      "why": "its board would share a mounting with recon_1835_blk_south_water_lasalle_d4_02's within 40 m, and an adopted register firm's board is dealt last and yields rather than break the separation promise (T-1835)."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
+      "trade": "store",
+      "why": "its board would share a mounting with recon_1835_blk_south_water_lasalle_d4_02's within 40 m, and an adopted register firm's board is dealt last and yields rather than break the separation promise (T-1835)."
     }
   ],
   "research_note": "THE FIRST THING TO DO, AND IT IS ALREADY HALF DONE: COMMIT THE SEVEN PAGES. The wordings graded `inferred` above are transcribed from 1833-35 Chicago newspaper pages the owner supplied as IMAGES IN CONVERSATION on 2026-08-21 — one carrying 'Chicago, Dec. 31, 1833' with a 'CHICAGO PRICES CURRENT … Reported for the Democrat by P. F. Peck' that identifies the Chicago Democrat, one 'Chicago, Dec. 4, 1833', and several of 1835 carrying an 'ARRIVALS OF VESSELS AT CHICAGO, 1835' table and a Post Office list of letters remaining 'on the 31st day of March, 1835'. Drop those images into data/sources/assets/ with a source record and EVERY `inferred` WORDING HERE BECOMES A CANDIDATE FOR `attested`, one board at a time, each note already saying what its page says. Goss & Cobb's is the nearest: its page is committed already. WHAT WOULD MOVE THE REST — the fact of a sign, its colours and its mounting — is unchanged: a Chicago or Cook County sign ordinance of the 1830s; an insurance, tax or sale description naming a shop sign; any of the pre-fire photographs of a surviving 1830s frontage actually being opened at its holding institution (the Green Tree 1859 plate, ICHi-040230, is the nearest and is unseen); or a traveller's account of walking South Water Street.",

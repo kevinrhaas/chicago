@@ -41,6 +41,8 @@ step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)"
   node tools/test_arrival.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
+  node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
 step "Jaunt optional context and route notes (T-1257)" \
@@ -49,6 +51,8 @@ step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
+step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
+  node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
   python3 tools/check_loading_content.py
 step "loading evidence refuses promoted or unrelated facts (T-1275)" \
@@ -106,6 +110,8 @@ selftest "…only the canonical v4 derivative producer refreshes the package" \
   python3 tools/test_glessner_v4_package_producer.py --self-test
 selftest "…arched apertures preserve whole-stone relief without false joints" \
   python3 tools/test_glessner_block_clipping.py --self-test
+step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
+  python3 tools/test_glessner_roof_envelope.py
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -708,6 +714,33 @@ step "North Division initial parcel matches its reviewed recipe" \
 step "West Division approaches parcel matches its recipe" \
   python3 tools/generate_west_infill.py --check
 
+# T-1773: the West Division's second freight roof, at Lake and West Water. Its own
+# generator because the West grid is unscheduled (reconcile_665.py, T-1455) and the
+# block parcels cannot deal onto it; the record re-derives from its recipe and the
+# validator is proved by breaking it.
+step "West freight roof at the forks matches its recipe" \
+  python3 tools/generate_west_freight.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_west_freight.py --self-test
+
+step "Canal approach trade roofs match their bounded recipe" \
+  python3 tools/generate_canal_approach_trade.py --check
+selftest "Canal trade placement refuses collisions and missing ground" \
+  python3 tools/generate_canal_approach_trade.py --self-test
+step "Canal trade roofs have existing keepers without invented homes" \
+  python3 tools/canal_approach_occupancy.py --check
+selftest "Canal trade occupancy preserves identities and lodging constraints" \
+  python3 tools/canal_approach_occupancy.py --self-test
+
+# T-1816: the anonymous-roof generators above deal every anonymous roof's finish, paint, roof
+# condition and age through ONE rule — whose house it is — and each record says so in
+# `reconstruction.fabric_basis`. The rule re-reads every record against itself, and its
+# self-test proves no class can deal the Sauganash's white paint or a finish off the sheet.
+step "every anonymous roof's finish is the fabric-by-household rule's" \
+  python3 tools/fabric_rule_1835.py --check
+selftest "…and the rule refuses white paint, off-sheet finishes and drift" \
+  python3 tools/fabric_rule_1835.py --self-test
+
 # KINZIE'S ADDITION'S STREET GRID, in two halves for the reason tools/trace_river.py
 # is in two halves: the reading's own re-read opens a 5050 x 6628 raster and costs
 # about half a minute, which a per-commit gate may not spend. What runs here is the
@@ -1192,6 +1225,13 @@ step "every reader of the platted grid says which of its two lines its answer st
 selftest "…and the declaration is checked against the calls, in the tree and not in the prose" \
   python3 tools/check_corridor_line.py --self-test
 
+# T-1812. The graded street section: the 1835 ground lowers every opened street's worked
+# roadway below the shelf its walks and doors stand on. The painted width (streets.js
+# WORKED_SHARE) and the graded width (the spec's worked_share) are one number in two
+# files, and the committed heightfield has to carry the cut — both read here.
+step "every opened street's bed lies below its walks, as wide as the road is painted (T-1812)" \
+  python3 tools/check_street_section.py --gate
+
 # T-0875. The School Section's 142 block numerals, read off the 600-dpi NA sheet.
 # It sits beside the Thompson grid because it is the same question answered the
 # other way round: there, two legible numerals could not say how a run passes from
@@ -1279,6 +1319,18 @@ step "the business signboards re-derive from the rule that chose their frontages
 step "admitting one signboard reaches no board further off than the rule's own 40 m" \
   python3 tools/generate_business_signboards.py --prove-locality
 
+# ...AND AN INVENTED FIRM'S BOARD NEVER MOVES AN EVIDENCED ONE (T-1834). Reconstructed
+# firms the business layer records IN a reconstructed roof now take a board, dealt after
+# every named frontage; this re-derives the town without them and holds every evidenced
+# board byte-identical. ~2 s.
+step "a reconstructed firm's signboard moves no board the evidence carries" \
+  python3 tools/generate_business_signboards.py --prove-recon-yields
+# ...AND A REGISTER FIRM THE STREET-FACE ADOPTION HOUSES MOVES NO BOARD ALREADY HUNG
+# (T-1835). Those boards are dealt last; this re-derives without them and holds the rest
+# byte-identical. ~2 s.
+step "an adopted register firm's signboard moves no board already hung" \
+  python3 tools/generate_business_signboards.py --prove-adopted-yields
+
 # The yard goods are the third record of this shape and the first whose evidence is an
 # ORDINANCE: the village corporation legislated in November 1833 about timber, stone,
 # brick, boxes and barrels stacked in the streets, which attests the treatment and not one
@@ -1356,6 +1408,12 @@ selftest "…and its own assertions still fire when broken" \
 # wharf with it or fail here (ROADMAP K5 (e), T-0041).
 step "the river wharves re-derive from the records that state a dock" \
   python3 tools/generate_river_wharves.py --check
+
+# The landing-place camps (T-1803) are placed against the drawn South Water line, the
+# traced bank, the heightfield and every committed obstacle on the bank, so a moved
+# deck, walk, boat or footprint must move a camp with it or fail here.
+step "the landing-place camps re-derive from the bank they stand on" \
+  python3 tools/place_landing_camps_1835.py --check
 
 # ROADMAP K5 (e) also asked for "a river-wharf mode of pier_crib", so that a town
 # assembled from GLBs alone would carry its docks; T-0059 was that clause and was
@@ -2145,6 +2203,20 @@ step "the off-plat ledger and its seats still re-derive" \
 selftest "…and the off-plat deal's seven refusals still fire when broken" \
   python3 tools/seat_off_plat_ground_1835.py --self-test
 
+# T-1793, the first piece of T-1784. The off-plat deal above owes 44 households to
+# `west/farms_and_country_seats`; this measures the ground they could farm before anyone
+# raises a roof for them. The West is read west of the committed river on a 10 m lattice,
+# cut by the corporation's 1833 bounds and by the survey tracts, and the unsubdivided
+# ground outside the limits is counted in forties — the smallest holding the register and
+# the 1835 press name here. It also reads the roofs already standing on that ground and the
+# West's programme headroom for a D1 cabin and an A2 barn. It moves nothing; it fails when
+# any of those inputs moves and the record was not rebuilt, or when its sums stop closing.
+step "the West farm ground still re-derives from the seats, the tracts and the programme" \
+  python3 tools/measure_west_farm_ground_1835.py --check
+
+selftest "…and its sums and ceilings still refuse when broken" \
+  python3 tools/measure_west_farm_ground_1835.py --self-test
+
 # A dwelling nobody named is a count-unit toward a documented aggregate; a PUBLIC
 # building nobody named is the claim that an institution stood here and left no record
 # at all. ROADMAP T-I3 enumerated them: on 1835-07-01 the town's public buildings with a
@@ -2855,6 +2927,11 @@ step "publish.sh produces a mirror that matches its source" \
 # no door.
 selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
+
+# The reference browsers' asset directories leave the mirror only when the site root
+# already ships every byte of them (T-1828) — never a directory with new work in it.
+selftest "reference browsers: only what the root already ships is served from it" \
+  python3 tools/serve_from_root.py --self-test
 
 # …and the one layer in it publish.sh transforms rather than copies. The residents
 # records ship minified for the size budget, so the byte comparison above cannot see

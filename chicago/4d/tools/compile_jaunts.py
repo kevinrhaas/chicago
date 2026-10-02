@@ -9,6 +9,10 @@ from jsonschema import Draft202012Validator
 from compile_scene import cite
 
 ROOT = Path(__file__).resolve().parents[1]
+# Not jaunts: the content schema, and the visitor's daybook (T-1258), which every scene's
+# catalog ships beside its jaunts so the Jaunts menu can rank keepsakes from data alone.
+NOT_JAUNTS = {'schema.json', 'daybook.json'}
+DAYBOOK_STYLES = {'receipt', 'chit', 'note', 'clipping', 'card'}
 OPS = dict(zip(('<', '<=', '==', '>=', '>', '!='),
                (operator.lt, operator.le, operator.eq, operator.ge, operator.gt, operator.ne)))
 
@@ -213,7 +217,7 @@ class Compiler:
         source = Path(source) if source else self.data / 'jaunts'
         catalog, files, errors, ids = [], {}, [], set()
         for path in sorted(source.glob('*.json')):
-            if path.name == 'schema.json': continue
+            if path.name in NOT_JAUNTS: continue
             try:
                 doc = read(path)
                 if doc.get('scene') != self.scene_id: continue
@@ -231,7 +235,29 @@ class Compiler:
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
         files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})
+        files['daybook.json'] = packed(self.daybook())
         return files, errors
+
+    def daybook(self):
+        """T-1258: families must be exactly the keepsake families a jaunt may name, and the
+        ranks a strictly rising ladder from 0, so changing a threshold re-ranks with no code."""
+        doc = read(self.data / 'jaunts/daybook.json')
+        require(doc and doc.get('schema_version') == 1 and isinstance(doc.get('content_version'), int), 'daybook: bad versions')
+        allowed = self.schema.schema['properties']['keepsake']['properties']['family']['enum']
+        families = doc.get('families') or []
+        require([f.get('name') for f in families] == allowed, f'daybook: families must be {allowed}')
+        unique(families, 'daybook family')
+        for f in families:
+            require(re.fullmatch(r'[a-z][a-z_]*', f['id']) and f.get('description') and f.get('icon'), f'daybook: family {f["id"]} incomplete')
+            t = f.get('template') or {}
+            require(t.get('form') and t.get('lead') and t.get('style') in DAYBOOK_STYLES, f'daybook: family {f["id"]} template incomplete')
+        ranks = doc.get('ranks') or []
+        unique(ranks, 'daybook rank')
+        levels = [r.get('threshold') for r in ranks]
+        require(len(ranks) >= 2 and all(isinstance(v, int) for v in levels) and levels[0] == 0
+                and all(a < b for a, b in zip(levels, levels[1:])), 'daybook: rank thresholds must rise strictly from 0')
+        require(all(r.get('title') for r in ranks) and doc.get('disclaimer'), 'daybook: ranks need titles and the book its disclaimer')
+        return doc
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
@@ -246,7 +272,7 @@ def main():
     selected = [args.scene or '1835'] if args.scene or args.output else scenes
     source = args.source or ROOT / 'data/jaunts'
     for path in source.glob('*.json'):
-        if path.name != 'schema.json': require(read(path).get('scene') in scenes, f'{path.name}: unknown or missing scene')
+        if path.name not in NOT_JAUNTS: require(read(path).get('scene') in scenes, f'{path.name}: unknown or missing scene')
     for scene_id in selected:
         compile_scene_jaunts(args, scene_id)
 
@@ -263,7 +289,7 @@ def compile_scene_jaunts(args, scene_id):
         for name in extra: (dest / name).unlink()
     for error in errors: print('JAUNT REFUSED — ' + error)
     require(not errors, f'{len(errors)} malformed jaunt(s); valid catalog entries preserved')
-    print(f'JAUNTS PASS — {len(files)-1} jaunts; {len(files["catalog.json"].encode())} catalog bytes')
+    print(f'JAUNTS PASS — {len(files)-2} jaunts; {len(files["catalog.json"].encode())} catalog bytes')
 
 if __name__ == '__main__':
     main()

@@ -9,23 +9,23 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "6d292dfcd12689fbbf4b92518901978a9900899af2f50359adf1f79a499129bb",
+    "fingerprint": "7ece4f496e70d03c2ef7bb158a296184c15c32a7465238b127b6ea7295116f52",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 493,
+      "structures": 531,
       "voters": 345
     }
   },
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1022,
+    "leads": 1023,
     "leads_by_layer": {
       "census_1840": 355,
       "residents": 473,
-      "structures": 43,
+      "structures": 44,
       "voters": 151
     }
   },
@@ -2893,6 +2893,11 @@
           "id": "recon_1835_blk_south_water_franklin_c4_01",
           "name": "Reconstructed C4 wide two-story store or mixed block #01",
           "rule": "exact surname"
+        },
+        {
+          "id": "recon_1835_canal_trade_c4_002",
+          "name": "Reconstructed Canal Street wide two-story store or mixed block",
+          "rule": "exact surname"
         }
       ],
       "entries": [
@@ -3140,6 +3145,11 @@
         {
           "id": "recon_1835_blk_south_water_franklin_c4_01",
           "name": "Reconstructed C4 wide two-story store or mixed block #01",
+          "rule": "OCR variant (0.89 similarity to 'block')"
+        },
+        {
+          "id": "recon_1835_canal_trade_c4_002",
+          "name": "Reconstructed Canal Street wide two-story store or mixed block",
           "rule": "OCR variant (0.89 similarity to 'block')"
         }
       ],
@@ -10055,6 +10065,33 @@
         "nbi_v01_1960"
       ],
       "works_cited": [],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
+      "id": "lead_v01_doctor_structures",
+      "surname_key": "doctor",
+      "spellings_as_printed": [
+        "Doctor"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "wabansia_doctors_barn",
+          "name": "The doctor's barn in Wabansia",
+          "rule": "exact surname"
+        },
+        {
+          "id": "wabansia_doctors_house",
+          "name": "The doctor's house in Wabansia",
+          "rule": "exact surname"
+        }
+      ],
+      "entries": [
+        "nbi_v01_1966"
+      ],
+      "works_cited": [
+        "county_histories_kett_and_co"
+      ],
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
@@ -25313,6 +25350,21 @@
         {
           "id": "fort_dearborn_shop",
           "name": "Fort Dearborn — the shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+          "name": "Reconstructed W2 carpenter or joiner shop #01",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_canal_trade_w1_003",
+          "name": "Reconstructed Canal Street blacksmith shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_canal_trade_w2_004",
+          "name": "Reconstructed Canal Street carpenter or joiner shop",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         }
       ],

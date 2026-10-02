@@ -55,6 +55,9 @@ import { loadMeshoptDecoder } from './scene-loader.js';
 // DEG and the bearing/yaw conversions are pure arithmetic and live in angles.js,
 // so a caller that needs only those does not load three behind them (T-1257).
 import { DEG, bearingToYaw, yawToBearing } from './angles.js';
+import {
+  lakeShoreLine, shoreUniform, shoreGlslHead, softExtentGlsl,
+} from './lakeshore.js';
 export { DEG, bearingToYaw, yawToBearing };
 
 /** The vertical datum: the summer-1835 lake and river water surface. */
@@ -396,7 +399,11 @@ export async function createTerrain({
 
   // `substrateBase` is null for a scene that plants none of the 1835 zones (T-1739):
   // their extents are what paint the sand belt and the marsh, so it gets none of them.
-  const groundMat = groundMaterial(await substrateZones(substrateBase, problems));
+  // The lake's edge, read off the field this epoch just adopted (T-1819): the
+  // beach is a band measured from it, so the sand follows the modelled shore
+  // rather than a box. lakeshore.js; null without a heightfield.
+  const lakeShore = lakeShoreLine(heightfield);
+  const groundMat = groundMaterial(await substrateZones(substrateBase, problems), lakeShore);
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.
@@ -598,6 +605,12 @@ export async function createTerrain({
      * belongs to the compressor and not to this renderer. */
     groundFit,
 
+    /** The lake's edge as E per 40 m of N, read off this epoch's heightfield
+     * (lakeshore.js) — the line the beach is measured from, by the ground
+     * shader and, through flora.js's extent matcher, by the sward and the
+     * trees. Null without a heightfield. T-1819. */
+    lakeShore,
+
     /**
      * THE GROUND'S REACH (T-1154) — the setter, the reading and the per-frame
      * test. See hazeReachM() above for what the distance is and why.
@@ -674,6 +687,14 @@ export async function createTerrain({
     /** True where (e, n) is on the measured grid — where `surfaceHeight()` is
      * a sample rather than the out-of-bounds fallback (T-0110). */
     inBounds(e, n) { return heightfield.contains(e, n); },
+
+    /** The sample lattice `surfaceHeight()` interpolates between (T-1812): the
+     * bilinear ground is straight along any line between two of its grid lines,
+     * which is where a draped mesh needs its vertices and nowhere else. */
+    get grid() {
+      return { cellM: heightfield.cellM, originE: heightfield.originE,
+        originN: heightfield.originN };
+    },
 
     /** Drift the ripples. One line in the render loop; nothing else animates. */
     update(dt) {
@@ -1154,7 +1175,7 @@ function gridGeometry(hf, step = 1) {
 /* materials                                                                   */
 /* -------------------------------------------------------------------------- */
 
-const WORLD_POS_VERT = /* glsl */`
+export const WORLD_POS_VERT = /* glsl */`
   vChiWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;
 `;
 
@@ -1206,8 +1227,12 @@ async function substrateZones(dataBase, problems) {
   }
   const out = [];
   for (const z of index.zones || []) {
-    const box = z.extent?.kind === 'everywhere' ? z.extent.box : null;
-    if (!box) continue;
+    // A box, or since T-1819 a band measured from the lake's edge
+    // (`kind: "lake_shore"`, lakeshore.js) — the two extents a fragment can
+    // evaluate in a handful of instructions.
+    const shore = z.extent?.kind === 'lake_shore';
+    const box = z.extent?.kind === 'everywhere' || shore ? z.extent.box : null;
+    if (!box && !shore) continue;
     // A community the scene does not plant does not paint the ground it does not
     // stand on either. z07_bur_oak_savanna is the one, 5.6 km SSW of the forks.
     if (z.plantable_in_scene === false) continue;
@@ -1219,7 +1244,8 @@ async function substrateZones(dataBase, problems) {
     out.push({
       id: z.id,
       priority: z.extent?.priority ?? z.priority ?? 0,
-      e0: box.e[0], e1: box.e[1], n0: box.n[0], n1: box.n[1],
+      e0: box?.e?.[0], e1: box?.e?.[1], n0: box?.n?.[0], n1: box?.n?.[1],
+      extent: z.extent,
       // The records state sRGB 0-255; the shader works in the renderer's linear
       // space and `chiTex` arrives there already (the tile is SRGBColorSpace).
       // Converted explicitly rather than by a string parse, so the colour space
@@ -1284,12 +1310,23 @@ const ZONE_EDGE_RAMP_M = 50;
  * pixels and holds every zone's mean to within one sRGB unit of its record;
  * it currently reports 0.00 on all four triples.
  */
-function zoneGlsl(zones) {
+function zoneGlsl(zones, lakeShore = null) {
+  // A shore band with no shore read holds nothing — the same answer
+  // lakeshore.js softExtentWeight gives the sward, so neither draws a beach.
+  zones = zones.filter((z) => z.extent?.kind !== 'lake_shore' || lakeShore);
   if (!zones.length) return '';
   const F = ZONE_EDGE_RAMP_M.toFixed(1);
   const f = (v) => (Number.isInteger(v) ? v.toFixed(1) : String(v));
   const v3 = (c) => `vec3(${c.r.toFixed(6)}, ${c.g.toFixed(6)}, ${c.b.toFixed(6)})`;
-  const blocks = zones.map((z) => `
+  const blocks = zones.map((z) => (softExtentGlsl(z.extent) ? `
+  // ${z.id} — priority ${z.priority}, ${z.extent.kind === 'lake_shore'
+    ? `within ${z.extent.distance_m?.[1]} m of the lake's edge` : 'a box with wandering, ramped sides'}
+  // (T-1819, lakeshore.js — the rule the sward and the trees also read)
+  {
+    ${softExtentGlsl(z.extent)}
+    vec3 c = mix(${v3(z.dry)}, ${v3(z.wet)}, chiWet);
+    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain), w);
+  }` : `
   // ${z.id} — priority ${z.priority}, e ${z.e0}..${z.e1}, n ${z.n0}..${z.n1}
   {
     float w = smoothstep(${f(z.e0 - ZONE_EDGE_RAMP_M)}, ${f(z.e0 + ZONE_EDGE_RAMP_M)}, chiE)
@@ -1298,7 +1335,7 @@ function zoneGlsl(zones) {
             * (1.0 - smoothstep(${f(z.n1 - ZONE_EDGE_RAMP_M)}, ${f(z.n1 + ZONE_EDGE_RAMP_M)}, chiN));
     vec3 c = mix(${v3(z.dry)}, ${v3(z.wet)}, chiWet);
     chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain), w);
-  }`).join('\n');
+  }`)).join('\n');
   return `
   // ---- the substrate zones (${zones.map((z) => z.id).join(', ')}) ---------- //
   // Scene coordinates off world position: the ground is built at x = e and
@@ -1314,6 +1351,76 @@ function zoneGlsl(zones) {
 ${blocks}
 `;
 }
+
+/**
+ * THE PRAIRIE, as fragment code — the statements `groundMaterial` splices in place
+ * of `<map_fragment>`, lifted out unchanged so a second surface can paint the SAME
+ * prairie rather than a copy of it (T-1797: the ground strip feathers into the
+ * terrain at its edges, and a copy would drift the first time this one is tuned).
+ * The compiled ground shader was byte for byte the one it had been; T-1825 has
+ * since moved the fetch below the mosaic, which it borrows to break the tile's
+ * repeat (see the comment at the fetch). It expects
+ * `varying vec3 vChiWorld` and `uniform sampler2D uGround` (the prairie tile) and
+ * leaves `chiTex`, `chiPatch`, `chiWet` and `chiPrairie` declared.
+ */
+export const PRAIRIE_FRAGMENT = /* glsl */`
+  // ONE texture fetch, deliberately. The ground covers most of the screen, so
+  // every instruction here is paid a million times a frame; a second octave
+  // fetched from the same texture at a different scale looked slightly better
+  // and halved the frame rate under software rasterisation. The finer octaves
+  // are therefore baked INTO that one texture (see prairieTexture) and the
+  // patch-scale variation above the tile is arithmetic, which costs a fraction
+  // of a filtered fetch. The fetch itself sits below the mosaic, which it
+  // borrows.
+
+  // Community mosaic — 42 m by 48 m, broken by a 15 m diagonal. The two sines
+  // this replaces beat at ~200 m, a soft blur the size of a city block that read
+  // as cloud shadow rather than as ground; prairie patchiness is a
+  // swale-and-rise business at tens of metres, which is the scale the
+  // heightfield's own relief works at. THREE sines total, one more than before
+  // and no more: this runs once per ground fragment and the ground is most of
+  // the screen, so the count is a budget, not a taste (the same reason there is
+  // exactly one texture fetch below). Amplitude is held near +/-14 % — past that
+  // the pattern competes with the sward instead of sitting under it.
+  float chiPatch = sin(vChiWorld.x * 0.1496 + 1.7) * sin(vChiWorld.z * 0.1309)
+                 + 0.6 * sin(vChiWorld.x * 0.3307 - vChiWorld.z * 0.2712 + 4.1);
+
+  // The one fetch, made AFTER the mosaic so it can borrow it (T-1825). The tile
+  // repeats every 11 m and now carries 1.4-2.75 m patches of growth and thatch,
+  // which a strict 11 m lattice would show as rows across the middle distance.
+  // Offsetting the lookup by the mosaic already in hand shears each repeat
+  // against its neighbours by up to about 1.5 m. That costs no fetch and no
+  // sine, and it stretches the tile locally by at most a fifth, because the
+  // mosaic changes over 15-48 m and the tile over 11 m.
+  vec3 chiTex = texture2D(uGround,
+    vChiWorld.xz * 0.0909 + vec2(0.090, 0.070) * chiPatch).rgb;
+
+  // Wet ground: the marshy shore strip, keyed on height above the datum.
+  // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
+  // it at +1.25 ft, so elevation is the honest driver — it paints the mud wide
+  // on the low South Division shore and narrow on the higher north and west
+  // banks, which is what the sources say. The top of the band is pulled in to
+  // 0.70 m so it stops at the foot of the plain (p25 of the land is 0.83 m)
+  // instead of tinting it. It keys the SUBSTRATE zones too, between their own
+  // two declared colours, so the reading is one rule and not two.
+  float chiWet = 1.0 - smoothstep(0.05, 0.70, vChiWorld.y);
+
+  // THE PRAIRIE PATH, arithmetically what it has always been — the three
+  // statements below are the previous revision's, moved onto a local so the
+  // substrate can be mixed against them. Where no zone covers a fragment the
+  // weight is 0.0, and mix(a, b, 0.0) is a exactly, so "nothing outside the
+  // zones moves" is a property of the code rather than a claim about a
+  // screenshot. (No backticks in here: this is a JS template literal.)
+  vec3 chiPrairie = diffuseColor.rgb * chiTex * (1.0 + 0.088 * chiPatch);
+  chiPrairie = mix(chiPrairie,
+                   chiPrairie * vec3(0.46, 0.42, 0.30) + vec3(0.042, 0.034, 0.020),
+                   chiWet);
+  // Drier mesic prairie on the rises. A July shift, not a September one: a few
+  // per cent lighter and a few per cent less blue, so the crown of the plain
+  // reads finer and yellower than the swale beside it and still reads green.
+  chiPrairie *= mix(vec3(1.0), vec3(1.05, 1.03, 0.92),
+                    smoothstep(0.95, 1.28, vChiWorld.y));
+`;
 
 /**
  * Ground: a procedural prairie sampled in WORLD space, darkening to wet mud as
@@ -1348,7 +1455,7 @@ ${blocks}
  * prairie would be filling a gap silently. When those records land, the zone a
  * point falls in belongs here — and the ground stops being one green.
  */
-function groundMaterial(zones = []) {
+function groundMaterial(zones = [], lakeShore = null) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff, roughness: 1, metalness: 0,
   });
@@ -1362,6 +1469,7 @@ function groundMaterial(zones = []) {
     if (typeof prior === 'function') prior(shader, renderer);
     shader.uniforms.uGround = { value: tex };
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
+    if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );
@@ -1369,54 +1477,9 @@ function groundMaterial(zones = []) {
 varying vec3 vChiWorld;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
-` + shader.fragmentShader.replace('#include <map_fragment>', /* glsl */`
-  // ONE texture fetch, deliberately. The ground covers most of the screen, so
-  // every instruction here is paid a million times a frame; a second octave
-  // fetched from the same texture at a different scale looked slightly better
-  // and halved the frame rate under software rasterisation. The finer octaves
-  // are therefore baked INTO that one texture (see prairieTexture) and the
-  // patch-scale variation above the tile is arithmetic, which costs a fraction
-  // of a filtered fetch.
-  vec3 chiTex = texture2D(uGround, vChiWorld.xz * 0.0909).rgb;
-
-  // Community mosaic — 42 m by 48 m, broken by a 15 m diagonal. The two sines
-  // this replaces beat at ~200 m, a soft blur the size of a city block that read
-  // as cloud shadow rather than as ground; prairie patchiness is a
-  // swale-and-rise business at tens of metres, which is the scale the
-  // heightfield's own relief works at. THREE sines total, one more than before
-  // and no more: this runs once per ground fragment and the ground is most of
-  // the screen, so the count is a budget, not a taste (the same reason there is
-  // exactly one texture fetch above). Amplitude is held near +/-14 % — past that
-  // the pattern competes with the sward instead of sitting under it.
-  float chiPatch = sin(vChiWorld.x * 0.1496 + 1.7) * sin(vChiWorld.z * 0.1309)
-                 + 0.6 * sin(vChiWorld.x * 0.3307 - vChiWorld.z * 0.2712 + 4.1);
-  // Wet ground: the marshy shore strip, keyed on height above the datum.
-  // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
-  // it at +1.25 ft, so elevation is the honest driver — it paints the mud wide
-  // on the low South Division shore and narrow on the higher north and west
-  // banks, which is what the sources say. The top of the band is pulled in to
-  // 0.70 m so it stops at the foot of the plain (p25 of the land is 0.83 m)
-  // instead of tinting it. It keys the SUBSTRATE zones too, between their own
-  // two declared colours, so the reading is one rule and not two.
-  float chiWet = 1.0 - smoothstep(0.05, 0.70, vChiWorld.y);
-
-  // THE PRAIRIE PATH, arithmetically what it has always been — the three
-  // statements below are the previous revision's, moved onto a local so the
-  // substrate can be mixed against them. Where no zone covers a fragment the
-  // weight is 0.0, and mix(a, b, 0.0) is a exactly, so "nothing outside the
-  // zones moves" is a property of the code rather than a claim about a
-  // screenshot. (No backticks in here: this is a JS template literal.)
-  vec3 chiPrairie = diffuseColor.rgb * chiTex * (1.0 + 0.088 * chiPatch);
-  chiPrairie = mix(chiPrairie,
-                   chiPrairie * vec3(0.46, 0.42, 0.30) + vec3(0.042, 0.034, 0.020),
-                   chiWet);
-  // Drier mesic prairie on the rises. A July shift, not a September one: a few
-  // per cent lighter and a few per cent less blue, so the crown of the plain
-  // reads finer and yellower than the swale beside it and still reads green.
-  chiPrairie *= mix(vec3(1.0), vec3(1.05, 1.03, 0.92),
-                    smoothstep(0.95, 1.28, vChiWorld.y));
-
-${zoneGlsl(zones)}
+${zones.length ? shoreGlslHead(lakeShore) : ''}
+` + shader.fragmentShader.replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
+${zoneGlsl(zones, lakeShore)}
   diffuseColor.rgb = chiPrairie;
 `);
   };
@@ -1535,7 +1598,7 @@ uniform vec3 uSky;
  * cost the software rasteriser measurably, this being the one texture that
  * covers the screen. Detail here is bought in octaves, not in pixels.
  */
-function prairieTexture() {
+export function prairieTexture() {
   const S = PRAIRIE_TILE_PX;
   const c = document.createElement('canvas');
   c.width = c.height = S;

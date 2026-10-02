@@ -65,6 +65,7 @@ from block_faces import extent, face_frame as block_face, project  # noqa: E402
 # runs move their buildings: it is the one form value that depends on where a
 # building's neighbours stand. See tools/siding_stock.py.
 from siding_stock import deal_records as deal_siding  # noqa: E402
+import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -531,7 +532,8 @@ def make_record(seq: int, family: str, e: float, n: float, row: dict,
     jitter_n = (stable_fraction(sid, 4) - .5) * 1.5
     rotation = round((stable_fraction(sid, 5) - .5) * 2.8, 2)
     local_e, local_n = round(e + jitter_e, 3), round(n + jitter_n, 3)
-    finish_key, finish = finish_for(sid)
+    fabric = fabric_rule_1835.deal(sid, family, archetype_for(family))
+    finish_key, finish = fabric["finish_key"], fabric["paint"]
     ancillary = family.startswith("A")
     yard_group = row.get("yard_group")
     reconstruction = {
@@ -539,8 +541,8 @@ def make_record(seq: int, family: str, e: float, n: float, row: dict,
         "inventory_class": "ancillary" if ancillary else "principal_functional",
         "programme_phase": "phase1_south_mixed_blocks", "source_id": SOURCE_ID,
         "sequence": seq, "finish_key": finish_key,
-        "roof_condition": ("fresh", "darkened", "patched", "weathered")[seq % 4],
-        "age_state": ("new", "recent", "established", "older_frontier")[seq % 4],
+        "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
+        "fabric_basis": fabric["fabric_basis"],
     }
     if yard_group:
         reconstruction["yard_group"] = yard_group
@@ -582,7 +584,7 @@ def make_record(seq: int, family: str, e: float, n: float, row: dict,
                 "confidence": "reconstructed",
                 "note": f"A {width:.2f} × {depth:.2f} m rectangle sampled deterministically inside the {family} family band; no individual dimensions are documented."
             },
-            "form": form_for(family, seq, finish, width, depth),
+            "form": fabric_rule_1835.apply_form(form_for(family, seq, finish, width, depth), fabric),
             "change_note": "Reconstructed anonymous July 1835 infill. It may later be replaced by a named, better-evidenced roof through an explicit inventory substitution."
         }],
         "function": inferred(function, f"Assigned from the {family} production family to satisfy the aggregate South Division mix; no occupant or individual use is known."),

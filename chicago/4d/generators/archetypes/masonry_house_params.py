@@ -631,6 +631,22 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "ridge_at": fr.y(cg["ridge_S"]), "ridge_z": fr.zval(cg["ridge"]),
                 "eave_lo_z": fr.zval(cg["eaves"][1]),
                 "eave_hi_z": fr.zval(cg["eaves"][0]), "conf": cf("v4_detail")}
+        ng = raw.get("stable_north_gable")
+        if ng:
+            west = next(r for r in p.ranges if r["name"] == "west_wing")
+            north = next(r for r in p.ranges if r["name"] == "north_range")
+            west["north_cross_gable"] = {
+                "x0": min(fr.x(w) for w in ng["W"]),
+                "x1": max(fr.x(w) for w in ng["W"]),
+                "eave_z": fr.zval(ng["eave"]),
+                "cross_y0": north["y0"], "cross_y1": north["y1"],
+                "cross_ridge_at": north["ridge_at"], "cross_ridge_z": north["ridge_z"],
+                "cross_eave_lo_z": north["eave_lo_z"],
+                "cross_eave_hi_z": north["eave_hi_z"], "cross_kick": north["kick"],
+            }
+            # The west wing emits the joined roof here, once. In particular the
+            # north roof must never continue through the north gable's openings.
+            north["roof_min"] = west["x1"]
         wd = raw.get("west_dormer")
         if wd:
             half = float(wd["width_ft"]) / 2
@@ -639,6 +655,61 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "u1": fr.y(wd["centre_S"] - half), "z0": fr.zval(wd["base"]),
                 "eave_z": fr.zval(wd["eave"]), "apex_z": fr.zval(wd["apex"]),
                 "conf": cf("v4_detail")}
+        rework = raw.get("stable_roof_rework")
+        if rework:
+            west = next(r for r in p.ranges if r["name"] == "west_wing")
+            north = next(r for r in p.ranges if r["name"] == "north_range")
+            ng = raw["stable_north_gable"]
+            west["stable_roof"] = {
+                "front_x0": min(fr.x(w) for w in ng["W"]),
+                "front_x1": max(fr.x(w) for w in ng["W"]),
+                "north_eave": fr.zval(ng["eave"]),
+                "cross_y": fr.y(rework["cross_ridge_S"]),
+                "cross_z": fr.zval(rework["cross_ridge"]),
+                "south_foot_y": fr.y(rework["south_gable_foot_S"]),
+                "rear_x": fr.x(rework["rear_ridge_W"]),
+                "rear_z": fr.zval(rework["rear_ridge"]),
+                "rear_west_eave": fr.zval(rework["rear_eave_west"]),
+                "rear_east_eave": fr.zval(rework["rear_eave_east"]),
+                "south_eave": fr.zval(rework["south_eave"]),
+                "hip_y": fr.y(rework["south_hip_S"]),
+                "front_hip_y": fr.y(rework["front_hip_S"]),
+                "north_range": dict(north)}
+            west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
+            if west["stable_roof"]["continuous_south_gable"]:
+                # The owner's reconstructed section now drives both the roof
+                # and the masonry silhouette; retain that tier in both meshes.
+                west["conf_roof"] = max(west["conf_roof"], cf("v4_detail"))
+                west["conf_plan"] = max(west["conf_plan"], cf("v4_detail"))
+            west["stable_roof"]["cross_foot_eave"] = fr.zval(rework.get("cross_foot_eave",rework["rear_eave_west"]))
+            dormer = p.detail.get("west_dormer")
+            if dormer:
+                dormer["style"] = wd.get("style")
+                dormer["crest_x"] = fr.x(wd["crest_W"])
+                dormer["hood_front"] = fr.x(wd["hood_front_W"])
+                west["stable_roof"]["dormer"] = dormer
+        alcove = raw.get("north_entry_alcove")
+        if alcove:
+            p.detail["north_entry_alcove"] = {
+                "x": sorted(fr.x(v) for v in alcove["opening_W"]),
+                "front_y": fr.y(0), "back_y": fr.y(alcove["back_S"]),
+                "east_x": fr.x(alcove["inner_east_W"]),
+                "landing_z": fr.zval(alcove["landing_z"]),
+                "threshold_z": fr.zval(alcove["threshold_z"]),
+                "front_steps": alcove["front_steps"],
+                "front_run": alcove["front_run_ft"]*FT,
+                "stair_steps": alcove["stair_steps"],
+                "stair_x": sorted(fr.x(v) for v in alcove["stair_W"]),
+                "stair_y": sorted(fr.y(v) for v in alcove["stair_S"]),
+                "door_y": sorted(fr.y(v) for v in alcove["door_S"]),
+                "door_top": fr.zval(alcove["door_top"]),
+                "window_x": sorted(fr.x(v) for v in alcove["window_W"]),
+                "window_z": [fr.z(v) for v in alcove["window_z"]],
+                "cheek_x": sorted(fr.x(v) for v in alcove["cheek_W"]),
+                "cheek_top": fr.zval(alcove["cheek_top"])}
+            for o in p.openings:
+                if o["face"] == "north" and o["kind"] == "arch" and o["u1"]-o["u0"] > 3:
+                    o["style"] = "north_entry_alcove"
         cr = raw.get("copper_return")
         if cr:
             p.detail["copper_return"] = {"x0": min(fr.x(w) for w in cr["W"]),

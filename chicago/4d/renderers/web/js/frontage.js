@@ -88,12 +88,128 @@ const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
 const TIMBER = 0xcbc2b1;        // sawn board, weathered — the signboard's own tone
 const PAINT = '#2f2013';        // the letterform's paint: L135 claims the colour
 
+/**
+ * THE WALK'S OWN TIMBER (T-1800). Until this ticket every walk and crossing was
+ * drawn in `TIMBER` above — the signboard's tone, L* 78.7, brighter than the
+ * library's whitewashed clapboard — and that constant, not the light, is the
+ * "white boards" the owner reported twice (T-1795 § 2; T-1770's and T-1211's
+ * plank-colour correction, 2026-09-30). The fences and posts keep `TIMBER`: they
+ * share it with the yard and the signboards, and are not this ticket's.
+ *
+ * Four LINEAR tones — the vertex stream is linear, so no sRGB decode applies —
+ * one per weathering the owner named: dark grey-brown, brown, grey-brown and
+ * silvered grey. The bound is T-1795 § 6's: from the library's
+ * `plank_walk_weathered` (L* 33–40 across its spread, mean 36.6) up to the sheet's
+ * `weathered_board` (L* 62). The tones sit at L* ≈ 38, 45, 51 and 52, and the
+ * stretch scale and the board jitter below keep every board inside 33–62. They
+ * lean warm on purpose: measured in the browser at 1280×800, the sky and grass
+ * light cast the first, cooler set (2026-10-01) to a green-grey, and the owner
+ * asked for brown as well as grey.
+ * RECONSTRUCTED (L320): no source gives the tone of any one walk in 1835.
+ */
+const WALK_TONES = [
+  [0.120, 0.095, 0.070],        // dark grey-brown — old, damp, trodden
+  [0.200, 0.140, 0.085],        // brown — the newer boards, not yet silvered
+  [0.225, 0.185, 0.135],        // grey-brown — a season or two of weather
+  [0.215, 0.205, 0.185],        // silvered grey — sun-bleached softwood
+];
+/** How far one stretch of walk is lighter or darker than its tone, at most. */
+const WALK_OWNER_SPAN = 0.12;
+/** How far one board differs from the next, at most, in luminance and in hue. */
+const WALK_BOARD_SPAN = 0.14;
+const WALK_BOARD_HUE = 0.03;
+/** The L* bound above, as linear luminance: L* 33 and L* 62. */
+const WALK_Y_MIN = 0.0754;
+const WALK_Y_MAX = 0.3040;
+
+/** FNV-1a over a string: the same owner draws the same walk on every load. */
+function hash32(s) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i += 1) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h >>> 0;
+}
+
+/** A float in [-1, 1) from a 32-bit integer, for the bounded jitters. */
+const signed = (h) => ((h >>> 0) / 0x80000000) - 1;
+
+/** Linear luminance, the Y the L* bound is stated in. */
+const lum = (c) => 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+
+/** Scale a tone so its luminance lands inside the walk's bound. */
+function clampTone(c) {
+  const y = lum(c);
+  const k = y < WALK_Y_MIN ? WALK_Y_MIN / y : (y > WALK_Y_MAX ? WALK_Y_MAX / y : 1);
+  return [c[0] * k, c[1] * k, c[2] * k];
+}
+
+/**
+ * The tone of one stretch of walk: one weathering along a whole stretch, and a
+ * neighbouring stretch may differ, which is how a street of separately laid
+ * walks reads. Keyed on the block face first (`chunk` — the town street edge
+ * lays one per face, and its 87 walks all name one record as `belongs_to`), then
+ * on the owner (the Sauganash's walks and crossing, the river walk), then on the
+ * walk's own id. When T-1211 names the business each walk serves, that owner is
+ * the better key and this order is where it goes.
+ */
+function walkTone(walk) {
+  const h = hash32(String(walk.chunk ?? walk.belongs_to ?? walk.id ?? ''));
+  const base = WALK_TONES[h % WALK_TONES.length];
+  const k = 1 + WALK_OWNER_SPAN * signed(Math.imul(h, 0x9e3779b1));
+  return clampTone([base[0] * k, base[1] * k, base[2] * k]);
+}
+
+/**
+ * One board's colour: its owner's tone, nudged by a hash of where the board
+ * lies, so neighbouring boards differ by a little and never by a lot. Keyed on
+ * position (to the centimetre) rather than on order, so a walk cut into pieces
+ * differently by a later generator keeps its boards' colours.
+ */
+function boardTone(tone, cx, cz) {
+  const h = hash32(`${Math.round(cx * 100)},${Math.round(cz * 100)}`);
+  const k = 1 + WALK_BOARD_SPAN * signed(h);
+  const warm = WALK_BOARD_HUE * signed(Math.imul(h, 0x85ebca6b));
+  return clampTone([tone[0] * k * (1 + warm), tone[1] * k, tone[2] * k * (1 - warm)]);
+}
+
+/** `TIMBER` as the linear triple the vertex stream carries for fences and posts. */
+const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
+
+/** An empty timber buffer: positions, normals, confidence and colour. */
+const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], tone: TIMBER_LINEAR, vary: false });
+
+/**
+ * Lay `build` into `buf` in `walk`'s tone, board by board, and hand the buffer
+ * back in the fences' and posts' `TIMBER` afterwards.
+ */
+function inWalkTone(buf, walk, build) {
+  buf.tone = walkTone(walk);
+  buf.vary = true;
+  try {
+    return build();
+  } finally {
+    buf.tone = TIMBER_LINEAR;
+    buf.vary = false;
+  }
+}
+
 /** How far a plank's box reaches below the deck: enough to meet the ground. */
 const SKIRT_M = 0.02;
 /** Daylight between two boards — a plank walk is not a slab. */
 const PLANK_GAP_M = 0.02;
 /** A crossing is subdivided this often ALONG its run so it follows the ground. */
 const CROSSING_STEP_M = 0.9;
+/**
+ * The ground one rigid crossing board may span before it is cut shorter
+ * (T-1955) — the same 0.04 m the generator audits a walk's stringer bay flat to
+ * (`EDGE_STRINGER_ROLL_M`), and for the same reason: it is the daylight a
+ * visitor may see under the low end of a board seated on the high one.
+ */
+const CROSSING_ROLL_M = 0.04;
+/** The shortest piece a crossing is cut into on a shoulder (T-1955). */
+const CROSSING_MIN_STEP_M = 0.3;
 /** How far a fence board's stock reaches across the line it stands on. */
 const FENCE_BOARD_T_M = 0.022;
 /** A fence rail's section — the same sawn stuff `enclosures.js` hangs. */
@@ -158,12 +274,16 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   // board standing in the ground — the same two triangles `enclosures.js`
   // drops off a pale, for the same reason: at a town's worth of boards it is
   // thousands of triangles nobody can ever see.
+  // A walk's boards vary one from the next (T-1800); everything else is laid in
+  // the buffer's one tone.
+  const c = buf.vary ? boardTone(buf.tone, cx, cz) : (buf.tone ?? TIMBER_LINEAR);
   for (const [t1, t2, n] of (skipUnderside ? faces.slice(0, 5) : faces)) {
     for (const tri of [t1, t2]) {
       for (const i of tri) {
         buf.pos.push(p[i][0], p[i][1], p[i][2]);
         buf.nrm.push(n[0], n[1], n[2]);
         buf.conf.push(level);
+        buf.col?.push(c[0], c[1], c[2]);
       }
     }
   }
@@ -358,6 +478,24 @@ function buildWalk(buf, walk, terrain, level, problems, stats = null) {
  * is FOR — it spans the ruts instead of lying in them. Subdivided along the run
  * so that a board fifteen metres long still follows the camber of the road it
  * crosses.
+ *
+ * T-1955 — A GRADED STREET HAS SHOULDERS, and a rigid board sat on the ground
+ * under its own centre buries its uphill end in one. T-1812 cut the opened
+ * streets below their walks, so a crossing now steps down a shoulder falling
+ * about 0.08 m in a metre; the 1.8 m stride the generator states for level
+ * ground put each board's ends 0.07 m above and below its centre, and the
+ * lower face of the uphill end went up to 0.12 m into the ground (measured on
+ * the Washington crossing between Wells and La Salle). So each stride is now
+ * cut in half, down to `CROSSING_MIN_STEP_M`, while the ground under any one
+ * board's footprint — both ends, the middle, both edges — rolls more than
+ * `CROSSING_ROLL_M`, and every board is seated on the HIGHEST of its own
+ * samples, which is the generator's own rule for the walking deck over it
+ * (`phigh + rise`). Per board and not per piece, because where a crossing
+ * runs over a street that falls along its own length the ground tilts ACROSS
+ * the crossing too — 0.12 m over its 1.83 m at Washington and Clark — and one
+ * height for all six boards lifts the downhill one clear of the grade. On level
+ * ground no stride rolls, nothing is cut, and the crossing is the pieces it
+ * always was.
  */
 function buildCrossing(buf, walk, terrain, level, problems) {
   const line = walk.centreline_local_enu_m;
@@ -392,18 +530,53 @@ function buildCrossing(buf, walk, terrain, level, problems) {
     ? walk.plank_step_m : CROSSING_STEP_M;
   const segs = Math.max(1, Math.round(len / stride));
   const step = len / segs;
+  // The ground under each board of a piece [t0, t1] of the run: the highest and
+  // lowest of nine samples across that board's own footprint — both ends, the
+  // middle, both edges. `null` when the run's centre has no ground there, which
+  // is the one case the old loop skipped a piece for.
+  const footing = (t0, t1) => {
+    const tm = (t0 + t1) / 2;
+    if (groundAt(terrain, ax + rx * tm, -(az + rz * tm)) === null) return null;
+    const out = [];
+    for (let j = 0; j < boards; j += 1) {
+      const mid = (j + 0.5) * bw - width / 2;
+      let lo = Infinity;
+      let hi = -Infinity;
+      for (const t of [t0, tm, t1]) {
+        for (const off of [mid - bw / 2, mid, mid + bw / 2]) {
+          const y = groundAt(terrain, ax + rx * t + wx * off, -(az + rz * t + wz * off));
+          if (y === null) continue;
+          lo = Math.min(lo, y);
+          hi = Math.max(hi, y);
+        }
+      }
+      out.push(Number.isFinite(hi) ? { lo, hi } : null);
+    }
+    return out;
+  };
+  const rolls = (f) => f !== null && f.some((b) => b && b.hi - b.lo > CROSSING_ROLL_M);
+  const pieces = [];
+  const cut = (t0, t1) => {
+    const f = footing(t0, t1);
+    if (rolls(f) && (t1 - t0) / 2 >= CROSSING_MIN_STEP_M) {
+      cut(t0, (t0 + t1) / 2);
+      cut((t0 + t1) / 2, t1);
+    } else {
+      pieces.push([t0, t1, f]);
+    }
+  };
+  for (let i = 0; i < segs; i += 1) cut(i * step, (i + 1) * step);
   let drawn = 0;
-  for (let i = 0; i < segs; i += 1) {
-    const t = (i + 0.5) * step;
+  for (const [t0, t1, f] of pieces) {
+    if (!f) continue;
+    const t = (t0 + t1) / 2;
     const cx = ax + rx * t;
     const cz = az + rz * t;
-    const g = groundAt(terrain, cx, -cz);
-    if (g === null) continue;
-    const top = g + rise;
     for (let j = 0; j < boards; j += 1) {
+      if (!f[j]) continue;
       const off = (j + 0.5) * bw - width / 2;
-      pushBox(buf, cx + wx * off, top - thick / 2, cz + wz * off, rx, rz,
-        step / 2, Math.max(0.02, (bw - PLANK_GAP_M) / 2), thick / 2, level,
+      pushBox(buf, cx + wx * off, f[j].hi + rise - thick / 2, cz + wz * off, rx, rz,
+        (t1 - t0) / 2, Math.max(0.02, (bw - PLANK_GAP_M) / 2), thick / 2, level,
         walk.plank_underside === false);
     }
     drawn += 1;
@@ -575,6 +748,49 @@ function buildPost(buf, post, terrain, level, problems) {
 }
 
 /**
+ * A FITTING AT A BUSINESS'S FRONT (T-1813) — a stoop, a mounting block, a tie
+ * rail or a wagon apron. The generator has already done all the arithmetic: a
+ * fitting is a list of `parts`, each a timber box centred at `at_local_enu_m`,
+ * `len_m` along the facade and `depth_m` out of it, its top `top_m` over the
+ * ground under it. A part with no `thick_m` STANDS on that ground — its foot
+ * reaches the lowest ground under its four corners, so nothing floats on a
+ * slope — and one with `thick_m` (a tie rail's rail) is carried at its height.
+ * The top is taken over the HIGHEST corner, so no corner of a step is buried.
+ */
+function buildFitting(buf, fit, terrain, level, problems) {
+  const parts = Array.isArray(fit.parts) ? fit.parts : [];
+  if (!parts.length) {
+    problems.push(`frontage: ${fit.id} carries no parts — nothing is laid`);
+    return false;
+  }
+  const b = ((fit.facade_bearing_deg ?? 0) * Math.PI) / 180;
+  const ae = Math.cos(b);
+  const an = -Math.sin(b);       // along the face, ENU
+  const oe = Math.sin(b);
+  const on = Math.cos(b);        // out of the face, ENU
+  for (const part of parts) {
+    const at = part.at_local_enu_m;
+    const hl = part.len_m / 2;
+    const hd = part.depth_m / 2;
+    const gs = [];
+    for (const [sa, so] of [[-1, -1], [1, -1], [1, 1], [-1, 1], [0, 0]]) {
+      const g = groundAt(terrain, at[0] + ae * sa * hl + oe * so * hd,
+        at[1] + an * sa * hl + on * so * hd);
+      if (g !== null) gs.push(g);
+    }
+    if (!gs.length) {
+      problems.push(`frontage: ${fit.id} ${part.part} has no ground under it`);
+      return false;
+    }
+    const top = Math.max(...gs) + part.top_m;
+    const foot = part.thick_m != null ? top - part.thick_m : Math.min(...gs) - 0.03;
+    pushBox(buf, at[0], (top + foot) / 2, -at[1], ae, -an, hl, hd, (top - foot) / 2,
+      level);
+  }
+  return true;
+}
+
+/**
  * The painted name, as a canvas texture on a plane just proud of each board
  * face. Drawn rather than left blank because the wording is evidence this
  * project holds and the letterform is the only invented part — see
@@ -699,6 +915,9 @@ export async function createFrontage({
     records: [],
     walks: [],
     posts: [],
+    /** The fittings at the business fronts (T-1813): stoops, mounting blocks,
+     *  tie rails and wagon aprons, each a record naming the business it serves. */
+    fittings: [],
     /** Deck rectangles in local ENU, for the planting block-list: a walk is a
      *  floor, and nothing may grow up through it (T-0085/T-0124). Same shape
      *  as the wharves' keepOut — `{ id, pts }`, consumed by flora's
@@ -714,7 +933,7 @@ export async function createFrontage({
     fences: [],
     census: {
       records: 0, walks: 0, crossings: 0, posts: 0, hitching: 0, lettered: 0,
-      fences: 0, decks: 0, refused: 0, orphaned: 0, meshes: 0,
+      fittings: 0, fittingKinds: {}, fences: 0, decks: 0, refused: 0, orphaned: 0, meshes: 0,
       /** THE EDGE RULE (T-0460). `kerb` is how many lengths of string piece the
        *  layer laid down the sides of its walks; `kerbStep_m` is the largest
        *  height step between two consecutive lengths on one run, which is what
@@ -748,7 +967,7 @@ export async function createFrontage({
     } catch (err) { return [f.id, null, err.message]; }
   }));
 
-  const buf = { pos: [], nrm: [], conf: [] };
+  const buf = timberBuf();
   const spans = [];
   const boards = [];
   /** What the string pieces down the walks' edges came to (T-0460). */
@@ -777,7 +996,7 @@ export async function createFrontage({
     const key = standing ? `${chunk}__standing` : chunk;
     let hit = named.get(key);
     if (!hit) {
-      hit = { buf: { pos: [], nrm: [], conf: [] }, pickId, standing };
+      hit = { buf: timberBuf(), pickId, standing };
       named.set(key, hit);
     }
     return hit;
@@ -807,8 +1026,11 @@ export async function createFrontage({
    * standing meshes would have cost twenty-six of each and made the trade a
    * loss.
    */
-  const standingChunk = (record, item) => (
-    item.street ? `${record.id}__${item.street}__standing` : item.chunk);
+  // T-1823 — an item may name its own standing mesh: the fronts-only faces'
+  // posts and fittings do, so a lone post far down a street does not stretch that
+  // street's mesh (and its fences) into a shadow box it never reached before.
+  const standingChunk = (record, item) => (item.standing_chunk
+    ?? (item.street ? `${record.id}__${item.street}__standing` : item.chunk));
   const cards = new Map();
   for (const [id, record, why] of loaded) {
     if (!record) { problems.push(`frontage: ${id} — ${why}`); continue; }
@@ -846,16 +1068,17 @@ export async function createFrontage({
       let ok;
       if (named0) {
         // A named chunk: lay straight into the face's own buffer (T-0069).
-        ok = crossing
+        ok = inWalkTone(named0.buf, walk, () => (crossing
           ? buildCrossing(named0.buf, walk, terrain, level, problems)
-          : buildWalk(named0.buf, walk, terrain, level, problems, edgeStats);
+          : buildWalk(named0.buf, walk, terrain, level, problems, edgeStats)));
       } else if (chunked) {
         // One chunk per segment; the walk is laid iff any segment laid boards.
         let laid = 0;
         for (let i = 0; i + 1 < line.length; i += 1) {
-          const cbuf = { pos: [], nrm: [], conf: [] };
-          const boardsLaid = laySegment(cbuf, walk, line[i][0], line[i][1],
-            line[i + 1][0], line[i + 1][1], terrain, level, edgeStats);
+          const cbuf = timberBuf();
+          const boardsLaid = inWalkTone(cbuf, walk, () => laySegment(cbuf, walk,
+            line[i][0], line[i][1], line[i + 1][0], line[i + 1][1], terrain, level,
+            edgeStats));
           if (!boardsLaid) continue;
           chunks.push({ buf: cbuf, pickId: walk.belongs_to });
           laid += boardsLaid;
@@ -867,9 +1090,9 @@ export async function createFrontage({
         }
       } else {
         const from = buf.pos.length / 9;
-        ok = crossing
+        ok = inWalkTone(buf, walk, () => (crossing
           ? buildCrossing(buf, walk, terrain, level, problems)
-          : buildWalk(buf, walk, terrain, level, problems, edgeStats);
+          : buildWalk(buf, walk, terrain, level, problems, edgeStats)));
         if (ok) spans.push({ id: walk.belongs_to, from, to: buf.pos.length / 9 });
       }
       if (!ok) continue;
@@ -977,6 +1200,47 @@ export async function createFrontage({
       if (board.text) out.census.lettered += 1;
       boards.push({ ...board, level });
     }
+    // The fittings (T-1813) are standing timber at a street's edge exactly as the
+    // posts are, so they land in the same street's standing chunk — no draw call
+    // of their own.
+    for (const fit of record.fittings ?? []) {
+      if (hostMissing(fit.belongs_to)) { out.census.orphaned += 1; continue; }
+      const level = LEVEL[fit.confidence] ?? 1;
+      const bucket = bufFor(standingChunk(record, fit), fit.belongs_to, true);
+      const target = bucket ? bucket.buf : buf;
+      const from = buf.pos.length / 9;
+      if (!buildFitting(target, fit, terrain, level, problems)) continue;
+      if (!bucket) spans.push({ id: fit.belongs_to, from, to: buf.pos.length / 9 });
+      out.fittings.push(fit);
+      // A stoop or an apron is a floor like the walk, and a block or a rail stands
+      // on its own ground: nothing is planted up through any of them. An apron is
+      // named apart because it is the one floor here a WAGON may stand on — it is
+      // laid for the dray at a forwarding house's door.
+      const fb = ((fit.facade_bearing_deg ?? 0) * Math.PI) / 180;
+      const [fae, fan, foe, fon] = [Math.cos(fb), -Math.sin(fb), Math.sin(fb), Math.cos(fb)];
+      for (const part of fit.parts) {
+        const [pe, pn] = part.at_local_enu_m;
+        const hl = part.len_m / 2;
+        const hd = part.depth_m / 2;
+        out.keepOut.push({
+          id: `${fit.belongs_to}__${fit.kind === 'wagon_apron' ? 'apron' : 'fitting'}`,
+          pts: [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sa, so]) => [
+            pe + fae * sa * hl + foe * so * hd, pn + fan * sa * hl + fon * so * hd]),
+        });
+      }
+      out.census.fittings += 1;
+      out.census.fittingKinds[fit.kind] = (out.census.fittingKinds[fit.kind] ?? 0) + 1;
+    }
+  }
+  // A works' bare front (T-1814): no walk is laid there, and nothing is planted
+  // either, so the smith's front reads as trodden yard rather than prairie.
+  for (const [, record] of loaded) {
+    if (!record) continue;
+    for (const bare of record.bare_fronts ?? []) {
+      if (Array.isArray(bare.pts_local_enu_m) && bare.pts_local_enu_m.length >= 3) {
+        out.keepOut.push({ id: `${bare.belongs_to}__bare`, pts: bare.pts_local_enu_m });
+      }
+    }
   }
   // The named chunks join the polyline ones: same material, same render order,
   // one bounding sphere each (T-0069).
@@ -996,10 +1260,13 @@ export async function createFrontage({
   geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
   geo.setAttribute('normal', new THREE.Float32BufferAttribute(buf.nrm, 3));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col, 3));
   geo.computeBoundingSphere();
 
   const mat = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(TIMBER), roughness: 0.9, metalness: 0.0,
+    // The colour is on the vertex since T-1800: the walks carry their owners'
+    // weathered tones and the fences and posts carry `TIMBER`, in one material.
+    color: 0xffffff, vertexColors: true, roughness: 0.9, metalness: 0.0,
     /**
      * IN THE TRANSPARENT PASS ON PURPOSE, AND NOT BECAUSE ANY OF IT IS
      * TRANSPARENT (T-0625). This timber is opaque and is drawn opaque: alpha is
@@ -1083,6 +1350,7 @@ export async function createFrontage({
     cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
     cgeo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
     cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
+    cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
     cgeo.computeBoundingSphere();
     const cmesh = new THREE.Mesh(cgeo, mat);
     cmesh.renderOrder = 1;                 // same street-decal ordering as above

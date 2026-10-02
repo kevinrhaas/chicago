@@ -170,8 +170,15 @@
     "stands_on": "alley",
     "fronts": "south_water",
     "sequence": 11,
-    "finish_key": "fresh_timber",
-    "roof_condition": "weathered",
-    "age_state": "older_frontier"
+    "finish_key": "weathered_timber",
+    "roof_condition": "darkened",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-Y",
+      "class": "yard",
+      "by": "type",
+      "household": null,
+      "words": "silvered boards under a weather-darkened roof — a privy, from the 1832–33 town (rule F-Y: a yard building's by its type)"
+    }
   }
 }

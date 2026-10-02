@@ -38,7 +38,9 @@
       "dry_pct": 45.0,
       "lots": 0,
       "structures": [
-       "dearborn_street_drawbridge"
+       "dearborn_street_drawbridge",
+       "landing_camp_east",
+       "landing_camp_west"
       ]
      }
     }
@@ -51,7 +53,7 @@
    "blocks_lost": [
     "blk_south_water_lasalle"
    ],
-   "roofs_on_moved_blocks": 56,
+   "roofs_on_moved_blocks": 60,
    "roofs_on_lost_blocks": 18
   }
  }

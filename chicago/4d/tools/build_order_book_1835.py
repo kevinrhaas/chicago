@@ -391,7 +391,18 @@ STRUCTURE_TICKETS = {
     # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
     # ran, which is the exact harm the sweep above exists to prevent.
     ("south", "stores_mixed_use"): "T-1694",
-    ("south", "larger_boarding_houses"): "T-1209",
+    # T-1209 WAS SPLIT on 2026-10-01 (T-1775..T-1780) and the boarding houses' three cells
+    # moved to T-1779, the child that RAISES the houses still owed; T-1777 rules where they
+    # may stand first and T-1778 their form, and neither raises a roof the book counts.
+    # T-1779 WAS SPLIT in turn on 2026-10-01 (T-1809, T-1810). All three cells move to
+    # T-1810, the piece that raises every house the book still orders past the two
+    # Washington-tier seats; T-1809 raises one South house and closes first, so a cell left
+    # on it would order work from a done ticket the moment it settles (swept by T-1802).
+    # T-1810 WAS SPLIT in turn on 2026-10-02 (T-1950..T-1953). T-1950 raises the plan's last
+    # H3 on blk_washington_clark and closes first, so no cell stays on it; the South's cell
+    # moves to T-1951 (the plan's H3s on the Dearborn and Market blocks, whose free lots are
+    # all requested), the West's to T-1953 (on T-1414's ground) and the North's to T-1952.
+    ("south", "larger_boarding_houses"): "T-1951",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -437,7 +448,21 @@ STRUCTURE_TICKETS = {
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
-    ("west", "ordinary_dwellings"): "T-1208",
+    # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
+    # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
+    # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
+    # balance beyond committed control — moves to T-1784, the sibling that owns that ground,
+    # and T-1784 was itself split the same hour, so to its live child T-1794, which raises the
+    # West's owed dwellings on the extended ground. T-1794 then landed (#216) seating farm
+    # families in the barn cabins, and T-1773 (#217) took lot 1 of blk_west_lake_canal for its
+    # warehouse, so that block's deal is three cottages now, not four. With T-1781..T-1784 all
+    # closed, the one live ticket whose acceptance hands T-1208 on "with the West's exact
+    # remainder" is T-1774, the West book-closer, and the 19 left here move to it, with the
+    # finding written on that ticket (the queue is over its ceiling for a new line).
+    # T-1774 WAS SPLIT on 2026-10-01 (T-1826, T-1827). T-1826 closed the books and handed
+    # T-1208 on: every ticket in T-1208's chain was split or done, so the 16 left here went
+    # to T-1829, filed for exactly this remainder, blk_west_lake_canal's three cottages first.
+    ("west", "ordinary_dwellings"): "T-1829",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -451,19 +476,30 @@ STRUCTURE_TICKETS = {
     #     This row has 0 left and the gate was therefore silent about it; it is swept anyway,
     #     because a row pointing at a split ticket is wrong whether or not it currently orders
     #     anything, and the next roof drawn against it would find nobody to claim it.
-    #   warehouses_freight -> T-1764, AND THIS ONE IS THE JUDGEMENT CALL OF THE FOUR. No child
-    #     names freight in its title. T-1763 is the approach's own furniture and T-1764 is the
-    #     closer — "the pre-plat West roofs reconciled, the refusals resolved" — so the single
-    #     remaining freight roof goes to the child that reconciles what the others leave. If
-    #     the run that takes T-1763 finds that roof is the landing's, move the row rather than
-    #     building it out of place.
-    # T-1767 gate repair: T-1763 split; T-1766 explicitly owns these two remainders.
-    ("west", "stores_mixed_use"): "T-1766",
-    ("west", "larger_boarding_houses"): "T-1209",
+    #   warehouses_freight -> T-1773. T-1764 was itself split on 2026-09-30, and its first
+    #     child names this remainder exactly: "The West's last freight roof: a two-storey
+    #     warehouse at Lake and West Water facing the forks, built and baked." Keep the live
+    #     owner on that child while its sibling T-1774 closes the wider books after the other
+    #     Wolf Point pieces land.
+    # T-1767 gate repair: T-1763 split; T-1766 explicitly owned these two remainders.
+    # T-1766 landed (#206) and both rows still order work, so they move to T-1774,
+    # which closes the West's books and hands T-1208 "the West's exact remainder".
+    # Both read complete (6 of 6, 8 of 8) when T-1774 split, and move with the remainder to
+    # T-1829 so the row names a live ticket.
+    ("west", "stores_mixed_use"): "T-1829",
+    ("west", "larger_boarding_houses"): "T-1953",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1766",
-    ("west", "warehouses_freight"): "T-1764",
-    ("west", "institutional_public"): "T-1208",
+    ("west", "workshops"): "T-1829",
+    # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
+    # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
+    # names T-1773 in the builds it closes the Wolf Point books behind. When T-1774 split
+    # it moved to T-1827: recon_1835_west_046 is one of this row's two F1 roofs, and its H2
+    # verdict, which T-1827 carries out, takes a roof out of this row. T-1827 did (046 is
+    # an H2 house now), so the row reads 1 of 2 and the freight roof it orders goes with the
+    # rest of the West's remainder to T-1829, which already holds stores and workshops.
+    ("west", "warehouses_freight"): "T-1829",
+    # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
+    ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1212",
     ("west", "small_outbuildings"): "T-1212",
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
@@ -529,7 +565,7 @@ STRUCTURE_TICKETS = {
     # saying so: the next run on this cell rules, and does not deal.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
-    ("north", "larger_boarding_houses"): "T-1209",
+    ("north", "larger_boarding_houses"): "T-1952",
     ("north", "inns_taverns"): "T-1205",
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
@@ -2197,10 +2233,17 @@ def programme_deltas(model: dict, inventory: dict, programme: dict,
          "programme_groups": ["inns_taverns"],
          "restates_the_programme": restates_the_programme(
              inns, int(inns["high"]), inns_programme),
-         "statement": f"The model reads {inns['low']}-{inns['high']} inns and taverns; the "
-                      f"programme schedules {inns_programme}. This one is a real disagreement: "
-                      "the model's ceiling is the business layer's count at the scene date, "
-                      "not a figure read back off the programme."},
+         "statement": (f"NOT A CHECK: the model reads {inns['low']}-{inns['high']} inns and "
+                       f"taverns and the programme schedules {inns_programme}. The model's "
+                       "ceiling is the highest of the programme, the census and the business "
+                       "layer's count at the scene date, and while the layer's count stands "
+                       "at or below the programme's the ceiling IS the programme's figure, so "
+                       "this row cannot disagree until the layer passes it again (T-1808)."
+                       if restates_the_programme(inns, int(inns["high"]), inns_programme) else
+                       f"The model reads {inns['low']}-{inns['high']} inns and taverns; the "
+                       f"programme schedules {inns_programme}. This one is a real disagreement: "
+                       "the model's ceiling is the business layer's count at the scene date, "
+                       "not a figure read back off the programme.")},
         {"id": "institutional_and_public", "owning_ticket": "T-1196",
          "model": int(institutional["high"]), "programme": institutional_programme,
          "delta": int(institutional["high"]) - institutional_programme,
@@ -4180,10 +4223,18 @@ def cmd_self_test() -> int:
     # now folds them, so fifteen records read as eleven houses. The flag below is
     # unchanged and is the point of the assertion: a smaller real disagreement is still a
     # real disagreement, and it must not start reading as the matrix agreeing with itself.
+    #
+    # AND SINCE T-1808 (2026-10-02) THE INNS ROW IS A RESTATEMENT AGAIN, by the same flag.
+    # Mark Beaubien's and Alanson Sweet's in-window tavern firms are answered by the two
+    # Washington-tier houses the placement pass seats them on, which are reconstructed
+    # roof firms the trade census does not count, so the layer reads nine at the scene date
+    # against the programme's ten and the ceiling falls back onto the programme's figure.
+    # The flag follows the numbers; what is held here is that it does, in both directions.
+    inns_row = deltas["inns_and_taverns"]
     assert inst["restates_the_programme"] is True, inst
     assert deltas["boarding_houses"]["restates_the_programme"] is True, deltas["boarding_houses"]
-    assert deltas["inns_and_taverns"]["restates_the_programme"] is False, deltas["inns_and_taverns"]
-    assert deltas["inns_and_taverns"]["delta"] == 1, deltas["inns_and_taverns"]
+    assert inns_row["restates_the_programme"] is (inns_row["delta"] == 0), inns_row
+    assert inns_row["delta"] >= 0, inns_row
     for d in doc["programme_deltas"]:
         assert d["statement"].startswith("NOT A CHECK:") == d["restates_the_programme"], d
     p_sum, h_sum = doc["bucket_families"][0]["summary"], doc["bucket_families"][1]["summary"]
@@ -4658,8 +4709,28 @@ def cmd_self_test() -> int:
     # runs of the whole chain — the address book, the platted deal, the keeper naming, the block
     # infill, the roof re-audit and this book each feeding the next — and it read 174 seats for
     # four of those passes before it settled at 177.
+    # 249 -> 255 on 2026-10-01 (T-1783): opening the three lot-ruled outer West blocks gave
+    # the platted pass six more seats, 177 -> 183 — three adoptions of the three cottages
+    # built on blk_west_randolph_des_plaines and three slots asked of blk_west_lake_canal's
+    # three dealt ones (T-1773's warehouse took that block's lot 1) — and the off-plat pass
+    # stands at 72.
+    # 255 -> 256 on 2026-10-01 (T-1827): `recon_1835_west_046`, re-dealt from a freight
+    # shed to an H2, is a standing roof the merchant-and-professional clause admits, so the
+    # platted pass adopts it on blk_west_randolph_des_plaines#01 (183 -> 184); the household
+    # is a letter-list name the keeper pass refuses to name (T-0379), as on west_008.
+    # 256 -> 255 on 2026-10-02 (T-1952): the North's H3 boarding house on
+    # blk_indiana_north_cass#01 takes the lot hh_beaubien_john_s's D5 slot stood on. He
+    # re-slots onto blk_indiana_north_wolcott#07, the wolcott requests step down a lot each
+    # and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's
+    # Washington-tier slots the same way, hh_berger_f_c in and hh_cleaveland_wm_p out. The
+    # house itself is adopted by no one (no North banded row is admitted by the one clause
+    # that takes an H3), so the platted pass reads 184 -> 183 at the chain's fixpoint.
+    # 255 -> 254 on 2026-10-02 (T-1950): the third H3 boarding house on blk_washington_clark
+    # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves along the
+    # block, the slots behind her shift a lot, and hh_berger_f_c, left with only kept-open
+    # lots, is owed to T-1614 (183 -> 182 platted seats, L270, L345).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 249
+        data["inventory"], data["programme"], occ))["seated"] == 254
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -428,6 +428,8 @@ GROUND_GROUPS = [
     ("swales", "the prairie swales"),
     ("watercourses", "the watercourses"),
     ("approaches", "the bridge approaches"),
+    ("street_sections", "the street sections"),
+    ("dunes", "the lakefront sand hills"),
     ("micro_relief", "the surface texture"),
     ("surface_materials", "what the ground is made of"),
     # The graded ground (e1871_postfire, T-1738): a zone table of street crowns and a
@@ -2304,7 +2306,9 @@ def overlay_lodgers(out: dict[str, list[dict]]) -> None:
             "household": seat["household"],
             "name": seat["name"],
             "division": "",
-            "relation": "lodged here",
+            # T-1808: the household the placement pass seated here keeps the house.
+            "relation": ("keeps this house" if seat.get("relationship") == "keeper"
+                         else "lodged here"),
             "why": (seat.get("basis") or {}).get("note", ""),
             "sources": [],
             "basis": ("SEATED HERE, NOT RECORDED HERE. This person is one the residents "

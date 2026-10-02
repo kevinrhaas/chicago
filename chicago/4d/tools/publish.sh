@@ -79,6 +79,10 @@ python3 ../prairie_1904_v1/tools/publish.py "../../site/4d/prairie-1904"
 bash ../pre_fire_v1/tools/publish.sh
 mkdir -p "$SITE/pre-fire"
 cp -R ../../site/pre-fire/viewer ../../site/pre-fire/maps ../../site/pre-fire/media "$SITE/pre-fire/"
+# The site root already publishes both browsers' production copies, so any asset
+# directory that is byte-identical there is read from there instead of shipped a
+# second time (T-1828: 91.7 MB of a 287 MB tree, the 31 MB it was over budget).
+python3 tools/serve_from_root.py "$SITE" ../../site
 mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 
 # renderer
@@ -174,6 +178,21 @@ for covering in wood_shingles_weathered roof_boards_weathered; do
   cp -f "$src/material.json" \
         "$src/${covering}_normal_gl.png" \
         "$src/${covering}_orm.png" \
+        "$dst/"
+done
+
+# The T-1797 ground strip's two library substrates — `renderers/web/js/ground-strip.js`,
+# drawn only under `?proof=ground`. Same asset-base rename and the same reason as
+# the roof relief above: material.json carries the metric tile the strip reads.
+# TWO FILES AND NOT TEN: the strip binds the basecolor only (the library's
+# ground normals are flat — the strip's relief is its own grit tile), and the
+# height, ORM and loose channels stay in the repository.
+for ground in wet_prairie_muck lake_michigan_dune_sand; do
+  src="assets/textures/chicago_1835_pbr/ground/$ground"
+  dst="$SITE/data/textures/chicago_1835_pbr/ground/$ground"
+  mkdir -p "$dst"
+  cp -f "$src/material.json" \
+        "$src/${ground}_basecolor.png" \
         "$dst/"
 done
 

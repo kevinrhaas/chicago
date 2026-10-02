@@ -235,11 +235,14 @@ const YOKE_BOW_DROP_M = 0.10;      // how far a bow's end shows below the beam
  * of very small boxes and chunking it finely costs nothing, while the goods are
  * a few dozen isolated objects spread over a square kilometre — small buckets
  * here would buy culling at the price of a draw call per wagon, and draw calls
- * are the tightest number in this scene (T-0115). At 100 m a chunk is about a
- * platted block and a half, which is the distance over which a visitor either
- * sees all of it or none of it.
+ * are the tightest number in this scene (T-0115). At 110 m a chunk remains about
+ * a platted block and a half. T-1766 measured 61 original chunks at 100 m plus
+ * four lazy far-merge meshes: 65 after walking the town, over the 64-mesh limit.
+ * The 110 m grid gives 55 originals plus at most two far merges (57), leaving
+ * room without changing a vertex, material or pick span. Each chunk still has
+ * its own bounding sphere; this trades a 10% wider cell for fewer submissions.
  */
-const CHUNK_M = 100;
+const CHUNK_M = 110;
 
 /** The shed's roof boards, as thick as a board and no thicker. */
 const DECK_T_M = 0.04;

@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 271,
+    "records": 277,
     "compiled_from_register": 196,
-    "authored": 75,
-    "present_at_scene_date": 254,
+    "authored": 81,
+    "present_at_scene_date": 260,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,40 +16,40 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 121,
+      "other": 125,
       "physician": 8,
       "printing_office": 3,
       "school": 7,
       "silversmith_jeweller": 2,
       "steam_saw_mill": 4,
       "storage_and_forwarding": 8,
-      "store": 74,
+      "store": 76,
       "tavern": 16,
       "tin_and_copper_manufactory": 4
     },
     "by_location_kind": {
       "anchored": 28,
-      "premises": 54,
+      "premises": 62,
       "street_only": 86,
-      "unplaceable": 108
+      "unplaceable": 106
     },
-    "named_people": 405,
-    "named_people_linked_to_a_town_card": 351,
+    "named_people": 411,
+    "named_people_linked_to_a_town_card": 357,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
-      "inferred": 72,
-      "reconstructed": 33
+      "inferred": 70,
+      "reconstructed": 41
     },
     "by_where_kind": {
       "anchored": 28,
-      "premises": 53,
+      "premises": 61,
       "street_only": 86,
-      "unplaceable": 104
+      "unplaceable": 102
     },
     "by_street": {
-      "Canal Street": 6,
+      "Canal Street": 10,
       "Dearborn Street": 29,
       "Franklin Street": 1,
       "Kinzie Street": 4,
@@ -65,13 +65,13 @@
       "british": 11,
       "free_black": 2,
       "french_canadian": 5,
-      "irish": 9,
+      "irish": 10,
       "metis": 1,
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 101,
-      "yankee": 72
+      "unknown": 103,
+      "yankee": 75
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -115,7 +115,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 72
+        "count": 75
       },
       {
         "value": "new_york",
@@ -125,7 +125,7 @@
       {
         "value": "irish",
         "label": "Irish",
-        "count": 9
+        "count": 10
       },
       {
         "value": "german",
@@ -150,7 +150,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 101
+        "count": 103
       }
     ]
   },
@@ -310,7 +310,13 @@
         "tier": "inferred",
         "from": "1834-03-04",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Baptist meeting house' names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Baptist meeting house' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-03-04",
@@ -383,7 +389,13 @@
         "tier": "inferred",
         "from": "1834-12-17",
         "to": null,
-        "limit_reason": "The paper names South Water street and nothing narrower; the anchor 'the bridge' names nothing the committed town holds."
+        "limit_reason": "The paper names South Water street and nothing narrower; the anchor 'the bridge' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-12-17",
@@ -534,7 +546,13 @@
         "tier": "inferred",
         "from": "1835-06-27",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"J. Wright's\" names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"J. Wright's\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-06-27",
@@ -1130,52 +1148,6 @@
       "liberties": []
     },
     {
-      "id": "biz_beaubien_mark_tavern_keeper",
-      "file": "biz_beaubien_mark_tavern_keeper.json",
-      "name": "Mark Beaubien, tavern keeper",
-      "register_id": null,
-      "provenance": "authored",
-      "type": [
-        "tavern"
-      ],
-      "present_at_scene_date": true,
-      "grade": "inferred",
-      "trade": "tavern keeper",
-      "occupation": "tavern_keeper",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Mark Beaubien",
-          "person_id": "beaubien_mark",
-          "role": "proprietor",
-          "tier": "inferred",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "unplaceable",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": null,
-        "street": null,
-        "tier": "inferred",
-        "from": null,
-        "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "inferred",
-      "proprietor_community": "french_canadian",
-      "proprietor_community_tier": "inferred",
-      "review_required": false,
-      "liberties": []
-    },
-    {
       "id": "biz_blodgett_tyler_k_brickmaker",
       "file": "biz_blodgett_tyler_k_brickmaker.json",
       "name": "Tyler K. Blodgett, Henry S. Lampman, brickmaker",
@@ -1267,7 +1239,13 @@
         "tier": "inferred",
         "from": "1835-06-24",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names Lake Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_market_d4_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-06-24",
@@ -1420,7 +1398,13 @@
         "tier": "inferred",
         "from": "1834-06-04",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-06-04",
@@ -1999,7 +1983,13 @@
         "tier": "inferred",
         "from": "1834-01-07",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Messrs. Jones & King's hardware store\" names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Messrs. Jones & King's hardware store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_wells_c2_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 2,
       "opened": "1834-01-07",
@@ -2252,7 +2242,13 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of randolph and names nothing narrower."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of randolph and names nothing narrower.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-05-28",
@@ -2544,7 +2540,13 @@
         "tier": "inferred",
         "from": "1835-07-22",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the Eagle House' names nothing the committed town holds."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the Eagle House' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-07-22",
@@ -2846,7 +2848,13 @@
         "tier": "inferred",
         "from": "1834-03-25",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Newberry & Dole's store\" names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Newberry & Dole's store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-03-25",
@@ -3153,7 +3161,13 @@
         "tier": "inferred",
         "from": "1833-12-03",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_clark_f2_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1833-12-03",
@@ -3376,7 +3390,13 @@
         "tier": "inferred",
         "from": "1835-08-08",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the post office' names nothing the committed town holds."
+        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the post office' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_clark_c3_03",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-08-07",
@@ -3429,7 +3449,13 @@
         "tier": "inferred",
         "from": "1834-06-04",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-06-04",
@@ -4428,7 +4454,13 @@
         "tier": "inferred",
         "from": "1834-06-04",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; a corner of 'Dearborn' and 'Lake-sts. corner of Dearborn and Lake-st', and the plat resolves both sides to ['dearborn', 'lake']."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; a corner of 'Dearborn' and 'Lake-sts. corner of Dearborn and Lake-st', and the plat resolves both sides to ['dearborn', 'lake'].",
+        "housed_in": {
+          "structure_id": "recon_1835_south_c3_040",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-06-04",
@@ -4522,7 +4554,13 @@
         "tier": "inferred",
         "from": "1834-10-08",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor is a reach of lake and names nothing narrower."
+        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor is a reach of lake and names nothing narrower.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_clark_c2_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-10-08",
@@ -5001,7 +5039,13 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-05-28",
@@ -5196,7 +5240,13 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor '[…] So[u]th Water Street, Mme sete Sayth Water Street,' names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor '[…] So[u]th Water Street, Mme sete Sayth Water Street,' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -5396,7 +5446,13 @@
         "tier": "inferred",
         "from": "1834-02-25",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-02-25",
@@ -5507,7 +5563,13 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The paper names La Salle Street and nothing narrower; a corner of '[…]' and '[Cl]ar[k] corner of', and the plat resolves neither side."
+        "limit_reason": "The paper names La Salle Street and nothing narrower; a corner of '[…]' and '[Cl]ar[k] corner of', and the plat resolves neither side.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -5939,7 +6001,13 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -6336,7 +6404,13 @@
         "tier": "inferred",
         "from": "1834-06-04",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Printing Office' names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Printing Office' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-06-04",
@@ -6611,7 +6685,13 @@
         "tier": "inferred",
         "from": "1834-09-17",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the city boot, shoe and leather store' names nothing the committed town holds."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the city boot, shoe and leather store' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_randolph_clark_c2_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-09-17",
@@ -6876,7 +6956,13 @@
         "tier": "inferred",
         "from": "1835-06-10",
         "to": null,
-        "limit_reason": "The paper names La Salle Street and nothing narrower; the anchor 'the Store of Hubbard & Co.' names nothing the committed town holds."
+        "limit_reason": "The paper names La Salle Street and nothing narrower; the anchor 'the Store of Hubbard & Co.' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_randolph_wells_d4_04",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-06-10",
@@ -7670,7 +7756,13 @@
         "tier": "inferred",
         "from": "1835-05-27",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-05-27",
@@ -8153,7 +8245,13 @@
         "tier": "inferred",
         "from": "1833-12-17",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"P. Cohen's Store\" names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"P. Cohen's Store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1833-12-17",
@@ -8386,7 +8484,13 @@
         "tier": "inferred",
         "from": "1835-06-10",
         "to": null,
-        "limit_reason": "The paper names La Salle Street and nothing narrower; the anchor \"Hubbard & Co's. brick store\" names nothing the committed town holds."
+        "limit_reason": "The paper names La Salle Street and nothing narrower; the anchor \"Hubbard & Co's. brick store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_south_f1_038",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-06-10",
@@ -8704,7 +8808,13 @@
         "tier": "inferred",
         "from": "1834-07-23",
         "to": null,
-        "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of dearborn and names nothing narrower."
+        "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of dearborn and names nothing narrower.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_market_d2_04",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-07-23",
@@ -9561,7 +9671,13 @@
         "tier": "inferred",
         "from": "1833-11-26",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1833-11-26",
@@ -9833,7 +9949,13 @@
         "tier": "inferred",
         "from": "1834-06-25",
         "to": null,
-        "limit_reason": "The paper names Canal Street and nothing narrower; a corner of '[—]' and 'Canal streets in the old shop formerly [', and the plat resolves both sides to ['canal']."
+        "limit_reason": "The paper names Canal Street and nothing narrower; a corner of '[—]' and 'Canal streets in the old shop formerly [', and the plat resolves both sides to ['canal'].",
+        "housed_in": {
+          "structure_id": "recon_1835_west_007",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-06-25",
@@ -10128,7 +10250,13 @@
         "tier": "inferred",
         "from": "1835-06-13",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the stand formerly occupied by Clark & Co.' names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the stand formerly occupied by Clark & Co.' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-06-13",
@@ -10384,7 +10512,13 @@
         "tier": "inferred",
         "from": "1835-06-24",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the \"Eagle Coffee House\"' names nothing the committed town holds."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the \"Eagle Coffee House\"' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_randolph_clark_d6_04",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-06-24",
@@ -10749,7 +10883,13 @@
         "tier": "inferred",
         "from": "1835-07-22",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-08-12",
@@ -10817,7 +10957,13 @@
         "tier": "inferred",
         "from": "1835-08-19",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the house occupied by Dr. Austin' names nothing the committed town holds."
+        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the house occupied by Dr. Austin' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_franklin_c2_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-08-18",
@@ -11013,52 +11159,6 @@
       "dates_tier": "inferred",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
-      "review_required": false,
-      "liberties": []
-    },
-    {
-      "id": "biz_sweet_alanson_tavern_keeper",
-      "file": "biz_sweet_alanson_tavern_keeper.json",
-      "name": "Alanson Sweet, tavern keeper",
-      "register_id": null,
-      "provenance": "authored",
-      "type": [
-        "tavern"
-      ],
-      "present_at_scene_date": true,
-      "grade": "inferred",
-      "trade": "tavern keeper",
-      "occupation": "tavern_keeper",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Alanson Sweet",
-          "person_id": "sweet_alanson",
-          "role": "proprietor",
-          "tier": "inferred",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "unplaceable",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": null,
-        "street": null,
-        "tier": "inferred",
-        "from": null,
-        "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "inferred",
-      "proprietor_community": "southern",
-      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": []
     },
@@ -11945,7 +12045,13 @@
         "tier": "inferred",
         "from": "1834-04-01",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; a corner of '[South] Water' and 'Clark-streets the New Store on the co[rn', and the plat resolves both sides to ['clark']."
+        "limit_reason": "The paper names South Water Street and nothing narrower; a corner of '[South] Water' and 'Clark-streets the New Store on the co[rn', and the plat resolves both sides to ['clark'].",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-04-01",
@@ -12341,7 +12447,13 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -12555,7 +12667,13 @@
         "tier": "inferred",
         "from": "1834-07-09",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor \"Dr. J. T. Temple's\" names nothing the committed town holds."
+        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor \"Dr. J. T. Temple's\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_franklin_d1_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-07-09",
@@ -12660,7 +12778,13 @@
         "tier": "inferred",
         "from": "1834-07-16",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-07-16",
@@ -12821,7 +12945,13 @@
         "tier": "inferred",
         "from": "1835-08-12",
         "to": null,
-        "limit_reason": "The paper names La Salle Street and nothing narrower; the anchor \"Hubbard & Co.'s brick store\" names nothing the committed town holds."
+        "limit_reason": "The paper names La Salle Street and nothing narrower; the anchor \"Hubbard & Co.'s brick store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_randolph_wells_d2_07",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-08-12",
@@ -12990,7 +13120,13 @@
         "tier": "inferred",
         "from": "1834-05-21",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor \"Dr. Temple's\" names nothing the committed town holds."
+        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor \"Dr. Temple's\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_clark_c1_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-05-21",
@@ -13605,7 +13741,13 @@
         "tier": "inferred",
         "from": "1834-06-04",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; a corner of 'Lake' and 'Franklin streets at the corner of [Lake]', and the plat resolves both sides to ['franklin', 'lake']."
+        "limit_reason": "The paper names Lake Street and nothing narrower; a corner of 'Lake' and 'Franklin streets at the corner of [Lake]', and the plat resolves both sides to ['franklin', 'lake'].",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_lake_market_c2_01",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-06-04",
@@ -14144,7 +14286,7 @@
     {
       "id": "rcb_barnes_boarding_house",
       "file": "rcb_barnes_boarding_house.json",
-      "name": "Barnes's boarding house",
+      "name": "Ezra Barnes's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -14184,6 +14326,52 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_beaubien_boarding_house",
+      "file": "rcb_beaubien_boarding_house.json",
+      "name": "Mark Beaubien's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "tavern"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Mark Beaubien",
+          "person_id": "beaubien_mark",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_clark_h3_05",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "french_canadian",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": []
     },
@@ -14236,9 +14424,201 @@
       "liberties": []
     },
     {
+      "id": "rcb_canal_lyman_lemuel",
+      "file": "rcb_canal_lyman_lemuel.json",
+      "name": "Lemuel Lyman, blacksmith shop",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "blacksmith shop",
+      "occupation": "blacksmith",
+      "goods": [
+        "blacksmith shop"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Lemuel Lyman",
+          "person_id": "rc_lyman_lemuel",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_canal_trade_w1_003",
+        "anchor": null,
+        "street_id": "canal",
+        "street": "Canal Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "The whole placement is invented within the Canal approach programme."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_canal_mahoney_martin",
+      "file": "rcb_canal_mahoney_martin.json",
+      "name": "Martin Mahoney, grocery and provision store",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "store"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "grocery and provision store",
+      "occupation": "grocer",
+      "goods": [
+        "grocery and provision store"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Martin Mahoney",
+          "person_id": "rc_mahoney_martin",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_canal_trade_c3_001",
+        "anchor": null,
+        "street_id": "canal",
+        "street": "Canal Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "The whole placement is invented within the Canal approach programme."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "irish",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_canal_pratt_seth",
+      "file": "rcb_canal_pratt_seth.json",
+      "name": "Seth Pratt, grocery and provision store",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "store"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "grocery and provision store",
+      "occupation": "grocer",
+      "goods": [
+        "grocery and provision store"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Seth Pratt",
+          "person_id": "rc_pratt_seth",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_canal_trade_c4_002",
+        "anchor": null,
+        "street_id": "canal",
+        "street": "Canal Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "The whole placement is invented within the Canal approach programme."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_canal_stebbins_horace",
+      "file": "rcb_canal_stebbins_horace.json",
+      "name": "Horace Stebbins, carpenter shop",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "carpenter shop",
+      "occupation": "carpenter",
+      "goods": [
+        "carpenter shop"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Horace Stebbins",
+          "person_id": "rc_stebbins_horace",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_canal_trade_w2_004",
+        "anchor": null,
+        "street_id": "canal",
+        "street": "Canal Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "The whole placement is invented within the Canal approach programme."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_cavanagh_boarding_house",
       "file": "rcb_cavanagh_boarding_house.json",
-      "name": "Ellen Cavanagh's boarding house",
+      "name": "Cavanagh's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -14252,8 +14632,8 @@
       "firm_styles": [],
       "people": [
         {
-          "name": "Ellen Cavanagh",
-          "person_id": "rc_cavanagh_ellen",
+          "name": "Johanna Cavanagh",
+          "person_id": "rc_cavanagh_johanna",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,
@@ -14264,6 +14644,52 @@
       "where": {
         "kind": "premises",
         "structure_id": "recon_1835_north_h2_028",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_chapin_boarding_house",
+      "file": "rcb_chapin_boarding_house.json",
+      "name": "Chapin's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Hannah Chapin",
+          "person_id": "rc_chapin_hannah",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_indiana_north_cass_h3_09",
         "anchor": null,
         "street_id": null,
         "street": null,
@@ -14758,7 +15184,7 @@
     {
       "id": "rcb_gilbert_boarding_house",
       "file": "rcb_gilbert_boarding_house.json",
-      "name": "Benjamin Gilbert's boarding house",
+      "name": "Gilbert's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -15140,7 +15566,7 @@
     {
       "id": "rcb_newell_boarding_house",
       "file": "rcb_newell_boarding_house.json",
-      "name": "Newell's boarding house",
+      "name": "Lydia Newell's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -15514,6 +15940,98 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "irish",
       "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_sweet_boarding_house",
+      "file": "rcb_sweet_boarding_house.json",
+      "name": "Sweet's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "tavern"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Alanson Sweet",
+          "person_id": "sweet_alanson",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_clark_h3_06",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "southern",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_trottier_boarding_house",
+      "file": "rcb_trottier_boarding_house.json",
+      "name": "Trottier's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Baptiste Trottier",
+          "person_id": "rc_trottier_baptiste",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_clark_h3_11",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
       "review_required": false,
       "liberties": []
     },

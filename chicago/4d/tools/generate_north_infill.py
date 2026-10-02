@@ -50,10 +50,15 @@ from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
 from house_front import bays_for, plan_for  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
+# T-1806. The H2 houses here are boarding houses in the lodging model, so their upper
+# windows and stovepipes are sized from its beds by the H3's rule (L318, L324).
+from boarding_house_beds import (  # noqa: E402
+    CAPACITY_WHY, CAPACITY_WHY_H1, size_from_beds, stovepipes_from_beds)
 # T-0112. The clapboard stock is dealt HERE, at the end of the parcel, because it is
 # the one form value that depends on where a building's neighbours stand — and the
 # recipe is the only thing that knows the parcel whole. See tools/siding_stock.py.
 from siding_stock import deal_records as deal_siding  # noqa: E402
+import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -334,6 +339,11 @@ def _form_body(family: str, spec: dict, key: str, seq: int, paint: str,
                                       else 3), why),
             "chimneys": inferred(2 if family.startswith("H") else 1, why),
             "paint": inferred(paint, why),
+            # T-1807. The H1 houses are small boarding houses in the lodging model, so
+            # their stovepipes are sized from its beds by the H3's ratio (L318, L325).
+            **({"stovepipes": inferred(stovepipes_from_beds(key)[1],
+                                       CAPACITY_WHY_H1)}
+               if family == "H1" else {}),
         }
 
     if family.startswith("C"):
@@ -351,13 +361,18 @@ def _form_body(family: str, spec: dict, key: str, seq: int, paint: str,
     if family.startswith("T") or family.startswith("I") or family in ("H2", "H3"):
         # The I2 school/meeting-hall is a flagged generic block until a dedicated
         # institutional archetype exists; the function and research note stay I2.
-        return {
+        body = {
             "stories": inferred(1 if family == "I2" else 2, why),
             "wall_height_m": inferred(wall, why),
             "roof_type": inferred("gable", why), "roof_pitch_deg": inferred(pitch(), why),
             "construction": inferred("braced_frame", why), "paint": inferred(paint, why),
             "gallery": inferred(False, why), "chimneys": inferred(1 if family == "I2" else 2, why),
         }
+        if family == "H2":
+            _, windows, pipes = size_from_beds(key, width)
+            body["upper_windows"] = inferred(windows, CAPACITY_WHY)
+            body["stovepipes"] = inferred(pipes, CAPACITY_WHY)
+        return body
 
     door = door_kind(family)
     bays = door_bays_for(family)
@@ -410,7 +425,8 @@ def make_record(row: list, datum: dict) -> dict:
     # were: `placement_constraints` measures its spacing against them.
     width, depth = dimensions_m(family, spec["band_ft"], sid)
     local_e, local_n = footprint_origin(center_e, center_n, width, depth, float(bearing))
-    finish_key, paint = finish_for(seq)
+    fabric = fabric_rule_1835.deal(sid, family, archetype_for(family))
+    finish_key, paint = fabric["finish_key"], fabric["paint"]
     function = FUNCTIONS[family]
     label = LABELS[family]
     adjusted = (f" Slot {seq} is shifted {math.hypot(de, dn):.1f} m within the recipe's "
@@ -425,11 +441,15 @@ def make_record(row: list, datum: dict) -> dict:
         "status": "inferred_anonymous", "family": family, "district": "north",
         "inventory_class": inventory_class, "programme_phase": PROGRAMME_PHASE,
         "source_id": SOURCE_ID, "sequence": int(seq), "finish_key": finish_key,
-        "roof_condition": ("fresh", "darkened", "patched", "weathered")[seq % 4],
-        "age_state": ("new", "recent", "established", "older_frontier")[seq % 4],
+        "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
+        "fabric_basis": fabric["fabric_basis"],
     }
     if yard_group:
         reconstruction["yard_group"] = yard_group
+    if family == "H2":
+        reconstruction["capacity"] = size_from_beds(sid, width)[0]
+    elif family == "H1":
+        reconstruction["capacity"] = stovepipes_from_beds(sid)[0]
     mapping_note = (" H-family boarding-house massing currently uses a generic frame "
                     "dwelling/block archetype." if family.startswith("H") else
                     " I2 currently uses a generic rectangular frame block because no "
@@ -455,8 +475,9 @@ def make_record(row: list, datum: dict) -> dict:
                 "confidence": "reconstructed",
                 "note": f"A {width:.2f} × {depth:.2f} m rectangle sampled deterministically inside the {family} family's authored footprint band in the reconstruction specification; no individual dimensions are documented."
             },
-            "form": form_for(family, spec, sid, int(seq), paint,
-                             archetype_for(family), width, depth),
+            "form": fabric_rule_1835.apply_form(
+                form_for(family, spec, sid, int(seq), paint, archetype_for(family),
+                         width, depth), fabric),
             "change_note": "Reconstructed anonymous July 1835 North Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
         "function": inferred(function, f"Assigned from the {family} family to satisfy the aggregate North Division mix; no occupant or individual use is known."),

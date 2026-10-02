@@ -44,16 +44,16 @@
   }
  ],
  "counts": {
-  "leads_ruled": 1022,
-  "cards_ruled": 1423,
+  "leads_ruled": 1023,
+  "cards_ruled": 1424,
   "by_outcome": {
-   "refused": 759,
+   "refused": 760,
    "candidate": 263
   },
   "by_class": {
    "ocr_variant_only": 367,
    "testable_in_a_held_work": 263,
-   "locality_absent": 292,
+   "locality_absent": 293,
    "surname_only_chicago": 100
   },
   "matched": 0,
@@ -3623,7 +3623,7 @@
    "layer": "structures",
    "outcome": "refused",
    "class": "locality_absent",
-   "reason": "Refused. All 1 card(s) heading 'Block r' name Illinois and neither Chicago nor Cook County, so the lead against Reconstructed C4 wide two-story store or mixed block #01 stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
+   "reason": "Refused. All 1 card(s) heading 'Block r' name Illinois and neither Chicago nor Cook County, so the lead against Reconstructed C4 wide two-story store or mixed block #01; Reconstructed Canal Street wide two-story store or mixed block stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
    "record_ids": [
     "nbi_v01_0570"
    ],
@@ -3631,6 +3631,11 @@
     {
      "id": "recon_1835_blk_south_water_franklin_c4_01",
      "name": "Reconstructed C4 wide two-story store or mixed block #01",
+     "rule": "exact surname"
+    },
+    {
+     "id": "recon_1835_canal_trade_c4_002",
+     "name": "Reconstructed Canal Street wide two-story store or mixed block",
      "rule": "exact surname"
     }
    ],
@@ -3930,7 +3935,7 @@
    "layer": "structures",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Bock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Bock' at all. And if it were, a heading against Reconstructed C4 wide two-story store or mixed block #01 would still be a surname against a person, which is always a refusal here.",
+   "reason": "Refused twice over. No candidate reaches 'Bock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Bock' at all. And if it were, a heading against Reconstructed C4 wide two-story store or mixed block #01; Reconstructed Canal Street wide two-story store or mixed block would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v01_0645"
    ],
@@ -3938,6 +3943,11 @@
     {
      "id": "recon_1835_blk_south_water_franklin_c4_01",
      "name": "Reconstructed C4 wide two-story store or mixed block #01",
+     "rule": "OCR variant (0.89 similarity to 'block')"
+    },
+    {
+     "id": "recon_1835_canal_trade_c4_002",
+     "name": "Reconstructed Canal Street wide two-story store or mixed block",
      "rule": "OCR variant (0.89 similarity to 'block')"
     }
    ],
@@ -12632,6 +12642,38 @@
     "doane_seth_b"
    ],
    "works_cited": [],
+   "held_works": [],
+   "discriminators": []
+  },
+  {
+   "lead_id": "lead_v01_doctor_structures",
+   "surname_key": "doctor",
+   "spellings_as_printed": [
+    "Doctor"
+   ],
+   "layer": "structures",
+   "outcome": "refused",
+   "class": "locality_absent",
+   "reason": "Refused. All 1 card(s) heading 'Doctor' name Illinois and neither Chicago nor Cook County, so the lead against The doctor's barn in Wabansia; The doctor's house in Wabansia stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
+   "record_ids": [
+    "nbi_v01_1966"
+   ],
+   "candidates": [
+    {
+     "id": "wabansia_doctors_barn",
+     "name": "The doctor's barn in Wabansia",
+     "rule": "exact surname"
+    },
+    {
+     "id": "wabansia_doctors_house",
+     "name": "The doctor's house in Wabansia",
+     "rule": "exact surname"
+    }
+   ],
+   "person_ids": [],
+   "works_cited": [
+    "county_histories_kett_and_co"
+   ],
    "held_works": [],
    "discriminators": []
   },
@@ -31898,7 +31940,7 @@
    "layer": "structures",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Shoup' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Shoup' at all. And if it were, a heading against Government Blacksmith Shop; Fort Dearborn — the shop would still be a surname against a person, which is always a refusal here.",
+   "reason": "Refused twice over. No candidate reaches 'Shoup' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Shoup' at all. And if it were, a heading against Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W2 carpenter or joiner shop #01; Reconstructed Canal Street blacksmith shop; Reconstructed Canal Street carpenter or joiner shop would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v04_0079"
    ],
@@ -31911,6 +31953,21 @@
     {
      "id": "fort_dearborn_shop",
      "name": "Fort Dearborn — the shop",
+     "rule": "OCR variant (0.89 similarity to 'shop')"
+    },
+    {
+     "id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+     "name": "Reconstructed W2 carpenter or joiner shop #01",
+     "rule": "OCR variant (0.89 similarity to 'shop')"
+    },
+    {
+     "id": "recon_1835_canal_trade_w1_003",
+     "name": "Reconstructed Canal Street blacksmith shop",
+     "rule": "OCR variant (0.89 similarity to 'shop')"
+    },
+    {
+     "id": "recon_1835_canal_trade_w2_004",
+     "name": "Reconstructed Canal Street carpenter or joiner shop",
      "rule": "OCR variant (0.89 similarity to 'shop')"
     }
    ],
@@ -60277,10 +60334,10 @@
   {
    "record_id": "nbi_v01_0570",
    "a": "Block r | . Fulton Co , 111. (Chapman, C. C. ú Co.) 1379i ! 31",
-   "b": "Reconstructed C4 wide two-story store or mixed block #01",
+   "b": "Reconstructed C4 wide two-story store or mixed block #01; Reconstructed Canal Street wide two-story store or mixed block",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'Block r' name Illinois and neither Chicago nor Cook County, so the lead against Reconstructed C4 wide two-story store or mixed block #01 stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Block r | . Fulton Co , 111. (Chapman, C. C. ú Co.) 1379i ! 31' against Reconstructed C4 wide two-story store or mixed block #01.",
+   "rule": "Refused. All 1 card(s) heading 'Block r' name Illinois and neither Chicago nor Cook County, so the lead against Reconstructed C4 wide two-story store or mixed block #01; Reconstructed Canal Street wide two-story store or mixed block stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Block r | . Fulton Co , 111. (Chapman, C. C. ú Co.) 1379i ! 31' against Reconstructed C4 wide two-story store or mixed block #01; Reconstructed Canal Street wide two-story store or mixed block.",
    "layers": [
     "structures"
    ],
@@ -60807,10 +60864,10 @@
   {
    "record_id": "nbi_v01_0645",
    "a": "Bock | _ 5 l . CUIr Co, III. (Brink, McDoeamgh 4 Co, PoM.11631. 366.",
-   "b": "Thomas Brock; Reconstructed C4 wide two-story store or mixed block #01",
+   "b": "Thomas Brock; Reconstructed C4 wide two-story store or mixed block #01; Reconstructed Canal Street wide two-story store or mixed block",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Bock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Bock' at all. And if it were, a heading against Thomas Brock would still be a surname against a person, which is always a refusal here. Ruled on the card 'Bock | _ 5 l . CUIr Co, III. (Brink, McDoeamgh 4 Co, PoM.11631. 366.' against Thomas Brock; Reconstructed C4 wide two-story store or mixed block #01.",
+   "rule": "Refused twice over. No candidate reaches 'Bock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Bock' at all. And if it were, a heading against Thomas Brock would still be a surname against a person, which is always a refusal here. Ruled on the card 'Bock | _ 5 l . CUIr Co, III. (Brink, McDoeamgh 4 Co, PoM.11631. 366.' against Thomas Brock; Reconstructed C4 wide two-story store or mixed block #01; Reconstructed Canal Street wide two-story store or mixed block.",
    "layers": [
     "census_1840",
     "structures"
@@ -67760,6 +67817,37 @@
     ],
     "index_page": 759,
     "column": 3
+   },
+   "ticket": "T-0590"
+  },
+  {
+   "record_id": "nbi_v01_1966",
+   "a": "Doctor | 193.31 _ _ Ogle Co., III. (Kelt, H. F., l i Ce.) \\ i m f M",
+   "b": "The doctor's barn in Wabansia; The doctor's house in Wabansia",
+   "outcome": "refused",
+   "class": "locality_absent",
+   "rule": "Refused. All 1 card(s) heading 'Doctor' name Illinois and neither Chicago nor Cook County, so the lead against The doctor's barn in Wabansia; The doctor's house in Wabansia stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Doctor | 193.31 _ _ Ogle Co., III. (Kelt, H. F., l i Ce.) \\\\ i m f M' against The doctor's barn in Wabansia; The doctor's house in Wabansia.",
+   "layers": [
+    "structures"
+   ],
+   "leads": [
+    "lead_v01_doctor_structures"
+   ],
+   "person_ids": [],
+   "person_id": null,
+   "evidence": [
+    "nbi_v01_1966",
+    "data/research/newberry_index/leads.json"
+   ],
+   "locator": {
+    "list": "vol_01",
+    "text_file": "vol_01_locality_cards.txt",
+    "lines": [
+     3937,
+     3938
+    ],
+    "index_page": 762,
+    "column": 1
    },
    "ticket": "T-0590"
   },
@@ -82765,10 +82853,10 @@
   {
    "record_id": "nbi_v04_0079",
    "a": "Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.",
-   "b": "Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop",
+   "b": "Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W2 carpenter or joiner shop #01; Reconstructed Canal Street blacksmith shop; Reconstructed Canal Street carpenter or joiner shop",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'Shoup' name Illinois and neither Chicago nor Cook County, so the lead against Michael Shoup stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.' against Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop.",
+   "rule": "Refused. All 1 card(s) heading 'Shoup' name Illinois and neither Chicago nor Cook County, so the lead against Michael Shoup stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Shoup | — Sangamon Co,, Ill, (Power, J. C.) 1876.' against Michael Shoup; Government Blacksmith Shop; Fort Dearborn — the shop; Reconstructed W2 carpenter or joiner shop #01; Reconstructed Canal Street blacksmith shop; Reconstructed Canal Street carpenter or joiner shop.",
    "layers": [
     "residents",
     "structures"

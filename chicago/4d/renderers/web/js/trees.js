@@ -1969,6 +1969,7 @@ export async function createTrees({
     /** T-1056. Stems the dune's recorded woody band refused, so the count is
      *  reportable rather than a difference somebody has to notice. */
     rejectedBelowWoodyBand: 0,
+    rejectedOutsideDuneReach: 0,
     rejectedBelowWaterline: 0, lowestStationY: null,
     // ROADMAP K45(c). `headSpecies` is which records carry a July
     // inflorescence this file draws; `headStems` is how many stems actually
@@ -2737,6 +2738,24 @@ export async function createTrees({
       // this loop's ecology already uses. No zone without the block moves.
       if (comm === 'dune') {
         const w = records.woody?.[DUNE_ZONE];
+        // T-1819 — THE POPLARS KEEP THE REACH THEY HAD. The beach now runs the
+        // whole 4.9 km shore, and on the south terrace (2.87 m, above the whole
+        // woody band) every metre of it would deal ZONE 8c's 7-31 stems/ha: about
+        // seven hundred new trees, which bound `light`'s budget on the first
+        // mobile smoke. Whether the back-dune carried poplars the length of the
+        // shore is a question about the dune LANDFORM, which T-1820 shapes; until
+        // it does, the stratum's `reach_n_m` holds them to the reach the dune had,
+        // fading over `reach_fade_m` in pockets rather than along a line.
+        const reach = w?.reach_n_m;
+        if (Array.isArray(reach)) {
+          const fade = w.reach_fade_m ?? 0;
+          const r = smoothstep(reach[0] - fade, reach[0], pz)
+            * (1 - smoothstep(reach[1], reach[1] + fade, pz));
+          if (r <= 0 || (r < 1 && noise2(px, pz, 8, 43) >= r)) {
+            stats.rejectedOutsideDuneReach++;
+            continue;
+          }
+        }
         const band = w?.establishes_m;
         if (band && DUNE_WOODY_ROLES.some((r) => (w.applies_to_roles ?? []).includes(r))) {
           const t = smoothstep(band[0], band[1], gy);

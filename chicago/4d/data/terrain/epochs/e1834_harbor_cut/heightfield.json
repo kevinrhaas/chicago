@@ -22,13 +22,13 @@
   ]
  },
  "min_m": -5.3049,
- "max_m": 3.7446,
+ "max_m": 4.232,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
  "water_fraction": 0.1607,
  "relief_ft": {
   "land_min": -3.556,
-  "land_max": 12.285,
+  "land_max": 13.884,
   "channel_min": -17.405
  },
  "gradient_audit_ft_per_300ft": {
@@ -38,7 +38,7 @@
    62.5
   ],
   "marsh_exclusion_m": 48.0,
-  "plain_cells_audited": 720273,
+  "plain_cells_audited": 705870,
   "carried_frame": {
    "cells": 356650,
    "block_max": 1.836,
@@ -46,33 +46,33 @@
    "note": "the ground carried south of evidence_limit, excluded from the plain audit and measured here instead. The surface is one evidenced row repeated, so north_south_block_max is the micro-relief texture and nothing else (the spec's own +/- 0.10 ft, two octaves), and the east-west figure is that row's own, already audited where it stands."
   },
   "plain_block_max": 0.468,
-  "plain_block_mean": 0.0852,
+  "plain_block_mean": 0.084,
   "passes": true,
-  "plain_cell_roughness_max": 33.196,
-  "shore_and_swale_cell_max": 224.231,
+  "plain_cell_roughness_max": 34.953,
+  "shore_and_swale_cell_max": 215.233,
   "relief_zones_ft_per_300ft": {
    "approach_dearborn_north": {
-    "cells": 23,
+    "cells": 24,
     "cell_max": 151.974
    },
    "approach_dearborn_south": {
-    "cells": 37,
+    "cells": 42,
     "cell_max": 148.58
    },
    "approach_lasalle_crossing_east": {
-    "cells": 10,
+    "cells": 13,
     "cell_max": 73.528
    },
    "approach_lasalle_crossing_west": {
-    "cells": 10,
-    "cell_max": 59.897
+    "cells": 14,
+    "cell_max": 61.072
    },
    "approach_north_branch_east": {
-    "cells": 21,
+    "cells": 25,
     "cell_max": 185.129
    },
    "approach_north_branch_west": {
-    "cells": 24,
+    "cells": 28,
     "cell_max": 158.047
    },
    "approach_slough_east": {
@@ -80,11 +80,11 @@
     "cell_max": 99.226
    },
    "approach_slough_west": {
-    "cells": 16,
+    "cells": 15,
     "cell_max": 146.883
    },
    "approach_south_branch_east": {
-    "cells": 37,
+    "cells": 38,
     "cell_max": 135.898
    },
    "approach_south_branch_west": {
@@ -93,7 +93,11 @@
    },
    "bank_face": {
     "cells": 91133,
-    "cell_max": 224.231
+    "cell_max": 215.233
+   },
+   "dunes": {
+    "cells": 16270,
+    "cell_max": 72.232
    },
    "fort_dearborn_mound": {
     "cells": 2251,
@@ -105,7 +109,7 @@
    },
    "north_sand_ridge": {
     "cells": 20024,
-    "cell_max": 66.005
+    "cell_max": 72.232
    },
    "sand_bar_1834": {
     "cells": 15550,
@@ -117,11 +121,15 @@
    },
    "state_street_break": {
     "cells": 75041,
-    "cell_max": 224.231
+    "cell_max": 213.175
+   },
+   "street_section": {
+    "cells": 21355,
+    "cell_max": 186.376
    },
    "swales": {
     "cells": 16261,
-    "cell_max": 224.231
+    "cell_max": 213.175
    }
   },
   "rule": "docs/research/01-terrain-hydrology.md modelling rule 1: outside the zones that earn relief, hold local gradients under 0.5 ft per 300 ft"
@@ -136,5 +144,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "7e50544a36ec1fa4c4abff7af11650bb05a4bc6d8cc0141a6b9935d827fee193"
+ "inputs_sha256": "4c6d7ae11a7d032d352fa4f004c9144ac6be82ca39ffba53342bbc7504506a93"
 }

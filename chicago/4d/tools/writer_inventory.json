@@ -14,6 +14,12 @@
       "finding": "Reproduces: ran `--write` on a clean tree, rewrote the spec's derived fields byte for byte, changed no committed byte.",
       "placed": "by layer, 2026-09-28 — after tools/trace_ic_edge_1904.py, whose shoreline it reads (T-1251); see the manifest step"
     },
+    "fabric_rule_1835.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-01",
+      "finding": "Run bare it prints the --check verdict and the class/finish report, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: the six anonymous-roof generators deal through it and write the records themselves. A checker (T-1816)."
+    },
     "georef_prairie_1904.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -567,6 +573,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_west_freight.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
+      "placed": "by layer, 2026-10-01 \u2014 reasoned, not derived; beside generate_west_infill.py in the manifest"
+    },
     "generate_yard_goods.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -655,6 +668,13 @@
       "measured": "2026-09-21",
       "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
       "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
+    },
+    "measure_west_farm_ground_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: ran `--build` on a clean tree in about 2s, rewrote data/reconstruction/1835_west_farm_ground.json byte for byte, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its two gated commands write nothing in-tree.",
+      "placed": "by layer, 2026-10-01 \u2014 near the foot of the manifest, before the closing set's report, because it reads the off-plat seats, the address book, the 668-roof programme, the order book and the structure records, and a later step that moved any of them would leave it one model behind (T-1793). Nothing reads what it writes, so nothing constrains it from below."
     },
     "measure_west_division_spacing.py": {
       "placement": "manifest",
@@ -1626,6 +1646,27 @@
       "write_mode": "--pack",
       "measured": "2026-09-29",
       "finding": "Producer-owned binary package, not a research-layer re-derivation (T-1730). Measured on a clean isolated git checkout containing the committed packer and archive: --pack exited 1 because both ignored GLBs were absent, and changed 0 committed files. --materialize restored the exact 70,375,492-byte master and 32,115,656-byte derivative; --pack then actually rewrote 11 archive/manifest files (mtime checked) while changing 0 committed bytes, and --check passed. This proves package reproduction only after the binary inputs exist; it cannot rebuild those inputs from data. The canonical exact-v4 web producer owns --pack after record-web. Generic research rederive must not bank whichever ignored GLBs happen to be present or resolve an archive conflict by selecting one side's binaries. The gated --check is read-only; tools/measure_step_isolation.mjs --tool measured its actual declared invocation and recorded no in-tree writes."
+    },
+    "canal_approach_occupancy.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: the write mode rewrote all five settled outputs (mtime advanced), with identical SHA-256 for every file. Check and self-test modes were independently measured to write nothing in-tree. The complete 169-step manifest proof also exercised this writer.",
+      "placed": "After existing resident/trade derivations and before generate_canal_approach_trade and compile_businesses; it writes firms from the authored keeper allocation."
+    },
+    "generate_canal_approach_trade.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: the write mode rewrote all five settled outputs (mtime advanced), with identical SHA-256 for every file. Check and self-test modes were independently measured to write nothing in-tree. The complete 169-step manifest proof also exercised this writer.",
+      "placed": "Immediately after canal_approach_occupancy and before compile_businesses/reconcile_665/compile_scene; geometry and occupants therefore precede downstream scene readers."
+    },
+    "place_landing_camps_1835.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-01",
+      "finding": "Reproduces: run bare on a clean tree in under a second, it rewrote data/structures/landing_camp_west.json and landing_camp_east.json and `git status --porcelain` was identical before and after \u2014 not one committed byte moved. T-1803. PENDING rather than manifest because it reads the committed street lines, the traced bank, the heightfield, the wharf decks, river walks, beached boats and every footprint, and writes two structure records the sidecar compile and the town census then read, so its slot in the re-derivation order is a question a measured pass of the manifest owns.",
+      "placed": "not yet \u2014 measured to reproduce. T-1803: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
     }
   }
 }

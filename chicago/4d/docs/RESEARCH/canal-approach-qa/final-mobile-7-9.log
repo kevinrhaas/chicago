@@ -1,0 +1,528 @@
+﻿2026-10-01T06:53:21.7085986Z Current runner version: '2.337.0'
+2026-10-01T06:53:21.7106609Z ##[group]Runner Image Provisioner
+2026-10-01T06:53:21.7107338Z Hosted Compute Agent
+2026-10-01T06:53:21.7107859Z Version: 20260901.588
+2026-10-01T06:53:21.7108396Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-01T06:53:21.7108964Z Build Date: 2026-09-01T19:56:44Z
+2026-10-01T06:53:21.7109524Z Worker ID: {e60dae5f-0f64-45a9-907b-cad497df941f}
+2026-10-01T06:53:21.7110086Z Azure Region: centralus
+2026-10-01T06:53:21.7110553Z ##[endgroup]
+2026-10-01T06:53:21.7111660Z ##[group]Operating System
+2026-10-01T06:53:21.7112130Z Ubuntu
+2026-10-01T06:53:21.7112548Z 24.04.5
+2026-10-01T06:53:21.7112948Z LTS
+2026-10-01T06:53:21.7113753Z ##[endgroup]
+2026-10-01T06:53:21.7114310Z ##[group]Runner Image
+2026-10-01T06:53:21.7114783Z Image: ubuntu-24.04
+2026-10-01T06:53:21.7115235Z Version: 20260927.320.1
+2026-10-01T06:53:21.7116249Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-01T06:53:21.7117444Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-01T06:53:21.7118181Z ##[endgroup]
+2026-10-01T06:53:21.7119104Z ##[group]GITHUB_TOKEN Permissions
+2026-10-01T06:53:21.7121153Z Contents: read
+2026-10-01T06:53:21.7121655Z Metadata: read
+2026-10-01T06:53:21.7122388Z Packages: read
+2026-10-01T06:53:21.7122823Z ##[endgroup]
+2026-10-01T06:53:21.7124913Z Secret source: Actions
+2026-10-01T06:53:21.7125688Z Cache mode: write
+2026-10-01T06:53:21.7126255Z Prepare workflow directory
+2026-10-01T06:53:21.7442313Z Prepare all required actions
+2026-10-01T06:53:21.7480099Z Getting action download info
+2026-10-01T06:53:22.0000430Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-01T06:53:22.2595633Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-01T06:53:22.4451123Z Complete job name: smoke
+2026-10-01T06:53:22.5005081Z ##[group]Run actions/checkout@v4
+2026-10-01T06:53:22.5005800Z with:
+2026-10-01T06:53:22.5006289Z   repository: kevinrhaas/chicago
+2026-10-01T06:53:22.5009507Z   token: ***
+2026-10-01T06:53:22.5009929Z   ssh-strict: true
+2026-10-01T06:53:22.5010403Z   ssh-user: git
+2026-10-01T06:53:22.5010851Z   persist-credentials: true
+2026-10-01T06:53:22.5011331Z   clean: true
+2026-10-01T06:53:22.5011797Z   sparse-checkout-cone-mode: true
+2026-10-01T06:53:22.5012280Z   fetch-depth: 1
+2026-10-01T06:53:22.5012709Z   fetch-tags: false
+2026-10-01T06:53:22.5013168Z   show-progress: true
+2026-10-01T06:53:22.5013797Z   lfs: false
+2026-10-01T06:53:22.5014245Z   submodules: false
+2026-10-01T06:53:22.5014675Z   set-safe-directory: true
+2026-10-01T06:53:22.5015162Z   allow-unsafe-pr-checkout: false
+2026-10-01T06:53:22.5015843Z ##[endgroup]
+2026-10-01T06:53:22.5771991Z Syncing repository: kevinrhaas/chicago
+2026-10-01T06:53:22.5774052Z ##[group]Getting Git version info
+2026-10-01T06:53:22.5774917Z Working directory is '/home/runner/work/chicago/chicago'
+2026-10-01T06:53:22.5775966Z [command]/usr/bin/git version
+2026-10-01T06:53:22.6357872Z git version 2.55.0
+2026-10-01T06:53:22.6371196Z ##[endgroup]
+2026-10-01T06:53:22.6383138Z Temporarily overriding HOME='/home/runner/work/_temp/3b752236-bed4-4b1e-a5d0-1e2e8746dfaa' before making global git config changes
+2026-10-01T06:53:22.6384648Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T06:53:22.6387851Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/chicago/chicago
+2026-10-01T06:53:22.6429215Z Deleting the contents of '/home/runner/work/chicago/chicago'
+2026-10-01T06:53:22.6432911Z ##[group]Initializing the repository
+2026-10-01T06:53:22.6436157Z [command]/usr/bin/git init /home/runner/work/chicago/chicago
+2026-10-01T06:53:22.8505285Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-01T06:53:22.8506371Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-01T06:53:22.8507824Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-01T06:53:22.8508501Z hint: call:
+2026-10-01T06:53:22.8509015Z hint:
+2026-10-01T06:53:22.8509774Z hint: 	git config --global init.defaultBranch <name>
+2026-10-01T06:53:22.8510399Z hint:
+2026-10-01T06:53:22.8510931Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-01T06:53:22.8511742Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-01T06:53:22.8512386Z hint:
+2026-10-01T06:53:22.8512804Z hint: 	git branch -m <name>
+2026-10-01T06:53:22.8513425Z hint:
+2026-10-01T06:53:22.8514193Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-01T06:53:22.8515249Z Initialized empty Git repository in /home/runner/work/chicago/chicago/.git/
+2026-10-01T06:53:22.8517151Z [command]/usr/bin/git remote add origin https://github.com/kevinrhaas/chicago
+2026-10-01T06:53:22.8560618Z ##[endgroup]
+2026-10-01T06:53:22.8563419Z ##[group]Disabling automatic garbage collection
+2026-10-01T06:53:22.8564151Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-01T06:53:22.8588987Z ##[endgroup]
+2026-10-01T06:53:22.8589901Z ##[group]Setting up auth
+2026-10-01T06:53:22.8593058Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T06:53:22.8616443Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T06:53:22.9963409Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T06:53:22.9987872Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T06:53:23.0147219Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-01T06:53:23.0169062Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-01T06:53:23.0330245Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-01T06:53:23.0361479Z ##[endgroup]
+2026-10-01T06:53:23.0362470Z ##[group]Fetching the repository
+2026-10-01T06:53:23.0368421Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +15fb79d6f52a3b029d116116340e1fbbb93ec7d7:refs/remotes/origin/steward/t1766-canal-grocery-workshops
+2026-10-01T06:53:56.5044073Z From https://github.com/kevinrhaas/chicago
+2026-10-01T06:53:56.5045202Z  * [new ref]         15fb79d6f52a3b029d116116340e1fbbb93ec7d7 -> origin/steward/t1766-canal-grocery-workshops
+2026-10-01T06:53:56.5047157Z ##[endgroup]
+2026-10-01T06:53:56.5047617Z ##[group]Determining the checkout info
+2026-10-01T06:53:56.5048223Z ##[endgroup]
+2026-10-01T06:53:56.5051573Z [command]/usr/bin/git sparse-checkout disable
+2026-10-01T06:53:56.5101190Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-01T06:53:56.5184172Z ##[group]Checking out the ref
+2026-10-01T06:53:56.5185028Z [command]/usr/bin/git checkout --progress --force -B steward/t1766-canal-grocery-workshops refs/remotes/origin/steward/t1766-canal-grocery-workshops
+2026-10-01T06:53:57.7098737Z Updating files:  74% (6730/9084)
+2026-10-01T06:53:57.7270768Z Updating files:  75% (6813/9084)
+2026-10-01T06:53:57.7589243Z Updating files:  76% (6904/9084)
+2026-10-01T06:53:57.8264060Z Updating files:  77% (6995/9084)
+2026-10-01T06:53:57.8578222Z Updating files:  78% (7086/9084)
+2026-10-01T06:53:57.8794957Z Updating files:  79% (7177/9084)
+2026-10-01T06:53:57.8956915Z Updating files:  80% (7268/9084)
+2026-10-01T06:53:57.9082578Z Updating files:  81% (7359/9084)
+2026-10-01T06:53:57.9197004Z Updating files:  82% (7449/9084)
+2026-10-01T06:53:57.9287248Z Updating files:  83% (7540/9084)
+2026-10-01T06:53:57.9402111Z Updating files:  84% (7631/9084)
+2026-10-01T06:53:57.9516001Z Updating files:  85% (7722/9084)
+2026-10-01T06:53:57.9632847Z Updating files:  86% (7813/9084)
+2026-10-01T06:53:58.0568646Z Updating files:  87% (7904/9084)
+2026-10-01T06:53:58.1037057Z Updating files:  88% (7994/9084)
+2026-10-01T06:53:58.3390185Z Updating files:  89% (8085/9084)
+2026-10-01T06:53:58.5614953Z Updating files:  90% (8176/9084)
+2026-10-01T06:53:58.7100834Z Updating files:  90% (8242/9084)
+2026-10-01T06:53:58.9679735Z Updating files:  91% (8267/9084)
+2026-10-01T06:53:59.0912778Z Updating files:  92% (8358/9084)
+2026-10-01T06:53:59.1422615Z Updating files:  93% (8449/9084)
+2026-10-01T06:53:59.1774196Z Updating files:  94% (8539/9084)
+2026-10-01T06:53:59.3160888Z Updating files:  95% (8630/9084)
+2026-10-01T06:53:59.4491471Z Updating files:  96% (8721/9084)
+2026-10-01T06:53:59.5259571Z Updating files:  97% (8812/9084)
+2026-10-01T06:53:59.5640204Z Updating files:  98% (8903/9084)
+2026-10-01T06:53:59.8715124Z Updating files:  98% (8923/9084)
+2026-10-01T06:54:00.1636539Z Updating files:  99% (8994/9084)
+2026-10-01T06:54:00.2937936Z Updating files: 100% (9084/9084)
+2026-10-01T06:54:00.2939058Z Updating files: 100% (9084/9084), done.
+2026-10-01T06:54:00.2939459Z Switched to a new branch 'steward/t1766-canal-grocery-workshops'
+2026-10-01T06:54:00.2955790Z branch 'steward/t1766-canal-grocery-workshops' set up to track 'origin/steward/t1766-canal-grocery-workshops'.
+2026-10-01T06:54:00.3045636Z ##[endgroup]
+2026-10-01T06:54:00.3082876Z [command]/usr/bin/git log -1 --format=%H
+2026-10-01T06:54:00.3102263Z 15fb79d6f52a3b029d116116340e1fbbb93ec7d7
+2026-10-01T06:54:00.3573927Z ##[group]Run actions/setup-node@v4
+2026-10-01T06:54:00.3574204Z with:
+2026-10-01T06:54:00.3574408Z   node-version: 22
+2026-10-01T06:54:00.3574665Z   always-auth: false
+2026-10-01T06:54:00.3574890Z   check-latest: false
+2026-10-01T06:54:00.3576628Z   token: ***
+2026-10-01T06:54:00.3576885Z ##[endgroup]
+2026-10-01T06:54:00.4760972Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-01T06:54:00.4764774Z (node:2084) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-01T06:54:00.4765298Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-01T06:54:00.4766483Z ##[group]Environment details
+2026-10-01T06:54:02.5148858Z node: v22.23.3
+2026-10-01T06:54:02.5149442Z npm: 10.9.9
+2026-10-01T06:54:02.5149778Z yarn: 1.22.22
+2026-10-01T06:54:02.5151051Z ##[endgroup]
+2026-10-01T06:54:02.5259690Z ##[group]Run set -e
+2026-10-01T06:54:02.5260088Z [36;1mset -e[0m
+2026-10-01T06:54:02.5260423Z [36;1mnpm install -g playwright@1.56.1[0m
+2026-10-01T06:54:02.5260855Z [36;1mnode "$(npm root -g)/playwright/cli.js" install --with-deps chromium[0m
+2026-10-01T06:54:02.5474768Z shell: /usr/bin/bash -e {0}
+2026-10-01T06:54:02.5475092Z ##[endgroup]
+2026-10-01T06:54:07.4614168Z 
+2026-10-01T06:54:07.4620824Z added 2 packages in 5s
+2026-10-01T06:54:08.1287147Z Installing dependencies...
+2026-10-01T06:54:08.1337825Z Switching to root user to install dependencies...
+2026-10-01T06:54:08.5328835Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-01T06:54:08.7113045Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-01T06:54:08.7123104Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-01T06:54:08.8342901Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-01T06:54:08.8434911Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-01T06:54:08.8524471Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-01T06:54:09.1607992Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1342 kB]
+2026-10-01T06:54:09.2446741Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [302 kB]
+2026-10-01T06:54:09.2799161Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+2026-10-01T06:54:09.2886626Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1699 kB]
+2026-10-01T06:54:09.3187001Z Get:26 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [456 kB]
+2026-10-01T06:54:09.3289344Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [341 kB]
+2026-10-01T06:54:09.3332646Z Get:27 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [509 kB]
+2026-10-01T06:54:09.3408774Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+2026-10-01T06:54:09.3478358Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1697 kB]
+2026-10-01T06:54:09.3585330Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [388 kB]
+2026-10-01T06:54:09.3790843Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2026-10-01T06:54:09.3792130Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5760 B]
+2026-10-01T06:54:09.4207669Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+2026-10-01T06:54:09.4563856Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1066 kB]
+2026-10-01T06:54:09.5556236Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [220 kB]
+2026-10-01T06:54:09.7292857Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [46.4 kB]
+2026-10-01T06:54:09.7314543Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1216 kB]
+2026-10-01T06:54:09.8417245Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [244 kB]
+2026-10-01T06:54:09.9547339Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+2026-10-01T06:54:10.0105772Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1566 kB]
+2026-10-01T06:54:10.0794218Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [361 kB]
+2026-10-01T06:54:19.9229988Z Fetched 12.5 MB in 2s (6876 kB/s)
+2026-10-01T06:54:20.7157319Z Reading package lists...
+2026-10-01T06:54:20.9235610Z Reading package lists...
+2026-10-01T06:54:21.1034160Z Building dependency tree...
+2026-10-01T06:54:21.1042844Z Reading state information...
+2026-10-01T06:54:21.2662345Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-01T06:54:21.2663456Z libasound2t64 set to manually installed.
+2026-10-01T06:54:21.2663999Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T06:54:21.2664577Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-01T06:54:21.2665064Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T06:54:21.2665526Z libatk1.0-0t64 set to manually installed.
+2026-10-01T06:54:21.2666094Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-01T06:54:21.2666606Z libatspi2.0-0t64 set to manually installed.
+2026-10-01T06:54:21.2667148Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-01T06:54:21.2667570Z libcairo2 set to manually installed.
+2026-10-01T06:54:21.2668045Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-01T06:54:21.2668527Z libcups2t64 set to manually installed.
+2026-10-01T06:54:21.2668911Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-01T06:54:21.2669318Z libdbus-1-3 set to manually installed.
+2026-10-01T06:54:21.2669840Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-01T06:54:21.2670204Z libdrm2 set to manually installed.
+2026-10-01T06:54:21.2670627Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-01T06:54:21.2671003Z libglib2.0-0t64 set to manually installed.
+2026-10-01T06:54:21.2671432Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-01T06:54:21.2671786Z libnspr4 set to manually installed.
+2026-10-01T06:54:21.2672319Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-10-01T06:54:21.2672757Z libnss3 set to manually installed.
+2026-10-01T06:54:21.2673135Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-01T06:54:21.2673757Z libpango-1.0-0 set to manually installed.
+2026-10-01T06:54:21.2674128Z libx11-6 is already the newest version (2:1.8.7-1build1).
+2026-10-01T06:54:21.2674811Z libx11-6 set to manually installed.
+2026-10-01T06:54:21.2675297Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-01T06:54:21.2675663Z libxcb1 set to manually installed.
+2026-10-01T06:54:21.2676531Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-01T06:54:21.2676927Z libxcomposite1 set to manually installed.
+2026-10-01T06:54:21.2677313Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-01T06:54:21.2677726Z libxdamage1 set to manually installed.
+2026-10-01T06:54:21.2678203Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-01T06:54:21.2678594Z libxext6 set to manually installed.
+2026-10-01T06:54:21.2678957Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-01T06:54:21.2679486Z libxfixes3 set to manually installed.
+2026-10-01T06:54:21.2679889Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-01T06:54:21.2680267Z libxkbcommon0 set to manually installed.
+2026-10-01T06:54:21.2680701Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-01T06:54:21.2681049Z libxrandr2 set to manually installed.
+2026-10-01T06:54:21.2681415Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-01T06:54:21.2681903Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-01T06:54:21.2682383Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-01T06:54:21.2682756Z libfontconfig1 set to manually installed.
+2026-10-01T06:54:21.2683195Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.1).
+2026-10-01T06:54:21.2683755Z libfreetype6 set to manually installed.
+2026-10-01T06:54:21.2684171Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-01T06:54:21.2684542Z fonts-liberation set to manually installed.
+2026-10-01T06:54:21.2684919Z The following additional packages will be installed:
+2026-10-01T06:54:21.2685435Z   libgl1-mesa-dri libglx-mesa0 libwayland-server0 mesa-libgallium
+2026-10-01T06:54:21.2685786Z   xfonts-encodings xfonts-utils
+2026-10-01T06:54:21.2686216Z Recommended packages:
+2026-10-01T06:54:21.2686505Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-10-01T06:54:21.4193858Z The following NEW packages will be installed:
+2026-10-01T06:54:21.4194562Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-01T06:54:21.4202933Z   fonts-wqy-zenhei libwayland-server0 xfonts-cyrillic xfonts-encodings
+2026-10-01T06:54:21.4203579Z   xfonts-scalable xfonts-utils
+2026-10-01T06:54:21.4207834Z The following packages will be upgraded:
+2026-10-01T06:54:21.4213197Z   libgbm1 libgl1-mesa-dri libglx-mesa0 mesa-libgallium
+2026-10-01T06:54:21.4362845Z 4 upgraded, 10 newly installed, 0 to remove and 19 not upgraded.
+2026-10-01T06:54:21.4363573Z Need to get 32.1 MB of archives.
+2026-10-01T06:54:21.4363977Z After this operation, 79.7 MB of additional disk space will be used.
+2026-10-01T06:54:21.4364451Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-01T06:54:21.5469423Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-01T06:54:21.8819123Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-01T06:54:21.9919973Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-01T06:54:22.0279718Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-01T06:54:22.1005364Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-01T06:54:22.2162399Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libgl1-mesa-dri amd64 25.2.8-0ubuntu0.24.04.3 [37.9 kB]
+2026-10-01T06:54:22.2520741Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libwayland-server0 amd64 1.22.0-2.1build1 [33.9 kB]
+2026-10-01T06:54:22.2884261Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglx-mesa0 amd64 25.2.8-0ubuntu0.24.04.3 [110 kB]
+2026-10-01T06:54:22.3256211Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libgbm1 amd64 25.2.8-0ubuntu0.24.04.3 [34.3 kB]
+2026-10-01T06:54:22.3535234Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 mesa-libgallium amd64 25.2.8-0ubuntu0.24.04.3 [10.8 MB]
+2026-10-01T06:54:22.4776634Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-01T06:54:22.5098869Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-01T06:54:22.5379720Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-01T06:54:22.5681271Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-01T06:54:22.9051499Z Fetched 32.1 MB in 1s (28.1 MB/s)
+2026-10-01T06:54:23.2265889Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-01T06:54:23.4400909Z (Reading database ... 
+2026-10-01T06:54:23.4401711Z (Reading database ... 5%
+2026-10-01T06:54:23.4402115Z (Reading database ... 10%
+2026-10-01T06:54:23.4402399Z (Reading database ... 15%
+2026-10-01T06:54:23.4402670Z (Reading database ... 20%
+2026-10-01T06:54:23.4402966Z (Reading database ... 25%
+2026-10-01T06:54:23.4403485Z (Reading database ... 30%
+2026-10-01T06:54:23.4403751Z (Reading database ... 35%
+2026-10-01T06:54:23.4404008Z (Reading database ... 40%
+2026-10-01T06:54:23.4404315Z (Reading database ... 45%
+2026-10-01T06:54:23.4404592Z (Reading database ... 50%
+2026-10-01T06:54:23.4445104Z (Reading database ... 55%
+2026-10-01T06:54:24.5156107Z (Reading database ... 60%
+2026-10-01T06:54:26.0134066Z (Reading database ... 65%
+2026-10-01T06:54:26.5498068Z (Reading database ... 70%
+2026-10-01T06:54:27.0919281Z (Reading database ... 75%
+2026-10-01T06:54:27.2863068Z (Reading database ... 80%
+2026-10-01T06:54:27.7590195Z (Reading database ... 85%
+2026-10-01T06:54:28.1031958Z (Reading database ... 90%
+2026-10-01T06:54:28.5902142Z (Reading database ... 95%
+2026-10-01T06:54:28.5902556Z (Reading database ... 100%
+2026-10-01T06:54:28.5903189Z (Reading database ... 202296 files and directories currently installed.)
+2026-10-01T06:54:28.5946562Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-01T06:54:28.7175171Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-01T06:54:29.0822645Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-01T06:54:29.0937607Z Preparing to unpack .../01-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-01T06:54:29.0947815Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-01T06:54:29.4581480Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-01T06:54:29.4690343Z Preparing to unpack .../02-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-01T06:54:29.4705161Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-01T06:54:29.6800666Z Selecting previously unselected package fonts-unifont.
+2026-10-01T06:54:29.6909328Z Preparing to unpack .../03-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-01T06:54:29.7044344Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-01T06:54:30.1906429Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-01T06:54:30.2019763Z Preparing to unpack .../04-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-01T06:54:30.2265125Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-01T06:54:30.7170463Z Preparing to unpack .../05-libgl1-mesa-dri_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T06:54:30.7327771Z Unpacking libgl1-mesa-dri:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T06:54:30.9718576Z Selecting previously unselected package libwayland-server0:amd64.
+2026-10-01T06:54:30.9847740Z Preparing to unpack .../06-libwayland-server0_1.22.0-2.1build1_amd64.deb ...
+2026-10-01T06:54:30.9900100Z Unpacking libwayland-server0:amd64 (1.22.0-2.1build1) ...
+2026-10-01T06:54:31.0410217Z Preparing to unpack .../07-libglx-mesa0_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T06:54:31.1534133Z Unpacking libglx-mesa0:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T06:54:31.3747393Z Preparing to unpack .../08-libgbm1_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T06:54:31.3776572Z Unpacking libgbm1:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T06:54:31.4227524Z Preparing to unpack .../09-mesa-libgallium_25.2.8-0ubuntu0.24.04.3_amd64.deb ...
+2026-10-01T06:54:31.5811008Z Unpacking mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.3) over (25.2.8-0ubuntu0.24.04.2) ...
+2026-10-01T06:54:32.2822961Z Selecting previously unselected package xfonts-encodings.
+2026-10-01T06:54:32.2935109Z Preparing to unpack .../10-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-01T06:54:32.2941903Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-01T06:54:32.3488015Z Selecting previously unselected package xfonts-utils.
+2026-10-01T06:54:32.3604098Z Preparing to unpack .../11-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-01T06:54:32.3610400Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-01T06:54:32.4036935Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-01T06:54:32.4149855Z Preparing to unpack .../12-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-01T06:54:32.4166438Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-01T06:54:32.5637832Z Selecting previously unselected package xfonts-scalable.
+2026-10-01T06:54:32.5758449Z Preparing to unpack .../13-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-01T06:54:32.5838221Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-01T06:54:32.8312264Z Setting up libwayland-server0:amd64 (1.22.0-2.1build1) ...
+2026-10-01T06:54:32.9591608Z Setting up mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T06:54:32.9644259Z Setting up libgbm1:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T06:54:32.9672220Z Setting up libgl1-mesa-dri:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T06:54:32.9747860Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-01T06:54:33.0352701Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-01T06:54:33.0421212Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-01T06:54:33.0649578Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-01T06:54:33.0675011Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-01T06:54:33.0741332Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-01T06:54:33.0763833Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-01T06:54:33.0806690Z Setting up libglx-mesa0:amd64 (25.2.8-0ubuntu0.24.04.3) ...
+2026-10-01T06:54:33.0834702Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-01T06:54:33.0878480Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-01T06:54:33.1528657Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-01T06:54:33.1807637Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-01T06:54:33.8327593Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-01T06:54:33.8357240Z Not building database; man-db/auto-update is not 'true'.
+2026-10-01T06:54:33.8370952Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-01T06:54:35.0867049Z 
+2026-10-01T06:54:35.0867951Z Running kernel seems to be up-to-date.
+2026-10-01T06:54:35.0868394Z 
+2026-10-01T06:54:35.0868738Z No services need to be restarted.
+2026-10-01T06:54:35.0868937Z 
+2026-10-01T06:54:35.0869437Z No containers need to be restarted.
+2026-10-01T06:54:35.0869679Z 
+2026-10-01T06:54:35.0869890Z No user sessions are running outdated binaries.
+2026-10-01T06:54:35.0870094Z 
+2026-10-01T06:54:35.0870363Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-01T06:54:35.8936749Z Downloading Chromium 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-linux.zip
+2026-10-01T06:54:36.0670477Z |                                                                                |   0% of 173.9 MiB
+2026-10-01T06:54:36.2220820Z |■■■■■■■■                                                                        |  10% of 173.9 MiB
+2026-10-01T06:54:36.3505371Z |■■■■■■■■■■■■■■■■                                                                |  20% of 173.9 MiB
+2026-10-01T06:54:36.4069778Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 173.9 MiB
+2026-10-01T06:54:36.4470770Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 173.9 MiB
+2026-10-01T06:54:36.4837046Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 173.9 MiB
+2026-10-01T06:54:36.5210817Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 173.9 MiB
+2026-10-01T06:54:36.5565529Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 173.9 MiB
+2026-10-01T06:54:36.5977034Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 173.9 MiB
+2026-10-01T06:54:36.6477161Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 173.9 MiB
+2026-10-01T06:54:36.6908302Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 173.9 MiB
+2026-10-01T06:54:40.0368441Z Chromium 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium-1194
+2026-10-01T06:54:40.0371098Z Downloading FFMPEG playwright build v1011 from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-01T06:54:40.1962905Z |                                                                                |   0% of 2.3 MiB
+2026-10-01T06:54:40.2200602Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-01T06:54:40.2300052Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-01T06:54:40.2380204Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-01T06:54:40.2456045Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-01T06:54:40.2472132Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-01T06:54:40.2537742Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-01T06:54:40.2553853Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-01T06:54:40.2623878Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-01T06:54:40.2637421Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-01T06:54:40.2644120Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-01T06:54:40.3071676Z FFMPEG playwright build v1011 downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-01T06:54:40.3075109Z Downloading Chromium Headless Shell 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-headless-shell-linux.zip
+2026-10-01T06:54:40.4413888Z |                                                                                |   0% of 104.3 MiB
+2026-10-01T06:54:40.5631858Z |■■■■■■■■                                                                        |  10% of 104.3 MiB
+2026-10-01T06:54:40.6021061Z |■■■■■■■■■■■■■■■■                                                                |  20% of 104.3 MiB
+2026-10-01T06:54:40.6398339Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 104.3 MiB
+2026-10-01T06:54:40.6746608Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 104.3 MiB
+2026-10-01T06:54:40.7107633Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 104.3 MiB
+2026-10-01T06:54:40.7455070Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 104.3 MiB
+2026-10-01T06:54:40.7683881Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 104.3 MiB
+2026-10-01T06:54:40.7913744Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 104.3 MiB
+2026-10-01T06:54:40.8188305Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 104.3 MiB
+2026-10-01T06:54:40.8416067Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 104.3 MiB
+2026-10-01T06:54:42.5579718Z Chromium Headless Shell 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1194
+2026-10-01T06:54:42.7648848Z ##[group]Run bash tools/publish.sh
+2026-10-01T06:54:42.7649290Z [36;1mbash tools/publish.sh[0m
+2026-10-01T06:54:42.7693447Z shell: /usr/bin/bash -e {0}
+2026-10-01T06:54:42.7693935Z ##[endgroup]
+2026-10-01T06:54:43.9077389Z Glessner v4 package verified; 3 missing GLB(s) materialized.
+2026-10-01T06:54:44.4851925Z shipped derivatives: 501 pair(s) carry the master's triangles, node identity and contract attributes; worst bounding-box disagreement 2.68 of 4 rungs; 0 asset(s) lose their material identity to the publish path (banked, K36(b)); 4 master passthrough(s), all of them decided (K38); and every one of them records the master it was made from, which is still the master in the tree (K39)
+2026-10-01T06:54:44.5281634Z Prairie Avenue browser published: /home/runner/work/chicago/chicago/site/4d/prairie-1904
+2026-10-01T06:54:44.7427185Z published 15 map images + viewer + media to site/pre-fire
+2026-10-01T06:54:44.7968038Z    changelog.js published to site/4d/js/changelog.js (T-0722)
+2026-10-01T06:54:44.7971604Z    changelog.js published to site/4d/walk/js/changelog.js (T-0722)
+2026-10-01T06:54:45.7494834Z tickets: cloned https://github.com/kevinrhaas/chicago-tickets.git → tickets/ (1661 tickets)
+2026-10-01T06:54:47.5246709Z entry pages: index.html, 1812/index.html, 1835/index.html, 1880/index.html, 1904/index.html
+2026-10-01T06:54:47.5298331Z    build 15fb79d  Oct 1, 2026, 1:54 AM CT
+2026-10-01T06:54:47.5989759Z published ../../site/4d  (57.03 MB)
+2026-10-01T06:54:47.6037047Z ##[group]Run node tools/smoke_renderer.mjs --published
+2026-10-01T06:54:47.6037506Z [36;1mnode tools/smoke_renderer.mjs --published[0m
+2026-10-01T06:54:47.6072051Z shell: /usr/bin/bash -e {0}
+2026-10-01T06:54:47.6072377Z env:
+2026-10-01T06:54:47.6072628Z   SMOKE_VIEWPORT: mobile
+2026-10-01T06:54:47.6072889Z   SMOKE_STAGE: 7-9
+2026-10-01T06:54:47.6073145Z ##[endgroup]
+2026-10-01T06:54:47.9003358Z serving /home/runner/work/chicago/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+2026-10-01T06:54:47.9003911Z 
+2026-10-01T06:54:47.9004261Z NOT THE FULL GATE — viewports filtered to "mobile"
+2026-10-01T06:54:47.9004548Z 
+2026-10-01T06:54:47.9004853Z NOT THE FULL GATE — stages filtered to "7-9" of 13
+2026-10-01T06:54:47.9005089Z 
+2026-10-01T06:54:47.9005219Z mobile 390x780:
+2026-10-01T06:54:48.8993536Z   pass  mobile 390x780: page serves
+2026-10-01T06:55:03.2487574Z   pass  mobile 390x780: scene reaches ready
+2026-10-01T06:55:05.5265748Z   pass  mobile 390x780: the scene declares its exact consultation blockers
+2026-10-01T06:55:05.5267232Z   pass  mobile 390x780: no unexpected loader problems
+2026-10-01T06:55:06.5541955Z   pass  mobile 390x780: scene has structures
+2026-10-01T06:55:07.5564608Z   pass  mobile 390x780: every structure that should draw, drew
+2026-10-01T06:55:19.5266791Z   pass  mobile 390x780: compass shows the live heading
+2026-10-01T06:55:19.5320642Z   pass  mobile 390x780: the overview map is shown, captioned and read in imperial
+2026-10-01T06:55:19.5321559Z   pass  mobile 390x780: the overview inset is a fixed 188x76 frame, not the field's shape
+2026-10-01T06:55:19.5322272Z   pass  mobile 390x780: walking speed is presented as a named gait in miles per hour
+2026-10-01T06:55:19.5323003Z   pass  mobile 390x780: every pace slider names its gait beside an imperial speed
+2026-10-01T06:55:19.5323911Z   pass  mobile 390x780: overview marker follows position and bearing
+2026-10-01T06:55:22.3976407Z   pass  mobile 390x780: the overview window travels with the visitor at the scale it had before
+2026-10-01T06:55:22.3977354Z   pass  mobile 390x780: the overview window clamps to the field instead of running past it
+2026-10-01T06:55:27.5960216Z   pass  mobile 390x780: every southern viewpoint is reachable and stands on dry modelled ground
+2026-10-01T06:55:27.5987985Z   pass  mobile 390x780: the run carries the visitor south to the model's own wall, and the map follows
+2026-10-01T06:55:34.1308498Z   pass  mobile 390x780: the pop-out renders the whole heightfield
+2026-10-01T06:55:36.6170548Z   pass  mobile 390x780: Escape puts the pop-out away and hands focus back to the map
+2026-10-01T06:55:37.4599413Z   pass  mobile 390x780: the pop-out cannot be opened while the map is switched off
+2026-10-01T06:55:37.4600431Z   pass  mobile 390x780: earth streets are populated and draped on the rendered ground
+2026-10-01T06:55:37.4601666Z   pass  mobile 390x780: no panel of road is deleted because its EDGE reached the water
+2026-10-01T06:55:37.4602521Z   pass  mobile 390x780: the platted streets reach the picture as attested, not as invention
+2026-10-01T06:55:37.4603681Z   pass  mobile 390x780: surface and wear ride their own channel and every street carries it
+2026-10-01T06:55:37.4604953Z   pass  mobile 390x780: the ground never rises through a road panel between its vertices
+2026-10-01T06:55:37.4605701Z   pass  mobile 390x780: the worn track runs onto each bridge approach and meets the deck
+2026-10-01T06:55:37.4606476Z   pass  mobile 390x780: no bend in the ribbon opens a wedge on the outside of its turn
+2026-10-01T06:55:37.4607296Z   pass  mobile 390x780: no elevated flora sheet can masquerade as a second terrain layer
+2026-10-01T06:56:34.5663172Z   pass  mobile 390x780: the roads reach the screen from the walker’s eye, down an open street
+2026-10-01T06:56:34.5690020Z         south_water: 2-40 m: ΔL* 3.9 of 4.3 opaque, 90 % perceptible of 10 bare, weber 0.1665 (n 10) over ground L* 50.5, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 4.4 of 4.8 opaque, 93 % perceptible of 15 bare, weber 0.1861 (n 15) over ground L* 50.2, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 4.8 of 3.5 opaque, 100 % perceptible of 42 bare, weber 0.2045 (n 42) over ground L* 48.9, seen 42 of 75 projected (42 clear of flora) · 250-600 m: ΔL* 5.1 of 3.7 opaque, 99 % perceptible of 82 bare, weber 0.2195 (n 82) over ground L* 48.6, seen 82 of 520 projected (82 clear of flora) · 600-4000 m: ΔL* 7.7 of 8.4 opaque, 100 % perceptible of 10 bare, weber 0.3233 (n 10) over ground L* 53.5, seen 10 of 221 projected (10 clear of flora) (reported only)
+2026-10-01T06:57:34.3625246Z   pass  mobile 390x780: the roads reach the screen from the air, at the aerial anchor
+2026-10-01T06:57:34.3628352Z         from_above: 2-40 m: projects 0× (not gated) · 40-100 m: projects 0× (not gated) · 100-250 m: ΔL* 3.9 of 8.1 opaque, 94 % perceptible of 90 bare, weber 0.1750 (n 90) over ground L* 47.0, seen 90 of 93 projected (90 clear of flora) · 250-600 m: ΔL* 3.9 of 7.9 opaque, 86 % perceptible of 432 bare, weber 0.1713 (n 432) over ground L* 48.5, seen 432 of 437 projected (432 clear of flora) · 600-4000 m: ΔL* 3.6 of 7.4 opaque, 93 % perceptible of 224 bare, weber 0.1574 (n 212) over ground L* 49.5, seen 212 of 225 projected (224 clear of flora) (reported only)
+2026-10-01T06:57:34.3630508Z         road bands: 5 moved against the bank —
+2026-10-01T06:57:34.3631256Z           rose      mobile/south_water/100-250  perceptible 33 % → 100 % (+67 points), ΔL* 1.8 → 4.8 (+3.0), weber 0.0795 → 0.2044
+2026-10-01T06:57:34.3632210Z           fell      mobile/south_water/250-600  ΔL* 7.0 → 5.1 (-1.9), ground L* 53.3 → 48.6 (-4.7, exposure)
+2026-10-01T06:57:34.3633093Z           rose      mobile/from_above/250-600  perceptible 54 % → 86 % (+31 points), ΔL* 2.0 → 3.9 (+1.8), weber 0.0922 → 0.1713
+2026-10-01T06:57:34.3634128Z           rose      mobile/from_above/100-250  ΔL* 2.6 → 3.9 (+1.4), weber 0.1161 → 0.1750
+2026-10-01T06:57:34.3635018Z           rose      mobile/south_water/40-100  ΔL* 3.1 → 4.4 (+1.3), weber 0.1325 → 0.1861
+2026-10-01T06:58:35.9796193Z   pass  mobile 390x780: the roads reach the screen standing on the crossing itself
+2026-10-01T06:58:35.9958005Z         lake_market: 2-40 m: ΔL* 2.4 of 2.7 opaque, 80 % perceptible of 10 bare, weber 0.1210 (n 10) over ground L* 48.6, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 5.0 of 5.6 opaque, 100 % perceptible of 15 bare, weber 0.2063 (n 15) over ground L* 51.0, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 4.2 of 5.8 opaque, 100 % perceptible of 43 bare, weber 0.1760 (n 43) over ground L* 51.0, seen 43 of 102 projected (43 clear of flora) · 250-600 m: ΔL* 4.5 of 5.5 opaque, 98 % perceptible of 97 bare, weber 0.1853 (n 97) over ground L* 51.6, seen 97 of 507 projected (97 clear of flora) · 600-4000 m: ΔL* 5.1 of 6.3 opaque, 98 % perceptible of 62 bare, weber 0.2049 (n 62) over ground L* 53.6, seen 62 of 874 projected (62 clear of flora) (reported only)
+2026-10-01T06:58:35.9961040Z         road bands: 4 moved against the bank —
+2026-10-01T06:58:35.9964594Z           rose      mobile/lake_market/250-600  ΔL* 2.0 → 4.5 (+2.5), weber 0.0826 → 0.1853
+2026-10-01T06:58:35.9966141Z           rose      mobile/lake_market/40-100  ΔL* 2.9 → 5.0 (+2.0), weber 0.1269 → 0.2063
+2026-10-01T06:58:35.9967317Z           rose      mobile/lake_market/100-250  ΔL* 2.7 → 4.2 (+1.5), weber 0.1158 → 0.1760
+2026-10-01T06:58:35.9971568Z           rose      mobile/lake_market/2-40  perceptible 60 % → 80 % (+20 points)
+2026-10-01T06:58:38.1218228Z   pass  mobile 390x780: the road-legibility aid is off unless a visitor moves it
+2026-10-01T06:58:54.2180266Z   pass  mobile 390x780: raising the road-legibility aid reaches the render
+2026-10-01T06:58:54.2193901Z   pass  mobile 390x780: dropping the road-legibility aid restores the default frame
+2026-10-01T06:58:54.2196279Z         road aid: full-on delta mean 0.28 / worst 6 at 96², 0.21 / 1 at 12²; restored residual mean 0.00 / worst 0
+2026-10-01T06:58:55.3980838Z   pass  mobile 390x780: the town is its one untextured batch and its two roof coverings
+2026-10-01T06:58:55.3981841Z   pass  mobile 390x780: the batch still carries the town's finishes
+2026-10-01T06:59:07.0127680Z   pass  mobile 390x780: the per-vertex roughness channel reaches the render
+2026-10-01T06:59:07.0128189Z   pass  mobile 390x780: restoring the roughness channel restores the frame
+2026-10-01T06:59:07.0129353Z         batches: 3 · roughness 15 values 0.25–0.9800000190734863 · flattening moves worst cell 12, mean 0.09; restored worst 0
+2026-10-01T06:59:22.5115870Z   pass  mobile 390x780: the town wears more than one face
+2026-10-01T06:59:22.5117206Z   pass  mobile 390x780: no two neighbouring buildings are drawn the same colour
+2026-10-01T06:59:22.5120548Z   pass  mobile 390x780: a documented paint is never modulated
+2026-10-01T06:59:22.5121329Z   pass  mobile 390x780: the facade tones reach the render
+2026-10-01T06:59:22.5121788Z   pass  mobile 390x780: restoring the facade tones restores the frame
+2026-10-01T06:59:22.5122718Z         facades: 496 tones · 0/483 neighbour pairs identical · winding off moves worst cell 10, mean 0.19; restored worst 0
+2026-10-01T06:59:24.3057977Z   pass  mobile 390x780: the sun's shadow reaches 120 m at the documented texel (scene detail 'light')
+2026-10-01T06:59:35.3156808Z   pass  mobile 390x780: the shadow reach reaches the render
+2026-10-01T06:59:35.3173181Z   pass  mobile 390x780: restoring the shadow reach restores the frame
+2026-10-01T06:59:35.3175060Z         shadow reach: ±120 m at 23.4 cm/texel · winding back to ±60 m moves worst cell 7; restored residual worst 0
+2026-10-01T06:59:36.2353645Z   pass  mobile 390x780: the shadow box holds still under a sub-texel step
+2026-10-01T06:59:36.2357048Z   pass  mobile 390x780: the snap reaches the box — without it the same step moves it
+2026-10-01T06:59:36.2357676Z   pass  mobile 390x780: the box moves in texels of its own map, and only in those
+2026-10-01T06:59:36.2364578Z         shadow snap: 1 mm moves the box 0.00 µm snapped, 0.994 mm loose; a 1 m walk moves it 5 time(s), worst 1.000 texels
+2026-10-01T06:59:38.1366364Z   pass  mobile 390x780: the brightness aid is off unless a visitor moves it
+2026-10-01T06:59:48.3758957Z   pass  mobile 390x780: raising the brightness aid reaches the render
+2026-10-01T06:59:48.3760361Z   pass  mobile 390x780: dropping the brightness aid restores the calibrated frame
+2026-10-01T06:59:48.3761804Z         brightness aid: +1 stop delta mean 47.17 / worst 51 at 12²; restored residual mean 0.00 / worst 0
+2026-10-01T06:59:48.3762570Z   pass  mobile 390x780: the suite body ran to completion
+2026-10-01T06:59:48.3763567Z   pass  mobile 390x780: zero page errors
+2026-10-01T06:59:48.4592823Z 
+2026-10-01T06:59:48.8979248Z   pass  vendor: meshopt decoder loads and reports supported
+2026-10-01T06:59:48.8982065Z   pass  vendor: meshopt import raises no page error
+2026-10-01T06:59:48.9201377Z 
+2026-10-01T06:59:48.9202157Z 55 passed, 0 failed
+2026-10-01T06:59:48.9202915Z 45 staged-section check(s) (stage 7-9 of 13), 10 always-on check(s)
+2026-10-01T06:59:48.9205229Z 5 m 01 s for stage 7-9 at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+2026-10-01T06:59:48.9206164Z SMOKE PASS
+2026-10-01T06:59:48.9378159Z Post job cleanup.
+2026-10-01T06:59:49.0245337Z (node:3401) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-01T06:59:49.0246032Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-01T06:59:49.4962111Z Post job cleanup.
+2026-10-01T06:59:49.5619085Z [command]/usr/bin/git version
+2026-10-01T06:59:49.5649466Z git version 2.55.0
+2026-10-01T06:59:49.5674593Z Temporarily overriding HOME='/home/runner/work/_temp/b45287be-eb0c-4110-bb68-6a44658a72f5' before making global git config changes
+2026-10-01T06:59:49.5675867Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T06:59:49.5677827Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/chicago/chicago
+2026-10-01T06:59:49.5706935Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T06:59:49.5731692Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T06:59:49.5903948Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T06:59:49.5922275Z http.https://github.com/.extraheader
+2026-10-01T06:59:49.5928671Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-01T06:59:49.5952029Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T06:59:49.6102941Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-01T06:59:49.6124134Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-01T06:59:49.6377682Z Cleaning up orphan processes
+2026-10-01T06:59:49.6563691Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

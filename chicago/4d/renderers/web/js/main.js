@@ -1188,7 +1188,15 @@ async function boot() {
   // drawn them and know how high they stood them. The walker holds it BY
   // REFERENCE and reads whatever is in it.
   const decks = decksFrom(loaded.registry);
-  const spawn = anchorFor(loaded.scene, params.get('anchor')) ?? loaded.scene.spawn ?? {};
+  // T-1797 — the ground-strip proof, drawn only under `?proof=ground`. Its
+  // module is not imported otherwise, so the walk without the flag is untouched.
+  // Its three vantage points join the scene's anchors for this run.
+  const groundProof = params.get('proof') === 'ground' ? await import('./ground-strip.js') : null;
+  if (groundProof && Array.isArray(loaded.scene.anchors)) {
+    loaded.scene.anchors.push(...groundProof.STRIP_ANCHORS);
+  }
+  const spawn = anchorFor(loaded.scene, params.get('anchor'))
+    ?? groundProof?.STRIP_ANCHORS[0] ?? loaded.scene.spawn ?? {};
   const walker = createWalker({ camera, terrain, footprints, decks, spawn });
   walker.apply();
 
@@ -1201,6 +1209,12 @@ async function boot() {
     confidence,
   });
   scene3d.add(streets.group);
+  if (groundProof) {
+    api.groundStrip = await groundProof.createGroundStrip({
+      terrain, assetBase: bases.assetBase, problems,
+    });
+    scene3d.add(api.groundStrip.group);
+  }
 
   // T-0474 — the 1904 Prairie Avenue grid: carriageways curb to curb, each block
   // face's margin, walk, parkway and curb, the alleys and the lot lines, read off
@@ -1367,6 +1381,10 @@ async function boot() {
     // planting layer now refuses them too, so nothing grows up between the
     // planks of a bridge deck either.
     decks,
+    // The camps' ground (T-1803), which the walker crosses and the sward does not:
+    // a bush rooting between the tents, or a tree through a wall tent, was the
+    // first thing the bank showed once the canvas stood on it.
+    footprintsFrom(loaded.registry, { camps: true }),
   );
 
   // …AND THE WHARF PLANKS BECOME FLOORS — after `planting` has been taken and
@@ -1594,7 +1612,9 @@ async function boot() {
    * would delete every one of them and file a problem for each, which is this
    * ticket undoing another one. The sward is the only layer that gives way.
    */
-  const swardBlocked = (e, n) => streets.blocksGrowth(e, n) || yards.suppressesSward(e, n);
+  const stripBlocks = api.groundStrip?.blocksGrowth ?? null;
+  const swardBlocked = (e, n) => streets.blocksGrowth(e, n) || yards.suppressesSward(e, n)
+    || (stripBlocks !== null && stripBlocks(e, n));
 
   let floraUnits = 0, floraDone = 0, treeDone = 0;
   const plantingProgress = (done, total) => {
@@ -2665,6 +2685,7 @@ async function boot() {
           } finally { jauntEntering = false; }
         },
         render: state => jauntPanel.render(state),
+        onComplete: state => jauntPreview.award(state),
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,
@@ -2673,6 +2694,7 @@ async function boot() {
     }).catch(error => { jauntReady = null; jauntPanel?.destroy(); throw error; });
   }
   api.jaunts = { catalog: null, get state() { return jauntRuntime?.state ?? null; },
+    async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };

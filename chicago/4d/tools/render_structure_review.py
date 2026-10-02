@@ -64,8 +64,18 @@ CAMERAS = {
 }
 # Additional presentation angles; the fixed comparison cameras above are unchanged.
 CAMERAS.update({
+    "stable-south-roof": {"position": (5.41, -20, 10), "target": (5.41, 4.34, 6.4), "lens": 42},
+    "courtyard-west-roof": {"position": (29, -12, 14), "target": (8, 11, 7.4), "lens": 38},
+    "alley-rear-roof": {"position": (-24, -9, 14), "target": (3, 10, 7.6), "lens": 40},
+    "stable-north-detail": {"position": (6.17, 50, 1.7), "target": (6.17, 22.55, 6.1), "lens": 48},
+    "stable-northwest-roof": {"position": (-9, 41, 18), "target": (6, 19, 8), "lens": 42},
     "prairie-entry-oblique": {"position": (62.5, 18, 1.7), "target": (49.15, 12.5, 4.15), "lens": 42},
     "courtyard-bow-oblique": {"position": (28, 1, 1.7), "target": (38.5, 10.3, 6.0), "lens": 26},
+})
+CAMERAS.update({
+    "stable-northwest-roof": {"position": (-14, 39, 12), "target": (5, 17, 7.0), "lens": 48},
+    "north-alcove": {"position": (16.5, 31, 1.7), "target": (18.4, 21.6, 1.8), "lens": 36},
+    "north-alcove-turn": {"position": (17.1, 23.1, 1.7), "target": (20.2, 21.4, 2.5), "lens": 22},
 })
 OVERCAST_ZENITH_RGB = (5.58, 5.79, 6.0)
 DEFAULT_SKY_FILE = (Path(__file__).resolve().parents[1] / "docs" / "RESEARCH" /

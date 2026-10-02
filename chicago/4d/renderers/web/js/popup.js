@@ -757,7 +757,7 @@ function kindWords(value) {
 
 /** The archetype the generators built from, in words. `bridge_timber` and
  *  `pier_crib` are the schema's noun-first order and read wrongly reversed. */
-const ARCHETYPE_WORDS = { bridge_timber: 'timber bridge', pier_crib: 'crib pier' };
+const ARCHETYPE_WORDS = { bridge_timber: 'timber bridge', pier_crib: 'crib pier', camp: 'camp of tents' };
 function archetypeWords(archetype) {
   if (!archetype) return '';
   return ARCHETYPE_WORDS[archetype] ?? String(archetype).replace(/_/g, ' ');
@@ -791,14 +791,18 @@ function headsOf(s) {
 }
 
 /** "braced frame · 2 storeys" — the fabric in one phrase, or as much of it as
- *  the record has. */
-function builtWords(attrs) {
+ *  the record has. A reconstructed roof adds what its walls and roof wear and
+ *  whose house that says it is (T-1816, `reconstruction.fabric_basis.words`):
+ *  "silvered clapboard under a weather-darkened roof — The Brown household's, a
+ *  blacksmith, in Chicago since 1833 (rule F-T)". */
+function builtWords(attrs, fabric) {
   const parts = [];
   const cons = attrs.construction?.value;
   if (cons !== null && cons !== undefined && cons !== '') parts.push(prettyValue(cons));
   const st = attrs.stories?.value;
   if (typeof st === 'number') parts.push(`${st} ${st === 1 ? 'storey' : 'storeys'}`);
   else if (st) parts.push(`${prettyValue(st)} storeys`);
+  if (fabric?.words) parts.push(fabric.words);
   return parts.join(' · ');
 }
 
@@ -1002,7 +1006,8 @@ function firmChipsHtml(firms, fromSign) {
       title="${escapeHtml([f.trade, f.present ? 'trading on 1 July 1835' : 'not trading on 1 July 1835']
     .filter(Boolean).join(' \u2014 '))}"><i class="grade-dot grade-${escapeHtml(f.grade)}"></i>${
   escapeHtml(f.name)}</button>`).join('');
-  const inRoof = firms.filter((f) => f.relation !== 'against');
+  const inRoof = firms.filter((f) => f.relation === 'in');
+  const housed = firms.filter((f) => f.relation === 'housed');
   const against = firms.filter((f) => f.relation === 'against');
   const groups = [];
   if (inRoof.length) {
@@ -1010,6 +1015,15 @@ function firmChipsHtml(firms, fromSign) {
       ? (inRoof.length === 1 ? 'The board hangs for' : 'The board hangs over')
       : (inRoof.length === 1 ? 'The register puts one house here'
         : `The register puts ${inRoof.length} houses here`), inRoof]);
+  }
+  // T-1835. THE PAPER NAMED THE STREET AND THE TOWN CHOSE THE ROOF, so the lead
+  // says both halves: a reader is never told the register put this house in this
+  // building, only on this street, and that the reconstruction housed it here.
+  if (housed.length) {
+    groups.push([fromSign && !inRoof.length
+      ? 'The board hangs for'
+      : (housed.length === 1 ? 'Housed here — the paper names only the street'
+        : `${housed.length} houses housed here — the paper names only the street`), housed]);
   }
   // NOT "HERE". The paper sited these by this building and gave them no roof, and
   // the words have to keep that distance or the card claims a premises the source
@@ -1046,7 +1060,7 @@ function factsHtml(s, firms = [], fromSign = false) {
   }
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
     firmChipsHtml(firms, fromSign));
-  row('Built', builtWords(attrs),
+  row('Built', builtWords(attrs, s.reconstruction?.fabric_basis),
     weaker(attrs.construction?.confidence, attrs.stories?.confidence), 'fabric');
   row('Roof', roofWords(attrs),
     attrs.roof_pitch_deg && attrs.roof_type?.value !== 'none'

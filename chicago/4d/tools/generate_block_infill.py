@@ -61,6 +61,7 @@ from band_notes import BAY_RANGE_RE, split_notes  # noqa: E402
 # are read from the archetype rather than retyped here — the same reason `family_bands`
 # exists. docs/FACADE-BAYS.md is the argument for the mapping.
 from archetypes import frame_storefront_params as storefront  # noqa: E402
+from archetypes import frame_tavern_params as tavern  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
 from measure_no_build_ground import inside as point_in_ring  # noqa: E402
 from measure_no_build_ground import region_ring as no_build_ring  # noqa: E402
@@ -127,6 +128,7 @@ from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E4
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
 from house_front import bays_for, mapping_note, plan_for  # noqa: E402
+import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -337,6 +339,7 @@ FUNCTIONS = {
     "D5": "deep_plan_frame_cottage", "D6": "one_and_a_half_story_frame_cottage",
     "D7": "small_two_story_frame_house",
     "H1": "larger_one_and_a_half_story_house", "H2": "merchant_or_professional_house",
+    "H3": "large_boarding_house",
     "C1": "small_shop_or_office", "C2": "store_residence",
     "C3": "narrow_two_story_store",
     "W1": "blacksmith_shop", "W2": "carpenter_or_joiner_shop",
@@ -362,6 +365,7 @@ LABELS = {
     "D7": "small two-story frame house",
     "H1": "larger one-and-a-half-story house",
     "H2": "merchant or professional house",
+    "H3": "boarding house",
     "C1": "small shop or office",
     "C2": "store-residence",
     "C3": "narrow two-story store",
@@ -525,6 +529,85 @@ def shop_bays_note(family: str, spec: dict, front_m: float, bays: int) -> str:
             f"family's authored range taken at its minimum.")
 
 
+# --------------------------------------------------------------------------
+# THE BOARDING HOUSE SIZED FROM ITS BEDS (T-1778)
+# --------------------------------------------------------------------------
+#
+# The H3 crosswalk entry asks for "6-10 upper windows; rear service wing; multiple
+# stovepipes" and says of the counts that they "must vary; they indicate capacity, not a
+# recovered interior plan". So the counts are read off the house's beds, and the beds
+# are the lodging model's: its own apportioned row once the model carries the house,
+# its class's per-place figure on the pass that first raises it (the model can only
+# apportion a building that already stands). Two passes settle it, because the counts
+# move no floor area and floor area is all the model reads.
+#
+# The two ratios are this parcel's and docs/LIBERTIES.md owns them. Nothing gives a
+# chamber or a stove per head for an 1835 Chicago boarding house; they are stated so
+# the counts can be re-derived from the record's own `capacity` block, not because
+# they are known.
+
+LODGING_MODEL = DATA / "reconstruction" / "1835_lodging_model.json"
+H3_UPPER_WINDOWS = (6, 10)        # the crosswalk's own range, read below, not chosen
+H3_STOVEPIPES = (2, 6)            # "multiple", and no more than the archetype carries
+LODGERS_PER_CHAMBER = 3           # the crowded night: two to a bed and one on the floor
+SLEEPERS_PER_STOVE = 3            # the ordinary night: a stove to a chamber in use
+
+CAPACITY_WHY = (
+    "SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading "
+    "of any source about this house: the count is re-derivable from this record's "
+    "`reconstruction.capacity` block, which names the lodging-model row it read and the "
+    "rule that turned beds into this number. The H3 crosswalk entry's variants line "
+    "asks for it in as many words, and its assumption note says the count indicates "
+    "capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio.")
+
+
+def lodging_capacity(sid: str) -> dict:
+    """The beds the lodging model gives this house, or its class's per-place figure."""
+    model = json.loads(LODGING_MODEL.read_text(encoding="utf-8"))
+    for row in model["places"]:
+        if row["id"] == sid:
+            return {"beds_ordinary": int(row["beds_ordinary"]),
+                    "beds_crowded": int(row["beds_crowded"]),
+                    "from": "data/reconstruction/1835_lodging_model.json",
+                    "row": f"places[id={sid}]"}
+    cls = next(c for c in model["classes"] if c["class"] == "boarding_house")
+    return {"beds_ordinary": int(cls["ordinary_per_place"]),
+            "beds_crowded": int(cls["crowded_per_place"]),
+            "from": "data/reconstruction/1835_lodging_model.json",
+            "row": "classes[class=boarding_house] per-place figure: the house is not yet "
+                   "a place in the model, which apportions only buildings that stand"}
+
+
+def h3_sizing(sid: str, width: float) -> tuple[dict, int, int]:
+    """(capacity block, upper windows, stovepipes) for one H3 house."""
+    cap = lodging_capacity(sid)
+    lo, hi = H3_UPPER_WINDOWS
+    want = max(lo, min(hi, -(-cap["beds_crowded"] // LODGERS_PER_CHAMBER)))
+    # the front decides how many sashes it can carry with a wall between them; the
+    # archetype refuses past this rather than squeezing, so the cap is asked of it
+    fits = int(width / tavern.UPPER_BAY_MIN_M)
+    windows = min(want, fits)
+    plo, phi = H3_STOVEPIPES
+    pipes = max(plo, min(phi, -(-cap["beds_ordinary"] // SLEEPERS_PER_STOVE)))
+    cap["sizes"] = {
+        "upper_windows": (
+            f"ceil({cap['beds_crowded']} crowded beds / {LODGERS_PER_CHAMBER} to a "
+            f"chamber) = {-(-cap['beds_crowded'] // LODGERS_PER_CHAMBER)}, held to the "
+            f"crosswalk's {lo}-{hi} = {want}"
+            + (f", then to the {fits} sashes a front of {width:.2f} m carries at "
+               f"{tavern.UPPER_BAY_MIN_M} m a bay" if fits < want else "")
+            + f": {windows} across the upper storey of the front and of the rear"),
+        "stovepipes": (
+            f"ceil({cap['beds_ordinary']} ordinary beds / {SLEEPERS_PER_STOVE} to a "
+            f"stove) = {-(-cap['beds_ordinary'] // SLEEPERS_PER_STOVE)}, held to "
+            f"{plo}-{phi}: {pipes}"),
+        "chimneys": ("not sized by the beds: the two brick stacks are the family's "
+                     "kitchen and common-room hearths, and the stoves the beds add go "
+                     "out through the roof as stovepipes"),
+    }
+    return cap, windows, pipes
+
+
 def form_for(family: str, spec: dict, key: str, width: float, depth: float,
              paint: str) -> dict:
     """Form values, with the storey count, eave height and pitch read off the crosswalk.
@@ -618,6 +701,34 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
             "roof_pitch_deg": invented(pitch(), why),
             "construction": invented("log", why), "loft": invented(True, why),
             "chimneys": invented(1, why),
+        }
+
+    if family == "H3":
+        # T-1778: the boarding house on the crosswalk's placeholder, frame_tavern,
+        # with the tavern's cues left off — no gallery, no frontispiece, no sign, and
+        # a kitchen door where an inn's ell opens a carriage door to its yard.
+        _, windows, pipes = h3_sizing(key, width)
+        wing = ("The H3 crosswalk entry's required variant is "
+                "`service_wing_two_story` and its variants line asks for a \"rear "
+                "service wing\"; this is that wing at the archetype's own one-storey "
+                "ell size, behind the rear wall, and no source describes it for this "
+                "anonymous house. docs/LIBERTIES.md owns the size.")
+        door = ("A kitchen wing's back door rather than the "
+                "carriage door the archetype gives an inn's ell: the crosswalk's "
+                "evidence note warns that frame_tavern \"implies tavern features that a "
+                "boarding house should not inherit\", and a wagon door into a kitchen "
+                "is one.")
+        return {
+            "stories": invented(2, why), "wall_height_m": invented(wall, why),
+            "roof_type": invented("gable", why),
+            "roof_pitch_deg": invented(pitch(), why),
+            "construction": invented(construction, why),
+            "paint": invented(paint, why),
+            "chimneys": invented(2, why),
+            "rear_ell": invented(True, wing),
+            "rear_ell_door": invented("service", door),
+            "upper_windows": invented(windows, CAPACITY_WHY),
+            "stovepipes": invented(pipes, CAPACITY_WHY),
         }
 
     if family.startswith(("D", "H")) and family != "D2":
@@ -904,7 +1015,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         lateral = float(slot.get("lateral_m") or 0.0)
         local_e, local_n, bearing = place(edge_mid, inward, setback, lateral, width, depth)
 
-    finish_key, paint = finish_for(sid)
+    fabric = fabric_rule_1835.deal(sid, family, spec["archetype"])
+    finish_key, paint = fabric["finish_key"], fabric["paint"]
     fallback = (spec["label"] or family).lower()
     function = FUNCTIONS.get(family) or canonical_function(fallback)
     label = LABELS.get(family) or fallback
@@ -983,9 +1095,12 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         "block_id": block["block_id"], "lot_index": lot_index,
         "stands_on": slot["stands_on"], "fronts": slot["fronts"],
         "sequence": seq, "finish_key": finish_key,
-        "roof_condition": ("fresh", "darkened", "patched", "weathered")[seq % 4],
-        "age_state": ("new", "recent", "established", "older_frontier")[seq % 4],
+        "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
+        "fabric_basis": fabric["fabric_basis"],
     }
+    if family == "H3":
+        # the beds the form was sized from, disclosed where the counts can be checked
+        reconstruction["capacity"] = h3_sizing(sid, width)[0]
     if on_frontage:
         # A unit of a row holds no lot: it stands across the run's frontage, and which
         # of the run's conjectural side lines fall under it is not a claim this parcel
@@ -1026,7 +1141,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
                 "confidence": "reconstructed",
                 "note": f"A {width:.2f} × {depth:.2f} m rectangle sampled deterministically inside the {family} family's authored footprint band; no individual dimensions are documented."
             },
-            "form": form_for(family, spec, sid, width, depth, paint),
+            "form": fabric_rule_1835.apply_form(
+                form_for(family, spec, sid, width, depth, paint), fabric),
             "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
         }],
         "function": invented(function, f"Assigned from the {family} family to satisfy the block's scheduled mix; no occupant or individual use is known."),
@@ -1778,10 +1894,27 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
         raise SystemExit(f"{block['block_id']}: the yard building on lot {index} "
                          f"stands behind {holder}, which this parcel did not build. A "
                          f"yard building is a claim about the household on its own lot")
+    # T-1809 (of T-1779). AN EARLIER DEAL'S HOUSE IS THIS PARCEL'S HOUSE TOO. A yard building
+    # serves the lot it stands in the yard of, and until a block was dealt a house in
+    # one entry and its outbuildings in the next, "the lot carries a principal roof"
+    # and "this entry built a principal roof on it" were the same question. T-1778
+    # raised the first boarding house with no stable or privy, on purpose, and left
+    # them to T-1779; read against this entry's own records alone, that stable stands
+    # behind no roof. The lots the block's OTHER deals built principal roofs on are
+    # read off the committed records — the same parcel `occupied` excludes above, so
+    # a lot somebody else's building holds is still refused there and not here.
+    served = set(used)
+    for path in sorted(STRUCTURES.glob("*.json")):
+        if path.stem in parcel and path.stem not in mine_ids:
+            recon = (load(path).get("reconstruction") or {})
+            if (recon.get("inventory_class") == "principal_functional"
+                    and recon.get("block_id") == block["block_id"]
+                    and "lot_index" in recon):
+                served.add(int(recon["lot_index"]))
     for record in records:
         recon = record["reconstruction"]
         if (recon["inventory_class"] != "principal_functional"
-                and recon.get("lot_index") not in set(used)):
+                and recon.get("lot_index") not in served):
             raise SystemExit(f"{block['block_id']}: the yard building on lot "
                              f"{recon['lot_index']} stands behind no roof — an ancillary "
                              f"building serves the lot it is in the yard of")

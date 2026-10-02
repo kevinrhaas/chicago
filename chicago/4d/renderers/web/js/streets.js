@@ -8,6 +8,13 @@
  *                     "which street am I standing in?"
  *   track_width_m     the narrower, visibly worn wagon path inside it
  *
+ * T-1811 adds a third, derived here and nowhere else: `drawn_width_m`, the
+ * worked earth a frontier street actually was — packed full-width by wheels,
+ * hooves and feet, thinning to grass at its shoulders — sized by the street's
+ * traffic class from the corridor (see WORKED_SHARE). The recorded track keeps
+ * its meaning as the opaque core; the generators that keep things out of the
+ * travelled way still read `track_width_m` and nothing moved for them.
+ *
  * The second is a stated visual liberty.  It is not allowed to flatten the
  * terrain or author a second collision surface: every ribbon vertex samples
  * terrain.surfaceHeight(), and the walker continues to stand on that exact same
@@ -16,6 +23,7 @@
  */
 
 import * as THREE from 'three';
+import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 
 const STEP_M = 2.25;
 const LIFT_M = 0.022;
@@ -215,7 +223,11 @@ const MITRE_MAX_TURN_RAD = (120 * Math.PI) / 180;
  */
 const MIN_TRACK_PX = 2.0;
 const MAX_THIN_BOOST = 6.0;
-const MAX_ALPHA = 0.92;
+// T-1811. Was 0.92: a translucent ribbon could never quite cover the prairie,
+// and the 8 % of grass it let through is what read as a grassy median between
+// two treads. The roadbed is now opaque earth where it is worked and gives way
+// to grass by COVERAGE (clumps, shoulders), not by a ceiling on every pixel.
+const MAX_ALPHA = 1.0;
 // T-0713. How faint an entirely INVENTED track reads while the confidence view
 // is on. It scales the worn texture only — never whether the ribbon is drawn,
 // which is the line's claim and is carried on `_confidence` — and it is inert
@@ -263,7 +275,80 @@ const MID_FADE_M = 700.0;
 const MID_GAIN = 1.7;
 // R-A1. The faintest authored body alpha is 0.28 - 0.04 = 0.24 (light worn
 // earth at the crown); this takes that one surface to opaque at full aid.
+// T-1811 kept the gain: it still lifts every partly-covered shoulder pixel.
 const AID_GAIN = 1 / 0.24;
+// T-1811. How far the aid lifts the opaque dirt's lightness at full strength.
+const AID_LIFT = 0.25;
+
+/**
+ * T-1811 — THE WORKED ROADWAY, and why it is wider than the track.
+ *
+ * The owner, 2026-09-30: replace "the paired-tread appearance with a full dirt
+ * roadway". `roadTexture` used to draw exactly that pair — two Gaussian ruts at
+ * 0.29 and 0.71 of the track over a 0.28-0.93 alpha body — so every street read
+ * as two brown lines on grass. A town street in a wet frontier summer was worn
+ * across most of its width by wagons pulling out to pass, teams standing at
+ * doors, droves and foot traffic; the peer-city views the owner supplied (St
+ * Louis 1840, Detroit 1837, Cincinnati 1835) all show one broad worked plane
+ * with no grass median. None of them is Chicago and none gives a width, so the
+ * width is a RECONSTRUCTION (L327), bounded on both sides:
+ *
+ *   - never narrower than the recorded `track_width_m`, which stays the opaque
+ *     core it always claimed to be;
+ *   - never past the frontage: the 80 ft corridor less a walk (1.83 m) and its
+ *     0.2 m clearance each side leaves 20.3 m, so principal streets stop short
+ *     of the walks at 0.80 of the corridor (19.5 m) and lighter streets well
+ *     inside it, by traffic class.
+ *
+ * WEAR_INTENSITY is how much of the core is bare. A principal street is bare
+ * end to end; a `light` street keeps grass between irregular lanes — the
+ * "sparse peripheral tracks" the ticket allows where use supports nothing more.
+ * CORE_SHARE_FLOOR keeps the opaque core at least half the worked width, so the
+ * shoulders never outgrow the road they belong to.
+ */
+const WORKED_SHARE = { principal: 0.80, ordinary: 0.64, light: 0.44 };
+// The shoulders past the recorded track stop where the ground falls away from
+// the crown by more than this. A bridge approach fill is a causeway one track
+// wide, and a worked shoulder draped down its flanks put the fill's crest
+// through the ribbon by 0.58 m between vertices (Kinzie's approaches, Dearborn's
+// drawbridge fill). Read in 0.5 m steps outward from the track's edge.
+const SHOULDER_DROP_M = 0.35;
+const SHOULDER_STEP_M = 0.5;
+const WEAR_INTENSITY = { principal: 1.0, ordinary: 0.9, light: 0.68 };
+const CORE_SHARE_FLOOR = 0.5;
+/**
+ * The dirt's tones, sRGB: dry July dust over packed earth, bounded by two
+ * committed readings — T-1797's proof pair (lane 126,112,91 / between 96,86,69)
+ * below, and the grey sand the same strip drew (136,128,106) above, since a
+ * street's dust is the finer, drier and lighter fraction of what it is made of.
+ * The smoke chose WHERE inside that bound, and it is worth recording how. The
+ * road-legibility gate reads luminance, not hue: T-1797's pair as it stood drew
+ * the road 7 L* LIGHTER than the grass at the walker's eye but only 2 L* apart
+ * from the air, where the prairie reads brighter; a step darker made the air
+ * pass and took the walker's eye to 2 L*. So the road sits at the bound's top,
+ * lighter than the grass from both — which is also what the owner's peer views
+ * show of a summer street. `graded_earth` is the dustiest (thrown up and
+ * drained), the light streets a shade darker. Mud sits inside
+ * `wet_prairie_muck`'s measured basecolor (L 47 of 255); the shoulder sod is
+ * dirt carrying root and leaf. Reconstructed, all of it (L327).
+ */
+const DIRT_TONES = {
+  graded_earth: { lane: [146, 131, 107], rest: [117, 105, 84] },
+  worn_earth: { lane: [142, 128, 104], rest: [113, 101, 81] },
+  light_worn_earth: { lane: [137, 123, 100], rest: [108, 97, 78] },
+};
+const MUD_TONE = [64, 56, 44];
+const SOD_TONE = [98, 92, 68];
+
+function trafficOf(raw) {
+  return WORKED_SHARE[raw.traffic] ? raw.traffic : 'light';
+}
+
+function seedOf(id) {
+  let h = 2166136261;
+  for (const ch of String(id ?? '')) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
+  return ((h >>> 0) % 997) / 997;
+}
 
 function pointSegment(e, n, a, b) {
   const dx = b[0] - a[0];
@@ -317,12 +402,21 @@ function prepare(raw) {
   const pad = Math.max(raw.corridor_width_m ?? 24.384, raw.track_width_m ?? 6) * 0.5;
   const es = [...path, ...drawn].map((p) => p[0]);
   const ns = [...path, ...drawn].map((p) => p[1]);
+  // T-1811. The worked width, derived — see WORKED_SHARE.
+  const corridor = raw.corridor_width_m ?? 24.384;
+  const track = raw.track_width_m ?? 6;
+  const traffic = trafficOf(raw);
+  const drawnWidth = Math.max(track, WORKED_SHARE[traffic] * corridor);
   return {
     ...raw,
     path,
     drawn,
-    corridor_width_m: raw.corridor_width_m ?? 24.384,
-    track_width_m: raw.track_width_m ?? 6,
+    corridor_width_m: corridor,
+    track_width_m: track,
+    drawn_width_m: drawnWidth,
+    core_share: Math.min(1, Math.max(track / drawnWidth, CORE_SHARE_FLOOR)),
+    wear_intensity: WEAR_INTENSITY[traffic],
+    wear_seed: seedOf(raw.id),
     bounds: {
       e0: Math.min(...es) - pad, e1: Math.max(...es) + pad,
       n0: Math.min(...ns) - pad, n1: Math.max(...ns) + pad,
@@ -401,9 +495,73 @@ function sampled(path) {
  * T-junction gap between interior columns is bounded by DRAPE_TOL_M — the
  * coarser panel's own acceptance test ran on that very row.
  */
+// The float32 one step from `x` in the direction of `dir`'s sign.
+function stepF32(x, dir) {
+  if (dir === 0) return x;
+  const ulp = 2 ** (Math.floor(Math.log2(Math.max(Math.abs(x), 2 ** -100))) - 23);
+  return Math.fround(x + Math.sign(dir) * ulp);
+}
+
+/**
+ * T-1812. Move a float32 vertex of a panel's end row onto, or just outside,
+ * the straight line between that row's two (float32) corners, where "outside"
+ * is the side the panel's far end `away` is not on. A neighbouring panel with
+ * fewer columns draws exactly that line as its edge; a vertex left inside it
+ * would open a sliver of bare ground between the two.
+ */
+function ontoEndLine(e, n, left, right, near, away) {
+  const le = Math.fround(left[0]);
+  const ln = Math.fround(left[1]);
+  const de = Math.fround(right[0]) - le;
+  const dn = Math.fround(right[1]) - ln;
+  const side = (pe, pn) => de * (pn - ln) - dn * (pe - le);
+  const inward = Math.sign(side(away[0], away[1]));
+  const oe = near[0] - away[0];
+  const on = near[1] - away[1];
+  for (let k = 0; k < 8 && inward !== 0 && side(e, n) * inward > 0; k++) {
+    e = stepF32(e, oe);
+    n = stepF32(n, on);
+  }
+  return [e, n];
+}
+
+/**
+ * T-1812. Where the line across a panel's middle crosses the terrain's sample
+ * lattice, as fractions 0..1 from its left edge to its right — the only places
+ * the bilinear ground can bend along that line. Crossings nearer than
+ * LATTICE_MIN_GAP to each other or to an edge are merged, so no column is a
+ * sliver.
+ */
+const LATTICE_MIN_GAP = 0.04;
+function latticeFractions(grid, ends) {
+  if (!grid || !(grid.cellM > 0)) return [0, 1];
+  const le = (ends.aLeft[0] + ends.bLeft[0]) * 0.5;
+  const ln = (ends.aLeft[1] + ends.bLeft[1]) * 0.5;
+  const de = (ends.aRight[0] + ends.bRight[0]) * 0.5 - le;
+  const dn = (ends.aRight[1] + ends.bRight[1]) * 0.5 - ln;
+  const cuts = [];
+  for (const [p, d, o] of [[le, de, grid.originE], [ln, dn, grid.originN]]) {
+    if (Math.abs(d) < 1e-9) continue;
+    const g0 = (p - o) / grid.cellM;
+    const g1 = (p + d - o) / grid.cellM;
+    for (let k = Math.ceil(Math.min(g0, g1)); k <= Math.floor(Math.max(g0, g1)); k++) {
+      cuts.push((k - g0) / (g1 - g0));
+    }
+  }
+  cuts.sort((x, y) => x - y);
+  const out = [0];
+  for (const f of cuts) {
+    if (f - out[out.length - 1] >= LATTICE_MIN_GAP && 1 - f >= LATTICE_MIN_GAP) out.push(f);
+  }
+  out.push(1);
+  return out;
+}
+
 function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
-  const build = (level) => {
-    const R = 1 << level;
+  const dyadic = (level) => Array.from({ length: (1 << level) + 1 }, (_, c) => c / (1 << level));
+  const build = (levelR, fr = dyadic(0)) => {
+    const R = 1 << levelR;
+    const C = fr.length - 1;
     const rows = [];
     for (let r = 0; r <= R; r++) {
       const t = r / R;
@@ -426,15 +584,27 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
         right = [pe - ue * reachR, pn - un * reachR];
       }
       const row = [];
-      for (let c = 0; c <= R; c++) {
-        const f = c / R;
+      for (let c = 0; c <= C; c++) {
+        const f = fr[c];
         // Rounded to the float32 the position buffer will store, and sampled
         // AT that value: on the ~1:1 ramp flanks the double-precision position
         // and its stored float32 stand on ground ~1e-5 m apart, which is
         // exactly the drape budget the smoke holds vertices to.
-        const e = Math.fround(left[0] * (1 - f) + right[0] * f);
-        const n = Math.fround(left[1] * (1 - f) + right[1] * f);
-        const interior = (r > 0 && r < R) || (c > 0 && c < R);
+        let e = Math.fround(left[0] * (1 - f) + right[0] * f);
+        let n = Math.fround(left[1] * (1 - f) + right[1] * f);
+        // T-1812. An END row is shared with the next panel, which may have
+        // settled on fewer columns, so its edge there is the straight line
+        // between the two corners. This row's own midpoints, rounded to
+        // float32, can land a few hundredths of a millimetre INSIDE that line,
+        // and the sliver between the two panels is uncovered ground: it opened
+        // the bisector of west_water's 7.7° bend to the smoke's joint stations.
+        // Such a vertex is stepped one float32 at a time OUTWARD until it stands
+        // on the line or just past it, so the finer panel always reaches the
+        // shared edge and never falls short of it.
+        if ((r === 0 || r === R) && c > 0 && c < C) {
+          [e, n] = ontoEndLine(e, n, left, right, r === 0 ? a : b, r === 0 ? b : a);
+        }
+        const interior = (r > 0 && r < R) || (c > 0 && c < C);
         if (interior && terrain.isWater(e, n)) return null;
         row.push([e, n, terrain.surfaceHeight(e, n) + LIFT_M]);
       }
@@ -470,13 +640,39 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
   };
   let grid = build(0);
   if (grid.some((row) => row.some(([e, n]) => !terrain.inBounds(e, n)))) return grid;
-  let level = 0;
   let miss = residual(grid);
-  while (miss > DRAPE_TOL_M && level < MAX_DRAPE_LEVEL) {
-    const next = build(level + 1);
+  if (miss <= DRAPE_TOL_M) return grid;
+  // T-1812. COLUMNS WHERE THE GROUND BENDS, not where a halving lands. The
+  // graded street section (terrain_gen.py) crowns the bed and drops it into a
+  // gutter at each shoulder, so a panel one quad wide misses its own ground
+  // ACROSS the street on every graded panel in the town. But the ground a
+  // visitor stands on is `surfaceHeight()`, a bilinear field on a 2.5 m
+  // lattice, and along a line it only bends where it crosses one of that
+  // lattice's lines. So the columns go at those crossings (measured on the
+  // panel's middle row): the cut is followed with as few columns as the
+  // street is cells wide. Halving both axes answered the same miss with up to
+  // 8 x 8 sub-quads per panel and took the layer from 59 k to 466 k
+  // triangles; halving across first, to 296 k — which on its own put Lake
+  // Street at Canal 238 k triangles over the `full` ceiling.
+  // Rows are halved only when the columns alone cannot settle it (a bend, an
+  // approach fill), which is the case the joint refinement was written for;
+  // a panel the lattice does not settle falls back to halving across.
+  let fr = latticeFractions(terrain.grid, ends);
+  let levelR = 0;
+  if (fr.length > 2) {
+    const next = build(0, fr);
+    if (next) { grid = next; miss = residual(grid); } else fr = dyadic(0);
+  }
+  let levelC = 0;
+  let acrossShut = fr.length > 2;
+  while (miss > DRAPE_TOL_M
+    && ((!acrossShut && levelC < MAX_DRAPE_LEVEL) || levelR < MAX_DRAPE_LEVEL)) {
+    const across = !acrossShut && levelC < MAX_DRAPE_LEVEL;
+    const next = across ? build(levelR, dyadic(levelC + 1)) : build(levelR + 1, fr);
+    if (!next && across) { acrossShut = true; continue; }
     if (!next) break;
     grid = next;
-    level += 1;
+    if (across) { levelC += 1; fr = dyadic(levelC); } else levelR += 1;
     miss = residual(grid);
   }
   return grid;
@@ -572,14 +768,17 @@ function mitreJoins(pts, half, dryReach, stats) {
 
 function addRecord(buffers, record, terrain, stats) {
   const key = record.surface;
-  const buf = buffers.get(key) ?? { pos: [], uv: [], conf: [], track: [], idx: [] };
+  const buf = buffers.get(key) ?? { pos: [], uv: [], conf: [], track: [], road: [], idx: [] };
   buffers.set(key, buf);
   // T-0111. The ribbon is painted on the WHEEL line; every other question this
   // module answers is asked of the platted one. `drawn` is `path` for all but
   // the one street that authors a separate track, so this is the same call it
   // has always been everywhere else.
   const pts = sampled(record.drawn);
-  const half = record.track_width_m * 0.5;
+  // T-1811. The worked earth, not the wheel track alone — see WORKED_SHARE.
+  const half = record.drawn_width_m * 0.5;
+  const road = [record.drawn_width_m, record.core_share, record.wear_intensity,
+    record.wear_seed];
   // Distance along the ribbon at each centreline point, accumulated exactly as
   // the panel loop always accumulated it — degenerate chords add nothing — so
   // the texture's `v` is untouched. A joint fan needs to read it at a point
@@ -655,12 +854,26 @@ function addRecord(buffers, record, terrain, stats) {
     }
     return lo;
   };
-  const joins = mitreJoins(pts, half, dryReach, stats);
-  // A joint's fan may only be drawn between two panels that were both drawn and
-  // whose outer corners were not trimmed back by the waterline — otherwise it
-  // would bridge to an edge that is not there.
+  // T-1811. Past the recorded track a shoulder also stops where the ground
+  // falls away from the crown (SHOULDER_DROP_M) — never inside the track, so the
+  // waterline is still the only thing that can narrow the core.
+  const trackHalf = record.track_width_m * 0.5;
+  const groundReach = (e0, n0, se, sn, max) => {
+    const dry = dryReach(e0, n0, se, sn, max);
+    if (dry <= trackHalf) return dry;
+    const h0 = terrain.surfaceHeight(e0, n0);
+    const falls = (d) => Math.abs(terrain.surfaceHeight(e0 + se * d, n0 + sn * d) - h0)
+      > SHOULDER_DROP_M;
+    for (let d = trackHalf + SHOULDER_STEP_M; d < dry; d += SHOULDER_STEP_M) {
+      if (falls(d)) return Math.max(trackHalf, d - SHOULDER_STEP_M);
+    }
+    return falls(dry) ? Math.max(trackHalf, dry - SHOULDER_STEP_M) : dry;
+  };
+  const joins = mitreJoins(pts, half, groundReach, stats);
+  // A joint's fan may only be drawn between two panels that were both drawn —
+  // otherwise it would bridge to an edge that is not there. A rim the waterline
+  // trimmed is clipped with it rather than dropped (T-1811, below).
   const panelDrawn = pts.map(() => false);
-  const fanBlocked = pts.map(() => false);
 
   for (let i = 1; i < pts.length; i++) {
     const a = pts[i - 1];
@@ -685,7 +898,7 @@ function addRecord(buffers, record, terrain, stats) {
       if (owned) return owned;
       const se = side === 'L' ? ue : -ue;
       const sn = side === 'L' ? un : -un;
-      const reach = dryReach(P[0], P[1], se, sn, half);
+      const reach = groundReach(P[0], P[1], se, sn, half);
       return { e: P[0] + se * reach, n: P[1] + sn * reach, perp: reach,
         trimmed: reach < half - 1e-9 };
     };
@@ -699,12 +912,6 @@ function addRecord(buffers, record, terrain, stats) {
     // the PERPENDICULAR half-widths, which is what the bar has always meant.
     if (aLeft.perp + aRight.perp < MIN_PANEL_W_M
       || bLeft.perp + bRight.perp < MIN_PANEL_W_M) continue;
-    for (const [p, join, ends] of [[i - 1, joins[i - 1], [aLeft, aRight]],
-      [i, joins[i], [bLeft, bRight]]]) {
-      if (!join?.fan) continue;
-      const outerEnd = join.fan.apexSide === 'L' ? ends[1] : ends[0];
-      if (outerEnd.trimmed) fanBlocked[p] = true;
-    }
     // T-0110: a grid of (level+1)² draped vertices — one quad at level 0,
     // which is this function's historical output exactly.
     const grid = refinedPanel(terrain, a, b, ue, un, half, {
@@ -712,19 +919,20 @@ function addRecord(buffers, record, terrain, stats) {
       aRight: [aRight.e, aRight.n],
       bLeft: [bLeft.e, bLeft.n],
       bRight: [bRight.e, bRight.n],
-    }, dryReach);
+    }, groundReach);
     const rows = grid.length - 1;
     const cols = grid[0].length - 1;
     const base = buf.pos.length / 3;
     for (let r = 0; r <= rows; r++) {
-      // Across first, distance along second. The texture repeats every eight
-      // metres, long enough that its ruts read as travel rather than corduroy.
-      const v = (along + (length * r) / rows) / 8;
+      // Across first, distance along second — in METRES since T-1811: the
+      // wear is laid in the street's own frame and nothing repeats along it.
+      const v = along + (length * r) / rows;
       for (let c = 0; c <= cols; c++) {
         const [e, n, y] = grid[r][c];
         buf.pos.push(e, y, -n);
         buf.conf.push(confidence);
         buf.track.push(trackConfidence);
+        buf.road.push(...road);
         buf.uv.push(c / cols, v);
       }
     }
@@ -736,7 +944,7 @@ function addRecord(buffers, record, terrain, stats) {
       }
     }
     stats.panels += 1;
-    if (rows > 1) stats.refinedPanels += 1;
+    if (rows > 1 || cols > 1) stats.refinedPanels += 1;
     panelDrawn[i] = true;
   }
 
@@ -746,18 +954,34 @@ function addRecord(buffers, record, terrain, stats) {
   // a thing this module may paint.
   for (let p = 1; p < pts.length - 1; p++) {
     const join = joins[p];
-    if (!join?.fan || fanBlocked[p] || !panelDrawn[p] || !panelDrawn[p + 1]) continue;
-    const { apex, outer, apexSide } = join.fan;
+    if (!join?.fan || !panelDrawn[p] || !panelDrawn[p + 1]) continue;
+    const { apex, apexSide } = join.fan;
+    // T-1811. A fan whose rim reached the waterline used to be dropped whole
+    // (`fanBlocked`), which at the core's old 5.25 m never happened on South
+    // Water's west bend and at the worked 9.75 m always did — reopening the very
+    // wedge T-0184 closed. Each rim vertex is now pulled back along its own ray
+    // by the reach the panels use, so the fan's two end vertices are exactly the
+    // trimmed panel corners and the rim between them stays on dry ground.
+    const P = pts[p];
+    const outer = join.fan.outer.map(([e, n]) => {
+      const r = Math.hypot(e - P[0], n - P[1]);
+      if (r < 1e-9) return [e, n];
+      const se = (e - P[0]) / r;
+      const sn = (n - P[1]) / r;
+      const reach = groundReach(P[0], P[1], se, sn, r);
+      return [P[0] + se * reach, P[1] + sn * reach];
+    });
     if (terrain.isWater(apex.e, apex.n)) continue;
     if (outer.some(([e, n]) => terrain.isWater(e, n))) continue;
     const base = buf.pos.length / 3;
-    const v = alongAt[p] / 8;
+    const v = alongAt[p];
     const push = (pe, pn, u) => {
       const e = Math.fround(pe);
       const n = Math.fround(pn);
       buf.pos.push(e, terrain.surfaceHeight(e, n) + LIFT_M, -n);
       buf.conf.push(confidence);
       buf.track.push(trackConfidence);
+      buf.road.push(...road);
       buf.uv.push(u, v);
     };
     // `u` runs 0 at the left edge to 1 at the right, as it does across a panel,
@@ -778,54 +1002,142 @@ function hash(x, y) {
   return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
 }
 
-function roadTexture(surface) {
+/**
+ * T-1811. The one grit tile every street shares — T-1797's `gritTilePixels`,
+ * 256 px over 1.6 m: R is height read as grain, G/B the OpenGL normal. It
+ * replaces `roadTexture`'s per-surface canvas and its two painted ruts. Built
+ * once per createStreets() and disposed with it.
+ */
+function roadGrit() {
+  const data = gritTilePixels();
   const canvas = document.createElement('canvas');
-  canvas.width = 128;
-  canvas.height = 256;
-  const ctx = canvas.getContext('2d');
-  const image = ctx.createImageData(canvas.width, canvas.height);
-  const graded = surface === 'graded_earth';
-  const light = surface === 'light_worn_earth';
-  const base = graded ? [113, 91, 55] : light ? [102, 85, 55] : [106, 84, 50];
-  for (let y = 0; y < canvas.height; y++) {
-    for (let x = 0; x < canvas.width; x++) {
-      const q = x / (canvas.width - 1);
-      const edge = Math.min(1, Math.max(0, Math.min(q, 1 - q) / 0.12));
-      const ruts = Math.exp(-(((q - 0.29) / 0.065) ** 2))
-        + Math.exp(-(((q - 0.71) / 0.065) ** 2));
-      const crown = Math.exp(-(((q - 0.5) / 0.13) ** 2));
-      const grain = (hash(x >> 1, y >> 1) - 0.5) * 18
-        + (hash(x >> 3, y >> 3) - 0.5) * 11;
-      const wet = ruts * (graded ? 13 : 18);
-      const i = (y * canvas.width + x) * 4;
-      image.data[i] = Math.max(0, Math.min(255, base[0] + grain - wet));
-      image.data[i + 1] = Math.max(0, Math.min(255, base[1] + grain * 0.74 - wet));
-      image.data[i + 2] = Math.max(0, Math.min(255, base[2] + grain * 0.48 - wet * 0.58));
-      // Baselines raised for R-BUG2 fault 2 — see the note at the top of the
-      // file. The modulation shape (ruts up, crown down) and the graded > worn
-      // > light ordering are unchanged; only the floor each surface starts
-      // from moved, from 0.54/0.20/0.08 to 0.54/0.38/0.28. The faintest
-      // surface now bottoms out at 0.24 rather than 0.04.
-      const body = graded
-        ? 0.54 + ruts * 0.25 - crown * 0.08
-        : light ? 0.28 + ruts * 0.54 - crown * 0.04
-          : 0.38 + ruts * 0.55 - crown * 0.08;
-      image.data[i + 3] = Math.round(255 * edge * Math.max(0, Math.min(MAX_ALPHA, body)));
-    }
-  }
-  ctx.putImageData(image, 0, 0);
+  canvas.width = GRIT_TILE_PX;
+  canvas.height = GRIT_TILE_PX;
+  canvas.getContext('2d').putImageData(new ImageData(data, GRIT_TILE_PX, GRIT_TILE_PX), 0, 0);
   const texture = new THREE.CanvasTexture(canvas);
-  texture.name = `street-${surface}`;
-  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.name = 'street-grit';
+  texture.colorSpace = THREE.NoColorSpace;
+  texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
-  texture.colorSpace = THREE.SRGBColorSpace;
   texture.magFilter = THREE.LinearFilter;
   texture.minFilter = THREE.LinearMipmapLinearFilter;
   texture.anisotropy = 4;
-  return texture;
+  let sum = 0;
+  for (let i = 0; i < data.length; i += 4) sum += data[i];
+  return { texture, mean: sum / (data.length / 4) / 255 };
 }
 
-function meshOf(surface, buf, confidence, aidUniform) {
+function linearTone(rgb) {
+  return new THREE.Color().setRGB(...rgb.map((v) => v / 255), THREE.SRGBColorSpace);
+}
+
+const ROAD_VERTEX = /* glsl */`
+  vRoad = _road;
+  vRoadUv = uv;
+  vRoadWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;
+`;
+
+/**
+ * T-1811 — the worked roadway, per fragment. No texture fetch but the grit:
+ * the coarse scales are value noise in the street's own frame (u across, metres
+ * along), so a lane runs WITH the street on every bearing — the T-1797 mask was
+ * axis-aligned only because its strip was.
+ *
+ *   lanes     anisotropic, 11 x 1.3 m then 4 x 0.55 m cells: many overlapping
+ *             irregular tracks, wandering off the centreline over ~23 m
+ *   coverage  1 across the core; the shoulders give way to grass as CLUMPS
+ *             (0.6-2 m) once a jittered ramp passes each clump's own value, and
+ *             a light street keeps grass between its lanes too
+ *   wet       7-18 m patches, only where wear has broken the sod: muck-dark,
+ *             smoother, the grit's relief levelled
+ *   tone      the lane / between-lane pair x the grit's grain, x a 35 m tone
+ *
+ * (No backticks in here: a JS template literal.)
+ */
+const ROAD_FRAGMENT = /* glsl */`
+  vec2 chiEN = vec2(vRoadWorld.x, -vRoadWorld.z);
+  float chiW = vRoad.x;
+  float chiCore = vRoad.y;
+  float chiInt = vRoad.z;
+  float chiSeed = vRoad.w * 97.0;
+  float chiAlong = vRoadUv.y;
+  float chiX = vRoadUv.x - 0.5;
+  float chiAcross = chiX * chiW;
+  float chiWander = (chiNoise(vec2(chiAlong / 23.0 + chiSeed, 0.5)) - 0.5) * 0.22;
+  float chiA = abs(chiX * 2.0);
+  float chiAw = abs((chiX - chiWander) * 2.0);
+  float chiLanes = 0.6 * chiNoise(vec2(chiAlong / 11.0 + chiSeed * 1.3, chiAcross / 1.3))
+                 + 0.4 * chiNoise(vec2(chiAlong / 4.0 + chiSeed * 2.1, chiAcross / 0.55));
+  float chiCentre = 1.0 - smoothstep(chiCore * 0.6, 1.05, chiAw);
+  float chiWear = clamp(chiCentre * (0.35 + 0.85 * chiLanes), 0.0, 1.0);
+  float chiClump = chiNoise(chiEN / 1.1 + chiSeed * 0.37);
+  float chiJit = (chiNoise(vec2(chiAlong / 6.0 + chiSeed * 3.7, 2.5)) - 0.5) * 0.20
+               + (chiNoise(vec2(chiAlong / 1.7 + chiSeed, 9.5)) - 0.5) * 0.08;
+  float chiShoulder = smoothstep(chiCore + chiJit, 1.0 + chiJit * 0.4, chiA);
+  float chiGrass = smoothstep(chiClump - 0.14, chiClump + 0.14, chiShoulder * 1.12);
+  // A light street keeps sod wherever its lanes have not reached: grass
+  // islands strung along the street between the worn ways.
+  float chiSodIsle = chiNoise(vec2(chiAlong / 7.0 + chiSeed * 4.9, chiAcross / 0.9));
+  float chiBetween = (1.0 - chiInt) * 1.8
+                   * smoothstep(0.42, 0.62, chiSodIsle * 0.75 + chiClump * 0.25 - chiLanes * 0.35 + 0.15);
+  float chiCover = (1.0 - chiGrass) * (1.0 - min(chiBetween, 1.0));
+  // Ruts: narrow wheel-cut lines that run WITH the street and wander, many of
+  // them and never the same two — 9 m along by 0.3 m across, cut where the
+  // field crests, deepest where wear is.
+  float chiRutF = chiNoise(vec2(chiAlong / 9.0 + chiSeed * 5.3, chiAcross / 0.32));
+  float chiRut = smoothstep(0.70, 0.86, chiRutF) * smoothstep(0.3, 0.8, chiWear);
+  float chiWet = smoothstep(0.66, 0.80, 0.65 * chiNoise(chiEN / 8.0 + chiSeed * 0.11)
+                                     + 0.35 * chiNoise(chiEN / 2.6 + 3.1))
+               * smoothstep(0.45, 0.85, chiWear);
+  vec4 chiGrit = texture2D(uGrit, chiEN / uGritM);
+  float chiGrain = chiGrit.r / max(uGritMean, 1e-6);
+  float chiBroad = 0.93 + 0.14 * chiNoise(chiEN / 35.0 + chiSeed * 0.07);
+  vec3 chiDirt = mix(uDirtRest, uDirtLane, smoothstep(0.30, 0.80, chiWear)) * chiBroad;
+  chiDirt = mix(chiDirt, uSod, 0.55 * chiShoulder);
+  chiDirt *= 1.0 - 0.18 * chiRut;
+  chiDirt = mix(chiDirt, uMud, 0.7 * chiWet);
+  diffuseColor.rgb = min(chiDirt * mix(1.0, chiGrain, mix(0.65, 0.2, chiWet)), vec3(1.0));
+  diffuseColor.a = chiCover;
+  float chiRough = mix(0.97 - 0.06 * chiWear, 0.55, chiWet);
+`;
+
+const ROAD_NORMAL = /* glsl */`
+  // The grit's relief in a world tangent frame (east, north, up), as T-1797's
+  // strip does: full on dry dirt, levelled where it is wet.
+  vec2 chiXY = (chiGrit.gb * 2.0 - 1.0) * mix(1.0, 0.2, chiWet);
+  vec3 chiTn = normalize(vec3(chiXY, 1.0));
+  vec3 chiEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
+  vec3 chiT = normalize(chiEastV - normal * dot(chiEastV, normal));
+  vec3 chiB = cross(normal, chiT);
+  normal = normalize(chiT * chiTn.x + chiB * chiTn.y + normal * chiTn.z);
+`;
+
+const ROAD_HEAD = /* glsl */`
+varying vec4 vRoad;
+varying vec2 vRoadUv;
+varying vec3 vRoadWorld;
+uniform sampler2D uGrit;
+uniform float uGritM;
+uniform float uGritMean;
+uniform vec3 uDirtLane;
+uniform vec3 uDirtRest;
+uniform vec3 uMud;
+uniform vec3 uSod;
+float chiHash(vec2 p) {
+  vec3 q = fract(vec3(p.xyx) * 0.1031);
+  q += dot(q, q.yzx + 33.33);
+  return fract((q.x + q.y) * q.z);
+}
+float chiNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(chiHash(i), chiHash(i + vec2(1.0, 0.0)), u.x),
+             mix(chiHash(i + vec2(0.0, 1.0)), chiHash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+`;
+
+function meshOf(surface, buf, confidence, aidUniform, grit) {
   if (!buf.idx.length) return null;
   const geo = new THREE.BufferGeometry();
   geo.name = `streets-${surface}`;
@@ -838,17 +1150,26 @@ function meshOf(surface, buf, confidence, aidUniform) {
   // below, which paints the track rather than deciding the road.
   geo.setAttribute('_trackConfidence',
     new THREE.Float32BufferAttribute(buf.track, 1));
+  // T-1811. Worked width, core share, wear intensity, seed — per street.
+  geo.setAttribute('_road', new THREE.Float32BufferAttribute(buf.road, 4));
   geo.setIndex(buf.idx);
   geo.computeVertexNormals();
-  const map = roadTexture(surface);
+  const tones = DIRT_TONES[surface] ?? DIRT_TONES.worn_earth;
   const mat = new THREE.MeshStandardMaterial({
-    map,
     transparent: true,
     alphaTest: 0.025,
     depthWrite: false,
     roughness: 1,
     metalness: 0,
     side: THREE.DoubleSide,
+    // T-1812. A transparent double-sided material is drawn in TWO passes by
+    // default — every back-facing triangle, then every front-facing one — so
+    // the renderer submitted the whole layer twice and the frame budget paid
+    // for it twice, though each triangle is rasterised in only one of the two.
+    // One pass draws the same triangles with the same lighting (the shader
+    // flips a back face's normal itself); only the blend order of the joint
+    // fans' overlaps can differ, and they are one surface over itself.
+    forceSinglePass: true,
     polygonOffset: true,
     // R-BUG2 fault 1. -1/-1 is a fraction of a depth unit and the terrain won
     // the test in patches beyond ~250 m. Deep enough to hold at the far end of
@@ -879,6 +1200,21 @@ function meshOf(surface, buf, confidence, aidUniform) {
   const graded = Boolean(confidence);
   mat.onBeforeCompile = (shader) => {
     shader.uniforms.uRoadAid = aidUniform;
+    Object.assign(shader.uniforms, {
+      uGrit: { value: grit.texture },
+      uGritM: { value: GRIT_TILE_M },
+      uGritMean: { value: grit.mean },
+      uDirtLane: { value: linearTone(tones.lane) },
+      uDirtRest: { value: linearTone(tones.rest) },
+      uMud: { value: linearTone(MUD_TONE) },
+      uSod: { value: linearTone(SOD_TONE) },
+    });
+    shader.vertexShader = `attribute vec4 _road;
+varying vec4 vRoad;
+varying vec2 vRoadUv;
+varying vec3 vRoadWorld;
+${shader.vertexShader}`.replace('#include <begin_vertex>',
+      `#include <begin_vertex>${ROAD_VERTEX}`);
     if (graded) {
       shader.vertexShader = `attribute float _trackConfidence;
 varying float vTrackConfidence;
@@ -894,11 +1230,14 @@ ${shader.vertexShader}`.replace(
       );
     }
     shader.fragmentShader = `uniform float uRoadAid;
-${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmentShader}`.replace(
+${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmentShader}`
+      .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = chiRough;')
+      .replace('#include <normal_fragment_maps>', ROAD_NORMAL)
+      .replace(
       '#include <map_fragment>',
-      `#include <map_fragment>
+      `${ROAD_FRAGMENT}
       {
-        float trackPx = 1.0 / max(fwidth(vMapUv.x), 1e-6);
+        float trackPx = 1.0 / max(fwidth(vRoadUv.x), 1e-6);
         float thin = clamp(${MIN_TRACK_PX.toFixed(1)} / trackPx, 1.0, ${MAX_THIN_BOOST.toFixed(1)});
         diffuseColor.a = min(diffuseColor.a * thin, ${MAX_ALPHA.toFixed(2)});
         // R-BUG3. Distance from the eye, not a pixel count: the band this
@@ -932,6 +1271,14 @@ ${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmentShader}`.re
         diffuseColor.a = min(
           diffuseColor.a * mix(1.0, ${AID_GAIN.toFixed(4)}, uRoadAid),
           mix(${MAX_ALPHA.toFixed(2)}, 1.0, uRoadAid));
+        // T-1811. The worked road is opaque, so scaling alpha alone left the
+        // aid moving almost nothing (the smoke read a 0.02 mean cell change at
+        // the crossing, against 0.15). It now does what it is for on an opaque
+        // road: fills the core's sod islands and lifts the dirt's lightness away
+        // from the grass by up to ${AID_LIFT * 100}%. Both are x uRoadAid, so the
+        // default frame is untouched.
+        diffuseColor.a = max(diffuseColor.a, uRoadAid * (1.0 - chiShoulder));
+        diffuseColor.rgb = min(diffuseColor.rgb * (1.0 + ${AID_LIFT.toFixed(2)} * uRoadAid), vec3(1.0));
       }`,
     );
   };
@@ -941,7 +1288,7 @@ ${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmentShader}`.re
   mesh.receiveShadow = true;
   mesh.castShadow = false;
   mesh.renderOrder = 0;
-  return { mesh, geo, mat, map };
+  return { mesh, geo, mat };
 }
 
 export function createStreets({ terrain, records = [], confidence = null } = {}) {
@@ -973,8 +1320,10 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
   // R-A1. One uniform object shared by every surface's material, so the aid
   // cannot end up applied to the graded tracks and not the worn ones.
   const aidUniform = { value: 0 };
+  // T-1811. One grit tile for the whole town, shared by every surface.
+  const grit = buffers.size ? roadGrit() : null;
   for (const [surface, buf] of buffers) {
-    const built = meshOf(surface, buf, confidence, aidUniform);
+    const built = meshOf(surface, buf, confidence, aidUniform, grit);
     if (!built) continue;
     group.add(built.mesh);
     resources.push(built);
@@ -1056,8 +1405,8 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
       for (const r of resources) {
         r.geo.dispose();
         r.mat.dispose();
-        r.map.dispose();
       }
+      grit?.texture.dispose();
     },
   };
 }

@@ -514,6 +514,50 @@ def smoothstep(t):
     return t * t * (3.0 - 2.0 * t)
 
 
+def street_lines(streets, ss):
+    """The opened streets the section grades, each with its class's numbers.
+
+    A street is graded where streets.js paints a worked road: `opened` not false
+    and a recorded track wider than nothing. Its line is the one streets.js
+    draws — `drawn_track_local_enu_m` where the record carries one, else the
+    platted `path_local_enu_m` — and its worked half-width is the class's
+    `worked_share` of the corridor, never narrower than the recorded track.
+    """
+    classes = {c["traffic"]: c for c in ss["classes"]}
+    out = []
+    for raw in streets.get("streets", []):
+        if raw.get("opened") is False or float(raw.get("track_width_m", 6) or 0) <= 0:
+            continue
+        cls = classes.get(raw.get("traffic"), classes.get("light"))
+        line = raw.get("drawn_track_local_enu_m") or raw.get("path_local_enu_m") or []
+        if len(line) < 2:
+            continue
+        corridor = float(raw.get("corridor_width_m", 24.384))
+        track = float(raw.get("track_width_m", 6))
+        half = 0.5 * max(track, float(cls["worked_share"]) * corridor)
+        out.append({
+            "id": raw["id"], "traffic": cls["traffic"],
+            "line": [(float(p[0]), float(p[1])) for p in line],
+            "half_m": half, "inset_m": min(float(cls["gutter_inset_m"]), half),
+            "crown_ft": float(cls["crown_depth_ft"]),
+            "gutter_ft": float(cls["gutter_depth_ft"]),
+        })
+    return out
+
+
+def section_depth_ft(d, half, inset, crown_ft, gutter_ft):
+    """How far below the shelf the roadbed lies at `d` metres from the line.
+
+    A parabolic crown from `crown_ft` on the line to `gutter_ft` at the gutter,
+    `inset` inside the worked edge; from the gutter a straight rise to nothing
+    at the edge; nothing beyond it.
+    """
+    g = max(half - inset, 1e-9)
+    crown = crown_ft + (gutter_ft - crown_ft) * np.clip(d / g, 0.0, 1.0) ** 2
+    rise = gutter_ft * np.clip((half - d) / max(inset, 1e-9), 0.0, 1.0)
+    return np.where(d <= g, crown, np.where(d < half, rise, 0.0))
+
+
 def value_noise(E, N, wavelength, seed):
     """Two-dimensional value noise with smoothstep interpolation. Deterministic
     from `seed`; no dependency on any RNG's stream order."""
@@ -556,7 +600,7 @@ def profile(E, knots):
     return np.interp(E, xs, ys)
 
 
-def build_field(spec, feats, origin):
+def build_field(spec, feats, origin, streets=None):
     """Returns (h_m, conf, water_mask, meta, geom) on the spec's grid.
 
     h_m[row][col], row 0 = SOUTH edge, col 0 = WEST edge — the layout
@@ -997,6 +1041,112 @@ def build_field(spec, feats, origin):
     t_bank = np.clip(d_land / face, 0.0, 1.0)
     ramp = 1.0 - (1.0 - t_bank) ** 2
     h_ft = np.where(water, depth_ft, (level_ft + micro) * ramp)
+
+    # ---- the lakefront dunes (T-1824) -------------------------------------
+    # Dossier zone 5: "the white sand hills both to the north and south" of the
+    # fort, scattered hummocks 50-150 ft across with +10 to +14 ft local peaks.
+    # Their existence is the source's; no source places one, so every ridge,
+    # hollow and hummock below is RECONSTRUCTED and marked conjectural. They are
+    # measured inland from the LAKE's edge, read per row off the water mask
+    # (the easternmost land in the row, then a running median and mean so the
+    # crest line follows the shore and not each cell of it) — not from d_land,
+    # which also counts the river's banks. Each reach states its own northing
+    # range, so the fort, the mouth, the bar and the harbour works between them
+    # keep the ground they had, and a reach may stop short of a platted street
+    # on its west side and keep clear of a building that stands inside it.
+    dune_ft = np.zeros(E.shape)
+    row_n = N[:, 0]
+    for du in spec.get("dunes", []):
+        n_lo, n_hi = [float(v) for v in du["n_range"]]
+        fade = float(du["end_fade_m"])
+        rws = np.where((row_n >= n_lo) & (row_n <= n_hi))[0]
+        if not rws.size:
+            continue
+        edge = np.full(rows, np.nan)
+        for r in rws:
+            land_cols = np.where(~water[r])[0]
+            if land_cols.size:
+                edge[r] = E[r, land_cols.max()]
+        span = 20
+        med = np.array([np.nanmedian(edge[max(0, r - span):r + span + 1]) for r in rws])
+        k = 8
+        pad = np.pad(med, k, mode="edge")
+        sm = np.convolve(pad, np.ones(2 * k + 1) / (2 * k + 1), mode="valid")
+        seed = int(du["seed"])
+        sub_E, sub_N = E[rws], N[rws]
+        s = sm[:, None] - sub_E
+        wander = float(du["wander_m"]) * value_noise(
+            np.zeros(sub_N.shape), sub_N, float(du["wander_wavelength_m"]), seed + 11)
+        hl = float(du["hummock_wavelength_m"])
+        field = np.zeros(sub_E.shape)
+        for i, (c_m, ht_ft, hw_m) in enumerate(du["ridges"]):
+            t = np.clip((s - float(c_m) - wander) / float(hw_m), -1.0, 1.0)
+            bump = 0.5 + 0.5 * np.cos(np.pi * t)
+            hum = smoothstep(0.75 * value_noise(sub_E, sub_N, hl, seed + 101 * i) + 0.6)
+            field += float(ht_ft) * bump * hum
+        c_m, dp_ft, hw_m = du["hollow"]
+        t = np.clip((s - float(c_m) - wander) / float(hw_m), -1.0, 1.0)
+        blow = smoothstep(0.9 * value_noise(sub_E, sub_N, 1.4 * hl, seed + 307) + 0.3)
+        field -= float(dp_ft) * (0.5 + 0.5 * np.cos(np.pi * t)) * blow
+        w = smoothstep((sub_N - n_lo) / fade) * smoothstep((n_hi - sub_N) / fade)
+        if du.get("west_limit_e_m") is not None:
+            w = w * smoothstep((sub_E - float(du["west_limit_e_m"]))
+                               / float(du["west_fade_m"]))
+        # Off the beach: the bank face is the beach, and it stays the beach.
+        w = w * smoothstep((d_land[rws] - face[rws]) / 8.0)
+        for kc in du.get("keep_clear", []):
+            rr = np.hypot(sub_E - float(kc["e"]), sub_N - float(kc["n"]))
+            w = w * smoothstep((rr - float(kc["flat_m"]))
+                               / max(1e-9, float(kc["outer_m"]) - float(kc["flat_m"])))
+        dune_ft[rws] += np.where(water[rws], 0.0, field * w)
+    h_ft = h_ft + dune_ft
+    if np.any(dune_ft):
+        band["dunes"] = (np.abs(dune_ft) > 0.02) & ~water
+        conj_land |= band["dunes"]
+
+    # ---- the graded street section (T-1812) --------------------------------
+    # The worked roadway is lowered below the ground its walks stand on. The
+    # walks, and the shelf and doors beside them, keep the plain's own height;
+    # inside the worked width the bed is crowned at the line streets.js draws and
+    # deepest in a gutter `gutter_inset_m` inside each shoulder, rising to the
+    # shelf across that inset and reaching it `shelf_clear_m` inside the worked
+    # edge, so no lowered sample reaches the walk. Streets combine by the deeper cut, so a crossing
+    # is one surface. It runs before the approaches, whose max()/min() then
+    # still meet every deck exactly as authored. A structure standing inside a
+    # worked width keeps its ground (`keep_clear`). Every depth is the spec's
+    # (L338); the width is streets.js's WORKED_SHARE, held equal to the spec's
+    # `worked_share` by tools/check_street_section.py.
+    ss = spec.get("street_sections")
+    if ss and streets:
+        cut_ft = np.zeros(E.shape)
+        clear = float(ss.get("shelf_clear_m", 0.0))
+        for st in street_lines(streets, ss):
+            pts, inset = st["line"], st["inset_m"]
+            half = max(st["half_m"] - clear, 2.0 * inset)
+            es = [p[0] for p in pts]
+            ns = [p[1] for p in pts]
+            c0 = max(0, int((min(es) - half - e0) // cell))
+            c1 = min(cols, int((max(es) + half - e0) // cell) + 2)
+            r0 = max(0, int((min(ns) - half - n0) // cell))
+            r1 = min(rows, int((max(ns) + half - n0) // cell) + 2)
+            if c0 >= c1 or r0 >= r1:
+                continue
+            sub_E, sub_N = E[r0:r1, c0:c1], N[r0:r1, c0:c1]
+            d = seg_distance(sub_E, sub_N, pts)
+            cut_ft[r0:r1, c0:c1] = np.maximum(
+                cut_ft[r0:r1, c0:c1],
+                section_depth_ft(d, half, inset, st["crown_ft"], st["gutter_ft"]))
+        for kc in ss.get("keep_clear", []):
+            rr = np.hypot(E - float(kc["e"]), N - float(kc["n"]))
+            cut_ft = cut_ft * smoothstep((rr - float(kc["flat_m"]))
+                                         / max(1e-9, float(kc["outer_m"]) - float(kc["flat_m"])))
+        floor_ft = float(ss["water_floor_ft"])
+        cut_to = np.maximum(h_ft - cut_ft, np.minimum(h_ft, floor_ft))
+        graded = (~water) & (cut_ft > 0.0)
+        before = h_ft
+        h_ft = np.where(graded, cut_to, h_ft)
+        band["street_section"] = graded & (np.abs(h_ft - before) > 1e-6)
+        conj_land |= band["street_section"]
 
     # ---- bridge approach earthworks (T-0046) ------------------------------
     # Every bridge deck ends on the traced waterline, where the bank ramp above
@@ -1612,7 +1762,10 @@ def main() -> int:
             feats[f["id"]] = f
     origin = (datum["origin_utm_e"], datum["origin_utm_n"])
 
-    h_m, conf, water, meta, geom = build_field(spec, feats, origin)
+    streets = None
+    if spec.get("street_sections"):
+        streets = load(ROOT / spec["street_sections"]["streets_file"])
+    h_m, conf, water, meta, geom = build_field(spec, feats, origin, streets)
     audit = gradient_audit(h_m, water, geom, spec)
     audit["rule"] = ("docs/research/01-terrain-hydrology.md modelling rule 1: outside the zones "
                      "that earn relief, hold local gradients under 0.5 ft per 300 ft")

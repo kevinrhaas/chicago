@@ -19,7 +19,7 @@
     },
     {
       "label": "Measured relief",
-      "text": "Land in the modelled box runs -3.556 to 12.285 ft above the water surface, and the channel floor reaches -17.405 ft below it. Measured from the committed heightfield, not asserted."
+      "text": "Land in the modelled box runs -3.556 to 13.884 ft above the water surface, and the channel floor reaches -17.405 ft below it. Measured from the committed heightfield, not asserted."
     },
     {
       "label": "Where the ground stops on the south",
@@ -1452,6 +1452,188 @@
       ]
     },
     {
+      "id": "dunes.north_lake_dunes",
+      "group": "the lakefront sand hills",
+      "label": "The sand hills north of the harbour, between Sand Street and the lake",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "n_range",
+          "value": [
+            440.0,
+            920.0
+          ]
+        },
+        {
+          "key": "end_fade_m",
+          "value": 60.0
+        },
+        {
+          "key": "west_limit_e_m",
+          "value": 1293.0
+        },
+        {
+          "key": "west_fade_m",
+          "value": 14.0
+        },
+        {
+          "key": "hollow",
+          "value": [
+            46.0,
+            1.1,
+            8.0
+          ]
+        },
+        {
+          "key": "wander_m",
+          "value": 7.0
+        },
+        {
+          "key": "wander_wavelength_m",
+          "value": 160.0
+        },
+        {
+          "key": "hummock_wavelength_m",
+          "value": 42.0
+        },
+        {
+          "key": "seed",
+          "value": 18350821
+        },
+        {
+          "key": "dossier_zone",
+          "value": 5,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "citations": [
+        {
+          "source_id": "chicagology_prefire274",
+          "citation": "\"Fort Dearborn I.\" Chicagology, transcribing Chicago Magazine, March 1857, with a Whistler plan of 1808, a Kinzie-supplied view of the first fort, and a 1902 Lawrence C. Earle mural.",
+          "url": "https://chicagology.com/prefire/prefire274/",
+          "archived_url": "https://web.archive.org/web/20260308050246/https://chicagology.com/prefire/prefire274/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Chicago Magazine, 'Fort Dearborn I' — the account of the first fort and of the site it stood on, printed under its own attribution line and illustrated with a view 'through the kindness of Mrs. J. H. Kinzie, who furnished the sketch'",
+              "date": "1857-03",
+              "tier": 2,
+              "note": "Carries the landform this project's e1830_natural and e1834_harbor_cut epochs cite: the flattened mound half-surrounded by the river, standing 'as high as any other point'; the white sand hills north and south; and the long low sandy barrier ridge that deflected the river south 'for nearly half a mile' before the cut. Recollection of ground within the writer's own and his informants' memory, twenty-odd years after: the same rung as the May installment, on the same serial's method. Its 1803-1812 narrative is compilation, is not recollection, and is cited by nothing here."
+            }
+          ],
+          "what_it_supplies": [
+            "the fort platform as a landform — a flattened mound, curved river on three sides, as high as any other point in the quadrant",
+            "the sandy barrier ridge between the deflected river and the lake, running south nearly half a mile",
+            "the white sand hills north and south of the river mouth",
+            "that the old southward channel's mouth was choked by sand bars, obstructing the smallest sail vessels"
+          ],
+          "what_it_does_not_supply": [
+            "the fort of 1835 — this installment stops at the 1812 massacre and the fort it describes is the FIRST fort, demolished that year",
+            "any dimension, plan or outline of either fort; the Whistler 1808 plan is reproduced as a picture and is not read here",
+            "a usable date for the harbour cut: it says 1838, against Andreas's works of 1833-34, and Andreas is followed",
+            "any elevation in feet — 'as high as any other point' is a comparison, not a measurement, and the modelled box's total relief is 4.30 ft"
+          ]
+        }
+      ],
+      "notes": [
+        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. NORTH REACH: from N +440, clear of the main stem's north bank and the north pier's root, to N +920, where the traced shore turns west across the addition's shore-cut blocks and Sand Street's corridor runs out into the lake. Between Sand Street and the lake the strip is 50-60 m deep, so this reach carries a foredune and one low back ridge and no more. Its west limit is the east edge of the unopened Sand Street corridor (E +1278.8 + 11.1 m, with a 3 m margin), so the platted ground of Kinzie's Addition is untouched; the sand hills stand where Wright draws the shore-cut blocks."
+      ]
+    },
+    {
+      "id": "dunes.south_lake_dunes",
+      "group": "the lakefront sand hills",
+      "label": "The sand hills south of the fort, along the lake beyond the old channel",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "n_range",
+          "value": [
+            -2120.0,
+            -700.0
+          ]
+        },
+        {
+          "key": "end_fade_m",
+          "value": 90.0
+        },
+        {
+          "key": "hollow",
+          "value": [
+            70.0,
+            1.6,
+            12.0
+          ]
+        },
+        {
+          "key": "wander_m",
+          "value": 9.0
+        },
+        {
+          "key": "wander_wavelength_m",
+          "value": 190.0
+        },
+        {
+          "key": "hummock_wavelength_m",
+          "value": 46.0
+        },
+        {
+          "key": "seed",
+          "value": 18350822
+        },
+        {
+          "key": "keep_clear",
+          "value": []
+        },
+        {
+          "key": "dossier_zone",
+          "value": 5,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "chicagology_prefire274"
+      ],
+      "citations": [
+        {
+          "source_id": "chicagology_prefire274",
+          "citation": "\"Fort Dearborn I.\" Chicagology, transcribing Chicago Magazine, March 1857, with a Whistler plan of 1808, a Kinzie-supplied view of the first fort, and a 1902 Lawrence C. Earle mural.",
+          "url": "https://chicagology.com/prefire/prefire274/",
+          "archived_url": "https://web.archive.org/web/20260308050246/https://chicagology.com/prefire/prefire274/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Chicago Magazine, 'Fort Dearborn I' — the account of the first fort and of the site it stood on, printed under its own attribution line and illustrated with a view 'through the kindness of Mrs. J. H. Kinzie, who furnished the sketch'",
+              "date": "1857-03",
+              "tier": 2,
+              "note": "Carries the landform this project's e1830_natural and e1834_harbor_cut epochs cite: the flattened mound half-surrounded by the river, standing 'as high as any other point'; the white sand hills north and south; and the long low sandy barrier ridge that deflected the river south 'for nearly half a mile' before the cut. Recollection of ground within the writer's own and his informants' memory, twenty-odd years after: the same rung as the May installment, on the same serial's method. Its 1803-1812 narrative is compilation, is not recollection, and is cited by nothing here."
+            }
+          ],
+          "what_it_supplies": [
+            "the fort platform as a landform — a flattened mound, curved river on three sides, as high as any other point in the quadrant",
+            "the sandy barrier ridge between the deflected river and the lake, running south nearly half a mile",
+            "the white sand hills north and south of the river mouth",
+            "that the old southward channel's mouth was choked by sand bars, obstructing the smallest sail vessels"
+          ],
+          "what_it_does_not_supply": [
+            "the fort of 1835 — this installment stops at the 1812 massacre and the fort it describes is the FIRST fort, demolished that year",
+            "any dimension, plan or outline of either fort; the Whistler 1808 plan is reproduced as a picture and is not read here",
+            "a usable date for the harbour cut: it says 1838, against Andreas's works of 1833-34, and Andreas is followed",
+            "any elevation in feet — 'as high as any other point' is a comparison, not a measurement, and the modelled box's total relief is 4.30 ft"
+          ]
+        }
+      ],
+      "notes": [
+        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. SOUTH REACH: from N -700, south of where the old southward channel loses itself in the lake (north of it the lake's edge is the bar and the channel's west bank, and the 1839 Fort Dearborn Addition plat makes the strip beside the reservation 'at best a low sandbar' — CPL, dossier zone 5), to N -2120, inside evidence_limit at Twelfth Street, so no dune is carried into the conjectural frame. No structure stands within 300 m of the lake on this reach."
+      ]
+    },
+    {
       "id": "micro_relief",
       "group": "the surface texture",
       "label": "micro_relief",
@@ -1822,7 +2004,7 @@
   "not_modelled": [
     {
       "dossier_zone": 5,
-      "why": "the 'white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. Inventing hummocks in the quadrant where Fort Dearborn and the Beaubien houses stand would put relief under buildings on no evidence at all."
+      "why": "MODELLED SINCE T-1824, on the owner's request (T-1772/T-1820), and kept here so the old reason stays readable: 'the white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. That is still true, which is why `dunes` is graded reconstructed and every vertex it touches is conjectural. What the old reason guarded is kept: the quadrant where Fort Dearborn and the Beaubien houses stand carries no hummock — the reaches stop at N +440 and N -700 — and the one building inside a reach (kelsey_boarding_house) is held clear of them."
     },
     {
       "dossier_zone": 15,

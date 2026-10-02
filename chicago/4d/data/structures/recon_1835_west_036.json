@@ -130,6 +130,14 @@
     ],
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the W5 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
   },
+  "occupants": {
+    "value": "No household of its own — a heavy timber work shed on the Randolph road, where frames were cut for the West Division's new houses",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1782; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The W5 line of the family crosswalk: heavy timber and rough boards, an open work bay and timber piles. Of the line's three uses — sawmill, boat repair, riverside shop — the first two need the river and this roof stands on blk_west_randolph_des_plaines, three streets back from the South Branch, so the use stated is the third read as a framing shop: the kind of work the dwellings of the cluster it stands in would have called on. No keeper is named: none of the households the deals seat in this cluster or the next (recon_1835_west_026 to 045) has a trade on its card for 1835, and this file names nobody. The platted deal OFFERED this roof and nobody could take it: the only clause admitting W5, heavy_and_noxious_trades, seats on `ground:branch`, which no platted lot draws, and the two heads that clause holds are South and North Division. With the use stated the deal holds it back instead (roofs_held_back), which changes no seat. The roof's own existence, position and footprint remain the invention they were."
+  },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "W5",
@@ -138,9 +146,16 @@
     "programme_phase": "phase2_west_wolf_point_approaches",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 36,
-    "finish_key": "fresh_timber",
-    "roof_condition": "weathered",
-    "age_state": "recent"
+    "finish_key": "mixed_patch",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-W",
+      "class": "works",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a patched roof — a riverside shop, from the 1832–33 town (rule F-W: a tradesman's shop by its type)"
+    }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

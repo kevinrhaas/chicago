@@ -1796,7 +1796,8 @@ for (const [label, viewport, touch] of [
         // authored). Re-deriving from the plat would count panels the module
         // never emitted and turn an authored track into a false failure here.
         for (const rec of a.streets.records) {
-          const half = (rec.track_width_m ?? 10.5) * 0.5;
+          // T-1811. The module draws the WORKED width, not the track alone.
+          const half = (rec.drawn_width_m ?? rec.track_width_m ?? 10.5) * 0.5;
           const line = rec.drawn ?? rec.path;
           const pts = [];
           for (let i = 1; i < line.length; i++) {
@@ -1965,6 +1966,10 @@ for (const [label, viewport, touch] of [
         let jointStations = 0;
         for (const rec of a.streets.records) {
           const line = rec.drawn ?? rec.path;
+          // T-1811. The joint stations stay on the RECORDED track — the core the
+          // module never narrows but at the waterline. Past it the worked
+          // shoulders stop where a fill's flank falls away, so a station there
+          // asks a question about ground the road does not claim.
           const half = (rec.track_width_m ?? 6) * 0.5;
           for (let i = 1; i < line.length - 1; i++) {
             const [A, P, B] = [line[i - 1], line[i], line[i + 1]];
@@ -3572,7 +3577,15 @@ for (const [label, viewport, touch] of [
       // kilometre would otherwise have drawn in every frame, behind the camera
       // included (T-0115 item 2). So everything below reads the chunks together:
       // the geometry is still one buffer's worth of contract, in several pieces.
-      const meshes = (y?.group?.children ?? []).filter((m) => m.isMesh);
+      // T-1805 integration gate: earlier stands can leave lazy T-0146 far
+      // batches beside their source chunks (64 chunks + 4 cached batches on
+      // desktop). As in the frontage census below, measure the source geometry
+      // once; the far-merge gate separately proves identical triangles and
+      // fewer calls. The 64-chunk ceiling still applies to every real chunk.
+      const meshes = (y?.group?.children ?? [])
+        .filter((m) => m.isMesh && !m.userData?.farMerged);
+      const merged = (y?.group?.children ?? [])
+        .filter((m) => m.isMesh && m.userData?.farMerged);
       const geos = meshes.map((m) => m.geometry).filter(Boolean);
       const frontages = y?.frontages ?? [];
       const wagons = y?.wagons ?? [];
@@ -3786,12 +3799,13 @@ for (const [label, viewport, touch] of [
       return {
         census: y?.census ?? null,
         meshes: meshes.length,
+        mergedNames: merged.map((m) => m.name),
         // One material across every chunk, which is what makes the chunking a
         // CULLING decision rather than a second layer.
-        materials: new Set(meshes.map((m) => m.material?.uuid)).size,
+        materials: new Set([...meshes, ...merged].map((m) => m.material?.uuid)).size,
         // And every chunk has to carry its own bounding sphere, or the frustum
         // has nothing to test and the split bought nothing at all.
-        bounded: geos.every((geo) => !!geo.boundingSphere),
+        bounded: [...meshes, ...merged].every((m) => !!m.geometry?.boundingSphere),
         // T-0065. The marks ride on the ONE material as a canvas atlas, so what
         // has to hold is that the material carries a map at all, that every
         // chunk carries the uv to read it with, and that no uv leaves the sheet
@@ -3902,9 +3916,11 @@ for (const [label, viewport, touch] of [
     // must still hold, and is the whole reason chunking is cheap: ONE material
     // across every chunk, and every chunk carrying its own bounding sphere.
     check(`${label}: the yard layer chunks for culling on a single material`,
-      goods.meshes > 1 && goods.meshes <= 64 && goods.materials === 1
-        && goods.bounded,
-      `${goods.meshes} chunk mesh(es), ${goods.materials} material(s), `
+      goods.meshes > 1 && goods.meshes <= 64 && goods.meshes === goods.census?.chunks
+        && goods.materials === 1 && goods.bounded
+        && goods.mergedNames.every((name) => name === 'yard-far-merge'),
+      `${goods.meshes} chunk mesh(es) (census ${goods.census?.chunks}), `
+      + `${goods.mergedNames.length} cached far batch(es), ${goods.materials} material(s), `
       + `bounding spheres ${goods.bounded ? 'on every chunk' : 'MISSING on one'}`);
     // T-0065. Every cask and every case carries a mark the record dealt it — a
     // stencilled commodity, the house's brand, or a shipping mark — and the
@@ -4175,7 +4191,10 @@ for (const [label, viewport, touch] of [
     const clashes = await page.evaluate(() => {
       const a = window.__chicago4d;
       const wagons = (a.yard?.wagons ?? []).filter((w) => w.stands_on || w.in_enclosure);
-      const walks = a.frontage?.keepOut ?? [];
+      // T-1813 — less the wagon aprons: an apron is the plank a dray draws up on
+      // at a forwarding house's door, so a wagon standing on one is the fitting
+      // doing its work, not a wagon on a footway. Stoops, blocks and rails stay in.
+      const walks = (a.frontage?.keepOut ?? []).filter((k) => !k.id.endsWith('__apron'));
       const inPoly = (pts, e, n) => {
         let inside = false;
         for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
@@ -4410,6 +4429,30 @@ for (const [label, viewport, touch] of [
         }
         return false;
       };
+      // THE BUSINESS-FRONT FITTINGS ARE NOT DECK (T-1813). A stoop's landing
+      // stands 0.38 m over its ground, a mounting block 0.46 m and a tie rail's
+      // rail 0.93 to 1.03 m, so they are measured against their own records
+      // below — the way the posts are measured against their own ground — and
+      // their own footprints are left out of the deck's band, as the fence lines
+      // are. A footprint is the part's own box, a hand's breadth (0.01 m) wider.
+      const fitParts = [];
+      for (const q of f?.fittings ?? []) {
+        const b = ((q.facade_bearing_deg ?? 0) * Math.PI) / 180;
+        for (const p of q.parts ?? []) {
+          fitParts.push({ id: q.id, part: p.part, e: p.at_local_enu_m[0], n: p.at_local_enu_m[1],
+            ae: Math.cos(b), an: -Math.sin(b), oe: Math.sin(b), on: Math.cos(b),
+            hl: p.len_m / 2 + 0.01, hd: p.depth_m / 2 + 0.01, top: p.top_m,
+            r: Math.hypot(p.len_m / 2, p.depth_m / 2) + 0.02 });
+        }
+      }
+      const inPart = (fp, e, n) => {
+        const de = e - fp.e;
+        const dn = n - fp.n;
+        if (Math.abs(de) > fp.r || Math.abs(dn) > fp.r) return false;
+        return Math.abs(de * fp.ae + dn * fp.an) <= fp.hl
+          && Math.abs(de * fp.oe + dn * fp.on) <= fp.hd;
+      };
+      const onFitting = (e, n) => fitParts.some((fp) => inPart(fp, e, n));
       const reliefAt = (e, n) => {
         const g0 = terrain.surfaceHeight(e, n);
         let lo = g0;
@@ -4458,7 +4501,7 @@ for (const [label, viewport, touch] of [
           const deck = deckAt(e, n);
           const base = deck === null ? ground
             : (Number.isFinite(ground) ? Math.max(ground, deck) : deck);
-          if (Number.isFinite(base) && !onFence(e, n)) {
+          if (Number.isFinite(base) && !onFence(e, n) && !onFitting(e, n)) {
             const d = y - base;
             highest = Math.max(highest, d);
             // The deck: everything under a metre. The post and its board are
@@ -4673,10 +4716,35 @@ for (const [label, viewport, touch] of [
           timberOrder: timber[0].order,
         };
       })();
+      // T-1813 — each business-front fitting, PART BY PART: the vertices of the
+      // layer's timber inside the part's own footprint, and the highest of them
+      // over the ground at the part's centre. A part the record carries and the
+      // layer never drew reads zero; one that fell through to a post's branch
+      // would stand far taller than any stoop, block or rail.
+      const fittings = (f?.fittings ?? []).map((q) => {
+        const mine = fitParts.filter((fp) => fp.id === q.id);
+        const parts = mine.map((fp) => {
+          const stand = terrain.surfaceHeight(fp.e, fp.n);
+          let found = 0;
+          let top = -Infinity;
+          for (const t of timber) {
+            const pos = t.geometry?.getAttribute('position');
+            if (!pos) continue;
+            for (let i = 0; i < pos.count; i++) {
+              if (!inPart(fp, pos.getX(i), -pos.getZ(i))) continue;
+              found += 1;
+              top = Math.max(top, pos.getY(i) - stand);
+            }
+          }
+          return { part: fp.part, found, top, recorded: fp.top };
+        });
+        return { id: q.id, kind: q.kind, parts };
+      });
       return {
         edge,
         decal,
         hitching,
+        fittings,
         recordIds: (f?.records ?? []).map((r) => r.id),
         noBoardHere: (f?.records ?? []).find((r) => r.id === 'sauganash_frontage')
           ?.board_on_a_post?.value ?? null,
@@ -4870,8 +4938,16 @@ for (const [label, viewport, touch] of [
       // the three adjoining pairs earn three more along its south side: 39 -> 46.
       // These are authored ID-set deltas, not a fit to the smoke's output.
       // docs/measurements/T-1752-frontage-census.md records the commits and clauses.
-      frontage.census?.records === 5 && frontage.census?.walks === 51
-        && frontage.census?.crossings === 46
+      // T-1814 — the walk dealt by business: the smith's bare front cuts Lake's
+      // blk_lake_dearborn north run in two (+1 walk) and three forwarding houses
+      // front a decked walk (+3), 51 to 55; refusals 113 to 117, the bare front
+      // stated and the three warehouse fronts with no walk to widen.
+      // T-1823 — the walk by business carried to the new fronts: five fronts-only
+      // runs (the Western Hotel, four West Division stores) and the freight house's
+      // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
+      // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
+      frontage.census?.records === 5 && frontage.census?.walks === 61
+        && frontage.census?.crossings === 47
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -4926,7 +5002,11 @@ for (const [label, viewport, touch] of [
         // and Canal, so its three north/south fences cease to have fronting lots.
         // Four improved Washington faces each earn one fence: 31-3+4=32.
         // Their reconstructed residential trades earn no new hitching posts.
-        && frontage.census?.posts === 18 && frontage.census?.fences === 32
+        // T-1813 — the street edge is dealt by business: a reconstructed trade
+        // takes its post at its own tier (+25), an inn stands two (+5), 18 + 30.
+        // T-1823 — the fronts-only faces: the Western Hotel's two and three West
+        // Division stores' one each, 48 to 53. A fronts-only face takes no fence.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 32
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -4994,7 +5074,10 @@ for (const [label, viewport, touch] of [
         // Wells trades its block refusal for the too-wide Wells-Clark gap (0).
         // La Salle removes its block refusal AND that intervening gap (-2).
         // Franklin removes its own block refusal (-1): 121-1+2+0-2-1=119.
-        && frontage.census?.refused === 119
+        // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
+        // post) and states 18 new ones — fittings and posts the rule could not lay,
+        // each naming its clause: 119-24+18=113.
+        && frontage.census?.refused === 128
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5173,8 +5256,13 @@ for (const [label, viewport, touch] of [
     // crossings reuse those chunks and fences reuse existing street chunks.
     // Independently: 43 named walk chunks + 10 river segments + 4 standing-street
     // chunks + the shared mesh = 58, plus the same optional lettering.
+    // T-1814 — the smith's bare front splits one Lake run in two: 44 named walk
+    // chunks, 59. The decked walks ride their run's own chunk and add none.
+    // T-1823 — five fronts-only runs name their own chunk (+5) and their posts and
+    // fittings share ONE standing mesh of their own (+1), 65; the crossing over
+    // Canal rides the Randolph run's chunk.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 59 : 58)
+      frontage.authored === (frontage.census?.lettered === 1 ? 66 : 65)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5271,9 +5359,18 @@ for (const [label, viewport, touch] of [
     // from all 25 aims — to the same traveller's ground as the reading above,
     // looking down onto the deck. The assertion itself does not move: twenty-five
     // aims across the crosshair, and the layer's own pick must name the inn.
+    //
+    // T-1955 — AND THE AIM MOVES WITH THE GROUND THE STAND IS ON. T-1812 graded
+    // Lake Street, and the stand is in its bed: the ground there fell from 1.00 m
+    // to 0.83 m while the walk at N -96.4 to -98.2 kept its 0.99 m. From the
+    // lower eye, pitch -6 put the 390x780 grid's rows 5.3 m and 13.7 m out — one
+    // short of the 1.8 m deck at 6.7 m, the next past it — and all 25 aims
+    // returned nothing although the deck stood at the screen's centre. Pitch -12
+    // lays the crosshair's own row on the deck from this eye in both viewports
+    // (measured: 5 of 25 aims name the inn on each; -10 still misses on mobile).
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -6 }));
+      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -12 }));
     await page.waitForTimeout(600);
     const frontagePick = await page.evaluate(() => {
       const a = window.__chicago4d;
@@ -5349,11 +5446,19 @@ for (const [label, viewport, touch] of [
     // school and no source reached says what it was. The hitching rule accepts a
     // frontage by its TRADE, so the post retires with it. The street-edge
     // population is sixteen; the two on a record's own ground do not move.
-    check(`${label}: the eighteen hitching posts stand on their own ground, carrying nothing`,
-      frontage.hitching.length === 18
-        && frontage.census?.hitching === 18
+    // T-1813 makes it FORTY-EIGHT, and none is a building arriving: the street
+    // edge is dealt by business. A reconstructed trade takes its post at its own
+    // tier (+25 — clause 3 of the old rule refused them), and an inn stands two
+    // posts at the thirds of its front, as the Sauganash does (+5). The
+    // street-edge population is forty-six; the two on a record's own ground do
+    // not move.
+    // T-1823 makes it FIFTY-THREE: the fronts-only faces beyond the covered
+    // streets stand the Western Hotel's two posts and three stores' one each.
+    check(`${label}: the fifty-three hitching posts stand on their own ground, carrying nothing`,
+      frontage.hitching.length === 53
+        && frontage.census?.hitching === 53
         && frontage.hitching.filter((h) => !h.street).length === 2
-        && frontage.hitching.filter((h) => h.street).length === 16
+        && frontage.hitching.filter((h) => h.street).length === 51
         && postsBad.length === 0
         // T-1580 — the clause this carried was `lettered === 1`, and what it is
         // FOR is that none of these eighteen is the boarded post: the layer's
@@ -5372,6 +5477,33 @@ for (const [label, viewport, touch] of [
       + ` — ${frontage.census?.lettered} board(s) lettered in the layer on `
       + `${frontage.signPosts} sign post(s), `
       + `record says a board on a post here: ${frontage.noBoardHere}`);
+    // THE STREET EDGE BY BUSINESS (T-1813). Every fitting the record deals — a
+    // stoop at a store's or an inn's door, a mounting block at an inn, a tie rail
+    // at a works, a wagon apron at a forwarding house — is drawn, at its own
+    // stand, no taller than a tie rail's 1.07 m. The counts are exact for the
+    // same reason the posts' are: a fitting appearing or vanishing is worth
+    // failing over, and a run that moves one updates them here.
+    const fitKinds = frontage.census?.fittingKinds ?? {};
+    // A part is good when it was drawn and its highest vertex stands within its
+    // recorded top, give or take what the ground does under it: the top is
+    // taken over the HIGHEST corner and the reading is from the centre, so a
+    // slope lifts it a little, and nothing may sink under its record or stand
+    // more than 0.25 m over it.
+    const fitBad = (frontage.fittings ?? []).filter((q) => !(q.parts.length > 0
+      && q.parts.every((p) => p.found > 0 && p.top >= p.recorded - 0.02
+        && p.top <= p.recorded + 0.25)));
+    // T-1823 — the Western Hotel's mounting block and the West Water freight
+    // house's wagon apron, 46 to 48.
+    check(`${label}: the forty-eight business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 48 && (frontage.fittings ?? []).length === 48
+        && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
+        && fitKinds.wagon_apron === 4 && fitKinds.tie_rail === 1
+        && fitBad.length === 0,
+      `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
+      + `${fitBad.length} bad: `
+      + fitBad.slice(0, 6).map((q) => `${q.id} [` + q.parts.map((p) => `${p.part} `
+        + `${p.found} vert, top ${p.top?.toFixed(2)}/${p.recorded} m`).join(', ') + ']')
+        .join(' | '));
 
     // AND IT READS FROM THE STREET, the same bar the Green Tree's frontage is
     // held to: stand on Lake Street where a traveller coming up to the hotel
@@ -5386,9 +5518,62 @@ for (const [label, viewport, touch] of [
     const saugWithout = await page.evaluate(() => window.__chicago4d.capture());
     await page.evaluate(() => { window.__chicago4d.frontage.group.visible = true; });
     const dSaug = signatureDistance(saugWith, saugWithout);
+    // T-1800 — AND IT IS READ IN COLOUR, because the walks stopped being white.
+    // `capture()` signs a frame by LUMINANCE per cell, and the walks used to be
+    // drawn in the signboard's tone (L* 78.7), so on prairie grass they were a
+    // bright band and luminance alone saw them. They are weathered grey-brown
+    // timber now (L320), about as light as the lit grass beside them, and differ
+    // from it in HUE — which is what a visitor sees and what this reading could
+    // not: the same frame read 0.19 mean / 6 worst by luminance. So the same
+    // 12 x 12 cells are taken from a screenshot with the chrome hidden, and a
+    // cell's difference is its largest per-channel change. The bar is NOT
+    // moved — worst >= 6 and mean >= 0.3, as before — and the luminance reading
+    // is still printed beside it.
+    const colourCells = async () => {
+      const png = decodePng(await page.screenshot({ type: 'png' }));
+      const G = 12;
+      const sums = new Float64Array(G * G * 3);
+      const counts = new Uint32Array(G * G);
+      for (let y = 0; y < png.height; y += 2) {
+        const row = Math.min(G - 1, (y * G / png.height) | 0);
+        for (let x = 0; x < png.width; x += 2) {
+          const c = row * G + Math.min(G - 1, (x * G / png.width) | 0);
+          const i = (y * png.width + x) * 4;
+          sums[c * 3] += png.data[i];
+          sums[c * 3 + 1] += png.data[i + 1];
+          sums[c * 3 + 2] += png.data[i + 2];
+          counts[c] += 1;
+        }
+      }
+      return Array.from(counts, (k, c) => [0, 1, 2].map((ch) => sums[c * 3 + ch] / (k || 1)));
+    };
+    const hideChrome = await page.evaluate(() => {
+      const st = document.createElement('style');
+      st.id = 'smoke-t1800-chrome';
+      st.textContent = 'body > *:not(#view) { visibility: hidden !important; }';
+      document.head.appendChild(st);
+      return st.id;
+    });
+    await page.waitForTimeout(300);
+    const saugRgbWith = await colourCells();
+    await page.evaluate(() => { window.__chicago4d.frontage.group.visible = false; });
+    await page.waitForTimeout(300);
+    const saugRgbWithout = await colourCells();
+    await page.evaluate((id) => {
+      window.__chicago4d.frontage.group.visible = true;
+      document.getElementById(id)?.remove();
+    }, hideChrome);
+    const rgbDiffs = saugRgbWith.map((a, c) => Math.round(Math.max(
+      ...a.map((v, ch) => Math.abs(v - saugRgbWithout[c][ch])))));
+    const dSaugRgb = {
+      mean: rgbDiffs.reduce((x, y) => x + y, 0) / (rgbDiffs.length || 1),
+      worst: Math.max(0, ...rgbDiffs),
+    };
     check(`${label}: the Sauganash's walks and posts reach the screen from Lake Street`,
-      dSaug.worst >= 6 && dSaug.mean >= 0.3,
-      `cell delta mean ${dSaug.mean?.toFixed(2)}, worst ${dSaug.worst} (need worst>=6)`);
+      dSaugRgb.worst >= 6 && dSaugRgb.mean >= 0.3,
+      `colour cell delta mean ${dSaugRgb.mean.toFixed(2)}, worst ${dSaugRgb.worst} `
+      + `(need worst>=6, mean>=0.3); luminance alone ${dSaug.mean?.toFixed(2)}, `
+      + `worst ${dSaug.worst}`);
 
     // A walk is the thing a visitor is standing ON when they reach this corner,
     // so aiming at it has to open the hotel. Asked of the LAYER for the same
@@ -5662,7 +5847,9 @@ for (const [label, viewport, touch] of [
       // answers rather than a field the generator wrote about itself.
       const track = { checked: 0, inTrack: 0, worstVerge: Infinity, worst: null };
       for (const w of walks) {
-        if (w.kind !== 'plank_walk') continue;   // a crossing crosses, by design
+        // A crossing crosses, by design; a forwarding house's decked walk (T-1814)
+        // is a walk and is held to the same verge.
+        if (w.kind !== 'plank_walk' && w.kind !== 'decked_walk') continue;
         const street = (a.streets?.records ?? []).find((r) => r.id === w.street);
         if (!street) continue;
         const line = w.centreline_local_enu_m;
@@ -5717,9 +5904,53 @@ for (const [label, viewport, touch] of [
           if (a.flora.stationOf(e, n, sp) !== null) floor.speciesHits += 1;
         }
       }
+      // ---- THE WALK DEALT BY BUSINESS (T-1814). Stand on the middle of each
+      // forwarding house's decked walk — the strip laid on the board walk's
+      // street side — and the boot must be on planks; stand in the gap the walk
+      // leaves at the smith's front on Lake Street and it must be on the ground.
+      const deckedRecs = (rec?.walks ?? []).filter((w) => w.kind === 'decked_walk');
+      const deckedDrawn = walks.filter((w) => w.kind === 'decked_walk');
+      const onDeck = deckedDrawn.filter((w) => {
+        const [[ae, an], [be, bn]] = w.centreline_local_enu_m;
+        const e = (ae + be) / 2;
+        const n = (an + bn) / 2;
+        a.walker.teleport({ local_e: e, local_n: n, yaw_deg: 90 });
+        return a.walker.state.groundY - a.terrain.walkHeight(e, n) > 0.04;
+      }).length;
+      const w1 = walks.find((w) => w.id === 'blk_lake_dearborn_north_walk_1');
+      const w2 = walks.find((w) => w.id === 'blk_lake_dearborn_north_walk_2');
+      let bareLift = null;
+      let bareGap = null;
+      if (w1 && w2) {
+        const [ge, gn] = w1.centreline_local_enu_m.at(-1);
+        const [he, hn] = w2.centreline_local_enu_m[0];
+        const e = (ge + he) / 2;
+        const n = (gn + hn) / 2;
+        a.walker.teleport({ local_e: e, local_n: n, yaw_deg: 90 });
+        bareLift = a.walker.state.groundY - a.terrain.walkHeight(e, n);
+        bareGap = Math.hypot(he - ge, hn - gn);
+      }
+      // …and nothing is planted on the bare front: the layer hands the planting
+      // its patch, as it does each walk's deck.
+      const bareKept = (f?.keepOut ?? []).filter((k) => k.id === 'town_street_edge__bare').length;
+      // T-1823 — and the fronts-only walks beyond the covered streets: stand on the
+      // middle of each and the boot is on planks.
+      const frontsRecs = (rec?.walks ?? []).filter((w) => (w.note ?? '').includes('LAID FRONTS-ONLY'));
+      const frontsDrawn = walks.filter((w) => (w.note ?? '').includes('LAID FRONTS-ONLY'));
+      const frontsOn = frontsDrawn.filter((w) => {
+        const [[ae, an], [be, bn]] = w.centreline_local_enu_m;
+        const e = (ae + be) / 2;
+        const n = (an + bn) / 2;
+        a.walker.teleport({ local_e: e, local_n: n, yaw_deg: 90 });
+        return a.walker.state.groundY - a.terrain.walkHeight(e, n) > 0.04;
+      }).length;
+      const byBusiness = { records: deckedRecs.length, drawn: deckedDrawn.length, onDeck,
+        bareLift, bareGap, bareKept, bareRecs: (rec?.bare_fronts ?? []).length,
+        frontsRecs: frontsRecs.length, frontsDrawn: frontsDrawn.length, frontsOn };
       return {
         hasRecord: !!rec,
         cardId: rec?.card?.id ?? null,
+        byBusiness,
         fences: (rec?.fences ?? []).length,
         faces: rec?.rule?.faces_laid ?? null,
         walkM: rec?.rule?.walk_m ?? null,
@@ -5754,8 +5985,9 @@ for (const [label, viewport, touch] of [
       // T-1752 — Clark, Wells, La Salle and Franklin each add one improved
       // Washington north face under the existing T-1707 rule: 36+4=40.
       // Walk-length, fence and deck floors retain their existing strength.
+      // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 40 && edge.walkM >= 3050 && edge.fences >= 31
+        && edge.faces === 45 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -5763,6 +5995,31 @@ for (const [label, viewport, touch] of [
     // THE ACCEPTANCE CLAUSE, and it is a walking one: stand anywhere along
     // 220 m of Lake Street's north frontage and the boards are under the boot.
     // One sample in the mud is a hole in the sidewalk, so the bar is every one.
+    // T-1814 — THE WALK ITSELF IS DEALT BY BUSINESS. Three forwarding houses front
+    // a decked walk and every one is drawn and stood on; the smith fronts bare
+    // ground, a gap of one march step in the Lake Street walk with the boot on
+    // the mud in the middle of it.
+    check(`${label}: the forwarding houses' decked walks are under the boot, the smith's front is bare`,
+      // T-1823 — the West Water freight house's deck makes four, and two West
+      // Division works front bare ground (the Pierce smithy, a joiner on Randolph).
+      edge.byBusiness.records === 4 && edge.byBusiness.drawn === 4
+        && edge.byBusiness.onDeck === 4
+        && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
+        && edge.byBusiness.bareLift <= 0.04
+        && edge.byBusiness.bareRecs === 3 && edge.byBusiness.bareKept === 3,
+      `${edge.byBusiness.drawn} of ${edge.byBusiness.records} decked walk(s) drawn, `
+      + `${edge.byBusiness.onDeck} stood on; the smith's gap `
+      + `${edge.byBusiness.bareGap?.toFixed(2)} m, lift there `
+      + `${edge.byBusiness.bareLift?.toFixed(3)} m, ${edge.byBusiness.bareKept} of `
+      + `${edge.byBusiness.bareRecs} bare front(s) kept clear of planting`);
+    // T-1823 — THE WALK BY BUSINESS CARRIED TO THE NEW FRONTS. Beyond the covered
+    // streets a face is laid fronts-only; each of its five runs is drawn and the
+    // boot is on planks in the middle of it.
+    check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
+      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
+        && edge.byBusiness.frontsOn === 5,
+      `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
+      + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
       edge.march.missing === 0 && edge.march.samples > 100
         && edge.march.onPlanks === edge.march.samples
@@ -10279,6 +10536,11 @@ for (const [label, viewport, touch] of [
      * building 200 m north of the datum is drawn 400 m from its anchor, which
      * no footprint in this town spans.
      *
+     * Camps name their plot corner, which need not be occupied. T-1805 adds
+     * a stricter independent origin-and-bearing transform check for every
+     * vertex of every structure; camps owe that check instead of a building's
+     * occupied-corner invariant. Other buildings owe both.
+     *
      * TWO THINGS THIS GATE MEASURED ABOUT ITSELF BEFORE IT MEASURED THE TOWN,
      * and both are in `drawn_placement_census.mjs` where the code is:
      *
@@ -10298,7 +10560,8 @@ for (const [label, viewport, touch] of [
     const drawnTown = await page.evaluate(`(${CENSUS.toString()})()`);
     check(`${label}: every building is drawn around the anchor its record gives it`,
       drawnTown.buildings.compared > 200 && drawnTown.buildings.unrecorded === 0
-      && drawnTown.buildings.outside === 0 && drawnTown.buildings.mirrorCloser === 0,
+      && drawnTown.buildings.outside === 0 && drawnTown.buildings.mirrorCloser === 0
+      && drawnTown.buildings.misplaced === 0,
       `${drawnTown.buildings.outside} of ${drawnTown.buildings.compared} structures whose own `
       + `anchor falls outside their drawn footprint — unioned from `
       + `${drawnTown.buildings.instances} instances in ${drawnTown.buildings.batches} batches, `
@@ -10308,7 +10571,10 @@ for (const [label, viewport, touch] of [
         + `${drawnTown.buildings.worstSpan} m)` : '')
       + `; ${drawnTown.buildings.mirrorCloser} nearer to the MIRROR of their anchor`
       + (drawnTown.buildings.worstMirrorId ? ` (${drawnTown.buildings.worstMirrorId})` : '')
-      + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`);
+      + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`
+      + `; ${drawnTown.buildings.misplaced} wrong vertex transforms (worst `
+      + `${drawnTown.buildings.worstTransform.toFixed(6)} m, 0.001 m bar), `
+      + `${drawnTown.buildings.compounds} sparse camp plots`, true);
     check(`${label}: every panel of road is drawn on a street the data records`,
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,
@@ -11281,7 +11547,8 @@ for (const [label, viewport, touch] of [
           spread: Math.max(...before) - Math.min(...before),
         };
       })();
-      return { ...out, station, anchored };
+      return { ...out, station, anchored, heightPx: H, fovDeg: a.camera.fov,
+        eyeHeightM: a.walkBudget.eyeHeight };
     });
     check(`${label}: an open station exists to measure the sward's boundary from`,
       !!seam.station,
@@ -11310,7 +11577,9 @@ for (const [label, viewport, touch] of [
       check(`${label}: the sward's outer boundary is not a constant screen row`,
         s.bins >= 12 && s.spreadPx >= 4,
         `${s.bins}/16 bearing bins from E ${seam.station.e} N ${seam.station.n}, boundary rows `
-        + `spread ${s.spreadPx.toFixed(1)} px, reach ${s.minReach.toFixed(2)}`
+        + `spread ${s.spreadPx.toFixed(2)} px (${seam.heightPx}px buffer, `
+        + `${seam.fovDeg.toFixed(1)}deg field, ${seam.eyeHeightM.toFixed(2)}m eye), `
+        + `reach ${s.minReach.toFixed(2)}`
         + `-${s.maxReach.toFixed(2)} m at ${(s.seen * 100).toFixed(2)}% coverage `
         + `(at the old ${(s.faintAt * 100).toFixed(0)}%: ${s.faint.bins}/16 bins, `
         + `spread ${s.faint.spreadPx.toFixed(1)} px, reach ${s.faint.minReach.toFixed(2)}`
@@ -12891,6 +13160,12 @@ for (const [label, viewport, touch] of [
       const roofs = new Set(idx.businesses
         .filter((b) => b.where?.kind === 'premises' && b.where.structure_id)
         .map((b) => b.where.structure_id));
+      // T-1835: a roof the street-face adoption houses a firm in names it too, so
+      // it is no candidate for the empty card below.
+      const housedRows = idx.businesses.filter((b) => b.where?.kind === 'street_only'
+        && b.where.housed_in?.structure_id && api.registry.has(b.where.housed_in.structure_id));
+      for (const b of housedRows) roofs.add(b.where.housed_in.structure_id);
+      const housedRoof = housedRows.map((b) => b.where.housed_in.structure_id).sort()[0] ?? null;
       return {
         // John Dean Caton holds four of these houses, which is the fact about the
         // town that no card said before this…
@@ -12916,6 +13191,12 @@ for (const [label, viewport, touch] of [
         // …and a roof the register puts no house in must say nothing at all,
         // because an empty Use row is a claim.
         empty: [...api.registry.keys()].find((id) => !roofs.has(id)) ?? null,
+        housed: {
+          roof: housedRoof,
+          ids: housedRows.filter((b) => b.where.housed_in.structure_id === housedRoof)
+            .map((b) => b.id).sort(),
+          count: housedRows.length,
+        },
       };
     });
     const personFirms = await page.evaluate(async () => {
@@ -12985,9 +13266,24 @@ for (const [label, viewport, touch] of [
       out.signLead = document.querySelector('#popup .pop-firms-lead')?.textContent.trim() ?? '';
       api.pick(ids.empty);
       out.empty = document.querySelectorAll('#popup .pop-firm').length;
+      out.housed = { ids: [], lead: '' };
+      if (ids.housed.roof) {
+        api.pick(ids.housed.roof);
+        out.housed.ids = [...document.querySelectorAll('#popup .pop-firm')]
+          .map((c) => c.dataset.business).sort();
+        out.housed.lead = document.querySelector('#popup .pop-firms-lead')?.textContent.trim() ?? '';
+      }
       api.popup.close();
       return out;
     }, wanted);
+    // T-1835: the register firm the paper puts on a street, and the street-face
+    // adoption houses in a roof of it, is named on that roof's card — with the
+    // lead keeping the distance between the paper's street and the town's roof.
+    check(`${label}: a building card names the firm the street-face adoption houses in it`,
+      wanted.housed.count >= 30 && wanted.housed.ids.length >= 1
+      && roofFirms.housed.ids.join(',') === wanted.housed.ids.join(',')
+      && /housed here — the paper names only the street$/i.test(roofFirms.housed.lead),
+      JSON.stringify({ housed: roofFirms.housed, wanted: wanted.housed }));
     check(`${label}: a building card's Use row names the firms the register puts in that roof`,
       roofFirms.onUseRow && roofFirms.ids.length === wanted.roof.length && wanted.roof.length === 3
       && roofFirms.ids.join(',') === wanted.roof.join(',')

@@ -7,10 +7,12 @@
   const plain = value => value == null ? '' : typeof value === 'object' ? JSON.stringify(value) : String(value);
   const array = value => Array.isArray(value) ? value : [];
   const yearNumber = value => value !== null && value !== undefined && /^\d{4}$/.test(String(value)) ? Number(value) : null;
+  // A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
+  const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
   function safeURL(value, local = false) {
     if (!value || typeof value !== 'string') return null;
     if (local && (/^[a-z]+:/i.test(value) || value.startsWith('/') || value.split('/').includes('..'))) return null;
-    try { const url = new URL(local ? '../' + value : value, location.href); return /^https?:$/.test(url.protocol) ? url.href : null; } catch { return null; }
+    try { const url = new URL(local ? packagePath(value) : value, location.href); return /^https?:$/.test(url.protocol) ? url.href : null; } catch { return null; }
   }
   // Where a record's full-resolution original lives, named for the place it links to.
   const originalLabel = url => /archive\.org/.test(url) ? 'Master TIFF · Internet Archive ↗' : /harvard\.edu/.test(url) ? 'Full-resolution original · Harvard ↗' : 'Full-resolution original ↗';
@@ -95,7 +97,8 @@
         b.events.forEach(e => { const item = node('li', typeof e === 'string' ? e : [e.year || e.date || e.date_text,e.type || e.title,e.text || e.description || e.notes].filter(Boolean).map(plain).join(' · ')); if (array(e.source_ids).length) item.append(citations(e.source_ids)); events.append(item); });
         content.append(events);
       }
-      content.append(citations(b.source_ids)); detail.append(summary,content); noteKey(detail, 'building:' + b.id, b.name || b.id); list.append(detail);
+      window.PrairieImages?.decorate(content, b.id, summary);
+      content.append(citations(b.source_ids)); detail.append(summary,content); detail.id = 'building-' + b.id; noteKey(detail, 'building:' + b.id, b.name || b.id); list.append(detail);
     }
     if (!buildings.length) list.append(node('p', 'No matching buildings. Try another search or show all researched buildings.', 'empty'));
   }
@@ -213,12 +216,64 @@
       $('downloadBuildings').disabled = false; $('downloadSources').disabled = false;
       $('downloadBuildings').addEventListener('click',() => downloadCSV('prairie-avenue-buildings.csv',array(data.buildings),['id','name','address','architect','built_year','demolished_year','status_1904','notes','source_ids','events']));
       $('downloadSources').addEventListener('click',() => downloadCSV('prairie-avenue-sources.csv',array(data.sources),['id','title','url','kind','date','notes','local_path','rights_status']));
+      window.PrairieImages?.attach(data);
       initEvidenceLayers(); renderBuildings(); renderMap(); renderSources(); $('loadStatus').textContent = array(data.buildings).length + ' building records · ' + array(data.sources).length + ' sources · ' + array(data.maps).length + ' maps & images';
       // A deep link (#maps, #source-…) was resolved before the content existed; land it now.
+      if (/^#building-/.test(location.hash)) openBuilding(decodeURIComponent(location.hash.slice(10)));
       const target = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (target) requestAnimationFrame(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }));
     } catch (error) { $('loadStatus').textContent = 'The collection could not be loaded. Reload this page or open the Research JSON link below. ' + error.message; }
   }
+  // A building opened from elsewhere (an image's "Shows", the finder): make sure the
+  // filters let it through, then open and scroll to its card.
+  function openBuilding(id) {
+    let card = document.getElementById('building-' + id);
+    if (!card) { $('buildingSearch').value = ''; $('yearFilter').value = 'all'; renderBuildings(); card = document.getElementById('building-' + id); }
+    if (!card) return;
+    card.open = true; card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    card.classList.add('flash'); setTimeout(() => card.classList.remove('flash'), 1600);
+  }
+  addEventListener('prairie:open-building', e => openBuilding(e.detail));
+  addEventListener('hashchange', () => { if (data && /^#building-/.test(location.hash)) openBuilding(decodeURIComponent(location.hash.slice(10))); });
+  addEventListener('prairie:images-ready', () => { if (data) renderBuildings(); });
+  // One box that searches the whole library — buildings, images, sources, frontages and
+  // directory leads — and goes straight to the record.
+  function initFinder() {
+    const input = $('finder'), box = $('finderResults'); if (!input) return;
+    const toggle = $('finderToggle'), bar = $('topbar');
+    toggle?.addEventListener('click', () => { const open = bar.classList.toggle('finder-open'); toggle.setAttribute('aria-expanded', String(open)); if (open) input.focus(); });
+    let hits = [], active = -1;
+    const close = () => { box.hidden = true; input.setAttribute('aria-expanded', 'false'); active = -1; };
+    const go = h => { close(); input.value = ''; h.go(); };
+    const score = (text, terms) => { const t = text.toLowerCase(); let s = 0; for (const term of terms) { const i = t.indexOf(term); if (i < 0) return -1; s += i === 0 ? 3 : /\W/.test(t[i - 1] || ' ') ? 2 : 1; } return s; };
+    function search() {
+      const q = input.value.trim().toLowerCase(); box.replaceChildren(); hits = []; active = -1;
+      if (q.length < 2 || !data) return close();
+      const terms = q.split(/\s+/), add = (group, label, sub, text, go) => { const s = score(text, terms); if (s >= 0) hits.push({ group, label, sub, s, go }); };
+      array(data.buildings).forEach(b => add('Building', b.name || b.id, b.address, [b.name, b.address, b.architect, b.id].map(plain).join(' '), () => openBuilding(b.id)));
+      const images = window.PrairieImages?.all?.() || [];
+      images.forEach(r => add('Image', r.title, [r.date, r.kind, r.repository].filter(Boolean).join(' · '), [r.title, r.creator, r.repository, r.view, r.date, ...(r.addresses || [])].map(plain).join(' '), () => { location.hash = 'image=' + encodeURIComponent(r.id); }));
+      array(data.sources).forEach(s => add('Source', s.title || s.id, [s.kind, s.date].filter(Boolean).join(' · '), [s.title, s.id, s.kind, s.date].map(plain).join(' '), () => { $('sourceSearch').value = ''; $('sourceKind').value = 'all'; renderSources(); document.getElementById('source-' + encodeURIComponent(s.id))?.scrollIntoView({ behavior: 'smooth' }); }));
+      frontageRecords().forEach(r => add('1911 frontage', (r.address || '') + ' ' + (r.street || 'Prairie Avenue'), 'Sheet ' + (r.sheet || '?'), [r.address, r.street, r.map_use_label, r.map_material_interpretation].map(plain).join(' '), () => { $('frontageSearch').value = String(r.address || ''); renderFrontage(); $('frontage').scrollIntoView({ behavior: 'smooth' }); }));
+      array(data.occupancy_candidates).forEach(r => add('Directory', r.listed_people || 'Listing', (r.address || '') + ' · ' + (r.year_label || ''), [r.listed_people, r.address, r.year_label].map(plain).join(' '), () => { $('directorySearch').value = String(r.listed_people || r.address || ''); renderDirectory(); $('directory').scrollIntoView({ behavior: 'smooth' }); }));
+      hits.sort((a, b) => b.s - a.s); hits = hits.slice(0, 14);
+      if (!hits.length) { box.append(node('p', 'Nothing matches “' + input.value.trim() + '”.', 'finder-empty')); }
+      hits.forEach((h, i) => { const b = node('button', null, 'finder-hit'); b.type = 'button'; b.setAttribute('role', 'option'); b.id = 'finder-' + i; b.append(node('span', h.group, 'finder-group'), node('span', h.label, 'finder-label'), node('span', h.sub || '', 'finder-sub')); b.addEventListener('mousedown', e => e.preventDefault()); b.addEventListener('click', () => go(h)); box.append(b); });
+      box.hidden = false; input.setAttribute('aria-expanded', 'true');
+    }
+    const mark = () => box.querySelectorAll('.finder-hit').forEach((b, i) => b.setAttribute('aria-selected', String(i === active)));
+    input.addEventListener('input', search);
+    input.addEventListener('focus', () => { if (input.value.trim().length >= 2) search(); });
+    input.addEventListener('blur', () => setTimeout(() => { close(); if (!input.value) { bar.classList.remove('finder-open'); toggle?.setAttribute('aria-expanded', 'false'); } }, 150));
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown' && hits.length) { e.preventDefault(); active = (active + 1) % hits.length; mark(); }
+      else if (e.key === 'ArrowUp' && hits.length) { e.preventDefault(); active = (active - 1 + hits.length) % hits.length; mark(); }
+      else if (e.key === 'Enter' && hits.length) { e.preventDefault(); go(hits[Math.max(active, 0)]); }
+      else if (e.key === 'Escape') { close(); input.blur(); }
+    });
+    addEventListener('keydown', e => { if (e.key === '/' && !/input|textarea|select/i.test(document.activeElement?.tagName || '') && !document.querySelector('dialog[open]')) { e.preventDefault(); bar.classList.add('finder-open'); input.focus(); } });
+  }
   initTopbar();
+  initFinder();
   init();
 })();

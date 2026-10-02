@@ -90,6 +90,20 @@ WHAT IT REFUSES, each one written rather than quietly taken.
      division is the order book's and this stage may not move it, so which house they
      kept is T-1199's placement question.
 
+  6. A HOUSE THE PLATTED DEAL ALREADY KEEPS IS NOT GIVEN A DRAWN KEEPER (T-1808). The
+     placement pass (`tools/seat_platted_ground_1835.py`) adopts a standing roof for a
+     banded household, and under `lodging_near_the_landings` the household is a keeper
+     and the roof a lodging house: Mark Beaubien's on blk_washington_clark lot 7, Alanson
+     Sweet's on lot 6. This stage used to read keepers off a card's `works_at` alone, so
+     it drew a second keeper for both roofs and two households answered for each. Now the
+     adopted household IS the keeper — documented people displace invented ones, the rule
+     L252 already applies to the beds — and its head takes the bed a drawn keeper would
+     have taken, as a seat (`relationship: keeper`) that writes nothing into the research
+     card. The household's other members stand on the keeper table and take no lodger's
+     bed, as a drawn keeper's children do not. The seat is the deal's and is graded
+     `reconstructed`; no source puts either man in any house on 1 July 1835, and each
+     card still says so.
+
 WHERE THE CARDS LIVE. `data/residents/lodgers/`, beside T-1172's `readmitted/` and
 T-1347's `reconstructed_trades/`, and for the same reason: `data/residents/households/`
 is re-derived by the research mints and `data/residents/index.json` is derived from that
@@ -154,6 +168,7 @@ FAMILIES = RECON / "1835_modelled_families.json"
 TRADE_LEDGER = RECON / "1835_trade_households.json"
 ROOF_RECONCILIATION = RECON / "1835_existing_roof_reconciliation.json"
 LEDGER = RECON / "1835_lodgers_seated.json"
+PLATTED_SEATS = RECON / "1835_platted_seats.json"
 
 STAGE = "lodgers"
 TICKET = "T-1371"
@@ -220,6 +235,11 @@ RELATION = {"boarding_house": "boarder", "inn_tavern": "lodger"}
 
 #: A keeper whose own trade is keeping a house is not seated as somebody else's boarder.
 KEEPER_TRADES = frozenset({"boarding_house_keeper", "tavern_keeper", "hotel_keeper"})
+
+#: The placement clauses whose adopted roof is a lodging house its household KEEPS
+#: (refusal 6, T-1808). A household the deal seats under any other clause lives in its
+#: roof and keeps nothing, so only these are read as keepers.
+KEEPER_CLAUSES = frozenset({"lodging_near_the_landings"})
 
 DIVISIONS = ("south", "north", "west")
 
@@ -434,6 +454,27 @@ def occupancy() -> tuple:
             if works:
                 keeps.setdefault(works, []).append(card)
     return lives, keeps
+
+
+def platted_keepers() -> dict:
+    """structure id -> (seat, card path, card) for every lodging roof the platted deal keeps.
+
+    Refusal 6 (T-1808). Only an ADOPTION under a keeper clause: a `slot` is a request for
+    a roof not yet raised, and a seat under any other clause is somebody living in a
+    house, not keeping one. Read off the deal's committed seats file, which this stage
+    never writes, so nothing here can feed back into the deal that made it.
+    """
+    if not PLATTED_SEATS.exists():
+        return {}
+    out = {}
+    for seat in load(PLATTED_SEATS).get("seats") or []:
+        if seat.get("how") != "adopted" or seat.get("clause") not in KEEPER_CLAUSES:
+            continue
+        path = HOUSEHOLDS / f"{seat['id']}.json"
+        if not seat.get("structure_id") or not path.exists():
+            continue
+        out[seat["structure_id"]] = (seat, path, load(path))
+    return out
 
 
 def solitary_heads() -> list:
@@ -729,7 +770,7 @@ def houses_for(group: str, houses: list) -> list:
     return sorted(pool, key=lambda h: (-(h["beds_ordinary"] - h["occupancy"]), h["id"]))
 
 
-def house_rows(model: dict, lives: dict, keeps: dict) -> list:
+def house_rows(model: dict, lives: dict, keeps: dict, platted: dict | None = None) -> list:
     """One row per BUILT lodging place: its beds, its division, and who is on it already.
 
     The places the model records with no beds — the Lake House, still a building site on
@@ -738,10 +779,25 @@ def house_rows(model: dict, lives: dict, keeps: dict) -> list:
     not have.
     """
     reconciled = committed_districts()
+    platted = platted or {}
     rows = []
     for place in model["places"]:
         residents = lives.get(place["id"], [])
         keepers = keeps.get(place["id"], [])
+        keeper_by = "works_at" if keepers else None
+        # Refusal 6 (T-1808): a roof this programme raised that the platted deal adopted
+        # for a keeper is kept by that household, and no keeper is drawn for it.
+        if not keepers and place["standing"] == RECONSTRUCTED and place["id"] in platted:
+            keepers = [platted[place["id"]][2]]
+            keeper_by = "platted_seat"
+        keeper_head = None
+        if keeper_by == "platted_seat":
+            card = keepers[0]
+            head = next((p for p in card.get("persons") or []
+                         if p.get("id") == card.get("head")), None)
+            if head is not None:
+                keeper_head = {"household": card["id"], "person": head["id"],
+                               "name": head.get("name"), "by": keeper_by}
         district = reconciled.get(place["id"])
         division = place.get("division")
         division_from = "the reconstruction programme's own district for this roof"
@@ -771,6 +827,8 @@ def house_rows(model: dict, lives: dict, keeps: dict) -> list:
             "occupancy": sum(len(c.get("persons") or []) for c in residents),
             "keeper_household": keepers[0]["id"] if keepers else None,
             "keeper_persons": len(keepers[0].get("persons") or []) if keepers else 0,
+            "keeper_by": keeper_by,
+            "keeper_head": keeper_head,
             "seated": [],
             "minted_keeper": None,
             "minted_lodgers": 0,
@@ -842,6 +900,56 @@ def seat_the_solitary(houses: list) -> tuple:
     return seats, refused
 
 
+def seat_the_platted_keepers(houses: list, platted: dict) -> list:
+    """Refusal 6 (T-1808): the head of a household the platted deal keeps a house with.
+
+    One seat per such house, for the card's head only: the head takes the bed a drawn
+    keeper would have taken, and the rest of the household stands on the keeper table,
+    under the same roof and out of the lodgers' beds, as a drawn keeper's children do.
+    """
+    seats = []
+    for house in houses:
+        if house["keeper_by"] != "platted_seat":
+            continue
+        deal, path, card = platted[house["id"]]
+        head = next((p for p in card.get("persons") or []
+                     if p.get("id") == card.get("head")), None)
+        if head is None:
+            continue
+        trade = value_of(head.get("occupation"))
+        house["occupancy"] += 1
+        house["seated"].append(head["id"])
+        seats.append({
+            "person": head["id"],
+            "name": head.get("name"),
+            "household": card["id"],
+            "file": str(path.relative_to(RESIDENTS)),
+            "drawn_solitary_by": None,
+            "drawn_solitary_in_stage": None,
+            "trade": trade,
+            "group": group_of(trade),
+            "place": house["id"],
+            "place_name": house["name"],
+            "relationship": "keeper",
+            "basis": {
+                "kind": "rule",
+                "id": "the_platted_seat_keeps_the_house",
+                "note": f"The placement pass seated this household on this roof under "
+                        f"`{deal['clause']}` (L270), and a household seated there keeps "
+                        f"the house: documented people displace invented ones (L252), so "
+                        f"no keeper is drawn for it (T-1808). No source puts this person "
+                        f"in this or any house on 1 July 1835, and their own card still "
+                        f"says so; the seat is the deal's, at `reconstructed`.",
+            },
+            "replaceable_by": {
+                "kind": "person",
+                "match": "a source that says where this person lived and worked on 1 July "
+                         "1835, or one naming the keeper of this house",
+            },
+        })
+    return seats
+
+
 # ---------------------------------------------------------------- the drawing --
 
 def community_for(slot_seed: str, pool: dict) -> dict:
@@ -891,11 +999,18 @@ def band_block(band: str, seed: str) -> dict:
     }
 
 
-def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: set) -> tuple:
+def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: set,
+             avoid_surnames: frozenset = frozenset()) -> tuple:
     """(person id, full name, community). THE WHOLE POOL IS SEARCHED, not one draw and
     one retry: the draw picks where in the two lists to start and the search steps through
     every (surname, forename) pair from there, taking the first whose full name nobody in
-    the layer bears and whose id nobody holds."""
+    the layer bears and whose id nobody holds.
+
+    `avoid_surnames` (T-1952) holds full names, and a surname any of them ENDS in is
+    skipped. It is for a KEEPER: the keeper's surname is the house's trade
+    style ("Bardwell's boarding house"), so a keeper minted under a surname another
+    minted keeper already bears would put two houses under one name, and the business
+    layer refuses that build. A non-keeper passes nothing and draws exactly as before."""
     community = community_for(slot_id, pool)
     surnames = community["surnames"]
     givens = community["given_male" if sex == "male" else "given_female"]
@@ -903,6 +1018,8 @@ def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: se
     start_g = draw(f"{slot_id}:forename") % len(givens)
     for ds in range(len(surnames)):
         surname = surnames[(start_s + ds) % len(surnames)]
+        if any(name.endswith(" " + surname.lower()) for name in avoid_surnames):
+            continue
         for dg in range(len(givens)):
             given = givens[(start_g + dg) % len(givens)]
             full = f"{given} {surname}"
@@ -915,8 +1032,9 @@ def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: se
 
 def person_card(slot_id: str, sex: str, band: str, bucket_key: str, place: dict,
                 relationship: str, pool: dict, taken_names: set, taken_ids: set,
-                keeper: bool = False) -> dict:
-    pid, full, community = name_for(slot_id, sex, pool, taken_names, taken_ids)
+                keeper: bool = False, avoid_surnames: frozenset = frozenset()) -> dict:
+    pid, full, community = name_for(slot_id, sex, pool, taken_names, taken_ids,
+                                    avoid_surnames)
     taken_names.add(full.lower())
     taken_ids.add(pid)
     person = {
@@ -1184,11 +1302,20 @@ def child_card(slot_id: str, sex: str, bucket_key: str, place: dict, keeper: dic
 
 
 def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
-                    taken_names: set, taken_ids: set) -> tuple:
-    """(child fills, the per-house family rows). Mutates `cards` and `room`.
+                    taken_names: set, taken_ids: set, open_left: dict | None = None,
+                    dealt_before: list | None = None,
+                    live_left: dict | None = None) -> tuple:
+    """(child fills, the per-house family rows). Mutates `cards`, `room` and `open_left`.
 
     Runs AFTER every bed is dealt, so the room a child is ordered out of is what the
     boarders left — one quota ledger, spent once, in one tool.
+
+    T-1782: a child is under the open-order ceiling too (`open_left`, T-1717's, and
+    `live_left`, what the live book still orders once the boarders are drawn), and a
+    house that is not in the committed deal (`dealt_before`) has its children drawn
+    after every house that is. Otherwise a new keeper's children took the last open
+    places in a cell ahead of children already standing in it, or past the re-family
+    arrivals the book already counts there.
     """
     mf = household_model()
     sizes = mf.size_rows()
@@ -1201,7 +1328,10 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
 
     fills = Counter()
     families = []
-    for house in sorted(houses, key=lambda h: h["id"]):
+    committed = set(dealt_before or [])
+    live_left = dict(live_left or {})
+    for house in sorted(houses, key=lambda h: (bool(committed) and h["id"] not in committed,
+                                               h["id"])):
         if not house["minted_keeper"]:
             continue
         card = cards[f"hh_lodging_{house['id']}"]
@@ -1239,7 +1369,8 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
             sex = "male" if unit(f"{slot_id}:sex_ratio") < boy_rate else "female"
             at = (house["division"], sex, CHILD_BAND, "none")
             key, left = room[at]
-            if left <= 0:
+            if left <= 0 or (open_left is not None and (
+                    open_left.get(key, 0) <= 0 or live_left.get(key, 0) <= 0)):
                 refused.append({
                     "child": index,
                     "refusal": "the cell is spent",
@@ -1276,6 +1407,9 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
             drawn.append(child["id"])
             fills[key] += 1
             room[at] = (key, left - 1)
+            if open_left is not None:
+                open_left[key] = open_left.get(key, 0) - 1
+                live_left[key] = live_left.get(key, 0) - 1
 
         house["minted_children"] = len(drawn)
         if drawn:
@@ -1332,6 +1466,15 @@ def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
 
 
 def house_card(place: dict, persons: list, seated: list) -> dict:
+    card = _house_card(place, persons, seated)
+    if place.get("keeper_head"):
+        # Refusal 6 (T-1808). The keeper is not on this card — their own household card
+        # holds them — so the house says who keeps it, for the business layer to adopt.
+        card["lodging_household"]["kept_by"] = place["keeper_head"]
+    return card
+
+
+def _house_card(place: dict, persons: list, seated: list) -> dict:
     keeper = next((p for p in persons if p["relationship"] == "head"), None)
     return {
         "id": f"hh_lodging_{place['id']}",
@@ -1444,13 +1587,23 @@ def house_card(place: dict, persons: list, seated: list) -> dict:
 def fill() -> tuple:
     model = lodging_model()
     lives, keeps = occupancy()
-    houses = house_rows(model, lives, keeps)
+    platted = platted_keepers()
+    houses = house_rows(model, lives, keeps, platted)
     pool = pools()
     all_names, real_names, ids = layer()
     taken_names = set(all_names)
     taken_ids = set(ids)
+    # T-1952. The keepers this stage has already minted (full names, lower-cased, so a
+    # surname of two words is matched whole), in deal order. A
+    # house dealt later may not take one: its keeper's surname is its trade style. Standing
+    # keepers are not listed, because their houses' names are the business layer's own.
+    keeper_surnames: set = set()
 
     seats, seat_refusals = seat_the_solitary(houses)
+    # Refusal 6 (T-1808), AFTER the solitary heads, so every one of them keeps the bed
+    # they had: the platted keeper takes the bed a drawn keeper took, which was dealt
+    # after them too.
+    seats += seat_the_platted_keepers(houses, platted)
     seated_by_house: dict[str, list] = {}
     for seat in seats:
         seated_by_house.setdefault(seat["place"], []).append(seat["person"])
@@ -1527,12 +1680,66 @@ def fill() -> tuple:
         if house["standing"] == RECONSTRUCTED and not house["keeper_household"]:
             weights = [((sex, band), n) for (div, sex, band, axis), (_, n) in sorted(room.items())
                        if div == house["division"] and axis == "trade" and band in ADULT_BANDS and n > 0]
-            if weights:
-                sex, band = pick(f"{STAGE}:{house['id']}:keeper", weights)
+            # T-1809 (of T-1779). A KEEPER PICKED INTO A CELL THE BOOK NO LONGER LEAVES OPEN IS SHED,
+            # and only then. The frozen room is what keeps a re-cut from moving a keeper
+            # already standing, and it can carry a cell the book has since re-cut away:
+            # raising the second boarding house on blk_washington_clark picked its keeper
+            # out of `female/10_19/south/lodging/trade`, which the frozen basis still holds
+            # at 8 and the book no longer carries, and `refuse()` stopped the build. The
+            # pick is taken over the frozen weights exactly as before, so every keeper
+            # whose cell is open — every keeper standing on dev, or the build would already
+            # have been refused — draws the same person. A closed cell is re-picked over
+            # the cells still open on the live book: its order, less the heads the
+            # re-family ledger has landed in it, less what this build has drawn, which is
+            # the arithmetic `build_order_book_1835.py` refuses the book on.
+            def still_open(sex: str, band: str) -> bool:
                 key = room[(house["division"], sex, band, "trade")][0]
+                return (live_by_key.get(key, 0) - arrivals.get(key, 0) - fills[key]) > 0
+            shed = None
+            if weights and not still_open(*pick(f"{STAGE}:{house['id']}:keeper", weights)):
+                shed = [((sex, band), n) for (sex, band), n in weights
+                        if still_open(sex, band)]
+            if weights:
+                sex, band = (pick(f"{STAGE}:{house['id']}:keeper:shed", shed) if shed
+                             else pick(f"{STAGE}:{house['id']}:keeper", weights))
+                key = room[(house["division"], sex, band, "trade")][0]
+                # T-1782: THE KEEPER IS UNDER THE SAME OPEN-ORDER CEILING AS THE BOARDERS.
+                # T-1717 capped the boarders' deal and left this pick on the frozen room
+                # alone, which held only while no new house needed a keeper: when
+                # recon_1835_west_046 was re-dealt to H2 its keeper landed in a West
+                # `10_19/trade` cell the book had already filled, and `refuse()` failed
+                # the build. A pick that lands in a spent cell is re-drawn over the
+                # cells that still have an order, so every keeper already standing in
+                # an open cell keeps the pick it had; with none open, no keeper is
+                # minted and the house says so.
+                def has_order(cell_key: str) -> bool:
+                    return (open_left.get(cell_key, 0) > 0
+                            and fills[cell_key] < live_by_key.get(cell_key, 0))
+
+                if not has_order(key):
+                    still_open = [(cell, n) for cell, n in weights
+                                  if has_order(room[(house["division"], cell[0],
+                                                     cell[1], "trade")][0])]
+                    if still_open:
+                        sex, band = pick(f"{STAGE}:{house['id']}:keeper:open", still_open)
+                        key = room[(house["division"], sex, band, "trade")][0]
+                    else:
+                        refusals.append({
+                            "place": house["id"],
+                            "refusal": "no order left, no keeper",
+                            "note": "Every adult `lodging/trade` cell of the %s division "
+                                    "is filled to what the book orders there, so this "
+                                    "house's keeper is not minted (T-1782). The beds are "
+                                    "still dealt below, under their own ceiling."
+                                    % house["division"],
+                        })
+                        weights = []
+            if weights:
                 slot_id = f"{STAGE}:{house['id']}:keeper:001"
                 persons.append(person_card(slot_id, sex, band, key, house, "head", pool,
-                                           taken_names, taken_ids, keeper=True))
+                                           taken_names, taken_ids, keeper=True,
+                                           avoid_surnames=frozenset(keeper_surnames)))
+                keeper_surnames.add(persons[0]["name"].lower())
                 fills[key] += 1
                 room[(house["division"], sex, band, "trade")] = (
                     key, room[(house["division"], sex, band, "trade")][1] - 1)
@@ -1620,7 +1827,10 @@ def fill() -> tuple:
     # THE KEEPERS' OWN CHILDREN, LAST (T-1533) — after every bed is dealt, so a child is
     # ordered out of the room the boarders left rather than out from under one.
     child_fills, families = keeper_children(cards, houses, room, pool,
-                                            taken_names, taken_ids)
+                                            taken_names, taken_ids, open_left,
+                                            dealt_before,
+                                            {key: n - fills[key]
+                                             for key, n in live_by_key.items()})
 
     ledger = {
         "$schema_note": "DERIVED. Written by tools/seat_lodgers_1835.py --build; "
@@ -1817,6 +2027,11 @@ def keeper_table(houses: list) -> list:
                 owed = ("T-1171 refused this head a drawn family — the eligibility "
                         "refusals are in data/reconstruction/1835_modelled_families.json "
                         "— so the card stands at one person. T-1179 converges it.")
+            if house.get("keeper_by") == "platted_seat":
+                owed = ("Kept by the household the placement pass seated on this roof "
+                        "under a keeper clause (T-1808, refusal 6), so no keeper is drawn "
+                        "for it. Its head takes the keeper's bed; the rest of the card "
+                        "takes no lodger's." + (" " + owed if owed else ""))
         elif house["minted_keeper"]:
             children = int(house.get("minted_children") or 0)
             who, count = house["minted_keeper"], 1 + children

@@ -542,3 +542,20 @@ register) · T-0263, T-0384–T-0387 (the seeding) ·
 T-0375 (South Water's roofs) · T-0440 (the live placement that decides who reaches this
 policy) · T-0338, T-0340, T-0408 (identity) · L205, L212 ·
 `docs/PROVENANCE.md` · `docs/LIBERTIES.md`
+
+### T-1766 — an authored workplace is not spare street-face supply (2026-10-01)
+
+The four Canal approach roofs are commissioned by the explicit allocation in
+`data/reconstruction/1835_canal_approach_occupancy.json`: two grocers, a smith and
+a carpenter already in the resident layer, each with one reconstructed firm.
+Their workplace allocations are upstream of the adoption pass, just as the
+platted household requests are. Refusal 7 reserves these roofs too; otherwise
+regenerating the street-face deal could put a second, unrelated firm in a roof
+that was raised for the first.
+
+The reservation is labelled `workplace`, names its firm and existing keeper, and
+claims no dwelling or residential seat. It reads the authored allocation, never
+compiled business locations or adoption outputs, so it adds no derivation cycle.
+The legacy slot-request counters include both reservation kinds; each ledger row
+states which kind it is. Regression cases put a second business in each of the
+five workplaces and require the independent limits check to refuse it.

@@ -1,6 +1,12 @@
 {
   "id": "phase2_west_wolf_point_approaches",
-  "status": "research_recipe_not_instantiated",
+  "status": "instantiated",
+  "status_restated": {
+    "on": "2026-10-01",
+    "ticket": "T-1826",
+    "was": "research_recipe_not_instantiated",
+    "why": "Every one of the 55 placements stands as a record (recon_1835_west_001 to 055): T-1416 carried the modelled ground to E -705 m and T-1444 released the 35 slots the terrain gate was holding, and tools/reconcile_665.py reads the west_wolf_point_outer unit as complete. The status line was never moved when that happened. Instantiated is not finished: recon_1835_west_046 still stands F1 under the H2 verdict T-1445 returned, which is T-1827's, and nothing about any roof's confidence changes with this line."
+  },
   "target_date": "1835-07-01",
   "district": "west",
   "description": "An initial anonymous 55-roof West Division parcel. It fills the platted approaches west of Wolf Point without duplicating the named taverns, houses, meeting house, bridge, stores, yards, or workshops already represented by structure records.",
@@ -29,31 +35,30 @@
   },
   "inventory_group_totals": {
     "ordinary_dwellings": 39,
-    "larger_boarding_houses": 2,
+    "larger_boarding_houses": 3,
     "stores_mixed_use": 2,
     "inns_taverns": 0,
     "workshops": 1,
-    "warehouses_freight": 1,
+    "warehouses_freight": 0,
     "institutional_public": 0,
     "barns_stables": 7,
     "small_outbuildings": 3
   },
   "family_totals": {
-    "D1": 9,
-    "D2": 6,
-    "D3": 8,
-    "D4": 7,
+    "D1": 13,
+    "D2": 4,
+    "D3": 7,
+    "D4": 6,
     "D5": 5,
     "D6": 3,
     "D7": 1,
     "H1": 1,
-    "H2": 1,
+    "H2": 2,
     "C1": 1,
     "C2": 1,
     "W5": 1,
-    "F1": 1,
-    "A1": 5,
-    "A2": 2,
+    "A1": 4,
+    "A2": 3,
     "A3": 1,
     "A4": 1,
     "A5": 1
@@ -172,6 +177,126 @@
         ],
         "footprint_moved": false,
         "why": "the placement policy refuses this family here — stands on a light street, which mechanics_streets avoids; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_046",
+        "slot": "west_rec_046",
+        "was": "F1",
+        "now": "H2",
+        "was_group": "warehouses_freight",
+        "now_group": "larger_boarding_houses",
+        "was_footprint_ft": [
+          24,
+          44
+        ],
+        "footprint_ft": [
+          24,
+          36
+        ],
+        "footprint_moved": true,
+        "why": "the placement policy refuses this family here — stands 36.63 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands",
+        "ticket": "T-1827",
+        "on": "2026-10-01"
+      },
+      {
+        "id": "recon_1835_west_050",
+        "slot": "west_rec_050",
+        "was": "D2",
+        "now": "D1",
+        "was_group": "ordinary_dwellings",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          14,
+          20
+        ],
+        "footprint_ft": [
+          16,
+          20
+        ],
+        "footprint_moved": true,
+        "why": "the placement policy refuses this family here — fronts no street (its nearest corridor is 86.23 m away, beyond the frontage reach), and labourer_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands",
+        "ticket": "T-1781",
+        "on": "2026-10-01"
+      },
+      {
+        "id": "recon_1835_west_051",
+        "slot": "west_rec_051",
+        "was": "D2",
+        "now": "D1",
+        "was_group": "ordinary_dwellings",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          16,
+          22
+        ],
+        "footprint_ft": [
+          16,
+          22
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — fronts no street (its nearest corridor is 131.25 m away, beyond the frontage reach), and labourer_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands",
+        "ticket": "T-1781",
+        "on": "2026-10-01"
+      },
+      {
+        "id": "recon_1835_west_052",
+        "slot": "west_rec_052",
+        "was": "D3",
+        "now": "D1",
+        "was_group": "ordinary_dwellings",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          18,
+          24
+        ],
+        "footprint_ft": [
+          18,
+          24
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — fronts no street (its nearest corridor is 74.65 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands",
+        "ticket": "T-1781",
+        "on": "2026-10-01"
+      },
+      {
+        "id": "recon_1835_west_053",
+        "slot": "west_rec_053",
+        "was": "D4",
+        "now": "A2",
+        "was_group": "ordinary_dwellings",
+        "now_group": "barns_stables",
+        "was_footprint_ft": [
+          20,
+          28
+        ],
+        "footprint_ft": [
+          20,
+          28
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — fronts no street (its nearest corridor is 137.45 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands",
+        "ticket": "T-1781",
+        "on": "2026-10-01"
+      },
+      {
+        "id": "recon_1835_west_054",
+        "slot": "west_rec_054",
+        "was": "A1",
+        "now": "D1",
+        "was_group": "barns_stables",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          16,
+          24
+        ],
+        "footprint_ft": [
+          16,
+          24
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — fronts no street (its nearest corridor is 97.06 m away, beyond the frontage reach), and ancillary_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands",
+        "ticket": "T-1781",
+        "on": "2026-10-01"
       }
     ]
   },
@@ -323,16 +448,16 @@
     {"id":"west_rec_043","cluster":"w4_clinton_work_fringe","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-548,-134],"footprint_ft":[16,24],"rotation_deg":92,"density_zone":"C"},
     {"id":"west_rec_044","cluster":"w4_clinton_work_fringe","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-494,-214],"footprint_ft":[20,30],"rotation_deg":0,"density_zone":"C"},
     {"id":"west_rec_045","cluster":"w4_clinton_work_fringe","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-552,-220],"footprint_ft":[22,32],"rotation_deg":-2,"density_zone":"C"},
-    {"id":"west_rec_046","cluster":"w4_clinton_work_fringe","family":"F1","inventory_class":"principal_functional","center_local_enu_m":[-514,-304],"footprint_ft":[24,44],"rotation_deg":1,"density_zone":"C"},
+    {"id":"west_rec_046","cluster":"w4_clinton_work_fringe","family":"H2","inventory_class":"principal_functional","center_local_enu_m":[-514,-304],"footprint_ft":[24,36],"rotation_deg":1,"density_zone":"C"},
     {"id":"west_rec_047","cluster":"w4_clinton_work_fringe","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-560,-302],"footprint_ft":[18,28],"rotation_deg":-1,"density_zone":"C","yard_group":"west_rec_046"},
 
     {"id":"west_rec_048","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-588,74],"footprint_ft":[18,22],"rotation_deg":2,"density_zone":"D_edge"},
     {"id":"west_rec_049","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-644,62],"footprint_ft":[16,24],"rotation_deg":-3,"density_zone":"D_edge"},
-    {"id":"west_rec_050","cluster":"w5_desplaines_open_edge","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-604,-58],"footprint_ft":[14,20],"rotation_deg":1,"density_zone":"D_edge"},
-    {"id":"west_rec_051","cluster":"w5_desplaines_open_edge","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-652,-152],"footprint_ft":[16,22],"rotation_deg":-2,"density_zone":"D_edge"},
-    {"id":"west_rec_052","cluster":"w5_desplaines_open_edge","family":"D3","inventory_class":"principal_functional","center_local_enu_m":[-596,-236],"footprint_ft":[18,24],"rotation_deg":3,"density_zone":"D_edge"},
-    {"id":"west_rec_053","cluster":"w5_desplaines_open_edge","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-654,-302],"footprint_ft":[20,28],"rotation_deg":-1,"density_zone":"D_edge"},
-    {"id":"west_rec_054","cluster":"w5_desplaines_open_edge","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-618,-272],"footprint_ft":[16,24],"rotation_deg":2,"density_zone":"D_edge","yard_group":"west_rec_052"},
+    {"id":"west_rec_050","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-604,-58],"footprint_ft":[16,20],"rotation_deg":1,"density_zone":"D_edge"},
+    {"id":"west_rec_051","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-652,-152],"footprint_ft":[16,22],"rotation_deg":-2,"density_zone":"D_edge"},
+    {"id":"west_rec_052","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-596,-236],"footprint_ft":[18,24],"rotation_deg":3,"density_zone":"D_edge"},
+    {"id":"west_rec_053","cluster":"w5_desplaines_open_edge","family":"A2","inventory_class":"principal_functional","center_local_enu_m":[-654,-302],"footprint_ft":[20,28],"rotation_deg":-1,"density_zone":"D_edge"},
+    {"id":"west_rec_054","cluster":"w5_desplaines_open_edge","family":"D1","inventory_class":"ancillary","center_local_enu_m":[-618,-272],"footprint_ft":[16,24],"rotation_deg":2,"density_zone":"D_edge","yard_group":"west_rec_052"},
     {"id":"west_rec_055","cluster":"w5_desplaines_open_edge","family":"A2","inventory_class":"ancillary","center_local_enu_m":[-668,-340],"footprint_ft":[22,36],"rotation_deg":-2,"density_zone":"D_edge","yard_group":"west_rec_053"}
   ]
 }
