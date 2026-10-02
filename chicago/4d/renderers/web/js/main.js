@@ -1139,6 +1139,7 @@ async function boot() {
   await yieldToPaint();
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     preserveMaterials: inspectionLod,
+    lowSpec: coarse,
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
   });
@@ -1701,7 +1702,7 @@ async function boot() {
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
           Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
-            checkpoint: bootCheckpoint, preserveMaterials: true });
+            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
             throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
           }
@@ -2999,6 +3000,8 @@ async function boot() {
         geometries: info.memory.geometries,
         textures: info.memory.textures,
         batches: buildings.batches.length,
+        // T-1963: what the walls were bound with, or `{ off: true }` under ?walls=flat.
+        wallRelief: buildings.wallRelief,
         structures: loaded.registry.size,
         // T-1126 § 4: drawn against indexed. `structures` above counts what the
         // scene was TOLD to place; these two count what it managed to.

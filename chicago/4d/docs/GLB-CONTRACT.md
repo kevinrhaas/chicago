@@ -207,6 +207,27 @@ is no longer a convention nobody promised to keep.
 chimney, by its material name. Those names have no single writer and no pin, and the
 `walk_surface_m` row's argument still stands for every one of them.
 
+### Wall substrates — read from the record (PROPOSED 2026-10-02, T-1963)
+
+The paragraph above refuses a wall's material name as a licence, and this section does not
+overturn it: it proposes the narrow use T-1963 needed and the check that holds it, the
+bilateral way this document requires. `docs/RESEARCH/1835_photographic_fabric_preparation.md`
+§ 5 priced two routes to telling a renderer what a wall is made of. **Route 1**, a
+`wall_material_name()` beside `roof_material_name()` (`wall_clapboard`, `wall_batten`,
+`wall_vertical`), is still the proposal for the generator side. It costs a rebake of every
+framed structure, and it waits for the next parcel that rebakes them anyway. **Route 2** is
+what ships until then:
+
+| thing | convention |
+|---|---|
+| which primitive is the wall | the material named `wall` on the three frame archetypes (written by `frame_dwelling`, `frame_storefront` and `frame_tavern`, one `simple_material("wall", …)` each), and `log` on `log_dwelling`, `outbuilding` and `fort_structure`. A renderer reads these names ONLY together with the record's `archetype`, never on their own, so a `log` on a palisade or a bridge, or a `wall` from any other writer, is not read. |
+| what the wall is made of | the record, through `materials.wall_substrate()`'s own rule: clapboard on a frame dwelling or tavern, and on a storefront unless its `cladding` is `vertical_board` or `board_and_batten`. The finish is `materials.wall_finish()` over `attributes.paint` and `reconstruction.finish_key`. `renderers/web/js/wall-grain.js` is the renderer's copy. |
+| what holds the two in step | `tools/check_wall_relief.py`, a `check.sh` step. It runs `wall-grain.js` under node over every record, compares it with `materials.py` record by record, and checks that every bound record's GLB carries the `wall` material and every GLB `wall` is either bound or named as left flat. |
+| what a renderer must do without it | render the wall. `wall-relief.js` binds relief only where the rule answers, and leaves everything else as it was. |
+
+When route 1 lands, the renderer reads the substrate off the name and this section is
+retired. The check is what makes that change safe, because it can compare the two routes.
+
 ## Compression
 
 | artifact | form | where |

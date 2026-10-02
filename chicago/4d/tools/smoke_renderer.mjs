@@ -666,15 +666,24 @@ const STANDS = [
  * paying once in the colour pass and once in the shadow pass, exactly as the
  * paragraph above predicts. The reach's headroom is 4 calls smaller and its
  * budget is 80.
+ *
+ * **3 -> 5 ON 2026-10-02 (T-1963), the same deliberate edit for the walls.**
+ * `wall-relief.js` binds one shared normal + packed ORL pair to every
+ * clapboarded wall and one to every laid-log wall, so the key splits off ONE
+ * clapboard batch (250 walls) and ONE log batch (105). Measured through
+ * `tools/wall_relief_shots.mjs` with `?walls=flat` against the default, published
+ * mirror: lake_market 189 -> 193 and south_water 173 -> 177 at 1280x800, 83 -> 87
+ * and 80 -> 84 at 390x780, and +4 at every close stand too — the two batches once
+ * in each pass, triangles unchanged to the triangle.
  */
-const STRUCTURE_BATCHES = 3;
+const STRUCTURE_BATCHES = 5;
 /**
  * …and of those three, exactly two are roof coverings — T-1488. The count above
  * would pass identically on a town that had split into three batches by LOSING
  * the merge, which is the failure R-W5a2 wrote it to catch; this says WHICH
  * three, so a regression that re-splits the walls cannot hide behind the raise.
  */
-const TEXTURED_STRUCTURE_BATCHES = 2;
+const TEXTURED_STRUCTURE_BATCHES = 4; // two roof coverings (T-1488) + clapboard and log walls (T-1963)
 /**
  * How many distinct roughness values the merged batch must still carry, and how
  * far the frame must move when they are flattened.
@@ -10083,7 +10092,7 @@ for (const [label, viewport, touch] of [
         textured: bs.filter((b) => b.material?.normalMap).length,
       };
     });
-    check(`${label}: the town is its one untextured batch and its two roof coverings`,
+    check(`${label}: the town is its one untextured batch, its two roof coverings and its two wall substrates`,
       batchCensus.batches === STRUCTURE_BATCHES
         && batchCensus.textured === TEXTURED_STRUCTURE_BATCHES,
       `${batchCensus.batches} structure batch(es), want ${STRUCTURE_BATCHES}, of which `
