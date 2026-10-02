@@ -382,13 +382,18 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # each with its stable and privy — nine more meshes on the same terms; terrain reach still 4
 # and pier_crib still 2.
 #
+# 543 -> 545 and 539 -> 541 on 2026-10-02 (T-1804): the two camps on conjectural ground,
+# the land-sale crowd's on the reservation shore and a wagon party's at the west
+# approach — two more `camp` meshes on the same terms; terrain reach still 4 and
+# pier_crib still 2.
+#
 STATED = {
-    "assets": 543,
+    "assets": 545,
     "restales": {
-        "generators/common/*.py": 543,
+        "generators/common/*.py": 545,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 539,
+        "generators/emit.py": 541,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

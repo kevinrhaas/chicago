@@ -102,7 +102,7 @@
     "open": []
   },
   "occupied": {
-    "structures": 539,
+    "structures": 541,
     "occupied": {
       "attested": 50,
       "inferred": 9,
@@ -111,10 +111,10 @@
     "occupants_in_prose_only": {
       "attested": 9,
       "inferred": 10,
-      "reconstructed": 61
+      "reconstructed": 62
     },
     "use_stated": {
-      "camp_ground": 2,
+      "camp_ground": 3,
       "civic_or_works": 18,
       "outbuilding_of_a_yard": 96,
       "vacant_to_let": 1

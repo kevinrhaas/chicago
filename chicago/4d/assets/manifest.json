@@ -856,6 +856,15 @@
       "phase_id": "shell_1835",
       "structure_id": "lake_house_construction"
     },
+    "land_sale_camp_shore__camp_1835.glb": {
+      "archetype": "camp",
+      "baked_ao": false,
+      "bytes": 206900,
+      "inputs_sha256": "2fce6b7da028d73e98c1544ac2478554b2df4dc4aabbac7db2f06dd069cbfb4e",
+      "kind": "generated",
+      "phase_id": "camp_1835",
+      "structure_id": "land_sale_camp_shore"
+    },
     "landing_camp_east__camp_1835.glb": {
       "archetype": "camp",
       "baked_ao": false,
@@ -4858,6 +4867,15 @@
       "kind": "generated",
       "phase_id": "house_1833",
       "structure_id": "watkins_school_house"
+    },
+    "west_approach_wagon_camp__camp_1835.glb": {
+      "archetype": "camp",
+      "baked_ao": false,
+      "bytes": 111048,
+      "inputs_sha256": "009f9a1d4fd364abf9c22770a0ad77917876d22fb7663c0e48d38bdb05917eae",
+      "kind": "generated",
+      "phase_id": "camp_1835",
+      "structure_id": "west_approach_wagon_camp"
     },
     "western_hotel__frame_1834.glb": {
       "archetype": "frame_tavern",

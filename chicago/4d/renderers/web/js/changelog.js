@@ -1,9 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1306, ts: '2026-10-02T14:32:06.327Z', date: 'Oct 2, 2026, 9:32 AM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
+  { v: null, ts: '', title: 'The river walk sits level on its bank again', kind: 'fix',
     items: [
       'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
       'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
       'Where Clark and La Salle Streets meet the river, their lowered ends are held back from the walk the same way.',
+    ] },
+  { v: 1307, ts: '2026-10-02T15:05:20.551Z', date: 'Oct 2, 2026, 10:05 AM CT', title: 'The town arrives sooner: 2 MB less to download', kind: 'polish',
+    items: [
+      'A first visit now downloads about 2 MB less before you can walk. Every wall, roof and signboard looks exactly as it did.',
+      'The grain on the walls, roofs and signboards now arrives in a smaller image format that keeps every pixel the same.',
+      'These release notes now load when you open this tab, so the dot that says there is something new no longer costs a megabyte.',
+    ] },
+  { v: 1306, ts: '2026-10-02T14:47:42.799Z', date: 'Oct 2, 2026, 9:47 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
+    items: [
+      'Stand at the fort\u2019s south-west corner and look south. Beyond the factor\u2019s house, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
+      'Walk west out of town along Randolph Street, past the last houses beyond Des Plaines Street. Four covered wagons and two small tents stand in a ring on the prairie, an emigrant party stopped for the night.',
+      'Both camps are empty. No figure is drawn, and no fire burns.',
+      'Both are our reconstruction. No source says anybody camped on either spot. The Liberties page (L355) says how we placed and sized them.',
     ] },
   { v: 1305, ts: '2026-10-02T14:18:36.212Z', date: 'Oct 2, 2026, 9:18 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
     items: [
