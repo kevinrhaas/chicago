@@ -177,6 +177,15 @@
     ],
     "note": "NOT AN INN AT THE SCENE DATE, and that is the most important fact this record carries. Miller's tavern competed with the Wolf Point Tavern from 1830, but Wau-Bun, describing 1831, already calls the Miller house 'at this time vacant', Miller having removed to the place that was becoming Michigan City; DRLOIH has the business converted to a store run by P. F. W. Peck after 1832; and a third account has Miller retiring from the field in 1834. The three disagree in their chronology and agree in their direction. Modelled as present and in secondary store or residential use, not innkeeping. The specific claim that Peck was running it does not survive to the scene date either — this project's own exclusions record places Peck in 1835 at his two-storey frame store at South Water and LaSalle."
   },
+  "stated_use": {
+    "value": "occupancy_unattested",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "drloih_hotels"
+    ],
+    "note": "EVERY OCCUPANT ANY SOURCE NAMES BELONGS TO AN EARLIER YEAR. Wau-Bun, describing 1831, calls the Miller house 'at this time vacant', Miller having removed towards Michigan City. DRLOIH has the business turned into a store run by P. F. W. Peck after 1832, and this project's own date guards place Peck in 1835 at his frame store at South Water and LaSalle instead. A third account has Miller leaving the field in 1834. The accounts agree that the house stood past its innkeeping days, in store or residential use. None places a person in it on 1 July 1835. hh_miller_samuel carries no address for the same reason. So the roof states its use and the gap rather than seating a guess."
+  },
   "research_note": "The north-bank half of the pair that made the forks a settlement: Miller's house faced the Wolf Point Tavern across the water, the two were joined by the Miller-Clybourn ferry licensed in 1829, and the first Peoria County tavern licence in the settlement went to Clybourn and Miller jointly. By July 1835 it is the quieter of the two — standing, in store or residential use, past its innkeeping days for at least three years. ITS OCCUPANCY AT THE SCENE DATE IS UNATTESTED and the record deliberately carries no occupants block rather than guessing: the named candidates all belong to earlier years, and this project's own date guards put P. F. W. Peck somewhere else in 1835. THE BANK IS RECORDED AS DISPUTED AND RESOLVED: four independent sources put the house on the north bank on the point between the North Branch and the main stem, one — the hotel chronology — puts it on the south branch, and the licensed ferry route across the North Branch between this house and the Wolf Point Tavern settles it against the outlier. The date of the two-storey addition is disputed, 1827 against 1830, and does not affect the scene. John Miller's separate log house of 1831, used as a tannery and called Chicago's first recorded factory, stood nearby in the same cluster and is not modelled by this record. See docs/RESEARCH/miller_house.md.",
   "review_required": false
 }

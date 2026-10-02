@@ -2506,7 +2506,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
 
         collect(phase)
         for key in ("function", "occupants", "present_status", "lot_address", "land_owner",
-                    "part_of"):
+                    "part_of", "stated_use"):
             collect(st.get(key, {}))
         if st.get("reconstruction", {}).get("source_id"):
             cited.add(st["reconstruction"]["source_id"])
@@ -2584,6 +2584,18 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": st["part_of"]["confidence"],
                 "sources": st["part_of"].get("sources", []),
                 "note": st["part_of"]["note"],
+            }
+
+        # T-1985. WHY NOBODY IS SEATED HERE, where the record says so — a freight shed
+        # whose keeper no source names, a house whose named occupant's card refuses the
+        # seat. The value travels as the reason's id and the card words it; the note is
+        # the argument, and it is the part a visitor asking "who lived here?" needs.
+        if "stated_use" in st:
+            attributes["stated_use"] = {
+                "value": st["stated_use"]["value"],
+                "confidence": st["stated_use"]["confidence"],
+                "sources": st["stated_use"].get("sources", []),
+                "note": st["stated_use"]["note"],
             }
 
         # THE PHASE'S CLAIM ABOUT ITSELF. Every `form` attribute has carried its

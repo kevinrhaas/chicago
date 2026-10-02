@@ -38,12 +38,10 @@ store=json.loads((P/'research/images/STORE.json').read_text()) if (P/'research/i
 img_mb=store.get('bytes',0)/1048576
 require(img_mb<=STORE_BUDGET_MB,f'image store is {img_mb:.1f} MB, over {STORE_BUDGET_MB} MB — add a second store repository (research/images/files/README.md)')
 if img_mb>850:print(f'WARN image store at {img_mb:.1f} of {STORE_BUDGET_MB} MB — plan the second store repository')
-# The retired first store (research/images/files/) is frozen: nothing new may land there.
-retired=P/'research/images/files'
-if (retired/'RETIRED.json').exists():
- frozen=set(json.loads((retired/'RETIRED.json').read_text())['files'])
- extra=sorted(p.name for p in retired.glob('*.jpg') if p.name not in frozen)
- require(not extra,f'{len(extra)} new file(s) in the retired store research/images/files/ (e.g. {extra[:3]}) — images go to kevinrhaas/chicago-images via tools/fetch_image.py')
+# The first store (research/images/files/) was emptied on 2026-10-02 once kevinrhaas/chicago-images was
+# serving: image files live only there now, so none may land here.
+stray=sorted(p.name for p in (P/'research/images/files').glob('*') if p.is_file() and p.name!='README.md') if (P/'research/images/files').exists() else []
+require(not stray,f'{len(stray)} file(s) in research/images/files/ (e.g. {stray[:3]}) — image files go to kevinrhaas/chicago-images via tools/fetch_image.py')
 IMAGE_BUDGET_MB=STORE_BUDGET_MB
 # The image & document index (research/images/README.md): every stream record checked and merged, both outputs current.
 import subprocess,sys
