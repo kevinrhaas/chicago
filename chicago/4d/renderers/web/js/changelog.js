@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
+    items: [
+      'Walk the back lots between Randolph and Washington, west of Clark. In the corner of each yard, by the alley fence, there is now a privy. A hundred and twenty-two houses gained one; the thirty-four that already had a privy keep theirs.',
+      'The privy follows the house. A labourer\u2019s is a small box of rough slabs, a tradesman\u2019s a board privy, and a merchant\u2019s a wider two-seater, whitewashed. Its boards are as weathered as the house\u2019s own.',
+      'Sixteen merchants and teamsters who had no stable now have one in the other corner of the yard: a board-and-batten stable with a pair of doors and a hay loft.',
+      'Seven lots are built back to the alley and have no room for a privy. No wells were added, because in 1835 the town drank lake water sold from carts.',
+      'No source places any of these privies or stables. The Liberties page (L351) says how each was sized and placed.',
+    ] },
   { v: 1300, ts: '2026-10-02T12:00:26.932Z', date: 'Oct 2, 2026, 7:00 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
     items: [
       'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',

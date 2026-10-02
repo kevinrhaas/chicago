@@ -451,10 +451,16 @@ STRUCTURE_TICKETS = {
     # half that would still owe. It is not read while the bands stand.
     ("south", "warehouses_freight"): "T-1673",
     ("south", "institutional_public"): "T-1202",
-    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies are
+    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies were
     # T-1960's, "wells, privies and stables by household", in all three divisions.
-    ("south", "barns_stables"): "T-1960",
-    ("south", "small_outbuildings"): "T-1960",
+    # MOVED TO T-1215 by the pull request that closed T-1960. T-1960 dealt its privies and
+    # stables to the YARD LAYER (data/yard/town_yard_outbuildings.json, drawn at load) —
+    # a privy behind every dwelling lot the plat reaches — and raised no roof, so the roofs
+    # these cells still count are not owed by any yard deal. T-1215, which converges the
+    # programme and owns its remainders, is the ticket that answers for them; naming the
+    # closed T-1960 here would order work nobody can claim.
+    ("south", "barns_stables"): "T-1215",
+    ("south", "small_outbuildings"): "T-1215",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -507,8 +513,8 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-1829",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-1960",
-    ("west", "small_outbuildings"): "T-1960",
+    ("west", "barns_stables"): "T-1215",  # moved with the South's, above
+    ("west", "small_outbuildings"): "T-1215",  # moved with the South's, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -577,8 +583,8 @@ STRUCTURE_TICKETS = {
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-1960",
-    ("north", "small_outbuildings"): "T-1960",
+    ("north", "barns_stables"): "T-1215",  # moved with the South's, above
+    ("north", "small_outbuildings"): "T-1215",  # moved with the South's, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
     ("fort", "workshops"): "T-1204",

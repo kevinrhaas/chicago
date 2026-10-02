@@ -1349,6 +1349,225 @@ function buildShed(buf, shed, form, terrain, level, problems) {
   return true;
 }
 
+/**
+ * A PRIVY OR A STABLE IN A HOUSE'S YARD (T-1960). `data/yard/town_yard_outbuildings.json`
+ * deals one privy to every dwelling lot with a yard behind the house and no committed
+ * privy, and a stable to the households that kept a horse; it decides the corner, the
+ * size, the finish and the weather from the house's own class and age, and this file
+ * only draws what it says. Like the wagon shed above it is not a structure record and is
+ * not baked — a board box is derived at load from the record's numbers and the committed
+ * heightfield — and it carries `reconstructed` on every vertex, because the fact of THIS
+ * privy in THIS corner is dealt by rule (L351).
+ *
+ * THE FRAME IS THE LAYER'S: along the face is (cos b, sin b) in world XZ and out of it is
+ * (sin b, -cos b). `out` points into the yard, toward the house — the side the door is
+ * on — so the back of the box is the side nearest the alley.
+ *
+ * IT STANDS ON ITS LOWEST CORNER, with its sill run a hand below grade, so a box on a
+ * slope is buried on the high side rather than floating on the low one.
+ */
+// Pine boards go from new-sawn straw to the silver of a few summers; the lighter end
+// is deliberate, because a yard building's door side is as often in shade as not and
+// the layer's darker goods tone reads as black there.
+const OUTBUILDING_TONE = {
+  fresh: 0xb59c78, seasoned: 0xa69886, weathered: 0x9c968c, grey: 0x908e89,
+};
+const WHITEWASH_TONE = { fresh: 0xdcd7c9, seasoned: 0xd2ccbd, weathered: 0xc6c0b1,
+  grey: 0xbab5a8 };
+const OB_BOARD_T = 0.03;     // a wall board
+const OB_BATTEN = [0.07, 0.022];  // a batten's face and how far it stands proud
+const OB_SILL_SINK = 0.12;   // how far the sill runs below the lowest corner's grade
+const OB_DECK_T = 0.035;     // a roof board
+const obToneCache = new Map();
+function obTone(hex, k) {
+  const key = `${hex}:${k.toFixed(3)}`;
+  let t = obToneCache.get(key);
+  if (!t) {
+    const c = new THREE.Color(hex).multiplyScalar(k);
+    t = [c.r, c.g, c.b];
+    obToneCache.set(key, t);
+  }
+  return t;
+}
+/** A small, stable spread per building, so two neighbours dealt the same tone differ. */
+function obJitter(id) {
+  let h = 2166136261;
+  for (let i = 0; i < id.length; i += 1) { h ^= id.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return ((h >>> 0) % 1000) / 1000;
+}
+function triOut(buf, a, b, c, n, level) {
+  const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+  const v = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+  const x = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+  if (x[0] * n[0] + x[1] * n[1] + x[2] * n[2] < 0) tri(buf, a, c, b, n, level);
+  else tri(buf, a, b, c, n, level);
+}
+
+function buildOutbuilding(buf, ob, terrain, level, problems) {
+  const at = ob.at_local_enu_m;
+  const A = ob.along_m ?? 0;
+  const D = ob.depth_m ?? 0;
+  const E = ob.eave_m ?? 0;
+  const H = ob.head_m ?? 0;
+  if (!(A > 0 && D > 0 && E > 0 && H > E)) {
+    problems.push(`yard: ${ob.id} is not an outbuilding the record can draw — skipped`);
+    return false;
+  }
+  const b = ((ob.bearing_deg ?? 0) * Math.PI) / 180;
+  const ax = Math.cos(b);
+  const az = Math.sin(b);
+  const ox = Math.sin(b);
+  const oz = -Math.cos(b);
+  const x = at[0];
+  const z = -at[1];
+  let base = Infinity;
+  for (const [sa, so] of [[0, 0], [-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+    const pe = x + ax * sa * (A / 2) + ox * so * (D / 2);
+    const pz = z + az * sa * (A / 2) + oz * so * (D / 2);
+    const g = groundAt(terrain, pe, -pz);
+    if (g !== null) base = Math.min(base, g);
+  }
+  if (!Number.isFinite(base)) {
+    problems.push(`yard: ${ob.id} has no ground under it — it is not drawn`);
+    return false;
+  }
+  const P = (al, out, y) => [x + ax * al + ox * out, base + y, z + az * al + oz * out];
+  const AL = [ax, 0, az];
+  const OUT = [ox, 0, oz];
+  const UP = [0, 1, 0];
+  const sc = (v, k) => [v[0] * k, v[1] * k, v[2] * k];
+  /** A box in the building's own frame: centre (along, out, y) and half-extents. */
+  const box = (al, out, y, hA, hO, hY) => {
+    pushBoxV(buf, P(al, out, y), sc(AL, hA), sc(OUT, hO), sc(UP, hY), level);
+  };
+  // THE TONE: the house's weather, whitewash where the record says, a spread per box.
+  const weather = OUTBUILDING_TONE[ob.weather] ? ob.weather : 'weathered';
+  const j = obJitter(ob.id);
+  const k = 0.95 + 0.1 * j;
+  let wall;
+  if (ob.finish === 'whitewash') wall = obTone(WHITEWASH_TONE[weather], k);
+  else if (ob.finish === 'slab') wall = obTone(OUTBUILDING_TONE[weather], k * 0.84);
+  else wall = obTone(OUTBUILDING_TONE[weather], k);
+  const timber = obTone(OUTBUILDING_TONE[weather], k * 0.9);
+  const roof = obTone(OUTBUILDING_TONE[weather === 'fresh' ? 'seasoned' : 'grey'], k * 0.82);
+  const door = ob.finish === 'whitewash' ? obTone(OUTBUILDING_TONE[weather], k * 0.95)
+    : obTone(OUTBUILDING_TONE[weather], k * 0.86);
+  const keep = buf.tint;
+  const gable = ob.roof === 'gable';
+  const t = OB_BOARD_T;
+  const y0 = -OB_SILL_SINK;
+  // Height of the wall top at a point across the depth: a shed falls from the door
+  // side (head) to the alley side (eave); a gable's long walls both stop at the eave.
+  const topAt = (out) => (gable ? E : E + ((H - E) * (out + D / 2)) / D);
+
+  // ---- the walls --------------------------------------------------------- //
+  buf.tint = wall;
+  const hF = topAt(D / 2);
+  const hB = topAt(-D / 2);
+  box(0, D / 2 - t / 2, (y0 + hF) / 2, A / 2, t / 2, (hF - y0) / 2);
+  box(0, -D / 2 + t / 2, (y0 + hB) / 2, A / 2, t / 2, (hB - y0) / 2);
+  for (const s of [-1, 1]) {
+    box(s * (A / 2 - t / 2), 0, (y0 + E) / 2, t / 2, D / 2 - t, (E - y0) / 2);
+    // Above the eave the end wall is a triangle: the shed's fall, or the gable.
+    const n = sc(AL, s);
+    const al = s * (A / 2);
+    if (gable) {
+      triOut(buf, P(al, -D / 2, E), P(al, D / 2, E), P(al, 0, H), n, level);
+    } else {
+      triOut(buf, P(al, -D / 2, E), P(al, D / 2, E), P(al, D / 2, H), n, level);
+    }
+  }
+  // ---- battens over the board joints — the relief that reads at walking distance
+  const [bw, bp] = OB_BATTEN;
+  const spacing = ob.finish === 'board_and_batten' ? 0.6 : 0.4;
+  for (const s of [-1, 1]) {
+    const n = Math.max(1, Math.floor(A / spacing) - 1);
+    for (let i = 1; i <= n; i += 1) {
+      const al = -A / 2 + (i * A) / (n + 1);
+      const out = s * (D / 2 + bp / 2);
+      const top = topAt(s * D / 2);
+      if (s > 0 && Math.abs(al - (gable ? -A / 4 : 0)) < (gable ? 1.3 : 0.4)) continue;
+      box(al, out, (y0 + top) / 2, bw / 2, bp / 2, (top - y0) / 2);
+    }
+    const m = Math.max(1, Math.floor(D / spacing) - 1);
+    for (let i = 1; i <= m; i += 1) {
+      const out = -D / 2 + (i * D) / (m + 1);
+      const top = gable ? E + (H - E) * (1 - Math.abs(out) / (D / 2)) - 0.08 : topAt(out) - 0.04;
+      box(s * (A / 2 + bp / 2), out, (y0 + top) / 2, bp / 2, bw / 2, (top - y0) / 2);
+    }
+  }
+  // ---- the frame: corner posts and the sill ------------------------------ //
+  buf.tint = timber;
+  const post = gable ? 0.15 : 0.09;
+  for (const [sa, so] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+    const top = topAt(so * D / 2);
+    box(sa * (A / 2), so * (D / 2), (y0 + top) / 2, post / 2, post / 2, (top - y0) / 2);
+  }
+  box(0, D / 2 + 0.01, 0.06, A / 2 + post / 2, 0.06, 0.06 - y0 / 2);
+  box(0, -D / 2 - 0.01, 0.06, A / 2 + post / 2, 0.06, 0.06 - y0 / 2);
+
+  // ---- the door(s) ------------------------------------------------------- //
+  buf.tint = door;
+  if (gable) {
+    // A pair of stable doors off-centre on the yard side, a loft door in one gable.
+    const dw = Math.min(2.4, A * 0.45);
+    const dh = Math.min(2.1, E - 0.25);
+    const dc = -A / 4;
+    for (const s of [-1, 1]) {
+      box(dc + (s * dw) / 4, D / 2 + 0.03, dh / 2, dw / 4 - 0.01, 0.025, dh / 2);
+      box(dc + (s * dw) / 4, D / 2 + 0.06, dh * 0.3, dw / 4 - 0.04, 0.015, 0.05);
+      box(dc + (s * dw) / 4, D / 2 + 0.06, dh * 0.8, dw / 4 - 0.04, 0.015, 0.05);
+    }
+    const loftSide = j < 0.5 ? -1 : 1;
+    const lh = Math.min(0.9, (H - E) * 0.6);
+    box(loftSide * (A / 2 + 0.03), 0, E + 0.05 + lh / 2, 0.025, 0.45, lh / 2);
+    // A small stall window on the yard side, shuttered.
+    box(A / 4 + 0.2, D / 2 + 0.03, E * 0.62, 0.35, 0.025, 0.3);
+  } else {
+    const dw = Math.min(0.68, A - 0.36);
+    const dh = Math.min(1.78, E - 0.1);
+    box(0, D / 2 + 0.025, dh / 2 + 0.02, dw / 2, 0.02, dh / 2);
+    // The two ledges a board door is nailed to, and its latch block.
+    box(0, D / 2 + 0.05, 0.38, dw / 2 - 0.04, 0.012, 0.05);
+    box(0, D / 2 + 0.05, dh - 0.3, dw / 2 - 0.04, 0.012, 0.05);
+    box(dw / 2 - 0.08, D / 2 + 0.07, dh * 0.55, 0.03, 0.02, 0.06);
+  }
+
+  // ---- the roof ---------------------------------------------------------- //
+  buf.tint = roof;
+  const over = 0.18;
+  const deck = (fromOut, fromY, toOut, toY, overA) => {
+    const run = toOut - fromOut;
+    const rise = toY - fromY;
+    const L = Math.hypot(run, rise);
+    const su = [ox * (run / L), rise / L, oz * (run / L)];
+    let rn = [AL[1] * su[2] - AL[2] * su[1], AL[2] * su[0] - AL[0] * su[2],
+      AL[0] * su[1] - AL[1] * su[0]];
+    if (rn[1] < 0) rn = sc(rn, -1);
+    const extFrom = over;
+    const midOut = (fromOut + toOut) / 2;
+    const c = P(0, midOut, (fromY + toY) / 2);
+    // Overhang only at the eave end (the `from` end); the top end stops at its line.
+    const shift = -extFrom / 2;
+    const cc = [c[0] + su[0] * shift + rn[0] * OB_DECK_T / 2,
+      c[1] + su[1] * shift + rn[1] * OB_DECK_T / 2,
+      c[2] + su[2] * shift + rn[2] * OB_DECK_T / 2];
+    pushBoxV(buf, cc, sc(su, L / 2 + extFrom / 2), sc(AL, A / 2 + overA),
+      sc(rn, OB_DECK_T / 2), level);
+  };
+  if (gable) {
+    deck(-D / 2, E, 0, H, 0.2);
+    deck(D / 2, E, 0, H, 0.2);
+    buf.tint = timber;
+    box(0, 0, H + 0.02, A / 2 + 0.2, 0.05, 0.06);
+  } else {
+    // The shed falls toward the alley: the eave end is the back.
+    deck(-D / 2, E, D / 2 + over, H + (H - E) * (over / D), 0.12);
+  }
+  buf.tint = keep;
+  return true;
+}
+
 /* -------------------------------------------------------------------------- */
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
@@ -1526,8 +1745,9 @@ export async function createYardGoods({
     wagons: [],
     benches: [],
     sheds: [],
+    outbuildings: [],
     census: { records: 0, frontages: 0, objects: 0, barrels: 0, crates: 0, wagons: 0,
-      byKind: {}, benches: 0, sheds: 0, refused: 0, wagonsRefused: 0, chunks: 0,
+      byKind: {}, benches: 0, sheds: 0, outbuildings: 0, byOutbuilding: {}, refused: 0, wagonsRefused: 0, chunks: 0,
       marked: 0, markCells: 0, lots: 0, piles: 0, orphaned: 0, byMaterial: {} },
     pickAt: () => null,
     dispose: () => {},
@@ -1777,6 +1997,24 @@ export async function createYardGoods({
           problems))) continue;
       out.sheds.push(shed);
       out.census.sheds += 1;
+      out.census.objects += 1;
+    }
+    /**
+     * THE YARD OUTBUILDINGS (T-1960): a privy behind every house the record reaches and a
+     * stable for the horse-keepers. Same pick contract as the shed: a privy belongs to
+     * the house whose yard it stands in, so aiming at it opens that house's card — and
+     * when that house is not in the scene its privy is not either.
+     */
+    for (const ob of record.outbuildings ?? []) {
+      if (hostMissing(ob.belongs_to)) { out.census.orphaned += 1; continue; }
+      const at = ob.at_local_enu_m;
+      if (!Array.isArray(at) || at.length !== 2) continue;
+      if (!emit(chunkAt(at[0], at[1]), ob.belongs_to,
+        (b) => buildOutbuilding(b, ob, terrain, LEVEL[ob.confidence] ?? level,
+          problems))) continue;
+      out.outbuildings.push(ob);
+      out.census.outbuildings += 1;
+      out.census.byOutbuilding[ob.kind] = (out.census.byOutbuilding[ob.kind] ?? 0) + 1;
       out.census.objects += 1;
     }
   }
