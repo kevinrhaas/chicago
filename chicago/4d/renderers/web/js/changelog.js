@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1294, ts: '2026-10-02T08:49:05.968Z', date: 'Oct 2, 2026, 3:49 AM CT', title: 'Kitchen gardens behind the town\u2019s houses', kind: 'change',
+  { v: 1295, ts: '2026-10-02T09:54:06.739Z', date: 'Oct 2, 2026, 4:54 AM CT', title: 'Kitchen gardens behind the town\u2019s houses', kind: 'change',
     items: [
       'Walk the back lots along Randolph, Washington or Lake Street. Behind forty-six houses there is now a picket-fenced kitchen garden, with tilled beds, kept grass and a path in from a gap in the fence facing the back door. Before this, only Elijah Harmon\u2019s house on Randolph had one.',
       'A garden now goes with the house, not with whoever lived in it, so a house with no named household keeps its garden too. The houses whose lots are too cramped to fit one still have none.',
       'No source says any of these households kept a garden. The fences copy the ones in an 1893 view of the Kinzie house, and the Liberties page (L129) says how each lot was chosen.',
+    ] },
+  { v: 1294, ts: '2026-10-02T08:51:28.084Z', date: 'Oct 2, 2026, 3:51 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
+    items: [
+      'Stand on South Water Street and look toward the river. The bank between the street and the water is now trodden earth, darkening to mud at the water\u2019s edge. Grass survives only in a few untrodden patches, and no willows or reeds stand along it.',
+      'The five South Water docks now sit low, level with the bank behind them, instead of on a raised platform reached by steps. You walk straight from the street, across bare earth, onto the planks.',
+      'Behind every dock a bare earth path runs back to the street, worn by carts and barrows. The two docks on the North Branch and at Wolf Point have one too, cut down their higher bank.',
+      'The banks across the river, which no dock works, keep their grass and trees.',
+      'All of this is our reconstruction. No 1835 source describes the bank\u2019s surface or a dock\u2019s height. The Liberties page says what we chose and why (L347).',
     ] },
   { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
     items: [

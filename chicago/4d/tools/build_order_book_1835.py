@@ -446,9 +446,8 @@ STRUCTURE_TICKETS = {
     # half that would still owe. It is not read while the bands stand.
     ("south", "warehouses_freight"): "T-1673",
     ("south", "institutional_public"): "T-1202",
-    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables, privies and the rest
-    # of the small yard buildings are T-1960's ("wells, privies and stables by household")
-    # in every division, so all six of T-1212's cells follow it there.
+    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies are
+    # T-1960's, "wells, privies and stables by household", in all three divisions.
     ("south", "barns_stables"): "T-1960",
     ("south", "small_outbuildings"): "T-1960",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West

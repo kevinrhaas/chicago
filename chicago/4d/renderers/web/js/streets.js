@@ -306,7 +306,7 @@ const AID_LIFT = 0.25;
  * CORE_SHARE_FLOOR keeps the opaque core at least half the worked width, so the
  * shoulders never outgrow the road they belong to.
  */
-const WORKED_SHARE = { principal: 0.80, ordinary: 0.64, light: 0.44 };
+export const WORKED_SHARE = { principal: 0.80, ordinary: 0.64, light: 0.44 };
 // The shoulders past the recorded track stop where the ground falls away from
 // the crown by more than this. A bridge approach fill is a causeway one track
 // wide, and a worked shoulder draped down its flanks put the fill's crest

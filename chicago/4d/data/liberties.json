@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 339,
+  "count": 340,
   "liberties": [
     {
       "id": "L1",
@@ -21466,6 +21466,45 @@
         {
           "label": "Recorded",
           "text": "2026-10-02 (T-1836)."
+        }
+      ]
+    },
+    {
+      "id": "L347",
+      "title": "The working river bank: South Water's river side worn to earth, and the docks lowered to meet it",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the bank between South Water Street and the river, from the forks (E 140) to past the platted end (E 800), is drawn as trodden earth that darkens to mud at the water, not as the terrain's wet prairie (T-1771, `data/wharves/working_bank.json`, `renderers/web/js/working-bank.js`). Every drawn landing gets a bare haul apron running back from its deck: to the street's worked edge on South Water, and 14 m up the bank at Kinzie & Hunter's and Robert A. Kinzie's docks. The band starts inside the street's worked shoulder, so no strip of sward stands between the street and the bank. Grass survives in seeded patches covering about a fourteenth of the bank away from the aprons, a few clumps to each, and none on an apron. No reed stands in the river within 4 m of the worked bank or under or off a deck, and no tree stands anywhere the wear exceeds 0.35. The wharf record's freeboard floor drops from **0.90 m to 0.35 m**, so every South Water deck now meets the bank crest behind it (0.32–0.39 m over the water) instead of standing about half a metre proud of it on a boarding stair."
+        },
+        {
+          "label": "Why",
+          "text": "the owner asked for it on 2026-09-30: worn dirt on South Water's river work areas, low docks, ramps between river and street, grass mainly in unworn patches. The town's own evidence bounds where: the merchants' stores face the river across South Water, and five of the seven drawn landings tie into that bank (T-0041, T-0062), so every barrel landed was carried across it. The owner's four comparative views (St Louis Front Street 1840, Detroit Jefferson Avenue 1837, Cincinnati Fourth Street 1835) are analogues, not Chicago evidence. The St Louis levee shows a bare earth bank falling to low landings at the water, and that is the look, not a measurement. The tones are the ground-strip proof's (T-1797), not a source's. **No source in this project describes the surface of any Chicago river bank in 1835, where it was trodden, or how high any dock stood.**"
+        },
+        {
+          "label": "Consequence",
+          "text": "on the five South Water aprons the ground lies 0.22–0.45 m over the water and nowhere steeper than 1 in 52 over the 2.5 m lattice. The deck sill stands 0.10–0.13 m above the earth at its edge, so the ramp is that earth and no timber ramp is invented. At the two high-bank docks the deck now stands at its heel's own ground (0.58 and 0.52 m, was 0.90 m) and the apron climbs the bank face to its 1.0–1.1 m crest at about 1 in 6. No dock takes a boarding stair tread any more. The riverbank willows that stood on the South Water bank between the forks and Wells Street are gone. The banks across the river keep their sward and timber. The land itself is not regraded: the relief is the committed heightfield's. The layer costs one draw call and about 11,600 triangles at `full` and `balanced` (half that at `light`)."
+        },
+        {
+          "label": "Not done, and why",
+          "text": "no timber ramp, slip or quay is drawn, because on South Water the earth already makes the ramp and a continuous quay is what the ask rules out. The deck timber keeps the wharf layer's one flat tone; the Glessner-level timber relief the ask also names is not in this layer. The North Water bank and the West Division bank are not worn: no landing works them."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a harbour engineer's report, a view or a description that shows the South Water bank or any of its landings in 1833–36 outranks all of it. A river-stage record for the summer of 1835 would replace the 0.35 m floor."
+        },
+        {
+          "label": "Related",
+          "text": "**L132** (the docks' invented size), **L146** (the boats), **L342** (the graded street section the aprons lead to), **T-0041**, **T-0058**, **T-0062**, **T-1771** (this layer), **T-1797** (the ground-strip method)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
         }
       ]
     },

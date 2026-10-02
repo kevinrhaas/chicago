@@ -53,6 +53,7 @@ import { createYardGoods } from './yard.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
 import { createWharves } from './wharves.js';
+import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createWells } from './wells.js';
 import { createStreetGrid } from './street-grid.js';
@@ -1335,6 +1336,20 @@ async function boot() {
   scene3d.add(wharves.group);
   api.wharves = wharves;
 
+  // T-1771 — the working bank: South Water's river side as trodden earth and
+  // mud, a haul apron behind every landing the wharf layer just drew, sward
+  // only in the unworn patches. Mounted after the wharves because the aprons
+  // lead off their decks, and before the planters, which it tells where not to
+  // grow (`workingBank.blocksGrowth` / `blocksTrees` below).
+  const workingBank = await createWorkingBank({
+    dataBase: layerBase('wharves'), terrain,
+    streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
+    wharves: wharves.wharves, confidence, problems: layerProblems('wharves'),
+    ...detailOpts(),
+  });
+  scene3d.add(workingBank.group);
+  api.workingBank = workingBank;
+
   // The boats on the river (T-0063) — the owner's ask, verbatim: "you can add
   // boats correct for the era! they would exist." Derived at load like the
   // docks, but AUTHORED rather than ruled: no rule can derive where a moored
@@ -1615,7 +1630,11 @@ async function boot() {
    */
   const stripBlocks = api.groundStrip?.blocksGrowth ?? null;
   const swardBlocked = (e, n) => streets.blocksGrowth(e, n) || yards.suppressesSward(e, n)
-    || (stripBlocks !== null && stripBlocks(e, n));
+    || (stripBlocks !== null && stripBlocks(e, n)) || workingBank.blocksGrowth(e, n);
+  // The trees give way to the travelled track, as before, and since T-1771 to
+  // the worked river bank: no willow on a dock approach. The fences above still
+  // do not reach them, for the reason given there.
+  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
 
   let floraUnits = 0, floraDone = 0, treeDone = 0;
   const plantingProgress = (done, total) => {
@@ -1638,7 +1657,7 @@ async function boot() {
       bootController.progress('flora', floraDone, floraUnits);
     },
     dataBase: layerBase('flora'), terrain, footprints: planting,
-    growthBlocked: streets.blocksGrowth,
+    growthBlocked: treesBlocked,
     confidence, problems: layerProblems('flora'), pixelsPerRadian,
     streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
     // Which sward a point stands in, so the woody layer plants the lakeshore
@@ -1696,7 +1715,7 @@ async function boot() {
         });
         next.trees = await createTrees({
           dataBase: layerBase('flora'), terrain, footprints: planting,
-          growthBlocked: streets.blocksGrowth,
+          growthBlocked: treesBlocked,
           confidence, problems: layerProblems('flora'), pixelsPerRadian,
           streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
           zoneAt: (e, n) => next.flora.zoneAt(e, n), detail: level,
@@ -1795,7 +1814,7 @@ async function boot() {
       trees.dispose?.();
       trees = await createTrees({
         dataBase: layerBase('flora'), terrain, footprints: planting,
-        growthBlocked: streets.blocksGrowth,
+        growthBlocked: treesBlocked,
         confidence, problems: layerProblems('flora'), pixelsPerRadian,
         streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
         zoneAt: (e, n) => flora.zoneAt(e, n),
