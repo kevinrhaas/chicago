@@ -17,7 +17,7 @@
     "data/residents/attested_trade_houses.json (T-1994)",
     "data/businesses/*.json",
     "data/businesses/authored/*.json (the register's own people rows, T-1990)",
-    "data/businesses/rulings/premises_rulings.json",
+    "data/businesses/rulings/premises_rulings.json (and its identity_holds, T-1998)",
     "data/reconstruction/1835_business_staffing_model.json",
     "data/reconstruction/1835_town_model.json"
   ],
@@ -61,7 +61,9 @@
           "serves_an_establishment_outside_the_register",
           "not_held_by_the_establishment_on_the_scene_date",
           "a_civic_seat_and_not_a_house",
-          "works_on_other_people_s_ground"
+          "works_on_other_people_s_ground",
+          "the_mechanics_shops_are_over_their_count",
+          "held_on_an_identity_question"
         ],
         "places_them_at_work": false
       },
@@ -84,6 +86,7 @@
       "class_full_none_owed": "The staffing model names the class of house that employed this trade, the layer holds every house of it the model counts on 1 July 1835, and each is full to the band's high end. The trade keeps no house of its own, so none is owed: the town is not short a house, and the person follows the trade with no room in it to join (T-1995).",
       "class_held_no_house": "The staffing model names the class of house that employed this trade and the layer holds none of it trading on 1 July 1835, or every one is full to the band's high end. The town is owed more houses of the kind; the person is not put in one that is already full.",
       "drawn_onto_a_house_s_staff": "A record in the business register carries this person on its staff at the reconstructed tier: this project drew them there, and the record says by what rule.",
+      "held_on_an_identity_question": "The premises ruling holds this person and trade on an open identity question: a man the register may already print under another reading of the name. Raising a shop of his own would split the two by arithmetic, and seating him in the printed man's shop would merge them the same way, so neither is done. The house waits on the question named below and is counted owed until it is answered (T-1998).",
       "in_service_in_another_household": "The premises ruling for this trade says the work is given in another household's house: domestic service, done in a family's kitchen, washhouse and yard rather than in a house of trade. The staffing model employs the trade in the town's taverns and hotels only, and every one was full, but that does not make the town owed another tavern — no house of trade is owed for this person. Which household employed them no source says and this pass draws none.",
       "joined_by_the_attested_trade_ruling": "A source attests this person's trade, and its premises ruling sends them to an establishment they did not keep. The business register holds that house and a source names them in it, or the card's own reasoning does; the ruling below says which, at the grade it allows (T-1994).",
       "keeps_a_house_the_register_holds": "A record in the business register names this person as the house's proprietor or partner, so they kept it and worked in it. The house is named here at the grade that record gives the proprietorship: attested where a source prints it, inferred where the trade's premises ruling raised it, reconstructed where this project drew the house and adopted them to keep it.",
@@ -96,6 +99,7 @@
       "on_the_staff_of_a_house": "A record in the business register names this person on its own staff: the office, church or agency they served, at a source the record cites. They did not keep the house; they worked in it.",
       "seated_by_the_staffing_model": "No source names a house for this person. The staffing model names a class of house that employed their trade, the layer held one with room in its band, and this project seated them there — a draw, shown above with the seed that redraws it.",
       "serves_an_establishment_outside_the_register": "The establishment this trade served is held by a committed file that is not the business register — the garrison at the fort, an agency held for a company in another town — and that file places this person in it. They are at work, and no house of trade is owed (T-1994).",
+      "the_mechanics_shops_are_over_their_count": "This trade kept a shop of its own, and the December 1835 State census has no line for it, so no count of its class was ever printed to be short of. What WAS printed is a count of shops: the Chicago American of 15 August 1835 numbers the town's \"twenty-five mechanics' shops of all kinds\", and the register's own printed houses of those trades trading on 1 July 1835 are more than that already (the figures are below). A shop raised for this person would push the town further past the one count there is. Most mechanics were hands in a master's shop, or carpenters and masons who worked where the wall was going up; which shop or which wall is not drawn, and no house is owed (T-1998).",
       "trade_attested_no_house_named": "The sources name this person's trade and name no house for it. Drawing one would put a man the record knows into a shop nobody put him in, so no seat is drawn and the absence is carried instead.",
       "works_on_other_people_s_ground": "The premises ruling says this trade is done on somebody else's ground — inside the customer's building, in the field, in the vessel owner's yard — so it keeps no house of its own and is owed none (T-1994)."
     },
@@ -106,17 +110,18 @@
     "by_status": {
       "at_a_named_house": 126,
       "at_a_seat_this_project_drew": 123,
-      "at_a_trade_with_no_house_to_join": 248,
+      "at_a_trade_with_no_house_to_join": 306,
       "no_trade_recorded": 2639,
-      "on_their_own_account": 221
+      "on_their_own_account": 163
     },
     "by_reason": {
       "a_civic_seat_and_not_a_house": 5,
       "class_full_none_owed": 2,
+      "held_on_an_identity_question": 1,
       "in_service_in_another_household": 61,
       "joined_by_the_attested_trade_ruling": 5,
       "keeps_a_house_the_register_holds": 79,
-      "keeps_their_own_house": 142,
+      "keeps_their_own_house": 84,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
@@ -125,6 +130,7 @@
       "on_the_staff_of_a_house": 9,
       "seated_by_the_staffing_model": 123,
       "serves_an_establishment_outside_the_register": 4,
+      "the_mechanics_shops_are_over_their_count": 57,
       "works_on_other_people_s_ground": 3
     },
     "by_age_scope": {
@@ -145,23 +151,82 @@
       "working_age": {
         "at_a_named_house": 126,
         "at_a_seat_this_project_drew": 121,
-        "at_a_trade_with_no_house_to_join": 230,
+        "at_a_trade_with_no_house_to_join": 288,
         "no_trade_recorded": 1583,
-        "on_their_own_account": 212
+        "on_their_own_account": 154
       }
     },
-    "placed_at_work": 470,
+    "placed_at_work": 412,
     "carry_a_trade": 668,
     "working_age": 2272,
-    "working_age_placed_at_work": 459,
+    "working_age_placed_at_work": 401,
     "working_age_with_no_trade_recorded": 1583
+  },
+  "mechanics_shops": {
+    "printed_count": 25,
+    "printed_words": "twenty-five mechanics' shops of all kinds",
+    "printed_by": "the Chicago American, 15 August 1835, quoted by Andreas — six weeks after the scene date (docs/RESEARCH/business-layer.md § the mechanics' shops of 1835)",
+    "trades_it_counts": [
+      "baker",
+      "barber_surgeon",
+      "blacksmith",
+      "builder",
+      "butcher",
+      "carpenter",
+      "carriage_maker",
+      "confectioner",
+      "cooper",
+      "dressmaker",
+      "gunsmith",
+      "harness_maker",
+      "hatter",
+      "jeweller",
+      "joiner",
+      "mason",
+      "milliner",
+      "painter",
+      "saddler",
+      "sailmaker",
+      "shoemaker",
+      "silversmith",
+      "tailor",
+      "tanner",
+      "tinsmith",
+      "trunk_maker",
+      "watchmaker",
+      "wheelwright"
+    ],
+    "register_printed_houses": 45,
+    "register_printed_houses_by_trade": {
+      "baker": 3,
+      "blacksmith": 4,
+      "butcher": 1,
+      "carriage_maker": 3,
+      "confectioner": 1,
+      "dressmaker": 1,
+      "harness_maker": 3,
+      "hatter": 1,
+      "jeweller": 1,
+      "joiner": 5,
+      "milliner": 3,
+      "painter": 1,
+      "shoemaker": 8,
+      "tailor": 7,
+      "tinsmith": 3
+    },
+    "all_houses_by_provenance": {
+      "authored": 9,
+      "compiled_from_register": 45,
+      "reconstructed": 14
+    },
+    "at_the_count": true
   },
   "against_the_town_model": {
     "employed_persons": {
       "model_low": 425,
       "model_high": 588,
-      "the_layer_places": 470,
-      "inside_the_band": true,
+      "the_layer_places": 412,
+      "inside_the_band": false,
       "method_the_model_used": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "why_this_is_not_a_job_finished": "The model's band is a SIZE struck against a town of 2,353-3,265 people; the layer holds a different number of cards and the model's own open question says the 1840 industry columns have no row for domestic service at all. A figure inside a range is where the argument starts."
     },
@@ -14315,9 +14380,9 @@
       "age_scope": "working_age",
       "trade": "watchmaker",
       "trade_confidence": "attested",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#watchmaker = own_premises",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "held_on_an_identity_question",
+      "decided_by": "premises_rulings.json#identity_holds — mulford_one_letter (data/research/books/trade_census_1835_spend_rulings.json#open_questions): no house is raised while it is open — named by T-1998",
       "houses": []
     },
     {
@@ -16706,9 +16771,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -16719,9 +16784,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -17690,9 +17755,9 @@
       "age_scope": "working_age",
       "trade": "mason",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#mason = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -17822,9 +17887,9 @@
       "age_scope": "working_age",
       "trade": "carriage_maker",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carriage_maker = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -18595,9 +18660,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -19231,9 +19296,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -20169,9 +20234,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -20479,9 +20544,9 @@
       "age_scope": "working_age",
       "trade": "hatter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#hatter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -22032,9 +22097,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -22340,9 +22405,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -23366,9 +23431,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -24141,9 +24206,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -24221,9 +24286,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -25242,9 +25307,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -25907,9 +25972,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -26412,9 +26477,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -26596,9 +26661,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -27504,9 +27569,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -27673,9 +27738,9 @@
       "age_scope": "working_age",
       "trade": "carriage_maker",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carriage_maker = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -28429,9 +28494,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -28797,9 +28862,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -28968,9 +29033,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -29350,9 +29415,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -29577,9 +29642,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -30019,9 +30084,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -30058,9 +30123,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -30444,9 +30509,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -30755,9 +30820,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -30814,9 +30879,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -31468,9 +31533,9 @@
       "age_scope": "working_age",
       "trade": "cooper",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#cooper = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -31990,9 +32055,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#blacksmith = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -32003,9 +32068,9 @@
       "age_scope": "working_age",
       "trade": "butcher",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#butcher = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -32029,9 +32094,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#blacksmith = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -32497,9 +32562,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#blacksmith = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -32852,9 +32917,9 @@
       "age_scope": "working_age",
       "trade": "mason",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#mason = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -32943,9 +33008,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -33277,9 +33342,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -34021,9 +34086,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -34234,9 +34299,9 @@
       "age_scope": "working_age",
       "trade": "confectioner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#confectioner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -35021,9 +35086,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -35563,9 +35628,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -35732,9 +35797,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -35758,9 +35823,9 @@
       "age_scope": "working_age",
       "trade": "butcher",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#butcher = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -35994,9 +36059,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -36484,9 +36549,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -36707,9 +36772,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#blacksmith = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -37177,9 +37242,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -37286,9 +37351,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -37455,9 +37520,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -37520,9 +37585,9 @@
       "age_scope": "working_age",
       "trade": "painter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#painter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -37689,9 +37754,9 @@
       "age_scope": "working_age",
       "trade": "cooper",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#cooper = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -38443,9 +38508,9 @@
       "age_scope": "working_age",
       "trade": "builder",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -38523,9 +38588,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -38666,9 +38731,9 @@
       "age_scope": "working_age",
       "trade": "dressmaker",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#dressmaker = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -38783,9 +38848,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -38809,9 +38874,9 @@
       "age_scope": "working_age",
       "trade": "milliner",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#milliner = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {
@@ -38887,9 +38952,9 @@
       "age_scope": "working_age",
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-1998",
       "houses": []
     },
     {

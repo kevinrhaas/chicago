@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Fifty-seven carpenters, milliners and smiths no longer wait on a shop of their own', kind: 'change',
+    items: [
+      'Open Otis Bacon\u2019s card, a carpenter, and look under Were they at work? It used to say the town owed him a shop of his own. It now says no shop is owed. The Chicago American counted twenty-five mechanics\u2019 shops in the town in August 1835, and the shops printed in the newspapers of the day already come to 45.',
+      'The same goes for 19 more carpenters, 12 milliners, 9 builders, 4 smiths and 12 other tradespeople. Most mechanics worked as hands in somebody else\u2019s shop, and carpenters and masons worked wherever a wall was going up. Which shop or which building is not recorded, so the card does not name one.',
+      'E. H. Mulford, the watchmaker, now says why he has no shop. He may be the same man as J. H. Mulford, the jeweller, and that question is still open. Giving him a shop of his own would answer it without evidence.',
+      'All 57 are our reconstruction, and so are these answers. On the City card, working people owed a workplace drop from 142 to 85.',
+    ] },
   { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [
       'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
