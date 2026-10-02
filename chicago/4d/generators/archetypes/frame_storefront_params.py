@@ -417,6 +417,11 @@ class FrameStorefrontParams:
     # colours it had. `common/materials.py` is what turns either into a surface.
     finish_key: str | None = None
     roof_condition: str | None = None
+    # FIN-L (T-1818): how far one lap course may stand off the stock, and the seed its
+    # lines are drawn from — `common/materials.py`'s `board_lay` and `course_lines`.
+    # 0.0 on every record the fabric rule never reached, which keeps its even courses.
+    siding_lay_m: float = 0.0
+    siding_seed: str = ""
 
     # per-attribute confidence, keyed by the attribute name in the record
     confidence: dict = field(default_factory=dict)
@@ -608,6 +613,9 @@ class FrameStorefrontParams:
         if not 0.10 <= self.siding_exposure_m <= 0.16:
             raise ParamError(f"siding_exposure_m {self.siding_exposure_m} outside "
                              f"0.10-0.16 m (~4-6.3 in): not a period clapboard exposure")
+        if not 0.0 <= self.siding_lay_m <= 0.010:
+            raise ParamError(f"siding_lay_m {self.siding_lay_m} outside 0-0.010 m: a lay "
+                             f"that wide would climb a course over its 0.018 m lip")
         band_lo, band_hi = wall_height_band_m(float(self.stories), self.knee_wall_m,
                                               shopfront=self.shopfront)
         if not band_lo <= self.wall_height_m <= band_hi:
@@ -1046,6 +1054,12 @@ def default_shopfront_bays(width_m: float) -> int:
     return shopfront_bay_verdict(width_m)[0]
 
 
+
+def _board_lay(recon: dict) -> float:
+    """The fabric rule's lay for this roof (FIN-L), from the material sheet."""
+    from common.materials import board_lay  # noqa: E402 — generators/ is on the path
+    return board_lay(recon)
+
 def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams:
     """Resolve one structure phase into generator parameters.
 
@@ -1145,6 +1159,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams
         # applied in and why a stated coating outranks them.
         finish_key=recon.get("finish_key"),
         roof_condition=recon.get("roof_condition"),
+        siding_lay_m=_board_lay(recon),
+        siding_seed=f"{(record or {}).get('id', '')}|{phase.get('id', '')}",
         confidence=confidences,
     )
     p.validate()

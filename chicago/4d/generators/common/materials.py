@@ -94,6 +94,7 @@ them is the whole point of a sheet.
 
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass
 
 # The sheet this module is. Quoted in every row so a reader can find the argument.
@@ -822,3 +823,114 @@ def trim_rgba(finish: Finish) -> tuple[float, float, float, float]:
         return (min(1.0, r * 1.06), min(1.0, g * 1.06), min(1.0, b * 1.06), a)
     return (min(1.0, r * (0.60 / 0.52)), min(1.0, g * (0.53 / 0.44)),
             min(1.0, b * (0.43 / 0.34)), a)
+
+
+# ---------------------------------------------------------------- the lay and the wear
+#
+# T-1818 (T-0002's other half, under T-1210's fabric rule). A finish says what a wall
+# WEARS; these two rows say how the boards were LAID and how long they have stood in
+# the weather — both dealt by whose house it is, both `reconstructed`, and both read
+# by nothing but the reconstructed roofs: a record with no `fabric_basis` is a
+# researched building and keeps exactly the wall it had. materials.md §16, rules
+# FIN-L / FIN-W, liberty L346.
+#
+# **FIN-L, the lay.** A mill sends clapboard at one stock (T-0112 deals it), but a man
+# with a hammer lays it, and the exposure he leaves course by course is as true as his
+# gauge. `lay_m` is the most one course's exposure may stand off the stock, either way.
+# A merchant's joiner set out the wall with a story pole; a labourer's or a yard
+# building's courses were laid by eye. Every bound sits well inside the 0.018 m lip
+# (`CLAPBOARD_LIP_M`), so no course can climb over the one above it, and inside the
+# 0.10-0.16 m band the archetypes already validate a stock against.
+#
+# **FIN-W, the wear.** `facades.js` silvers a wall by its age, and read that age off
+# `documented_range.from` — which on every reconstructed roof is the PROGRAMME's date,
+# 1835-01-01, so 262 roofs read half a year old whatever the fabric rule had said of
+# them. The rule already deals each roof an `age_state` from its household's arrival
+# year (T-1816); this row turns that state into years of exposure, and `rate` is how
+# far the class kept its walls up — a coat renewed, a wash re-limed — which slows the
+# silvering and never stops it.
+LAY_BY_CLASS: dict[str, float] = {
+    "merchant": 0.003,    # ~1/8 in: set out with a story pole
+    "keeper": 0.004,
+    "tradesman": 0.006,   # ~1/4 in: a carpenter's own house, laid by the gauge
+    "labourer": 0.008,    # ~5/16 in: laid by eye
+    "freight": 0.008,
+    "works": 0.008,
+    "yard": 0.008,
+}
+
+WEATHER_YEARS_BY_AGE: dict[str, float] = {
+    "new": 0.5,              # raised in 1835: the spring and early summer before July
+    "recent": 1.5,           # raised in 1834: one winter and a half
+    "established": 2.5,      # the first boom's, 1832-33
+    "older_frontier": 5.0,   # before 1832 — and well short of the fort's dated 19 years
+}
+
+MAINTENANCE_BY_CLASS: dict[str, float] = {
+    "merchant": 0.5,      # the coat kept up: rule F-M's "money bought the coat"
+    "keeper": 0.75,       # a public house's clean face, re-limed
+    "tradesman": 1.0,
+    "labourer": 1.0,
+    "freight": 1.0,
+    "works": 1.0,
+    "yard": 1.0,
+}
+
+
+def fabric_class(reconstruction: dict | None) -> str | None:
+    """The household class the fabric rule dealt this roof, or None for a record the
+    rule never reached (every researched building)."""
+    basis = (reconstruction or {}).get("fabric_basis") or {}
+    cls = basis.get("class")
+    return cls if cls in LAY_BY_CLASS else None
+
+
+def board_lay(reconstruction: dict | None) -> float:
+    """FIN-L: how far one course's exposure may stand off the stock, in metres. 0.0 —
+    the archetype's even courses, unchanged — wherever the rule has no class."""
+    cls = fabric_class(reconstruction)
+    return LAY_BY_CLASS[cls] if cls else 0.0
+
+
+def fabric_tone(reconstruction: dict | None) -> dict | None:
+    """FIN-W and FIN-L for one roof, as the sidecar carries them to the renderer, or
+    None where the rule has no class. `facades.js` reads `weather_years` in place of
+    the programme date and multiplies its silvering by `weather_rate`; the lay is
+    geometry and is here so the card and the audits can say what the bake built."""
+    cls = fabric_class(reconstruction)
+    age = (reconstruction or {}).get("age_state")
+    if not cls or age not in WEATHER_YEARS_BY_AGE:
+        return None
+    return {
+        "rule": "FIN-W/FIN-L",
+        "class": cls,
+        "age_state": age,
+        "weather_years": WEATHER_YEARS_BY_AGE[age],
+        "weather_rate": MAINTENANCE_BY_CLASS[cls],
+        "lay_m": LAY_BY_CLASS[cls],
+        "confidence": "reconstructed",
+    }
+
+
+def course_lines(z_lo: float, z_hi: float, exposure: float, lay: float = 0.0,
+                 seed: str = "") -> list[float]:
+    """The heights of a wall's lap lines, bottom up, from `z_lo` (exclusive) toward
+    `z_hi` — the course count the archetypes have always laid, `int(span / exposure)`.
+
+    With `lay` 0 this is exactly `z_lo + i * exposure`, so a wall the rule never
+    reached is built to the bit as before. Otherwise each LINE stands off its even
+    height by at most `lay / 2`, drawn by a hash of `seed` and the line's number, so a
+    course's exposure stays within `exposure ± lay`, the error never accumulates up
+    the wall (the top course still meets the plate where it did), and a line holds
+    one height all round the house, as a course carried round a corner board does.
+    Deterministic: the asset's input hash depends on it."""
+    n = int((z_hi - z_lo) / exposure)
+    out = []
+    for i in range(1, n):
+        z = z_lo + i * exposure
+        if lay > 0.0:
+            h = hashlib.sha256(f"{seed}|lap{i}".encode()).digest()
+            u = int.from_bytes(h[:4], "big") / 2 ** 32
+            z += (u * 2.0 - 1.0) * lay / 2.0
+        out.append(z)
+    return out

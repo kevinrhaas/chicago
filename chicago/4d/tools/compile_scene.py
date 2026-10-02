@@ -34,6 +34,8 @@ DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 from review_constraint import record_reason  # noqa: E402
 from tiers import tier_ladder, tier_label  # noqa: E402
+sys.path.insert(0, str(ROOT / "generators"))
+from common.materials import fabric_tone  # noqa: E402
 
 
 CHECK = False
@@ -2651,6 +2653,12 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
             sidecar["drawn_by"] = phase["drawn_by"]["layer"]
         if st.get("reconstruction"):
             sidecar["reconstruction"] = st["reconstruction"]
+            # THE LAY AND THE WEAR (T-1818), read off the material sheet's own rule
+            # (FIN-W/FIN-L) so the renderer's silvering takes the household's age,
+            # not the programme's date. Only where the fabric rule dealt a class.
+            tone = fabric_tone(st["reconstruction"])
+            if tone:
+                sidecar["fabric_tone"] = tone
         # HOW MANY SLEPT HERE (T-1370). Written only on the fifteen lodging
         # places the model gives beds to, like `reconstruction` above and unlike
         # `residents`: 330 sidecars carrying `lodging: null` would be 330 files of
