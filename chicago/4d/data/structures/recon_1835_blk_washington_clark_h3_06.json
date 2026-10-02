@@ -127,7 +127,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. The H3 crosswalk entry's variants line asks for it in as many words, and its assumption note says the count indicates capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio."
         },
         "stovepipes": {
-          "value": 6,
+          "value": 5,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -174,13 +174,13 @@
       "words": "whitewashed clapboard on a balloon frame under a weathered roof — a boarding house, a year old (rule F-B: a boarding-house or tavern keeper's by its type)"
     },
     "capacity": {
-      "beds_ordinary": 16,
+      "beds_ordinary": 15,
       "beds_crowded": 35,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_blk_washington_clark_h3_06]",
       "sizes": {
         "upper_windows": "ceil(35 crowded beds / 3 to a chamber) = 12, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.96 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(16 ordinary beds / 3 to a stove) = 6, held to 2-6: 6",
+        "stovepipes": "ceil(15 ordinary beds / 3 to a stove) = 5, held to 2-6: 5",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }

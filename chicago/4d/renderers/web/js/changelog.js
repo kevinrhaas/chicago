@@ -1,10 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1287, ts: '2026-10-02T05:24:23.170Z', date: 'Oct 2, 2026, 12:24 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+  { v: 1289, ts: '2026-10-02T05:51:49.285Z', date: 'Oct 2, 2026, 12:51 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
     items: [
       'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
       'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
       'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
       'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L345).',
+    ] },
+  { v: 1288, ts: '2026-10-02T05:18:43.463Z', date: 'Oct 2, 2026, 12:18 AM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
+    items: [
+      'Cross the river to Kinzie\u2019s Addition and walk east along Illinois Street to Cass. The corner now has a boarding house: two storeys of clapboard set close to the street, with a kitchen wing behind it.',
+      'Eight chamber windows run across its upper floor and five stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. A log stable and a privy stand in its yard, off the alley.',
+      'Ten people sleep there tonight, and Hannah Chapin keeps the house. Tap it and its card opens on Chapin\u2019s boarding house.',
+      'Some North Side lodgers moved over to it, and Kelsey\u2019s boarding-house now stands empty. The second Washington Street house and a West Side boarding house each sleep one fewer and lose a stovepipe.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper here in 1835. The Liberties page (L344) says how each was placed and sized.',
+    ] },
+  { v: 1287, ts: '2026-10-02T04:27:28.754Z', date: 'Oct 1, 2026, 11:27 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+    items: [
+      'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
+      'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
+      'When you step off a walk into the street you now step down, and you walk on the lower roadway. The board crossings step down into the street and back up again.',
+      'The walks, doors and buildings stayed where they were. Six wagons that stood on the lowest ground by the river are gone for now.',
+      'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L342).',
     ] },
   { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
     items: [

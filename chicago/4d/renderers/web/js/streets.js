@@ -495,9 +495,73 @@ function sampled(path) {
  * T-junction gap between interior columns is bounded by DRAPE_TOL_M — the
  * coarser panel's own acceptance test ran on that very row.
  */
+// The float32 one step from `x` in the direction of `dir`'s sign.
+function stepF32(x, dir) {
+  if (dir === 0) return x;
+  const ulp = 2 ** (Math.floor(Math.log2(Math.max(Math.abs(x), 2 ** -100))) - 23);
+  return Math.fround(x + Math.sign(dir) * ulp);
+}
+
+/**
+ * T-1812. Move a float32 vertex of a panel's end row onto, or just outside,
+ * the straight line between that row's two (float32) corners, where "outside"
+ * is the side the panel's far end `away` is not on. A neighbouring panel with
+ * fewer columns draws exactly that line as its edge; a vertex left inside it
+ * would open a sliver of bare ground between the two.
+ */
+function ontoEndLine(e, n, left, right, near, away) {
+  const le = Math.fround(left[0]);
+  const ln = Math.fround(left[1]);
+  const de = Math.fround(right[0]) - le;
+  const dn = Math.fround(right[1]) - ln;
+  const side = (pe, pn) => de * (pn - ln) - dn * (pe - le);
+  const inward = Math.sign(side(away[0], away[1]));
+  const oe = near[0] - away[0];
+  const on = near[1] - away[1];
+  for (let k = 0; k < 8 && inward !== 0 && side(e, n) * inward > 0; k++) {
+    e = stepF32(e, oe);
+    n = stepF32(n, on);
+  }
+  return [e, n];
+}
+
+/**
+ * T-1812. Where the line across a panel's middle crosses the terrain's sample
+ * lattice, as fractions 0..1 from its left edge to its right — the only places
+ * the bilinear ground can bend along that line. Crossings nearer than
+ * LATTICE_MIN_GAP to each other or to an edge are merged, so no column is a
+ * sliver.
+ */
+const LATTICE_MIN_GAP = 0.04;
+function latticeFractions(grid, ends) {
+  if (!grid || !(grid.cellM > 0)) return [0, 1];
+  const le = (ends.aLeft[0] + ends.bLeft[0]) * 0.5;
+  const ln = (ends.aLeft[1] + ends.bLeft[1]) * 0.5;
+  const de = (ends.aRight[0] + ends.bRight[0]) * 0.5 - le;
+  const dn = (ends.aRight[1] + ends.bRight[1]) * 0.5 - ln;
+  const cuts = [];
+  for (const [p, d, o] of [[le, de, grid.originE], [ln, dn, grid.originN]]) {
+    if (Math.abs(d) < 1e-9) continue;
+    const g0 = (p - o) / grid.cellM;
+    const g1 = (p + d - o) / grid.cellM;
+    for (let k = Math.ceil(Math.min(g0, g1)); k <= Math.floor(Math.max(g0, g1)); k++) {
+      cuts.push((k - g0) / (g1 - g0));
+    }
+  }
+  cuts.sort((x, y) => x - y);
+  const out = [0];
+  for (const f of cuts) {
+    if (f - out[out.length - 1] >= LATTICE_MIN_GAP && 1 - f >= LATTICE_MIN_GAP) out.push(f);
+  }
+  out.push(1);
+  return out;
+}
+
 function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
-  const build = (level) => {
-    const R = 1 << level;
+  const dyadic = (level) => Array.from({ length: (1 << level) + 1 }, (_, c) => c / (1 << level));
+  const build = (levelR, fr = dyadic(0)) => {
+    const R = 1 << levelR;
+    const C = fr.length - 1;
     const rows = [];
     for (let r = 0; r <= R; r++) {
       const t = r / R;
@@ -520,15 +584,27 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
         right = [pe - ue * reachR, pn - un * reachR];
       }
       const row = [];
-      for (let c = 0; c <= R; c++) {
-        const f = c / R;
+      for (let c = 0; c <= C; c++) {
+        const f = fr[c];
         // Rounded to the float32 the position buffer will store, and sampled
         // AT that value: on the ~1:1 ramp flanks the double-precision position
         // and its stored float32 stand on ground ~1e-5 m apart, which is
         // exactly the drape budget the smoke holds vertices to.
-        const e = Math.fround(left[0] * (1 - f) + right[0] * f);
-        const n = Math.fround(left[1] * (1 - f) + right[1] * f);
-        const interior = (r > 0 && r < R) || (c > 0 && c < R);
+        let e = Math.fround(left[0] * (1 - f) + right[0] * f);
+        let n = Math.fround(left[1] * (1 - f) + right[1] * f);
+        // T-1812. An END row is shared with the next panel, which may have
+        // settled on fewer columns, so its edge there is the straight line
+        // between the two corners. This row's own midpoints, rounded to
+        // float32, can land a few hundredths of a millimetre INSIDE that line,
+        // and the sliver between the two panels is uncovered ground: it opened
+        // the bisector of west_water's 7.7° bend to the smoke's joint stations.
+        // Such a vertex is stepped one float32 at a time OUTWARD until it stands
+        // on the line or just past it, so the finer panel always reaches the
+        // shared edge and never falls short of it.
+        if ((r === 0 || r === R) && c > 0 && c < C) {
+          [e, n] = ontoEndLine(e, n, left, right, r === 0 ? a : b, r === 0 ? b : a);
+        }
+        const interior = (r > 0 && r < R) || (c > 0 && c < C);
         if (interior && terrain.isWater(e, n)) return null;
         row.push([e, n, terrain.surfaceHeight(e, n) + LIFT_M]);
       }
@@ -564,13 +640,39 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
   };
   let grid = build(0);
   if (grid.some((row) => row.some(([e, n]) => !terrain.inBounds(e, n)))) return grid;
-  let level = 0;
   let miss = residual(grid);
-  while (miss > DRAPE_TOL_M && level < MAX_DRAPE_LEVEL) {
-    const next = build(level + 1);
+  if (miss <= DRAPE_TOL_M) return grid;
+  // T-1812. COLUMNS WHERE THE GROUND BENDS, not where a halving lands. The
+  // graded street section (terrain_gen.py) crowns the bed and drops it into a
+  // gutter at each shoulder, so a panel one quad wide misses its own ground
+  // ACROSS the street on every graded panel in the town. But the ground a
+  // visitor stands on is `surfaceHeight()`, a bilinear field on a 2.5 m
+  // lattice, and along a line it only bends where it crosses one of that
+  // lattice's lines. So the columns go at those crossings (measured on the
+  // panel's middle row): the cut is followed with as few columns as the
+  // street is cells wide. Halving both axes answered the same miss with up to
+  // 8 x 8 sub-quads per panel and took the layer from 59 k to 466 k
+  // triangles; halving across first, to 296 k — which on its own put Lake
+  // Street at Canal 238 k triangles over the `full` ceiling.
+  // Rows are halved only when the columns alone cannot settle it (a bend, an
+  // approach fill), which is the case the joint refinement was written for;
+  // a panel the lattice does not settle falls back to halving across.
+  let fr = latticeFractions(terrain.grid, ends);
+  let levelR = 0;
+  if (fr.length > 2) {
+    const next = build(0, fr);
+    if (next) { grid = next; miss = residual(grid); } else fr = dyadic(0);
+  }
+  let levelC = 0;
+  let acrossShut = fr.length > 2;
+  while (miss > DRAPE_TOL_M
+    && ((!acrossShut && levelC < MAX_DRAPE_LEVEL) || levelR < MAX_DRAPE_LEVEL)) {
+    const across = !acrossShut && levelC < MAX_DRAPE_LEVEL;
+    const next = across ? build(levelR, dyadic(levelC + 1)) : build(levelR + 1, fr);
+    if (!next && across) { acrossShut = true; continue; }
     if (!next) break;
     grid = next;
-    level += 1;
+    if (across) { levelC += 1; fr = dyadic(levelC); } else levelR += 1;
     miss = residual(grid);
   }
   return grid;
@@ -842,7 +944,7 @@ function addRecord(buffers, record, terrain, stats) {
       }
     }
     stats.panels += 1;
-    if (rows > 1) stats.refinedPanels += 1;
+    if (rows > 1 || cols > 1) stats.refinedPanels += 1;
     panelDrawn[i] = true;
   }
 
@@ -1060,6 +1162,14 @@ function meshOf(surface, buf, confidence, aidUniform, grit) {
     roughness: 1,
     metalness: 0,
     side: THREE.DoubleSide,
+    // T-1812. A transparent double-sided material is drawn in TWO passes by
+    // default — every back-facing triangle, then every front-facing one — so
+    // the renderer submitted the whole layer twice and the frame budget paid
+    // for it twice, though each triangle is rasterised in only one of the two.
+    // One pass draws the same triangles with the same lighting (the shader
+    // flips a back face's normal itself); only the blend order of the joint
+    // fans' overlaps can differ, and they are one surface over itself.
+    forceSinglePass: true,
     polygonOffset: true,
     // R-BUG2 fault 1. -1/-1 is a fraction of a depth unit and the terrain won
     // the test in patches beyond ~250 m. Deep enough to hold at the far end of

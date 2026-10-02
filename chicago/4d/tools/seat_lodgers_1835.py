@@ -999,11 +999,18 @@ def band_block(band: str, seed: str) -> dict:
     }
 
 
-def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: set) -> tuple:
+def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: set,
+             avoid_surnames: frozenset = frozenset()) -> tuple:
     """(person id, full name, community). THE WHOLE POOL IS SEARCHED, not one draw and
     one retry: the draw picks where in the two lists to start and the search steps through
     every (surname, forename) pair from there, taking the first whose full name nobody in
-    the layer bears and whose id nobody holds."""
+    the layer bears and whose id nobody holds.
+
+    `avoid_surnames` (T-1952) holds full names, and a surname any of them ENDS in is
+    skipped. It is for a KEEPER: the keeper's surname is the house's trade
+    style ("Bardwell's boarding house"), so a keeper minted under a surname another
+    minted keeper already bears would put two houses under one name, and the business
+    layer refuses that build. A non-keeper passes nothing and draws exactly as before."""
     community = community_for(slot_id, pool)
     surnames = community["surnames"]
     givens = community["given_male" if sex == "male" else "given_female"]
@@ -1011,6 +1018,8 @@ def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: se
     start_g = draw(f"{slot_id}:forename") % len(givens)
     for ds in range(len(surnames)):
         surname = surnames[(start_s + ds) % len(surnames)]
+        if any(name.endswith(" " + surname.lower()) for name in avoid_surnames):
+            continue
         for dg in range(len(givens)):
             given = givens[(start_g + dg) % len(givens)]
             full = f"{given} {surname}"
@@ -1023,8 +1032,9 @@ def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: se
 
 def person_card(slot_id: str, sex: str, band: str, bucket_key: str, place: dict,
                 relationship: str, pool: dict, taken_names: set, taken_ids: set,
-                keeper: bool = False) -> dict:
-    pid, full, community = name_for(slot_id, sex, pool, taken_names, taken_ids)
+                keeper: bool = False, avoid_surnames: frozenset = frozenset()) -> dict:
+    pid, full, community = name_for(slot_id, sex, pool, taken_names, taken_ids,
+                                    avoid_surnames)
     taken_names.add(full.lower())
     taken_ids.add(pid)
     person = {
@@ -1583,6 +1593,11 @@ def fill() -> tuple:
     all_names, real_names, ids = layer()
     taken_names = set(all_names)
     taken_ids = set(ids)
+    # T-1952. The keepers this stage has already minted (full names, lower-cased, so a
+    # surname of two words is matched whole), in deal order. A
+    # house dealt later may not take one: its keeper's surname is its trade style. Standing
+    # keepers are not listed, because their houses' names are the business layer's own.
+    keeper_surnames: set = set()
 
     seats, seat_refusals = seat_the_solitary(houses)
     # Refusal 6 (T-1808), AFTER the solitary heads, so every one of them keeps the bed
@@ -1722,7 +1737,9 @@ def fill() -> tuple:
             if weights:
                 slot_id = f"{STAGE}:{house['id']}:keeper:001"
                 persons.append(person_card(slot_id, sex, band, key, house, "head", pool,
-                                           taken_names, taken_ids, keeper=True))
+                                           taken_names, taken_ids, keeper=True,
+                                           avoid_surnames=frozenset(keeper_surnames)))
+                keeper_surnames.add(persons[0]["name"].lower())
                 fills[key] += 1
                 room[(house["division"], sex, band, "trade")] = (
                     key, room[(house["division"], sex, band, "trade")][1] - 1)

@@ -1180,6 +1180,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_a1_08"
     },
+    "recon_1835_blk_indiana_north_cass_a1_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 83908,
+      "inputs_sha256": "81680aa1a8e63659f222a59804b57da5b0e755a5b50836f7d79334affd15ecf7",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a1_10"
+    },
     "recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -1188,6 +1197,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_a3_03"
+    },
+    "recon_1835_blk_indiana_north_cass_a3_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 32040,
+      "inputs_sha256": "252ff24a9a2c65d2d10ccb764cbf6536fe33aa9d6386ad688769e81786057184",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a3_11"
     },
     "recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -1242,6 +1260,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_d4_06"
+    },
+    "recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 40084,
+      "inputs_sha256": "fb92ddd73a6817e2ecf730d93ce1a304322cdecdcb9aeb5a78232e0991d81341",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_h3_09"
     },
     "recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2614,8 +2641,8 @@
     "recon_1835_blk_washington_clark_h3_06__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 39608,
-      "inputs_sha256": "d80ce9770ef9dcd79ff2e948882fa28b75e76e51642183c917831e908d3fc0fe",
+      "bytes": 38824,
+      "inputs_sha256": "a5a784d6a3c51126246ee1584590775a743c912a7d7b92d061fd399a79c4e17f",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
@@ -4036,8 +4063,8 @@
     "recon_1835_west_006__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 67380,
-      "inputs_sha256": "57588067b6259bc813b88a6cedc0565ca403cff321c16a1319f45d10920ed367",
+      "bytes": 66600,
+      "inputs_sha256": "a6444d7a4fe3926c7101ff9fc242e5e63605d6690c7533f4ba5e18241e10a42c",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_006"
@@ -4611,25 +4638,25 @@
     },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
-      "bytes": 29453392,
+      "bytes": 30320736,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "4fa9d29738887542ab1a6b4389184a09ee75827204a074ae86888b46e91b4afc",
+      "inputs_sha256": "4c6d7ae11a7d032d352fa4f004c9144ac6be82ca39ffba53342bbc7504506a93",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.0095,
+        "max_m": 0.0042,
         "misses": 0,
-        "rms_m": 0.00027,
+        "rms_m": 0.00024,
         "samples": 210897
       },
       "terrain_epoch": "e1834_harbor_cut",
-      "triangles": 1131566
+      "triangles": 1164920
     },
     "terrain__e1871_postfire.glb": {
       "baked_ao": false,
       "bytes": 1970604,
       "generator": "generators/terrain_gen_graded.py",
-      "inputs_sha256": "e029cdc1082c064eaf867db40d262a342f6c2c103ecee08d6f3a76c6faafba62",
+      "inputs_sha256": "66a30ea9564cca6bdde382e5892a14e4de577734a247f109d996c6de37578e40",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
@@ -4699,7 +4726,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "4fa9d29738887542ab1a6b4389184a09ee75827204a074ae86888b46e91b4afc",
+      "inputs_sha256": "4c6d7ae11a7d032d352fa4f004c9144ac6be82ca39ffba53342bbc7504506a93",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",
@@ -4709,7 +4736,7 @@
       "baked_ao": false,
       "bytes": 1372,
       "generator": "generators/terrain_gen_graded.py",
-      "inputs_sha256": "e029cdc1082c064eaf867db40d262a342f6c2c103ecee08d6f3a76c6faafba62",
+      "inputs_sha256": "66a30ea9564cca6bdde382e5892a14e4de577734a247f109d996c6de37578e40",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1871_postfire",
