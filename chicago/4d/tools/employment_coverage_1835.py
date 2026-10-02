@@ -95,6 +95,7 @@ PREMISES_RULINGS = BUSINESSES / "rulings" / "premises_rulings.json"
 STAFFING_MODEL = ROOT / "data" / "reconstruction" / "1835_business_staffing_model.json"
 TOWN_MODEL = ROOT / "data" / "reconstruction" / "1835_town_model.json"
 SEATING = RESIDENTS / "reconstructed_seating.json"
+ATTESTED_HOUSES = RESIDENTS / "attested_trade_houses.json"
 COVERAGE_OUT = RESIDENTS / "employment_coverage.json"
 
 SCENE_DATE = "1835-07-01"
@@ -111,18 +112,28 @@ RESIDENT_DIRS = ("households", "reconstructed_trades", "lodgers", "underdocument
 #: unchanged — the two passes must agree about what a trade is or their answers overlap.
 NOT_A_TRADE = ("none_recorded", "not_recorded", "unknown", None, "")
 
+#: T-1994's four answers for an attested trade whose premises ruling sends the person to an
+#: establishment they do not keep, and no house in the register is owed for it. Each is a
+#: STATED reason, never an owed one: the person works, and the town is short no house.
+ATTESTED_NONE_OWED = ("serves_an_establishment_outside_the_register",
+                      "not_held_by_the_establishment_on_the_scene_date",
+                      "a_civic_seat_and_not_a_house",
+                      "works_on_other_people_s_ground")
+ATTESTED_ANSWERS = ("joined", "none_owed")
+
 #: The five statuses, and for each the reasons it may carry. A status is never written
 #: without a reason: "he is not at work" is not an answer, "the layer records no trade
 #: for him" is. Closed here and asserted against in `verify`.
 STATUSES = {
-    "at_a_named_house": ("named_by_a_source", "on_the_staff_of_a_house"),
+    "at_a_named_house": ("named_by_a_source", "on_the_staff_of_a_house",
+                         "joined_by_the_attested_trade_ruling"),
     "at_a_seat_this_project_drew": ("seated_by_the_staffing_model",
                                     "drawn_onto_a_house_s_staff"),
     "on_their_own_account": ("keeps_their_own_house", "keeps_a_house_the_register_holds"),
     "at_a_trade_with_no_house_to_join": (
         "no_employer_named", "class_held_no_house", "class_full_none_owed",
         "trade_attested_no_house_named", "no_ruling_on_the_trade",
-        "in_service_in_another_household"),
+        "in_service_in_another_household", *ATTESTED_NONE_OWED),
     "no_trade_recorded": ("no_trade_recorded",),
 }
 
@@ -190,6 +201,29 @@ WORDS = {
         "A record in the business register carries this person on its staff at the "
         "reconstructed tier: this project drew them there, and the record says by what "
         "rule.",
+    "joined_by_the_attested_trade_ruling":
+        "A source attests this person's trade, and its premises ruling sends them to an "
+        "establishment they did not keep. The business register holds that house and a "
+        "source names them in it, or the card's own reasoning does; the ruling below "
+        "says which, at the grade it allows (T-1994).",
+    "serves_an_establishment_outside_the_register":
+        "The establishment this trade served is held by a committed file that is not the "
+        "business register — the garrison at the fort, an agency held for a company in "
+        "another town — and that file places this person in it. They are at work, and no "
+        "house of trade is owed (T-1994).",
+    "not_held_by_the_establishment_on_the_scene_date":
+        "The establishment this trade served does not hold this person on 1 July 1835: "
+        "its own record names somebody else in the seat, the source dates the work out of "
+        "the window, or a ruling already refused them. No house is owed; the ruling below "
+        "says which (T-1994).",
+    "a_civic_seat_and_not_a_house":
+        "The premises ruling calls this trade a civic seat and not a house of trade. Where "
+        "the seat sat is a place on the person (T-1405's associated_with), not a business, "
+        "and the register's county offices are the clerk's room and do not hold it (T-1994).",
+    "works_on_other_people_s_ground":
+        "The premises ruling says this trade is done on somebody else's ground — inside the "
+        "customer's building, in the field, in the vessel owner's yard — so it keeps no "
+        "house of its own and is owed none (T-1994).",
     "no_trade_recorded":
         "No source records a trade for this person and no reconstruction stage has given "
         "them one. This is a statement about the evidence and not about the person: a "
@@ -226,6 +260,17 @@ REGISTER_KEEPS = ("proprietors", "partners")
 REGISTER_STAFF = ("staff",)
 REGISTER_REASONS = ("keeps_a_house_the_register_holds", "on_the_staff_of_a_house",
                     "drawn_onto_a_house_s_staff")
+
+#: THE ATTESTED TRADES WITH NO HOUSE NAMED (T-1994, piece 2 of 3 of T-1991). After the
+#: card, the seating and the register have answered, 25 people still read
+#: `trade_attested_no_house_named`: a source gives their trade, its premises ruling sends
+#: them to an establishment they did not keep, and nothing joined them to one. Drawing a
+#: seat for a man the record knows is refused above, so each was ruled on BY NAME in
+#: `attested_trade_houses.json` — joined to the house the register holds, at the grade the
+#: source allows, or told in the ruling's own words why none is owed. This applies that
+#: file and nothing else: a row whose person no longer reads that reason is stale and is
+#: refused, because a ruling made against one answer is not a ruling on another.
+ATTESTED_REASON = "trade_attested_no_house_named"
 
 
 class Fault(Exception):
@@ -273,7 +318,10 @@ def load() -> dict:
             if isinstance(row, dict) and row.get("id"):
                 businesses[row["id"]] = row
     seating = _load_json(SEATING)
+    attested = (_load_json(ATTESTED_HOUSES).get("rows") or []
+                if ATTESTED_HOUSES.exists() else [])
     return {
+        "attested_houses": {row["person_id"]: row for row in attested},
         "people": people,
         "businesses": businesses,
         "register": register_rows(businesses),
@@ -488,6 +536,58 @@ def register_answer(rows: list) -> dict:
     }
 
 
+def attested_answer(ruling: dict, businesses: dict) -> dict:
+    """The answer T-1994's ruling gives one person. A join names a house the register
+    holds on the scene date and carries its grade and citation; a none-owed answer
+    carries one of four stated reasons and the committed file that decides it."""
+    pid, kind = ruling.get("person_id"), ruling.get("answer")
+    where = f"{ATTESTED_HOUSES.name}#{pid}"
+    if kind not in ATTESTED_ANSWERS:
+        raise Fault(f"{where} answers {kind!r}, which is in no vocabulary here")
+    if not ruling.get("basis"):
+        raise Fault(f"{where} carries no basis. A ruling with no reasoning is a guess.")
+    if kind == "joined":
+        house = ruling.get("house")
+        record = businesses.get(house)
+        if record is None:
+            raise Fault(f"{where} joins {house!r}, which the business register does not "
+                        "hold")
+        if record.get("present_at_scene_date") is False or record.get("exclusion"):
+            raise Fault(f"{where} joins {house!r}, which is not trading on the scene date")
+        if ruling.get("tier") not in ("attested", "inferred"):
+            raise Fault(f"{where} joins at the tier {ruling.get('tier')!r}; a join of a "
+                        "documented person is `attested` on a source or `inferred` on "
+                        "stated reasoning, and nothing else")
+        if not ruling.get("source_id"):
+            raise Fault(f"{where} joins with no source_id to stand on")
+        name = record.get("name")
+        name = name.get("value") if isinstance(name, dict) else name
+        return {
+            "status": "at_a_named_house",
+            "reason": "joined_by_the_attested_trade_ruling",
+            "decided_by": f"attested_trade_houses.json#{pid}: {house} as "
+                          f"{ruling.get('role') or 'unstated'}, {ruling['tier']} on "
+                          f"{ruling['source_id']}, ruled by T-1994",
+            "houses": [house],
+            "house_names": [name or house],
+            "ruling": ruling["basis"],
+        }
+    reason = ruling.get("reason")
+    if reason not in ATTESTED_NONE_OWED:
+        raise Fault(f"{where} says none is owed for the reason {reason!r}, which is not "
+                    "one of the four this file may give")
+    if not ruling.get("reads"):
+        raise Fault(f"{where} says none is owed and names no committed file that says so")
+    return {
+        "status": "at_a_trade_with_no_house_to_join",
+        "reason": reason,
+        "decided_by": f"attested_trade_houses.json#{pid}, reading {ruling['reads']}, "
+                      "ruled by T-1994",
+        "houses": [],
+        "ruling": ruling["basis"],
+    }
+
+
 def derive(data: dict) -> dict:
     floor = working_age_floor(data["model"])["floor"]
     context = {"seating": data["seating"], "rulings": data["rulings"],
@@ -507,6 +607,14 @@ def derive(data: dict) -> dict:
         if (not block["houses"] and person["id"] in register
                 and scope != "below_working_age"):
             block = register_answer(register[person["id"]])
+        ruling = (data.get("attested_houses") or {}).get(person["id"])
+        if ruling is not None:
+            if block["reason"] != ATTESTED_REASON:
+                raise Fault(f"{person['id']} is ruled on in "
+                            f"{ATTESTED_HOUSES.relative_to(ROOT)} and reads "
+                            f"{block['reason']!r}, not {ATTESTED_REASON!r}. The ruling was "
+                            "made against the answer it replaces; retire the row.")
+            block = attested_answer(ruling, data["businesses"])
         rows.append({
             "person_id": person["id"],
             "household_id": household.get("id"),
@@ -581,6 +689,7 @@ def report(data: dict, coverage: dict) -> dict:
             "data/residents/{households,reconstructed_trades,lodgers,underdocumented,"
             "transients,readmitted,merged}/*.json",
             "data/residents/reconstructed_seating.json (T-1433)",
+            "data/residents/attested_trade_houses.json (T-1994)",
             "data/businesses/*.json",
             "data/businesses/authored/*.json (the register's own people rows, T-1990)",
             "data/businesses/rulings/premises_rulings.json",
@@ -660,7 +769,8 @@ def report(data: dict, coverage: dict) -> dict:
             "it_re_decides_nothing":
                 "Every answer is already implied by a committed file. T-1432's join, "
                 "T-1433's seating, the business register's own proprietors, partners "
-                "and staff (T-1990) and premises_rulings.json each keep their own words; "
+                "and staff (T-1990), the by-name rulings on the attested trades (T-1994) and "
+                "premises_rulings.json each keep their own words; "
                 "this pass only guarantees that one of them reaches every card.",
         },
         "rows": rows,
@@ -864,7 +974,32 @@ def cmd_self_test() -> int:
         band_bounds("middle-aged")
     _fires("an age band in a form this pass cannot read", unreadable_band)
 
-    print("OK: all ten assertions of the employment coverage fire when broken")
+    def stale_ruling():
+        bent = dict(data)
+        other = next(r["person_id"] for r in coverage["rows"]
+                     if r["reason"] == "no_trade_recorded")
+        ruling = next(iter(data["attested_houses"].values()), None)
+        if ruling is None:
+            raise Fault("the self-test found no T-1994 ruling to bend")
+        bent["attested_houses"] = {other: {**ruling, "person_id": other}}
+        derive(bent)
+    _fires("a T-1994 ruling applied to a person it was not made against", stale_ruling)
+
+    def join_to_nothing():
+        ruling = next((r for r in data["attested_houses"].values()
+                       if r.get("answer") == "joined"), None)
+        if ruling is None:
+            raise Fault("the self-test found no T-1994 join to bend")
+        attested_answer({**ruling, "house": "biz_no_such_house"}, data["businesses"])
+    _fires("a T-1994 join naming a house the register does not hold", join_to_nothing)
+
+    def owed_by_fiat():
+        ruling = next(r for r in data["attested_houses"].values()
+                      if r.get("answer") == "none_owed")
+        attested_answer({**ruling, "reason": "because_we_said_so"}, data["businesses"])
+    _fires("a T-1994 none-owed answer in a reason outside its four", owed_by_fiat)
+
+    print("OK: all thirteen assertions of the employment coverage fire when broken")
     return 0
 
 

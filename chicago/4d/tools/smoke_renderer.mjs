@@ -1678,8 +1678,14 @@ for (const [label, viewport, touch] of [
           for (let i = 0; i < pos.count; i += step) {
             const e = pos.getX(i);
             const n = -pos.getZ(i);
-            worstDrape = Math.max(worstDrape,
-              Math.abs(pos.getY(i) - a.terrain.surfaceHeight(e, n) - 0.022));
+            // A vertex stands on the field — or, on a panel laid on the ground's
+            // cells (streets.js, THE RIDGE DRAPE), on the cell's upper
+            // triangulation, which is never under the field and meets it on
+            // every lattice line. Outside that band is a drape fault either way.
+            const y = pos.getY(i) - 0.022;
+            const floor = a.terrain.surfaceHeight(e, n);
+            const ceil = a.streets.ridgeHeight?.(e, n) ?? floor;
+            worstDrape = Math.max(worstDrape, floor - y, y - ceil);
             if (a.terrain.isWater(e, n)) wetVertices++;
           }
         });
@@ -1865,6 +1871,14 @@ for (const [label, viewport, touch] of [
         // of the failure this gate exists to catch, with headroom over the
         // measured worst. Off-grid probes are skipped: no sample, no verdict.
         let worstSink = 0;
+        // The same probes against the GROUND THAT IS DRAWN, which is not the
+        // bilinear field: the bake triangulates each cell, and under a road the
+        // drawn ground stands up to a quarter of the cell's twist above the
+        // field — never above the cell's ridge (measured: 4 mm at worst over
+        // 1.14 M points under the roads). The owner's grass coming up through
+        // the dirt (2026-10-02) was this number at 0.61 m, and at 3 cm or more
+        // on 1,180 triangles; laid on the ridge it reads 0.017 m.
+        let worstRidgeSink = 0;
         a.streets.group.traverse((o) => {
           const pos = o.geometry?.getAttribute?.('position');
           const idx = o.geometry?.index;
@@ -1885,6 +1899,9 @@ for (const [label, viewport, touch] of [
               const y = pt[0][1] * wa + pt[1][1] * wb + pt[2][1] * wc;
               worstSink = Math.max(worstSink,
                 a.terrain.surfaceHeight(e, n) + 0.022 - y);
+              if (a.streets.ridgeHeight) {
+                worstRidgeSink = Math.max(worstRidgeSink, a.streets.ridgeHeight(e, n) + 0.022 - y);
+              }
             }
           }
         });
@@ -2014,7 +2031,9 @@ for (const [label, viewport, touch] of [
         }
 
         return {
-          worstSink, refinedPanels, approachGaps, jointGaps, jointStations,
+          worstSink, worstRidgeSink, refinedPanels, approachGaps, jointGaps, jointStations,
+          ridgePanels: a.streets.stats?.ridgePanels ?? null,
+          ridged: a.streets.ridged ?? null, roadDetail: a.detail,
           joints: a.streets.stats?.joints ?? null,
           squareJoints: a.streets.stats?.squareJoints ?? null,
           mitredJoints: a.streets.stats?.mitredJoints ?? null,
@@ -6603,6 +6622,9 @@ for (const [label, viewport, touch] of [
       const wb = a.workingBank;
       const mesh = wb?.group?.children?.[0] ?? null;
       const conf = mesh?.geometry?.getAttribute('_confidence') ?? null;
+      const road = mesh?.geometry?.getAttribute('aRoad') ?? null;
+      let onStreet = 0;
+      for (let i = 0; i < (road?.count ?? 0); i++) if (road.getX(i) < 0) onStreet++;
       let notReconstructed = 0;
       for (let i = 0; i < (conf?.count ?? 0); i++) if (conf.getX(i) !== 1) notReconstructed++;
       const apronProbe = (wb?.aprons ?? []).map((ap) => {
@@ -6620,6 +6642,9 @@ for (const [label, viewport, touch] of [
         meshes: wb?.group?.children?.length ?? 0,
         hasConfidence: !!conf,
         notReconstructed,
+        hasRoad: !!road,
+        onStreet,
+        vertices: road?.count ?? 0,
         apronProbe,
         // The North Division bank across the river from Jones's landing.
         across: wb ? wb.wearAt(365, 116) : null,
@@ -6637,6 +6662,15 @@ for (const [label, viewport, touch] of [
       bank.meshes === 1 && bank.hasConfidence && bank.notReconstructed === 0,
       `${bank.meshes} mesh(es), attribute ${bank.hasConfidence ? 'present' : 'MISSING'}, `
         + `${bank.notReconstructed} vertex/vertices claiming better than reconstructed`);
+    // T-1987. The band feathers in over South Water's worked edge on purpose, so
+    // some of its vertices stand on the street; the shader draws only earth
+    // there (working-bank.js), because an opaque grid 4 cm up drew square
+    // patches of grass over the street wherever it drew the prairie. This asks
+    // that the distance it decides on is carried, and that the overlap it
+    // governs exists — a band that stopped short would pass it vacuously.
+    check(`${label}: the working bank knows where the street is, and stands partly on it`,
+      bank.hasRoad && bank.onStreet > 0 && bank.onStreet < bank.vertices,
+      `${bank.onStreet} of ${bank.vertices} bank vertices on the street's worked width`);
     check(`${label}: every landing's apron is bare earth with no tree, and the far bank is left alone`,
       bank.apronProbe.length === 7
         && bank.apronProbe.every((p) => p.wear >= 0.99 && p.trees === true)
@@ -6645,10 +6679,16 @@ for (const [label, viewport, touch] of [
         + `${p.trees ? 'cleared' : 'STANDING'}`).join('; ')
         + `; across the river wear ${bank.across}`);
     // AND IT READS, from the street looking across the bank at Carpenter's
-    // landing, held clock, with and without the layer.
+    // landing, held clock, with and without the layer. T-1987: the stand sat
+    // at n 9, pitch -9, where most of what the layer changed was the band of
+    // prairie it painted over the street itself (the bug the owner reported,
+    // 2026-10-02); with that gone the view read worst 4.0, mean 0.21 at phone
+    // size. It stands at the worked edge now, looking down across the bank
+    // to the water (worst 13, mean 1.1 at 390x780; 15 / 2.6 at 1280x800), and
+    // the bar is unchanged.
     await page.evaluate(() => { window.__chicago4d.setAnimationHold(false); });
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 372, local_n: 9, yaw_deg: 8, pitch_deg: -9 }));
+      { local_e: 372, local_n: 13, yaw_deg: 8, pitch_deg: -12 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const bankWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -9340,6 +9380,8 @@ for (const [label, viewport, touch] of [
           ceiling: a.detailLevels[level].triangles,
           furnitureReachM: a.furnitureReach.reachM,
           furnitureMeshesReach: a.furnitureReach.meshes,
+          roadRidged: a.streets.ridged ?? null,
+          roadRidgePanels: a.streets.stats?.ridgePanels ?? null,
           bankedSpheres: a.furnitureReach.banked,
           atStands,
           worstTris: atStands.reduce((x, y) => (y.tris > x.tris ? y : x)),
@@ -9477,6 +9519,12 @@ for (const [label, viewport, touch] of [
       light.worstCalls.calls <= full.worstCalls.calls * 0.9,
       `${light.worstCalls.calls} calls at light against ${full.worstCalls.calls} at full, `
       + `worst stand ${light.worstCalls.label}`);
+    // THE RIDGE DRAPE follows the level: laid at full and balanced, not at light.
+    check(`${label}: the road is laid on the ridge at full and balanced and not at light`,
+      detail.seen.every((s) => s.roadRidged === (s.level !== 'light')
+        && (s.roadRidgePanels > 0) === (s.level !== 'light')),
+      detail.seen.map((s) => `${s.level} ${s.roadRidged ? 'ridged' : 'grids'} `
+        + `${s.roadRidgePanels}`).join(', '));
     check(`${label}: the level the visitor started on is restored`,
       detail.restored && !detail.flying && detail.restoredAt === STANDS[0].id,
       `${detail.restored ? 'level restored' : 'level NOT restored'}, `
@@ -10067,6 +10115,23 @@ for (const [label, viewport, touch] of [
       streetLayer.worstSink < 0.35 && streetLayer.refinedPanels > 0,
       `worst interior sink ${streetLayer.worstSink.toFixed(3)} m, `
       + `${streetLayer.refinedPanels} refined panels`);
+    // The owner's report of 2026-10-02 — grass growing over the dirt as he
+    // walked up to it — was this reading at 0.61 m. The 0.022 m lift less the
+    // drawn ground's 4 mm over the ridge leaves 18 mm a road can sag and still
+    // be on top; the module holds it to 15 (SAG_TOL_M) and reads 0.017 m.
+    // Read at full and balanced only: `light` keeps the refined grids and pays
+    // nothing for the cut (streets.js), and the detail sweep below asserts that
+    // the road changes tier with the rest of the scene in both directions.
+    if (streetLayer.ridged !== false) {
+      check(`${label}: the DRAWN ground never rises through a road (cell ridge, 18 mm)`,
+        streetLayer.worstRidgeSink < 0.018 && streetLayer.ridgePanels > 0,
+        `worst sink under the ridge ${streetLayer.worstRidgeSink.toFixed(3)} m `
+        + `(lift 0.022), ${streetLayer.ridgePanels} panels laid on the cells`);
+    } else {
+      check(`${label}: at ${streetLayer.roadDetail} the road keeps its refined grids (no ridge cost)`,
+        streetLayer.ridgePanels === 0,
+        `${streetLayer.ridgePanels} panels laid on the cells at ${streetLayer.roadDetail}`);
+    }
     check(`${label}: the worn track runs onto each bridge approach and meets the deck`,
       streetLayer.approachGaps.length === 0,
       streetLayer.approachGaps.length
@@ -10818,7 +10883,7 @@ for (const [label, viewport, touch] of [
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,
       `${drawnTown.streets.stray} of ${drawnTown.streets.verts} drawn vertices further than `
-      + `half a track from any of ${drawnTown.streets.records} centrelines across `
+      + `half the worked width from any of ${drawnTown.streets.records} centrelines across `
       + `${drawnTown.streets.meshes} meshes; worst ${drawnTown.streets.worst.toFixed(2)} m`
       + (drawnTown.streets.worstAt
         ? ` at E ${drawnTown.streets.worstAt.e} N ${drawnTown.streets.worstAt.n}` : '')

@@ -1,5 +1,5 @@
 {
-  "status": "Full and corrected light static geometry accepted; browser/source gate pending.",
+  "status": "Full/light static geometry, 745-step source gate, preflight and bounded published desktop/mobile validation passed.",
   "full_sha256": "aecf5e9407fb7aafd34b585b27b9f126c1b569670c31cb67ca5891a0025c8ef9",
   "selected_render_paths": {
     "west-street": "west-street.png",
@@ -53,7 +53,15 @@
     "Reference image(2) is an owner-directed reconstruction target, not a surveyed elevation.",
     "CIE overcast render scene adds neutral ground and lighting only; no mesh/material retouching.",
     "Render review supports visible corrections, not a quantitative claim of photographic perfection.",
-    "Official stage13 desktop first attempt timed out at unrelated1835boot under heavy resource contention; zero page errors but no stage body executed. Custom1904attempt was stopped during the same contention; no browser pass claimed."
+    "Browser coverage is bounded to the changed Glessner assets. Official staged smoke results are recorded in the PR; no full thirteen-stage smoke pass is claimed."
   ],
-  "light_sha256": "fd5c851a8a05dcf8aa28a6bf3f9abf2c5ccf2651728890c2f80f6e064baf3bb2"
+  "light_sha256": "fd5c851a8a05dcf8aa28a6bf3f9abf2c5ccf2651728890c2f80f6e064baf3bb2",
+  "source_gate": {
+    "steps": 745,
+    "self_tests": 309,
+    "failed": 0,
+    "preflight": "PASS",
+    "dev_base": "5b500ef54cea7be7a3a710cf1187542102d9c655"
+  },
+  "browser_receipt": "browser-validation.json"
 }

@@ -66,7 +66,22 @@ roof. The rear ridge at W149.25 clears south-window lintels and roof thickness.
 ![North entrance and window clearances](north-detail.png)
 ![Courtyard roof connections](courtyard.png)
 
-Source-gate and published-browser final results are pending. Early browser
-attempts under concurrent rendering/gate load timed out before their test body;
-those are not claimed as passes. These renders support the visible corrections,
-not a quantitative claim of photographic perfection.
+The merged source tree passes all 745 checks (309 are intentional-failure self-tests),
+and preflight passes against dev base `5b500ef5`. Published desktop 1280×800
+uses the full asset at west/northwest/north/courtyard stands; mobile 390×780
+uses the light asset at west/north stands, with the entry overlay dismissed.
+Both switch to the other detail level successfully, fetch both GLBs with HTTP
+200, and report zero page errors, failed requests or model-loader problems.
+`browser-validation.json` records the observed detail levels and capture method.
+The browser snapshot uses runtime `81e41588` and the exact final model bytes.
+
+SwiftShader required pausing the continuous animation loop after normal readiness
+and calling the app's existing `step()` for each capture; no geometry, material,
+lighting, shadow or pixel changes were made. Early contended attempts and an
+initial mobile capture behind the welcome gate were rejected. Official staged
+smoke results are recorded in the PR; these bounded checks are not a claim that
+all thirteen unrelated town smoke stages ran. The images support the visible
+corrections, not a quantitative claim of photographic perfection.
+
+![Published desktop west view](browser-desktop-west.png)
+![Published mobile light west view](browser-mobile-west.png)
