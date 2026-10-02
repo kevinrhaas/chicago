@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Three refectories, a mill and four more houses of trade open', kind: 'feature',
+    items: [
+      'Open Hannah Barnes\u2019s card and look under Were they at work? It used to say the town owed her a house. It now names her own refectory on South Water Street. Hannah Pratt and H. Ingalls keep refectories too.',
+      'Four more keepers have their own houses now: J. Nichols\u2019s auction room, T. Vieau\u2019s mill on West Water, Thomas Nolan\u2019s brickyard on Market and J. Kellogg\u2019s soap and candle manufactory. Each is in the Businesses list.',
+      'John Bates Jr., the auctioneer whose building held the 1835 land sales, is now joined to his own Auction Store on Dearborn Street. It was always in the register, but nothing linked him to it.',
+      'The seven new houses are our reconstruction (liberty L360). Dr John McGuire still waits for his office. On the City card, people owed a workplace drop from 142 to 134.',
+    ] },
   { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [
       'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',

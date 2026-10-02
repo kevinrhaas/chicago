@@ -271,6 +271,14 @@ REGISTER_REASONS = ("keeps_a_house_the_register_holds", "on_the_staff_of_a_house
 #: file and nothing else: a row whose person no longer reads that reason is stale and is
 #: refused, because a ruling made against one answer is not a ruling on another.
 ATTESTED_REASON = "trade_attested_no_house_named"
+#: THE SECOND ANSWER A BY-NAME RULING MAY REPLACE (T-2001). A documented keeper whose card
+#: reads `keeps_their_own_house` and whose house the register prints under a name no
+#: person_id joins — John Bates Jr.'s auction store — is not owed a house; he is owed the
+#: JOIN. The row says which answer it replaces (`replaces`, default the one above), the
+#: guard still refuses a row whose person reads anything else, and a keeper's row may only
+#: join: telling a documented keeper that none is owed is a different ruling (T-1996's
+#: refusal) and is not made in this file.
+ATTESTED_REPLACES = (ATTESTED_REASON, "keeps_their_own_house")
 
 
 class Fault(Exception):
@@ -567,7 +575,8 @@ def attested_answer(ruling: dict, businesses: dict) -> dict:
             "reason": "joined_by_the_attested_trade_ruling",
             "decided_by": f"attested_trade_houses.json#{pid}: {house} as "
                           f"{ruling.get('role') or 'unstated'}, {ruling['tier']} on "
-                          f"{ruling['source_id']}, ruled by T-1994",
+                          f"{ruling['source_id']}, ruled by "
+                          f"{ruling.get('ticket') or 'T-1994'}",
             "houses": [house],
             "house_names": [name or house],
             "ruling": ruling["basis"],
@@ -609,10 +618,19 @@ def derive(data: dict) -> dict:
             block = register_answer(register[person["id"]])
         ruling = (data.get("attested_houses") or {}).get(person["id"])
         if ruling is not None:
-            if block["reason"] != ATTESTED_REASON:
+            replaces = ruling.get("replaces") or ATTESTED_REASON
+            if replaces not in ATTESTED_REPLACES:
+                raise Fault(f"{person['id']} is ruled on in "
+                            f"{ATTESTED_HOUSES.relative_to(ROOT)} against {replaces!r}, "
+                            f"which is not one of {list(ATTESTED_REPLACES)}")
+            if replaces != ATTESTED_REASON and ruling.get("answer") != "joined":
+                raise Fault(f"{person['id']} keeps their own house and the ruling tells "
+                            "them none is owed. A keeper's row in this file joins the "
+                            "house the register prints or it is not made here.")
+            if block["reason"] != replaces:
                 raise Fault(f"{person['id']} is ruled on in "
                             f"{ATTESTED_HOUSES.relative_to(ROOT)} and reads "
-                            f"{block['reason']!r}, not {ATTESTED_REASON!r}. The ruling was "
+                            f"{block['reason']!r}, not {replaces!r}. The ruling was "
                             "made against the answer it replaces; retire the row.")
             block = attested_answer(ruling, data["businesses"])
         rows.append({
@@ -999,7 +1017,22 @@ def cmd_self_test() -> int:
         attested_answer({**ruling, "reason": "because_we_said_so"}, data["businesses"])
     _fires("a T-1994 none-owed answer in a reason outside its four", owed_by_fiat)
 
-    print("OK: all thirteen assertions of the employment coverage fire when broken")
+    def keeper_told_none_owed():
+        keeper = next((r for r in data["attested_houses"].values()
+                       if r.get("replaces") == "keeps_their_own_house"), None)
+        if keeper is None:
+            raise Fault("the self-test found no T-2001 keeper's join to bend")
+        none_owed = next(r for r in data["attested_houses"].values()
+                         if r.get("answer") == "none_owed")
+        bent = dict(data)
+        bent["attested_houses"] = {**data["attested_houses"], keeper["person_id"]: {
+            **none_owed, "person_id": keeper["person_id"],
+            "replaces": "keeps_their_own_house"}}
+        derive(bent)
+    _fires("a documented keeper told by a by-name ruling that none is owed",
+           keeper_told_none_owed)
+
+    print("OK: all fourteen assertions of the employment coverage fire when broken")
     return 0
 
 

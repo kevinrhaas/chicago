@@ -1,0 +1,99 @@
+{
+  "id": "rcb_vieau_mill",
+  "register_id": null,
+  "name": "T. Vieau, miller",
+  "provenance": "reconstructed",
+  "type": [
+    "other"
+  ],
+  "trade": "mill",
+  "occupation": "miller",
+  "goods": [
+    "miller"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Toussaint Vieau",
+      "person_id": "rc_vieau_toussaint",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "ADOPTED, NOT MINTED. Toussaint Vieau is the reconstructed trade head the resident band's `trade_households` stage drew at miller in the west division (slot trade_households:persons/male/20_29/west/family/trade:miller:020), and that card says itself that the business band adopts these heads rather than minting its own. Here the head is not merely the proprietor of the house — the head IS what bought it, because no count of this class was ever printed to be short of.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "west_water",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "A FACE, NOT A PREMISES. The placement rule for a mill kept by a west-division household deals this house onto West Water Street; the face is drawn on the seed printed in `reconstruction.seed` from the faces that rule allows, and no lot, roof or coordinate is claimed. T-1195 writes the placement policy with its evidence and T-1199 seats this house on the lot grid.",
+      "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a miller the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "NOTHING DATES THIS HOUSE. The head who keeps it is ordered onto the scene date and to nothing narrower, and a keeping is not an opening; the record claims that the house was trading on 1835-07-01 and nothing about either end."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "french_canadian",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read french_canadian: Toussaint Vieau (french_canadian). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_vieau_toussaint",
+        "name": "Toussaint Vieau",
+        "role": "proprietor",
+        "community": "french_canadian",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A register, directory or deed naming a real mill in the west division in 1835 — that house takes this slot and this record is withdrawn with the head.",
+  "reconstruction": {
+    "programme": "chicago_1835_business_reconstruction",
+    "group": "uncounted_trades",
+    "ticket": "T-2001",
+    "trade_head": {
+      "person_id": "rc_vieau_toussaint",
+      "household_id": "hh_rc_vieau_toussaint",
+      "trade": "miller",
+      "head_slot": "trade_households:persons/male/20_29/west/family/trade:miller:020",
+      "note": "A TRADE HEAD, NOT A SHORTFALL AND NOT A ROOF. The December 1835 State census's eighteen lines never reach this class, so the order book holds no bucket to point at and no count of it can be short; and nothing in data/structures/ is a mill, so there is no committed building to buy the firm either. What IS committed is the man: the resident band drew Toussaint Vieau at miller because the 1839 trade table says the town was short of the trade, and a mill is premises (the premises rulings' own words), and the census's one steam saw-mill is a sawyer's works and not a miller's, so no count reaches the trade. The house is withdrawn with the head."
+    },
+    "seed": "uncounted_trades:trade/mill/west:001",
+    "basis": {
+      "kind": "rule",
+      "id": "the_trade_names_the_house",
+      "note": "the resident band drew 1 head(s) at miller in the west division and a mill is premises (the premises rulings' own words), and the census's one steam saw-mill is a sawyer's works and not a miller's, so no count reaches the trade. The style is dealt on the seed printed beside it from the period forms the register itself carries: THE TRADE HAS NO PRINTING IN THIS CORPUS — the register's two mills are steam saw mills, a sawyer's works — and no form is composed for it: this is form 1 of the naming guide, the corpus's commonest signature. The goods line is the one trade word the resident band drew the head at, and no second line is dealt: the naming guide refuses a goods line composed for a class rather than taken from it."
+    },
+    "withdrawn_if": "the retirement of the head himself, a re-cut of the order book that no longer orders his person bucket, or a source naming a real house of this class; the retirement runs through --build, never by hand"
+  }
+}

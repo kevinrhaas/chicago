@@ -104,19 +104,19 @@
   "counts": {
     "people": 3357,
     "by_status": {
-      "at_a_named_house": 126,
+      "at_a_named_house": 127,
       "at_a_seat_this_project_drew": 123,
       "at_a_trade_with_no_house_to_join": 248,
       "no_trade_recorded": 2639,
-      "on_their_own_account": 221
+      "on_their_own_account": 220
     },
     "by_reason": {
       "a_civic_seat_and_not_a_house": 5,
       "class_full_none_owed": 2,
       "in_service_in_another_household": 61,
-      "joined_by_the_attested_trade_ruling": 5,
-      "keeps_a_house_the_register_holds": 79,
-      "keeps_their_own_house": 142,
+      "joined_by_the_attested_trade_ruling": 6,
+      "keeps_a_house_the_register_holds": 86,
+      "keeps_their_own_house": 134,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
@@ -143,11 +143,11 @@
         "no_trade_recorded": 541
       },
       "working_age": {
-        "at_a_named_house": 126,
+        "at_a_named_house": 127,
         "at_a_seat_this_project_drew": 121,
         "at_a_trade_with_no_house_to_join": 230,
         "no_trade_recorded": 1583,
-        "on_their_own_account": 212
+        "on_their_own_account": 211
       }
     },
     "placed_at_work": 470,
@@ -1491,10 +1491,16 @@
       "age_scope": "working_age",
       "trade": "auctioneer",
       "trade_confidence": "attested",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#auctioneer = own_premises",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "decided_by": "attested_trade_houses.json#bates_john_jr: biz_j_bates_jr_auction_store as proprietor, inferred on andreas_1884_v1, ruled by T-2001",
+      "houses": [
+        "biz_j_bates_jr_auction_store"
+      ],
+      "house_names": [
+        "J. Bates jr., Auction Store"
+      ],
+      "ruling": "THE REGISTER PRINTS HIS HOUSE; NOTHING JOINED HIM TO IT. The papers print 'J. Bates jr., Auction Store' from 16 July to 20 August 1834, and the house stands across the scene date at bates_auction_room, but its rows carry the printed name with no person_id, so his card read `keeps_their_own_house` with no house while his own house stood in the register. Andreas puts the man in that room: the 1835 land sales were held 'in a building on the west side of Dearborn Street, near Water Street ... erected by John Bates, and afterwards occupied by him in his business as an auctioneer', and the card is John Bates Jr., auctioneer, the one Bates Jr. the town holds. The join is that name, trade and room agreeing, so it is `inferred` and no higher. The register's second record at the same room, biz_john_bates_jr (printed 1833-11-26 to 1834-06-11), is the same keeper's earlier printing; the later one is joined because it is the nearer to 1 July 1835."
     },
     {
       "person_id": "baxley_j_m",
@@ -17546,9 +17552,14 @@
       "trade": "refectory_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_barnes_refectory#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_barnes_refectory"
+      ],
+      "house_names": [
+        "Hannah Barnes, refectory"
+      ]
     },
     {
       "person_id": "rc_barnes_ira",
@@ -26664,9 +26675,14 @@
       "trade": "refectory_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_ingalls_refectory#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_ingalls_refectory"
+      ],
+      "house_names": [
+        "H. Ingalls, refectory"
+      ]
     },
     {
       "person_id": "rc_ingalls_james",
@@ -27544,9 +27560,14 @@
       "trade": "soap_and_candle_maker",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_kellogg_soap_and_candle_manufactory#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_kellogg_soap_and_candle_manufactory"
+      ],
+      "house_names": [
+        "J. Kellogg, soap and candle manufactory"
+      ]
     },
     {
       "person_id": "rc_kellogg_levi",
@@ -31861,9 +31882,14 @@
       "trade": "auctioneer",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_nichols_auction_room#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_nichols_auction_room"
+      ],
+      "house_names": [
+        "J. Nichols, auction and commission"
+      ]
     },
     {
       "person_id": "rc_nichols_martha",
@@ -32368,9 +32394,14 @@
       "trade": "brickmaker",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_nolan_brickyard#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_nolan_brickyard"
+      ],
+      "house_names": [
+        "Thomas Nolan, brickmaker"
+      ]
     },
     {
       "person_id": "rc_norton_nelson_r_child_1",
@@ -33265,9 +33296,14 @@
       "trade": "refectory_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_pratt_refectory#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_pratt_refectory"
+      ],
+      "house_names": [
+        "Hannah Pratt, refectory"
+      ]
     },
     {
       "person_id": "rc_pratt_harvey",
@@ -37757,9 +37793,14 @@
       "trade": "miller",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_vieau_mill#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_vieau_mill"
+      ],
+      "house_names": [
+        "T. Vieau, miller"
+      ]
     },
     {
       "person_id": "rc_wadsworth_alanson",

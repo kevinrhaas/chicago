@@ -5132,7 +5132,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_barnes_refectory"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/south/family/trade:refectory_keeper:035",
@@ -12444,7 +12450,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_ingalls_refectory"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/north/family/trade:refectory_keeper:015",
@@ -12728,7 +12740,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_kellogg_soap_and_candle_manufactory"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/40_49/west/family/trade:soap_and_candle_maker:003",
@@ -16075,7 +16093,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_nichols_auction_room"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/20_29/south/family/trade:auctioneer:002",
@@ -16663,7 +16687,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_nolan_brickyard"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/30_39/south/family/trade:brickmaker:006",
@@ -17285,7 +17315,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_pratt_refectory"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/female/30_39/south/family/trade:refectory_keeper:016",
@@ -21164,7 +21200,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_vieau_mill"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/20_29/west/family/trade:miller:020",
