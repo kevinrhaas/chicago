@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1281, ts: '2026-10-02T00:56:47.419Z', date: 'Oct 1, 2026, 7:56 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
+    items: [
+      'Walk Washington, Randolph or Wells and the merchants\u2019 and professional men\u2019s houses now stand apart. Most have a small roofed porch over the door, and most hang board shutters, green or black, at their front windows.',
+      'Tradesmen\u2019s cottages have a plank stoop at the door, or step straight onto the ground. Labourers\u2019 houses have neither.',
+      'The frame follows the house\u2019s age. Houses built in the 1834\u201335 boom are balloon framed. Houses from 1833 or earlier are braced, with a heavier board at each corner, and a line across the wall at the upper floor.',
+      'Open a house\u2019s card. The Built line now names its frame, shutters and porch. These are our reconstruction: no source records them for any of these houses. The rule is on the Liberties page (L338).',
+    ] },
   { v: 1280, ts: '2026-10-02T00:30:46.880Z', date: 'Oct 1, 2026, 7:30 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
       'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
