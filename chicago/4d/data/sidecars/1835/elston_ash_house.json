@@ -97,6 +97,12 @@
       "confidence": "inferred",
       "sources": [],
       "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 96% on lot 4 of blk_kinzie_north_branch in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+    },
+    "part_of": {
+      "value": "Daniel Elston & Co.'s Soap and Candle Manufactory",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "This building was raised as the ash store of Daniel Elston & Co.'s works — the yard behind the manufactory, across a cart yard from it — and has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284). The firm is seated on the manufactory and is not repeated here."
     }
   },
   "residents": [],
