@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1310, ts: '2026-10-02T15:48:39.825Z', date: 'Oct 2, 2026, 10:48 AM CT', title: 'The fort\u2019s barn, shop and wash house now say whose they were', kind: 'change',
+    items: [
+      'Open the card of a Fort Dearborn outbuilding: the big barn, the wash house, the shop, the store house, a root house or one of the two out buildings. A new line, Part of, names the fort it served. The garrison that used them is listed on the stockade\u2019s card.',
+      'The bark and drying sheds behind Miller\u2019s tannery, the ash house at Elston\u2019s soap works, and the salt house and stock shed at Newberry & Dole\u2019s plant each name the works they belong to.',
+      'Beaubien\u2019s new residence and his small trading post each name the homestead Andreas lists them in. Who slept in which house that night is still unknown, and the card does not guess.',
+      'Each link carries its own grade. The fort\u2019s barn, wash house, store house and root houses are named as the garrison\u2019s in the sources. The shop and out buildings are ours, judged from where they stand. The works sheds are reconstructions (liberty L284).',
+    ] },
   { v: 1309, ts: '2026-10-02T15:39:39.047Z', date: 'Oct 2, 2026, 10:39 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
     items: [
       'Open a reconstructed house on Randolph or Washington Street and you may meet new boarders. 362 more households now have a roof. The records lose track of them before July 1835, but nothing puts them anywhere else, so the town counts them as present.',

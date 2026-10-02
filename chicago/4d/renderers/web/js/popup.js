@@ -1060,6 +1060,12 @@ function factsHtml(s, firms = [], fromSign = false) {
   }
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
     firmChipsHtml(firms, fromSign));
+  // T-1980. A building of an establishment — the fort's barn, the tannery's bark
+  // shed — names the building it belongs to. Its keepers are that building's, so
+  // this row answers "who used it?" without seating anybody here.
+  if (attrs.part_of?.value) {
+    row('Part of', attrs.part_of.value, attrs.part_of.confidence, 'part of');
+  }
   row('Built', builtWords(attrs, s.reconstruction?.fabric_basis),
     weaker(attrs.construction?.confidence, attrs.stories?.confidence), 'fabric');
   row('Roof', roofWords(attrs),
