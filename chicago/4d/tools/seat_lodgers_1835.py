@@ -2199,23 +2199,22 @@ def write_fills(ledger: dict) -> None:
     import build_order_book_1835 as ob
     book = load(BOOK)
     ours = (TICKET, CHILD_TICKET)
-    kept = [f for f in book.get("fills", []) if f.get("ticket") not in ours]
-    kept += [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
+    rows = [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted(ledger["fills"].items())]
     # The children are counted against their OWN ticket, so the book still says which
     # piece of work filled which cell even though one tool wrote both.
-    kept += [{"bucket": key, "ticket": CHILD_TICKET, "stage": STAGE, "records": n,
+    rows += [{"bucket": key, "ticket": CHILD_TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted((ledger.get("child_fills") or {}).items())]
     # AND THE HOUSES, against this stage's OWN ticket (T-1537): the lodging household
     # record is what THIS stage writes, one per lodging place, and the children above are
     # a later piece's people inside it. `records` means records of the bucket's own unit,
     # so a house row and a person row are never added together.
-    kept += [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
+    rows += [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted((ledger["household_fills"]["by_cell"]).items())]
-    book["fills"] = kept
+    book["fills"] = ob.splice_fills(book.get("fills", []), ours, rows)
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ob.cmd_build()
 

@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1328, ts: '2026-10-02T23:10:41.063Z', date: 'Oct 2, 2026, 6:10 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
+  { v: null, ts: '', date: '', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
     items: [
       'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five moves in, and nine more households that were waiting now have a roof.',
       'The joiner\u2019s shop on Randolph at Des Plaines, the narrow warehouse at the forks and the two-storey store on Lake stay empty, and their cards now say why. The town already has more mechanics\u2019 shops, stores and forwarding houses than were counted in 1835, so a carpenter, grocer or forwarder there would be one too many.',
       'The big riverside work shop on Wolcott stays empty too, and its card says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
+    ] },
+  { v: 1328, ts: '2026-10-02T22:54:50.366Z', date: 'Oct 2, 2026, 5:54 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
+    items: [
+      'Most of the town\u2019s buildings are our reconstruction: no record says which house stood on which lot in July 1835. When research does find one, it should replace the invented house on that lot rather than be added beside it, so the town never grows past what it held.',
+      'That swap can now be planned before it is made, for every one of the 297 invented buildings on a surveyed lot. The plan names the house that would go, who lives or works in it and moves into the real building, and why the town\u2019s count of buildings stays the same.',
+      'A building a source already places on a lot is never offered up. Where a lot holds two invented houses, both are listed and the choice is left to a person.',
+      'Behind the scenes, rebuilding all of the town\u2019s research from its sources now gives back exactly the files it started from. Before, two files changed every time for no reason.',
     ] },
   { v: 1327, ts: '2026-10-02T22:38:22.537Z', date: 'Oct 2, 2026, 5:38 PM CT', title: 'Three refectories, a mill and four more houses of trade open', kind: 'feature',
     items: [

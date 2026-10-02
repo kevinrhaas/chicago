@@ -3,6 +3,7 @@
 
     python3 tools/substitute_reconstruction.py --dry-run <candidate.json>
     python3 tools/substitute_reconstruction.py --dry-run --fixture   the shipped example
+    python3 tools/substitute_reconstruction.py --dry-run tools/fixtures/substitution_candidate_roof.json
     python3 tools/substitute_reconstruction.py --report   the substitutable population
     python3 tools/substitute_reconstruction.py --check    the liberty shares, re-counted
     python3 tools/substitute_reconstruction.py --self-test
@@ -75,6 +76,17 @@ THE RETIREMENT, AND THE THREE PARTS OF IT A HAND-READ LOSES.
 Each plan also names the `docs/LIBERTIES.md` entry whose count the retirement moves, which
 is the part of this that has to be re-counted rather than remembered — see below.
 
+AND A ROOF, WHICH IS RETIRED BY ITS LOT (T-1968).
+
+The anonymous roofs stand for no trade, so a `kind: "structure"` candidate names the
+`lot_id` the lot ledger writes and its class, principal or ancillary, and retires the
+anonymous roof of that class standing there — read by the ledger's own family rule, never
+a building a source put on the lot. The plan carries who lives and works under it, leaves
+the roof programme where it stands (L81: a named discovery substitutes and never adds), and
+names the generator and the liberty; nothing is typed for it, because the ledger, the
+programme phase and the liberties' own covers already join it.
+`tools/fixtures/substitution_candidate_roof.json` is the shipped example.
+
 WHICH LIBERTY COVERS WHICH FIRM, AND WHY THE MAP IS TYPED HERE.
 
 The six entries that carry the reconstructed firms all declare the same `Scope:` — the
@@ -102,6 +114,10 @@ TRADE_HEADS = ROOT / "data" / "residents" / "reconstructed_trades"
 ORDER_BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 LIBERTIES = ROOT / "data" / "liberties.json"
 FIXTURE = ROOT / "tools" / "fixtures" / "substitution_candidate.json"
+ROOF_FIXTURE = ROOT / "tools" / "fixtures" / "substitution_candidate_roof.json"
+STRUCTURES = ROOT / "data" / "structures"
+LOT_LEDGER = ROOT / "data" / "reconstruction" / "1835_lot_ledger.json"
+ROOF_PROGRAMME = ROOT / "data" / "reconstruction" / "1835_665_roof_programme.json"
 
 SCENE_DATE = "1835-07-01"
 
@@ -131,7 +147,25 @@ WORD_NUMBERS = {
 }
 
 CANDIDATE_FIELDS = ("kind", "id", "name", "tier")
-KINDS = ("business", "person")
+KINDS = ("business", "person", "structure")
+ROOF_CLASSES = ("principal_functional", "ancillary")
+
+# T-1968: which generator writes an anonymous roof, by the programme phase its own record
+# names. A prefix, because the platted-block deals name a phase per block and per deal.
+GENERATOR_OF_PHASE = (
+    ("phase3_platted_block", "tools/generate_block_infill.py"),
+    ("phase1_south_mixed_blocks", "tools/generate_inferred_infill.py"),
+    ("phase2_north_division_initial", "tools/generate_north_infill.py"),
+    ("phase2_west_wolf_point_approaches", "tools/generate_west_infill.py"),
+    ("phase2_inferred_households", "tools/generate_inferred_households.py"),
+    ("canal_approach_trade_1835", "tools/generate_canal_approach_trade.py"),
+    ("west_freight_forks_1835", "tools/generate_west_freight.py"),
+)
+
+# The liberties that cover EVERY reconstruction (`recon_*`, `inf_*`) state a rule for the
+# whole layer and carry no count of roofs; retiring one roof moves none of them, so the
+# plan names the entries that cover the roof by its own id or by its own block.
+TOWN_WIDE_COVERS = ("recon_*", "inf_*")
 TIERS = ("attested", "inferred")
 
 
@@ -180,6 +214,73 @@ def business_buckets() -> dict[str, dict]:
         if family.get("key") == "businesses":
             return {b["key"]: b for b in family["buckets"]}
     raise Fault("the order book holds no `businesses` bucket family")
+
+
+def lot_rows() -> dict[str, dict]:
+    return {row["lot_id"]: row for row in load(LOT_LEDGER)["lots"]}
+
+
+def structure(sid: str) -> dict | None:
+    path = STRUCTURES / ("%s.json" % sid)
+    return load(path) if path.exists() else None
+
+
+def reconstructed_roofs_on_lots() -> list[tuple[dict, dict]]:
+    """Every anonymous roof the lot ledger stands on a lot, with its lot — the roofs a
+    building read onto that lot would retire."""
+    out = []
+    for row in load(LOT_LEDGER)["lots"]:
+        for sid in row["standing"]:
+            rec = structure(sid)
+            if rec and rec.get("reconstruction"):
+                out.append((rec, row))
+    return out
+
+
+def roof_class(sid: str, row: dict) -> str | None:
+    """The class the LOT LEDGER counts this roof in — its family read by the ledger's own
+    rule (A1-A5 ancillary, every other family principal). Not the record's
+    `inventory_class`: the plan's promise is that the lot's count does not move, which is
+    a statement about the ledger's count, and six platted-block dwellings carry an
+    `inventory_class` the ledger does not count them by (T-1968's finding). None where
+    the ledger names no family."""
+    from seat_platted_ground_1835 import ANCILLARY_LETTERS        # noqa: PLC0415
+    family = (row.get("standing_families") or {}).get(sid)
+    if family is None:
+        return None
+    return "ancillary" if family in ANCILLARY_LETTERS else "principal_functional"
+
+
+def generator_of(roof: dict) -> str | None:
+    phase = (roof.get("reconstruction") or {}).get("programme_phase") or ""
+    return next((tool for prefix, tool in GENERATOR_OF_PHASE if phase.startswith(prefix)),
+                None)
+
+
+def liberties_of_roof(sid: str) -> list[str]:
+    """The entries that cover this roof by its own id or by its own block — derived from
+    the compiled liberties, never typed."""
+    from fnmatch import fnmatch                                   # noqa: PLC0415
+    out = []
+    for lib in load(LIBERTIES)["liberties"]:
+        pats = {c.get("structure") for c in lib.get("covers") or []
+                if "*" in (c.get("structure") or "")} - set(TOWN_WIDE_COVERS)
+        if sid in (lib.get("subjects") or []) or any(fnmatch(sid, p) for p in pats):
+            out.append(lib["id"])
+    return out
+
+
+def firms_on(sid: str) -> list[str]:
+    """Every business, of any tier, whose own location names this roof."""
+    out = []
+    for path in sorted(BUSINESSES.rglob("*.json")):
+        if path.name.endswith(".schema.json"):
+            continue
+        doc = load(path)
+        if isinstance(doc, dict) and any(loc.get("structure_id") == sid
+                                         for loc in doc.get("locations") or []):
+            out.append(doc["id"])
+    return out
 
 
 # ---------------------------------------------------------------- reading a record
@@ -241,6 +342,17 @@ def candidate_read(doc: dict) -> dict:
         raise Fault(
             "an attested candidate owes a `source_id` or a `claim_ids`. "
             "`documented` REQUIRES a source record — docs/PROVENANCE.md")
+    if doc["kind"] == "structure":
+        # A roof is retired by the ground it stands on, not by a trade. An anonymous roof
+        # off the plat names no lot, so a building read without one is an addition to the
+        # programme — and saying which lot is the reading this tool cannot make for it.
+        if not doc.get("lot_id"):
+            raise Fault("a structure candidate names the `lot_id` it stands on, as the "
+                        "lot ledger writes it (`blk_<block>#NN`)")
+        if doc.setdefault("inventory_class", "principal_functional") not in ROOF_CLASSES:
+            raise Fault("`inventory_class` is one of %s, not %r"
+                        % ("/".join(ROOF_CLASSES), doc["inventory_class"]))
+        return doc
     if not (doc.get("trade") or doc.get("business_class")):
         raise Fault("a candidate names the `trade` it is kept at, or its `business_class`")
     return doc
@@ -262,6 +374,9 @@ def matches(candidate: dict) -> tuple[list[dict], list[str]]:
     if candidate.get("present_at_scene_date") is False:
         return [], ["This candidate was not in the town on %s, so it stands in for "
                     "nothing that was. Nothing is retired." % SCENE_DATE]
+
+    if candidate["kind"] == "structure":
+        return roof_matches(candidate)
 
     wanted = {w for w in (candidate.get("trade"), candidate.get("business_class")) if w}
     found = []
@@ -292,6 +407,47 @@ def matches(candidate: dict) -> tuple[list[dict], list[str]]:
     return found, notes
 
 
+def roof_matches(candidate: dict, lots: dict | None = None,
+                 read=structure) -> tuple[list[dict], list[str]]:
+    """THE LOT, AND THE CLASS OF ROOF. A building read onto a lot retires the anonymous
+    roof of its own class standing there — a dwelling the dwelling, a stable the yard
+    building — and nothing a source put there. Where the lot's rule seats more than one
+    roof of the class (a party-line run carries three), every one is printed and the choice
+    is the operator's, for the reason `matches` gives."""
+    lots = lot_rows() if lots is None else lots
+    row = lots.get(candidate["lot_id"])
+    if row is None:
+        raise Fault("%s is not a lot in data/reconstruction/1835_lot_ledger.json"
+                    % candidate["lot_id"])
+    place = "lot %s, fronting %s — its rule is %s, at most %d principal roof(s)" % (
+        row["lot_id"], row.get("fronts") or "no street", row["multi_building_rule"],
+        row["principal_roofs_max"])
+    found, notes = [], []
+    for sid in row["standing"]:
+        rec = read(sid)
+        if rec is None:
+            notes.append("%s is named by the lot ledger and has no record" % sid)
+            continue
+        recon = rec.get("reconstruction")
+        if not recon:
+            notes.append("%s stands: a source put it on this lot, and only a "
+                         "reconstruction is retired" % sid)
+            continue
+        if roof_class(sid, row) != candidate["inventory_class"]:
+            notes.append("%s stands: the lot ledger counts it %s and the candidate is %s"
+                         % (sid, roof_class(sid, row), candidate["inventory_class"]))
+            continue
+        found.append({"kind": "structure", "record": rec, "place": place, "lot": row})
+    if not found:
+        notes.append("Lot %s holds no anonymous %s roof, so the building is an addition to "
+                     "it; the lot ledger reads the lot `%s` today%s." % (
+                         row["lot_id"], candidate["inventory_class"], row["state"],
+                         " and will read it over its rule" if row["state"] == "at_capacity"
+                         and candidate["inventory_class"] == "principal_functional" else ""))
+    found.sort(key=lambda m: m["record"]["id"])
+    return found, notes
+
+
 # ---------------------------------------------------------------- the retirement
 
 def plan(candidate: dict, match: dict, buckets: dict, shares: dict) -> dict:
@@ -308,6 +464,9 @@ def plan(candidate: dict, match: dict, buckets: dict, shares: dict) -> dict:
         "liberty": None,
         "replaceable_by": record.get("replaceable_by"),
     }
+
+    if match["kind"] == "structure":
+        return roof_plan(candidate, match, out)
 
     if match["kind"] == "business":
         recon = record.get("reconstruction") or {}
@@ -394,6 +553,56 @@ def plan(candidate: dict, match: dict, buckets: dict, shares: dict) -> dict:
         }
         out["liberty"] = ("L248: the trade-household share falls by one and its count "
                           "has to be restated")
+    return out
+
+
+def roof_plan(candidate: dict, match: dict, out: dict, programme: dict | None = None,
+              liberties=liberties_of_roof, firms=firms_on) -> dict:
+    """The retirement of an anonymous roof, and the three parts of it a hand-read loses:
+    who lives and works under it (carried, not evicted), the programme count (unchanged —
+    L81's rule that a named discovery substitutes and never adds), and the entry whose
+    count of anonymous roofs on the block has to be restated."""
+    record, row = match["record"], match["lot"]
+    recon = record.get("reconstruction") or {}
+    sid = record["id"]
+    tool = generator_of(record)
+    out["performed_by"] = (
+        "%s — it re-derives the roofs of programme phase %s, and must be taught to leave "
+        "lot %s's %s slot to the read building" % (
+            tool, recon.get("programme_phase"), row["lot_id"], roof_class(sid, row))
+        if tool else "no generator is mapped to programme phase %r — add it to "
+                     "GENERATOR_OF_PHASE" % recon.get("programme_phase"))
+    out["withdrawn_if"] = "parcel-specific evidence for this lot (L81: a contemporary tax, " \
+                          "assessment, deed, insurance or surveyed building register)"
+    out["roof"] = ("this record IS the roof: %s stands in its place on lot %s and takes its "
+                   "seat in the lot ledger, so the lot's count of %s roofs does not move"
+                   % (candidate["id"], row["lot_id"], roof_class(sid, row)))
+    carried = []
+    occ = (record.get("occupants") or {}).get("value")
+    if occ:
+        carried.append("occupants: %s" % occ)
+    hh = (record.get("resident_assignment") or {}).get("household_id")
+    if hh:
+        carried.append("household %s" % hh)
+    carried += ["business %s" % fid for fid in firms(sid)]
+    out["carried"] = carried or ["nobody: the roof is empty, so nothing is re-seated"]
+    prog = load(ROOF_PROGRAMME) if programme is None else programme
+    generated = prog["standing"]["by_source"].get("generated")
+    out["order_book"] = {
+        "bucket": None,
+        "reading": "the %d-roof programme does not move: one generated roof (%s of them) "
+                   "leaves and one read roof enters, so %d still remain to place — a named "
+                   "discovery substitutes for a compatible anonymous roof and never "
+                   "increases the total (L81)" % (
+                       prog["remaining"]["of_target"], generated, prog["remaining"]["roofs"]),
+    }
+    libs = liberties(sid)
+    out["liberty"] = ("%s: the count of anonymous roofs %s falls by one, and the "
+                      "sentence stating it has to be restated in docs/LIBERTIES.md"
+                      % (", ".join(libs), "each states" if len(libs) > 1 else "it states")
+                      if libs else
+                      "no entry covers %s by its id or its block — a roof without its "
+                      "liberty is a gap in docs/LIBERTIES.md" % sid)
     return out
 
 
@@ -498,6 +707,8 @@ def _print_plan(p: dict, n: int) -> None:
             print("                  bucket %s" % ob["bucket"])
     if p.get("head"):
         print("     head         %s" % p["head"])
+    for n_carried, line in enumerate(p.get("carried") or []):
+        print("     %s %s" % ("carried     " if n_carried == 0 else "            ", line))
     print("     liberty      %s" % p["liberty"])
     print("     performed by %s" % p["performed_by"])
 
@@ -534,8 +745,9 @@ def dry_run(path: Path) -> int:
         print("  also: %s" % note)
     print()
     print("NOTHING HAS BEEN RETIRED. Enter the source where sources are entered and "
-          "re-run the generator named above; it rebuilds the population from the order "
-          "book and stops writing a record that is no longer ordered.")
+          "re-run the generator named above; it rebuilds the population from the %s "
+          "and stops writing a record that is no longer ordered."
+          % ("roof programme" if candidate["kind"] == "structure" else "order book"))
     return 0
 
 
@@ -549,6 +761,9 @@ def report() -> int:
     roofed = [f for f in firms if firm_roof(f)]
     print("  %d firm(s) fill a census quota; %d stand on a committed roof"
           % (len(quota), len(roofed)))
+    roofs = reconstructed_roofs_on_lots()
+    print("  %d anonymous roofs stand on %d platted lots, each retired by a building read "
+          "onto its lot" % (len(roofs), len({row["lot_id"] for _, row in roofs})))
     print()
     print("THE LIBERTY SHARES, RE-COUNTED")
     counted, said = counted_shares(firms), declared_shares()
@@ -576,6 +791,8 @@ def check() -> int:
     for card in reconstructed_heads():
         if not (card.get("trade_household") or {}).get("withdrawn_if"):
             problems.append("%s carries no `trade_household.withdrawn_if`" % card["id"])
+    roofs = reconstructed_roofs_on_lots()
+    problems += roof_coverage(roofs)
     if problems:
         print("FAIL: %d problem(s)" % len(problems))
         for problem in problems:
@@ -584,10 +801,33 @@ def check() -> int:
     counted = counted_shares()
     print("  %d reconstructed firms and %d trade heads each say what would retire them"
           % (sum(counted.values()), len(reconstructed_heads())))
+    print("  %d anonymous roofs on %d platted lots each name the generator and the liberty "
+          "a building read onto the lot would move"
+          % (len(roofs), len({row["lot_id"] for _, row in roofs})))
     print("  liberty shares agree with the records: %s"
           % ", ".join("%s %d" % (lid, counted[lid])
                       for lid in sorted(counted, key=lambda k: int(k[1:]))))
     return 0
+
+
+def roof_coverage(roofs: list[tuple[dict, dict]], liberties=liberties_of_roof) -> list[str]:
+    """T-1968: every anonymous roof the lot ledger stands on a lot can be substituted —
+    its class is one a candidate can name, a generator is mapped to its phase, and a
+    liberty covers it by its own id or its block. A roof missing any of the three would
+    print a plan that cannot be carried out, and that is found here rather than on the
+    day the source arrives."""
+    out = []
+    for rec, row in roofs:
+        recon = rec.get("reconstruction") or {}
+        if roof_class(rec["id"], row) not in ROOF_CLASSES:
+            out.append("%s on %s: the lot ledger names no family for it, so no candidate "
+                       "can name its class" % (rec["id"], row["lot_id"]))
+        if not generator_of(rec):
+            out.append("%s: no generator is mapped to programme phase %r"
+                       % (rec["id"], recon.get("programme_phase")))
+        if not liberties(rec["id"]):
+            out.append("%s: no liberty covers it by its id or its block" % rec["id"])
+    return out
 
 
 # ---------------------------------------------------------------- the self-test
@@ -745,9 +985,77 @@ def self_test() -> int:
         print("  ok    a share stated as a word the parser does not know is refused, "
               "not guessed at")
     print()
-    print("  the shipped fixture runs against the committed town")
+    # T-1968: THE ROOF — matched by its lot and the ledger's class, over fixture lots.
+    roof = {"kind": "structure", "id": "bldg_x", "name": "X", "tier": "attested",
+            "source_id": "s", "lot_id": "blk_f#01"}
+    refuses({**roof, "lot_id": None}, "names the `lot_id`")
+    refuses({**roof, "inventory_class": "civic"}, "`inventory_class` is one of")
+    assert candidate_read(dict(roof))["inventory_class"] == "principal_functional"
+    print("  ok    …and a roof that names no class is read as a principal roof")
+
+    def _roof(sid, phase="phase3_platted_block_f"):
+        return {"id": sid, "name": sid, "reconstruction": {
+            "status": "inferred_anonymous", "programme_phase": phase},
+            "resident_assignment": {"household_id": "hh_f"} if sid == "recon_f_d1" else {}}
+    town = {"recon_f_d1": _roof("recon_f_d1"), "recon_f_d2": _roof("recon_f_d2"),
+            "recon_f_a1": _roof("recon_f_a1"), "read_f": {"id": "read_f", "name": "read"}}
+    lot = {"lot_id": "blk_f#01", "fronts": "lake", "multi_building_rule": "party_line_run",
+           "principal_roofs_max": 3, "state": "at_capacity",
+           "standing": ["read_f", "recon_f_a1", "recon_f_d1", "recon_f_d2"],
+           "standing_families": {"read_f": "C1", "recon_f_a1": "A1", "recon_f_d1": "D1",
+                                 "recon_f_d2": "D2"}}
+    found, notes = roof_matches(candidate_read(dict(roof)), {"blk_f#01": lot}, town.get)
+    assert [m["record"]["id"] for m in found] == ["recon_f_d1", "recon_f_d2"], found
+    assert any("read_f stands: a source put it" in n for n in notes), notes
+    assert any("recon_f_a1 stands: the lot ledger counts it ancillary" in n for n in notes)
+    fired.append("roof by lot and class")
+    print("  ok    a dwelling read onto a party-line lot offers both anonymous dwellings, "
+          "leaves the stable and the read store standing")
+    found, _ = roof_matches({**candidate_read(dict(roof)), "inventory_class": "ancillary"},
+                            {"blk_f#01": lot}, town.get)
+    assert [m["record"]["id"] for m in found] == ["recon_f_a1"], found
+    print("  ok    …and a stable read onto it retires the yard building only")
+    empty = {**lot, "standing": ["read_f"], "standing_families": {"read_f": "C1"}}
+    found, notes = roof_matches(candidate_read(dict(roof)), {"blk_f#01": empty}, town.get)
+    assert found == [] and "addition" in notes[-1] and "over its rule" in notes[-1], notes
+    print("  ok    a lot with no anonymous roof of the class takes an addition, and an "
+          "at-capacity lot says it will read over its rule")
+    try:
+        roof_matches({**candidate_read(dict(roof)), "lot_id": "blk_nowhere#09"},
+                     {"blk_f#01": lot}, town.get)
+        raise AssertionError("a lot the ledger does not hold was matched")
+    except Fault as exc:
+        assert "is not a lot" in str(exc)
+        fired.append("unknown lot")
+        print("  ok    a lot the ledger does not hold is refused")
+    prog = {"standing": {"by_source": {"generated": 10}},
+            "remaining": {"of_target": 20, "roofs": 4}}
+    p = roof_plan(roof, {"kind": "structure", "record": town["recon_f_d1"],
+                         "place": "-", "lot": lot},
+                  {"retires": "recon_f_d1", "redirect": "recon_f_d1 → bldg_x"}, prog,
+                  liberties=lambda sid: ["L1"], firms=lambda sid: ["biz_f"])
+    assert p["carried"] == ["household hh_f", "business biz_f"], p["carried"]
+    assert "does not move" in p["order_book"]["reading"] and "4 still remain" in \
+        p["order_book"]["reading"]
+    assert p["liberty"].startswith("L1: the count of anonymous roofs it states falls")
+    assert p["performed_by"].startswith("tools/generate_block_infill.py")
+    print("  ok    the plan carries the household and the business, leaves the programme "
+          "where it stands and names the liberty and the generator")
+    gaps = roof_coverage([({**town["recon_f_d1"], "reconstruction": {
+        "programme_phase": "phase9_nowhere"}}, lot)], liberties=lambda sid: [])
+    assert len(gaps) == 2 and "no generator" in gaps[0] and "no liberty" in gaps[1], gaps
+    fired.append("roof coverage")
+    print("  ok    a roof no generator writes and no liberty covers is caught by --check")
+    print()
+    print("  the shipped fixtures run against the committed town")
     assert FIXTURE.exists(), "tools/fixtures/substitution_candidate.json is missing"
     assert dry_run(FIXTURE) == 0
+    print()
+    assert ROOF_FIXTURE.exists(), "tools/fixtures/substitution_candidate_roof.json is missing"
+    found, _ = matches(candidate_read(load(ROOF_FIXTURE)))
+    assert [m["record"]["id"] for m in found] == ["recon_1835_blk_south_water_wells_d1_05"], \
+        "the shipped roof no longer retires the anonymous dwelling on its lot: %s" % found
+    assert dry_run(ROOF_FIXTURE) == 0
     print()
     print("%d guards fired, the rule holds over the fixture and the committed town."
           % len(fired))
