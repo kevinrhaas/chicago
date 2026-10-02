@@ -435,6 +435,87 @@ function nearestOn(record, e, n) {
   return best ? { ...best, street: record } : null;
 }
 
+/**
+ * T-1987 — WHERE A STREET ENDS ON ANOTHER, ITS END IS FADED INTO IT.
+ *
+ * Market runs into Lake, Franklin, Wells, La Salle and Clark into South Water,
+ * every north-side street into North Water and Kinzie. Each ribbon stopped on a
+ * straight line laid across the through street's dirt, its own ruts and lanes
+ * running square into the other's, and the two transparent surfaces blended in
+ * whatever order they were drawn: a hard seam across the junction, seen from
+ * any height (owner, 2026-10-02, "misjoined roads").
+ *
+ * The ending street keeps its full cover until it is inside the through
+ * street's opaque core, then fades out by the through street's centreline (or
+ * by its own end, if that is short of it). Only a street that ends INSIDE
+ * another's worked width, on a stretch of it that runs on, is faded — two
+ * streets that both end at a corner keep both their ends, or the corner would
+ * open. Read off the drawn lines, in metres along the ending ribbon, so the
+ * shader needs one attribute and no lookups.
+ */
+const END_FADE_MIN_M = 1.5;
+// "No fade" is a ramp that lies off the ribbon at both ends, a metre or two
+// past it, never a far sentinel: the four numbers are interpolated across
+// every triangle, and at 1e7 m one float step is a whole metre, so a ramp's
+// two ends met or swapped in places and smoothstep() — undefined there —
+// struck the road out in scanline stripes.
+const NO_FADE = [-2, -1, 1e5, 2e5];
+function endFades(records) {
+  const length = (pts) => {
+    let sum = 0;
+    for (let i = 1; i < pts.length; i++) {
+      const step = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      sum += step < 1e-5 ? 0 : step;
+    }
+    return sum;
+  };
+  const fades = new Map();
+  for (const record of records) {
+    const L = length(record.drawn);
+    const fade = [-2, -1, L + 1, L + 2];
+    const ends = [
+      [record.drawn[0], record.drawn[1], 0],
+      [record.drawn.at(-1), record.drawn.at(-2), 2],
+    ];
+    for (const [P, Q, slot] of ends) {
+      const de = P[0] - Q[0];
+      const dn = P[1] - Q[1];
+      const dl = Math.hypot(de, dn);
+      if (dl < 1e-6) continue;
+      let best = null;
+      for (const other of records) {
+        if (other === record) continue;
+        const oHalf = other.drawn_width_m * 0.5;
+        const oLen = length(other.drawn);
+        let walked = 0;
+        for (let i = 1; i < other.drawn.length; i++) {
+          const a = other.drawn[i - 1];
+          const b = other.drawn[i];
+          const hit = pointSegment(P[0], P[1], a, b);
+          const seg = Math.hypot(b[0] - a[0], b[1] - a[1]);
+          const at = walked + seg * hit.t;
+          walked += seg < 1e-5 ? 0 : seg;
+          if (hit.distance >= oHalf || (best && hit.distance >= best.distance)) continue;
+          // A corner, not a T: the other street ends here too.
+          if (at < oHalf || at > oLen - oHalf) continue;
+          const beyond = ((P[0] - hit.e) * de + (P[1] - hit.n) * dn) / dl;
+          best = { distance: hit.distance, beyond, core: oHalf * other.core_share };
+        }
+      }
+      if (!best) continue;
+      const zero = Math.max(0, best.beyond);
+      const full = best.beyond + best.core;
+      if (full - zero < END_FADE_MIN_M || full > L * 0.5) continue;
+      if (slot === 0) { fade[0] = zero; fade[1] = full; } else {
+        fade[2] = L - full;
+        fade[3] = L - zero;
+      }
+    }
+    fades.set(record, fade);
+  }
+  return fades;
+}
+
 function sampled(path) {
   const out = [];
   for (let i = 1; i < path.length; i++) {
@@ -723,6 +804,11 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
  * 150,524), at every stand since the layer is drawn whole, and it is spent at
  * `full` and `balanced` only: `light` keeps the grids (`ridgeAt` in
  * createStreets) and the two ceilings above it moved for it, in main.js.
+ * Read again after the terrain rebake (T-1956) and with the shoulders' edge
+ * found by halving rather than on the 0.5 m ladder (groundReach): 1,395 panels,
+ * 105,579 → 154,303 — the rim no longer lands on cell lines, so it is cut into
+ * a few more pieces (+3,382 over the ladder's 150,921), inside both ceilings'
+ * recorded headroom.
  * Looser tolerances were priced and refused (docs/measurements/
  * T-1987-road-ridge-cost.md): every millimetre over 15 is ground the bake can
  * push through the 22 mm lift.
@@ -1089,9 +1175,10 @@ function mitreJoins(pts, half, dryReach, stats) {
   return joins;
 }
 
-function addRecord(buffers, record, terrain, stats, ridge = true) {
+function addRecord(buffers, record, terrain, stats, ridge = true, fades = null) {
   const key = record.surface;
-  const buf = buffers.get(key) ?? { pos: [], uv: [], conf: [], track: [], road: [], idx: [] };
+  const buf = buffers.get(key)
+    ?? { pos: [], uv: [], conf: [], track: [], road: [], ends: [], idx: [] };
   buffers.set(key, buf);
   // T-0111. The ribbon is painted on the WHEEL line; every other question this
   // module answers is asked of the platted one. `drawn` is `path` for all but
@@ -1102,6 +1189,7 @@ function addRecord(buffers, record, terrain, stats, ridge = true) {
   const half = record.drawn_width_m * 0.5;
   const road = [record.drawn_width_m, record.core_share, record.wear_intensity,
     record.wear_seed];
+  const endFade = fades?.get(record) ?? NO_FADE;
   // Distance along the ribbon at each centreline point, accumulated exactly as
   // the panel loop always accumulated it — degenerate chords add nothing — so
   // the texture's `v` is untouched. A joint fan needs to read it at a point
@@ -1187,10 +1275,23 @@ function addRecord(buffers, record, terrain, stats, ridge = true) {
     const h0 = terrain.surfaceHeight(e0, n0);
     const falls = (d) => Math.abs(terrain.surfaceHeight(e0 + se * d, n0 + sn * d) - h0)
       > SHOULDER_DROP_M;
+    // The scan finds the first step that falls; the edge is then found inside
+    // that step by halving, so the rim follows the ground's own contour rather
+    // than snapping to the 0.5 m ladder, which drew it as stair steps along
+    // every bank and cut wall (T-1987).
+    const edge = (lo, hi) => {
+      for (let k = 0; k < CLIP_STEPS; k++) {
+        const mid = (lo + hi) * 0.5;
+        if (falls(mid)) hi = mid; else lo = mid;
+      }
+      return Math.max(trackHalf, lo);
+    };
+    let last = trackHalf;
     for (let d = trackHalf + SHOULDER_STEP_M; d < dry; d += SHOULDER_STEP_M) {
-      if (falls(d)) return Math.max(trackHalf, d - SHOULDER_STEP_M);
+      if (falls(d)) return edge(last, d);
+      last = d;
     }
-    return falls(dry) ? Math.max(trackHalf, dry - SHOULDER_STEP_M) : dry;
+    return falls(dry) ? edge(last, dry) : dry;
   };
   const joins = mitreJoins(pts, half, groundReach, stats);
   // A joint's fan may only be drawn between two panels that were both drawn —
@@ -1205,6 +1306,7 @@ function addRecord(buffers, record, terrain, stats, ridge = true) {
       buf.conf.push(confidence);
       buf.track.push(trackConfidence);
       buf.road.push(...road);
+      buf.ends.push(...endFade);
       buf.uv.push(u, along + length * t);
     }
     for (const [p, q, w] of ridge.tris) buf.idx.push(base + p, base + q, base + w);
@@ -1372,6 +1474,7 @@ function addRecord(buffers, record, terrain, stats, ridge = true) {
         buf.conf.push(confidence);
         buf.track.push(trackConfidence);
         buf.road.push(...road);
+        buf.ends.push(...endFade);
         buf.uv.push(u, v);
       }
     }
@@ -1438,6 +1541,7 @@ function addRecord(buffers, record, terrain, stats, ridge = true) {
           buf.conf.push(confidence);
           buf.track.push(trackConfidence);
           buf.road.push(...road);
+          buf.ends.push(...endFade);
           buf.uv.push(u, v);
         }
         for (const [i0, i1, i2] of piece.tris) buf.idx.push(at + i0, at + i1, at + i2);
@@ -1455,6 +1559,7 @@ function addRecord(buffers, record, terrain, stats, ridge = true) {
       buf.conf.push(confidence);
       buf.track.push(trackConfidence);
       buf.road.push(...road);
+      buf.ends.push(...endFade);
       buf.uv.push(u, v);
     };
     // `u` runs 0 at the left edge to 1 at the right, as it does across a panel,
@@ -1506,6 +1611,7 @@ function linearTone(rgb) {
 
 const ROAD_VERTEX = /* glsl */`
   vRoad = _road;
+  vRoadEnds = _roadEnds;
   vRoadUv = uv;
   vRoadWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;
 `;
@@ -1587,6 +1693,7 @@ const ROAD_NORMAL = /* glsl */`
 
 const ROAD_HEAD = /* glsl */`
 varying vec4 vRoad;
+varying vec4 vRoadEnds;
 varying vec2 vRoadUv;
 varying vec3 vRoadWorld;
 uniform sampler2D uGrit;
@@ -1624,6 +1731,8 @@ function geometryOf(surface, buf) {
     new THREE.Float32BufferAttribute(buf.track, 1));
   // T-1811. Worked width, core share, wear intensity, seed — per street.
   geo.setAttribute('_road', new THREE.Float32BufferAttribute(buf.road, 4));
+  // T-1987. Where the ribbon fades into a street it ends on — see endFades().
+  geo.setAttribute('_roadEnds', new THREE.Float32BufferAttribute(buf.ends, 4));
   geo.setIndex(buf.idx);
   geo.computeVertexNormals();
   weldNormals(geo);
@@ -1731,7 +1840,9 @@ function meshOf(surface, buf, confidence, aidUniform, grit) {
       uSod: { value: linearTone(SOD_TONE) },
     });
     shader.vertexShader = `attribute vec4 _road;
+attribute vec4 _roadEnds;
 varying vec4 vRoad;
+varying vec4 vRoadEnds;
 varying vec2 vRoadUv;
 varying vec3 vRoadWorld;
 ${shader.vertexShader}`.replace('#include <begin_vertex>',
@@ -1773,6 +1884,9 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
         float gain = max(mix(1.0, ${NEAR_GAIN.toFixed(2)}, near),
                          mix(1.0, ${MID_GAIN.toFixed(2)}, mid));
         diffuseColor.a = min(diffuseColor.a * gain, ${MAX_ALPHA.toFixed(2)});
+        // T-1987. After the boosts, or they would buy the fade back.
+        diffuseColor.a *= smoothstep(vRoadEnds.x, vRoadEnds.y, vRoadUv.y)
+          * (1.0 - smoothstep(vRoadEnds.z, vRoadEnds.w, vRoadUv.y));
         ${graded ? `
         // T-0713. THE TRACK'S OWN GRADE, and it goes no further than the track.
         // Whether this ribbon is drawn at all was decided by \`_confidence\`,
@@ -1824,6 +1938,7 @@ export function createStreets({ terrain, records = [], confidence = null, detail
   const prepared = records.filter((r) => Array.isArray(r.path_local_enu_m)
       && r.path_local_enu_m.length >= 2
       && r.opened !== false && (r.track_width_m ?? 6) > 0).map(prepare);
+  const fades = endFades(prepared);
   // THE RIDGE DRAPE IS A FULL- AND BALANCED-DETAIL COST. `light` is the tier a
   // weak machine boots into and it stays inside its own ceiling (AGENTS.md), so
   // there the panels keep their refined grids: the near-hole in the coarse base
@@ -1843,7 +1958,9 @@ export function createStreets({ terrain, records = [], confidence = null, detail
       jointFans: 0, jointFanTriangles: 0, ridgePanels: 0, ridgeFans: 0,
     };
     const laid = new Map();
-    for (const record of prepared) addRecord(laid, record, terrain, counts, withRidge);
+    for (const record of prepared) {
+      addRecord(laid, record, terrain, counts, withRidge, fades);
+    }
     return { buffers: laid, counts };
   };
   const first = layOut(ridge);

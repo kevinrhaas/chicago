@@ -10877,7 +10877,7 @@ for (const [label, viewport, touch] of [
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,
       `${drawnTown.streets.stray} of ${drawnTown.streets.verts} drawn vertices further than `
-      + `half a track from any of ${drawnTown.streets.records} centrelines across `
+      + `half the worked width from any of ${drawnTown.streets.records} centrelines across `
       + `${drawnTown.streets.meshes} meshes; worst ${drawnTown.streets.worst.toFixed(2)} m`
       + (drawnTown.streets.worstAt
         ? ` at E ${drawnTown.streets.worstAt.e} N ${drawnTown.streets.worstAt.n}` : '')

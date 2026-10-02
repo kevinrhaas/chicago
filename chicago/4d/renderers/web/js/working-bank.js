@@ -40,7 +40,7 @@
 import * as THREE from 'three';
 import { PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture } from './terrain.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
-import { WORKED_SHARE } from './streets.js';
+import { WORKED_SHARE, ridgeHeight } from './streets.js';
 
 /** Grid spacing of the draped mesh, metres, by scene detail. Half the
  *  heightfield's 2.5 m lattice at the two upper tiers, the lattice itself on
@@ -48,6 +48,17 @@ import { WORKED_SHARE } from './streets.js';
 const MESH_STEP_M = { full: 1.25, balanced: 1.25, light: 2.5 };
 /** Above the heightfield, with polygon offset for the rest — the strip's lift. */
 const LIFT_M = 0.04;
+/**
+ * ON THE STREET THE BANK LIES UNDER THE ROAD, NOT OVER IT (T-1987). At 4 cm
+ * up it stood above the road's own 2.2 cm, and the two surfaces crossed
+ * along their triangles' edges: the bank won in some, the road in others, and
+ * the shoulder along South Water read as rows of square teeth from the air.
+ * There it is laid on the cells' ridge — which the road is draped on and the
+ * baked ground stays under by 4 mm at most — 5 mm up, on each cell's upper
+ * diagonal so it follows that ridge rather than sagging through it. Road over
+ * bank over ground, every time, with the polygon offsets to spare.
+ */
+const ON_STREET_LIFT_M = 0.005;
 /** How finely the reach's columns are read off the heightfield, metres. */
 const COLUMN_M = 0.5;
 /** The step the waterline is marched in, landward to riverward. */
@@ -162,7 +173,7 @@ function readReach(reach, street, terrain, problems) {
   }
   return {
     id: reach.id, street: reach.street, side, from, cols, lo, hi, e0, e1, taper, wear: reach.wear,
-    half, pts, laid,
+    half, track: Math.min(half, (street.track_width_m ?? 6) / 2), pts, laid,
     box: { e: [from, from + (cols - 1) * COLUMN_M], n: [nMin - 2, nMax + 2] },
   };
 }
@@ -264,6 +275,7 @@ varying vec3 vChiWorld;
 varying float vWear;
 varying float vApron;
 varying float vRoad;
+varying float vTrack;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
 uniform sampler2D uGrit;
@@ -299,7 +311,17 @@ ${PATCH_GLSL}
   // 1.25 m cell that only one worn corner pulled in) it drew grass OVER the
   // street — square patches of it along South Water's river side, growing as
   // the owner walked up to them (2026-10-02). There, the street is what shows.
-  if (vRoad < 0.0 && wbW < 0.5) discard;
+  //
+  // And on the street it is earth over the shoulders, which is the grass it
+  // was laid to wear off, ending on a line that wanders a metre either side of
+  // the wheel track's edge with the ground's own patches. It used to end where
+  // the per-vertex wear crossed one half: that contour followed the 1.25 m
+  // cells and drew the bank's darker earth over the street as rows of square
+  // teeth, seen from the air at Franklin (T-1987).
+  if (vRoad < 0.0) {
+    if (vTrack < 1.6 * wbPatch - 0.8) discard;
+    wbW = 1.0;
+  }
   diffuseColor.rgb = mix(chiPrairie, min(wbEarth, vec3(1.0)), wbW);
   float wbRough = mix(1.0, mix(0.96, 0.58, wbWet), wbW);
 `;
@@ -429,16 +451,21 @@ export async function createWorkingBank({
   // metres across it: negative on the street. See `aRoad` in the shader.
   const roadLines = [];
   for (const r of reaches) {
-    if (!roadLines.some((l) => l.pts === r.pts)) roadLines.push({ pts: r.pts, half: r.half });
+    if (!roadLines.some((l) => l.pts === r.pts)) {
+      roadLines.push({ pts: r.pts, half: r.half, track: r.track });
+    }
   }
-  const roadAt = (e, n) => {
+  const roadAt = (e, n, edge = 'half') => {
     let d = ROAD_FAR_M;
     for (const l of roadLines) {
       const at = lineAt(l.pts, e);
-      if (at) d = Math.min(d, Math.abs(n - at.n) * at.cos - l.half);
+      if (at) d = Math.min(d, Math.abs(n - at.n) * at.cos - l[edge]);
     }
     return d;
   };
+  // The same distance from the wheel track's edge: the street's own shoulders
+  // lie between the two, and that is where the bank's earth may stand on it.
+  const trackA = [];
   const roadA = [];
   const index = [];
   const regions = [...reaches.map((r) => r.box)];
@@ -460,11 +487,15 @@ export async function createWorkingBank({
       for (let i = 0; i <= nu; i += 1) {
         const e = e0 + i * step;
         const parts = wearParts(e, n);
-        const y = terrain.surfaceHeight(e, n);
-        pos.push(e, (Number.isFinite(y) ? y : 0) + LIFT_M, -n);
+        const road = roadAt(e, n);
+        const y = road < 0 && terrain.inBounds?.(e, n)
+          ? ridgeHeight(terrain, e, n) + ON_STREET_LIFT_M
+          : terrain.surfaceHeight(e, n) + LIFT_M;
+        pos.push(e, Number.isFinite(y) ? y : LIFT_M, -n);
         wearA.push(parts.wear);
         apronA.push(parts.apron);
-        roadA.push(roadAt(e, n));
+        roadA.push(road);
+        trackA.push(roadAt(e, n, 'track'));
         w[j * (nu + 1) + i] = parts.wear;
       }
     }
@@ -475,7 +506,15 @@ export async function createWorkingBank({
         const c = a + nu + 1;
         const d = c + 1;
         if (Math.max(w[a], w[b], w[c], w[d]) <= 0.001) continue;
-        index.push(base + a, base + b, base + d, base + a, base + d, base + c);
+        // On the street, the upper of the two diagonals (see ON_STREET_LIFT_M).
+        const Y = (k) => pos[(base + k) * 3 + 1];
+        const onStreet = Math.min(roadA[base + a], roadA[base + b], roadA[base + c],
+          roadA[base + d]) < 0;
+        if (onStreet && Y(b) + Y(c) > Y(a) + Y(d)) {
+          index.push(base + a, base + b, base + c, base + b, base + d, base + c);
+        } else {
+          index.push(base + a, base + b, base + d, base + a, base + d, base + c);
+        }
       }
     }
   }
@@ -489,6 +528,7 @@ export async function createWorkingBank({
   geo.setAttribute('aWear', new THREE.Float32BufferAttribute(wearA, 1));
   geo.setAttribute('aApron', new THREE.Float32BufferAttribute(apronA, 1));
   geo.setAttribute('aRoad', new THREE.Float32BufferAttribute(roadA, 1));
+  geo.setAttribute('aTrack', new THREE.Float32BufferAttribute(trackA, 1));
   // Every vertex reconstructed: the whole layer is an invention bounded by the
   // town's own landings, and it goes when a visitor hides that tier.
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(
@@ -532,11 +572,12 @@ export async function createWorkingBank({
       uWet: { value: new THREE.Vector2(wet[0], wet[1]) },
     });
     shader.vertexShader = 'varying vec3 vChiWorld;\nattribute float aWear;\n'
-      + 'attribute float aApron;\nattribute float aRoad;\nvarying float vWear;\n'
-      + 'varying float vApron;\nvarying float vRoad;\n'
+      + 'attribute float aApron;\nattribute float aRoad;\nattribute float aTrack;\n'
+      + 'varying float vWear;\nvarying float vApron;\nvarying float vRoad;\n'
+      + 'varying float vTrack;\n'
       + shader.vertexShader.replace('#include <begin_vertex>',
         `#include <begin_vertex>${WORLD_POS_VERT}\n  vWear = aWear;\n  vApron = aApron;\n`
-        + '  vRoad = aRoad;');
+        + '  vRoad = aRoad;\n  vTrack = aTrack;');
     shader.fragmentShader = FRAGMENT_HEAD + shader.fragmentShader
       .replace('#include <map_fragment>', PRAIRIE_FRAGMENT + BANK_FRAGMENT)
       .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = wbRough;')

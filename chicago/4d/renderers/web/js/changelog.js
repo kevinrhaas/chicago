@@ -3,6 +3,8 @@ export const CHANGELOG = [ // newest first
     items: [
       'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
       'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
+      'Where a street ends on another, such as Market at Lake or Wells at South Water, it now blends into the street it joins instead of stopping on a hard line.',
+      'Along the river side of South Water, the worn bank meets the road in a soft, uneven edge instead of rows of square teeth, and road edges at the river and at cut banks no longer step like stairs.',
       'All of this is in the Full and Balanced detail settings. Light, the setting a phone starts on, gets most of it, but a few small patches can still show close up, so that it stays as fast as it was.',
     ] },
   { v: 1313, ts: '2026-10-02T17:25:04.351Z', date: 'Oct 2, 2026, 12:25 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
