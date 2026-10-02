@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
+    items: [
+      'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
+      'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
+      'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
+      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L346) says how it was bounded.',
+    ] },
   { v: 1292, ts: '2026-10-02T08:03:58.613Z', date: 'Oct 2, 2026, 3:03 AM CT', title: 'Plank walks in front of the West Side\u2019s shops and hotel', kind: 'change',
     items: [
       'Cross the river on Randolph Street to Canal. The Western Hotel now has a plank walk along its front, with two hitching posts and a mounting block. A board crossing over Canal Street joins it to the Randolph walk.',
