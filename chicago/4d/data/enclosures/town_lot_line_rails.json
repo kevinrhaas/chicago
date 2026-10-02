@@ -28,7 +28,7 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 53,
-      "runs_bounding_structures_only": 375,
+      "runs_bounding_structures_only": 374,
       "households_that_gained_a_fence": 25,
       "lots_named": 172,
       "households": [
@@ -4551,30 +4551,6 @@
       "note": "A SIDE LOT LINE — the south side of blk_west_randolph_des_plaines_lot3 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot3 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_west_randolph_des_plaines_lot9_n",
-      "path_local_enu_m": [
-        [
-          -451.52,
-          -349.76
-        ],
-        [
-          -438.97,
-          -349.86
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_west_randolph_des_plaines_lot9",
-          "structures": [
-            "recon_1835_blk_west_randolph_des_plaines_d5_04"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the north side of blk_west_randolph_des_plaines_lot9 — and the fence on it is built ONCE: blk_west_randolph_des_plaines_lot9 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
       "id": "rear_blk_randolph_clinton_lot3",
       "path_local_enu_m": [
         [
@@ -8398,7 +8374,7 @@
       "blk_west_randolph_des_plaines_lot7",
       "blk_west_randolph_des_plaines_lot9"
     ],
-    "runs": 253,
+    "runs": 252,
     "note": "172 of the 180 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 8 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 48 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [

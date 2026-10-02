@@ -4891,7 +4891,7 @@ rectangle together — which is the same document L60 has been waiting for since
 **Recorded:** 2026-08-18.
 
 
-### L129 — Garden fences on lots where no source puts a garden: eighteen when this was recorded, one today
+### L129 — Garden fences on lots where no source puts a garden: one behind every house lot the rule admits
 **Decision:** the house lots in the platted town that pass the rule stated below are drawn with a
 **picket-fenced garden plot at the back of the lot** — a pale fence 1.22 m high, pales 0.089 m wide with a 0.089 m gap on two
 stringers, posts 0.10 m square at 2.44 m, and a 1.07 m gap in the side that faces the house. The
@@ -4905,14 +4905,15 @@ clauses admit on the day the generator runs, and the committed record is the onl
 true. The counts, off the record at each commit that changed it: **eighteen** on 2026-08-18 when
 this entry was written, **fifteen** on 2026-08-21, **thirteen** on 2026-08-27, and **one** since
 2026-09-04, when T-0516 withdrew the stale `occupants` prose from the 104 anonymous roofs the
-retired inferred-household layer had adopted. Clause 4 asks for a household recorded as living on
-the lot, the households that prose named were removed under the owner's 2026-09-02 ruling, and so
-twelve gardens went with them. The survivor is Elijah Harmon's — `blk_randolph_franklin_lot2`,
-the one lot this record reaches where the committed household index carries a real `lives_at`.
-**Whether that is the right rule is an open question and it is the owner's** (T-0772): a dooryard
-garden could as defensibly follow the HOUSE — one dwelling alone on a platted lot, by archetype and
-by function — which would keep all thirteen on a weaker claim. Until he rules, clause 4 stands as
-written and this entry states its output rather than a number frozen at recording.
+retired inferred-household layer had adopted. Clause 4 then asked for a household recorded as
+living on the lot, the households that prose named were removed under the owner's 2026-09-02
+ruling, and so twelve gardens went with them. **The owner ruled on that on 2026-09-21 (T-0772):
+the garden follows the HOUSE.** *"A dooryard garden is GROUND, not a family's possession. It
+belongs to the lot and the structure standing on it, and it stays there when the household that
+worked it is retired — inherited by whoever the roof is next dealt to, or standing unworked if it
+is dealt to nobody."* Clause 4 was rewritten to say so on 2026-10-02 (T-1958), and the count rose
+from one to forty-six that day; this entry states the rule and not the number, which lives on the
+record.
 **Why:** because the evidence here is a TREATMENT and not a location, and this project had been
 using that as a reason to draw nothing. `docs/ROADMAP.md` K5 (a) cites the Kinzie-view plate for
 *"picket-fenced garden plots and Lombardy poplars"* and in the same sentence excludes the house
@@ -4923,12 +4924,10 @@ it, and the alternative was a town of houses standing in undivided prairie.
 **What bounds the invention.** WHICH LOTS is the part that matters, and it is a rule rather than a
 list, stated in the generator's docstring and enforced on every commit: a platted lot in
 `data/traces/vectors/thompson_lots.json`, holding exactly ONE committed building, that building a
-dwelling by both archetype and function, with a household recorded as living in it, and room at the
-back for a plot that hits no other footprint. Every clause refuses something real — the Mansion
+dwelling by both archetype and function — a house lot, whoever lived in it — and room at the back
+for a plot that hits no other footprint. Every clause refuses something real — the Mansion
 House, Eliza Chappel's infant school and the Temple Building each sit alone on a platted lot and
-are not house lots; John Wright's two buildings to let are excluded because their own records say
-*"the honest reading of 'to let' is a building whose tenant this project cannot name"*; and five
-lots are refused in the record itself because the committed house stands at the rear of the lot,
+are not house lots; and lots are refused in the record itself because the committed house stands at the rear of the lot,
 one of them 7.40 m past its own rear line. THE PERIMETERS ARE DERIVED, not placed: every metre
 comes from the committed lot polygon and the committed footprint. THE TREATMENT is the plate's —
 close-set vertical pales rather than the open horizontal rails at the wagon yard and the pound,
@@ -4942,8 +4941,11 @@ also what the scene's `light` triangle ceiling will carry. That is the same kind
 **L121** — a number in this dataset settled partly by the renderer's own budget — and it is
 recorded rather than dressed up as a finding about kitchen gardens.
 **Consequence:** a visitor walking the platted town sees a fenced garden behind every house the
-rule admits — eighteen of them when this was recorded, one today — and no source says any of those
-households kept one. The confidence view is the counterweight and it is wired the same way as the
+rule admits — eighteen of them when this was recorded, one at the low point, forty-six once the
+owner ruled for the house — and no source says any of those households kept one. Most of them
+stand behind a RECONSTRUCTED house, which makes the garden an invention resting on an invention;
+T-1212 asked for exactly that ("the admission rule extended to reconstructed households at its own
+tier"), and each run's note on the record names the grade of the house it stands behind. The confidence view is the counterweight and it is wired the same way as the
 rest of this layer: every vertex is graded `reconstructed`, so hiding that level removes all of
 them and leaves the lots as the sources leave them — houses on open ground. The other consequence
 is the one the count exposes: a rule whose output moves silently makes a layer the town can lose
@@ -4971,6 +4973,13 @@ Nothing about the invention changes: the rule, the treatment, the geometry and t
 recorded. What changes is that the entry no longer carries a frozen count as if it were a decision,
 and the drift from eighteen to one is stated with its dates and its cause. The question of WHICH
 rule the layer should run on — the household or the house — is with the owner as T-0772.
+**Revised:** 2026-10-02 (T-0772, T-1958) — the rule. The owner ruled on 2026-09-21 that the garden
+follows the HOUSE, and clause 4 now admits a house lot without asking who lived in it: one garden
+became forty-six (three behind attested houses — the Lake House and John Wright's two buildings to
+let, which under the ruling keep their ground though no tenant is named — and forty-two behind
+reconstructed ones), eight more house lots are refused for want of room, and Elijah
+Harmon's is kept. Nothing else moves: the treatment, the geometry, the pale rhythm, the plot ceiling
+and the grade are as recorded, and the grade is still `reconstructed` on every one of them.
 
 ### L130 — Twenty-four shop signs in a town that documents one
 **Decision:** twenty-four of the town's business frontages carry a **blank weathered signboard**
