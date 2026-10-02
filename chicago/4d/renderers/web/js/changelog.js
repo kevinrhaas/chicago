@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1288, ts: '2026-10-02T05:34:04.855Z', date: 'Oct 2, 2026, 12:34 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
+  { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [
       'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
       'Its courtyard roof repeats the north wing’s flared eave. The alley dormer rises with the roof so its window remains visible.',
       'The revised rear shape is a reconstruction following the owner’s sketch; the floor-plan footprint and window positions are retained.'
+    ] },
+  { v: 1288, ts: '2026-10-02T05:18:43.463Z', date: 'Oct 2, 2026, 12:18 AM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
+    items: [
+      'Cross the river to Kinzie\u2019s Addition and walk east along Illinois Street to Cass. The corner now has a boarding house: two storeys of clapboard set close to the street, with a kitchen wing behind it.',
+      'Eight chamber windows run across its upper floor and five stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. A log stable and a privy stand in its yard, off the alley.',
+      'Ten people sleep there tonight, and Hannah Chapin keeps the house. Tap it and its card opens on Chapin\u2019s boarding house.',
+      'Some North Side lodgers moved over to it, and Kelsey\u2019s boarding-house now stands empty. The second Washington Street house and a West Side boarding house each sleep one fewer and lose a stovepipe.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper here in 1835. The Liberties page (L344) says how each was placed and sized.',
     ] },
   { v: 1287, ts: '2026-10-02T04:27:28.754Z', date: 'Oct 1, 2026, 11:27 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
