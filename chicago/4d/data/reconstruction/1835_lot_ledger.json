@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 126,
-   "free": 162,
+   "at_capacity": 129,
+   "free": 159,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 181,
-  "lots_barring_another_roof": 179,
+  "lots_with_a_roof": 184,
+  "lots_barring_another_roof": 182,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 240,
+  "principal_roofs_standing": 243,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8788,14 +8788,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_dearborn_a1_02",
+    "recon_1835_blk_washington_dearborn_a3_03",
+    "recon_1835_blk_washington_dearborn_h3_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_dearborn_a1_02": "A1",
+    "recon_1835_blk_washington_dearborn_a3_03": "A3",
+    "recon_1835_blk_washington_dearborn_h3_01": "H3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_dearborn#03",
@@ -9618,14 +9626,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a1_02",
+    "recon_1835_blk_washington_market_a3_03",
+    "recon_1835_blk_washington_market_h3_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a1_02": "A1",
+    "recon_1835_blk_washington_market_a3_03": "A3",
+    "recon_1835_blk_washington_market_h3_01": "H3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#05",
@@ -9647,14 +9663,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a1_05",
+    "recon_1835_blk_washington_market_a3_06",
+    "recon_1835_blk_washington_market_h3_04"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a1_05": "A1",
+    "recon_1835_blk_washington_market_a3_06": "A3",
+    "recon_1835_blk_washington_market_h3_04": "H3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#06",

@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1298, ts: '2026-10-02T11:32:23.588Z', date: 'Oct 2, 2026, 6:32 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+  { v: 1299, ts: '2026-10-02T11:51:43.746Z', date: 'Oct 2, 2026, 6:51 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
     items: [
       'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
       'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
       'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
-      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L349).',
+      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L350).',
+    ] },
+  { v: 1298, ts: '2026-10-02T11:02:19.710Z', date: 'Oct 2, 2026, 6:02 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
+    items: [
+      'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
+      'Walk east to Dearborn Street and cross it. One lot along, a third boarding house faces Washington. Edward McCarthy keeps it. Each house is two storeys of clapboard with a kitchen wing, and a log stable and a privy stand behind it off the alley.',
+      'Their upper windows and stovepipes are counted from their beds: seven or eight windows and four stovepipes each. Tonight they sleep four, six and eight people. The rest of their beds stand empty, because the town has no more lodgers to put in them.',
+      'Some lodgers moved over from older houses. Chapin\u2019s boarding house on Illinois Street and a boarding house on the West Side each lose a stovepipe, and a North Side house loses a window. The Steamboat Hotel sleeps eight, one fewer than before.',
+      'Three families who had asked for lots on the Market Street block are now waiting for land elsewhere.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L349) says how each was placed and sized.',
     ] },
   { v: 1297, ts: '2026-10-02T10:21:23.783Z', date: 'Oct 2, 2026, 5:21 AM CT', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
     items: [

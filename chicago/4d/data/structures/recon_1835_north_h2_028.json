@@ -119,7 +119,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. It is the H3 boarding house's rule (L318) carried to the medium house the lodging model also counts as a boarding house; the count indicates capacity and is not a recovered interior plan, and docs/LIBERTIES.md (L324) owns the ratios."
         },
         "stovepipes": {
-          "value": 4,
+          "value": 3,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -129,7 +129,7 @@
         "siding_exposure_m": {
           "value": 0.114,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 4.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (4.5 in or 5 in; T-1839, docs/LIBERTIES.md L349), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 4.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (4.5 in or 5 in; T-1839, docs/LIBERTIES.md L350), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
         }
       },
       "change_note": "Reconstructed anonymous July 1835 North Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
@@ -162,13 +162,13 @@
       "words": "red-painted clapboard on a balloon frame under a new roof — a merchant's or professional house, new-built (rule F-M: a merchant's or professional man's by its type)"
     },
     "capacity": {
-      "beds_ordinary": 10,
-      "beds_crowded": 22,
+      "beds_ordinary": 9,
+      "beds_crowded": 21,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_north_h2_028]",
       "sizes": {
-        "upper_windows": "ceil(22 crowded beds / 3 to a chamber) = 8, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 8, then to the 7 sashes a front of 8.88 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(10 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
+        "upper_windows": "ceil(21 crowded beds / 3 to a chamber) = 7, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 7: 7 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(9 ordinary beds / 3 to a stove) = 3, held to 2-6: 3",
         "chimneys": "not sized by the beds: the two brick stacks are the household's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }

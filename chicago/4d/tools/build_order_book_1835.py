@@ -402,7 +402,12 @@ STRUCTURE_TICKETS = {
     # H3 on blk_washington_clark and closes first, so no cell stays on it; the South's cell
     # moves to T-1951 (the plan's H3s on the Dearborn and Market blocks, whose free lots are
     # all requested), the West's to T-1953 (on T-1414's ground) and the North's to T-1952.
-    ("south", "larger_boarding_houses"): "T-1951",
+    # T-1951 raised the three H3s the plan held on those two blocks when it was claimed
+    # (two on blk_washington_market, one on blk_washington_dearborn) and closes on them, so
+    # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
+    # schedule re-apportions to blk_washington_market once those three stand, the one on
+    # the gated blk_south_water_market, and three the plan holds no roof for at all.
+    ("south", "larger_boarding_houses"): "T-1957",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -4731,8 +4736,12 @@ def cmd_self_test() -> int:
     # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves along the
     # block, the slots behind her shift a lot, and hh_berger_f_c, left with only kept-open
     # lots, is owed to T-1614 (183 -> 182 platted seats, L270, L345).
+    # 254 -> 251 on 2026-10-02 (T-1951): the South's last three planned H3s stand on
+    # blk_washington_market#04/#05 and blk_washington_dearborn#02, all three lots a slot
+    # request had asked for; hh_bently_wm_t, hh_benton_datas_e and hh_clarke_h_b are owed
+    # to T-1614 (182 -> 179 platted seats, L270, L349).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 254
+        data["inventory"], data["programme"], occ))["seated"] == 251
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

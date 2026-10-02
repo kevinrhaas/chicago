@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 326,
-  "outside": 204,
+  "outside": 213,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
    "north_of_the_limit": 45,
    "west_of_canal_street": 82,
-   "south_of_washington_street": 49,
+   "south_of_washington_street": 58,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -501,6 +501,9 @@
     "recon_1835_blk_washington_clark_h3_05",
     "recon_1835_blk_washington_clark_h3_06",
     "recon_1835_blk_washington_clark_h3_11",
+    "recon_1835_blk_washington_dearborn_a1_02",
+    "recon_1835_blk_washington_dearborn_a3_03",
+    "recon_1835_blk_washington_dearborn_h3_01",
     "recon_1835_blk_washington_franklin_a1_10",
     "recon_1835_blk_washington_franklin_a2_09",
     "recon_1835_blk_washington_franklin_a3_13",
@@ -525,6 +528,12 @@
     "recon_1835_blk_washington_lasalle_h1_02",
     "recon_1835_blk_washington_lasalle_h1_03",
     "recon_1835_blk_washington_lasalle_h2_01",
+    "recon_1835_blk_washington_market_a1_02",
+    "recon_1835_blk_washington_market_a1_05",
+    "recon_1835_blk_washington_market_a3_03",
+    "recon_1835_blk_washington_market_a3_06",
+    "recon_1835_blk_washington_market_h3_01",
+    "recon_1835_blk_washington_market_h3_04",
     "recon_1835_blk_washington_wells_a1_11",
     "recon_1835_blk_washington_wells_a3_08",
     "recon_1835_blk_washington_wells_a3_09",
@@ -556,7 +565,7 @@
    {
     "id": "blk_washington_market",
     "state": "open",
-    "roofs_scheduled": 27,
+    "roofs_scheduled": 20,
     "centre_local_enu_m": [
      144.82,
      -454.01
@@ -576,7 +585,7 @@
    {
     "id": "blk_washington_dearborn",
     "state": "open",
-    "roofs_scheduled": 26,
+    "roofs_scheduled": 18,
     "centre_local_enu_m": [
      760.04,
      -456.51
@@ -628,7 +637,7 @@
    {
     "id": "blk_washington_market",
     "state": "open",
-    "roofs_scheduled": 27,
+    "roofs_scheduled": 20,
     "centre_local_enu_m": [
      144.82,
      -454.01
@@ -678,7 +687,7 @@
    {
     "id": "blk_washington_dearborn",
     "state": "open",
-    "roofs_scheduled": 26,
+    "roofs_scheduled": 18,
     "centre_local_enu_m": [
      760.04,
      -456.51
