@@ -151,6 +151,21 @@ const GROUND_TILE_MIN_TRIS = 256;
 // reach without carrying the expanded field's million triangles with it.
 const GROUND_BASE_STEP = 6;
 const GROUND_DETAIL_REACH_M = 600;
+/**
+ * How far inside the detail reach the base's hole stops. A tile is kept while
+ * any corner of its box is within the reach (updateGroundReach), and the box
+ * holds the detailed surface; the base stands at most ~0.3 m from that surface
+ * (the deepest street bed T-1812 cut, plus its own 3 cm drop), so a base
+ * fragment nearer than the reach less this margin always lies over a tile that
+ * is drawn. Ten metres is thirty times that, and at 590 m it is a sliver of
+ * the frame.
+ */
+const NEAR_HOLE_MARGIN_M = 10;
+/** The base's hole radius for a given haze reach: everywhere the detailed
+ *  tiles are certainly drawn, and nowhere else. */
+function baseHoleM(reachM) {
+  return Math.max(0, Math.min(reachM, GROUND_DETAIL_REACH_M) - NEAR_HOLE_MARGIN_M);
+}
 
 /**
  * THE GROUND'S REACH — how far out the ground is submitted at all (T-1154).
@@ -403,7 +418,11 @@ export async function createTerrain({
   // beach is a band measured from it, so the sand follows the modelled shore
   // rather than a box. lakeshore.js; null without a heightfield.
   const lakeShore = lakeShoreLine(heightfield);
-  const groundMat = groundMaterial(await substrateZones(substrateBase, problems), lakeShore);
+  const zones = await substrateZones(substrateBase, problems);
+  const groundMat = groundMaterial(zones, lakeShore);
+  /** The radius around the eye inside which the 15 m base is not drawn. See
+   *  the base below, and `baseHoleM()` for how it follows the reach. */
+  const baseHole = { value: baseHoleM(Infinity) };
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.
@@ -475,9 +494,29 @@ export async function createTerrain({
   // distance, where fog and perspective make the baked 2.5 m sampling wasteful.
   // A 3 cm drop prevents z-fighting where both levels are present. Navigation,
   // flora and anchored records still sample `heightfield` itself, never this LOD.
+  //
+  // NOT DRAWN WHERE THE DETAILED TILES ARE (the owner, 2026-10-02: walking a
+  // dirt road on dev, "the grass area seems to grow and show up over the dirt
+  // road as you approach it"). The 3 cm drop was enough while the field was
+  // smooth at 15 m. T-1812 then graded every opened street BELOW its walks, and
+  // a 15 m triangle cannot see a street bed: across Lake Street it runs from
+  // lot to lot over the lowered bed, so this mesh stood up to 239 mm ABOVE the
+  // road's own drape and above the detailed ground. Measured at Lake and Market
+  // on 42,796 road points at 0.25 m: it beat the ribbon at 8,539 of them (20 %).
+  // Far off the road's polygon offset — which scales with the depth slope, and
+  // the slope is huge at a grazing angle — held it under; walking up to it, the
+  // view steepens, the offset shrinks and its prairie came up through the dirt in
+  // the hard-edged, faceted patches of the owner's two photographs.
+  // A third ground level would only move the fault; so the base is cut out
+  // inside the radius where the detail tiles are drawn, which is the only
+  // place it was ever hidden anyway (see NEAR_HOLE_MARGIN_M).
   let groundBase = null;
   if (heightfield.loaded) {
-    groundBase = new THREE.Mesh(gridGeometry(heightfield, GROUND_BASE_STEP), groundMat);
+    const baseMat = groundMaterial(zones, lakeShore,
+      { nearHole: baseHole, groundTex: groundMat.userData.groundTex });
+    disposables.push(baseMat);
+    confidence?.patch(baseMat);
+    groundBase = new THREE.Mesh(gridGeometry(heightfield, GROUND_BASE_STEP), baseMat);
     groundBase.name = `terrain_base__${epochId ?? 'field'}`;
     groundBase.position.y = -0.03;
     groundBase.receiveShadow = true;
@@ -621,6 +660,7 @@ export async function createTerrain({
      */
     setGroundReach(m) {
       groundReachM = typeof m === 'number' && Number.isFinite(m) && m > 0 ? m : Infinity;
+      baseHole.value = baseHoleM(groundReachM);
       return groundReachM;
     },
     /** What the reach is doing this frame: the distance, and the tile counts. */
@@ -1455,11 +1495,12 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
  * prairie would be filling a gap silently. When those records land, the zone a
  * point falls in belongs here — and the ground stops being one green.
  */
-function groundMaterial(zones = [], lakeShore = null) {
+function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundTex = null } = {}) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff, roughness: 1, metalness: 0,
   });
-  const tex = prairieTexture();
+  // The base shares the tiles' tile: one canvas, one upload.
+  const tex = groundTex ?? prairieTexture();
   mat.map = null;
   mat.userData.groundTex = tex;
   mat.userData.substrateZones = zones.map((z) => z.id);
@@ -1470,6 +1511,7 @@ function groundMaterial(zones = [], lakeShore = null) {
     shader.uniforms.uGround = { value: tex };
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
+    if (nearHole) shader.uniforms.uChiNearHole = nearHole;
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );
@@ -1477,12 +1519,19 @@ function groundMaterial(zones = [], lakeShore = null) {
 varying vec3 vChiWorld;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
+${nearHole ? 'uniform float uChiNearHole;' : ''}
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
-` + shader.fragmentShader.replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
+` + shader.fragmentShader.replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
+${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}`)
+      .replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones, lakeShore)}
   diffuseColor.rgb = chiPrairie;
 `);
   };
+  // Its own program: `customProgramCacheKey` defaults to the source text of
+  // `onBeforeCompile`, which both ground materials share, so without this the
+  // base could be drawn with the tiles' program (no hole) or the reverse.
+  if (nearHole) mat.customProgramCacheKey = () => 'chicago4d-ground-base';
   mat.needsUpdate = true;
   return mat;
 }

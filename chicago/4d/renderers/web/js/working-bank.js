@@ -52,6 +52,8 @@ const LIFT_M = 0.04;
 const COLUMN_M = 0.5;
 /** The step the waterline is marched in, landward to riverward. */
 const MARCH_M = 0.5;
+/** `aRoad` beyond any street: far enough that no cell can interpolate it below 0. */
+const ROAD_FAR_M = 1000;
 /** The edge the reach's own band feathers over, metres. */
 const BAND_FEATHER_M = 1.0;
 
@@ -261,6 +263,7 @@ const FRAGMENT_HEAD = /* glsl */`
 varying vec3 vChiWorld;
 varying float vWear;
 varying float vApron;
+varying float vRoad;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
 uniform sampler2D uGrit;
@@ -289,6 +292,14 @@ ${PATCH_GLSL}
   float wbWet = 1.0 - smoothstep(uWet.x, uWet.y, vChiWorld.y);
   wbEarth = mix(wbEarth, uMud * mix(1.0, wbGrain, 0.3), wbWet);
   float wbW = clamp(vWear * (1.0 - wbGrass), 0.0, 1.0);
+  // ON THE STREET THE BANK GIVES ONLY ITS EARTH. The band feathers in over
+  // the street's worked edge on purpose, to wear the shoulder's grass off, but
+  // this mesh is opaque and stands 4 cm up where the street stands 2.2, so
+  // wherever it drew the prairie (its feather, its surviving patches, every
+  // 1.25 m cell that only one worn corner pulled in) it drew grass OVER the
+  // street — square patches of it along South Water's river side, growing as
+  // the owner walked up to them (2026-10-02). There, the street is what shows.
+  if (vRoad < 0.0 && wbW < 0.5) discard;
   diffuseColor.rgb = mix(chiPrairie, min(wbEarth, vec3(1.0)), wbW);
   float wbRough = mix(1.0, mix(0.96, 0.58, wbWet), wbW);
 `;
@@ -414,6 +425,21 @@ export async function createWorkingBank({
   const pos = [];
   const wearA = [];
   const apronA = [];
+  // How far outside the worked width of the street the bank is worn from, in
+  // metres across it: negative on the street. See `aRoad` in the shader.
+  const roadLines = [];
+  for (const r of reaches) {
+    if (!roadLines.some((l) => l.pts === r.pts)) roadLines.push({ pts: r.pts, half: r.half });
+  }
+  const roadAt = (e, n) => {
+    let d = ROAD_FAR_M;
+    for (const l of roadLines) {
+      const at = lineAt(l.pts, e);
+      if (at) d = Math.min(d, Math.abs(n - at.n) * at.cos - l.half);
+    }
+    return d;
+  };
+  const roadA = [];
   const index = [];
   const regions = [...reaches.map((r) => r.box)];
   for (const a of aprons) {
@@ -438,6 +464,7 @@ export async function createWorkingBank({
         pos.push(e, (Number.isFinite(y) ? y : 0) + LIFT_M, -n);
         wearA.push(parts.wear);
         apronA.push(parts.apron);
+        roadA.push(roadAt(e, n));
         w[j * (nu + 1) + i] = parts.wear;
       }
     }
@@ -461,6 +488,7 @@ export async function createWorkingBank({
   geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
   geo.setAttribute('aWear', new THREE.Float32BufferAttribute(wearA, 1));
   geo.setAttribute('aApron', new THREE.Float32BufferAttribute(apronA, 1));
+  geo.setAttribute('aRoad', new THREE.Float32BufferAttribute(roadA, 1));
   // Every vertex reconstructed: the whole layer is an invention bounded by the
   // town's own landings, and it goes when a visitor hides that tier.
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(
@@ -504,9 +532,11 @@ export async function createWorkingBank({
       uWet: { value: new THREE.Vector2(wet[0], wet[1]) },
     });
     shader.vertexShader = 'varying vec3 vChiWorld;\nattribute float aWear;\n'
-      + 'attribute float aApron;\nvarying float vWear;\nvarying float vApron;\n'
+      + 'attribute float aApron;\nattribute float aRoad;\nvarying float vWear;\n'
+      + 'varying float vApron;\nvarying float vRoad;\n'
       + shader.vertexShader.replace('#include <begin_vertex>',
-        `#include <begin_vertex>${WORLD_POS_VERT}\n  vWear = aWear;\n  vApron = aApron;`);
+        `#include <begin_vertex>${WORLD_POS_VERT}\n  vWear = aWear;\n  vApron = aApron;\n`
+        + '  vRoad = aRoad;');
     shader.fragmentShader = FRAGMENT_HEAD + shader.fragmentShader
       .replace('#include <map_fragment>', PRAIRIE_FRAGMENT + BANK_FRAGMENT)
       .replace('#include <roughnessmap_fragment>', 'float roughnessFactor = wbRough;')

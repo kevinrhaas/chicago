@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1310, ts: '2026-10-02T16:49:25.817Z', date: 'Oct 2, 2026, 11:49 AM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
+    items: [
+      'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
+      'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
+      'All of this is in the Full and Balanced detail settings. Light, the setting a phone starts on, gets most of it, but a few small patches can still show close up, so that it stays as fast as it was.',
+    ] },
   { v: 1309, ts: '2026-10-02T15:39:39.047Z', date: 'Oct 2, 2026, 10:39 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
     items: [
       'Open a reconstructed house on Randolph or Washington Street and you may meet new boarders. 362 more households now have a roof. The records lose track of them before July 1835, but nothing puts them anywhere else, so the town counts them as present.',

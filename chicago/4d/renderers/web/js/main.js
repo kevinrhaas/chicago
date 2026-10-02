@@ -532,12 +532,29 @@ const DETAIL_DECLARED = {
   // trim, and that is T-1976, which carries the layer-by-layer reading of the
   // forks. T-0672 still owes the return of the 2026-09-03 raise of this rung.
   //
+  // T-1987, 2026-10-02 — THE ROAD'S OWN RAISE, the first parcel to bring its
+  // number here after the seventh re-basing, as that paragraph asked. The
+  // owner's grass growing over the dirt as he walked up to it was the ground
+  // rising through road panels that sagged under it; the cure lays those
+  // panels on the cells' ridge (streets.js, THE RIDGE DRAPE), +43,634
+  // triangles, and the street layer is drawn whole, so it is the same +43,634
+  // at every stand. `tools/measure_detail_ceilings.mjs --against`, desktop
+  // 1280x800, published mirror of dev @ 1da76db5 with and without it
+  // (docs/measurements/T-1987-road-ridge-cost.md):
+  //
+  //   full      1,708,512 -> 1,752,146 at Lake at Canal  +18,059 -> 1,775,000
+  //   balanced  1,475,633 -> 1,519,267 at Lake at Canal  +16,806 -> 1,540,000
+  //
+  // Same rule, same headroom, nothing pre-emptive. Mobile reads lower at both
+  // tiers (1,556,676 + 43,634 at `full`), so desktop sets it. `light` is NOT
+  // spent: there the road keeps its refined grids and costs what it did.
+  //
   // WHAT IS NOT RE-DERIVED: the timber's per-level thinning ratio (trees.js,
   // L121's refresh, 1 / 0.877 / 0.565) was read off these ceilings on
   // 2026-09-15. Re-reading it against 1,725,000 / 1,490,000 / 825,000 would
   // change the wood a visitor sees at `balanced` and `light`, which is not a
   // budget's job; it stays as stated there.
-  full:     { triangles: 1725000, shadowReachM: 240, furnitureCastsShadow: true,
+  full:     { triangles: 1775000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -546,12 +563,14 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '1,725,000 set 2026-10-02 (T-1975, the seventh re-basing, on '
-                + "the owner's T-1215 \u201cthe budgets re-measured and set\u201d), from "
-                + '1,460,000. Read on dev @ 652ca8ea, published mirror, T-0135\'s five '
-                + 'stands: worst 1,705,768 at Lake Street at Canal at 1280x800 and '
-                + '1,556,676 there at 390x780 \u2014 19,232 clear, 1.1 %, which is '
-                + "T-0672's recorded 18,059 rounded up to 5,000 and nothing more" },
+              measured: '1,775,000 set 2026-10-02 (T-1987) for the road laid on the '
+                + "cells' ridge, +43,634 at every stand: worst 1,752,146 at Lake Street "
+                + 'at Canal at 1280x800 on dev @ 1da76db5 with it, plus T-0672\'s 18,059 '
+                + 'rounded up to 5,000. Before it, 1,725,000 set the same day (T-1975, '
+                + "the seventh re-basing, on the owner's T-1215 \u201cthe budgets "
+                + 're-measured and set\u201d) from 1,460,000 on dev @ 652ca8ea: worst '
+                + '1,705,768 at Lake Street at Canal at 1280x800 and 1,556,676 there at '
+                + '390x780' },
   // RE-BUDGETED 2026-08-21, 800000 -> 900000, on the owner's ruling that a
   // ceiling is a number this project chose rather than a claim about 1835.
   // Four parcels landed the same day - the street edge, the lot-line fences,
@@ -639,15 +658,17 @@ const DETAIL_DECLARED = {
   // that would win the rung back.
   // T-1975, 2026-10-02: 1,280,000 -> 1,490,000 in the seventh re-basing — the
   // reading and the rule are in the block above `full`.
-  balanced: { triangles: 1490000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-1987, 2026-10-02: 1,490,000 -> 1,540,000 for the road's ridge, by the
+  // same rule — the reading is in the block above `full`.
+  balanced: { triangles: 1540000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,490,000 set 2026-10-02 (T-1975) in the same re-basing and '
-                + 'by the same rule. Read on dev @ 652ca8ea, published mirror: worst '
-                + '1,472,889 at Lake Street at Canal at 1280x800 and 1,332,135 there at '
-                + "390x780 \u2014 17,111 clear, 1.1 %, T-0672's recorded 16,806 rounded "
-                + 'up to 5,000' },
+              measured: '1,540,000 set 2026-10-02 (T-1987) for the road laid on the '
+                + "cells' ridge: worst 1,519,267 at Lake Street at Canal at 1280x800 on "
+                + "dev @ 1da76db5 with it, plus T-0672's 16,806 rounded up to 5,000. "
+                + 'Before it, 1,490,000 (T-1975) on dev @ 652ca8ea: worst 1,472,889 at '
+                + 'Lake Street at Canal at 1280x800 and 1,332,135 there at 390x780' },
   // -- T-0147, 2026-08-27 -- AND THE FLOOR IS WON BACK: 1,050,000 -> 785,000 --
   //
   // The third and last piece of T-0149, whose whole complaint is the sentence
@@ -756,7 +777,7 @@ const DETAIL_ORDER = ['full', 'balanced', 'light'];
  * than swallowed: the clamped rung carries `declared` and `clamped: true`,
  * `console.error` says so at boot, and `tools/smoke_renderer.mjs` gates BOTH —
  * that the declared numbers descend on their own, and that no rung is running
- * clamped. Today nothing clamps: 1,725,000 > 1,490,000 > 825,000, and the
+ * clamped. Today nothing clamps: 1,775,000 > 1,540,000 > 825,000, and the
  * running minimum is the identity. The seal costs nothing until the day it is
  * the only thing standing between a typo and a ladder that lies.
  *
@@ -1277,6 +1298,7 @@ async function boot() {
     terrain,
     records: draws('streets') ? (loaded.index?.streets ?? []) : [],
     confidence,
+    ...detailOpts(),
   });
   scene3d.add(streets.group);
   if (groundProof) {
@@ -1825,6 +1847,7 @@ async function boot() {
       detailLevel = level;
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
+      streets.setDetail?.(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       confidence.set(confidence.enabled);
@@ -1858,6 +1881,9 @@ async function boot() {
     // `applyShadowTier` below is what settles that, and settling it first would
     // settle it on meshes that are about to be thrown away.
     enclosures.setDetail?.(level);
+    // The road's: `light` keeps the refined grids, the two tiers above it lay
+    // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
+    streets.setDetail?.(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
