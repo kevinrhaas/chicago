@@ -6472,11 +6472,15 @@ for (const [label, viewport, touch] of [
       bank.apronProbe.map((p) => `${p.id} wear ${p.wear.toFixed(2)} trees `
         + `${p.trees ? 'cleared' : 'STANDING'}`).join('; ')
         + `; across the river wear ${bank.across}`);
-    // AND IT READS, from the street looking across the bank at Carpenter's
-    // landing, held clock, with and without the layer.
+    // AND IT READS, held clock, with and without the layer, from the bank by
+    // Jones's landing looking down its apron to the deck. Only the MESH is
+    // toggled — the sward it already cleared stays cleared — so the stand is one
+    // where the worked ground fills the frame: from the street at 390 px wide
+    // the bank is a strip under the surviving stems and read worst 2.0 / mean
+    // 0.15 on mobile while the planting change itself was plain in the frame.
     await page.evaluate(() => { window.__chicago4d.setAnimationHold(false); });
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 372, local_n: 9, yaw_deg: 8, pitch_deg: -9 }));
+      { local_e: 352, local_n: 21, yaw_deg: 12, pitch_deg: -16 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const bankWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -6485,7 +6489,7 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => { window.__chicago4d.workingBank.group.visible = true; });
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     const dBank = signatureDistance(bankWith, bankWithout);
-    check(`${label}: the working bank changes what a visitor sees from South Water`,
+    check(`${label}: the working bank changes what a visitor sees at a landing`,
       dBank.worst >= 6 && dBank.mean >= 0.3,
       `signature distance worst ${dBank.worst?.toFixed(1)}, mean ${dBank.mean?.toFixed(2)}`);
 
