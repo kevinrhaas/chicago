@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+  { v: 1303, ts: '2026-10-02T13:36:07.376Z', date: 'Oct 2, 2026, 8:36 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
     items: [
       'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
       'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
