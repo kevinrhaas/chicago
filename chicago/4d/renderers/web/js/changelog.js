@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1311, ts: '2026-10-02T16:52:08.496Z', date: 'Oct 2, 2026, 11:52 AM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+  { v: 1313, ts: '2026-10-02T17:26:38.202Z', date: 'Oct 2, 2026, 12:26 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
       'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
       'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
       'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
       'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L356).',
+    ] },
+  { v: 1312, ts: '2026-10-02T17:06:29.693Z', date: 'Oct 2, 2026, 12:06 PM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
+    items: [
+      'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
+      'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
+      'Where Clark and La Salle Streets meet the river, their lowered ends are held back from the walk the same way.',
+    ] },
+  { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
+    items: [
+      'Open Evidence, then City: a third panel now shows how close the town is to complete, as four checks. Every household has a home; every working person has a workplace; every business has a roof or a stated reason it has none; every standing roof has somebody in it or a use.',
+      'One check is closed today: every business. The other three show what is still owed. 523 households are waiting on a roof, 308 working people have no workplace yet, and 24 roofs stand empty.',
+      'A bar under the checks shows how much of the town rests on each kind of evidence. Of the 1,508 households with a home, 18 % are attested, 38 % inferred and 43 % reconstructed.',
+      'The full tables, by tier, for people, households, businesses, roofs and streets are in docs/RESEARCH/1835_town_completion.md, written from the same counts.',
     ] },
   { v: 1310, ts: '2026-10-02T15:48:39.825Z', date: 'Oct 2, 2026, 10:48 AM CT', title: 'The fort\u2019s barn, shop and wash house now say whose they were', kind: 'change',
     items: [

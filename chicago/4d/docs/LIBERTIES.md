@@ -19577,7 +19577,8 @@ households kept a horse. A named outbuilding replaces the dealt one on its lot.
 
 **Related:** **L330** (the household class this reads), **L348** (the weather years), **L326** (the
 yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960** (this deal, piece
-3 of **T-1212**), **T-1967** (the baked stable and outbuilding roofs the order book still counts).
+3 of **T-1212**), **T-1983** (the baked stable and outbuilding roofs the order book still counts;
+T-1967 handed them on).
 
 **Recorded:** 2026-10-02 (T-1960).
 
@@ -19642,7 +19643,7 @@ age of its last reading, not by any source about where these people slept.
 
 **Not done, and why:** the town
 census screen's housed count reads card links and does not yet count these seats; that
-screen is T-1967. The People view's "Go to" is not pointed at these roofs.
+screen is T-1983 (T-1967's City card completion row does count them, by household). The People view's "Go to" is not pointed at these roofs.
 
 **How to resolve:** any 1835 source that puts a named person under a named roof — a lot
 sale, a tax or assessment list, a letter's address, a later reminiscence — replaces the
