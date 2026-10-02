@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1299, ts: '2026-10-02T11:29:06.692Z', date: 'Oct 2, 2026, 6:29 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
+    items: [
+      'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',
+    ] },
   { v: 1298, ts: '2026-10-02T11:02:19.710Z', date: 'Oct 2, 2026, 6:02 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
     items: [
       'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
