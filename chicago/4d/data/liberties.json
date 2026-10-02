@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 342,
+  "count": 343,
   "liberties": [
     {
       "id": "L1",
@@ -21762,6 +21762,45 @@
         {
           "label": "Related",
           "text": "**L90** (the anonymous roofs the reconstruction programme raises), **L252** and **L257** (their lodgers and their houses of trade), **L270** (the platted deal and the households it now owes), **L318** (the form), **L326** (the yard mix), **L344** and **L345** (the North's house and the Clark block's third, raised the same day), **T-1951** (these deals, a piece of **T-1810**, of **T-1779**), **T-1957** (what the cell still owes), **T-1209** (the boarding houses built to their beds)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L350",
+      "title": "The walls' grain: a generated board and log face bound to every clapboarded and laid-log wall, and a coat showing three tenths of it",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every clapboarded wall on the three frame archetypes and every laid-log wall in the town is drawn with the library's generated wood face as relief (T-1963, `renderers/web/js/wall-relief.js`, `renderers/web/js/wall-grain.js`). Clapboard takes `clapboard_board_face` (one board's face, tiling at 4.48 m: grain along the board, raised grain, drying checks, broad weathering). Laid logs take `hewn_log_face` (4.08 m: adze scallops across the grain, checks). Neither map has a course line, so the only courses on a wall are the modelled laps and logs. The household's colour stays the wall's mean, and the wood's own figure is the variation around it. A wall wearing a coat (whitewash, red oxide or white lead, the three finishes the material sheet marks as coatings) lets **0.3** of that figure's colour through and keeps all of its relief. Bare stock lets all of it through. The three storefronts dealt vertical board, every palisade and bridge, trim, casings, sash, chinking and outbuilding boards are left as they were."
+        },
+        {
+          "label": "Why",
+          "text": "the owner set photographic quality as the standard, with Glessner House v4 as the benchmark (T-1769). T-1962's lay and wear were real but measured small, because a flat-shaded colour has nothing in it for the eye to read at walking distance. The fabric proof (`docs/RESEARCH/1835_fabric_proof.md`) showed that a no-course face over the modelled lap reads as weathered board at 2.5 m and dissolves into tone by 9 m. The 0.3 is that proof's reading of how much a weathered coat shows: at full strength, white lead read as a photograph of wood painted over. **No source says how any 1835 Chicago wall's grain looked, how far a coat hid it, or which walls were checked or weathered more than others.** The maps are deterministic procedural syntheses (seeds 18350701 and 18351283, the library's own licence), not photographs of any surviving 1830s fabric."
+        },
+        {
+          "label": "Consequence",
+          "text": "250 clapboarded walls (49 under a coat) and 105 laid-log walls carry the grain. That costs two more building batches, one per substrate, drawn once in the colour pass and once in the shadow pass, and four textures (two at 1024 px, 512 px on a coarse device). The figures are in `docs/RESEARCH/1835_wall_relief.md`. Roughness keeps every household's own gloss through the map's ratio, so whitewash stays the dullest wall and white lead the glossiest."
+        },
+        {
+          "label": "Not done, and why",
+          "text": "upright boards (battens, vertical board, casings) need a grain axis per board, which the shader cannot know from a position and a normal (the fabric proof's defect 4). The recessed sash, a material name pinned in the GLB contract, and chinking relief are later parcels."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a surviving 1830s Chicago clapboard or log wall, a close description of one, or a measured study of how weathered lead and lime coats showed grain outranks the look. A different coat strength is one number in `wall-grain.js`."
+        },
+        {
+          "label": "Related",
+          "text": "**L126** (the facade tones' bounds), **L320** (the street timber's grain), **L346** (the signboards' wear), **T-1769** (the preparation), **T-1801** (the proof), **T-1962** (the lay and the wear), **T-1963** (this layer)."
         },
         {
           "label": "Recorded",

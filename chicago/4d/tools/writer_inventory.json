@@ -193,6 +193,12 @@
       "measured": "2026-09-29",
       "finding": "Run bare on the working tree it prints the --check verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: data/street_surfaces/1904.json is authored. A checker (T-1728)."
     },
+    "check_wall_relief.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-02",
+      "finding": "Run bare on the working tree it prints its verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: it runs renderers/web/js/wall-grain.js under node over the committed sidecars and compares it with generators/common/materials.py. A checker (T-1963)."
+    },
     "check_unique_ids.py": {
       "placement": "not_a_writer",
       "write_mode": null,

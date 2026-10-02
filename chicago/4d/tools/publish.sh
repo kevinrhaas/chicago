@@ -187,14 +187,21 @@ done
 # pair, material.json for the tile and the mean roughness, and the basecolor,
 # which the layer reads only for its luminance ratio (the albedo modulation) —
 # the timber's own colour stays on the vertex.
-src="assets/textures/chicago_1835_pbr/walls/clapboard_board_face"
-dst="$SITE/data/textures/chicago_1835_pbr/walls/clapboard_board_face"
-mkdir -p "$dst"
-cp -f "$src/material.json" \
-      "$src/clapboard_board_face_normal_gl.png" \
-      "$src/clapboard_board_face_orm.png" \
-      "$src/clapboard_board_face_basecolor.png" \
-      "$dst/"
+#
+# The walls' relief (T-1963) — `renderers/web/js/wall-relief.js` binds the same
+# board face to every clapboarded wall, and the hewn log face to every laid-log
+# wall, and packs each one's albedo ratio from the basecolor at load. The same
+# four files of each sheet, so the board face above already serves both layers.
+for face in clapboard_board_face hewn_log_face; do
+  src="assets/textures/chicago_1835_pbr/walls/$face"
+  dst="$SITE/data/textures/chicago_1835_pbr/walls/$face"
+  mkdir -p "$dst"
+  cp -f "$src/material.json" \
+        "$src/${face}_normal_gl.png" \
+        "$src/${face}_orm.png" \
+        "$src/${face}_basecolor.png" \
+        "$dst/"
+done
 
 # The T-1797 ground strip's two library substrates — `renderers/web/js/ground-strip.js`,
 # drawn only under `?proof=ground`. Same asset-base rename and the same reason as
