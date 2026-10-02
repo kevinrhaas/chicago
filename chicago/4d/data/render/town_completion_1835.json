@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 308,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 24,
+    "structures_empty_owing_somebody": 15,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -124,19 +124,20 @@
     "occupants_in_prose_only": {
       "attested": 9,
       "inferred": 10,
-      "reconstructed": 55
+      "reconstructed": 51
     },
     "use_stated": {
       "camp_ground": 3,
       "civic_or_works": 18,
       "outbuilding_of_a_yard": 96,
       "part_of_an_establishment": 15,
+      "stated_use_of_an_anonymous_roof": 13,
       "vacant_to_let": 1
     },
     "empty_owing_somebody": {
       "dwelling": 5,
       "house_of_trade": 9,
-      "outbuilding_naming_no_yard": 10
+      "outbuilding_naming_no_yard": 1
     },
     "empty": [
       "caldwell_agency_log_house",
@@ -149,18 +150,9 @@
       "north_bank_shed_dearborn_w",
       "recon_1835_blk_west_randolph_des_plaines_w2_01",
       "recon_1835_forks_freight_f2_001",
-      "recon_1835_north_a1_047",
       "recon_1835_north_w5_040",
-      "recon_1835_south_a2_037",
       "recon_1835_south_c3_015",
-      "recon_1835_west_012",
       "recon_1835_west_013",
-      "recon_1835_west_022",
-      "recon_1835_west_023",
-      "recon_1835_west_024",
-      "recon_1835_west_025",
-      "recon_1835_west_053",
-      "recon_1835_west_055",
       "south_bank_shed_dearborn_e1",
       "south_bank_shed_dearborn_e2"
     ]
@@ -236,17 +228,17 @@
       "occupants_in_prose_only": {
         "attested": 9,
         "inferred": 10,
-        "reconstructed": 55
+        "reconstructed": 51
       },
       "use_stated": {
         "attested": 24,
         "inferred": 5,
-        "reconstructed": 104
+        "reconstructed": 117
       },
       "empty_owing_somebody": {
         "attested": 2,
         "inferred": 2,
-        "reconstructed": 20
+        "reconstructed": 11
       }
     },
     "streets": {
@@ -285,7 +277,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 24,
+      "open": 15,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]

@@ -131,6 +131,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the A2 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "No household of its own — the barn or carriage shed on the same lot as the plank house beside it, between Wells and LaSalle south of Lake",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1988; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The lot ledger (data/reconstruction/1835_lot_ledger.json) stands this roof and recon_1835_south_d2_024, the D2 rough plank dwelling the platted deal seats under labourer_dwellings, on one lot: blk_lake_wells#01, 39.0 m apart. The South recipe raised it in its randolph_approach row and gave it no `yard_group`, so the shared lot is the tie. A barn or carriage shed keeps that household's wagon, hay and stock; nobody sleeps in it. A second dwelling on the lot would not change the use, only which house it served. The roof's own existence, position and footprint remain the invention they were."
     }
   },
   "residents": [],
