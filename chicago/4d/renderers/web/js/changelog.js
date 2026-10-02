@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1329, ts: '2026-10-02T23:07:46.373Z', date: 'Oct 2, 2026, 6:07 PM CT', title: 'Reconstructing the town now says whether the town is finished', kind: 'change',
+    items: [
+      'Open the Evidence tab and choose \u201cReconstructing the town\u201d. A new first section, \u201cIs the town finished?\u201d, answers that before anything else.',
+      'Not yet, it says. Every business is roofed. 523 households are still waiting on a roof, 40 working people are owed a workplace, and 5 standing roofs are empty and owed somebody.',
+      'The figures come from the same completion audit as the City card, so the two always agree. When all four joins close, the section will say the town is complete.',
+    ] },
   { v: 1328, ts: '2026-10-02T22:54:50.366Z', date: 'Oct 2, 2026, 5:54 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
     items: [
       'Most of the town\u2019s buildings are our reconstruction: no record says which house stood on which lot in July 1835. When research does find one, it should replace the invented house on that lot rather than be added beside it, so the town never grows past what it held.',
