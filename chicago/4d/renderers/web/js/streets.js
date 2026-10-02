@@ -435,6 +435,87 @@ function nearestOn(record, e, n) {
   return best ? { ...best, street: record } : null;
 }
 
+/**
+ * T-1987 — WHERE A STREET ENDS ON ANOTHER, ITS END IS FADED INTO IT.
+ *
+ * Market runs into Lake, Franklin, Wells, La Salle and Clark into South Water,
+ * every north-side street into North Water and Kinzie. Each ribbon stopped on a
+ * straight line laid across the through street's dirt, its own ruts and lanes
+ * running square into the other's, and the two transparent surfaces blended in
+ * whatever order they were drawn: a hard seam across the junction, seen from
+ * any height (owner, 2026-10-02, "misjoined roads").
+ *
+ * The ending street keeps its full cover until it is inside the through
+ * street's opaque core, then fades out by the through street's centreline (or
+ * by its own end, if that is short of it). Only a street that ends INSIDE
+ * another's worked width, on a stretch of it that runs on, is faded — two
+ * streets that both end at a corner keep both their ends, or the corner would
+ * open. Read off the drawn lines, in metres along the ending ribbon, so the
+ * shader needs one attribute and no lookups.
+ */
+const END_FADE_MIN_M = 1.5;
+// "No fade" is a ramp that lies off the ribbon at both ends, a metre or two
+// past it, never a far sentinel: the four numbers are interpolated across
+// every triangle, and at 1e7 m one float step is a whole metre, so a ramp's
+// two ends met or swapped in places and smoothstep() — undefined there —
+// struck the road out in scanline stripes.
+const NO_FADE = [-2, -1, 1e5, 2e5];
+function endFades(records) {
+  const length = (pts) => {
+    let sum = 0;
+    for (let i = 1; i < pts.length; i++) {
+      const step = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      sum += step < 1e-5 ? 0 : step;
+    }
+    return sum;
+  };
+  const fades = new Map();
+  for (const record of records) {
+    const L = length(record.drawn);
+    const fade = [-2, -1, L + 1, L + 2];
+    const ends = [
+      [record.drawn[0], record.drawn[1], 0],
+      [record.drawn.at(-1), record.drawn.at(-2), 2],
+    ];
+    for (const [P, Q, slot] of ends) {
+      const de = P[0] - Q[0];
+      const dn = P[1] - Q[1];
+      const dl = Math.hypot(de, dn);
+      if (dl < 1e-6) continue;
+      let best = null;
+      for (const other of records) {
+        if (other === record) continue;
+        const oHalf = other.drawn_width_m * 0.5;
+        const oLen = length(other.drawn);
+        let walked = 0;
+        for (let i = 1; i < other.drawn.length; i++) {
+          const a = other.drawn[i - 1];
+          const b = other.drawn[i];
+          const hit = pointSegment(P[0], P[1], a, b);
+          const seg = Math.hypot(b[0] - a[0], b[1] - a[1]);
+          const at = walked + seg * hit.t;
+          walked += seg < 1e-5 ? 0 : seg;
+          if (hit.distance >= oHalf || (best && hit.distance >= best.distance)) continue;
+          // A corner, not a T: the other street ends here too.
+          if (at < oHalf || at > oLen - oHalf) continue;
+          const beyond = ((P[0] - hit.e) * de + (P[1] - hit.n) * dn) / dl;
+          best = { distance: hit.distance, beyond, core: oHalf * other.core_share };
+        }
+      }
+      if (!best) continue;
+      const zero = Math.max(0, best.beyond);
+      const full = best.beyond + best.core;
+      if (full - zero < END_FADE_MIN_M || full > L * 0.5) continue;
+      if (slot === 0) { fade[0] = zero; fade[1] = full; } else {
+        fade[2] = L - full;
+        fade[3] = L - zero;
+      }
+    }
+    fades.set(record, fade);
+  }
+  return fades;
+}
+
 function sampled(path) {
   const out = [];
   for (let i = 1; i < path.length; i++) {
@@ -606,7 +687,9 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
         }
         const interior = (r > 0 && r < R) || (c > 0 && c < C);
         if (interior && terrain.isWater(e, n)) return null;
-        row.push([e, n, terrain.surfaceHeight(e, n) + LIFT_M]);
+        // The fourth entry is where this column stands ACROSS the panel, 0 at
+        // the left edge and 1 at the right: the texture's `u`. See addRecord.
+        row.push([e, n, terrain.surfaceHeight(e, n) + LIFT_M, f]);
       }
       rows.push(row);
     }
@@ -676,6 +759,332 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
     miss = residual(grid);
   }
   return grid;
+}
+
+/**
+ * THE RIDGE DRAPE — where the panels above cannot follow the ground, the road is
+ * laid on the ground's own cells instead (owner, 2026-10-02: walking a dirt road
+ * on dev, "the grass area seems to grow and show up over the dirt road as you
+ * approach it").
+ *
+ * WHY THE PANELS COULD NOT. `latticeFractions` above assumes the bilinear field
+ * is straight along a line between two grid lines. It is — along a line PARALLEL
+ * to a grid axis. Along any other line a bilinear cell is a parabola (the
+ * `x·y` term), and the streets of this town do not run on the lattice's axes:
+ * Lake Street at Market crosses it at about 24 degrees. So on the graded beds
+ * T-1812 cut — a crown and two gutters, which is exactly where a cell twists —
+ * the columns sat in the wrong places, the halving ran out of levels, and the
+ * ribbon was left UNDER its own ground between its vertices. Measured town-wide
+ * on the shipped build, probed inside every street triangle: 4,368 triangles
+ * below the field, 1,180 of them by more than 3 cm, worst 0.30 m on the bridge
+ * approaches; at Lake and Market 406 of 3,935, worst 0.21 m. Under a road the
+ * opaque ground wins the depth test wherever that happens, and the polygon
+ * offset only hides it at a grazing angle — which is why the grass "grew" as
+ * the owner walked up to it.
+ *
+ * AND THE GROUND THAT IS DRAWN IS NOT EVEN THE BILINEAR FIELD. The baked mesh
+ * splits each cell into two triangles, and between its vertices a triangulated
+ * cell stands off the bilinear surface by up to a quarter of the cell's twist
+ * (h00 + h11 − h10 − h01). Under the roads 2,126 of 37,931 cells twist by more
+ * than 4 cm. A road that matched the bilinear field exactly would still lose to
+ * whichever diagonal the bake chose.
+ *
+ * SO THE ROAD IS LAID ON THE CELLS' RIDGE. Of a cell's two diagonals, the one
+ * joining the pair of corners with the larger sum gives a surface that is never
+ * below the bilinear patch (the difference is T·y·(1−x) on one half and
+ * T·x·(1−y) on the other, both ≥ 0 when that diagonal is chosen) — and so never
+ * below the other triangulation either. Cut on the cells and their ridge
+ * diagonals, each piece of road is planar on a plane that bounds the ground
+ * from above, and nothing the ground draws can rise through it.
+ *
+ * WHAT IT COSTS AND WHERE IT IS SPENT. Only a panel whose refined grid still
+ * sags more than SAG_TOL_M under the ridge is cut this way (and every joint
+ * fan, whose rim was never refined at all); the flat town keeps its panels.
+ * That is 1,392 of 6,937 panels and +43,634 triangles town-wide (106,891 →
+ * 150,524), at every stand since the layer is drawn whole, and it is spent at
+ * `full` and `balanced` only: `light` keeps the grids (`ridgeAt` in
+ * createStreets) and the two ceilings above it moved for it, in main.js.
+ * Read again after the terrain rebake (T-1956) and with the shoulders' edge
+ * found by halving rather than on the 0.5 m ladder (groundReach): 1,395 panels,
+ * 105,579 → 154,303 — the rim no longer lands on cell lines, so it is cut into
+ * a few more pieces (+3,382 over the ladder's 150,921), inside both ceilings'
+ * recorded headroom.
+ * Looser tolerances were priced and refused (docs/measurements/
+ * T-1987-road-ridge-cost.md): every millimetre over 15 is ground the bake can
+ * push through the 22 mm lift.
+ * A cut vertex inside a cell stands on the ridge, which is above the field by at
+ * most that cell's quarter-twist — so the smoke's drape gate reads a vertex
+ * against BOTH surfaces (`drapeBounds`): never under the field, never over the
+ * ridge. The terrain is not touched and the walker stands on the same field.
+ */
+const SAG_TOL_M = 0.015;
+// How far, and in what steps, a cut vertex on a trimmed side may step inside
+// the panel to leave the water mask (see ridgeDrape): two centimetres at a
+// time, at most a quarter metre — the order of dryReach's own 8 cm settle.
+const WET_NUDGE_M = 0.02;
+const WET_NUDGE_STEPS = 12;
+
+/** The lattice node heights of the cell holding (e, n), with its fractions. */
+function cellAt(terrain, e, n) {
+  const g = terrain.grid;
+  const gx = (e - g.originE) / g.cellM;
+  const gy = (n - g.originN) / g.cellM;
+  const i = Math.floor(gx);
+  const j = Math.floor(gy);
+  const node = (a, b) => terrain.surfaceHeight(g.originE + a * g.cellM, g.originN + b * g.cellM);
+  return { i, j, fx: gx - i, fy: gy - j,
+    h00: node(i, j), h10: node(i + 1, j), h01: node(i, j + 1), h11: node(i + 1, j + 1) };
+}
+
+/** The ridge of a cell at fractions (fx, fy): its upper triangulation. */
+function ridgeOf({ fx, fy, h00, h10, h01, h11 }) {
+  if (h00 + h11 >= h10 + h01) {
+    return fx >= fy ? h00 + (h10 - h00) * fx + (h11 - h10) * fy
+      : h00 + (h11 - h01) * fx + (h01 - h00) * fy;
+  }
+  return fx + fy <= 1 ? h00 + (h10 - h00) * fx + (h01 - h00) * fy
+    : h11 + (h01 - h11) * (1 - fx) + (h10 - h11) * (1 - fy);
+}
+
+/** The ground's upper triangulation at (e, n) — see THE RIDGE DRAPE. Equal to
+ *  `surfaceHeight()` on every lattice line; above it inside a twisted cell. */
+export function ridgeHeight(terrain, e, n) {
+  return ridgeOf(cellAt(terrain, e, n));
+}
+
+/** How far a draped grid falls under the ridge (+ LIFT_M) between its own
+ *  vertices, probed as `residual` probes: the deepest deficit, ≥ 0. */
+function gridSag(terrain, rows) {
+  let worst = 0;
+  for (let r = 0; r < rows.length - 1; r++) {
+    for (let c = 0; c < rows[r].length - 1; c++) {
+      const q = [rows[r][c], rows[r][c + 1], rows[r + 1][c], rows[r + 1][c + 1]];
+      for (let i = 0; i <= 4; i++) {
+        for (let j = 0; j <= 4; j++) {
+          const ft = i / 4;
+          const fs = j / 4;
+          const e = (q[0][0] * (1 - fs) + q[1][0] * fs) * (1 - ft)
+            + (q[2][0] * (1 - fs) + q[3][0] * fs) * ft;
+          const n = (q[0][1] * (1 - fs) + q[1][1] * fs) * (1 - ft)
+            + (q[2][1] * (1 - fs) + q[3][1] * fs) * ft;
+          // The quad is drawn as two triangles split on (0,1)-(1,0), not as a
+          // bilinear patch, so the height is read on the triangle it lands in.
+          const y = fs + ft <= 1
+            ? q[0][2] + (q[1][2] - q[0][2]) * fs + (q[2][2] - q[0][2]) * ft
+            : q[3][2] + (q[2][2] - q[3][2]) * (1 - fs) + (q[1][2] - q[3][2]) * (1 - ft);
+          if (!terrain.inBounds(e, n)) continue;
+          worst = Math.max(worst, ridgeHeight(terrain, e, n) + LIFT_M - y);
+        }
+      }
+    }
+  }
+  return worst;
+}
+
+/** Sutherland–Hodgman: a convex polygon clipped by a convex one (plan, [e, n]). */
+function clipConvex(subject, clip) {
+  let area = 0;
+  for (let k = 0; k < clip.length; k++) {
+    const [a, b] = [clip[k], clip[(k + 1) % clip.length]];
+    area += a[0] * b[1] - b[0] * a[1];
+  }
+  const orient = Math.sign(area) || 1;
+  let out = subject;
+  for (let k = 0; k < clip.length && out.length; k++) {
+    const A = clip[k];
+    const B = clip[(k + 1) % clip.length];
+    const side = (p) => orient * ((B[0] - A[0]) * (p[1] - A[1]) - (B[1] - A[1]) * (p[0] - A[0]));
+    const input = out;
+    out = [];
+    for (let m = 0; m < input.length; m++) {
+      const P = input[m];
+      const Q = input[(m + 1) % input.length];
+      const sp = side(P);
+      const sq = side(Q);
+      if (sp >= 0) out.push(P);
+      if ((sp >= 0) !== (sq >= 0)) {
+        const t = sp / (sp - sq);
+        out.push([P[0] + (Q[0] - P[0]) * t, P[1] + (Q[1] - P[1]) * t]);
+      }
+    }
+  }
+  return out;
+}
+
+/** (u, t) of plan point P in the bilinear quad L0 (0,0) R0 (1,0) R1 (1,1) L1 (0,1). */
+function quadCoords(P, L0, R0, R1, L1) {
+  let u = 0.5;
+  let t = 0.5;
+  for (let k = 0; k < 8; k++) {
+    const pe = (1 - t) * ((1 - u) * L0[0] + u * R0[0]) + t * ((1 - u) * L1[0] + u * R1[0]);
+    const pn = (1 - t) * ((1 - u) * L0[1] + u * R0[1]) + t * ((1 - u) * L1[1] + u * R1[1]);
+    const due = (1 - t) * (R0[0] - L0[0]) + t * (R1[0] - L1[0]);
+    const dun = (1 - t) * (R0[1] - L0[1]) + t * (R1[1] - L1[1]);
+    const dte = (1 - u) * (L1[0] - L0[0]) + u * (R1[0] - R0[0]);
+    const dtn = (1 - u) * (L1[1] - L0[1]) + u * (R1[1] - R0[1]);
+    const det = due * dtn - dun * dte;
+    if (Math.abs(det) < 1e-12) break;
+    const re = P[0] - pe;
+    const rn = P[1] - pn;
+    u += (re * dtn - rn * dte) / det;
+    t += (due * rn - dun * re) / det;
+  }
+  return [Math.min(1, Math.max(0, u)), Math.min(1, Math.max(0, t))];
+}
+
+/**
+ * One convex plan polygon laid on the ridge: cut by every lattice cell it
+ * touches and by each cell's ridge diagonal, every piece planar on its half-cell.
+ * `attrOf(e, n)` gives the vertex's [u, t]; `onEnd(e, n, t)` may nudge a vertex
+ * that lands on an end line (see `ontoEndLine`). Returns null — keep the panel
+ * as it was — if any piece would stand on water or off the grid, the same two
+ * refusals `refinedPanel` makes.
+ */
+function ridgeDrape(terrain, polygon, attrOf, onEnd = null) {
+  const g = terrain.grid;
+  if (!g || !(g.cellM > 0)) return null;
+  const es = polygon.map((p) => p[0]);
+  const ns = polygon.map((p) => p[1]);
+  const i0 = Math.floor((Math.min(...es) - g.originE) / g.cellM);
+  const i1 = Math.floor((Math.max(...es) - g.originE) / g.cellM);
+  const j0 = Math.floor((Math.min(...ns) - g.originN) / g.cellM);
+  const j1 = Math.floor((Math.max(...ns) - g.originN) / g.cellM);
+  const verts = [];
+  const tris = [];
+  const mid = [es.reduce((a, v) => a + v, 0) / es.length, ns.reduce((a, v) => a + v, 0) / ns.length];
+  const X = (i) => g.originE + i * g.cellM;
+  const Y = (j) => g.originN + j * g.cellM;
+  for (let i = i0; i <= i1; i++) {
+    for (let j = j0; j <= j1; j++) {
+      const p00 = [X(i), Y(j)];
+      const p10 = [X(i + 1), Y(j)];
+      const p01 = [X(i), Y(j + 1)];
+      const p11 = [X(i + 1), Y(j + 1)];
+      const cell = clipConvex(polygon, [p00, p10, p11, p01]);
+      if (cell.length < 3) continue;
+      const h = cellAt(terrain, (p00[0] + p11[0]) / 2, (p00[1] + p11[1]) / 2);
+      const halves = h.h00 + h.h11 >= h.h10 + h.h01
+        ? [[p00, p10, p11], [p00, p11, p01]] : [[p00, p10, p01], [p10, p11, p01]];
+      for (const tri of halves) {
+        const piece = clipConvex(cell, tri);
+        if (piece.length < 3) continue;
+        let area = 0;
+        for (let k = 0; k < piece.length; k++) {
+          const [a, b] = [piece[k], piece[(k + 1) % piece.length]];
+          area += a[0] * b[1] - b[0] * a[1];
+        }
+        if (Math.abs(area) < 1e-8) continue;
+        // The piece's ridge plane, read at its centroid's half-cell rather than
+        // per vertex, so a vertex on the diagonal cannot pick the other half.
+        const cx = piece.reduce((s, p) => s + p[0], 0) / piece.length;
+        const cy = piece.reduce((s, p) => s + p[1], 0) / piece.length;
+        const fxC = (cx - p00[0]) / g.cellM;
+        const fyC = (cy - p00[1]) / g.cellM;
+        const base = verts.length;
+        for (const [pe, pn] of piece) {
+          let e = Math.fround(pe);
+          let n = Math.fround(pn);
+          // A side the waterline trimmed is straight between two dry corners
+          // (dryReach) and can dip a centimetre into the mask between them;
+          // the grid never put a vertex there, a cell edge can. Such a vertex
+          // steps toward the polygon's own centre until it is dry — the same
+          // step for every piece that shares it, so no seam opens.
+          let nudged = false;
+          if (terrain.isWater(e, n)) {
+            nudged = true;
+            const de = mid[0] - e;
+            const dn = mid[1] - n;
+            const len = Math.hypot(de, dn) || 1;
+            for (let k = 1; k <= WET_NUDGE_STEPS && terrain.isWater(e, n); k++) {
+              e = Math.fround(pe + (de / len) * WET_NUDGE_M * k);
+              n = Math.fround(pn + (dn / len) * WET_NUDGE_M * k);
+            }
+          }
+          const [u, t] = attrOf(e, n);
+          if (onEnd) [e, n] = onEnd(e, n, t);
+          if (!terrain.inBounds(e, n) || terrain.isWater(e, n)) return null;
+          const fx = (e - p00[0]) / g.cellM;
+          const fy = (n - p00[1]) / g.cellM;
+          // Same half as the centroid: evaluate that half's plane directly. A
+          // nudged vertex may have left the cell, so it reads the ridge where
+          // it now stands — every piece sharing it reads the same.
+          const ridge = nudged ? ridgeHeight(terrain, e, n) : halfPlane(h, fx, fy, fxC, fyC);
+          verts.push([e, n, ridge + LIFT_M, u, t]);
+        }
+        // Wound as the panels are — clockwise in plan (e, n) — so the normals
+        // computeVertexNormals() derives face the sky as theirs do.
+        for (let k = 1; k < piece.length - 1; k++) {
+          tris.push(area > 0 ? [base, base + k + 1, base + k] : [base, base + k, base + k + 1]);
+        }
+      }
+    }
+  }
+  return tris.length ? { verts, tris } : null;
+}
+
+/** The plane of the ridge half-cell that (fxC, fyC) lies in, read at (fx, fy). */
+function halfPlane({ h00, h10, h01, h11 }, fx, fy, fxC, fyC) {
+  if (h00 + h11 >= h10 + h01) {
+    return fxC >= fyC ? h00 + (h10 - h00) * fx + (h11 - h10) * fy
+      : h00 + (h11 - h01) * fx + (h01 - h00) * fy;
+  }
+  return fxC + fyC <= 1 ? h00 + (h10 - h00) * fx + (h01 - h00) * fy
+    : h11 + (h01 - h11) * (1 - fx) + (h10 - h11) * (1 - fy);
+}
+
+/**
+ * A refined panel's grid re-laid on the ridge, or null to keep the grid. One
+ * quad when the panel's sides are straight (every untrimmed panel: its interior
+ * rows stand on the same offset lines its mitred ends do); one strip per row
+ * where the waterline trimmed a row, so the trim is kept exactly.
+ */
+function offLine(P, A, B) {
+  const de = B[0] - A[0];
+  const dn = B[1] - A[1];
+  const len = Math.hypot(de, dn) || 1;
+  return Math.abs(de * (P[1] - A[1]) - dn * (P[0] - A[0])) / len;
+}
+
+/** True when a refined grid's two sides are straight lines: no row trimmed. */
+function straightGrid(grid) {
+  const R = grid.length - 1;
+  const C = grid[0].length - 1;
+  for (let r = 1; r < R; r++) {
+    if (offLine(grid[r][0], grid[0][0], grid[R][0]) >= 1e-4
+      || offLine(grid[r][C], grid[0][C], grid[R][C]) >= 1e-4) return false;
+  }
+  return true;
+}
+
+function ridgePanel(terrain, grid, ends, a, b) {
+  const R = grid.length - 1;
+  const C = grid[0].length - 1;
+  const L = (r) => grid[r][0];
+  const Rt = (r) => grid[r][C];
+  const cuts = straightGrid(grid) ? [0, R] : Array.from({ length: R + 1 }, (_, r) => r);
+  const onEnd = (e, n, t) => {
+    if (t < 1e-6) return ontoEndLine(e, n, ends.aLeft, ends.aRight, a, b);
+    if (t > 1 - 1e-6) return ontoEndLine(e, n, ends.bLeft, ends.bRight, b, a);
+    return [e, n];
+  };
+  const verts = [];
+  const tris = [];
+  for (let k = 0; k < cuts.length - 1; k++) {
+    const r0 = cuts[k];
+    const r1 = cuts[k + 1];
+    const quad = [L(r0), Rt(r0), Rt(r1), L(r1)].map(([e, n]) => [e, n]);
+    const t0 = r0 / R;
+    const t1 = r1 / R;
+    const strip = ridgeDrape(terrain, quad, (e, n) => {
+      const [u, tt] = quadCoords([e, n], quad[0], quad[1], quad[2], quad[3]);
+      return [u, t0 + (t1 - t0) * tt];
+    }, onEnd);
+    if (!strip) return null;
+    const base = verts.length;
+    verts.push(...strip.verts);
+    for (const [i, j, l] of strip.tris) tris.push([base + i, base + j, base + l]);
+  }
+  return { verts, tris };
 }
 
 function rotated(e, n, angle) {
@@ -766,9 +1175,10 @@ function mitreJoins(pts, half, dryReach, stats) {
   return joins;
 }
 
-function addRecord(buffers, record, terrain, stats) {
+function addRecord(buffers, record, terrain, stats, ridge = true, fades = null) {
   const key = record.surface;
-  const buf = buffers.get(key) ?? { pos: [], uv: [], conf: [], track: [], road: [], idx: [] };
+  const buf = buffers.get(key)
+    ?? { pos: [], uv: [], conf: [], track: [], road: [], ends: [], idx: [] };
   buffers.set(key, buf);
   // T-0111. The ribbon is painted on the WHEEL line; every other question this
   // module answers is asked of the platted one. `drawn` is `path` for all but
@@ -779,6 +1189,7 @@ function addRecord(buffers, record, terrain, stats) {
   const half = record.drawn_width_m * 0.5;
   const road = [record.drawn_width_m, record.core_share, record.wear_intensity,
     record.wear_seed];
+  const endFade = fades?.get(record) ?? NO_FADE;
   // Distance along the ribbon at each centreline point, accumulated exactly as
   // the panel loop always accumulated it — degenerate chords add nothing — so
   // the texture's `v` is untouched. A joint fan needs to read it at a point
@@ -864,16 +1275,110 @@ function addRecord(buffers, record, terrain, stats) {
     const h0 = terrain.surfaceHeight(e0, n0);
     const falls = (d) => Math.abs(terrain.surfaceHeight(e0 + se * d, n0 + sn * d) - h0)
       > SHOULDER_DROP_M;
+    // The scan finds the first step that falls; the edge is then found inside
+    // that step by halving, so the rim follows the ground's own contour rather
+    // than snapping to the 0.5 m ladder, which drew it as stair steps along
+    // every bank and cut wall (T-1987).
+    const edge = (lo, hi) => {
+      for (let k = 0; k < CLIP_STEPS; k++) {
+        const mid = (lo + hi) * 0.5;
+        if (falls(mid)) hi = mid; else lo = mid;
+      }
+      return Math.max(trackHalf, lo);
+    };
+    let last = trackHalf;
     for (let d = trackHalf + SHOULDER_STEP_M; d < dry; d += SHOULDER_STEP_M) {
-      if (falls(d)) return Math.max(trackHalf, d - SHOULDER_STEP_M);
+      if (falls(d)) return edge(last, d);
+      last = d;
     }
-    return falls(dry) ? Math.max(trackHalf, dry - SHOULDER_STEP_M) : dry;
+    return falls(dry) ? edge(last, dry) : dry;
   };
   const joins = mitreJoins(pts, half, groundReach, stats);
   // A joint's fan may only be drawn between two panels that were both drawn —
   // otherwise it would bridge to an edge that is not there. A rim the waterline
   // trimmed is clipped with it rather than dropped (T-1811, below).
   const panelDrawn = pts.map(() => false);
+
+  function emitRidge(ridge, along, length) {
+    const base = buf.pos.length / 3;
+    for (const [e, n, y, u, t] of ridge.verts) {
+      buf.pos.push(e, y, -n);
+      buf.conf.push(confidence);
+      buf.track.push(trackConfidence);
+      buf.road.push(...road);
+      buf.ends.push(...endFade);
+      buf.uv.push(u, along + length * t);
+    }
+    for (const [p, q, w] of ridge.tris) buf.idx.push(base + p, base + q, base + w);
+  }
+  // A straight run of panels, laid as one quad when any of them needs the
+  // ridge. A panel is 2.25 m long and a cell 2.5 m, so a panel laid on the
+  // cells alone is nearly all edge pieces — 54 triangles a panel, measured —
+  // where the whole straight run between two joints is about 19 a panel: less
+  // than laying only the panels that sag, and no seam between a laid panel and
+  // a gridded one. A panel joins the run when it starts on the run's own end
+  // row and its two sides continue the run's: same chord, untrimmed, no joint.
+  const run = {
+    entries: [],
+    start(entry) { this.entries = [entry]; },
+    extend(entry) {
+      const last = this.entries[this.entries.length - 1];
+      if (!last || last.i !== entry.i - 1 || !straightGrid(entry.grid)) return false;
+      if (!straightGrid(last.grid)) return false;
+      if (!entry.grid.every((row) => row.every(([e, n]) => terrain.inBounds(e, n)))) return false;
+      const first = this.entries[0];
+      const same = (P, Q) => Math.abs(P[0] - Q[0]) < 1e-6 && Math.abs(P[1] - Q[1]) < 1e-6;
+      if (!same(entry.ends.aLeft, last.ends.bLeft) || !same(entry.ends.aRight, last.ends.bRight)) {
+        return false;
+      }
+      if (offLine(entry.ends.bLeft, first.ends.aLeft, last.ends.bLeft) > 1e-4
+        || offLine(entry.ends.bRight, first.ends.aRight, last.ends.bRight) > 1e-4) return false;
+      this.entries.push(entry);
+      return true;
+    },
+    flush() {
+      const list = this.entries;
+      this.entries = [];
+      if (!list.length) return;
+      if (!list.some((x) => x.needsRidge)) {
+        for (const x of list) emitGrid(x.grid, x.along, x.length);
+        return;
+      }
+      const first = list[0];
+      const last = list[list.length - 1];
+      const length = list.reduce((sum, x) => sum + x.length, 0);
+      let ridge = null;
+      if (list.length > 1) {
+        const quad = [first.ends.aLeft, first.ends.aRight, last.ends.bRight, last.ends.bLeft];
+        ridge = ridgeDrape(terrain, quad, (e, n) => quadCoords([e, n], ...quad), (e, n, t) => {
+          if (t < 1e-6) return ontoEndLine(e, n, first.ends.aLeft, first.ends.aRight, first.a, first.b);
+          if (t > 1 - 1e-6) return ontoEndLine(e, n, last.ends.bLeft, last.ends.bRight, last.b, last.a);
+          return [e, n];
+        });
+      }
+      if (ridge) {
+        emitRidge(ridge, first.along, length);
+        for (const x of list) {
+          stats.panels += 1;
+          stats.refinedPanels += 1;
+          stats.ridgePanels += 1;
+        }
+        return;
+      }
+      // One at a time: a run the water reaches, or a lone panel.
+      for (const x of list) {
+        const one = x.needsRidge ? ridgePanel(terrain, x.grid, x.ends, x.a, x.b) : null;
+        if (one) {
+          emitRidge(one, x.along, x.length);
+          stats.panels += 1;
+          stats.refinedPanels += 1;
+          stats.ridgePanels += 1;
+        } else {
+          emitGrid(x.grid, x.along, x.length);
+        }
+      }
+    },
+  };
 
   for (let i = 1; i < pts.length; i++) {
     const a = pts[i - 1];
@@ -920,6 +1425,32 @@ function addRecord(buffers, record, terrain, stats) {
       bLeft: [bLeft.e, bLeft.n],
       bRight: [bRight.e, bRight.n],
     }, groundReach);
+    const ends = {
+      aLeft: [aLeft.e, aLeft.n], aRight: [aRight.e, aRight.n],
+      bLeft: [bLeft.e, bLeft.n], bRight: [bRight.e, bRight.n],
+    };
+    // THE RIDGE DRAPE: a grid that still sags under the ground's upper
+    // triangulation is re-laid on the cells (see ridgeDrape). Off-grid panels
+    // stay as they are, for the reason refinedPanel gives. The decision is
+    // taken per panel and spent per RUN: see `run` above.
+    const needsRidge = ridge
+      && grid.every((row) => row.every(([e, n]) => terrain.inBounds(e, n)))
+      && gridSag(terrain, grid) > SAG_TOL_M;
+    const entry = { i, a, b, ends, grid, along, length, needsRidge };
+    panelDrawn[i] = true;
+    if (!needsRidge) {
+      run.flush();
+      emitGrid(grid, along, length);
+      continue;
+    }
+    if (!run.extend(entry)) {
+      run.flush();
+      run.start(entry);
+    }
+  }
+  run.flush();
+
+  function emitGrid(grid, along, length) {
     const rows = grid.length - 1;
     const cols = grid[0].length - 1;
     const base = buf.pos.length / 3;
@@ -928,12 +1459,23 @@ function addRecord(buffers, record, terrain, stats) {
       // wear is laid in the street's own frame and nothing repeats along it.
       const v = along + (length * r) / rows;
       for (let c = 0; c <= cols; c++) {
-        const [e, n, y] = grid[r][c];
+        // `u` is the column's own fraction across the panel, NOT c / cols. The
+        // two agreed while every column was a halving; T-1812 put the columns
+        // where the ground's lattice crosses the panel, which is a different
+        // set of fractions on every panel, and `c / cols` then stretched the
+        // street's across-coordinate differently panel by panel. Everything
+        // the shader lays across the street — the shoulders giving way to
+        // grass, the lanes, the sod islands — jumped at every 2.25 m panel
+        // edge: the stepped, sawtooth grass and the blocky light-and-dark
+        // patches at Lake and Market and South Water and Lake (owner,
+        // 2026-10-02).
+        const [e, n, y, u] = grid[r][c];
         buf.pos.push(e, y, -n);
         buf.conf.push(confidence);
         buf.track.push(trackConfidence);
         buf.road.push(...road);
-        buf.uv.push(c / cols, v);
+        buf.ends.push(...endFade);
+        buf.uv.push(u, v);
       }
     }
     for (let r = 0; r < rows; r++) {
@@ -945,7 +1487,6 @@ function addRecord(buffers, record, terrain, stats) {
     }
     stats.panels += 1;
     if (rows > 1 || cols > 1) stats.refinedPanels += 1;
-    panelDrawn[i] = true;
   }
 
   // T-0184. The corner patch, emitted after the panels because it needs both of
@@ -975,6 +1516,42 @@ function addRecord(buffers, record, terrain, stats) {
     if (outer.some(([e, n]) => terrain.isWater(e, n))) continue;
     const base = buf.pos.length / 3;
     const v = alongAt[p];
+    // THE RIDGE DRAPE, for every fan: its rim reaches the full worked
+    // half-width from one apex and was never refined at all, so it is the
+    // likeliest surface in the town to sag under a crowned bed. All of its
+    // triangles go on the ridge, or none do.
+    const uApex = apexSide === 'L' ? 0 : 1;
+    const ridged = [];
+    for (let t = 0; ridge && t < outer.length - 1; t++) {
+      const tri = [[apex.e, apex.n], outer[t], outer[t + 1]];
+      const piece = ridgeDrape(terrain, tri, (e, n) => {
+        const [A, B, C] = tri;
+        const d = (B[1] - C[1]) * (A[0] - C[0]) + (C[0] - B[0]) * (A[1] - C[1]);
+        const wA = d ? ((B[1] - C[1]) * (e - C[0]) + (C[0] - B[0]) * (n - C[1])) / d : 1;
+        return [uApex * wA + (1 - uApex) * (1 - wA), 0];
+      });
+      if (!piece) { ridged.length = 0; break; }
+      ridged.push(piece);
+    }
+    if (ridged.length === outer.length - 1) {
+      let at = base;
+      for (const piece of ridged) {
+        for (const [e, n, y, u] of piece.verts) {
+          buf.pos.push(e, y, -n);
+          buf.conf.push(confidence);
+          buf.track.push(trackConfidence);
+          buf.road.push(...road);
+          buf.ends.push(...endFade);
+          buf.uv.push(u, v);
+        }
+        for (const [i0, i1, i2] of piece.tris) buf.idx.push(at + i0, at + i1, at + i2);
+        at += piece.verts.length;
+      }
+      stats.jointFans += 1;
+      stats.ridgeFans += 1;
+      stats.jointFanTriangles += outer.length - 1;
+      continue;
+    }
     const push = (pe, pn, u) => {
       const e = Math.fround(pe);
       const n = Math.fround(pn);
@@ -982,6 +1559,7 @@ function addRecord(buffers, record, terrain, stats) {
       buf.conf.push(confidence);
       buf.track.push(trackConfidence);
       buf.road.push(...road);
+      buf.ends.push(...endFade);
       buf.uv.push(u, v);
     };
     // `u` runs 0 at the left edge to 1 at the right, as it does across a panel,
@@ -1033,6 +1611,7 @@ function linearTone(rgb) {
 
 const ROAD_VERTEX = /* glsl */`
   vRoad = _road;
+  vRoadEnds = _roadEnds;
   vRoadUv = uv;
   vRoadWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;
 `;
@@ -1114,6 +1693,7 @@ const ROAD_NORMAL = /* glsl */`
 
 const ROAD_HEAD = /* glsl */`
 varying vec4 vRoad;
+varying vec4 vRoadEnds;
 varying vec2 vRoadUv;
 varying vec3 vRoadWorld;
 uniform sampler2D uGrit;
@@ -1137,8 +1717,7 @@ float chiNoise(vec2 p) {
 }
 `;
 
-function meshOf(surface, buf, confidence, aidUniform, grit) {
-  if (!buf.idx.length) return null;
+function geometryOf(surface, buf) {
   const geo = new THREE.BufferGeometry();
   geo.name = `streets-${surface}`;
   geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
@@ -1152,8 +1731,59 @@ function meshOf(surface, buf, confidence, aidUniform, grit) {
     new THREE.Float32BufferAttribute(buf.track, 1));
   // T-1811. Worked width, core share, wear intensity, seed — per street.
   geo.setAttribute('_road', new THREE.Float32BufferAttribute(buf.road, 4));
+  // T-1987. Where the ribbon fades into a street it ends on — see endFades().
+  geo.setAttribute('_roadEnds', new THREE.Float32BufferAttribute(buf.ends, 4));
   geo.setIndex(buf.idx);
   geo.computeVertexNormals();
+  weldNormals(geo);
+  return geo;
+}
+
+/**
+ * One normal per POSITION, not per vertex. A ridge-laid piece owns its
+ * vertices (THE RIDGE DRAPE), and so does every panel and fan, so
+ * `computeVertexNormals` alone shades each piece as its own facet: on the
+ * cells that is a quilt of 2.5 m squares lit a shade apart, and at a panel
+ * edge a crease the ground under it does not have. Vertices that stand at the
+ * same place (to a tenth of a millimetre) take the sum of their normals —
+ * each already weighted by the area of the triangles it came from — so the
+ * road is lit as one surface, the way the ground beside it is.
+ */
+function weldNormals(geo) {
+  const pos = geo.attributes.position;
+  const nor = geo.attributes.normal;
+  const Q = 1e4;
+  const sums = new Map();
+  const keys = new Array(pos.count);
+  for (let i = 0; i < pos.count; i++) {
+    const k = `${Math.round(pos.getX(i) * Q)},${Math.round(pos.getY(i) * Q)},${Math.round(pos.getZ(i) * Q)}`;
+    keys[i] = k;
+    // Summed facing ONE way: the layer is double-sided and a few triangles
+    // are wound the other way round, which the shader answers by flipping a
+    // back face's normal. Each vertex gets the welded normal back on its own
+    // side, so that flip still lands it facing the sky.
+    const f = nor.getY(i) > 0 ? -1 : 1;
+    const sum = sums.get(k);
+    if (sum) {
+      sum[0] += f * nor.getX(i); sum[1] += f * nor.getY(i); sum[2] += f * nor.getZ(i);
+    } else {
+      sums.set(k, [f * nor.getX(i), f * nor.getY(i), f * nor.getZ(i)]);
+    }
+  }
+  for (let i = 0; i < pos.count; i++) {
+    let [x, y, z] = sums.get(keys[i]);
+    // A point only zero-area slivers reach (a fan's collinear rim) has no
+    // normal of its own to give; it is level ground for the light.
+    if (!(y < -1e-6)) [x, y, z] = [0, -1, 0];
+    const f = (nor.getY(i) > 0 ? -1 : 1) / Math.hypot(x, y, z);
+    nor.setXYZ(i, x * f, y * f, z * f);
+  }
+  nor.needsUpdate = true;
+}
+
+function meshOf(surface, buf, confidence, aidUniform, grit) {
+  if (!buf.idx.length) return null;
+  const geo = geometryOf(surface, buf);
   const tones = DIRT_TONES[surface] ?? DIRT_TONES.worn_earth;
   const mat = new THREE.MeshStandardMaterial({
     transparent: true,
@@ -1210,7 +1840,9 @@ function meshOf(surface, buf, confidence, aidUniform, grit) {
       uSod: { value: linearTone(SOD_TONE) },
     });
     shader.vertexShader = `attribute vec4 _road;
+attribute vec4 _roadEnds;
 varying vec4 vRoad;
+varying vec4 vRoadEnds;
 varying vec2 vRoadUv;
 varying vec3 vRoadWorld;
 ${shader.vertexShader}`.replace('#include <begin_vertex>',
@@ -1252,6 +1884,9 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
         float gain = max(mix(1.0, ${NEAR_GAIN.toFixed(2)}, near),
                          mix(1.0, ${MID_GAIN.toFixed(2)}, mid));
         diffuseColor.a = min(diffuseColor.a * gain, ${MAX_ALPHA.toFixed(2)});
+        // T-1987. After the boosts, or they would buy the fade back.
+        diffuseColor.a *= smoothstep(vRoadEnds.x, vRoadEnds.y, vRoadUv.y)
+          * (1.0 - smoothstep(vRoadEnds.z, vRoadEnds.w, vRoadUv.y));
         ${graded ? `
         // T-0713. THE TRACK'S OWN GRADE, and it goes no further than the track.
         // Whether this ribbon is drawn at all was decided by \`_confidence\`,
@@ -1291,7 +1926,7 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
   return { mesh, geo, mat };
 }
 
-export function createStreets({ terrain, records = [], confidence = null } = {}) {
+export function createStreets({ terrain, records = [], confidence = null, detail = 'full' } = {}) {
   const group = new THREE.Group();
   group.name = 'streets';
   // A PLATTED BUT UNOPENED STREET DRAWS NOTHING. The twelve east-west lines Wright
@@ -1303,19 +1938,34 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
   const prepared = records.filter((r) => Array.isArray(r.path_local_enu_m)
       && r.path_local_enu_m.length >= 2
       && r.opened !== false && (r.track_width_m ?? 6) > 0).map(prepare);
-  const buffers = new Map();
+  const fades = endFades(prepared);
+  // THE RIDGE DRAPE IS A FULL- AND BALANCED-DETAIL COST. `light` is the tier a
+  // weak machine boots into and it stays inside its own ceiling (AGENTS.md), so
+  // there the panels keep their refined grids: the near-hole in the coarse base
+  // and the per-column `u` are free and reach every tier; the cut does not.
+  const ridgeAt = (level) => level !== 'light';
+  let ridge = ridgeAt(detail);
   // T-0110. With refinement a panel is no longer a fixed six indices, so the
   // smoke's panel-accounting gate reads these counters instead of index math.
   // T-0184 adds the joint counters. `squareJoints` is the one that matters: it
   // is the number of bends this module gave up on, and a gate that only ever
   // read `mitredJoints` could not tell a closed town from one where every turn
   // had quietly fallen through the guard.
-  const stats = {
-    panels: 0, refinedPanels: 0,
-    joints: 0, mitredJoints: 0, fannedJoints: 0, squareJoints: 0,
-    jointFans: 0, jointFanTriangles: 0,
+  const layOut = (withRidge) => {
+    const counts = {
+      panels: 0, refinedPanels: 0,
+      joints: 0, mitredJoints: 0, fannedJoints: 0, squareJoints: 0,
+      jointFans: 0, jointFanTriangles: 0, ridgePanels: 0, ridgeFans: 0,
+    };
+    const laid = new Map();
+    for (const record of prepared) {
+      addRecord(laid, record, terrain, counts, withRidge, fades);
+    }
+    return { buffers: laid, counts };
   };
-  for (const record of prepared) addRecord(buffers, record, terrain, stats);
+  const first = layOut(ridge);
+  const buffers = first.buffers;
+  const stats = first.counts;
   const resources = [];
   // R-A1. One uniform object shared by every surface's material, so the aid
   // cannot end up applied to the graded tracks and not the worn ones.
@@ -1326,7 +1976,7 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
     const built = meshOf(surface, buf, confidence, aidUniform, grit);
     if (!built) continue;
     group.add(built.mesh);
-    resources.push(built);
+    resources.push({ ...built, surface });
   }
 
   function hitsAt(e, n, widthKey = 'corridor_width_m') {
@@ -1389,6 +2039,9 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
     status,
     hitsAt,
     blocksGrowth,
+    /** The ground's upper triangulation at (e, n), the surface a ridge-laid
+     *  panel stands on (THE RIDGE DRAPE). For the smoke's drape gates. */
+    ridgeHeight: (e, n) => ridgeHeight(terrain, e, n),
     /**
      * R-A1. The road-legibility aid, 0 (off, the default) to 1 (the faintest
      * surface opaque). A uniform, so it costs no recompile and takes effect on
@@ -1401,6 +2054,28 @@ export function createStreets({ terrain, records = [], confidence = null } = {})
       return next;
     },
     get legibilityAid() { return aidUniform.value; },
+    /** Whether the panels are laid on the ridge at the current detail. */
+    get ridged() { return ridge; },
+    /**
+     * A change of scene detail, applied in place: the same meshes and
+     * materials, new geometry. Returns whether anything was rebuilt — only a
+     * move across `light` changes how the road is laid.
+     */
+    setDetail(level) {
+      if (!level || ridgeAt(level) === ridge) return false;
+      ridge = ridgeAt(level);
+      const next = layOut(ridge);
+      for (const r of resources) {
+        const buf = next.buffers.get(r.surface);
+        if (!buf?.idx.length) continue;
+        const geo = geometryOf(r.surface, buf);
+        r.mesh.geometry = geo;
+        r.geo.dispose();
+        r.geo = geo;
+      }
+      Object.assign(stats, next.counts);
+      return true;
+    },
     dispose() {
       for (const r of resources) {
         r.geo.dispose();

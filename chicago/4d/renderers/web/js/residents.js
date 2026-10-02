@@ -2236,8 +2236,16 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
           + `them one, which is a statement about the evidence rather than about the `
           + `person. The town model puts ${coverage.model?.employed_persons?.model_low} `
           + `to ${coverage.model?.employed_persons?.model_high} people of this town in `
-          + `work, so the cover falls inside the band — which is where the argument `
-          + `starts and not where it finishes. ` : '')
+          // T-1996: the sentence reads the join's own verdict on the band rather than
+          // asserting it — 37 drawn heads stopped being counted on their own account in
+          // houses nobody had raised, and the cover now sits eight above the low end.
+          + (coverage.model?.employed_persons?.inside_the_band
+            ? `work, so the cover falls inside the band — which is where the argument `
+              + `starts and not where it finishes. `
+            : `work, and the cover (${coverage.model?.employed_persons?.the_layer_places}) `
+              + `falls outside that band. The band is a size struck against the whole `
+              + `town and the cover counts only people placed in a house the layer holds, `
+              + `so this says where the argument is, not that anybody is missing. `) : '')
       + `Nobody is drawn: this is the research, not a population.`;
     noteMount.removeAttribute('aria-busy');
   }
