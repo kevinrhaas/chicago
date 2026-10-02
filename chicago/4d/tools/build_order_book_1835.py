@@ -4727,10 +4727,10 @@ def cmd_self_test() -> int:
     # that takes an H3), so the platted pass reads 184 -> 183 at the chain's fixpoint.
     # 255 -> 254 on 2026-10-02 (T-1950): the third H3 boarding house on blk_washington_clark
     # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves along the
-    # block, the slots behind her shift a lot, and the H1 request left with only kept-open
-    # lots is owed to T-1614 (183 -> 182 platted seats, L270, L345).
+    # block, the slots behind her shift a lot, and hh_berger_f_c, left with only kept-open
+    # lots, is owed to T-1614 (183 -> 182 platted seats, L270, L345).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 255
+        data["inventory"], data["programme"], occ))["seated"] == 254
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
