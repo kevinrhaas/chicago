@@ -5258,8 +5258,11 @@ for (const [label, viewport, touch] of [
     // chunks + the shared mesh = 58, plus the same optional lettering.
     // T-1814 — the smith's bare front splits one Lake run in two: 44 named walk
     // chunks, 59. The decked walks ride their run's own chunk and add none.
+    // T-1823 — five fronts-only runs name their own chunk (+5) and their posts and
+    // fittings share ONE standing mesh of their own (+1), 65; the crossing over
+    // Canal rides the Randolph run's chunk.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
+      frontage.authored === (frontage.census?.lettered === 1 ? 66 : 65)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
