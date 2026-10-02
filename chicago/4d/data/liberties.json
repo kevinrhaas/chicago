@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 345,
+  "count": 347,
   "liberties": [
     {
       "id": "L1",
@@ -21853,6 +21853,103 @@
     },
     {
       "id": "L352",
+      "title": "The frame houses' trim, chimney heads and siding stock are dealt by whose house it is",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_*",
+          "phase": "*",
+          "aspect": "form.chimney_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_*",
+          "phase": "*",
+          "aspect": "form.siding_exposure_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_*",
+          "phase": "*",
+          "aspect": "form.trim"
+        }
+      ],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the fabric rule (L330, L338, L343, `tools/fabric_rule_1835.py`) now deals two more form values to every reconstructed frame dwelling, and `frame_dwelling` builds them (T-1839, piece 2 of T-1832): - **`trim`** — **merchant** and **keeper**: `boxed`, corner boards 7 cm wider than the frame's own and a crown board standing 7.5 cm proud under the street eave, returned a short way round each gable and carried along the back eave where no ell rises against it; **tradesman**: `plain`, the trim the archetype has always built; **labourer**: `scant`, corner boards 3 cm narrower and a 0.14 m frieze. - **`chimney_head`** — **merchant** and **keeper**: `double_corbel`, a second and wider corbel course above the first; **tradesman**: `corbel`, the one course every stack has always carried; **labourer**: `plain`, the shaft carried straight to the same top. And it bounds the **siding stock** T-0112 deals in every parcel recipe (`tools/siding_stock.py`, L148): a roof's stock is drawn on its own key from its class's stocks only — **merchant** 4.5 or 5 in to the weather, **keeper** 5 or 5.5, **tradesman** 5, 5.5 or 6, **labourer** 5.5 or 6, any other class all four — and the 60 m neighbour separation then walks inside those stocks. A roof whose class's stocks are all worn by its neighbours keeps the last one tried rather than borrowing a board its household did not hang."
+        },
+        {
+          "label": "Why",
+          "text": "a narrower exposure is more boards, more nailing and more planing for the same wall, so the finest stock went on the houses that could pay for it; boxed corners and a cornice were what a house built to be seen added to the trim a sided frame needs anyway; a corbelled head is brickwork a mason was paid for, course by course. These are arguments about cost, not sources. **No source trims, sides or caps any particular house here.** Every value written is `reconstructed`; an attested or inferred value is never touched (`apply_form`, held by `--self-test`, which also refuses a trim or head the archetype cannot build, a boxed trim or a doubled head on a labourer's house, and a merchant's stock as wide as a labourer's). The `double_corbel` only ever adds height above the course the 1835 by-law census measured (chimneys.md §7), and `plain` stops at the same top, so no stack drops under the by-law's line."
+        },
+        {
+          "label": "Consequence",
+          "text": "across the 162 reconstructed frame dwellings: 18 merchants' houses `boxed` with `double_corbel` heads, 144 tradesmen's cottages `plain` with `corbel` heads — so the cottages' trim and stacks did not move. No reconstructed frame dwelling is a labourer's or a keeper's today, so those rows are dealt to none yet. The class bound moved the siding stock on 121 recipe roofs (97 frame dwellings, 18 storefronts, 6 taverns) and re-advanced 3 named buildings off them; merchants' houses now hang 4.5 in (11) and 5 in (7), tradesmen's 5, 5.5 and 6 in (44 / 51 / 49). The cost is stated: pairs of clapboard walls within 60 m sharing a stock rose from 45 to 54 of 455 (9.9 % → 11.9 %), because two classes standing side by side now draw from fewer stocks. 210 meshes rebaked (the frame dwelling archetype's source moved), 126 of them changed."
+        },
+        {
+          "label": "Not dealt, and why",
+          "text": "the cladding — the archetype builds clapboard only, and every class in a frame house wore it; a vertical-board wall is a freight or works building's. The chimney's brick — inferred for every interior stack (chimneys.md §2), which a class cannot argue further. The trim's colour — still derived from the wall's finish (materials.md §2.3). The frame storefront's and tavern's trim and heads."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any source on the siding, trim or chimney of a particular 1835 Chicago house, which outranks the rule for that roof; a lumber dealer's advertisement or invoice giving the clapboard widths sold at Chicago in 1833–35, which re-grades the class bounds."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_*.*.form.trim`, `recon_*.*.form.chimney_head`, `recon_*.*.form.siding_exposure_m`"
+        },
+        {
+          "label": "Related",
+          "text": "**L343** (the glazing, the same rule), **L338** (the form), **L330** (the finish), **L148** (the siding stock set), **L26** (where the stacks stand), **T-0112**, **T-1832**, **T-1839** (this rule)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L353",
+      "title": "A privy behind every house and a stable for the horse-keepers, dealt to the yards by whose house it is",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`data/yard/town_yard_outbuildings.json` (T-1960, written by `tools/generate_yard_outbuildings.py`) stands **122 privies and 16 stables** on the yard layer, drawn at load by `renderers/web/js/yard.js` and baked into nothing. Every improved platted lot with a dwelling on it, a yard behind the house and no committed privy takes one privy in a rear corner, its back 0.75 m inside the rear lot line (off the alley). A lot whose household kept a horse takes a stable in the other rear corner, unless a committed stable, barn or carriage shed already stands there. \"Kept a horse\" is T-1212's list read off fields the town already carries: the house's class is `merchant`, `keeper` or `freight` (L330), the house is a tavern, inn, hotel or boarding house, or its reconstructed occupation is a teamster's. All of it is `reconstructed`. - **The house decides the size and the finish.** A labourer's privy is a 3½-ft box of sawmill slabs. A tradesman's is a 4-ft board privy. A keeper's and a merchant's is a 5 × 4-ft two-seat, and the merchant's is whitewashed. A keeper's stable is 20 × 14 ft with four stalls; the others are 16 × 12 ft. All are gabled board-and-batten with a pair of doors to the yard and a loft door in one gable. The boards weather by the house's own `age_state` (L348's years). -"
+        },
+        {
+          "label": "What is invented",
+          "text": "every dimension, the finish rule, the corner (a hash of the lot id), the door, the loft and the tones. What is NOT invented is that a town house of 1835 had a privy behind it — there was no other arrangement before sewers — and that a horse was stabled on its owner's lot. That is the norm of the period, not a reading of any yard here. -"
+        },
+        {
+          "label": "What is refused, on the record",
+          "text": "8 deals — 7 lots whose buildings leave no yard and one corner taken by a committed building. The record counts **114 dwellings standing off the platted lots** and draws nothing for them, because they have no lot line to put an alley behind. Physicians are on T-1212's list and on no committed field, so none is reached. No well is dealt: `docs/RESEARCH/wells.md` § 4 refuses a well class, and that ruling stands."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any source placing a privy, stable or barn on a particular 1835 Chicago lot; an 1830s account or builder's bill giving a town privy's or stable's size; a source naming which households kept a horse. A named outbuilding replaces the dealt one on its lot."
+        },
+        {
+          "label": "Related",
+          "text": "**L330** (the household class this reads), **L348** (the weather years), **L326** (the yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960** (this deal, piece 3 of **T-1212**), **T-1967** (the baked stable and outbuilding roofs the order book still counts)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02 (T-1960)."
+        }
+      ]
+    },
+    {
+      "id": "L354",
       "title": "The present housed: every household in the town on 1 July 1835 seated under a standing dwelling by a deal, the room deciding",
       "section": "per_subject",
       "subjects": [],

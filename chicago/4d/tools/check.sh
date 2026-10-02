@@ -1350,6 +1350,11 @@ step "an adopted register firm's signboard moves no board already hung" \
 # committed sidecars and the wagon-yard perimeter (ROADMAP K5 (c), T-0040).
 step "the yard goods re-derive from the rule that chose their frontages" \
   python3 tools/generate_yard_goods.py --check
+# The yard outbuildings (T-1960) are the same shape again: a privy in a rear corner of every
+# dwelling lot the plat reaches and a stable for the horse-keeping households, dealt from the
+# lot survey the fences read and the house's own class and age — a rule, so re-derived here.
+step "the yard outbuildings re-derive from the rule that dealt them by household" \
+  python3 tools/generate_yard_outbuildings.py --check
 
 # And the OTHER HALF of that ordinance, which the goods record refused in writing:
 # timber, stone and brick are building material on a lot that is going up, not a
@@ -6055,7 +6060,7 @@ selftest "…and its own assertions still fire when broken" \
 # roof the scene does not stand, on a documented building or a roof whose record already
 # names its occupants (unless it names THIS household), a household seated twice or also
 # housed by another overlay, any present household left over, and a town more crowded
-# than the 1835 census's 8.204 people per dwelling. docs/LIBERTIES.md L352.
+# than the 1835 census's 8.204 people per dwelling. docs/LIBERTIES.md L354.
 step "every household present on the scene date sleeps under a standing roof" \
   python3 tools/house_the_present_1835.py --check
 

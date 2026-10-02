@@ -2475,6 +2475,19 @@
       ]
     },
     {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN, the yard goods' own layer (T-1960): a privy in a rear corner of every dwelling lot and a stable for the horse-keeping households. PLACED BY LAYER, like the step before it, and directly after it because it reads that step's output — data/yard/town_trade_goods.json's wagons, which it keeps clear of — and the lot survey tools/generate_lot_line_fences.py reads from the committed sidecars. It writes one file nothing else reads back. Measured 2026-10-02: run bare on a clean tree it wrote its output and changed no committed byte. WRITES, BUT DOES NOT CLAIM, ITS OUTPUT, for the reason the yard goods step gives.",
+      "command": [
+        "python3",
+        "tools/generate_yard_outbuildings.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_yard_outbuildings.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1544's reading of what Wright's 1834 sheet says about the 288.3 m the corporate boundary's west leg extrapolates from Hubbard Street to Ohio Street. It runs AFTER the generators that place buildings, because one of the four things it measures is how close that extension comes to a DRAWN structure — run before them it would price the extrapolation against a stale town — and after tools/generate_plat_lots.py for the same reason the West Division's spacing measurement does. IT MOVES NOTHING: no centreline is edited, no leg re-graded, no record re-seated, and every figure it writes is read back out of committed files, which is why it may own its output outright. `resolves` names that one file: two runs re-derive the same bytes, so a conflict there is settled by rebuilding rather than by choosing a side.",
       "command": [
         "python3",

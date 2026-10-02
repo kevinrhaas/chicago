@@ -2343,7 +2343,7 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
 
     The block says which half is invented: the people are the layer's, with their own
     grades and their own evidence on their cards; the roof over them is the deal's
-    (docs/LIBERTIES.md L352), and any other roof the deal admits would have done.
+    (docs/LIBERTIES.md L354), and any other roof the deal admits would have done.
     """
     path = DATA / "reconstruction" / "1835_housing_seats.json"
     if not path.exists():
@@ -2360,7 +2360,7 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
             "relation": seat["relation"],
             "why": seat["words"],
             "sources": [],
-            "basis": ("HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L352). This household was "
+            "basis": ("HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was "
                       "present in the town on 1 July 1835 and no source says where it slept; "
                       "the roof is the invention and the people are not. Their card carries "
                       "their evidence and is not touched by the seat."),

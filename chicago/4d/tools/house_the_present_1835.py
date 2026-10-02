@@ -67,7 +67,7 @@ housed people per inhabited roof exceeds that, so the town this draws is never m
 than the town the enumerator walked four months later. The most crowded roof is printed
 beside it, not hidden in the mean.
 
-The invention is docs/LIBERTIES.md **L352**.
+The invention is docs/LIBERTIES.md **L354**.
 """
 
 from __future__ import annotations
@@ -85,7 +85,7 @@ DATA = ROOT / "data"
 YEAR = "1835"
 OUT = DATA / "reconstruction" / "1835_housing_seats.json"
 TICKET = "T-1971"
-LIBERTY = "L352"
+LIBERTY = "L354"
 
 sys.path.insert(0, str(ROOT / "tools"))
 from compile_scene import compile_residents  # noqa: E402
