@@ -365,8 +365,8 @@ export async function createWorkingBank({
     if (a) aprons.push(a);
   }
   const G = record.grass_patches ?? {};
-  const grassRule = { above: G.survive_above ?? 0.66, fade: G.fade_m ?? 0.22,
-    keep: G.patch_keeps ?? 0.8, neverOnAprons: G.never_on_aprons !== false };
+  const grassRule = { above: G.survive_above ?? 0.76, fade: G.fade_m ?? 0.22,
+    keep: G.patch_keeps ?? 0.6, neverOnAprons: G.never_on_aprons !== false };
   const treeCut = record.trees?.cleared_above_wear ?? 0.35;
   handle.reaches = reaches;
   handle.aprons = aprons;
