@@ -82,7 +82,11 @@ const n = (x) => Number(x || 0).toLocaleString('en-GB');
  * `byStructure` reads each row's PRIMARY location and answers with TWO relations,
  * because a roof holds houses two ways. `in` is a premises — the register puts the
  * firm in this building — and 22 roofs carry the 30 firms with one. `against` is an
- * `anchored` house: no roof of its own, and the paper sites it by this one. Until
+ * `anchored` house: no roof of its own, and the paper sites it by this one.
+ * `housed` (T-1835) is a `street_only` house the owner's street-face adoption of
+ * 2026-08-29 puts in a reconstructed roof on the paper's own street — the
+ * compiler carries the roof as `where.housed_in`, and the card keeps the distance
+ * between "the register puts it here" and "the town houses it here". Until
  * T-1401 the second was unanswerable, because the landmark lived only inside
  * `limit_reason`'s sentence and `structure_id` was null on all 26; the compiler now
  * resolves the register's own `action_target` onto `where.anchor`, so the Tremont
@@ -138,7 +142,12 @@ export function firmCrosswalk(index) {
       push(byPerson, p.person_id, entry);
     }
     if (r.where?.kind === 'premises') push(byStructure, r.where.structure_id, { ...firm, relation: 'in' });
-    else if (r.where?.kind === 'anchored' && r.where.anchor?.kind === 'structure') {
+    // T-1835: a `street_only` house the street-face adoption puts in a reconstructed
+    // roof of the paper's own street. The roof is the town's allocation, not the
+    // paper's, so it is a relation of its own and the card says so.
+    else if (r.where?.kind === 'street_only' && r.where.housed_in?.structure_id) {
+      push(byStructure, r.where.housed_in.structure_id, { ...firm, relation: 'housed' });
+    } else if (r.where?.kind === 'anchored' && r.where.anchor?.kind === 'structure') {
       push(byStructure, r.where.anchor.id, { ...firm, relation: 'against' });
     }
   }
@@ -148,6 +157,7 @@ export function firmCrosswalk(index) {
   // Houses IN the roof before houses standing AGAINST it — the card asks the two
   // questions in that order — then what a source attests first, then by name.
   const sort = (list) => list.sort((a, b) => (a.relation === 'against') - (b.relation === 'against')
+    || (a.relation === 'housed') - (b.relation === 'housed')
     || (rank[a.grade] ?? 3) - (rank[b.grade] ?? 3)
     || a.name.localeCompare(b.name));
   for (const list of byPerson.values()) sort(list);

@@ -93,6 +93,9 @@ INDEX = BUSINESSES / "index.json"
 SCHEMA = ROOT / "data" / "businesses.schema.json"
 STREETS = ROOT / "data" / "streets" / "1835.json"
 STRUCTURES = ROOT / "data" / "structures"
+# T-1835: the owner's street-face adoption (2026-08-29), as tools/adopt_street_faces.py
+# derives it — which reconstructed roof on the paper's street houses a `street_only` firm.
+ADOPTIONS = ROOT / "data" / "research" / "newspapers" / "street_face_adoptions.json"
 
 REGISTER_PREFIX = "business_"
 ID_PREFIX = "biz_"
@@ -900,9 +903,49 @@ def index_people(record):
     return out
 
 
-def index_row(record, streets):
+def street_face_adoptions():
+    """`register_id` -> the adoption that houses that `street_only` firm on a roof.
+
+    THE ADOPTION RIDES ON THE ROW, NOT ON THE RECORD (T-1835). The record keeps
+    `street_only` because that is all the paper says, and the card goes on saying
+    it. But the owner ruled on 2026-08-29 that such a firm is housed in a
+    reconstructed roof of its own street face, and until now only the address book
+    knew which: the building card a visitor opens on that roof named nobody, and
+    the signboard rule had no firm to letter. So the directory row carries the
+    roof as `where.housed_in`, graded `reconstructed` because WHICH roof on the
+    face is an allocation (docs/STREET-FACE-ADOPTION.md, limit 3), and the
+    crosswalk in `businesses.js` reads it as a third relation beside `in` and
+    `against`.
+    """
+    if not ADOPTIONS.exists():
+        return {}
+    return {a["business_id"]: a for a in load_json(ADOPTIONS).get("adoptions", [])}
+
+
+def housed_in(where, adoption):
+    """The roof the adoption houses this row in, or None. A row only takes it
+    where the row and the adoption agree about the STREET — the adoption's one
+    claim — so a ruling on the record that moved the firm cannot be overruled
+    by a stale adoption."""
+    if not adoption or (where or {}).get("kind") != "street_only":
+        return None
+    if adoption.get("street_id") != where.get("street_id"):
+        return None
+    return {
+        "structure_id": adoption["structure_id"],
+        "by": "street_face_adoption",
+        "tier": "reconstructed",
+        "claims_lot": False,
+    }
+
+
+def index_row(record, streets, adoptions=None):
     """One business as a directory row: everything the list, its filters and its
     counts read, and nothing the card alone needs — the card fetches the record."""
+    where = primary_location(record, streets)
+    housed = housed_in(where, (adoptions or {}).get(record.get("register_id")))
+    if housed:
+        where["housed_in"] = housed
     return {
         "id": record["id"],
         "file": "%s.json" % record["id"],
@@ -917,7 +960,7 @@ def index_row(record, streets):
         "goods": record.get("goods") or [],
         "firm_styles": record.get("firm_styles") or [],
         "people": index_people(record),
-        "where": primary_location(record, streets),
+        "where": where,
         "locations": len(record["locations"]),
         "opened": record["dates"].get("opened"),
         "closed": record["dates"].get("closed"),
@@ -955,7 +998,9 @@ def build_index(records, authored, rows):
     counts_by_where = {}
     counts_by_community = {}
     streets = street_names()
-    directory = [index_row(r, streets) for r in sorted(everything, key=lambda r: r["id"])]
+    adoptions = street_face_adoptions()
+    directory = [index_row(r, streets, adoptions)
+                 for r in sorted(everything, key=lambda r: r["id"])]
     for row in directory:
         counts_by_grade[row["grade"]] = counts_by_grade.get(row["grade"], 0) + 1
         street = (row["where"] or {}).get("street")
