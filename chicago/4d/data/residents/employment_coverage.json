@@ -14,6 +14,7 @@
   "inputs": [
     "data/residents/{households,reconstructed_trades,lodgers,underdocumented,transients,readmitted,merged}/*.json",
     "data/residents/reconstructed_seating.json (T-1433)",
+    "data/residents/attested_trade_houses.json (T-1994)",
     "data/businesses/*.json",
     "data/businesses/authored/*.json (the register's own people rows, T-1990)",
     "data/businesses/rulings/premises_rulings.json",
@@ -37,7 +38,8 @@
       "at_a_named_house": {
         "reasons": [
           "named_by_a_source",
-          "on_the_staff_of_a_house"
+          "on_the_staff_of_a_house",
+          "joined_by_the_attested_trade_ruling"
         ],
         "places_them_at_work": true
       },
@@ -55,7 +57,11 @@
           "class_full_none_owed",
           "trade_attested_no_house_named",
           "no_ruling_on_the_trade",
-          "in_service_in_another_household"
+          "in_service_in_another_household",
+          "serves_an_establishment_outside_the_register",
+          "not_held_by_the_establishment_on_the_scene_date",
+          "a_civic_seat_and_not_a_house",
+          "works_on_other_people_s_ground"
         ],
         "places_them_at_work": false
       },
@@ -75,45 +81,54 @@
       }
     },
     "reasons": {
+      "a_civic_seat_and_not_a_house": "The premises ruling calls this trade a civic seat and not a house of trade. Where the seat sat is a place on the person (T-1405's associated_with), not a business, and the register's county offices are the clerk's room and do not hold it (T-1994).",
       "class_full_none_owed": "The staffing model names the class of house that employed this trade, the layer holds every house of it the model counts on 1 July 1835, and each is full to the band's high end. The trade keeps no house of its own, so none is owed: the town is not short a house, and the person follows the trade with no room in it to join (T-1995).",
       "class_held_no_house": "The staffing model names the class of house that employed this trade and the layer holds none of it trading on 1 July 1835, or every one is full to the band's high end. The town is owed more houses of the kind; the person is not put in one that is already full.",
       "drawn_onto_a_house_s_staff": "A record in the business register carries this person on its staff at the reconstructed tier: this project drew them there, and the record says by what rule.",
       "in_service_in_another_household": "The premises ruling for this trade says the work is given in another household's house: domestic service, done in a family's kitchen, washhouse and yard rather than in a house of trade. The staffing model employs the trade in the town's taverns and hotels only, and every one was full, but that does not make the town owed another tavern — no house of trade is owed for this person. Which household employed them no source says and this pass draws none.",
+      "joined_by_the_attested_trade_ruling": "A source attests this person's trade, and its premises ruling sends them to an establishment they did not keep. The business register holds that house and a source names them in it, or the card's own reasoning does; the ruling below says which, at the grade it allows (T-1994).",
       "keeps_a_house_the_register_holds": "A record in the business register names this person as the house's proprietor or partner, so they kept it and worked in it. The house is named here at the grade that record gives the proprietorship: attested where a source prints it, inferred where the trade's premises ruling raised it, reconstructed where this project drew the house and adopted them to keep it.",
       "keeps_their_own_house": "The premises ruling for this trade says it kept a house of trade of its own, so this person is their own employer. Where the layer holds no such record the house is OWED — a gap in the business register, not a person out of work.",
       "named_by_a_source": "A source names the house this person worked in, and the houses are listed above at the grade the business record gave each one.",
       "no_employer_named": "The premises ruling says this trade kept no premises of its own, and the staffing model employs it in nobody else's: the soldier at the post, the laundress over her own tub, the farmer on his own ground. They are at work and the business layer has no house to join them to.",
       "no_ruling_on_the_trade": "`premises_rulings.json` has never ruled on this trade, so whether it kept premises of its own is unanswered. T-1404 owns the ruling; until it is made this pass says so rather than guessing at it.",
       "no_trade_recorded": "No source records a trade for this person and no reconstruction stage has given them one. This is a statement about the evidence and not about the person: a trade is not read in from the household, and none is supplied here.",
+      "not_held_by_the_establishment_on_the_scene_date": "The establishment this trade served does not hold this person on 1 July 1835: its own record names somebody else in the seat, the source dates the work out of the window, or a ruling already refused them. No house is owed; the ruling below says which (T-1994).",
       "on_the_staff_of_a_house": "A record in the business register names this person on its own staff: the office, church or agency they served, at a source the record cites. They did not keep the house; they worked in it.",
       "roofs_kept_none_owed": "The trade's house is a roof the programme schedules, a boarding house, and the order book cannot count one. Every standing boarding house is kept, and the roofs the programme still schedules are owed to the keepers ahead of this one in a seeded draw, so none is owed: the town is not short a boarding house this person would keep. They are still their own employer, and carry the trade on their own account with no house of their own (T-1997).",
       "seated_by_the_staffing_model": "No source names a house for this person. The staffing model names a class of house that employed their trade, the layer held one with room in its band, and this project seated them there — a draw, shown above with the seed that redraws it.",
-      "trade_attested_no_house_named": "The sources name this person's trade and name no house for it. Drawing one would put a man the record knows into a shop nobody put him in, so no seat is drawn and the absence is carried instead."
+      "serves_an_establishment_outside_the_register": "The establishment this trade served is held by a committed file that is not the business register — the garrison at the fort, an agency held for a company in another town — and that file places this person in it. They are at work, and no house of trade is owed (T-1994).",
+      "trade_attested_no_house_named": "The sources name this person's trade and name no house for it. Drawing one would put a man the record knows into a shop nobody put him in, so no seat is drawn and the absence is carried instead.",
+      "works_on_other_people_s_ground": "The premises ruling says this trade is done on somebody else's ground — inside the customer's building, in the field, in the vessel owner's yard — so it keeps no house of its own and is owed none (T-1994)."
     },
     "at_work_is_not_placed": "`at_a_trade_with_no_house_to_join` is in neither set and that is the point of it. Those people follow a trade; what is missing is a house in the business layer to join them to. Counting them as unemployed would be false and counting them as placed would be an invention."
   },
   "counts": {
     "people": 3357,
     "by_status": {
-      "at_a_named_house": 121,
+      "at_a_named_house": 126,
       "at_a_seat_this_project_drew": 123,
-      "at_a_trade_with_no_house_to_join": 253,
+      "at_a_trade_with_no_house_to_join": 248,
       "no_trade_recorded": 2639,
       "on_their_own_account": 221
     },
     "by_reason": {
+      "a_civic_seat_and_not_a_house": 5,
       "class_full_none_owed": 2,
       "in_service_in_another_household": 61,
+      "joined_by_the_attested_trade_ruling": 5,
       "keeps_a_house_the_register_holds": 79,
       "keeps_their_own_house": 130,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
       "no_trade_recorded": 2639,
+      "not_held_by_the_establishment_on_the_scene_date": 8,
       "on_the_staff_of_a_house": 9,
       "roofs_kept_none_owed": 12,
       "seated_by_the_staffing_model": 123,
-      "trade_attested_no_house_named": 25
+      "serves_an_establishment_outside_the_register": 4,
+      "works_on_other_people_s_ground": 3
     },
     "by_age_scope": {
       "age_is_not_settled": 544,
@@ -131,24 +146,24 @@
         "no_trade_recorded": 541
       },
       "working_age": {
-        "at_a_named_house": 121,
+        "at_a_named_house": 126,
         "at_a_seat_this_project_drew": 121,
-        "at_a_trade_with_no_house_to_join": 235,
+        "at_a_trade_with_no_house_to_join": 230,
         "no_trade_recorded": 1583,
         "on_their_own_account": 212
       }
     },
-    "placed_at_work": 465,
+    "placed_at_work": 470,
     "carry_a_trade": 668,
     "working_age": 2272,
-    "working_age_placed_at_work": 454,
+    "working_age_placed_at_work": 459,
     "working_age_with_no_trade_recorded": 1583
   },
   "against_the_town_model": {
     "employed_persons": {
       "model_low": 425,
       "model_high": 588,
-      "the_layer_places": 465,
+      "the_layer_places": 470,
       "inside_the_band": true,
       "method_the_model_used": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "why_this_is_not_a_job_finished": "The model's band is a SIZE struck against a town of 2,353-3,265 people; the layer holds a different number of cards and the model's own open question says the 1840 industry columns have no row for domestic service at all. A figure inside a range is where the argument starts."
@@ -163,7 +178,7 @@
   "what_this_does_not_do": {
     "the_business_side_is_T-1462s": "Nothing is written onto a business record here. `staff[]` stays as the register left it, and the order book's employment buckets stay unfilled until T-1459's re-cut lets the mint run.",
     "it_supplies_no_trade": "2639 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
-    "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating, the business register's own proprietors, partners and staff (T-1990) and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
+    "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating, the business register's own proprietors, partners and staff (T-1990), the by-name rulings on the attested trades (T-1994) and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
   },
   "rows": [
     {
@@ -481,9 +496,10 @@
       "trade": "army_officer",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#army_officer = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "serves_an_establishment_outside_the_register",
+      "decided_by": "attested_trade_houses.json#allen_lieut_james, reading data/reconstruction/1835_garrison.json#officers.named_at_the_post_by_the_layer, ruled by T-1994",
+      "houses": [],
+      "ruling": "The premises ruling sends an army officer to the garrison, which is the fort's establishment and not a house of trade. The garrison file names him at the post (T-1348 admitted him, `inferred`), so his work is placed there; the business register holds no house for a garrison and none is owed to it."
     },
     {
       "person_id": "allen_william",
@@ -785,9 +801,10 @@
       "trade": "postmaster",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#postmaster = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#arnold_levi_f, reading data/businesses/authored/biz_chicago_post_office.json#staff, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling's establishment is the post office, and the register's Post Office at Chicago holds one postmaster across the scene date: John S. C. Hogan, attested at Andreas. The papers print this man 'P.M.' and associate him with Plainfield, so the office he kept is not Chicago's and Chicago owes him no seat in it."
     },
     {
       "person_id": "arquette_joseph",
@@ -1491,9 +1508,10 @@
       "trade": "army_officer",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#army_officer = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#baxley_j_m, reading docs/RESEARCH/fort_dearborn_garrison_1835.md § 2, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling sends an army officer to the garrison, and T-1348's ruling on the garrison refuses him under its clause 3: one notice, 224 days before the scene date and nothing after it. The establishment does not hold him on the day, so no house is owed."
     },
     {
       "person_id": "baxley_mary",
@@ -1856,10 +1874,16 @@
       "age_scope": "working_age",
       "trade": "printer",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#printer = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "decided_by": "attested_trade_houses.json#beckford_printer: biz_chicago_democrat_printing_office as printer, inferred on andreas_1884_v1, ruled by T-1994",
+      "houses": [
+        "biz_chicago_democrat_printing_office"
+      ],
+      "house_names": [
+        "Chicago Democrat printing office"
+      ],
+      "ruling": "Andreas: 'Oscar Pratt and Beckford, printers, were in the employ of Mr. Calhoun at that time.' The house is named; the time is 1833, and the register's Democrat printing office stands across the scene date under Calhoun, so the employment is carried to 1 July 1835 at `inferred` and no further."
     },
     {
       "person_id": "beddlecome_ash",
@@ -5319,9 +5343,10 @@
       "trade": "schoolteacher",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#schoolteacher = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "a_civic_seat_and_not_a_house",
+      "decided_by": "attested_trade_houses.json#crocker_h, reading data/businesses/rulings/premises_rulings.json#schoolteacher, ruled by T-1994",
+      "houses": [],
+      "ruling": "The papers print him 'H. CROCKER, Clerk' of a school district, which the vocabulary's nearest word turned into `schoolteacher`. A district's clerk keeps its minutes and keeps no school, so the school the ruling would send a teacher to is not his workplace; the clerkship is a civic seat, and a seat is a place (T-1405's `associated_with`) and not a house of trade."
     },
     {
       "person_id": "cross_oliver",
@@ -5773,10 +5798,16 @@
       "age_scope": "working_age",
       "trade": "editor",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#editor = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "decided_by": "attested_trade_houses.json#davis_t_o: biz_the_chicago_american_newspaper_and_job_printing_office as editor_and_publisher, attested on andreas_1884_v1, ruled by T-1994",
+      "houses": [
+        "biz_the_chicago_american_newspaper_and_job_printing_office"
+      ],
+      "house_names": [
+        "the Chicago American, newspaper and job printing office"
+      ],
+      "ruling": "Andreas: founder and publisher of the Chicago American, the town's second newspaper, from June 1835. The ruling says an editor conducts a paper printed in a printing office, and the register holds that office; the source names the paper, which is the house."
     },
     {
       "person_id": "davison_john_s",
@@ -7391,9 +7422,10 @@
       "trade": "sheriff",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#sheriff = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "a_civic_seat_and_not_a_house",
+      "decided_by": "attested_trade_houses.json#forbes_stephen, reading data/businesses/rulings/premises_rulings.json#sheriff, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location' (T-1405). The register's county offices are Richard J. Hamilton's own room and its record names the clerk's, probate, recording and notary work and not the sheriff's, so no house is owed; which of the two sheriffs printed held the seat on the day is the card's question, not this one's."
     },
     {
       "person_id": "force_john",
@@ -7811,9 +7843,10 @@
       "trade": "postmaster",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#postmaster = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#galaher_thomas, reading data/businesses/authored/biz_chicago_post_office.json#staff, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling's establishment is the post office, and the register's Post Office at Chicago holds John S. C. Hogan as its one postmaster across the scene date, attested at Andreas. 'THOMAS GALAHER, P.M.' is printed once, in the same column of 21 January 1835 that prints L. F. Arnold 'P.M.', a man the corpus associates with Plainfield; the card's own role reads `place: not_stated`. He kept another office, and Chicago owes him no seat in its own."
     },
     {
       "person_id": "gale_stephen_f",
@@ -8332,9 +8365,10 @@
       "trade": "army_officer",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#army_officer = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "serves_an_establishment_outside_the_register",
+      "decided_by": "attested_trade_houses.json#greene_john, reading data/reconstruction/1835_garrison.json#officers.named_at_the_post_by_the_layer, ruled by T-1994",
+      "houses": [],
+      "ruling": "Commanding officer of Fort Dearborn across the scene date (Andreas; the fort dossier). The garrison file names him at the post; the garrison is the fort's establishment and the register holds no house for it, by the premises ruling's own word."
     },
     {
       "person_id": "gridley_harriet",
@@ -9671,9 +9705,10 @@
       "trade": "insurance_agent",
       "trade_confidence": "inferred",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#insurance_agent = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "serves_an_establishment_outside_the_register",
+      "decided_by": "attested_trade_houses.json#hubbard_elijah_kent, reading data/reconstruction/1835_agencies.json#agency_howard_fire_insurance_company, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: 'An agency is HELD, not kept.' The agencies file holds his: the Howard Fire Insurance Company of New York, sold at Chicago over 'E. K. HUBBARD.' from 20 June 1835, and it says itself that neither the company nor the agency is a house in this town. Whether he was a partner in Hubbard & Co. no printing says, so he is not joined to it."
     },
     {
       "person_id": "hubbard_gurdon",
@@ -9739,10 +9774,16 @@
       "age_scope": "working_age",
       "trade": "insurance_agent",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#insurance_agent = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "decided_by": "attested_trade_houses.json#hugunin_hiram: biz_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency as agent, attested on chicago_democrat_1833_1835, ruled by T-1994",
+      "houses": [
+        "biz_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency"
+      ],
+      "house_names": [
+        "North Western Fire and Marine Insurance Company of Oswego, Chicago agency"
+      ],
+      "ruling": "The Democrat of 17 June 1835 prints 'Capt. HIRAM HUGUNIN, Agent, Chicago', and the register's North Western Fire and Marine agency is that printing: its proprietor row reads the same string and claims no link only because the register's person list spells him otherwise. The card and the record cite the same column, so the join is the source's."
     },
     {
       "person_id": "hugunin_leonard_c",
@@ -10426,9 +10467,10 @@
       "trade": "army_officer",
       "trade_confidence": "inferred",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#army_officer = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#jamison_l_t, reading docs/RESEARCH/fort_dearborn_garrison_1835.md § 2, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling sends an army officer to the garrison, and T-1348 refuses him under its clauses 2 and 3: he is on the town's 1835 poll list, which makes him a man of the town, and his presence on the day reads `uncertain`. The establishment does not hold him, so no house is owed."
     },
     {
       "person_id": "janea_russell",
@@ -12065,9 +12107,10 @@
       "trade": "minister",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#minister = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#lathrop_samuel_s, reading data/sources/rr_baptist_chicago_lathrop.json, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling sends a minister to his church, and the source behind this card names him a MEMBER of the First Baptist Church who built the fence round Rev. A. B. Freeman's grave, not its minister. The register's church record carries its own minister's row and not him; nothing places him in a pulpit, so none is owed."
     },
     {
       "person_id": "latzky_john",
@@ -12221,9 +12264,10 @@
       "trade": "priest",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#priest = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#legg_gregory_e, reading data/businesses/authored/biz_st_marys_church.json#staff, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling sends a priest to his church. Chicago's one Catholic congregation on the scene date is St. Mary's, whose record holds John Mary St. Cyr as its priest, attested at Andreas; this card's reading is dated 1838-05-31 and may date and corroborate but never place. The establishment does not hold him on the day."
     },
     {
       "person_id": "legrand_jaqua",
@@ -13234,9 +13278,10 @@
       "trade": "army_surgeon",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#army_surgeon = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "serves_an_establishment_outside_the_register",
+      "decided_by": "attested_trade_houses.json#maxwell_philip, reading data/reconstruction/1835_garrison.json#officers.named_at_the_post_by_the_layer, ruled by T-1994",
+      "houses": [],
+      "ruling": "Andreas: assistant surgeon on duty at the fort from 3 February 1833 until its abandonment. The ruling says the post surgeon serves the garrison and keeps no practice; the garrison file names him at the post, and the register holds no house for a garrison."
     },
     {
       "person_id": "may_stephen",
@@ -14481,9 +14526,10 @@
       "trade": "clerk",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#clerk = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#myers_frederick, reading data/sources/resident_research_myers_glen_ellyn.json, ruled by T-1994",
+      "houses": [],
+      "ruling": "The source behind the trade gives him as quartermaster clerk at Fort Dearborn in 1831-33 and a fur trader after; the clerkship's own dates close two years before the scene date, and the garrison is not a house the register holds. No source names a counter he kept on 1 July 1835, and none is drawn for an attested man."
     },
     {
       "person_id": "myrick_nehemiah",
@@ -14823,9 +14869,10 @@
       "trade": "ship_carpenter",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#ship_carpenter = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "works_on_other_people_s_ground",
+      "decided_by": "attested_trade_houses.json#norton_nelson_r, reading data/businesses/rulings/premises_rulings.json#ship_carpenter, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: a vessel is built in a yard belonging to her owner. Andreas names his works — the Dearborn Street drawbridge, March 1834, and the sloop Clarissa, launched 12 May 1836 — and neither is a house: the bridge is the town's work and the sloop's yard is not named. The work stood where the owner's did."
     },
     {
       "person_id": "norton_wm_h",
@@ -15940,9 +15987,10 @@
       "trade": "schoolteacher",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#schoolteacher = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "decided_by": "attested_trade_houses.json#porter_eliza_chappel, reading data/residents/households/hh_porter_jeremiah.json#associated_with, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling sends a teacher to a school, and the school she kept is closed before the day: her card's own row dates the infant school 1833-34, and Andreas calls her 'then late of Chicago' at her marriage sixteen days before the scene date. No school the register holds is hers on 1 July 1835."
     },
     {
       "person_id": "porter_hibbard",
@@ -16105,10 +16153,16 @@
       "age_scope": "working_age",
       "trade": "printer",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#printer = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "decided_by": "attested_trade_houses.json#pratt_oscar: biz_chicago_democrat_printing_office as printer, inferred on andreas_1884_v1, ruled by T-1994",
+      "houses": [
+        "biz_chicago_democrat_printing_office"
+      ],
+      "house_names": [
+        "Chicago Democrat printing office"
+      ],
+      "ruling": "Andreas's 1833 roster: 'Oscar Pratt and Beckford, printers, were in the employ of Mr. Calhoun at that time.' The house is named and the register holds it across the scene date; the year is 1833, so the employment is carried to 1 July 1835 at `inferred`."
     },
     {
       "person_id": "preinen_v_a",
@@ -40229,9 +40283,10 @@
       "trade": "justice_of_the_peace",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#justice_of_the_peace = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "a_civic_seat_and_not_a_house",
+      "decided_by": "attested_trade_houses.json#salisbury_stephen_m, reading data/businesses/rulings/premises_rulings.json#justice_of_the_peace, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE.' A justice heard causes where he sat, and that place is the person's `associated_with` (T-1405), not a business; the register's county offices are the clerk's room and hold no justice."
     },
     {
       "person_id": "salle_john_h",
@@ -40894,9 +40949,10 @@
       "trade": "sheriff",
       "trade_confidence": "inferred",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#sheriff = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "a_civic_seat_and_not_a_house",
+      "decided_by": "attested_trade_houses.json#sherman_silas_w, reading data/businesses/rulings/premises_rulings.json#sheriff, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE.' The register's county offices are Richard J. Hamilton's own room, naming the clerk's, probate, recording and notary work and not the sheriff's; where the seat was kept is T-1405's `associated_with`, so no house is owed."
     },
     {
       "person_id": "sherman_william_george",
@@ -41357,9 +41413,10 @@
       "trade": "surveyor",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#surveyor = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "works_on_other_people_s_ground",
+      "decided_by": "attested_trade_houses.json#snow_george_w, reading data/businesses/rulings/premises_rulings.json#surveyor, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: surveying is done in the field and the plat drawn where the surveyor lodges, and no source gives this town a surveyor's office in 1835. Andreas has him appointed the town's Assessor and Surveyor by the trustees on 4 December 1833 — an office, and not a house."
     },
     {
       "person_id": "snow_watson_m",
@@ -41730,9 +41787,10 @@
       "trade": "plasterer",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#plasterer = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "works_on_other_people_s_ground",
+      "decided_by": "attested_trade_houses.json#steele_ashbel, reading data/businesses/rulings/premises_rulings.json#plasterer, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: plastering is done inside the customer's building. Andreas names his trade by an act — he 'plastered Calhoun's printing office in November, 1833' — which is exactly that: the work stood in somebody else's house, and a plasterer keeps none of his own."
     },
     {
       "person_id": "stephen_parrish",
@@ -43448,9 +43506,10 @@
       "trade": "justice_of_the_peace",
       "trade_confidence": "attested",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#justice_of_the_peace = no_fixed_premises, and no source names a house",
-      "houses": []
+      "reason": "a_civic_seat_and_not_a_house",
+      "decided_by": "attested_trade_houses.json#walker_james, reading data/businesses/rulings/premises_rulings.json#justice_of_the_peace, ruled by T-1994",
+      "houses": [],
+      "ruling": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE.' A justice heard causes where he sat, and that place is the person's `associated_with` (T-1405), not a business; the register's county offices are the clerk's room and hold no justice."
     },
     {
       "person_id": "walker_jeremiah",
@@ -44667,10 +44726,16 @@
       "age_scope": "working_age",
       "trade": "clerk",
       "trade_confidence": "inferred",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#clerk = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "decided_by": "attested_trade_houses.json#wright_john_s: biz_john_wright as clerk, inferred on andreas_1884_v1, ruled by T-1994",
+      "houses": [
+        "biz_john_wright"
+      ],
+      "house_names": [
+        "John Wright"
+      ],
+      "ruling": "The card's trade is itself the reconstruction 'a minor in his merchant father's business is a clerk', read off Andreas's 'John S. Wright, then a minor ... came in 1832' beside 'John Wright, came in 1832, a merchant'. The register holds that merchant's store, and the house the trade was inferred FROM is the house it joins; the grade is the card's, `inferred`, and the father-and-son reading is the card's too."
     },
     {
       "person_id": "wright_robert_c",

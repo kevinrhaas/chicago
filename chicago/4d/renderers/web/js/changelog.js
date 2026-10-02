@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1323, ts: '2026-10-02T20:57:31.347Z', date: 'Oct 2, 2026, 3:57 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
+  { v: 1324, ts: '2026-10-02T21:04:24.932Z', date: 'Oct 2, 2026, 4:04 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
       'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',
       'Eleven more keepers read the same. The other 26 now say which unbuilt or unsettled roof their house is waiting for.',
-      'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 167 to 155.',
+      'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 142 to 130.',
+    ] },
+  { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
+    items: [
+      'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
+      'Twenty more say why no shop is owed them. Major Greene and Dr Maxwell served the garrison at the fort. The two sheriffs and two justices held public offices, not shops. A plasterer, a surveyor and a ship carpenter worked on other people\u2019s ground.',
+      'Some were not at their post on the day. Two army officers are not placed at the fort, the Chicago post office was John Hogan\u2019s and not the two other postmasters\u2019, and Eliza Chappel\u2019s school had closed. Each card gives its reason.',
+      'On the City card, working people owed a workplace drop from 167 to 142.',
     ] },
   { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
     items: [

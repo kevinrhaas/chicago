@@ -9,7 +9,7 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 | join | state | what keeps it open |
 |---|---|---|
 | Every household housed | open | 523 households without a roof yet |
-| Every working person at a workplace | open | 155 working people owed a workplace |
+| Every working person at a workplace | open | 130 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
 | Every standing roof occupied or its use stated | open | 5 standing roofs empty and owed somebody |
 
@@ -47,9 +47,9 @@ Of the **2,497** people housed in a standing building: **11.4 % attested** (285)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| at a workplace | 155 | 5 | 152 | 312 |
-| no fixed premises (stated) | 0 | 0 | 222 | 222 |
-| owed a workplace | 25 | 2 | 128 | 155 |
+| at a workplace | 158 | 7 | 152 | 317 |
+| no fixed premises (stated) | 20 | 0 | 222 | 242 |
+| owed a workplace | 2 | 0 | 128 | 130 |
 | no trade recorded | 232 | 934 | 213 | 1,379 |
 | **all** | **412** | **941** | **715** | **2,068** |
 | share | 19.9 % | 45.5 % | 34.6 % | |
