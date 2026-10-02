@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
+  { v: 1300, ts: '2026-10-02T11:58:18.726Z', date: 'Oct 2, 2026, 6:58 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
     items: [
       'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',
     ] },
