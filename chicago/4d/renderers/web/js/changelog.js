@@ -1,10 +1,11 @@
 export const CHANGELOG = [ // newest first
   { v: 1304, ts: '2026-10-02T14:11:16.307Z', date: 'Oct 2, 2026, 9:11 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
     items: [
-      'Stand at the fort\u2019s south-west corner and look south. Past the garden and the burying ground, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
+      'Stand at the fort\u2019s south-west corner and look south. Beyond the factor\u2019s house, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
       'Walk west out of town along Randolph Street, past the last houses beyond Des Plaines Street. Four covered wagons and two small tents stand in a ring on the prairie, an emigrant party stopped for the night.',
       'Both camps are empty. No figure is drawn, and no fire burns.',
       'Both are our reconstruction. No source says anybody camped on either spot. The Liberties page (L353) says how we placed and sized them.',
+    ] },
   { v: 1303, ts: '2026-10-02T13:36:07.376Z', date: 'Oct 2, 2026, 8:36 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
     items: [
       'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
