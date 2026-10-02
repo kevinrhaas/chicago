@@ -2447,6 +2447,19 @@
       ]
     },
     {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN, placed by layer like the yard goods and the building material. T-1961's trade yards sit right after the yard goods because they read town_trade_goods.json, lot_building_material.json, the hay limits and every fence run, and keep clear of all of them.",
+      "command": [
+        "python3",
+        "tools/generate_trade_yards.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_trade_yards.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1544's reading of what Wright's 1834 sheet says about the 288.3 m the corporate boundary's west leg extrapolates from Hubbard Street to Ohio Street. It runs AFTER the generators that place buildings, because one of the four things it measures is how close that extension comes to a DRAWN structure — run before them it would price the extrapolation against a stale town — and after tools/generate_plat_lots.py for the same reason the West Division's spacing measurement does. IT MOVES NOTHING: no centreline is edited, no leg re-graded, no record re-seated, and every figure it writes is read back out of committed files, which is why it may own its output outright. `resolves` names that one file: two runs re-derive the same bytes, so a conflict there is settled by rebuilding rather than by choosing a side.",
       "command": [
         "python3",
@@ -2474,6 +2487,21 @@
       "verify": [
         "python3",
         "tools/town_census.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-1964: how far the town is from complete — the four joins T-1215 names (housed, at work, roofed, occupied) counted by tier. It reads the residents layer, the employment ledger, the businesses and the scene's sidecars and writes nothing any of them read, so it runs after the town census and before anything downstream; two runs re-derive the same bytes, so a conflict on its output is settled by rebuilding rather than by choosing a side.",
+      "command": [
+        "python3",
+        "tools/audit_town_completion_1835.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/render/town_completion_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/audit_town_completion_1835.py",
         "--check"
       ]
     },

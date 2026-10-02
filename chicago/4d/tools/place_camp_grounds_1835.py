@@ -275,21 +275,21 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
                      "about one and a half times over at four men to a tent; most of "
                      "them slept where the transient model already sleeps the crowd, "
                      "in rooms and on floors, and twelve is the share drawn as having "
-                     "come with canvas. Invented. L351."
+                     "come with canvas. Invented. L353."
                      if shore else
                      f"{camp['tents']} WEDGE TENTS for a party of four wagons: the "
                      "wagon beds carried the bedding and the tents took who did not fit. "
-                     "Invented. L351."),
+                     "Invented. L353."),
         },
         "tent_kind": {
             "value": camp["tent_kind"],
             "confidence": "reconstructed",
             "note": ("NO SOURCE DESCRIBES THE TENTS. Wall and wedge tents alternately, "
-                     "the two forms an outfitter of the 1830s sold. L351."
+                     "the two forms an outfitter of the 1830s sold. L353."
                      if camp["tent_kind"] == "mixed" else
                      "NO SOURCE DESCRIBES THE TENTS. The wedge tent is the smaller and "
                      "cheaper of the two forms the archetype carries, and the one a "
-                     "family going on by wagon would carry. L351."),
+                     "family going on by wagon would carry. L353."),
         },
         "wagons": {
             "value": camp["wagons"],
@@ -297,39 +297,39 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
             "note": ("THE COUNTRY CAME TO THE SALE BY ROAD. A buyer from the "
                      "settlements west of the town drove in, and the "
                      "owner has asked that wagons not be rationed (AGENTS.md, "
-                     "2026-08-18); the number is invented. L351."
+                     "2026-08-18); the number is invented. L353."
                      if shore else
                      "A PARTY OF FOUR WAGONS, invented: families came overland to "
                      "Chicago from Indiana and Ohio in 1835 as well as by lake, and "
-                     "a party travelled together. L351."),
+                     "a party travelled together. L353."),
         },
         "brush_shelters": {
             "value": camp["brush_shelters"],
             "confidence": "reconstructed",
             "note": "A lean-to of poles and cut brush, the cheapest roof there is. "
-                    "Invented. L351.",
+                    "Invented. L353.",
         },
         "fire_rings": {
             "value": camp["fire_rings"],
             "confidence": "reconstructed",
             "note": ("One cooking fire to two tents. The fires are drawn out: no flame, "
-                     "no smoke, nobody at them (L1). L351."
+                     "no smoke, nobody at them (L1). L353."
                      if shore else
                      "Two cooking fires inside the ring of wagons. Drawn out: no flame, "
-                     "no smoke, nobody at them (L1). L351."),
+                     "no smoke, nobody at them (L1). L353."),
         },
         "woodpiles": {
             "value": camp["woodpiles"],
             "confidence": "reconstructed",
-            "note": "Cordwood for the fires. Invented. L351.",
+            "note": "Cordwood for the fires. Invented. L353.",
         },
         "baggage_heaps": {
             "value": camp["baggage_heaps"],
             "confidence": "reconstructed",
             "note": ("Chests and a barrel set down where a buyer had no tent of his "
-                     "own. Invented. L351."
+                     "own. Invented. L353."
                      if shore else
-                     "What came off the wagons for the night. Invented. L351."),
+                     "What came off the wagons for the night. Invented. L353."),
         },
         "arrangement": {
             "value": camp["arrangement"],
@@ -384,7 +384,7 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
                 "note": why_here + tests + ". " + refused +
                         "The point recorded is the camp's south-west corner, the "
                         "footprint's origin at rotation 0, so the camp opens north. "
-                        "Placed by tools/place_camp_grounds_1835.py; L351.",
+                        "Placed by tools/place_camp_grounds_1835.py; L353.",
                 "derivation": {
                     "method": "not_derivable",
                     "reason": "Placed against the drawn street lines, the heightfield, "
@@ -399,7 +399,7 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
                 "confidence": "reconstructed",
                 "note": f"The camp's ground, {length} x {depth} m. INVENTED in its "
                         "extent: room for the pitches the form asks at the archetype's "
-                        "spacing, inside the ground the placer measured clear. L351.",
+                        "spacing, inside the ground the placer measured clear. L353.",
             },
             "form": form,
             "change_note": ("Canvas on the reservation shore in the week of the land "
@@ -412,7 +412,7 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
             "sources": [],
             "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. "
                     + ground["why"] + " Built at the reconstructed tier on the owner's "
-                    "ask (T-1214) and labelled so; L351.",
+                    "ask (T-1214) and labelled so; L353.",
         },
         "occupants": {
             "value": occupants,

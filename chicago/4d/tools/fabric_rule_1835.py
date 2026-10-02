@@ -55,9 +55,12 @@ the 1834–35 boom is balloon-framed, the method this town invented in 1833; one
 class (a merchant's or keeper's house a roofed porch and, on most, shutters; a
 tradesman's cottage a plain stoop or nothing; a labourer's neither). Only a value the
 programme dealt `reconstructed` is ever written; an attested or inferred one is never
-moved (`apply_form`, `--self-test`). Glazing, cladding, trim and siding stock are NOT
-dealt here: the archetype builds one window arrangement (L23), and siding has its own
-neighbour-separated deal (T-0112). The rule's reasoning is L338.
+moved (`apply_form`, `--self-test`). T-1838 added the glazing (L343). T-1839 adds the
+trim and the chimney's head on a frame house by the class, and bounds the siding stock
+by it: `tools/siding_stock.py` still deals the stock and still separates neighbours
+(T-0112), but only inside the stocks the class's row allows (`SIDING_OF_CLASS`). The
+cladding is not dealt — the archetype builds clapboard and nothing else — and nor is
+the chimney's brick, which is inferred (chimneys.md §2). The reasoning is L338 and L352.
 
     python3 tools/fabric_rule_1835.py --check      every record agrees with the rule
     python3 tools/fabric_rule_1835.py --self-test  the rule's guarantees, by breaking them
@@ -260,6 +263,51 @@ GLAZING_WHY = {
 }
 
 
+#: T-1839 — THE TRIM, per class: how heavily the sawn trim boxes the frame
+#: (`frame_dwelling_params.TRIMS`). `plain` is the trim the archetype has always built,
+#: so a tradesman's cottage does not move; a house that took in or impressed the public
+#: boxed its corners in wider boards under a deeper frieze, and a labourer's house had
+#: the narrowest boards that would keep the weather out of a corner. No source trims any
+#: house here (docs/LIBERTIES.md L352).
+TRIM: dict[str, str] = {"merchant": "boxed", "keeper": "boxed", "tradesman": "plain",
+                        "labourer": "scant"}
+TRIM_WHY = {
+    "boxed": "wide corner boards under a deep frieze, the trim of a house built to be seen",
+    "plain": "the plain corner boards and frieze a sided frame needs to keep water out",
+    "scant": "the narrowest corner boards and frieze that keep the weather out",
+}
+#: T-1839 — THE CHIMNEY FABRIC. Every framed house's stack is brick, inferred and
+#: never dealt (docs/RESEARCH/chimneys.md §2: an interior stack carries a fire through a
+#: timber roof and the masonry Chicago had was brick). What the class deals is the
+#: brickwork at the HEAD: the corbel course the archetype has always laid, doubled on the
+#: houses money built, and left off the labourer's (`frame_dwelling_params.CHIMNEY_HEADS`).
+CHIMNEY_HEAD: dict[str, str] = {"merchant": "double_corbel", "keeper": "double_corbel",
+                                "tradesman": "corbel", "labourer": "plain"}
+CHIMNEY_HEAD_WHY = {
+    "double_corbel": "a brick stack finished in two corbelled courses",
+    "corbel": "a brick stack finished in one corbelled course",
+    "plain": "a brick stack carried straight up, with no corbel at its head",
+}
+#: T-1839 — THE SIDING STOCK, per class, reconciled with T-0112's neighbour separation
+#: (`tools/siding_stock.py` reads this). A narrower exposure is more boards, more
+#: nailing and more planing to hang the same wall, so the finest stock went on the
+#: houses that could pay for it and the widest on the ones that could not; inside its
+#: class's stocks a roof is still advanced off every neighbour within 60 m. A class not
+#: named here (freight, works, yard) draws from all four. Metres, as `STOCKS` holds them.
+SIDING_OF_CLASS: dict[str, tuple[float, ...]] = {
+    "merchant": (0.114, 0.127),
+    "keeper": (0.127, 0.140),
+    "tradesman": (0.127, 0.140, 0.152),
+    "labourer": (0.140, 0.152),
+}
+SIDING_WHY = {
+    "merchant": "the narrowest stock, 4.5 or 5 in to the weather",
+    "keeper": "a 5 or 5.5 in stock",
+    "tradesman": "the common stock, 5 to 6 in to the weather",
+    "labourer": "the widest stock, 5.5 or 6 in to the weather",
+}
+
+
 def glazing_words(key: str) -> str:
     """`12_over_12_8x10` → '12-over-12 sash of 8 × 10 in glass'."""
     up, _over, lo, pane = key.split("_")
@@ -267,6 +315,8 @@ def glazing_words(key: str) -> str:
     return f"{up}-over-{lo} sash of {w} × {h} in glass"
 
 
+TRIM_WORDS = {"boxed": "boxed corners", "plain": "plain corner boards",
+              "scant": "scant corner boards"}
 FORM_WORDS = {"balloon_frame": "on a balloon frame", "braced_frame": "on a braced frame"}
 FORM_NOTE = ("RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by "
              "tools/fabric_rule_1835.py from the household class and age it reads for this "
@@ -289,6 +339,8 @@ def form_for_class(sid: str, klass: str, age: str, archetype: str) -> dict:
     draw = _fraction(sid, "glazing")
     steps = GLAZING.get(klass, GLAZING["tradesman"])
     out["glazing"] = next(v for v, upto in steps if draw < upto)
+    out["trim"] = TRIM.get(klass, TRIM["tradesman"])
+    out["chimney_head"] = CHIMNEY_HEAD.get(klass, CHIMNEY_HEAD["tradesman"])
     return out
 
 
@@ -300,6 +352,13 @@ def form_why(key: str, klass: str, age: str) -> str:
     if key == "glazing":
         return (f"{klass} class — {GLAZING_WHY.get(klass, GLAZING_WHY['tradesman'])} "
                 "(rule FORM-G).")
+    if key == "trim":
+        trim = TRIM.get(klass, TRIM["tradesman"])
+        return f"{klass} class — {TRIM_WHY[trim]} (rule FORM-T)."
+    if key == "chimney_head":
+        head = CHIMNEY_HEAD.get(klass, CHIMNEY_HEAD["tradesman"])
+        return (f"{klass} class — {CHIMNEY_HEAD_WHY[head]}; the stack's brick is "
+                "inferred and not dealt (rule FORM-H).")
     row = FORMS.get(klass, FORMS["tradesman"])
     return f"{klass} class — {row['why']} (rule FORM-{key[0].upper()})."
 
@@ -419,6 +478,7 @@ def deal(sid: str, family: str, archetype: str, keeper: str | None = None) -> di
     if form:
         wall += f" {FORM_WORDS[form['construction']]}"
         extras = (([glazing_words(form["glazing"])] if form.get("glazing") else [])
+                  + ([TRIM_WORDS[form["trim"]]] if form.get("trim") else [])
                   + ([f"{form['shutters'].replace('_', ' ')} shutters"]
                      if form.get("shutters") else [])
                   + {"roofed": ["a roofed porch"], "stoop": ["a stoop"]}
@@ -474,9 +534,23 @@ def policy_table() -> dict:
                     "why": v["why"]} for k, v in FORMS.items()},
             "glazing_by_class": {k: {"glazing": [list(g) for g in v], "why": GLAZING_WHY[k]}
                                  for k, v in GLAZING.items()},
+            "trim_by_class": {k: {"trim": v, "why": TRIM_WHY[v]} for k, v in TRIM.items()},
+            "chimney_head_by_class": {k: {"head": v, "why": CHIMNEY_HEAD_WHY[v]}
+                                      for k, v in CHIMNEY_HEAD.items()},
+            "siding_stock_by_class": {
+                "ticket": "T-1839",
+                "dealt_by": "tools/siding_stock.py deal_records, inside the class's stocks "
+                            "and then off every neighbour within 60 m (T-0112)",
+                "classes": {k: {"stocks_m": list(v), "why": SIDING_WHY[k]}
+                            for k, v in SIDING_OF_CLASS.items()},
+                "other_classes": "all four stocks"},
+            "cladding": "clapboard on every frame dwelling — the one wall the archetype "
+                        "builds; a vertical-board wall is a freight or works building's "
+                        "and is not dealt here",
+            "chimney_fabric": "brick on every framed house, inferred (chimneys.md §2), "
+                              "never dealt; the class deals only the head",
             "never_moved": "an attested or inferred value, and any construction that is not a frame",
-            "not_dealt": "cladding, trim, chimney fabric, siding stock (T-0112) — T-1839",
-            "liberty": "L338, L343"},
+            "liberty": "L338, L343, L352"},
     }
 
 
@@ -628,11 +702,32 @@ def self_test() -> int:
             failures.append("a glazing went to the wrong class")
             break
     sys.path.insert(0, str(ROOT / "generators"))
-    from archetypes.frame_dwelling_params import GLAZINGS  # noqa: E402
+    from archetypes.frame_dwelling_params import (CHIMNEY_HEADS, GLAZINGS,  # noqa: E402
+                                                  TRIMS)
     dealt = {v for steps in GLAZING.values() for v, _ in steps}
     if dealt - set(GLAZINGS):
         failures.append(f"the rule deals glazings the archetype cannot build: "
                         f"{sorted(dealt - set(GLAZINGS))}")
+    # T-1839: every trim and head dealt is one the archetype builds; the boxed trim and
+    # the doubled head follow the money; the siding stocks are the shared set's, the
+    # finest no wider than the widest, and the merchant's never the labourer's.
+    if set(TRIM.values()) - set(TRIMS) or set(CHIMNEY_HEAD.values()) - set(CHIMNEY_HEADS):
+        failures.append("the rule deals a trim or chimney head the archetype cannot build")
+    for klass in ("merchant", "keeper", "tradesman", "labourer"):
+        got = form_for_class(f"selftest_trim_{klass}", klass, "new", "frame_dwelling")
+        if got.get("trim") != TRIM[klass] or got.get("chimney_head") != CHIMNEY_HEAD[klass]:
+            failures.append(f"a {klass}'s house was not dealt its row's trim and head")
+    if TRIM["labourer"] == "boxed" or TRIM["merchant"] != "boxed" \
+            or CHIMNEY_HEAD["labourer"] == "double_corbel":
+        failures.append("the boxed trim or the doubled head went to the wrong class")
+    from siding_stock import STOCKS  # noqa: E402
+    stock_set = {m for _, m in STOCKS}
+    for klass, stocks in SIDING_OF_CLASS.items():
+        if set(stocks) - stock_set or not stocks:
+            failures.append(f"{klass} siding stocks {stocks} are not the shared set's")
+    if max(SIDING_OF_CLASS["merchant"]) >= max(SIDING_OF_CLASS["labourer"]) \
+            or set(SIDING_OF_CLASS["merchant"]) & set(SIDING_OF_CLASS["labourer"]):
+        failures.append("the merchant's siding is no finer than the labourer's")
     if form_for_class("selftest_cabin", "merchant", "new", "log_dwelling"):
         failures.append("a log house was dealt a frame form")
     # the gate catches a record that drifted off the rule

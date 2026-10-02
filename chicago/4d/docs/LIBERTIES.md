@@ -19447,7 +19447,113 @@ look. A different coat strength is one number in `wall-grain.js`.
 **T-1962** (the lay and the wear), **T-1963** (this layer).
 **Recorded:** 2026-10-02.
 
-### L351 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
+### L351 — The working trades' yards: casks, barrels, boards, hides, hay ricks and yard wagons, dealt by trade
+
+**Applies to:** `data/yard/town_trade_yards.json` (written by `tools/generate_trade_yards.py`).
+
+**Decision:** every standing structure whose function is a working trade gets its trade's
+goods in its own rear or side yard, never on its street front (T-1961, piece 4 of T-1212).
+A cooperage gets a rank of six finished casks. A packing or slaughter house gets a rank of
+eight barrels. A carpenter's or joiner's shop gets a stickered pile of boards (12 ft x 12 in
+x 2 in, three a course, six courses). The tannery gets two drying rails of hides. A
+stable outside the hay limits gets one rick (3.0 x 2.0 m, 1.5 m to the eave, 2.4 m to the
+ridge). A forwarding house gets a farm wagon, and the teamster's yard gets a farm wagon and
+a covered freight wagon. Named and reconstructed trades are dealt alike. Where each stands
+is the first clear ground a fixed search of the building's rear and side faces finds. It
+is refused near any wall, on a walk, in a garden or pen, in a travelled track, on a wharf,
+in the water, across a fence run, or within 2.6 m of anything already standing.
+
+**Why:** the owner asked for it (T-1212): *barrels at the coopers and packers, wagons at the
+forwarders and the teamsters, lumber at the joiners, hides at the tannery, hay at the
+stables within the hay limits*, every record belonging to its business, and his standing
+ruling of 2026-08-18 lets reconstructed items be added when he asks, labelled as such.
+**No source places any of these objects in any of these yards on 1 July 1835**, and none
+gives a count, a size, a shape or a colour. Every object is reconstructed and every size
+is invented. The tones are reconstructed too: the rick a weathered straw (`#a89160`) and
+the hides a raw brown (`#5e4231`).
+
+**The hay limits:** Sec. 22 of the ordinance of 5 August 1835 forbids stacking hay inside
+the line `data/reconstruction/1835_hay_limits.json` derives. It postdates the scene by five
+weeks, and that record places nothing. This one reads it conservatively at the owner's
+instruction: no rick stands inside the ring, and the 22 stables inside it keep their hay
+in the mow and are refused in writing. The opposite reading (a corporation legislates
+against what people already do, so ricks stood inside the line in July) is declined, not
+disproved.
+
+**Not done, and why:** the yard casks carry no marks. The frontage goods' mark rule (L166)
+deals a merchant's commodity words, and nothing here says what a cooper's or a packer's
+cask was marked with. Newberry & Dole's forwarding warehouse gets no wagon: the search
+finds no clear ground round it, and the last stand it tries is in the river. Woodpiles, wells,
+privies and household stables are T-1959 and T-1960, not this.
+
+**How to resolve:** a lot description, insurance survey, sale notice or view naming what
+stood in any of these yards; a cooper's or packer's advertisement stating a stock; a
+description of the tannery; any 1835 complaint about a rick inside the line.
+
+**Related:** **L131** (the frontage goods), **L162** (the town's wagons), **L173** (the
+building material), **L306** (the bridge timber), **T-0334** (the hay limits),
+**T-1212**, **T-1961**.
+**Recorded:** 2026-10-02.
+
+### L352 — The frame houses' trim, chimney heads and siding stock are dealt by whose house it is
+
+**Decision:** the fabric rule (L330, L338, L343, `tools/fabric_rule_1835.py`) now deals two more
+form values to every reconstructed frame dwelling, and `frame_dwelling` builds them (T-1839, piece
+2 of T-1832):
+- **`trim`** — **merchant** and **keeper**: `boxed`, corner boards 7 cm wider than the frame's own
+  and a crown board standing 7.5 cm proud under the street eave, returned a short way round each
+  gable and carried along the back eave where no ell rises against it; **tradesman**: `plain`,
+  the trim the archetype has always built; **labourer**: `scant`, corner boards 3 cm narrower and
+  a 0.14 m frieze.
+- **`chimney_head`** — **merchant** and **keeper**: `double_corbel`, a second and wider corbel
+  course above the first; **tradesman**: `corbel`, the one course every stack has always carried;
+  **labourer**: `plain`, the shaft carried straight to the same top.
+
+And it bounds the **siding stock** T-0112 deals in every parcel recipe (`tools/siding_stock.py`,
+L148): a roof's stock is drawn on its own key from its class's stocks only — **merchant** 4.5 or
+5 in to the weather, **keeper** 5 or 5.5, **tradesman** 5, 5.5 or 6, **labourer** 5.5 or 6, any
+other class all four — and the 60 m neighbour separation then walks inside those stocks. A roof
+whose class's stocks are all worn by its neighbours keeps the last one tried rather than
+borrowing a board its household did not hang.
+
+**Why:** a narrower exposure is more boards, more nailing and more planing for the same wall,
+so the finest stock went on the houses that could pay for it; boxed corners and a cornice were
+what a house built to be seen added to the trim a sided frame needs anyway; a corbelled head is
+brickwork a mason was paid for, course by course. These are arguments about cost, not sources.
+**No source trims, sides or caps any particular house here.** Every value written is
+`reconstructed`; an attested or inferred value is never touched (`apply_form`, held by
+`--self-test`, which also refuses a trim or head the archetype cannot build, a boxed trim or a
+doubled head on a labourer's house, and a merchant's stock as wide as a labourer's). The
+`double_corbel` only ever adds height above the course the 1835 by-law census measured
+(chimneys.md §7), and `plain` stops at the same top, so no stack drops under the by-law's line.
+
+**Consequence:** across the 162 reconstructed frame dwellings: 18 merchants' houses `boxed` with
+`double_corbel` heads, 144 tradesmen's cottages `plain` with `corbel` heads — so the cottages'
+trim and stacks did not move. No reconstructed frame dwelling is a labourer's or a keeper's
+today, so those rows are dealt to none yet. The class bound moved the siding stock on 121 recipe
+roofs (97 frame dwellings, 18 storefronts, 6 taverns) and re-advanced 3 named buildings off them;
+merchants' houses now hang 4.5 in (11) and 5 in (7), tradesmen's 5, 5.5 and 6 in (44 / 51 / 49).
+The cost is stated: pairs of clapboard walls within 60 m sharing a stock rose from 45 to 54 of
+455 (9.9 % → 11.9 %), because two classes standing side by side now draw from fewer stocks.
+210 meshes rebaked (the frame dwelling archetype's source moved), 126 of them changed.
+
+**Not dealt, and why:** the cladding — the archetype builds clapboard only, and every class in a
+frame house wore it; a vertical-board wall is a freight or works building's. The chimney's brick
+— inferred for every interior stack (chimneys.md §2), which a class cannot argue further. The
+trim's colour — still derived from the wall's finish (materials.md §2.3). The frame storefront's
+and tavern's trim and heads.
+
+**How to resolve:** any source on the siding, trim or chimney of a particular 1835 Chicago house,
+which outranks the rule for that roof; a lumber dealer's advertisement or invoice giving the
+clapboard widths sold at Chicago in 1833–35, which re-grades the class bounds.
+
+**Covers:** `recon_*.*.form.trim`, `recon_*.*.form.chimney_head`, `recon_*.*.form.siding_exposure_m`
+**Related:** **L343** (the glazing, the same rule), **L338** (the form), **L330** (the finish),
+**L148** (the siding stock set), **L26** (where the stacks stand), **T-0112**, **T-1832**,
+**T-1839** (this rule).
+**Recorded:** 2026-10-02.
+
+### L353 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 
 **Decision:** two camps stand on the two grounds `data/reconstruction/1835_camp_grounds.json`
 offers and grades `conjectural` (T-1804, the second piece of T-1214).

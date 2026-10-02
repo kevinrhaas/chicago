@@ -1021,9 +1021,26 @@ none, is 12/12 of the attested 6 × 8 in pane. The Built line names the sash. L3
 
 **Not this piece:** cladding, trim, chimney fabric and the siding stock (T-1839).
 
+## 15. WIRED IN — T-1839, 2026-10-02: the trim, the chimney head and the siding stock are dealt by whose house it is
+
+The rule deals two more form values to a frame dwelling, and bounds a third:
+
+| value | by | rule |
+|---|---|---|
+| `trim` (frame_dwelling) | class | merchant, keeper: `boxed` — corner boards 7 cm wider and a crown board under the street eave, returned round the gables · tradesman: `plain`, the trim the archetype always built · labourer: `scant` — narrower corner boards, a 0.14 m frieze |
+| `chimney_head` (frame_dwelling) | class | merchant, keeper: `double_corbel` — a second, wider course above the first · tradesman: `corbel`, the one course every stack always had · labourer: `plain` |
+| `siding_exposure_m` (every recipe frame roof) | class, then neighbours | merchant 4.5 or 5 in · keeper 5 or 5.5 · tradesman 5, 5.5 or 6 · labourer 5.5 or 6 · any other class all four — then T-0112's 60 m separation, walked inside the class's stocks |
+
+**Not dealt, deliberately.** The cladding: `frame_dwelling` builds clapboard and nothing else,
+and every class that lives in a frame house wore it. The chimney's brick: §2 of
+`docs/RESEARCH/chimneys.md` infers brick for every interior stack and a class cannot argue that
+further; the class reads only in the head. The trim's COLOUR: §2.3 still derives it from the
+wall's finish. The frieze cannot deepen on the better house, because the upper sash heads rise
+to 0.28 m under the plate; the crown board is what says it instead. L352.
+
 ## 16. WIRED IN — T-1962, 2026-10-02: the lay and the wear are dealt by whose house it is
 
-(§15 is T-1839's, which is in review.) Piece 1 of T-1818. T-0002 asked for per-building board
+Piece 1 of T-1818. T-0002 asked for per-building board
 tone, board-width irregularity and weathering by age. The tone has been the renderer's since
 T-0048/T-0047 (`facades.js`, L126). This piece puts the other two on the sheet, under the
 fabric rule, and keeps them to the roofs the rule reaches (`fabric_basis.class`).
