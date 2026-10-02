@@ -1,12 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1294, ts: '2026-10-02T09:36:45.265Z', date: 'Oct 2, 2026, 4:36 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
     items: [
       'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
       'Walk east to Dearborn Street and cross it. One lot along, a third boarding house faces Washington. Edward McCarthy keeps it. Each house is two storeys of clapboard with a kitchen wing, and a log stable and a privy stand behind it off the alley.',
       'Their upper windows and stovepipes are counted from their beds: seven or eight windows and four stovepipes each. Tonight they sleep four, six and eight people. The rest of their beds stand empty, because the town has no more lodgers to put in them.',
       'Some lodgers moved over from older houses. Chapin\u2019s boarding house on Illinois Street and a boarding house on the West Side each lose a stovepipe, and a North Side house loses a window. The Steamboat Hotel sleeps eight, one fewer than before.',
       'Three families who had asked for lots on the Market Street block are now waiting for land elsewhere.',
-      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L347) says how each was placed and sized.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L348) says how each was placed and sized.',
+    ] },
+  { v: 1294, ts: '2026-10-02T08:51:28.084Z', date: 'Oct 2, 2026, 3:51 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
+    items: [
+      'Stand on South Water Street and look toward the river. The bank between the street and the water is now trodden earth, darkening to mud at the water\u2019s edge. Grass survives only in a few untrodden patches, and no willows or reeds stand along it.',
+      'The five South Water docks now sit low, level with the bank behind them, instead of on a raised platform reached by steps. You walk straight from the street, across bare earth, onto the planks.',
+      'Behind every dock a bare earth path runs back to the street, worn by carts and barrows. The two docks on the North Branch and at Wolf Point have one too, cut down their higher bank.',
+      'The banks across the river, which no dock works, keep their grass and trees.',
+      'All of this is our reconstruction. No 1835 source describes the bank\u2019s surface or a dock\u2019s height. The Liberties page says what we chose and why (L347).',
     ] },
   { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
     items: [

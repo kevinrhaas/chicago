@@ -451,10 +451,8 @@ STRUCTURE_TICKETS = {
     # half that would still owe. It is not read while the bands stand.
     ("south", "warehouses_freight"): "T-1673",
     ("south", "institutional_public"): "T-1202",
-    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961). The yard buildings' two cells in
-    # every division — stables and barns, and the privies and small outbuildings — move to
-    # T-1960, the piece that raises "wells, privies and stables by household"; the gardens
-    # (T-1958), woodpiles (T-1959) and trade goods (T-1961) order no roof the book counts.
+    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies are
+    # T-1960's, "wells, privies and stables by household", in all three divisions.
     ("south", "barns_stables"): "T-1960",
     ("south", "small_outbuildings"): "T-1960",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
@@ -509,7 +507,6 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-1829",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    # T-1212 was split: see the south rows (T-1960).
     ("west", "barns_stables"): "T-1960",
     ("west", "small_outbuildings"): "T-1960",
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
@@ -580,7 +577,6 @@ STRUCTURE_TICKETS = {
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
     ("north", "institutional_public"): "T-1205",
-    # T-1212 was split: see the south rows (T-1960).
     ("north", "barns_stables"): "T-1960",
     ("north", "small_outbuildings"): "T-1960",
     ("fort", "fort_principal"): "T-1204",
@@ -4743,7 +4739,7 @@ def cmd_self_test() -> int:
     # 254 -> 251 on 2026-10-02 (T-1951): the South's last three planned H3s stand on
     # blk_washington_market#04/#05 and blk_washington_dearborn#02, all three lots a slot
     # request had asked for; hh_bently_wm_t, hh_benton_datas_e and hh_clarke_h_b are owed
-    # to T-1614 (182 -> 179 platted seats, L270, L347).
+    # to T-1614 (182 -> 179 platted seats, L270, L348).
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 251
     fires("a seating pass whose seated and owed miss its own scope",
