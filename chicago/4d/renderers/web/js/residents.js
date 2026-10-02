@@ -1579,9 +1579,13 @@ function employmentCoverageHtml(coverage, personId) {
   const placed = !!(coverage.placed && coverage.placed.has(row.status));
   const sentence = (coverage.words && coverage.words[row.reason]) || '';
   const age = COVERAGE_AGE[row.age_scope] || '';
+  // T-1990: where the answer is the business register's own row, the house is named on
+  // the row itself — no other block on the card prints it.
+  const houses = (row.house_names || []).filter(Boolean);
   return `<dt>Were they at work?</dt>
     <dd><span class="res-chip ${placed ? 'res-research' : 'res-role-off'}">${
   escapeHtml(headline)}</span>
+      ${houses.length ? `<br><b>${houses.map(escapeHtml).join('</b> · <b>')}</b>` : ''}
       ${sentence ? `<br><span class="res-why">${escapeHtml(sentence)}</span>` : ''}
       ${age ? `<br><span class="res-why">${escapeHtml(age)}</span>` : ''}
       ${row.decided_by ? `<br><span class="res-why">Decided by <code>${

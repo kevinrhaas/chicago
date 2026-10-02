@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1317, ts: '2026-10-02T18:55:37.743Z', date: 'Oct 2, 2026, 1:55 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+  { v: 1318, ts: '2026-10-02T19:16:20.133Z', date: 'Oct 2, 2026, 2:16 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
       'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
       'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
       'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
       'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L358).',
+    ] },
+  { v: 1317, ts: '2026-10-02T18:52:16.135Z', date: 'Oct 2, 2026, 1:52 PM CT', title: 'Eighty-eight more people\u2019s cards now name where they worked', kind: 'change',
+    items: [
+      'Open Billy Caldwell\u2019s card and look under Were they at work? It now names the Indian Agency, where he was the interpreter. Thomas Owen, the agent, has the same line.',
+      'James Whitlock and Edmund Taylor are named at the Land Office, Richard Hamilton at the county offices, Jeremiah Porter at the First Presbyterian Church and Father St. Cyr at St. Mary\u2019s.',
+      'Seventy-nine people who keep their own shop, tavern or office now name it, from Rufus Brown\u2019s boarding house to John Miller\u2019s tannery. Some of those shops are our reconstruction, and the card says so.',
+      'The business records already listed these people. Their cards now read those lists. On the City card, people owed a workplace drop from 308 to 230.',
     ] },
   { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
     items: [
