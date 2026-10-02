@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1320, ts: '2026-10-02T19:58:04.979Z', date: 'Oct 2, 2026, 2:58 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
+  { v: 1321, ts: '2026-10-02T20:16:27.699Z', date: 'Oct 2, 2026, 3:16 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [
       'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
       'Twenty more say why no shop is owed them. Major Greene and Dr Maxwell served the garrison at the fort. The two sheriffs and two justices held public offices, not shops. A plasterer, a surveyor and a ship carpenter worked on other people\u2019s ground.',
       'Some were not at their post on the day. Two army officers are not placed at the fort, the Chicago post office was John Hogan\u2019s and not the two other postmasters\u2019, and Eliza Chappel\u2019s school had closed. Each card gives its reason.',
-      'On the City card, working people owed a workplace drop from 230 to 205.',
+      'On the City card, working people owed a workplace drop from 169 to 144.',
+    ] },
+  { v: 1320, ts: '2026-10-02T19:45:34.002Z', date: 'Oct 2, 2026, 2:45 PM CT', title: 'Sixty-one servants are now in service, not waiting for a hotel', kind: 'change',
+    items: [
+      'Open Bridget Hayes\u2019s card and look under Were they at work? It used to say the town owed her a place in a tavern. It now says she was in domestic service in another family\u2019s house, as our ruling on the trade says domestic service was.',
+      'The same is true for all 61 domestics the taverns had no room for. Taverns and hotels were the only places our staffing model could put them, so the overflow looked like a shortage of hotels. It never was.',
+      'Which family each one worked for is not recorded, so the card does not name one.',
+      'On the City card, people owed a workplace drop from 230 to 169.',
     ] },
   { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
