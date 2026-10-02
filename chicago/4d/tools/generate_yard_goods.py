@@ -684,6 +684,10 @@ def build_frontages(ids: list[str], cars: dict) -> tuple[list, list]:
         doors = [(d["u0"] - DOOR_CLEAR_M, d["u1"] + DOOR_CLEAR_M)
                  for d in entrances.front_doors(sc)[0]]
         wall_end = u1 - END_CLEAR_M
+        if sid == GREEN_TREE_ID:
+            # The bench owns the +u end of this wall (below): a cask carried past
+            # the door must stop short of it, not stand in it (T-1984).
+            wall_end = u1 - END_CLEAR_M - BENCH_L_M - 0.15
 
         def clear(c: float, hw: float) -> float | None:
             for d0, d1 in sorted(doors):

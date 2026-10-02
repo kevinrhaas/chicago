@@ -1313,9 +1313,13 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
       const cy = y - bh / 2;
       pushBoard(buf, ax + ox * (proud + bt / 2), cy, az + oz * (proud + bt / 2),
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
-      pushBox(buf,
-        ax + ox * (proud + bt), y + WALL_CAP_T_M / 2, az + oz * (proud + bt),
-        wx, wz, bw / 2 + 0.05, bt, WALL_CAP_T_M / 2, level, solid);
+      // A name lettered on a shop's fascia sits under the fascia's own cornice
+      // and carries no cap (T-1984, `capped: false`).
+      if (g.capped !== false) {
+        pushBox(buf,
+          ax + ox * (proud + bt), y + WALL_CAP_T_M / 2, az + oz * (proud + bt),
+          wx, wz, bw / 2 + 0.05, bt, WALL_CAP_T_M / 2, level, solid);
+      }
       break;
     }
     case 'post_board': {

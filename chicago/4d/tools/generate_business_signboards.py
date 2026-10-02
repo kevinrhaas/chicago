@@ -2577,6 +2577,10 @@ def build_record() -> tuple[list, list, list]:
             geom["proud_m"] = fit["proud_m"]
         if fit and fit.get("lines"):
             geom["lines"] = fit["lines"]
+        # ...and carries no rain cap of its own: the fascia's cornice is over it,
+        # and a cap would stand above the fascia's head onto the wall (T-1984).
+        if fit and fit.get("on") is not None and mounting == "wall_board":
+            geom["capped"] = False
 
         # THE DATUM, and it is not the same one for every mounting. A sign fixed to
         # a building is measured from the base of that building's walls — the LOWEST

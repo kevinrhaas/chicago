@@ -8,7 +8,7 @@
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
     "frontages": 29,
-    "objects": 161,
+    "objects": 160,
     "wagons": 73,
     "wagons_by_kind": {
       "farm_box": 24,
@@ -20,7 +20,7 @@
     "wagon_stands_refused": 57,
     "benches": 1,
     "sheds": 1,
-    "marked_objects": 161,
+    "marked_objects": 160,
     "distinct_marks": 76
   },
   "existence": {
@@ -1005,22 +1005,6 @@
             ],
             "letterform": "brand",
             "says": "house"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "laid",
-          "at_local_enu_m": [
-            -31.64,
-            -90.83
-          ],
-          "bearing_deg": 270.0,
-          "mark": {
-            "lines": [
-              "WHISKEY"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
           }
         }
       ]

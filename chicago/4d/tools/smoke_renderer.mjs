@@ -3288,7 +3288,8 @@ for (const [label, viewport, touch] of [
         const [ba, bc] = fit.board_span_local_m;
         // `arm_height_m` is the board's HEAD; a wall board carries a rain cap over
         // it, which signage.js stands 0.09 m proud of the same wall.
-        const top = sg.arm_height_m + (sg.mounting === 'wall_board' ? 0.09 : 0);
+        const top = sg.arm_height_m
+          + (sg.mounting === 'wall_board' && sg.geometry?.capped !== false ? 0.09 : 0);
         const bot = sg.arm_height_m - sg.board_h_m;
         const on = fit.fixed_to;
         for (const o of fit.openings || []) {
