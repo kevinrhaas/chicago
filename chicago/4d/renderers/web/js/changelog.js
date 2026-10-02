@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
+    items: [
+      'Open Rufus Nichols\u2019s card, a blacksmith on the West Side, and look under Were they at work? It used to say the town owed another smithy to take him on as a hand. It now says he worked on his own account, as a smith\u2019s trade did, and that his own shop is still to be placed.',
+      'The same goes for three more smiths, two butchers, a house painter and a dressmaker. Every shop of their trade already had as many hands as it could take, and their trade kept its own shop, so they kept one too.',
+      'Two schoolteachers, Victoire Pothier and Lydia Rice, now say no school is missing. The town had six schools open in July 1835 and all six are in the reconstruction, each with its one assistant. These two followed the trade with no school to teach in.',
+      'All ten people are our reconstruction, and so are these answers. On the City card, people owed a workplace drop from 169 to 167.',
+    ] },
   { v: 1321, ts: '2026-10-02T20:08:04.793Z', date: 'Oct 2, 2026, 3:08 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
     items: [
       'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',

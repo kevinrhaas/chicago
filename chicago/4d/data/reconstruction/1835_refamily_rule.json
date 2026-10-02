@@ -16202,8 +16202,14 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/20_29/north/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "trade_households:persons/male/20_29/north/family/trade:blacksmith:002",
       "axes": {
         "sex": "male",
@@ -16220,8 +16226,14 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/20_29/west/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "trade_households:persons/male/20_29/west/family/trade:butcher:005",
       "axes": {
         "sex": "male",
@@ -16238,8 +16250,14 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/20_29/south/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "trade_households:persons/male/20_29/south/family/trade:blacksmith:006",
       "axes": {
         "sex": "male",
@@ -16730,8 +16748,14 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/20_29/south/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "trade_households:persons/male/20_29/south/family/trade:blacksmith:005",
       "axes": {
         "sex": "male",
@@ -19593,8 +19617,14 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/30_39/south/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "trade_households:persons/male/30_39/south/family/trade:butcher:009",
       "axes": {
         "sex": "male",
@@ -20331,8 +20361,14 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/30_39/west/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "trade_households:persons/male/30_39/west/family/trade:blacksmith:001",
       "axes": {
         "sex": "male",
@@ -20849,8 +20885,14 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/20_29/south/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "trade_households:persons/male/20_29/south/family/trade:painter:053",
       "axes": {
         "sex": "male",
@@ -21788,8 +21830,14 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/female/50_plus/west/family/none",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
       "deal_key": "hh_rc_wilcox_maria:rc_wilcox_maria",
       "axes": {
         "sex": "female",
@@ -21806,7 +21854,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/male/under_10/west/family/none",
-      "rung": "C1",
+      "rung": "R_adopted",
       "adoptions": [],
       "deal_key": "hh_rc_wilcox_maria:rc_wilcox_maria_1",
       "axes": {
@@ -21815,7 +21863,8 @@
         "division": "west",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_wilcox_maria_2",
@@ -21824,7 +21873,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/female/10_19/west/family/none",
-      "rung": "C1",
+      "rung": "R_adopted",
       "adoptions": [],
       "deal_key": "hh_rc_wilcox_maria:rc_wilcox_maria_2",
       "axes": {
@@ -21833,7 +21882,8 @@
         "division": "west",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_wilcox_maria_3",
@@ -21842,7 +21892,7 @@
       "stage": "women_and_children",
       "ticket": "T-1174",
       "bucket": "persons/female/10_19/west/family/none",
-      "rung": "C1",
+      "rung": "R_adopted",
       "adoptions": [],
       "deal_key": "hh_rc_wilcox_maria:rc_wilcox_maria_3",
       "axes": {
@@ -21851,7 +21901,8 @@
         "division": "west",
         "household": "family",
         "trade": "none"
-      }
+      },
+      "refused_with_the_house": true
     },
     {
       "person": "rc_wilcox_martha",
@@ -27480,30 +27531,6 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
-      "person": "rc_wilcox_maria",
-      "household": "hh_rc_wilcox_maria",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_wilcox_maria_1",
-      "household": "hh_rc_wilcox_maria",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_wilcox_maria_2",
-      "household": "hh_rc_wilcox_maria",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_wilcox_maria_3",
-      "household": "hh_rc_wilcox_maria",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
       "person": "rc_vieau_angelique",
       "household": "hh_rc_vieau_angelique",
       "rung": "C1",
@@ -29177,16 +29204,16 @@
     "the_surplus_those_buckets_hold": 396,
     "by_rung": {
       "C0": 220,
-      "C1": 430,
-      "R_adopted": 394,
+      "C1": 419,
+      "R_adopted": 405,
       "R_house_is_not_wholly_held": 25,
       "R_seated": 24,
       "R_division_is_a_reading": 53
     },
-    "movable_people": 650,
-    "refused_on_their_own_account": 353,
-    "refused_with_their_house": 143,
-    "carrying_an_adoption_themselves": 278,
+    "movable_people": 639,
+    "refused_on_their_own_account": 361,
+    "refused_with_their_house": 146,
+    "carrying_an_adoption_themselves": 286,
     "moves_the_rule_yields": 129,
     "buckets_moved_out_of": 39,
     "buckets_moved_into": 41,
@@ -29198,10 +29225,10 @@
     "if_only_the_division_changed": 2,
     "if_the_household_kind_changed_too": 33,
     "if_the_trade_could_change_as_well": 92,
-    "and_then_with_movability_applied_but_a_house_free_to_split": 29,
+    "and_then_with_movability_applied_but_a_house_free_to_split": 27,
     "under_this_rule": 129,
-    "what_the_whole_house_condition_costs": -100,
-    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -100 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
+    "what_the_whole_house_condition_costs": -102,
+    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -102 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
     "the_number_T_1556_named": 265,
     "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 92: 225 of the 250 open slots stand in adult-MALE cells while the surplus holds 224 people under twenty and 105 adult women, whose cells hold 25 slots between them.",
     "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 30 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
@@ -29226,7 +29253,7 @@
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "278 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "286 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 146 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {

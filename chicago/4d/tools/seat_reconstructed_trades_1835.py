@@ -69,7 +69,7 @@ is T-1434's: it mints the shortfall the model still says is missing, and a busin
 card that printed a reconstructed hand before the shortfall was minted would be a
 half-filled house reading as a full one.
 
-THE FIVE ANSWERS. Every person in scope gets exactly one, and each is a different
+THE SIX ANSWERS. Every person in scope gets exactly one, and each is a different
 statement about the evidence:
 
   `seated`                  the staffing model names a class of house that employed
@@ -79,12 +79,18 @@ statement about the evidence:
                             it.
   `class_held_no_house`     the model names the class and the layer holds no house of
                             it trading on 1 July 1835, or every one of them is full to
-                            the band's high end. The block names the class and the
-                            count.
+                            the band's high end, and the layer holds fewer houses
+                            of the class than the model counts. The block names the
+                            class and the count.
+  `class_full_none_owed`    the same full class, but the layer already holds every
+                            house of it the model counts at the scene date, and the
+                            trade keeps no house of its own. No house is owed: the
+                            person follows the trade with no room in it (T-1995).
   `keeps_their_own_house`   the premises ruling says this trade kept premises of its
-                            own and the model does not employ it in anybody else's.
-                            A seat would demote a principal to a hand. The house is
-                            owed, and the block says which ticket owes it.
+                            own and the model does not employ it in anybody else's —
+                            or does, and every house of it is full (T-1995). A seat
+                            would demote a principal to a hand. The house is owed,
+                            and the block says which ticket owes it.
   `no_employer_named`       the premises ruling says the trade kept no premises of its
                             own AND the model employs it nowhere — the soldier at the
                             post, the laundress over her own tub, the farmer on his own
@@ -275,6 +281,8 @@ def employing_classes(model: dict) -> dict:
                 "role": role.get("role"),
                 "count_typical": int(role.get("count_typical") or 0),
                 "count_high": int(role.get("count_high") or 0),
+                "establishments_at_the_scene_date":
+                    klass.get("establishments_at_the_scene_date"),
                 "basis": role.get("basis"),
                 "note": role.get("note"),
             })
@@ -353,6 +361,10 @@ def in_scope(person: dict) -> bool:
     if occupation.get("value") in NOT_A_TRADE:
         return False
     return not person.get("workplaces")
+
+
+#: Trades the count-met rule (T-1995) leaves to another ticket's answer, and which one.
+RULED_ELSEWHERE = {"domestic": "T-1993"}
 
 
 def seat_one(person: dict, record: dict, trade: str, context: dict) -> dict:
@@ -470,6 +482,77 @@ def seat_one(person: dict, record: dict, trade: str, context: dict) -> dict:
                 candidates.append((business, row))
     if not candidates:
         classes = sorted({row["class"] for row in employers})
+        # EVERY HOUSE THAT HIRES THE TRADE IS FULL, AND THE TRADE KEEPS ITS OWN (T-1995).
+        # The keeper branch above stands aside wherever the model hires the trade, so that
+        # a dressmaker is seated in a millinery house the layer holds rather than owed one
+        # it does not. Once every such house is full that reason is spent, and what is left
+        # is the premises ruling: the trade kept a house of its own. So the overflow is a
+        # tradesman on their own account whose house is owed — not a town owed another
+        # shop of somebody else's to stand in as a hand.
+        if ruling.get("premises") == "own_premises":
+            base.update({
+                "kind": "keeps_their_own_house",
+                "classes": principal_of,
+                "basis": {
+                    "kind": "rule",
+                    "id": "every_house_that_hires_this_trade_is_full_and_the_trade_"
+                          "keeps_its_own",
+                    "note": f"The staffing model hires this trade in "
+                            f"{', '.join(classes)}, and every house of that kind the "
+                            f"business layer holds trading on {SCENE_DATE} already has "
+                            f"the band's high end of hands. The premises ruling: "
+                            f"{_sentence(ruling.get('basis'))} So this person carried "
+                            f"the trade on their own account, as a keeper and not as "
+                            f"somebody's overflow hand. The house is owed, and T-1992 "
+                            f"owns the own-account houses the register does not hold.",
+                },
+                "replaceable_by": {
+                    "kind": "business",
+                    "match": "a house of this trade raised for this person, after which "
+                             "the seat is theirs and this block becomes a "
+                             "proprietorship",
+                },
+                "chosen_by": [],
+            })
+            return base
+        # THE COUNT IS MET, SO NO HOUSE IS OWED (T-1995). Where the trade keeps no house of
+        # its own and the layer already holds every house of the class the model counts at
+        # the scene date, the town is not short a house: the person follows the trade and
+        # there is no room in it to join them to. The domestics stand aside from it by
+        # name: their premises ruling puts the work in another HOUSEHOLD's house, not in a
+        # house of trade at all, and T-1993 gives that answer in its own words
+        # (tools/employment_coverage_1835.py, IN_ANOTHER_HOUSEHOLD).
+        held = {row["class"]: len({b["id"] for occupation in row["occupations_in_this_class"]
+                                   for b in context["houses"].get(occupation) or []})
+                for row in employers}
+        counted = {row["class"]: row["establishments_at_the_scene_date"]
+                   for row in employers}
+        if trade not in RULED_ELSEWHERE and all(
+                counted[k] is not None and held[k] >= counted[k] for k in classes):
+            met = "; ".join(f"{k}: {counted[k]} counted, {held[k]} held" for k in classes)
+            base.update({
+                "kind": "class_full_none_owed",
+                "classes": classes,
+                "basis": {
+                    "kind": "rule",
+                    "id": "the_class_s_count_is_met_and_every_house_is_full",
+                    "note": f"The staffing model hires this trade in {', '.join(classes)} "
+                            f"and counts the houses of it trading on {SCENE_DATE}; the "
+                            f"business layer holds every one of them ({met}), and each "
+                            f"already has the band's high end of this role. The count is "
+                            f"met, so no house is owed: the town is not short one, and "
+                            f"seating this person would put more hands in a house than "
+                            f"the model allows. The premises ruling: "
+                            f"{_sentence(ruling.get('basis'))}",
+                },
+                "replaceable_by": {
+                    "kind": "business",
+                    "match": "a source naming the house this person worked in, or a "
+                             "re-count of the class, after which this person seats at it",
+                },
+                "chosen_by": [],
+            })
+            return base
         base.update({
             "kind": "class_held_no_house",
             "classes": classes,
@@ -619,8 +702,9 @@ def employment_block(block: dict) -> dict:
 def card_seats(seating: dict) -> dict:
     """person_id -> the block their card should carry. ONLY the `seated` answer.
 
-    The other four kinds are statements about an ABSENCE — a class of house the town
-    does not hold, a trade that keeps its own premises, a ruling that employs it
+    The other five kinds are statements about an ABSENCE — a class of house the town
+    does not hold, a class whose count is already met, a trade that keeps its own
+    premises, a ruling that employs it
     nowhere, a trade never ruled on. None of them is a fact about this person's work,
     and writing one onto a card would put a reason for having no seat where a reader
     looks for a seat. They stay in the join, where the question they answer is asked.
@@ -731,7 +815,7 @@ def report(data: dict, seating: dict) -> dict:
                                  "the `seated` ones ALSO stand on the person's own card "
                                  "as `persons[].employment`, carrying the house, the "
                                  "role, the tier and the seed and leaving the reasoning "
-                                 "here. The other four kinds are statements about an "
+                                 "here. The other five kinds are statements about an "
                                  "absence and no card carries one. Two thirds of the "
                                  "people in scope stand on cards a reconstruction stage "
                                  "derives whole and compares byte for byte, which is why "
