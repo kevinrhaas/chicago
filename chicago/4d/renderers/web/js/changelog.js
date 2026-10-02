@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1307, ts: '2026-10-02T16:20:30.365Z', date: 'Oct 2, 2026, 11:20 AM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+    items: [
+      'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
+      'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
+      'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
+      'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
+    ] },
   { v: 1306, ts: '2026-10-02T14:47:42.799Z', date: 'Oct 2, 2026, 9:47 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
     items: [
       'Stand at the fort\u2019s south-west corner and look south. Beyond the factor\u2019s house, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
