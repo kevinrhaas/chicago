@@ -402,7 +402,12 @@ STRUCTURE_TICKETS = {
     # H3 on blk_washington_clark and closes first, so no cell stays on it; the South's cell
     # moves to T-1951 (the plan's H3s on the Dearborn and Market blocks, whose free lots are
     # all requested), the West's to T-1953 (on T-1414's ground) and the North's to T-1952.
-    ("south", "larger_boarding_houses"): "T-1951",
+    # T-1951 raised the three H3s the plan held on those two blocks when it was claimed
+    # (two on blk_washington_market, one on blk_washington_dearborn) and closes on them, so
+    # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
+    # schedule re-apportions to blk_washington_market once those three stand, the one on
+    # the gated blk_south_water_market, and three the plan holds no roof for at all.
+    ("south", "larger_boarding_houses"): "T-1957",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
