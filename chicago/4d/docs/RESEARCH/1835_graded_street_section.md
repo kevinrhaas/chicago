@@ -116,12 +116,40 @@ needs about four to eight columns, and that is the floor for this shape.
 |---|---|---|
 | Clark North, walker | 87 / 976,870 | 86 / 1,435,155 (within the 1,460,000 budget) |
 
-The other stands were shot before the ribbon fix. Their "after" triangle counts in
-`graded-street-section-proof/` overstate the shipped cost by about 170 k. On dev, Lake Street
-at the walker's eye was already at 1,448,717 and the town from 70 m at 1,589,954. A crowned
-section adds roughly a quarter of a million triangles wherever the town's streets are in view.
-**That is the open question this section leaves for the frame budget.** A cheaper ribbon
-(columns at the section's own breaks, or a flatter crown) is the lever.
+The other stands were shot before the ribbon fix, so their "after" triangle counts in
+`graded-street-section-proof/` overstate the shipped cost.
+
+**The layer was being paid for twice, and now it is not.** The street material is transparent
+and `DoubleSide`, and three draws that combination in two passes: back faces first, then front
+faces, so a closed shape's far wall can show through its near one. A ribbon draped on the
+ground has no far wall, so the second pass drew the same triangles again. On dev that was 59 k
+triangles held and 118 k drawn. On this branch it was 297 k held and 594 k drawn.
+`forceSinglePass` now draws the layer once. Read with `__chicago4d.stats()` after `goTo`,
+`full` detail, desktop, published mirror (frame triangles, with the street layer's share in
+brackets):
+
+| stand | dev | this branch, two passes | this branch, one pass |
+|---|---|---|---|
+| lake_at_canal | 1,507,558 (118,646) | 1,995,755 (594,840), one pass plus the second pass of the layer | 1,698,335 (297,420) |
+| lake_market | 1,255,820 (118,646) | — | 1,449,006 (297,420) |
+| forks | 1,487,593 (118,646) | — | 1,675,560 (297,420) |
+| from_above | 1,404,464 (118,646) | — | 1,598,892 (297,420) |
+
+These `goTo` stands are not the gate's stands. Dev reads over 1,460,000 at two of them, but its
+recorded desktop part 4 passes. The gate itself is T-0135's five-stand sweep in smoke desktop
+part 4, and **that part passes on this branch (28 of 28)**. The ribbon still costs about 179 k
+more than dev's wherever the streets are in view. If a later layer needs that room back, the
+lever is still a cheaper ribbon: columns at the section's own breaks, or a coarser ribbon past
+a reach.
+
+**One shared row per joint.** Across-first refinement let two neighbouring panels settle on
+different column counts. Their shared end row was then drawn as one edge on one side and as two
+on the other. The middle vertex of the two is rounded to float32, so the edges are not exactly
+collinear, and a hairline of ground showed between them. At a bend that hairline is the mitre
+row itself, and the smoke's wedge stations fell into it at west_water [−13.08, −302.6]. The
+coarser panel now takes the finer panel's row and zips the strip beside it. That adds 1 k
+triangles (296,367 → 297,420). Pinning every panel of a street to its finest column count would
+have added 75 k.
 
 ## Captures and critique
 
