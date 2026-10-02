@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1319, ts: '2026-10-02T19:32:37.875Z', date: 'Oct 2, 2026, 2:32 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
+  { v: 1320, ts: '2026-10-02T19:58:04.979Z', date: 'Oct 2, 2026, 2:58 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [
       'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
       'Twenty more say why no shop is owed them. Major Greene and Dr Maxwell served the garrison at the fort. The two sheriffs and two justices held public offices, not shops. A plasterer, a surveyor and a ship carpenter worked on other people\u2019s ground.',
       'Some were not at their post on the day. Two army officers are not placed at the fort, the Chicago post office was John Hogan\u2019s and not the two other postmasters\u2019, and Eliza Chappel\u2019s school had closed. Each card gives its reason.',
       'On the City card, working people owed a workplace drop from 230 to 205.',
+    ] },
+  { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+    items: [
+      'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
+      'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
+      'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
+      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L358).',
     ] },
   { v: 1318, ts: '2026-10-02T19:14:24.160Z', date: 'Oct 2, 2026, 2:14 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
     items: [
