@@ -66,6 +66,19 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
+## Rights rule widened (2026-10-02)
+
+The public-domain cutoff is now "published in the US 95+ years ago", which is 1930 or earlier as
+of 2026 (README rule 2; it rolls forward each January). The whole collection was re-checked for
+items published in 1929–1930:
+
+- **Qualified: one record.** `nps-1901-tribune-1929-10-27-crerar-mansion-torn-down` is now public
+  domain. It stays link-only as a text column.
+- **Not qualified, by evidence:**
+  - Undated photographs and website reproductions with no proven publication.
+  - The 2021 "1930" halftone, whose date is only a file-name guess.
+  - Houghton drawings and Chicago History Museum items, which follow their holders' terms.
+
 ## Image store status — LIVE (verified 2026-10-02)
 
 The bytes live in kevinrhaas/chicago-images (`prairie-1904/files/`: 824 files, 102.9 MB). Its Pages
