@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
+  { v: 1302, ts: '2026-10-02T13:43:30.780Z', date: 'Oct 2, 2026, 8:43 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
     items: [
       'Walk the back lots between Randolph and Washington, west of Clark. In the corner of each yard, by the alley fence, there is now a privy. A hundred and twenty-two houses gained one; the thirty-four that already had a privy keep theirs.',
       'The privy follows the house. A labourer\u2019s is a small box of rough slabs, a tradesman\u2019s a board privy, and a merchant\u2019s a wider two-seater, whitewashed. Its boards are as weathered as the house\u2019s own.',
