@@ -6084,6 +6084,20 @@ for (const [label, viewport, touch] of [
           faceWet: [faceL, faceR].every((p) => terrain.isWater(p[0], p[1])),
           bankY: Math.max(...[heelL, heelR].map((p) => terrain.surfaceHeight(p[0], p[1]))),
           depth: Math.min(...[faceL, faceR].map((p) => -terrain.surfaceHeight(p[0], p[1]))),
+          // The bank's crest behind the heel (T-1771): the highest ground in the
+          // four metres landward of the deck's middle, which is what "low" is
+          // asked against — a deck should meet its bank, not stand over it.
+          crestY: (() => {
+            const mid = [(heelL[0] + heelR[0]) / 2, (heelL[1] + heelR[1]) / 2];
+            const span = Math.hypot(faceL[0] - heelL[0], faceL[1] - heelL[1]) || 1;
+            const le = -(faceL[0] - heelL[0]) / span;
+            const ln = -(faceL[1] - heelL[1]) / span;
+            let best = -Infinity;
+            for (let v = 0.5; v <= 4; v += 0.5) {
+              best = Math.max(best, terrain.surfaceHeight(mid[0] + le * v, mid[1] + ln * v));
+            }
+            return best;
+          })(),
         };
       });
       // What the layer PUBLISHES to the walker, as against what it drew: one
@@ -6096,7 +6110,9 @@ for (const [label, viewport, touch] of [
         .filter((d) => d.id.endsWith('__wharf'))
         .every((d) => d.y === deckY.get(d.id));
       const stairCeiling = w?.records?.[0]?.form?.boarding_stair_rise_m?.value ?? null;
+      const freeboard = w?.records?.[0]?.form?.freeboard_m?.value ?? null;
       return {
+        freeboard,
         census: w?.census ?? null,
         decks,
         publishedMatchesDrawn,
@@ -6171,13 +6187,27 @@ for (const [label, viewport, touch] of [
     // The deck is neither floating over the bank nor drowned in the river, and
     // its crib reaches the bed under it — T-0001's finding, asked of a layer
     // that has no walk surface to catch it a second time.
+    // The floor is READ off the record (T-1771 lowered it from 0.90 to 0.35 m on
+    // the owner's ask for low docks), and pinned between 0.25 and 0.9 m so a
+    // record edited to put the planks in the river, or back up on a stair, is
+    // still caught here rather than agreed with.
     check(`${label}: no deck floats and every crib reaches the bed`,
-      docks.stands.every((s) => s.deckTop >= 0.9 - 1e-6 && s.deckTop >= s.bankY - 1e-6
+      docks.freeboard !== null && docks.freeboard >= 0.25 && docks.freeboard <= 0.9
+      && docks.stands.every((s) => s.deckTop >= docks.freeboard - 1e-6 && s.deckTop >= s.bankY - 1e-6
         && s.deckTop <= s.bankY + 1.0 && s.depth > 0.5)
         && docks.lowest !== null && docks.lowest < -0.5,
       docks.stands.map((s) => `${s.id} deck ${s.deckTop?.toFixed(2)} m over a bank at `
         + `${s.bankY?.toFixed(2)} m, ${s.depth?.toFixed(2)} m of water at the face`).join('; ')
-      + `; lowest vertex ${docks.lowest?.toFixed(2)} m`);
+      + `; lowest vertex ${docks.lowest?.toFixed(2)} m, floor ${docks.freeboard} m`);
+    // LOW DOCKS (T-1771, the owner's ask). Until it, the 0.90 m floor stood all
+    // five South Water decks about half a metre proud of a bank whose crest is
+    // 0.32-0.39 m over the water, each on a boarding stair. A deck meets its bank
+    // now: none stands more than 0.15 m above the crest behind it.
+    check(`${label}: every deck is low — it meets the bank crest behind it`,
+      docks.stands.length === 7
+        && docks.stands.every((s) => Number.isFinite(s.crestY) && s.deckTop - s.crestY <= 0.15),
+      docks.stands.map((s) => `${s.id} deck ${s.deckTop?.toFixed(2)} m, crest `
+        + `${s.crestY?.toFixed(2)} m`).join('; '));
 
     // --- and a visitor can walk out along one (T-0058) ---------------------
     //
@@ -6190,18 +6220,20 @@ for (const [label, viewport, touch] of [
     //
     // That alone does not buy boarding, which is the half of this ticket that is
     // easy to declare done and is not. The deck top is the ground's, floored at
-    // the record's 0.90 m freeboard over the water, and this terrain puts the
-    // bank at these seven heels between 0.12 and 0.58 m — a 0.32 to 0.78 m riser
-    // against the walker's 0.35 m step-up rule, which refuses six of the seven.
-    // So the layer draws a boarding stair and the bar here is the WALK, not the
-    // publication: start on the ground behind each dock, push forward, and be
-    // standing on the planks over the water at the far end having been refused
-    // nothing on the way.
+    // the record's freeboard over the water. Under the old 0.90 m floor this
+    // terrain put the bank at the seven heels between 0.12 and 0.58 m, a 0.32 to
+    // 0.78 m riser against the walker's 0.35 m step-up rule, so the layer drew a
+    // boarding stair at every dock. Under T-1771's 0.35 m floor a deck meets its
+    // bank and the stair takes no tread anywhere the terrain does not ask for one
+    // — which is why this no longer counts stairs, and why the bar is still the
+    // WALK, not the publication: start on the ground behind each dock, push
+    // forward, and be standing on the planks over the water at the far end having
+    // been refused nothing on the way.
     check(`${label}: every plank a wharf drew is published to the walker at the height it drew it`,
       docks.decks.length === 7 + (docks.census?.treads ?? -1)
         && docks.publishedMatchesDrawn
         && docks.decks.every((d) => d.pts === 4)
-        && docks.census?.stairs === 7,
+        && docks.stands.every((s) => s.treads !== null),
       `${docks.decks.length} walk surface(s) for 7 deck(s) and `
       + `${docks.census?.treads} tread(s) on ${docks.census?.stairs} stair(s), `
       + `heights ${docks.publishedMatchesDrawn ? 'match' : 'DISAGREE WITH'} the drawn slabs`);
@@ -6383,6 +6415,76 @@ for (const [label, viewport, touch] of [
       floors.wharves.decks > 0 && floors.wharves.rootable === 0 && floors.wharves.speciesHits === 0,
       `${floors.wharves.decks} deck(s), ${floors.wharves.rootable} rootable, `
         + `${floors.wharves.speciesHits} of ${floors.wharves.speciesAsked} species stations granted`);
+
+    // --- the working bank (T-1771) ---------------------------------------
+    //
+    // South Water's river side as trodden earth, a haul apron behind every
+    // landing and the sward left to the unworn patches. Derived at load from
+    // the record, the street and the decks just checked, so it is asked here of
+    // the scene the browser built and not of the record: that it was laid, that
+    // it is one draw call and graded reconstructed at every vertex, that every
+    // dock got an apron and the five on South Water reach the street, that the
+    // planters are told to leave an apron bare, and that it stays off the bank
+    // across the river, which no landing works.
+    const bank = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const wb = a.workingBank;
+      const mesh = wb?.group?.children?.[0] ?? null;
+      const conf = mesh?.geometry?.getAttribute('_confidence') ?? null;
+      let notReconstructed = 0;
+      for (let i = 0; i < (conf?.count ?? 0); i++) if (conf.getX(i) !== 1) notReconstructed++;
+      const apronProbe = (wb?.aprons ?? []).map((ap) => {
+        // Two metres landward of the deck's heel, on its centreline.
+        const e = ap.mid[0] + ap.le * 2;
+        const n = ap.mid[1] + ap.ln * 2;
+        return { id: ap.id, wear: wb.wearAt(e, n), sward: wb.blocksGrowth(e, n),
+          trees: wb.blocksTrees(e, n), toStreet: ap.toStreet };
+      });
+      return {
+        stats: wb?.stats ?? null,
+        meshes: wb?.group?.children?.length ?? 0,
+        hasConfidence: !!conf,
+        notReconstructed,
+        apronProbe,
+        // The North Division bank across the river from Jones's landing.
+        across: wb ? wb.wearAt(365, 116) : null,
+        acrossTrees: wb ? wb.blocksTrees(365, 116) : null,
+      };
+    });
+    check(`${label}: the working bank is laid along South Water and behind every landing`,
+      bank.stats?.drawn === true && bank.stats.triangles > 0 && bank.stats.reaches === 1
+        && bank.stats.columns > 600 && bank.stats.aprons === 7
+        && bank.apronProbe.filter((p) => p.toStreet).length === 5,
+      `${bank.stats?.triangles} triangle(s), ${bank.stats?.columns} bank column(s), `
+        + `${bank.stats?.aprons} apron(s), `
+        + `${bank.apronProbe.filter((p) => p.toStreet).length} running back to the street`);
+    check(`${label}: the working bank is one draw call, reconstructed at every vertex`,
+      bank.meshes === 1 && bank.hasConfidence && bank.notReconstructed === 0,
+      `${bank.meshes} mesh(es), attribute ${bank.hasConfidence ? 'present' : 'MISSING'}, `
+        + `${bank.notReconstructed} vertex/vertices claiming better than reconstructed`);
+    check(`${label}: every landing's apron is bare earth with no tree, and the far bank is left alone`,
+      bank.apronProbe.length === 7
+        && bank.apronProbe.every((p) => p.wear >= 0.99 && p.trees === true)
+        && bank.across === 0 && bank.acrossTrees === false,
+      bank.apronProbe.map((p) => `${p.id} wear ${p.wear.toFixed(2)} trees `
+        + `${p.trees ? 'cleared' : 'STANDING'}`).join('; ')
+        + `; across the river wear ${bank.across}`);
+    // AND IT READS, from the street looking across the bank at Carpenter's
+    // landing, held clock, with and without the layer.
+    await page.evaluate(() => { window.__chicago4d.setAnimationHold(false); });
+    await page.evaluate(() => window.__chicago4d.walker.teleport(
+      { local_e: 372, local_n: 9, yaw_deg: 8, pitch_deg: -9 }));
+    await page.waitForTimeout(350);
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    const bankWith = await page.evaluate(() => window.__chicago4d.capture());
+    await page.evaluate(() => { window.__chicago4d.workingBank.group.visible = false; });
+    const bankWithout = await page.evaluate(() => window.__chicago4d.capture());
+    await page.evaluate(() => { window.__chicago4d.workingBank.group.visible = true; });
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    const dBank = signatureDistance(bankWith, bankWithout);
+    check(`${label}: the working bank changes what a visitor sees from South Water`,
+      dBank.worst >= 6 && dBank.mean >= 0.3,
+      `signature distance worst ${dBank.worst?.toFixed(1)}, mean ${dBank.mean?.toFixed(2)}`);
 
     // --- the boats on the river (T-0063) ---------------------------------
     //

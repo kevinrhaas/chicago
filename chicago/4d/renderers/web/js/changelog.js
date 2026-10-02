@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1288, ts: '2026-10-02T06:16:33.519Z', date: 'Oct 2, 2026, 1:16 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
+    items: [
+      'Stand on South Water Street and look toward the river. The bank between the street and the water is now trodden earth, darkening to mud at the water\u2019s edge. Grass survives only in a few untrodden patches, and no willows or reeds stand along it.',
+      'The five South Water docks now sit low, level with the bank behind them, instead of on a raised platform reached by steps. You walk straight from the street, across bare earth, onto the planks.',
+      'Behind every dock a bare earth path runs back to the street, worn by carts and barrows. The two docks on the North Branch and at Wolf Point have one too, cut down their higher bank.',
+      'The banks across the river, which no dock works, keep their grass and trees.',
+      'All of this is our reconstruction. No 1835 source describes the bank\u2019s surface or a dock\u2019s height. The Liberties page says what we chose and why (L345).',
+    ] },
   { v: 1287, ts: '2026-10-02T04:27:28.754Z', date: 'Oct 1, 2026, 11:27 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
       'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',

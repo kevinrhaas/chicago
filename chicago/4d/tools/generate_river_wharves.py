@@ -128,7 +128,7 @@ FACE_OUT_M = 6.0        # how far the deck's face stands beyond the traced bank
 HEEL_IN_M = 2.0         # how far its landward edge ties back into the bank
 APRON_M = 3.0           # how far it runs past the building it serves, each way
 DECK_T_M = 0.14         # the plank deck's thickness
-FREEBOARD_M = 0.90      # the least the deck top may stand above the water plane
+FREEBOARD_M = 0.35      # the least the deck top may stand above the water plane (T-1771)
 POST_SIDE_M = 0.22      # a snubbing post, square
 POST_HEIGHT_M = 0.75    # and how far it stands proud of the deck
 STAIR_WIDTH_M = 2.4     # the boarding stair at the landward edge, across
@@ -900,12 +900,20 @@ def record(wharves: list, refused: list, banks: list) -> dict:
                     "sampled from the terrain by the renderer — the bridge deck's "
                     "lesson (T-0001), where a height authored beside the mesh "
                     "instead of taken from it put a walker 1.8 m over the planks. "
-                    "Where the bank is lower than 0.90 m above the water plane, "
-                    "which it is at both of these sites, the deck holds 0.90 m "
-                    "instead: a working deck stands clear of its own river, and "
-                    "this project's water surface is a summer-1835 mean with no "
-                    "stage record behind it (data/datum.json § vertical). Nothing "
-                    "attests the figure."
+                    "Where the bank is lower than 0.35 m above the water plane "
+                    "the deck holds 0.35 m instead. LOWERED FROM 0.90 m BY T-1771, "
+                    "on the owner's 2026-09-30 ask for LOW docks: the committed "
+                    "heightfield puts the South Water bank's crest 0.32-0.39 m "
+                    "over the water at all five South Water landings, so a 0.90 m "
+                    "floor stood every one of those decks about half a metre proud "
+                    "of its own bank, on a boarding stair. At 0.35 m a deck is "
+                    "flush with the crest it ties into and a barrow rolls off the "
+                    "worn bank onto the planks. On the higher North Branch and "
+                    "Wolf Point banks (1.0-1.1 m) the ground wins, as before. This "
+                    "project's water surface is a summer-1835 mean with no stage "
+                    "record behind it (data/datum.json § vertical), so a spring "
+                    "freshet over these decks is not ruled out by anything here. "
+                    "Nothing attests the figure (docs/LIBERTIES.md L343)."
                 ),
             },
             "crib_width_m": {
@@ -949,11 +957,14 @@ def record(wharves: list, refused: list, banks: list) -> dict:
                 "note": (
                     "INVENTED (T-0058, docs/LIBERTIES.md). The deck top is a FLOOR "
                     "and the freeboard figure above is a floor over the water, so "
-                    "at every one of these sites the planks stand proud of the "
-                    "bank they tie into \u2014 measured from the committed "
-                    "heightfield at load, between 0.3 and 0.8 m of it. Something "
-                    "got a man from the ground onto the deck and no source says "
-                    "what. A stair of plank treads is the least of the "
+                    "where the bank at the heel is lower than that floor the planks "
+                    "stand proud of it. Under the 0.90 m floor that was every site, "
+                    "by 0.3 to 0.8 m; under T-1771's 0.35 m floor it is a few "
+                    "centimetres at most, which the walker steps without a tread, "
+                    "and the stair is drawn only where the terrain at load still "
+                    "asks for one. Something has to get a man from the ground onto "
+                    "a deck that stands proud and no source says what. A stair of "
+                    "plank treads is the least of the "
                     "possibilities: it invents timber this layer already draws "
                     "rather than regrading the bank, which would be a claim about "
                     "the LAND. 2.4 m across is a two-man width with a barrel "

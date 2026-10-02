@@ -1,0 +1,54 @@
+{
+  "_doc": "THE WORKING BANK (T-1771): which river bank in 1835 Chicago is worked earth rather than sward, and how worn. AUTHORED, NOT GENERATED, unlike river_landings.json beside it: it states a rule and the figures the rule is drawn with, and renderers/web/js/working-bank.js derives the ground from them at load against the committed heightfield, the street record and the drawn wharves — so where the waterline or the street moves, the worked band moves with it and nothing here goes stale. The owner's ask, 2026-09-30: South Water's river work areas should be worn dirt, with low docks, smaller landings and ramps between river and street; grass survives mainly in unworn patches. EVERY FIGURE BELOW IS RECONSTRUCTED. No source in this project draws the surface of any Chicago river bank in 1835, maps where it was trodden, or states its colour. What bounds the reconstruction: (1) the town's own committed evidence — the South Water merchants' stores face the street from its south side and their river landings (T-0062) and the two forwarding docks (T-0041) cross the bank to the water, so the bank between was where every barrel landed was carried; (2) the owner's four comparative views (St Louis Front Street 1840, Detroit Jefferson Avenue 1837, Cincinnati Fourth Street 1835 twice), which are ANALOGUES and are not cited as evidence of Chicago: the St Louis levee shows a broad bare earth bank falling to low landings at the water; (3) the ground-strip proof's tones (T-1797, renderers/web/js/ground-strip.js), which this layer takes over unchanged rather than inventing a second dirt. docs/LIBERTIES.md L345 is the liberty.",
+  "id": "working_bank",
+  "kind": "working_bank",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "ticket": "T-1771",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the frame of river_landings.json. The water surface is Z = 0.",
+  "confidence": "reconstructed",
+  "sources": [],
+  "reaches": [
+    {
+      "id": "south_water_river_side",
+      "name": "South Water Street's river side, from the forks toward the fort",
+      "street": "south_water",
+      "side": "north",
+      "e_m": [140, 800],
+      "taper_m": 25,
+      "from_worked_edge_m": -1.5,
+      "max_depth_m": 40,
+      "wear": 0.9,
+      "note": "RECONSTRUCTED. The ground between South Water Street's worked edge and the river, from E 140 (the forks, below Newberry & Dole's wharf) to E 800 (past the platted end, where the south-bank sheds stand), is the town's working bank: the street is its principal business street, every store on it faces the river across it, and five of the seven drawn landings tie into this bank. The band is read at load column by column: from 1.5 m inside the street's worked edge (so the street's packed earth and the bank's run on without a strip of sward between them) north to the first wet sample of the committed heightfield, never further than 40 m, and nowhere the street line itself stands in water (the slip at E ~470). Its ends taper over 25 m rather than stopping on a line nobody drew. 0.9 is the wear away from a landing: the bank reads as trodden earth with a few stems standing, and the grass the owner described survives in the unworn patches (`grass_patches`), which this figure does not reach."
+    }
+  ],
+  "landings": {
+    "apron_widen_m": 2.0,
+    "apron_landward_m": 14,
+    "to_street": "south_water",
+    "wear": 1.0,
+    "feather_m": 1.5,
+    "note": "RECONSTRUCTED. At every drawn wharf (river_landings.json, all seven) the ground from the deck's landward edge back toward the town is a haul apron worn bare: as wide as the deck where it meets it and 2 m wider each side at its far end, where carts and barrows fan out. On South Water it runs back to the street's worked edge, which is the ramp the owner asked for. Measured on the committed heightfield (T-1771), the ground along all five South Water aprons lies between 0.22 and 0.45 m over the water and is nowhere steeper than 1 in 52 over the 2.5 m lattice, and each deck's landward sill stands 0.10-0.13 m above the earth at its edge; so the ramp there is that worn earth and no timber is invented for it. At the two docks off South Water (Kinzie & Hunter's on the North Branch bank and Robert A. Kinzie's at Wolf Point), where no street record reaches the bank, it runs 14 m landward, which is past both warehouses' river walls (10.3 and 11.3 m back). There the deck stands at its heel's own ground, 0.58 and 0.52 m, below a 1.0-1.1 m bank, and the apron climbs the bank face to the crest at about 1 in 6 to 1 in 7: an earth ramp cut down the bank, steep for a loaded cart and ordinary for a barrow or a man with a sack. Nothing attests its gradient; it is the bank's own. Nothing attests any apron's shape; it is bounded by the deck it serves and the street or wall it leads to."
+  },
+  "grass_patches": {
+    "survive_above": 0.66,
+    "fade_m": 0.22,
+    "patch_keeps": 0.8,
+    "never_on_aprons": true,
+    "note": "RECONSTRUCTED. Where the bank is not an apron, sward survives in patches of a few metres wherever a seeded field the renderer and the planter both compute (working-bank.js `patchField`, the same expression in JavaScript and in the shader) rises above 0.66, and a patch keeps four fifths of the sward's own density, not all of it: it is trodden round, not fenced. That leaves under a fifth of the non-apron bank grassed (measured over the band's box: 0.268 of it at a 0.62 threshold, which read as a continuous fringe from walking height, so the threshold was raised). In the river at the worked bank's foot (4 m out, and under and off every deck) no reed is spared at all. Nothing measures how much grass survived on a working bank in July 1835; the figure is chosen so the owner's 'grass survives mainly in unworn patches' reads at walking distance."
+  },
+  "trees": {
+    "cleared_above_wear": 0.35,
+    "note": "RECONSTRUCTED. No tree stands where the worn band's wear exceeds 0.35 — the whole South Water working bank and every landing apron. Until T-1771 the riverbank willows (trees.js `gallery_edge`) stood on the South Water bank from the forks to Wells Street; a willow on an active dock approach is the thing the ask names. The willows on the North Division and West Division banks, which no landing works, are untouched: an undeveloped bank keeps its vegetation."
+  },
+  "wetness": {
+    "mud_below_m": [0.08, 0.3],
+    "note": "RECONSTRUCTED. The worn earth darkens to mud over the last 0.30 m above the water plane and is fully mud below 0.08 m — the bank's foot where the river laps it and the low spots of the haul ground. The same wetness the terrain's own shader keys on height (terrain.js `chiWet`), narrowed to the bank's own few decimetres of relief."
+  },
+  "tones": {
+    "earth_trodden": [116, 103, 83],
+    "earth_rest": [98, 86, 66],
+    "mud": [64, 56, 44],
+    "note": "RECONSTRUCTED, sRGB 0-255. The ground-strip proof's tones (T-1797): its bank soil [98, 86, 66] for the less-trodden ground, its street-lane dirt [126, 112, 91] darkened a little for a damper bank where the traffic is heaviest, and a mud near the library's wet_prairie_muck mean. No source states the colour of Chicago's river bank."
+  }
+}
