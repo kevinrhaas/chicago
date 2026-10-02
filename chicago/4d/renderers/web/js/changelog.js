@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1311, ts: '2026-10-02T16:51:56.139Z', date: 'Oct 2, 2026, 11:51 AM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
+  { v: null, ts: '', title: 'The Light setting fits a slower machine again', kind: 'polish',
     items: [
       'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
       'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
       'Full and Balanced are unchanged.',
+    ] },
+  { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
+    items: [
+      'Open Evidence, then City: a third panel now shows how close the town is to complete, as four checks. Every household has a home; every working person has a workplace; every business has a roof or a stated reason it has none; every standing roof has somebody in it or a use.',
+      'One check is closed today: every business. The other three show what is still owed. 523 households are waiting on a roof, 308 working people have no workplace yet, and 24 roofs stand empty.',
+      'A bar under the checks shows how much of the town rests on each kind of evidence. Of the 1,508 households with a home, 18 % are attested, 38 % inferred and 43 % reconstructed.',
+      'The full tables, by tier, for people, households, businesses, roofs and streets are in docs/RESEARCH/1835_town_completion.md, written from the same counts.',
     ] },
   { v: 1310, ts: '2026-10-02T15:48:39.825Z', date: 'Oct 2, 2026, 10:48 AM CT', title: 'The fort\u2019s barn, shop and wash house now say whose they were', kind: 'change',
     items: [
