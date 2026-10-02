@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
+  { v: 1325, ts: '2026-10-02T21:26:09.398Z', date: 'Oct 2, 2026, 4:26 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
     items: [
       'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter, now works there. Louis Bertrand keeps the narrow warehouse at the forks, and Silas Bacon, a grocer, keeps the two-storey store on Lake Street.',
       'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L360).',
