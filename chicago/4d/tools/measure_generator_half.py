@@ -373,13 +373,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # on `blk_indiana_north_cass` and a stable and a privy behind it — three more meshes on
 # the same terms; terrain reach still 4 and pier_crib still 2.
 #
+# 531 -> 534 and 527 -> 530 on 2026-10-02 (T-1950, of T-1810): the third H3 boarding house on
+# `blk_washington_clark`, on the Washington-and-Clark corner, and its stable and privy —
+# three more meshes on the same terms; terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 531,
+    "assets": 534,
     "restales": {
-        "generators/common/*.py": 531,
+        "generators/common/*.py": 534,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 527,
+        "generators/emit.py": 530,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

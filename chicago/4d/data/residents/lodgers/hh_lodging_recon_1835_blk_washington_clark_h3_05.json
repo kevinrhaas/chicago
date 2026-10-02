@@ -11,19 +11,17 @@
   "place": "recon_1835_blk_washington_clark_h3_05",
   "place_name": "Reconstructed H3 boarding house #05",
   "class": "boarding_house",
-  "beds_ordinary": 11,
-  "beds_crowded": 25,
+  "beds_ordinary": 10,
+  "beds_crowded": 24,
   "on_the_house_before_this_stage": 0,
   "seated_from_the_layer": [
-   "derocher_jean_baptiste",
-   "glaumbake_frank",
-   "laird_william",
-   "roberts_edmund",
-   "ulrich_nicholas",
-   "rc_stiles_abigail",
+   "goodrich_john",
+   "latzky_john",
+   "schwartz_adam",
+   "wright_robert_c",
    "beaubien_mark"
   ],
-  "minted_here": 4,
+  "minted_here": 5,
   "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
   "withdrawn_if": "a re-cut lodging model that gives this house a smaller ordinary-night figure, or sources naming the people who actually lodged here; the retirement runs through --build, never by hand",
   "note": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
@@ -53,7 +51,7 @@
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 25 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 10 people in this house on an ordinary night and 24 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
   "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:lives_at",
   "replaceable_by": {
@@ -126,7 +124,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/10_19/south/lodging/none",
-    "note": "The book's bucket persons/male/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 11."
+    "note": "The book's bucket persons/male/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 10."
    },
    "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:male:10_19:001:forename",
    "replaceable_by": {
@@ -145,7 +143,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 10 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_ingalls_ezra",
@@ -191,7 +189,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/20_29/south/lodging/none",
-    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 11."
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 10."
    },
    "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:male:20_29:002:forename",
    "replaceable_by": {
@@ -210,7 +208,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 10 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_quinn_michael",
@@ -256,7 +254,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/20_29/south/lodging/none",
-    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 11."
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 10."
    },
    "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:male:20_29:003:forename",
    "replaceable_by": {
@@ -275,7 +273,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 10 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_wadsworth_orrin",
@@ -321,7 +319,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/30_39/south/lodging/none",
-    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 11."
+    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 10."
    },
    "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:male:30_39:004:forename",
    "replaceable_by": {
@@ -340,7 +338,72 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 10 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_barnes_reuben",
+   "name": "Reuben Barnes",
+   "relationship": "boarder",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is 40_49; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:male:40_49:005:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "name_basis": {
+    "value": "Reuben Barnes",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:male:40_49:005:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real person who lodged in this house"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/40_49/south/lodging/none",
+    "note": "The book's bucket persons/male/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_05's, from the lodging model's ordinary-night figure of 10."
+   },
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:male:40_49:005:forename",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a person who lodged in this house, who would take this bed instead"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_lodger",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 10 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

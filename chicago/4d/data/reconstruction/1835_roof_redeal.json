@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 402,
-    "keep": 401,
+    "audited": 405,
+    "keep": 404,
     "refamily": 1,
     "retire": 0,
     "kept_occupied": 4,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 0,
     "roof_target": 668,
-    "standing_before": 512,
-    "standing_after": 512,
-    "short_of_the_programme_before": 156,
-    "short_of_the_programme_after": 156
+    "standing_before": 515,
+    "standing_after": 515,
+    "short_of_the_programme_before": 153,
+    "short_of_the_programme_after": 153
   },
   "ledger": [
     {
@@ -45,11 +45,11 @@
       "group": "barns_stables",
       "division": "south",
       "target": 35,
-      "standing": 28,
-      "anonymous": 21,
-      "head_before": 7,
-      "standing_after": 28,
-      "head_after": 7
+      "standing": 29,
+      "anonymous": 22,
+      "head_before": 6,
+      "standing_after": 29,
+      "head_after": 6
     },
     {
       "bucket": "structures/barns_stables/west",
@@ -166,11 +166,11 @@
       "group": "larger_boarding_houses",
       "division": "south",
       "target": 28,
-      "standing": 19,
-      "anonymous": 18,
-      "head_before": 9,
-      "standing_after": 19,
-      "head_after": 9
+      "standing": 20,
+      "anonymous": 19,
+      "head_before": 8,
+      "standing_after": 20,
+      "head_after": 8
     },
     {
       "bucket": "structures/larger_boarding_houses/west",
@@ -232,11 +232,11 @@
       "group": "small_outbuildings",
       "division": "south",
       "target": 48,
-      "standing": 38,
-      "anonymous": 37,
-      "head_before": 10,
-      "standing_after": 38,
-      "head_after": 10
+      "standing": 39,
+      "anonymous": 38,
+      "head_before": 9,
+      "standing_after": 39,
+      "head_after": 9
     },
     {
       "bucket": "structures/small_outbuildings/west",
@@ -3763,6 +3763,24 @@
       "reason": "the order book has an occupant class for a A1 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_washington_clark_a1_12",
+      "division": "south",
+      "family": "A1",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_washington_clark_fourth_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 348.5,
+      "street": "clark",
+      "street_class": "ordinary",
+      "setback_m": 15.63,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/south",
+      "reason": "the order book has an occupant class for a A1 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_washington_clark_a3_03",
       "division": "south",
       "family": "A3",
@@ -3810,6 +3828,24 @@
       "street": "dearborn",
       "street_class": "ordinary",
       "setback_m": 5.03,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/south",
+      "reason": "the order book has an occupant class for a A3 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_a3_13",
+      "division": "south",
+      "family": "A3",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clark_fourth_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 31.7,
+      "street": "clark",
+      "street_class": "ordinary",
+      "setback_m": 5.01,
       "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",
@@ -3897,6 +3933,24 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 1560.2,
+      "street": "washington",
+      "street_class": "light",
+      "setback_m": 1.54,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/larger_boarding_houses/south",
+      "reason": "the order book has an occupant class for a H3 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_h3_11",
+      "division": "south",
+      "family": "H3",
+      "group": "larger_boarding_houses",
+      "programme_phase": "phase3_platted_block_washington_clark_fourth_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 1572.7,
       "street": "washington",
       "street_class": "light",
       "setback_m": 1.54,

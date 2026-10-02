@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1290, ts: '2026-10-02T07:20:12.819Z', date: 'Oct 2, 2026, 2:20 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
+  { v: 1292, ts: '2026-10-02T08:10:58.826Z', date: 'Oct 2, 2026, 3:10 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
     items: [
       'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
       'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
       'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
-      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L345) says how it was bounded.',
+      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L346) says how it was bounded.',
+    ] },
+  { v: 1291, ts: '2026-10-02T07:48:06.046Z', date: 'Oct 2, 2026, 2:48 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+    items: [
+      'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
+      'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
+      'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
+      'The town is still filling up. A family that had asked for this corner now has a lot on another block along Washington Street.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L345) says how each was placed and sized.',
+    ] },
+  { v: 1290, ts: '2026-10-02T07:00:31.882Z', date: 'Oct 2, 2026, 2:00 AM CT', title: 'Board crossings now rest on the street instead of sinking into it', kind: 'fix',
+    items: [
+      'Since the streets were lowered, the board crossings step down into each street and back up. On those slopes the ends of some crossing boards were buried up to a hand\u2019s width in the dirt. Look at the crossings on Washington, Randolph and South Water Street.',
+      'Each crossing is now cut into shorter boards where the ground slopes, and each board rests on its own patch of ground. Where it slopes across the crossing, the boards step with it. Nothing is buried, and level crossings are unchanged.',
     ] },
   { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [

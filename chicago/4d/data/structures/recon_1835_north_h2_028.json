@@ -163,11 +163,11 @@
     },
     "capacity": {
       "beds_ordinary": 10,
-      "beds_crowded": 23,
+      "beds_crowded": 22,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_north_h2_028]",
       "sizes": {
-        "upper_windows": "ceil(23 crowded beds / 3 to a chamber) = 8, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 8, then to the 7 sashes a front of 8.88 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
+        "upper_windows": "ceil(22 crowded beds / 3 to a chamber) = 8, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 8, then to the 7 sashes a front of 8.88 m carries at 1.15 m a bay: 7 across the upper storey of the front and of the rear",
         "stovepipes": "ceil(10 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
         "chimneys": "not sized by the beds: the two brick stacks are the household's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }

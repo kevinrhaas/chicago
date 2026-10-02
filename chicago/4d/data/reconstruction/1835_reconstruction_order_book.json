@@ -1342,7 +1342,7 @@
     },
     {
       "ticket": "T-1371",
-      "records": 113,
+      "records": 121,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
@@ -1363,6 +1363,7 @@
         "persons/female/40_49/south/lodging/none",
         "persons/male/10_19/north/lodging/trade",
         "persons/male/10_19/south/lodging/none",
+        "persons/male/10_19/south/lodging/trade",
         "persons/male/10_19/west/lodging/trade",
         "persons/male/20_29/north/lodging/none",
         "persons/male/20_29/north/lodging/trade",
@@ -1372,16 +1373,19 @@
         "persons/male/30_39/south/lodging/none",
         "persons/male/30_39/west/lodging/none",
         "persons/male/40_49/north/lodging/none",
+        "persons/male/40_49/south/lodging/none",
         "persons/male/40_49/west/lodging/none",
         "persons/male/50_plus/north/lodging/none"
       ]
     },
     {
       "ticket": "T-1533",
-      "records": 16,
+      "records": 20,
       "buckets": [
         "persons/female/under_10/north/lodging/none",
+        "persons/female/under_10/south/lodging/none",
         "persons/male/under_10/north/lodging/none",
+        "persons/male/under_10/south/lodging/none",
         "persons/male/under_10/west/lodging/none"
       ]
     },
@@ -1447,17 +1451,17 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 528,
-    "roofs_to_build": 156,
+    "roofs_standing": 531,
+    "roofs_to_build": 153,
     "persons_standing": 2381,
-    "persons_still_owed": 274,
-    "persons_when_the_book_is_filled": 2655,
+    "persons_still_owed": 263,
+    "persons_when_the_book_is_filled": 2644,
     "persons_target_range": [
       2362,
       3265
     ],
     "households_standing": 217,
-    "households_still_owed": 420
+    "households_still_owed": 419
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1466,13 +1470,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1478,
-    "seated": 255,
-    "still_owed": 1223,
+    "seated": 254,
+    "still_owed": 1224,
     "roofs_adopted": 222,
-    "slots_requested": 33,
-    "roofs_standing": 528,
-    "roofs_standing_unseated": 306,
-    "share_of_standing_roofs_seated": 0.4205,
+    "slots_requested": 32,
+    "roofs_standing": 531,
+    "roofs_standing_unseated": 309,
+    "share_of_standing_roofs_seated": 0.4181,
     "passes": [
       {
         "key": "platted",
@@ -1481,23 +1485,23 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1478,
-        "seated": 183,
-        "handed_on": 1295,
+        "seated": 182,
+        "handed_on": 1296,
         "roofs_adopted": 150,
-        "slots_requested": 33,
-        "roofs_offered_for_adoption": 154,
+        "slots_requested": 32,
+        "roofs_offered_for_adoption": 155,
         "roofs_held_back": 55,
-        "ground_taken": 165,
+        "ground_taken": 164,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 21,
-          "south": 134,
+          "south": 133,
           "west": 28
         },
         "by_clause": {
           "labourer_dwellings": 35,
           "lodging_near_the_landings": 2,
-          "merchant_and_professional_dwellings": 36,
+          "merchant_and_professional_dwellings": 35,
           "tradesman_dwellings": 110
         }
       },
@@ -1507,9 +1511,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1295,
+        "rows_offered": 1296,
         "seated": 72,
-        "handed_on": 1223,
+        "handed_on": 1224,
         "roofs_adopted": 72,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 72,
@@ -1565,8 +1569,8 @@
         "name": "The Beaubien household — a name the town's own records carry",
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_washington_clark",
-        "lot_id": "blk_washington_clark#00",
+        "block_id": "blk_washington_dearborn",
+        "lot_id": "blk_washington_dearborn#06",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1576,7 +1580,7 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#06",
+        "lot_id": "blk_washington_dearborn#00",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1586,7 +1590,7 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#00",
+        "lot_id": "blk_washington_dearborn#04",
         "family": "H1",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1596,7 +1600,7 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#04",
+        "lot_id": "blk_washington_dearborn#02",
         "family": "H2",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1617,8 +1621,8 @@
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_market",
         "lot_id": "blk_washington_market#00",
-        "family": "D7",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "H1",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_benton_datas_e",
@@ -1627,16 +1631,6 @@
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_market",
         "lot_id": "blk_washington_market#04",
-        "family": "H1",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_berger_f_c",
-        "name": "The Berger household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_washington_market",
-        "lot_id": "blk_washington_market#02",
         "family": "H2",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1806,7 +1800,7 @@
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#02",
+        "lot_id": "blk_washington_dearborn#07",
         "family": "D4",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1815,10 +1809,10 @@
         "name": "The Chattin household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
-        "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#07",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "block_id": "blk_washington_market",
+        "lot_id": "blk_washington_market#05",
+        "family": "D3",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_chevalier_joseph",
@@ -1826,7 +1820,7 @@
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_market",
-        "lot_id": "blk_washington_market#05",
+        "lot_id": "blk_washington_market#03",
         "family": "D3",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1836,9 +1830,9 @@
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_washington_market",
-        "lot_id": "blk_washington_market#03",
-        "family": "D3",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "lot_id": "blk_washington_market#02",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_clarke_h_b",
@@ -1869,8 +1863,8 @@
       "blk_washington_market",
       "blk_west_lake_canal"
     ],
-    "what_the_slots_wait_on": "33 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,223 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_the_slots_wait_on": "32 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_is_left": "1,224 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -1888,14 +1882,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2381,
-      "persons_still_owed": 274,
-      "converges_to": 2655,
+      "persons_still_owed": 263,
+      "converges_to": 2644,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 274 still owed is 2,655, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 112 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,381 standing plus 263 still owed is 2,644, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 101 above the model's 2,543 point, and that surplus is the 396 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -3110,10 +3104,10 @@
           "known_attested": 8,
           "known_inferred": 18,
           "to_reconstruct": 20,
-          "filled": 11,
+          "filled": 13,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 0,
+          "drawn_here": 2,
           "refamilied_in": 11
         },
         {
@@ -3247,7 +3241,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 7,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 3,
@@ -3475,7 +3469,7 @@
           "known_attested": 8,
           "known_inferred": 19,
           "to_reconstruct": 22,
-          "filled": 20,
+          "filled": 22,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3550,7 +3544,7 @@
           "known_attested": 3,
           "known_inferred": 7,
           "to_reconstruct": 8,
-          "filled": 5,
+          "filled": 6,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3698,7 +3692,7 @@
           "known_attested": 5,
           "known_inferred": 11,
           "to_reconstruct": 13,
-          "filled": 10,
+          "filled": 12,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3923,7 +3917,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 3,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4292,10 +4286,10 @@
           "known_attested": 9,
           "known_inferred": 21,
           "to_reconstruct": 22,
-          "filled": 17,
+          "filled": 19,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 0,
+          "drawn_here": 2,
           "refamilied_in": 17
         },
         {
@@ -4412,7 +4406,7 @@
           "target": 41,
           "known": 7,
           "to_reconstruct": 34,
-          "filled": 3,
+          "filled": 4,
           "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the south division"
         },
@@ -5043,11 +5037,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 528,
+        "standing_records": 531,
         "standing_with_an_occupant": 169,
-        "standing_without_an_occupant": 359,
-        "to_build_total": 156,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 359 of the 528 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 362,
+        "to_build_total": 153,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 362 of the 531 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5057,13 +5051,13 @@
             "division": "south"
           },
           "target": 35,
-          "standing": 28,
-          "to_build": 7,
+          "standing": 29,
+          "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 7 of them to build"
+          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 6 of them to build"
         },
         {
           "key": "structures/barns_stables/west",
@@ -5228,13 +5222,13 @@
             "division": "south"
           },
           "target": 28,
-          "standing": 19,
-          "to_build": 9,
+          "standing": 20,
+          "to_build": 8,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1951",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 9 of them to build"
+          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 8 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/west",
@@ -5322,13 +5316,13 @@
             "division": "south"
           },
           "target": 48,
-          "standing": 38,
-          "to_build": 10,
+          "standing": 39,
+          "to_build": 9,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 10 of them to build"
+          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 9 of them to build"
         },
         {
           "key": "structures/small_outbuildings/west",
@@ -5582,9 +5576,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 116,
-        "roofs_gated_on_coverage": 40,
-        "statement": "116 of the 156 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 40 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 111,
+        "roofs_gated_on_coverage": 42,
+        "statement": "111 of the 153 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 42 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5964,7 +5958,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "359 of 528 standing records carry no occupants block."
+      "measured_now": "362 of 531 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
@@ -6013,6 +6007,265 @@
       "stage": "stores_and_provisions",
       "records": 2,
       "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 8,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/west/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 5,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/west/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 12,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 22,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 12,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/50_plus/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/north/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/south/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 7,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/south/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/west/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/boarding_house/north",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/boarding_house/south",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/boarding_house/west",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/inn_tavern/north",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/inn_tavern/south",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/inn_tavern/west",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "households/institutional/south",
@@ -6510,237 +6763,6 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/north/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/north/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 8,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/west/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 5,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/north/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/west/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 12,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/north/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 20,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 5,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 6,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 10,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/40_49/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/40_49/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/50_plus/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/north/lodging/none",
-      "ticket": "T-1533",
-      "stage": "lodgers",
-      "records": 6,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/north/lodging/none",
-      "ticket": "T-1533",
-      "stage": "lodgers",
-      "records": 7,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/west/lodging/none",
-      "ticket": "T-1533",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/boarding_house/north",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 6,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/boarding_house/south",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/boarding_house/west",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/inn_tavern/north",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/inn_tavern/south",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 6,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/inn_tavern/west",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
     }
   ],
   "re_family_ledger": {
@@ -9092,11 +9114,11 @@
       "buckets_refused": 45,
       "people_held": 396,
       "people_still_held": 396,
-      "open_headroom_in_person_buckets": 274,
+      "open_headroom_in_person_buckets": 263,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 274,
+      "still_owed_now": 263,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }

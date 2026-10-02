@@ -1,7 +1,7 @@
 # Signboards to the photographic benchmark — the review (T-1836)
 
 Piece 3 of 3 of T-1213. The boards' wording, mounting and colourways are T-1834/T-1835's and
-are untouched; this piece changes what the boards are MADE of. Liberty **L345**.
+are untouched; this piece changes what the boards are MADE of. Liberty **L346**.
 
 ## What was wrong (the "before" frames)
 
