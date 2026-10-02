@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1311, ts: '2026-10-02T16:33:37.188Z', date: 'Oct 2, 2026, 11:33 AM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
+    items: [
+      'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
+      'Billy Caldwell\u2019s agency log house and the Clybourne cabins say a source names who used them, but the seat is not proven. Caldwell had two houses and nobody can say which he slept in. The cabins stand some miles from where the family really lived.',
+      'The old U.S. Factor\u2019s House and Miller House say that no source places anyone in them in July 1835. Every occupant we know of is from an earlier year.',
+      'Each card\u2019s evidence gives the full reasoning and its grade. Nobody has been invented to fill these ten roofs.',
+    ] },
   { v: 1310, ts: '2026-10-02T15:48:39.825Z', date: 'Oct 2, 2026, 10:48 AM CT', title: 'The fort\u2019s barn, shop and wash house now say whose they were', kind: 'change',
     items: [
       'Open the card of a Fort Dearborn outbuilding: the big barn, the wash house, the shop, the store house, a root house or one of the two out buildings. A new line, Part of, names the fort it served. The garrison that used them is listed on the stockade\u2019s card.',

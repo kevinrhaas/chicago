@@ -27,7 +27,7 @@
     },
     "working_age_persons_owed_a_workplace": 308,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 24,
+    "structures_empty_owing_somebody": 14,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -128,24 +128,19 @@
     "use_stated": {
       "camp_ground": 3,
       "civic_or_works": 18,
+      "occupancy_unattested": 2,
+      "occupant_named_seat_refused": 2,
       "outbuilding_of_a_yard": 96,
       "part_of_an_establishment": 15,
+      "storage_operator_unrecorded": 6,
       "vacant_to_let": 1
     },
     "empty_owing_somebody": {
-      "dwelling": 5,
-      "house_of_trade": 9,
+      "dwelling": 1,
+      "house_of_trade": 3,
       "outbuilding_naming_no_yard": 10
     },
     "empty": [
-      "caldwell_agency_log_house",
-      "clybourn_cabins",
-      "fort_dearborn_us_factors_house",
-      "miller_house",
-      "north_bank_shed_dearborn_e1",
-      "north_bank_shed_dearborn_e2",
-      "north_bank_shed_dearborn_e3",
-      "north_bank_shed_dearborn_w",
       "recon_1835_blk_west_randolph_des_plaines_w2_01",
       "recon_1835_forks_freight_f2_001",
       "recon_1835_north_a1_047",
@@ -159,9 +154,7 @@
       "recon_1835_west_024",
       "recon_1835_west_025",
       "recon_1835_west_053",
-      "recon_1835_west_055",
-      "south_bank_shed_dearborn_e1",
-      "south_bank_shed_dearborn_e2"
+      "recon_1835_west_055"
     ]
   },
   "dangling": []
