@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1287, ts: '2026-10-02T05:24:23.170Z', date: 'Oct 2, 2026, 12:24 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+    items: [
+      'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
+      'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
+      'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
+      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L345).',
+    ] },
   { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
     items: [
       'Walk down Dearborn to Washington Street. The two boarding houses there now hang boards reading MARK BEAUBIEN\u2019S and SWEET\u2019S, Boarding House beneath.',

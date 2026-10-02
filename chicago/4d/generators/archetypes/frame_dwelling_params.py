@@ -157,7 +157,7 @@ DEFAULT_GLAZING = "12_over_12_6x8"
 # balloon frame (0.19 m on a braced one), a 0.20 m frieze and no crown. `boxed` widens
 # the board and runs a crown board under the eaves, standing proud of the frieze; the
 # frieze itself cannot deepen, because the upper sash heads rise to 0.28 m under the
-# plate. `scant` narrows the board and the frieze. Dealt by class (docs/LIBERTIES.md L344).
+# plate. `scant` narrows the board and the frieze. Dealt by class (docs/LIBERTIES.md L345).
 TRIMS = {"scant": (-0.03, 0.14, 0.0), "plain": (0.0, 0.20, 0.0),
          "boxed": (0.07, 0.20, 0.075)}
 CROWN_M = 0.09
@@ -165,7 +165,7 @@ DEFAULT_TRIM = "plain"
 # T-1839 — how many corbelled courses finish a stack's head. `corbel` is the one course
 # every frame_dwelling stack has always carried; it is the head the 1835 by-law census
 # measured (docs/RESEARCH/chimneys.md §7), and `double_corbel` adds a second course
-# ABOVE it, so no stack is lowered. Dealt by class (L344). The brick is not dealt.
+# ABOVE it, so no stack is lowered. Dealt by class (L345). The brick is not dealt.
 CHIMNEY_HEADS = {"plain": 0, "corbel": 1, "double_corbel": 2}
 DEFAULT_CHIMNEY_HEAD = "corbel"
 INCH_M = 0.0254
