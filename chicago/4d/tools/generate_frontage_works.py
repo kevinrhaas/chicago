@@ -4441,7 +4441,14 @@ def street_edge_record(walks: list, fences: list, posts: list, fittings: list,
                 "refuses a post (T-1052's clause 3, overruled by T-1211's 'every "
                 "business face … attested, inferred, reconstructed'), and every post "
                 "and fitting carries `trade_confidence` so the card says which trades "
-                "the evidence holds. Every refusal "
+                "the evidence holds. BEYOND THE COVERED STREETS A FACE IS LAID "
+                "FRONTS-ONLY (T-1823): a business that stands on the block, faces the "
+                f"face within {EDGE_HITCH_FACE_TOL_DEG:.0f} deg and stands within "
+                f"{EDGE_FRONT_DEPTH_M:.0f} m of its lot line takes its walk, posts and "
+                "fittings over its own frontage and half a march step past each end "
+                f"(and one more clear step where that is under {EDGE_MIN_RUN_M} m), "
+                "and nothing is laid between businesses or behind a street fence. "
+                "Every refusal "
                 "below names the clause that refused it. Read them in "
                 "tools/generate_frontage_works.py."
             ),
@@ -4456,6 +4463,9 @@ def street_edge_record(walks: list, fences: list, posts: list, fittings: list,
             "decked_walks": census["decked_walks"],
             "decked_walk_m": _round(census["decked_m"], 1),
             "bare_fronts": census["bare_fronts"],
+            "fronts_only_faces": census["front_faces"],
+            "fronts_only_runs": census["front_runs"],
+            "fronts_only_walk_m": _round(census["front_walk_m"], 1),
         },
         "card": {
             "id": STREET_EDGE_ID,

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1290, ts: '2026-10-02T07:39:11.798Z', date: 'Oct 2, 2026, 2:39 AM CT', title: 'Plank walks in front of the West Side\u2019s shops and hotel', kind: 'change',
+    items: [
+      'Cross the river on Randolph Street to Canal. The Western Hotel now has a plank walk along its front, with two hitching posts and a mounting block. A board crossing over Canal Street joins it to the Randolph walk.',
+      'Four more West Side businesses have walks too: a store on Lake Street, a store on Clinton, a grocer on Fulton and the freight house on West Water. The freight house\u2019s walk is a wide deck with a heavy plank apron for wagons.',
+      'The smithy on Lake and the joiner\u2019s shop on Randolph front bare, trodden ground, as the smith on the east side of the river does.',
+      'Only the business fronts get boards. The houses between them keep their grass verge, because a walk was something a business paid to lay. Where each walk goes and how wide it is are our reconstruction, and the Liberties page says so (L160).',
+    ] },
   { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [
       'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
