@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1292, ts: '2026-10-02T08:10:58.826Z', date: 'Oct 2, 2026, 3:10 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
+  { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
     items: [
       'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
       'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
       'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
       'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L346) says how it was bounded.',
+    ] },
+  { v: 1292, ts: '2026-10-02T08:03:58.613Z', date: 'Oct 2, 2026, 3:03 AM CT', title: 'Plank walks in front of the West Side\u2019s shops and hotel', kind: 'change',
+    items: [
+      'Cross the river on Randolph Street to Canal. The Western Hotel now has a plank walk along its front, with two hitching posts and a mounting block. A board crossing over Canal Street joins it to the Randolph walk.',
+      'Four more West Side businesses have walks too: a store on Lake Street, a store on Clinton, a grocer on Fulton and the freight house on West Water. The freight house\u2019s walk is a wide deck with a heavy plank apron for wagons.',
+      'The smithy on Lake and the joiner\u2019s shop on Randolph front bare, trodden ground, as the smith on the east side of the river does.',
+      'Only the business fronts get boards. The houses between them keep their grass verge, because a walk was something a business paid to lay. Where each walk goes and how wide it is are our reconstruction, and the Liberties page says so (L160).',
     ] },
   { v: 1291, ts: '2026-10-02T07:48:06.046Z', date: 'Oct 2, 2026, 2:48 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
     items: [
