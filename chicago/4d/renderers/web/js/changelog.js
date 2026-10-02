@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
+    items: [
+      'Walk down Dearborn to Washington Street. The two boarding houses there now hang boards reading MARK BEAUBIEN\u2019S and SWEET\u2019S, Boarding House beneath.',
+      'Tap either house. Its card names the keeper who lives there, Mark Beaubien or Alanson Sweet: two tavern keepers the town plan had already placed on these lots. Before, each house also had a keeper we made up, so two families answered for one roof.',
+      'The two made-up keepers, Cornelius Lynch and Alvah Stebbins, are gone, along with the six children drawn for them. The boarders in both houses are unchanged.',
+      'This is our reconstruction. No source puts either man in either house on 1 July 1835, and his own card still says where he was is not known (liberties L318 and L326).',
+    ] },
   { v: 1285, ts: '2026-10-02T03:12:17.655Z', date: 'Oct 1, 2026, 10:12 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
     items: [
       'Look at any frame house in the town. Its windows used to be plain dark rectangles. Now each one shows its wooden sash: the frame, the rail where the two halves meet, and the thin bars between the panes of glass.',

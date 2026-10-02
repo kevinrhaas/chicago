@@ -54,7 +54,7 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | persons graded `inferred` | 875 | 992 | +117 |
 | persons graded `reconstructed` | 3 | 979 | +976 |
 | 1835 sidecar files | 391 | 532 | +141 |
-| people in the 1835 people sidecar | 1288 | 3340 | +2052 |
+| people in the 1835 people sidecar | 1288 | 3332 | +2044 |
 | buildings standing in the town census | 371 | 509 | +138 |
 | people housed in the town census | 34 | 183 | +149 |
 | households housed in the town census | 20 | 33 | +13 |

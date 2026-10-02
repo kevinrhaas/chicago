@@ -22,7 +22,7 @@ It is an adjudication over committed derived files — no page of any source is 
 | `recorded_town_count_november_1835` | **3,265** | Andreas prints the November 1835 town census as 3,265 people in 398 dwellings. Four months after the scene, so a ceiling on 1 July and never its population. |
 | `recorded_state_count_september_to_december_1835` | **3,297** | The Illinois State census returns 3,297 for Chicago. Two to five months after the scene, and a second ceiling that disagrees with the first by 32. |
 | `population_on_1_july_1835` | **2,362 – 3,265** (point reading **2,543**) | CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 44.2% of the 1,404 people the layer carries give an arrival year of 1835, so about 1,444 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,543, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does. |
-| `people_the_layer_can_name` | **1,404** | The resident layer carries 1,404 people — 412 attested, 992 inferred, 1,629 reconstructed. A count of the layer, not of the town. |
+| `people_the_layer_can_name` | **1,404** | The resident layer carries 1,404 people — 412 attested, 992 inferred, 1,621 reconstructed. A count of the layer, not of the town. |
 | `males_per_100_females` | **120.9 – 150** (point reading **146.8**) | The 1840 city returns 120.9 overall and 146.8 among those aged 20 and over. 1835 is five years earlier and rawer — more single men and fewer families — so the 1840 ratio is a FLOOR and the 1840 adult ratio is inside the range, not at the top of it. |
 | `share_under_ten` | **0.2 – 0.2702** | Children under ten are 27.0% of the 1840 city. A town with a higher adult sex ratio carries proportionally fewer of them, so 1840 is the CEILING here and the floor is set one fifth below it. |
 
@@ -40,7 +40,7 @@ It is an adjudication over committed derived files — no page of any source is 
 
 ### known by presence
 
-- **present** — 2806
+- **present** — 2798
 - **absent** — 73
 - **uncertain** — 154
 
@@ -56,7 +56,7 @@ It is an adjudication over committed derived files — no page of any source is 
 | Figure | Reading | Method |
 | --- | ---: | --- |
 | `census_classes_compared` | **17** | 17 of the 20 classes the T-1006 crosswalk holds carry both a printed census line and a register count; the other 3 are a class the census never printed a line for, or a line the town holds nothing for. |
-| `establishments_in_the_compared_classes` | **118 – 130** | The register holds 130 records at the scene date across the compared classes and the census counted 118 two to five months later. The low end is what the town can name and the high end is what the census counted, and the difference is growth plus what no notice advertised. |
+| `establishments_in_the_compared_classes` | **118 – 128** | The register holds 128 records at the scene date across the compared classes and the census counted 118 two to five months later. The low end is what the town can name and the high end is what the census counted, and the difference is growth plus what no notice advertised. |
 | `classes_short_of_the_census` | **9** | 9 compared classes hold fewer records than the census counted, 19 establishments short in total — of which 2 are houses the register names with an opening announced AFTER the scene date, so that much of the gap is already accounted for; 6 hold more, which is the register counting NOTICES where the census counted houses. |
 | `employed_persons` | **425 – 588** | The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster. |
 | `people_the_layer_gives_a_trade` | **138 – 328** | 138 people carry a role that reaches 1 July 1835; 328 carry any role at all, and 190 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill. |
@@ -80,9 +80,9 @@ It is an adjudication over committed derived files — no page of any source is 
 | printing_office | two printing offices | 2 | 2 | 0 | town_matches_census | 0 |
 | iron_foundry | one iron foundry | 1 | 2 | 1 | town_holds_more_than_the_census_counted | 0 |
 | steam_saw_mill | one steam saw-mill | 1 | 2 | 1 | town_holds_more_than_the_census_counted | 0 |
+| tavern | eight taverns | 8 | 9 | 1 | town_holds_more_than_the_census_counted | 0 |
 | tin_and_copper_manufactory | two tin and copper manufactories | 2 | 4 | 2 | town_holds_more_than_the_census_counted | 0 |
 | storage_and_forwarding | four storage and forwarding houses | 4 | 7 | 3 | town_holds_more_than_the_census_counted | 0 |
-| tavern | eight taverns | 8 | 11 | 3 | town_holds_more_than_the_census_counted | 0 |
 | store | forty-four stores (dry goods, hardware and groceries) | 44 | 65 | 21 | town_holds_more_than_the_census_counted | 0 |
 - **date caution** — THE COUNT IS NOT OF THE SCENE. It was taken between 1 September and December 1835; the scene is 1 July 1835, two to five months earlier and in the fastest-growing months the town had. A class where the town holds fewer than the census counted is NOT thereby a hole in the July town — some of those forty-four stores opened in September. Every figure below is to be read with that gap in front of it.
 - **unit** — establishment records at the scene date against the printed census line
@@ -168,7 +168,7 @@ It is an adjudication over committed derived files — no page of any source is 
 | Figure | Reading | Method |
 | --- | ---: | --- |
 | `larger_boarding_houses` | **42** | The authored programme schedules 42 across the three divisions (28 south, 6 west, 8 north). |
-| `inns_and_taverns` | **11** | The programme schedules 10 inns and taverns; the State census counted 8 taverns two to five months later and the business layer holds 11 at the scene date. The three units are a roof, a licence and a printed notice, and they are not the same thing counted three ways. THE LAYER'S COUNT MAY EXCEED BOTH OTHERS AND THE CEILING FOLLOWS IT (T-1404): the census's figure is a count of LICENCES taken months after the scene, and the town's named public houses — the Sauganash, the Exchange, the Tremont, the Mansion House, the Steamboat, the Western, Wolf Point — are houses the papers never advertised and the licence roll never separated. A licence count cannot cap a house count, so the ceiling is whichever of the three reads highest. T-1196 owns re-cutting the roof programme against it. |
+| `inns_and_taverns` | **9 – 10** | The programme schedules 10 inns and taverns; the State census counted 8 taverns two to five months later and the business layer holds 9 at the scene date. The three units are a roof, a licence and a printed notice, and they are not the same thing counted three ways. THE LAYER'S COUNT MAY EXCEED BOTH OTHERS AND THE CEILING FOLLOWS IT (T-1404): the census's figure is a count of LICENCES taken months after the scene, and the town's named public houses — the Sauganash, the Exchange, the Tremont, the Mansion House, the Steamboat, the Western, Wolf Point — are houses the papers never advertised and the licence roll never separated. A licence count cannot cap a house count, so the ceiling is whichever of the three reads highest. T-1196 owns re-cutting the roof programme against it. |
 | `people_in_lodging_places` | **468 – 1,232** | 42 boarding houses and 10 inns, filled from the 1840 household tail: the low end puts every one at p90 (9 people), the high end at p99 (21) for the boarding houses and the observed maximum (35) for the inns. That tail IS lodging — it is what a household of twenty-one people in a lake port was. |
 | `share_of_the_town_in_lodging` | **0.143 – 0.377** | The lodged range against the ceiling population of 3,265: between 14% and 38% of a boom-year port living in somebody else's house, which is the shape the adult sex ratio already implies. It is also the single figure most likely to be wrong in this model, because it multiplies an authored roof count by a borrowed capacity and neither end is measured. |
 | `institutional_and_public_roofs` | **9 – 19** | 9 institutional or public roofs outside the fort and 10 principal roofs inside it. The census's five churches, seven schools, one bank, one lottery office and a lyceum are counted in December and several of them met in rooms rather than in buildings of their own. |

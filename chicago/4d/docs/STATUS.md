@@ -1,3 +1,50 @@
+## T-1808 — the boarding houses' books: the Washington-tier keepers settled (2026-10-02)
+
+Piece 3 of 3 of T-1780 (of T-1209). Closes T-1779's keeper seam on the two Washington-tier
+H3 houses.
+
+**The seam.** The platted deal seats `hh_beaubien_mark` on `recon_1835_blk_washington_clark_h3_05`
+and `hh_sweet_alanson` on `_h3_06` under `lodging_near_the_landings`. `seat_lodgers_1835.py` read
+keepers only off a card's `works_at`, so it also drew `rc_lynch_cornelius` and `rc_stebbins_alvah`
+for the two roofs. Two households answered for each house.
+
+**The close: option (a).** The lodgers stage now reads an adoption under a keeper clause as
+that house's keeper (refusal 6). Each man's head takes the keeper's bed as a seat
+(`relationship: keeper`) that writes nothing into his research card. Option (b), refusing a banded
+keeper the lodging roof, would loop: the slot it re-seated him to would raise a roof that this same
+stage would keep from him again.
+
+- Retired: the 2 drawn keepers and their 6 children. Every boarder is unchanged.
+  L252 goes from 116 in 19 cards to **108 in 19**. Seats from the layer go 54 → 56.
+- Firms: `rcb_beaubien_boarding_house` and `rcb_sweet_boarding_house` replace Lynch's and
+  Stebbins's. That leaves 35 houses of trade, unmoved.
+- The keepers' unplaced in-window firms (`biz_*_tavern_keeper`) are retired by
+  `complete_inwindow_trades.py`, because each man now holds a workplace. Each house keeps its
+  keeper's census class, `tavern`. Reconstructed firms are counted apart from known ones, so
+  the layer's scene-date taverns read **9** (was 11; the census's 8 is still met). The order
+  book's `inns_and_taverns` row now restates the programme (10) instead of disagreeing with it,
+  and its statement says so.
+- The boards now read MARK BEAUBIEN'S and SWEET'S, Boarding House. On the card each man
+  "keeps this house".
+- The order book owes 276 (was 268). These are the 8 lodging-cell slots the retired people
+  filled, now open for T-1950..T-1953's keepers.
+- T-1810 was split mid-run (T-1950..T-1953). The book's three `larger_boarding_houses` cells
+  move to T-1951 (south), T-1952 (north) and T-1953 (west), so no work order names a split ticket.
+
+**The frame budget, read on the published tree** (`measure_detail_ceilings.mjs --only desktop`,
+`docs/measurements/t-1808-detail-ceilings-desktop.json`): **all three tiers read over** —
+full 1,516,064 against 1,460,000 (Lake at Canal), balanced 1,330,437 against 1,280,000,
+light 885,296 against 825,000 (the forks). This PR moves no geometry and bakes nothing; only
+two boards' lettering changes. So the over-reading is the tree's own, not this diff's. It is
+handed on, not raised here: AGENTS.md's frame-budget rule says take the number before the next
+parcel deals.
+
+**The boarding-house row:** `docs/evidence/t-1808-boarding-houses-washington-dearborn-desktop.png`.
+It looks south-west from Dearborn and Washington at Sweet's house, with Beaubien's gable behind.
+
+**Handed on to T-1214** (the camps, the band's next build): the remaining H3 houses are on
+T-1950..T-1953, and the frame-budget over-reading above.
+
 # T-1830 — Glessner west roof and recessed north entrance — 2026-10-01
 
 Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through cffaef54. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
