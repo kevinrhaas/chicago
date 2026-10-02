@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1290, ts: '2026-10-02T07:20:12.819Z', date: 'Oct 2, 2026, 2:20 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
+    items: [
+      'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
+      'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
+      'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
+      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L345) says how it was bounded.',
+    ] },
   { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [
       'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',

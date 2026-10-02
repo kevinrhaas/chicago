@@ -19082,3 +19082,38 @@ substitutes for a compatible anonymous roof and never increases the total.
 platted deal), **L318** (the form), **L326** (the yard mix), **L252** (the lodgers), **T-1952**
 (this deal, a piece of **T-1810**).
 **Recorded:** 2026-10-02.
+
+### L345 — The signboards' wood: grain through the paint, the joints between boards, and the wear
+
+**Applies to:** every board, painted band and piece of hanging carpentry drawn by
+`renderers/web/js/signage.js` — the whole of `data/signage/town_business_signboards.json`.
+
+**What we invented:** what the boards are made of and how a season has used them. The grain is
+the vendored library's (`signboard_weathered` under the paint, `heavy_timber_weathered` in the
+arms, straps, posts, caps and hoods), both deterministic procedural synthesis, neither a
+photograph of any Chicago board. Everything laid over that grain is ours: how much of it a coat of
+paint lets through (0.55 of a soft-light blend; bare boards and carpentry 0.95), that a hung board
+is edge-joined from boards about 0.25 m wide with each joint moved up to an eighth of a board off
+even spacing, the paint worn back to the library's own weathered tone (155/137/105) in chips
+along the edges — weighted to the bottom edge, then the top, then the ends and corners — and in a
+scatter of flakes over the face that takes the lettering with it, a grime gradient over the
+board's lowest quarter, and a roughness of 0.62 for paint against 0.88 for bare timber. Each
+board's wear is seeded from its structure id, so no two boards wear alike and every board wears
+the same way on every load.
+
+**Why:** the owner set photographic quality as the standard (T-1769, 2026-09-30), and a flat
+colour panel with a crisp computer letter is the opposite of it. Nothing records the condition of
+any 1835 Chicago signboard, so the condition is reconstructed and bounded to read as a board in
+use, not a derelict one: the flakes cover a few per cent of a face and the edge chips reach at
+most 5 cm in.
+
+**Consequence:** every board in the town shows wood under its paint and wear at its edges. That
+is a claim about the kind of thing a painted board on a frontier street was, not about any board.
+A visitor who hides `reconstructed` still hides the whole layer, as before (L158, L159).
+
+**How to resolve:** a description or image of a particular 1830s Chicago board's condition
+replaces the seeded wear on that board.
+
+**Related:** **L158**, **L159**, **L340**, **L341**, **T-1213** (parent), **T-1769**, **T-1795**,
+**T-1836**.
+**Recorded:** 2026-10-02 (T-1836).
