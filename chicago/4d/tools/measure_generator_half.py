@@ -377,13 +377,18 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # `blk_washington_clark`, on the Washington-and-Clark corner, and its stable and privy —
 # three more meshes on the same terms; terrain reach still 4 and pier_crib still 2.
 #
+# 534 -> 543 and 530 -> 539 on 2026-10-02 (T-1951, of T-1810): the South's last three planned
+# H3 boarding houses, two on `blk_washington_market` and one on `blk_washington_dearborn`,
+# each with its stable and privy — nine more meshes on the same terms; terrain reach still 4
+# and pier_crib still 2.
+#
 STATED = {
-    "assets": 534,
+    "assets": 543,
     "restales": {
-        "generators/common/*.py": 534,
+        "generators/common/*.py": 543,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 530,
+        "generators/emit.py": 539,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

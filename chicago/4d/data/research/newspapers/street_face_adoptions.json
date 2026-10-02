@@ -148,34 +148,34 @@
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
     "faces_with_two_or_more_free_roofs": 18,
-    "free_roof_places": 132,
+    "free_roof_places": 134,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2403,
+      "re_families_tried": 2445,
       "places_changed": 2773,
       "worst_single_re_family": 8,
-      "changed_nothing": 1414
+      "changed_nothing": 1456
      },
      "deal_order": {
-      "re_families_tried": 2403,
+      "re_families_tried": 2445,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2403
+      "changed_nothing": 2445
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 2085,
+      "re_families_tried": 2111,
       "places_changed": 2641,
       "worst_single_re_family": 8,
-      "changed_nothing": 1179
+      "changed_nothing": 1205
      },
      "deal_order": {
-      "re_families_tried": 2085,
-      "places_changed": 12826,
+      "re_families_tried": 2111,
+      "places_changed": 13203,
       "worst_single_re_family": 19,
       "changed_nothing": 205
      }

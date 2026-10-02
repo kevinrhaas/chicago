@@ -1,22 +1,22 @@
 ## T-1959 — a woodpile at every dwelling, by the yard-by-household rule (2026-10-02)
 
-**What a visitor sees.** Behind 295 of the town's 296 dwellings, a woodpile against the back wall
-(274) or, where the back is taken, a side wall (21). It is a slab heap at a shanty (26), unsplit
+**What a visitor sees.** Behind 298 of the town's 299 dwellings, a woodpile against the back wall
+(269) or, where the back is taken, a side wall (29). It is a slab heap at a shanty (26), unsplit
 logs on skids and a chopping block at a log cabin (41), one rick of stove wood at a tradesman's
 cottage (130) or one or two at a larger house (54), and one or two bought cords at a merchant's
-house (29) or two or three at an inn, tavern or boarding house (15). Each pile is dealt its own
+house (29) or two or three at an inn, tavern or boarding house (18). Each pile is dealt its own
 length, height, worked-off end and wood (fresh, seasoned, silvered). One house is refused in
 writing because the ground behind it is wet.
 
 **The rule** is `tools/yard_rule_1835.py`, printed in `data/reconstruction/1835_placement_policy.json`
-under `yard`: the household class is the fabric rule's (247 roofs), else a resident household's
+under `yard`: the household class is the fabric rule's (250 roofs), else a resident household's
 trade (10), a reconstruction's occupation (14), a keeper's by function (6), or a tradesman's by
 default (18, said so on the record); the house is the roof's own family. Wells, privies, stables
 (T-1960) and trade goods (T-1961) are the columns still to write. `generate_woodpiles.py --check`
-and the rule's `--self-test` are in `check.sh`. L349 claims the invention; the fact of household
+and the rule's `--self-test` are in `check.sh`. L350 claims the invention; the fact of household
 firewood is `inferred` from the 1835 price current.
 
-**Frame cost, measured on the published mirror, desktop, `full`.** The yard layer goes from 63,032
+**Frame cost, measured on the published mirror, desktop, `full`, at 295 piles (before #266 added three boarding houses and with them three more).** The yard layer goes from 63,032
 to 97,969 triangles. At Lake Street at Canal (part 5's worst stand) the same frame reads 1,563,306
 triangles and 210 calls without the woodpile record and 1,611,977 and 214 with it: +48,671 and +4.
 **Dev was already over the 1,460,000 `full` ceiling there by 103,306 before this PR**, and dev's own
