@@ -28,7 +28,53 @@ figures it reads off the lodging model and the order book (`roof_draw`, `ROOF_TR
 
 Who is owed and who is not is a SEEDED DRAW over person and trade (`rank_key`), and each block
 carries its `draw` (rank of 38, against 26 roofs): nothing in the layer orders them, and the block
-says so. Owed a workplace **105 → 93** (after T-1996); placed at work unchanged at 433.
+says so. Owed a workplace **48 → 36** (after T-2000); placed at work unchanged at 375.
+
+## T-2000 — 57 drawn mechanics set against the American's twenty-five shops; Mulford's hold named (2026-10-02)
+
+Piece 1 of 2 of T-1998 (→ T-1992 → T-1982 → T-1966 → T-1215). **57** reconstructed heads read
+`keeps_their_own_house` with no house at a trade whose census class is `other` (20 carpenters,
+12 milliners, 9 builders, 4 smiths, 2 each of masons, carriage makers, coopers and butchers, a
+hatter, a confectioner, a painter, a dressmaker). The December census never counted those
+trades, so the order book cannot order their houses and no bucket could ever say none is owed.
+The ONE printed count of their premises is the *Chicago American* of 15 August 1835 (quoted by
+Andreas): "twenty-five mechanics' shops of all kinds", which docs/RESEARCH/business-layer.md
+(T-1185) already rules the bound on the TOTAL, never a row. `tools/employment_coverage_1835.py`
+now reads which trades that count covers from the premises rulings themselves (every basis
+citing "one of the twenty-five mechanics' shops the Chicago American counted", plus T-1185's
+works trades: smiths, butchers, tanners, saddlers), counts the register's **printed** houses of
+those trades trading on 1 July 1835 (**45**; no inferred or reconstructed house counts toward
+it), and, at or above 25, answers the drawn head with the new reason
+`the_mechanics_shops_are_over_their_count`, with no house owed. That applies ONLY to a
+reconstructed person, as T-1996 rules: a documented man is ruled on by name. Gated four ways in
+`verify` and fired in `--self-test` (17 assertions).
+
+**E. H. Mulford**, the attested watchmaker T-1996 handed on, is answered by the hold the premises
+ruling already carries (`identity_holds` → `mulford_one_letter`, T-1007): raising his own shop
+would split him from J. H. Mulford by arithmetic, and seating him at J. H.'s counter would merge
+them the same way. He now reads `held_on_an_identity_question` and **stays counted owed**
+(the completion audit lists that reason as owed) until the question is answered.
+
+**What it moved downstream, all by `--build` and none by hand.** The 57 had been held
+`R_adopted` by the re-family rule (T-1558), on an employment "adoption" that named no house.
+Freed, they stand on movable rungs (758 movable, was fewer), but the rule's yield is bounded by
+ROOM, not by people: it stays at **139**, all already spent by T-1996's ten and the 129 before
+them, so `reconstruct_trade_households.py` writes no card and no household moves. The rule's
+roster, the programme report and the book's record of it re-derive; the housing deal does not
+move. (Built first on the tree before T-1996 landed, the same freeing spent the ten moves on
+carpenters' households instead; re-run on the merged tree it settles where T-1996 left it.)
+
+Owed a workplace **105 → 48** (T-1996 left 105). **Moved, and said here so nobody reads it as a
+regression:** the layer's "placed at work" figure falls 433 → 375, further below the town
+model's 425–588 `employed_persons` band, because the 57 move from `on_their_own_account` to
+`at_a_trade_with_no_house_to_join`. They are at work; the layer cannot say in whose shop. The
+residents summary already reads `inside_the_band` from the join (T-1996) and says so.
+
+**Not done, and owned:** T-2001 (3 refectory keepers, 2 auctioneers (one attested, John
+Bates Jr.), a miller, a brickmaker, a soap and candle maker: trades with neither a census line
+nor a count of shops, plus the physician whose bucket T-1529 is blocked on), T-1997 (38
+boarding-house keepers).
+
 
 ## T-1996 — the printed count already held: 37 drawn heads told no house is owed (2026-10-02)
 

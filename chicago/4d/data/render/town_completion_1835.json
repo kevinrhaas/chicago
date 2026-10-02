@@ -26,7 +26,7 @@
       "absent_on_the_scene_date": 29,
       "waiting_on_a_roof": 523
     },
-    "working_age_persons_owed_a_workplace": 93,
+    "working_age_persons_owed_a_workplace": 36,
     "businesses_neither_roofed_nor_stated": 0,
     "structures_empty_owing_somebody": 5,
     "dangling_ids": 0,
@@ -82,12 +82,12 @@
     "stated_no_fixed_premises": {
       "attested": 20,
       "inferred": 0,
-      "reconstructed": 259
+      "reconstructed": 316
     },
     "owed": {
       "attested": 2,
       "inferred": 0,
-      "reconstructed": 91
+      "reconstructed": 34
     },
     "no_trade_recorded": {
       "attested": 232,
@@ -95,7 +95,8 @@
       "reconstructed": 213
     },
     "owed_by_reason": {
-      "keeps_their_own_house": 93
+      "held_on_an_identity_question": 1,
+      "keeps_their_own_house": 35
     }
   },
   "roofed": {
@@ -256,7 +257,7 @@
     {
       "join": "at_work",
       "label": "Every working person at a workplace",
-      "open": 93,
+      "open": 36,
       "what_keeps_it_open": "working people owed a workplace"
     },
     {

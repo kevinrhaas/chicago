@@ -112,9 +112,14 @@ WORK_STATED = {"no_employer_named",           # the trade kept no premises: stat
                "class_full_none_owed",         # the class's count is met (T-1995)
                "roofs_kept_none_owed",         # every boarding roof kept or owed (T-1997)
                # T-1996: a drawn head whose class the census counts and the book holds
-               "the_printed_count_is_held"}
+               "the_printed_count_is_held",
+               # T-2000: an uncounted mechanic trade, the American's 25 shops already held
+               "the_mechanics_shops_are_over_their_count"}
+# T-2000: an identity hold is not a gap the register owes and not a ruling that none is;
+# it is an open question, so it stays counted owed under its own name until answered.
 WORK_OWED = {"class_held_no_house", "trade_attested_no_house_named",
-             "no_ruling_on_the_trade", "keeps_their_own_house"}
+             "no_ruling_on_the_trade", "keeps_their_own_house",
+             "held_on_an_identity_question"}
 
 
 def load(path: Path):
