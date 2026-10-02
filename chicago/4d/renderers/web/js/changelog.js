@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1281, ts: '2026-10-02T01:00:41.586Z', date: 'Oct 1, 2026, 8:00 PM CT', title: 'Twelve boarding houses and shops hang their own signboards', kind: 'change',
+    items: [
+      'Walk the north side and you can now pick out its boarding houses from the road. Five of them hang a painted board under a hood, on a bracket or on a post: BARDWELL\u2019S, BARNES\u2019S, NEWELL\u2019S and two more, with Boarding House beneath.',
+      'On Canal Street the two grocers hang boards and the smith and the joiner have their names painted across their fronts. Two west-side boarding houses and Cornelius Lynch\u2019s on Washington Street have boards too.',
+      'Tap a board and the card opens on the same house. Each board says what the house\u2019s own record calls it, and adds nothing.',
+      'These houses are our reconstruction, and so are their boards. No source names them, and each board says so (liberty L340). The town\u2019s other 34 boards are unchanged.',
+    ] },
   { v: 1280, ts: '2026-10-02T00:30:46.880Z', date: 'Oct 1, 2026, 7:30 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
       'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
