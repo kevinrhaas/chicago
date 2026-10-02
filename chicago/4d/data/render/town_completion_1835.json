@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 230,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 14,
+    "structures_empty_owing_somebody": 5,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -124,7 +124,7 @@
     "occupants_in_prose_only": {
       "attested": 9,
       "inferred": 10,
-      "reconstructed": 55
+      "reconstructed": 51
     },
     "use_stated": {
       "camp_ground": 3,
@@ -133,29 +133,21 @@
       "occupant_named_seat_refused": 2,
       "outbuilding_of_a_yard": 96,
       "part_of_an_establishment": 15,
+      "stated_use_of_an_anonymous_roof": 13,
       "storage_operator_unrecorded": 6,
       "vacant_to_let": 1
     },
     "empty_owing_somebody": {
       "dwelling": 1,
       "house_of_trade": 3,
-      "outbuilding_naming_no_yard": 10
+      "outbuilding_naming_no_yard": 1
     },
     "empty": [
       "recon_1835_blk_west_randolph_des_plaines_w2_01",
       "recon_1835_forks_freight_f2_001",
-      "recon_1835_north_a1_047",
       "recon_1835_north_w5_040",
-      "recon_1835_south_a2_037",
       "recon_1835_south_c3_015",
-      "recon_1835_west_012",
-      "recon_1835_west_013",
-      "recon_1835_west_022",
-      "recon_1835_west_023",
-      "recon_1835_west_024",
-      "recon_1835_west_025",
-      "recon_1835_west_053",
-      "recon_1835_west_055"
+      "recon_1835_west_013"
     ]
   },
   "tiers": {
@@ -229,17 +221,17 @@
       "occupants_in_prose_only": {
         "attested": 9,
         "inferred": 10,
-        "reconstructed": 55
+        "reconstructed": 51
       },
       "use_stated": {
         "attested": 26,
         "inferred": 7,
-        "reconstructed": 110
+        "reconstructed": 123
       },
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 14
+        "reconstructed": 5
       }
     },
     "streets": {
@@ -278,7 +270,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 14,
+      "open": 5,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]
