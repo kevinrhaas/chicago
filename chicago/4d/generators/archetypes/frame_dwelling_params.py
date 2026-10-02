@@ -88,6 +88,11 @@ and records that state a rhythm rather than a glazing type". That is `bays` and 
   Green Tree light — and the window's size is built from it, lights, muntins and
   rails, so a house glazed with 8 x 10 in glass has bigger windows than a cottage
   glazed with 6 x 8, and every window shows its sash bars.
+- `trim` and `chimney_head` (T-1839) are what the household class reads off the frame
+  besides its glass: how wide the corner boards and how deep the frieze (`TRIMS`), and
+  how many corbelled courses finish the brick stack (`CHIMNEY_HEADS`). The defaults are
+  `plain` and `corbel`, which are exactly what this archetype built before either had a
+  name, so a record that states neither does not move.
 
 The default therefore produces a plainer and less regular front than the taverns', on
 purpose. A whole-scene critic reading the existing frame buildings as 1850s Greek
@@ -147,6 +152,22 @@ GLAZINGS = {
     "12_over_12_8x10": (4, 3, 3, 8, 10),
 }
 DEFAULT_GLAZING = "12_over_12_6x8"
+# T-1839 — the trim, as (extra corner-board width m, frieze depth m, crown projection m).
+# `plain` is the trim this archetype has always built: a 0.13 m corner board on a
+# balloon frame (0.19 m on a braced one), a 0.20 m frieze and no crown. `boxed` widens
+# the board and runs a crown board under the eaves, standing proud of the frieze; the
+# frieze itself cannot deepen, because the upper sash heads rise to 0.28 m under the
+# plate. `scant` narrows the board and the frieze. Dealt by class (docs/LIBERTIES.md L352).
+TRIMS = {"scant": (-0.03, 0.14, 0.0), "plain": (0.0, 0.20, 0.0),
+         "boxed": (0.07, 0.20, 0.075)}
+CROWN_M = 0.09
+DEFAULT_TRIM = "plain"
+# T-1839 — how many corbelled courses finish a stack's head. `corbel` is the one course
+# every frame_dwelling stack has always carried; it is the head the 1835 by-law census
+# measured (docs/RESEARCH/chimneys.md §7), and `double_corbel` adds a second course
+# ABOVE it, so no stack is lowered. Dealt by class (L352). The brick is not dealt.
+CHIMNEY_HEADS = {"plain": 0, "corbel": 1, "double_corbel": 2}
+DEFAULT_CHIMNEY_HEAD = "corbel"
 INCH_M = 0.0254
 # The sash's own timber, seen from the street: a stile or a top or bottom rail, the
 # two meeting rails together where the sashes pass, and a muntin (7/8 in).
@@ -290,6 +311,7 @@ CONSUMED = frozenset({
     "stories", "wall_height_m", "knee_wall_m", "roof_type", "roof_pitch_deg",
     "construction", "plan", "bays", "porch", "ell", "ell_wall_height_m",
     "chimneys", "paint", "shutters", "siding_exposure_m", "stovepipes", "glazing",
+    "trim", "chimney_head",
 })
 # NOT in the set, and each absence is a decision rather than an oversight:
 #   `cladding`      — this archetype always builds clapboard over sheathing, so a
@@ -365,6 +387,9 @@ class FrameDwellingParams:
     # the attested Chicago pane in a 12-over-12, which is the window this archetype has
     # always been sized from.
     glazing: str = DEFAULT_GLAZING
+    # How heavily the trim boxes the frame, and how the stacks are finished (T-1839).
+    trim: str = DEFAULT_TRIM
+    chimney_head: str = DEFAULT_CHIMNEY_HEAD
     shutters: str | None = None
     porch: str | None = None
 
@@ -624,6 +649,11 @@ class FrameDwellingParams:
                              f"a colour for")
         if self.glazing not in GLAZINGS:
             raise ParamError(f"glazing '{self.glazing}' not in {tuple(GLAZINGS)}")
+        if self.trim not in TRIMS:
+            raise ParamError(f"trim '{self.trim}' not in {tuple(TRIMS)}")
+        if self.chimney_head not in CHIMNEY_HEADS:
+            raise ParamError(f"chimney_head '{self.chimney_head}' not in "
+                             f"{tuple(CHIMNEY_HEADS)}")
         if not isinstance(self.bays, int) or isinstance(self.bays, bool):
             raise ParamError(f"bays {self.bays!r} is not a whole number of openings")
         # 0 is the unresolved state and from_phase never leaves it there; a golden case
@@ -894,6 +924,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         bays=int(val("bays", 0)),
         paint=str(val("paint", "unpainted")),
         glazing=str(val("glazing", DEFAULT_GLAZING)),
+        trim=str(val("trim", DEFAULT_TRIM)),
+        chimney_head=str(val("chimney_head", DEFAULT_CHIMNEY_HEAD)),
         siding_exposure_m=float(val("siding_exposure_m", 0.14)),
         shutters=(None if shutters in (None, False, "") else str(shutters)),
         porch=(None if porch in (None, False, "") else str(porch)),

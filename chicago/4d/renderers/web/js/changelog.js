@@ -1,9 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1303, ts: '2026-10-02T14:13:10.388Z', date: 'Oct 2, 2026, 9:13 AM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
+  { v: null, ts: '', title: 'The river walk sits level on its bank again', kind: 'fix',
     items: [
       'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
       'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
       'Where Clark and La Salle Streets meet the river, their lowered ends are held back from the walk the same way.',
+    ] },
+  { v: 1305, ts: '2026-10-02T14:18:36.212Z', date: 'Oct 2, 2026, 9:18 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
+    items: [
+      'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',
+      'Families take a house of the kind their trade and means suggest, in their own part of town. People on their own take a free bed in a boarding house, or board with a family when the beds run out.',
+      'The town now averages seven people a dwelling, under the 1835 census\u2019s eight. Some houses are crowded: one large house on Washington Street holds 29.',
+      'The people are real records. Which roof each one slept under is our reconstruction, and the card says so. The Liberties page explains how they were placed (L354).',
+    ] },
+  { v: 1304, ts: '2026-10-02T14:03:50.530Z', date: 'Oct 2, 2026, 9:03 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
+    items: [
+      'Walk the back lots between Randolph and Washington, west of Clark. In the corner of each yard, by the alley fence, there is now a privy. A hundred and twenty-two houses gained one; the thirty-four that already had a privy keep theirs.',
+      'The privy follows the house. A labourer\u2019s is a small box of rough slabs, a tradesman\u2019s a board privy, and a merchant\u2019s a wider two-seater, whitewashed. Its boards are as weathered as the house\u2019s own.',
+      'Sixteen merchants and teamsters who had no stable now have one in the other corner of the yard: a board-and-batten stable with a pair of doors and a hay loft.',
+      'Seven lots are built back to the alley and have no room for a privy. No wells were added, because in 1835 the town drank lake water sold from carts.',
+      'No source places any of these privies or stables. The Liberties page (L353) says how each was sized and placed.',
+    ] },
+  { v: 1303, ts: '2026-10-02T13:36:07.376Z', date: 'Oct 2, 2026, 8:36 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+    items: [
+      'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
+      'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
+      'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
+      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L352).',
     ] },
   { v: 1302, ts: '2026-10-02T13:17:54.396Z', date: 'Oct 2, 2026, 8:17 AM CT', title: 'Counting what the town still owes', kind: 'chore',
     items: [

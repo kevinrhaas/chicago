@@ -197,6 +197,10 @@ const COVERAGE = [
   ['renderers/web/index.html', ALL, 'the page itself'],
   ['renderers/web/css/', ALL, 'the chrome every panel check clicks'],
   ['data/reconstruction/', ALL, 'the infill programme the records are expanded from'],
+  // T-1971. The housing deal's ledger reaches the scene only through the sidecars
+  // compile_scene writes from it (`residents[]` on the building card), which are priced
+  // by their own rows. No module under renderers/ fetches it.
+  ['data/reconstruction/1835_housing_seats.json', NONE, 'the housing deal\u2019s ledger \u2014 read by compile_scene, fetched by no renderer'],
 
   // --- AND NO ROW FOR site/4d/ ANY MORE (T-0938). The published mirror had six
   // rows here, and every one of them existed to price a path that could appear in a diff.
