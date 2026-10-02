@@ -584,7 +584,7 @@ def make_record(seq: int, family: str, e: float, n: float, row: dict,
                 "confidence": "reconstructed",
                 "note": f"A {width:.2f} × {depth:.2f} m rectangle sampled deterministically inside the {family} family band; no individual dimensions are documented."
             },
-            "form": form_for(family, seq, finish, width, depth),
+            "form": fabric_rule_1835.apply_form(form_for(family, seq, finish, width, depth), fabric),
             "change_note": "Reconstructed anonymous July 1835 infill. It may later be replaced by a named, better-evidenced roof through an explicit inventory substitution."
         }],
         "function": inferred(function, f"Assigned from the {family} production family to satisfy the aggregate South Division mix; no occupant or individual use is known."),

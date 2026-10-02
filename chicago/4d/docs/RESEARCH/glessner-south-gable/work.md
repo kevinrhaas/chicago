@@ -23,7 +23,7 @@ are unchanged. The north entrance alcove is unchanged.
 
 All revised heights and the south-gable choice are owner-directed reconstruction,
 not a newly discovered historic elevation. They supersede L331's rear hip and
-unequal eaves only; a measured original roof section would replace them. L338.
+unequal eaves only; a measured original roof section would replace them. L339.
 
 ## Progress
 

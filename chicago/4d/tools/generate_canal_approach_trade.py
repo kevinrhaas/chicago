@@ -101,7 +101,8 @@ def make_record(row, seq, table, datum, street, people):
             'footprint': {'polygon': [[0, 0], [width, 0], [width, depth], [0, depth]],
                 'confidence': 'reconstructed',
                 'note': f'Deterministically sampled {width:.3f} by {depth:.3f} metre rectangle inside the {family} typology band; neither dimension is attested for this invented roof.'},
-            'form': form_for(family, spec, seed, width, depth, paint),
+            'form': fabric_rule_1835.apply_form(
+                form_for(family, spec, seed, width, depth, paint), fabric),
             'change_note': 'T-1766 adds this reconstructed trade roof without moving an existing building.'}],
         'function': invented(FUNCTIONS.get(family) or canonical(spec['label']),
             f'The {family} type fills the remaining West trade programme. No historical proprietor or exact activity is recovered from its footprint.'),
