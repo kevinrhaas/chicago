@@ -188,6 +188,42 @@ response — the live origin was verified to serve `content-encoding: gzip` for
 no cookies), counting every byte the server writes per request until the same
 ready flag the smoke gates on. No hand-declared file list anywhere in it.
 
+### 4a. Re-measured 2026-10-02: 14.27 MB, and 2.28 MB of it was not the town (T-1973)
+
+Dev @ `c86459b5` measured **14.269 MB across 1,286 requests**, 2.27 MB over. The
+growth since 2026-09-16 was not one careless import. Two things had grown by design:
+the PBR relief maps (T-1488, T-1815, T-1836, T-1963) put **3.95 MB of PNG** on the
+boot path, and the scene's own records grew (`.json` 2.58 → 4.27 MB, `.glb` 2.52 →
+3.41 MB) as the town filled in. The third was a cost that grew with every release:
+**`js/changelog.js`, 1.03 MB on the wire**, imported at boot so the What's-new dot
+could count unread releases.
+
+Two of those were bytes a visitor did not need in order to stand in the street,
+and T-1973 removed them without touching what the scene shows:
+
+| cut | before | after | how |
+|---|---|---|---|
+| relief maps | 3.947 MB PNG | 2.649 MB WebP | lossless WebP beside each PNG master, held **pixel-identical** by `tools/web_textures.py --check` in the gate; the four modules ask for `.webp` |
+| changelog at boot | 1.028 MB | 0 | `publish.sh` writes the release numbers into the page (`<meta name="c4d-releases" content="1-1303">`); `whatsnew.js` imports the changelog only when the tab opens |
+
+```
+BOOT PAYLOAD — first visit stands in the 1835 street   (published mirror of c86459b5 + T-1973)
+  11.989 MB across 1284 request(s)   — two runs, byte-identical
+  BY TYPE   4.273 MB .json · 3.405 MB .glb · 2.649 MB .webp · 1.177 MB .js · 0.434 MB .bin
+```
+
+**That is inside the 12 MB budget by 11 KB, and that margin is not real headroom.** The
+next layer that adds boot bytes will be refused by the bake's desktop `1-2` leg, and
+it should be: the budget is doing its job. The budget was **not** raised to buy room.
+The next candidate is named and measured, so the run that meets the refusal knows
+where to look: `data/liberties.json` is **0.555 MB** on the wire and awaited at boot
+(`main.js`, `mountLiberties`), although only the Evidence panel and an open provenance
+card read it, and the card already redraws when the list arrives late
+(`popup.setLiberties`). Loading it on first need is a change to how provenance reaches
+the card, so it is its own ticket, not a rider on this one. A whole-budget re-set, if
+the town's completion outgrows 12 MB on scene bytes alone, belongs to T-1974's budget
+pass, with its reasons written here.
+
 **What the whole-tree cap is now for:** repository hygiene, not visitor cost.
 The gate's `SITE_BUDGET_MB` moved 40 → **256 MB** on the same commit — a
 quarter of GitHub Pages' documented 1 GB site limit, six and a half times the

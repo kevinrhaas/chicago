@@ -205,6 +205,13 @@
       "measured": "2026-10-02",
       "finding": "Run bare on the working tree it prints its verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: it runs renderers/web/js/wall-grain.js under node over the committed sidecars and compares it with generators/common/materials.py. A checker (T-1963)."
     },
+    "web_textures.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: staged its 14 .webp derivatives, ran --write, and git status reported no byte moved (libwebp's lossless encoder is deterministic at method 6). Its --check holds each derivative pixel-identical to its PNG master, so even an encoder that changed bytes could not change a pixel (T-1973).",
+      "placed": "not yet — it reads only the committed PNG masters under assets/textures/chicago_1835_pbr/, which no manifest step writes (the library's generator is not in the manifest), so it has no ordering hazard; the manifest covers data/ derivations and joining it is its own measured pass"
+    },
     "check_unique_ids.py": {
       "placement": "not_a_writer",
       "write_mode": null,

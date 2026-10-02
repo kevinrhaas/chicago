@@ -381,6 +381,16 @@ step "the walls' relief rule matches the substrate and finish the generators bui
 selftest "…and a coat read as bare, a vertical board bound as clapboard or a finish_key outranking a coating still fails it" \
   python3 tools/check_wall_relief.py --self-test
 
+# T-1973. The relief maps the walls, roofs, street edge and signboards bind ship as
+# lossless WebP beside their PNG masters — boot bytes every visitor downloads, a third
+# smaller on the wire. "Lossless" is a claim about pixels, so the gate reads them back:
+# every derivative decodes to exactly its master, and none is an orphan.
+step "the WebP maps the renderer binds decode pixel-identical to their PNG masters (T-1973)" \
+  python3 tools/web_textures.py --check
+
+selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
+  python3 tools/web_textures.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and
