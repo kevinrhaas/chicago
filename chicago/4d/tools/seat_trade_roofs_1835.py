@@ -54,7 +54,12 @@ structure record is written, so every stage that re-derives a card byte for byte
 
 Where no keeper qualifies the roof is written to `unseatable` with the count that proves it
 and the reason in words, and the building card says why nobody is seated there (`stated_use`,
-the surface T-1985 built). That is a measurement of who the town holds, not a stated use: the
+the surface T-1985 built). Where keepers of its trade ARE in the division but the employment
+ledger tells each no house is owed because their census class's printed count is already held
+(`the_printed_count_is_held`, T-1996 — 65 stores held against the 44 the State census of
+December 1835 printed), the roof says that instead, with the count: seating one of them would be
+one establishment more than the census printed, so they are counted on the card and not seated.
+That is a measurement of who the town holds, not a stated use: the
 roof's verdict stays `keep`, and the first keeper of its trade the layer gains takes it on
 the next build with no edit here.
 
@@ -112,6 +117,11 @@ MATCH = {
                         "premises rulings' signage for the four trades it names"},
 }
 OWED_REASON = "keeps_their_own_house"
+# T-1996: a keeper whose census class's printed count the town already holds is told no
+# house is owed — one more shop of that class would be more than the census printed. Such a
+# keeper is NOT offered a roof here (it would be that one more), but a roof left empty for
+# want of them says so, rather than reading as though the town had nobody of its trade.
+HELD_REASON = "the_printed_count_is_held"
 RESIDENT_FOLDERS = ("households", "reconstructed_trades", "lodgers", "underdocumented",
                     "readmitted", "institutional")
 
@@ -198,11 +208,12 @@ def metres(a: tuple, b: tuple) -> float | None:
     return round(math.dist(a, b), 1)
 
 
-def keepers(inputs: dict) -> list[dict]:
-    """Every person the employment ledger owes a house of their own and no card roofs."""
+def keepers(inputs: dict, reason: str = OWED_REASON) -> list[dict]:
+    """Every person the employment ledger owes a house of their own and no card roofs (or,
+    with `reason=HELD_REASON`, every one it told no house is owed because the count is held)."""
     out = []
     for row in inputs["employment"]:
-        if row.get("reason") != OWED_REASON or row.get("houses"):
+        if row.get("reason") != reason or row.get("houses"):
             continue
         entry = inputs["cards"].get(row["household_id"])
         if not entry or value_of(entry["card"].get("works_at")):
@@ -212,12 +223,14 @@ def keepers(inputs: dict) -> list[dict]:
         out.append({"person_id": row["person_id"], "name": person.get("name", ""),
                     "household": row["household_id"], "file": entry["file"],
                     "division": entry["card"].get("division"), "trade": row.get("trade"),
-                    "grade": person.get("grade", "reconstructed")})
+                    "grade": person.get("grade", "reconstructed"),
+                    "decided_by": row.get("decided_by", "")})
     return out
 
 
 def deal(inputs: dict) -> dict:
     roofs, pool = inputs["roofs"], keepers(inputs)
+    held_pool = keepers(inputs, HELD_REASON)
     taken, seats, unseatable = set(), [], []
     for sid in SCOPE:
         roof = roofs[sid]
@@ -249,11 +262,23 @@ def deal(inputs: dict) -> dict:
             })
             continue
         adoption = inputs["off_plat"].get(sid)
-        note = (f"NO KEEPER OF ITS TRADE IS LEFT IN THE {division.upper()} DIVISION. This "
+        held = [k for k in held_pool if k["division"] == division
+                and serves(family, k["trade"], inputs["premises"])]
+        note = ((f"NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE {division.upper()} DIVISION. "
+                 if held else
+                 f"NO KEEPER OF ITS TRADE IS LEFT IN THE {division.upper()} DIVISION. ") + "This "
                 f"{(roof['function'] or 'roof').replace('_', ' ')} is offered to every keeper the "
                 f"employment ledger owes a house of their own whose card names no workplace, in "
                 f"its own division, of a trade its family serves ({MATCH[family]['read_from']}), "
                 f"and there are {len(candidates)}.")
+        if held:
+            counts = sorted({k["decided_by"].split("1835_reconstruction_order_book.json#")[-1]
+                             .split(", so none")[0] for k in held})
+            note += (f" {len(held)} more keeper(s) of a trade it serves live in the {division} "
+                     f"division with no workplace, and each is told no house is owed (T-1996): "
+                     f"their census class's printed count is already held "
+                     f"({'; '.join(counts)}). Seating one here would make it one establishment "
+                     f"more than the census printed, so none is.")
         if adoption:
             entry = inputs["cards"].get(adoption["id"]) or {}
             works = value_of((entry.get("card") or {}).get("works_at"))
@@ -263,11 +288,14 @@ def deal(inputs: dict) -> dict:
                      + (f", {round(d)} m away" if d is not None else "")
                      + ", so seating it here would give one firm a second works nobody records.")
         note += (" So nobody is seated here and nobody is invented to be: the first keeper of "
-                 "its trade the town gains takes it on the next build.")
+                 "its trade the town " + ("owes a house" if held else "gains")
+                 + " takes it on the next build.")
         unseatable.append({"structure_id": sid, "family": family, "division": division,
                            "keepers_offered": len(candidates),
+                           "keepers_held_by_the_count": len(held),
                            "adopted_by": (adoption or {}).get("id"),
-                           "value": "no_keeper_of_its_trade", "note": note})
+                           "value": HELD_REASON if held else "no_keeper_of_its_trade",
+                           "note": note})
     return {
         "$schema_note": ("DERIVED — regenerate with tools/seat_trade_roofs_1835.py --build; "
                          "tools/check.sh re-derives it. Do not hand-edit."),
@@ -331,6 +359,13 @@ def problems(doc: dict, inputs: dict) -> list[str]:
                        f"{u['keepers_offered']} keeper(s) to offer it to")
         if not u.get("note") or not u.get("value"):
             out.append(f"{u['structure_id']} is unseatable and says no reason")
+        roof = roofs.get(u["structure_id"]) or {}
+        held = sum(1 for k in keepers(inputs, HELD_REASON) if k["division"] == roof.get("district")
+                   and serves(roof.get("family"), k["trade"], inputs["premises"]))
+        if u.get("keepers_held_by_the_count", 0) != held or \
+                (u.get("value") == HELD_REASON) != bool(held):
+            out.append(f"{u['structure_id']} misstates the {held} keeper(s) of its trade the "
+                       "printed count holds")
     return out
 
 
@@ -344,7 +379,9 @@ def report(doc: dict) -> str:
                      f"nearest of {s['keepers_offered']}")
     for u in doc["unseatable"]:
         lines.append(f"  {u['structure_id']}  {u['family']}  nobody: "
-                     f"{u['keepers_offered']} keepers of its trade in the {u['division']}")
+                     f"{u['keepers_offered']} keepers of its trade in the {u['division']}"
+                     + (f", {u['keepers_held_by_the_count']} more held by the printed count"
+                        if u.get("keepers_held_by_the_count") else ""))
     return "\n".join(lines)
 
 
@@ -364,8 +401,8 @@ def self_test(inputs: dict) -> int:
     expect("a roof outside the deal's scope",
            lambda d: d["seats"][0].update(structure_id="recon_1835_west_001"))
     expect("a roof left unanswered", lambda d: d["seats"].pop())
-    expect("a keeper given two roofs", lambda d: d["seats"][1].update(
-        person_id=d["seats"][0]["person_id"]))
+    expect("a keeper given two roofs", lambda d: d["seats"].append(
+        dict(d["seats"][0], structure_id=d["unseatable"][0]["structure_id"])))
     expect("a keeper of a trade the roof does not serve",
            lambda d: d["seats"][0].update(person_id=other["person_id"]))
     expect("a person the ledger owes no house",
@@ -374,10 +411,13 @@ def self_test(inputs: dict) -> int:
            lambda d: d["unseatable"][0].update(keepers_offered=3))
     expect("an unseatable roof that gives no reason",
            lambda d: d["unseatable"][0].update(note=""))
+    expect("an unseatable roof that hides the keepers the printed count holds",
+           lambda d: next(u for u in d["unseatable"] if u["value"] == HELD_REASON).update(
+               value="no_keeper_of_its_trade", keepers_held_by_the_count=0))
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))
         return 1
-    print("self-test: all seven guards fire")
+    print("self-test: all eight guards fire")
     return 0
 
 

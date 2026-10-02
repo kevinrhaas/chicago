@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1325, ts: '2026-10-02T21:26:09.398Z', date: 'Oct 2, 2026, 4:26 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
+  { v: 1326, ts: '2026-10-02T22:00:23.506Z', date: 'Oct 2, 2026, 5:00 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
     items: [
-      'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter, now works there. Louis Bertrand keeps the narrow warehouse at the forks, and Silas Bacon, a grocer, keeps the two-storey store on Lake Street.',
-      'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L360).',
-      'The big riverside work shop on Wolcott stays empty, and its card now says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
+      'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter with nowhere to work, now works there. He is a reconstructed person, and which shop he kept is our reconstruction (liberty L360).',
+      'The narrow warehouse at the forks and the two-storey store on Lake stay empty, and their cards now say why. The December 1835 census counts 44 stores and 4 forwarding houses, and the town already holds more of both, so seating a grocer or forwarder there would be one too many.',
+      'The big riverside work shop on Wolcott stays empty too, and its card says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
       'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five lives there, and nine more households that were waiting now have a roof.',
+    ] },
+  { v: 1325, ts: '2026-10-02T21:20:57.849Z', date: 'Oct 2, 2026, 4:20 PM CT', title: '37 shopkeepers and lawyers no longer read as owed a shop', kind: 'fix',
+    items: [
+      'Open the card of one of the town\u2019s reconstructed grocers, hardware or dry-goods merchants, lawyers or forwarders and look under \u201cWere they at work?\u201d. It used to say they kept a house of their own that nobody had built. It now says no house is owed, and gives the count that settles it.',
+      'Why: the State census of December 1835 counts 44 stores, and the town already holds 65 on 1 July. It counts 22 lawyers, which scales to 15 for a July town, and we hold 15. One more shop or office would be more than the census printed.',
+      'These 37 people are our reconstruction. Nobody a source names is told this: a documented watchmaker, E. H. Mulford, still waits on his own answer.',
+      'People in town still owed a place to work: 37 fewer than before.',
     ] },
   { v: 1324, ts: '2026-10-02T20:59:16.621Z', date: 'Oct 2, 2026, 3:59 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
     items: [
