@@ -913,7 +913,7 @@ def record(wharves: list, refused: list, banks: list) -> dict:
                     "project's water surface is a summer-1835 mean with no stage "
                     "record behind it (data/datum.json § vertical), so a spring "
                     "freshet over these decks is not ruled out by anything here. "
-                    "Nothing attests the figure (docs/LIBERTIES.md L345)."
+                    "Nothing attests the figure (docs/LIBERTIES.md L347)."
                 ),
             },
             "crib_width_m": {

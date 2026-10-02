@@ -10442,7 +10442,7 @@
         },
         {
           "layer": "lodging",
-          "place": "recon_1835_north_h2_030"
+          "place": "recon_1835_blk_washington_clark_h3_06"
         }
       ],
       "deal_key": "trade_households:persons/male/30_39/north/family/trade:labourer:010",
@@ -11184,7 +11184,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_north_h2_045"
+          "place": "recon_1835_blk_washington_clark_h3_11"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/north/family/trade:domestic:011",
@@ -14593,7 +14593,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_west_035"
+          "place": "recon_1835_north_h2_022"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/south/family/trade:domestic:026",
@@ -18706,7 +18706,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_indiana_north_cass_h3_09"
+          "place": "recon_1835_north_h2_028"
         }
       ],
       "deal_key": "trade_households:persons/female/30_39/south/family/trade:domestic:013",
@@ -19483,7 +19483,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_clark_h3_05"
+          "place": "recon_1835_north_h2_030"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/west/family/trade:domestic:007",
@@ -29140,32 +29140,32 @@
   "the_ceilings": {
     "_doc": "Upper bounds, each loosening ONE more axis than the one above it. They are bounds and not plans: the rule's own yield is below the last of them because movability then applies.",
     "if_only_the_division_changed": 2,
-    "if_the_household_kind_changed_too": 43,
-    "if_the_trade_could_change_as_well": 104,
-    "and_then_with_movability_applied_but_a_house_free_to_split": 39,
+    "if_the_household_kind_changed_too": 39,
+    "if_the_trade_could_change_as_well": 99,
+    "and_then_with_movability_applied_but_a_house_free_to_split": 35,
     "under_this_rule": 129,
-    "what_the_whole_house_condition_costs": -90,
-    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -90 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
+    "what_the_whole_house_condition_costs": -94,
+    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -94 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
     "the_number_T_1556_named": 265,
-    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 104: 237 of the 274 open slots stand in adult-MALE cells while the surplus holds 224 people under twenty and 105 adult women, whose cells hold 37 slots between them.",
-    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 35 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
+    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 99: 231 of the 263 open slots stand in adult-MALE cells while the surplus holds 224 people under twenty and 105 adult women, whose cells hold 32 slots between them.",
+    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 34 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
     "persons_standing_in_the_layer": 2381,
-    "still_owed_now": 274,
-    "converges_to_now": 2655,
-    "converges_to_if_the_rule_is_spent": 2526,
+    "still_owed_now": 263,
+    "converges_to_now": 2644,
+    "converges_to_if_the_rule_is_spent": 2515,
     "the_model_point": 2543,
     "the_model_range": [
       2362,
       3265
     ],
-    "reading": "2,526 is inside the model's 2,362-3,265 and 17 below its 2,543 point, against 112 above it today."
+    "reading": "2,515 is inside the model's 2,362-3,265 and 28 below its 2,543 point, against 101 above it today."
   },
   "what_would_raise_the_ceiling": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 224 people under twenty and 105 adult women, and their cells hold 36 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 224 people under twenty and 105 adult women, and their cells hold 31 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {

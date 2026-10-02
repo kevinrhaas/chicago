@@ -1,11 +1,33 @@
 export const CHANGELOG = [ // newest first
-  { v: 1291, ts: '2026-10-02T08:40:56.809Z', date: 'Oct 2, 2026, 3:40 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
+  { v: null, ts: '', date: '', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
     items: [
       'Stand on South Water Street and look toward the river. The bank between the street and the water is now trodden earth, darkening to mud at the water\u2019s edge. Grass survives only in a few untrodden patches, and no willows or reeds stand along it.',
       'The five South Water docks now sit low, level with the bank behind them, instead of on a raised platform reached by steps. You walk straight from the street, across bare earth, onto the planks.',
       'Behind every dock a bare earth path runs back to the street, worn by carts and barrows. The two docks on the North Branch and at Wolf Point have one too, cut down their higher bank.',
       'The banks across the river, which no dock works, keep their grass and trees.',
-      'All of this is our reconstruction. No 1835 source describes the bank\u2019s surface or a dock\u2019s height. The Liberties page says what we chose and why (L345).',
+      'All of this is our reconstruction. No 1835 source describes the bank\u2019s surface or a dock\u2019s height. The Liberties page says what we chose and why (L347).',
+    ] },
+  { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
+    items: [
+      'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
+      'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
+      'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
+      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L346) says how it was bounded.',
+    ] },
+  { v: 1292, ts: '2026-10-02T08:03:58.613Z', date: 'Oct 2, 2026, 3:03 AM CT', title: 'Plank walks in front of the West Side\u2019s shops and hotel', kind: 'change',
+    items: [
+      'Cross the river on Randolph Street to Canal. The Western Hotel now has a plank walk along its front, with two hitching posts and a mounting block. A board crossing over Canal Street joins it to the Randolph walk.',
+      'Four more West Side businesses have walks too: a store on Lake Street, a store on Clinton, a grocer on Fulton and the freight house on West Water. The freight house\u2019s walk is a wide deck with a heavy plank apron for wagons.',
+      'The smithy on Lake and the joiner\u2019s shop on Randolph front bare, trodden ground, as the smith on the east side of the river does.',
+      'Only the business fronts get boards. The houses between them keep their grass verge, because a walk was something a business paid to lay. Where each walk goes and how wide it is are our reconstruction, and the Liberties page says so (L160).',
+    ] },
+  { v: 1291, ts: '2026-10-02T07:48:06.046Z', date: 'Oct 2, 2026, 2:48 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+    items: [
+      'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
+      'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
+      'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
+      'The town is still filling up. A family that had asked for this corner now has a lot on another block along Washington Street.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L345) says how each was placed and sized.',
     ] },
   { v: 1290, ts: '2026-10-02T07:00:31.882Z', date: 'Oct 2, 2026, 2:00 AM CT', title: 'Board crossings now rest on the street instead of sinking into it', kind: 'fix',
     items: [

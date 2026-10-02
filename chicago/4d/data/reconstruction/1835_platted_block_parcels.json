@@ -2410,10 +2410,6 @@
           "why": "The Madison-and-Clark corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing reserves it: principal room is counted over the free lots LESS ONE precisely so a block is never dealt out of its open lot, and with eight free lots this deal may stand on seven and stands on two. Which lot carries the reservation is arbitrary within the block and this entry does not pretend otherwise; that one is open at all is the programme's assumption of alternating vacancy, and on a tier the town had barely reached in 1835 that assumption is the least of what is being claimed here."
         },
         {
-          "lot": 0,
-          "why": "The Washington-and-Clark corner, open because this deal has no roof for it. Two principal roofs were dealt and the seating asked for them on lots 4 and 5; a corner lot on the block's better face is the kind of ground a later deal will want and nothing this run knows argues for spending it on a tradesman's cottage now. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
-        },
-        {
           "lot": 2,
           "why": "An interior lot on the Washington face, west of the cottage this deal stands on lot 4 and open for the same reason: the deal is the size of the request and the request is two roofs. The block's schedule still apportions it 25 roofs beyond the four this deal builds and this lot is part of the ground for them; a later deal takes it off this list with its own argument."
         },
@@ -2471,6 +2467,11 @@
           "lot": 6,
           "ticket": "T-1809",
           "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1809 (of T-1779) against hh_sweet_alanson's standing H3 request under the lodging clause, the second of the two banded tavern keepers T-1777 seated on the Washington tier. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
+        },
+        {
+          "lot": 0,
+          "ticket": "T-1950",
+          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1950 (of T-1810, of T-1779) as the block plan's last H3 roof of headroom, the Washington-and-Clark corner, with a stable and a privy behind it. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
         }
       ]
     },
@@ -2515,10 +2516,6 @@
       },
       "open_lots": [
         {
-          "lot": 0,
-          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries nineteen more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of its request leaves the rest of the tier as the 1835 edge of the town it was."
-        },
-        {
           "lot": 1,
           "why": "The Madison-and-Clark corner, still the block's reserved open lot. The schedule's sizing keeps one free lot open on every block and the first deal named this one; a second deal of one roof has no reason to move it."
         },
@@ -2548,6 +2545,11 @@
           "lot": 6,
           "ticket": "T-1809",
           "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1809 (of T-1779) against hh_sweet_alanson's standing H3 request under the lodging clause, the second of the two banded tavern keepers T-1777 seated on the Washington tier. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
+        },
+        {
+          "lot": 0,
+          "ticket": "T-1950",
+          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1950 (of T-1810, of T-1779) as the block plan's last H3 roof of headroom, the Washington-and-Clark corner, with a stable and a privy behind it. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
         }
       ]
     },
@@ -2593,10 +2595,6 @@
         "why": "THE SECOND BOARDING HOUSE IS RAISED WHERE THE SEATING ASKED FOR IT, AND BOTH HOUSES GET THEIR YARDS. T-1777 seated the South Division's two banded tavern keepers on the Washington tier's H3 roofs; T-1778 raised hh_beaubien_mark's on lot 7 and the re-deal it set off moved hh_sweet_alanson's request from blk_washington_dearborn onto this block's lot 6, the Washington-and-Dearborn corner, where `1835_platted_seats.json` now carries it as a slot with no structure under the sentence this entry answers — \"this block's own committed plan still holds a H3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil\". So the family and the lot are the seating's and not this deal's, and the schedule (data/reconstruction/1835_665_roof_programme.json) still carries that one H3 among sixteen roofs of headroom. THE FOUR YARD BUILDINGS ARE THE CLAUSE'S OWN SENTENCE: `lodging_near_the_landings` reads \"Nine documented lodging roofs, and every one of them is on a corner, an approach or the water — with its stable in the yard behind it\", and T-1209 asks for each house's stable and privies. So each of the two houses is dealt one stable and one privy, which spends exactly the block's four roofs of ancillary room. THAT MIX IS NOT THE PLAN'S, AND IT IS SAID: the schedule apportions this block's remaining yard as one stable, one barn or carriage shed, one privy and one smokehouse, a mix sized for the dwellings its plan expected and not for two boarding houses; a barn and a smokehouse behind two lodging houses with no stable for the second is the guess, and a stable apiece is what the documented lodging roofs show. A REQUEST IS NOT EVIDENCE and nothing here grades higher for having been asked for: every roof is an anonymous count-unit at the bottom tier, on an invented position, and no source puts a boarding house, a stable, a tavern keeper or anybody else on these lots."
       },
       "open_lots": [
-        {
-          "lot": 0,
-          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries eleven more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of its request leaves the rest of the tier as the 1835 edge of the town it was."
-        },
         {
           "lot": 1,
           "why": "The Madison-and-Clark corner, still the block's reserved open lot. The schedule's sizing keeps one free lot open on every block and the first deal named this one; a third deal of one house and its yard has no reason to move it."
@@ -2657,7 +2655,87 @@
           "lateral_m": -6.5
         }
       ],
-      "arrangement_note": "A SECOND BOARDING HOUSE ON THE WASHINGTON-AND-DEARBORN CORNER, AND A STABLE AND A PRIVY BEHIND EACH OF THE TWO. The block stood at five roofs on three of its eight lots — two tradesmen's cottages with a yard building apiece and the Madison corner's boarding house with none. It stands at ten on four. The new house is the same form T-1778 built on the first seat: two storeys of clapboard on the frame_tavern placeholder with the tavern's cues left off, a one-storey kitchen wing behind, its upper-storey windows and stovepipes sized from the beds the lodging model gives it (the record's `reconstruction.capacity` block shows the arithmetic). It stands 1.55 m off the lot's Washington edge, the setback the first house took, inside the street line the `lodging_near_the_landings` clause puts an inn on. The two houses stand back to back across the block alley, Washington and Madison, so their yards meet at it: each lot carries a lofted stable off the alley on one side and a privy off the alley on the other, 4-4.5 m in from the alley edge as every yard building of this module stands, and each serves only the lot it is in the yard of — the stable and privy on lot 7 are the first house's, dealt here because T-1778 raised that house without them on purpose. WASHINGTON STREET IS GRADED `light` in 1835, so this house, unlike the first, faces a street with through movement. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house, a stable or a privy stood on this block in 1835, where on their lots they sat and how far back. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+      "arrangement_note": "A SECOND BOARDING HOUSE ON THE WASHINGTON-AND-DEARBORN CORNER, AND A STABLE AND A PRIVY BEHIND EACH OF THE TWO. The block stood at five roofs on three of its eight lots — two tradesmen's cottages with a yard building apiece and the Madison corner's boarding house with none. It stands at ten on four. The new house is the same form T-1778 built on the first seat: two storeys of clapboard on the frame_tavern placeholder with the tavern's cues left off, a one-storey kitchen wing behind, its upper-storey windows and stovepipes sized from the beds the lodging model gives it (the record's `reconstruction.capacity` block shows the arithmetic). It stands 1.55 m off the lot's Washington edge, the setback the first house took, inside the street line the `lodging_near_the_landings` clause puts an inn on. The two houses stand back to back across the block alley, Washington and Madison, so their yards meet at it: each lot carries a lofted stable off the alley on one side and a privy off the alley on the other, 4-4.5 m in from the alley edge as every yard building of this module stands, and each serves only the lot it is in the yard of — the stable and privy on lot 7 are the first house's, dealt here because T-1778 raised that house without them on purpose. WASHINGTON STREET IS GRADED `light` in 1835, so this house, unlike the first, faces a street with through movement. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house, a stable or a privy stood on this block in 1835, where on their lots they sat and how far back. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here.",
+      "open_lots_taken_since": [
+        {
+          "lot": 0,
+          "ticket": "T-1950",
+          "why": "named open by this deal on the plainest reason — nothing was dealt to it; raised by T-1950 (of T-1810, of T-1779) as the block plan's last H3 roof of headroom, the Washington-and-Clark corner, with a stable and a privy behind it. Lot 1 stays the block's reserved open lot, so the reason the first deal gave for keeping one is untouched."
+        }
+      ]
+    },
+    {
+      "block_id": "blk_washington_clark",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_clark_fourth_deal",
+      "claimed": "2026-10-02",
+      "seq_start": 11,
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "clark",
+        "east": "dearborn"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 10,
+        "free_lots": 4,
+        "headroom": 12,
+        "dealt_roofs": 3,
+        "dealt_principal": 1,
+        "dealt_ancillary": 2,
+        "principal": 1,
+        "ancillary": 2
+      },
+      "families": {
+        "H3": 1,
+        "A1": 1,
+        "A3": 1
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Madison-and-Clark corner, still the block's reserved open lot. The schedule's sizing keeps one free lot open on every block and the first deal named this one; a fourth deal of one house and its yard has no reason to move it."
+        },
+        {
+          "lot": 2,
+          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries nine more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of one house and its yard leaves the rest of the tier as the 1835 edge of the town it was."
+        },
+        {
+          "lot": 3,
+          "why": "Open for the reason the first deal gave it, which this deal does not change: nothing is dealt to it. The schedule carries nine more roofs of headroom on this block and no household is asking for one on this lot; a deal the size of one house and its yard leaves the rest of the tier as the 1835 edge of the town it was."
+        }
+      ],
+      "slots": [
+        {
+          "family": "H3",
+          "inventory_class": "principal_functional",
+          "lot": 0,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 1.55,
+          "lateral_m": 0.0
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 0,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 0,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.0,
+          "lateral_m": -6.5
+        }
+      ],
+      "arrangement_note": "A THIRD BOARDING HOUSE, ON THE WASHINGTON-AND-CLARK CORNER, WITH ITS STABLE AND PRIVY BEHIND IT. The block stood at ten roofs on four of its eight lots — two tradesmen's cottages with a yard building apiece, and two boarding houses back to back at the Dearborn end, each with a stable and a privy. It stands at thirteen on five. The new house is the form T-1778 built on the first seat and T-1809 on the second: two storeys of clapboard on the frame_tavern placeholder with the tavern's cues left off, a one-storey kitchen wing behind, its upper-storey windows and stovepipes sized from the beds the lodging model gives it (the record's `reconstruction.capacity` block shows the arithmetic). It stands 1.55 m off the lot's Washington edge, the setback the other two took, inside the street line the `lodging_near_the_landings` clause puts an inn on, and it takes the Clark Street corner — the clause's own reading of where the documented lodging roofs stood is \"on a corner, an approach or the water\", and Clark is the street that runs down to the river. The stable stands off the alley on one side of the lot and the privy on the other, 4-4.5 m in from the alley edge as every yard building of this module stands, and both serve only this lot. WASHINGTON STREET IS GRADED `light` in 1835 and Clark carries no traffic class: the house faces Washington because the slot's frontage is the lot's long face, as the second house's is. NO HOUSEHOLD ASKED FOR THIS ROOF. The seating pass has two banded tavern keepers in the South and both are seated on the two houses already standing, so this house is raised on the plan's own H3 headroom and its keeper is the lodgers stage's draw, as both earlier houses' keepers already are. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house, a stable or a privy stood on this block in 1835, where on the lot they sat and how far back. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
     },
     {
       "block_id": "blk_washington_lasalle",

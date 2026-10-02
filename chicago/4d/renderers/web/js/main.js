@@ -1279,6 +1279,7 @@ async function boot() {
   // measured from the same wall base `buildings.js` anchors them at.
   const signage = await createSignage({
     dataBase: layerBase('signage'), terrain, confidence, problems: layerProblems('signage'), hostMissing,
+    assetBase: bases.assetBase,
   });
   scene3d.add(signage.group);
   api.signage = signage;
