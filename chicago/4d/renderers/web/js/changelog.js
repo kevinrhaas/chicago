@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1286, ts: '2026-10-02T03:59:12.133Z', date: 'Oct 1, 2026, 10:59 PM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
+    items: [
+      'Cross the river to Kinzie\u2019s Addition and walk east along Illinois Street to Cass. The corner now has a boarding house: two storeys of clapboard set close to the street, with a kitchen wing behind it.',
+      'Eight chamber windows run across its upper floor and five stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. A log stable and a privy stand in its yard, off the alley.',
+      'Ten people sleep there tonight, and Hannah Chapin keeps the house. Tap it and its card opens on Chapin\u2019s boarding house.',
+      'Some North Side lodgers moved over to it, and Kelsey\u2019s boarding-house now stands empty. The second Washington Street house and a West Side boarding house each sleep one fewer and lose a stovepipe.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper here in 1835. The Liberties page (L344) says how each was placed and sized.',
+    ] },
   { v: 1285, ts: '2026-10-02T03:12:17.655Z', date: 'Oct 1, 2026, 10:12 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
     items: [
       'Look at any frame house in the town. Its windows used to be plain dark rectangles. Now each one shows its wooden sash: the frame, the rail where the two halves meet, and the thin bars between the panes of glass.',

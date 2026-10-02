@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 399,
-    "keep": 398,
+    "audited": 402,
+    "keep": 401,
     "refamily": 1,
     "retire": 0,
     "kept_occupied": 4,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 0,
     "roof_target": 668,
-    "standing_before": 509,
-    "standing_after": 509,
-    "short_of_the_programme_before": 159,
-    "short_of_the_programme_after": 159
+    "standing_before": 512,
+    "standing_after": 512,
+    "short_of_the_programme_before": 156,
+    "short_of_the_programme_after": 156
   },
   "ledger": [
     {
@@ -67,11 +67,11 @@
       "group": "barns_stables",
       "division": "north",
       "target": 17,
-      "standing": 10,
-      "anonymous": 9,
-      "head_before": 7,
-      "standing_after": 10,
-      "head_after": 7
+      "standing": 11,
+      "anonymous": 10,
+      "head_before": 6,
+      "standing_after": 11,
+      "head_after": 6
     },
     {
       "bucket": "structures/barns_stables/fort",
@@ -188,11 +188,11 @@
       "group": "larger_boarding_houses",
       "division": "north",
       "target": 8,
-      "standing": 7,
-      "anonymous": 5,
-      "head_before": 1,
-      "standing_after": 7,
-      "head_after": 1
+      "standing": 8,
+      "anonymous": 6,
+      "head_before": 0,
+      "standing_after": 8,
+      "head_after": 0
     },
     {
       "bucket": "structures/ordinary_dwellings/south",
@@ -254,11 +254,11 @@
       "group": "small_outbuildings",
       "division": "north",
       "target": 20,
-      "standing": 19,
-      "anonymous": 16,
-      "head_before": 1,
-      "standing_after": 19,
-      "head_after": 1
+      "standing": 20,
+      "anonymous": 17,
+      "head_before": 0,
+      "standing_after": 20,
+      "head_after": 0
     },
     {
       "bucket": "structures/small_outbuildings/fort",
@@ -973,6 +973,24 @@
       "reason": "the order book has an occupant class for a A1 roof in the north division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_indiana_north_cass_a1_10",
+      "division": "north",
+      "family": "A1",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_indiana_north_cass_boarding_house",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 414.5,
+      "street": "cass",
+      "street_class": "none",
+      "setback_m": 1.75,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/north",
+      "reason": "the order book has an occupant class for a A1 roof in the north division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_cass_a3_03",
       "division": "north",
       "family": "A3",
@@ -984,6 +1002,24 @@
       "street": "rush",
       "street_class": "none",
       "setback_m": 25.17,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/north",
+      "reason": "the order book has an occupant class for a A3 roof in the north division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_a3_11",
+      "division": "north",
+      "family": "A3",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_indiana_north_cass_boarding_house",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 31.4,
+      "street": "cass",
+      "street_class": "none",
+      "setback_m": 11.6,
       "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",
@@ -1097,6 +1133,24 @@
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/north",
       "reason": "the order book has an occupant class for a D4 roof in the north division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_h3_09",
+      "division": "north",
+      "family": "H3",
+      "group": "larger_boarding_houses",
+      "programme_phase": "phase3_platted_block_indiana_north_cass_boarding_house",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 1414.1,
+      "street": "cass",
+      "street_class": "none",
+      "setback_m": 2.51,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/larger_boarding_houses/north",
+      "reason": "the order book has an occupant class for a H3 roof in the north division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",

@@ -1180,6 +1180,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_a1_08"
     },
+    "recon_1835_blk_indiana_north_cass_a1_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 83908,
+      "inputs_sha256": "81680aa1a8e63659f222a59804b57da5b0e755a5b50836f7d79334affd15ecf7",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a1_10"
+    },
     "recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -1188,6 +1197,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_a3_03"
+    },
+    "recon_1835_blk_indiana_north_cass_a3_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 32040,
+      "inputs_sha256": "252ff24a9a2c65d2d10ccb764cbf6536fe33aa9d6386ad688769e81786057184",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a3_11"
     },
     "recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -1242,6 +1260,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_d4_06"
+    },
+    "recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 42584,
+      "inputs_sha256": "5b43ebe83ddf51144214cf1337ef256fedee41d5778779ceafc3dbb7b6bf4387",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_h3_09"
     },
     "recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2614,8 +2641,8 @@
     "recon_1835_blk_washington_clark_h3_06__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 38204,
-      "inputs_sha256": "133697345fe1f8c5d0baf7445456bfc3484f2af256e380dcd71e484a0acb9b69",
+      "bytes": 37420,
+      "inputs_sha256": "0349d5099f8d68612ee9a3a06f5cfa3798bc1cdaa390d5b70125c185ad35eaa8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
@@ -4036,8 +4063,8 @@
     "recon_1835_west_006__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 57720,
-      "inputs_sha256": "6242988068cda0806de61411ffa68f9723af75c1c6a5068bf3e22b2d8eff33c3",
+      "bytes": 56940,
+      "inputs_sha256": "927b463a25050dfb52ad585012d3842f462f3dca17c5a0b3808026245a593f17",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_006"

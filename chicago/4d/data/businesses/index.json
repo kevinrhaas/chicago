@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 277,
+    "records": 278,
     "compiled_from_register": 196,
-    "authored": 81,
-    "present_at_scene_date": 260,
+    "authored": 82,
+    "present_at_scene_date": 261,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,7 +16,7 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 125,
+      "other": 126,
       "physician": 8,
       "printing_office": 3,
       "school": 7,
@@ -29,22 +29,22 @@
     },
     "by_location_kind": {
       "anchored": 28,
-      "premises": 60,
+      "premises": 61,
       "street_only": 86,
       "unplaceable": 108
     },
-    "named_people": 411,
-    "named_people_linked_to_a_town_card": 357,
+    "named_people": 412,
+    "named_people_linked_to_a_town_card": 358,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
       "inferred": 72,
-      "reconstructed": 39
+      "reconstructed": 40
     },
     "by_where_kind": {
       "anchored": 28,
-      "premises": 59,
+      "premises": 60,
       "street_only": 86,
       "unplaceable": 104
     },
@@ -70,7 +70,7 @@
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 103,
+      "unknown": 104,
       "yankee": 75
     }
   },
@@ -150,7 +150,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 103
+        "count": 104
       }
     ]
   },
@@ -14378,7 +14378,7 @@
     {
       "id": "rcb_barnes_boarding_house",
       "file": "rcb_barnes_boarding_house.json",
-      "name": "Barnes's boarding house",
+      "name": "Ezra Barnes's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -14664,7 +14664,7 @@
     {
       "id": "rcb_cavanagh_boarding_house",
       "file": "rcb_cavanagh_boarding_house.json",
-      "name": "Ellen Cavanagh's boarding house",
+      "name": "Cavanagh's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -14678,8 +14678,8 @@
       "firm_styles": [],
       "people": [
         {
-          "name": "Ellen Cavanagh",
-          "person_id": "rc_cavanagh_ellen",
+          "name": "Johanna Cavanagh",
+          "person_id": "rc_cavanagh_johanna",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,
@@ -14690,6 +14690,52 @@
       "where": {
         "kind": "premises",
         "structure_id": "recon_1835_north_h2_028",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_chapin_boarding_house",
+      "file": "rcb_chapin_boarding_house.json",
+      "name": "Chapin's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Hannah Chapin",
+          "person_id": "rc_chapin_hannah",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_indiana_north_cass_h3_09",
         "anchor": null,
         "street_id": null,
         "street": null,
@@ -15184,7 +15230,7 @@
     {
       "id": "rcb_gilbert_boarding_house",
       "file": "rcb_gilbert_boarding_house.json",
-      "name": "Benjamin Gilbert's boarding house",
+      "name": "Gilbert's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -15612,7 +15658,7 @@
     {
       "id": "rcb_newell_boarding_house",
       "file": "rcb_newell_boarding_house.json",
-      "name": "Newell's boarding house",
+      "name": "Lydia Newell's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [

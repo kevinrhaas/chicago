@@ -11034,10 +11034,22 @@
       "asset": "gltf/recon_1835_blk_indiana_north_cass_a1_08__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_indiana_north_cass_a1_10",
+      "name": "Reconstructed A1 stable #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a1_10.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a1_10__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_cass_a3_03",
       "name": "Reconstructed A3 privy #03",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a3_03.json",
       "asset": "gltf/recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_a3_11",
+      "name": "Reconstructed A3 privy #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a3_11.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_a3_11__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_indiana_north_cass_a4_04",
@@ -11074,6 +11086,12 @@
       "name": "Reconstructed D4 two-room frame cottage #06",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_d4_06.json",
       "asset": "gltf/recon_1835_blk_indiana_north_cass_d4_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_cass_h3_09",
+      "name": "Reconstructed H3 boarding house #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_h3_09.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",

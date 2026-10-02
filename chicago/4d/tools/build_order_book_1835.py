@@ -398,7 +398,12 @@ STRUCTURE_TICKETS = {
     # T-1810, the piece that raises every house the book still orders past the two
     # Washington-tier seats; T-1809 raises one South house and closes first, so a cell left
     # on it would order work from a done ticket the moment it settles (swept by T-1802).
-    ("south", "larger_boarding_houses"): "T-1810",
+    # T-1810 WAS SPLIT in turn on 2026-10-02 (T-1950..T-1953), one piece per cell's ground:
+    # T-1950 the clark block's last H3, T-1951 the South's remaining houses, T-1952 the
+    # North's one, T-1953 the West's three. Each cell moves to the piece that closes it
+    # LAST, so the South's goes to T-1951 rather than T-1950, which raises one house and
+    # closes first (swept by T-1952, whose own build left the North's cell empty).
+    ("south", "larger_boarding_houses"): "T-1951",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -483,7 +488,7 @@ STRUCTURE_TICKETS = {
     # Both read complete (6 of 6, 8 of 8) when T-1774 split, and move with the remainder to
     # T-1829 so the row names a live ticket.
     ("west", "stores_mixed_use"): "T-1829",
-    ("west", "larger_boarding_houses"): "T-1810",
+    ("west", "larger_boarding_houses"): "T-1953",
     ("west", "inns_taverns"): "T-1762",
     ("west", "workshops"): "T-1829",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
@@ -561,7 +566,7 @@ STRUCTURE_TICKETS = {
     # saying so: the next run on this cell rules, and does not deal.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
-    ("north", "larger_boarding_houses"): "T-1810",
+    ("north", "larger_boarding_houses"): "T-1952",
     ("north", "inns_taverns"): "T-1205",
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
