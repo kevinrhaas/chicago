@@ -25,30 +25,74 @@ them the same way. He now reads `held_on_an_identity_question` and **stays count
 
 **What it moved downstream, all by `--build` and none by hand.** The 57 had been held
 `R_adopted` by the re-family rule (T-1558), on an employment "adoption" that named no house.
-Freed, the rule yields **139 moves, 10 more than the 129 spent**, and
-`reconstruct_trade_households.py` spends the ten on the cards (rung C1, T-1563): **ten
-carpenters' and builders' households** (Bacon, Connor, the two Kelloggs, Lyman, Murphy, Newell,
-Rice, Robillard, Stiles) re-cast to the buckets the book still orders; `refamily_moves_1835.py`
-records them and the book settles at its fixpoint again (139 of 139 spent, 386 held, was 396).
-`rederive.mjs --tail` from the trade households down re-deals the housing (L354, seeded by
-division), which rewrites 60 scene sidecars. Nobody is un-written, no confidence moves, no
-business record changes. **This is the same ten-move reopening T-1996 (#304) makes from its own
-37**: whichever of the two lands second re-runs this chain on the merged tree; the rule's
-ceiling is room, not people, so the yield stays at 139 and only WHICH ten move can change.
+Freed, they stand on movable rungs (758 movable, was fewer), but the rule's yield is bounded by
+ROOM, not by people: it stays at **139**, all already spent by T-1996's ten and the 129 before
+them, so `reconstruct_trade_households.py` writes no card and no household moves. The rule's
+roster, the programme report and the book's record of it re-derive; the housing deal does not
+move. (Built first on the tree before T-1996 landed, the same freeing spent the ten moves on
+carpenters' households instead; re-run on the merged tree it settles where T-1996 left it.)
 
-Owed a workplace **142 → 85** (attested 2, reconstructed 83). **Moved, and said here so nobody
-reads it as a regression:** the layer's "placed at work" figure falls 470 → 412, below the town
+Owed a workplace **105 → 48** (T-1996 left 105). **Moved, and said here so nobody reads it as a
+regression:** the layer's "placed at work" figure falls 433 → 375, further below the town
 model's 425–588 `employed_persons` band, because the 57 move from `on_their_own_account` to
 `at_a_trade_with_no_house_to_join`. They are at work; the layer cannot say in whose shop. The
-residents summary used to assert the cover was inside the band; it now reads `inside_the_band`
-from the join and says why when it is not.
+residents summary already reads `inside_the_band` from the join (T-1996) and says so.
 
 **Not done, and owned:** T-2001 (3 refectory keepers, 2 auctioneers (one attested, John
 Bates Jr.), a miller, a brickmaker, a soap and candle maker: trades with neither a census line
 nor a count of shops, plus the physician whose bucket T-1529 is blocked on), T-1997 (38
-boarding-house keepers), T-1996 (the printed counts already held; PR open).
+boarding-house keepers).
 
 
+## T-1996 — the printed count already held: 37 drawn heads told no house is owed (2026-10-02)
+
+Piece 1 of 3 of T-1992 (of T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After
+T-1990 the completion audit counted **230** working-age persons owed a workplace, 134 of them
+reading `keeps_their_own_house` with no house behind it. The resident band drew those heads by
+the 1839 trade table's share of the PERSONS it was short; the business band raises a house only
+where the order book ORDERS one, against the December 1835 census's printed count of the class.
+Where the census counts the class and the bucket is full, there is no house to owe — and the
+join never asked. `tools/employment_coverage_1835.py` now reads the order book's business
+buckets and answers such a head `the_printed_count_is_held` (status
+`at_a_trade_with_no_house_to_join`, a STATED reason the audit counts apart from owed), with the
+bucket's own figures in `decided_by`: **32 at a store** (8 grocers, 8 hardware, 7 merchants,
+7 dry goods, a liquor dealer, a sutler — printed 44, held 65), **3 attorneys** (printed 22 men,
+scene-date target 15, 14 known + 1 filled), **2 forwarders** (printed 4, held 7). Owed a workplace
+**142 → 105** (on top of T-1993, T-1994 and T-1995, which landed while this was built). `verify` refuses the answer on a documented person or against a short bucket; the
+self-test fires both.
+
+**Refused, and why.** The rule is for RECONSTRUCTED people only. E. H. Mulford, an attested
+watchmaker (Andreas, 1833), reads the same way — his class, silversmith_jeweller, is full at 2 —
+but one of those 2 is rcb_chevalier, a house this project drew, and a documented man's own shop
+is exactly what would retire it. He stays owed and is written into T-1998. The physician bucket
+(target 10, 8 known, 0 filled) is still short, so its one head stays owed too (T-1998, T-1529).
+
+**What got worse, on purpose.** "Placed at work" falls **470 → 433**, eight above the low end
+of the town model's `employed_persons` band (425-588): those 37 had been counted on their own
+account in houses nobody had raised. The residents summary used to ASSERT the cover sat inside
+the band; it now reads `inside_the_band` from the join and says which, so the next change that
+takes it under says so on the page. The audit's row for stated reasons is still headed "no fixed
+premises (stated)", which these 37 are not — it is the audit's one bucket for a stated,
+not-owed answer.
+
+**What it moved downstream, all by `--build` and none by hand.** The 37 were held in place by
+the re-family rule (T-1558) as `R_adopted` — but the "adoption" was an employment seat on their
+own account naming NO house, the phantom one. With no house owed, 33 of them stand on a movable
+rung and the rule yields **139 moves, 10 more than the 129 spent**, which reopens the programme
+exactly as `the_programme_step` says a wider yield must. `reconstruct_trade_households.py --build`
+spends the ten on the cards (`refamilied`, rung C1, T-1563): **5 merchants, 2 grocers, 2 dry-goods
+merchants, a forwarder and an attorney** are re-cast from a family house to boarding at their
+trade (`family/trade` → `lodging/trade`; four change division, as the rule's open orders sit
+there). `refamily_moves_1835.py` records them, the book settles at its fixpoint again (139 of 139
+spent; **386** still held, was 396), and the town converges to 2,621 (was 2,631). Knock-on:
+the staffing mint order's payable trade slots fall **14 → 4** (the ten filled open lodging/trade
+orders it had counted on), the business ledger's division for the moved attorney, four seating
+divisions, and the housing deal (L354), which is a seeded deal by division and so re-roofs
+**103 households** when ten heads change division and kind. Nobody is un-written, no confidence
+moves, no business record changes.
+
+**Not done, and owned:** T-1997 (38 boarding-house keepers with no standing roof), T-1998
+(57 at a trade the census never counted, the physician, E. H. Mulford).
 ## T-1994 — the 25 attested at a no-premises trade, each joined or told why no house is owed (2026-10-02)
 
 Piece 2 of 3 of T-1991 (→ T-1982 → T-1966 → T-1215). After T-1990, **25** working-age people

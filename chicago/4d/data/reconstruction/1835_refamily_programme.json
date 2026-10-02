@@ -52,9 +52,9 @@
   },
   "what_it_is_left_holding": {
     "people": 386,
-    "buckets": 44,
+    "buckets": 45,
     "buckets_cleared": 0,
-    "of_refused_buckets": 44,
+    "of_refused_buckets": 45,
     "by_family": [
       {
         "sex": "female",
@@ -139,7 +139,7 @@
   },
   "the_residue_and_the_ruling_on_it": {
     "people_still_held": 386,
-    "buckets_they_are_held_in": 44,
+    "buckets_they_are_held_in": 45,
     "and_what_holds_each_of_them": [
       {
         "refusal": "a_documented_reading_shrank_the_order",
@@ -166,7 +166,7 @@
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "231 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "200 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
@@ -322,16 +322,6 @@
       "surplus_when_the_programme_is_spent": 9
     },
     {
-      "bucket": "persons/male/30_39/south/family/trade",
-      "owning_ticket": "T-1347",
-      "held_at": 28,
-      "the_re_cut_would_have_ordered": 19,
-      "surplus_still_held": 9,
-      "refamilied_out_already": 7,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 9
-    },
-    {
       "bucket": "persons/female/10_19/west/family/none",
       "owning_ticket": "T-1174",
       "held_at": 21,
@@ -358,6 +348,16 @@
       "the_re_cut_would_have_ordered": 14,
       "surplus_still_held": 8,
       "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 8
+    },
+    {
+      "bucket": "persons/male/30_39/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 27,
+      "the_re_cut_would_have_ordered": 19,
+      "surplus_still_held": 8,
+      "refamilied_out_already": 8,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 8
     },
@@ -392,22 +392,22 @@
       "surplus_when_the_programme_is_spent": 7
     },
     {
-      "bucket": "persons/male/30_39/north/family/trade",
-      "owning_ticket": "T-1347",
-      "held_at": 15,
-      "the_re_cut_would_have_ordered": 8,
-      "surplus_still_held": 7,
-      "refamilied_out_already": 0,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 7
-    },
-    {
       "bucket": "persons/female/20_29/west/family/none",
       "owning_ticket": "T-1174",
       "held_at": 20,
       "the_re_cut_would_have_ordered": 14,
       "surplus_still_held": 6,
       "refamilied_out_already": 5,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 6
+    },
+    {
+      "bucket": "persons/male/30_39/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 14,
+      "the_re_cut_would_have_ordered": 8,
+      "surplus_still_held": 6,
+      "refamilied_out_already": 1,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 6
     },
@@ -432,16 +432,6 @@
       "surplus_when_the_programme_is_spent": 4
     },
     {
-      "bucket": "persons/male/40_49/south/family/trade",
-      "owning_ticket": "T-1347",
-      "held_at": 9,
-      "the_re_cut_would_have_ordered": 5,
-      "surplus_still_held": 4,
-      "refamilied_out_already": 1,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 4
-    },
-    {
       "bucket": "persons/female/30_39/west/family/none",
       "owning_ticket": "T-1174",
       "held_at": 9,
@@ -456,6 +446,26 @@
       "owning_ticket": "T-1174",
       "held_at": 9,
       "the_re_cut_would_have_ordered": 6,
+      "surplus_still_held": 3,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 3
+    },
+    {
+      "bucket": "persons/male/30_39/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 10,
+      "the_re_cut_would_have_ordered": 7,
+      "surplus_still_held": 3,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 3
+    },
+    {
+      "bucket": "persons/male/40_49/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 8,
+      "the_re_cut_would_have_ordered": 5,
       "surplus_still_held": 3,
       "refamilied_out_already": 2,
       "outstanding_moves": 0,
@@ -582,22 +592,22 @@
       "surplus_when_the_programme_is_spent": 1
     },
     {
-      "bucket": "persons/male/30_39/west/family/trade",
-      "owning_ticket": "T-1347",
-      "held_at": 8,
-      "the_re_cut_would_have_ordered": 7,
-      "surplus_still_held": 1,
-      "refamilied_out_already": 5,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 1
-    },
-    {
       "bucket": "persons/male/40_49/north/family/trade",
       "owning_ticket": "T-1347",
       "held_at": 3,
       "the_re_cut_would_have_ordered": 2,
       "surplus_still_held": 1,
       "refamilied_out_already": 1,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/40_49/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 3,
+      "the_re_cut_would_have_ordered": 2,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 1
     },

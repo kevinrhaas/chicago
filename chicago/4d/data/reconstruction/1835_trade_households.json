@@ -551,7 +551,7 @@
    "file": "reconstructed_trades/hh_rc_connor_owen.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "builder",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_corrigan_honora",
@@ -789,7 +789,7 @@
    "file": "reconstructed_trades/hh_rc_eastman_samuel.json",
    "bucket": "persons/male/30_39/north/family/trade",
    "trade": "merchant",
-   "division": "north"
+   "division": "west"
   },
   {
    "id": "hh_rc_fairbanks_seth",
@@ -1160,7 +1160,7 @@
    "file": "reconstructed_trades/hh_rc_kellogg_ira.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "carpenter",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_kellogg_joseph",
@@ -1279,7 +1279,7 @@
    "file": "reconstructed_trades/hh_rc_leland_silas.json",
    "bucket": "persons/male/40_49/south/family/trade",
    "trade": "merchant",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_leland_warren",
@@ -1321,7 +1321,7 @@
    "file": "reconstructed_trades/hh_rc_lyman_samuel.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "carpenter",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_lynch_bryan",
@@ -1475,7 +1475,7 @@
    "file": "reconstructed_trades/hh_rc_murphy_bryan.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "carpenter",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_murphy_dennis",
@@ -1615,7 +1615,7 @@
    "file": "reconstructed_trades/hh_rc_nolan_martin.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "dry_goods_merchant",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_nolan_thomas",
@@ -1874,7 +1874,7 @@
    "file": "reconstructed_trades/hh_rc_robillard_joseph.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "confectioner",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_robillard_medard",
@@ -2357,7 +2357,7 @@
    "file": "reconstructed_trades/hh_rc_woodruff_chauncey.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "attorney",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_woodruff_hannah",
@@ -2438,11 +2438,11 @@
    "persons/male/20_29/north/family/trade": 3,
    "persons/male/20_29/south/family/trade": 8,
    "persons/male/20_29/west/family/trade": 5,
-   "persons/male/30_39/south/family/trade": 7,
-   "persons/male/30_39/west/family/trade": 5,
+   "persons/male/30_39/north/family/trade": 1,
+   "persons/male/30_39/south/family/trade": 8,
+   "persons/male/30_39/west/family/trade": 3,
    "persons/male/40_49/north/family/trade": 1,
-   "persons/male/40_49/south/family/trade": 1,
-   "persons/male/40_49/west/family/trade": 1,
+   "persons/male/40_49/south/family/trade": 2,
    "persons/male/50_plus/north/family/trade": 1,
    "persons/male/50_plus/south/family/trade": 2
   },
