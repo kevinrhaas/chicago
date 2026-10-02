@@ -98,6 +98,19 @@ NOTE = (
 )
 
 
+# T-1839: the note on a roof whose household class bounds its stock. The same sentence,
+# with the draw and the walk said to stay inside the class's stocks. A roof the rule
+# gives no class keeps NOTE word for word, which is what lets the inferred-household
+# programme's records — which that pass may no longer write (T-0489) — stand unmoved.
+NOTE_CLASSED = NOTE.replace(
+    "drawn from the set on this record's stable key, then advanced so that no roof of "
+    "the parcel",
+    "drawn on this record's stable key from the stocks its household class may hang "
+    "({allowed}; T-1839, docs/LIBERTIES.md L344), then advanced within them so that no "
+    "roof of the parcel")
+assert NOTE_CLASSED != NOTE
+
+
 def cladding_of(form: dict | None) -> str:
     """What the wall wears. Absent means the archetype's default, which is clapboard."""
     a = (form or {}).get("cladding")
@@ -125,44 +138,67 @@ def drawn_index(key: str) -> int:
     return min(int(stable_fraction(key, SLOT) * len(STOCKS)), len(STOCKS) - 1)
 
 
-def advance(base: int, near: set[float]) -> tuple[str, float]:
+def advance(base: int, near: set[float],
+            allowed: tuple[int, ...] | None = None) -> tuple[str, float]:
     """The first stock at or after `base` that no neighbour in `near` wears.
 
     Four stocks and no more: a roof hemmed in by all four keeps the last one tried
     rather than inventing a fifth. That best-effort is deliberate and is the same one
     the named deal has always made — the alternative is widening the invention to make
     an arithmetic problem go away.
+
+    `allowed` (T-1839) is the household class's own stocks, as indices into `STOCKS`,
+    and `base` then indexes THEM: the walk stays inside the class, and a roof whose
+    class's stocks are all taken keeps the last of them tried rather than borrowing a
+    wider or finer board than its household hung.
     """
-    inches, metres = STOCKS[base % len(STOCKS)]
-    for step in range(len(STOCKS)):
-        inches, metres = STOCKS[(base + step) % len(STOCKS)]
+    order = tuple(allowed) if allowed else tuple(range(len(STOCKS)))
+    inches, metres = STOCKS[order[base % len(order)]]
+    for step in range(len(order)):
+        inches, metres = STOCKS[order[(base + step) % len(order)]]
         if metres not in near:
             break
     return inches, metres
 
 
+def class_stocks(record: dict) -> tuple[int, ...] | None:
+    """The stocks a recipe roof's household class may hang (T-1839), as indices into
+    `STOCKS`; None — all four — for a class the fabric rule does not bound."""
+    from fabric_rule_1835 import SIDING_OF_CLASS  # the rule's row, read not retyped
+    klass = ((record.get("reconstruction") or {}).get("fabric_basis") or {}).get("class")
+    metres = SIDING_OF_CLASS.get(klass)
+    if not metres:
+        return None
+    return tuple(i for i, (_, m) in enumerate(STOCKS) if m in metres)
+
+
+def class_words(allowed: tuple[int, ...] | None) -> str:
+    names = [STOCKS[i][0] for i in (allowed or range(len(STOCKS)))]
+    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " or " + names[-1]
+
+
 def deal(entries, fixed=()) -> dict[str, tuple[str, float]]:
     """Deal a stock to each of `entries`, in the order given.
 
-    `entries` are `(id, position | None, base_index)`; `fixed` are
+    `entries` are `(id, position | None, base_index[, allowed])`; `fixed` are
     `(position, metres)` walls already standing that this deal may not move.
     Returns `{id: (inches, metres)}`.
     """
     taken = [(e, n, m) for (e, n), m in fixed]
     dealt: dict[str, tuple[str, float]] = {}
-    for sid, pos, base in entries:
+    for sid, pos, base, *rest in entries:
         near: set[float] = set()
         if pos is not None:
             near = {m for e, n, m in taken
                     if math.hypot(e - pos[0], n - pos[1]) <= NEIGHBOUR_M}
-        inches, metres = advance(base, near)
+        inches, metres = advance(base, near, rest[0] if rest else None)
         dealt[sid] = (inches, metres)
         if pos is not None:
             taken.append((pos[0], pos[1], metres))
     return dealt
 
 
-def attribute(inches: str, metres: float) -> dict:
+def attribute(inches: str, metres: float, allowed: tuple[int, ...] | None = None) -> dict:
     """The form attribute a recipe writes. No `sources`: the bound is the stock set.
 
     The named deal's values carry none either — the reconstruction specification does
@@ -170,7 +206,8 @@ def attribute(inches: str, metres: float) -> dict:
     with nothing behind it (the fault tools/band_notes.py exists to stop).
     """
     return {"value": metres, "confidence": "reconstructed",
-            "note": NOTE.format(inches=inches)}
+            "note": (NOTE_CLASSED.format(inches=inches, allowed=class_words(allowed))
+                     if allowed else NOTE.format(inches=inches))}
 
 
 # --------------------------------------------------------------------------
@@ -233,10 +270,16 @@ def deal_records(records: list[dict]) -> int:
             if pos is not None:
                 fixed.append((pos, exposure_of(form)))
             continue
-        entries.append((record["id"], pos, drawn_index(record["id"])))
+        allowed = class_stocks(record)
+        base = (drawn_index(record["id"]) if allowed is None else
+                min(int(stable_fraction(record["id"], SLOT) * len(allowed)),
+                    len(allowed) - 1))
+        entries.append((record["id"], pos, base, allowed))
 
     dealt = deal(entries, fixed)
     by_id = {r["id"]: r for r in records}
+    allowed_of = {e[0]: e[3] for e in entries}
     for sid, (inches, metres) in dealt.items():
-        _phase(by_id[sid]).setdefault("form", {})[ATTRIBUTE] = attribute(inches, metres)
+        _phase(by_id[sid]).setdefault("form", {})[ATTRIBUTE] = attribute(
+            inches, metres, allowed_of[sid])
     return len(dealt)

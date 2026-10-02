@@ -75,8 +75,8 @@ from common.mesh import (  # noqa: E402
     SHUTTER_RGBA, MeshBuilder, simple_material,
 )
 from archetypes.frame_dwelling_params import (  # noqa: E402
-    HALL_FRACTION, MUNTIN_M, SASH_MEETING_M, SASH_STILE_M, FrameDwellingParams,
-    glazing_lights, sash_rows,
+    CHIMNEY_HEADS, CROWN_M, HALL_FRACTION, MUNTIN_M, SASH_MEETING_M, SASH_STILE_M,
+    TRIMS, FrameDwellingParams, glazing_lights, sash_rows,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
@@ -485,10 +485,26 @@ def _wall_trim(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     keep water out of its corners and its sill, and a record's `cladding` attribute
     declares `geometry: simplified` over the whole of it.
     """
-    board = 0.19 if p.construction == "braced_frame" else 0.13
+    # T-1839: the household's trim widens or narrows the board and sets the frieze
+    # under the plate; `plain` is the 0.13 / 0.19 m board and 0.20 m frieze this
+    # archetype has always built.
+    extra, frieze, crown = TRIMS[p.trim]
+    board = (0.19 if p.construction == "braced_frame" else 0.13) + extra
     # water table at the sill and frieze under the plate
     _band(b, x0, y0, x1, y1, 0.0, 0.20, conf, M_TRIM)
-    _band(b, x0, y0, x1, y1, wall_z - 0.20, wall_z, conf, M_TRIM)
+    _band(b, x0, y0, x1, y1, wall_z - frieze, wall_z, conf, M_TRIM)
+    if crown > 0.0:
+        # The boxed house's crown: a board standing `crown` proud of the wall at the
+        # top of the frieze, a solid so its soffit catches the shadow that reads it.
+        # It runs the street eave and returns a short way round each gable, the
+        # cornice return; the back eave takes it only where no ell rises against it.
+        r, ret = crown, min(0.6, (y1 - y0) / 3.0)
+        runs = [(x0 - r, y0 - r, x1 + r, y0), (x0 - r, y0, x0, y0 + ret),
+                (x1, y0, x1 + r, y0 + ret)]
+        if not p.ell:
+            runs.append((x0 - r, y1, x1 + r, y1 + r))
+        for bx0, by0, bx1, by1 in runs:
+            b.add_box(bx0, by0, wall_z - CROWN_M, bx1, by1, wall_z, conf, M_TRIM)
     if p.construction == "braced_frame" and p.stories > 1.0:
         floor_z = (wall_z - p.knee_wall_m) if p.half_story else wall_z / 2.0
         _band(b, x0, y0, x1, y1, floor_z - 0.06, floor_z + 0.06, conf, M_TRIM)
@@ -498,9 +514,9 @@ def _wall_trim(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
             bx0, bx1 = sorted((x, x - sx * board))
             by0, by1 = sorted((y, y - sy * board))
             _panel(b, "y", y + sy * TRIM_RELIEF_M, bx0, bx1, 0.20,
-                   wall_z - 0.20, int(sy), conf, M_TRIM)
+                   wall_z - frieze, int(sy), conf, M_TRIM)
             _panel(b, "x", x + sx * TRIM_RELIEF_M, by0, by1, 0.20,
-                   wall_z - 0.20, int(sx), conf, M_TRIM)
+                   wall_z - frieze, int(sx), conf, M_TRIM)
 
 
 # ------------------------------------------------------------------------ roof
@@ -828,23 +844,35 @@ def _chimneys(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float, d: fl
         return
     yc = (y0 + d) / 2.0
     for cx in _stack_positions(p, w):
-        _stack(b, cx, yc, wall_z, ridge_z, conf, mat)
+        _stack(b, cx, yc, wall_z, ridge_z, conf, mat, p.chimney_head)
     if p.ell and p.chimneys >= 2 and ell_ridge_z is not None:
         ex0, ex1 = _ell_extent(p, w)
         # near the wing's own outer gable, and kept inside it however short it is
         cy = min(0.95, max(0.55, p.ell_depth_m * 0.3))
-        _stack(b, (ex0 + ex1) / 2.0, cy, p.ell_height_m, ell_ridge_z, conf, mat)
+        _stack(b, (ex0 + ex1) / 2.0, cy, p.ell_height_m, ell_ridge_z, conf, mat,
+               p.chimney_head)
 
 
 def _stack(b: MeshBuilder, cx: float, cy: float, base_z: float, ridge_z: float,
-           conf: float, mat: int) -> None:
-    """One stack, from inside the roof to a corbelled head above the ridge."""
+           conf: float, mat: int, head: str = "corbel") -> None:
+    """One stack, from inside the roof to its head above the ridge.
+
+    The head is the household's (T-1839, `CHIMNEY_HEADS`): `corbel` is the one course
+    every stack here has always carried, `double_corbel` lays a second, wider course
+    above it — so the stack only ever gains height over the by-law's line — and
+    `plain` carries the shaft straight up to the same top with no course at all.
+    """
     half = 0.42
+    courses = CHIMNEY_HEADS[head]
+    shaft_top = ridge_z + (0.62 if courses else 0.78)
     b.add_box(cx - half, cy - half, base_z - 0.4, cx + half, cy + half,
-              ridge_z + 0.62, conf, mat, skip=("bottom",))
-    b.add_box(cx - half - 0.07, cy - half - 0.07, ridge_z + 0.62,
-              cx + half + 0.07, cy + half + 0.07, ridge_z + 0.78, conf, mat,
-              skip=("bottom",))
+              shaft_top, conf, mat, skip=("bottom",))
+    for k in range(courses):
+        grow = 0.07 * (k + 1)
+        z0 = ridge_z + 0.62 + 0.16 * k
+        b.add_box(cx - half - grow, cy - half - grow, z0,
+                  cx + half + grow, cy + half + grow, z0 + 0.16, conf, mat,
+                  skip=("bottom",))
 
 
 def _stovepipes(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
