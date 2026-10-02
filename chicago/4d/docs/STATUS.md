@@ -1,3 +1,22 @@
+## T-1259 — browse the Jaunts menu (2026-10-02)
+
+The lazy menu now carries title, premise, category, stops, travel mode and an
+instant duration estimate. Featured comes from the authored flag through the
+compiler. Search and catalog-derived categories filter the title-sorted list;
+explicit Earlier/More controls window it at twenty cards, with at most six
+featured copies. This avoids removing a focused control during scrolling.
+The selected mode stays synchronized between the featured and main card.
+
+End, preview-back and menu/resume preserve the browsing window, filters and
+scroll position. Explore Myself uses the shared destination picker and clears
+paused sessions. Sources & City opens the existing Evidence hub before entry,
+returning to the welcome on close without entering the world.
+
+Validation is in progress on this branch. `tools/test_jaunt_menu.mjs` uses the
+harness-only 55-entry catalog against the published mirror, at both gate
+viewports, and records scroll/focus plus screenshots under
+`docs/performance/jaunt-menu/`. This ticket authors no new stories.
+
 ## T-1975 — the full and balanced ceilings and the draw-call budget re-measured and set (2026-10-02)
 
 Piece 1 of T-1974 (T-1969 → T-1215, the owner's *"the budgets re-measured and set"*). A conscious

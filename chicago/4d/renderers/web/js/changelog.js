@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1316, ts: '2026-10-02T19:03:34.722Z', date: 'Oct 2, 2026, 2:03 PM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+    items: [
+      'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
+      'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
+      'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
+    ] },
   { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
     items: [
       'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',

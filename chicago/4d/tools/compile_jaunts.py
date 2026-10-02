@@ -217,7 +217,7 @@ class Compiler:
         source = Path(source) if source else self.data / 'jaunts'
         catalog, files, errors, ids = [], {}, [], set()
         for path in sorted(source.glob('*.json')):
-            if path.name in NOT_JAUNTS: continue
+            if path.name in NOT_JAUNTS or path.name == 'catalog-55.json': continue  # Harness catalog, not a story.
             try:
                 doc = read(path)
                 if doc.get('scene') != self.scene_id: continue
@@ -226,7 +226,7 @@ class Compiler:
                 require(path.stem == doc['id'], 'filename must match jaunt id')
                 ids.add(doc['id'])
                 row = {k: doc[k] for k in ('id', 'title', 'premise', 'category', 'content_version', 'default_mode', 'allowed_modes')}
-                row.update(stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
+                row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0)} for s in doc['stops']], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
                 catalog.append(row)
