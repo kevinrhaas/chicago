@@ -4749,8 +4749,11 @@ def cmd_self_test() -> int:
     # blk_washington_market#04/#05 and blk_washington_dearborn#02, all three lots a slot
     # request had asked for; hh_bently_wm_t, hh_benton_datas_e and hh_clarke_h_b are owed
     # to T-1614 (182 -> 179 platted seats, L270, L349).
+    # 251 -> 252 on 2026-10-02 (T-1989): `recon_1835_west_013`, re-dealt from a utility shed
+    # to a D2 on Lake west of Canal, is a standing roof `labourer_dwellings` admits off the
+    # plat, so the off-plat pass adopts it for hh_rc_doyle_ellen (72 -> 73, L271, L265).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 251
+        data["inventory"], data["programme"], occ))["seated"] == 252
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
