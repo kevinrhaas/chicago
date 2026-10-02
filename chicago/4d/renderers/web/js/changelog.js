@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Reconstructing the town now says whether the town is finished', kind: 'change',
+    items: [
+      'Open the Evidence tab and choose \u201cReconstructing the town\u201d. A new first section, \u201cIs the town finished?\u201d, answers that before anything else.',
+      'Not yet, it says. Every business is roofed. 523 households are still waiting on a roof, 48 working people are owed a workplace, and 5 standing roofs are empty and owed somebody.',
+      'The figures come from the same completion audit as the City card, so the two always agree. When all four joins close, the section will say the town is complete.',
+    ] },
   { v: 1326, ts: '2026-10-02T21:59:53.325Z', date: 'Oct 2, 2026, 4:59 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer owed a shop', kind: 'change',
     items: [
       'Open Otis Bacon\u2019s card, a carpenter, and look under Were they at work? It used to say the town owed him a shop of his own. It now says no shop is owed. The Chicago American counted twenty-five mechanics\u2019 shops in the town in August 1835, and the shops printed in the newspapers of the day already come to 45.',

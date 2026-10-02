@@ -59,7 +59,7 @@ function bucketRow(b) {
  * bucket. This one section is the town's ANSWER so far: of the 1,480 banded households
  * the two seating passes were offered, how many now have ground under them, how many of
  * the roofs already standing carry one, and how many households are still on no ground
- * at all. It stands FIRST because it is the only thing on this card a visitor can check
+ * at all. It stands second, under whether the town is finished, because it is what a visitor can check
  * against the scene: a seated household is one the walk can be sent to.
  *
  * NO NUMBER IS TYPED HERE either. Every figure comes out of `seats_against_roofs`, which
@@ -109,6 +109,49 @@ function seatsHtml(sr) {
   </details>`;
 }
 
+/** IS THE TOWN FINISHED (T-1970).
+ *
+ * The card was always the town's ORDER and never said whether the order had been
+ * met. The completion audit (`tools/audit_town_completion_1835.py`, T-1964) measures
+ * exactly that — four joins, each closed or holding a count of what keeps it open —
+ * and until now only the City tile read it. So this card's first section is the same
+ * four joins, read whole from `data/render/town_completion_1835.json`: it says
+ * "complete" only when the audit's own `the_join_is_total` does, and otherwise names
+ * what is still owed in the audit's words. Open by default, because it is the answer
+ * to the question the rest of the card is the working for.
+ */
+function completionHtml(c) {
+  const joins = Array.isArray(c?.joins) ? c.joins : [];
+  if (!joins.length) return '';
+  const closed = joins.filter((j) => Number(j.open) === 0).length;
+  const total = c.summary?.the_join_is_total === true;
+  const rows = joins.map((j) => {
+    const open = Number(j.open);
+    return `<tr><td>${escapeHtml(j.label)}</td>`
+      + `<td class="num">${open === 0 ? 'closed' : num(open)}</td>`
+      + `<td>${open === 0 ? '' : escapeHtml(j.what_keeps_it_open)}</td></tr>`;
+  }).join('');
+  return `<details class="lib pop ob" open>
+    <summary>
+      <span class="lib-title">Is the town finished?</span>
+      <span class="lib-scope">${total ? 'complete' : `${num(closed)} of ${num(joins.length)} joins closed`}</span>
+    </summary>
+    <div class="lib-body">
+      <p class="pop-lead">${total
+    ? 'Yes. Every household has a roof, every working person a workplace, every business a '
+      + 'roof or a stated limit, and every standing roof somebody under it or a stated use.'
+    : `Not yet. The town is finished when ${num(joins.length)} joins close: every household `
+      + 'under a roof, every working person at a workplace, every business roofed, every roof '
+      + `occupied. ${num(closed)} ${closed === 1 ? 'has' : 'have'}; the rest are the work still owed.`}</p>
+      <figure class="pop-table"><div class="pop-scroll"><table>
+        <thead><tr><th>join</th><th class="num">open</th><th>what keeps it open</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div></figure>
+      <p class="legend-note pop-note">${escapeHtml(c.not_a_remedy || '')}</p>
+    </div>
+  </details>`;
+}
+
 /** One bucket family, collapsed — the same `<details>` shape as a liberty. */
 export function familyHtml(family) {
   const buckets = family.buckets || [];
@@ -149,6 +192,15 @@ function listHtml(title, chip, lead, rows) {
 }
 
 export async function mountOrderBook({ mount, noteMount = null, dataBase, problems = [] }) {
+  // The completion audit is fetched beside the book and fails on its own: a missing
+  // audit drops the "Is the town finished?" section and says so, and the book still
+  // renders (T-1970).
+  const completionP = fetch(new URL('render/town_completion_1835.json', dataBase), { cache: 'no-cache' })
+    .then((res) => { if (!res.ok) throw new Error(`${res.status} ${res.statusText}`); return res.json(); })
+    .catch((err) => {
+      problems.push(`town completion audit: ${err.message} — "Is the town finished?" is not shown`);
+      return null;
+    });
   let doc = null;
   try {
     const url = new URL('reconstruction/1835_reconstruction_order_book.json', dataBase);
@@ -191,6 +243,7 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
   // Rendered once and counted once: a book with no seating section renders no seating
   // panel, and the hub tile's count has to be the panels actually on the card.
   const seats = seatsHtml(doc.seats_against_roofs);
+  const completion = completionHtml(await completionP);
   if (mount) {
     const families = (doc.bucket_families || []).map(familyHtml);
     // `programme groups` names what the programme side actually sums, and a row that reads
@@ -207,8 +260,10 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
       + `<b>${escapeHtml(i.id.replace(/_/g, ' '))}</b> (${escapeHtml(i.owning_ticket)}) — `
       + `${escapeHtml(i.statement)} <i>Now: ${escapeHtml(i.measured_now)}</i></p>`);
     mount.innerHTML = [
-      // The seating section leads the card: it is the town's answer to the book's order,
-      // and the only part of this panel a visitor can go and look at.
+      // Whether the town is finished leads the card, then how far the seating has got.
+      completion,
+      // The seating section follows it: it is the town's answer to the book's order,
+      // and the part of this panel a visitor can go and look at.
       seats,
       ...families,
       listHtml('Where the model and the roof programme disagree',
@@ -224,8 +279,8 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
   }
   return {
     // The hub tile's count is the number of `<details>` this mount renders, and the smoke
-    // asserts the two against each other: families, the seating section, and the two lists.
-    count: (doc.bucket_families || []).length + 2 + (seats ? 1 : 0),
+    // asserts the two against each other: families, the seating section, the completion section and the two lists.
+    count: (doc.bucket_families || []).length + 2 + (seats ? 1 : 0) + (completion ? 1 : 0),
     families: doc.bucket_families || [],
     totals: t,
   };
