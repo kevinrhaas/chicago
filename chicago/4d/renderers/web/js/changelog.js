@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1295, ts: '2026-10-02T10:07:50.795Z', date: 'Oct 2, 2026, 5:07 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
+  { v: null, ts: '', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
     items: [
       'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
       'Walk east to Dearborn Street and cross it. One lot along, a third boarding house faces Washington. Edward McCarthy keeps it. Each house is two storeys of clapboard with a kitchen wing, and a log stable and a privy stand behind it off the alley.',
@@ -7,6 +7,13 @@ export const CHANGELOG = [ // newest first
       'Some lodgers moved over from older houses. Chapin\u2019s boarding house on Illinois Street and a boarding house on the West Side each lose a stovepipe, and a North Side house loses a window. The Steamboat Hotel sleeps eight, one fewer than before.',
       'Three families who had asked for lots on the Market Street block are now waiting for land elsewhere.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L348) says how each was placed and sized.',
+    ] },
+  { v: 1295, ts: '2026-10-02T09:54:07.300Z', date: 'Oct 2, 2026, 4:54 AM CT', title: 'Weathered, grained timber at every shop door', kind: 'change',
+    items: [
+      'Stand on Lake Street outside George Dole\u2019s warehouse. His wagon apron, the stoops along the street and the hitching posts are no longer white. They now match the walks in weathered grey and brown, and each business\u2019s timber is its own shade.',
+      'Every board now shows wood grain, a few drying cracks and darker end grain. Boards darken where they meet the mud, so the walks and steps look set into the street.',
+      'Stoops and mounting blocks are built as steps: plank treads with seams, and a front edge that throws a shadow line. Look at the Mansion House and the row of shops west of it on Lake Street.',
+      'The colours, the grain and the step joinery are our reconstruction. No source describes them. The Liberties page says so (L320).',
     ] },
   { v: 1294, ts: '2026-10-02T08:51:28.084Z', date: 'Oct 2, 2026, 3:51 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
     items: [
