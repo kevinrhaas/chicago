@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
+  { v: 1305, ts: '2026-10-02T14:34:41.343Z', date: 'Oct 2, 2026, 9:34 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
     items: [
       'Stand at the fort\u2019s south-west corner and look south. Beyond the factor\u2019s house, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
       'Walk west out of town along Randolph Street, past the last houses beyond Des Plaines Street. Four covered wagons and two small tents stand in a ring on the prairie, an emigrant party stopped for the night.',
