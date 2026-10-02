@@ -78,10 +78,15 @@ site is live at `https://kevinrhaas.github.io/chicago-images/`; the owner enable
 - At 390×780 the same viewer (a local copy pointed at the live store) renders with zero page
   errors.
 
-**Next cleanup (not done):** the retired `research/images/files/` (295 files, ~38 MB) is still
-published as a fallback. It can now be dropped from `tools/publish.py` and deleted, which frees that
-space on chicago.polecat.live's Pages site. `research/public/` (the Glessner HABS and Houghton
-files) stays; it is package-served by design.
+**Cleanup done (2026-10-02, owner-approved).** The retired `research/images/files/` was deleted
+after two checks:
+- All 295 of its files are in the store. 73 Robinson thumbnails there are newer re-derivations, and
+  those are the ones the records cite.
+- Nothing in the pre-fire, postfire or Prairie sites referenced the folder.
+
+`publish.py` no longer copies it, and `validate.py` refuses any image file placed there. The
+package's `research/public/` (Glessner HABS and Houghton files) stays; it is package-served by
+design.
 
 ## Fourth pass — south half and adjacent buildings, by address and owner (2026-10-02)
 
