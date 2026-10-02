@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1329, ts: '2026-10-02T23:31:26.997Z', date: 'Oct 2, 2026, 6:31 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+  { v: 1330, ts: '2026-10-02T23:53:15.980Z', date: 'Oct 2, 2026, 6:53 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [
       'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
       'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
       'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
+  { v: 1329, ts: '2026-10-02T23:07:46.373Z', date: 'Oct 2, 2026, 6:07 PM CT', title: 'Reconstructing the town now says whether the town is finished', kind: 'change',
+    items: [
+      'Open the Evidence tab and choose \u201cReconstructing the town\u201d. A new first section, \u201cIs the town finished?\u201d, answers that before anything else.',
+      'Not yet, it says. Every business is roofed. 523 households are still waiting on a roof, 40 working people are owed a workplace, and 5 standing roofs are empty and owed somebody.',
+      'The figures come from the same completion audit as the City card, so the two always agree. When all four joins close, the section will say the town is complete.',
     ] },
   { v: 1328, ts: '2026-10-02T22:54:50.366Z', date: 'Oct 2, 2026, 5:54 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
     items: [
