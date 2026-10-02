@@ -101,7 +101,10 @@ DWELLING_WORDS = ("dwelling", "cottage", "house", "residence", "shanty", "cabin"
                   "boarding", "quarters", "hotel", "tavern")
 
 # The employment ledger's reasons, read into the three answers this audit gives.
+# T-1993: a domestic the taverns had no room for is in another household's service by the
+# trade's own premises ruling, and a private household is not a house the register owes.
 WORK_STATED = {"no_employer_named",         # the trade kept no premises: stated, not owed
+               "in_service_in_another_household",
                # T-1994: an attested trade ruled on by name, and no house owed for it
                "serves_an_establishment_outside_the_register",
                "not_held_by_the_establishment_on_the_scene_date",

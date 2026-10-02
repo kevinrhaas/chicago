@@ -47,8 +47,10 @@ THE FIVE ANSWERS. Every person gets exactly one, and the first three are the tic
                                      and where the layer holds no such record the house
                                      is OWED rather than absent.
   `at_a_trade_with_no_house_to_join` they carry a trade and the business layer holds no
-                                     house this project may join them to. Four reasons,
-                                     each somebody else's ticket to close.
+                                     house this project may join them to. Nine reasons:
+                                     four are somebody else's ticket to close, and five
+                                     (T-1993's one, T-1994's four) say no house of trade
+                                     is owed at all.
   `no_trade_recorded`                the layer records no trade for them and this pass
                                      does not supply one.
 
@@ -132,7 +134,7 @@ STATUSES = {
     "at_a_trade_with_no_house_to_join": (
         "no_employer_named", "class_held_no_house",
         "trade_attested_no_house_named", "no_ruling_on_the_trade",
-        *ATTESTED_NONE_OWED),
+        "in_service_in_another_household", *ATTESTED_NONE_OWED),
     "no_trade_recorded": ("no_trade_recorded",),
 }
 
@@ -169,6 +171,13 @@ WORDS = {
         "The sources name this person's trade and name no house for it. Drawing one "
         "would put a man the record knows into a shop nobody put him in, so no seat is "
         "drawn and the absence is carried instead.",
+    "in_service_in_another_household":
+        "The premises ruling for this trade says the work is given in another "
+        "household's house: domestic service, done in a family's kitchen, washhouse and "
+        "yard rather than in a house of trade. The staffing model employs the trade in "
+        "the town's taverns and hotels only, and every one was full, but that does not "
+        "make the town owed another tavern — no house of trade is owed for this person. "
+        "Which household employed them no source says and this pass draws none.",
     "no_ruling_on_the_trade":
         "`premises_rulings.json` has never ruled on this trade, so whether it kept "
         "premises of its own is unanswered. T-1404 owns the ruling; until it is made "
@@ -217,6 +226,21 @@ WORDS = {
 }
 
 AGE_SCOPES = ("working_age", "below_working_age", "age_is_not_settled")
+
+#: THE TRADES WHOSE WORK IS GIVEN IN SOMEBODY ELSE'S HOUSEHOLD (T-1993, piece 1 of 3 of
+#: T-1991). T-1433 seats a reconstructed trade-holder in the class of house the staffing
+#: model employs the trade in, and where every house of that class is full it answers
+#: `class_held_no_house` — "the town is owed more houses of the kind". That is right for
+#: a smith and wrong for a servant. The model staffs only HOUSES OF TRADE, so the one
+#: class it employs `domestic` in is `tavern_or_hotel`, and 61 working-age domestics the
+#: taverns had no room for read on 2 October 2026 as a town owed 61 hotel places. The
+#: premises ruling already says where the rest of the trade worked — "Domestic service is
+#: given in another household's house" — and a private household is not a house of trade
+#: the register owes. So the overflow carries the ruling's answer instead of the model's.
+#: The value is the ruling's own words, asserted against its `basis` in `verify` so the
+#: day the ruling says otherwise this stops agreeing with it out loud. No household is
+#: drawn for them: which family kept which servant is not in any file this reads.
+IN_ANOTHER_HOUSEHOLD = {"domestic": "given in another household's house"}
 
 #: THE REGISTER'S OWN PEOPLE ROWS (T-1990, piece 1 of 3 of T-1982). A business record
 #: names the people it holds in three lists, and until this pass the join read none of
@@ -398,11 +422,16 @@ def answer(person: dict, context: dict) -> dict:
                         "no answer for. A new kind is a new answer and must be ruled on "
                         "here, not folded into an old one.")
         status, reason = FROM_SEATING[kind]
+        decided_by = (f"reconstructed_seating.json#{kind}, drawn by "
+                      f"{context['seating_ticket']}")
+        if kind == "class_held_no_house" and trade in IN_ANOTHER_HOUSEHOLD:
+            reason = "in_service_in_another_household"
+            decided_by += (f"; premises_rulings.json#{trade} = no_fixed_premises, "
+                           f"{IN_ANOTHER_HOUSEHOLD[trade]!r}, read by T-1993")
         return {
             "status": status,
             "reason": reason,
-            "decided_by": f"reconstructed_seating.json#{kind}, drawn by "
-                          f"{context['seating_ticket']}",
+            "decided_by": decided_by,
             "houses": [seat["business_id"]] if seat.get("business_id") else [],
         }
 
@@ -746,8 +775,17 @@ def report(data: dict, coverage: dict) -> dict:
 def verify(data: dict, coverage: dict, committed: dict) -> None:
     """The cover, asserted. Four ways it can be wrong and each is a failure, never a
     warning: a person with no answer, a person with two, an answer in a word the
-    vocabulary does not hold, and a child at work."""
+    vocabulary does not hold, and a child at work. T-1990 added the register's word
+    for a house whose record does not name the person; T-1993 adds another household's
+    service claimed for a trade, or under a ruling, that does not give it."""
     rows = committed.get("rows") or []
+    for trade, words in sorted(IN_ANOTHER_HOUSEHOLD.items()):
+        ruling = data["rulings"].get(trade) or {}
+        if ruling.get("premises") != "no_fixed_premises" or \
+                words not in (ruling.get("basis") or ""):
+            raise Fault(f"premises_rulings.json#{trade} no longer says the work is "
+                        f"{words!r} at no fixed premises of its own, and T-1993 answers "
+                        "that trade's overflow in those words. Re-rule here with it.")
     seen: dict = {}
     for row in rows:
         pid = row.get("person_id")
@@ -774,6 +812,12 @@ def verify(data: dict, coverage: dict, committed: dict) -> None:
         if reason not in STATUSES[status]:
             raise Fault(f"{row['person_id']} carries {status!r} with the reason "
                         f"{reason!r}, which that status does not admit")
+        if reason == "in_service_in_another_household" and (
+                row.get("trade") not in IN_ANOTHER_HOUSEHOLD or row.get("houses")):
+            raise Fault(f"{row['person_id']} carries {reason!r} at the trade "
+                        f"{row.get('trade')!r}{' and a house' if row.get('houses') else ''}"
+                        ". Only a trade the premises ruling gives in another household's "
+                        "house may say so, and saying so names no house of trade.")
         if row.get("age_scope") not in AGE_SCOPES:
             raise Fault(f"{row['person_id']} carries the age scope "
                         f"{row.get('age_scope')!r}, which is in no vocabulary here")
@@ -899,6 +943,22 @@ def cmd_self_test() -> int:
     _fires("a register answer naming a house whose record does not name the person",
            register_house_not_named)
 
+    def servant_at_a_forge():
+        bent = json.loads(json.dumps(committed))
+        row = next(r for r in bent["rows"] if r["reason"] == "class_held_no_house")
+        row["reason"] = "in_service_in_another_household"
+        row["trade"] = "blacksmith"
+        verify(data, coverage, bent)
+    _fires("another household's service claimed for a trade the ruling keeps in a shop",
+           servant_at_a_forge)
+
+    def ruling_moved():
+        bent = dict(data)
+        bent["rulings"] = {**data["rulings"], "domestic": {
+            **data["rulings"]["domestic"], "premises": "own_premises"}}
+        verify(bent, coverage, committed)
+    _fires("the domestic ruling changing under T-1993's answer", ruling_moved)
+
     def unreadable_band():
         band_bounds("middle-aged")
     _fires("an age band in a form this pass cannot read", unreadable_band)
@@ -928,7 +988,7 @@ def cmd_self_test() -> int:
         attested_answer({**ruling, "reason": "because_we_said_so"}, data["businesses"])
     _fires("a T-1994 none-owed answer in a reason outside its four", owed_by_fiat)
 
-    print("OK: all eleven assertions of the employment coverage fire when broken")
+    print("OK: all thirteen assertions of the employment coverage fire when broken")
     return 0
 
 

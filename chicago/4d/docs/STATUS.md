@@ -16,11 +16,35 @@ postmasters Arnold and Galaher, whose office was not Chicago's — Hogan holds t
 a church member and not its minister; Legg, read off 1838; Eliza Chappel, whose school closed in
 1834; Myers, quartermaster clerk 1831-33); a civic seat and not a house (two sheriffs, two
 justices, H. Crocker, a school district's clerk); work on other people's ground (Norton, Steele,
-Snow). Owed a workplace **230 → 205**, and the 205 are now exactly the other two pieces of T-1991:
-71 class-held (T-1993, T-1995) and 134 own-account houses the register does not hold (T-1992).
+Snow). Owed a workplace **169 → 144** on top of T-1993 (230 → 205 on its own), and the 144 are
+now exactly the last two pieces of T-1991: 10 class-held (T-1995) and 134 own-account houses the
+register does not hold (T-1992). No fixed premises (stated) **208 → 228**.
 
 **Found, not fixed:** Arnold's and Galaher's cards carry an `associated_with` civic seat at the
 Chicago post office corner; on this reading they kept other offices, so that row is likely wrong.
+
+## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
+
+Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990
+the completion audit still counted **230** working-age persons owed a workplace, and **61** of them
+were reconstructed domestics, every one answered `class_held_no_house` — "the town is owed more
+houses of the kind". The staffing model only staffs houses of trade, so the one class it employs
+`domestic` in is `tavern_or_hotel`, and when the town's taverns were full the overflow read as a
+town owed 61 hotel places. That was never the claim: `premises_rulings.json#domestic` already says
+*"Domestic service is given in another household's house"*, and a private household is not a house
+the register owes. `tools/employment_coverage_1835.py` now carries that ruling for a domestic the
+seating found no room for, under a new reason `in_service_in_another_household` (status unchanged,
+`at_a_trade_with_no_house_to_join`, no house named), with both files in `decided_by`.
+`verify` refuses the reason on any other trade or beside a house, and refuses to run if the
+domestic ruling stops saying those words; both guards fire in `--self-test`. The audit counts the
+reason as stated, beside `no_employer_named`. **Exactly the 61 rows move**, all working-age, all
+reconstructed (50 in `reconstructed_trades/`, 11 in `households/`). Owed a workplace **230 → 169**;
+no fixed premises (stated) **147 → 208**.
+
+**Not done, and owned:** which household employed each of them is not drawn — no file says which
+families kept help, and a draw would invent an employer. T-1994 (the 25 attested at a no-premises
+trade), T-1995 (the 10 reconstructed tradespeople at a full class) and T-1992 (134 on their own
+account) hold the other 169.
 
 ## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
 
