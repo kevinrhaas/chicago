@@ -295,7 +295,7 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
             "value": camp["wagons"],
             "confidence": "reconstructed",
             "note": ("THE COUNTRY CAME TO THE SALE BY ROAD. A buyer from the "
-                     "settlements on the Fox and the Des Plaines drove in, and the "
+                     "settlements west of the town drove in, and the "
                      "owner has asked that wagons not be rationed (AGENTS.md, "
                      "2026-08-18). Three is invented. L351."
                      if shore else
