@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+    items: [
+      'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
+      'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
+      'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
+      'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
+    ] },
   { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [
       'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
