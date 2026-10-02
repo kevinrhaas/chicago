@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1298, ts: '2026-10-02T11:23:18.071Z', date: 'Oct 2, 2026, 6:23 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
+  { v: 1299, ts: '2026-10-02T11:30:11.198Z', date: 'Oct 2, 2026, 6:30 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
     items: [
       'Walk up to any frame house or log cabin. The walls now show wood: grain along each clapboard, raised grain and drying cracks, and adze marks across each hewn log. Before this, every wall was a flat colour.',
       'Painted and whitewashed walls hide the wood\u2019s colour but keep its texture. Look at the Sauganash\u2019s white lead beside the bare boards on Lake Street.',
       'Each house keeps its own colour and sheen. Whitewash is still the dullest wall in town and the Sauganash\u2019s paint the glossiest.',
       'The grain is our reconstruction. No source describes how any 1835 Chicago wall\u2019s wood looked. The Liberties page says how we chose it (L350).',
+    ] },
+  { v: 1298, ts: '2026-10-02T11:02:19.710Z', date: 'Oct 2, 2026, 6:02 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
+    items: [
+      'Walk west along Washington Street past Franklin. Midway along the block to Market Street a boarding house now stands facing Washington, and a second stands back to back with it facing Madison. Louis Robillard keeps the first and Michel Laframboise the second.',
+      'Walk east to Dearborn Street and cross it. One lot along, a third boarding house faces Washington. Edward McCarthy keeps it. Each house is two storeys of clapboard with a kitchen wing, and a log stable and a privy stand behind it off the alley.',
+      'Their upper windows and stovepipes are counted from their beds: seven or eight windows and four stovepipes each. Tonight they sleep four, six and eight people. The rest of their beds stand empty, because the town has no more lodgers to put in them.',
+      'Some lodgers moved over from older houses. Chapin\u2019s boarding house on Illinois Street and a boarding house on the West Side each lose a stovepipe, and a North Side house loses a window. The Steamboat Hotel sleeps eight, one fewer than before.',
+      'Three families who had asked for lots on the Market Street block are now waiting for land elsewhere.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L349) says how each was placed and sized.',
     ] },
   { v: 1297, ts: '2026-10-02T10:21:23.783Z', date: 'Oct 2, 2026, 5:21 AM CT', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
     items: [
