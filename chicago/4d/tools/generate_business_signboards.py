@@ -157,6 +157,7 @@ DATA = ROOT / "data"
 # and T-0459.
 sys.path.insert(0, str(ROOT / "generators"))
 from archetypes import facade_openings  # noqa: E402
+from archetypes.frame_dwelling_params import from_phase as _frame_dwelling_params  # noqa: E402
 from archetypes.frame_storefront_params import from_phase as _storefront_params  # noqa: E402
 from archetypes.log_dwelling_params import from_phase as _log_dwelling_params  # noqa: E402
 from archetypes.outbuilding_params import from_phase as _outbuilding_params  # noqa: E402
@@ -164,6 +165,7 @@ from archetypes.outbuilding_params import from_phase as _outbuilding_params  # n
 # The scene, and the phase of each record that stands on it.
 TARGET_DATE = "1835-07-01"
 _RESOLVERS = {
+    "frame_dwelling": _frame_dwelling_params,
     "frame_storefront": _storefront_params,
     "log_dwelling": _log_dwelling_params,
     "outbuilding": _outbuilding_params,
@@ -1426,10 +1428,20 @@ RESHAPE_H_STEP_M = 0.02
 RESHAPE_MAX_ASPECT = 9.0  # a board longer than this is a batten, not a sign
 WALL_CAP_CLEAR_M = 0.09   # the rain cap `signage.js` stands over a wall board
 DOOR_KINDS = ("door", "shop_door")
-DOOR_BOARD_MARGIN_M = 0.07   # stile left showing either side of a board on a leaf
-DOOR_BOARD_DROP_M = 0.10     # ...and below the head it hangs under
-DOOR_BOARD_H_MIN_M = 0.20
-DOOR_BOARD_PROUD_M = 0.06    # clear of the leaf and its battens, not of the wall
+# T-1984 — NEVER ON THE LEAF. The owner, 2026-10-02, of W. G. Blanchard's board fixed
+# to its own shop door: a sign "on the face of the building" that "covers a window or
+# door" is wrong — "resize the sign and put it above or move it to an open space on
+# the face of the structure". So the third move is no longer the door. A shop letters
+# its name on the FASCIA over the shopfront, which is the board a shopfront carries
+# for exactly that; a front with no fascia takes a smaller board on its own clear face.
+FASCIA_KINDS = ("archetype_sign", "fascia")
+FASCIA_MIN_W_M = 1.50        # under this a fascia is a head casing, not a signboard
+FASCIA_END_INSET_M = 0.06    # the fascia's ends left showing past the lettering
+FASCIA_EDGE_INSET_M = 0.02   # ...and its top and bottom edges
+FASCIA_PROUD_M = 0.05        # the lettered face stands over the fascia's own boards
+SHRINK_STEP = 0.05           # a shrunk board keeps its aspect, 5 % at a time
+SHRINK_MIN_W_M = 0.70        # the smallest board a name can be read on from the walk
+SHRINK_MIN_H_M = 0.30
 
 # Clause 5 and the log_dwelling default, mirrored: `wall_height_m` is optional on a
 # record and the archetype resolves 2.5 m for one storey, 4.6 m for more. A board
@@ -1791,28 +1803,43 @@ def _band_top(mounting: str, h: float, wall_height: float, head: float) -> float
 
 
 def _has_flat_face(wall: dict, w_min: float) -> bool:
-    """Could a board `w_min` wide be fixed flat on this wall at ANY height?
+    """Could a name be fixed flat on this wall at ANY height, clear of every opening?
 
     Asked by the mounting cycle, before the wording and therefore before the board's
     real size is known, because "may a name be fixed flat here at all" is a fact
-    about the building and not about what it says. A door counts: a board shrunk
-    onto the leaf is the third of the owner's three moves and is still a flat
-    mounting. An OPEN-SIDED shed passes neither test and is the case this exists
-    for — a drying shed open along its whole length has no front to paint.
+    about the building and not about what it says. A shop's FASCIA counts — lettering
+    it is the third of the moves in `_fit_flat`. A DOOR NO LONGER COUNTS (T-1984): a
+    board on the leaf was the old third move, and the owner ruled it out. An
+    OPEN-SIDED shed passes neither test and is the case this exists for — a drying
+    shed open along its whole length has no front to paint.
     """
-    if any(o["kind"] in DOOR_KINDS for o in wall["openings"]):
+    if _fascia(wall) is not None:
         return True
-    edges = sorted({0.0, wall["wall_height_m"]}
+    w_min = min(w_min, SHRINK_MIN_W_M)
+    edges = sorted({0.9, 1.2, 1.5, 1.8, 2.1}
                    | {o["z0"] for o in wall["openings"]}
                    | {o["z1"] for o in wall["openings"]})
     for z0 in edges:
-        z1 = z0 + BOARD_H_MIN_M
-        if z1 > wall["wall_height_m"] + 1e-9:
-            continue
-        if _nearest_clear(wall, (wall["u0"] + wall["u1"]) / 2.0, w_min, z0, z1) \
-                is not None:
-            return True
+        for z in (z0, z0 + SIGN_CLEAR_M):
+            z1 = z + SHRINK_MIN_H_M
+            if z1 > wall["wall_height_m"] - BAND_EAVE_CLEAR_M + 1e-9 or z < 0.4:
+                continue
+            if _nearest_clear(wall, (wall["u0"] + wall["u1"]) / 2.0, w_min, z, z1) \
+                    is not None:
+                return True
     return False
+
+
+def _fascia(wall: dict) -> dict | None:
+    """The board a shopfront carries over its glass for its name: the blank signboard
+    the archetype nails to the fascia where there is one, else the fascia itself —
+    or None where the front has neither, or one too short to letter."""
+    for kind in FASCIA_KINDS:
+        cands = [o for o in wall["openings"] if o["kind"] == kind
+                 and o["u1"] - o["u0"] >= FASCIA_MIN_W_M]
+        if cands:
+            return max(cands, key=lambda o: o["u1"] - o["u0"])
+    return None
 
 
 def _tops(mounting: str, h: float, wall_height: float, head: float,
@@ -1906,27 +1933,49 @@ def _fit_flat(wall: dict | None, mounting: str, want_u: float, w: float, h: floa
                 return out
         h2 -= RESHAPE_H_STEP_M
 
-    # 3. SHRINK IT ONTO THE DOOR FRONT — a small board on the leaf itself, which is
-    # what a modest office took anyway. Reported per building with the measurement,
-    # because this is the case where the wall genuinely has no face to spare.
-    doors = [o for o in wall["openings"] if o["kind"] in DOOR_KINDS]
-    if doors:
-        d = max(doors, key=lambda o: o["u1"] - o["u0"])
-        w3 = (d["u1"] - d["u0"]) - 2 * DOOR_BOARD_MARGIN_M
-        h3 = max(min(h * w3 / w, d["z1"] - d["z0"] - 2 * DOOR_BOARD_DROP_M),
-                 DOOR_BOARD_H_MIN_M)
-        out.update({"u": (d["u0"] + d["u1"]) / 2.0, "w": w3, "h": h3,
-                    "top": d["z1"] - DOOR_BOARD_DROP_M, "on": d,
-                    "proud_m": DOOR_BOARD_PROUD_M, "action": "shrunk to the door"})
+    # 3. LETTER THE FASCIA (T-1984) — the name over the shopfront, on the board a
+    # shopfront carries for it. Only the NAME line: a fascia is a hand's breadth
+    # deep, and three lines on it would letter nothing a visitor could read.
+    fa = _fascia(wall)
+    if fa is not None:
+        w3 = (fa["u1"] - fa["u0"]) - 2 * FASCIA_END_INSET_M
+        h3 = (fa["z1"] - fa["z0"]) - 2 * FASCIA_EDGE_INSET_M
+        out.update({"u": (fa["u0"] + fa["u1"]) / 2.0, "w": w3, "h": h3,
+                    "top": fa["z1"] - FASCIA_EDGE_INSET_M, "on": fa,
+                    "proud_m": FASCIA_PROUD_M, "lines": ["name"],
+                    "action": "lettered on the fascia"})
         out["note"] = (
-            f"this front has no {w:.2f} m of blank face at any height a name can be "
-            f"read at — every band is taken by {' and '.join(covered)} — so the board "
-            f"is shrunk to {w3:.2f} x {h3:.2f} m and fixed to the door itself")
+            f"this front has no {w:.2f} m of blank face at any height a board can be "
+            f"read at — every band is taken by {' and '.join(covered)} — so the name "
+            f"is lettered on the shop's {fa['kind'].replace('_', ' ')} over the "
+            f"shopfront, {w3:.2f} x {h3:.2f} m, and never on the door or the glass")
         return out
 
-    out["action"] = "no face and no door"
-    out["note"] = ("neither blank face nor a door to fix a board to; the flat "
-                   "mounting is refused and the cycle advances")
+    # 4. SHRINK IT ONTO CLEAR FACE (T-1984) — the same board, smaller, its aspect
+    # kept, on the wall between the openings: above them where the wall has the
+    # height, beside them where it has not. Never on the leaf.
+    k = 1.0 - SHRINK_STEP
+    while w * k >= SHRINK_MIN_W_M - 1e-9 and h * k >= SHRINK_MIN_H_M - 1e-9:
+        w4, h4 = w * k, h * k
+        tops = _tops(mounting, h4, wall_height, head, top, wall["openings"])
+        tops = sorted(tops, key=lambda t: -t)          # highest first: above the doors
+        for top4 in tops:
+            u4 = _nearest_clear(wall, want_u, w4, top4 - h4, top4 + cap)
+            if u4 is None:
+                continue
+            out.update({"u": u4, "w": w4, "h": h4, "top": top4,
+                        "action": "shrunk onto clear face"})
+            out["note"] = (
+                f"this front has no {w:.2f} m of blank face — every band is taken by "
+                f"{' and '.join(covered)} — so the board is shrunk to {w4:.2f} x "
+                f"{h4:.2f} m and fixed on the clear wall between the openings")
+            return out
+        k -= SHRINK_STEP
+
+    out["action"] = "no clear face"
+    out["note"] = ("neither blank face nor a fascia to letter; the flat mounting "
+                   "should have been refused by `_has_flat_face` and this is the "
+                   "record that it was not")
     return out
 
 
@@ -2389,7 +2438,7 @@ def build_record() -> tuple[list, list, list]:
                 mount_notes.append(
                     f"a {trial.replace('_', ' ')} was refused here because this front "
                     f"has no {BOARD_SIZE[trial]['min']:.2f} m of blank face at any "
-                    "height and no door to fix a board to — every elevation of it is "
+                    "height and no fascia to letter — every elevation of it is "
                     "open bay, and a name lettered there would hang in the air "
                     "between the posts")
                 continue
@@ -2522,10 +2571,12 @@ def build_record() -> tuple[list, list, list]:
             geom["post_square_m"] = 0.16
         else:
             geom["proud_m"] = BAND_PROUD_M
-        # A board fixed to the DOOR stands off the leaf and its battens, not off the
-        # wall plane the leaf is hung in.
+        # A name lettered on the FASCIA stands off the fascia's own boards, not off
+        # the wall plane behind them, and letters only the lines the fit names.
         if fit and fit["proud_m"] is not None:
             geom["proud_m"] = fit["proud_m"]
+        if fit and fit.get("lines"):
+            geom["lines"] = fit["lines"]
 
         # THE DATUM, and it is not the same one for every mounting. A sign fixed to
         # a building is measured from the base of that building's walls — the LOWEST
@@ -2541,11 +2592,11 @@ def build_record() -> tuple[list, list, list]:
         head_y = _round(fit["top"] if fit else head, 2)
         datum = ("the base of this building's walls — the lowest of a 5x5 terrain "
                  "grid over the footprint, as buildings.js sets it")
-        if fit and fit["action"] == "shrunk to the door":
+        if fit and fit["action"] == "lettered on the fascia":
             datum = ("the base of this building's walls — the lowest of a 5x5 terrain "
-                     "grid over the footprint, as buildings.js sets it. This board is "
-                     "on the door leaf rather than on the wall, so its head is the "
-                     "door's head less a hand's breadth")
+                     "grid over the footprint, as buildings.js sets it. This name is "
+                     "lettered on the shopfront's fascia, so its head is the fascia's "
+                     "top less a lath")
         if mounting == "post_board":
             datum = ("the ground under the post itself, sampled where it stands: the "
                      "post is in the street, not on the building. `post_height_m` is "

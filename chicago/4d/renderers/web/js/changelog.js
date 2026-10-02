@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1312, ts: '2026-10-02T17:21:44.077Z', date: 'Oct 2, 2026, 12:21 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
+    items: [
+      'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',
+      'Twelve signs used to be fixed across a door. Seven are now lettered on the shop\u2019s fascia above the door, as G. Blanchard\u2019s is, and five are smaller boards on clear wall.',
+      'The front steps of 34 stores now stand at the door instead of the middle of the front. Casks and crates are set to either side of a door, and fences no longer cross the doors of nine houses and sheds.',
+      'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L356).',
+    ] },
   { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
     items: [
       'Open Evidence, then City: a third panel now shows how close the town is to complete, as four checks. Every household has a home; every working person has a workplace; every business has a roof or a stated reason it has none; every standing roof has somebody in it or a use.',

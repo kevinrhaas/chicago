@@ -502,6 +502,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_entrances.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, rewrote data/enclosures/town_entrance_aprons.json byte for byte, changed no committed byte.",
+      "placed": "not yet placed: it reads data/sidecars/1835/ and data/streets/1835.json, and tools/generate_yard_goods.py reads its output (wagon stands on the trodden ground are refused), so its slot is after the sidecar and street writers and before generate_yard_goods.py — to be measured in its own ordering pass (T-1453), not appended blind (T-1984)"
+    },
     "generate_fort_apron.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

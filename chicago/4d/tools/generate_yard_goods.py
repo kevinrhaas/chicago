@@ -150,6 +150,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "generators"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import generate_entrances as entrances  # noqa: E402
 from archetypes.frame_tavern_params import from_phase as _tavern_params  # noqa: E402
 from heightfield import Heightfield  # noqa: E402
 
@@ -376,6 +377,7 @@ CRATE_H_M = 0.62
 CRATE_2_SCALE = 0.72       # the case stacked on the first one is smaller
 
 STANDOFF_M = 0.55          # from the facade plane to the goods' own centre line
+DOOR_CLEAR_M = 0.45        # T-1984: a doorway's width plus this either side is kept clear
 END_CLEAR_M = 0.50         # never closer than this to the end of the wall
 BARREL_PITCH_M = 0.62      # centre to centre in a row: a barrel and a hand's width
 MIN_FRONTAGE_M = 2.0       # under this there is no footway to stand anything on
@@ -671,24 +673,49 @@ def build_frontages(ids: list[str], cars: dict) -> tuple[list, list]:
             e, n = _to_enu(u_along, vmax, place)
             return e + math.sin(b) * STANDOFF_M, n + math.cos(b) * STANDOFF_M
 
+        # T-1984 — NOTHING STANDS IN THE DOORWAY. The owner, walking dev on 2026-10-02:
+        # "goods or furntiture in front of doors". The row used to be laid from the
+        # left end of the wall with no idea where the door was, so wherever a door
+        # stood in the first few metres a barrel stood in front of it. The doors are
+        # read off the same front elevation the mesh is built from
+        # (`generate_entrances.front_doors`), and an object whose span would come
+        # within DOOR_CLEAR_M of one is carried past it; one that no longer fits on
+        # the wall is not put out.
+        doors = [(d["u0"] - DOOR_CLEAR_M, d["u1"] + DOOR_CLEAR_M)
+                 for d in entrances.front_doors(sc)[0]]
+        wall_end = u1 - END_CLEAR_M
+
+        def clear(c: float, hw: float) -> float | None:
+            for d0, d1 in sorted(doors):
+                if c + hw > d0 and c - hw < d1:
+                    c = d1 + hw
+            return c if c + hw <= wall_end + 1e-9 else None
+
         items: list[dict] = []
         n_barrels = max(1, min(BARREL_MAX, int(run // BARREL_PER_M)))
         u = u0 + END_CLEAR_M + BARREL_PITCH_M / 2
         for _ in range(n_barrels):
+            u = clear(u, BARREL_PITCH_M / 2)
+            if u is None:
+                break
             e, n = at(u)
             items.append({"kind": "barrel", "pose": "upright",
                           "at_local_enu_m": [_round(e), _round(n)],
                           "bearing_deg": _round(bearing, 1)})
             u += BARREL_PITCH_M
-        if run >= LAID_AT_M and trade in ("tavern_inn", "hotel", "boarding_house"):
-            u += 0.35
+        if u is not None and run >= LAID_AT_M and \
+                trade in ("tavern_inn", "hotel", "boarding_house"):
+            u = clear(u + 0.35, 0.50)
+        if u is not None and run >= LAID_AT_M and \
+                trade in ("tavern_inn", "hotel", "boarding_house"):
             e, n = at(u)
             items.append({"kind": "barrel", "pose": "laid",
                           "at_local_enu_m": [_round(e), _round(n)],
                           "bearing_deg": _round(bearing, 1)})
             u += 0.65
-        if run >= CRATE_AT_M:
-            u += CRATE_L_M / 2 + 0.15
+        if u is not None and run >= CRATE_AT_M:
+            u = clear(u + CRATE_L_M / 2 + 0.15, CRATE_L_M / 2)
+        if u is not None and run >= CRATE_AT_M:
             e, n = at(u)
             items.append({"kind": "crate", "tier": 0,
                           "at_local_enu_m": [_round(e), _round(n)],
@@ -1339,6 +1366,11 @@ def _stand_refusal(quad: list, world: dict, taken: list) -> str | None:
         if interior["treatment"] == WORKING_YARD_TREATMENT:
             continue
         if any(_poly_contains(p, interior["ring"]) for p in pts):
+            if interior["record"] == "town_entrance_aprons":
+                return ("it stands on the trodden ground in front of a door "
+                        "(town_entrance_aprons, T-1984): the way in and out of a building "
+                        "is kept clear, and a wagon left across it is the thing the owner "
+                        "walked into.")
             what = {"dooryard_garden": "a kept dooryard garden",
                     "trodden_earth": "an animal pen"}.get(
                         interior["treatment"], interior["treatment"])
