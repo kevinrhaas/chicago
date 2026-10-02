@@ -1,7 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1299, ts: '2026-10-02T11:29:06.692Z', date: 'Oct 2, 2026, 6:29 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
+  { v: null, ts: '', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
     items: [
       'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',
+    ] },
+  { v: 1299, ts: '2026-10-02T11:30:11.198Z', date: 'Oct 2, 2026, 6:30 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
+    items: [
+      'Walk up to any frame house or log cabin. The walls now show wood: grain along each clapboard, raised grain and drying cracks, and adze marks across each hewn log. Before this, every wall was a flat colour.',
+      'Painted and whitewashed walls hide the wood\u2019s colour but keep its texture. Look at the Sauganash\u2019s white lead beside the bare boards on Lake Street.',
+      'Each house keeps its own colour and sheen. Whitewash is still the dullest wall in town and the Sauganash\u2019s paint the glossiest.',
+      'The grain is our reconstruction. No source describes how any 1835 Chicago wall\u2019s wood looked. The Liberties page says how we chose it (L350).',
     ] },
   { v: 1298, ts: '2026-10-02T11:02:19.710Z', date: 'Oct 2, 2026, 6:02 AM CT', title: 'Three boarding houses on Washington Street, between Market and State', kind: 'change',
     items: [

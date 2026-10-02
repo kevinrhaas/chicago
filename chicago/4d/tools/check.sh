@@ -369,6 +369,18 @@ step "the 1904 street surfaces cover the grid, cite real sources and bound the s
 selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
   python3 tools/check_street_surfaces.py --self-test
 
+# T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
+# fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
+# clapboard, and how much of the wood's grain its finish lets through. That route's
+# stated price is a renderer rule that must stay in step with materials.py, so this runs
+# renderers/web/js/wall-grain.js itself over every record and holds it to
+# wall_substrate() / wall_finish(), and to the `wall` materials the GLBs actually carry.
+step "the walls' relief rule matches the substrate and finish the generators build (T-1963)" \
+  python3 tools/check_wall_relief.py --check
+
+selftest "…and a coat read as bare, a vertical board bound as clapboard or a finish_key outranking a coating still fails it" \
+  python3 tools/check_wall_relief.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and
