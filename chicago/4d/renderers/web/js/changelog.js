@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1289, ts: '2026-10-02T06:13:54.941Z', date: 'Oct 2, 2026, 1:13 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+  { v: 1290, ts: '2026-10-02T06:55:27.951Z', date: 'Oct 2, 2026, 1:55 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
     items: [
       'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
       'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
       'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
       'The town is still filling up. A family that had asked for this corner now has a lot on another block along Washington Street.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L345) says how each was placed and sized.',
+    ] },
+  { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
+    items: [
+      'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
+      'Its courtyard roof repeats the north wing’s flared eave. The alley dormer rises with the roof so its window remains visible.',
+      'The revised rear shape is a reconstruction following the owner’s sketch; the floor-plan footprint and window positions are retained.'
     ] },
   { v: 1288, ts: '2026-10-02T05:18:43.463Z', date: 'Oct 2, 2026, 12:18 AM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
     items: [

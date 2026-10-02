@@ -1,7 +1,7 @@
 {
   "id": "owner_glessner_v4_reconstruction_brief_2026",
   "type": "dataset",
-  "citation": "Project owner, Glessner House version 4 reconstruction brief, 29 September 2026: correct intersecting roofs, courtyard and garden-level openings, continuous copper roof at the inner northeast corner, variable-height ashlar courses, and east-wing chimneys. Follow-up 1 October 2026: rebuild west-wing roof, gables and dormer from northwest/west views; carve the north entrance alcove with left-turn steps and door against HABS floor plans.",
+  "citation": "Project owner, Glessner House version 4 reconstruction brief, 29 September 2026: correct intersecting roofs, courtyard and garden-level openings, continuous copper roof at the inner northeast corner, variable-height ashlar courses, and east-wing chimneys. Follow-up 1 October 2026: rebuild west-wing roof, gables and dormer from northwest/west views; carve the north entrance alcove with left-turn steps and door against HABS floor plans. Later 1 October correction: continuous rear ridge, balanced solid south gable and courtyard eave matching the north range.",
   "date": "2026-09-29",
   "describes_date": "1904-07-01, with modern surviving fabric supplied as qualitative cross-checks",
   "repository": "Owner instruction in the project conversation; concise scope and reference inventory retained in docs/RESEARCH/glessner_house_v4.md.",
@@ -10,12 +10,13 @@
   "rights_note": "The owner supplied the written reconstruction specification and reference images for this implementation. This clearance covers the owner brief; it does NOT claim a reusable licence for the accompanying third-party photographs or Google Earth screenshots. Visible architectural facts and arrangements inform declared reconstruction; no screenshot pixels, photographic textures or photogrammetric meshes are copied.",
   "asset_use": "inventory",
   "verified": true,
-  "access_notes": "Read in the project conversation on 2026-09-29. Fourteen supplied reference images were also viewed as qualitative comparisons; HABS supplies measured coordinates. Ten additional images supplied and viewed on 2026-10-01 (210139 through 212524). HABS sheets 2\u20133 were reread at full resolution from the repository.",
+  "access_notes": "Read in the project conversation on 2026-09-29. Fourteen supplied reference images were also viewed as qualitative comparisons; HABS supplies measured coordinates. Ten additional images supplied and viewed on 2026-10-01 (210139 through 212524). HABS sheets 2\u20133 were reread at full resolution from the repository. Read the two current-model views and owner south-gable sketch supplied in the follow-up to PR #243; inventory in docs/RESEARCH/glessner-south-gable/work.md.",
   "note": "A production brief, not historical testimony. It authorizes a reconstructed treatment of missing details but does not document their 1904 dimensions. The modern reference views explicitly influence reconstructed arrangements and material boundaries where identified in the dossier; this is acknowledged, not disguised as a HABS measurement.",
   "what_it_supplies": [
     "The owner-requested visible omissions to correct in version 4.",
     "Qualitative cross-check that a cross gable, west-wing courtyard windows, garden-level lights and a continuous corner copper roof should not be omitted.",
-    "T-1830 owner request and qualitative roof/entrance comparisons; first- and second-floor HABS plans supply dimensional control."
+    "T-1830 owner request and qualitative roof/entrance comparisons; first- and second-floor HABS plans supply dimensional control.",
+    "T-1833 owner-directed south-gable and matching courtyard-eave reconstruction, superseding the prior rear hip."
   ],
   "what_it_does_not_supply": [
     "A measured survey or a dated 1904 view.",

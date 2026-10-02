@@ -196,7 +196,7 @@ def _ridges(b,params,d):
         for i in range(math.ceil((a1-a0)/.36)):
             lo=a0+i*.36+.006;hi=min(a1,lo+.348)
             def P(a,along,radius):
-                across=r['ridge_at']+radius*math.cos(a);z=r['ridge_z']+.055+radius*math.sin(a)
+                across=r['ridge_at']+r.get('ridge_skew',0)*(along-r.get('ridge_origin',0))+radius*math.cos(a);z=r['ridge_z']+.055+radius*math.sin(a)
                 return (across,along,z) if r['axis']=='y' else (along,across,z)
             for j in range(4):
                 a,c=math.pi*j/4,math.pi*(j+1)/4

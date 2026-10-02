@@ -45,6 +45,14 @@ It looks south-west from Dearborn and Washington at Sweet's house, with Beaubien
 **Handed on to T-1214** (the camps, the band's next build): the remaining H3 houses are on
 T-1950..T-1953, and the frame-budget over-reading above.
 
+# T-1833 — Glessner south gable and courtyard eave — 2026-10-01
+
+The owner requested a balanced solid south gable and continuous rear ridge after
+reviewing PR #243. Geometry and final full-model visual review are complete, including the raised
+dormer and closed hood seams. Full/light packaging and exact light visual review
+are complete. Re-gated on dev after T-1808 (#256); preflight and the published smoke parts
+for the diff pass. See `RESEARCH/glessner-south-gable/work.md`.
+
 # T-1830 — Glessner west roof and recessed north entrance — 2026-10-01
 
 Glessner west-wing roof and north porch rebuilt from the owner's views and HABS plans. Six model views reviewed; planar-envelope and opening checks pass. Full/light assets are packaged. Source preflight passes all 727 steps after integrating dev through cffaef54. Full desktop/mobile browser checks pass (1,171 assertions, zero page errors); both rendering-budget reruns on the integrated terrain pass (52 assertions). Results are recorded in dev-smoke-state.json and PR #243. Details: `RESEARCH/glessner-west-wing-alcove/work.md`.
