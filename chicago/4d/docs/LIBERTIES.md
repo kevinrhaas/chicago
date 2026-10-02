@@ -19327,7 +19327,6 @@ carpenters set out siding. A named discovery replaces the anonymous roof and its
 **T-1818**, of **T-1210**), **T-1963** (the relief that lets it read at walking distance).
 **Recorded:** 2026-10-02 (T-1962).
 
-<<<<<<< HEAD
 ### L349 — The South's last three planned boarding houses: two back to back on blk_washington_market, one on blk_washington_dearborn, each with its stable and privy
 
 **Decision:** two platted blocks that stood empty carry **nine anonymous roofs**. On
@@ -19401,7 +19400,6 @@ Clark block's third, raised the same day), **T-1951** (these deals, a piece of *
 **T-1779**), **T-1957** (what the cell still owes), **T-1209** (the boarding houses built to their beds).
 
 **Recorded:** 2026-10-02.
->>>>>>> origin/dev
 
 ### L350 — A woodpile at every dwelling: where it stands, how big it is and how it is stacked are invented by whose house it is
 
@@ -19454,4 +19452,3 @@ layer's goods and building material), **L151** (the dooryard stems the piles kee
 **T-1212** (parent), **T-1959** (this rule and layer), **T-1960** and **T-1961** (the rule's
 next columns).
 **Recorded:** 2026-10-02 (T-1959).
-=======
