@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1285, ts: '2026-10-02T03:16:34.149Z', date: 'Oct 1, 2026, 10:16 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+  { v: 1286, ts: '2026-10-02T03:31:02.067Z', date: 'Oct 1, 2026, 10:31 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
       'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
       'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
       'When you step off a walk into the street you now step down, and you walk on the lower roadway. The board crossings step down into the street and back up again.',
       'The walks, doors and buildings stayed where they were. Six wagons that stood on the lowest ground by the river are gone for now.',
       'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L342).',
+    ] },
+  { v: 1285, ts: '2026-10-02T03:12:17.655Z', date: 'Oct 1, 2026, 10:12 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
+    items: [
+      'Look at any frame house in the town. Its windows used to be plain dark rectangles. Now each one shows its wooden sash: the frame, the rail where the two halves meet, and the thin bars between the panes of glass.',
+      'Glass came in boxed sizes, and bigger panes cost more. Merchants\u2019 houses on Washington, Randolph and Wells now have twelve-over-twelve sashes of large 8 \u00d7 10 or 7 \u00d7 9 inch panes, so their windows are taller and wider.',
+      'Tradesmen\u2019s cottages use the small 6 \u00d7 8 inch pane, the only size recorded at Chicago. Most have twelve-over-twelve sashes and some have nine-over-six. Where a storey is too low for a full sash, the window loses a row of panes instead of squashing them.',
+      'Open a house\u2019s card. The Built line now names its sash and glass. These are our reconstruction: no source records the windows of any of these houses. The rule is on the Liberties page (L343).',
     ] },
   { v: 1284, ts: '2026-10-02T02:44:49.927Z', date: 'Oct 1, 2026, 9:44 PM CT', title: 'South Water and Lake Street hang the newspapers\u2019 own firms\u2019 boards', kind: 'change',
     items: [

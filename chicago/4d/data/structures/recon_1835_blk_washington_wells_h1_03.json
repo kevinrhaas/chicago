@@ -134,6 +134,14 @@
           ],
           "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: merchant class — the house money built faced the street with a roofed porch over the door and hung board shutters at most of its windows (rule FORM-S)."
         },
+        "glazing": {
+          "value": "12_over_12_8x10",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: merchant class — the larger boxed lights, 8 x 10 or 7 x 9 in, twelve to a sash (rule FORM-G)."
+        },
         "siding_exposure_m": {
           "value": 0.127,
           "confidence": "reconstructed",
@@ -171,7 +179,7 @@
       "class": "merchant",
       "by": "type",
       "household": null,
-      "words": "ochre-washed clapboard on a balloon frame, black shutters and a roofed porch, under a new roof — a larger one-and-a-half-story house, a year old (rule F-M: a merchant's or professional man's by its type)"
+      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 8 × 10 in glass, black shutters and a roofed porch, under a new roof — a larger one-and-a-half-story house, a year old (rule F-M: a merchant's or professional man's by its type)"
     }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented. THE CENTRE HALL IS THE ENTRY'S, NOT THIS PARCEL'S (T-1686). H1 is the only family of the thirty-five whose crosswalk entry names a centre hall and states a bare bay count — its required variant is \"center_hall_one_and_half\" and its variants line reads \"5 bays; center hall; kitchen ell; small porch\" — so the plan and the bay count below are read off that entry and not dealt by this parcel. The kitchen ell and the small porch the same line offers are NOT raised with them: both are selectable variants beside the required one, and an ell is a footprint fact this record's rectangle does not carry.",
