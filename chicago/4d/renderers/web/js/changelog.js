@@ -1,11 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1290, ts: '2026-10-02T06:55:27.951Z', date: 'Oct 2, 2026, 1:55 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+  { v: null, ts: '', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
     items: [
       'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
       'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
       'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
       'The town is still filling up. A family that had asked for this corner now has a lot on another block along Washington Street.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L345) says how each was placed and sized.',
+    ] },
+  { v: 1290, ts: '2026-10-02T07:00:31.882Z', date: 'Oct 2, 2026, 2:00 AM CT', title: 'Board crossings now rest on the street instead of sinking into it', kind: 'fix',
+    items: [
+      'Since the streets were lowered, the board crossings step down into each street and back up. On those slopes the ends of some crossing boards were buried up to a hand\u2019s width in the dirt. Look at the crossings on Washington, Randolph and South Water Street.',
+      'Each crossing is now cut into shorter boards where the ground slopes, and each board rests on its own patch of ground. Where it slopes across the crossing, the boards step with it. Nothing is buried, and level crossings are unchanged.',
     ] },
   { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [
