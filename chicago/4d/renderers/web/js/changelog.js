@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1298, ts: '2026-10-02T11:25:01.051Z', date: 'Oct 2, 2026, 6:25 AM CT', title: 'A woodpile behind every house in town', kind: 'change',
+    items: [
+      'Walk round the back of any house in the town and its winter wood is stacked against the back wall: 295 woodpiles at 296 dwellings. Only one house has none, because the ground behind it is wet.',
+      'What a household kept depends on who it was. A shanty has a loose heap of mill slabs. A log cabin has unsplit logs on two skids beside a chopping block. A tradesman\u2019s cottage has a short rick of stove-length wood. A merchant\u2019s house has bought cords, 8 ft long and 4 ft high, and an inn or boarding house has two or three of them.',
+      'Every pile is different, and in July they stand low: some ricks are drawn down at one end, the split ends show fresh, seasoned or silvered wood, and split sticks lie by the block.',
+      'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L349) says how.',
+    ] },
   { v: 1297, ts: '2026-10-02T10:21:23.783Z', date: 'Oct 2, 2026, 5:21 AM CT', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
     items: [
       'Walk down any street of the reconstructed town. A house dated to the 1832\u201333 boom, or one standing before that, now shows its age: its boards have turned a little greyer and duller than a house raised this spring.',

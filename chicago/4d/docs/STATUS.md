@@ -1,3 +1,33 @@
+## T-1959 — a woodpile at every dwelling, by the yard-by-household rule (2026-10-02)
+
+**What a visitor sees.** Behind 295 of the town's 296 dwellings, a woodpile against the back wall
+(274) or, where the back is taken, a side wall (21). It is a slab heap at a shanty (26), unsplit
+logs on skids and a chopping block at a log cabin (41), one rick of stove wood at a tradesman's
+cottage (130) or one or two at a larger house (54), and one or two bought cords at a merchant's
+house (29) or two or three at an inn, tavern or boarding house (15). Each pile is dealt its own
+length, height, worked-off end and wood (fresh, seasoned, silvered). One house is refused in
+writing because the ground behind it is wet.
+
+**The rule** is `tools/yard_rule_1835.py`, printed in `data/reconstruction/1835_placement_policy.json`
+under `yard`: the household class is the fabric rule's (247 roofs), else a resident household's
+trade (10), a reconstruction's occupation (14), a keeper's by function (6), or a tradesman's by
+default (18, said so on the record); the house is the roof's own family. Wells, privies, stables
+(T-1960) and trade goods (T-1961) are the columns still to write. `generate_woodpiles.py --check`
+and the rule's `--self-test` are in `check.sh`. L349 claims the invention; the fact of household
+firewood is `inferred` from the 1835 price current.
+
+**Frame cost, measured on the published mirror, desktop, `full`.** The yard layer goes from 63,032
+to 97,969 triangles. At Lake Street at Canal (part 5's worst stand) the same frame reads 1,563,306
+triangles and 210 calls without the woodpile record and 1,611,977 and 214 with it: +48,671 and +4.
+**Dev was already over the 1,460,000 `full` ceiling there by 103,306 before this PR**, and dev's own
+CI is red on smoke legs desktop 1-2, mobile 1-2 and mobile 3-6 at 15b23570. Woodpiles join the goods'
+chunk where their cell has one and otherwise one outlying mesh: 19 coarse chunks cost 9-20 calls at
+a back-lot stand and 5 still 6-11, one costs 2. The sticks are painted on the yard atlas, not built,
+so a rick is about sixty triangles.
+
+**Unverified / open.** The silvered end-grain cell reads dark in a north wall's shade; the split ends
+are polygons that can read as cobbles at a metre. A woodshed, a sawbuck and the axe are not drawn.
+
 ## T-1823 — the walk by business carried to the new fronts: fronts-only faces beyond the covered streets (2026-10-02)
 
 This is the second piece of T-1814, which is itself the second piece of T-1211 (owner: *"include their

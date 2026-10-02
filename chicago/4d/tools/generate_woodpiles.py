@@ -28,7 +28,7 @@ tree and bush, and clear of every other pile and of the trade goods and wagons a
 standing.
 
 WHAT IS INVENTED is every pile's position, size and count — `reconstructed`, docs/
-LIBERTIES.md L348. The FACT that a household kept firewood is `inferred`: the town priced
+LIBERTIES.md L349. The FACT that a household kept firewood is `inferred`: the town priced
 firewood by the cord every week of the summer, and the record's `existence` block says so.
 
     python3 tools/generate_woodpiles.py            write the record
@@ -404,7 +404,7 @@ def build():
         items = []
         for k, (kind, ac, oc, ha, ho, extra) in enumerate(parts):
             poly = polys[k]
-            cen = (round(sum(q[0] for q in poly) / 4, 2), round(sum(q[1] for q in poly) / 4, 2))
+            cen = (round(math.fsum(q[0] for q in poly) / 4, 2), round(math.fsum(q[1] for q in poly) / 4, 2))
             item = {"kind": kind, "at_local_enu_m": list(cen), "bearing_deg": bearing_of(edge)}
             item.update(extra)
             item["seed"] = int(rule.fraction(sid, f"seed{k}") * 2 ** 31)
@@ -456,7 +456,7 @@ def record(lots, refused, counts):
             "thing standing on ground this project has already drawn, so it is derived "
             "from the committed footprints and drawn at load by renderers/web/js/yard.js, "
             "and a pick on it opens the card of the house it stands behind. docs/"
-            "LIBERTIES.md L348 claims what is invented."),
+            "LIBERTIES.md L349 claims what is invented."),
         "id": "town_woodpiles",
         "name": "Woodpiles at the town's dwellings",
         "kind": "yard_goods",
