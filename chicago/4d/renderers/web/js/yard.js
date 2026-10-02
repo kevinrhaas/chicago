@@ -445,8 +445,9 @@ function buildMarkAtlas(wanted) {
     const cell = i + 1;
     const x = (cell % MARK_COLS) * MARK_TILE;
     const y = Math.floor(cell / MARK_COLS) * MARK_TILE;
-    const { mark, shape, aspect } = wanted.get(key);
-    const r = paintMark(ctx, x, y, mark, shape, aspect);
+    const { mark, shape, aspect, paint } = wanted.get(key);
+    // A wood cell (T-1959) paints itself; a mark is lettering on a shape.
+    const r = paint ? paint(ctx, x, y) : paintMark(ctx, x, y, mark, shape, aspect);
     // Canvas y runs down and uv v runs up, so the rect's top edge is v1.
     rects.set(key, {
       u0: r.rx / W, u1: (r.rx + r.rw) / W,
@@ -478,7 +479,7 @@ function buildMarkAtlas(wanted) {
  * three layers drawing small timber the same way is one thing to reason about.
  */
 function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
-  markRect = null) {
+  markRect = null, open = false) {
   const vx = -uz;
   const vz = ux;
   const P = (a, b, c) => [
@@ -517,6 +518,9 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
       markRect.v0 + ty * (markRect.v1 - markRect.v0)];
   };
   faces.forEach(([t1, t2, n], fi) => {
+    // `open` leaves the underside off a box lying on the ground (T-1959): two
+    // triangles nobody can see, on several hundred small things.
+    if (open && fi === 5) return;
     const marked = markRect && fi === 3;
     for (const t of [t1, t2]) {
       for (const i of t) {
@@ -1380,6 +1384,7 @@ async function getJSON(url) {
  * rubble happens to be lying, which is not a claim anybody can make about a heap.
  */
 function buildStack(buf, item, form, terrain, level, problems, who) {
+  if (WOOD_KINDS.has(item.kind)) return buildWood(buf, item, form, terrain, level, problems, who);
   const at = item.at_local_enu_m;
   if (!Array.isArray(at) || at.length !== 2) return false;
   const base = groundAt(terrain, at[0], at[1]);
@@ -1461,6 +1466,609 @@ function buildStack(buf, item, form, terrain, level, problems, who) {
   return false;
 }
 
+/* -------------------------------------------------------------------------- */
+/* the woodpiles (T-1959)                                                      */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * A WOODPILE AT EVERY DWELLING, and it is drawn here rather than in a layer of its
+ * own because it is the same kind of thing this file already draws: a small object
+ * standing on the town's own ground, derived from a committed footprint, picked to
+ * the card of the house it stands behind. `tools/generate_woodpiles.py` deals
+ * `data/yard/town_woodpiles.json` from the yard-by-household rule
+ * (`tools/yard_rule_1835.py`); this file only draws what that record says.
+ *
+ * WHAT A STICK LOOKS LIKE IS PAINTED, NOT BUILT. Three hundred piles of split wood
+ * built stick by stick would cost the town a hundred thousand triangles and more,
+ * and every one of them would be a box that reads as a brick. So a rick is a few
+ * dozen faces and the sticks are PAINTED onto them, on the cells of the mark atlas
+ * this layer already carries (T-0065): the stick ends on its two long faces, the
+ * sticks' bark and split sides on its top and its ends. A cell is a fixed patch of
+ * wood (`WOOD_CELL_M` across), so a stick is the same size on a short rick and a
+ * long one, and each face samples its own window of the cell so two neighbouring
+ * faces never repeat. The silhouette is built, because a painted outline is not one:
+ * the top of a rick steps column by column where it has been worked off, its ends
+ * are held by stakes, and it stands on two skids off the wet.
+ *
+ * Everything here that is a CLAIM is the record's (`form`, graded and noted there).
+ * What is this file's is only how a stick is drawn: the painting, the column width,
+ * the stake's section. Every pile is `reconstructed` at the vertex, so hiding that
+ * tier hides the layer.
+ */
+const WOOD_KINDS = new Set(['cordwood', 'log_heap', 'slab_heap', 'chopping_block']);
+/** How much wood one atlas cell depicts, square, in metres. */
+const WOOD_CELL_M = 0.85;
+/** How far the top of a rick may step between columns, below and above its height. */
+const RICK_RAGGED_M = [0.12, 0.04];
+const STAKE_M = 0.07;
+const SKID_M = 0.1;
+const LOG_SIDES = 7;
+const BLOCK_SIDES = 7;
+const BARK_COLOUR = 0x7a6b5a;
+const SPLIT_COLOUR = 0xb59c7a;
+/** The three end-grain cells: fresh-split, a season stacked, and silvered. */
+const ENDGRAIN = [
+  { face: [210, 176, 134], ring: [168, 128, 88], check: [92, 64, 42] },
+  { face: [181, 150, 113], ring: [140, 108, 76], check: [74, 54, 38] },
+  { face: [150, 142, 130], ring: [118, 110, 100], check: [62, 56, 50] },
+];
+
+/** A small deterministic generator, so a pile is the same pile on every load. */
+function woodRng(seed) {
+  let a = (seed >>> 0) || 1;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const rgb = (c, k = 1) => `rgb(${Math.round(c[0] * k)},${Math.round(c[1] * k)},${Math.round(c[2] * k)})`;
+
+/**
+ * The stick ends of a rick, one cell: split quarters, halves and whole rounds
+ * racked in courses, each with its growth rings drawn round its own pith, its bark
+ * edge, and a check or two, on the dark of the gaps between them. Fifty-odd ends to
+ * a cell is a 0.13 m stick at 192 px a cell, which is the record's `billet_m`.
+ */
+function paintEndgrain(ctx, x, y, variant, seed) {
+  const rng = woodRng(seed);
+  const pal = ENDGRAIN[variant];
+  const p = MARK_PAD;
+  const s = MARK_TILE - 2 * p;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x + p, y + p, s, s);
+  ctx.clip();
+  // the shadow between sticks: deep brown, not black — a rick is mostly wood
+  ctx.fillStyle = '#3d2f23';
+  ctx.fillRect(x + p, y + p, s, s);
+  const rows = 5;
+  const rh = s / rows;
+  for (let r = -1; r <= rows; r += 1) {
+    let cx = x + p - rng() * rh;
+    while (cx < x + p + s + rh) {
+      const w = rh * (0.75 + rng() * 0.5);
+      const top = y + p + r * rh + (rng() - 0.5) * rh * 0.12;
+      // A split stick's end is an irregular polygon that all but fills its slot: a
+      // quarter is a wedge, a half a slab with one round side, a small stick a round.
+      const shape = rng();
+      const inset = 1.2;
+      const x0 = cx + inset;
+      const x1 = cx + w - inset;
+      const y0 = top + inset;
+      const y1 = top + rh - inset;
+      const corner = Math.floor(rng() * 4);
+      const corners = [[x0, y0], [x1, y0], [x1, y1], [x0, y1]];
+      const [px, py] = shape < 0.55 ? corners[corner]
+        : [(x0 + x1) / 2 + (rng() - 0.5) * w * 0.2, shape < 0.85 ? (corner < 2 ? y0 : y1)
+          : (y0 + y1) / 2];
+      const pts = [];
+      const n = 7;
+      for (let i = 0; i < n; i += 1) {
+        const a = (i / n) * Math.PI * 2;
+        const ex = (x0 + x1) / 2 + Math.cos(a) * (x1 - x0) * 0.5 * (0.86 + rng() * 0.2);
+        const ey = (y0 + y1) / 2 + Math.sin(a) * (y1 - y0) * 0.5 * (0.86 + rng() * 0.2);
+        // a wedge's corner is square, so the polygon reaches its slot's corner there
+        const [kx, ky] = corners[corner];
+        const toward = shape < 0.55 && Math.hypot(ex - kx, ey - ky) < (x1 - x0) * 0.55;
+        pts.push(toward ? [kx, ky] : [Math.max(x0, Math.min(x1, ex)), Math.max(y0, Math.min(y1, ey))]);
+      }
+      ctx.beginPath();
+      pts.forEach(([qx, qy], i) => (i ? ctx.lineTo(qx, qy) : ctx.moveTo(qx, qy)));
+      ctx.closePath();
+      const k = 0.86 + rng() * 0.24;
+      ctx.fillStyle = rgb(pal.face, k);
+      ctx.fill();
+      ctx.save();
+      ctx.clip();
+      // sapwood paler at the bark side, the rings round the pith, the checks out of it
+      const far = Math.hypot(x1 - x0, y1 - y0);
+      ctx.strokeStyle = rgb(pal.ring, k);
+      ctx.globalAlpha = 0.4;
+      ctx.lineWidth = 1;
+      for (let ring = 2 + rng() * 2; ring < far; ring += 2.4 + rng() * 2) {
+        ctx.beginPath();
+        ctx.arc(px, py, ring, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 0.8;
+      ctx.strokeStyle = rgb(pal.check);
+      ctx.lineWidth = 1.1;
+      const checks = Math.floor(rng() * 3);
+      for (let c = 0; c < checks; c += 1) {
+        const a = rng() * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(px + Math.cos(a) * far * (0.3 + rng() * 0.4),
+          py + Math.sin(a) * far * (0.3 + rng() * 0.4));
+        ctx.stroke();
+      }
+      // the bark, a thin dark rind on the side away from the pith
+      ctx.globalAlpha = 0.9;
+      ctx.strokeStyle = '#5a4838';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(px, py, far * 0.98, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+      cx += w;
+    }
+  }
+  ctx.restore();
+  return { rx: x + p, ry: y + p, rw: s, rh: s };
+}
+
+/**
+ * The sticks seen from the side, one cell: courses of bark — grey-brown, fissured
+ * along the stick — and of pale split face with its grain, in no order, with the
+ * dark line of the gap under each. Drawn with the courses running ACROSS the cell,
+ * so a face that shows the sticks lengthwise maps the cell's u along them.
+ */
+function paintStickSides(ctx, x, y, seed) {
+  const rng = woodRng(seed);
+  const p = MARK_PAD;
+  const s = MARK_TILE - 2 * p;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x + p, y + p, s, s);
+  ctx.clip();
+  ctx.fillStyle = '#231b14';
+  ctx.fillRect(x + p, y + p, s, s);
+  const rows = 5;
+  const rh = s / rows;
+  for (let r = 0; r < rows; r += 1) {
+    let cx = x + p - rng() * s * 0.5;
+    while (cx < x + p + s) {
+      const len = s * (0.7 + rng() * 0.6);
+      const top = y + p + r * rh + 1.5;
+      const h = rh - 3 + (rng() - 0.5) * 2;
+      const bark = rng() < 0.55;
+      const k = 0.85 + rng() * 0.25;
+      ctx.fillStyle = bark ? rgb([88, 76, 64], k) : rgb([176, 146, 108], k);
+      ctx.fillRect(cx, top, len, h);
+      ctx.strokeStyle = bark ? 'rgba(34,26,20,0.75)' : 'rgba(110,84,56,0.55)';
+      ctx.lineWidth = bark ? 1.4 : 0.8;
+      const lines = bark ? 5 : 4;
+      for (let l = 0; l < lines; l += 1) {
+        const ly = top + h * (0.15 + 0.7 * rng());
+        const lx = cx + rng() * len * 0.3;
+        ctx.beginPath();
+        ctx.moveTo(lx, ly);
+        ctx.lineTo(lx + len * (0.3 + rng() * 0.6), ly + (rng() - 0.5) * 2);
+        ctx.stroke();
+      }
+      cx += len + 2 + rng() * 4;
+    }
+  }
+  ctx.restore();
+  return { rx: x + p, ry: y + p, rw: s, rh: s };
+}
+
+/**
+ * One round's sawn end, one cell — the chopping block's top and a log's end: the
+ * rings round a pith set a little off centre, the checks a season opens, a bark
+ * ring, and on the block the scores an axe leaves.
+ */
+function paintRound(ctx, x, y, seed) {
+  const rng = woodRng(seed);
+  const p = MARK_PAD;
+  const s = MARK_TILE - 2 * p;
+  const cx = x + p + s / 2;
+  const cy = y + p + s / 2;
+  const R = s / 2;
+  ctx.save();
+  ctx.fillStyle = '#4a3c30';
+  ctx.fillRect(x + p, y + p, s, s);
+  ctx.beginPath();
+  ctx.arc(cx, cy, R * 0.9, 0, Math.PI * 2);
+  ctx.fillStyle = '#b69873';
+  ctx.fill();
+  ctx.clip();
+  const px = cx + (rng() - 0.5) * R * 0.2;
+  const py = cy + (rng() - 0.5) * R * 0.2;
+  ctx.strokeStyle = 'rgba(126,96,66,0.5)';
+  ctx.lineWidth = 1.2;
+  for (let ring = 4; ring < R; ring += 3 + rng() * 3) {
+    ctx.beginPath();
+    ctx.arc(px, py, ring, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+  ctx.strokeStyle = 'rgba(70,50,34,0.85)';
+  ctx.lineWidth = 1.6;
+  for (let c = 0; c < 4; c += 1) {
+    const a = rng() * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(px, py);
+    ctx.lineTo(px + Math.cos(a) * R * (0.4 + rng() * 0.5), py + Math.sin(a) * R * (0.4 + rng() * 0.5));
+    ctx.stroke();
+  }
+  ctx.strokeStyle = 'rgba(58,42,30,0.7)';
+  ctx.lineWidth = 2;
+  for (let c = 0; c < 6; c += 1) {
+    const a = rng() * Math.PI;
+    const ox = cx + (rng() - 0.5) * R;
+    const oy = cy + (rng() - 0.5) * R;
+    ctx.beginPath();
+    ctx.moveTo(ox - Math.cos(a) * R * 0.25, oy - Math.sin(a) * R * 0.25);
+    ctx.lineTo(ox + Math.cos(a) * R * 0.25, oy + Math.sin(a) * R * 0.25);
+    ctx.stroke();
+  }
+  ctx.restore();
+  return { rx: x + p, ry: y + p, rw: s, rh: s };
+}
+
+/** The wood cells the atlas paints when a woodpile record is loaded. */
+function woodCells() {
+  const cells = new Map();
+  ENDGRAIN.forEach((_, i) => {
+    cells.set(`wood|end|${i}`, { paint: (ctx, x, y) => paintEndgrain(ctx, x, y, i, 0x1959 + i) });
+  });
+  cells.set('wood|sides', { paint: (ctx, x, y) => paintStickSides(ctx, x, y, 0x5ade) });
+  cells.set('wood|round', { paint: (ctx, x, y) => paintRound(ctx, x, y, 0x0b10c) });
+  return cells;
+}
+
+/**
+ * A quad, a → b → c → d round its edge, with uvs from a cell window. The winding is
+ * put right against the normal here, so a caller lists corners in whatever order the
+ * face is easiest to think about.
+ */
+function pushQuad(buf, a, b, c, d, n, level, uv = null) {
+  const e1 = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+  const e2 = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+  const g = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2],
+    e1[0] * e2[1] - e1[1] * e2[0]];
+  const flip = g[0] * n[0] + g[1] * n[1] + g[2] * n[2] < 0;
+  const uvs = uv ?? [null, null, null, null];
+  if (!flip) {
+    tri(buf, a, b, c, n, level, uv ? [uvs[0], uvs[1], uvs[2]] : null);
+    tri(buf, a, c, d, n, level, uv ? [uvs[0], uvs[2], uvs[3]] : null);
+  } else {
+    tri(buf, a, c, b, n, level, uv ? [uvs[0], uvs[2], uvs[1]] : null);
+    tri(buf, a, d, c, n, level, uv ? [uvs[0], uvs[3], uvs[2]] : null);
+  }
+}
+
+/**
+ * The uvs of a quad that shows `su` x `sv` of a cell (each <= 1), at a window the
+ * generator chooses — so a short face and a long face show sticks of one size, and
+ * two faces side by side do not show the same sticks.
+ */
+function cellWindow(rect, su, sv, rng) {
+  if (!rect) return null;
+  const fu = Math.min(1, su);
+  const fv = Math.min(1, sv);
+  const u0 = (1 - fu) * rng();
+  const v0 = (1 - fv) * rng();
+  const U = (t) => rect.u0 + (u0 + t * fu) * (rect.u1 - rect.u0);
+  const V = (t) => rect.v0 + (v0 + t * fv) * (rect.v1 - rect.v0);
+  return [[U(0), V(0)], [U(1), V(0)], [U(1), V(1)], [U(0), V(1)]];
+}
+
+/** The lowest ground under a set of (e, n) points, or null if any has none. */
+function groundUnder(terrain, pts) {
+  let lo = Infinity;
+  for (const [e, n] of pts) {
+    const g = groundAt(terrain, e, n);
+    if (g === null) return null;
+    lo = Math.min(lo, g);
+  }
+  return lo;
+}
+
+/**
+ * A round of wood: a prism of `sides` faces, its outline a little out of true,
+ * bark on the sides and the sawn end painted on the caps. `axis` is unit; the caps
+ * at both ends are drawn unless `capLow` is false (a block's foot is in the ground).
+ */
+function pushRound(buf, c, axis, len, r, sides, level, rng, endRect, capLow = true) {
+  const [ax, ay, az] = axis;
+  // any vector not parallel to the axis, crossed twice, gives the ring's frame
+  const ref = Math.abs(ay) > 0.9 ? [1, 0, 0] : [0, 1, 0];
+  let rx = ay * ref[2] - az * ref[1];
+  let ry = az * ref[0] - ax * ref[2];
+  let rz = ax * ref[1] - ay * ref[0];
+  const rl = Math.hypot(rx, ry, rz) || 1;
+  rx /= rl; ry /= rl; rz /= rl;
+  const sx = ay * rz - az * ry;
+  const sy = az * rx - ax * rz;
+  const sz = ax * ry - ay * rx;
+  const radii = [];
+  for (let i = 0; i < sides; i += 1) radii.push(r * (0.9 + rng() * 0.16));
+  const at = (t, i) => {
+    const k = (i / sides) * Math.PI * 2;
+    const rr = radii[i % sides];
+    return [
+      c[0] + ax * t + (rx * Math.cos(k) + sx * Math.sin(k)) * rr,
+      c[1] + ay * t + (ry * Math.cos(k) + sy * Math.sin(k)) * rr,
+      c[2] + az * t + (rz * Math.cos(k) + sz * Math.sin(k)) * rr,
+    ];
+  };
+  const h = len / 2;
+  const tint = buf.tint;
+  buf.tint = buf.bark;
+  for (let i = 0; i < sides; i += 1) {
+    const k = ((i + 0.5) / sides) * Math.PI * 2;
+    const n = [rx * Math.cos(k) + sx * Math.sin(k), ry * Math.cos(k) + sy * Math.sin(k),
+      rz * Math.cos(k) + sz * Math.sin(k)];
+    pushQuad(buf, at(-h, i), at(-h, i + 1), at(h, i + 1), at(h, i), n, level);
+  }
+  buf.tint = buf.white;
+  const capUV = (i) => {
+    if (!endRect) return null;
+    const k = (i / sides) * Math.PI * 2;
+    return [endRect.u0 + (0.5 + 0.45 * Math.cos(k)) * (endRect.u1 - endRect.u0),
+      endRect.v0 + (0.5 + 0.45 * Math.sin(k)) * (endRect.v1 - endRect.v0)];
+  };
+  for (const sign of capLow ? [-1, 1] : [1]) {
+    const n = [ax * sign, ay * sign, az * sign];
+    for (let i = 1; i < sides - 1; i += 1) {
+      const pts = [at(h * sign, 0), at(h * sign, i), at(h * sign, i + 1)];
+      const uvs = endRect ? [capUV(0), capUV(i), capUV(i + 1)] : null;
+      // a triangle fan has the winding of its ring, so check it against the normal
+      const e1 = [pts[1][0] - pts[0][0], pts[1][1] - pts[0][1], pts[1][2] - pts[0][2]];
+      const e2 = [pts[2][0] - pts[0][0], pts[2][1] - pts[0][1], pts[2][2] - pts[0][2]];
+      const g = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2],
+        e1[0] * e2[1] - e1[1] * e2[0]];
+      if (g[0] * n[0] + g[1] * n[1] + g[2] * n[2] >= 0) tri(buf, pts[0], pts[1], pts[2], n, level, uvs);
+      else tri(buf, pts[0], pts[2], pts[1], n, level, uvs && [uvs[0], uvs[2], uvs[1]]);
+    }
+  }
+  buf.tint = tint;
+}
+
+/**
+ * ONE RICK — a stack of split wood racked against a wall. Built as columns across
+ * its length, each with its own height, so the top steps where the pile has been
+ * worked off; the long faces carry the stick ends, the top and the ends the
+ * sticks' sides; two skids under it and a stake at each corner of each end.
+ */
+function pushRick(buf, x, z, base, wx, wz, L, D, H, level, rng, wood) {
+  const vx = -wz;
+  const vz = wx;
+  const P = (al, ac, yy) => [x + wx * al + vx * ac, yy, z + wz * al + vz * ac];
+  const tint = buf.tint;
+  // The bottom course stands a hand off the ground — on the skids a rick is built on,
+  // which are under the wood and are not drawn.
+  const y0 = base + SKID_M;
+  const body = Math.max(0.25, H - SKID_M);
+  const cols = Math.max(1, Math.ceil(L / WOOD_CELL_M));
+  const cw = L / cols;
+  // The worked-off end: some ricks have been drawn down at one end since the spring.
+  const worked = rng() < 0.45 ? (rng() < 0.5 ? 0 : cols - 1) : -1;
+  const tops = [];
+  for (let i = 0; i < cols; i += 1) {
+    let t = body - RICK_RAGGED_M[0] + rng() * (RICK_RAGGED_M[0] + RICK_RAGGED_M[1]);
+    if (i === worked) t *= 0.55 + rng() * 0.25;
+    tops.push(y0 + Math.max(0.2, t));
+  }
+  const ends = wood?.end ?? [];
+  const pick = () => (ends.length ? ends[Math.floor(rng() * ends.length)] : null);
+  const main = pick();
+  const along = [wx, 0, wz];
+  const back = [-wx, 0, -wz];
+  const out = [vx, 0, vz];
+  const across = Math.max(1, Math.ceil(D / WOOD_CELL_M));
+  const dw = D / across;
+  buf.tint = buf.white;
+  for (let i = 0; i < cols; i += 1) {
+    const a0 = -L / 2 + i * cw;
+    const a1 = a0 + cw;
+    const top = tops[i];
+    const rows = Math.max(1, Math.ceil((top - y0) / WOOD_CELL_M));
+    const rh = (top - y0) / rows;
+    // The OUTWARD face only: the other stands a hand's gap off the house wall, where
+    // nobody can stand to see it, and its triangles would be a third of the rick's.
+    for (const [ac, n] of [[D / 2, out]]) {
+      for (let r = 0; r < rows; r += 1) {
+        const ya = y0 + r * rh;
+        const rect = rng() < 0.8 ? main : pick();
+        pushQuad(buf, P(a0, ac, ya), P(a1, ac, ya), P(a1, ac, ya + rh), P(a0, ac, ya + rh),
+          n, level, cellWindow(rect, cw / WOOD_CELL_M, rh / WOOD_CELL_M, rng));
+      }
+    }
+    // The top: sticks lie ACROSS the rick, so the cell's courses run along it.
+    for (let j = 0; j < across; j += 1) {
+      const c0 = -D / 2 + j * dw;
+      const c1 = c0 + dw;
+      const win = cellWindow(wood?.sides, cw / WOOD_CELL_M, dw / WOOD_CELL_M, rng);
+      pushQuad(buf, P(a0, c0, top), P(a0, c1, top), P(a1, c1, top), P(a1, c0, top),
+        [0, 1, 0], level, win);
+    }
+    // The step down to the next column, where the top changes height.
+    if (i < cols - 1 && Math.abs(tops[i + 1] - top) > 0.005) {
+      const lo = Math.min(top, tops[i + 1]);
+      const hi = Math.max(top, tops[i + 1]);
+      const n = tops[i + 1] < top ? along : back;
+      for (let j = 0; j < across; j += 1) {
+        const c0 = -D / 2 + j * dw;
+        const c1 = c0 + dw;
+        pushQuad(buf, P(a1, c0, lo), P(a1, c1, lo), P(a1, c1, hi), P(a1, c0, hi), n, level,
+          cellWindow(wood?.sides, dw / WOOD_CELL_M, (hi - lo) / WOOD_CELL_M, rng));
+      }
+    }
+  }
+  // The two ends, which show the sides of the last sticks in each course.
+  for (const [al, n, top] of [[-L / 2, back, tops[0]], [L / 2, along, tops[cols - 1]]]) {
+    const rows = Math.max(1, Math.ceil((top - y0) / WOOD_CELL_M));
+    const rh = (top - y0) / rows;
+    for (let r = 0; r < rows; r += 1) {
+      for (let j = 0; j < across; j += 1) {
+        const c0 = -D / 2 + j * dw;
+        const c1 = c0 + dw;
+        const ya = y0 + r * rh;
+        pushQuad(buf, P(al, c0, ya), P(al, c1, ya), P(al, c1, ya + rh), P(al, c0, ya + rh),
+          n, level, cellWindow(wood?.sides, dw / WOOD_CELL_M, rh / WOOD_CELL_M, rng));
+      }
+    }
+  }
+  // A stake driven at each end, on the outward side, standing a hand over the wood.
+  buf.tint = buf.bark;
+  for (const [al, top] of [[-L / 2 - STAKE_M / 2, tops[0]], [L / 2 + STAKE_M / 2, tops[cols - 1]]]) {
+    const ac = D / 2 - STAKE_M / 2;
+    const h = top - base + 0.12 + 0.15;
+    pushBox(buf, x + wx * al + vx * ac, base - 0.15 + h / 2, z + wz * al + vz * ac,
+      wx, wz, STAKE_M / 2, STAKE_M / 2, h / 2, level, null, true);
+  }
+  // And a stick or two thrown across the top, not yet racked.
+  buf.tint = buf.split;
+  const loose = rng() < 0.45 ? 1 : 0;
+  for (let k = 0; k < loose; k += 1) {
+    const i = Math.floor(rng() * cols);
+    const al = -L / 2 + (i + 0.2 + rng() * 0.6) * cw;
+    const yaw = (rng() - 0.5) * 0.5;
+    const ux = vx * Math.cos(yaw) + wx * Math.sin(yaw);
+    const uz = vz * Math.cos(yaw) + wz * Math.sin(yaw);
+    pushBox(buf, x + wx * al, tops[i] + 0.05, z + wz * al, ux, uz,
+      Math.min(D, 0.61) / 2, 0.06, 0.05, level, null, true);
+  }
+  buf.tint = tint;
+}
+
+/**
+ * THE WOODPILE KINDS, dispatched from `buildStack` — every one stands on the
+ * terrain at its own point (the lowest ground under its footprint, so nothing
+ * floats on a slope), along the wall the record's bearing names.
+ */
+function buildWood(buf, item, form, terrain, level, problems, who) {
+  const at = item.at_local_enu_m;
+  if (!Array.isArray(at) || at.length !== 2) return false;
+  const b = ((item.bearing_deg ?? 0) * Math.PI) / 180;
+  const wx = Math.cos(b);
+  const wz = Math.sin(b);
+  const vx = -wz;
+  const vz = wx;
+  const x = at[0];
+  const z = -at[1];
+  // (e, n) of a point `al` along and `ac` across, for the ground samples
+  const EN = (al, ac) => [at[0] + wx * al + vx * ac, at[1] - (wz * al + vz * ac)];
+  const rng = woodRng(item.seed ?? 1);
+  const wood = buf.wood;
+  const none = () => {
+    problems.push(`yard: ${who} has no ground under its ${item.kind} — it is not drawn`);
+    return false;
+  };
+
+  if (item.kind === 'cordwood') {
+    const L = item.length_m ?? 2;
+    const D = item.depth_m ?? form.stoveStick;
+    const base = groundUnder(terrain, [EN(-L / 2, -D / 2), EN(L / 2, -D / 2),
+      EN(L / 2, D / 2), EN(-L / 2, D / 2)]);
+    if (base === null) return none();
+    pushRick(buf, x, z, base, wx, wz, L, D, item.height_m ?? 1, level, rng, wood);
+    return true;
+  }
+
+  if (item.kind === 'log_heap') {
+    const n = Math.max(1, item.logs ?? 3);
+    const len = item.log_length_m ?? 3;
+    const [rBig, rSmall] = form.logDiameter;
+    const depth = item.depth_m ?? 0.36 * n + 0.3;
+    const base = groundUnder(terrain, [EN(-len / 2, -depth / 2), EN(len / 2, -depth / 2),
+      EN(len / 2, depth / 2), EN(-len / 2, depth / 2)]);
+    if (base === null) return none();
+    const tint = buf.tint;
+    buf.tint = buf.bark;
+    // two cross skids the logs were rolled onto
+    for (const s of [-1, 1]) {
+      const al = s * len * 0.3;
+      pushBox(buf, x + wx * al, base + 0.06, z + wz * al, vx, vz, depth / 2, 0.07, 0.06, level,
+        null, true);
+    }
+    const lower = Math.max(1, Math.ceil(n * 0.6));
+    const pitch = depth / (lower + 0.5);
+    for (let i = 0; i < n; i += 1) {
+      const upper = i >= lower;
+      const r = (rSmall + (rBig - rSmall) * rng()) / 2;
+      const slot = upper ? (i - lower) + 0.5 : i;
+      const ac = -depth / 2 + pitch * (slot + 0.75);
+      const al = (rng() - 0.5) * 0.3;
+      const y = base + 0.12 + r + (upper ? r * 1.5 : 0);
+      const l = len * (0.85 + rng() * 0.15);
+      pushRound(buf, [x + wx * al + vx * ac, y, z + wz * al + vz * ac], [wx, 0, wz], l, r,
+        LOG_SIDES, level, rng, wood?.round ?? null);
+    }
+    buf.tint = tint;
+    return true;
+  }
+
+  if (item.kind === 'slab_heap') {
+    const [sl, sw, st] = form.slab;
+    const n = Math.max(1, item.pieces ?? 8);
+    const base = groundUnder(terrain, [EN(-0.85, -0.65), EN(0.85, -0.65), EN(0.85, 0.65),
+      EN(-0.85, 0.65)]);
+    if (base === null) return none();
+    const tint = buf.tint;
+    const laid = [];
+    for (let i = 0; i < n; i += 1) {
+      const al = (rng() - 0.5) * 0.5;
+      const ac = (rng() - 0.5) * 0.7;
+      const yaw = b + (rng() - 0.5) * 0.7;
+      // a slab lies on whatever is under its middle already
+      const under = laid.filter((p) => Math.hypot(p[0] - al, p[1] - ac) < 0.35).length;
+      laid.push([al, ac]);
+      buf.tint = rng() < 0.5 ? buf.bark : buf.split;
+      pushBox(buf, x + wx * al + vx * ac, base + st / 2 + under * st, z + wz * al + vz * ac,
+        Math.cos(yaw), Math.sin(yaw), (sl / 2) * (0.75 + rng() * 0.25), sw / 2, st / 2, level,
+        null, true);
+    }
+    buf.tint = tint;
+    return true;
+  }
+
+  if (item.kind === 'chopping_block') {
+    const [bh, bd] = form.block;
+    const base = groundAt(terrain, at[0], at[1]);
+    if (base === null) return none();
+    pushRound(buf, [x, base + bh / 2 - 0.04, z], [0, 1, 0], bh + 0.08, bd / 2, BLOCK_SIDES,
+      level, rng, wood?.round ?? null, false);
+    // the split sticks lying where they fell, and on some a stick stood on the block
+    const tint = buf.tint;
+    buf.tint = buf.split;
+    const k = Math.max(0, item.billets ?? 3);
+    for (let i = 0; i < k; i += 1) {
+      const a = rng() * Math.PI * 2;
+      const d = 0.45 + rng() * 0.5;
+      const ex = at[0] + Math.cos(a) * d;
+      const en = at[1] + Math.sin(a) * d;
+      const g = groundAt(terrain, ex, en);
+      if (g === null) continue;
+      const yaw = rng() * Math.PI * 2;
+      pushBox(buf, ex, g + 0.04, -en, Math.cos(yaw), Math.sin(yaw), 0.3, 0.05, 0.04, level,
+        null, true);
+    }
+    if (rng() < 0.5) {
+      pushBox(buf, x, base + bh + 0.15, z, wx, wz, 0.05, 0.05, 0.15, level, null, true);
+    }
+    buf.tint = tint;
+    return true;
+  }
+  return false;
+}
+
 function readForm(record) {
   const f = record?.form ?? {};
   const v = (k, fallback) => (f[k]?.value ?? fallback);
@@ -1500,6 +2108,11 @@ function readForm(record) {
     timberPile: v('timber_pile', [5, [5, 4], 2]),
     stoneBlock: v('stone_block_m', [0.7, 0.45, 0.35]),
     stoneHeap: v('stone_heap', [9, 2]),
+    // T-1959's woodpiles. The same contract once more: the record owns every size.
+    stoveStick: v('stove_stick_m', 0.61),
+    logDiameter: v('log_m', [0.32, 0.22]),
+    block: v('block_m', [0.5, 0.46]),
+    slab: v('slab_m', [1.4, 0.26, 0.06]),
   };
 }
 
@@ -1528,7 +2141,8 @@ export async function createYardGoods({
     sheds: [],
     census: { records: 0, frontages: 0, objects: 0, barrels: 0, crates: 0, wagons: 0,
       byKind: {}, benches: 0, sheds: 0, refused: 0, wagonsRefused: 0, chunks: 0,
-      marked: 0, markCells: 0, lots: 0, piles: 0, orphaned: 0, byMaterial: {} },
+      marked: 0, markCells: 0, lots: 0, piles: 0, orphaned: 0, byMaterial: {},
+      woodpiles: 0, woodChunks: 0 },
     pickAt: () => null,
     dispose: () => {},
   };
@@ -1590,7 +2204,17 @@ export async function createYardGoods({
       }
     }
   }
+  // T-1959. The woodpiles' sticks are painted on cells of this same atlas, so they
+  // cost the layer no material and no texture it did not already have.
+  const hasWood = loaded.some(([, r]) => (r?.lots ?? []).some(
+    (lot) => (lot.items ?? []).some((it) => WOOD_KINDS.has(it.kind))));
+  if (hasWood) for (const [key, cell] of woodCells()) markCells.set(key, cell);
   const atlas = markCells.size ? buildMarkAtlas(markCells) : null;
+  const woodRects = atlas && hasWood ? {
+    end: ENDGRAIN.map((_, i) => atlas.rects.get(`wood|end|${i}`)).filter(Boolean),
+    sides: atlas.rects.get('wood|sides') ?? null,
+    round: atlas.rects.get('wood|round') ?? null,
+  } : null;
   if (markCells.size && !atlas) {
     // No document, or a context refused: the goods stand exactly as T-0040
     // shipped them, unmarked. A degradation with a name, not a silent one.
@@ -1624,6 +2248,14 @@ export async function createYardGoods({
     brick: [brickTone.r, brickTone.g, brickTone.b],
     stone: [stoneTone.r, stoneTone.g, stoneTone.b],
   };
+  // T-1959: a woodpile's bark and split faces, and white for a face whose colour is
+  // all in its painted cell. Without an atlas a painted face would read white, so it
+  // falls back to the split tone and the pile is still wood.
+  const barkTone = new THREE.Color(BARK_COLOUR);
+  const splitTone = new THREE.Color(SPLIT_COLOUR);
+  tones.bark = [barkTone.r, barkTone.g, barkTone.b];
+  tones.split = [splitTone.r, splitTone.g, splitTone.b];
+  tones.white = woodRects ? [1, 1, 1] : tones.split;
   /**
    * THE CHUNKS, and what decides which one a thing goes in: WHERE IT STANDS.
    * Every object on this layer is anchored at a point in local ENU, so the
@@ -1647,10 +2279,39 @@ export async function createYardGoods({
       chunk = {
         key,
         buf: { pos: [], nrm: [], conf: [], col: [], uv: [], ...tones,
-          tint: tones.timber, blank: atlas ? atlas.blank : [0, 0] },
+          tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects },
         spans: [],
       };
       chunks.set(key, chunk);
+    }
+    return chunk;
+  };
+  /**
+   * WHERE A WOODPILE GOES (T-1959). Three hundred houses would put a woodpile in
+   * ninety-odd of these cells, forty of them cells no barrel or wagon stands in — and
+   * every new chunk is a draw call wherever it is in view, and a second one in the
+   * sun's pass. So a woodpile joins the goods' own chunk where its cell already has
+   * one (the call is already paid), and every other woodpile in the town goes in ONE
+   * OUTLYING mesh. Measured on the published mirror at `full`, at back-lot stands:
+   * chunks three cells across (19) cost 9-20 calls and eight across (5) still 6-11,
+   * because a chunk that large is in view nearly everywhere and draws twice. One mesh
+   * costs exactly two. What it gives up is culling on about a hundred piles of a
+   * hundred-odd triangles each — the cheaper side of the trade by a long way.
+   */
+  const woodChunks = new Map();
+  const woodChunkAt = (e, n) => {
+    const fine = `${Math.floor(e / CHUNK_M)},${Math.floor(n / CHUNK_M)}`;
+    if (chunks.has(fine)) return chunks.get(fine);
+    const key = 'w-outlying';
+    let chunk = woodChunks.get(key);
+    if (!chunk) {
+      chunk = {
+        key,
+        buf: { pos: [], nrm: [], conf: [], col: [], uv: [], ...tones,
+          tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects },
+        spans: [],
+      };
+      woodChunks.set(key, chunk);
     }
     return chunk;
   };
@@ -1712,7 +2373,9 @@ export async function createYardGoods({
       if (hostMissing(lot.structure_id)) { out.census.orphaned += 1; continue; }
       const anchor = anchorOf(lot.items ?? []);
       if (!anchor) continue;
-      const chunk = chunkAt(anchor[0], anchor[1]);
+      const woodpile = (lot.items ?? []).some((it) => WOOD_KINDS.has(it.kind));
+      const chunk = woodpile ? woodChunkAt(anchor[0], anchor[1])
+        : chunkAt(anchor[0], anchor[1]);
       let drew = 0;
       const from = chunk.buf.pos.length / 9;
       for (const item of lot.items ?? []) {
@@ -1729,6 +2392,7 @@ export async function createYardGoods({
         to: chunk.buf.pos.length / 9 });
       out.lots.push(lot);
       out.census.lots += 1;
+      if (woodpile) out.census.woodpiles += 1;
     }
     for (const wagon of record.wagons ?? []) {
       // A wagon in a yard goes with the yard's building; one standing in a public
@@ -1781,7 +2445,9 @@ export async function createYardGoods({
     }
   }
   const built = [...chunks.values()].filter((c) => c.buf.pos.length);
-  if (!built.length) {
+  const woodBuilt = [...woodChunks.values()].filter((c) => c.buf.pos.length)
+    .sort((a, b) => (a.key < b.key ? -1 : 1));
+  if (!built.length && !woodBuilt.length) {
     if (out.census.records) {
       problems.push('yard: the records loaded and not one object was stood out');
     }
@@ -1825,7 +2491,16 @@ export async function createYardGoods({
   mat.customProgramCacheKey = () => 'chicago4d-yard-goods-timber';
 
   const meshes = [];
-  for (const chunk of built) {
+  /**
+   * THE WOODPILE CHUNKS HANG IN A GROUP OF THEIR OWN, named as this layer is, so the
+   * furniture reach and the far merge (both of which find a layer by its group's
+   * name) treat them exactly as they treat the goods. Its own group because it is
+   * its own grid: the goods' chunks are `CHUNK_M` cells and this is the town.
+   */
+  const woodGroup = new THREE.Group();
+  woodGroup.name = 'yard';
+  woodGroup.userData.woodpiles = true;
+  for (const chunk of [...built, ...woodBuilt]) {
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
     geo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
@@ -1841,10 +2516,17 @@ export async function createYardGoods({
     mesh.castShadow = true;
     mesh.receiveShadow = true;
     mesh.userData.spans = chunk.spans;
-    group.add(mesh);
+    if (woodChunks.has(chunk.key)) {
+      mesh.name = 'yard-woodpile-chunk';
+      woodGroup.add(mesh);
+    } else {
+      group.add(mesh);
+    }
     meshes.push(mesh);
   }
-  out.census.chunks = meshes.length;
+  if (woodGroup.children.length) group.add(woodGroup);
+  out.census.woodChunks = woodGroup.children.length;
+  out.census.chunks = meshes.length - out.census.woodChunks;
   group.userData.census = out.census;
 
   const raycaster = new THREE.Raycaster();
