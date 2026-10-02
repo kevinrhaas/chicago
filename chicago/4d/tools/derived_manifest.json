@@ -2478,6 +2478,21 @@
       ]
     },
     {
+      "why": "T-1964: how far the town is from complete — the four joins T-1215 names (housed, at work, roofed, occupied) counted by tier. It reads the residents layer, the employment ledger, the businesses and the scene's sidecars and writes nothing any of them read, so it runs after the town census and before anything downstream; two runs re-derive the same bytes, so a conflict on its output is settled by rebuilding rather than by choosing a side.",
+      "command": [
+        "python3",
+        "tools/audit_town_completion_1835.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/render/town_completion_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/audit_town_completion_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "The agency relation compiles from the gazetteer, the street-face adoptions and the households, so it runs after the residents layer is rebuilt and before the audit that reads none of it. The card fetches the output, so a stale one is a relation missing from two cards rather than a number being wrong.",
       "command": [
         "python3",

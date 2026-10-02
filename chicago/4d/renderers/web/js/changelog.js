@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1301, ts: '2026-10-02T12:45:25.917Z', date: 'Oct 2, 2026, 7:45 AM CT', title: 'Counting what the town still owes', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind the scenes we now count how far it is from finished: who has a house, who has a place to work, which shops have a roof, and which roofs have somebody under them.',
+      'Today 143 households have a house and 1,917 do not yet. 308 working people still need a workplace, and 228 standing buildings have nobody in them yet. Every shop has a roof or a stated reason it has none.',
+      'The next steps fill those gaps, house by house.',
+    ] },
   { v: 1300, ts: '2026-10-02T12:00:26.932Z', date: 'Oct 2, 2026, 7:00 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
     items: [
       'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',
