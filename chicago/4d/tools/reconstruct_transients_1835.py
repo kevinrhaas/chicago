@@ -182,7 +182,7 @@ CAMP_GROUND = "the_landing_place"
 # emigrants: dealt as before (its slots keep their key and so their names), sheltered as
 # the class it names. And how many tents stand at the landing: "Some build tents" is the
 # paper's word, so a handful, and the rest of the class is dealt to the nearest open ground
-# off the wharf frontage. Four is a reasoned count, not a reading; docs/LIBERTIES.md L357.
+# off the wharf frontage. Four is a reasoned count, not a reading; docs/LIBERTIES.md L358.
 SHELTERED_AS = {"the_open_sky_upon_the_wharves": "a_store_house_thrown_open"}
 LANDING_TENTS = 4
 SHORE_GROUND = "the_lake_shore_south_of_the_fort"

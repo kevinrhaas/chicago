@@ -260,7 +260,7 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                             "pitched by people pressing on west, so the count here is "
                             "kept to four "
                             "and the rest of the class is dealt to the shore south "
-                            "of the fort (T-1979, L357). How many people a tent held "
+                            "of the fort (T-1979, L358). How many people a tent held "
                             "is not stated, and one family to one tent is the reading "
                             "that invents no sharing. L321.",
                 },
@@ -306,7 +306,7 @@ def record(camp: dict, tent: list, sky: list, datum: dict, edge_n: float,
                             "store houses were thrown open to receive the emigrants "
                             "'who had else remained under the open sky upon the "
                             "wharves', so the open sky is what they were spared and "
-                            "its households sleep under a roof (T-1979, L357). L321.",
+                            "its households sleep under a roof (T-1979, L358). L321.",
                 },
                 "arrangement": {
                     "value": "row",

@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1316, ts: '2026-10-02T18:43:40.736Z', date: 'Oct 2, 2026, 1:43 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+  { v: 1317, ts: '2026-10-02T18:55:37.743Z', date: 'Oct 2, 2026, 1:55 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
       'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
       'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
       'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
-      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L357).',
+      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L358).',
+    ] },
+  { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
+    items: [
+      'Walk round the back of any house in the town and its winter wood is stacked against the back wall: 298 woodpiles at 299 dwellings. Only one house has none, because the ground behind it is wet.',
+      'What a household kept depends on who it was. A shanty has a loose heap of mill slabs. A log cabin has unsplit logs on two skids beside a chopping block. A tradesman\u2019s cottage has a short rick of stove-length wood. A merchant\u2019s house has bought cords, 8 ft long and 4 ft high, and an inn or boarding house has two or three of them.',
+      'Every pile is different, and in July they stand low: some ricks are drawn down at one end, the split ends show fresh, seasoned or silvered wood, and split sticks lie by the block.',
+      'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L357) says how.',
+      'On the Light setting, the one a phone starts on, the woodpiles are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
     ] },
   { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
     items: [

@@ -18413,7 +18413,7 @@ within 1 m of the roadway, a deck, a walk, a beached boat or a footprint, or on 
 (`generators/archetypes/camp_params.py`). One tent a household is the reading that invents no
 sharing. **Until T-1979 this entry stood two camps here, 15 tents, 2 wagons and 13 heaps of
 baggage**; the owner questioned a row of canvas along the town's working frontage
-(2026-10-02), and the sentence, re-read, carries less than that — see **L357**.
+(2026-10-02), and the sentence, re-read, carries less than that — see **L358**.
 **Consequence:** a visitor on South Water Street sees four greyed tents on the bank below the
 stores, with two fire rings and nobody there. **L1 stands over every vertex**: no figure is
 drawn, and no flame or smoke either. On the street's CONTROL line (AGENTS.md rule 10) the
@@ -18431,7 +18431,7 @@ emigrants at the landing; any account of what an emigrant family's outfit at Chi
 `landing_camp_west.camp_1835.form.canvas_condition`,
 `landing_camp_west.camp_1835.form.arrangement`,
 `landing_camp_west.camp_1835.documented_range`, `landing_camp_west.occupants`
-**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **L357** (the
+**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **L358** (the
 re-reading that thinned this camp), **T-1353** (the camp households), **T-1804** (the other
 grounds and the Native and Métis camps), **T-1979** (the thinning).
 **Recorded:** 2026-10-01; amended 2026-10-02 (T-1979).
@@ -19744,7 +19744,59 @@ relief from evidence.
 belt), **T-0120** (the band's eye-height term), **T-1978** (this entry).
 **Recorded:** 2026-10-02.
 
-### L357 — The open sky the store houses spared, and the emigrants' tents moved off the wharves to the shore
+### L357 — A woodpile at every dwelling: where it stands, how big it is and how it is stacked are invented by whose house it is
+
+**Decision:** every dwelling standing on the scene date — 299 roofs, the T-0052 houses, the
+dwelling families of the reconstruction spec, and the store-residences, taverns, inns, hotels and
+boarding houses — has a woodpile dealt by the yard-by-household rule (`tools/yard_rule_1835.py`,
+printed in the placement policy under `yard`) and written to `data/yard/town_woodpiles.json` by
+`tools/generate_woodpiles.py`. Its household is the fabric rule's (L330) where that rule dealt
+one, else a household that lives there by its trade, else the occupation a reconstruction names,
+else a keeper's by the function, else a tradesman's, said so on the record. Its house is the
+roof's own family and archetype. The row of the rule:
+
+- a labourer's **shanty** — a loose heap of mill slabs and shore wood, 7-12 pieces;
+- a labourer's **log cabin** — 3-5 unsplit lengths of 2.4-3.6 m on two skids, and a block;
+- a tradesman's **cottage** — one rick of 2 ft stove wood, 1.6-2.6 m long and 0.6-1.1 m high;
+- a tradesman's **larger house** (D5-D7, or a documented frame house of 55 m2 or more) — one or
+  two such ricks, 2.2-3.4 m long and 0.7-1.2 m high;
+- a **merchant's or professional man's** house — one or two cords of 4 ft wood racked 8 ft long;
+- a **boarding house, tavern or hotel** — two or three such cords.
+
+Every pile stands against its own house's back wall — the edge whose outward ground is furthest
+from the nearest street on the house's own bank — a hand's gap (0.45 m) off it, then the next
+wall round, then cut down, then refused in writing (one refusal: wet ground). Every rick is dealt
+at or below a full cord's 4 ft, because July is the low point of a household's year in wood.
+
+**What is evidence:** that the town burned wood and bought it by the cord — the Chicago
+Democrat's weekly price current quotes firewood at $2.50 the cord on 27 May 1835 and $2.00 on
+12 August — and the cord's own size and the country's species, from the quartermaster's notice
+for five hundred cords at Fort Dearborn (4 June 1835, again 1 July): 8 ft by 4 ft by 4 ft, white
+oak, hickory, white ash and maple. The record grades the fact of a household woodpile `inferred`
+on those, and the cord's measure `inferred`.
+
+**What we invented:** every pile's place, size, count, kind and stacking; the stove stick's 2 ft;
+the stick's 0.13 m; the slab, the log and the block sizes; that money is what separates a cord
+from a stove rick from a log heap from a slab heap; and the look of the wood — the stick ends,
+sides and sawn rounds are painted procedurally on the yard layer's own canvas atlas, three
+end-grain cells (fresh, a season stacked, silvered), not photographs of any Chicago woodpile.
+Every pile is `reconstructed` at the vertex, so hiding that tier hides the layer.
+
+**Not drawn:** a woodshed (an A4 roof the build tickets raise), a sawbuck, an axe, and anyone
+working the pile — L1.
+
+**How to resolve:** a probate inventory, insurance survey or sale notice of 1834-36 naming wood or
+a woodshed at a particular house puts that house's pile on its evidence; a dated view of a
+Chicago back lot says how town wood was stacked; a household account says how much a family
+burned in a summer month.
+
+**Related:** **L330** (the fabric rule whose class this reads), **L131** and **L173** (the yard
+layer's goods and building material), **L151** (the dooryard stems the piles keep clear of),
+**T-1212** (parent), **T-1959** (this rule and layer), **T-1960** and **T-1961** (the rule's
+next columns).
+**Recorded:** 2026-10-02 (T-1959).
+
+### L358 — The open sky the store houses spared, and the emigrants' tents moved off the wharves to the shore
 
 **Decision:** two changes to the summer crowd of 1835, made on the owner's report of
 2026-10-02 that a row of tents along South Water Street and the main stem is unlikely without
