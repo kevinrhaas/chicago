@@ -126,6 +126,14 @@
           ],
           "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: merchant class — the house money built faced the street with a roofed porch over the door and hung board shutters at most of its windows (rule FORM-P)."
         },
+        "glazing": {
+          "value": "12_over_12_7x9",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: merchant class — the larger boxed lights, 8 x 10 or 7 x 9 in, twelve to a sash (rule FORM-G)."
+        },
         "siding_exposure_m": {
           "value": 0.14,
           "confidence": "reconstructed",
@@ -171,7 +179,7 @@
       "class": "merchant",
       "by": "keeper",
       "household": "hh_beaubien_charles_h",
-      "words": "whitewashed clapboard on a braced frame, a roofed porch, under a weathered roof — The Beaubien household's, in Chicago since 1832 (rule F-M)"
+      "words": "whitewashed clapboard on a braced frame, 12-over-12 sash of 7 × 9 in glass and a roofed porch, under a weathered roof — The Beaubien household's, in Chicago since 1832 (rule F-M)"
     }
   },
   "lot_address": {

@@ -241,6 +241,32 @@ FORMS: dict[str, dict] = {
     "labourer": {"porch": (), "shutters": (0.0, ()),
                  "why": "neither porch nor shutters: the door opens onto the ground"},
 }
+#: T-1838 — THE GLAZING, per class, as (value, cumulative share) steps: the sash and the
+#: pane (`frame_dwelling_params.GLAZINGS`). 6 x 8 in is the one pane attested at
+#: Chicago (the Green Tree; Gale's guest chamber), so it is what the cottages and
+#: shops glaze with; the larger boxed lights went to the houses that could pay for
+#: them. No source glazes any particular house here (docs/LIBERTIES.md L339).
+GLAZING: dict[str, tuple] = {
+    "merchant": (("12_over_12_8x10", 0.5), ("12_over_12_7x9", 1.0)),
+    "keeper": (("12_over_12_7x9", 1.0),),
+    "tradesman": (("12_over_12_6x8", 0.7), ("9_over_6_6x8", 1.0)),
+    "labourer": (("6_over_6_6x8", 0.7), ("9_over_6_6x8", 1.0)),
+}
+GLAZING_WHY = {
+    "merchant": "the larger boxed lights, 8 x 10 or 7 x 9 in, twelve to a sash",
+    "keeper": "7 x 9 in lights, twelve to a sash, at a house that took in the public",
+    "tradesman": "the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve",
+    "labourer": "the attested 6 x 8 in pane in the fewest lights, six or nine to a sash",
+}
+
+
+def glazing_words(key: str) -> str:
+    """`12_over_12_8x10` → '12-over-12 sash of 8 × 10 in glass'."""
+    up, _over, lo, pane = key.split("_")
+    w, h = pane.split("x")
+    return f"{up}-over-{lo} sash of {w} × {h} in glass"
+
+
 FORM_WORDS = {"balloon_frame": "on a balloon frame", "braced_frame": "on a braced frame"}
 FORM_NOTE = ("RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by "
              "tools/fabric_rule_1835.py from the household class and age it reads for this "
@@ -248,7 +274,7 @@ FORM_NOTE = ("RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338).
 
 
 def form_for_class(sid: str, klass: str, age: str, archetype: str) -> dict:
-    """Construction, porch and shutters for one frame roof; `{}` for any other."""
+    """Construction, porch, shutters and glazing for one frame roof; `{}` for any other."""
     if archetype not in FRAME_ARCHETYPES:
         return {}
     out = {"construction": FRAME_OF_AGE[age]}
@@ -260,6 +286,9 @@ def form_for_class(sid: str, klass: str, age: str, archetype: str) -> dict:
     share, colours = row["shutters"]
     out["shutters"] = (colours[int(_fraction(sid, "shutter_colour") * len(colours))]
                        if colours and _fraction(sid, "shutters") < share else None)
+    draw = _fraction(sid, "glazing")
+    steps = GLAZING.get(klass, GLAZING["tradesman"])
+    out["glazing"] = next(v for v, upto in steps if draw < upto)
     return out
 
 
@@ -268,6 +297,9 @@ def form_why(key: str, klass: str, age: str) -> str:
         return (f"the roof's age is {age!r}; a building of the 1834–35 boom is balloon-"
                 "framed, the method dated here to 1833, and one of the 1832–33 town or "
                 "older is braced (rule FORM-C).")
+    if key == "glazing":
+        return (f"{klass} class — {GLAZING_WHY.get(klass, GLAZING_WHY['tradesman'])} "
+                "(rule FORM-G).")
     row = FORMS.get(klass, FORMS["tradesman"])
     return f"{klass} class — {row['why']} (rule FORM-{key[0].upper()})."
 
@@ -386,11 +418,15 @@ def deal(sid: str, family: str, archetype: str, keeper: str | None = None) -> di
     form = form_for_class(sid, klass, age, archetype)
     if form:
         wall += f" {FORM_WORDS[form['construction']]}"
-        extras = ([f"{form['shutters'].replace('_', ' ')} shutters"] if form.get("shutters")
-                  else []) + ({"roofed": ["a roofed porch"], "stoop": ["a stoop"]}
-                              .get(form.get("porch"), []))
+        extras = (([glazing_words(form["glazing"])] if form.get("glazing") else [])
+                  + ([f"{form['shutters'].replace('_', ' ')} shutters"]
+                     if form.get("shutters") else [])
+                  + {"roofed": ["a roofed porch"], "stoop": ["a stoop"]}
+                  .get(form.get("porch"), []))
         if extras:
-            wall += ", " + " and ".join(extras) + ","
+            listed = (", ".join(extras[:-1]) + " and " + extras[-1] if len(extras) > 1
+                      else extras[0])
+            wall += ", " + listed + ","
     if household:
         whose = f"{household['name']}'s"
         if household["trade"]:
@@ -436,9 +472,11 @@ def policy_table() -> dict:
                 k: {"porch": [list(p) for p in v["porch"]],
                     "shutters": {"share": v["shutters"][0], "colours": list(v["shutters"][1])},
                     "why": v["why"]} for k, v in FORMS.items()},
+            "glazing_by_class": {k: {"glazing": [list(g) for g in v], "why": GLAZING_WHY[k]}
+                                 for k, v in GLAZING.items()},
             "never_moved": "an attested or inferred value, and any construction that is not a frame",
-            "not_dealt": "glazing (one window arrangement, L23), cladding, trim, siding stock (T-0112)",
-            "liberty": "L338"},
+            "not_dealt": "cladding, trim, chimney fabric, siding stock (T-0112) — T-1839",
+            "liberty": "L338, L339"},
     }
 
 
@@ -584,6 +622,17 @@ def self_test() -> int:
         if not mer.get("porch") or mer["construction"] != "balloon_frame":
             failures.append("a merchant's 1834 house came out without a porch or balloon frame")
             break
+        # T-1838: every glazing dealt is one the archetype builds, and the boxed
+        # sizes follow the money — no labourer behind 8 x 10s, no merchant behind 6 x 8s
+        if lab["glazing"].endswith(("7x9", "8x10")) or mer["glazing"].endswith("6x8"):
+            failures.append("a glazing went to the wrong class")
+            break
+    sys.path.insert(0, str(ROOT / "generators"))
+    from archetypes.frame_dwelling_params import GLAZINGS  # noqa: E402
+    dealt = {v for steps in GLAZING.values() for v, _ in steps}
+    if dealt - set(GLAZINGS):
+        failures.append(f"the rule deals glazings the archetype cannot build: "
+                        f"{sorted(dealt - set(GLAZINGS))}")
     if form_for_class("selftest_cabin", "merchant", "new", "log_dwelling"):
         failures.append("a log house was dealt a frame form")
     # the gate catches a record that drifted off the rule
