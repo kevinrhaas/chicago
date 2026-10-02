@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1312, ts: '2026-10-02T17:12:27.097Z', date: 'Oct 2, 2026, 12:12 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
+  { v: null, ts: '', title: 'The Light setting fits a slower machine again', kind: 'polish',
     items: [
       'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
       'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
       'Full and Balanced are unchanged.',
+    ] },
+  { v: 1312, ts: '2026-10-02T17:06:29.693Z', date: 'Oct 2, 2026, 12:06 PM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
+    items: [
+      'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
+      'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
+      'Where Clark and La Salle Streets meet the river, their lowered ends are held back from the walk the same way.',
     ] },
   { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
     items: [

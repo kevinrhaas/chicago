@@ -146,7 +146,7 @@ CONSUMED = {
     "street_sections": frozenset({"streets_file", "water_floor_ft", "shelf_clear_m", "classes", "traffic",
                                   "worked_share", "crown_depth_ft", "gutter_depth_ft",
                                   "gutter_inset_m", "keep_clear", "e", "n", "flat_m",
-                                  "outer_m"}),
+                                  "outer_m", "keep_clear_lines", "streets", "line"}),
     "watercourses": frozenset({"bed_ft", "e_fold_m"}),
     "micro_relief": frozenset({"amplitude_ft", "wavelengths_m", "seed",
                                "south_limit_n_m"}),
