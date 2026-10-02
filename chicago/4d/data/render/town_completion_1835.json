@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 308,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 14,
+    "structures_empty_owing_somebody": 13,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -129,6 +129,7 @@
     "use_stated": {
       "camp_ground": 3,
       "civic_or_works": 18,
+      "no_keeper_of_its_trade": 1,
       "occupancy_unattested": 2,
       "occupant_named_seat_refused": 2,
       "outbuilding_of_a_yard": 96,
@@ -138,14 +139,13 @@
     },
     "empty_owing_somebody": {
       "dwelling": 1,
-      "house_of_trade": 3,
+      "house_of_trade": 2,
       "outbuilding_naming_no_yard": 10
     },
     "empty": [
       "recon_1835_blk_west_randolph_des_plaines_w2_01",
       "recon_1835_forks_freight_f2_001",
       "recon_1835_north_a1_047",
-      "recon_1835_north_w5_040",
       "recon_1835_south_a2_037",
       "recon_1835_south_c3_015",
       "recon_1835_west_012",
@@ -234,12 +234,12 @@
       "use_stated": {
         "attested": 26,
         "inferred": 7,
-        "reconstructed": 110
+        "reconstructed": 111
       },
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 14
+        "reconstructed": 13
       }
     },
     "streets": {
@@ -278,7 +278,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 14,
+      "open": 13,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]

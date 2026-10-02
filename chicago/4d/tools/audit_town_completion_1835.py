@@ -23,7 +23,8 @@ T-1215's first clause turns it into four joins over committed data:
    business, a reconstructed occupation), or a use that needs nobody (an outbuilding
    that names its yard, a civic or harbour work, a camp ground, a house to let), or is
    one building of an establishment whose principal answers (`part_of`, T-1980), or
-   says on its record why nobody is seated under it (`stated_use`, T-1985). A
+   says on its record why nobody is seated under it (`stated_use`, T-1985; for an
+   anonymous trade roof, the trade-roof deal's `unseatable` row, T-1989). A
    sidecar whose `occupants` attribute names people in prose but whose household card
    is not linked is counted on its own row, `occupants_in_prose_only`: the roof is not
    empty, but the person it names is not yet housed by the join, and that link is owed.
@@ -153,6 +154,15 @@ def read_inputs() -> dict:
     rulings = load(DATA / "reconstruction" / "1835_presence_rulings.json")["rulings"]
     seats_path = DATA / "reconstruction" / "1835_housing_seats.json"
     apart = load(seats_path).get("counted_apart") or [] if seats_path.exists() else []
+
+    # T-1989. An anonymous trade roof's generator owns its record, so the trade-roof deal
+    # states why nobody is seated there beside it, and it is read as the record's own.
+    trade_roofs = DATA / "reconstruction" / "1835_trade_roof_seats.json"
+    for row in (load(trade_roofs).get("unseatable") or [] if trade_roofs.exists() else []):
+        if row["structure_id"] in structures:
+            structures[row["structure_id"]]["record"] = dict(
+                structures[row["structure_id"]]["record"],
+                stated_use={"value": row["value"], "note": row["note"]})
 
     return {
         "structures": structures,

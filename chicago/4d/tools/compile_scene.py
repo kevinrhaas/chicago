@@ -2227,6 +2227,7 @@ def compile_residents(housing: bool = True) -> dict[str, list[dict]]:
     overlay_lodgers(out)
     if housing:
         overlay_housing(out)
+        overlay_trade_roofs(out)
     for households in out.values():
         households.sort(key=lambda h: h["household"])
     return out
@@ -2382,6 +2383,47 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
         })
 
 
+def overlay_trade_roofs(out: dict[str, list[dict]]) -> None:
+    """Put T-1989's trade-roof deal on the card of the shop, store or warehouse it names.
+
+    The keepers the employment ledger owes a house of their own slept somewhere (the
+    housing deal saw to that) and worked nowhere, while trade roofs of their own trade
+    stood empty. `tools/seat_trade_roofs_1835.py` writes the meeting beside the card, as
+    the housing deal does, and this carries it to the roof. Only the keeper is listed:
+    the rest of the household sleeps where the card or the housing deal puts it. It sits
+    under `housing=True` so neither deal reads the other's seats back as its own input.
+    """
+    path = DATA / "reconstruction" / "1835_trade_roof_seats.json"
+    if not path.exists():
+        return
+    for seat in load(path).get("seats", []):
+        card_path = DATA / "residents" / seat["file"]
+        if not card_path.exists():
+            continue
+        hh = load(card_path)
+        out.setdefault(seat["structure_id"], []).append({
+            "household": hh["id"],
+            "name": hh["name"],
+            "division": hh.get("division", ""),
+            "relation": seat["relation"],
+            "why": seat["words"],
+            "sources": [],
+            "basis": ("KEPT HERE BY THE DEAL, NOT RECORDED HERE (L356). This keeper's trade "
+                      "is one the premises ruling gives a house of its own, and no source says "
+                      "where it stood; this is the nearest empty roof of that trade in their "
+                      "division. The roof is the invention and the keeper is not."),
+            "persons": [{
+                "name": person.get("name", ""),
+                "relationship": person.get("relationship", ""),
+                "grade": person.get("grade", "reconstructed"),
+                "occupation": ((person.get("occupation") or {}).get("value", "")
+                               if isinstance(person.get("occupation"), dict) else ""),
+                "note": person.get("note", ""),
+            } for person in hh.get("persons", []) if person.get("id") == seat["person_id"]],
+            "research_note": hh.get("research_note", ""),
+        })
+
+
 def compile_versions(scene_id: str, target: dt.date, outdir: Path, build_sidecar,
                      resolved: dict[str, dict]) -> int:
     """STRUCTURE VERSIONS, compiled beside the scene and fetched only on request (T-1727).
@@ -2478,6 +2520,10 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     written, skipped = 0, []
     index = []
     residents = compile_residents()
+    trade_roofs_path = DATA / "reconstruction" / "1835_trade_roof_seats.json"
+    trade_roofs_unseatable = ({u["structure_id"]: u for u in
+                               load(trade_roofs_path).get("unseatable", [])}
+                              if trade_roofs_path.exists() else {})
     lodging = compile_lodging()
     # id -> the phase that resolves into this scene, for the watch list below
     resolved: dict[str, dict] = {}
@@ -2596,6 +2642,16 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": st["stated_use"]["confidence"],
                 "sources": st["stated_use"].get("sources", []),
                 "note": st["stated_use"]["note"],
+            }
+        # T-1989. An anonymous trade roof cannot carry the statement on its record (the
+        # generator owns it), so the trade-roof deal states it and this carries it.
+        elif st["id"] in trade_roofs_unseatable:
+            u = trade_roofs_unseatable[st["id"]]
+            attributes["stated_use"] = {
+                "value": u["value"],
+                "confidence": "reconstructed",
+                "sources": ["owner_chicago_1835_reconstruction_spec_2026"],
+                "note": u["note"],
             }
 
         # THE PHASE'S CLAIM ABOUT ITSELF. Every `form` attribute has carried its

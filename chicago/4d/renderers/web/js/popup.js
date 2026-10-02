@@ -1042,6 +1042,7 @@ const STATED_USE_WORDS = {
   storage_operator_unrecorded: 'A store for goods; whose, no source says',
   occupant_named_seat_refused: 'A source names who used it; the seat is not proven',
   occupancy_unattested: 'No source places anyone here in July 1835',
+  no_keeper_of_its_trade: 'Nobody of its trade is left in the town to keep it',
 };
 
 function factsHtml(s, firms = [], fromSign = false) {

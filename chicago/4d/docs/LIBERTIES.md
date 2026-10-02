@@ -14386,11 +14386,11 @@ documentary brick size from the yards that supplied the town.
 
 ### L265 — Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it
 
-**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 12 roofs, re-derived from
+**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 13 roofs, re-derived from
 `data/reconstruction/1835_phase2_west_wolf_point_approaches.json` into
 `recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022` (T-1451),
-`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781), and `recon_1835_west_046`
-(T-1827) — see the amendments below.
+`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781), `recon_1835_west_046`
+(T-1827) and `recon_1835_west_013` (T-1989) — see the amendments below.
 The first six are six of the
 twenty anonymous West Division roofs **L90** raised; nothing here adds, removes or moves
 a roof, and none of the thirty-five slots **L90** holds back for want of ground is
@@ -14476,6 +14476,14 @@ boarding-house class, so no keeper or boarder is invented into a house the deal 
 to a household, and not one of the boarders standing in the nineteen lodging places moves. The
 generator refuses the reading the moment the deal stops seating a merchant household there.
 `_013` and `_020` are still left standing, for the tickets that own them.
+**Amended 2026-10-02 (T-1989): `_013`, the utility shed on Lake west of Canal, becomes a D2
+dwelling.** Its verdict is T-1445's own (a principal street, which
+`ancillary_behind_its_own_roof` avoids), carried out with `--apply --only`. Like `_011` it is
+raised from 8 × 10 ft to the 12 × 16 ft floor of the D2 band, the smallest rough-plank dwelling
+that family allows. T-1988 had drafted a stated use for it and withdrew it, because a stated
+use would keep a roof from a household waiting on one; the housing deal (L354) now seats a
+boarder there.
+
 **Recorded:** 2026-09-20.
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
@@ -19662,6 +19670,13 @@ already houses it.
 **Related:** **L167** (houses to let), **L270** (the platted deal), **L271** (the off-plat
 deal), **L276** (the card says so), **T-1199**, **T-1215**, **T-1964**, **T-1965**,
 **T-1971**.
+**Amended 2026-10-02 (T-1989):** `recon_1835_west_013` was refamilied to a D2 dwelling
+(L265), so the scene stands 295 dwellings and the census's ceiling admits 371 ruled-in
+households instead of 362: 1,374 are seated, 2,420 people under 295 dwellings (8.203 a
+roof), and 514 households (516 people) wait on a roof. A new roof in the pool is the
+roomiest roof in its division, so the deal's room rule re-picks: 238 seats change roof and
+the only one that changes division is a
+boarder whose card has no division and who is offered the whole town.
 **Recorded:** 2026-10-02.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
@@ -19724,4 +19739,46 @@ stopped; either would move a camp to its ground or retire it.
 `west_approach_wagon_camp.function`, `west_approach_wagon_camp.occupants`
 **Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **L321** (the
 landing-place camps), **T-1803** (the archetype), **T-1804** (this entry).
+**Recorded:** 2026-10-02.
+
+### L356 — The empty trade roofs kept: a keeper owed a house of their own put in the nearest empty shop, store or warehouse of their trade
+
+**Applies to:** `data/reconstruction/1835_trade_roof_seats.json` (written by
+`tools/seat_trade_roofs_1835.py`), the `residents[]` row `tools/compile_scene.py`
+(`overlay_trade_roofs`) puts on each seated roof's card, and the `stated_use` it carries to
+the card of a roof nobody can take.
+
+**Decision:** four anonymous trade roofs of the 668-roof programme stood empty after every
+other programme had passed — the W2 joiner's shop on Randolph at Des Plaines, the F2
+warehouse at the forks, the W5 riverside work shop on Wolcott and the C3 store on Lake
+(T-1989, piece 2 of T-1986). The roof redeal keeps all four, so none could be given a stated
+use (L310's rule (b)). Each is offered to the keepers the employment ledger owes a house of
+their own (`keeps_their_own_house`) whose card names no workplace, in the roof's own
+division, of a trade the roof's family serves: carpenters and joiners for the W2 (the
+crosswalk's label), the forwarding store for the F2 and the store and grocery signage for
+the C3 (the premises rulings), the tannery, packing, slaughter and soap-and-candle signage
+for the W5 (the only placement clause that admits it). The keeper whose own roof stands
+nearest takes it, ties by seeded hash. Three are kept: Otis Bacon, carpenter, 123 m from his
+own roof; Louis Bertrand, forwarding and commission, the only one of his trade in the West
+Division; Calvin Lyman, grocer, the nearest of twenty. **No source places any of these
+keepers at any of these roofs**: the keepers are the residents layer's, reconstructed, with
+their own grades on their own cards, which the seat does not touch; what is invented is
+which keeper meets which roof.
+
+**The one that stays empty:** no keeper of a heavy trade is left without a house in the
+North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The
+off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery household, whose
+own card puts its works at the documented tannery 847 m away at the forks; seating them here
+would give one firm a second works no source records, and the deal declines it in words.
+
+**Not done, and why:** the employment ledger still reads the three keepers as owed a house
+until T-1982 joins this deal into it, so the town audit's at-work count does not fall here;
+its empty-roof count does.
+
+**How to resolve:** a source naming the shop, store or counting-room of any keeper here
+replaces the seat; a keeper of a heavy trade added to the North Division takes the W5 on the
+next build with no edit to the deal.
+
+**Related:** **L271** (the off-plat deal), **L310** (stated uses), **L354** (the housing
+deal), **T-1461**, **T-1982**, **T-1985**, **T-1986**, **T-1989**.
 **Recorded:** 2026-10-02.

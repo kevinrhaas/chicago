@@ -1,0 +1,118 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/seat_trade_roofs_1835.py --build; tools/check.sh re-derives it. Do not hand-edit.",
+  "id": "chicago_july_1835_trade_roof_seats",
+  "ticket": "T-1989",
+  "parent_ticket": "T-1986",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/seat_trade_roofs_1835.py",
+  "liberty": "L356",
+  "not_a_reading": "no page of any source is read here. Every seat is an adjudication over committed records — which keeper owed a house of their own keeps it under which standing trade roof — and the meeting is the invention. The keeper's card is not touched.",
+  "raises_no_roof": "every seat is a keeper put under a roof that already stands.",
+  "inputs": [
+    "data/residents/employment_coverage.json",
+    "data/residents/{households,reconstructed_trades,lodgers,underdocumented,readmitted,institutional}/*.json",
+    "data/businesses/rulings/premises_rulings.json",
+    "data/reconstruction/1835_housing_seats.json",
+    "data/reconstruction/1835_off_plat_seats.json",
+    "data/structures/*.json",
+    "data/sidecars/1835/index.json"
+  ],
+  "match": {
+    "W2": {
+      "occupations": [
+        "carpenter",
+        "joiner"
+      ],
+      "read_from": "data/reconstruction/1835_family_archetype_crosswalk.json W2 label 'Carpenter or joiner shop'"
+    },
+    "F2": {
+      "signage": [
+        "forwarding_and_commission_store"
+      ],
+      "read_from": "data/businesses/rulings/premises_rulings.json signage_function of forwarding_and_commission — a counting-room with a warehouse behind it"
+    },
+    "C3": {
+      "signage": [
+        "store",
+        "grocery_and_provision_store"
+      ],
+      "read_from": "data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'"
+    },
+    "W5": {
+      "signage": [
+        "tannery",
+        "packing_house",
+        "slaughterhouse_packing",
+        "soap_candle_manufactory"
+      ],
+      "read_from": "data/reconstruction/1835_placement_policy.json clause heavy_and_noxious_trades (the only clause admitting W5) and the premises rulings' signage for the four trades it names"
+    }
+  },
+  "counts": {
+    "roofs": 4,
+    "seated": 3,
+    "unseatable": 1,
+    "keepers_owed_a_house": 188
+  },
+  "seats": [
+    {
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+      "family": "W2",
+      "division": "west",
+      "person_id": "rc_bacon_otis",
+      "name": "Otis Bacon",
+      "household": "hh_rc_bacon_otis",
+      "file": "reconstructed_trades/hh_rc_bacon_otis.json",
+      "trade": "carpenter",
+      "grade": "reconstructed",
+      "home": "recon_1835_blk_west_randolph_des_plaines_d5_04",
+      "metres_from_home": 122.6,
+      "keepers_offered": 4,
+      "relation": "worked here",
+      "words": "keeping a carpenter's house of their own: the nearest of 4 west division keeper(s) of a trade this roof serves, who had no workplace, 123 m from their own roof"
+    },
+    {
+      "structure_id": "recon_1835_forks_freight_f2_001",
+      "family": "F2",
+      "division": "west",
+      "person_id": "rc_bertrand_louis",
+      "name": "Louis Bertrand",
+      "household": "hh_rc_bertrand_louis",
+      "file": "reconstructed_trades/hh_rc_bertrand_louis.json",
+      "trade": "forwarding_and_commission",
+      "grade": "reconstructed",
+      "home": "recon_1835_west_019",
+      "metres_from_home": 270.4,
+      "keepers_offered": 1,
+      "relation": "worked here",
+      "words": "keeping a forwarding and commission's house of their own: the nearest of 1 west division keeper(s) of a trade this roof serves, who had no workplace, 270 m from their own roof"
+    },
+    {
+      "structure_id": "recon_1835_south_c3_015",
+      "family": "C3",
+      "division": "south",
+      "person_id": "rc_lyman_calvin",
+      "name": "Calvin Lyman",
+      "household": "hh_rc_lyman_calvin",
+      "file": "reconstructed_trades/hh_rc_lyman_calvin.json",
+      "trade": "grocer",
+      "grade": "reconstructed",
+      "home": "recon_1835_south_d7_035",
+      "metres_from_home": 114.6,
+      "keepers_offered": 20,
+      "relation": "worked here",
+      "words": "keeping a grocer's house of their own: the nearest of 20 south division keeper(s) of a trade this roof serves, who had no workplace, 115 m from their own roof"
+    }
+  ],
+  "unseatable": [
+    {
+      "structure_id": "recon_1835_north_w5_040",
+      "family": "W5",
+      "division": "north",
+      "keepers_offered": 0,
+      "adopted_by": "hh_miller_john",
+      "value": "no_keeper_of_its_trade",
+      "note": "NO KEEPER OF ITS TRADE IS LEFT IN THE NORTH DIVISION. This large workshop is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/reconstruction/1835_placement_policy.json clause heavy_and_noxious_trades (the only clause admitting W5) and the premises rulings' signage for the four trades it names), and there are 0. The off-plat deal (T-1614) adopted it for The Miller and Hall tannery household, but that household's own card puts its works at miller_tannery, 847 m away, so seating it here would give one firm a second works nobody records. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town gains takes it on the next build."
+    }
+  ]
+}

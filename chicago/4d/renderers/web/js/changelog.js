@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
+    items: [
+      'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter, now works there. Louis Bertrand keeps the narrow warehouse at the forks, and Calvin Lyman, a grocer, keeps the two-storey store on Lake Street.',
+      'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L356).',
+      'The big riverside work shop on Wolcott stays empty, and its card now says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
+      'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. A boarder lives there, and nine more households that were waiting now have a roof.',
+    ] },
   { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [
       'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
