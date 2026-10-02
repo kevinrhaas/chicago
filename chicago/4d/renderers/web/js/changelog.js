@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1316, ts: '2026-10-02T18:36:53.903Z', date: 'Oct 2, 2026, 1:36 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
+  { v: null, ts: '', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
     items: [
       'Open the card of one of nine anonymous yard buildings on the West Division approaches, south of Lake Street or on the north side\u2019s east edge. It now says what the building was for and, where something ties it to one, which house it belonged to.',
       'Seven name their house. Four stand where the plan draws them in that house\u2019s yard, one shares a lot with it, and two are the barns of the two farms on the Des Plaines edge.',
       'Two belong to no house we can point to: a stable on the teamster road by Canal and Randolph, and a stable yard by the north pier. Their cards say what they were for and that whose they were is not known.',
       'Nobody is seated in them. What the card states is the building\u2019s use, and it is as much a reconstruction as the building. Nine fewer roofs now count as empty in the town\u2019s completion check.',
+    ] },
+  { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
+    items: [
+      'Walk round the back of any house in the town and its winter wood is stacked against the back wall: 298 woodpiles at 299 dwellings. Only one house has none, because the ground behind it is wet.',
+      'What a household kept depends on who it was. A shanty has a loose heap of mill slabs. A log cabin has unsplit logs on two skids beside a chopping block. A tradesman\u2019s cottage has a short rick of stove-length wood. A merchant\u2019s house has bought cords, 8 ft long and 4 ft high, and an inn or boarding house has two or three of them.',
+      'Every pile is different, and in July they stand low: some ricks are drawn down at one end, the split ends show fresh, seasoned or silvered wood, and split sticks lie by the block.',
+      'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L357) says how.',
+      'On the Light setting, the one a phone starts on, the woodpiles are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
     ] },
   { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
     items: [
