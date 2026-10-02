@@ -19726,7 +19726,7 @@ stopped; either would move a camp to its ground or retire it.
 landing-place camps), **T-1803** (the archetype), **T-1804** (this entry).
 **Recorded:** 2026-10-02.
 
-### L356 — The trodden ground at every door: a strip along each front and a path from each door to the street
+### L357 — The trodden ground at every door: a strip along each front and a path from each door to the street
 
 **Applies to:** `data/enclosures/town_entrance_aprons.json` (written by
 `tools/generate_entrances.py`), and through it the sward (`main.js`'s block-list, T-0124),

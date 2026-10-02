@@ -39,7 +39,7 @@ Fort, palisade, bridge, pier and camp records carry no street door and are not r
 ## What is invented
 
 The apron — its depth, its flare and the fact of it — is reconstructed (docs/LIBERTIES.md
-L356): no source measures the trodden ground at any 1835 Chicago door. What bounds it is
+L357): no source measures the trodden ground at any 1835 Chicago door. What bounds it is
 the building and the door it serves: a strip along the whole front wall, the drip line
 and the boots, and from each door a path a step either side of it, out across the walk
 and the verge to the street's track where a street lies in front, otherwise two and a
@@ -76,7 +76,7 @@ ENTRANCE_KINDS = ("door", "shop_door", "open_bay")
 GROUND_Z_M = 0.30          # an opening whose foot is above this is a loft or a window
 TAVERN_DOOR_W_M = 1.2      # frame_tavern.py's front door, w/2 +- 0.6, both schemes
 
-# THE WORN GROUND (reconstructed, L356). Two parts, one ring per front:
+# THE WORN GROUND (reconstructed, L357). Two parts, one ring per front:
 #  * a STRIP the length of the front wall and a little past its corners — the drip
 #    line, the boots at the door and the shoulder of everyone who stood against the
 #    wall; the owner's "in and around in front of buildings";
@@ -299,7 +299,7 @@ def build() -> dict:
             "note": "Dated to the scene: every door it serves is standing on it."},
         "existence": {
             "value": True, "confidence": "reconstructed", "sources": [],
-            "note": ("RECONSTRUCTED (T-1984, docs/LIBERTIES.md L356). No source describes "
+            "note": ("RECONSTRUCTED (T-1984, docs/LIBERTIES.md L357). No source describes "
                      "the ground at any 1835 Chicago door. The owner's ruling of "
                      "2026-10-02 is that the ground in front of an entrance 'would be worn "
                      "down and not be wild prairie', and a door every household and "
@@ -320,7 +320,7 @@ def build() -> dict:
                      f"or, where a street's track lies within {PATH_TO_STREET_M} m in front, "
                      f"all the way to it and {PATH_INTO_TRACK_M} m onto it. "
                      "Reconstructed — bounded by the building it fronts and the doors in "
-                     "it and nothing else (docs/LIBERTIES.md L356).")},
+                     "it and nothing else (docs/LIBERTIES.md L357).")},
         "entrances": entrances,
         "unread": [{"archetype": a, "count": c,
                     "why": "no reader states this archetype's front door"}

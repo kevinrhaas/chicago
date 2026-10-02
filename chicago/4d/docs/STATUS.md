@@ -25,7 +25,7 @@ and prairie grass right up to the entrances. One cause per symptom, each fixed w
   (509), and a trodden-earth ring per front — a strip along the wall and a path from each door
   to the street's track (167 doors) or 3.4 m into the yard. `yards.js` draws it and the sward
   gives way to it, as inside the fort apron; wagon stands on it are refused (73 wagons, was 79).
-  Reconstructed, docs/LIBERTIES.md L356.
+  Reconstructed, docs/LIBERTIES.md L357.
 
 **Known gap, not widened here:** the staleness hash covers builder modules and resolved params
 but not `*_params.py` bytes, so a set-out change living in a params module (`front_window_rects`,
