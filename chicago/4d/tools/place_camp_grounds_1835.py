@@ -84,7 +84,7 @@ CAMPS = (
         "on_reservation": True,
         # E and N of the camp's ground, local ENU metres. The origin is the south-west
         # corner and the camp opens north, towards the fort (rotation 0).
-        "e": (1160.0, 1210.0), "n": (-45.0, -5.0),
+        "e": (1130.0, 1180.0), "n": (-40.0, 0.0),
         "tents": 12, "tent_kind": "mixed", "wagons": 3, "brush_shelters": 1,
         "fire_rings": 6, "woodpiles": 3, "baggage_heaps": 4,
         "arrangement": "scatter", "canvas_condition": "weathered",
@@ -229,9 +229,9 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
     length, depth = round(e1 - e0, 2), round(n1 - n0, 2)
     shore = camp["on_reservation"]
     where = (f"On the United States Reservation south of Fort Dearborn, between local "
-             f"E +{e0:.0f} and E +{e1:.0f} and N {n0:+.0f} to {n1:+.0f}: east of the "
-             f"Fort Cemetery and the garrison garden, south of the factor's house, "
-             f"and short of the lake beach."
+             f"E +{e0:.0f} and E +{e1:.0f} and N {n0:+.0f} to {n1:+.0f}: north-east of "
+             f"the Fort Cemetery, south-east of the garrison garden, south-west of the "
+             f"factor's house, and short of the lake beach."
              if shore else
              f"On the prairie west of the Des Plaines Street line, between local "
              f"E {e0:.0f} and E {e1:.0f} and N {n0:.0f} to {n1:.0f}: beyond the last "

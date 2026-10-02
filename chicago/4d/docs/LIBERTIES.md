@@ -19453,9 +19453,10 @@ look. A different coat strength is one number in `wall-grain.js`.
 offers and grades `conjectural` (T-1804, the second piece of T-1214).
 `land_sale_camp_shore` is a scatter of 12 tents (wall and wedge alternately), 3 covered
 wagons, a brush lean-to, 6 cold fire rings, 3 woodpiles and 4 heaps of baggage on a 50 x 40 m
-ground of the United States Reservation between local E +1160 and E +1210, N −45 to −5: east
-of the Fort Cemetery and the garrison garden, south of the factor's house, short of the lake
-beach, and in view from the fort's south-west corner. `west_approach_wagon_camp` is a ring of
+ground of the United States Reservation between local E +1130 and E +1180, N −40 to 0:
+north-east of the Fort Cemetery, south-east of the garrison garden, south-west of the factor's
+house, short of the lake beach, and in view from the fort's south-west corner past the
+factor's house. `west_approach_wagon_camp` is a ring of
 4 covered wagons and 2 wedge tents about 2 fire rings on a 34 x 34 m ground of prairie
 beyond the Des Plaines Street line, between E −700 and E −666, just north of the line
 Randolph would carry west. **Everything drawn is invented, and so is the use of the ground.**
