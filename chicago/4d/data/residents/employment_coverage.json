@@ -52,6 +52,7 @@
         "reasons": [
           "no_employer_named",
           "class_held_no_house",
+          "class_full_none_owed",
           "trade_attested_no_house_named",
           "no_ruling_on_the_trade",
           "in_service_in_another_household"
@@ -73,6 +74,7 @@
       }
     },
     "reasons": {
+      "class_full_none_owed": "The staffing model names the class of house that employed this trade, the layer holds every house of it the model counts on 1 July 1835, and each is full to the band's high end. The trade keeps no house of its own, so none is owed: the town is not short a house, and the person follows the trade with no room in it to join (T-1995).",
       "class_held_no_house": "The staffing model names the class of house that employed this trade and the layer holds none of it trading on 1 July 1835, or every one is full to the band's high end. The town is owed more houses of the kind; the person is not put in one that is already full.",
       "drawn_onto_a_house_s_staff": "A record in the business register carries this person on its staff at the reconstructed tier: this project drew them there, and the record says by what rule.",
       "in_service_in_another_household": "The premises ruling for this trade says the work is given in another household's house: domestic service, done in a family's kitchen, washhouse and yard rather than in a house of trade. The staffing model employs the trade in the town's taverns and hotels only, and every one was full, but that does not make the town owed another tavern — no house of trade is owed for this person. Which household employed them no source says and this pass draws none.",
@@ -93,15 +95,15 @@
     "by_status": {
       "at_a_named_house": 121,
       "at_a_seat_this_project_drew": 123,
-      "at_a_trade_with_no_house_to_join": 261,
+      "at_a_trade_with_no_house_to_join": 253,
       "no_trade_recorded": 2639,
-      "on_their_own_account": 213
+      "on_their_own_account": 221
     },
     "by_reason": {
-      "class_held_no_house": 10,
+      "class_full_none_owed": 2,
       "in_service_in_another_household": 61,
       "keeps_a_house_the_register_holds": 79,
-      "keeps_their_own_house": 134,
+      "keeps_their_own_house": 142,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
@@ -128,22 +130,22 @@
       "working_age": {
         "at_a_named_house": 121,
         "at_a_seat_this_project_drew": 121,
-        "at_a_trade_with_no_house_to_join": 243,
+        "at_a_trade_with_no_house_to_join": 235,
         "no_trade_recorded": 1583,
-        "on_their_own_account": 204
+        "on_their_own_account": 212
       }
     },
-    "placed_at_work": 457,
+    "placed_at_work": 465,
     "carry_a_trade": 668,
     "working_age": 2272,
-    "working_age_placed_at_work": 446,
+    "working_age_placed_at_work": 454,
     "working_age_with_no_trade_recorded": 1583
   },
   "against_the_town_model": {
     "employed_persons": {
       "model_low": 425,
       "model_high": 588,
-      "the_layer_places": 457,
+      "the_layer_places": 465,
       "inside_the_band": true,
       "method_the_model_used": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "why_this_is_not_a_job_finished": "The model's band is a SIZE struck against a town of 2,353-3,265 people; the layer holds a different number of cards and the model's own open question says the 1840 industry columns have no row for domestic service at all. A figure inside a range is where the argument starts."
@@ -31934,9 +31936,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -31947,9 +31949,9 @@
       "age_scope": "working_age",
       "trade": "butcher",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -31973,9 +31975,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -32441,9 +32443,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -33036,8 +33038,8 @@
       "trade": "schoolteacher",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "class_full_none_owed",
+      "decided_by": "reconstructed_seating.json#class_full_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -33979,8 +33981,8 @@
       "trade": "schoolteacher",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "reason": "class_full_none_owed",
+      "decided_by": "reconstructed_seating.json#class_full_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -35702,9 +35704,9 @@
       "age_scope": "working_age",
       "trade": "butcher",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -36651,9 +36653,9 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -37464,9 +37466,9 @@
       "age_scope": "working_age",
       "trade": "painter",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {
@@ -38610,9 +38612,9 @@
       "age_scope": "working_age",
       "trade": "dressmaker",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "class_held_no_house",
-      "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433",
+      "status": "on_their_own_account",
+      "reason": "keeps_their_own_house",
+      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
     },
     {

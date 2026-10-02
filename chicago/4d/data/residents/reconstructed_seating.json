@@ -1,6 +1,6 @@
 {
   "$schema_note": "DERIVED — regenerate with tools/seat_reconstructed_trades_1835.py --build; tools/check.sh re-derives it. Do not hand-edit.",
-  "the_join_and_the_card": "A JOIN BESIDE THE RESIDENT LAYER, AND SINCE T-1489 ONE KEY ON IT. Every block here is keyed on `person_id`; the `seated` ones ALSO stand on the person's own card as `persons[].employment`, carrying the house, the role, the tier and the seed and leaving the reasoning here. The other four kinds are statements about an absence and no card carries one. Two thirds of the people in scope stand on cards a reconstruction stage derives whole and compares byte for byte, which is why the key stopped at `households/` until T-1489 gave those stages the same fixed carry slot tools/resident_mint_carry.py already gave `workplaces`. The walkthrough loads this file the way it loads residents/directories.json, and losing it costs the block on a card and never the card.",
+  "the_join_and_the_card": "A JOIN BESIDE THE RESIDENT LAYER, AND SINCE T-1489 ONE KEY ON IT. Every block here is keyed on `person_id`; the `seated` ones ALSO stand on the person's own card as `persons[].employment`, carrying the house, the role, the tier and the seed and leaving the reasoning here. The other five kinds are statements about an absence and no card carries one. Two thirds of the people in scope stand on cards a reconstruction stage derives whole and compares byte for byte, which is why the key stopped at `households/` until T-1489 gave those stages the same fixed carry slot tools/resident_mint_carry.py already gave `workplaces`. The walkthrough loads this file the way it loads residents/directories.json, and losing it costs the block on a card and never the card.",
   "id": "1835_reconstructed_seating",
   "ticket": "T-1433",
   "parent_ticket": "T-1189",
@@ -21,8 +21,9 @@
   "counts": {
     "people_in_scope": 531,
     "by_kind": {
-      "class_held_no_house": 71,
-      "keeps_their_own_house": 170,
+      "class_full_none_owed": 2,
+      "class_held_no_house": 61,
+      "keeps_their_own_house": 178,
       "no_employer_named": 162,
       "no_ruling": 5,
       "seated": 123
@@ -560,7 +561,7 @@
       "people": 8,
       "kinds": {
         "seated": 4,
-        "class_held_no_house": 4
+        "keeps_their_own_house": 4
       }
     },
     "boarding_house_keeper": {
@@ -597,7 +598,7 @@
       "people": 3,
       "kinds": {
         "seated": 1,
-        "class_held_no_house": 2
+        "keeps_their_own_house": 2
       }
     },
     "carpenter": {
@@ -653,7 +654,7 @@
       "people": 23,
       "kinds": {
         "seated": 22,
-        "class_held_no_house": 1
+        "keeps_their_own_house": 1
       }
     },
     "druggist": {
@@ -792,7 +793,7 @@
       "people": 2,
       "kinds": {
         "seated": 1,
-        "class_held_no_house": 1
+        "keeps_their_own_house": 1
       }
     },
     "physician": {
@@ -823,7 +824,7 @@
       "people": 8,
       "kinds": {
         "seated": 6,
-        "class_held_no_house": 2
+        "class_full_none_owed": 2
       }
     },
     "seaman": {
@@ -10644,7 +10645,7 @@
       "person_id": "rc_nichols_rufus",
       "person_name": "Rufus Nichols",
       "household_id": "hh_rc_nichols_rufus",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -10660,12 +10661,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -10673,7 +10674,7 @@
       "person_id": "rc_nichols_samuel",
       "person_name": "Samuel Nichols",
       "household_id": "hh_rc_nichols_samuel",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "butcher",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -10689,12 +10690,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in butcher_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in butcher_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a slaughter yard names the firm the drover is delivering to — WORKS_TRADES `slaughterhouse_packing`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -10702,7 +10703,7 @@
       "person_id": "rc_nichols_willard",
       "person_name": "Willard Nichols",
       "household_id": "hh_rc_nichols_willard",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -10718,12 +10719,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -10956,7 +10957,7 @@
       "person_id": "rc_parmelee_alvah",
       "person_name": "Alvah Parmelee",
       "household_id": "hh_rc_parmelee_alvah",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -10972,12 +10973,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -11289,7 +11290,7 @@
       "person_id": "rc_pothier_victoire",
       "person_name": "Victoire Pothier",
       "household_id": "hh_rc_pothier_victoire",
-      "kind": "class_held_no_house",
+      "kind": "class_full_none_owed",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
       "division_of_the_person": "west",
@@ -11305,12 +11306,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in school, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "the_class_s_count_is_met_and_every_house_is_full",
+        "note": "The staffing model hires this trade in school and counts the houses of it trading on 1835-07-01; the business layer holds every one of them (school: 6 counted, 6 held), and each already has the band's high end of this role. The count is met, so no house is owed: the town is not short one, and seating this person would put more hands in a house than the model allows. The premises ruling: A school is an establishment, and the December census counts seven of them against the seven the town holds. T-1188 establishes the schools as businesses and T-1189 staffs them. exercised at an establishment the person does not keep."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a source naming the house this person worked in, or a re-count of the class, after which this person seats at it"
       },
       "chosen_by": []
     },
@@ -12112,7 +12113,7 @@
       "person_id": "rc_rice_lydia",
       "person_name": "Lydia Rice",
       "household_id": "hh_rc_rice_lydia",
-      "kind": "class_held_no_house",
+      "kind": "class_full_none_owed",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
       "division_of_the_person": "west",
@@ -12128,12 +12129,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in school, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "the_class_s_count_is_met_and_every_house_is_full",
+        "note": "The staffing model hires this trade in school and counts the houses of it trading on 1835-07-01; the business layer holds every one of them (school: 6 counted, 6 held), and each already has the band's high end of this role. The count is met, so no house is owed: the town is not short one, and seating this person would put more hands in a house than the model allows. The premises ruling: A school is an establishment, and the December census counts seven of them against the seven the town holds. T-1188 establishes the schools as businesses and T-1189 staffs them. exercised at an establishment the person does not keep."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a source naming the house this person worked in, or a re-count of the class, after which this person seats at it"
       },
       "chosen_by": []
     },
@@ -13426,7 +13427,7 @@
       "person_id": "rc_stiles_alvah",
       "person_name": "Alvah Stiles",
       "household_id": "hh_rc_stiles_alvah",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "butcher",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -13442,12 +13443,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in butcher_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in butcher_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a slaughter yard names the firm the drover is delivering to — WORKS_TRADES `slaughterhouse_packing`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -13901,7 +13902,7 @@
       "person_id": "rc_thayer_harvey",
       "person_name": "Harvey Thayer",
       "household_id": "hh_rc_thayer_harvey",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "north",
@@ -13917,12 +13918,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -14504,7 +14505,7 @@
       "person_id": "rc_tuttle_rufus",
       "person_name": "Rufus Tuttle",
       "household_id": "hh_rc_tuttle_rufus",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "painter",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -14520,12 +14521,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in painter_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in painter_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -15278,7 +15279,7 @@
       "person_id": "rc_wilcox_maria",
       "person_name": "Maria Wilcox",
       "household_id": "hh_rc_wilcox_maria",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "dressmaker",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -15290,17 +15291,16 @@
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "classes": [
-        "millinery_and_dressmaking",
-        "tailor_shop"
+        "millinery_and_dressmaking"
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in millinery_and_dressmaking, tailor_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in millinery_and_dressmaking, tailor_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },

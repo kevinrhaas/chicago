@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1322, ts: '2026-10-02T20:41:23.502Z', date: 'Oct 2, 2026, 3:41 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
+  { v: null, ts: '', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
     items: [
       'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
       'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
       'Where a street ends on another, such as Market at Lake or Wells at South Water, it now blends into the street it joins instead of stopping on a hard line.',
       'Along the river side of South Water, the worn bank meets the road in a soft, uneven edge instead of rows of square teeth, and road edges at the river and at cut banks no longer step like stairs.',
       'All of this is in the Full and Balanced detail settings. Light, the setting a phone starts on, gets most of it, but a few small patches can still show close up, so that it stays as fast as it was.',
+    ] },
+  { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
+    items: [
+      'Open Rufus Nichols\u2019s card, a blacksmith on the West Side, and look under Were they at work? It used to say the town owed another smithy to take him on as a hand. It now says he worked on his own account, as a smith\u2019s trade did, and that his own shop is still to be placed.',
+      'The same goes for three more smiths, two butchers, a house painter and a dressmaker. Every shop of their trade already had as many hands as it could take, and their trade kept its own shop, so they kept one too.',
+      'Two schoolteachers, Victoire Pothier and Lydia Rice, now say no school is missing. The town had six schools open in July 1835 and all six are in the reconstruction, each with its one assistant. These two followed the trade with no school to teach in.',
+      'All ten people are our reconstruction, and so are these answers. On the City card, people owed a workplace drop from 169 to 167.',
     ] },
   { v: 1321, ts: '2026-10-02T20:08:04.793Z', date: 'Oct 2, 2026, 3:08 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
     items: [
