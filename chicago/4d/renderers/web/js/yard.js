@@ -2136,13 +2136,14 @@ export async function createYardGoods({
     records: [],
     frontages: [],
     lots: [],
+    woodpiles: [],
     wagons: [],
     benches: [],
     sheds: [],
     census: { records: 0, frontages: 0, objects: 0, barrels: 0, crates: 0, wagons: 0,
       byKind: {}, benches: 0, sheds: 0, refused: 0, wagonsRefused: 0, chunks: 0,
       marked: 0, markCells: 0, lots: 0, piles: 0, orphaned: 0, byMaterial: {},
-      woodpiles: 0, woodChunks: 0 },
+      woodpiles: 0, woodByKind: {}, woodChunks: 0 },
     pickAt: () => null,
     dispose: () => {},
   };
@@ -2287,22 +2288,20 @@ export async function createYardGoods({
     return chunk;
   };
   /**
-   * WHERE A WOODPILE GOES (T-1959). Three hundred houses would put a woodpile in
-   * ninety-odd of these cells, forty of them cells no barrel or wagon stands in — and
-   * every new chunk is a draw call wherever it is in view, and a second one in the
-   * sun's pass. So a woodpile joins the goods' own chunk where its cell already has
-   * one (the call is already paid), and every other woodpile in the town goes in ONE
-   * OUTLYING mesh. Measured on the published mirror at `full`, at back-lot stands:
-   * chunks three cells across (19) cost 9-20 calls and eight across (5) still 6-11,
-   * because a chunk that large is in view nearly everywhere and draws twice. One mesh
-   * costs exactly two. What it gives up is culling on about a hundred piles of a
-   * hundred-odd triangles each — the cheaper side of the trade by a long way.
+   * WHERE A WOODPILE GOES (T-1959): into ONE mesh for the whole town, in a group of
+   * its own. Every chunk is a draw call wherever it is in view and a second one in the
+   * sun's pass, and the call budget is the one that binds — the worst stand reads 210
+   * of 215 without the woodpiles. Measured on the published mirror at `full`, at
+   * back-lot stands: chunks three cells across (19 of them) cost 9-20 calls, eight
+   * across (5) still 6-11, and goods chunks shared with one outlying mesh 2-6. One mesh
+   * costs exactly two, everywhere. What it gives up is the frustum's cull on three
+   * hundred piles of about a hundred triangles each — the cheaper side of the trade.
+   * It also keeps the goods' chunks exactly what the gate measures them as: timber,
+   * duck, brick and stone, and a pile reach written for the building material.
    */
   const woodChunks = new Map();
-  const woodChunkAt = (e, n) => {
-    const fine = `${Math.floor(e / CHUNK_M)},${Math.floor(n / CHUNK_M)}`;
-    if (chunks.has(fine)) return chunks.get(fine);
-    const key = 'w-outlying';
+  const woodChunkAt = () => {
+    const key = 'w-town';
     let chunk = woodChunks.get(key);
     if (!chunk) {
       chunk = {
@@ -2373,26 +2372,32 @@ export async function createYardGoods({
       if (hostMissing(lot.structure_id)) { out.census.orphaned += 1; continue; }
       const anchor = anchorOf(lot.items ?? []);
       if (!anchor) continue;
+      // A woodpile lot (T-1959) is the same shape and the same pick, but it is not
+      // building material: it goes in the woodpile mesh and is counted on its own, so
+      // `lots`, `piles` and `byMaterial` still mean what Ordinance 9's half says.
       const woodpile = (lot.items ?? []).some((it) => WOOD_KINDS.has(it.kind));
-      const chunk = woodpile ? woodChunkAt(anchor[0], anchor[1])
-        : chunkAt(anchor[0], anchor[1]);
+      const chunk = woodpile ? woodChunkAt() : chunkAt(anchor[0], anchor[1]);
       let drew = 0;
       const from = chunk.buf.pos.length / 9;
       for (const item of lot.items ?? []) {
         if (!buildStack(chunk.buf, item, form, terrain,
           LEVEL[lot.confidence] ?? level, problems, lot.structure_id)) continue;
         drew += 1;
-        out.census.piles += 1;
         out.census.objects += 1;
-        out.census.byMaterial[item.kind] =
-          (out.census.byMaterial[item.kind] ?? 0) + 1;
+        const tally = woodpile ? out.census.woodByKind : out.census.byMaterial;
+        tally[item.kind] = (tally[item.kind] ?? 0) + 1;
+        if (!woodpile) out.census.piles += 1;
       }
       if (!drew) continue;
       chunk.spans.push({ id: lot.structure_id, from,
         to: chunk.buf.pos.length / 9 });
-      out.lots.push(lot);
-      out.census.lots += 1;
-      if (woodpile) out.census.woodpiles += 1;
+      if (woodpile) {
+        out.woodpiles.push(lot);
+        out.census.woodpiles += 1;
+      } else {
+        out.lots.push(lot);
+        out.census.lots += 1;
+      }
     }
     for (const wagon of record.wagons ?? []) {
       // A wagon in a yard goes with the yard's building; one standing in a public
@@ -2492,10 +2497,10 @@ export async function createYardGoods({
 
   const meshes = [];
   /**
-   * THE WOODPILE CHUNKS HANG IN A GROUP OF THEIR OWN, named as this layer is, so the
+   * THE WOODPILE MESH HANGS IN A GROUP OF ITS OWN, named as this layer is, so the
    * furniture reach and the far merge (both of which find a layer by its group's
-   * name) treat them exactly as they treat the goods. Its own group because it is
-   * its own grid: the goods' chunks are `CHUNK_M` cells and this is the town.
+   * name) treat it exactly as they treat the goods. Its own group because it is its
+   * own grid: the goods' chunks are `CHUNK_M` cells and this is the whole town.
    */
   const woodGroup = new THREE.Group();
   woodGroup.name = 'yard';
