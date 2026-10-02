@@ -369,7 +369,7 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # `blk_washington_clark` and a stable and a privy behind each of the two — five more
 # meshes on the same terms; terrain reach still 4 and pier_crib still 2.
 #
-# 528 -> 531 and 524 -> 527 on 2026-10-02 (T-1810): the third H3 boarding house on
+# 528 -> 531 and 524 -> 527 on 2026-10-02 (T-1950, of T-1810): the third H3 boarding house on
 # `blk_washington_clark`, on the Washington-and-Clark corner, and its stable and privy —
 # three more meshes on the same terms; terrain reach still 4 and pier_crib still 2.
 #

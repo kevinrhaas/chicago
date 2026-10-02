@@ -18924,6 +18924,6 @@ seat or their owed row without touching this house.
 **Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L270** (the
 platted deal and the household it now owes), **L318** (the first house and its form), **L326** (the
 second house and the yard mix), **L252** and **L257** (its lodgers and its house of trade),
-**T-1810** (this deal, a piece of **T-1779**), **T-1209** (the boarding houses built to their beds).
+**T-1950** (this deal, a piece of **T-1810**, of **T-1779**), **T-1209** (the boarding houses built to their beds).
 
 **Recorded:** 2026-10-02.
