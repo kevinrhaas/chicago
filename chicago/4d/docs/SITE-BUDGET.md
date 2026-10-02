@@ -207,20 +207,26 @@ and T-1973 removed them without touching what the scene shows:
 | changelog at boot | 1.028 MB | 0 | `publish.sh` writes the release numbers into the page (`<meta name="c4d-releases" content="1-1303">`); `whatsnew.js` imports the changelog only when the tab opens |
 
 ```
-BOOT PAYLOAD — first visit stands in the 1835 street   (published mirror of c86459b5 + T-1973)
-  11.989 MB across 1284 request(s)   — two runs, byte-identical
-  BY TYPE   4.273 MB .json · 3.405 MB .glb · 2.649 MB .webp · 1.177 MB .js · 0.434 MB .bin
+BOOT PAYLOAD — first visit stands in the 1835 street
+  c86459b5 + T-1973            11.989 MB across 1284 request(s) — two runs, byte-identical
+  652ca8ea (+ T-1960) + T-1973 12.000 MB across 1285 request(s) — 12,582,805 bytes
+  BY TYPE   4.280 MB .json · 3.405 MB .glb · 2.649 MB .webp · 1.180 MB .js · 0.434 MB .bin
 ```
 
-**That is inside the 12 MB budget by 11 KB, and that margin is not real headroom.** The
-next layer that adds boot bytes will be refused by the bake's desktop `1-2` leg, and
-it should be: the budget is doing its job. The budget was **not** raised to buy room.
+**That is inside the 12 MB budget by 107 bytes once T-1960's privies and stables landed,
+which is no headroom at all.** The next layer that adds boot bytes will be refused by the
+bake's desktop `1-2` leg, and it should be: the budget is doing its job. The budget was **not** raised to buy room.
 The next candidate is named and measured, so the run that meets the refusal knows
 where to look: `data/liberties.json` is **0.555 MB** on the wire and awaited at boot
 (`main.js`, `mountLiberties`), although only the Evidence panel and an open provenance
 card read it, and the card already redraws when the list arrives late
 (`popup.setLiberties`). Loading it on first need is a change to how provenance reaches
-the card, so it is its own ticket, not a rider on this one. A whole-budget re-set, if
+the card, and three smoke parts read it synchronously, so it is its own piece of work,
+not a rider on this one. Behind it are the other panel files a first visit fetches before
+any panel is opened: `reconstruction/1835_address_book.json` (0.161 MB),
+`residents/employment_coverage.json`, `reconstruction/1835_population_profile.json`,
+`residents/research_pilot.json` (about 0.04 MB each). Minifying the 547 boot sidecars was
+measured and is not worth it: gzip already takes the whitespace, and it saves 0.07 MB. A whole-budget re-set, if
 the town's completion outgrows 12 MB on scene bytes alone, belongs to T-1974's budget
 pass, with its reasons written here.
 
