@@ -18900,3 +18900,50 @@ replaces the adoption, and the board follows the firm on the next derivation.
 **Related:** **L159**, **L169**, **L340**, **T-0354** (the adoption), **T-1213** (parent),
 **T-1834**.
 **Recorded:** 2026-10-02 (T-1835).
+
+### L343 — The frame houses' glazing is dealt by whose house it is: the sash and the pane by class
+
+**Decision:** the fabric rule (L330, L338, `tools/fabric_rule_1835.py`) now deals a `glazing` to
+every reconstructed frame dwelling, and `frame_dwelling` builds it (T-1838, piece 1 of T-1832):
+the window's width and height come from its lights, muntins and rails, and every window carries
+its sash bars — stiles, rails, the meeting rail and the muntins — over the dark opening.
+- **merchant**: twelve-over-twelve of the larger boxed lights, 8 × 10 in on half the houses and
+  7 × 9 in on the rest;
+- **keeper**: twelve-over-twelve of 7 × 9 in;
+- **tradesman**: twelve-over-twelve of 6 × 8 in on seven in ten, nine-over-six of 6 × 8 on the
+  rest;
+- **labourer**: six-over-six of 6 × 8 in on seven in ten, nine-over-six on the rest.
+
+A storey too low for the whole sash loses a row of lights, the upper sash first, rather than
+having its panes squashed. A record that states no glazing — every named or documented house —
+gets the archetype's default, twelve-over-twelve of 6 × 8 in, which is the pane its windows were
+always sized from.
+
+**Why:** 6 × 8 in is the one pane attested at Chicago in this dataset, twice: the Green Tree's
+lights and Gale's guest chamber "with two windows 6x8" (`chicagology_prefire127`, as
+`frame_dwelling.py` quotes it). That is why the cottages and shops glaze with it. The larger
+7 × 9 and 8 × 10 in lights are argued from the cost of glass: they were dearer, so they went to
+the houses that could pay for them. **No source glazes any particular house here.** Every value
+written is `reconstructed`, and an attested or inferred value is never touched (`apply_form`,
+held by the rule's `--self-test`, which also refuses a glazing the archetype cannot build and a
+large light on a labourer's house).
+
+**Consequence:** across the 162 reconstructed frame dwellings the rule reaches: 106 twelve-over-
+twelve of 6 × 8, 38 nine-over-six of 6 × 8, 8 twelve-over-twelve of 7 × 9 and 10 of 8 × 10.
+No reconstructed frame dwelling is a labourer's or a keeper's today, so those rows are dealt to
+none yet. A merchant's window is about 0.97 × 1.74 m against a cottage's 0.77 × 1.43 m, and
+every window in the archetype, all 183 houses, now shows its sash. 183 meshes rebaked.
+
+**Not dealt, and why:** the frame storefront's and the frame tavern's windows (L23 on the three
+taverns stands); cladding, trim and chimney fabric, and the siding stock reconciled with
+T-0112's neighbour separation, which are T-1839.
+
+**How to resolve:** any source on the glass or sash of a particular 1835 Chicago house, which
+outranks the rule for that roof; a merchant's invoice or advertisement giving the window-glass
+sizes sold at Chicago in 1833–35, which re-grades the class split.
+
+**Covers:** `recon_*.*.form.glazing`
+**Related:** **L338** (the form, the same rule), **L330** (the finish), **L23** (one window
+arrangement), **L90** (the anonymous roofs), **T-1817**, **T-1832**, **T-1838** (this rule),
+**T-1839**.
+**Recorded:** 2026-10-02.

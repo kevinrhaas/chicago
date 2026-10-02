@@ -1006,3 +1006,17 @@ frame, is left exactly as it is. The Built line names the frame, shutters and po
 
 **Not this piece:** glazing (one window arrangement, L23), cladding, trim, and the siding stock
 (T-0112's neighbour-separated deal). T-0002's jitter is T-1818.
+
+## 14. WIRED IN — T-1838, 2026-10-02: the glazing is dealt by whose house it is
+
+The rule deals one more form value, and `frame_dwelling` builds it:
+
+| value | by | rule |
+|---|---|---|
+| `glazing` (frame_dwelling) | class | merchant: 12/12 of 8×10 or 7×9 in (1 : 1) · keeper: 12/12 of 7×9 · tradesman: 12/12 of 6×8 seven in ten, else 9/6 of 6×8 · labourer: 6/6 of 6×8 seven in ten, else 9/6 |
+
+The window is built from its glazing: lights, 7/8 in muntins, the stiles and rails and the
+meeting rail, in the trim's colour over the dark opening. The default, for a record that states
+none, is 12/12 of the attested 6 × 8 in pane. The Built line names the sash. L343.
+
+**Not this piece:** cladding, trim, chimney fabric and the siding stock (T-1839).

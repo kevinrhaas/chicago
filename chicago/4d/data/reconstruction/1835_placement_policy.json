@@ -612,9 +612,59 @@
           "why": "neither porch nor shutters: the door opens onto the ground"
         }
       },
+      "glazing_by_class": {
+        "merchant": {
+          "glazing": [
+            [
+              "12_over_12_8x10",
+              0.5
+            ],
+            [
+              "12_over_12_7x9",
+              1.0
+            ]
+          ],
+          "why": "the larger boxed lights, 8 x 10 or 7 x 9 in, twelve to a sash"
+        },
+        "keeper": {
+          "glazing": [
+            [
+              "12_over_12_7x9",
+              1.0
+            ]
+          ],
+          "why": "7 x 9 in lights, twelve to a sash, at a house that took in the public"
+        },
+        "tradesman": {
+          "glazing": [
+            [
+              "12_over_12_6x8",
+              0.7
+            ],
+            [
+              "9_over_6_6x8",
+              1.0
+            ]
+          ],
+          "why": "the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve"
+        },
+        "labourer": {
+          "glazing": [
+            [
+              "6_over_6_6x8",
+              0.7
+            ],
+            [
+              "9_over_6_6x8",
+              1.0
+            ]
+          ],
+          "why": "the attested 6 x 8 in pane in the fewest lights, six or nine to a sash"
+        }
+      },
       "never_moved": "an attested or inferred value, and any construction that is not a frame",
-      "not_dealt": "glazing (one window arrangement, L23), cladding, trim, siding stock (T-0112)",
-      "liberty": "L338"
+      "not_dealt": "cladding, trim, chimney fabric, siding stock (T-0112) — T-1839",
+      "liberty": "L338, L343"
     }
   },
   "clauses": [
