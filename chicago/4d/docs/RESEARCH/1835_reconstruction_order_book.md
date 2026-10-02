@@ -374,14 +374,14 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,478
-- seated: 251 — 222 by adopting a roof that already stands, 29 by asking for one
-- still on no ground at all: 1,227
-- of the 542 roofs the town already has, 222 now carry a reconstructed household
+- seated: 252 — 223 by adopting a roof that already stands, 29 by asking for one
+- still on no ground at all: 1,226
+- of the 542 roofs the town already has, 223 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
 | The committed plat | T-1613 | 1,478 | 179 | 150 | 29 | 1,299 |
-| The ground the plat does not draw | T-1614 | 1,299 | 72 | 72 | 0 | 1,227 |
+| The ground the plat does not draw | T-1614 | 1,299 | 73 | 73 | 0 | 1,226 |
 
 29 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -417,7 +417,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_chiney_ralph` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
 | `hh_bruno_anne_franoise_apolline` | `blk_west_lake_canal` | `blk_west_lake_canal#08` | D2 | `labourer_dwellings` |
 
-1,227 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,226 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -649,10 +649,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
 | `structures/ordinary_dwellings/south` | 176 | 126 | 50 | 0 | T-1758 |
-| `structures/ordinary_dwellings/west` | 75 | 59 | 16 | 0 | T-1829 |
+| `structures/ordinary_dwellings/west` | 75 | 60 | 15 | 0 | T-1829 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1746 |
 | `structures/small_outbuildings/south` | 48 | 42 | 6 | 0 | T-1983 |
-| `structures/small_outbuildings/west` | 14 | 6 | 8 | 0 | T-1983 |
+| `structures/small_outbuildings/west` | 14 | 5 | 9 | 0 | T-1983 |
 | `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-1983 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 0 | 0 | T-1694 |
