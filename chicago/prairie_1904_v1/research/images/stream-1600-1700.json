@@ -605,7 +605,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire2/chicagotribuneheadline9jan1898prairiewidows.jpg",
   "rights": "public domain",
   "rights_basis": "US newspaper illustration published 1898 (pre-1931); not downloaded — only a secondary web copy was reached",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-tribune-1898-prairie-widows.jpg",
+   "display_bytes": 156215,
+   "thumb": "research/images/files/a16-cgy-tribune-1898-prairie-widows-thumb.jpg",
+   "thumb_bytes": 14936,
+   "original_px": [
+    3500,
+    935
+   ],
+   "original_sha256": "1ccee6acfbdf6981d531d6e9d3669fe976381ef380b4ed8a40ed16ab0c7734d1",
+   "original_bytes": 1982626,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire2/chicagotribuneheadline9jan1898prairiewidows.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1620 / 1720 pages",
   "notes": "Strip of five pen-and-ink vignettes of house fronts, each labelled with its number: 1600 (corner house with round tower and gate piers), 1620 (bay-fronted house with arched windows behind a lattice fence — the Robert Law house, Law died there Feb 1898), 1720 (two-storey Italianate with full-width front porch, central entrance, cupola/belvedere and lattice fence — the frame Walker house; text: 'The dark colored frame house, with the entrance in the center, is the residence of Mrs. J. M. Walker'), 1726 (brick front with round-arched entrance under a corner tower), 1812. Valuable for 1620 and 1720, both of which were lost by 1910–11. Original Tribune page should be pulled from ProQuest Historical Newspapers for a clean copy.",
@@ -747,7 +760,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic6july1922pullmanhome.jpg",
   "rights": "public domain",
   "rights_basis": "US newspaper photograph published 1922 (pre-1931); not downloaded — only a secondary web copy reached",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-tribune-1922-pullman-wrecked.jpg",
+   "display_bytes": 350143,
+   "thumb": "research/images/files/a16-cgy-tribune-1922-pullman-wrecked-thumb.jpg",
+   "thumb_bytes": 32006,
+   "original_px": [
+    3247,
+    2056
+   ],
+   "original_sha256": "4ddae76c952c996e1d6b2c24298ba562389bf071509df86ef3e8fd39a17812ee",
+   "original_bytes": 2912288,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic6july1922pullmanhome.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1729 page",
   "notes": "Newspaper halftone of the house during demolition: mansard and roof already removed, window openings empty, rubble in front, a workman on the cornice. Caption: 'The George M. Pullman home at 18th street and Prairie avenue, facing the site of the Fort Dearborn massacre, is being torn down to make possible contemplated improvements along the lake shore.' Fixes the demolition date (summer 1922) and shows the bare masonry shell (wall thickness, window rhythm, storey heights) of one front.",
@@ -1287,7 +1313,20 @@
   "image_url": "https://archive.org/download/industrialchicag01good/page/leaf517_w800.jpg",
   "rights": "public domain",
   "rights_basis": "US publication of 1891 (pre-1931)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-industrial-chicago-1867-review-1600-block.jpg",
+   "display_bytes": 194896,
+   "thumb": "research/images/files/a16-industrial-chicago-1867-review-1600-block-thumb.jpg",
+   "thumb_bytes": 18221,
+   "original_px": [
+    2186,
+    3312
+   ],
+   "original_sha256": "36f37fd2c79d611dbab6fc461395250f82c9641348c745f5f01e5712607a918b",
+   "original_bytes": 752880,
+   "fetched_from": "https://archive.org/download/industrialchicag01good/page/leaf517_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org full text of Industrial Chicago vol. 1, grep for owner names / 'Prairie avenue'",
   "notes": "Architects' 1867 lists with dimensions and costs for early 1600-block houses: T. V. Wadskier — 'Two first-class dwellings on Prairie avenue south of Sixteenth street. Pressed-brick fronts with stone trimmings; three stories and basement, for John G. Shortall, Esq.; cost, $25,000' (p. 433; possibly the attached stone-trimmed pair recorded at 1634/1636 on the 1911 Sanborn — not the 1638 Gothic house, which was by J. W. Roberts); O. L. Wheelock — 'One frame residence, for B. F. Chase, on the corner of Sixteenth street and Prairie avenue, two stories, French roof, and brick basement, finished up with balconies, porches and piazzas complete; size, 23x51; cost, $10,000'; Cochrane & Garnsey — 'First-class residence, marble front, stone steps, etc., hip-roof, erected on Prairie avenue near Sixteenth street for Horace G. Chase, Esq., costing $18,000'. None of these is a building-index id; recorded for the 1600-block streetscape and as context for the Shortall name attached to pa-1638-2. Exact address attribution needs directory/permit confirmation.",

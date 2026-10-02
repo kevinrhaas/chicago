@@ -1,0 +1,699 @@
+[
+ {
+  "id": "npo-1834-tribune-1883-01-22-storey-barn-fire",
+  "kind": "newspaper item",
+  "title": "\"Chicago Blazes. The alarm from Box No. 98 at 4:45 o'clock yesterday afternoon was caused by an overheated stove in the two-story brick barn in the rear of No. 1834 Prairie avenue, owned and occupied by W. F. Storey. Damage $400. Fully insured.\"",
+  "building_ids": [
+   "pa-1834-9"
+  ],
+  "addresses": [
+   "1834 S. Prairie Avenue"
+  ],
+  "date": "January 22, 1883",
+  "date_earliest": 1883,
+  "date_latest": 1883,
+  "creator": "Chicago Daily Tribune ('Chicago Blazes' fire column)",
+  "collection": "The Chicago Daily Tribune, Jan. 22, 1883 (vol. 42), page index 1",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1883-01-22_42/page/n1/mode/1up",
+  "found_via": "IA full-text search '\"Storey\" \"1834 Prairie\"' (owner-name pass); item read on the page image (IIIF crop) — the OCR interleaves columns",
+  "notes": "Answers part of the 1834 Storey lead and adds an outbuilding: in January 1883 a TWO-STOREY BRICK BARN stood at the rear (alley) of 1834 Prairie, and Wilbur F. Storey (proprietor of the Chicago Times) was living in the house; a stove fire did $400 damage, 'fully insured'. The paper says 'owned and occupied by W. F. Storey', but the Storey will-contest reporting (Tribune 20 Jan 1886, npo-1834-tribune-1886-01-20-storey-letters-jones-house) states the house belonged to Fernando Jones and Storey was his tenant — read 'owned' here as loose wording. Bearing on 1904: the 1834 lot carried a two-storey brick barn by 1883 (it is the brick stable square on the Robinson 1886 plate and should be modelled at the alley in 1904 unless later evidence removes it). It also shows the house pre-dates 1883, consistent with the 1866–67 Van Osdel construction (dw-indchi-1891-v1-1867-van-osdel-jones) rather than a post-1871 date.",
+  "measurements": [
+   {
+    "what": "rear barn",
+    "value": "two-storey brick",
+    "locator": "Tribune Jan. 22, 1883, 'Chicago Blazes'"
+   },
+   {
+    "what": "fire damage",
+    "value": "$400",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_the-chicago-daily-tribun_1883-01-22_42, page index 1",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-daily-tribun_1883-01-22_42/page/n1_w1200.jpg"
+ },
+ {
+  "id": "npo-1834-tribune-1886-01-20-storey-letters-jones-house",
+  "kind": "newspaper item",
+  "title": "Storey will contest: \"In a letter of Nov. 14, 1881, Mr. Storey abuses Fernando Jones and all his people… The Prairie avenue house he lived in belonged to Jones…\"",
+  "building_ids": [
+   "pa-1834-9"
+  ],
+  "addresses": [
+   "1834 S. Prairie Avenue"
+  ],
+  "date": "January 20, 1886",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "creator": "Chicago Daily Tribune (report of the Wilbur F. Storey will case, Probate Court)",
+  "collection": "The Chicago Daily Tribune, Jan. 20, 1886 (vol. 46), page index 1",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1886-01-20_46/page/n1/mode/1up",
+  "found_via": "IA full-text search '\"Fernando Jones\" \"Storey\" Prairie' (owner-name pass); passage read on the page image (IIIF crop)",
+  "notes": "Settles who owned 1834 while Storey lived there: \"In a letter of Nov. 14, 1881, Mr. Storey abuses Fernando Jones and all his people—'damn them,' etc. The Prairie avenue house he lived in belonged to Jones, and he had an idea that there was sewer-gas there, and that it had poisoned him, and wanted A. S. Trude to sue him for a million dollar damages and to hurry the matter up.\" So the house at 1834 was Fernando Jones's property and Storey was renting it by Nov. 1881 (he died there on 27 Oct 1884; funeral from the house). With the 1883 barn-fire item this answers the WORKLOG lead: Storey's residence does NOT bear on a later construction date — the house is Jones's 1866–67 Van Osdel building, let to Storey c.1881–84; the Joneses returned after Storey's death, and the library's '1886 mansard addition' falls after they moved back. The 1904 house is therefore the Jones house as enlarged in 1886. No architectural description in the passage.",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_the-chicago-daily-tribun_1886-01-20_46, page index 1",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-daily-tribun_1886-01-20_46/page/n1_w1200.jpg"
+ },
+ {
+  "id": "npo-1709-1823-rebj-1884-01-05-kellogg-dent-residences",
+  "kind": "document",
+  "title": "\"A residence for Palmer V Kellogg on Prairie avenue, near Eighteenth street, 50 by 90 feet in size, and two stories, basement, and attic in height, with a large barn in the rear. The walls are of red brick with stone trimmings. A residence for Thomas Dent on Prairie avenue near Eighteenth street, 40 by 80 feet, two stories, basement and attic, and walls of red brick and terra cotta.\"",
+  "building_ids": [
+   "pa-1709-s.-prairie-avenue-(successor)-47",
+   "pa-1823-13"
+  ],
+  "addresses": [
+   "1709 S. Prairie Avenue",
+   "1823 S. Prairie Avenue"
+  ],
+  "date": "January 5, 1884",
+  "date_earliest": 1883,
+  "date_latest": 1884,
+  "creator": "The Real Estate and Building Journal (Chicago), review of the year's building, vol. XXVI no. 1, p. 5 (continued from p. 3)",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.25:35–v.26, 1883–1884)",
+  "collection": "The Real Estate and Building Journal, Jan. 5, 1884 (vol. XXVI no. 1), p. 5",
+  "catalog_url": "https://archive.org/details/realestatebuildi2535unse/page/n247/mode/1up",
+  "found_via": "Owner-name grep of the IA OCR text of the Real Estate and Building Journal volumes ('Kellogg' near 'Prairie'); passage and the issue masthead read on the page images (IIIF crops)",
+  "notes": "The only period description of the Palmer V. Kellogg house (1709) as built, from the Journal's round-up of 1883 building: 50 × 90 ft, TWO STOREYS + BASEMENT + ATTIC, RED BRICK WITH STONE TRIMMINGS, and a LARGE BARN at the rear. This fits the house 'but just completed' in Oct. 1883 (np-1709-tribune-1883-10-19-kellogg-obituary-house-just-completed) and explains later descriptions: the Abendpost's 'three-storey brick' (1908) counts the attic, and its 'brownstone' (July 1908) reads the stone trim/front. For the 1904 model: a red-brick house with stone dressings, two full storeys over a basement plus a habitable attic, c. 50 ft wide × 90 ft deep, rear barn — as 'greatly improved' by Spalding c.1899–1901. Same passage on 1823: Thomas Dent's house 40 × 80 ft, two storeys, basement and attic, red brick and terra cotta. CONFLICT for 1823: the AABN permit of Nov. 1881 (dw-aabn-1881-11-dent-1823-permit) reads 'three-st'y and basement… 44' x 60''; the Inter Ocean (1911, cgn-1823-text) calls it 'a three-story structure'. Read 'two stories… and attic' as the same building (attic storey counted or not); the footprint figures disagree (44 × 60 vs 40 × 80) and need the plate/Sanborn to settle. Same column also notes the Doane (1827) and O. R. Keith houses (text cut at the column foot).",
+  "measurements": [
+   {
+    "what": "1709 Kellogg footprint",
+    "value": "50 × 90 ft",
+    "locator": "RE&BJ Jan. 5, 1884, p. 5"
+   },
+   {
+    "what": "1709 Kellogg height",
+    "value": "2 storeys + basement + attic",
+    "locator": "same"
+   },
+   {
+    "what": "1709 Kellogg walls",
+    "value": "red brick with stone trimmings",
+    "locator": "same"
+   },
+   {
+    "what": "1709 Kellogg outbuilding",
+    "value": "large barn in the rear",
+    "locator": "same"
+   },
+   {
+    "what": "1823 Dent footprint",
+    "value": "40 × 80 ft",
+    "locator": "same"
+   },
+   {
+    "what": "1823 Dent height",
+    "value": "2 storeys + basement + attic",
+    "locator": "same"
+   },
+   {
+    "what": "1823 Dent walls",
+    "value": "red brick and terra cotta",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi2535unse, page index 247",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi2535unse/page/n247_w1200.jpg"
+ },
+ {
+  "id": "npo-1812-rebj-1884-06-07-wheeler-dwelling-permit",
+  "kind": "permit record",
+  "title": "\"G H Wheeler, 3-story dwelling, 30x80, No 1810 Prairie av. $25,000.\"",
+  "building_ids": [
+   "pa-1812-7"
+  ],
+  "addresses": [
+   "1812 S. Prairie Avenue"
+  ],
+  "date": "June 7, 1884",
+  "date_earliest": 1884,
+  "date_latest": 1884,
+  "creator": "The Real Estate and Building Journal (Chicago), building permits column",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.25:35–v.26, 1883–1884)",
+  "collection": "The Real Estate and Building Journal, issue of June 7, 1884 (vol. XXVI), building permits",
+  "catalog_url": "https://archive.org/details/realestatebuildi2535unse/page/n570/mode/1up",
+  "found_via": "Owner-name grep of the RE&BJ OCR text ('Wheeler' near 'Prairie'); permit line read on the page image (IIIF crop); issue date from the masthead two leaves earlier",
+  "notes": "The building permit for George H. Wheeler's Burnham & Root house, which the collection lacked (it holds only the barn permit): THREE-STOREY dwelling, 30 × 80 ft, $25,000, issued in late May/early June 1884. The permit is entered at 'No 1810' — the house was numbered 1812 once built (Wheeler barn permit Sept. 1884 and every later source); treat 1810 as the permit's provisional number. For the 1904 model of 1812: a narrow three-storey brick house, 30 ft front × 80 ft deep (the library's 'Dutch vernacular rowhouse'), with the 1884 barn behind it (npo-1812-rebj-1884-09-27-wheeler-barn-permit).",
+  "measurements": [
+   {
+    "what": "footprint",
+    "value": "30 × 80 ft",
+    "locator": "RE&BJ June 7, 1884, permits"
+   },
+   {
+    "what": "storeys",
+    "value": "3",
+    "locator": "same"
+   },
+   {
+    "what": "cost",
+    "value": "$25,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi2535unse, page index 570",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi2535unse/page/n570_w1200.jpg"
+ },
+ {
+  "id": "npo-1812-rebj-1884-09-27-wheeler-barn-permit",
+  "kind": "permit record",
+  "title": "\"No 1812 Prairie av, G H Wheeler, 2-story barn, 30x47, $4000.\"",
+  "building_ids": [
+   "pa-1812-7"
+  ],
+  "addresses": [
+   "1812 S. Prairie Avenue"
+  ],
+  "date": "September 27, 1884",
+  "date_earliest": 1884,
+  "date_latest": 1884,
+  "creator": "The Real Estate and Building Journal (Chicago), building permits column",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.25:35–v.26, 1883–1884)",
+  "collection": "The Real Estate and Building Journal, issue of Sept. 27, 1884 (vol. XXVI), building permits",
+  "catalog_url": "https://archive.org/details/realestatebuildi2535unse/page/n824/mode/1up",
+  "found_via": "Address grep of the RE&BJ OCR text ('1812 Prairie'); permit line read on the page image (IIIF crop); issue date from the masthead",
+  "notes": "Local-paper entry of the same permit that AABN printed a week later (dw-aabn-1884-10-wheeler-1812-barn-permit, which gives the cost only). Adds the footprint: the Wheeler barn at the rear of 1812 was a TWO-STOREY building 30 × 47 ft, $4,000 (Burnham & Root per AABN). Use 30 × 47 ft for the 1904 coach house at the alley end of the 1812 lot.",
+  "measurements": [
+   {
+    "what": "barn footprint",
+    "value": "30 × 47 ft",
+    "locator": "RE&BJ Sept. 27, 1884, permits"
+   },
+   {
+    "what": "barn storeys",
+    "value": "2",
+    "locator": "same"
+   },
+   {
+    "what": "cost",
+    "value": "$4,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi2535unse, page index 824",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi2535unse/page/n824_w1200.jpg"
+ },
+ {
+  "id": "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+  "kind": "document",
+  "title": "The Chicago Blue Book, 1904 — street list 'PRAIRIE AVENUE.', p. 186 (1600–1816 Prairie)",
+  "building_ids": [
+   "pa-1612-1",
+   "pa-1620-1904-correction",
+   "pa-1637-45",
+   "pa-1638-2",
+   "pa-1700-52",
+   "pa-1701-3",
+   "pa-1706-53",
+   "pa-1708-54",
+   "pa-1709-s.-prairie-avenue-(successor)-47",
+   "pa-1720-55",
+   "pa-1721-4",
+   "pa-1726–1728-s.-prairie-avenue-(predecessor)-51",
+   "pa-1729-5",
+   "pa-1736-49",
+   "pa-1801-23",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1815-12",
+   "pa-1816-33",
+   "pa-1823-13",
+   "pa-1609-1904-correction",
+   "pa-1611-1904-correction",
+   "pa-1630-50",
+   "pa-1635-48",
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1600–1816 S. Prairie Avenue"
+  ],
+  "date": "1904 (Blue Book for 1904, compiled late 1903)",
+  "date_earliest": 1903,
+  "date_latest": 1904,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign)",
+  "collection": "The Chicago Blue Book of Selected Names, 1904, street-and-number section, p. 186",
+  "call_number": "chicagobluebooko1904chic, page index 188",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n188/mode/1up",
+  "found_via": "Owner-name search inside the 1904 Blue Book (each address and occupant, e.g. 'Hibbard William G. jr. 1637 Prairie'); the street section found by searching 'Prairie Avenue'; the whole page read on the page image (IIIF crops)",
+  "notes": "The 1904 household roster for the north half, by house number — the library's occupancy1904 is null for every one of these buildings. West side (even): 1600 John G. Shortall; 1604 John L. Shortall; 1608 Henry L. Frank; 1612 Charles Edward Brown, George F. Brown, George F. Brown jr.; 1616 Wm. R. Stirling; 1620 F. Van S. Hibbard; 1626 A. Longini; 1628 M. Einstein; 1634 Erastus Foote, T. H. Bellas; 1636 Mrs H. Morris Johnston, H. McB. Johnston, Morris L. Johnston; 1638 Robert B. Gregory, Mrs Elizabeth Gregory, Miss Gregory; 1700 Blewett Lee; 1706 J. G. M. Glessner; 1708 A. A. Carpenter jr.; 1712 Geo. A. McKinlock; 1720 Mrs James M. Walker; 1726 James R. Walker; 1730 Mrs Joseph E. Otis; 1736 Hugh McBirney; 1800 John J. Glessner; 1808 Stanley Field; 1812 Lawrence A. Young; 1816 Mrs Charles M. Henderson. East side (odd): 1619 Howard E. Perry; 1621 John H. Hamline, George A. Mead; 1625 Hugh J. McBirney; 1637 WM. GOLD HIBBARD JR.; 1701 Mrs William Gold Hibbard, Mrs O. Van Schaack Ward; 1709 Jesse Spalding; 1721 HENRY H. WALKER; 1729 Mrs Geo. M. Pullman; 1801 W. W. Kimball; 1815 Arthur Meeker; 1823 Thomas Dent (list continues on p. 187 with 1824 and 1834, npo-bluebook-1904-p187-prairie-avenue-1824-1834). Bearing on the 1904 model: (1) every listed house stood and was occupied by a Blue Book household; (2) 1637 was W. G. Hibbard Jr.'s home in 1904, not the Spaldings' (they had moved to 1709 by the 1899 exchange) — resolves the library's 'Grosvenor / Spalding … unresolved' for the target year; (3) 1721 was Henry H. Walker's (the Dexter house let or sold after Mrs Dexter); (4) 1620 = Frank Van S. Hibbard, 1616 = the Stirlings (W. G. Hibbard's son-in-law) — separates the two houses the library confuses; (5) NOT listed: 1609, 1611 (rented frame houses), 1630 (Brust), 1635 (Springer) — consistent with non-'society' households, not proof of absence — and 1811, consistent with the Ames house standing empty before its 1905 sale (np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms). The alphabetical section of the same book carries the matching entries (e.g. p. n559 'Hibbard William G. jr. 1637 Prairie av.', n670 'Walker Henry H. 1721 Prairie av.' and 'Walker James R. 1726 Prairie av.', n652 'Spalding Jesse, 1709 Prairie av.'), all seen on the page images.",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n188_w1200.jpg"
+ },
+ {
+  "id": "npo-bluebook-1904-p187-prairie-avenue-1824-1834",
+  "kind": "document",
+  "title": "The Chicago Blue Book, 1904 — street list 'PRAIRIE AVENUE.', p. 187 (continuation: 1824–1834 Prairie)",
+  "building_ids": [
+   "pa-1824-8",
+   "pa-1834-9",
+   "pa-1827-14"
+  ],
+  "addresses": [
+   "1824 S. Prairie Avenue",
+   "1828 S. Prairie Avenue",
+   "1834 S. Prairie Avenue"
+  ],
+  "date": "1904 (Blue Book for 1904, compiled late 1903)",
+  "date_earliest": 1903,
+  "date_latest": 1904,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign)",
+  "collection": "The Chicago Blue Book of Selected Names, 1904, street-and-number section, p. 187",
+  "call_number": "chicagobluebooko1904chic, page index 189",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n189/mode/1up",
+  "found_via": "Search inside the 1904 Blue Book for '1824 Prairie' and '1834 Prairie' (owner-name pass); the page read on the page image (IIIF crop)",
+  "notes": "West-side continuation of the 1904 Prairie Avenue list (north half only recorded here): '1824 Mr. & Mrs. Secor Cunningham', '1828 Daniel B. Shipman', '1834 Mr. & Mrs. Fernando Jones'. So in 1904: 1824 = the Cunninghams (bought 1897), 1834 = the Fernando Jones household (in their own 1866–67 house; Storey had been their tenant c.1881–84, npo-1834-tribune-1886-01-20-storey-letters-jones-house). 1827 (Doane) does not appear on the east-side list for the 1800 block (which runs 1801, 1815, 1823, then 1901) — no Blue Book household at 1827 in the 1904 edition; check a 1904 city directory before modelling 1827 as occupied (the house stood). The same page continues with the 1900–2100 blocks (south half, not indexed in this record).",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n189_w1200.jpg"
+ },
+ {
+  "id": "npo-1726-rebj-1886-02-06-allen-to-james-r-walker-47x172",
+  "kind": "document",
+  "title": "\"Prairie av, 84 feet n of 18th st, ef, 47x172, Jan 19, Chas L Allen to Jas R Walker. $35,000\"",
+  "building_ids": [
+   "pa-1726–1728-s.-prairie-avenue-(predecessor)-51"
+  ],
+  "addresses": [
+   "1726 S. Prairie Avenue"
+  ],
+  "date": "February 6, 1886 (deed of January 19, 1886)",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "creator": "The Real Estate and Building Journal (Chicago), real-estate transfers column",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.28, 1886)",
+  "collection": "The Real Estate and Building Journal, issue of Feb. 6, 1886 (vol. XXVIII), transfers",
+  "catalog_url": "https://archive.org/details/realestatebuildi2818unse/page/n122/mode/1up",
+  "found_via": "Owner-name grep of the RE&BJ 1886 OCR text ('Walker' near 'Prairie'); entry read on the page image (IIIF crop); issue date from the masthead",
+  "notes": "Answers the 1726 identity lead: James R. Walker BOUGHT the property in January 1886 — an east-front (west-side) lot 47 ft wide × 172 ft deep beginning 84 ft north of 18th Street, for $35,000 (a price for an improved lot, i.e. with the house). Counting north from 18th St on the west side (1736 corner, 1730, then 1726), 84–131 ft north of 18th is the 1726 lot. The house he bought is the brick house advertised in 1875 ('874 Prairie-av., brick, 14 rooms', cgn-1726-text) and let in 1886–87 ('1726 Prairie-av.—10 rooms', np pass), with the two-storey brick stable that burned slightly in 1893 (np-1726-tribune-1893-02-27-walker-stable-fire); Walker is listed there in the 1904 Blue Book (npo-bluebook-1904-p186-prairie-avenue-1600-1816). Bearing: the 1904 building at 1726 is a c.1870s brick house on a 47 × 172 ft lot, owned and occupied by James R. Walker — NOT the 'early frame double house demolished 1880s' of building id 51. Site-plan figure: the 1726 lot's south line lies 84 ft north of the 18th Street line.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "47 × 172 ft, east front",
+    "locator": "RE&BJ Feb. 6, 1886, transfers"
+   },
+   {
+    "what": "position",
+    "value": "south line 84 ft north of 18th Street",
+    "locator": "same"
+   },
+   {
+    "what": "price",
+    "value": "$35,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi2818unse, page index 122",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi2818unse/page/n122_w1200.jpg"
+ },
+ {
+  "id": "npo-1808-rebj-1886-03-27-wells-to-keith-premises-1808",
+  "kind": "document",
+  "title": "\"Prairie avenue, the premises No 1808: January 14. H M Wells to M W Keith, $24,000\"",
+  "building_ids": [
+   "pa-1808-6",
+   "pa-1804–1808-s.-prairie-avenue-(predecessors)-44"
+  ],
+  "addresses": [
+   "1808 S. Prairie Avenue"
+  ],
+  "date": "March 27, 1886 (deed of January 14, 1886)",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "creator": "The Real Estate and Building Journal (Chicago), real-estate transfers column",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.28, 1886)",
+  "collection": "The Real Estate and Building Journal, issue of March 27, 1886 (vol. XXVIII), transfers",
+  "catalog_url": "https://archive.org/details/realestatebuildi2818unse/page/n246/mode/1up",
+  "found_via": "Address grep of the RE&BJ 1886 OCR text ('1808 Prairie'); entry read on the page image (IIIF crop)",
+  "notes": "Dates the purchase of the 1808 site by the Keiths (deed to M. W. [Mary W.] Keith, wife of O. R. Keith) to 14 Jan 1886, for $24,000, 'the premises No 1808' — i.e. bought with the older house on it (the Hitchcock/Galloway predecessor, building id 44). The permit for the new Cobb & Frost house followed in Aug. 1886 (npo-1808-rebj-1886-08-28-keith-permit-38x80). So the predecessor at 1808 came down in 1886, well before 1904. Mary W. Keith is also the 'Mrs Mary W. Keith' who sold 1708 to Thorne in 1907.",
+  "measurements": [
+   {
+    "what": "price",
+    "value": "$24,000",
+    "locator": "RE&BJ March 27, 1886, transfers"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi2818unse, page index 246",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi2818unse/page/n246_w1200.jpg"
+ },
+ {
+  "id": "npo-1808-rebj-1886-08-28-keith-permit-38x80",
+  "kind": "permit record",
+  "title": "\"Prairie av No 1808, D R [O. R.] Keith three-story dwelling 38x80 $30,000.\"",
+  "building_ids": [
+   "pa-1808-6"
+  ],
+  "addresses": [
+   "1808 S. Prairie Avenue"
+  ],
+  "date": "August 28, 1886",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "creator": "The Real Estate and Building Journal (Chicago), building permits column",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.28, 1886)",
+  "collection": "The Real Estate and Building Journal, issue of Aug. 28, 1886 (vol. XXVIII), building permits",
+  "catalog_url": "https://archive.org/details/realestatebuildi2818unse/page/n649/mode/1up",
+  "found_via": "Address grep of the RE&BJ 1886 OCR text ('No 1808'); permit line read on the page image (IIIF crop); issue date from the masthead",
+  "notes": "The city permit itself (printed 'D R Keith', a misprint for O. R. Keith): three-storey dwelling 38 × 80 ft, $30,000, late August 1886. Agrees with the Inland Architect footprint (a18-inland-architect-1886-09-keith-notice, 38 × 80, but $40,000) and with AABN's $30,000 (dw-aabn-1886-keith-1808-permit) — the permit value was $30,000, Inland's $40,000 is the architects' estimate. Fixes the start of the 1808 house to Aug./Sept. 1886.",
+  "measurements": [
+   {
+    "what": "footprint",
+    "value": "38 × 80 ft",
+    "locator": "RE&BJ Aug. 28, 1886, permits"
+   },
+   {
+    "what": "storeys",
+    "value": "3",
+    "locator": "same"
+   },
+   {
+    "what": "permit value",
+    "value": "$30,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi2818unse, page index 649",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi2818unse/page/n649_w1200.jpg"
+ },
+ {
+  "id": "npo-1616-rebj-1886-05-08-hibbard-barn-permit",
+  "kind": "permit record",
+  "title": "\"Prairie av at No 1616 W G Hibbard, two story barn 33x32, $2,500.\"",
+  "building_ids": [
+   "pa-1620-1904-correction"
+  ],
+  "addresses": [
+   "1616 S. Prairie Avenue"
+  ],
+  "date": "May 8, 1886",
+  "date_earliest": 1886,
+  "date_latest": 1886,
+  "creator": "The Real Estate and Building Journal (Chicago), building permits column",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.28, 1886)",
+  "collection": "The Real Estate and Building Journal, issue of May 8, 1886 (vol. XXVIII), building permits",
+  "catalog_url": "https://archive.org/details/realestatebuildi2818unse/page/n365/mode/1up",
+  "found_via": "Owner-name grep of the RE&BJ 1886 OCR text ('Hibbard' near 'Prairie'); permit line read on the page image (IIIF crop)",
+  "notes": "Bears on the 1616 vs 1620 confusion (and the index's 'Hibbard at 1616 or 1701'): in 1886 William G. Hibbard (of 1701) took a permit for a TWO-STOREY BARN, 33 × 32 ft, at No. 1616 — the house of his son-in-law William R. Stirling (Mrs Stirling = Alice Hibbard; Stirling at 1616 from the 1885 Elite Directory through 1912). So Hibbard's name at 1616 is as owner/builder for his daughter's household, not his residence. 1620 next door was Robert H. Law's until c.1899, then Frank Van S. Hibbard's (1901–1909; 1904 Blue Book). Recorded under 1620 because the library has no 1616 building; the 1911 Sanborn's rear stable on the 1616–1620 frontage and the 1922 '1616–1620 … double garage' (np-1620-tribune-1922-10-22-1616-1620-for-sale) should be checked against this 33 × 32 barn of 1886.",
+  "measurements": [
+   {
+    "what": "barn footprint (1616)",
+    "value": "33 × 32 ft",
+    "locator": "RE&BJ May 8, 1886, permits"
+   },
+   {
+    "what": "barn storeys",
+    "value": "2",
+    "locator": "same"
+   },
+   {
+    "what": "cost",
+    "value": "$2,500",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi2818unse, page index 365",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi2818unse/page/n365_w1200.jpg"
+ },
+ {
+  "id": "npo-1709-rebj-1897-01-23-kellogg-homestead-to-cass",
+  "kind": "document",
+  "title": "\"An important deal by which the Charles P. Kellogg homestead, 1709 Prairie avenue, west front, [1]02 feet frontage, goes into the hands of George W Cass… The improvements on the land consist of a fine brick residence, and a barn in the rear.\"",
+  "building_ids": [
+   "pa-1709-s.-prairie-avenue-(successor)-47"
+  ],
+  "addresses": [
+   "1709 S. Prairie Avenue"
+  ],
+  "date": "January 23, 1897",
+  "date_earliest": 1897,
+  "date_latest": 1897,
+  "creator": "The Real Estate and Building Journal (Chicago), weekly real-estate review",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.39, 1897)",
+  "collection": "The Real Estate and Building Journal, Jan. 23, 1897 (vol. XXXIX)",
+  "catalog_url": "https://archive.org/details/realestatebuildi3918unse/page/n74/mode/1up",
+  "found_via": "Address grep of the RE&BJ 1897 OCR text ('1709 Prairie'); passage read on the page image (IIIF crops); issue date from the masthead",
+  "notes": "Fills the gap between the Kellogg and Spalding ownerships of 1709 and describes the property seven years before 1904: 'a fine BRICK residence, and a BARN in the rear'; the lot fronts west (east side of the street), '[1]02 feet frontage' [the first digit is lost in the print/OCR; 102 ft at '$600 per front foot' fits the 99–101 ft of 1908]. 'This property adjoins the Wirt Dexter homestead on the north [i.e. lies just north of 1721] and is situated diagonally across the street from Mr. T. W. Harvey's residence [1702]'. George W. Cass took it in exchange for residence lots at Riverside, Morton Park and Lawndale; F. H. Doland & Co. acted for the Kellogg heirs. The paper names the house the 'Charles P. Kellogg homestead' — the builder was Palmer V. Kellogg (1883; Charles P. Kellogg's house was 1923): read as the Kellogg family homestead. By the 1899 exchange (Abendpost 27 Jan 1899, np pass) it passed to the Spaldings, who held it in 1904. Corroborates: brick house + rear barn on a c.100-ft lot for the 1904 model.",
+  "measurements": [
+   {
+    "what": "frontage",
+    "value": "[1]02 ft [first digit OCR/print uncertain]",
+    "locator": "RE&BJ Jan. 23, 1897"
+   },
+   {
+    "what": "land value",
+    "value": "$600 per front foot",
+    "locator": "same"
+   },
+   {
+    "what": "outbuilding",
+    "value": "barn in the rear",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi3918unse, page index 74",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi3918unse/page/n74_w1200.jpg"
+ },
+ {
+  "id": "npo-1824-rebj-1897-05-01-fuller-to-cunningham-67x177",
+  "kind": "document",
+  "title": "\"The transfer of the property 1824 Prairie avenue by William A. Fuller to A. I. Cunningham for $50,000… The ground is 67 by 177 feet, east front, 215 feet south of Eighteenth street, and is improved with a three-story, brown stone front residence…\"",
+  "building_ids": [
+   "pa-1824-8"
+  ],
+  "addresses": [
+   "1824 S. Prairie Avenue"
+  ],
+  "date": "May 1, 1897",
+  "date_earliest": 1897,
+  "date_latest": 1897,
+  "creator": "The Real Estate and Building Journal (Chicago), 'Miscellaneous Real Estate Sales'",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.39, 1897)",
+  "collection": "The Real Estate and Building Journal, May 1, 1897 (vol. XXXIX), 'Miscellaneous Real Estate Sales'",
+  "catalog_url": "https://archive.org/details/realestatebuildi3918unse/page/n354/mode/1up",
+  "found_via": "Address grep of the RE&BJ 1897 OCR text ('1824 Prairie'); passage read on the page image (IIIF crop); issue date from the masthead",
+  "notes": "SETTLES the 1824 lot-depth conflict (67 × 171 in the Tribune of Feb. 1897 vs 67 × 115 in the Tribune's 1898 review): 'The ground is 67 by 177 feet, east front, 215 feet south of Eighteenth street, and is improved with a THREE-STORY, BROWN STONE FRONT residence, located between the residences of Mrs. C. M. Henderson [1816] and D. B. Shipman [1828]. During the time of the World's Fair a former owner refused $90,000. May 25, 1895, Sarah S. C. Marsh sold the property to Vine A. Watkins for $50,000…' The Journal's own transfer list of June 1, 1895 gives the same lot as '67x176-6/10' (Marsh to Watkins; realestatebuildi3718unse page n518, seen in OCR). So: lot 67 × c.177 ft (176.6), east front (west side), its north line 215 ft south of the 18th Street line; house three storeys with a brownstone front (the Marsh refacing of the 1857 Pomeroy house). 'A. I. Cunningham' is the purchaser for Secor Cunningham's household (Blue Book 1904).",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "67 × 177 ft, east front",
+    "locator": "RE&BJ May 1, 1897"
+   },
+   {
+    "what": "lot (1895 transfer)",
+    "value": "67 × 176 6/10 ft",
+    "locator": "RE&BJ June 1, 1895, transfers (n518)"
+   },
+   {
+    "what": "position",
+    "value": "north line 215 ft south of 18th Street",
+    "locator": "RE&BJ May 1, 1897"
+   },
+   {
+    "what": "house",
+    "value": "three storeys, brownstone front",
+    "locator": "same"
+   },
+   {
+    "what": "price",
+    "value": "$50,000 (1895 and 1897)",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi3918unse, page index 354",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi3918unse/page/n354_w1200.jpg"
+ },
+ {
+  "id": "npo-1729-rebj-1891-08-08-pullman-barn-dwelling-permit",
+  "kind": "permit record",
+  "title": "\"Prairie av 1729 and 1731, George M Pullman, 2 and 1 story and basement brick barn and dwelling, $20,000.\"",
+  "building_ids": [
+   "pa-1729-5"
+  ],
+  "addresses": [
+   "1729–1731 S. Prairie Avenue"
+  ],
+  "date": "August 8, 1891",
+  "date_earliest": 1891,
+  "date_latest": 1891,
+  "creator": "The Real Estate and Building Journal (Chicago), building permits column",
+  "repository": "Internet Archive (Real Estate and Building Journal, v.33:2, 1891)",
+  "collection": "The Real Estate and Building Journal, Aug. 8, 1891 (vol. XXXIII), p. 1158, building permits",
+  "catalog_url": "https://archive.org/details/realestatebuildi3321unse/page/n220/mode/1up",
+  "found_via": "Address grep of the RE&BJ 1891 OCR text ('1729 and 1731'); permit line and running head ('Aug 8 1891', p. 1158) read on the page image (IIIF crops)",
+  "notes": "An 1891 permit for new BRICK outbuildings on the Pullman lot: 'two- and one-storey-and-basement brick barn and dwelling', $20,000, at 1729–1731 Prairie. Read as a two-storey brick barn (stable/coach house) with a one-storey-and-basement dwelling (coachman's or gardener's quarters) — the wording is compressed and could also mean one building of mixed height. Either way it dates the Pullman rear buildings standing in 1904 to 1891 (architect not named; Beman is the usual Pullman architect). The 1911 Sanborn shows a two-storey stone garage at the rear of 1729 (map_frontages.csv) — compare: the 1891 permit says brick.",
+  "measurements": [
+   {
+    "what": "outbuildings",
+    "value": "2-storey and 1-storey-and-basement brick barn and dwelling",
+    "locator": "RE&BJ Aug. 8, 1891, p. 1158"
+   },
+   {
+    "what": "permit value",
+    "value": "$20,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "realestatebuildi3321unse, page index 220",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/realestatebuildi3321unse/page/n220_w1200.jpg"
+ },
+ {
+  "id": "npo-1635-bluebook-1904-springer-at-85-rush",
+  "kind": "document",
+  "title": "The Chicago Blue Book, 1904 — 'Springer Warren, 85 Rush'",
+  "building_ids": [
+   "pa-1635-48"
+  ],
+  "addresses": [
+   "1635 S. Prairie Avenue"
+  ],
+  "date": "1904 (Blue Book for 1904, compiled late 1903)",
+  "date_earliest": 1903,
+  "date_latest": 1904,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign)",
+  "collection": "The Chicago Blue Book of Selected Names, 1904, alphabetical list",
+  "call_number": "chicagobluebooko1904chic, page index 653",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n653/mode/1up",
+  "found_via": "Owner-name search inside the Blue Books 1895–1910 for 'Springer Warren' (the 1635 owner); entries for 1902, 1903 and 1904 read on the page images",
+  "notes": "CORRECTS the third pass's reading of 1635 as 'occupied 1903–04' (np-1635-womens-clubs-directory-1903-04-springer). Warren Springer, owner of 1635 since the 1880s, is listed '1635 Prairie av.' in every Blue Book from 1895 to 1902 (1902 edition: chicagobluebooko1902chic n641, seen on the image), but from the 1903 edition on he is at '85 Rush' (1903: n656; 1904: this page; 1905–1909: 85 Rush; 1910: 607 Rush). The 1904 street list for Prairie Avenue has no one at 1635 (npo-bluebook-1904-p186-prairie-avenue-1600-1816). The women's-club directory of 1903–04 that still prints 'Springer Mrs W 1635 Prairie Av' is therefore a stale entry. No rent or sale advertisement for 1635 was found after 1895 (IA full text '\"1635 Prairie\"', all years). Bearing: the family left 1635 in 1902; the house was gone by the 1911 Sanborn. Whether it still stood, empty or let, in 1904 is not settled by any item found — the demolition window is now late 1902 to 1911, and the library's 'uncertain; likely absent' should stay open rather than be reversed. Lot 70 ft (1892–95 lease offers).",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n653_w1200.jpg"
+ }
+]

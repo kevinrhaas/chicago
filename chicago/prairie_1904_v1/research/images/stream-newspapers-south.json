@@ -1,0 +1,924 @@
+[
+ {
+  "id": "nps-bluebook-1904-prairie-street-p186-east-1901-2009",
+  "kind": "document",
+  "title": "The Chicago Blue Book … 1904, street directory: \"Prairie Avenue\" (p. 186), east side 1619–2009",
+  "building_ids": [
+   "pa-1901-15",
+   "pa-1905-16",
+   "pa-1919-26",
+   "pa-1923-35",
+   "pa-2009-17"
+  ],
+  "addresses": [
+   "1901 S. Prairie Avenue",
+   "1905 S. Prairie Avenue",
+   "1919 S. Prairie Avenue",
+   "1923 S. Prairie Avenue",
+   "1945 S. Prairie Avenue",
+   "2001 S. Prairie Avenue",
+   "2003 S. Prairie Avenue",
+   "2005 S. Prairie Avenue",
+   "2009 S. Prairie Avenue"
+  ],
+  "date": "1904 (edition for 1904; compiled late 1903)",
+  "date_earliest": 1903,
+  "date_latest": 1904,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Chicago blue book of selected names of Chicago and suburban towns, vol. 1904",
+  "call_number": "chicagobluebooko1904chic, page index 187 (printed p. 186)",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n187/mode/1up",
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n187_w1200.jpg",
+  "found_via": "IA full-text search inside chicagobluebooko1904chic for '2033'/'2035' (hit the street section); page image read in full",
+  "notes": "The street-by-street section of the 1904 Blue Book, i.e. the society households at each number in the target year. East side (left column) south of 18th: \"1901 Mr. & Mrs. Norman B. Ream & drs.\"; \"1905 Marshall Field\"; \"1919 Mr. & Mrs. Marshall Field jr.\"; \"1923 Mrs. C. P. Kellogg / Mrs. Lois Kellogg\"; \"1945 Mrs. Henry Corwith / Charles R. Corwith\"; \"2001 Mr. & Mrs. W. C. Free\"; \"2003 Mrs. H. W. Hoyt & dr.\"; \"2005 Dr. & Mrs. Casey A. Wood\"; \"2009 Mrs. M. A. Meyer & dr. / E. F. Meyer / Albert Meyer\" (continued on p. 187 with Carl and Abraham Meyer). Bearing: fixes the 1904 occupants the library leaves null — 1923 is still the Kellogg house (widow Mrs. C. P. Kellogg), resolving its 'unresolved' status to occupied; 2009 is the Meyer house under the widow of Max A. Meyer (the Blue Book spells it Meyer); 1945 (Corwith), 2001, 2003 and 2005 were occupied houses. The same page's right column lists the west side 1600–1816 (north half: not tagged here). Presence in the Blue Book = a society household in residence; it says nothing on form.",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-bluebook-1904-prairie-street-p187-1900-2140",
+  "kind": "document",
+  "title": "The Chicago Blue Book … 1904, street directory: \"Prairie Avenue\" (p. 187), east side 2009–2625 and west side 1824–2522",
+  "building_ids": [
+   "pa-2009-17",
+   "pa-2013-29",
+   "pa-2021-36",
+   "pa-2027-37",
+   "pa-2031-nrhp",
+   "pa-2033-nrhp",
+   "pa-2035-nrhp",
+   "pa-2109-41",
+   "pa-2115-19",
+   "pa-1900-25",
+   "pa-1906-34",
+   "pa-1912-10",
+   "pa-1936-11",
+   "pa-2036-38",
+   "pa-2110-30",
+   "pa-2112-39",
+   "pa-2126-20",
+   "pa-2140-21",
+   "pa-2100-18",
+   "pa-2108-40",
+   "pa-2130-42"
+  ],
+  "addresses": [
+   "2009 S. Prairie Avenue",
+   "2011 S. Prairie Avenue",
+   "2013 S. Prairie Avenue",
+   "2017 S. Prairie Avenue",
+   "2021 S. Prairie Avenue",
+   "2027 S. Prairie Avenue",
+   "2031 S. Prairie Avenue",
+   "2033 S. Prairie Avenue",
+   "2035 S. Prairie Avenue",
+   "2101 S. Prairie Avenue",
+   "2109 S. Prairie Avenue",
+   "2115 S. Prairie Avenue",
+   "2123 S. Prairie Avenue",
+   "1900 S. Prairie Avenue",
+   "1904 S. Prairie Avenue",
+   "1906 S. Prairie Avenue",
+   "1912 S. Prairie Avenue",
+   "1936 S. Prairie Avenue",
+   "2000 S. Prairie Avenue",
+   "2010 S. Prairie Avenue",
+   "2018 S. Prairie Avenue",
+   "2026 S. Prairie Avenue",
+   "2036 S. Prairie Avenue",
+   "2110 S. Prairie Avenue",
+   "2112 S. Prairie Avenue",
+   "2120 S. Prairie Avenue",
+   "2126 S. Prairie Avenue",
+   "2140 S. Prairie Avenue"
+  ],
+  "date": "1904 (edition for 1904; compiled late 1903)",
+  "date_earliest": 1903,
+  "date_latest": 1904,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Chicago blue book of selected names of Chicago and suburban towns, vol. 1904",
+  "call_number": "chicagobluebooko1904chic, page index 188 (printed p. 187)",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n188/mode/1up",
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n188_w1200.jpg",
+  "found_via": "IA full-text search inside chicagobluebooko1904chic for '2033' and '2035'; page image read in full",
+  "notes": "The single most useful 1904 document for the south half: the society household at every number. East side: \"2009 Carl Meyer / Abraham Meyer\"; \"2011 Augustus D. Lamb / Benjamin B. Lamb\"; \"2013 Mr. & Mrs. William H. Reid\"; \"2017 Mr. & Mrs. A. J. McBean … \"; \"2021 Mrs. James L. High & dr.\"; \"2027 Mrs. J. J. Borland / Chauncey Blair Borland / Bruce Borland\"; \"2031 Mr. & Mrs. Samuel A. Tolman\"; \"2033 Mr. & Mrs. F. R. Otis & dr. / Charles T. Otis / Lucius J. Otis\"; \"2035 Mrs. H. O. Stone\"; \"2101 Mr. & Mrs. Eugene S. Pike …\"; \"2109 Robert W. Roloson\"; \"2115 Mrs. Philip D. Armour\"; \"2123 Thomas H. Hubbart\". West side: \"1900 Mr. & Mrs. Elbridge G. Keith & dr.\"; \"1904 Mr. & Mrs. Walter W. Keith\"; \"1906 Mrs. Edson Keith\"; \"1912 Mr. & Mrs. Frank Orren Lowden\"; \"1936 Mr. & Mrs. S. W. Allerton / Robert H. Allerton\"; \"2000 Mr. & Mrs. John M. Clark\"; \"2010 Mr. & Mrs. W. L. Grey & dr.\"; \"2018 E. Walter Herrick / Mrs. L. A. Herrick … Mrs. Nicolas de Teresa\"; \"2026 Mrs. D. Stettauer & dr. / Charles S. Stettauer\"; \"2036 E. Buckingham & drs. / Clarence Buckingham\"; \"2110 Mr. & Mrs. Edson Keith jr.\"; \"2112 Mrs. M. M. Rothschild & dr / Jesse Rothschild\"; \"2120 Mr. & Mrs. Frank S. Gorton\"; \"2126 Mr. & Mrs. Edward F. Robbins\"; \"2140 Mr. & Mrs. Byron L. Smith … Walter B., Harold C., Bruce D. Smith\". NO entry for 2100 (Sherman), 2108 (Mark Kimball) or 2130 (Murdoch): the alphabetical section of the same volume puts Thomas Murdoch at the Lexington hotel and Mrs. Mark Kimball at the Lakota hotel, and John B. Sherman (d. 1902) is absent. Bearing: answers the 2031–2035 question — 2031 = Samuel A. Tolman (the Tolman occupancy, not A. B. Dewey, whose 1904 address on the preceding page is 2631 Prairie), 2033 = the F. R. Otis family, 2035 = Mrs. H. O. (Horatio O.) Stone; 2027 = the Borland household (Mrs. John Jay Borland); 2110 was occupied by Edson Keith Jr., not a Rees; 2126 was already the Robbins address when the 1904 edition was compiled; 2100, 2108 and 2130 were not society residences in 1904 (vacant, let, or non-society tenants — to be checked).",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2115-tribune-1901-01-07-armour-residence-described",
+  "title": "[P. D. Armour obituary] \"The residence of Mr. Armour Sr. for many years was at 2115 Prairie avenue. It is a large square house with stone front and mansard roof…\"",
+  "building_ids": [
+   "pa-2115-19"
+  ],
+  "addresses": [
+   "2115 S. Prairie Avenue"
+  ],
+  "date": "January 7, 1901",
+  "date_earliest": 1901,
+  "date_latest": 1901,
+  "creator": "Chicago Daily Tribune",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, January 7, 1901 (vol. 60 no. 7)",
+  "call_number": "per_chicago-daily-tribune_1901-01-07_60_7, page index 1",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-01-07_60_7/page/n1/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-01-07_60_7/page/n1_w1200.jpg",
+  "found_via": "IA full-text search '\"2115 prairie\"'; passage read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"The residence of Mr. Armour Sr. for many years was at 2115 Prairie avenue. It is a large square house with stone front and mansard roof, of a style so popular a quarter of a century ago, but long since out of date. A few tall elms rise above the roof in the lawn before the structure, but there is nothing about the premises to give a hint that one of the richest men in America had there his abiding place… The Armour home is luxuriously furnished, but extreme good taste rules everywhere.\" Bearing on 1904 (the widow's house, unchanged in form): a SQUARE block, STONE FRONT, MANSARD ROOF, with a front lawn carrying tall elms that overtop the roof. Agrees with the 1928 Tribune photograph (nps-2115-tribune-1928-07-08-famous-homes-photo).",
+  "measurements": [
+   {
+    "what": "roof",
+    "value": "mansard",
+    "locator": "Tribune 7 Jan 1901, p. index 1, col. 4"
+   },
+   {
+    "what": "front material",
+    "value": "stone",
+    "locator": "same"
+   },
+   {
+    "what": "plan",
+    "value": "'large square house'",
+    "locator": "same"
+   },
+   {
+    "what": "trees",
+    "value": "a few tall elms in the front lawn, rising above the roof",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2115-tribune-1928-07-08-famous-homes-photo",
+  "kind": "newspaper item",
+  "title": "\"Famous Homes\" [photograph of the Philip D. Armour residence, 2115 Prairie avenue] (Tribune photo)",
+  "building_ids": [
+   "pa-2115-19"
+  ],
+  "addresses": [
+   "2115 S. Prairie Avenue"
+  ],
+  "view": "front elevation",
+  "facing": "east",
+  "camera_position": "from Prairie Avenue in front of the house (east side of the street)",
+  "date": "July 8, 1928",
+  "date_earliest": 1928,
+  "date_latest": 1928,
+  "creator": "Chicago Sunday Tribune (Tribune photo)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, July 8, 1928 (vol. 87 no. 28)",
+  "call_number": "per_chicago-daily-tribune_1928-07-08_87_28, page index 97 (same cut repeated at index 103)",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1928-07-08_87_28/page/n97/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1928-07-08_87_28/page/n97_w1200.jpg",
+  "found_via": "IA full-text search '\"2115 prairie\"'; photograph and caption read on the page image (IIIF crop)",
+  "notes": "A halftone (dark on the microfilm) of the front, with caption: \"The old 19-room stone residence of Philip D. Armour, founder of the packing firm of Armour & Co., was a show place in its day. Now used as a rooming house, it still stands at 2115 Prairie avenue. The stables in the rear, where the Armour horses were kept, are elaborate, the woodwork being partly of mahogany and walnut. The historic property was recently purchased by a syndicate.\" What can be read: two full storeys of coursed/rusticated stone with round-arched window openings in pairs and threes, a tall MANSARD third storey with round-headed dormers, an iron-crested flat top to the mansard flanked by tall corner chimneys/finials, a central entrance reached by a straight flight of stone steps, a bay on the right (south) half of the ground floor and a lower balustraded element at the far right. Near-period (1928): the house had been a rooming house for some years, but no alteration to the front is mentioned; it is the only photograph of 2115 besides the chicagology winter view and the best evidence for the 1904 front (cf. Tribune 1901: 'large square house with stone front and mansard roof').",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "19",
+    "locator": "caption, Tribune 8 Jul 1928, p. index 97"
+   },
+   {
+    "what": "material",
+    "value": "stone",
+    "locator": "same"
+   },
+   {
+    "what": "storeys",
+    "value": "2 + mansard (read from the photograph)",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "local": {
+   "display": "research/images/files/nps-2115-tribune-1928-07-08-famous-homes-photo.jpg",
+   "display_bytes": 217452,
+   "thumb": "research/images/files/nps-2115-tribune-1928-07-08-famous-homes-photo-thumb.jpg",
+   "thumb_bytes": 23171,
+   "original_px": [
+    8995,
+    10301
+   ],
+   "original_sha256": "d80dfff38187f69f1c7b0a6c5322a3bf7671578a38d26da41ef0554c752ab285",
+   "original_bytes": 4812598,
+   "fetched_from": "https://iiif.archive.org/image/iiif/3/per_chicago-daily-tribune_1928-07-08_87_28%2fper_chicago-daily-tribune_1928-07-08_87_28_jp2.zip%2fper_chicago-daily-tribune_1928-07-08_87_28_jp2%2fper_chicago-daily-tribune_1928-07-08_87_28_0097.jp2/2600,13250,3100,3550/max/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2115-tribune-1928-03-24-armour-home-sold-58x178",
+  "title": "\"Home of Armour Widow\" [sale of the Armour residence, 2115 Prairie avenue, from the estate of Malvina B. Armour]",
+  "building_ids": [
+   "pa-2115-19"
+  ],
+  "addresses": [
+   "2115 S. Prairie Avenue"
+  ],
+  "date": "March 24, 1928",
+  "date_earliest": 1928,
+  "date_latest": 1928,
+  "creator": "Chicago Daily Tribune (real estate column)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, March 24, 1928 (vol. 87 no. 72)",
+  "call_number": "per_chicago-daily-tribune_1928-03-24_87_72, page index 28",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1928-03-24_87_72/page/n28/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1928-03-24_87_72/page/n28_w1200.jpg",
+  "found_via": "IA full-text search '\"2115 prairie\"'; article read on the page image (IIIF crop)",
+  "notes": "Read on the page: the buyer (Donahoe) took the \"historic property from the estate of Malvina B. Armour for a reported $30,000 … The new owners intend to remodel and use it for commercial purposes … The old nineteen room stone residence was purchased by Philip D. Armour … The famous old stables in the rear, where the Armour horses were kept, are as elaborate as many a gold coast house, the woodwork being partly of mahogany and walnut. Home of Armour Widow. The widow … lived at 2115 Prairie until a few years ago. She died recently. The property is 58x178.\" Bearing: gives the LOT (58 × 178 ft) and confirms a substantial STABLE at the rear, both standing in 1904 (Mrs. Armour lived there to the early 1920s). 'Purchased by' Armour agrees with the library's Kelley-built (1871) attribution.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "58 × 178 ft",
+    "locator": "Tribune 24 Mar 1928, p. index 28"
+   },
+   {
+    "what": "rooms",
+    "value": "19",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-bluebook-1903-prairie-street-p184-2027-2140",
+  "kind": "document",
+  "title": "The Chicago Blue Book … 1903, street directory: \"Prairie Avenue\" (p. 184), 2027–2641 and 2026–2620",
+  "building_ids": [
+   "pa-2027-37",
+   "pa-2031-nrhp",
+   "pa-2033-nrhp",
+   "pa-2035-nrhp",
+   "pa-2109-41",
+   "pa-2115-19",
+   "pa-2036-38",
+   "pa-2108-40",
+   "pa-2110-30",
+   "pa-2112-39",
+   "pa-2126-20",
+   "pa-2140-21",
+   "pa-2130-42"
+  ],
+  "addresses": [
+   "2027 S. Prairie Avenue",
+   "2031 S. Prairie Avenue",
+   "2033 S. Prairie Avenue",
+   "2035 S. Prairie Avenue",
+   "2101 S. Prairie Avenue",
+   "2109 S. Prairie Avenue",
+   "2115 S. Prairie Avenue",
+   "2026 S. Prairie Avenue",
+   "2036 S. Prairie Avenue",
+   "2108 S. Prairie Avenue",
+   "2110 S. Prairie Avenue",
+   "2112 S. Prairie Avenue",
+   "2120 S. Prairie Avenue",
+   "2126 S. Prairie Avenue",
+   "2140 S. Prairie Avenue"
+  ],
+  "date": "1903 (edition for 1903; compiled late 1902)",
+  "date_earliest": 1902,
+  "date_latest": 1903,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Chicago blue book of selected names of Chicago and suburban towns, vol. 1903",
+  "call_number": "chicagobluebooko1903chic, page index 187 (printed p. 184)",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1903chic/page/n187/mode/1up",
+  "image_url": "https://archive.org/download/chicagobluebooko1903chic/page/n187_w1200.jpg",
+  "found_via": "IA search inside chicagobluebooko1903chic for 'Roloson' (street section); page image read in full",
+  "notes": "The year before the target, for comparison with the 1904 page (nps-bluebook-1904-prairie-street-p187-1900-2140). Same households at 2027 (Borland), 2031 (Tolman), 2033 (Otis), 2035 (Mrs. H. O. Stone), 2101 (Pike), 2109 (Roloson), 2115 (Mrs. Armour), 2036 (Buckingham), 2110 (Edson Keith jr.), 2112 (Rothschild), 2120 (Gorton), 2140 (Byron L. Smith). Differences: \"2108 Mr. & Mrs. Alex. H. Seelye / Mrs. Miner T. Ames & dr. / Miner T. Ames jr. / Miss Eleonora Cowen\" — 2108 was a let house in 1902–03 (absent in 1904, 'Dr. & Mrs. Frank Allport' in 1905); \"2126 Mr. & Mrs. Edward F. Robbins\" — the Robbins family was already at 2126 before their new house was built, i.e. living in the earlier (Hamill/Tucker-built) house on the lot, which fits a 1904 razing and rebuild on the same lot. Nothing at 2100 or 2130 (both absent 1903–05).",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-bluebook-1905-prairie-street-p186-2109-2140",
+  "kind": "document",
+  "title": "The Chicago Blue Book … 1905, street directory: \"Prairie Avenue\" (p. 186), 2109–2703 and 2018–2632",
+  "building_ids": [
+   "pa-2109-41",
+   "pa-2115-19",
+   "pa-2036-38",
+   "pa-2108-40",
+   "pa-2110-30",
+   "pa-2112-39",
+   "pa-2126-20",
+   "pa-2140-21",
+   "pa-2130-42",
+   "pa-2100-18"
+  ],
+  "addresses": [
+   "2109 S. Prairie Avenue",
+   "2115 S. Prairie Avenue",
+   "2123 S. Prairie Avenue",
+   "2018 S. Prairie Avenue",
+   "2026 S. Prairie Avenue",
+   "2036 S. Prairie Avenue",
+   "2108 S. Prairie Avenue",
+   "2110 S. Prairie Avenue",
+   "2112 S. Prairie Avenue",
+   "2126 S. Prairie Avenue",
+   "2140 S. Prairie Avenue"
+  ],
+  "date": "1905 (edition for 1905; compiled late 1904)",
+  "date_earliest": 1904,
+  "date_latest": 1905,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Chicago blue book of selected names of Chicago and suburban towns, vol. 1905",
+  "call_number": "chicagobluebooko1905chic, page index 187 (printed p. 186)",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1905chic/page/n187/mode/1up",
+  "image_url": "https://archive.org/download/chicagobluebooko1905chic/page/n187_w1200.jpg",
+  "found_via": "IA search inside chicagobluebooko1905chic for 'Roloson'/'Buckingham'; page image read in full (with the preceding p. 185, n186: 1900–2035 unchanged from 1904 except '2005 Mrs. O. R. Keith', '2033 Mrs. F. R. Otis')",
+  "notes": "Compiled during 1904, so it closes the target year: \"2109 Robert W. Roloson\"; \"2115 Mrs. Philip D. Armour\"; \"2123 Thomas H. Hulbert\"; \"2018 Mrs. L. A. Herrick …\"; \"2026 Mrs. D. Stettauer & dr.\"; \"2036 E. Buckingham & drs. / Clarence Buckingham\"; \"2108 Dr. & Mrs. Frank Allport\"; \"2110 Mr. & Mrs. Edson Keith jr.\"; \"2112 Mrs. M. M. Rothschild & dr. / Jesse Rothschild\"; \"2126 Mr. & Mrs. Edward F. Robbins\"; \"2140 Mr. & Mrs. Byron L. Smith …\". Still no entry for 2100 (Sherman house) or 2130 (Murdoch house). Bearing: 2108 had a new tenant household (the Allports) by late 1904 — so the house stood and was let; the 2100 and 2130 houses had no society household 1903–05 (vacant or let to non-Blue-Book tenants).",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2130-bluebook-1904-murdoch-lexington-hotel",
+  "kind": "document",
+  "title": "The Chicago Blue Book … 1904, alphabetical list: \"Murdoch Thomas, Lexington hotel. Chi., W.P. Sum. res. Gaspe, P. Q.\"",
+  "building_ids": [
+   "pa-2130-42"
+  ],
+  "addresses": [
+   "2130 S. Prairie Avenue"
+  ],
+  "date": "1904 (edition for 1904)",
+  "date_earliest": 1903,
+  "date_latest": 1904,
+  "creator": "The Chicago Directory Company",
+  "repository": "Internet Archive (University of Illinois Urbana-Champaign copy)",
+  "collection": "The Chicago blue book of selected names of Chicago and suburban towns, vol. 1904",
+  "call_number": "chicagobluebooko1904chic, page index 608 (printed p. 597)",
+  "catalog_url": "https://archive.org/details/chicagobluebooko1904chic/page/n608/mode/1up",
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n608_w1200.jpg",
+  "found_via": "IA search inside chicagobluebooko1904chic for '\"Murdoch Thomas\"'; entry read on the page image",
+  "notes": "Read on the page: \"Murdoch Blanche Miss, Lexington [hotel]\"; \"Murdoch Thomas, Lexington hotel. Chi., W.P. Sum. res. Gaspe, P. Q.\" In every Blue Book 1890–1902 Thomas Murdoch is at 2130 Prairie (IA full text: 1890, 1891, 1893–95, 1897–99, 1901, 1902), and from 1909–1914 his household is back at 2130 (IA full-text snippets, not opened: Tribune 8 Jul 1909, 'Thomas Murdock, 2130 Prairie avenue, was assessed'; Blue Books 1911–14, Miss Jane Murdoch and Julius B. Cone at 2130; and see nps-2130-tribune-1909-12-31-murdoch-will-residence). Bearing: in 1904 the Murdoch family was living at a hotel; the 2130 house (Cobb, 1890) stood but had no society household (1903–05 street pages list nothing at 2130). Model it as standing, probably closed or let.",
+  "measurements": [],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2130-tribune-1909-12-31-murdoch-will-residence",
+  "title": "[Thomas Murdoch's will] \"…household effects and personal property at the Murdoch residence at 2130 Prairie avenue and at the Metropole hotel, where he died.\"",
+  "building_ids": [
+   "pa-2130-42"
+  ],
+  "addresses": [
+   "2130 S. Prairie Avenue"
+  ],
+  "date": "December 31, 1909",
+  "date_earliest": 1909,
+  "date_latest": 1909,
+  "creator": "Chicago Daily Tribune",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, December 31, 1909 (vol. 68 no. 313)",
+  "call_number": "per_chicago-daily-tribune_1909-12-31_68_313, page index 3",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1909-12-31_68_313/page/n3/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1909-12-31_68_313/page/n3_w1200.jpg",
+  "found_via": "IA full-text search '\"Thomas Murdoch\" \"Prairie avenue\"'; search inside the issue for 'Prairie'; passage read on the page image (IIIF crop; OCR reads '2180')",
+  "notes": "Read on the page: \"the two nieces, Blanche and Jane, are to receive $30,000 each, as well as the greater part of the household effects and personal property at the Murdoch residence at 2130 Prairie avenue and at the Metropole hotel, where he died.\" Bearing: the Murdoch house at 2130 was kept furnished as the family residence throughout 1904–09 even while Thomas Murdoch lived in hotels (Blue Book 1904: Lexington hotel); the nieces Jane and Blanche Murdoch, and Jane's sister Mrs. Julius B. Cone, are at 2130 in 1910–14. So 2130 stood in 1904 (closes 'unresolved'), furnished, probably lightly occupied. No description of the building.",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2033-tribune-1904-02-27-otis-will-homestead",
+  "title": "\"Great Estate Practically All Left to the Widow and Children … Homestead at 2033 Prairie Avenue and Some Twenty-second Street Property Goes to Wife\"",
+  "building_ids": [
+   "pa-2033-nrhp"
+  ],
+  "addresses": [
+   "2033 S. Prairie Avenue"
+  ],
+  "date": "February 27, 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "creator": "Chicago Daily Tribune",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, February 27, 1904 (vol. 63 no. 50)",
+  "call_number": "per_chicago-daily-tribune_1904-02-27_63_50, page index 7",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1904-02-27_63_50/page/n7/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1904-02-27_63_50/page/n7_w1200.jpg",
+  "found_via": "IA full-text search '\"2033 prairie\"'; article read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"Much valuable real estate … was devised by the will of the late Frederick R. Otis … The beneficiaries are the widow, Mrs. Emeline Otis; Charles T. and Lucius J. Otis, sons; and Mrs. Adela M. Deming, Margaret E. Otis, Winifred Otis Hine, and Grace R. Otis. To the widow is given the homestead at 2033 Prairie avenue…\" With the Tribune of 18 Dec 1903 (\"Frederick R. Otis died at his residence, 2033 Prairie\", aged 79, 35 years in Chicago) and the Blue Books 1903–05, this fixes 2033's 1904 owner-occupant: Mrs. Emeline Otis, widow of Frederick R. Otis, with sons Charles T. and Lucius J. Otis. The Otis family had held 2033 as its 'homestead' for many years (F. R. Otis at 2033 in the Tribune of 13 Sep 1900; Charles Raymond Otis died there 1920). No description of the house. NB: several Tribune '2033 Prairie' rent ads (1881, 1902, 1904) are OCR misreadings of 2933 (checked on the images).",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2035-police-gazette-1887-01-22-stone-steamboat-house",
+  "title": "[Elopement of Althea Stone] \"…Mrs. Stone's mansion, No. 2035 Prairie avenue … the Stone's 'steamboat' house, so called from the numerous pretty galleries of fancy woodwork which adorn its exterior.\"",
+  "building_ids": [
+   "pa-2035-nrhp"
+  ],
+  "addresses": [
+   "2035 S. Prairie Avenue"
+  ],
+  "date": "January 22, 1887",
+  "date_earliest": 1887,
+  "date_latest": 1887,
+  "creator": "National Police Gazette (New York)",
+  "repository": "Internet Archive (periodicals, sim_national-police-gazette)",
+  "collection": "National Police Gazette, January 22, 1887 (vol. 49 no. 488)",
+  "call_number": "sim_national-police-gazette_1887-01-22_49_488, page index 6 (p. 7)",
+  "catalog_url": "https://archive.org/details/sim_national-police-gazette_1887-01-22_49_488/page/n6/mode/1up",
+  "image_url": "https://archive.org/download/sim_national-police-gazette_1887-01-22_49_488/page/n6_w1200.jpg",
+  "found_via": "IA full-text search '\"2035 prairie\"'; passage read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"he never made more than two or three calls at Mrs. Stone's mansion, No. 2035 Prairie avenue. The Cunninghams live on the north side, miles from the Stone's 'steamboat' house, so called from the numerous pretty galleries of fancy woodwork which adorn its exterior.\" Bearing: 2035 (Mrs. Horatio O. Stone's house, occupied by her through 1904 and to c. 1912) was a 'MANSION' known for tiers of ornamental WOODEN GALLERIES/VERANDAS on its exterior — consistent with the 1898 Tribune vignette (detached house with a broad columned veranda, cgs-tribune-1898-01-09-death-strip) and with the 1934 ad (corner building, 30 rooms, 9 baths). TENSION with the library and collection: the library models 2031–2035 as a trio of 25-ft limestone-fronted townhouses of 1869 (Reid nomination p. 13), and the Robinson 1886 plate shows a continuous row of three brick houses with stone fronts there (cgs-2031-robinson-1886). 2035 is the row's END house on the 21st Street corner (the Evening Post's 1869 'marble-front house on northeast corner of Prairie-av. and Twenty-first-st.'), so the 'galleries of fancy woodwork' were most likely verandas added on its exposed front and 21st Street flank — the 1898 vignette's broad columned veranda. Model 2035 in 1904 as the corner end of the stone-fronted row WITH wooden galleries/veranda, not as a plain row front; its 1934 '30 rooms' suggests it was larger than its two neighbours (deeper or extended).",
+  "measurements": [
+   {
+    "what": "exterior",
+    "value": "'numerous pretty galleries of fancy woodwork' (verandas)",
+    "locator": "Police Gazette 22 Jan 1887, p. 7"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2035-tribune-1934-02-08-rooming-house-30-rooms-corner",
+  "title": "\"Rooming House Location. 2035 Prairie-av. 30 rooms. 9 baths. Cor. bldg., 2 blks. World's Fair entrance.\"",
+  "building_ids": [
+   "pa-2035-nrhp"
+  ],
+  "addresses": [
+   "2035 S. Prairie Avenue"
+  ],
+  "date": "February 8, 1934",
+  "date_earliest": 1934,
+  "date_latest": 1934,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, February 8, 1934 (vol. 93 no. 34)",
+  "call_number": "per_chicago-daily-tribune_1934-02-08_93_34, page index 25",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1934-02-08_93_34/page/n25/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1934-02-08_93_34/page/n25_w1200.jpg",
+  "found_via": "IA full-text search '\"2035 prairie\"'; advertisement read on the page image (repeated 9 Feb and 14 Mar 1934)",
+  "notes": "Read on the page: \"Rooming House Location. 2035 PRAIRIE-AV. 30 ROOMS. 9 BATHS. Cor. bldg., 2 blks. World's Fair entrance. RALPH H. WOODLEY.\" Bearing: 2035 is the CORNER building at 21st Street (the south end of the 2000 block's east side), and in 1934 it held 30 rooms — much larger than a 25-ft row house would suggest; the count includes later subdivision, but with the 1887 'mansion' with wooden galleries and the 1898 veranda vignette it argues for modelling 2035 as a large corner house (the end of the stone-fronted row) rather than one of three equal townhouses. Later than the target year; link only.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "30 (rooming-house count, 1934)",
+    "locator": "Tribune 8 Feb 1934, p. index 25"
+   },
+   {
+    "what": "baths",
+    "value": "9",
+    "locator": "same"
+   },
+   {
+    "what": "position",
+    "value": "corner building",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "copyright — link only",
+  "rights_basis": "Published 1929 or later; renewal status not checked — link only",
+  "verified": "viewed",
+  "period": "later"
+ },
+ {
+  "id": "nps-2035-tribune-1904-02-04-stone-home-occupied",
+  "title": "[Society] \"Mr. and Mrs. Robert E. Stone, 2205 Prairie avenue, have rented their home … and are now occupying Mrs. H. O. Stone's home, 2035 Prairie avenue, during Mrs. Stone's sojourn in California.\"",
+  "building_ids": [
+   "pa-2035-nrhp"
+  ],
+  "addresses": [
+   "2035 S. Prairie Avenue",
+   "2205 S. Prairie Avenue"
+  ],
+  "date": "February 4, 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "creator": "Chicago Daily Tribune (society column)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, February 4, 1904 (vol. 63 no. 30)",
+  "call_number": "per_chicago-daily-tribune_1904-02-04_63_30, page index 6",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1904-02-04_63_30/page/n6/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1904-02-04_63_30/page/n6_w1200.jpg",
+  "found_via": "IA full-text search '\"2035 prairie\"'; search-inside text checked against the page",
+  "notes": "Fixes the household at 2035 in the first months of 1904: Mrs. Horatio O. Stone's house, occupied by her son Robert E. Stone and his wife (Ada Balderston) while she wintered in California; she was back by 28 Mar 1904 and again in Oct–Nov 1904 (Tribune 28 Mar, 25 and 30 Oct, 23 Nov 1904 society notes). Occupancy only.",
+  "verified": "viewed",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2027-tribune-1911-04-16-to-rent-15-room-residence",
+  "title": "\"To Rent—15 room residence, 2027 Prairie-av., $300 per month. W. L. De Wolf & Co.\"",
+  "building_ids": [
+   "pa-2027-37"
+  ],
+  "addresses": [
+   "2027 S. Prairie Avenue"
+  ],
+  "date": "April 16, 1911",
+  "date_earliest": 1911,
+  "date_latest": 1911,
+  "creator": "Chicago Sunday Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, April 16, 1911 (vol. 70 no. 16)",
+  "call_number": "per_chicago-daily-tribune_1911-04-16_70_16, page index 78",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1911-04-16_70_16/page/n78/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1911-04-16_70_16/page/n78_w1200.jpg",
+  "found_via": "IA full-text search '\"2027 prairie\"'; advertisement read on the page image (OCR reads '16 room'; the image reads 15)",
+  "notes": "Read on the page: \"TO RENT— 15 room residence, 2027 Prairie-av., $300 per month. W. L. DE WOLF & CO.\" A high rent for the street in 1911, i.e. a large first-class house still intact. With the Tribune of 9 Jan 1898 ('a wide, rambling, red brick house', a20-chicagology-2027-text) this gives the house standing in 1904 (Borland household; Kuppenheimer family by 1907): a broad red-brick house of about 15 rooms.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "15",
+    "locator": "Tribune 16 Apr 1911, p. index 78"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2027-tribune-1912-05-03-two-storey-brick-garage",
+  "title": "\"To Rent—Large 2 story brick garage; stm. ht.; 4 living rms. above; fully equipped. 2027 Prairie-av.\"",
+  "building_ids": [
+   "pa-2027-37"
+  ],
+  "addresses": [
+   "2027 S. Prairie Avenue"
+  ],
+  "date": "May 3, 1912",
+  "date_earliest": 1912,
+  "date_latest": 1912,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, May 3, 1912 (vol. 71 no. 107)",
+  "call_number": "per_chicago-daily-tribune_1912-05-03_71_107, page index 12",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1912-05-03_71_107/page/n12/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1912-05-03_71_107/page/n12_w1200.jpg",
+  "found_via": "IA full-text search '\"2027 prairie\"'; advertisement read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"TO RENT—LARGE 2 STORY BRICK GARAGE; stm. ht.; 4 living rms. above; fully equipped. 2027 Prairie-av.\" The rear outbuilding of 2027 was a large two-storey brick building with four living rooms upstairs — the usual form of a converted carriage house/stable with coachman's quarters (the Robinson 1886 plate shows a stable at the rear of the lot). Probably the 1904 carriage house, already converted to a garage by 1912; the ad does not say when it was built.",
+  "measurements": [
+   {
+    "what": "rear building",
+    "value": "2-storey brick, 4 living rooms above",
+    "locator": "Tribune 3 May 1912, p. index 12"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2027-tribune-1923-03-08-old-residence-sold-50x178",
+  "title": "[Real estate] \"…the purchase by A. J. Nystrom & Co. of the old residence at 2027 Prairie avenue, from G. E. Rosenau for $35,000. On the 50x178 lot the new owners expect to erect a five story building…\"",
+  "building_ids": [
+   "pa-2027-37"
+  ],
+  "addresses": [
+   "2027 S. Prairie Avenue"
+  ],
+  "date": "March 8, 1923",
+  "date_earliest": 1923,
+  "date_latest": 1923,
+  "creator": "Chicago Daily Tribune (real estate column)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, March 8, 1923 (vol. 82 no. 58)",
+  "call_number": "per_chicago-daily-tribune_1923-03-08_82_58, page index 21",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1923-03-08_82_58/page/n21/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1923-03-08_82_58/page/n21_w1200.jpg",
+  "found_via": "IA full-text search '\"2027 prairie\"'; article read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"the purchase by A. J. Nystrom & Co. of the old residence at 2027 Prairie avenue, from G. E. Rosenau for $35,000. On the 50x178 lot the new owners expect to erect a five story building within the next two years.\" Gives the LOT as 50 × 178 ft. CONFLICT: Chicagology's Robinson 1886 crop of lot 15 prints a frontage of '60' (cgs-2027-robinson-1886); the 1923 figure may exclude a strip sold off, or the 1886 figure may cover more than the house lot. Nystrom used the old house (Nystrom ads at 2027 in 1924) before rebuilding.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "50 × 178 ft",
+    "locator": "Tribune 8 Mar 1923, p. index 21"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2021-tribune-1942-08-30-wrecking-2021-prairie",
+  "title": "\"Wrecking 2021 Prairie-av. Italian marble and tile fireplaces, Venetian glass, mirrors, bookcases, cabinets, electric fixtures, Kewanee boiler…\" (Federal Wrecking Co.)",
+  "building_ids": [
+   "pa-2021-36"
+  ],
+  "addresses": [
+   "2021 S. Prairie Avenue"
+  ],
+  "date": "August 30, 1942 (repeated September 6, 1942)",
+  "date_earliest": 1942,
+  "date_latest": 1942,
+  "creator": "Chicago Sunday Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, August 30, 1942 (vol. 101 no. 35)",
+  "call_number": "per_chicago-daily-tribune_1942-08-30_101_35, page index 28",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1942-08-30_101_35/page/n28/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1942-08-30_101_35/page/n28_w1200.jpg",
+  "found_via": "IA full-text search '\"2021 prairie\"'; advertisement read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"[W]recking 2021 Prairie-av. [Ita]lian marble and tile fireplaces, Vene[tian] glass, mirrors, bookcases, cabinets, [elect]ric fixtures, Kewanee boiler, modern [radi]ation, plumbing, oak trim and flooring, [over]hanging garage door. All kinds of [buil]ding material. Salesman on premises.\" (Federal Wrecking Co.). CONFLICT with the library, which gives 2021 Adams/High no demolition date: the house was being wrecked and its fittings sold in Aug–Sep 1942 (the Highs were there to c. 1932; Shirley T. High's residence in 1932). The interior fittings named (Italian marble and tile fireplaces, oak trim and floors) are those of the house standing in 1904. Later than the target year; link only.",
+  "measurements": [],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "copyright — link only",
+  "rights_basis": "Published 1929 or later; renewal status not checked — link only",
+  "verified": "viewed",
+  "period": "later"
+ },
+ {
+  "id": "nps-2109-tribune-1883-02-11-roloson-dunham-house",
+  "title": "[Roloson–Dunham litigation] \"…her father, J. H. Dunham, bought her the house at No. 2109 Prairie avenue, but retained the title in his own name… Roloson laid out about $4,000 on the house…\"",
+  "building_ids": [
+   "pa-2109-41"
+  ],
+  "addresses": [
+   "2109 S. Prairie Avenue"
+  ],
+  "date": "February 11, 1883",
+  "date_earliest": 1883,
+  "date_latest": 1883,
+  "creator": "Chicago Daily Tribune",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, February 11, 1883 (vol. 42)",
+  "call_number": "per_chicago-daily-tribune_the-chicago-daily-tribun_1883-02-11_42, page index 15",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1883-02-11_42/page/n15/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-daily-tribun_1883-02-11_42/page/n15_w1200.jpg",
+  "found_via": "IA full-text search '\"2109 prairie\"'; passage read on the page image (IIIF crop)",
+  "notes": "Read on the page (Robert W. Roloson's answer in a suit with his father-in-law): \"when he was married he gave his wife, … Dunham, $20,000 in Government bonds, and her father, J. H. Dunham, bought her the house at No. 2109 Prairie avenue, but retained the title in his own name. He also gave her the furniture in the house… Roloson laid out about $4,000 on the house while he lived there, and AFTER HIS WIFE'S DEATH bought the house for what [Dunham paid] for it—$21,000.\" Bearing: 2109 was an existing house bought (not built) for the Rolosons around their marriage (c. 1880), improved by about $4,000, and bought outright by Roloson for $21,000 — a substantial house, which Roloson still occupied in 1904 (Blue Book) and until his death in the 1920s. No description of form; the Robinson 1886 footprint at 2109 is still unresolved (cgs-2109-robinson-1886).",
+  "measurements": [
+   {
+    "what": "price",
+    "value": "$21,000 (house, c. 1882)",
+    "locator": "Tribune 11 Feb 1883, p. index 15"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2108-tribune-1904-02-28-to-rent-11-room-stone-front",
+  "title": "\"To Rent—2108 Prairie-av., 11 r. stone front house, in perfect repair; new plumbing; 2 bathrooms; hardwood floors; hot water heat; new decorations throughout; good brick barn. Trotter & Kimball\"",
+  "building_ids": [
+   "pa-2108-40"
+  ],
+  "addresses": [
+   "2108 S. Prairie Avenue"
+  ],
+  "date": "February 28, 1904 (same ad February 21, 1904)",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "creator": "Chicago Sunday Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, February 28, 1904 (vol. 63 no. 9)",
+  "call_number": "per_chicago-daily-tribune_1904-02-28_63_9, page index 43",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1904-02-28_63_9/page/n43/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1904-02-28_63_9/page/n43_w1200.jpg",
+  "found_via": "IA full-text search '\"2108 prairie\"'; advertisement read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"TO RENT—2108 PRAIRIE-AV., 11 R. STONE front house, in perfect repair; new plumbing; 2 bathrooms; hardwood floors; hot water heat; new decorations throughout; good brick barn. TROTTER & KIMBALL, 132 La Salle-st.\" The same house was advertised through 1903 as a '10 room stone front house; hot water heat; open plumbing; … bathrooms; hardwood floors; good b[rick barn]' (Tribune 10 and 31 May, 21 Jun, 12 Jul, 2 and 23 Aug, 6 Sep, 13 Dec 1903; 6 Sep 1903 read on the image). Bearing: fixes 2108 in the TARGET YEAR as a STONE-FRONTED house of 10–11 rooms, standing empty and to let in the first months of 1904 (hence no Blue Book entry for 1904), freshly refitted, with a BRICK BARN at the rear; let to Dr. Frank Allport by late 1904 (Blue Book 1905). The agents Trotter & Kimball suggest the Kimball family still owned it (sold 'from Mark Kimball' in 1922). Agrees with the Robinson 1886 'narrow brick house with a stone front' on the 25.8-ft lot.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "11 (10 in the 1903 ads)",
+    "locator": "Tribune 28 Feb 1904, p. index 43"
+   },
+   {
+    "what": "front",
+    "value": "stone",
+    "locator": "same"
+   },
+   {
+    "what": "rear building",
+    "value": "brick barn",
+    "locator": "same"
+   },
+   {
+    "what": "services",
+    "value": "hot-water heat, 2 bathrooms, hardwood floors",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2112-tribune-1913-01-01-detached-house-20-rooms",
+  "title": "\"To Rent—2112 Prairie-av., beautiful detached house 20 large light rooms and 5 bathrooms… steam heating plant; reasonable rental; $200 per month. Alex. Friend & Co.\"",
+  "building_ids": [
+   "pa-2112-39"
+  ],
+  "addresses": [
+   "2112 S. Prairie Avenue"
+  ],
+  "date": "January 1, 1913",
+  "date_earliest": 1913,
+  "date_latest": 1913,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, January 1, 1913 (vol. 72 no. 1)",
+  "call_number": "per_chicago-daily-tribune_1913-01-01_72_1, page index 28",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1913-01-01_72_1/page/n28/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1913-01-01_72_1/page/n28_w1200.jpg",
+  "found_via": "IA full-text search '\"2112 prairie\"'; advertisement read on the page image (IIIF crop; also 9 and 29 Nov, 23 Dec 1912)",
+  "notes": "Read on the page: \"TO RENT—2112 PRAIRIE-AV., BEAUTIFUL detached house 20 large light rooms and 5 bathrooms; choice and exclusive residence neighborhood; an A1 location for high grade rooming house; steam heating plant; reasonable rental; $200 per month.\" Bearing: the Rothschild house (Mrs. M. M. Rothschild and family in 1903–05 per the Blue Books) was a DETACHED house of about 20 rooms — a large house, not a row house — with a steam plant; the 1893 Tribune's 'gilt-trimmed residence' (cgs-2112-tribune-1893-rothschild-headline) is the same building. Near-period (1913), no alteration mentioned; by 1911 parts were let as suites.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "20 'large light rooms' + 5 bathrooms",
+    "locator": "Tribune 1 Jan 1913, p. index 28"
+   },
+   {
+    "what": "type",
+    "value": "detached house",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "near-period"
+ },
+ {
+  "id": "nps-2112-tribune-1910-05-31-brick-barn-to-rent",
+  "title": "\"To Rent—2112 Prairie-av., brick barn; rental $40. Regelin, Jenson & Co.\"",
+  "building_ids": [
+   "pa-2112-39"
+  ],
+  "addresses": [
+   "2112 S. Prairie Avenue"
+  ],
+  "date": "May 31, 1910",
+  "date_earliest": 1910,
+  "date_latest": 1910,
+  "creator": "Chicago Daily Tribune (classified advertisement)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, May 31, 1910 (vol. 69 no. 129)",
+  "call_number": "per_chicago-daily-tribune_1910-05-31_69_129, page index 18",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1910-05-31_69_129/page/n18/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1910-05-31_69_129/page/n18_w1200.jpg",
+  "found_via": "IA full-text search '\"2112 prairie\"'; advertisement read on the page image (run 26 May–31 Aug 1910)",
+  "notes": "Read on the page: \"TO RENT—BARNS AND GARAGES. TO RENT—2112 PRAIRIE-AV., BRICK BARN; rental $40.\" Bearing: a separate BRICK BARN stood at the rear of 2112 in 1910 — almost certainly the Rothschild stable of 1904 (the Robinson 1886 crop shows rear outbuildings on these lots). Model a brick stable on the alley.",
+  "measurements": [
+   {
+    "what": "rear building",
+    "value": "brick barn",
+    "locator": "Tribune 31 May 1910, p. index 18"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ }
+]
