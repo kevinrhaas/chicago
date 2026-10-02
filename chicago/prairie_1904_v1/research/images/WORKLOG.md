@@ -66,6 +66,56 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
+## Fourth pass — south half and adjacent buildings, by address and owner (2026-10-02)
+
+`stream-newspapers-south.json`: 45 records. Five are illustrations stored in the image store; the
+rest are link-only. Per-building log in `worklog-newspapers-south.md`.
+
+**Who lived at 2031–2035 in 1904 (Blue Books 1903–05):**
+- **2031:** Samuel A. Tolman. A. B. Dewey was at 2631, so the Inter Ocean's "2031" is a misprint.
+- **2033:** the Frederick R. Otis family. Otis died there in December 1903, and the house passed to
+  his widow.
+- **2035:** Mrs. Horatio O. Stone. It was a corner "mansion" at 21st Street, the "steamboat house"
+  with wooden galleries, of 30 rooms. **The library's three equal 25-ft townhouses are wrong for
+  2035.**
+
+**Other 1904 facts:**
+- **Photographs from the Tribune's 1928 "Famous Homes" series:**
+  - **2115 Armour:** a stone house of 19 rooms with an iron-crested mansard roof; lot 58 × 178.
+  - **2140 Smith:** three tall conical spires, so that roof is dated by 1928.
+  - **1905 Field:** the front.
+  - **1945 Corwith.**
+- **Second Presbyterian, rebuilt and dedicated 10 Nov 1901:** only the walls and tower survived the
+  fire. The Tribune cut shows the new tower and spire.
+- **2126 Robbins:** Robbins bought the existing Hamill house (three-storey brick) in 1901 and lived
+  at 2126 in 1903–05. Whether that house was rebuilt or remodelled for him is still open; no permit
+  or razing notice was found.
+- **Houses without a society household in 1904:**
+  - **2108:** for rent in February 1904; stone front, 11 rooms, brick barn.
+  - **2130:** kept furnished; Murdoch lived at the Lexington hotel.
+  - **2100:** Sherman's widow; the McCormick Neurological College was there by 1907.
+- **1904/1906:** one brownstone holding two homes, 28 rooms in all, with a two-storey brick garage.
+- **Lots and rear buildings:**
+  - 1919: lot 60 × 177½.
+  - 2008 Calumet: lot 75 × 177½, three storeys, 20 rooms, brick barn 75 × 30.
+  - Brick barns at 2112, 2027 and 2018 Calumet.
+  - 2125: a frame house and barn, not an empty lot.
+
+**Conflicts with the library (not applied):**
+- 2021 was being demolished in August 1942; the library gives no date.
+- 2027's lot is 50 ft, against 60 on the Robinson map.
+- 2126's lot is 50 × 180 (1901), against 58 × 178 (1909).
+- 1905 Field: "established 1879" in the 1928 caption, against 1871–73.
+- Clarke house: moved in 1871 (Tribune 1939), against 1872.
+- 2140: "built in the 1880s" (1940), against 1876.
+
+**Leads:**
+- 1903–05 building permits, for the 2126 and 2140 questions; the UIC ledgers are the route.
+- Blue Book street pages for 1900–02 and 1906–10.
+- City directories for the non-society occupants.
+- "Famous Homes" photographs of 1701 Hibbard (5 Aug 1928), 1800 Glessner (12 Aug) and the Spalding
+  homestead (19 Aug).
+
 ## Fourth pass — north half by owner name, plus the trade weeklies (2026-10-02)
 
 `stream-newspapers-north-owners.json`: 27 link-only records; per-building log in
