@@ -1,0 +1,52 @@
+[
+  {
+    "original_filename": "Untitled.png",
+    "original_sha256": "9fca9c724a462505e9881313156cd73a9dcf73181dab32be9c1c29bfaf3f5f63",
+    "original_size_pixels": [
+      669,
+      472
+    ],
+    "review_copy": "owner-reference-01.jpg",
+    "note": "Resized JPEG review copy of owner-supplied reference. Not a historical primary source; never use pixels as textures."
+  },
+  {
+    "original_filename": "image(2).png",
+    "original_sha256": "25a77a255bdfa2dac6c47a946fcb2a4489b1cf6b4c0cb06b2049f7215d9fddf6",
+    "original_size_pixels": [
+      1473,
+      1068
+    ],
+    "review_copy": "owner-reference-02.jpg",
+    "note": "Resized JPEG review copy of owner-supplied reference. Not a historical primary source; never use pixels as textures."
+  },
+  {
+    "original_filename": "image(3).png",
+    "original_sha256": "d3d76f7dbaa10af4450377695af41204e5e8292a62ce5f732c07a3660030f32d",
+    "original_size_pixels": [
+      730,
+      159
+    ],
+    "review_copy": "owner-reference-03.jpg",
+    "note": "Resized JPEG review copy of owner-supplied reference. Not a historical primary source; never use pixels as textures."
+  },
+  {
+    "original_filename": "image(4).png",
+    "original_sha256": "5f3ba6f50e163aaf4149656e8cb6dc30a64d4ef0fc7212e115fbd7ebb86b3b1f",
+    "original_size_pixels": [
+      1062,
+      752
+    ],
+    "review_copy": "owner-reference-04.jpg",
+    "note": "Resized JPEG review copy of owner-supplied reference. Not a historical primary source; never use pixels as textures."
+  },
+  {
+    "original_filename": "image.png",
+    "original_sha256": "58c5eba6fcf7212f396f4a4e278b50148e9e557aaba51a9472e591e7b22c7b45",
+    "original_size_pixels": [
+      1800,
+      1305
+    ],
+    "review_copy": "owner-reference-05.jpg",
+    "note": "Resized JPEG review copy of owner-supplied reference. Not a historical primary source; never use pixels as textures."
+  }
+]

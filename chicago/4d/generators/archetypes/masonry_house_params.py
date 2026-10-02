@@ -706,10 +706,33 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "window_x": sorted(fr.x(v) for v in alcove["window_W"]),
                 "window_z": [fr.z(v) for v in alcove["window_z"]],
                 "cheek_x": sorted(fr.x(v) for v in alcove["cheek_W"]),
-                "cheek_top": fr.zval(alcove["cheek_top"])}
+                "cheek_top": fr.zval(alcove["cheek_top"]),
+                "cheek_cap_top": fr.zval(alcove.get("cheek_cap_top", alcove["cheek_top"])) +
+                    (0 if "cheek_cap_top" in alcove else .10),
+                "cheek_depth": float(alcove.get("cheek_depth_ft", 1.75))*FT,
+                "cheek_corner_radius": float(alcove.get("cheek_corner_radius_ft", .45))*FT}
             for o in p.openings:
                 if o["face"] == "north" and o["kind"] == "arch" and o["u1"]-o["u0"] > 3:
                     o["style"] = "north_entry_alcove"
+        stable_fabric = raw.get("north_stable_fabric")
+        if stable_fabric:
+            arch = stable_fabric["relieving_arch"]
+            hoist = stable_fabric["hoist_stone"]
+            p.detail["north_stable_fabric"] = {
+                "plane": _face(fr, "north", 0),
+                "door_board_top": fr.zval(stable_fabric["door_board_top"]),
+                "door_upper_panes": stable_fabric["door_upper_panes"],
+                "door_boards_per_leaf": stable_fabric["door_boards_per_leaf"],
+                "lintels": [{"u": sorted(fr.x(v) for v in s["W"]),
+                             "z": [fr.z(v) for v in s["z"]]}
+                            for s in stable_fabric["lintels"]],
+                "relieving_arch": {"u": sorted(fr.x(v) for v in arch["W"]),
+                    "spring": fr.zval(arch["spring"]), "rise": arch["rise_ft"]*FT,
+                    "ring": arch["ring_ft"]*FT, "voussoirs": arch["voussoirs"]},
+                "hoist_stone": {"u": sorted(fr.x(v) for v in hoist["W"]),
+                    "z": [fr.z(v) for v in hoist["z"]],
+                    "projection": hoist["projection_ft"]*FT},
+                "loft_frame": stable_fabric["loft_frame_ft"]*FT}
         cr = raw.get("copper_return")
         if cr:
             p.detail["copper_return"] = {"x0": min(fr.x(w) for w in cr["W"]),

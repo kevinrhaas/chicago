@@ -628,6 +628,10 @@ def opening(b,o,courtyard=False):
         return
     if kind in ('door','doors'):
         style=o.get('style','')
+        if style=='stable_carriage_doors' and b.params.detail.get('north_stable_fabric'):
+            from archetypes.masonry_house_v4_north import carriage_doors
+            carriage_doors(b,o,b.params.detail['north_stable_fabric'])
+            return
         if style in ('prairie_front_door','porte_cochere') or (o.get('face')=='east' and o['at']>45):
             detailed_door(b,o,'porte_cochere' if kind=='doors' else 'prairie_front_door')
             return
@@ -640,6 +644,10 @@ def opening(b,o,courtyard=False):
             slab(b,o,la,la+.055,z0+.05,z1-.05,-.24,-.18,conf,WOOD)
             slab(b,o,lc-.055,lc,z0+.05,z1-.05,-.24,-.18,conf,WOOD)
             slab(b,o,lc-.16,lc-.12,z0+(z1-z0)*.43,z0+(z1-z0)*.55,-.20,-.15,conf,IRON)
+        return
+    if o.get('style')=='stable_loft_opening' and b.params.detail.get('north_stable_fabric'):
+        from archetypes.masonry_house_v4_north import loft_opening
+        loft_opening(b,o,b.params.detail['north_stable_fabric'])
         return
     # Small basement grid apertures have stone mullions and only recessed glass.
     small=min(c-a,z1-z0)<.45
@@ -1352,8 +1360,8 @@ def north_entry(b,p):
         x=sx0+i*run;h=landing+(threshold-landing)*(i+1)/n
         legacy._box(b,x,sy0,landing,x+run,sy1,h,conf,TRIM)
         legacy._box(b,x-.025,sy0-.025,h-.045,x+run,sy1+.025,h,conf,TRIM)
-    legacy._box(b,ca,yf-.52,landing,cc,yf-.08,d['cheek_top'],conf,GRANITE)
-    legacy._box(b,ca-.035,yf-.55,d['cheek_top'],cc+.035,yf-.05,d['cheek_top']+.10,conf,TRIM)
+    from archetypes.masonry_house_v4_north import porch_cheek
+    porch_cheek(b,d,landing)
     b.decorate=old
 
 
@@ -1415,6 +1423,8 @@ def west_hood(b,p,d):
 
 def supplemental(b,p):
     north_entry(b,p)
+    from archetypes.masonry_house_v4_north import stable_fabric
+    stable_fabric(b,p)
     g=p.detail.get('west_cross_gable')
     if g and not any(r.get('north_cross_gable') for r in p.ranges):
         lo,hi=g['u0'],g['u1'];base=min(g['eave_lo_z'],g['eave_hi_z'])
