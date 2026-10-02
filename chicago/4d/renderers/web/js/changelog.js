@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
+  { v: 1330, ts: '2026-10-02T23:44:04.157Z', date: 'Oct 2, 2026, 6:44 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
     items: [
       'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five moves in, and nine more households that were waiting now have a roof.',
       'The joiner\u2019s shop on Randolph at Des Plaines, the narrow warehouse at the forks and the two-storey store on Lake stay empty, and their cards now say why. The town already has more mechanics\u2019 shops, stores and forwarding houses than were counted in 1835, so a carpenter, grocer or forwarder there would be one too many.',
