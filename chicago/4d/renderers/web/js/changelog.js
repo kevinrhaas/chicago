@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
+  { v: 1317, ts: '2026-10-02T19:05:34.996Z', date: 'Oct 2, 2026, 2:05 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
     items: [
       'Open the card of one of nine anonymous yard buildings on the West Division approaches, south of Lake Street or on the north side\u2019s east edge. It now says what the building was for and, where something ties it to one, which house it belonged to.',
       'Seven name their house. Four stand where the plan draws them in that house\u2019s yard, one shares a lot with it, and two are the barns of the two farms on the Des Plaines edge.',
