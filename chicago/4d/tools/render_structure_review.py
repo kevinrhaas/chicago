@@ -69,6 +69,11 @@ CAMERAS.update({
     "prairie-entry-oblique": {"position": (62.5, 18, 1.7), "target": (49.15, 12.5, 4.15), "lens": 42},
     "courtyard-bow-oblique": {"position": (28, 1, 1.7), "target": (38.5, 10.3, 6.0), "lens": 26},
 })
+CAMERAS.update({
+    "stable-northwest-roof": {"position": (-14, 39, 12), "target": (5, 17, 7.0), "lens": 48},
+    "north-alcove": {"position": (16.5, 31, 1.7), "target": (18.4, 21.6, 1.8), "lens": 36},
+    "north-alcove-turn": {"position": (17.1, 23.1, 1.7), "target": (20.2, 21.4, 2.5), "lens": 22},
+})
 OVERCAST_ZENITH_RGB = (5.58, 5.79, 6.0)
 DEFAULT_SKY_FILE = (Path(__file__).resolve().parents[1] / "docs" / "RESEARCH" /
                     "glessner-v4-lighting" / "overcast_soil_puresky_2k.hdr")

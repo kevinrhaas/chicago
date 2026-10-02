@@ -18543,6 +18543,28 @@ archetype's), **L196** (the anonymous roofs' siding stocks), **L90** (the anonym
 finish).
 **Recorded:** 2026-10-01.
 
+### L331 — Glessner west roof and recessed north porch
+
+**Applies to:** `glessner_house.as_built_1887.form.v4_detail`, alley eave and openings.
+**Ticket:** T-1830. **Recorded:** 2026-10-01.
+
+The owner's northwest/west views and HABS sheets 2–3 bound a full northern
+west-facing gable, a lower southern roof and a projecting dormer. The sheets have
+no roof plan. Rear ridge 31 ft ng, west eave 15.5 ft, east/south eaves 23.1 ft,
+south hip at S50 ft and gable foot at S32 ft are reconstructed (about ±1.5 ft).
+The planar connector to the measured north-range section is a hidden-join
+reconstruction. These supersede L305's interpolated stable roof and retained
+high rear profile; its measured footprint and north opening axis remain.
+The nine-foot timber dormer and hipped hood at S46 have reconstructed heights,
+flare, tile cheeks, brackets and joinery. No modern source is asserted as a dated
+1904 measurement and no photograph supplies texture pixels.
+
+The north porch's 12-ft opening and left-turn stair arrangement follow HABS
+sheet 2. Six-foot recess depth, 1.5-ft landing, 6-ft raised side-door threshold,
+three approach risers, eight internal risers, cheek/coping dimensions and back
+window height are bounded reconstructions from that plan and supplied surviving
+fabric. A measured porch section and roof plan would replace these dimensions.
+
 ### L334 — The sand hills north and south of the fort: where they stand, how high, and in what form
 
 **Applies to:** `data/terrain/epochs/e1834_harbor_cut/terrain_spec.json` § `dunes`
