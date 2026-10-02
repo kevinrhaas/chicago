@@ -42,6 +42,7 @@ has read this wall yet", and a caller must not hang a board flat on the second.
 
 from __future__ import annotations
 
+from archetypes import frame_dwelling_params as _dwelling
 from archetypes import frame_storefront_params as _storefront
 from archetypes import log_dwelling_params as _log
 from archetypes import outbuilding_params as _outbuilding
@@ -66,6 +67,7 @@ def _outbuilding_front(p) -> dict:
 
 _FRONT = {
     "frame_storefront": _storefront_front,
+    "frame_dwelling": _dwelling.front_wall,
     "log_dwelling": _log.front_wall,
     "outbuilding": _outbuilding_front,
 }
@@ -76,7 +78,7 @@ _FRONT = {
 # today, every one of them on a bracket, an awning or a post, so nothing is hung
 # flat on a tavern wall and nothing is silently wrong. The day one is, the caller
 # refuses the flat mounting and says so rather than guessing.
-UNREAD = ("bridge_timber", "fort_structure", "frame_dwelling", "frame_tavern",
+UNREAD = ("bridge_timber", "fort_structure", "frame_tavern",
           "palisade", "pier_crib")
 
 

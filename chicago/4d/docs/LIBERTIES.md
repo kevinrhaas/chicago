@@ -19858,3 +19858,35 @@ the six sleeping classes or gives one of them a count.
 tents that stay at the landing), **L355** (the land-sale camp on the same shore), **T-1353**
 (the camp households), **T-1979** (this entry).
 **Recorded:** 2026-10-02.
+
+### L359 — The trodden ground at every door: a strip along each front and a path from each door to the street
+
+**Applies to:** `data/enclosures/town_entrance_aprons.json` (written by
+`tools/generate_entrances.py`), and through it the sward (`main.js`'s block-list, T-0124),
+the wagon stands (`tools/generate_yard_goods.py`) and the doorway sweep
+(`tools/measure_doorways.py`).
+**Decision:** every one of the 509 front doors the archetypes' own elevations state
+(`facade_openings.front_wall`, and `frame_tavern`'s centred door by name) is ground somebody
+walked. In front of each front wall with a door: a strip 1.4 m deep along the whole wall and
+0.4 m past each corner, and from each door a path 1.2 m either side of it at the strip,
+narrowing to 0.7 m, out to the travelled track of the street in front when one lies within
+14 m (and 0.3 m onto it), otherwise 3.4 m into the yard. The ground inside is drawn as trodden
+earth and no prairie grows in it. Separately, a doorway — the door's width and 0.3 m either
+side, 1.8 m out — is kept clear of every placed object in the town, and a wagon stand on the
+trodden ground is refused.
+**Why:** the owner, walking Lake Street on dev on 2026-10-02 (T-1984): *"in and around in
+front of buildings there is prairie grass, that would be worn down and not be wild prairie
+right in front of the entrance to buildings"*, and *"goods or furntiture in front of doors"*.
+A door every household and customer used several times a day is a path whatever a source
+says; before this the sward was planted to the sill.
+**No source measures the worn ground at any 1835 Chicago door.** Its depth, its flare, the
+strip and the reach to the street are all reconstructed; what bounds them is the building
+and the door, read off the same elevation the mesh is built from, and nothing else. No fence,
+gate or step is claimed by it.
+**How to resolve:** a view, lot description or recollection showing the ground in front of a
+named 1835 house or store — a path, a dooryard, planking — would replace the rule for that
+building.
+**Related:** **L131** (the frontage goods), **L162** (the town's wagons), **L351** (the trade
+yards), **T-0067** (enclosure ground treatments), **T-0124** (the sward gives way to worked
+ground), **T-1984** (this entry).
+**Recorded:** 2026-10-02.

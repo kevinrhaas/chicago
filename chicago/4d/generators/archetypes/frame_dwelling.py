@@ -75,8 +75,9 @@ from common.mesh import (  # noqa: E402
     SHUTTER_RGBA, MeshBuilder, simple_material,
 )
 from archetypes.frame_dwelling_params import (  # noqa: E402
-    CHIMNEY_HEADS, CROWN_M, HALL_FRACTION, MUNTIN_M, SASH_MEETING_M, SASH_STILE_M,
-    TRIMS, FrameDwellingParams, glazing_lights, sash_rows,
+    CHIMNEY_HEADS, CROWN_M, DOOR_H_M, DOOR_SILL_M, DOOR_W_M, MUNTIN_M,
+    SASH_MEETING_M, SASH_STILE_M, TRIMS, FrameDwellingParams, facade_bays,
+    glazing_lights, sash_rows,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
@@ -121,12 +122,8 @@ TRIM_RELIEF_M = 0.032       # boarded trim standing off the siding
 WIN_W_M, WIN_H_M = 0.78, 1.25
 # The gable-end window of a half storey. "A small attic window in the gable end."
 GABLE_WIN_W_M, GABLE_WIN_H_M = 0.62, 0.70
-DOOR_W_M, DOOR_H_M = 0.92, 2.02
-# The threshold stands on the sill rather than on the ground. Small, and load-bearing
-# for the GROUND_CONTACT claim: the boarded surround around an opening reaches 75 mm
-# past it on every side, so a door drawn from z = 0.02 puts trim below the base of the
-# walls and the archetype stops being flat on its own footprint.
-DOOR_SILL_M = 0.10
+# The door's size and sill live in `frame_dwelling_params` beside the front's set-out
+# (T-1984), so the signage and entrance readers read the same door this draws.
 
 # Longest clapboard a mill of this period shipped, roughly; it is what sets how many
 # butt joints a wall of a given length carries. Lumber came from St Joseph, Michigan, by
@@ -574,57 +571,10 @@ def _shed_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
 # ------------------------------------------------------------------- the front
 
 def _facade_openings(p: FrameDwellingParams) -> list:
-    """Where the openings go across the front, as `(centre_x, kind)`.
-
-    **This is the archetype's answer to docs/LIBERTIES.md L23** — one window
-    arrangement on every frame building. The front is not a fixed five bays: the count
-    comes from the frontage (or from the record) and the ARRANGEMENT comes from the
-    plan behind the wall, which is what actually decides where a door is.
-
-    - `hall_parlour`, the default and the commonest vernacular plan, divides the front
-      at the partition between the larger heated hall and the smaller parlour. The door
-      opens into the hall, near the middle of it, so it is well off the centre of the
-      building and the two rooms' windows are spaced differently from one another —
-      with a wider gap over the partition. That gap is the plan showing through the
-      wall, and it is what makes the front read as a house rather than as a facade.
-    - `centre_passage` is the symmetrical alternative, and it has to be asked for.
-    - `single_pen` is one room: a door and a window or two beside it.
-
-    Every centre is then snapped to a stud-bay centre, so an opening's jambs land
-    against studs. That is a real constraint on where a window can go in a framed wall,
-    and it is what makes the stud module something the facade obeys rather than
-    something the sidecar mentions.
-    """
-    w, n = p.width_m, p.bays
-    if p.plan == "centre_passage":
-        centres = [w * (i + 0.5) / n for i in range(n)]
-        door = n // 2
-        out = [(x, "door" if i == door else "window") for i, x in enumerate(centres)]
-        return [(_snap(x, p, w), k) for x, k in out]
-
-    hf = 0.5 if p.plan == "single_pen" else HALL_FRACTION
-    xp = w * hf
-    if p.plan == "single_pen":
-        n_hall = 1
-    else:
-        n_hall = 1 + min(max(int(round((n - 1) * hf)), 1), n - 2)
-    n_parlour = n - n_hall
-
-    out = []
-    door_i = n_hall // 2
-    for i in range(n_hall):
-        out.append((xp * (i + 0.5) / n_hall, "door" if i == door_i else "window"))
-    for j in range(n_parlour):
-        out.append((xp + (w - xp) * (j + 0.5) / n_parlour, "window"))
-    return [(_snap(x, p, w), k) for x, k in out]
-
-
-def _snap(x: float, p: FrameDwellingParams, w: float) -> float:
-    """Nearest stud-bay centre, kept clear of the corner boards."""
-    stud = p.stud_spacing_m
-    k = math.floor(x / stud)
-    u = (k + 0.5) * stud
-    return min(max(u, 0.72), w - 0.72)
+    """Where the openings go across the front, as `(centre_x, kind)` — the params
+    module's set-out (`frame_dwelling_params.facade_bays`, T-1984), which the
+    signage and entrance readers read too."""
+    return facade_bays(p)
 
 
 def _facade(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: float,

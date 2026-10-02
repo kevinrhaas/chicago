@@ -29,21 +29,23 @@
     "confidence": "reconstructed",
     "note": "Five mountings, chosen by the trade's class and de-conflicted against every sign within 40 m so that no two neighbours hang alike: `bracket_board` (the wolf sign's own geometry — a plank hung by two straps 0.20 m under a 1.15 m bracket arm, 1.7 m to one side of the facade's centre and clear of the eave), `awning_board` (the same plank under a hood 1.45 m deep that falls 0.34 m to its outer edge), `wall_board` (a board fixed flat on the front under a cap), `post_board` (a pole at the street edge 1.9 m out from the wall, with a cross-arm and the board under it — the Green Tree's own arrangement, T-0082) and `facade_painted` (the name straight onto the boards of the building, no board at all — what image 5 of the owner's brief shows across the Tremont's row, standing with its foot 2.3 m up so it clears a door head, or lower where the wall has not the height for that and 0.25 m of eave besides). Not one of those numbers is a record's. A sign's SIZE is derived from the length of its own name inside the range its mounting allows and inside the frontage it stands on; its `aspect` comes from its style, so two boards on one street are not the same rectangle either.",
     "mountings": {
-      "awning_board": 16,
-      "bracket_board": 22,
-      "facade_painted": 23,
+      "awning_board": 15,
+      "bracket_board": 21,
+      "facade_painted": 24,
       "post_board": 5,
-      "wall_board": 11
+      "wall_board": 12
     }
   },
   "opening_sweep": {
     "note": "Every sign in the record, and what the opening test did with it. A board on a BRACKET, an AWNING or a POST stands off the wall on an arm, a hood or a stick of its own and cannot cover an opening, so it is swept as `not flat on the wall` rather than as clear — the test applies to the boards fixed flat against a facade and to the names painted straight on one. `already clear` is a measurement and not a silence: it means the board was tested against this building's own door and window rectangles and stood off all of them where the trade rule had already put it.",
-    "flat_mounted": 34,
+    "flat_mounted": 36,
     "counts": {
-      "moved": 13,
-      "not flat on the wall": 43,
+      "already clear": 1,
+      "lettered on the fascia": 7,
+      "moved": 12,
+      "not flat on the wall": 41,
       "reshaped": 9,
-      "shrunk to the door": 12
+      "shrunk onto clear face": 7
     },
     "signs": [
       {
@@ -72,7 +74,7 @@
           "shop_door",
           "show_window"
         ],
-        "done": "shrunk to the door"
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "chicago_american_office",
@@ -223,7 +225,7 @@
         "covered_before": [
           "door"
         ],
-        "done": "shrunk to the door"
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "miller_tannery",
@@ -232,7 +234,7 @@
         "covered_before": [
           "door"
         ],
-        "done": "shrunk to the door"
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "new_york_house",
@@ -298,7 +300,7 @@
           "shop_door",
           "show_window"
         ],
-        "done": "shrunk to the door"
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "recon_1835_blk_lake_clark_c2_02",
@@ -355,10 +357,13 @@
       },
       {
         "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "facade_painted",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door",
+          "window"
+        ],
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
@@ -369,10 +374,12 @@
       },
       {
         "structure_id": "recon_1835_blk_randolph_wells_d4_04",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "recon_1835_blk_south_water_clark_c2_06",
@@ -383,16 +390,14 @@
           "shop_door",
           "show_window"
         ],
-        "done": "shrunk to the door"
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "recon_1835_blk_south_water_clark_f2_01",
         "mounting": "facade_painted",
-        "covered_an_opening_before": true,
-        "covered_before": [
-          "window"
-        ],
-        "done": "moved"
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "already clear"
       },
       {
         "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
@@ -403,7 +408,7 @@
           "shop_door",
           "show_window"
         ],
-        "done": "shrunk to the door"
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
@@ -421,7 +426,7 @@
           "shop_door",
           "show_window"
         ],
-        "done": "shrunk to the door"
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
@@ -539,7 +544,7 @@
           "shop_door",
           "show_window"
         ],
-        "done": "shrunk to the door"
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "recon_1835_canal_trade_c4_002",
@@ -555,7 +560,7 @@
         "covered_before": [
           "door"
         ],
-        "done": "shrunk to the door"
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "recon_1835_canal_trade_w2_004",
@@ -615,7 +620,7 @@
         "covered_before": [
           "door"
         ],
-        "done": "shrunk to the door"
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "recon_1835_west_006",
@@ -633,7 +638,7 @@
           "shop_door",
           "show_window"
         ],
-        "done": "shrunk to the door"
+        "done": "lettered on the fascia"
       },
       {
         "structure_id": "recon_1835_west_035",
@@ -649,7 +654,7 @@
         "covered_before": [
           "door"
         ],
-        "done": "shrunk to the door"
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "sauganash_hotel",
@@ -780,7 +785,7 @@
         {
           "a": "chicago_american_office",
           "b": "recon_1835_blk_south_water_dearborn_c1_08",
-          "gap_m": 22.1,
+          "gap_m": 21.2,
           "share": "mounting",
           "value": "facade_painted",
           "allowed": true,
@@ -798,7 +803,7 @@
         {
           "a": "recon_1835_canal_trade_w1_003",
           "b": "recon_1835_canal_trade_w2_004",
-          "gap_m": 16.0,
+          "gap_m": 18.2,
           "share": "mounting",
           "value": "facade_painted",
           "allowed": true,
@@ -1053,19 +1058,23 @@
         "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
       },
       "anchor_local_enu_m": [
-        391.95,
+        391.02,
         -6.22
       ],
       "facade_bearing_deg": 0.0,
-      "arm_height_m": 2.36,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.88,
-      "board_h_m": 0.38,
+      "arm_height_m": 2.72,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.05,
+        "lines": [
+          "name"
+        ],
+        "capped": false
       },
-      "reach_m": 0.57,
+      "reach_m": 1.73,
       "wall_height_m": 3.0,
       "wall_height_from": "the record",
       "frontage_m": 7.62,
@@ -1088,27 +1097,27 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "lettered on the fascia",
         "covered_before": [
           "fascia",
           "shop_door",
           "show_window"
         ],
         "fixed_to": {
-          "kind": "shop_door",
-          "u0": 4.08,
-          "u1": 5.09,
-          "z0": 0.0,
-          "z1": 2.46
+          "kind": "fascia",
+          "u0": 1.99,
+          "u1": 5.32,
+          "z0": 2.46,
+          "z1": 2.74
         },
-        "note": "this front has no 2.68 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.38 m and fixed to the door itself",
+        "note": "this front has no 2.68 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
         "wall_span_local_m": [
           0.0,
           7.62
         ],
         "board_span_local_m": [
-          4.14,
-          5.02
+          2.05,
+          5.26
         ],
         "openings": [
           {
@@ -2742,19 +2751,19 @@
         "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
       },
       "anchor_local_enu_m": [
-        9.5,
+        8.19,
         50.0
       ],
       "facade_bearing_deg": 180.0,
-      "arm_height_m": 1.95,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.96,
-      "board_h_m": 0.4,
+      "arm_height_m": 2.3,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.33,
+      "board_h_m": 0.56,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.02
       },
-      "reach_m": 0.61,
+      "reach_m": 0.79,
       "wall_height_m": 2.6,
       "wall_height_from": "the record",
       "frontage_m": 9.0,
@@ -2777,25 +2786,19 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "shrunk onto clear face",
         "covered_before": [
           "door"
         ],
-        "fixed_to": {
-          "kind": "door",
-          "u0": 3.95,
-          "u1": 5.05,
-          "z0": 0.02,
-          "z1": 2.05
-        },
-        "note": "this front has no 1.66 m of blank face at any height a name can be read at — every band is taken by door — so the board is shrunk to 0.96 x 0.40 m and fixed to the door itself",
+        "fixed_to": null,
+        "note": "this front has no 1.66 m of blank face — every band is taken by door — so the board is shrunk to 1.33 x 0.56 m and fixed on the clear wall between the openings",
         "wall_span_local_m": [
           0.0,
           9.0
         ],
         "board_span_local_m": [
-          4.02,
-          4.98
+          5.15,
+          6.48
         ],
         "openings": [
           {
@@ -2871,19 +2874,19 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        10.5,
+        8.89,
         72.5
       ],
       "facade_bearing_deg": 180.0,
-      "arm_height_m": 1.85,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.9,
-      "board_h_m": 0.26,
+      "arm_height_m": 2.25,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.98,
+      "board_h_m": 0.57,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.03
       },
-      "reach_m": 0.57,
+      "reach_m": 1.11,
       "wall_height_m": 2.5,
       "wall_height_from": "the record",
       "frontage_m": 7.0,
@@ -2906,25 +2909,19 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "shrunk onto clear face",
         "covered_before": [
           "door"
         ],
-        "fixed_to": {
-          "kind": "door",
-          "u0": 2.98,
-          "u1": 4.02,
-          "z0": 0.02,
-          "z1": 1.95
-        },
-        "note": "this front has no 2.33 m of blank face at any height a name can be read at — every band is taken by door — so the board is shrunk to 0.90 x 0.26 m and fixed to the door itself",
+        "fixed_to": null,
+        "note": "this front has no 2.33 m of blank face — every band is taken by door — so the board is shrunk to 1.98 x 0.57 m and fixed on the clear wall between the openings",
         "wall_span_local_m": [
           0.0,
           7.0
         ],
         "board_span_local_m": [
-          3.05,
-          3.95
+          4.12,
+          6.1
         ],
         "openings": [
           {
@@ -3503,18 +3500,18 @@
       },
       "anchor_local_enu_m": [
         -62.7,
-        -66.3
+        -67.6
       ],
       "facade_bearing_deg": 90.0,
-      "arm_height_m": 1.85,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.9,
-      "board_h_m": 0.34,
+      "arm_height_m": 2.2,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.35,
+      "board_h_m": 0.52,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.02
       },
-      "reach_m": 0.58,
+      "reach_m": 0.8,
       "wall_height_m": 2.5,
       "wall_height_from": "the archetype's default, because the record carries no wall height — the same number the wall itself is drawn at",
       "frontage_m": 7.0,
@@ -3537,25 +3534,19 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "shrunk onto clear face",
         "covered_before": [
           "door"
         ],
-        "fixed_to": {
-          "kind": "door",
-          "u0": 2.98,
-          "u1": 4.02,
-          "z0": 0.02,
-          "z1": 1.95
-        },
-        "note": "this front has no 1.93 m of blank face at any height a name can be read at — every band is taken by door — so the board is shrunk to 0.90 x 0.34 m and fixed to the door itself",
+        "fixed_to": null,
+        "note": "this front has no 1.93 m of blank face — every band is taken by door — so the board is shrunk to 1.35 x 0.52 m and fixed on the clear wall between the openings",
         "wall_span_local_m": [
           0.0,
           7.0
         ],
         "board_span_local_m": [
-          3.05,
-          3.95
+          4.12,
+          5.47
         ],
         "openings": [
           {
@@ -4491,19 +4482,23 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        -151.63,
-        -18.48
+        -151.58,
+        -19.41
       ],
       "facade_bearing_deg": 266.7,
-      "arm_height_m": 2.59,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.88,
-      "board_h_m": 0.39,
+      "arm_height_m": 2.95,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.05,
+        "lines": [
+          "name"
+        ],
+        "capped": false
       },
-      "reach_m": 0.57,
+      "reach_m": 1.73,
       "wall_height_m": 6.05,
       "wall_height_from": "the record",
       "frontage_m": 6.02,
@@ -4526,27 +4521,27 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "lettered on the fascia",
         "covered_before": [
           "fascia",
           "shop_door",
           "show_window"
         ],
         "fixed_to": {
-          "kind": "shop_door",
-          "u0": 3.26,
-          "u1": 4.28,
-          "z0": 0.0,
-          "z1": 2.69
+          "kind": "fascia",
+          "u0": 1.18,
+          "u1": 4.51,
+          "z0": 2.69,
+          "z1": 2.97
         },
-        "note": "this front has no 2.30 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.39 m and fixed to the door itself",
+        "note": "this front has no 2.30 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
         "wall_span_local_m": [
           0.0,
           6.02
         ],
         "board_span_local_m": [
-          3.33,
-          4.21
+          1.24,
+          4.45
         ],
         "openings": [
           {
@@ -4697,19 +4692,19 @@
         "note": "cream on a Brunswick-green ground"
       },
       "anchor_local_enu_m": [
-        -149.4,
-        -57.24
+        -149.53,
+        -55.08
       ],
       "facade_bearing_deg": 266.7,
-      "arm_height_m": 2.9,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 2.76,
-      "board_h_m": 1.0,
+      "arm_height_m": 3.3,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.24,
+      "board_h_m": 0.45,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.03
       },
-      "reach_m": 1.5,
+      "reach_m": 0.74,
       "wall_height_m": 3.55,
       "wall_height_from": "the record",
       "frontage_m": 5.99,
@@ -4732,25 +4727,19 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "shrunk onto clear face",
         "covered_before": [
           "door"
         ],
-        "fixed_to": {
-          "kind": "door",
-          "u0": 1.54,
-          "u1": 4.44,
-          "z0": 0.0,
-          "z1": 3.0
-        },
-        "note": "this front has no 2.75 m of blank face at any height a name can be read at — every band is taken by door — so the board is shrunk to 2.76 x 1.00 m and fixed to the door itself",
+        "fixed_to": null,
+        "note": "this front has no 2.75 m of blank face — every band is taken by door — so the board is shrunk to 1.24 x 0.45 m and fixed on the clear wall between the openings",
         "wall_span_local_m": [
           0.0,
           5.99
         ],
         "board_span_local_m": [
-          1.61,
-          4.37
+          4.54,
+          5.78
         ],
         "openings": [
           {
@@ -5409,19 +5398,23 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        592.6,
+        591.67,
         -127.49
       ],
       "facade_bearing_deg": 0.5,
-      "arm_height_m": 2.21,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.88,
-      "board_h_m": 0.46,
+      "arm_height_m": 2.57,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.05,
+        "lines": [
+          "name"
+        ],
+        "capped": false
       },
-      "reach_m": 0.57,
+      "reach_m": 1.73,
       "wall_height_m": 2.85,
       "wall_height_from": "the record",
       "frontage_m": 5.34,
@@ -5444,27 +5437,27 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "lettered on the fascia",
         "covered_before": [
           "fascia",
           "shop_door",
           "show_window"
         ],
         "fixed_to": {
-          "kind": "shop_door",
-          "u0": 3.26,
-          "u1": 4.28,
-          "z0": 0.0,
-          "z1": 2.31
+          "kind": "fascia",
+          "u0": 1.18,
+          "u1": 4.51,
+          "z0": 2.31,
+          "z1": 2.59
         },
-        "note": "this front has no 2.14 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.46 m and fixed to the door itself",
+        "note": "this front has no 2.14 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
         "wall_span_local_m": [
           0.0,
           5.34
         ],
         "board_span_local_m": [
-          3.33,
-          4.21
+          1.24,
+          4.45
         ],
         "openings": [
           {
@@ -6084,7 +6077,7 @@
     {
       "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
       "name": "J. B. Brown, Dearborn Street grocery",
-      "sign_text": "J. B. BROWN / Groceries",
+      "sign_text": "J. B. BROWN / Groceries / Dearborn Street",
       "sign_lines": [
         {
           "text": "J. B. BROWN",
@@ -6093,10 +6086,14 @@
         {
           "text": "Groceries",
           "role": "trade"
+        },
+        {
+          "text": "Dearborn Street",
+          "role": "place"
         }
       ],
       "sign_identity": "Brown",
-      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put J. B. Brown, Dearborn Street grocery (biz_j_b_brown_dearborn_street_grocery) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"groceries\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a awning board, which carries 2 lines, so the place line — \"Dearborn Street\" — is not lettered here: a signwriter letters what fits.",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put J. B. Brown, Dearborn Street grocery (biz_j_b_brown_dearborn_street_grocery) on Dearborn Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"groceries\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
       "sign_text_confidence": "inferred",
       "sign_text_sources": [
         "chicago_newspapers_1833_1835"
@@ -6106,8 +6103,8 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": "a facade painted was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing; a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a wall board was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing",
+      "mounting": "facade_painted",
+      "mounting_note": null,
       "style": {
         "id": "black_on_white",
         "ground": "#e8e1cf",
@@ -6118,22 +6115,19 @@
         "note": "black on a white lead ground, the cheapest board a signwriter could sell"
       },
       "anchor_local_enu_m": [
-        719.39,
-        -379.95
+        721.02,
+        -379.96
       ],
       "facade_bearing_deg": 180.5,
-      "arm_height_m": 2.21,
+      "arm_height_m": 2.26,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.47,
-      "board_h_m": 0.59,
+      "board_w_m": 1.37,
+      "board_h_m": 0.4,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.37,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.03
       },
-      "reach_m": 1.99,
+      "reach_m": 0.81,
       "wall_height_m": 2.51,
       "wall_height_from": "the record",
       "frontage_m": 5.2,
@@ -6154,7 +6148,40 @@
           723.69,
           -379.98
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "shrunk onto clear face",
+        "covered_before": [
+          "door",
+          "window"
+        ],
+        "fixed_to": null,
+        "note": "this front has no 2.75 m of blank face — every band is taken by door and window — so the board is shrunk to 1.37 x 0.40 m and fixed on the clear wall between the openings",
+        "wall_span_local_m": [
+          0.0,
+          5.2
+        ],
+        "board_span_local_m": [
+          1.98,
+          3.35
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 0.96,
+            "u1": 1.88,
+            "z0": 0.1,
+            "z1": 2.12
+          },
+          {
+            "kind": "window",
+            "u0": 3.48,
+            "u1": 4.24,
+            "z0": 0.9,
+            "z1": 2.11
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
@@ -6232,19 +6259,23 @@
     {
       "structure_id": "recon_1835_blk_randolph_wells_d4_04",
       "name": "James Grant",
-      "sign_text": "JAMES GRANT / Attorney at Law",
+      "sign_text": "JAMES GRANT / Attorney & Counsellor at Law / La Salle Street",
       "sign_lines": [
         {
           "text": "JAMES GRANT",
           "role": "name"
         },
         {
-          "text": "Attorney at Law",
+          "text": "Attorney & Counsellor at Law",
           "role": "trade"
+        },
+        {
+          "text": "La Salle Street",
+          "role": "place"
         }
       ],
       "sign_identity": "Grant",
-      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put James Grant (biz_james_grant) on La Salle Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"attorney and counsellor at law\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341). The board is a bracket board, which carries 2 lines, so the place line — \"La Salle Street\" — is not lettered here: a signwriter letters what fits. For the same reason the trade is shortened from \"Attorney & Counsellor at Law\" to \"Attorney at Law\".",
+      "sign_text_from": "A REGISTER FIRM'S OWN PRINTED STYLE, LETTERED (T-1835). The newspapers put James Grant (biz_james_grant) on La Salle Street and nothing narrower, and the owner's street-face adoption of 2026-08-29 houses it in this reconstructed roof on that face. Line 1 is the firm as the paper printed it and line 2 its printed trade — \"attorney and counsellor at law\" — abridged with an ampersand; nothing is added. Inferred: the words are the paper's, but no source says this is what the board read, and which roof on the face is the adoption's allocation (docs/LIBERTIES.md L341).",
       "sign_text_confidence": "inferred",
       "sign_text_sources": [
         "chicago_newspapers_1833_1835"
@@ -6254,8 +6285,8 @@
       "trade_class": "office",
       "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": "a wall board was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing",
+      "mounting": "wall_board",
+      "mounting_note": null,
       "style": {
         "id": "white_on_blue",
         "ground": "#22344f",
@@ -6266,20 +6297,19 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        430.15,
+        429.32,
         -273.65
       ],
       "facade_bearing_deg": 0.3,
       "arm_height_m": 2.34,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.66,
+      "board_w_m": 0.92,
+      "board_h_m": 0.41,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 0.59,
       "wall_height_m": 2.64,
       "wall_height_from": "the record",
       "frontage_m": 6.38,
@@ -6300,7 +6330,46 @@
           425.26,
           -273.62
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "shrunk onto clear face",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "this front has no 2.30 m of blank face — every band is taken by door — so the board is shrunk to 0.92 x 0.41 m and fixed on the clear wall between the openings",
+        "wall_span_local_m": [
+          0.0,
+          6.38
+        ],
+        "board_span_local_m": [
+          3.61,
+          4.53
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.63,
+            "u1": 1.4,
+            "z0": 0.95,
+            "z1": 2.16
+          },
+          {
+            "kind": "door",
+            "u0": 2.59,
+            "u1": 3.51,
+            "z0": 0.1,
+            "z1": 2.12
+          },
+          {
+            "kind": "window",
+            "u0": 4.7,
+            "u1": 5.46,
+            "z0": 0.95,
+            "z1": 2.16
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_south_water_clark_c2_06",
@@ -6343,19 +6412,23 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        625.21,
-        -5.49
+        624.28,
+        -5.48
       ],
       "facade_bearing_deg": 0.9,
-      "arm_height_m": 2.29,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.88,
-      "board_h_m": 0.46,
+      "arm_height_m": 2.65,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.05,
+        "lines": [
+          "name"
+        ],
+        "capped": false
       },
-      "reach_m": 0.57,
+      "reach_m": 1.73,
       "wall_height_m": 3.68,
       "wall_height_from": "the record",
       "frontage_m": 5.75,
@@ -6378,27 +6451,27 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "lettered on the fascia",
         "covered_before": [
           "fascia",
           "shop_door",
           "show_window"
         ],
         "fixed_to": {
-          "kind": "shop_door",
-          "u0": 3.26,
-          "u1": 4.28,
-          "z0": 0.0,
-          "z1": 2.39
+          "kind": "fascia",
+          "u0": 1.18,
+          "u1": 4.51,
+          "z0": 2.39,
+          "z1": 2.67
         },
-        "note": "this front has no 2.14 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.46 m and fixed to the door itself",
+        "note": "this front has no 2.14 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
         "wall_span_local_m": [
           0.0,
           5.75
         ],
         "board_span_local_m": [
-          3.33,
-          4.21
+          1.24,
+          4.45
         ],
         "openings": [
           {
@@ -6470,7 +6543,7 @@
         -6.01
       ],
       "facade_bearing_deg": 0.9,
-      "arm_height_m": 4.3,
+      "arm_height_m": 3.13,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
       "board_w_m": 2.84,
       "board_h_m": 0.83,
@@ -6501,12 +6574,10 @@
         ]
       ],
       "opening_fit": {
-        "action": "moved",
-        "covered_before": [
-          "window"
-        ],
+        "action": "already clear",
+        "covered_before": [],
         "fixed_to": null,
-        "note": "moved 1.16 m up it, off window, onto blank face",
+        "note": null,
         "wall_span_local_m": [
           0.0,
           7.6
@@ -6527,13 +6598,6 @@
             "kind": "window",
             "u0": 0.79,
             "u1": 1.64,
-            "z0": 1.01,
-            "z1": 2.31
-          },
-          {
-            "kind": "window",
-            "u0": 3.23,
-            "u1": 4.08,
             "z0": 1.01,
             "z1": 2.31
           },
@@ -6609,19 +6673,22 @@
         "note": "white fat face on a chocolate-brown ground"
       },
       "anchor_local_enu_m": [
-        743.06,
-        -7.95
+        742.13,
+        -7.92
       ],
       "facade_bearing_deg": 1.6,
-      "arm_height_m": 2.7,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.88,
-      "board_h_m": 0.22,
+      "arm_height_m": 3.06,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.05,
+        "lines": [
+          "name"
+        ]
       },
-      "reach_m": 0.56,
+      "reach_m": 1.73,
       "wall_height_m": 3.34,
       "wall_height_from": "the record",
       "frontage_m": 5.3,
@@ -6644,27 +6711,27 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "lettered on the fascia",
         "covered_before": [
           "fascia",
           "shop_door",
           "show_window"
         ],
         "fixed_to": {
-          "kind": "shop_door",
-          "u0": 3.26,
-          "u1": 4.28,
-          "z0": 0.0,
-          "z1": 2.8
+          "kind": "fascia",
+          "u0": 1.18,
+          "u1": 4.51,
+          "z0": 2.8,
+          "z1": 3.08
         },
-        "note": "this front has no 2.84 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.22 m and fixed to the door itself",
+        "note": "this front has no 2.84 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
         "wall_span_local_m": [
           0.0,
           5.3
         ],
         "board_span_local_m": [
-          3.33,
-          4.21
+          1.24,
+          4.45
         ],
         "openings": [
           {
@@ -6807,19 +6874,23 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        786.2,
-        -9.17
+        785.27,
+        -9.14
       ],
       "facade_bearing_deg": 1.6,
-      "arm_height_m": 2.53,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.88,
-      "board_h_m": 0.39,
+      "arm_height_m": 2.89,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.05,
+        "lines": [
+          "name"
+        ],
+        "capped": false
       },
-      "reach_m": 0.57,
+      "reach_m": 1.73,
       "wall_height_m": 5.94,
       "wall_height_from": "the record",
       "frontage_m": 6.24,
@@ -6842,27 +6913,27 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "lettered on the fascia",
         "covered_before": [
           "fascia",
           "shop_door",
           "show_window"
         ],
         "fixed_to": {
-          "kind": "shop_door",
-          "u0": 3.67,
-          "u1": 4.69,
-          "z0": 0.0,
-          "z1": 2.63
+          "kind": "fascia",
+          "u0": 1.59,
+          "u1": 4.92,
+          "z0": 2.63,
+          "z1": 2.91
         },
-        "note": "this front has no 2.30 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.39 m and fixed to the door itself",
+        "note": "this front has no 2.30 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
         "wall_span_local_m": [
           0.0,
           6.24
         ],
         "board_span_local_m": [
-          3.74,
-          4.62
+          1.65,
+          4.86
         ],
         "openings": [
           {
@@ -7477,7 +7548,7 @@
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
       "mounting": "awning_board",
-      "mounting_note": "a wall board was refused here because no rule reads this archetype's front elevation, and a board fixed flat on a wall whose openings are unknown is the fault T-0459 records — so the cycle advances rather than guessing",
+      "mounting_note": "a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
       "style": {
         "id": "cream_on_green",
         "ground": "#1d3226",
@@ -7780,19 +7851,19 @@
         "note": "black on a white lead ground, the cheapest board a signwriter could sell"
       },
       "anchor_local_enu_m": [
-        484.14,
-        -219.94
+        485.91,
+        -219.9
       ],
       "facade_bearing_deg": -1.4,
-      "arm_height_m": 2.25,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 2.06,
-      "board_h_m": 0.61,
+      "arm_height_m": 2.92,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.45,
+      "board_h_m": 0.43,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.03
       },
-      "reach_m": 1.15,
+      "reach_m": 0.85,
       "wall_height_m": 3.17,
       "wall_height_from": "the record",
       "frontage_m": 8.12,
@@ -7815,25 +7886,19 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "shrunk onto clear face",
         "covered_before": [
           "door"
         ],
-        "fixed_to": {
-          "kind": "door",
-          "u0": 1.19,
-          "u1": 3.39,
-          "z0": 0.0,
-          "z1": 2.35
-        },
-        "note": "this front has no 3.23 m of blank face at any height a name can be read at — every band is taken by door — so the board is shrunk to 2.06 x 0.61 m and fixed to the door itself",
+        "fixed_to": null,
+        "note": "this front has no 3.23 m of blank face — every band is taken by door — so the board is shrunk to 1.45 x 0.43 m and fixed on the clear wall between the openings",
         "wall_span_local_m": [
           0.0,
           8.12
         ],
         "board_span_local_m": [
-          1.26,
-          3.32
+          3.34,
+          4.79
         ],
         "openings": [
           {
@@ -7894,19 +7959,22 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        -208.32,
+        -209.25,
         -120.21
       ],
       "facade_bearing_deg": 0.0,
-      "arm_height_m": 2.37,
-      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This board is on the door leaf rather than on the wall, so its head is the door's head less a hand's breadth",
-      "board_w_m": 0.88,
-      "board_h_m": 0.25,
+      "arm_height_m": 2.73,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it. This name is lettered on the shopfront's fascia, so its head is the fascia's top less a lath",
+      "board_w_m": 3.21,
+      "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.06
+        "proud_m": 0.05,
+        "lines": [
+          "name"
+        ]
       },
-      "reach_m": 0.56,
+      "reach_m": 1.73,
       "wall_height_m": 3.02,
       "wall_height_from": "the record",
       "frontage_m": 4.88,
@@ -7929,27 +7997,27 @@
         ]
       ],
       "opening_fit": {
-        "action": "shrunk to the door",
+        "action": "lettered on the fascia",
         "covered_before": [
           "fascia",
           "shop_door",
           "show_window"
         ],
         "fixed_to": {
-          "kind": "shop_door",
-          "u0": 2.86,
-          "u1": 3.87,
-          "z0": 0.0,
-          "z1": 2.47
+          "kind": "fascia",
+          "u0": 0.77,
+          "u1": 4.1,
+          "z0": 2.47,
+          "z1": 2.75
         },
-        "note": "this front has no 3.26 m of blank face at any height a name can be read at — every band is taken by fascia and shop_door and show_window — so the board is shrunk to 0.88 x 0.25 m and fixed to the door itself",
+        "note": "this front has no 3.26 m of blank face at any height a board can be read at — every band is taken by fascia and shop_door and show_window — so the name is lettered on the shop's fascia over the shopfront, 3.21 x 0.24 m, and never on the door or the glass",
         "wall_span_local_m": [
           0.0,
           4.88
         ],
         "board_span_local_m": [
-          2.93,
-          3.81
+          0.83,
+          4.04
         ],
         "openings": [
           {
@@ -8096,7 +8164,7 @@
     {
       "structure_id": "brickyard_north_side",
       "trade": "brickyard",
-      "why": "a facade painted was refused here because this front has no 2.10 m of blank face at any height and no door to fix a board to — every elevation of it is open bay, and a name lettered there would hang in the air between the posts"
+      "why": "a facade painted was refused here because this front has no 2.10 m of blank face at any height and no fascia to letter — every elevation of it is open bay, and a name lettered there would hang in the air between the posts"
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
