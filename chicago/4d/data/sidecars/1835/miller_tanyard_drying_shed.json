@@ -96,6 +96,12 @@
       "value": "small_utility_building",
       "confidence": "reconstructed",
       "note": "The closed vocabulary has no `drying shed`; `small_utility_building` is family A5's own term and the nearest it carries. The specific use is in the record's NAME and in this note. The use comes from the tannery's own record, which names 'drying sheds' among the things a tannery is and this model does not have. No occupant is claimed."
+    },
+    "part_of": {
+      "value": "John Miller's Tannery",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "This building was raised as a drying shed of John Miller's tannery, its west wall on the tannery's own east wall line, out of the tannery record's naming 'drying sheds' among what a tannery is; it has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284, the works rule of T-1709). The tannery's keepers are seated on the tannery and are not repeated here."
     }
   },
   "residents": [],
