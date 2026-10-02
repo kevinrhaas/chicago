@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
+  { v: 1288, ts: '2026-10-02T05:19:29.998Z', date: 'Oct 2, 2026, 12:19 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [
       'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
       'Its courtyard roof repeats the north wing’s flared eave. The alley dormer rises with the roof so its window remains visible.',
