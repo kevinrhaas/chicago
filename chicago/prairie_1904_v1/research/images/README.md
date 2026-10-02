@@ -72,6 +72,15 @@ The viewer's **Images** section reads the merged file `../../data/images.json`
      They follow the holder's statement, or stay link-only.
    - **A holder's own licence or restriction** governs its copies, whatever the date (for
      example the Houghton finding-aid images).
+   - **`pending — permission requested`** (owner, 2026-10-02). An item MAY be stored and shown
+     while a permission request to its holder is outstanding, but only when all three hold:
+     - the request is written in `research/images/rights-requests/`;
+     - the record names that file in `rights_request`;
+     - `rights_basis` says why copying is defensible meanwhile (for example, an unpublished work
+       whose author died more than 70 years ago).
+
+     The viewer badges these items "Rights pending". If a holder refuses, delete the stored copies
+     (fetch_image.py output in the store) and set the record back to link-only.
 3. **A later image is evidence of its own date.** Say what changed between 1904 and the
    image date where it is known (HABS 1960s photos post-date alterations and demolitions).
 4. Prefer front elevations; collect every angle.

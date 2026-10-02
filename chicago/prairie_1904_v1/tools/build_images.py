@@ -23,7 +23,8 @@ KINDS = {'photograph', 'stereograph', 'postcard', 'engraving', 'lithograph', 'pu
          "bird's-eye view", 'aerial', 'document', 'permit record', 'newspaper item'}
 PERIODS = {'in-period', 'near-period', 'later'}
 COPYABLE = {'public domain', 'no known restrictions'}
-RIGHTS = COPYABLE | {'copyright — link only', 'unknown — link only'}
+PENDING = 'pending — permission requested'
+RIGHTS = COPYABLE | {PENDING, 'copyright — link only', 'unknown — link only'}
 
 
 def load_library():
@@ -34,6 +35,8 @@ def norm_rights(r):
     r = (r or '').strip().lower().replace(' - ', ' — ').replace('--', '—')
     if r.startswith('public domain'): return 'public domain'
     if r.startswith('no known'): return 'no known restrictions'
+    # Owner, 2026-10-02: published while the holder's permission is pending (research/images/README.md rule 2).
+    if r.startswith('pending'): return 'pending — permission requested'
     if r.startswith('copyright') or r.startswith('in copyright') or r.startswith('rights reserved'): return 'copyright — link only'
     return 'unknown — link only'
 
@@ -87,7 +90,11 @@ def merge(lib):
             if unknown: errors.append(f'{where}: unknown building ids {unknown}')
             local = r.get('local') or None
             if local:
-                if rights not in COPYABLE and not str(local.get('display', '')).startswith('research/public/'):
+                if rights == PENDING:
+                    req = r.get('rights_request') or ''
+                    if not (req.startswith('research/images/rights-requests/') and (P / req).is_file()):
+                        errors.append(f'{where}: a pending-rights copy must name its request file in rights_request')
+                elif rights not in COPYABLE and not str(local.get('display', '')).startswith('research/public/'):
                     errors.append(f'{where}: a local copy of a {rights} item')
                 for k in ('display', 'thumb'):
                     v = local.get(k)
