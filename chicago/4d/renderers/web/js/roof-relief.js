@@ -198,8 +198,8 @@ export async function loadRoofRelief({ assetBase = resolveBases().assetBase } = 
       const tileM = Number(sheet.span_m);
       if (!(tileM > 0)) throw new Error(`${dir}: material.json states no span_m`);
       const [normalMap, orm] = await Promise.all([
-        reliefTexture(loader, new URL(`${sheet.id}_normal_gl.png`, here).href),
-        reliefTexture(loader, new URL(`${sheet.id}_orm.png`, here).href),
+        reliefTexture(loader, new URL(`${sheet.id}_normal_gl.webp`, here).href),
+        reliefTexture(loader, new URL(`${sheet.id}_orm.webp`, here).href),
       ]);
       bound.set(name, { normalMap, orm, tileM });
     }));

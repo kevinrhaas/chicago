@@ -21940,7 +21940,7 @@
         },
         {
           "label": "Related",
-          "text": "**L330** (the household class this reads), **L348** (the weather years), **L326** (the yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960** (this deal, piece 3 of **T-1212**), **T-1967** (the baked stable and outbuilding roofs the order book still counts)."
+          "text": "**L330** (the household class this reads), **L348** (the weather years), **L326** (the yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960** (this deal, piece 3 of **T-1212**), **T-1983** (the baked stable and outbuilding roofs the order book still counts; T-1967 handed them on)."
         },
         {
           "label": "Recorded",
@@ -21974,8 +21974,12 @@
           "text": "every documented building (a policy deal that put an invented boarder under a researched house would read back as a fact about that house); every roof whose sidecar already states its occupants, including those that say \"Anonymous stock; no occupant is claimed\" — except a roof whose `resident_assignment` names the very household being seated (5); and stores, workshops, warehouses, outbuildings and civic works."
         },
         {
+          "label": "The ruled in (T-1972)",
+          "text": "885 more unhoused households have cards that still read `uncertain`, but T-1386's presence rulings put them in the town by the project's standing rule (an attested or inferred resident is present unless evidence says otherwise). They are seated by the same deal AFTER the households present on their cards, so no T-1971 seat moves, and they queue by the strength of the ruling: a reading on the day, then a span, then a bracket, then the carried, the nearest last reading first, ties by seeded hash. They take roofs while the town stays within the census's 8.204 people per dwelling, and **the line stops at the first household the ceiling cannot take**. 362 households are seated; the town then stands at 8.201 people per dwelling (2,411 under 294), the most crowded roof the same Washington-at-Wells H2 house, now 36 people. The other 523 (525 people) are written to the ledger's `counted_apart` as `waiting_on_a_roof`, with their place in the queue. They are not housed and the audit does not call the join total while they wait: the roof programme orders 377 dwelling roofs on the scene date and the scene stands 294, and the remaining dwelling builds (T-1755, T-1759, T-1829, T-1957) are what lengthens the line, with no edit to the deal. The 29 households the town holds out of the day (28 ruled `absent` on their cards by T-1172's persistence draw, and Alexander Wolcott, whose card reads him `absent` on the old settlers' death notice) are counted apart as `absent_on_the_scene_date` with the first sentence of their own evidence. They are owed no roof in July 1835. **The invention added here is the ORDER of the queue**: which ruled-in household waits is decided by the ruling's strength and the age of its last reading, not by any source about where these people slept."
+        },
+        {
           "label": "Not done, and why",
-          "text": "the 914 households the layer holds `uncertain` or `absent` on the scene date are not housed here; ruling them in or counting them apart is T-1972. The town census screen's housed count reads card links and does not yet count these seats; that screen is T-1967. The People view's \"Go to\" is not pointed at these roofs."
+          "text": "the town census screen's housed count reads card links and does not yet count these seats; that screen is T-1983 (T-1967's City card completion row does count them, by household). The People view's \"Go to\" is not pointed at these roofs."
         },
         {
           "label": "How to resolve",

@@ -2334,7 +2334,8 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
     """Put T-1971's housing deal on the building card of the roof it names.
 
     THE PRESENT WITH NO ROOF. 1,003 households the residents layer holds present on
-    1 July 1835 reached no roof through their own card, and their cards cannot be given
+    1 July 1835 (and, since T-1972, the households T-1386's rulings put in the town as far
+    as the census's people per dwelling allows) reached no roof through their own card, and their cards cannot be given
     one: every folder is re-derived whole and two stages refuse a roof outright. So
     `tools/house_the_present_1835.py` writes the seat beside the card, exactly as the
     lodgers' seats travel, and this carries it to the one surface where a visitor meets
@@ -2363,7 +2364,12 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
             "basis": ("HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was "
                       "present in the town on 1 July 1835 and no source says where it slept; "
                       "the roof is the invention and the people are not. Their card carries "
-                      "their evidence and is not touched by the seat."),
+                      "their evidence and is not touched by the seat."
+                      if seat.get("presence") != "ruled_in" else
+                      "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop "
+                      "short of 1 July 1835 for this household and nothing puts it anywhere "
+                      "else; the town's rule (T-1386) counts it present, and no source says "
+                      "where it slept. The roof is the invention and the people are not."),
             "persons": [{
                 "name": person.get("name", ""),
                 "relationship": person.get("relationship", ""),
@@ -2475,6 +2481,9 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     lodging = compile_lodging()
     # id -> the phase that resolves into this scene, for the watch list below
     resolved: dict[str, dict] = {}
+    # id -> name, so a `part_of` row can print the principal's name (T-1980)
+    structure_names = {p.stem: load(p).get("name", p.stem)
+                       for p in (DATA / "structures").glob("*.json")}
 
     # ONE SIDECAR BUILDER, TWO CALLERS (T-1727). The canonical records below and the
     # structure VERSIONS after them (data/structures/versions/<id>/<label>.json) are
@@ -2496,7 +2505,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                     collect(v)
 
         collect(phase)
-        for key in ("function", "occupants", "present_status", "lot_address", "land_owner"):
+        for key in ("function", "occupants", "present_status", "lot_address", "land_owner",
+                    "part_of"):
             collect(st.get(key, {}))
         if st.get("reconstruction", {}).get("source_id"):
             cited.add(st["reconstruction"]["source_id"])
@@ -2560,6 +2570,20 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": st["land_owner"]["confidence"],
                 "sources": st["land_owner"]["sources"],
                 "note": st["land_owner"]["note"],
+            }
+
+        # T-1980. THE BUILDING THIS ONE IS PART OF — the fort's barn, the tannery's
+        # bark shed. The record names the principal by id; the card wants its name,
+        # so the row's `value` is the principal's own `name` (the id where a record
+        # is missing, which the completion audit refuses anyway). The keepers are
+        # the principal's and stay on the principal's card.
+        if "part_of" in st:
+            principal = st["part_of"]["value"]
+            attributes["part_of"] = {
+                "value": structure_names.get(principal, principal),
+                "confidence": st["part_of"]["confidence"],
+                "sources": st["part_of"].get("sources", []),
+                "note": st["part_of"]["note"],
             }
 
         # THE PHASE'S CLAIM ABOUT ITSELF. Every `form` attribute has carried its

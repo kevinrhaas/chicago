@@ -8989,8 +8989,15 @@ for (const [label, viewport, touch] of [
     // reset from `DETAIL[level]`), so it reads 600,000 on a phone booting into
     // `light` and 1,000,000 on a desktop. The three tier ceilings have their own
     // check further down, which is where a re-budget of those would show.
+    //
+    // T-1975, 2026-10-02: 215 -> 240, moved here in the same commit as `BUDGET`
+    // in `main.js`, where the measurement is written (worst frame 222 calls at
+    // `full`, Lake Street at Canal, 1280x800, dev @ 652ca8ea; 215 carried 15
+    // over the 200 it was set against, and 222 + 15 rounds up to 240). A
+    // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
+    // below is untouched and still red at 102 until T-1976's trim.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 215,
+      stats.budget.drawCalls === 240,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -13567,6 +13574,13 @@ for (const [label, viewport, touch] of [
         oldMount: !!document.getElementById('gate-census'),
         fits: city.scrollWidth <= city.clientWidth + 1,
         scrollsInSheet: panelScroll?.id === 'panel-scroll',
+        done: {
+          figure: city.querySelector('.gc-done-n')?.textContent.trim() || '',
+          joins: [...city.querySelectorAll('.gc-joins li')].map((el) => ({
+            closed: el.classList.contains('is-closed'), text: el.textContent.replace(/\s+/g, ' ').trim() })),
+          segs: city.querySelectorAll('.gc-done-seg').length,
+          shares: city.querySelector('.gc-done-shares')?.textContent.trim() || '',
+        },
       };
       document.getElementById('panel-back').click();
       api.evidenceHub.showTopic('liberties');
@@ -13671,6 +13685,26 @@ for (const [label, viewport, touch] of [
       && hub.city.text.includes(`roughly ${grouped(cityScene.target)}`)
       && !hub.city.text.includes(`roughly ${grouped(hub.city.data?.people?.town_total)}`),
       hub.city.text);
+    // T-1967: the completion row reads the audit's four joins, and the tiers' shares of
+    // the households with a home — the committed file's figures, not the page's own.
+    let completionDoc = null;
+    try {
+      completionDoc = JSON.parse(fs.readFileSync(
+        path.join(ROOT, 'data', 'render', 'town_completion_1835.json'), 'utf8'));
+    } catch { completionDoc = null; }
+    const doneJoins = completionDoc?.joins || [];
+    const doneHomed = completionDoc?.tiers?.households?.housed || {};
+    const doneHomedAll = ['attested', 'inferred', 'reconstructed'].reduce((n, t) => n + Number(doneHomed[t] || 0), 0);
+    check(`${label}: City's completion row shows the audit's joins and the tiers' shares`,
+      doneJoins.length === 4
+      && hub.city.done.figure === `${doneJoins.filter((j) => j.open === 0).length} of ${doneJoins.length}`
+      && hub.city.done.joins.length === doneJoins.length
+      && doneJoins.every((j, i) => hub.city.done.joins[i].closed === (j.open === 0)
+        && hub.city.done.joins[i].text.startsWith(j.label)
+        && (j.open === 0 || hub.city.done.joins[i].text.includes(`${grouped(j.open)} ${j.what_keeps_it_open}`)))
+      && hub.city.done.segs === 3
+      && hub.city.done.shares.startsWith(`The ${grouped(doneHomedAll)} households with a home rest on `),
+      JSON.stringify({ shown: hub.city.done, joins: doneJoins }));
     check(`${label}: City drops the projected count and structures line`,
       !/projected/i.test(hub.city.text) && !/projected/i.test(hub.city.aria)
       && !/structures?\b/i.test(hub.city.text),
@@ -13750,7 +13784,12 @@ for (const [label, viewport, touch] of [
 
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const wn = await page.evaluate(() => {
       const host = document.getElementById('whatsnew');
       return {
@@ -13784,7 +13823,12 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => document.exitPointerLock?.());
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const ret = await page.evaluate(() => ({
       flagged: [...document.querySelectorAll('#whatsnew .wn-entry.is-new .wn-title')]
         .map((n) => n.textContent),

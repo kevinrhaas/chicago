@@ -381,6 +381,16 @@ step "the walls' relief rule matches the substrate and finish the generators bui
 selftest "…and a coat read as bare, a vertical board bound as clapboard or a finish_key outranking a coating still fails it" \
   python3 tools/check_wall_relief.py --self-test
 
+# T-1973. The relief maps the walls, roofs, street edge and signboards bind ship as
+# lossless WebP beside their PNG masters — boot bytes every visitor downloads, a third
+# smaller on the wire. "Lossless" is a claim about pixels, so the gate reads them back:
+# every derivative decodes to exactly its master, and none is an orphan.
+step "the WebP maps the renderer binds decode pixel-identical to their PNG masters (T-1973)" \
+  python3 tools/web_textures.py --check
+
+selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
+  python3 tools/web_textures.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and
@@ -6067,7 +6077,11 @@ selftest "…and its own assertions still fire when broken" \
 # roof the scene does not stand, on a documented building or a roof whose record already
 # names its occupants (unless it names THIS household), a household seated twice or also
 # housed by another overlay, any present household left over, and a town more crowded
-# than the 1835 census's 8.204 people per dwelling. docs/LIBERTIES.md L354.
+# than the 1835 census's 8.204 people per dwelling. T-1972 (piece 2) seats the households
+# T-1386's rulings put in the town after them, strongest ruling first, until the census's
+# ceiling stops the line; the rest are counted apart as waiting on a roof, and the absent
+# as absent — refused: a ruled-in household neither seated nor counted apart, and a line
+# stopped while the ceiling still had room. docs/LIBERTIES.md L354.
 step "every household present on the scene date sleeps under a standing roof" \
   python3 tools/house_the_present_1835.py --check
 

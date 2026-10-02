@@ -1,10 +1,43 @@
 export const CHANGELOG = [ // newest first
-  { v: 1307, ts: '2026-10-02T16:20:30.365Z', date: 'Oct 2, 2026, 11:20 AM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+  { v: null, ts: '', title: 'The far treeline sits low and level and holds still', kind: 'fix',
     items: [
       'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
       'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
       'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
       'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
+    ] },
+  { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
+    items: [
+      'Open Evidence, then City: a third panel now shows how close the town is to complete, as four checks. Every household has a home; every working person has a workplace; every business has a roof or a stated reason it has none; every standing roof has somebody in it or a use.',
+      'One check is closed today: every business. The other three show what is still owed. 523 households are waiting on a roof, 308 working people have no workplace yet, and 24 roofs stand empty.',
+      'A bar under the checks shows how much of the town rests on each kind of evidence. Of the 1,508 households with a home, 18 % are attested, 38 % inferred and 43 % reconstructed.',
+      'The full tables, by tier, for people, households, businesses, roofs and streets are in docs/RESEARCH/1835_town_completion.md, written from the same counts.',
+    ] },
+  { v: 1310, ts: '2026-10-02T15:48:39.825Z', date: 'Oct 2, 2026, 10:48 AM CT', title: 'The fort\u2019s barn, shop and wash house now say whose they were', kind: 'change',
+    items: [
+      'Open the card of a Fort Dearborn outbuilding: the big barn, the wash house, the shop, the store house, a root house or one of the two out buildings. A new line, Part of, names the fort it served. The garrison that used them is listed on the stockade\u2019s card.',
+      'The bark and drying sheds behind Miller\u2019s tannery, the ash house at Elston\u2019s soap works, and the salt house and stock shed at Newberry & Dole\u2019s plant each name the works they belong to.',
+      'Beaubien\u2019s new residence and his small trading post each name the homestead Andreas lists them in. Who slept in which house that night is still unknown, and the card does not guess.',
+      'Each link carries its own grade. The fort\u2019s barn, wash house, store house and root houses are named as the garrison\u2019s in the sources. The shop and out buildings are ours, judged from where they stand. The works sheds are reconstructions (liberty L284).',
+    ] },
+  { v: 1309, ts: '2026-10-02T15:39:39.047Z', date: 'Oct 2, 2026, 10:39 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
+    items: [
+      'Open a reconstructed house on Randolph or Washington Street and you may meet new boarders. 362 more households now have a roof. The records lose track of them before July 1835, but nothing puts them anywhere else, so the town counts them as present.',
+      'Those we know best were housed first: people a record names on the day itself, then people seen both before and after it, then the rest, most recently seen first.',
+      'We stopped where the town reached the 1835 census\u2019s eight people to a dwelling. The other 523 households wait for the houses still to be built, and each one we build makes room for more.',
+      'Twenty-nine households were not in town that day, because they had died or moved away. They are counted separately and are not given a roof. Which roof each person slept under is our reconstruction (liberty L354).',
+    ] },
+  { v: 1308, ts: '2026-10-02T15:23:58.924Z', date: 'Oct 2, 2026, 10:23 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Over the last week the town filled in: houses finished by who lives in them, privies and stables behind them, walks and yards dealt by trade. Behind the scenes we measured how much each view now draws.',
+      'The Full and Balanced detail settings now allow for that town, measured at five places on a desktop and a phone, with a little room and no more.',
+      'The Light setting, the one a slower machine or a phone starts on, was not raised. It still draws more than it should in the busiest views, and the next step trims it back.',
+    ] },
+  { v: 1307, ts: '2026-10-02T15:05:20.551Z', date: 'Oct 2, 2026, 10:05 AM CT', title: 'The town arrives sooner: 2 MB less to download', kind: 'polish',
+    items: [
+      'A first visit now downloads about 2 MB less before you can walk. Every wall, roof and signboard looks exactly as it did.',
+      'The grain on the walls, roofs and signboards now arrives in a smaller image format that keeps every pixel the same.',
+      'These release notes now load when you open this tab, so the dot that says there is something new no longer costs a megabyte.',
     ] },
   { v: 1306, ts: '2026-10-02T14:47:42.799Z', date: 'Oct 2, 2026, 9:47 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
     items: [

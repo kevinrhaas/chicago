@@ -90,6 +90,11 @@
     "confidence": "reconstructed",
     "note": "The closed vocabulary has no `ash house`; `small_utility_building` is family A5's own term and the nearest it carries. The specific use is in the record's NAME and in this note. The use comes from the trade. A soap and candle manufactory runs on tallow and on lye, and lye is leached from wood ash; the works' own footprint note has the leach inside the main shed and says nothing about where the ash was kept. Nothing states that this building existed. No occupant is claimed."
   },
+  "part_of": {
+    "value": "elston_soap_candle_manufactory",
+    "confidence": "reconstructed",
+    "note": "This building was raised as the ash store of Daniel Elston & Co.'s works — the yard behind the manufactory, across a cart yard from it — and has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284). The firm is seated on the manufactory and is not repeated here."
+  },
   "stands_on_lot": {
     "claims_lot": false,
     "grid": "north_division_tier",

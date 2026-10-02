@@ -160,6 +160,12 @@ if [ -d assets/web/versions ]; then
   cp -a assets/web/versions "$SITE/data/gltf/versions"
 fi
 
+# EVERY MAP BELOW SHIPS AS ITS LOSSLESS WEBP (T-1973), not its PNG master: the same
+# pixels in about a third fewer bytes, held pixel-identical to the master by
+# `tools/web_textures.py --check` in the gate. These are boot bytes — every visitor
+# downloads them before standing in the street (docs/SITE-BUDGET.md § 4). The ground
+# strip's two basecolors further down stay PNG: they load only under ?proof=ground.
+#
 # The two roof coverings' relief maps (T-1488). `renderers/web/js/roof-relief.js`
 # resolves them against the ASSET base — ../../assets/ in the dev tree, ../data/
 # in the published one — so they land here under data/textures/ and the same
@@ -176,8 +182,8 @@ for covering in wood_shingles_weathered roof_boards_weathered; do
   dst="$SITE/data/textures/chicago_1835_pbr/roofs/$covering"
   mkdir -p "$dst"
   cp -f "$src/material.json" \
-        "$src/${covering}_normal_gl.png" \
-        "$src/${covering}_orm.png" \
+        "$src/${covering}_normal_gl.webp" \
+        "$src/${covering}_orm.webp" \
         "$dst/"
 done
 
@@ -197,9 +203,9 @@ for face in clapboard_board_face hewn_log_face; do
   dst="$SITE/data/textures/chicago_1835_pbr/walls/$face"
   mkdir -p "$dst"
   cp -f "$src/material.json" \
-        "$src/${face}_normal_gl.png" \
-        "$src/${face}_orm.png" \
-        "$src/${face}_basecolor.png" \
+        "$src/${face}_normal_gl.webp" \
+        "$src/${face}_orm.webp" \
+        "$src/${face}_basecolor.webp" \
         "$dst/"
 done
 
@@ -231,8 +237,8 @@ for sheet in props/signboard_weathered timber/heavy_timber_weathered; do
   dst="$SITE/data/textures/chicago_1835_pbr/$sheet"
   mkdir -p "$dst"
   cp -f "$src/material.json" \
-        "$src/${name}_basecolor.png" \
-        "$src/${name}_normal_gl.png" \
+        "$src/${name}_basecolor.webp" \
+        "$src/${name}_normal_gl.webp" \
         "$dst/"
 done
 
@@ -252,6 +258,11 @@ cp -f data/liberties.json "$SITE/data/"
 # while the dev tree counts the town perfectly — the scenes/, fauna/ and
 # residents/ failure, a fourth time.
 cp -f data/town_census.json "$SITE/data/"
+# The town's completion audit (T-1964), which the same Evidence -> City card reads
+# for its completion row — the four joins and the tiers' shares (T-1967). Derived and
+# re-derived by tools/audit_town_completion_1835.py; fetched, so mirrored.
+mkdir -p "$SITE/data/render"
+cp -f data/render/town_completion_1835.json "$SITE/data/render/"
 
 # The derived town-ordinance limits the building card reads (T-0334). Derived by
 # tools/derive_hay_limits.py and re-derived by tools/check.sh; renderers/web/js/
@@ -486,13 +497,35 @@ BUILD_CT=$(TZ=America/Chicago date +"%b %-d, %Y, %-I:%M %p CT")
 # request is a stamp that 404s in the dev tree and disappears exactly when the
 # build is broken enough to matter; this one renders with no JS at all.
 STAMP="build $BUILD_VERSION · $BUILD_CT"
+# …and the release numbers the What's-new dot counts against (T-1973). The dot asks
+# one question at boot — how many releases are newer than the one you last read — and
+# answering it by importing js/changelog.js cost every first visit 1.03 MB on the wire,
+# 7 % of the boot payload, for a number. The numbers go into the page as ranges
+# ("1-1303"); whatsnew.js imports the changelog itself only when the tab is opened.
+# Read from the file this same publish mirrors, so the page and the feed cannot
+# disagree about which releases exist.
 if [ -f "$SITE/walk/index.html" ]; then
-  python3 - "$SITE/walk/index.html" "$STAMP" <<'PYEOF'
-import sys, pathlib
+  python3 - "$SITE/walk/index.html" "$STAMP" renderers/web/js/changelog.js <<'PYEOF'
+import re, sys, pathlib
 p, stamp = pathlib.Path(sys.argv[1]), sys.argv[2]
+log = pathlib.Path(sys.argv[3]).read_text()
 s = p.read_text()
 s = s.replace('<p class="gate-build" id="gate-build" hidden><!--BUILD_STAMP--></p>',
               '<p class="gate-build" id="gate-build">' + stamp + '</p>')
+entries = re.findall(r'^\s*\{\s*v:\s*(\d+|null)\s*,', log, re.M)
+vs = sorted({int(v) for v in entries if v != 'null'})
+runs = []
+for v in vs:
+    if runs and v == runs[-1][1] + 1:
+        runs[-1][1] = v
+    else:
+        runs.append([v, v])
+releases = ','.join(f'{a}-{b}' if a != b else f'{a}' for a, b in runs)
+meta = '<meta name="c4d-releases" content="">'
+if meta not in s or not vs:
+    sys.exit(f'publish: cannot write the release numbers ({len(entries)} entries read, '
+             f'placeholder {"present" if meta in s else "missing"})')
+s = s.replace(meta, f'<meta name="c4d-releases" content="{releases}">')
 p.write_text(s)
 PYEOF
 fi

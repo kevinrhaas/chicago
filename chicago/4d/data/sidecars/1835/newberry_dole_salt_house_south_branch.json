@@ -91,6 +91,12 @@
       "value": "woodshed_or_storage_shed",
       "confidence": "reconstructed",
       "note": "The closed vocabulary `data/structures.schema.json` carries has no `salt house` in it, and this record takes the nearest term it does carry rather than widening a shared enumeration for one building: `woodshed_or_storage_shed` is family A4's own name and a salt house is a store. The specific use is in the record's NAME and in this note. The use comes from the plant: meat packed in barrels is packed in brine, and the salt for a season that took 300 cattle and 1,400 hogs is a quantity a works keeps under a roof of its own. Nothing states that this plant had a salt house. No occupant is claimed."
+    },
+    "part_of": {
+      "value": "The packing and barrelling house at Newberry & Dole's South Branch plant",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "This building was raised as the salt store of Newberry & Dole's South Branch plant, across a cart yard from the packing house, because brine-packed meat needs salt kept under a roof; it has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284, the works rule of T-1709). The firm is placed on the packing house and is not repeated here."
     }
   },
   "residents": [],

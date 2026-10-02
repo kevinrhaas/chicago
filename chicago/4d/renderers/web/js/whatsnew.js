@@ -11,9 +11,63 @@
  * resolves identically in the dev tree and in the published build — a fetch
  * would need a different base in each, which is exactly the class of bug that
  * ships green and 404s live.
+ *
+ * The import is DYNAMIC, and made only when the tab is opened (T-1973). The
+ * changelog is a megabyte on the wire and every first visit paid it at boot to
+ * answer one question — how many releases are newer than the last one read —
+ * for the unread dot. The published page now carries the answer's inputs:
+ * tools/publish.sh writes the release numbers into
+ * `<meta name="c4d-releases" content="1-1303">`, read from the same file this
+ * module imports. Where the meta is empty (the dev tree, unpublished) the count
+ * falls back to importing the changelog, so both trees show the same dot.
  */
 
-import { CHANGELOG, LATEST_VERSION } from './changelog.js';
+let changelogPromise = null;
+/** The changelog module, imported once, on first need. */
+function loadChangelog() {
+  if (!changelogPromise) {
+    changelogPromise = import('./changelog.js').catch((err) => {
+      changelogPromise = null;
+      throw err;
+    });
+  }
+  return changelogPromise;
+}
+
+/**
+ * The release numbers publish.sh wrote into the page, as [from, to] runs, or
+ * null where there are none to read (the dev tree, or a meta that fails to parse).
+ */
+function publishedReleases() {
+  const raw = document.querySelector('meta[name="c4d-releases"]')?.content?.trim();
+  if (!raw) return null;
+  const runs = [];
+  for (const part of raw.split(',')) {
+    const m = /^(\d+)(?:-(\d+))?$/.exec(part.trim());
+    if (!m) return null;
+    const a = Number(m[1]);
+    const b = m[2] ? Number(m[2]) : a;
+    if (!(b >= a)) return null;
+    runs.push([a, b]);
+  }
+  return runs.length ? runs : null;
+}
+
+/** What the dot needs: the newest release and how many are newer than `seen`. */
+async function releaseSummary(seen) {
+  const runs = publishedReleases();
+  if (runs) {
+    let unseen = 0;
+    let latest = 0;
+    for (const [a, b] of runs) {
+      latest = Math.max(latest, b);
+      unseen += Math.max(0, b - Math.max(a, seen + 1) + 1);
+    }
+    return { latest, unseen };
+  }
+  const { CHANGELOG, LATEST_VERSION } = await loadChangelog();
+  return { latest: LATEST_VERSION, unseen: CHANGELOG.filter((e) => e.v > seen).length };
+}
 
 const SEEN_KEY = 'chicago4d.whatsnew.seen';
 
@@ -30,20 +84,19 @@ function writeSeen(v) {
   try { window.localStorage.setItem(SEEN_KEY, String(v)); } catch { /* private mode */ }
 }
 
-/** Entries the visitor has not been shown yet. */
-export function unseenCount(seen = readSeen()) {
-  return CHANGELOG.filter((e) => e.v > seen).length;
+/** How many releases the visitor has not been shown yet (a promise). */
+export async function unseenCount(seen = readSeen()) {
+  return (await releaseSummary(seen)).unseen;
 }
-
-export { LATEST_VERSION };
 
 /**
  * Paint the feed into `host`. Marks entries newer than the visitor's last visit
  * so "what changed since I was last here" is answerable at a glance — which is
  * the only question this panel is really for.
  */
-export function renderWhatsNew(host) {
+export async function renderWhatsNew(host) {
   if (!host) return;
+  const { CHANGELOG } = await loadChangelog();
   const seen = readSeen();
   // A first-time visitor has no "last time", so flagging every entry as new
   // marks the whole list and distinguishes nothing. The chip dot still points
@@ -99,6 +152,7 @@ export function renderWhatsNew(host) {
 }
 
 /** Called when the tab has actually been looked at, never merely rendered. */
-export function markSeen() {
-  writeSeen(LATEST_VERSION);
+export async function markSeen() {
+  const { latest } = await releaseSummary(readSeen());
+  if (latest) writeSeen(latest);
 }
