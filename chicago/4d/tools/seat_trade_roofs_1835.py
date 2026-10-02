@@ -57,8 +57,11 @@ and the reason in words, and the building card says why nobody is seated there (
 the surface T-1985 built). Where keepers of its trade ARE in the division but the employment
 ledger tells each no house is owed because their census class's printed count is already held
 (`the_printed_count_is_held`, T-1996 — 65 stores held against the 44 the State census of
-December 1835 printed), the roof says that instead, with the count: seating one of them would be
-one establishment more than the census printed, so they are counted on the card and not seated.
+December 1835 printed; `the_mechanics_shops_are_over_their_count`, T-2000 — 45 mechanics' shops
+held against the Chicago American's twenty-five), the roof says that instead, with the count:
+seating one of them would be one shop more than the count, so they are counted on the card and
+not seated. With no seat committed, the self-test re-owes one held keeper in a copy of the inputs
+so that every seat guard still fires on a real seat.
 That is a measurement of who the town holds, not a stated use: the
 roof's verdict stays `keep`, and the first keeper of its trade the layer gains takes it on
 the next build with no edit here.
@@ -117,11 +120,21 @@ MATCH = {
                         "premises rulings' signage for the four trades it names"},
 }
 OWED_REASON = "keeps_their_own_house"
-# T-1996: a keeper whose census class's printed count the town already holds is told no
-# house is owed — one more shop of that class would be more than the census printed. Such a
-# keeper is NOT offered a roof here (it would be that one more), but a roof left empty for
-# want of them says so, rather than reading as though the town had nobody of its trade.
-HELD_REASON = "the_printed_count_is_held"
+# A keeper whose trade's shops the town already holds to their count is told no house is
+# owed — T-1996 where the December 1835 census printed the class's count, T-2000 where the
+# only count is the Chicago American's "twenty-five mechanics' shops of all kinds". Such a
+# keeper is NOT offered a roof here (it would be one shop more than the count), but a roof left
+# empty for want of them says so, rather than reading as though the town had nobody of its
+# trade. Each reason names the ticket that ruled it and how to read its count out of the
+# ledger's own `decided_by`, so the card quotes the figure and never retypes it.
+HELD_REASONS = {
+    "the_printed_count_is_held": {
+        "ticket": "T-1996", "count": lambda d: d.split("1835_reconstruction_order_book.json#")[-1],
+        "words": "their census class's printed count is already held"},
+    "the_mechanics_shops_are_over_their_count": {
+        "ticket": "T-2000", "count": lambda d: d.split("(no printed count); ")[-1],
+        "words": "the town already holds more mechanics' shops than the one count of them"},
+}
 RESIDENT_FOLDERS = ("households", "reconstructed_trades", "lodgers", "underdocumented",
                     "readmitted", "institutional")
 
@@ -208,12 +221,12 @@ def metres(a: tuple, b: tuple) -> float | None:
     return round(math.dist(a, b), 1)
 
 
-def keepers(inputs: dict, reason: str = OWED_REASON) -> list[dict]:
+def keepers(inputs: dict, reasons=(OWED_REASON,)) -> list[dict]:
     """Every person the employment ledger owes a house of their own and no card roofs (or,
-    with `reason=HELD_REASON`, every one it told no house is owed because the count is held)."""
+    with `reasons=HELD_REASONS`, every one it told no house is owed because the count is held)."""
     out = []
     for row in inputs["employment"]:
-        if row.get("reason") != reason or row.get("houses"):
+        if row.get("reason") not in reasons or row.get("houses"):
             continue
         entry = inputs["cards"].get(row["household_id"])
         if not entry or value_of(entry["card"].get("works_at")):
@@ -224,13 +237,13 @@ def keepers(inputs: dict, reason: str = OWED_REASON) -> list[dict]:
                     "household": row["household_id"], "file": entry["file"],
                     "division": entry["card"].get("division"), "trade": row.get("trade"),
                     "grade": person.get("grade", "reconstructed"),
-                    "decided_by": row.get("decided_by", "")})
+                    "reason": row.get("reason"), "decided_by": row.get("decided_by", "")})
     return out
 
 
 def deal(inputs: dict) -> dict:
     roofs, pool = inputs["roofs"], keepers(inputs)
-    held_pool = keepers(inputs, HELD_REASON)
+    held_pool = keepers(inputs, HELD_REASONS)
     taken, seats, unseatable = set(), [], []
     for sid in SCOPE:
         roof = roofs[sid]
@@ -271,14 +284,15 @@ def deal(inputs: dict) -> dict:
                 f"employment ledger owes a house of their own whose card names no workplace, in "
                 f"its own division, of a trade its family serves ({MATCH[family]['read_from']}), "
                 f"and there are {len(candidates)}.")
-        if held:
-            counts = sorted({k["decided_by"].split("1835_reconstruction_order_book.json#")[-1]
-                             .split(", so none")[0] for k in held})
-            note += (f" {len(held)} more keeper(s) of a trade it serves live in the {division} "
-                     f"division with no workplace, and each is told no house is owed (T-1996): "
-                     f"their census class's printed count is already held "
-                     f"({'; '.join(counts)}). Seating one here would make it one establishment "
-                     f"more than the census printed, so none is.")
+        for reason, rule in HELD_REASONS.items():
+            group = [k for k in held if k["reason"] == reason]
+            if not group:
+                continue
+            counts = sorted({rule["count"](k["decided_by"]).split(", so none")[0] for k in group})
+            note += (f" {len(group)} more keeper(s) of a trade it serves live in the {division} "
+                     f"division with no workplace, and each is told no house is owed "
+                     f"({rule['ticket']}): {rule['words']} ({'; '.join(counts)}). Seating one "
+                     f"here would make it one shop more than that count, so none is.")
         if adoption:
             entry = inputs["cards"].get(adoption["id"]) or {}
             works = value_of((entry.get("card") or {}).get("works_at"))
@@ -294,7 +308,7 @@ def deal(inputs: dict) -> dict:
                            "keepers_offered": len(candidates),
                            "keepers_held_by_the_count": len(held),
                            "adopted_by": (adoption or {}).get("id"),
-                           "value": HELD_REASON if held else "no_keeper_of_its_trade",
+                           "value": held[0]["reason"] if held else "no_keeper_of_its_trade",
                            "note": note})
     return {
         "$schema_note": ("DERIVED — regenerate with tools/seat_trade_roofs_1835.py --build; "
@@ -360,10 +374,10 @@ def problems(doc: dict, inputs: dict) -> list[str]:
         if not u.get("note") or not u.get("value"):
             out.append(f"{u['structure_id']} is unseatable and says no reason")
         roof = roofs.get(u["structure_id"]) or {}
-        held = sum(1 for k in keepers(inputs, HELD_REASON) if k["division"] == roof.get("district")
+        held = sum(1 for k in keepers(inputs, HELD_REASONS) if k["division"] == roof.get("district")
                    and serves(roof.get("family"), k["trade"], inputs["premises"]))
         if u.get("keepers_held_by_the_count", 0) != held or \
-                (u.get("value") == HELD_REASON) != bool(held):
+                (u.get("value") in HELD_REASONS) != bool(held):
             out.append(f"{u['structure_id']} misstates the {held} keeper(s) of its trade the "
                        "printed count holds")
     return out
@@ -380,16 +394,33 @@ def report(doc: dict) -> str:
     for u in doc["unseatable"]:
         lines.append(f"  {u['structure_id']}  {u['family']}  nobody: "
                      f"{u['keepers_offered']} keepers of its trade in the {u['division']}"
-                     + (f", {u['keepers_held_by_the_count']} more held by the printed count"
+                     + (f", {u['keepers_held_by_the_count']} more held by their count"
                         if u.get("keepers_held_by_the_count") else ""))
     return "\n".join(lines)
 
 
-def self_test(inputs: dict) -> int:
+def with_one_owed(inputs: dict) -> dict:
+    """A copy of the inputs in which one held keeper who would serve a roof in scope is owed
+    again — so the seat guards are fired on a real seat even when the committed deal has none."""
+    probe = copy.deepcopy(inputs)
+    for k in keepers(probe, HELD_REASONS):
+        if any(probe["roofs"][sid]["district"] == k["division"]
+               and serves(probe["roofs"][sid]["family"], k["trade"], probe["premises"])
+               for sid in SCOPE):
+            row = next(r for r in probe["employment"] if r["person_id"] == k["person_id"])
+            row["reason"] = OWED_REASON
+            return probe
+    raise SystemExit("self-test: no keeper anywhere could take a roof in scope")
+
+
+def self_test(committed: dict) -> int:
     failures = []
+    if problems(deal(committed), committed):
+        failures.append("the committed deal is not clean to begin with")
+    inputs = committed if deal(committed)["seats"] else with_one_owed(committed)
     base = deal(inputs)
     if problems(base, inputs):
-        failures.append("the committed deal is not clean to begin with")
+        failures.append("the probe deal is not clean to begin with")
 
     def expect(label, mutate):
         doc = copy.deepcopy(base)
@@ -397,7 +428,10 @@ def self_test(inputs: dict) -> int:
         if not problems(doc, inputs):
             failures.append(label)
 
-    other = next(k for k in keepers(inputs) if k["trade"] == "milliner")
+    seat = base["seats"][0]
+    family = inputs["roofs"][seat["structure_id"]]["family"]
+    other = next(k for k in keepers(inputs) if k["division"] == seat["division"]
+                 and not serves(family, k["trade"], inputs["premises"]))
     expect("a roof outside the deal's scope",
            lambda d: d["seats"][0].update(structure_id="recon_1835_west_001"))
     expect("a roof left unanswered", lambda d: d["seats"].pop())
@@ -412,7 +446,7 @@ def self_test(inputs: dict) -> int:
     expect("an unseatable roof that gives no reason",
            lambda d: d["unseatable"][0].update(note=""))
     expect("an unseatable roof that hides the keepers the printed count holds",
-           lambda d: next(u for u in d["unseatable"] if u["value"] == HELD_REASON).update(
+           lambda d: next(u for u in d["unseatable"] if u["value"] in HELD_REASONS).update(
                value="no_keeper_of_its_trade", keepers_held_by_the_count=0))
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))

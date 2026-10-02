@@ -26,7 +26,7 @@
       "absent_on_the_scene_date": 29,
       "waiting_on_a_roof": 514
     },
-    "working_age_persons_owed_a_workplace": 105,
+    "working_age_persons_owed_a_workplace": 48,
     "businesses_neither_roofed_nor_stated": 0,
     "structures_empty_owing_somebody": 0,
     "dangling_ids": 0,
@@ -82,12 +82,12 @@
     "stated_no_fixed_premises": {
       "attested": 20,
       "inferred": 0,
-      "reconstructed": 247
+      "reconstructed": 304
     },
     "owed": {
       "attested": 2,
       "inferred": 0,
-      "reconstructed": 103
+      "reconstructed": 46
     },
     "no_trade_recorded": {
       "attested": 232,
@@ -95,7 +95,8 @@
       "reconstructed": 213
     },
     "owed_by_reason": {
-      "keeps_their_own_house": 105
+      "held_on_an_identity_question": 1,
+      "keeps_their_own_house": 47
     }
   },
   "roofed": {
@@ -117,7 +118,7 @@
     "occupied": {
       "attested": 50,
       "inferred": 9,
-      "reconstructed": 253
+      "reconstructed": 252
     },
     "occupants_in_prose_only": {
       "attested": 9,
@@ -134,6 +135,7 @@
       "part_of_an_establishment": 15,
       "stated_use_of_an_anonymous_roof": 13,
       "storage_operator_unrecorded": 6,
+      "the_mechanics_shops_are_over_their_count": 1,
       "the_printed_count_is_held": 2,
       "vacant_to_let": 1
     },
@@ -206,7 +208,7 @@
       "occupied": {
         "attested": 50,
         "inferred": 9,
-        "reconstructed": 253
+        "reconstructed": 252
       },
       "occupants_in_prose_only": {
         "attested": 9,
@@ -216,7 +218,7 @@
       "use_stated": {
         "attested": 26,
         "inferred": 6,
-        "reconstructed": 127
+        "reconstructed": 128
       },
       "empty_owing_somebody": {
         "attested": 0,
@@ -248,7 +250,7 @@
     {
       "join": "at_work",
       "label": "Every working person at a workplace",
-      "open": 105,
+      "open": 48,
       "what_keeps_it_open": "working people owed a workplace"
     },
     {

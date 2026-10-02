@@ -6572,6 +6572,13 @@
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
+      "bucket": "businesses/lawyer",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
       "bucket": "persons/female/20_29/north/family/trade",
       "ticket": "T-1347",
       "stage": "trade_households",
@@ -6738,13 +6745,6 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "businesses/lawyer",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
     }
   ],
   "re_family_ledger": {

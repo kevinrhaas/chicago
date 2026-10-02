@@ -19910,7 +19910,7 @@ yards), **T-0067** (enclosure ground treatments), **T-0124** (the sward gives wa
 ground), **T-1984** (this entry).
 **Recorded:** 2026-10-02.
 
-### L360 — The empty trade roofs kept: a keeper owed a house of their own put in the nearest empty shop, store or warehouse of their trade
+### L360 — The empty trade roofs offered to the keepers owed a house of their trade, and why none is kept
 
 **Applies to:** `data/reconstruction/1835_trade_roof_seats.json` (written by
 `tools/seat_trade_roofs_1835.py`), the `residents[]` row `tools/compile_scene.py`
@@ -19927,22 +19927,23 @@ division, of a trade the roof's family serves: carpenters and joiners for the W2
 crosswalk's label), the forwarding store for the F2 and the store and grocery signage for
 the C3 (the premises rulings), the tannery, packing, slaughter and soap-and-candle signage
 for the W5 (the only placement clause that admits it). The keeper whose own roof stands
-nearest takes it, ties by seeded hash. One is kept: Otis Bacon, carpenter, the nearest of
-three West Division keepers of his trade, 38 m from his own roof. **No source places this
-keeper at this roof**: the keeper is the residents layer's, reconstructed, with his own grade
-on his own card, which the seat does not touch; what is invented is which keeper meets which
-roof.
+nearest takes it, ties by seeded hash. **No source places any keeper at any of these roofs**:
+the keepers are the residents layer's, reconstructed, with their own grades on their own cards,
+which a seat does not touch; what a seat would invent is which keeper meets which roof.
 
-**The F2 and the C3 stay empty, and say why.** When this deal was first drawn they went to
-Louis Bertrand (forwarding and commission) and Silas Bacon (grocer). T-1996 then told every
-reconstructed keeper of a census class whose printed count the town already holds that no
-house is owed (`the_printed_count_is_held`): the State census of December 1835 prints 44
-stores and the town holds 65; it prints 4 storage-and-forwarding houses and the town holds
-7. A keeper seated in either roof would be one establishment more than the census printed,
-so the deal offers neither roof to them, and each card counts them instead
-(`stated_use` = `the_printed_count_is_held`: 1 forwarder in the West Division, 18 storekeepers
-and grocers in the South). The first keeper of either trade the town owes a house takes the
-roof on the next build.
+**On 1 July 1835 as now derived, none is kept, and the W2, F2 and C3 say why.** When this
+deal was first drawn three were kept: Otis Bacon (carpenter) at the W2, Louis Bertrand
+(forwarding and commission) at the F2 and Silas Bacon (grocer) at the C3. Two rulings that
+landed while it was in review then told those keepers no house is owed, because their trade's
+shops are already held to their count: T-1996 (`the_printed_count_is_held`) where the State
+census of December 1835 prints the class — 44 stores against 65 held, 4 storage-and-forwarding
+houses against 7 — and T-2000 (`the_mechanics_shops_are_over_their_count`) where the only count
+is the Chicago American's "twenty-five mechanics' shops of all kinds" against 45 the register
+prints trading. A keeper seated in any of the three roofs would be one shop more than that
+count, so the deal offers none of them to such keepers, and each card counts them instead
+(`stated_use`: 3 carpenters and joiners in the West Division at the W2, 1 forwarder in the West
+at the F2, 18 storekeepers and grocers in the South at the C3). The first keeper of its trade
+the town owes a house takes the roof on the next build, with no edit to the deal.
 
 **The W5 stays empty too:** no keeper of a heavy trade is left without a house in the
 North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The
@@ -19950,14 +19951,13 @@ off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery hous
 own card puts its works at the documented tannery 847 m away at the forks; seating them here
 would give one firm a second works no source records, and the deal declines it in words.
 
-**Not done, and why:** the employment ledger still reads the seated keeper as owed a house
-until T-1982 joins this deal into it, so the town audit's at-work count does not fall here;
-its empty-roof count does.
+**Not done, and why:** with no keeper seated, the town audit's at-work count does not move
+here; a seat the deal makes later is joined into the employment ledger by T-1982.
 
 **How to resolve:** a source naming the shop, store or counting-room of any keeper here
 replaces the seat; a keeper of a heavy trade added to the North Division takes the W5 on the
 next build with no edit to the deal.
 
 **Related:** **L271** (the off-plat deal), **L310** (stated uses), **L354** (the housing
-deal), **T-1461**, **T-1982**, **T-1985**, **T-1986**, **T-1989**, **T-1996**.
+deal), **T-1461**, **T-1982**, **T-1985**, **T-1986**, **T-1989**, **T-1996**, **T-2000**.
 **Recorded:** 2026-10-02.

@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1326, ts: '2026-10-02T22:00:23.506Z', date: 'Oct 2, 2026, 5:00 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
+  { v: 1327, ts: '2026-10-02T22:41:25.512Z', date: 'Oct 2, 2026, 5:41 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
     items: [
-      'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter with nowhere to work, now works there. He is a reconstructed person, and which shop he kept is our reconstruction (liberty L360).',
-      'The narrow warehouse at the forks and the two-storey store on Lake stay empty, and their cards now say why. The December 1835 census counts 44 stores and 4 forwarding houses, and the town already holds more of both, so seating a grocer or forwarder there would be one too many.',
+      'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five moves in, and nine more households that were waiting now have a roof.',
+      'The joiner\u2019s shop on Randolph at Des Plaines, the narrow warehouse at the forks and the two-storey store on Lake stay empty, and their cards now say why. The town already has more mechanics\u2019 shops, stores and forwarding houses than were counted in 1835, so a carpenter, grocer or forwarder there would be one too many.',
       'The big riverside work shop on Wolcott stays empty too, and its card says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
-      'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five lives there, and nine more households that were waiting now have a roof.',
+    ] },
+  { v: 1326, ts: '2026-10-02T21:59:53.325Z', date: 'Oct 2, 2026, 4:59 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer owed a shop', kind: 'change',
+    items: [
+      'Open Otis Bacon\u2019s card, a carpenter, and look under Were they at work? It used to say the town owed him a shop of his own. It now says no shop is owed. The Chicago American counted twenty-five mechanics\u2019 shops in the town in August 1835, and the shops printed in the newspapers of the day already come to 45.',
+      'The same goes for 19 more carpenters, 12 milliners, 9 builders, 4 smiths and 12 other tradespeople. Most mechanics worked as hands in somebody else\u2019s shop, and carpenters and masons worked wherever a wall was going up. Which shop or which building is not recorded, so the card does not name one.',
+      'E. H. Mulford, the watchmaker, now says why he has no shop. He may be the same man as J. H. Mulford, the jeweller, and that question is still open. Giving him a shop of his own would answer it without evidence.',
+      'All 57 are our reconstruction, and so are these answers. On the City card, working people owed a workplace drop from 105 to 48.',
     ] },
   { v: 1325, ts: '2026-10-02T21:20:57.849Z', date: 'Oct 2, 2026, 4:20 PM CT', title: '37 shopkeepers and lawyers no longer read as owed a shop', kind: 'fix',
     items: [
