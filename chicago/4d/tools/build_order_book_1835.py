@@ -2233,10 +2233,17 @@ def programme_deltas(model: dict, inventory: dict, programme: dict,
          "programme_groups": ["inns_taverns"],
          "restates_the_programme": restates_the_programme(
              inns, int(inns["high"]), inns_programme),
-         "statement": f"The model reads {inns['low']}-{inns['high']} inns and taverns; the "
-                      f"programme schedules {inns_programme}. This one is a real disagreement: "
-                      "the model's ceiling is the business layer's count at the scene date, "
-                      "not a figure read back off the programme."},
+         "statement": (f"NOT A CHECK: the model reads {inns['low']}-{inns['high']} inns and "
+                       f"taverns and the programme schedules {inns_programme}. The model's "
+                       "ceiling is the highest of the programme, the census and the business "
+                       "layer's count at the scene date, and while the layer's count stands "
+                       "at or below the programme's the ceiling IS the programme's figure, so "
+                       "this row cannot disagree until the layer passes it again (T-1808)."
+                       if restates_the_programme(inns, int(inns["high"]), inns_programme) else
+                       f"The model reads {inns['low']}-{inns['high']} inns and taverns; the "
+                       f"programme schedules {inns_programme}. This one is a real disagreement: "
+                       "the model's ceiling is the business layer's count at the scene date, "
+                       "not a figure read back off the programme.")},
         {"id": "institutional_and_public", "owning_ticket": "T-1196",
          "model": int(institutional["high"]), "programme": institutional_programme,
          "delta": int(institutional["high"]) - institutional_programme,
@@ -4216,10 +4223,18 @@ def cmd_self_test() -> int:
     # now folds them, so fifteen records read as eleven houses. The flag below is
     # unchanged and is the point of the assertion: a smaller real disagreement is still a
     # real disagreement, and it must not start reading as the matrix agreeing with itself.
+    #
+    # AND SINCE T-1808 (2026-10-02) THE INNS ROW IS A RESTATEMENT AGAIN, by the same flag.
+    # Mark Beaubien's and Alanson Sweet's in-window tavern firms are answered by the two
+    # Washington-tier houses the placement pass seats them on, which are reconstructed
+    # roof firms the trade census does not count, so the layer reads nine at the scene date
+    # against the programme's ten and the ceiling falls back onto the programme's figure.
+    # The flag follows the numbers; what is held here is that it does, in both directions.
+    inns_row = deltas["inns_and_taverns"]
     assert inst["restates_the_programme"] is True, inst
     assert deltas["boarding_houses"]["restates_the_programme"] is True, deltas["boarding_houses"]
-    assert deltas["inns_and_taverns"]["restates_the_programme"] is False, deltas["inns_and_taverns"]
-    assert deltas["inns_and_taverns"]["delta"] == 1, deltas["inns_and_taverns"]
+    assert inns_row["restates_the_programme"] is (inns_row["delta"] == 0), inns_row
+    assert inns_row["delta"] >= 0, inns_row
     for d in doc["programme_deltas"]:
         assert d["statement"].startswith("NOT A CHECK:") == d["restates_the_programme"], d
     p_sum, h_sum = doc["bucket_families"][0]["summary"], doc["bucket_families"][1]["summary"]

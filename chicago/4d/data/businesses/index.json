@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 278,
+    "records": 276,
     "compiled_from_register": 196,
-    "authored": 82,
-    "present_at_scene_date": 261,
+    "authored": 80,
+    "present_at_scene_date": 259,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,7 +16,7 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 126,
+      "other": 124,
       "physician": 8,
       "printing_office": 3,
       "school": 7,
@@ -31,22 +31,22 @@
       "anchored": 28,
       "premises": 61,
       "street_only": 86,
-      "unplaceable": 108
+      "unplaceable": 106
     },
-    "named_people": 412,
-    "named_people_linked_to_a_town_card": 358,
+    "named_people": 410,
+    "named_people_linked_to_a_town_card": 356,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
-      "inferred": 72,
+      "inferred": 70,
       "reconstructed": 40
     },
     "by_where_kind": {
       "anchored": 28,
       "premises": 60,
       "street_only": 86,
-      "unplaceable": 104
+      "unplaceable": 102
     },
     "by_street": {
       "Canal Street": 10,
@@ -70,7 +70,7 @@
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 104,
+      "unknown": 102,
       "yankee": 75
     }
   },
@@ -150,7 +150,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 104
+        "count": 102
       }
     ]
   },
@@ -1144,52 +1144,6 @@
       "dates_tier": "inferred",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
-      "review_required": false,
-      "liberties": []
-    },
-    {
-      "id": "biz_beaubien_mark_tavern_keeper",
-      "file": "biz_beaubien_mark_tavern_keeper.json",
-      "name": "Mark Beaubien, tavern keeper",
-      "register_id": null,
-      "provenance": "authored",
-      "type": [
-        "tavern"
-      ],
-      "present_at_scene_date": true,
-      "grade": "inferred",
-      "trade": "tavern keeper",
-      "occupation": "tavern_keeper",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Mark Beaubien",
-          "person_id": "beaubien_mark",
-          "role": "proprietor",
-          "tier": "inferred",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "unplaceable",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": null,
-        "street": null,
-        "tier": "inferred",
-        "from": null,
-        "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "inferred",
-      "proprietor_community": "french_canadian",
-      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": []
     },
@@ -11209,52 +11163,6 @@
       "liberties": []
     },
     {
-      "id": "biz_sweet_alanson_tavern_keeper",
-      "file": "biz_sweet_alanson_tavern_keeper.json",
-      "name": "Alanson Sweet, tavern keeper",
-      "register_id": null,
-      "provenance": "authored",
-      "type": [
-        "tavern"
-      ],
-      "present_at_scene_date": true,
-      "grade": "inferred",
-      "trade": "tavern keeper",
-      "occupation": "tavern_keeper",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Alanson Sweet",
-          "person_id": "sweet_alanson",
-          "role": "proprietor",
-          "tier": "inferred",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "unplaceable",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": null,
-        "street": null,
-        "tier": "inferred",
-        "from": null,
-        "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "inferred",
-      "proprietor_community": "southern",
-      "proprietor_community_tier": "reconstructed",
-      "review_required": false,
-      "liberties": []
-    },
-    {
       "id": "biz_taylor_anson_h_carpenter",
       "file": "biz_taylor_anson_h_carpenter.json",
       "name": "Anson H. Taylor, carpenter",
@@ -14422,6 +14330,52 @@
       "liberties": []
     },
     {
+      "id": "rcb_beaubien_boarding_house",
+      "file": "rcb_beaubien_boarding_house.json",
+      "name": "Mark Beaubien's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "tavern"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Mark Beaubien",
+          "person_id": "beaubien_mark",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_clark_h3_05",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "french_canadian",
+      "proprietor_community_tier": "inferred",
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_brady_barbers_shop",
       "file": "rcb_brady_barbers_shop.json",
       "name": "Daniel Brady, barber",
@@ -15420,52 +15374,6 @@
       "liberties": []
     },
     {
-      "id": "rcb_lynch_boarding_house",
-      "file": "rcb_lynch_boarding_house.json",
-      "name": "Cornelius Lynch's boarding house",
-      "register_id": null,
-      "provenance": "reconstructed",
-      "type": [
-        "other"
-      ],
-      "present_at_scene_date": true,
-      "grade": "reconstructed",
-      "trade": "boarding house",
-      "occupation": "boarding_house_keeper",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Cornelius Lynch",
-          "person_id": "rc_lynch_cornelius",
-          "role": "proprietor",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "premises",
-        "structure_id": "recon_1835_blk_washington_clark_h3_05",
-        "anchor": null,
-        "street_id": null,
-        "street": null,
-        "tier": "reconstructed",
-        "from": null,
-        "to": null,
-        "limit_reason": null
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "reconstructed",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
-      "review_required": false,
-      "liberties": []
-    },
-    {
       "id": "rcb_metcalf_druggist",
       "file": "rcb_metcalf_druggist.json",
       "name": "Nathaniel Metcalf, drugs, medicines and dye stuffs",
@@ -15942,52 +15850,6 @@
       "liberties": []
     },
     {
-      "id": "rcb_stebbins_boarding_house",
-      "file": "rcb_stebbins_boarding_house.json",
-      "name": "Stebbins's boarding house",
-      "register_id": null,
-      "provenance": "reconstructed",
-      "type": [
-        "other"
-      ],
-      "present_at_scene_date": true,
-      "grade": "reconstructed",
-      "trade": "boarding house",
-      "occupation": "boarding_house_keeper",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Alvah Stebbins",
-          "person_id": "rc_stebbins_alvah",
-          "role": "proprietor",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "premises",
-        "structure_id": "recon_1835_blk_washington_clark_h3_06",
-        "anchor": null,
-        "street_id": null,
-        "street": null,
-        "tier": "reconstructed",
-        "from": null,
-        "to": null,
-        "limit_reason": null
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "reconstructed",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
-      "review_required": false,
-      "liberties": []
-    },
-    {
       "id": "rcb_sullivan_millinery",
       "file": "rcb_sullivan_millinery.json",
       "name": "Mary Sullivan, millinery",
@@ -16031,6 +15893,52 @@
       "closed": null,
       "dates_tier": "reconstructed",
       "proprietor_community": "irish",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_sweet_boarding_house",
+      "file": "rcb_sweet_boarding_house.json",
+      "name": "Sweet's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "tavern"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Alanson Sweet",
+          "person_id": "sweet_alanson",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_clark_h3_06",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "southern",
       "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": []

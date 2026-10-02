@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1286, ts: '2026-10-02T04:01:12.160Z', date: 'Oct 1, 2026, 11:01 PM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+  { v: null, ts: '', date: '', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
     items: [
       'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
       'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fifteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
       'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
       'The town is still filling up. A family that had asked for this corner now has a lot further along the block. Kelsey\u2019s boarding house on the North Side stands empty tonight because no lodgers were left to send there.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L342) says how each was placed and sized.',
+    ] },
+  { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
+    items: [
+      'Walk down Dearborn to Washington Street. The two boarding houses there now hang boards reading MARK BEAUBIEN\u2019S and SWEET\u2019S, Boarding House beneath.',
+      'Tap either house. Its card names the keeper who lives there, Mark Beaubien or Alanson Sweet: two tavern keepers the town plan had already placed on these lots. Before, each house also had a keeper we made up, so two families answered for one roof.',
+      'The two made-up keepers, Cornelius Lynch and Alvah Stebbins, are gone, along with the six children drawn for them. The boarders in both houses are unchanged.',
+      'This is our reconstruction. No source puts either man in either house on 1 July 1835, and his own card still says where he was is not known (liberties L318 and L326).',
     ] },
   { v: 1285, ts: '2026-10-02T03:12:17.655Z', date: 'Oct 1, 2026, 10:12 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
     items: [

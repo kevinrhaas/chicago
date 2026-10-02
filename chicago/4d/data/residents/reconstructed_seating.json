@@ -19,10 +19,10 @@
     "data/structures/*.json"
   ],
   "counts": {
-    "people_in_scope": 529,
+    "people_in_scope": 527,
     "by_kind": {
       "class_held_no_house": 71,
-      "keeps_their_own_house": 168,
+      "keeps_their_own_house": 166,
       "no_employer_named": 162,
       "no_ruling": 5,
       "seated": 123
@@ -564,9 +564,9 @@
       }
     },
     "boarding_house_keeper": {
-      "people": 48,
+      "people": 46,
       "kinds": {
-        "keeps_their_own_house": 48
+        "keeps_their_own_house": 46
       }
     },
     "boatman": {
@@ -8834,33 +8834,6 @@
       "chosen_by": []
     },
     {
-      "person_id": "rc_lynch_cornelius",
-      "person_name": "Cornelius Lynch",
-      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
-      "kind": "keeps_their_own_house",
-      "trade": "boarding_house_keeper",
-      "premises": "own_premises",
-      "division_of_the_person": "south",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_lynch_cornelius:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "classes": [],
-      "basis": {
-        "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
-      },
-      "chosen_by": []
-    },
-    {
       "person_id": "rc_lynch_margaret",
       "person_name": "Margaret Lynch",
       "household_id": "hh_rc_walsh_owen",
@@ -13004,33 +12977,6 @@
         "kind": "rule",
         "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
         "note": "The premises ruling: a counter open to the street — PUBLIC_TRADES `store` of the signage rule. The staffing model keeps hardware_or_stove_store at this trade and employs it in no class. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
-      },
-      "chosen_by": []
-    },
-    {
-      "person_id": "rc_stebbins_alvah",
-      "person_name": "Alvah Stebbins",
-      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
-      "kind": "keeps_their_own_house",
-      "trade": "boarding_house_keeper",
-      "premises": "own_premises",
-      "division_of_the_person": "south",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_stebbins_alvah:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "classes": [],
-      "basis": {
-        "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
       },
       "replaceable_by": {
         "kind": "business",
