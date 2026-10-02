@@ -1768,6 +1768,19 @@ selftest "…and its own assertions still fire when broken" \
 step "the gate's town census re-derives from the roofs and the residents" \
   python3 tools/town_census.py --check
 
+# How far the town is from complete (T-1964, piece 1 of T-1215): the four joins the
+# closeout names — every household housed, every working person at a workplace, every
+# business roofed or its limit stated, every standing roof occupied or its use stated —
+# counted by tier into data/render/town_completion_1835.json. The GAPS are the work the
+# rest of T-1215 owes and do not fail this step; a DANGLING id (a lives_at, a seat, a
+# workplace or a premises naming something that does not exist) does, and so does a
+# ledger a run forgot to regenerate.
+step "the town's completion audit re-derives, and no join names a missing record" \
+  python3 tools/audit_town_completion_1835.py --check
+
+selftest "…and it still refuses each kind of broken link" \
+  python3 tools/audit_town_completion_1835.py --self-test
+
 # Ground the town held in common is not building ground, and every gate this project
 # had asked whether a building CLEARED the roadway, stood inside its own lot lines and
 # missed its neighbours — never whether the ground it stood on was for sale. Two

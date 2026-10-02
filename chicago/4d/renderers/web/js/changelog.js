@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1302, ts: '2026-10-02T13:17:54.396Z', date: 'Oct 2, 2026, 8:17 AM CT', title: 'Counting what the town still owes', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind the scenes we now count how far it is from finished: who has a house, who has a place to work, which shops have a roof, and which roofs have somebody under them.',
+      'Today 143 households have a house and 1,917 do not yet. 308 working people still need a workplace, and 228 standing buildings have nobody in them yet. Every shop has a roof or a stated reason it has none.',
+      'The next steps fill those gaps, house by house.',
+    ] },
   { v: 1301, ts: '2026-10-02T12:50:19.308Z', date: 'Oct 2, 2026, 7:50 AM CT', title: 'Hay ricks, barrels, boards and hides in the working yards', kind: 'change',
     items: [
       'Walk the back lots south of Washington Street. Behind the stables there are now hay ricks. Nineteen stables across the town have one, all outside the 1835 hay limits.',
