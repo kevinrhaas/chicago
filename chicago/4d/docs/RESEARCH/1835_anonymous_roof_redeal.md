@@ -4,18 +4,18 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **394** anonymous roofs
-- keep: **393** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- audited: **399** anonymous roofs
+- keep: **398** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
 - refamily: **1** (0 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 504 stand, so the town is 164 roofs short before this audit and 164 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 509 stand, so the town is 159 roofs short before this audit and 159 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
 | bucket | target | standing | anonymous | head | after | head after |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `structures/barns_stables/south` | 35 | 26 | 19 | 9 | 26 | 9 |
+| `structures/barns_stables/south` | 35 | 28 | 21 | 7 | 28 | 7 |
 | `structures/barns_stables/west` | 20 | 14 | 11 | 6 | 14 | 6 |
 | `structures/barns_stables/north` | 17 | 10 | 9 | 7 | 10 | 7 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
@@ -26,13 +26,13 @@ The programme wants 668 roofs and 504 stand, so the town is 164 roofs short befo
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | 5 | 0 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/larger_boarding_houses/south` | 28 | 18 | 17 | 10 | 18 | 10 |
+| `structures/larger_boarding_houses/south` | 28 | 19 | 18 | 9 | 19 | 9 |
 | `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 3 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 7 | 5 | 1 | 7 | 1 |
 | `structures/ordinary_dwellings/south` | 176 | 126 | 116 | 50 | 126 | 50 |
 | `structures/ordinary_dwellings/west` | 75 | 59 | 55 | 16 | 60 | 15 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 52 | 26 | 58 | 26 |
-| `structures/small_outbuildings/south` | 48 | 36 | 35 | 12 | 36 | 12 |
+| `structures/small_outbuildings/south` | 48 | 38 | 37 | 10 | 38 | 10 |
 | `structures/small_outbuildings/west` | 14 | 6 | 6 | 8 | 5 | 9 |
 | `structures/small_outbuildings/north` | 20 | 19 | 16 | 1 | 19 | 1 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |

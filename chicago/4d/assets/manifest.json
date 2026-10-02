@@ -2530,6 +2530,24 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d4_03"
     },
+    "recon_1835_blk_washington_clark_a1_07__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 98880,
+      "inputs_sha256": "ffab29875e41facaee8d76c1eaf10294fa9d733215d14583f93ca298459d040c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a1_07"
+    },
+    "recon_1835_blk_washington_clark_a1_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 84524,
+      "inputs_sha256": "e194596c5a46175fc56a66aacc63838ffb80e97edfa93c5f3c0bf262c974b00c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a1_09"
+    },
     "recon_1835_blk_washington_clark_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -2538,6 +2556,24 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a3_03"
+    },
+    "recon_1835_blk_washington_clark_a3_08__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 28604,
+      "inputs_sha256": "2dd1ce788d206d65fd9d43193754bcc21d3940ccad248936ecfafb2a0e000eb3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a3_08"
+    },
+    "recon_1835_blk_washington_clark_a3_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 31408,
+      "inputs_sha256": "95e475bc9725503cf58abbbf42b5cd6a0a70038197248844434b3d56b5f71e17",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a3_10"
     },
     "recon_1835_blk_washington_clark_a4_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2574,6 +2610,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_05"
+    },
+    "recon_1835_blk_washington_clark_h3_06__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 38204,
+      "inputs_sha256": "133697345fe1f8c5d0baf7445456bfc3484f2af256e380dcd71e484a0acb9b69",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_h3_06"
     },
     "recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -3460,8 +3505,8 @@
     "recon_1835_north_h1_007__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 42288,
-      "inputs_sha256": "f404f1f77351f0d1d1317772e23dda6fc17287b1d098f62fab5597a72df00748",
+      "bytes": 41508,
+      "inputs_sha256": "3794ba70b94ee135335bca1fe5198a764b4757f8690f37dad077c67ec82ed806",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h1_007"
@@ -3469,8 +3514,8 @@
     "recon_1835_north_h2_022__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 29972,
-      "inputs_sha256": "2891f946971b4042247243800784a7bb81f89f571ea9edac842b9b15584c9bca",
+      "bytes": 29192,
+      "inputs_sha256": "2132a3d5f2f9b35ef030571a212af9ce6b6ae911d487376c8a51a21694510ae8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_022"
@@ -3487,8 +3532,8 @@
     "recon_1835_north_h2_030__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 26544,
-      "inputs_sha256": "199cc3f616c6c888b0b29f111cb62b3d97c166833485ae0cb3a78c16a78e70c1",
+      "bytes": 25760,
+      "inputs_sha256": "90dcaa141a7b99ac0e779ab40dbbde33ebbf21766a9cfca911648d8edb546fc2",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_030"

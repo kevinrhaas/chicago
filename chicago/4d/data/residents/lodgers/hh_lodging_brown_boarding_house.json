@@ -12,7 +12,7 @@
   "place_name": "Rufus Brown's Boarding House",
   "class": "boarding_house",
   "beds_ordinary": 5,
-  "beds_crowded": 12,
+  "beds_crowded": 11,
   "on_the_house_before_this_stage": 2,
   "seated_from_the_layer": [],
   "minted_here": 3,
@@ -39,7 +39,7 @@
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 5 people in this house on an ordinary night and 12 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 5 people in this house on an ordinary night and 11 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
   "seed": "lodgers:brown_boarding_house:lives_at",
   "replaceable_by": {
