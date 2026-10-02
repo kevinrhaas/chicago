@@ -490,10 +490,12 @@ function sampled(path) {
  *   edge follows the waterline at the refined resolution instead of
  *   interpolating across it.
  *
- * Neighbouring panels can settle on different levels; the shared row's edge
- * vertices coincide exactly (same centreline point, same trim), and any
- * T-junction gap between interior columns is bounded by DRAPE_TOL_M — the
- * coarser panel's own acceptance test ran on that very row.
+ * Neighbouring panels can settle on different levels. Rows run along the
+ * street and never meet a neighbour; COLUMNS do, because a panel's end row is
+ * its neighbour's end row. So `addRecord` hands the coarser panel the finer
+ * one's row and zips the strip beside it (T-1812, `zipStrip`) — the coarse
+ * row's vertices are a subset of the fine row's, to the bit — and a shared row
+ * is the same vertices in both panels.
  */
 function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
   const build = (levelR, levelC = levelR) => {
@@ -590,6 +592,30 @@ function refinedPanel(terrain, a, b, ue, un, half, ends, dryReach) {
     miss = residual(grid);
   }
   return grid;
+}
+
+/**
+ * T-1812. Triangulates the strip between two rows of one panel, `m` and `k`
+ * quads wide, by walking both rows in step on their column fraction. Two rows
+ * of equal width give exactly the quad pair this module always emitted —
+ * (L0, U0, L1), (L1, U0, U1) — so only a strip beside a shared row that took a
+ * finer neighbour's columns changes. Every fraction is j / 2^n, so the ties
+ * the walk breaks are exact.
+ */
+function zipStrip(idx, lower, m, upper, k) {
+  let j = 0;
+  let c = 0;
+  while (j < m || c < k) {
+    const fl = j < m ? (j + 1) / m : Infinity;
+    const fu = c < k ? (c + 1) / k : Infinity;
+    if (fl <= fu) {
+      idx.push(lower + j, upper + c, lower + j + 1);
+      j += 1;
+    } else {
+      idx.push(lower + j, upper + c, upper + c + 1);
+      c += 1;
+    }
+  }
 }
 
 function rotated(e, n, angle) {
@@ -788,6 +814,7 @@ function addRecord(buffers, record, terrain, stats) {
   // otherwise it would bridge to an edge that is not there. A rim the waterline
   // trimmed is clipped with it rather than dropped (T-1811, below).
   const panelDrawn = pts.map(() => false);
+  const panels = [];
 
   for (let i = 1; i < pts.length; i++) {
     const a = pts[i - 1];
@@ -828,34 +855,60 @@ function addRecord(buffers, record, terrain, stats) {
       || bLeft.perp + bRight.perp < MIN_PANEL_W_M) continue;
     // T-0110: a grid of (level+1)² draped vertices — one quad at level 0,
     // which is this function's historical output exactly.
-    const grid = refinedPanel(terrain, a, b, ue, un, half, {
+    const ends = {
       aLeft: [aLeft.e, aLeft.n],
       aRight: [aRight.e, aRight.n],
       bLeft: [bLeft.e, bLeft.n],
       bRight: [bRight.e, bRight.n],
-    }, groundReach);
+    };
+    const grid = refinedPanel(terrain, a, b, ue, un, half, ends, groundReach);
+    panels.push({ i, a, b, ue, un, ends, along, length, grid });
+  }
+
+  // T-1812. A SHARED END ROW IS DRAWN ONCE. Across-first refinement lets two
+  // neighbours settle on 2 and 4 columns, and the row they share was then drawn
+  // as one edge by one and two edges by the other. The middle vertex of the two
+  // is rounded to float32, so the pair is not collinear with the single edge
+  // and a hairline of ground shows between them — at a bend that hairline IS the
+  // mitre row, which is where the smoke stations the wedge question (west_water
+  // at [-13.08, -302.6], 7.7 deg). The coarser panel takes the finer one's row
+  // instead: every column fraction c / C is dyadic, so the coarse vertices sit
+  // in the fine row bit for bit, and the strip beside it is zipped (`zipStrip`).
+  // Pinning a whole street to its finest column count did the same job for
+  // +75 k triangles; this costs one per extra vertex.
+  for (let k = 1; k < panels.length; k++) {
+    const p = panels[k - 1];
+    const q = panels[k];
+    if (p.i !== q.i - 1) continue;
+    const same = (u, w) => u[0] === w[0] && u[1] === w[1];
+    if (!same(p.ends.bLeft, q.ends.aLeft) || !same(p.ends.bRight, q.ends.aRight)) continue;
+    const pRow = p.grid[p.grid.length - 1];
+    const qRow = q.grid[0];
+    if (pRow.length < qRow.length) p.grid[p.grid.length - 1] = qRow;
+    else if (qRow.length < pRow.length) q.grid[0] = pRow;
+  }
+
+  for (const { i, along, length, grid } of panels) {
     const rows = grid.length - 1;
-    const cols = grid[0].length - 1;
-    const base = buf.pos.length / 3;
+    const cols = Math.max(...grid.map((row) => row.length)) - 1;
+    const starts = [];
     for (let r = 0; r <= rows; r++) {
       // Across first, distance along second — in METRES since T-1811: the
       // wear is laid in the street's own frame and nothing repeats along it.
       const v = along + (length * r) / rows;
-      for (let c = 0; c <= cols; c++) {
+      const last = grid[r].length - 1;
+      starts.push(buf.pos.length / 3);
+      for (let c = 0; c <= last; c++) {
         const [e, n, y] = grid[r][c];
         buf.pos.push(e, y, -n);
         buf.conf.push(confidence);
         buf.track.push(trackConfidence);
         buf.road.push(...road);
-        buf.uv.push(c / cols, v);
+        buf.uv.push(c / last, v);
       }
     }
     for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        const i00 = base + r * (cols + 1) + c;
-        const i10 = i00 + cols + 1;
-        buf.idx.push(i00, i10, i00 + 1, i00 + 1, i10, i10 + 1);
-      }
+      zipStrip(buf.idx, starts[r], grid[r].length - 1, starts[r + 1], grid[r + 1].length - 1);
     }
     stats.panels += 1;
     if (rows > 1 || cols > 1) stats.refinedPanels += 1;
@@ -1076,6 +1129,13 @@ function meshOf(surface, buf, confidence, aidUniform, grit) {
     roughness: 1,
     metalness: 0,
     side: THREE.DoubleSide,
+    // T-1812. ONE PASS. three draws a transparent DoubleSide material twice —
+    // back faces, then front — so the depth sort can show a closed shape's far
+    // wall through its near one. A ribbon draped on the ground has no far wall:
+    // the second pass only ever drew the same triangles again, and the frame
+    // budget paid for the street layer twice at every stand (held 297 k, drawn
+    // 594 k on the graded section; 59 k held, 118 k drawn before it).
+    forceSinglePass: true,
     polygonOffset: true,
     // R-BUG2 fault 1. -1/-1 is a fraction of a depth unit and the terrain won
     // the test in patches beyond ~250 m. Deep enough to hold at the far end of
