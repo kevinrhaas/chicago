@@ -439,7 +439,17 @@
       "inputs_sha256": "d3d38ae30b177024bc5fdcc0ac4d23d094fa58d7c8a1a2ce9480c26c9e93946a",
       "kind": "generated",
       "phase_id": "as_built_1887",
-      "structure_id": "glessner_house"
+      "structure_id": "glessner_house",
+      "web_lods": {
+        "light": {
+          "asset": "glessner_house__as_built_1887.light.glb",
+          "master_sha256": "97c21c1682e7ea744af831fab18be14a94c5f13f900e3c46cd30b7c827fa3a56",
+          "output_sha256": "4133f7e1efcd24dadfcebd8108913f21bd58f0db02a32c2b9329c67be77913d6",
+          "recipe_sha256": "233693649e020f947b4c8efeee80a02945b305c6deb66069a99a5ad8051377ce",
+          "triangles": 197258
+        }
+      },
+      "web_master_sha256": "97c21c1682e7ea744af831fab18be14a94c5f13f900e3c46cd30b7c827fa3a56"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",
@@ -4657,7 +4667,7 @@
       "baked_ao": false,
       "bytes": 30320736,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "4c6d7ae11a7d032d352fa4f004c9144ac6be82ca39ffba53342bbc7504506a93",
+      "inputs_sha256": "74993e46846ba2bc0fcbeb57178ef713975f0e4adb2ba332b26b9fca8c9c5669",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
@@ -4673,7 +4683,7 @@
       "baked_ao": false,
       "bytes": 1970604,
       "generator": "generators/terrain_gen_graded.py",
-      "inputs_sha256": "66a30ea9564cca6bdde382e5892a14e4de577734a247f109d996c6de37578e40",
+      "inputs_sha256": "dd0c8f25cd9723a7c8e805a294826bf40495501214e2a4909b3a04a4fe5609a5",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
@@ -4743,7 +4753,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "4c6d7ae11a7d032d352fa4f004c9144ac6be82ca39ffba53342bbc7504506a93",
+      "inputs_sha256": "74993e46846ba2bc0fcbeb57178ef713975f0e4adb2ba332b26b9fca8c9c5669",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",
@@ -4753,7 +4763,7 @@
       "baked_ao": false,
       "bytes": 1372,
       "generator": "generators/terrain_gen_graded.py",
-      "inputs_sha256": "66a30ea9564cca6bdde382e5892a14e4de577734a247f109d996c6de37578e40",
+      "inputs_sha256": "dd0c8f25cd9723a7c8e805a294826bf40495501214e2a4909b3a04a4fe5609a5",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1871_postfire",
