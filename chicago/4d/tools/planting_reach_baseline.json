@@ -32,8 +32,8 @@
   },
   "ground": {
     "dry_floor_m": 0.2,
-    "nodes_above_floor": 1588264,
-    "inside_planter": 1580965,
+    "nodes_above_floor": 1587801,
+    "inside_planter": 1580502,
     "outside_planter": 7299,
     "inside_pct": 99.54,
     "outside_ha": 4.6,
@@ -46,7 +46,7 @@
       1120.0
     ],
     "east_limit_m": 825.0,
-    "reached_east_of_limit": 438442,
+    "reached_east_of_limit": 438440,
     "reached_east_of_limit_ha": 274.0
   },
   "zone_boxes": {
@@ -75,12 +75,12 @@
       "verdict": "meets-the-planter",
       "box": {
         "e": [
-          1400,
-          1700
+          900,
+          1800
         ],
         "n": [
-          -400,
-          400
+          -3900,
+          1220
         ]
       }
     },
