@@ -13574,6 +13574,13 @@ for (const [label, viewport, touch] of [
         oldMount: !!document.getElementById('gate-census'),
         fits: city.scrollWidth <= city.clientWidth + 1,
         scrollsInSheet: panelScroll?.id === 'panel-scroll',
+        done: {
+          figure: city.querySelector('.gc-done-n')?.textContent.trim() || '',
+          joins: [...city.querySelectorAll('.gc-joins li')].map((el) => ({
+            closed: el.classList.contains('is-closed'), text: el.textContent.replace(/\s+/g, ' ').trim() })),
+          segs: city.querySelectorAll('.gc-done-seg').length,
+          shares: city.querySelector('.gc-done-shares')?.textContent.trim() || '',
+        },
       };
       document.getElementById('panel-back').click();
       api.evidenceHub.showTopic('liberties');
@@ -13678,6 +13685,26 @@ for (const [label, viewport, touch] of [
       && hub.city.text.includes(`roughly ${grouped(cityScene.target)}`)
       && !hub.city.text.includes(`roughly ${grouped(hub.city.data?.people?.town_total)}`),
       hub.city.text);
+    // T-1967: the completion row reads the audit's four joins, and the tiers' shares of
+    // the households with a home — the committed file's figures, not the page's own.
+    let completionDoc = null;
+    try {
+      completionDoc = JSON.parse(fs.readFileSync(
+        path.join(ROOT, 'data', 'render', 'town_completion_1835.json'), 'utf8'));
+    } catch { completionDoc = null; }
+    const doneJoins = completionDoc?.joins || [];
+    const doneHomed = completionDoc?.tiers?.households?.housed || {};
+    const doneHomedAll = ['attested', 'inferred', 'reconstructed'].reduce((n, t) => n + Number(doneHomed[t] || 0), 0);
+    check(`${label}: City's completion row shows the audit's joins and the tiers' shares`,
+      doneJoins.length === 4
+      && hub.city.done.figure === `${doneJoins.filter((j) => j.open === 0).length} of ${doneJoins.length}`
+      && hub.city.done.joins.length === doneJoins.length
+      && doneJoins.every((j, i) => hub.city.done.joins[i].closed === (j.open === 0)
+        && hub.city.done.joins[i].text.startsWith(j.label)
+        && (j.open === 0 || hub.city.done.joins[i].text.includes(`${grouped(j.open)} ${j.what_keeps_it_open}`)))
+      && hub.city.done.segs === 3
+      && hub.city.done.shares.startsWith(`The ${grouped(doneHomedAll)} households with a home rest on `),
+      JSON.stringify({ shown: hub.city.done, joins: doneJoins }));
     check(`${label}: City drops the projected count and structures line`,
       !/projected/i.test(hub.city.text) && !/projected/i.test(hub.city.aria)
       && !/structures?\b/i.test(hub.city.text),

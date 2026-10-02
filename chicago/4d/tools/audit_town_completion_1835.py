@@ -41,6 +41,7 @@ closeout's own rule is that a reader can see how much of the finished town rests
 which rung.
 
     tools/audit_town_completion_1835.py              write data/render/town_completion_1835.json
+                                                     and docs/RESEARCH/1835_town_completion.md
     tools/audit_town_completion_1835.py --check      fail on drift from the committed file,
                                                      or on any dangling id
     tools/audit_town_completion_1835.py --self-test  break one link of each kind in memory
@@ -60,6 +61,9 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 YEAR = "1835"
 OUT = DATA / "render" / "town_completion_1835.json"
+# The same numbers as a page a person reads (T-1967): every table by tier. Written from
+# the audit document above and nothing else, so the two cannot disagree.
+REPORT = ROOT / "docs" / "RESEARCH" / "1835_town_completion.md"
 
 TIERS = ("attested", "inferred", "reconstructed")
 
@@ -157,6 +161,7 @@ def read_inputs() -> dict:
         "businesses": businesses,
         "vessels": vessels,
         "employment": load(DATA / "residents" / "employment_coverage.json")["rows"],
+        "streets": load(DATA / "streets" / f"{YEAR}.json").get("streets") or [],
     }
 
 
@@ -190,6 +195,21 @@ def audit(inputs: dict) -> dict:
                                         "persons_waiting_on_a_roof": 0},
               "housed_through": Counter(), "unhoused_by_folder": Counter(),
               "unhoused_present_households": []}
+    # The same four joins, split by tier for every kind of record the closeout names
+    # (T-1967): the finished town has to say how much of it rests on which rung, and a
+    # total without its tiers cannot. A household's tier is its head's grade — the
+    # person the record is argued around — falling back to its first member.
+    tiers = {
+        "persons": {k: by_tier() for k in ("housed", "waiting_on_a_roof",
+                                           "absent_on_the_scene_date", "unhoused")},
+        "households": {k: by_tier() for k in ("housed", "waiting_on_a_roof",
+                                              "absent_on_the_scene_date", "unhoused")},
+        "businesses": {k: by_tier() for k in ("at_a_standing_structure", "stated_limit",
+                                              "open")},
+        "structures": {k: by_tier() for k in ("occupied", "occupants_in_prose_only",
+                                              "use_stated", "empty_owing_somebody")},
+        "streets": {k: by_tier() for k in ("course", "surface")},
+    }
     lives_at_of: dict[str, str] = {}
     for hid, entry in sorted(cards.items()):
         if entry["folder"] == TRANSIENT_FOLDER:
@@ -211,6 +231,14 @@ def audit(inputs: dict) -> dict:
         present = (value_of(card.get("present_on_scene_date")) == "present"
                    or hid in inputs["ruled_present"])
         apart = None if through else inputs["counted_apart"].get(hid)
+        status = "housed" if through else (apart if apart in tiers["persons"] else
+                                           "unhoused" if not apart else None)
+        if status:
+            head = next((p for p in persons if p.get("id") == card.get("head")),
+                        persons[0] if persons else {})
+            tiers["households"][status][tier_of(head.get("grade"))] += 1
+            for p in persons:
+                tiers["persons"][status][tier_of(p.get("grade"))] += 1
         if through:
             housed["households"]["housed"] += 1
             housed["housed_through"][through] += 1
@@ -283,12 +311,16 @@ def audit(inputs: dict) -> dict:
             elif sid:
                 business_at[sid] += 1
         primary = next((l for l in locations if l.get("primary")), locations[0] if locations else None)
+        b_tier = tier_of((primary or {}).get("tier"))
         if primary and primary.get("structure_id") in structures:
-            roofed["at_a_standing_structure"][tier_of(primary.get("tier"))] += 1
+            roofed["at_a_standing_structure"][b_tier] += 1
+            tiers["businesses"]["at_a_standing_structure"][b_tier] += 1
         elif primary and primary.get("limit_reason"):
             roofed["stated_limit"][primary.get("kind") or "unstated_kind"] += 1
+            tiers["businesses"]["stated_limit"][b_tier] += 1
         else:
             roofed["open"].append(bid)
+            tiers["businesses"]["open"][b_tier] += 1
 
     # --- 4. occupied --------------------------------------------------------------------
     lived_in = Counter(lives_at_of.values())
@@ -303,7 +335,17 @@ def audit(inputs: dict) -> dict:
             (record.get("function") or {}).get("confidence") if isinstance(record.get("function"), dict) else None)
         if s["residents"] or lived_in[sid] or business_at[sid] or recon.get("occupation"):
             occupied["occupied"][tier] += 1
-        elif function in TO_LET:
+            tiers["structures"]["occupied"][tier] += 1
+            continue
+        if s["occupants"] and function not in TO_LET | CAMP:
+            tiers["structures"]["occupants_in_prose_only"][tier] += 1
+        elif function in TO_LET | CAMP | CIVIC or (
+                function in OUTBUILDING and (recon.get("yard_group") or recon.get("stands_on")
+                                             or record.get("outbuilding_of"))):
+            tiers["structures"]["use_stated"][tier] += 1
+        else:
+            tiers["structures"]["empty_owing_somebody"][tier] += 1
+        if function in TO_LET:
             occupied["use_stated"]["vacant_to_let"] += 1
         elif function in CAMP:
             occupied["use_stated"]["camp_ground"] += 1
@@ -321,6 +363,11 @@ def audit(inputs: dict) -> dict:
             occupied["empty_owing_somebody"][kind] += 1
             occupied["empty"].append(sid)
 
+    # --- 5. the streets: where each ran, and what it was surfaced with --------------------
+    for street in inputs["streets"]:
+        tiers["streets"]["course"][tier_of(street.get("geometry_confidence"))] += 1
+        tiers["streets"]["surface"][tier_of(street.get("surface_confidence"))] += 1
+
     def plain(o):
         if isinstance(o, Counter):
             return dict(sorted(o.items()))
@@ -336,7 +383,7 @@ def audit(inputs: dict) -> dict:
     owed_n = sum(work["owed"].values())
     open_roofs = len(roofed["open"])
     empty_n = len(occupied["empty"])
-    return {
+    doc = {
         "$schema_note": "DERIVED — regenerate with tools/audit_town_completion_1835.py; "
                         "tools/check.sh re-derives it. Do not hand-edit.",
         "id": "1835_town_completion_audit",
@@ -356,6 +403,7 @@ def audit(inputs: dict) -> dict:
             "data/reconstruction/1835_presence_rulings.json",
             "data/reconstruction/1835_housing_seats.json#counted_apart",
             "data/businesses/*.json", "data/businesses/authored/*.json",
+            f"data/streets/{YEAR}.json",
         ],
         "summary": {
             "households_housed": housed_n,
@@ -373,12 +421,135 @@ def audit(inputs: dict) -> dict:
         "at_work": plain(work),
         "roofed": plain(roofed),
         "occupied": plain(occupied),
+        "tiers": tiers,
         "dangling": sorted(dangling),
     }
+    # The four joins as the City card shows them (T-1967): read here once, so the page
+    # never re-derives a gap and cannot disagree with this file.
+    doc["joins"] = [{"join": key, "label": label, "open": gap(doc), "what_keeps_it_open": what}
+                    for key, label, gap, what in JOINS]
+    return doc
 
 
 def render(doc: dict) -> str:
     return json.dumps(doc, indent=2, ensure_ascii=False) + "\n"
+
+
+ROW_LABELS = {
+    "housed": "housed", "waiting_on_a_roof": "counted apart — waiting on a roof",
+    "absent_on_the_scene_date": "counted apart — absent on the scene date",
+    "unhoused": "unhoused (owed a roof)",
+    "at_a_standing_structure": "at a standing structure", "stated_limit": "a stated limit",
+    "open": "neither (owed)",
+    "occupied": "occupied", "occupants_in_prose_only": "occupants named in prose only",
+    "use_stated": "a use that needs nobody", "empty_owing_somebody": "empty, owing somebody",
+    "course": "where it ran", "surface": "what it was surfaced with",
+    "placed": "at a workplace", "stated_no_fixed_premises": "no fixed premises (stated)",
+    "owed": "owed a workplace", "no_trade_recorded": "no trade recorded",
+}
+
+# The four joins, in the closeout's order, with the figure that keeps each one open.
+JOINS = (
+    ("housed", "Every household housed",
+     lambda d: d["summary"]["households_unhoused"]
+     + d["summary"]["households_counted_apart"].get("waiting_on_a_roof", 0),
+     "households without a roof yet"),
+    ("at_work", "Every working person at a workplace",
+     lambda d: d["summary"]["working_age_persons_owed_a_workplace"],
+     "working people owed a workplace"),
+    ("roofed", "Every business roofed or its limit stated",
+     lambda d: d["summary"]["businesses_neither_roofed_nor_stated"],
+     "businesses neither roofed nor given a stated limit"),
+    ("occupied", "Every standing roof occupied or its use stated",
+     lambda d: d["summary"]["structures_empty_owing_somebody"],
+     "standing roofs empty and owed somebody"),
+)
+
+
+def share(n: int, whole: int) -> str:
+    return f"{100 * n / whole:.1f} %" if whole else "—"
+
+
+def tier_table(title: str, rows: dict, summed: bool = True) -> list[str]:
+    totals = {t: sum(r[t] for r in rows.values()) for t in TIERS}
+    whole = sum(totals.values())
+    out = [f"### {title}", "",
+           "| | attested | inferred | reconstructed | all |", "|---|---:|---:|---:|---:|"]
+    for key, r in rows.items():
+        out.append(f"| {ROW_LABELS.get(key, key)} | " + " | ".join(f"{r[t]:,}" for t in TIERS)
+                   + f" | {sum(r.values()):,} |")
+    if summed:
+        out.append("| **all** | " + " | ".join(f"**{totals[t]:,}**" for t in TIERS)
+                   + f" | **{whole:,}** |")
+        out.append("| share | " + " | ".join(share(totals[t], whole) for t in TIERS) + " | |")
+    return out + [""]
+
+
+def render_markdown(doc: dict) -> str:
+    s = doc["summary"]
+    tiers = doc["tiers"]
+    closed = sum(1 for j in doc["joins"] if j["open"] == 0)
+    housed = tiers["persons"]["housed"]
+    whole = sum(housed.values())
+    lines = [
+        "# The town's completion, 1 July 1835 — by tier",
+        "",
+        "> GENERATED by `tools/audit_town_completion_1835.py` from "
+        "`data/render/town_completion_1835.json` (T-1967, a piece of T-1215). "
+        "`tools/check.sh` re-derives it; do not hand-edit.",
+        "",
+        "The closeout of the reconstruction (T-1215) asks four joins of the committed data: every "
+        "household housed, every working person at a workplace, every business roofed or its "
+        "limit stated, every standing roof occupied or its use stated. This page prints how far "
+        "each is from total, and every table split by the three tiers — **attested** (a source "
+        "states it), **inferred** (reasoned from evidence about this particular thing) and "
+        "**reconstructed** (built within stated bounds because the scene needs it). It is a "
+        "measurement: nothing here seats, roofs or writes anybody.",
+        "",
+        f"## The joins — {closed} of {len(doc['joins'])} closed",
+        "",
+        "| join | state | what keeps it open |",
+        "|---|---|---|",
+    ]
+    for j in doc["joins"]:
+        n = j["open"]
+        lines.append(f"| {j['label']} | {'closed' if n == 0 else 'open'} | "
+                     f"{f'{n:,} ' + j['what_keeps_it_open'] if n else '—'} |")
+    lines += [
+        "",
+        f"Dangling ids: **{s['dangling_ids']}**. The town is "
+        + ("**complete to the reconstruction**: every join is total."
+           if s["the_join_is_total"] else
+           "**not yet complete**: the open joins above are the work T-1215's remaining "
+           "pieces owe."),
+        "",
+        "## The three tiers' shares of the people housed",
+        "",
+        f"Of the **{whole:,}** people housed in a standing building: "
+        + ", ".join(f"**{share(housed[t], whole)} {t}** ({housed[t]:,})" for t in TIERS) + ".",
+        "",
+        "## Every table by tier",
+        "",
+    ]
+    lines += tier_table("Persons", tiers["persons"])
+    lines += tier_table("Households (by the head's grade)", tiers["households"])
+    work = doc["at_work"]
+    lines += tier_table("Working-age persons", {k: work[k] for k in
+                                                ("placed", "stated_no_fixed_premises",
+                                                 "owed", "no_trade_recorded")})
+    lines += tier_table("Businesses (by the primary location's tier)", tiers["businesses"])
+    lines += tier_table("Standing structures", tiers["structures"])
+    # Two questions asked of the same streets, so the rows are not summed.
+    lines += tier_table("Streets (two questions of each street — not summed)",
+                        tiers["streets"], summed=False)
+    visitors = doc["visitors_counted_apart"]
+    lines += [
+        "Visitors of the season (T-1353) are counted apart and are in none of these tables: "
+        f"{visitors['persons']:,} persons, {visitors['lodged_at_stated']:,} of them with a "
+        "stated lodging.",
+        "",
+    ]
+    return "\n".join(lines)
 
 
 def report(doc: dict) -> str:
@@ -402,6 +573,9 @@ def check(doc: dict) -> list[str]:
         errors.append(f"{OUT.relative_to(ROOT)} is missing — run tools/audit_town_completion_1835.py")
     elif OUT.read_text(encoding="utf-8") != render(doc):
         errors.append(f"{OUT.relative_to(ROOT)} is stale — run tools/audit_town_completion_1835.py")
+    if not REPORT.exists() or REPORT.read_text(encoding="utf-8") != render_markdown(doc):
+        errors.append(f"{REPORT.relative_to(ROOT)} is missing or stale — "
+                      "run tools/audit_town_completion_1835.py")
     return errors
 
 
@@ -459,8 +633,9 @@ def main() -> int:
             return 1
         return 0
     OUT.write_text(render(doc), encoding="utf-8")
+    REPORT.write_text(render_markdown(doc), encoding="utf-8")
     print(report(doc))
-    print(f"wrote {OUT.relative_to(ROOT)}")
+    print(f"wrote {OUT.relative_to(ROOT)} and {REPORT.relative_to(ROOT)}")
     return 0
 
 

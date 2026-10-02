@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1310, ts: '2026-10-02T15:50:03.065Z', date: 'Oct 2, 2026, 10:50 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
+    items: [
+      'Open Evidence, then City: a third panel now shows how close the town is to complete, as four checks. Every household has a home; every working person has a workplace; every business has a roof or a stated reason it has none; every standing roof has somebody in it or a use.',
+      'One check is closed today: every business. The other three show what is still owed. 523 households are waiting on a roof, 308 working people have no workplace yet, and 39 roofs stand empty.',
+      'A bar under the checks shows how much of the town rests on each kind of evidence. Of the 1,508 households with a home, 18 % are attested, 38 % inferred and 43 % reconstructed.',
+      'The full tables, by tier, for people, households, businesses, roofs and streets are in docs/RESEARCH/1835_town_completion.md, written from the same counts.',
+    ] },
   { v: 1309, ts: '2026-10-02T15:39:39.047Z', date: 'Oct 2, 2026, 10:39 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
     items: [
       'Open a reconstructed house on Randolph or Washington Street and you may meet new boarders. 362 more households now have a roof. The records lose track of them before July 1835, but nothing puts them anywhere else, so the town counts them as present.',
