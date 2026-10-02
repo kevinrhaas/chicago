@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1300, ts: '2026-10-02T12:00:26.932Z', date: 'Oct 2, 2026, 7:00 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
+    items: [
+      'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',
+    ] },
   { v: 1299, ts: '2026-10-02T11:30:11.198Z', date: 'Oct 2, 2026, 6:30 AM CT', title: 'Wood grain on the town\u2019s clapboard and log walls', kind: 'change',
     items: [
       'Walk up to any frame house or log cabin. The walls now show wood: grain along each clapboard, raised grain and drying cracks, and adze marks across each hewn log. Before this, every wall was a flat colour.',
