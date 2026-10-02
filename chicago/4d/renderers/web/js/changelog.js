@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
+  { v: 1296, ts: '2026-10-02T10:12:25.038Z', date: 'Oct 2, 2026, 5:12 AM CT', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
     items: [
       'Walk down any street of the reconstructed town. A house dated to the 1832\u201333 boom, or one standing before that, now shows its age: its boards have turned a little greyer and duller than a house raised this spring.',
       'A merchant\u2019s or a boarding-house keeper\u2019s house weathers more slowly than a cottage, because its owner kept the paint and the limewash up.',
