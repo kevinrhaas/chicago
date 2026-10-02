@@ -74,6 +74,7 @@
  */
 
 import * as THREE from 'three';
+import { resolveBases } from './scene-loader.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -178,7 +179,7 @@ function boardTone(tone, cx, cz) {
 const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
 
 /** An empty timber buffer: positions, normals, confidence and colour. */
-const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], tone: TIMBER_LINEAR, vary: false });
+const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], uv: [], tone: TIMBER_LINEAR, vary: false });
 
 /**
  * Lay `build` into `buf` in `walk`'s tone, board by board, and hand the buffer
@@ -194,6 +195,188 @@ function inWalkTone(buf, walk, build) {
     buf.vary = false;
   }
 }
+
+/**
+ * THE BUSINESS'S OWN TIMBER (T-1815). A stoop, a mounting block, a tie rail, a
+ * wagon apron and a hitching post were laid in `TIMBER` — the signboard's L* 79
+ * board — so the owner's "white planks" survived T-1800 at every business door
+ * after it left the walks: from Lake Street at 1280x800, Dole's wagon apron and
+ * the Mansion House stoop were the two palest things in the frame. They now
+ * take the walk's weathered palette, keyed on the business they SERVE, which is
+ * the per-business key T-1800 left to T-1211: one house's stoop and its tie
+ * rail are one man's timber, and the next door's may differ.
+ * RECONSTRUCTED (L320, extended): no source gives the tone of any one stoop.
+ */
+function inOwnerTone(buf, owner, build) {
+  return inWalkTone(buf, { belongs_to: owner }, build);
+}
+
+/**
+ * THE GRAIN (T-1815) — what a board's surface is made of, at the scale of the
+ * board, bound as relief rather than painted as colour.
+ *
+ * Glessner v4's rule, carried over whole: SHAPE IS GEOMETRY, SURFACE IS MAP. The
+ * boards, their seams, the string pieces and the treads are boxes; the map
+ * carries only what lies inside one board — grain, raised grain, drying checks,
+ * the broad weathering across it. So the substrate is the library's
+ * `clapboard_board_face`, the board face T-1801 regenerated with NO course line
+ * (a map with seams in it doubles the modelled ones — the fabric proof's
+ * `courses-close` showed it, and `plank_walk_weathered` carries eleven).
+ *
+ * WHY THE UV IS LAID HERE AND NOT DERIVED IN THE SHADER. `roof-relief.js`
+ * derives its UV from the face's own frame, and the fabric proof's defect 4 is
+ * where that stops: a horizontal face has no frame, and a grain axis is
+ * something a position and a normal cannot know. Here every timber is a box the
+ * layer itself lays, so it KNOWS: a board's grain runs along its longest side —
+ * across the walk for a deck board, along it for a string piece, up a post. So
+ * `pushBox` writes a metric UV per face, `u` along the grain, and the faces
+ * across the grain (the board's ENDS) take the end-grain reading below. Each
+ * board starts the tile at its own seeded offset, so two neighbours never show
+ * the same figure and no 4.48 m period lines up down a street.
+ *
+ * Four slots, all stock — nothing here touches `onBeforeCompile`, which the
+ * confidence overlay already owns:
+ *   normalMap      `normal_gl`, the grain's relief
+ *   roughnessMap   the packed `orm`'s G, scaled so its mean is the layer's 0.9
+ *   aoMap          the same `orm`'s R, the checks' and the grain's occlusion
+ *   map            the basecolor's LUMINANCE RATIO to its own mean, derived at
+ *                  load (Strategy A's albedo modulation, 1835_fabric_proof § 3):
+ *                  the vertex keeps the owner's tone as the mean, and the wood's
+ *                  figure is the variation around it.
+ */
+const RELIEF_DIR = 'textures/chicago_1835_pbr/walls/clapboard_board_face';
+/** How much of the wood's own figure reaches the colour: bare timber, so most of it. */
+const GRAIN_STRENGTH = 0.65;
+/**
+ * A colour map multiplies, and an 8-bit texel cannot exceed 1 — so the ratio is
+ * stored divided by this and the material's colour carries it back. 1.6 holds
+ * the board face's brightest figure at strength 0.65 with room over.
+ */
+const GRAIN_HEADROOM = 1.6;
+/**
+ * END GRAIN reads darker than face grain: the cut tubes drink the weather and
+ * hold the dirt. 0.72 puts a board's end about half a stop under its face.
+ * RECONSTRUCTED (L320).
+ */
+const END_GRAIN_K = 0.72;
+/**
+ * CONTACT: where a timber meets the mud it carries the mud — splash, damp and
+ * the shade of the earth it stands in. The lower edge of every upright face is
+ * darkened by up to this much, less on a tall timber (a post's foot is not its
+ * whole length). It seats a stoop, a board and a string piece on the ground at
+ * the distance where the shadow map's texels are too coarse to.
+ * RECONSTRUCTED (L320).
+ */
+const CONTACT_K = 0.4;
+/** The face nobody sees, kept dark so a gap between boards reads as depth. */
+const UNDERSIDE_K = 0.5;
+
+/** Corner signs of `pushBox`'s eight corners, along (length, width, height). */
+const CORNER = [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
+  [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]];
+/** The box axis each of `pushBox`'s six faces looks along. */
+const FACE_AXIS = [0, 0, 1, 1, 2, 2];
+
+/**
+ * Load the board face's relief and derive its albedo modulation. Resolves to
+ * `{ id, apply(material) }`, or to `{ problem }` if anything did not arrive.
+ *
+ * IT DEGRADES RATHER THAN THROWS, as `roof-relief.js` does: a missing map is a
+ * street edge in its weathered tones without grain, which is the state this
+ * ticket improves on, not a boot failure.
+ */
+async function loadTimberRelief(assetBase) {
+  try {
+    const here = new URL(`${RELIEF_DIR}/`, assetBase);
+    const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`${res.status} — ${new URL('material.json', here)}`);
+    const sheet = await res.json();
+    const tileM = Number(sheet.span_m);
+    const meanRough = Number(sheet.mean_roughness);
+    if (!(tileM > 0) || !(meanRough > 0)) {
+      throw new Error(`${sheet.id}: material.json states no span_m or mean_roughness`);
+    }
+    const image = (name) => new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error(`map did not load — ${name}`));
+      img.src = new URL(name, here).href;
+    });
+    const [nrm, orm, base] = await Promise.all([
+      image(`${sheet.id}_normal_gl.png`), image(`${sheet.id}_orm.png`),
+      image(`${sheet.id}_basecolor.png`)]);
+
+    // The albedo modulation: each texel's linear luminance over the map's mean,
+    // pulled toward 1 by the grain strength, stored under the headroom.
+    const w = base.naturalWidth;
+    const hgt = base.naturalHeight;
+    const cv = document.createElement('canvas');
+    cv.width = w;
+    cv.height = hgt;
+    const ctx = cv.getContext('2d', { willReadFrequently: true });
+    ctx.drawImage(base, 0, 0);
+    const px = ctx.getImageData(0, 0, w, hgt).data;
+    const lin = (v) => {
+      const c = v / 255;
+      return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+    };
+    const lut = new Float32Array(256);
+    for (let i = 0; i < 256; i += 1) lut[i] = lin(i);
+    const lum = new Float32Array(w * hgt);
+    let sum = 0;
+    for (let i = 0, j = 0; i < lum.length; i += 1, j += 4) {
+      lum[i] = 0.2126 * lut[px[j]] + 0.7152 * lut[px[j + 1]] + 0.0722 * lut[px[j + 2]];
+      sum += lum[i];
+    }
+    const mean = sum / lum.length;
+    const mod = new Uint8Array(w * hgt * 4);
+    for (let i = 0, j = 0; i < lum.length; i += 1, j += 4) {
+      const m = 1 + GRAIN_STRENGTH * (lum[i] / mean - 1);
+      const v = Math.max(0, Math.min(255, Math.round((255 * m) / GRAIN_HEADROOM)));
+      mod[j] = v; mod[j + 1] = v; mod[j + 2] = v; mod[j + 3] = 255;
+    }
+    const tiled = (tex) => {
+      tex.wrapS = THREE.RepeatWrapping;
+      tex.wrapT = THREE.RepeatWrapping;
+      tex.colorSpace = THREE.NoColorSpace;    // data, never decoded as colour
+      tex.anisotropy = 8;                     // a walk is a grazing surface
+      tex.repeat.set(1 / tileM, 1 / tileM);   // the UV is in metres
+      tex.needsUpdate = true;
+      return tex;
+    };
+    const normalMap = tiled(new THREE.Texture(nrm));
+    const ormMap = tiled(new THREE.Texture(orm));
+    const modMap = new THREE.DataTexture(mod, w, hgt, THREE.RGBAFormat);
+    modMap.generateMipmaps = true;
+    modMap.minFilter = THREE.LinearMipmapLinearFilter;
+    modMap.magFilter = THREE.LinearFilter;
+    tiled(modMap);
+    return {
+      id: sheet.id,
+      problem: null,
+      apply(material) {
+        material.normalMap = normalMap;
+        // One file in two slots, as the roofs bind it: R is AO, G roughness.
+        material.roughnessMap = ormMap;
+        material.aoMap = ormMap;
+        // three multiplies roughness by the map's G, so the scalar is the
+        // layer's 0.9 over the map's own mean and the mean lands back on 0.9.
+        material.roughness = 0.9 / meanRough;
+        material.map = modMap;
+        material.color.setRGB(GRAIN_HEADROOM, GRAIN_HEADROOM, GRAIN_HEADROOM);
+        material.needsUpdate = true;
+      },
+      dispose() {
+        normalMap.dispose();
+        ormMap.dispose();
+        modMap.dispose();
+      },
+    };
+  } catch (err) {
+    return { problem: `board-face relief not bound — ${err.message}`, apply: () => null };
+  }
+}
+
 
 /** How far a plank's box reaches below the deck: enough to meet the ground. */
 const SKIRT_M = 0.02;
@@ -277,13 +460,34 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   // A walk's boards vary one from the next (T-1800); everything else is laid in
   // the buffer's one tone.
   const c = buf.vary ? boardTone(buf.tone, cx, cz) : (buf.tone ?? TIMBER_LINEAR);
-  for (const [t1, t2, n] of (skipUnderside ? faces.slice(0, 5) : faces)) {
+  // THE GRAIN (T-1815): the longest side is the grain; see `RELIEF_DIR`.
+  const half = [halfLen, halfW, halfH];
+  const g = halfLen >= halfW ? (halfLen >= halfH ? 0 : 2) : (halfW >= halfH ? 1 : 2);
+  // The board's own place on the tile, seeded on where it lies (to the cm), so
+  // a walk cut into pieces differently by a later generator keeps its figure.
+  const h = (Math.imul(Math.round(cx * 100), 73856093)
+    ^ Math.imul(Math.round(cy * 100), 19349663)
+    ^ Math.imul(Math.round(cz * 100), 83492791)) >>> 0;
+  const ou = ((h & 0xffff) / 0x10000) * 4.48;
+  const ov = ((h >>> 16) / 0x10000) * 4.48;
+  // Full contact on anything up to 0.3 m tall, fading to a third on a post.
+  const contact = 1 - CONTACT_K * Math.min(1, Math.max(0.35, 0.15 / halfH));
+  const list = skipUnderside ? faces.slice(0, 5) : faces;
+  for (let f = 0; f < list.length; f += 1) {
+    const [t1, t2, n] = list[f];
+    const ax = FACE_AXIS[f];
+    const endGrain = ax === g;
+    const ua = endGrain ? (ax === 0 ? 1 : 0) : g;
+    const va = 3 - ax - ua;
+    const kFace = (endGrain ? END_GRAIN_K : 1) * (f === 5 ? UNDERSIDE_K : 1);
     for (const tri of [t1, t2]) {
       for (const i of tri) {
         buf.pos.push(p[i][0], p[i][1], p[i][2]);
         buf.nrm.push(n[0], n[1], n[2]);
         buf.conf.push(level);
-        buf.col?.push(c[0], c[1], c[2]);
+        buf.uv?.push(CORNER[i][ua] * half[ua] + ou, CORNER[i][va] * half[va] + ov);
+        const k = kFace * (ax < 2 && CORNER[i][2] < 0 ? contact : 1);
+        buf.col?.push(c[0] * k, c[1] * k, c[2] * k);
       }
     }
   }
@@ -784,10 +988,57 @@ function buildFitting(buf, fit, terrain, level, problems) {
     }
     const top = Math.max(...gs) + part.top_m;
     const foot = part.thick_m != null ? top - part.thick_m : Math.min(...gs) - 0.03;
+    if (TREADED.has(fit.kind) && part.thick_m == null && top - foot > TREAD_T_M * 2) {
+      layTreads(buf, at, ae, an, oe, on, hl, hd, top, foot, level);
+      continue;
+    }
     pushBox(buf, at[0], (top + foot) / 2, -at[1], ae, -an, hl, hd, (top - foot) / 2,
       level);
   }
   return true;
+}
+
+/**
+ * THE STOOP'S JOINERY (T-1815). A stoop and a mounting block were each one
+ * solid box per step — a block of timber with no top, no edge and no seam,
+ * which from the walk read as a pale crate. A board step is built: a carcass of
+ * framing, and on it a tread of boards laid along the face, their front edge
+ * standing proud of the riser as a NOSING, which is the one line that makes a
+ * step read as a step from across a street — it throws its own shadow down the
+ * riser under it. So each part is now the carcass, set back under the nosing,
+ * plus its tread boards with a seam between each.
+ *
+ * Nothing here moves a record: the part's footprint, top and foot are the
+ * generator's, the tread lies inside the footprint, and the carcass inside that.
+ * The board width and the nosing are RECONSTRUCTED (L320) at sawn-plank stock.
+ */
+const TREADED = new Set(['stoop', 'mounting_block']);
+/** A tread board's thickness: two-inch plank. */
+const TREAD_T_M = 0.045;
+/** The widest a tread board is sawn: eight inches. */
+const TREAD_BOARD_M = 0.2;
+/** The seam between two tread boards. */
+const TREAD_GAP_M = 0.012;
+/** How far the tread stands proud of the riser at the front and the two ends. */
+const NOSING_M = 0.03;
+
+function layTreads(buf, at, ae, an, oe, on, hl, hd, top, foot, level) {
+  // The carcass: back flush with the part's own back, front and ends set in by
+  // the nosing, top under the tread.
+  const cTop = top - TREAD_T_M;
+  const chl = Math.max(0.05, hl - NOSING_M);
+  const chd = Math.max(0.05, hd - NOSING_M / 2);
+  const ce = at[0] - oe * (NOSING_M / 2);
+  const cn = at[1] - on * (NOSING_M / 2);
+  pushBox(buf, ce, (cTop + foot) / 2, -cn, ae, -an, chl, chd, (cTop - foot) / 2, level);
+  // The tread: boards along the face, across the part's depth, seams between.
+  const n = Math.max(1, Math.round((hd * 2) / TREAD_BOARD_M));
+  const pitch = (hd * 2) / n;
+  for (let i = 0; i < n; i += 1) {
+    const so = -hd + (i + 0.5) * pitch;
+    pushBox(buf, at[0] + oe * so, top - TREAD_T_M / 2, -(at[1] + on * so), ae, -an,
+      hl, Math.max(0.01, (pitch - TREAD_GAP_M) / 2), TREAD_T_M / 2, level);
+  }
 }
 
 /**
@@ -941,6 +1192,8 @@ export async function createFrontage({
        *  sample of the mud. Both are reported rather than asserted here — the
        *  gate proves the edge on the drawn geometry. */
       kerb: 0, kerbStep_m: 0,
+      /** The substrate whose grain the timber carries (T-1815), or null. */
+      relief: null,
     },
     pickAt: () => null,
     dispose: () => {},
@@ -950,6 +1203,8 @@ export async function createFrontage({
     problems.push('frontage: no data base or no terrain — no walk is laid');
     return out;
   }
+  // The grain's maps load beside the records; the material waits for them.
+  const reliefP = loadTimberRelief(resolveBases().assetBase);
   let index;
   try {
     index = await getJSON(new URL('frontage/index.json', dataBase));
@@ -1191,7 +1446,13 @@ export async function createFrontage({
       const bucket = bufFor(standingChunk(record, post), post.belongs_to, true);
       const target = bucket ? bucket.buf : buf;
       const from = buf.pos.length / 9;
-      const board = buildPost(target, post, terrain, level, problems);
+      // A hitching post is street-edge timber and takes the weathered palette,
+      // keyed on the house it stands at (T-1815); a sign post keeps `TIMBER`,
+      // the tone it shares with the board it carries.
+      const board = post.kind === 'hitching_post'
+        ? inOwnerTone(target, post.stands_at ?? post.belongs_to ?? post.id,
+          () => buildPost(target, post, terrain, level, problems))
+        : buildPost(target, post, terrain, level, problems);
       if (!board) continue;
       if (!bucket) spans.push({ id: post.belongs_to, from, to: buf.pos.length / 9 });
       out.posts.push(post);
@@ -1209,7 +1470,8 @@ export async function createFrontage({
       const bucket = bufFor(standingChunk(record, fit), fit.belongs_to, true);
       const target = bucket ? bucket.buf : buf;
       const from = buf.pos.length / 9;
-      if (!buildFitting(target, fit, terrain, level, problems)) continue;
+      if (!inOwnerTone(target, fit.serves ?? fit.belongs_to ?? fit.id,
+        () => buildFitting(target, fit, terrain, level, problems))) continue;
       if (!bucket) spans.push({ id: fit.belongs_to, from, to: buf.pos.length / 9 });
       out.fittings.push(fit);
       // A stoop or an apron is a floor like the walk, and a block or a rail stands
@@ -1261,6 +1523,7 @@ export async function createFrontage({
   geo.setAttribute('normal', new THREE.Float32BufferAttribute(buf.nrm, 3));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
   geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv, 2));
   geo.computeBoundingSphere();
 
   const mat = new THREE.MeshStandardMaterial({
@@ -1304,6 +1567,10 @@ export async function createFrontage({
     transparent: true,
   });
   mat.name = 'frontage-timber';
+  const grain = await reliefP;
+  if (grain.problem) problems.push(`frontage: ${grain.problem}`);
+  else grain.apply(mat);
+  out.census.relief = grain.problem ? null : grain.id;
   confidence?.patch(mat);
   /**
    * ITS OWN PROGRAM CACHE KEY. three caches a compiled program under a key
@@ -1351,6 +1618,7 @@ export async function createFrontage({
     cgeo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
     cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
     cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
+    cgeo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
     cgeo.computeBoundingSphere();
     const cmesh = new THREE.Mesh(cgeo, mat);
     cmesh.renderOrder = 1;                 // same street-decal ordering as above
@@ -1433,6 +1701,7 @@ export async function createFrontage({
     geo.dispose();
     for (const c of chunkMeshes) c.geometry.dispose();
     mat.dispose();
+    grain.dispose?.();
     if (letters) { letters.geo.dispose(); letters.texture.dispose(); }
     if (letterMat) letterMat.dispose();
   };
