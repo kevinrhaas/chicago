@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1294, ts: '2026-10-02T08:49:05.968Z', date: 'Oct 2, 2026, 3:49 AM CT', title: 'Kitchen gardens behind the town\u2019s houses', kind: 'change',
+    items: [
+      'Walk the back lots along Randolph, Washington or Lake Street. Behind forty-six houses there is now a picket-fenced kitchen garden, with tilled beds, kept grass and a path in from a gap in the fence facing the back door. Before this, only Elijah Harmon\u2019s house on Randolph had one.',
+      'A garden now goes with the house, not with whoever lived in it, so a house with no named household keeps its garden too. The houses whose lots are too cramped to fit one still have none.',
+      'No source says any of these households kept a garden. The fences copy the ones in an 1893 view of the Kinzie house, and the Liberties page (L129) says how each lot was chosen.',
+    ] },
   { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
     items: [
       'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
