@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1327, ts: '2026-10-02T22:38:22.537Z', date: 'Oct 2, 2026, 5:38 PM CT', title: 'Three refectories, a mill and four more houses of trade open', kind: 'feature',
+    items: [
+      'Open Hannah Barnes\u2019s card and look under Were they at work? It used to say the town owed her a house. It now names her own refectory on South Water Street. Hannah Pratt and H. Ingalls keep refectories too.',
+      'Four more keepers have their own houses now: J. Nichols\u2019s auction room, T. Vieau\u2019s mill on West Water, Thomas Nolan\u2019s brickyard on Market and J. Kellogg\u2019s soap and candle manufactory. Each is in the Businesses list.',
+      'John Bates Jr., the auctioneer whose building held the 1835 land sales, is now joined to his own Auction Store on Dearborn Street. It was always in the register, but nothing linked him to it.',
+      'The seven new houses are our reconstruction (liberty L360). Dr John McGuire still waits for his office. On the City card, people owed a workplace drop from 48 to 40.',
+    ] },
   { v: 1326, ts: '2026-10-02T21:59:53.325Z', date: 'Oct 2, 2026, 4:59 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer owed a shop', kind: 'change',
     items: [
       'Open Otis Bacon\u2019s card, a carpenter, and look under Were they at work? It used to say the town owed him a shop of his own. It now says no shop is owed. The Chicago American counted twenty-five mechanics\u2019 shops in the town in August 1835, and the shops printed in the newspapers of the day already come to 45.',

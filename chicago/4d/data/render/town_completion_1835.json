@@ -26,7 +26,7 @@
       "absent_on_the_scene_date": 29,
       "waiting_on_a_roof": 523
     },
-    "working_age_persons_owed_a_workplace": 48,
+    "working_age_persons_owed_a_workplace": 40,
     "businesses_neither_roofed_nor_stated": 0,
     "structures_empty_owing_somebody": 5,
     "dangling_ids": 0,
@@ -75,9 +75,9 @@
   "at_work": {
     "working_age": 2068,
     "placed": {
-      "attested": 158,
+      "attested": 159,
       "inferred": 7,
-      "reconstructed": 152
+      "reconstructed": 159
     },
     "stated_no_fixed_premises": {
       "attested": 20,
@@ -85,9 +85,9 @@
       "reconstructed": 304
     },
     "owed": {
-      "attested": 2,
+      "attested": 1,
       "inferred": 0,
-      "reconstructed": 46
+      "reconstructed": 39
     },
     "no_trade_recorded": {
       "attested": 232,
@@ -96,11 +96,11 @@
     },
     "owed_by_reason": {
       "held_on_an_identity_question": 1,
-      "keeps_their_own_house": 47
+      "keeps_their_own_house": 39
     }
   },
   "roofed": {
-    "businesses": 280,
+    "businesses": 287,
     "at_a_standing_structure": {
       "attested": 29,
       "inferred": 17,
@@ -108,7 +108,7 @@
     },
     "stated_limit": {
       "anchored": 28,
-      "street_only": 86,
+      "street_only": 93,
       "unplaceable": 102
     },
     "open": []
@@ -203,7 +203,7 @@
       "stated_limit": {
         "attested": 2,
         "inferred": 188,
-        "reconstructed": 26
+        "reconstructed": 33
       },
       "open": {
         "attested": 0,
@@ -257,7 +257,7 @@
     {
       "join": "at_work",
       "label": "Every working person at a workplace",
-      "open": 48,
+      "open": 40,
       "what_keeps_it_open": "working people owed a workplace"
     },
     {
