@@ -66,6 +66,119 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
+## Image store status (2026-10-02)
+
+The bytes live in kevinrhaas/chicago-images (`prairie-1904/files/`, 824 files, 102.9 MB at PR #283).
+Its Pages site (`kevinrhaas.github.io/chicago-images/`) is NOT live yet. The owner has to switch it on
+once (Settings → Pages → Source: GitHub Actions), then re-run its `pages` workflow. Until then the
+viewer serves the package's frozen copy (`research/images/files/`), or the holder's URL for files
+only in the store. When the store serves, drop `research/images/files` from `tools/publish.py` and
+delete the folder (see its README).
+
+## Fourth pass — south half and adjacent buildings, by address and owner (2026-10-02)
+
+`stream-newspapers-south.json`: 45 records. Five are illustrations stored in the image store; the
+rest are link-only. Per-building log in `worklog-newspapers-south.md`.
+
+**Who lived at 2031–2035 in 1904 (Blue Books 1903–05):**
+- **2031:** Samuel A. Tolman. A. B. Dewey was at 2631, so the Inter Ocean's "2031" is a misprint.
+- **2033:** the Frederick R. Otis family. Otis died there in December 1903, and the house passed to
+  his widow.
+- **2035:** Mrs. Horatio O. Stone. It was a corner "mansion" at 21st Street, the "steamboat house"
+  with wooden galleries, of 30 rooms. **The library's three equal 25-ft townhouses are wrong for
+  2035.**
+
+**Other 1904 facts:**
+- **Photographs from the Tribune's 1928 "Famous Homes" series:**
+  - **2115 Armour:** a stone house of 19 rooms with an iron-crested mansard roof; lot 58 × 178.
+  - **2140 Smith:** three tall conical spires, so that roof is dated by 1928.
+  - **1905 Field:** the front.
+  - **1945 Corwith.**
+- **Second Presbyterian, rebuilt and dedicated 10 Nov 1901:** only the walls and tower survived the
+  fire. The Tribune cut shows the new tower and spire.
+- **2126 Robbins:** Robbins bought the existing Hamill house (three-storey brick) in 1901 and lived
+  at 2126 in 1903–05. Whether that house was rebuilt or remodelled for him is still open; no permit
+  or razing notice was found.
+- **Houses without a society household in 1904:**
+  - **2108:** for rent in February 1904; stone front, 11 rooms, brick barn.
+  - **2130:** kept furnished; Murdoch lived at the Lexington hotel.
+  - **2100:** Sherman's widow; the McCormick Neurological College was there by 1907.
+- **1904/1906:** one brownstone holding two homes, 28 rooms in all, with a two-storey brick garage.
+- **Lots and rear buildings:**
+  - 1919: lot 60 × 177½.
+  - 2008 Calumet: lot 75 × 177½, three storeys, 20 rooms, brick barn 75 × 30.
+  - Brick barns at 2112, 2027 and 2018 Calumet.
+  - 2125: a frame house and barn, not an empty lot.
+
+**Conflicts with the library (not applied):**
+- 2021 was being demolished in August 1942; the library gives no date.
+- 2027's lot is 50 ft, against 60 on the Robinson map.
+- 2126's lot is 50 × 180 (1901), against 58 × 178 (1909).
+- 1905 Field: "established 1879" in the 1928 caption, against 1871–73.
+- Clarke house: moved in 1871 (Tribune 1939), against 1872.
+- 2140: "built in the 1880s" (1940), against 1876.
+
+**Leads:**
+- 1903–05 building permits, for the 2126 and 2140 questions; the UIC ledgers are the route.
+- Blue Book street pages for 1900–02 and 1906–10.
+- City directories for the non-society occupants.
+- "Famous Homes" photographs of 1701 Hibbard (5 Aug 1928), 1800 Glessner (12 Aug) and the Spalding
+  homestead (19 Aug).
+
+## Fourth pass — north half by owner name, plus the trade weeklies (2026-10-02)
+
+`stream-newspapers-north-owners.json`: 27 link-only records; per-building log in
+`worklog-newspapers-north-owners.md`. Sources: Real Estate and Building Journal (10), Tribune (10),
+Abendpost/Sonntagpost (3), and the 1904 Blue Book (4).
+
+**What it establishes for 1904 (not applied to the library):**
+- **1904 households.** The 1904 Blue Book street list (p. 186) gives the 1904 household for most
+  north-half houses:
+  - 1637 was W. G. Hibbard Jr. (bought 1900), not the Spaldings.
+  - 1721 was Henry H. Walker.
+  - 1620 was Frank Van S. Hibbard.
+- **1721 Dexter.** The 1901 sale required the street-line front to be rebuilt or moved back to the
+  20-ft building line, and a 1903 notice mentions a pillared porch. The 1889 street-line front is
+  probably not the 1904 front.
+- **Measurements and permits:**
+  - **1709 Kellogg:** 50 × 90 ft, two storeys plus basement and attic, red brick with stone trim
+    (RE&BJ 1884).
+  - **1812 Wheeler:** house 30 × 80 ft, three storeys; barn 30 × 47 ft (1884 permits).
+- **Occupancy and sales:**
+  - **1811:** empty and for rent in April 1904.
+  - **1827 Doane:** vacant in 1900; foreclosure sale to A. A. Sprague in 1902.
+- **Open leads answered:**
+  - **1834:** Storey was Fernando Jones's tenant. The 1866–67 Van Osdel house stands, and the
+    mansard is from 1886.
+  - **1726:** James R. Walker's brick house (lot bought 1886), standing in 1904. Building id 51's
+    "frame, demolished 1880s" is wrong.
+  - **1620 vs 1616:** two houses. The 1922 ad describes 1616, the Stirling house.
+  - **Lots:** 1811 is 46½ ft (the Abendpost's 40 is an error). 1824 is 177 ft deep.
+- **1635 stays open.** The Springers had moved by the 1903 Blue Book, so the third pass's
+  "occupied 1903–04" rests on a stale listing. Whether the house stood in 1904 is unproven.
+
+**Conflicts with the library:**
+- **1720:** the "1910 loss" is wrong. The house and its carriage house stood in January 1912.
+- **1638 Shortall:** the attribution holds only for 1870–80. Shortall then built 1600 and 1608
+  (1884); in 1904, 1638 was the Gregory house.
+- **1823 Dent:** 40 × 80 ft, red brick and terra cotta (RE&BJ 1884), against AABN's 44 × 60 ft,
+  three storeys.
+- **1637:** three storeys (1921) against 2½ on the 1911 Sanborn.
+- **1729:** brick barn and dwelling (1891 permit) against a stone garage on the 1911 Sanborn.
+
+**An Internet Archive caveat for anyone citing book scans.** On IA, `/page/nN` is not always the
+image leaf:
+- Newspaper microfilm and the trade weeklies match.
+- Book scans are off by about 1 (Blue Books, most RE&BJ volumes) and by 3–9 in RE&BJ 1886.
+
+Check the page image before citing a locator. Five third-pass records were corrected on
+2026-10-02 (np-1630, np-1635, np-1700, np-1706, np-1708); n582 was checked by eye for Blewett Lee.
+
+**Still blocked:**
+- The Chicago Economist is not on IA, and HathiTrust returns 403.
+- Only 7 RE&BJ volumes are online.
+- No IA run of the Inter Ocean or the American Contractor.
+
 ## Third pass — newspapers for the north half's thin buildings (2026-10-02)
 
 `stream-newspapers-north.json`: 43 records, all link-only. The per-building log is

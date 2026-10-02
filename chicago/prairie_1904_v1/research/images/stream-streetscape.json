@@ -952,7 +952,20 @@
   "image_url": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410:g4104:g4104c:pm001520/full/pct:25/0/default.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1892–93",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-reynertson-1893-grand-view-of-chicago.jpg",
+   "display_bytes": 420508,
+   "thumb": "research/images/files/st-reynertson-1893-grand-view-of-chicago-thumb.jpg",
+   "thumb_bytes": 22246,
+   "original_px": [
+    2800,
+    1300
+   ],
+   "original_sha256": "63389f24915bbb390874d0434eb4f224ff9cb5ddade89359e7a905ec60fb5170",
+   "original_bytes": 755865,
+   "fetched_from": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410:g4104:g4104c:pm001520/4600,5200,2800,1300/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/maps search 'chicago panoramic'",
   "notes": "Whole-city colour view (14336×9792 master). The near South Side is drawn as a street grid with red-roofed blocks; individual houses are not distinguishable at Prairie Avenue. Context only. Not downloaded (low value per byte).",
@@ -982,7 +995,20 @@
   "image_url": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790195003:01790_03_1950-0020/full/pct:50/0/default.jpg",
   "rights": "public domain",
   "rights_basis": "LoC: content of the online Sanborn Maps Collection is in the public domain",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-sanborn-vol3-1911-corrected-1950-sheet-20.jpg",
+   "display_bytes": 409586,
+   "thumb": "research/images/files/st-sanborn-vol3-1911-corrected-1950-sheet-20-thumb.jpg",
+   "thumb_bytes": 21782,
+   "original_px": [
+    2331,
+    2929
+   ],
+   "original_sha256": "121c3f2442a444d7359c08e1685252aba3733a5e79fb93b16501cd4b53fa8c83",
+   "original_bytes": 791704,
+   "fetched_from": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790195003:01790_03_1950-0020/full/pct:40/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/collections/sanborn-maps search 'chicago'; key sheet confirms Vol. 3 begins at Roosevelt Rd. and continues 'See Volume One South' to the north",
   "notes": "The SAME volume and sheet as the 1911 sheet 20 already held (MAP-1911-20), but with paste-over corrections to 1950: it records what replaced each mansion (e.g. on sheet 28 the R. R. Donnelley roll-paper warehouse, Gaylord Products/Hump Hairpin factory, 'Aeronautical University', and on 20 the Railway Express garage over the Pullman/1700 east side; sheet 35 Revere Camera, Donnelley, auto sales). Use it to date demolitions (later than 1911) and to see the surviving houses' footprints re-surveyed. Later evidence only — the 1904 layer stays with the 1911 base. LoC holds no 1890s–1906 Sanborn of this area: its 1906 Vol. 1 South Division covers only the congested district north of 12th St., and the 1890s volumes it holds are Vols. 9–16 and suburbs.",
@@ -1012,7 +1038,20 @@
   "image_url": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790195003:01790_03_1950-0028/full/pct:50/0/default.jpg",
   "rights": "public domain",
   "rights_basis": "LoC: content of the online Sanborn Maps Collection is in the public domain",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-sanborn-vol3-1911-corrected-1950-sheet-28.jpg",
+   "display_bytes": 373503,
+   "thumb": "research/images/files/st-sanborn-vol3-1911-corrected-1950-sheet-28-thumb.jpg",
+   "thumb_bytes": 20891,
+   "original_px": [
+    2326,
+    2929
+   ],
+   "original_sha256": "a021d8e929f31f77c313be1c61ad224d73371afe1dde3962d32ab26cadaf90b0",
+   "original_bytes": 706545,
+   "fetched_from": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790195003:01790_03_1950-0028/full/pct:40/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/collections/sanborn-maps search 'chicago'; key sheet confirms Vol. 3 begins at Roosevelt Rd. and continues 'See Volume One South' to the north",
   "notes": "The SAME volume and sheet as the 1911 sheet 28 already held (MAP-1911-28), but with paste-over corrections to 1950: it records what replaced each mansion (e.g. on sheet 28 the R. R. Donnelley roll-paper warehouse, Gaylord Products/Hump Hairpin factory, 'Aeronautical University', and on 20 the Railway Express garage over the Pullman/1700 east side; sheet 35 Revere Camera, Donnelley, auto sales). Use it to date demolitions (later than 1911) and to see the surviving houses' footprints re-surveyed. Later evidence only — the 1904 layer stays with the 1911 base. LoC holds no 1890s–1906 Sanborn of this area: its 1906 Vol. 1 South Division covers only the congested district north of 12th St., and the 1890s volumes it holds are Vols. 9–16 and suburbs.",
@@ -1042,7 +1081,20 @@
   "image_url": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790195003:01790_03_1950-0035/full/pct:50/0/default.jpg",
   "rights": "public domain",
   "rights_basis": "LoC: content of the online Sanborn Maps Collection is in the public domain",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-sanborn-vol3-1911-corrected-1950-sheet-35.jpg",
+   "display_bytes": 427105,
+   "thumb": "research/images/files/st-sanborn-vol3-1911-corrected-1950-sheet-35-thumb.jpg",
+   "thumb_bytes": 23109,
+   "original_px": [
+    2339,
+    2928
+   ],
+   "original_sha256": "a8dccfc0a92669d09d144fa5320aac7c81f420ea1cbcccad03d26242c7fe61f3",
+   "original_bytes": 835423,
+   "fetched_from": "https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790195003:01790_03_1950-0035/full/pct:40/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/collections/sanborn-maps search 'chicago'; key sheet confirms Vol. 3 begins at Roosevelt Rd. and continues 'See Volume One South' to the north",
   "notes": "The SAME volume and sheet as the 1911 sheet 35 already held (MAP-1911-35), but with paste-over corrections to 1950: it records what replaced each mansion (e.g. on sheet 28 the R. R. Donnelley roll-paper warehouse, Gaylord Products/Hump Hairpin factory, 'Aeronautical University', and on 20 the Railway Express garage over the Pullman/1700 east side; sheet 35 Revere Camera, Donnelley, auto sales). Use it to date demolitions (later than 1911) and to see the surviving houses' footprints re-surveyed. Later evidence only — the 1904 layer stays with the 1911 base. LoC holds no 1890s–1906 Sanborn of this area: its 1906 Vol. 1 South Division covers only the congested district north of 12th St., and the 1890s volumes it holds are Vols. 9–16 and suburbs.",
@@ -1130,12 +1182,12 @@
   "call_number": "G4104.C6P33 1897 .B536 (SE sheet)",
   "catalog_url": "https://www.lib.uchicago.edu/e/collections/maps/chi1890/G4104-C6P33-1897-B536-SE.html",
   "image_url": null,
-  "rights": "unknown — link only",
-  "rights_basis": "UChicago: 'freely available for personal or scholarly use', attribution requested; publication-date PD not confirmed from record",
+  "rights": "public domain",
+  "rights_basis": "published 1897 by Rufus Blanchard ('New map showing street car lines…') (pre-1929, US). UChicago: 'freely available for personal or scholarly use', attribution requested",
   "local": null,
   "verified": "catalog-only",
   "found_via": "lib.uchicago.edu/e/collections/maps/chi1890 and chi1900 index pages (Luna image viewer blocked by reCAPTCHA from this environment)",
-  "notes": "Four-sheet citywide map of street-car lines (scale ca. 1:21,000); the SE sheet should cover the Near South Side, showing which streets near Prairie (Cottage Grove, State, Wabash, Indiana, 18th, 22nd) carried horse, cable or electric lines in 1897. Catalogued from the collection index only; images not viewed. Treat kind as a transit map (no fire-insurance detail).",
+  "notes": "Four-sheet citywide map of street-car lines (scale ca. 1:21,000); the SE sheet should cover the Near South Side, showing which streets near Prairie (Cottage Grove, State, Wabash, Indiana, 18th, 22nd) carried horse, cable or electric lines in 1897. Catalogued from the collection index only; images not viewed. Treat kind as a transit map (no fire-insurance detail). Rights reviewed 2026-10-02: reclassified public domain (published 1897 map). Not downloaded — the UChicago Luna image server sits behind a reCAPTCHA wall.",
   "measurements": []
  },
  {
@@ -1160,12 +1212,12 @@
   "call_number": "G4104.C6P33 1902 .A7 (sheets 4, 6, 9)",
   "catalog_url": "https://www.lib.uchicago.edu/e/collections/maps/chi1900/G4104-C6P33-1902-A7-sheet6.html",
   "image_url": null,
-  "rights": "unknown — link only",
-  "rights_basis": "UChicago: 'freely available for personal or scholarly use', attribution requested; publication-date PD not confirmed from record",
+  "rights": "public domain",
+  "rights_basis": "published 1902 in 'Maps on the Chicago transportation problem' (pre-1929, US). UChicago: 'freely available for personal or scholarly use', attribution requested",
   "local": null,
   "verified": "catalog-only",
   "found_via": "lib.uchicago.edu/e/collections/maps/chi1890 and chi1900 index pages (Luna image viewer blocked by reCAPTCHA from this environment)",
-  "notes": "1902 report maps of the surface street-railway network two years before the target date — the best candidate for which lines ran on Cottage Grove, Indiana, State, 18th and 22nd Streets in 1904. Sheet coverage not checked. Catalogued from the collection index only; images not viewed. Treat kind as a transit map (no fire-insurance detail).",
+  "notes": "1902 report maps of the surface street-railway network two years before the target date — the best candidate for which lines ran on Cottage Grove, Indiana, State, 18th and 22nd Streets in 1904. Sheet coverage not checked. Catalogued from the collection index only; images not viewed. Treat kind as a transit map (no fire-insurance detail). Rights reviewed 2026-10-02: reclassified public domain (published 1902 maps). Not downloaded — the UChicago Luna image server sits behind a reCAPTCHA wall.",
   "measurements": []
  },
  {
@@ -1443,7 +1495,20 @@
   "image_url": "https://clearinghouse.isgs.illinois.edu/webdocs/ilhap/county/data/cook/flight12/0bwq08055.jpg",
   "rights": "public domain",
   "rights_basis": "U.S. federal (USDA-AAA) work; ISGS distributes free of charge",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-ilhap-1938-cook-bwq-8-55.jpg",
+   "display_bytes": 702158,
+   "thumb": "research/images/files/st-ilhap-1938-cook-bwq-8-55-thumb.jpg",
+   "thumb_bytes": 37804,
+   "original_px": [
+    5511,
+    6892
+   ],
+   "original_sha256": "c253a2241bcfda5f32d6a7df40d3b07806e605b0a79f8483ed4c854c692f7fb1",
+   "original_bytes": 7792709,
+   "fetched_from": "https://clearinghouse.isgs.illinois.edu/webdocs/ilhap/county/data/cook/flight12/0bwq08055.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "ISGS ILHAP county page j_cook.html + point index cook.zip (nearest photo centres to 18th & Prairie computed from the shapefile)",
   "notes": "Companion frame centred c. 26th St. & Prairie (photo centre 41.8402 N, 87.6202 W from the ISGS point index); the 18th–22nd blocks, the Cermak Road curve to the lakefront and Northerly Island appear along its top edge (viewed). Different flight line from 8-50, so not a stereo pair with it. Link only (not stored, to save space). The adjacent east frames 8-51 and 8-54 are listed in the index as not scanned.",
@@ -1565,7 +1630,20 @@
   "image_url": "https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/0ebf10a6-277b-4a72-927a-beed18d339ac/108+-+23rd+St+viaduct+opening.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1925 in the U.S. (now public domain); link only by choice",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-ghm-indiana-22nd-viaduct-souvenir-1925.jpg",
+   "display_bytes": 344711,
+   "thumb": "research/images/files/st-ghm-indiana-22nd-viaduct-souvenir-1925-thumb.jpg",
+   "thumb_bytes": 35684,
+   "original_px": [
+    2144,
+    2456
+   ],
+   "original_sha256": "e3f041b0e2f10fb12dc511af27c53d56a0ff1b2de75d8a738859525d9084e423",
+   "original_bytes": 1060062,
+   "fetched_from": "https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/0ebf10a6-277b-4a72-927a-beed18d339ac/108+-+23rd+St+viaduct+opening.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "catalog-only",
   "found_via": "glessnerhouse.org \"The Collection\" object list",
   "notes": "Museum caption quotes the souvenir: 'a future view of possible developments… Indiana Avenue is being widened to one hundred feet… Twenty-second Street at this point is also being widened to one hundred twenty feet'. A 1925 proposal drawing — evidence that Indiana and 22nd Street were narrower before the 1920s widenings (relevant when modelling the 1904 widths of the district's west and south edges). Image not viewed in detail.",
@@ -1647,7 +1725,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published 1892 (U.S.)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-picturesque-chicago-1892-prairie-avenue-text.jpg",
+   "display_bytes": 188852,
+   "thumb": "research/images/files/st-picturesque-chicago-1892-prairie-avenue-text-thumb.jpg",
+   "thumb_bytes": 20411,
+   "original_px": [
+    2020,
+    3392
+   ],
+   "original_sha256": "986f484fc752ea849e10791e8ff5ab611cbe5d8ebc6ba05cf1073db763836821",
+   "original_bytes": 780906,
+   "fetched_from": "https://archive.org/download/picturesquechica00baltiala/page/n122_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA OCR text of picturesquechica00baltiala",
   "notes": "Walking description southward from 16th St. naming residents in order (Sweenie, Boyer, J. L. McBirney, W. H. Wilson, Hamline on one side; Shortall, H. L. Frank, P. E. Studebaker, W. R. Sterling, Granger Farwell, R. A. Law, H. J. McBirney, Linville, Pullman, Field, Armour). Streetscape evidence: 'The street is as quiet as a country lane… No noise breaks the dignified stillness of Prairie avenue, save the occasional whirr of an Illinois Central suburban train as it flies by the back yards of the buildings on the east side.' Confirms the IC ran directly behind the east-side lots (1600–1700 blocks) with no intervening street.",
@@ -1758,7 +1849,20 @@
   "image_url": "https://archive.org/download/chicagomarvelous1891flin/page/n569_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1891 (U.S.)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-flinn-1891-a-bit-of-prairie-avenue.jpg",
+   "display_bytes": 363758,
+   "thumb": "research/images/files/st-flinn-1891-a-bit-of-prairie-avenue-thumb.jpg",
+   "thumb_bytes": 23704,
+   "original_px": [
+    2786,
+    4149
+   ],
+   "original_sha256": "5c1b34e256a8180c9dda33193062be50212cb31cbe7dff725564ca76e91e7a65",
+   "original_bytes": 2460615,
+   "fetched_from": "https://archive.org/download/chicagomarvelous1891flin/page/n569_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA advancedsearch creator:(flinn) → OCR list of illustrations 'Prairie ave., A Bit of … 429'",
   "notes": "EARLIEST PUBLICATION found of the west-sidewalk view south from 18th Street (Glessner wall at right) that recurs in Flinn 1892 ('Looking south on Prairie Avenue from Eighteenth St.'), Picturesque Chicago 1892 p. 199, Flinn's Standard Guide to Chicago 1893 p. 245 ('Looking south on Prairie Avenue [Near Eighteenth Street.]', IA standardguidetoc00flin, leaf n274), the 1973 Commission report p. 24 and the Holzman postcard postmarked 1908. Its appearance here narrows the negative to Dec. 1887 (Glessner occupancy) – 1891. Link only (the 1892 copy is stored). The 1891 text p. 528 starts the walk: 'you are disappointed with Prairie avenue as you see it, looking south from Sixteenth street. It isn't lined with palaces…'",

@@ -258,6 +258,11 @@ cp -f data/liberties.json "$SITE/data/"
 # while the dev tree counts the town perfectly — the scenes/, fauna/ and
 # residents/ failure, a fourth time.
 cp -f data/town_census.json "$SITE/data/"
+# The town's completion audit (T-1964), which the same Evidence -> City card reads
+# for its completion row — the four joins and the tiers' shares (T-1967). Derived and
+# re-derived by tools/audit_town_completion_1835.py; fetched, so mirrored.
+mkdir -p "$SITE/data/render"
+cp -f data/render/town_completion_1835.json "$SITE/data/render/"
 
 # The derived town-ordinance limits the building card reads (T-0334). Derived by
 # tools/derive_hay_limits.py and re-derived by tools/check.sh; renderers/web/js/

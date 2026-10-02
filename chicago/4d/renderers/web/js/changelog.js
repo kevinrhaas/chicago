@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1311, ts: '2026-10-02T16:33:37.188Z', date: 'Oct 2, 2026, 11:33 AM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
+  { v: 1312, ts: '2026-10-02T17:04:58.917Z', date: 'Oct 2, 2026, 12:04 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [
       'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
       'Billy Caldwell\u2019s agency log house and the Clybourne cabins say a source names who used them, but the seat is not proven. Caldwell had two houses and nobody can say which he slept in. The cabins stand some miles from where the family really lived.',
       'The old U.S. Factor\u2019s House and Miller House say that no source places anyone in them in July 1835. Every occupant we know of is from an earlier year.',
       'Each card\u2019s evidence gives the full reasoning and its grade. Nobody has been invented to fill these ten roofs.',
+    ] },
+  { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
+    items: [
+      'Open Evidence, then City: a third panel now shows how close the town is to complete, as four checks. Every household has a home; every working person has a workplace; every business has a roof or a stated reason it has none; every standing roof has somebody in it or a use.',
+      'One check is closed today: every business. The other three show what is still owed. 523 households are waiting on a roof, 308 working people have no workplace yet, and 24 roofs stand empty.',
+      'A bar under the checks shows how much of the town rests on each kind of evidence. Of the 1,508 households with a home, 18 % are attested, 38 % inferred and 43 % reconstructed.',
+      'The full tables, by tier, for people, households, businesses, roofs and streets are in docs/RESEARCH/1835_town_completion.md, written from the same counts.',
     ] },
   { v: 1310, ts: '2026-10-02T15:48:39.825Z', date: 'Oct 2, 2026, 10:48 AM CT', title: 'The fort\u2019s barn, shop and wash house now say whose they were', kind: 'change',
     items: [
