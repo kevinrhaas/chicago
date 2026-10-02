@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1303, ts: '2026-10-02T13:36:07.376Z', date: 'Oct 2, 2026, 8:36 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+    items: [
+      'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
+      'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
+      'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
+      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L352).',
+    ] },
   { v: 1302, ts: '2026-10-02T13:17:54.396Z', date: 'Oct 2, 2026, 8:17 AM CT', title: 'Counting what the town still owes', kind: 'chore',
     items: [
       'Nothing in the town changed. Behind the scenes we now count how far it is from finished: who has a house, who has a place to work, which shops have a roof, and which roofs have somebody under them.',
