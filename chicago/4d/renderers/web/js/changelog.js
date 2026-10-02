@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1325, ts: '2026-10-02T21:33:18.792Z', date: 'Oct 2, 2026, 4:33 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer wait on a shop of their own', kind: 'change',
+  { v: 1325, ts: '2026-10-02T21:33:18.792Z', date: 'Oct 2, 2026, 4:33 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer owed a shop', kind: 'change',
     items: [
       'Open Otis Bacon\u2019s card, a carpenter, and look under Were they at work? It used to say the town owed him a shop of his own. It now says no shop is owed. The Chicago American counted twenty-five mechanics\u2019 shops in the town in August 1835, and the shops printed in the newspapers of the day already come to 45.',
       'The same goes for 19 more carpenters, 12 milliners, 9 builders, 4 smiths and 12 other tradespeople. Most mechanics worked as hands in somebody else\u2019s shop, and carpenters and masons worked wherever a wall was going up. Which shop or which building is not recorded, so the card does not name one.',
