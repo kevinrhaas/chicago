@@ -1370,7 +1370,7 @@ function buildShed(buf, shed, form, terrain, level, problems) {
  * only draws what it says. Like the wagon shed above it is not a structure record and is
  * not baked — a board box is derived at load from the record's numbers and the committed
  * heightfield — and it carries `reconstructed` on every vertex, because the fact of THIS
- * privy in THIS corner is dealt by rule (L352).
+ * privy in THIS corner is dealt by rule (L353).
  *
  * THE FRAME IS THE LAYER'S: along the face is (cos b, sin b) in world XZ and out of it is
  * (sin b, -cos b). `out` points into the yard, toward the house — the side the door is

@@ -29,7 +29,7 @@ THE HOUSE DECIDES THE SIZE AND THE FINISH, which is what "by household" means he
 labourer's privy is a 3½-foot box of sawmill slabs; a tradesman's a 4-foot board privy; a
 keeper's and a merchant's a 5-foot two-seat, the merchant's whitewashed. The boards weather
 by the house's own `age_state` (L348's FIN-W years). Every dimension is invented and
-bounded in docs/LIBERTIES.md L352; nothing is a reading of any particular yard.
+bounded in docs/LIBERTIES.md L353; nothing is a reading of any particular yard.
 
 WHAT IT REFUSES, and says so on the record:
   * a lot whose buildings leave no yard behind them (`yard_for`'s own reason);
@@ -79,7 +79,7 @@ STABLE_WORDS = ("stable", "barn", "carriage")
 
 # THE PRIVY BY CLASS: [along, depth, low eave, high eave] in metres, and its finish. Sizes
 # are the common one- and two-seat boxes of the period's builders' guides, in round feet:
-# 3½ ft, 4 ft, 5 × 4 ft. INVENTED, bounded in L352.
+# 3½ ft, 4 ft, 5 × 4 ft. INVENTED, bounded in L353.
 PRIVY = {
     "labourer":  {"size": [1.07, 1.07, 1.85, 2.05], "finish": "slab"},
     "tradesman": {"size": [1.22, 1.22, 1.95, 2.20], "finish": "board"},
@@ -339,7 +339,7 @@ def record(items, refused, stats, off_plat) -> dict:
                      "horse stabled it on its own lot. That much is the norm of the period, "
                      "not a reading of any yard here; WHICH corner, what size and what "
                      "finish are dealt by rule from the house's own class and age. "
-                     "docs/LIBERTIES.md L352."),
+                     "docs/LIBERTIES.md L353."),
         },
         "rule": {
             "privy": "every dwelling lot with a yard behind the house and no committed privy",

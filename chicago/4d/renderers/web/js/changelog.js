@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1302, ts: '2026-10-02T13:43:30.780Z', date: 'Oct 2, 2026, 8:43 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
+  { v: 1304, ts: '2026-10-02T14:03:50.530Z', date: 'Oct 2, 2026, 9:03 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
     items: [
       'Walk the back lots between Randolph and Washington, west of Clark. In the corner of each yard, by the alley fence, there is now a privy. A hundred and twenty-two houses gained one; the thirty-four that already had a privy keep theirs.',
       'The privy follows the house. A labourer\u2019s is a small box of rough slabs, a tradesman\u2019s a board privy, and a merchant\u2019s a wider two-seater, whitewashed. Its boards are as weathered as the house\u2019s own.',
       'Sixteen merchants and teamsters who had no stable now have one in the other corner of the yard: a board-and-batten stable with a pair of doors and a hay loft.',
       'Seven lots are built back to the alley and have no room for a privy. No wells were added, because in 1835 the town drank lake water sold from carts.',
-      'No source places any of these privies or stables. The Liberties page (L352) says how each was sized and placed.',
+      'No source places any of these privies or stables. The Liberties page (L353) says how each was sized and placed.',
+    ] },
+  { v: 1303, ts: '2026-10-02T13:36:07.376Z', date: 'Oct 2, 2026, 8:36 AM CT', title: 'Merchants\u2019 houses show boxed corners, corbelled chimneys and finer siding', kind: 'change',
+    items: [
+      'Look up at a merchant\u2019s house on Randolph or Washington Street. Its chimneys now end in two stepped courses of brick, where a tradesman\u2019s cottage next door has one.',
+      'Its corners are boxed in wider boards, and a crown board runs under the front eaves and turns a short way round each gable end.',
+      'The siding now follows the household too. Narrower boards meant more of them, so merchants\u2019 houses hang the finest, 4\u00bd or 5 inches to the weather. Tradesmen\u2019s cottages hang 5 to 6 inches. Neighbours still mostly differ, as before.',
+      'Open a house\u2019s card: the Built line now names its trim. These are our reconstruction. No source records the trim, siding or chimneys of any of these houses (liberty L352).',
+    ] },
+  { v: 1302, ts: '2026-10-02T13:17:54.396Z', date: 'Oct 2, 2026, 8:17 AM CT', title: 'Counting what the town still owes', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind the scenes we now count how far it is from finished: who has a house, who has a place to work, which shops have a roof, and which roofs have somebody under them.',
+      'Today 143 households have a house and 1,917 do not yet. 308 working people still need a workplace, and 228 standing buildings have nobody in them yet. Every shop has a roof or a stated reason it has none.',
+      'The next steps fill those gaps, house by house.',
     ] },
   { v: 1301, ts: '2026-10-02T12:50:19.308Z', date: 'Oct 2, 2026, 7:50 AM CT', title: 'Hay ricks, barrels, boards and hides in the working yards', kind: 'change',
     items: [
