@@ -340,8 +340,13 @@ export function createHud({
   const helpDot = $('help-dot');
   let whatsNewPainted = false;
 
-  function paintUnseen() {
-    const n = unseenCount();
+  // The count is a promise since T-1973: on the published page it comes from the
+  // release numbers publish.sh writes into the page and settles at once; the
+  // changelog itself is imported only by the tab. A count that cannot be read
+  // leaves the dots as the markup has them (hidden) rather than inventing news.
+  async function paintUnseen() {
+    let n;
+    try { n = await unseenCount(); } catch { return; }
     whatsNewDot?.toggleAttribute('hidden', n === 0);
     helpDot?.toggleAttribute('hidden', n === 0);
     if (n > 0) {
@@ -349,12 +354,25 @@ export function createHud({
         `Controls, settings and what's new — ${n} unread (H)`);
     }
   }
-  paintUnseen();
+  void paintUnseen();
 
-  function openWhatsNew() {
-    if (!whatsNewPainted) { renderWhatsNew($('whatsnew')); whatsNewPainted = true; }
-    markSeen();
-    paintUnseen();
+  async function openWhatsNew() {
+    const host = $('whatsnew');
+    if (!whatsNewPainted) {
+      whatsNewPainted = true;
+      host?.setAttribute('aria-busy', 'true');
+      try {
+        await renderWhatsNew(host);
+      } catch {
+        whatsNewPainted = false;
+        if (host) host.textContent = 'The release notes could not load. Reopen this tab to retry.';
+        return;
+      } finally {
+        host?.removeAttribute('aria-busy');
+      }
+    }
+    await markSeen();
+    await paintUnseen();
   }
 
   const panelTitle = $('panel-title');
@@ -391,7 +409,7 @@ export function createHud({
     // A new section starts at its top: the scroll column is shared, and the
     // Evidence list's depth must not carry over into Settings.
     if (panelScroll) panelScroll.scrollTop = 0;
-    if (want === 'whatsnew') openWhatsNew();
+    if (want === 'whatsnew') void openWhatsNew().catch(() => {});
     onTab?.(want);
   }
   /** A section can ask to be told when it is shown (the hub repaints, the

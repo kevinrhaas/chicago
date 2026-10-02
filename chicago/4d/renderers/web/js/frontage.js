@@ -303,8 +303,8 @@ async function loadTimberRelief(assetBase) {
       img.src = new URL(name, here).href;
     });
     const [nrm, orm, base] = await Promise.all([
-      image(`${sheet.id}_normal_gl.png`), image(`${sheet.id}_orm.png`),
-      image(`${sheet.id}_basecolor.png`)]);
+      image(`${sheet.id}_normal_gl.webp`), image(`${sheet.id}_orm.webp`),
+      image(`${sheet.id}_basecolor.webp`)]);
 
     // The albedo modulation: each texel's linear luminance over the map's mean,
     // pulled toward 1 by the grain strength, stored under the headroom.

@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1307, ts: '2026-10-02T15:10:21.372Z', date: 'Oct 2, 2026, 10:10 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
+  { v: 1308, ts: '2026-10-02T15:23:58.924Z', date: 'Oct 2, 2026, 10:23 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
     items: [
       'Nothing in the town changed. Over the last week the town filled in: houses finished by who lives in them, privies and stables behind them, walks and yards dealt by trade. Behind the scenes we measured how much each view now draws.',
       'The Full and Balanced detail settings now allow for that town, measured at five places on a desktop and a phone, with a little room and no more.',
       'The Light setting, the one a slower machine or a phone starts on, was not raised. It still draws more than it should in the busiest views, and the next step trims it back.',
+    ] },
+  { v: 1307, ts: '2026-10-02T15:05:20.551Z', date: 'Oct 2, 2026, 10:05 AM CT', title: 'The town arrives sooner: 2 MB less to download', kind: 'polish',
+    items: [
+      'A first visit now downloads about 2 MB less before you can walk. Every wall, roof and signboard looks exactly as it did.',
+      'The grain on the walls, roofs and signboards now arrives in a smaller image format that keeps every pixel the same.',
+      'These release notes now load when you open this tab, so the dot that says there is something new no longer costs a megabyte.',
     ] },
   { v: 1306, ts: '2026-10-02T14:47:42.799Z', date: 'Oct 2, 2026, 9:47 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
     items: [

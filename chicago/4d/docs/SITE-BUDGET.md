@@ -159,7 +159,8 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 12 MB.** That is 1.66× the measured 7.223 MB:
+**The boot payload budget is 13 MB**, re-set on 2026-10-02 by T-1973 for the reasons in
+§ 4a. It was set at 12 MB, 1.66× the measured 7.223 MB:
 tight enough that a careless import into `walk/js/` or an unmetered new boot
 fetches cannot accumulate silently (each is visible against 60 % spent), and
 loose enough that the growing town — South Through Time is ahead, and every
@@ -169,7 +170,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 12 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 13 MB budget
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -188,6 +189,67 @@ response — the live origin was verified to serve `content-encoding: gzip` for
 no cookies), counting every byte the server writes per request until the same
 ready flag the smoke gates on. No hand-declared file list anywhere in it.
 
+### 4a. Re-measured 2026-10-02: 14.27 MB, and 2.28 MB of it was not the town (T-1973)
+
+Dev @ `c86459b5` measured **14.269 MB across 1,286 requests**, 2.27 MB over. The
+growth since 2026-09-16 was not one careless import. Two things had grown by design:
+the PBR relief maps (T-1488, T-1815, T-1836, T-1963) put **3.95 MB of PNG** on the
+boot path, and the scene's own records grew (`.json` 2.58 → 4.27 MB, `.glb` 2.52 →
+3.41 MB) as the town filled in. The third was a cost that grew with every release:
+**`js/changelog.js`, 1.03 MB on the wire**, imported at boot so the What's-new dot
+could count unread releases.
+
+Two of those were bytes a visitor did not need in order to stand in the street,
+and T-1973 removed them without touching what the scene shows:
+
+| cut | before | after | how |
+|---|---|---|---|
+| relief maps | 3.947 MB PNG | 2.649 MB WebP | lossless WebP beside each PNG master, held **pixel-identical** by `tools/web_textures.py --check` in the gate; the four modules ask for `.webp` |
+| changelog at boot | 1.028 MB | 0 | `publish.sh` writes the release numbers into the page (`<meta name="c4d-releases" content="1-1307">`); `whatsnew.js` imports the changelog only when the tab opens |
+
+```
+BOOT PAYLOAD — first visit stands in the 1835 street, with T-1973's cuts
+  on c86459b5                       11.989 MB across 1284 request(s) — two runs, byte-identical
+  on 652ca8ea (+ T-1960)            12.000 MB across 1285 request(s) — 107 bytes inside 12 MB
+  on d8c6b562 (+ T-1971, T-1804)    12.575 MB across 1289 request(s) — 13,185,448 bytes
+```
+
+### 4b. Why the budget is 13 MB now (T-1973)
+
+The cuts above held: the same day, on dev @ `d8c6b562`, the maps and the changelog
+weighed what they did on `c86459b5`. **What moved was the town.** T-1971 seated the
+1,003 households present on the scene date under standing dwellings (L354), and the
+seats live in the per-structure sidecars every first visit loads: `data/sidecars/1835/`
+grew **+0.546 MB on the wire** in that one merge. T-1804's two camps added 26 KB more.
+That is the 1835 completion programme (T-1215) doing what the owner asked of it, and
+its remaining pieces (T-1972's uncertain households, T-1966's workplaces) write into the
+same records.
+
+The 12 MB was chosen to be "loose enough that the growing town does not force a
+re-budget every quarter". It lasted sixteen days, because the town grew faster than the
+quarter it was sized for. The budget was not raised to fit the waste: the 2.28 MB that
+was not the town came out first, in the same change. **13 MB is 1.03× the 12.575 MB
+measured with the cuts**, 0.425 MB of room. That is deliberately tight. A careless import
+the size of the old changelog (1 MB) still breaches it. The programme's remaining household and workplace
+records will press on it. The run they press on has a measured lever ready:
+`liberties.json` (0.555 MB, below), then the panel files behind it. If the town outgrows
+13 MB on scene records alone, the next re-set should first ask whether the
+household seats belong in the boot sidecars at all. A card reads them; the scene draws
+nothing from them.
+
+
+**The next cut, named and measured** so the run that meets the next refusal knows where to
+look: `data/liberties.json` is **0.555 MB** on the wire and awaited at boot
+(`main.js`, `mountLiberties`), although only the Evidence panel and an open provenance
+card read it, and the card already redraws when the list arrives late
+(`popup.setLiberties`). Loading it on first need is a change to how provenance reaches
+the card, and three smoke parts read it synchronously, so it is its own piece of work,
+not a rider on this one. Behind it are the other panel files a first visit fetches before
+any panel is opened: `reconstruction/1835_address_book.json` (0.161 MB),
+`residents/employment_coverage.json`, `reconstruction/1835_population_profile.json`,
+`residents/research_pilot.json` (about 0.04 MB each). Minifying the 547 boot sidecars was
+measured and is not worth it: gzip already takes the whitespace, and it saves 0.07 MB.
+
 **What the whole-tree cap is now for:** repository hygiene, not visitor cost.
 The gate's `SITE_BUDGET_MB` moved 40 → **256 MB** on the same commit — a
 quarter of GitHub Pages' documented 1 GB site limit, six and a half times the
@@ -195,12 +257,12 @@ quarter of GitHub Pages' documented 1 GB site limit, six and a half times the
 wall by drift and no one has to buy headroom out of the honesty of the record
 again (32 → 36 → 40 were three such purchases). The household cards can grow
 tenfold without costing a first visit a byte; the thing that costs every
-visitor immediately is the boot payload, and that is what the 12 MB defends.
+visitor immediately is the boot payload, and that is what the 13 MB defends.
 
 ## 5. What the gate does now
 
 - **Refuses** over 256 MB — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 12 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 13 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
