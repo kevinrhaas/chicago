@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1284, ts: '2026-10-02T02:53:14.349Z', date: 'Oct 1, 2026, 9:53 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
+  { v: 1285, ts: '2026-10-02T03:12:17.655Z', date: 'Oct 1, 2026, 10:12 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
     items: [
       'Look at any frame house in the town. Its windows used to be plain dark rectangles. Now each one shows its wooden sash: the frame, the rail where the two halves meet, and the thin bars between the panes of glass.',
       'Glass came in boxed sizes, and bigger panes cost more. Merchants\u2019 houses on Washington, Randolph and Wells now have twelve-over-twelve sashes of large 8 \u00d7 10 or 7 \u00d7 9 inch panes, so their windows are taller and wider.',
       'Tradesmen\u2019s cottages use the small 6 \u00d7 8 inch pane, the only size recorded at Chicago. Most have twelve-over-twelve sashes and some have nine-over-six. Where a storey is too low for a full sash, the window loses a row of panes instead of squashing them.',
       'Open a house\u2019s card. The Built line now names its sash and glass. These are our reconstruction: no source records the windows of any of these houses. The rule is on the Liberties page (L343).',
+    ] },
+  { v: 1284, ts: '2026-10-02T02:44:49.927Z', date: 'Oct 1, 2026, 9:44 PM CT', title: 'South Water and Lake Street hang the newspapers\u2019 own firms\u2019 boards', kind: 'change',
+    items: [
+      'Walk South Water Street and twenty-five more houses of trade now name themselves: A. FILER & CO., JONES, KING & CO., BRIGGS & HUMPHREY and PETER COHEN among them, and more on Lake, Randolph and the cross streets. Some boards hang on brackets or under hoods, and some names are painted across the front.',
+      'Each board letters the firm as the 1833\u201335 papers printed it, with its trade beneath. Nothing is added.',
+      'Tap one of these buildings and its card now names the firm in it: \u201cHoused here \u2014 the paper names only the street.\u201d The paper gives the street. Which building on it is our choice, and the card says so (liberty L341).',
+      'Fourteen of these firms hang no board, and each one says why: a name the paper did not print whole, a school, or a face already crowded with boards. The town\u2019s other 47 boards are unchanged.',
     ] },
   { v: 1283, ts: '2026-10-02T02:10:37.412Z', date: 'Oct 1, 2026, 9:10 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
