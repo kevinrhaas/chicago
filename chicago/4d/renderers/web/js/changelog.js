@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
+  { v: 1308, ts: '2026-10-02T15:30:39.393Z', date: 'Oct 2, 2026, 10:30 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
     items: [
       'Nothing in the town changed. Over the last week the town filled in: houses finished by who lives in them, privies and stables behind them, walks and yards dealt by trade. Behind the scenes we measured how much each view now draws.',
       'The Full and Balanced detail settings now allow for that town, measured at five places on a desktop and a phone, with a little room and no more.',
