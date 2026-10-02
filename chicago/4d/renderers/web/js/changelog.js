@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1315, ts: '2026-10-02T18:07:38.033Z', date: 'Oct 2, 2026, 1:07 PM CT', title: 'Eighty-eight more people\u2019s cards now name where they worked', kind: 'change',
+    items: [
+      'Open Billy Caldwell\u2019s card and look under Were they at work? It now names the Indian Agency, where he was the interpreter. Thomas Owen, the agent, has the same line.',
+      'James Whitlock and Edmund Taylor are named at the Land Office, Richard Hamilton at the county offices, Jeremiah Porter at the First Presbyterian Church and Father St. Cyr at St. Mary\u2019s.',
+      'Seventy-nine people who keep their own shop, tavern or office now name it, from Rufus Brown\u2019s boarding house to John Miller\u2019s tannery. Some of those shops are our reconstruction, and the card says so.',
+      'The business records already listed these people. Their cards now read those lists. On the City card, people owed a workplace drop from 308 to 230.',
+    ] },
   { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [
       'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
