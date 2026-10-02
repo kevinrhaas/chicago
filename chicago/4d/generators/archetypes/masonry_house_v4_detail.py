@@ -752,10 +752,10 @@ def roof_ridges(b,params):
             for j in range(8):
                 p,q=math.pi*j/8,math.pi*(j+1)/8
                 def P(a,l):
-                    across=r['ridge_at']+.14*math.cos(a);z=r['ridge_z']+.055+.14*math.sin(a)
+                    across=r['ridge_at']+r.get('ridge_skew',0)*(l-r.get('ridge_origin',0))+.14*math.cos(a);z=r['ridge_z']+.055+.14*math.sin(a)
                     return (across,l,z) if r['axis']=='y' else (l,across,z)
                 b.raw([P(p,lo),P(q,lo),P(q,hi),P(p,hi)],r['conf_roof'],19+i%3,(0,0,1))
-            add_ridge_crest(b,r['axis'],r['ridge_at'],r['ridge_z'],lo,hi,1.0,19+i%3)
+            add_ridge_crest(b,r['axis'],r['ridge_at'],r['ridge_z'],lo,hi,1.0,19+i%3,r.get('ridge_skew',0),r.get('ridge_origin',0))
 
 
 def chimney(b,c):
@@ -1359,7 +1359,7 @@ def north_entry(b,p):
 
 def west_hood(b,p,d):
     """Timber dormer with tile cheeks and the hood generated in the roof union."""
-    from archetypes.masonry_house_v4_west_roof import height
+    from archetypes.masonry_house_v4_west_roof import height, patches
     r=next(r for r in p.ranges if r.get('stable_roof'))
     a,c=d['u0'],d['u1'];front,back=d['front'],d['back'];conf=d['conf']
     pl={'axis':'x','sign':-1,'at':front}
@@ -1368,6 +1368,19 @@ def west_hood(b,p,d):
        'z0':d['eave_z']-1.35,'z1':d['eave_z']-.13,'conf':conf,'style':'courtyard_sash'}
     apron_front=r['x0']-.10
     apron_z=height(r,apron_front,(a+c)/2)+.025
+    # The upper envelope trims the host at the hood's overhang, while the
+    # timber cheeks sit 25 cm inward. Return the host roof under those two
+    # overhangs, clipped to its exact planes, so neither cheek has an open seam.
+    for _,pts in patches(r,include_dormer=False):
+        p0,p1,p2=pts[:3]
+        normal=legacy._normal([p0,p1,p2])
+        def roof_z(x,y):
+            return p0[2]-(normal[0]*(x-p0[0])+normal[1]*(y-p0[1]))/normal[2]
+        for lo,hi in ((a-.25,a),(c,c+.25)):
+            strip=rect_clip([(v[0],v[1]) for v in pts],
+                            d['hood_front'],lo,back,hi)
+            if strip:
+                legacy._two_sided_roof(b,[(x,y,roof_z(x,y)) for x,y in strip],conf,ROOF)
     old=b.decorate;b.decorate=False
     # Wooden boards around an actual aperture; no opaque panel behind the glass.
     # The sash is set into the roof, above a steep tiled apron. A tall wooden

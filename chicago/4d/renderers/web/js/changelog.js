@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
+    items: [
+      'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
+      'Its courtyard roof repeats the north wing’s flared eave. The alley dormer rises with the roof so its window remains visible.',
+      'The revised rear shape is a reconstruction following the owner’s sketch; the floor-plan footprint and window positions are retained.'
+    ] },
   { v: 1288, ts: '2026-10-02T05:18:43.463Z', date: 'Oct 2, 2026, 12:18 AM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
     items: [
       'Cross the river to Kinzie\u2019s Addition and walk east along Illinois Street to Cass. The corner now has a boarding house: two storeys of clapboard set close to the street, with a kitchen wing behind it.',

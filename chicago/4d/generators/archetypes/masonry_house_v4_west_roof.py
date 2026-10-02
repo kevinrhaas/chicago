@@ -34,7 +34,12 @@ def area(poly):
 
 
 def rect(x0,x1,y0,y1):return [(x0,y0),(x1,y0),(x1,y1),(x0,y1)]
+def footprint(box):
+    return list(box) if isinstance(box[0], (tuple,list)) else rect(*box)
 def bounds_planes(box):
+    if isinstance(box[0], (tuple,list)):
+        return [(-(b[1]-a[1]),b[0]-a[0],(b[1]-a[1])*a[0]-(b[0]-a[0])*a[1])
+                for a,b in zip(box,box[1:]+box[:1])]
     x0,x1,y0,y1=box
     return [(1,0,-x0),(-1,0,x1),(0,1,-y0),(0,-1,y1)]
 
@@ -44,13 +49,47 @@ def slope(axis,a,za,b,zb):
     return (m,0,za-m*a) if axis=='x' else (0,m,za-m*a)
 
 
+def continuous_gable(r):
+    """Level ridge, centered south gable, and the north court's flared eaves.
+
+    The front gable keeps its carriage-door axis. Between the crossing range and
+    courtyard corner, the ridge shifts in plan to the rear wing's midpoint while
+    staying at one height. Triangulated station strips are continuous planar
+    faces; no sampled warped quad and no south hip closes the roof.
+    """
+    import math
+    g=r['stable_roof'];n=g['north_range'];x0,x1=r['x0'],r['x1']
+    run=n['kick']['run_m'];rise=run*math.tan(math.radians(n['kick']['pitch_deg']))
+    front=[(x0-.15,g['north_eave']), (g['front_x0'],g['north_eave']),
+           (r['ridge_at'],r['ridge_z']),
+           (x1-run,z(slope('x',r['ridge_at'],r['ridge_z'],x1,g['north_eave']),x1-run,0)),
+           (x1,g['north_eave'])]
+    rear=[(x0-.20,g['rear_west_eave']-.20*math.tan(math.radians(n['kick']['pitch_deg']))),
+          (x0+run,g['rear_west_eave']+rise), (g['rear_x'],g['rear_z']),
+          (x1-run,g['rear_east_eave']+rise),(x1+.20,g['rear_east_eave']-.20*math.tan(math.radians(n['kick']['pitch_deg'])))]
+    stations=[(r['y0']-.20,rear),(n['y0'],rear),(g['cross_y'],front),(r['y1'],front)]
+    result=[]
+    for row,((ya,a),(yb,b)) in enumerate(zip(stations,stations[1:])):
+        for col in range(len(a)-1):
+            quad=[(a[col][0],ya,a[col][1]),(a[col+1][0],ya,a[col+1][1]),
+                  (b[col+1][0],yb,b[col+1][1]),(b[col][0],yb,b[col][1])]
+            for ti,ids in enumerate(((0,1,2),(0,2,3))):
+                pts=[quad[k] for k in ids];p,q,s=pts
+                u=[q[k]-p[k] for k in range(3)];v=[s[k]-p[k] for k in range(3)]
+                normal=(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
+                aa,bb=-normal[0]/normal[2],-normal[1]/normal[2]
+                plane=(aa,bb,p[2]-aa*p[0]-bb*p[1])
+                result.append((f'gable_{row}_{col}_{ti}',[(p[0],p[1]) for p in pts],[plane]))
+    return result
+
+
 def components(r, include_dormer=True):
     g=r['stable_roof'];x0,x1,y0,y1=r['x0'],r['x1'],r['y0'],r['y1'];ov=.15
     box=(x0-ov,x1,y0-ov,y1)
     # Northern full west-facing gable. Its southern foot returns to the lower
     # alley eave; the old crossing range stopped far above that foot.
     cross=[slope('y',y1,g['north_eave'],g['cross_y'],g['cross_z']),
-           slope('y',g['south_foot_y'],g['rear_west_eave'],g['cross_y'],g['cross_z'])]
+           slope('y',g['south_foot_y'],g.get('cross_foot_eave',g['rear_west_eave']),g['cross_y'],g['cross_z'])]
     # The shorter, asymmetric rear range has a hipped south end. The hip stays
     # above the sheet-3 upper windows and does not invent a full-height rear gable.
     rear=[slope('x',x0,g['rear_west_eave'],g['rear_x'],g['rear_z']),
@@ -70,6 +109,8 @@ def components(r, include_dormer=True):
            ('north',(x0-ov,x1,g['cross_y'],y1),north),
            ('connector_upper',(x0-ov,x1,yk,nr),[taper(high)]),
            ('connector_kick',(x0-ov,x1,n['y0'],yk),[taper(low)])]
+    if g.get('continuous_south_gable'):
+        comps=[comps[0],*continuous_gable(r),*comps[3:]]
     if include_dormer and g.get('dormer'):
         d=g['dormer'];front=d['hood_front'];back=d['back'];a=d['u0']-.25;c=d['u1']+.25
         peak=d['apex_z'];eave=d['eave_z'];cx=d['crest_x'];mid=(a+c)/2
@@ -94,12 +135,12 @@ def height(r,x,y,include_dormer=False):
     return max(vals) if vals else 0.
 
 
-def patches(r):
-    comps=components(r)
+def patches(r, include_dormer=True):
+    comps=components(r,include_dormer)
     result=[]
     for ci,(name,box,planes) in enumerate(comps):
         for pi,p in enumerate(planes):
-            poly=rect(*box)
+            poly=footprint(box)
             for other in planes:
                 poly=clip(poly,tuple(other[k]-p[k] for k in range(3)))
             if not poly:continue
@@ -109,8 +150,9 @@ def patches(r):
                 # A competing roof covers this patch only where ALL its slopes
                 # are above p and its footprint contains it. Difference of convex
                 # regions is emitted as disjoint convex pieces.
-                tests=bounds_planes(other_box)+[tuple(o[k]-p[k] for k in range(3)) for o in others]
-                if any(max(abs(q) for q in t)<EPS for t in tests[4:]) and cj>ci:continue
+                edge_tests=bounds_planes(other_box)
+                tests=edge_tests+[tuple(o[k]-p[k] for k in range(3)) for o in others]
+                if any(max(abs(q) for q in t)<EPS for t in tests[len(edge_tests):]) and cj>ci:continue
                 kept=[]
                 for piece in remaining:
                     inside=piece
@@ -131,7 +173,13 @@ def profile(r,face):
     lo,hi=(r['y0'],r['y1']) if axis=='y' else (r['x0'],r['x1'])
     cuts={lo,hi};planes=[]
     for _,box,ps in components(r,False):
-        cuts.update(v for v in (box[2:4] if axis=='y' else box[0:2]) if lo<v<hi)
+        cuts.update(p[1 if axis=='y' else 0] for p in footprint(box)
+                    if lo<p[1 if axis=='y' else 0]<hi)
+        # A station triangle can enter the wall at a diagonal footprint edge,
+        # between its vertices. Include that boundary before linearizing it.
+        for a,b,c in bounds_planes(box):
+            m,offset=(b,a*fixed+c) if axis=='y' else (a,b*fixed+c)
+            if abs(m)>EPS and lo<-offset/m<hi:cuts.add(-offset/m)
         planes+=ps
     for p in planes:
         for q in planes:
@@ -158,6 +206,10 @@ def ridge_ranges(r):
     g=r['stable_roof'];candidates=[('y',r['ridge_at'],r['ridge_z'],g['front_hip_y'],r['y1']),
       ('x',g['cross_y'],g['cross_z'],r['x0'],r['x1']),
       ('y',g['rear_x'],g['rear_z'],g['hip_y'],g['cross_y'])]
+    if g.get('continuous_south_gable'):
+        candidates=[('y',r['ridge_at'],r['ridge_z'],g['cross_y'],r['y1']),
+                    ('x',g['cross_y'],g['cross_z'],r['x0'],r['x1']),
+                    ('y',g['rear_x'],g['rear_z'],r['y0'],g['north_range']['y0'])]
     out=[]
     for axis,at,rz,lo,hi in candidates:
         steps=max(1,round((hi-lo)/.08));start=None
@@ -168,4 +220,8 @@ def ridge_ranges(r):
             if (not ok or i==steps) and start is not None:
                 if a-start>.05:out.append(({**r,'axis':axis,'ridge_at':at,'ridge_z':rz},start,a))
                 start=None
+    if g.get('continuous_south_gable'):
+        lo,hi=g['north_range']['y0'],g['cross_y']
+        out.append(({**r,'axis':'y','ridge_at':g['rear_x'],'ridge_z':g['rear_z'],
+                     'ridge_origin':lo,'ridge_skew':(r['ridge_at']-g['rear_x'])/(hi-lo)},lo,hi))
     return out
