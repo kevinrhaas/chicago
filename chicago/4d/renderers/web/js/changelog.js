@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Tents on the lake shore below the fort, and wagons at the west edge', kind: 'change',
+    items: [
+      'Stand at the fort\u2019s south-west corner and look south. Past the garden and the burying ground, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
+      'Walk west out of town along Randolph Street, past the last houses beyond Des Plaines Street. Four covered wagons and two small tents stand in a ring on the prairie, an emigrant party stopped for the night.',
+      'Both camps are empty. No figure is drawn, and no fire burns.',
+      'Both are our reconstruction. No source says anybody camped on either spot. The Liberties page (L351) says how we placed and sized them.',
+    ] },
   { v: 1300, ts: '2026-10-02T12:00:26.932Z', date: 'Oct 2, 2026, 7:00 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
     items: [
       'Five notes on the Liberties page about the three new boarding houses on Washington Street sent you to L348, which is the entry on weathered siding. They now point to L349, the boarding houses\u2019 own entry. Nothing in the town itself changed.',
