@@ -51,6 +51,7 @@ const COPIES = [
   ['data/datum.json', 'data/datum.json'],
   ['data/liberties.json', 'data/liberties.json'],
   ['data/town_census.json', 'data/town_census.json'],
+  ['data/render/town_completion_1835.json', 'data/render/town_completion_1835.json'],
   ['data/reconstruction/1835_hay_limits.json', 'data/reconstruction/1835_hay_limits.json'],
   ['data/reconstruction/1835_agencies.json', 'data/reconstruction/1835_agencies.json'],
   ['data/reconstruction/1835_population_profile.json', 'data/reconstruction/1835_population_profile.json'],
