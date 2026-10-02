@@ -182,7 +182,7 @@ if (JSON_OUT) {
   console.log('\nstreets');
   console.log(`  ${S.verts.toLocaleString()} drawn vertices in ${S.meshes} meshes against `
     + `${S.records} centrelines`);
-  console.log(`  further than half a track from every centreline: ${S.stray}`
+  console.log(`  further than half the worked width from every centreline: ${S.stray}`
     + `   worst ${S.worst.toFixed(2)} m`
     + (S.worstAt ? ` at E ${S.worstAt.e} N ${S.worstAt.n}` : '')
     + `, ${S.beyondBounds} outside every street's bounds altogether`);

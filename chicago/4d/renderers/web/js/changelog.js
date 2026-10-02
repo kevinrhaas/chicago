@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Fifty-seven carpenters, milliners and smiths no longer wait on a shop of their own', kind: 'change',
+  { v: null, ts: '', title: 'Fifty-seven carpenters, milliners and smiths no longer wait on a shop of their own', kind: 'change',
     items: [
       'Open Otis Bacon\u2019s card, a carpenter, and look under Were they at work? It used to say the town owed him a shop of his own. It now says no shop is owed. The Chicago American counted twenty-five mechanics\u2019 shops in the town in August 1835, and the shops printed in the newspapers of the day already come to 45.',
       'The same goes for 19 more carpenters, 12 milliners, 9 builders, 4 smiths and 12 other tradespeople. Most mechanics worked as hands in somebody else\u2019s shop, and carpenters and masons worked wherever a wall was going up. Which shop or which building is not recorded, so the card does not name one.',
       'E. H. Mulford, the watchmaker, now says why he has no shop. He may be the same man as J. H. Mulford, the jeweller, and that question is still open. Giving him a shop of his own would answer it without evidence.',
       'All 57 are our reconstruction, and so are these answers. On the City card, working people owed a workplace drop from 142 to 85.',
+    ] },
+  { v: 1324, ts: '2026-10-02T20:59:16.621Z', date: 'Oct 2, 2026, 3:59 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
+    items: [
+      'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
+      'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
+      'Where a street ends on another, such as Market at Lake or Wells at South Water, it now blends into the street it joins instead of stopping on a hard line.',
+      'Along the river side of South Water, the worn bank meets the road in a soft, uneven edge instead of rows of square teeth, and road edges at the river and at cut banks no longer step like stairs.',
+      'All of this is in the Full and Balanced detail settings. Light, the setting a phone starts on, gets most of it, but a few small patches can still show close up, so that it stays as fast as it was.',
     ] },
   { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
     items: [
