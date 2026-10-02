@@ -12,11 +12,11 @@
   "place_name": "Reconstructed H2 medium boarding house #022",
   "class": "boarding_house",
   "beds_ordinary": 8,
-  "beds_crowded": 20,
+  "beds_crowded": 19,
   "on_the_house_before_this_stage": 0,
   "seated_from_the_layer": [
-   "shatttuck_walter",
-   "wright_robert_c"
+   "smith_william",
+   "rc_mccarthy_ellen"
   ],
   "minted_here": 9,
   "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
@@ -44,7 +44,7 @@
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 20 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 19 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
   "seed": "lodgers:recon_1835_north_h2_022:lives_at",
   "replaceable_by": {

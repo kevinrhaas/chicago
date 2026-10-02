@@ -4718,10 +4718,17 @@ def cmd_self_test() -> int:
     # shed to an H2, is a standing roof the merchant-and-professional clause admits, so the
     # platted pass adopts it on blk_west_randolph_des_plaines#01 (183 -> 184); the household
     # is a letter-list name the keeper pass refuses to name (T-0379), as on west_008.
-    # 256 -> 255 on 2026-10-02 (T-1950): the third H3 boarding house on blk_washington_clark
-    # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves to lot 2,
-    # eight more slots shift a lot behind her, and hh_benton_datas_e's H1 request is left with
-    # only kept-open lots and is owed to T-1614 (184 -> 183 platted seats, L270, L344).
+    # 256 -> 255 on 2026-10-02 (T-1952): the North's H3 boarding house on
+    # blk_indiana_north_cass#01 takes the lot hh_beaubien_john_s's D5 slot stood on. He
+    # re-slots onto blk_indiana_north_wolcott#07, the wolcott requests step down a lot each
+    # and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's
+    # Washington-tier slots the same way, hh_berger_f_c in and hh_cleaveland_wm_p out. The
+    # house itself is adopted by no one (no North banded row is admitted by the one clause
+    # that takes an H3), so the platted pass reads 184 -> 183 at the chain's fixpoint.
+    # 255 -> 254 on 2026-10-02 (T-1950): the third H3 boarding house on blk_washington_clark
+    # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves along the
+    # block, the slots behind her shift a lot, and the H1 request left with only kept-open
+    # lots is owed to T-1614 (183 -> 182 platted seats, L270, L345).
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 255
     fires("a seating pass whose seated and owed miss its own scope",

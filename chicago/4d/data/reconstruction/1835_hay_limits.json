@@ -315,11 +315,11 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 326,
-  "outside": 201,
+  "outside": 204,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 27,
-   "north_of_the_limit": 42,
+   "north_of_the_limit": 45,
    "west_of_canal_street": 82,
    "south_of_washington_street": 49,
    "east_of_the_limit_in_the_water": 1,
@@ -363,13 +363,16 @@
     "inf_mason_dwelling_north",
     "kelsey_boarding_house",
     "recon_1835_blk_indiana_north_cass_a1_08",
+    "recon_1835_blk_indiana_north_cass_a1_10",
     "recon_1835_blk_indiana_north_cass_a3_03",
+    "recon_1835_blk_indiana_north_cass_a3_11",
     "recon_1835_blk_indiana_north_cass_a4_04",
     "recon_1835_blk_indiana_north_cass_a4_07",
     "recon_1835_blk_indiana_north_cass_d3_01",
     "recon_1835_blk_indiana_north_cass_d3_02",
     "recon_1835_blk_indiana_north_cass_d4_05",
     "recon_1835_blk_indiana_north_cass_d4_06",
+    "recon_1835_blk_indiana_north_cass_h3_09",
     "recon_1835_blk_indiana_north_wolcott_a3_04",
     "recon_1835_blk_indiana_north_wolcott_a3_08",
     "recon_1835_blk_indiana_north_wolcott_a4_03",
@@ -593,7 +596,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 15,
+    "roofs_scheduled": 12,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -885,7 +888,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 15,
+    "roofs_scheduled": 12,
     "centre_local_enu_m": [
      997.2,
      524.49

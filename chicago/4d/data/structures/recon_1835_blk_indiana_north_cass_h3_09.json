@@ -1,0 +1,207 @@
+{
+  "id": "recon_1835_blk_indiana_north_cass_h3_09",
+  "name": "Reconstructed H3 boarding house #09",
+  "archetype": "frame_tavern",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+      },
+      "position": {
+        "utm_e": 448037.473,
+        "utm_n": 4637903.28,
+        "rotation_deg": 180.39,
+        "symbolic_location": "Anonymous reconstructed roof in the North Division block bounded by Indiana North, Rush, Illinois North and Cass; standing back from the Illinois_North Street frontage",
+        "confidence": "reconstructed",
+        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 3.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot in this block is numbered."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            9.882,
+            0
+          ],
+          [
+            9.882,
+            13.294
+          ],
+          [
+            0,
+            13.294
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "A 9.88 × 13.29 m rectangle sampled deterministically inside the H3 family's authored footprint band; no individual dimensions are documented."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "wall_height_m": {
+          "value": 6.497,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_pitch_deg": {
+          "value": 30.8,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "construction": {
+          "value": "balloon_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+        },
+        "paint": {
+          "value": "whitewash",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the H3 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "chimneys": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "rear_ell": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The H3 crosswalk entry's required variant is `service_wing_two_story` and its variants line asks for a \"rear service wing\"; this is that wing at the archetype's own one-storey ell size, behind the rear wall, and no source describes it for this anonymous house. docs/LIBERTIES.md owns the size."
+        },
+        "rear_ell_door": {
+          "value": "service",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. A kitchen wing's back door rather than the carriage door the archetype gives an inn's ell: the crosswalk's evidence note warns that frame_tavern \"implies tavern features that a boarding house should not inherit\", and a wagon door into a kitchen is one."
+        },
+        "upper_windows": {
+          "value": 8,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. The H3 crosswalk entry's variants line asks for it in as many words, and its assumption note says the count indicates capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio."
+        },
+        "stovepipes": {
+          "value": 5,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. The H3 crosswalk entry's variants line asks for it in as many words, and its assumption note says the count indicates capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio."
+        },
+        "siding_exposure_m": {
+          "value": 0.127,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+        }
+      },
+      "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
+    }
+  ],
+  "function": {
+    "value": "large_boarding_house",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the H3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "H3",
+    "district": "north",
+    "inventory_class": "principal_functional",
+    "programme_phase": "phase3_platted_block_indiana_north_cass_boarding_house",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "block_id": "blk_indiana_north_cass",
+    "lot_index": 1,
+    "stands_on": "street",
+    "fronts": "illinois_north",
+    "sequence": 9,
+    "finish_key": "whitewash",
+    "roof_condition": "weathered",
+    "age_state": "recent",
+    "fabric_basis": {
+      "rule": "F-B",
+      "class": "keeper",
+      "by": "type",
+      "household": null,
+      "words": "whitewashed clapboard on a balloon frame under a weathered roof — a boarding house, a year old (rule F-B: a boarding-house or tavern keeper's by its type)"
+    },
+    "capacity": {
+      "beds_ordinary": 13,
+      "beds_crowded": 30,
+      "from": "data/reconstruction/1835_lodging_model.json",
+      "row": "places[id=recon_1835_blk_indiana_north_cass_h3_09]",
+      "sizes": {
+        "upper_windows": "ceil(30 crowded beds / 3 to a chamber) = 10, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.88 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(13 ordinary beds / 3 to a stove) = 5, held to 2-6: 5",
+        "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
+      }
+    }
+  },
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. The H3 boarding house resolves through the frame_tavern archetype, the crosswalk's placeholder for it; the canonical boarding_house_frame generator is not implemented. The tavern's own cues are not raised on it: no gallery, no frontispiece, no sign, and a kitchen door rather than a carriage door in the rear service wing.",
+  "review_required": false,
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE ROOF IS AN INVENTION AND THIS CANNOT OUTRANK IT. The footprint stands 119 m inside the tract's nearest boundary, which on a documented building would carry the middle tier, but this building was dealt to its lot by a recipe and is not there. The tract is real and the register's words about it are read; what is graded here is the claim that THIS roof stands on it, and that claim is the recipe's. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 118.8,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

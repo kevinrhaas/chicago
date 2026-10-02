@@ -176,7 +176,7 @@
       "name": "The lodgers of Reconstructed H1 small boarding house #005",
       "division": "west",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 6 people in this house on an ordinary night and 15 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 6 people in this house on an ordinary night and 14 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
       "sources": [],
       "basis": "BEDS, AND ONE FAMILY. 6 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 1 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
       "persons": [
@@ -223,7 +223,7 @@
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 6 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Terence Fitzgerald",
+          "name": "Patrick Fitzgerald",
           "relationship": "son",
           "grade": "reconstructed",
           "occupation": "",
@@ -290,7 +290,7 @@
   "lodging": {
     "class": "boarding_house",
     "beds_ordinary": 6,
-    "beds_crowded": 15,
+    "beds_crowded": 14,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
     "enclosed_floor_m2": 123.19,

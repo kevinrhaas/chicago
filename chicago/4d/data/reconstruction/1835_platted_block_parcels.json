@@ -3393,10 +3393,6 @@
           "why": "The Indiana-and-Cass corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing reserves one: principal room is counted over the free lots LESS ONE, precisely so a block can never be dealt out of its open lot, and with twelve free lots this deal may stand on eleven and stands on two. Which lot carries the reservation is arbitrary within the block and this entry does not pretend otherwise. Putting it on the corner facing the wolcott block's own reserved corner across Cass Street is the one thing about the choice that is not arbitrary: it leaves the street the two blocks share open on both sides rather than built on one."
         },
         {
-          "lot": 1,
-          "why": "The Illinois-and-Cass corner, open because this deal has no roof for it. The seating asks a D5 cottage here under the tradesman clause and that request stands unbuilt; a corner roof is the most conspicuous thing a block can put up and standing one on the speculative edge of the town before its ordinary interior cottages are built would invert what the primary maps show. The block's schedule still apportions it 16 roofs beyond the four this deal builds, and a later deal takes this lot off the list with its own argument."
-        },
-        {
           "lot": 2,
           "why": "An interior lot on the Indiana face, three lots west of the cottage on lot 8, and open for the plainest reason there is: nothing was dealt to it. The seating asks a D5 cottage here and the request stands. Keeping it open is also what holds the Indiana frontage to alternating roof and yard rather than a run, which is the density the north-division memo reads off the maps for this whole addition."
         },
@@ -3459,7 +3455,14 @@
           "lateral_m": 3.5
         }
       ],
-      "arrangement_note": "THE ADDITION'S SECOND BLOCK, AND THE FIRST TIME TWO OF ITS CELLS STAND BUILT AT ONCE. The block was entirely empty -- twelve free lots, nothing standing -- and it is dealt two principal roofs and two yard buildings, which leaves ten of its twelve lots open and 16 of the 20 roofs its schedule apportions unbuilt. That is the reading rather than a shortfall: Kinzie's Addition was the speculative north edge of the town in July 1835 and a block built out to its ceiling here would be a claim about 1835 that the primary maps refuse. THE TWO COTTAGES TAKE OPPOSITE FACES ACROSS THE RULED ALLEY, which is the seating's arrangement and not this file's: hh_andrews_davi's one-room cottage stands on lot 8 fronting Indiana Street and hh_anderson_eli_f's on lot 9 fronting Illinois Street, back to back, both graded `none` in the committed street hierarchy -- lines the plat draws and the traffic model gives no through movement. A dwelling is not a shop and the face-value clause that would refuse a quiet street applies to the trade letters, so a household on an untrafficked face at the edge of the addition is the ordinary case here, not the anomalous one. THE SET-OUT IS DELIBERATELY NOT THE WOLCOTT BLOCK'S. Its two cottages stand at 6.0 m from Indiana and 5.0 m from Illinois; these stand at 5.5 m and 6.5 m, deeper on the Illinois side where that block is shallower. The north-division memo reads frontage on this side of the river as alternating roof and open yard with no continuous street wall, and two adjacent blocks set out identically would read across Cass Street as one line of houses -- the reading's own refusal, met by moving the number rather than by asserting it is met. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN, and the block's schedule holds exactly one of each: a privy off the alley behind the Indiana cottage and a woodshed off the alley behind the Illinois one, one apiece, each serving the lot it stands on. Of the stable, the barn, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had; the others are ones it might have had, and the choice is argued down rather than up. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the Addition's alley, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines are conjectural, as they are everywhere on this row, and no lot is numbered."
+      "arrangement_note": "THE ADDITION'S SECOND BLOCK, AND THE FIRST TIME TWO OF ITS CELLS STAND BUILT AT ONCE. The block was entirely empty -- twelve free lots, nothing standing -- and it is dealt two principal roofs and two yard buildings, which leaves ten of its twelve lots open and 16 of the 20 roofs its schedule apportions unbuilt. That is the reading rather than a shortfall: Kinzie's Addition was the speculative north edge of the town in July 1835 and a block built out to its ceiling here would be a claim about 1835 that the primary maps refuse. THE TWO COTTAGES TAKE OPPOSITE FACES ACROSS THE RULED ALLEY, which is the seating's arrangement and not this file's: hh_andrews_davi's one-room cottage stands on lot 8 fronting Indiana Street and hh_anderson_eli_f's on lot 9 fronting Illinois Street, back to back, both graded `none` in the committed street hierarchy -- lines the plat draws and the traffic model gives no through movement. A dwelling is not a shop and the face-value clause that would refuse a quiet street applies to the trade letters, so a household on an untrafficked face at the edge of the addition is the ordinary case here, not the anomalous one. THE SET-OUT IS DELIBERATELY NOT THE WOLCOTT BLOCK'S. Its two cottages stand at 6.0 m from Indiana and 5.0 m from Illinois; these stand at 5.5 m and 6.5 m, deeper on the Illinois side where that block is shallower. The north-division memo reads frontage on this side of the river as alternating roof and open yard with no continuous street wall, and two adjacent blocks set out identically would read across Cass Street as one line of houses -- the reading's own refusal, met by moving the number rather than by asserting it is met. THE TWO YARD BUILDINGS ARE THE HUMBLEST TWO IN THE BLOCK'S PLAN, and the block's schedule holds exactly one of each: a privy off the alley behind the Indiana cottage and a woodshed off the alley behind the Illinois one, one apiece, each serving the lot it stands on. Of the stable, the barn, the smokehouse and these two, the privy and the woodshed are the ones a tradesman's household on the edge of town certainly had; the others are ones it might have had, and the choice is argued down rather than up. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on this block in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The lot grid, the block faces, the Addition's alley, the street hierarchy and the ground reading are all committed and none of them moves here; the side lot lines are conjectural, as they are everywhere on this row, and no lot is numbered.",
+      "open_lots_taken_since": [
+        {
+          "lot": 1,
+          "ticket": "T-1952",
+          "why": "named open by this deal because it had no roof for it; raised by T-1952 as the North Division's one H3 boarding house the plan offers this block, on the Illinois-and-Cass corner. hh_beaubien_john_s's D5 request, which stood here, is re-seated by the placement pass or owed in writing — see the fourth deal's dealt note. The block's reserved open lot is still lot 0 and the Illinois face's alternation still holds: roof on 1, open on 3, roof on 5, open on 7, roof on 9, open on 11."
+        }
+      ]
     },
     {
       "block_id": "blk_washington_franklin",
@@ -3716,10 +3719,6 @@
           "why": "The Indiana-and-Cass corner, and still the lot this block reserves open. The schedule's own sizing reserves one -- principal room is counted over the free lots LESS ONE, precisely so a block can never be dealt out of its open lot -- and the first deal named this corner as the reservation. Nothing about this deal moves it. It is also the west end of the Indiana face's alternation, which reads open here before the roof on lot 4, and it faces the wolcott block's own reserved corner across Cass Street, so the street the two blocks share stays open on both sides."
         },
         {
-          "lot": 1,
-          "why": "The Illinois-and-Cass corner, open because this deal has no roof for it. The seating asks a D5 deep-plan cottage here under the tradesman clause and the request stands; a corner roof is the most conspicuous thing a block can put up and standing one on the speculative edge of town while the block's ordinary interior cottages number four would invert what the primary maps show. It is also the west end of the Illinois face's alternation, open before the roof on lot 5."
-        },
-        {
           "lot": 2,
           "why": "An interior lot on the Indiana face, immediately west of the cottage this deal stands on lot 4, and open for the reason lot 6 was and is: a roof on the adjoining lot is the difference between scattered houses and a built street, and only the first of those is what the 1835 maps carry. The seating asks a D5 cottage here and the request is left standing."
         },
@@ -3782,7 +3781,103 @@
           "lateral_m": -3.5
         }
       ],
-      "arrangement_note": "EIGHT ROOFS ON TWELVE LOTS ACROSS THE ADDITION'S TWO BUILT BLOCKS, AND FOUR ON THIS ONE. The block stood at two principal roofs and two yard buildings; it stands at four and four, which leaves eight of its twelve lots open and 16 of the 20 roofs its schedule still apportions unbuilt. That ratio is the deal's whole argument and not a shortfall. This is speculative subdivision two tiers north of the settled town: the north-division memo requires `most legal frontage` to stay empty and at least half of the Kinzie-Michigan interior open, and two-thirds of this block's frontage is open after this deal.\n\nTHE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. Both of the block's faces -- Indiana Street on the north and Illinois Street on the south -- are graded `none` in the committed street hierarchy, unworn prairie with no through movement modelled on either, so the face rule that ranks dwellings by street class has nothing to separate them and did not choose between the two requests. What the pair does is sit diagonally across the block's ruled alley rather than back to back: the Indiana cottage is on lot 4 and the Illinois cottage on lot 5, and the alley between them carries one yard building apiece rather than a facing pair.\n\nTHE YARD BUILDINGS ARE ONE A LOT, AS THEY WERE ON THE FIRST DEAL, BUT THEY ARE NOT THE SAME TWO. A woodshed stands off the alley behind the Indiana Street cottage -- the last A4 the block's plan holds -- and a stable off the alley behind the Illinois Street one, the first of its two A1. The privies are gone: the plan held exactly two and the first deal spent both, so this deal takes what is left rather than adding a third. The stable stands on the shallower-set cottage's lot on purpose, where the rear of the lot is deepest; the plan's remaining stable, its two barns and its smokehouse stay unbuilt, because a stable AND a barn AND a smokehouse behind a two-room cottage is a claim about how these households lived that nothing supports.\n\nTHE RUSH-PINE FRINGE IS SETTLED IN THE SAME BREATH, AND IT IS SETTLED BY SAYING SO. T-1754 asked for the scattered better houses on that fringe; the 665-roof programme's district deal apportions it NONE. blk_indiana_north_rush, blk_illinois_north_wolcott and blk_illinois_north_rush are each lotted at twelve lots and each read `roofs: 0`, `families: {}`, `standing_roofs: 0`, and every cell east of Rush Street and north of Indiana Street is `unsubdivided` with no lots at all. The north district's whole remaining allocation -- 47 roofs -- is on this block and the wolcott block. So there is nothing scheduled to build on the fringe, `the open ground left honestly open` is what the schedule already says, and the settlement is a statement rather than a parcel. `docs/RESEARCH/1835_north_division_extent_and_infill.md` carries it in prose, where the next reader of that memo will meet it.\n\nWHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on these two lots in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The block faces, the alley line, the street hierarchy and the ground reading are all committed and none of them moves here; the lot lines are T-1741's `inferred` reading of Wright's rules and the side lines within them are this grid's even cut, which is not the same thing and is graded as such; no lot is numbered, because the sheet's lot numerals have never been transcribed."
+      "arrangement_note": "EIGHT ROOFS ON TWELVE LOTS ACROSS THE ADDITION'S TWO BUILT BLOCKS, AND FOUR ON THIS ONE. The block stood at two principal roofs and two yard buildings; it stands at four and four, which leaves eight of its twelve lots open and 16 of the 20 roofs its schedule still apportions unbuilt. That ratio is the deal's whole argument and not a shortfall. This is speculative subdivision two tiers north of the settled town: the north-division memo requires `most legal frontage` to stay empty and at least half of the Kinzie-Michigan interior open, and two-thirds of this block's frontage is open after this deal.\n\nTHE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. Both of the block's faces -- Indiana Street on the north and Illinois Street on the south -- are graded `none` in the committed street hierarchy, unworn prairie with no through movement modelled on either, so the face rule that ranks dwellings by street class has nothing to separate them and did not choose between the two requests. What the pair does is sit diagonally across the block's ruled alley rather than back to back: the Indiana cottage is on lot 4 and the Illinois cottage on lot 5, and the alley between them carries one yard building apiece rather than a facing pair.\n\nTHE YARD BUILDINGS ARE ONE A LOT, AS THEY WERE ON THE FIRST DEAL, BUT THEY ARE NOT THE SAME TWO. A woodshed stands off the alley behind the Indiana Street cottage -- the last A4 the block's plan holds -- and a stable off the alley behind the Illinois Street one, the first of its two A1. The privies are gone: the plan held exactly two and the first deal spent both, so this deal takes what is left rather than adding a third. The stable stands on the shallower-set cottage's lot on purpose, where the rear of the lot is deepest; the plan's remaining stable, its two barns and its smokehouse stay unbuilt, because a stable AND a barn AND a smokehouse behind a two-room cottage is a claim about how these households lived that nothing supports.\n\nTHE RUSH-PINE FRINGE IS SETTLED IN THE SAME BREATH, AND IT IS SETTLED BY SAYING SO. T-1754 asked for the scattered better houses on that fringe; the 665-roof programme's district deal apportions it NONE. blk_indiana_north_rush, blk_illinois_north_wolcott and blk_illinois_north_rush are each lotted at twelve lots and each read `roofs: 0`, `families: {}`, `standing_roofs: 0`, and every cell east of Rush Street and north of Indiana Street is `unsubdivided` with no lots at all. The north district's whole remaining allocation -- 47 roofs -- is on this block and the wolcott block. So there is nothing scheduled to build on the fringe, `the open ground left honestly open` is what the schedule already says, and the settlement is a statement rather than a parcel. `docs/RESEARCH/1835_north_division_extent_and_infill.md` carries it in prose, where the next reader of that memo will meet it.\n\nWHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on these two lots in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The block faces, the alley line, the street hierarchy and the ground reading are all committed and none of them moves here; the lot lines are T-1741's `inferred` reading of Wright's rules and the side lines within them are this grid's even cut, which is not the same thing and is graded as such; no lot is numbered, because the sheet's lot numerals have never been transcribed.",
+      "open_lots_taken_since": [
+        {
+          "lot": 1,
+          "ticket": "T-1952",
+          "why": "named open by this deal because it had no roof for it; raised by T-1952 as the North Division's one H3 boarding house the plan offers this block, on the Illinois-and-Cass corner. hh_beaubien_john_s's D5 request, which stood here, is re-seated by the placement pass or owed in writing — see the fourth deal's dealt note. The block's reserved open lot is still lot 0 and the Illinois face's alternation still holds: roof on 1, open on 3, roof on 5, open on 7, roof on 9, open on 11."
+        }
+      ]
+    },
+    {
+      "block_id": "blk_indiana_north_cass",
+      "district": "north",
+      "programme_phase": "phase3_platted_block_indiana_north_cass_boarding_house",
+      "claimed": "2026-10-02",
+      "seq_start": 9,
+      "bounded_by": {
+        "north": "indiana_north",
+        "south": "illinois_north",
+        "west": "cass",
+        "east": "rush"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 47,
+        "standing_roofs": 8,
+        "free_lots": 8,
+        "headroom": 27,
+        "dealt_roofs": 3,
+        "dealt_principal": 1,
+        "dealt_ancillary": 2,
+        "principal": 1,
+        "ancillary": 2
+      },
+      "families": {
+        "H3": 1,
+        "A1": 1,
+        "A3": 1
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Indiana-and-Cass corner, and still the lot this block reserves open. The schedule's sizing keeps one free lot open on every block, both earlier deals named this corner as the reservation, and it faces the wolcott block's own reserved corner across Cass Street. This deal raises its house on the OTHER Cass corner precisely so that this one does not move."
+        },
+        {
+          "lot": 2,
+          "why": "An interior lot on the Indiana face, open for the reason both earlier deals gave it: a roof here would stand beside the cottage on lot 4 and raise the street wall the north-division memo refuses. Nothing is dealt to it."
+        },
+        {
+          "lot": 3,
+          "why": "An interior lot on the Illinois face, and after this deal it is the gap BETWEEN the boarding house on lot 1 and the cottage on lot 5. Open so that each of them stands alone on its face, which is the memo's alternation; its standing request stays a request."
+        },
+        {
+          "lot": 6,
+          "why": "An interior lot on the Indiana face, the gap between the cottages on lots 4 and 8, open for the reason the second deal gave it. Nothing is dealt to it."
+        },
+        {
+          "lot": 7,
+          "why": "An interior lot on the Illinois face, the gap between the cottages on lots 5 and 9, open for the reason the second deal gave it. Nothing is dealt to it."
+        },
+        {
+          "lot": 10,
+          "why": "The Indiana-and-Rush corner, open because this deal has no roof for it and Rush Street is the addition's east fringe. Its request stands unbuilt, as before."
+        },
+        {
+          "lot": 11,
+          "why": "The Illinois-and-Rush corner, open for the same reason as lot 10. Its request stands unbuilt, as before."
+        }
+      ],
+      "slots": [
+        {
+          "family": "H3",
+          "inventory_class": "principal_functional",
+          "lot": 1,
+          "stands_on": "street",
+          "fronts": "illinois_north",
+          "setback_m": 3.0,
+          "lateral_m": 0.0
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 1,
+          "stands_on": "alley",
+          "fronts": "illinois_north",
+          "setback_m": 4.5,
+          "lateral_m": 3.0
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 1,
+          "stands_on": "alley",
+          "fronts": "illinois_north",
+          "setback_m": 4.0,
+          "lateral_m": -5.0
+        }
+      ],
+      "arrangement_note": "THE NORTH DIVISION'S ONE BOARDING HOUSE THE PLAN STILL OFFERS, RAISED ON THE ILLINOIS-AND-CASS CORNER WITH A STABLE AND A PRIVY BEHIND IT (T-1952, of T-1810). The order book carries the North's `larger_boarding_houses` cell at eight ordered and seven standing, and the one roof it owes is the H3 the 665-roof schedule apportions to this block: `1835_platted_seats.json` lists it under `plan_left_unclaimed` with the sentence `the plan offers this family and no banded row of this division is admitted by a clause that takes it`. So this house answers the PLAN and not a household. No North banded row is admitted by `lodging_near_the_landings`, the one clause that takes an H3, so no household adopts the roof and its keeper is drawn by the lodgers stage the way every reconstructed house's is; that is stated rather than papered over with a name.\n\nWHY LOT 1 AND NOT LOT 0. Lot 0 is the one lot on the block with no request on it, and it is the obvious place to put a roof nobody asked for — but both earlier deals named it as the block's reserved open lot and argued the choice: it faces the wolcott block's own reserved corner across Cass Street, so the street the two blocks share stays open on both sides. Building there would retract that sentence and still cost a request, because the schedule's sizing (T-1623) keeps one free lot open and the next one would be taken from a requested lot. Lot 1 is the other Cass corner, on the Illinois face — the face toward the river and the landings, which is where the lodging clause puts its houses — and a roof there keeps the Illinois face's alternation exactly: roof on 1, open on 3, roof on 5, open on 7, roof on 9, open on 11. No roof on this block adjoins another along its face after this deal. THE COST IS ONE REQUEST, AND IT IS OWED IN WRITING: hh_beaubien_john_s's D5 cottage request stood on lot 1. The placement pass re-runs behind this deal and either re-seats that household elsewhere or carries it on the owed side of the ledger; the seating file, not this note, says which. A request is not evidence and neither is this choice.\n\nTHE HOUSE AND ITS YARD. The house is the form T-1778 and T-1809 built on Washington Street: two storeys of clapboard on the frame_tavern placeholder with the tavern's cues left off, a one-storey kitchen wing behind, its upper windows and stovepipes sized from the beds the lodging model gives it (the record's `reconstruction.capacity` shows the arithmetic). It stands 3.0 m off the Illinois Street line — nearer the street than the cottages' 4.5-7.0 m, because an inn stands to its street, and deeper than the 1.55 m the Washington houses took, because Illinois Street is a speculative addition street and not a town street. A lofted stable and a privy stand off the block alley in its yard, 4-4.5 m in from the alley edge as every yard building of this module stands. THAT MIX IS NOT THE PLAN'S, AND IT IS SAID: the schedule apportions this block's yard as one stable and one barn or carriage shed, sized for the dwellings it expected; the lodging clause's own sentence puts a boarding house `with its stable in the yard behind it` and T-1810 asks for its privy, so the deal spends two of the block's six roofs of ancillary room on a stable and a privy instead, as T-1809 did for the same reason (L326; this deal is L344). WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that a boarding house, a stable or a privy stood on this block in July 1835. All three are anonymous count-units at the bottom tier, on invented positions, with the same reasoning notes every other roof on this row carries."
     },
     {
       "block_id": "blk_randolph_clinton",
