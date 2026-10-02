@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1286, ts: '2026-10-02T03:59:12.133Z', date: 'Oct 1, 2026, 10:59 PM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
+  { v: 1287, ts: '2026-10-02T04:59:03.712Z', date: 'Oct 1, 2026, 11:59 PM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
     items: [
       'Cross the river to Kinzie\u2019s Addition and walk east along Illinois Street to Cass. The corner now has a boarding house: two storeys of clapboard set close to the street, with a kitchen wing behind it.',
       'Eight chamber windows run across its upper floor and five stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. A log stable and a privy stand in its yard, off the alley.',
       'Ten people sleep there tonight, and Hannah Chapin keeps the house. Tap it and its card opens on Chapin\u2019s boarding house.',
       'Some North Side lodgers moved over to it, and Kelsey\u2019s boarding-house now stands empty. The second Washington Street house and a West Side boarding house each sleep one fewer and lose a stovepipe.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper here in 1835. The Liberties page (L344) says how each was placed and sized.',
+    ] },
+  { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
+    items: [
+      'Walk down Dearborn to Washington Street. The two boarding houses there now hang boards reading MARK BEAUBIEN\u2019S and SWEET\u2019S, Boarding House beneath.',
+      'Tap either house. Its card names the keeper who lives there, Mark Beaubien or Alanson Sweet: two tavern keepers the town plan had already placed on these lots. Before, each house also had a keeper we made up, so two families answered for one roof.',
+      'The two made-up keepers, Cornelius Lynch and Alvah Stebbins, are gone, along with the six children drawn for them. The boarders in both houses are unchanged.',
+      'This is our reconstruction. No source puts either man in either house on 1 July 1835, and his own card still says where he was is not known (liberties L318 and L326).',
     ] },
   { v: 1285, ts: '2026-10-02T03:12:17.655Z', date: 'Oct 1, 2026, 10:12 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
     items: [

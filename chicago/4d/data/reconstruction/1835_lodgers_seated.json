@@ -789,6 +789,8 @@
    "occupied_before": 2,
    "keeper_household": "hh_brown_rufus",
    "keeper_persons": 2,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 3,
@@ -811,6 +813,8 @@
    "occupied_before": 4,
    "keeper_household": "hh_murphy_john",
    "keeper_persons": 4,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 7,
@@ -833,6 +837,8 @@
    "occupied_before": 8,
    "keeper_household": "hh_ingersoll_chester",
    "keeper_persons": 8,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 0,
@@ -855,6 +861,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 0,
@@ -877,6 +885,8 @@
    "occupied_before": 1,
    "keeper_household": "hh_haddock_edward",
    "keeper_persons": 1,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 4,
@@ -899,6 +909,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "rc_gilbert_samuel"
    ],
@@ -923,6 +935,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "bailly_esther",
     "beaubien_archange",
@@ -953,19 +967,27 @@
    "beds_ordinary": 11,
    "beds_crowded": 25,
    "occupied_before": 0,
-   "keeper_household": null,
-   "keeper_persons": 0,
+   "keeper_household": "hh_beaubien_mark",
+   "keeper_persons": 2,
+   "keeper_by": "platted_seat",
+   "keeper_head": {
+    "household": "hh_beaubien_mark",
+    "person": "beaubien_mark",
+    "name": "Mark Beaubien",
+    "by": "platted_seat"
+   },
    "seated": [
     "derocher_jean_baptiste",
     "glaumbake_frank",
     "laird_william",
     "roberts_edmund",
     "ulrich_nicholas",
-    "rc_stiles_abigail"
+    "rc_stiles_abigail",
+    "beaubien_mark"
    ],
-   "minted_keeper": "rc_lynch_cornelius",
+   "minted_keeper": null,
    "minted_lodgers": 4,
-   "minted_children": 3,
+   "minted_children": 0,
    "occupancy_after": 11,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -982,8 +1004,15 @@
    "beds_ordinary": 15,
    "beds_crowded": 35,
    "occupied_before": 0,
-   "keeper_household": null,
-   "keeper_persons": 0,
+   "keeper_household": "hh_sweet_alanson",
+   "keeper_persons": 1,
+   "keeper_by": "platted_seat",
+   "keeper_head": {
+    "household": "hh_sweet_alanson",
+    "person": "sweet_alanson",
+    "name": "Alanson Sweet",
+    "by": "platted_seat"
+   },
    "seated": [
     "bailey_amos",
     "barry_j_r",
@@ -993,11 +1022,12 @@
     "goodrich_john",
     "latzky_john",
     "sasoton_a_b",
-    "vaughan_dow_w"
+    "vaughan_dow_w",
+    "sweet_alanson"
    ],
-   "minted_keeper": "rc_stebbins_alvah",
+   "minted_keeper": null,
    "minted_lodgers": 5,
-   "minted_children": 3,
+   "minted_children": 0,
    "occupancy_after": 15,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1016,6 +1046,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": "rc_bardwell_esther",
    "minted_lodgers": 5,
@@ -1038,6 +1070,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "schwartz_adam",
     "whistler_john_harrison"
@@ -1063,6 +1097,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "harmon_m_d",
     "laughton_david",
@@ -1090,6 +1126,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "merrill_george_w",
     "smith_george",
@@ -1116,6 +1154,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "holsman_george",
     "montgomery_w",
@@ -1143,6 +1183,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": "rc_fitzgerald_martin",
    "minted_lodgers": 5,
@@ -1165,6 +1207,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "hunter_david",
     "owen_j_v",
@@ -1192,6 +1236,8 @@
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "fullerton_alexander",
     "rc_crandall_william",
@@ -1218,6 +1264,8 @@
    "occupied_before": 8,
    "keeper_household": "hh_davis_john",
    "keeper_persons": 8,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 2,
@@ -1240,6 +1288,8 @@
    "occupied_before": 2,
    "keeper_household": "hh_couch_ira",
    "keeper_persons": 2,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [
     "bates_john_jr",
     "carpenter_philo",
@@ -1268,6 +1318,8 @@
    "occupied_before": 4,
    "keeper_household": "hh_stow_william_h",
    "keeper_persons": 4,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [
     "brown_lemuel",
     "handy_major",
@@ -1295,6 +1347,8 @@
    "occupied_before": 1,
    "keeper_household": "hh_walters_william",
    "keeper_persons": 1,
+   "keeper_by": "works_at",
+   "keeper_head": null,
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 3,
@@ -2492,6 +2546,50 @@
     "kind": "person",
     "match": "a source that says where this person lived on 1 July 1835"
    }
+  },
+  {
+   "person": "beaubien_mark",
+   "name": "Mark Beaubien",
+   "household": "hh_beaubien_mark",
+   "file": "households/hh_beaubien_mark.json",
+   "drawn_solitary_by": null,
+   "drawn_solitary_in_stage": null,
+   "trade": "tavern_keeper",
+   "group": "labour",
+   "place": "recon_1835_blk_washington_clark_h3_05",
+   "place_name": "Reconstructed H3 boarding house #05",
+   "relationship": "keeper",
+   "basis": {
+    "kind": "rule",
+    "id": "the_platted_seat_keeps_the_house",
+    "note": "The placement pass seated this household on this roof under `lodging_near_the_landings` (L270), and a household seated there keeps the house: documented people displace invented ones (L252), so no keeper is drawn for it (T-1808). No source puts this person in this or any house on 1 July 1835, and their own card still says so; the seat is the deal's, at `reconstructed`."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source that says where this person lived and worked on 1 July 1835, or one naming the keeper of this house"
+   }
+  },
+  {
+   "person": "sweet_alanson",
+   "name": "Alanson Sweet",
+   "household": "hh_sweet_alanson",
+   "file": "households/hh_sweet_alanson.json",
+   "drawn_solitary_by": null,
+   "drawn_solitary_in_stage": null,
+   "trade": "tavern_keeper",
+   "group": "labour",
+   "place": "recon_1835_blk_washington_clark_h3_06",
+   "place_name": "Reconstructed H3 boarding house #06",
+   "relationship": "keeper",
+   "basis": {
+    "kind": "rule",
+    "id": "the_platted_seat_keeps_the_house",
+    "note": "The placement pass seated this household on this roof under `lodging_near_the_landings` (L270), and a household seated there keeps the house: documented people displace invented ones (L252), so no keeper is drawn for it (T-1808). No source puts this person in this or any house on 1 July 1835, and their own card still says so; the seat is the deal's, at `reconstructed`."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source that says where this person lived and worked on 1 July 1835, or one naming the keeper of this house"
+   }
   }
  ],
  "minted": [
@@ -2529,13 +2627,13 @@
    "id": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_clark_h3_05.json",
    "place": "recon_1835_blk_washington_clark_h3_05",
-   "persons": 8
+   "persons": 4
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_clark_h3_06.json",
    "place": "recon_1835_blk_washington_clark_h3_06",
-   "persons": 9
+   "persons": 5
   },
   {
    "id": "hh_lodging_recon_1835_north_h1_007",
@@ -2624,7 +2722,6 @@
   "persons/female/40_49/south/lodging/none": 1,
   "persons/male/10_19/north/lodging/trade": 1,
   "persons/male/10_19/south/lodging/none": 2,
-  "persons/male/10_19/south/lodging/trade": 1,
   "persons/male/10_19/west/lodging/trade": 1,
   "persons/male/20_29/north/lodging/none": 12,
   "persons/male/20_29/north/lodging/trade": 1,
@@ -2634,15 +2731,12 @@
   "persons/male/30_39/south/lodging/none": 10,
   "persons/male/30_39/west/lodging/none": 3,
   "persons/male/40_49/north/lodging/none": 2,
-  "persons/male/40_49/south/lodging/trade": 1,
   "persons/male/40_49/west/lodging/none": 1,
   "persons/male/50_plus/north/lodging/none": 1
  },
  "child_fills": {
   "persons/female/under_10/north/lodging/none": 6,
-  "persons/female/under_10/south/lodging/none": 3,
   "persons/male/under_10/north/lodging/none": 7,
-  "persons/male/under_10/south/lodging/none": 3,
   "persons/male/under_10/west/lodging/none": 3
  },
  "household_fills": {
@@ -2682,60 +2776,6 @@
     ],
     "refused": [],
     "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
-   },
-   {
-    "place": "recon_1835_blk_washington_clark_h3_05",
-    "keeper": "rc_lynch_cornelius",
-    "keeper_name": "Cornelius Lynch",
-    "household_size_drawn": 5,
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_05:household_size",
-    "children_the_model_wants": 4,
-    "children_drawn": 3,
-    "children": [
-     "rc_lynch_johanna",
-     "rc_lynch_dennis",
-     "rc_lynch_ellen"
-    ],
-    "refused": [
-     {
-      "child": 4,
-      "refusal": "the name pool holds no forename left for this family",
-      "band": "under_10",
-      "community": "irish",
-      "surname": "Lynch",
-      "note": "A child takes the keeper's surname, which confines them to one surname's worth of the pool — and the pool for this community is short enough that every forename in it is already borne beside this surname, by a person the sources name or by somebody this programme has already drawn. The child is not drawn. Inventing a forename to get past it would put a name in this town that no pool sourced, and seating a second person of the same name would break the one invariant the pools exist for."
-     }
-    ],
-    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/south/lodging/none."
-   },
-   {
-    "place": "recon_1835_blk_washington_clark_h3_06",
-    "keeper": "rc_stebbins_alvah",
-    "keeper_name": "Alvah Stebbins",
-    "household_size_drawn": 6,
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:household_size",
-    "children_the_model_wants": 5,
-    "children_drawn": 3,
-    "children": [
-     "rc_stebbins_jared",
-     "rc_stebbins_ira",
-     "rc_stebbins_amanda"
-    ],
-    "refused": [
-     {
-      "child": 3,
-      "refusal": "the band the model drew is not this stage's to fill",
-      "band": "10_19",
-      "note": "The household model drew this child into adolescence. The book's six `10_19/*/lodging/none` cells are discharged — the boarders stage filled 16 of 16 — so there is no order left to draw them against, and re-banding a child downward to reach a cell that is open would be dealing to the quota rather than from the model."
-     },
-     {
-      "child": 4,
-      "refusal": "the band the model drew is not this stage's to fill",
-      "band": "10_19",
-      "note": "The household model drew this child into adolescence. The book's six `10_19/*/lodging/none` cells are discharged — the boarders stage filled 16 of 16 — so there is no order left to draw them against, and re-banding a child downward to reach a cell that is open would be dealing to the quota rather than from the model."
-     }
-    ],
-    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/south/lodging/none."
    },
    {
     "place": "recon_1835_north_h1_007",
@@ -2920,16 +2960,16 @@
   {
    "place": "recon_1835_blk_washington_clark_h3_05",
    "name": "Reconstructed H3 boarding house #05",
-   "keeper": "rc_lynch_cornelius",
-   "persons_on_the_keeper_s_card": 4,
-   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
+   "keeper": "hh_beaubien_mark",
+   "persons_on_the_keeper_s_card": 2,
+   "owed_by": "Kept by the household the placement pass seated on this roof under a keeper clause (T-1808, refusal 6), so no keeper is drawn for it. Its head takes the keeper's bed; the rest of the card takes no lodger's."
   },
   {
    "place": "recon_1835_blk_washington_clark_h3_06",
    "name": "Reconstructed H3 boarding house #06",
-   "keeper": "rc_stebbins_alvah",
-   "persons_on_the_keeper_s_card": 4,
-   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
+   "keeper": "hh_sweet_alanson",
+   "persons_on_the_keeper_s_card": 1,
+   "owed_by": "Kept by the household the placement pass seated on this roof under a keeper clause (T-1808, refusal 6), so no keeper is drawn for it. Its head takes the keeper's bed; the rest of the card takes no lodger's. T-1171 refused this head a drawn family — the eligibility refusals are in data/reconstruction/1835_modelled_families.json — so the card stands at one person. T-1179 converges it."
   },
   {
    "place": "recon_1835_north_h1_007",
@@ -3060,19 +3100,19 @@
   "ordinary_night_beds": 189,
   "crowded_beds": 567,
   "occupied_before_this_stage": 30,
-  "seated_from_the_layer": 54,
-  "minted_here": 96,
-  "minted_keepers": 10,
-  "keeper_children_minted": 22,
-  "keeper_children_the_model_wanted": 28,
-  "keeper_children_refused": 6,
-  "people_on_the_cards": 118,
+  "seated_from_the_layer": 56,
+  "minted_here": 94,
+  "minted_keepers": 8,
+  "keeper_children_minted": 16,
+  "keeper_children_the_model_wanted": 19,
+  "keeper_children_refused": 3,
+  "people_on_the_cards": 110,
   "occupied_after_this_stage": 180,
   "ordinary_night_beds_still_empty": 9,
   "houses_at_their_ordinary_night_figure": 18,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
-  "buckets_filled": 26,
+  "buckets_filled": 24,
   "house_cells_filled": 6,
   "lodging_households_built": 19,
   "the_two_counts_reconciled": {
@@ -3106,8 +3146,8 @@
    ],
    "may_anything_more_be_minted_here": "Yes — see the two counts above for which unit has the room."
   },
-  "child_buckets_filled": 5,
+  "child_buckets_filled": 3,
   "every_child_is_kin_of_a_named_keeper": true,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 96 of them into beds and 22 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children of houses this stage does not keep."
+  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 94 of them into beds and 16 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children of houses this stage does not keep."
  }
 }

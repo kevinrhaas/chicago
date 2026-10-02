@@ -3990,11 +3990,11 @@
     },
     {
       "structure_id": "recon_1835_blk_washington_clark_h3_05",
-      "name": "Cornelius Lynch's boarding house",
-      "sign_text": "CORNELIUS LYNCH'S / Boarding House",
+      "name": "Mark Beaubien's boarding house",
+      "sign_text": "MARK BEAUBIEN'S / Boarding House",
       "sign_lines": [
         {
-          "text": "CORNELIUS LYNCH'S",
+          "text": "MARK BEAUBIEN'S",
           "role": "name"
         },
         {
@@ -4002,8 +4002,8 @@
           "role": "trade"
         }
       ],
-      "sign_identity": "Lynch",
-      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Cornelius Lynch's boarding house (rcb_lynch_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_identity": "Beaubien",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Mark Beaubien's boarding house (rcb_beaubien_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
       "sign_text_confidence": "reconstructed",
       "sign_text_sources": [],
       "trade": "boarding_house",
@@ -4029,16 +4029,16 @@
       "facade_bearing_deg": 180.4,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.65,
-      "board_h_m": 0.82,
+      "board_w_m": 1.59,
+      "board_h_m": 0.79,
       "board_thickness_m": 0.05,
       "geometry": {
         "awning_projection_m": 1.45,
         "awning_drop_m": 0.34,
-        "awning_width_m": 2.55,
+        "awning_width_m": 2.49,
         "hanger_drop_m": 0.2
       },
-      "reach_m": 2.05,
+      "reach_m": 2.03,
       "wall_height_m": 5.71,
       "wall_height_from": "the record",
       "frontage_m": 8.47,
@@ -4063,11 +4063,11 @@
     },
     {
       "structure_id": "recon_1835_blk_washington_clark_h3_06",
-      "name": "Stebbins's boarding house",
-      "sign_text": "STEBBINS'S / Boarding House",
+      "name": "Sweet's boarding house",
+      "sign_text": "SWEET'S / Boarding House",
       "sign_lines": [
         {
-          "text": "STEBBINS'S",
+          "text": "SWEET'S",
           "role": "name"
         },
         {
@@ -4075,8 +4075,8 @@
           "role": "trade"
         }
       ],
-      "sign_identity": "Stebbins",
-      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Stebbins's boarding house (rcb_stebbins_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_identity": "Sweet",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Sweet's boarding house (rcb_sweet_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
       "sign_text_confidence": "reconstructed",
       "sign_text_sources": [],
       "trade": "boarding_house",
