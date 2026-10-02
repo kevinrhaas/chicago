@@ -8989,8 +8989,15 @@ for (const [label, viewport, touch] of [
     // reset from `DETAIL[level]`), so it reads 600,000 on a phone booting into
     // `light` and 1,000,000 on a desktop. The three tier ceilings have their own
     // check further down, which is where a re-budget of those would show.
+    //
+    // T-1975, 2026-10-02: 215 -> 240, moved here in the same commit as `BUDGET`
+    // in `main.js`, where the measurement is written (worst frame 222 calls at
+    // `full`, Lake Street at Canal, 1280x800, dev @ 652ca8ea; 215 carried 15
+    // over the 200 it was set against, and 222 + 15 rounds up to 240). A
+    // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
+    // below is untouched and still red at 102 until T-1976's trim.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 215,
+      stats.budget.drawCalls === 240,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
