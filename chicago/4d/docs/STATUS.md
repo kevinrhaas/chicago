@@ -28,7 +28,7 @@ figures it reads off the lodging model and the order book (`roof_draw`, `ROOF_TR
 
 Who is owed and who is not is a SEEDED DRAW over person and trade (`rank_key`), and each block
 carries its `draw` (rank of 38, against 26 roofs): nothing in the layer orders them, and the block
-says so. Owed a workplace **142 → 130** (after T-1994); placed at work unchanged at 470.
+says so. Owed a workplace **105 → 93** (after T-1996); placed at work unchanged at 433.
 
 ## T-1996 — the printed count already held: 37 drawn heads told no house is owed (2026-10-02)
 
