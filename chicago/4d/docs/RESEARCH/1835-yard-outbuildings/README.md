@@ -34,4 +34,4 @@ a pair is this record.
   path to the privy door and no manure apron at the stable. That belongs to the yard ground,
   which T-1212's benchmark still owes.
 - **Not imported from Glessner.** Nothing here takes Glessner's 1904 materials or planting as
-  evidence. Every dimension and finish is bounded in docs/LIBERTIES.md **L351**.
+  evidence. Every dimension and finish is bounded in docs/LIBERTIES.md **L352**.

@@ -2447,6 +2447,19 @@
       ]
     },
     {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN, placed by layer like the yard goods and the building material. T-1961's trade yards sit right after the yard goods because they read town_trade_goods.json, lot_building_material.json, the hay limits and every fence run, and keep clear of all of them.",
+      "command": [
+        "python3",
+        "tools/generate_trade_yards.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_trade_yards.py",
+        "--check"
+      ]
+    },
+    {
       "why": "SCENE FURNITURE DEALT FROM THE TOWN, the yard goods' own layer (T-1960): a privy in a rear corner of every dwelling lot and a stable for the horse-keeping households. PLACED BY LAYER, like the step before it, and directly after it because it reads that step's output — data/yard/town_trade_goods.json's wagons, which it keeps clear of — and the lot survey tools/generate_lot_line_fences.py reads from the committed sidecars. It writes one file nothing else reads back. Measured 2026-10-02: run bare on a clean tree it wrote its output and changed no committed byte. WRITES, BUT DOES NOT CLAIM, ITS OUTPUT, for the reason the yard goods step gives.",
       "command": [
         "python3",

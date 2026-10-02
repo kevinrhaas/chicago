@@ -207,6 +207,16 @@ const BRICK_LINEAR = [0.45, 0.23, 0.17];
 const STONE_COLOUR = 0xa8a49b;
 
 /**
+ * T-1961's two new tones, both RECONSTRUCTED (docs/LIBERTIES.md L351). Hay cured
+ * in a rick weathers from green-gold to a dull straw on its outside within weeks,
+ * so the rick is drawn the dull straw of an old stack rather than fresh-cut gold,
+ * and darker than the canvas tilt so it does not out-shine it. A green hide drying
+ * over a rail is a raw brown, darker than any timber on this layer.
+ */
+const HAY_COLOUR = 0xa89160;
+const HIDE_COLOUR = 0x5e4231;
+
+/**
  * The stone heap's own yaw and stagger, which are the RENDERER's the way the barrel's
  * stave count is: the record says nine blocks in two tiers, and how each one happens
  * to be lying is not a claim anybody can make about a heap of rubble. Fixed numbers,
@@ -241,8 +251,11 @@ const YOKE_BOW_DROP_M = 0.10;      // how far a bow's end shows below the beam
  * The 110 m grid gives 55 originals plus at most two far merges (57), leaving
  * room without changing a vertex, material or pick span. Each chunk still has
  * its own bounding sphere; this trades a 10% wider cell for fewer submissions.
+ * T-1961 put goods in 29 working yards, eight of them in cells nothing stood in:
+ * 60 chunks became 68 at 110 m. At 120 m the town is 60 again — the same draw
+ * calls as before the trade yards, under the same ceiling.
  */
-const CHUNK_M = 110;
+const CHUNK_M = 120;
 
 /** The shed's roof boards, as thick as a board and no thicker. */
 const DECK_T_M = 0.04;
@@ -1357,7 +1370,7 @@ function buildShed(buf, shed, form, terrain, level, problems) {
  * only draws what it says. Like the wagon shed above it is not a structure record and is
  * not baked — a board box is derived at load from the record's numbers and the committed
  * heightfield — and it carries `reconstructed` on every vertex, because the fact of THIS
- * privy in THIS corner is dealt by rule (L351).
+ * privy in THIS corner is dealt by rule (L352).
  *
  * THE FRAME IS THE LAYER'S: along the face is (cos b, sin b) in world XZ and out of it is
  * (sin b, -cos b). `out` points into the yard, toward the house — the side the door is
@@ -1677,8 +1690,115 @@ function buildStack(buf, item, form, terrain, level, problems, who) {
     buf.tint = buf.timber;
     return true;
   }
+
+  /**
+   * T-1961: THE WORKING TRADES' YARDS. Same frame and same contract as the piles
+   * above — the record (`town_trade_yards.json`) owns every size, graded and noted
+   * in its `form`, and this owns only what a triangle is made of.
+   *
+   * A joiner's BOARDS are stacked and stickered to season: each course is boards
+   * laid side by side along the pile, on three cross-sticks so the air goes
+   * through, which is what makes a pile of boards read as lumber rather than as
+   * one block.
+   */
+  if (item.kind === 'boards') {
+    const [len, wide, thick] = form.board;
+    const [per, courses, sticker] = form.boardPile;
+    const gap = 0.03;
+    const span = per * wide + (per - 1) * gap;
+    const n = item.courses ?? courses;
+    let y = base;
+    for (let c = 0; c < n; c += 1) {
+      for (const a of [-0.42, 0, 0.42]) {
+        pushBox(buf, x + wx * a * len, y + sticker / 2, z + wz * a * len,
+          vx, vz, span / 2 + 0.04, 0.025, sticker / 2, level);
+      }
+      y += sticker;
+      for (let i = 0; i < per; i += 1) {
+        const acr = -span / 2 + wide / 2 + i * (wide + gap);
+        pushBox(buf, x + vx * acr, y + thick / 2, z + vz * acr,
+          wx, wz, len / 2, wide / 2, thick / 2, level);
+      }
+      y += thick;
+    }
+    return true;
+  }
+
+  /**
+   * A tanner's HIDES hang folded over a drying rail on two posts. A hide is drawn
+   * as a thin slab either side of the rail, hanging the record's drop, in the
+   * hide's own tone; the rail and posts are the layer's timber.
+   */
+  if (item.kind === 'hides') {
+    const [len, high, sq] = form.hideRail;
+    const [w, drop, t] = form.hide;
+    for (const s2 of [-1, 1]) {
+      pushBox(buf, x + wx * s2 * (len / 2 - sq), base + high / 2, z + wz * s2 * (len / 2 - sq),
+        wx, wz, sq / 2, sq / 2, high / 2, level);
+    }
+    pushBox(buf, x, base + high + sq / 2, z, wx, wz, len / 2, sq / 2, sq / 2, level);
+    const n = Math.max(1, item.hides ?? 3);
+    const pitch = (len - 4 * sq) / n;
+    buf.tint = buf.hide;
+    for (let i = 0; i < n; i += 1) {
+      const a = -len / 2 + 2 * sq + pitch * (i + 0.5);
+      for (const s2 of [-1, 1]) {
+        const off = s2 * (sq / 2 + t);
+        pushBox(buf, x + wx * a + vx * off, base + high + sq - drop / 2,
+          z + wz * a + vz * off, wx, wz, Math.min(w, pitch * 0.92) / 2, t / 2, drop / 2,
+          level);
+      }
+    }
+    buf.tint = buf.timber;
+    return true;
+  }
+
+  /**
+   * A stable's HAY stands in a rick: a body to the eave and a raked top to a
+   * ridge along its length, so the rain runs off. The body is a box; the top is
+   * two sloped faces and two gable ends, each a plain triangle in the hay's tone.
+   */
+  if (item.kind === 'hay') {
+    const [L, W, eave, ridge] = form.hayRick;
+    buf.tint = buf.hay;
+    pushBox(buf, x, base + eave / 2, z, wx, wz, L / 2, W / 2, eave / 2, level);
+    const P = (a, c, y) => [x + wx * a + vx * c, base + y, z + wz * a + vz * c];
+    const lo = eave;
+    const hi = ridge;
+    const hl = L / 2;
+    const hw = W / 2 + 0.06;
+    const rise = hi - lo;
+    const nl = Math.hypot(rise, hw) || 1;
+    for (const s2 of [-1, 1]) {
+      const n = [vx * s2 * (rise / nl), hw / nl, vz * s2 * (rise / nl)];
+      const a0 = P(-hl, s2 * hw, lo);
+      const a1 = P(hl, s2 * hw, lo);
+      const r0 = P(-hl, 0, hi);
+      const r1 = P(hl, 0, hi);
+      // Wound so the face looks out along `n`.
+      if (s2 > 0) {
+        tri(buf, a0, a1, r1, n, level);
+        tri(buf, a0, r1, r0, n, level);
+      } else {
+        tri(buf, a0, r1, a1, n, level);
+        tri(buf, a0, r0, r1, n, level);
+      }
+      const g = s2 * hl;
+      const gn = [wx * s2, 0, wz * s2];
+      const e0 = P(g, -hw, lo);
+      const e1 = P(g, hw, lo);
+      const er = P(g, 0, hi);
+      if (s2 > 0) tri(buf, e1, e0, er, gn, level);
+      else tri(buf, e0, e1, er, gn, level);
+    }
+    buf.tint = buf.timber;
+    return true;
+  }
   return false;
 }
+
+/** The kinds `buildStack` draws; anything else on a lot is a cask or a case. */
+const STACK_KINDS = new Set(['brick', 'timber', 'stone', 'boards', 'hides', 'hay']);
 
 function readForm(record) {
   const f = record?.form ?? {};
@@ -1719,6 +1839,13 @@ function readForm(record) {
     timberPile: v('timber_pile', [5, [5, 4], 2]),
     stoneBlock: v('stone_block_m', [0.7, 0.45, 0.35]),
     stoneHeap: v('stone_heap', [9, 2]),
+    // T-1961's working yards. Same contract: the record's claim, and fallbacks only
+    // so an older record does not throw.
+    board: v('board_m', [3.66, 0.3, 0.05]),
+    boardPile: v('board_pile', [3, 6, 0.05]),
+    hideRail: v('hide_rail_m', [2.4, 1.5, 0.08]),
+    hide: v('hide_m', [0.55, 1.0, 0.012]),
+    hayRick: v('hay_rick_m', [3.0, 2.0, 1.5, 2.4]),
   };
 }
 
@@ -1838,11 +1965,15 @@ export async function createYardGoods({
   // working colour space, so no conversion happens and none can go wrong.
   const brickTone = new THREE.Color().setRGB(...BRICK_LINEAR);
   const stoneTone = new THREE.Color(STONE_COLOUR);
+  const hayTone = new THREE.Color(HAY_COLOUR);
+  const hideTone = new THREE.Color(HIDE_COLOUR);
   const tones = {
     timber: [timber.r, timber.g, timber.b],
     canvas: [canvasTone.r, canvasTone.g, canvasTone.b],
     brick: [brickTone.r, brickTone.g, brickTone.b],
     stone: [stoneTone.r, stoneTone.g, stoneTone.b],
+    hay: [hayTone.r, hayTone.g, hayTone.b],
+    hide: [hideTone.r, hideTone.g, hideTone.b],
   };
   /**
    * THE CHUNKS, and what decides which one a thing goes in: WHERE IT STANDS.
@@ -1936,7 +2067,11 @@ export async function createYardGoods({
       let drew = 0;
       const from = chunk.buf.pos.length / 9;
       for (const item of lot.items ?? []) {
-        if (!buildStack(chunk.buf, item, form, terrain,
+        // T-1961: a cooper's or a packer's casks stand on a lot as a rank, so a
+        // lot can hold barrels as well as piles; the frontage's own builder draws
+        // them, unmarked.
+        const draw = STACK_KINDS.has(item.kind) ? buildStack : buildItem;
+        if (!draw(chunk.buf, item, form, terrain,
           LEVEL[lot.confidence] ?? level, problems, lot.structure_id)) continue;
         drew += 1;
         out.census.piles += 1;

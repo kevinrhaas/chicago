@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1301, ts: '2026-10-02T12:53:05.905Z', date: 'Oct 2, 2026, 7:53 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
+  { v: null, ts: '', date: '', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
     items: [
       'Walk the back lots between Randolph and Washington, west of Clark. In the corner of each yard, by the alley fence, there is now a privy. A hundred and twenty-two houses gained one; the thirty-four that already had a privy keep theirs.',
       'The privy follows the house. A labourer\u2019s is a small box of rough slabs, a tradesman\u2019s a board privy, and a merchant\u2019s a wider two-seater, whitewashed. Its boards are as weathered as the house\u2019s own.',
       'Sixteen merchants and teamsters who had no stable now have one in the other corner of the yard: a board-and-batten stable with a pair of doors and a hay loft.',
       'Seven lots are built back to the alley and have no room for a privy. No wells were added, because in 1835 the town drank lake water sold from carts.',
-      'No source places any of these privies or stables. The Liberties page (L351) says how each was sized and placed.',
+      'No source places any of these privies or stables. The Liberties page (L352) says how each was sized and placed.',
+    ] },
+  { v: 1301, ts: '2026-10-02T12:50:19.308Z', date: 'Oct 2, 2026, 7:50 AM CT', title: 'Hay ricks, barrels, boards and hides in the working yards', kind: 'change',
+    items: [
+      'Walk the back lots south of Washington Street. Behind the stables there are now hay ricks. Nineteen stables across the town have one, all outside the 1835 hay limits.',
+      'The stables inside those limits have no rick. The town banned stacking hay inside the line in August 1835, so their hay is kept in the loft.',
+      'The two cooperages have a rank of finished casks in the yard. The packing and slaughter houses have rows of barrels, and John Miller\u2019s tannery has hides drying over two rails.',
+      'The joiners\u2019 shops have a stack of boards out to dry. The teamster\u2019s yard on the West Side has a farm wagon and a covered wagon, and two forwarding houses each have a farm wagon. Aim at any of them to open the business it belongs to.',
+      'All of it is our reconstruction. No source says what stood in any of these yards. The Liberties page explains how each one was placed (L351).',
     ] },
   { v: 1300, ts: '2026-10-02T12:00:26.932Z', date: 'Oct 2, 2026, 7:00 AM CT', title: 'The Liberties page points the boarding houses to the right entry', kind: 'fix',
     items: [

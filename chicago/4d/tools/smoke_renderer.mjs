@@ -3891,6 +3891,22 @@ for (const [label, viewport, touch] of [
         bridgeRecord: bridgeRecord ? { counts: bridgeRecord.counts,
           confidence: bridgeRecord.existence?.confidence } : null,
         bridgePiles: piles.filter((pl) => pl.bridge),
+        // T-1961. The working trades' yards: what the record stands, and how much
+        // of it reached the screen as piles.
+        tradeYards: (() => {
+          const rec = y?.records?.find((r) => r.id === 'town_trade_yards');
+          if (!rec) return null;
+          const ids = new Set((rec.lots ?? []).map((l) => l.structure_id));
+          const drawn = piles.filter((pl) => ids.has(pl.structure_id));
+          const kinds = {};
+          for (const pl of drawn) kinds[pl.kind] = (kinds[pl.kind] ?? 0) + 1;
+          return { counts: rec.counts, confidence: rec.existence?.confidence,
+            lots: (rec.lots ?? []).length, drawn: drawn.length, kinds,
+            belongs: (rec.lots ?? []).every((l) => l.belongs_to === l.structure_id)
+              && (rec.wagons ?? []).every((w) => !!w.belongs_to),
+            wagonsDrawn: (y?.wagons ?? []).filter((w) => w.in_yard_of).length,
+            wagons: (rec.wagons ?? []).length };
+        })(),
         piles: piles.length,
         shedVerts,
         shedOut,
@@ -4128,6 +4144,19 @@ for (const [label, viewport, touch] of [
     // turned its outward normal the wrong way on its first run and put every
     // one of the nine piles inside the building, which clause 5 caught then and
     // this catches now.
+    // T-1961: the goods in the working trades' yards are drawn through the same
+    // lots contract, so the pile bound below measures them too. What has to hold
+    // here is that every object the record stands reaches the screen, in every
+    // kind the trades deal, and that each one belongs to its business.
+    check(`${label}: the working trades' yards stand their goods by trade`,
+      goods.tradeYards?.confidence === 'reconstructed'
+        && goods.tradeYards.lots >= 20
+        && goods.tradeYards.drawn === goods.tradeYards.counts?.objects
+        && ['barrel', 'boards', 'hides', 'hay'].every((k) => goods.tradeYards.kinds[k] > 0)
+        && goods.tradeYards.wagons >= 2
+        && goods.tradeYards.wagonsDrawn === goods.tradeYards.wagons
+        && goods.tradeYards.belongs,
+      JSON.stringify(goods.tradeYards));
     check(`${label}: no pile of material stands inside the building it is for`,
       goods.pileStray > 0 && goods.pileStray <= 2.1 && goods.pileInLot === 0,
       `furthest vertex ${goods.pileStray?.toFixed(2)} m from its own pile's anchor, `
@@ -4137,7 +4166,9 @@ for (const [label, viewport, touch] of [
     // only possible because the colour moved onto the geometry — so the whole
     // layer, chunks and all, has to carry exactly two tones: timber and duck.
     check(`${label}: the tilt is drawn in canvas on the layer's one material`,
-      goods.tones === 4 && goods.materials === 1,
+      // Six since T-1961: timber, duck, brick, stone, and the hay and hides of
+      // the working trades' yards.
+      goods.tones === 6 && goods.materials === 1,
       `${goods.tones} vertex tone(s) across ${goods.meshes} chunk(s) on `
       + `${goods.materials} material(s)`);
 
