@@ -119,37 +119,45 @@ needs about four to eight columns, and that is the floor for this shape.
 The other stands were shot before the ribbon fix, so their "after" triangle counts in
 `graded-street-section-proof/` overstate the shipped cost.
 
-**The layer was being paid for twice, and now it is not.** The street material is transparent
-and `DoubleSide`, and three draws that combination in two passes: back faces first, then front
-faces, so a closed shape's far wall can show through its near one. A ribbon draped on the
-ground has no far wall, so the second pass drew the same triangles again. On dev that was 59 k
-triangles held and 118 k drawn. On this branch it was 297 k held and 594 k drawn.
-`forceSinglePass` now draws the layer once. Read with `__chicago4d.stats()` after `goTo`,
-`full` detail, desktop, published mirror (frame triangles, with the street layer's share in
-brackets):
+**The layer was being paid for twice, and now it is paid for once, at about a third of the
+size.** Read with `__chicago4d.stats()` at Lake Street at Canal after `goTo` (published mirror,
+1280×800), which is the stand where smoke desktop **part 5**'s five-stand sweep (T-0135, `scene
+detail '…' stays inside its own ceiling at the WORST stand`) finds every tier's worst frame:
 
-| stand | dev | this branch, two passes | this branch, one pass |
+| Lake Street at Canal | `full` | `light` | street layer |
 |---|---|---|---|
-| lake_at_canal | 1,507,558 (118,646) | 1,995,755 (594,840), one pass plus the second pass of the layer | 1,698,335 (297,420) |
-| lake_market | 1,255,820 (118,646) | — | 1,449,006 (297,420) |
-| forks | 1,487,593 (118,646) | — | 1,675,560 (297,420) |
-| from_above | 1,404,464 (118,646) | — | 1,598,892 (297,420) |
+| dev (b31dc146) | 1,508,838 | 874,131 | 59 k, drawn twice |
+| branch, across-first, two passes | 1,994,929 | 1,361,014 | 296 k, drawn twice |
+| branch, across-first, one pass | 1,698,562 | 1,064,647 | 296 k, once |
+| **branch now: lattice columns, one pass** | **1,509,086** | **875,171** | **107 k, once** |
+| ceiling | 1,460,000 | 825,000 | |
 
-These `goTo` stands are not the gate's stands. Dev reads over 1,460,000 at two of them, but its
-recorded desktop part 4 passes. The gate itself is T-0135's five-stand sweep in smoke desktop
-part 4, and **that part passes on this branch (28 of 28)**. The ribbon still costs about 179 k
-more than dev's wherever the streets are in view. If a later layer needs that room back, the
-lever is still a cheaper ribbon: columns at the section's own breaks, or a coarser ribbon past
-a reach.
+- **One pass.** The street material is transparent and `DoubleSide`, and three draws that
+  combination in two passes: back faces first, then front faces. Each triangle is rasterised
+  in only one of them, but both are submitted and counted. `forceSinglePass` draws the same
+  triangles once, with the same lighting.
+- **Columns at the lattice, not at halvings.** The ground is `surfaceHeight()`, a bilinear
+  field on a 2.5 m lattice, and along a line it bends only where it crosses a lattice line. A
+  panel that misses now puts its columns at those crossings on its middle row, and falls back
+  to halving across only if that does not settle it. The layer is **106,891 triangles** over
+  the same 6,937 panels, and the worst interior sink is 0.285 m (gate 0.35). Merging
+  crossings closer than 15 % of the width, instead of 4 %, was tried and is worse: 275 k
+  triangles and a 0.49 m sink. The columns are cheap only because they are exact.
+- **A shared row is watertight.** Two panels that meet on a row with different column counts
+  disagree about that row by a float32 rounding. At west_water's 7.7° bend at [−13.08,
+  −302.6] that hairline was the mitre row itself, and the smoke's wedge stations fell into it
+  (part 7). The finer panel's end-row midpoints are now stepped outward, one float32 at a
+  time, until they stand on or just past the straight line between the row's corners. Each
+  panel then reaches the shared line from its own side.
 
-**One shared row per joint.** Across-first refinement let two neighbouring panels settle on
-different column counts. Their shared end row was then drawn as one edge on one side and as two
-on the other. The middle vertex of the two is rounded to float32, so the edges are not exactly
-collinear, and a hairline of ground showed between them. At a bend that hairline is the mitre
-row itself, and the smoke's wedge stations fell into it at west_water [−13.08, −302.6]. The
-coarser panel now takes the finer panel's row and zips the strip beside it. That adds 1 k
-triangles (296,367 → 297,420). Pinning every panel of a street to its finest column count would
-have added 75 k.
+So the graded section now costs the frame what dev's flat ribbon did, to within 0.02 %.
+**Both tiers are over their ceilings at this stand on dev as well.** Part 5 is red there for
+dev's own reasons, by the same amount. The one-pass lever alone would bring dev to about
+1,450 k / 815 k. Without the streets this branch reads 1,402,195 / 768,280 at this stand, 12 k
+more than dev's 1,390,192 / 755,485. That 12 k is the ground mesh above.
+
+(An earlier reading on this branch counted desktop part 4's reference stand as the gate. Part
+4 holds the reference-stand checks; the worst-stand sweep is part 5.)
 
 ## Captures and critique
 
