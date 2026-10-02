@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1315, ts: '2026-10-02T18:21:27.519Z', date: 'Oct 2, 2026, 1:21 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
+  { v: 1316, ts: '2026-10-02T18:36:53.903Z', date: 'Oct 2, 2026, 1:36 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
     items: [
       'Open the card of one of nine anonymous yard buildings on the West Division approaches, south of Lake Street or on the north side\u2019s east edge. It now says what the building was for and, where something ties it to one, which house it belonged to.',
       'Seven name their house. Four stand where the plan draws them in that house\u2019s yard, one shares a lot with it, and two are the barns of the two farms on the Des Plaines edge.',
       'Two belong to no house we can point to: a stable on the teamster road by Canal and Randolph, and a stable yard by the north pier. Their cards say what they were for and that whose they were is not known.',
       'Nobody is seated in them. What the card states is the building\u2019s use, and it is as much a reconstruction as the building. Nine fewer roofs now count as empty in the town\u2019s completion check.',
+    ] },
+  { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+    items: [
+      'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
+      'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
+      'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
+      'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
     ] },
   { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [
