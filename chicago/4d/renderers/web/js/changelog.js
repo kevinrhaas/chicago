@@ -1,9 +1,35 @@
 export const CHANGELOG = [ // newest first
-  { v: 1310, ts: '2026-10-02T16:49:25.817Z', date: 'Oct 2, 2026, 11:49 AM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
+  { v: 1314, ts: '2026-10-02T17:48:09.162Z', date: 'Oct 2, 2026, 12:48 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
     items: [
       'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
       'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
       'All of this is in the Full and Balanced detail settings. Light, the setting a phone starts on, gets most of it, but a few small patches can still show close up, so that it stays as fast as it was.',
+    ] },
+  { v: 1313, ts: '2026-10-02T17:25:04.351Z', date: 'Oct 2, 2026, 12:25 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
+    items: [
+      'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
+      'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
+      'Full and Balanced are unchanged.',
+    ] },
+  { v: 1312, ts: '2026-10-02T17:06:29.693Z', date: 'Oct 2, 2026, 12:06 PM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
+    items: [
+      'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
+      'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
+      'Where Clark and La Salle Streets meet the river, their lowered ends are held back from the walk the same way.',
+    ] },
+  { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
+    items: [
+      'Open Evidence, then City: a third panel now shows how close the town is to complete, as four checks. Every household has a home; every working person has a workplace; every business has a roof or a stated reason it has none; every standing roof has somebody in it or a use.',
+      'One check is closed today: every business. The other three show what is still owed. 523 households are waiting on a roof, 308 working people have no workplace yet, and 24 roofs stand empty.',
+      'A bar under the checks shows how much of the town rests on each kind of evidence. Of the 1,508 households with a home, 18 % are attested, 38 % inferred and 43 % reconstructed.',
+      'The full tables, by tier, for people, households, businesses, roofs and streets are in docs/RESEARCH/1835_town_completion.md, written from the same counts.',
+    ] },
+  { v: 1310, ts: '2026-10-02T15:48:39.825Z', date: 'Oct 2, 2026, 10:48 AM CT', title: 'The fort\u2019s barn, shop and wash house now say whose they were', kind: 'change',
+    items: [
+      'Open the card of a Fort Dearborn outbuilding: the big barn, the wash house, the shop, the store house, a root house or one of the two out buildings. A new line, Part of, names the fort it served. The garrison that used them is listed on the stockade\u2019s card.',
+      'The bark and drying sheds behind Miller\u2019s tannery, the ash house at Elston\u2019s soap works, and the salt house and stock shed at Newberry & Dole\u2019s plant each name the works they belong to.',
+      'Beaubien\u2019s new residence and his small trading post each name the homestead Andreas lists them in. Who slept in which house that night is still unknown, and the card does not guess.',
+      'Each link carries its own grade. The fort\u2019s barn, wash house, store house and root houses are named as the garrison\u2019s in the sources. The shop and out buildings are ours, judged from where they stand. The works sheds are reconstructions (liberty L284).',
     ] },
   { v: 1309, ts: '2026-10-02T15:39:39.047Z', date: 'Oct 2, 2026, 10:39 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
     items: [

@@ -163,8 +163,8 @@ const GROUND_DETAIL_REACH_M = 600;
 const NEAR_HOLE_MARGIN_M = 10;
 /** The base's hole radius for a given haze reach: everywhere the detailed
  *  tiles are certainly drawn, and nowhere else. */
-function baseHoleM(reachM) {
-  return Math.max(0, Math.min(reachM, GROUND_DETAIL_REACH_M) - NEAR_HOLE_MARGIN_M);
+function baseHoleM(reachM, detailReachM = GROUND_DETAIL_REACH_M) {
+  return Math.max(0, Math.min(reachM, detailReachM, GROUND_DETAIL_REACH_M) - NEAR_HOLE_MARGIN_M);
 }
 
 /**
@@ -594,6 +594,9 @@ export async function createTerrain({
    *  the ground did before this and what it still does until a scene with a fog
    *  sets one — see hazeReachM(). */
   let groundReachM = Infinity;
+  // The detailed tiles' own reach, per scene-detail tier (T-1976). Starts at the
+  // constant every tier carried until then; `setDetailReach` moves it.
+  let groundDetailReachM = GROUND_DETAIL_REACH_M;
   let groundDrawn = groundBounds.length;
   let groundHeld = 0;
 
@@ -660,13 +663,25 @@ export async function createTerrain({
      */
     setGroundReach(m) {
       groundReachM = typeof m === 'number' && Number.isFinite(m) && m > 0 ? m : Infinity;
-      baseHole.value = baseHoleM(groundReachM);
+      baseHole.value = baseHoleM(groundReachM, groundDetailReachM);
       return groundReachM;
+    },
+    /** How far out the DETAILED tiles are drawn before the 15 m base carries
+     *  the ground alone (T-1976). Never past `GROUND_DETAIL_REACH_M`, the
+     *  reach every tier carried before a tier could ask for less; anything
+     *  that is not a positive finite number restores it. */
+    setDetailReach(m) {
+      groundDetailReachM = typeof m === 'number' && Number.isFinite(m) && m > 0
+        ? Math.min(m, GROUND_DETAIL_REACH_M) : GROUND_DETAIL_REACH_M;
+      // The base's hole follows the tiles in, or Light (240 m) would leave a
+      // ring from there to 590 m with no ground drawn at all.
+      baseHole.value = baseHoleM(groundReachM, groundDetailReachM);
+      return groundDetailReachM;
     },
     /** What the reach is doing this frame: the distance, and the tile counts. */
     groundReach() {
       return { reachM: Number.isFinite(groundReachM) ? groundReachM : null,
-               detailReachM: GROUND_DETAIL_REACH_M,
+               detailReachM: groundDetailReachM,
                baseTriangles: groundBase
                  ? groundBase.geometry.index.count / 3 : 0,
                tiles: groundBounds.length, drawn: groundDrawn, held: groundHeld };
@@ -690,7 +705,7 @@ export async function createTerrain({
         const dy = Math.max(bound.min.y - eye.y, 0, eye.y - bound.max.y);
         const dz = Math.max(bound.min.z - eye.z, 0, eye.z - bound.max.z);
         const reach = bound.overField
-          ? Math.min(groundReachM, GROUND_DETAIL_REACH_M) : groundReachM;
+          ? Math.min(groundReachM, groundDetailReachM) : groundReachM;
         const far = dx * dx + dy * dy + dz * dz > reach * reach;
         bound.mesh.visible = !far;
         bound.mesh.userData.reachCulled = far;

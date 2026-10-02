@@ -1133,9 +1133,19 @@ def build_field(spec, feats, origin, streets=None):
                 continue
             sub_E, sub_N = E[r0:r1, c0:c1], N[r0:r1, c0:c1]
             d = seg_distance(sub_E, sub_N, pts)
-            cut_ft[r0:r1, c0:c1] = np.maximum(
-                cut_ft[r0:r1, c0:c1],
-                section_depth_ft(d, half, inset, st["crown_ft"], st["gutter_ft"]))
+            depth = section_depth_ft(d, half, inset, st["crown_ft"], st["gutter_ft"])
+            # A walk laid INSIDE a street's worked width keeps the ground it was
+            # laid on (T-1956): each street the line names has its cut held at
+            # nothing within `flat_m` of the walk's centreline, easing back to the
+            # full section by `outer_m`. Named per street, so a street the walk
+            # crosses on its own boards keeps its own cut.
+            for kl in ss.get("keep_clear_lines", []):
+                if st["id"] not in kl["streets"]:
+                    continue
+                dk = seg_distance(sub_E, sub_N, kl["line"])
+                depth = depth * smoothstep((dk - float(kl["flat_m"]))
+                                           / max(1e-9, float(kl["outer_m"]) - float(kl["flat_m"])))
+            cut_ft[r0:r1, c0:c1] = np.maximum(cut_ft[r0:r1, c0:c1], depth)
         for kc in ss.get("keep_clear", []):
             rr = np.hypot(E - float(kc["e"]), N - float(kc["n"]))
             cut_ft = cut_ft * smoothstep((rr - float(kc["flat_m"]))

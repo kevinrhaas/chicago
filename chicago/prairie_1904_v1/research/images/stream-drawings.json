@@ -764,7 +764,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00011a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-11.jpg",
+   "display_bytes": 377977,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-11-thumb.jpg",
+   "thumb_bytes": 18655,
+   "original_px": [
+    9600,
+    14424
+   ],
+   "original_sha256": "3dbfe91f60294290166d7bd972c9e80043d2f0c935071a37f60d8f9076354e17",
+   "original_bytes": 1820478,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00011a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (11. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -796,7 +809,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00012a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-12.jpg",
+   "display_bytes": 268968,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-12-thumb.jpg",
+   "thumb_bytes": 16408,
+   "original_px": [
+    9600,
+    14435
+   ],
+   "original_sha256": "dabc0fa9cc01ce8a705b33d2f48def5e80dcb02eed7f597345a183cb39415eb6",
+   "original_bytes": 1093250,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00012a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (12. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -828,7 +854,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00013a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-13.jpg",
+   "display_bytes": 389354,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-13-thumb.jpg",
+   "thumb_bytes": 17715,
+   "original_px": [
+    9632,
+    14437
+   ],
+   "original_sha256": "8293f422f23e1ff94dd62dd8cd6e07db2e3da10c82a39cee0b02a6702ca4a6c3",
+   "original_bytes": 1837566,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00013a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (13. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -860,7 +899,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00014a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-14.jpg",
+   "display_bytes": 299912,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-14-thumb.jpg",
+   "thumb_bytes": 17406,
+   "original_px": [
+    9632,
+    14430
+   ],
+   "original_sha256": "7db2b2845dc8186a77132bf1011280322bc13ab0abb91cecd2b79e4721e1f1bb",
+   "original_bytes": 1828638,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00014a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (14. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -892,7 +944,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00015a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-15.jpg",
+   "display_bytes": 402021,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-15-thumb.jpg",
+   "thumb_bytes": 18623,
+   "original_px": [
+    9376,
+    14448
+   ],
+   "original_sha256": "c0b82f19e5b716eba5648759e8801a3950ddb57cf6514d7af6584cd2b1e9a32e",
+   "original_bytes": 2084670,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00015a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (15. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -924,7 +989,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00016a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-16.jpg",
+   "display_bytes": 316937,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-16-thumb.jpg",
+   "thumb_bytes": 17692,
+   "original_px": [
+    9632,
+    14457
+   ],
+   "original_sha256": "ed7e36ad04b7b1e8624935ba5faf3f313a75c8949642b52167a88c5f66a7681d",
+   "original_bytes": 1656714,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00016a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (16. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -956,7 +1034,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00017a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-17.jpg",
+   "display_bytes": 314481,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-17-thumb.jpg",
+   "thumb_bytes": 17753,
+   "original_px": [
+    9632,
+    14448
+   ],
+   "original_sha256": "ff916b67e34482dc3ff9741ccf110e43085df23fa86ec731decf85c424fd9c1a",
+   "original_bytes": 1270530,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00017a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (17. Window): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -988,7 +1079,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00018a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-18.jpg",
+   "display_bytes": 379259,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-18-thumb.jpg",
+   "thumb_bytes": 21425,
+   "original_px": [
+    14433,
+    9632
+   ],
+   "original_sha256": "65aa54442e8b10a9008c1f6d84adb3ccfee89618d510899673c62aa3c5e8d1cc",
+   "original_bytes": 17390407,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00018a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (18. North Vestibule Window, Narthex Window Screen, Side Aisle Windows, Plaster Relief Panels): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -1020,7 +1124,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00019a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-19.jpg",
+   "display_bytes": 228201,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-19-thumb.jpg",
+   "thumb_bytes": 14721,
+   "original_px": [
+    14425,
+    9632
+   ],
+   "original_sha256": "53bfe0881d33b68e4cde234178759e64f4ac15ed02d3a0fc26e7739cf88bf285",
+   "original_bytes": 17380775,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00019a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (19. Pulpit Details, Angel Detail, Candelabra): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -1052,7 +1169,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00020a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-20.jpg",
+   "display_bytes": 132030,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-20-thumb.jpg",
+   "thumb_bytes": 9089,
+   "original_px": [
+    9632,
+    14430
+   ],
+   "original_sha256": "0e327aa0cb8a437ac99be74d256f86350c9aef62cda90f0d561650117546e7de",
+   "original_bytes": 498370,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00020a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (20. Large Chandelier): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -1084,7 +1214,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00021a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-21.jpg",
+   "display_bytes": 217986,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-21-thumb.jpg",
+   "thumb_bytes": 15555,
+   "original_px": [
+    14428,
+    9600
+   ],
+   "original_sha256": "8fcfc54036963353def37b0908070279e20c1175b53fbfd1ff57bfbcbf603c89",
+   "original_bytes": 17323047,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00021a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (21. Lamp Pendants, Sconces, and Swingrail Uplight): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -1116,7 +1259,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00022a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted (drawings are a Peterson Prize donation to HABS)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il328-second-presbyterian-sheet-22.jpg",
+   "display_bytes": 228945,
+   "thumb": "research/images/files/dw-habs-il328-second-presbyterian-sheet-22-thumb.jpg",
+   "thumb_bytes": 12448,
+   "original_px": [
+    14443,
+    9632
+   ],
+   "original_sha256": "8ae0f557f2b2f1ba6bb12f3a30685e23168b8e888cfb2a7bce79f9c134e5afd0",
+   "original_bytes": 17400039,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0900/il0992/sheet/00022a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Second Presbyterian Church Chicago' (fo=json); sheet viewed from master TIFF/derivative",
   "notes": "Detail sheet (22. Herald Angels): Shaw/Bartlett-era interior fittings or art-glass window. Several memorial windows were installed after 1900 at various dates; check each window's date before showing it in a 1904 interior. Documents the church as rebuilt by Shaw after the March 1900 fire — i.e. the state standing in 1904 — but drawn a century later; later changes (e.g. loss of the north neighbour, fire stairs, modern fixtures) must be screened out.",
@@ -1335,7 +1491,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00003a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il135-clarke-sheet-3.jpg",
+   "display_bytes": 350831,
+   "thumb": "research/images/files/dw-habs-il135-clarke-sheet-3-thumb.jpg",
+   "thumb_bytes": 22626,
+   "original_px": [
+    7584,
+    9348
+   ],
+   "original_sha256": "764fa57d92628a8ac2fbad38e6d624ba6446d60c3b4394ba055d05a9e38d916b",
+   "original_bytes": 650562,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00003a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
   "notes": "Sheet 3: full-size and 3/4-in details — basement window, main cornice, shutters, entrance doorway, interior trim. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
@@ -1368,7 +1537,20 @@
   "image_url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00004a.tif",
   "rights": "no known restrictions",
   "rights_basis": "LoC HABS: No known restrictions on images made by the U.S. Government",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-habs-il135-clarke-sheet-4.jpg",
+   "display_bytes": 285761,
+   "thumb": "research/images/files/dw-habs-il135-clarke-sheet-4-thumb.jpg",
+   "thumb_bytes": 21321,
+   "original_px": [
+    7584,
+    9342
+   ],
+   "original_sha256": "1a3d9fcf6ef211dc75ebfd90f43e328535006117ce9fe78d7711e59f172dcc67",
+   "original_bytes": 388154,
+   "fetched_from": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0000/il0096/sheet/00004a.tif",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "loc.gov/pictures search 'Clarke House Chicago' (fo=json); sheets viewed from master TIFFs",
   "notes": "Sheet 4: stair detail, newel and balusters, typical interior door, mouldings. In 1904 the Clarke house stood at 4526 S. Wabash, NOT in the Prairie Avenue district (moved there 1872; moved to 1827 S. Indiana in 1977) — these 1935 sheets show it in roughly its 1904 Wabash-site state; use only for the modern-location building or as off-site context.",
@@ -1642,7 +1824,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1905-05-robbins-plate-list.jpg",
+   "display_bytes": 249779,
+   "thumb": "research/images/files/dw-inland-1905-05-robbins-plate-list-thumb.jpg",
+   "thumb_bytes": 20504,
+   "original_px": [
+    1912,
+    2816
+   ],
+   "original_sha256": "e5324df028376fbc71383155869d961ff63ff0fbe0f42ce0f04baa29d4bd3812",
+   "original_bytes": 767280,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1905-05_45_4/page/n59_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan",
   "notes": "'Our Illustrations' list; same list also names 'Residence for John B. Drake, Jr., 2106 Calumet Ave., Chicago; Howard V. Shaw, architect' (adjacent block, not in building index).",
@@ -1674,7 +1869,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1885-06-murray-1919-beman-report.jpg",
+   "display_bytes": 296531,
+   "thumb": "research/images/files/dw-inland-1885-06-murray-1919-beman-report-thumb.jpg",
+   "thumb_bytes": 22535,
+   "original_px": [
+    1922,
+    2762
+   ],
+   "original_sha256": "9bfa83960e02582ea795c557c285384c479b1120335f3f4a1a1632c061741526",
+   "original_bytes": 1010848,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1885-06_5_5/page/n21_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('1919 Prairie'); reporting architect identified from preceding heading 'Architect S. S. Beman report[s]'",
   "notes": "Confirms Beman as architect of the Murray house (later Schwartz / Marshall Field Jr.; D. H. Burnham & Co. addition after 1904?). Footprint before the later addition.",
@@ -1727,7 +1935,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1884-06-murray-beman-plans.jpg",
+   "display_bytes": 346618,
+   "thumb": "research/images/files/dw-inland-1884-06-murray-beman-plans-thumb.jpg",
+   "thumb_bytes": 27560,
+   "original_px": [
+    1844,
+    2742
+   ],
+   "original_sha256": "a22d8a41b30685b8e0aa30663e95cfc382f6979d3383e97994f6d1c0805375b5",
+   "original_bytes": 1102222,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1884-06_3_5/page/n14_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('Murray')",
   "notes": "Earlier (1884) version of the Murray design; the May 1884 issue (vol. III no. 4, IA leaf n13) has Beman preparing plans 'on Prairie avenue, south of Marshall Field's residence. Walls of Bellville stone and Baltimore brick.' Note the materials and size changed by the 1885 report (32 × 63 ft).",
@@ -1770,7 +1991,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1893-01-kimball-entrance-plate-listing.jpg",
+   "display_bytes": 249511,
+   "thumb": "research/images/files/dw-inland-1893-01-kimball-entrance-plate-listing-thumb.jpg",
+   "thumb_bytes": 22251,
+   "original_px": [
+    1828,
+    2733
+   ],
+   "original_sha256": "69e9f526d75f3e31cb9b74eeec4ed7504b1209600e0878a5ffa3e61b5fe77e30",
+   "original_bytes": 741935,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1893-01_20_6_0/page/n10_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan",
   "notes": "Lead: a photogravure of the Kimball entrance exists in the photogravure edition only; it was not found in the IA microfilm or bound-volume scans. Look for photogravure-edition copies (Ryerson & Burnham; HathiTrust).",
@@ -1804,7 +2038,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1883-03-moulton-keith-interiors.jpg",
+   "display_bytes": 276060,
+   "thumb": "research/images/files/dw-inland-1883-03-moulton-keith-interiors-thumb.jpg",
+   "thumb_bytes": 22364,
+   "original_px": [
+    1788,
+    2635
+   ],
+   "original_sha256": "d928ddc8b17cf41e8d9895d6c2385251bb000aa39855a39ee6a5542bee6a89bb",
+   "original_bytes": 746288,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1883-03_1_2_0/page/n13_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('Moulton', 'O. R. Keith')",
   "notes": "Names Treat & Foltz as architects of the B. P. Moulton house (1912 Prairie; later Lowden) and L. P. Dickson [Lavall B. Dixon] for O. R. Keith's house (1901 Prairie; later Ream). Interior-finish evidence only.",
@@ -1836,7 +2083,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1888-07-meyer-burnham-root-plans.jpg",
+   "display_bytes": 289893,
+   "thumb": "research/images/files/dw-inland-1888-07-meyer-burnham-root-plans-thumb.jpg",
+   "thumb_bytes": 24594,
+   "original_px": [
+    1734,
+    2660
+   ],
+   "original_sha256": "61afbd68dc3a8ab24b31d21614295ab882d2bdd304a9b3e92041a34750bea5fe",
+   "original_bytes": 854768,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1888-07_11_8/page/n32_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('Max Meyer')",
   "notes": "Plans stage of the Max A. Meyer house. The location as printed ('corner of Twenty-second street') conflicts with 2009 Prairie; the June 1888 issue also lists Burnham & Root plans 'for Max Meyer'. See the May 1889 completion note.",
@@ -1874,7 +2134,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1888-06-buckingham-portico.jpg",
+   "display_bytes": 292300,
+   "thumb": "research/images/files/dw-inland-1888-06-buckingham-portico-thumb.jpg",
+   "thumb_bytes": 23244,
+   "original_px": [
+    1734,
+    2660
+   ],
+   "original_sha256": "a4b13933eaa444a775a0389ffcc72df8d3f3092ae2cd57376e6e6bb04b9e1105",
+   "original_bytes": 866967,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1888-06_11_7/page/n35_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('Buckingham')",
   "notes": "An 1888 brownstone portico and steps added to the Buckingham house — a front-elevation element present in 1904 unless later removed. Match the corner location to 2036 before relying on it.",
@@ -1912,7 +2185,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1890-01-mcbirney-plate-listing.jpg",
+   "display_bytes": 242111,
+   "thumb": "research/images/files/dw-inland-1890-01-mcbirney-plate-listing-thumb.jpg",
+   "thumb_bytes": 20734,
+   "original_px": [
+    1844,
+    2665
+   ],
+   "original_sha256": "5b8e5f8cd39b01c5576db73a0cac5959606ad043d73bf45fc71e0abddc975cc5",
+   "original_bytes": 697930,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1890-01_14_8/page/n36_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('McBirney')",
   "notes": "An illustration of a residence for Hugh J. McBirney by Burling & Whitehouse was published; location not stated — confirm whether it is 1736 Prairie (Ingraham/McBirney) or another McBirney house before use. Plate page not yet located in the scan.",
@@ -1944,7 +2230,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1887-05-ream-1901-interior-contract.jpg",
+   "display_bytes": 274402,
+   "thumb": "research/images/files/dw-inland-1887-05-ream-1901-interior-contract-thumb.jpg",
+   "thumb_bytes": 22785,
+   "original_px": [
+    1858,
+    2720
+   ],
+   "original_sha256": "4e1b71dcc82d128ffd5e14ff5eb16b4de1ac9a0c428bae08e1b4d18e8666b43f",
+   "original_bytes": 829182,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1887-05_9_6/page/n29_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('Ream')",
   "notes": "Dates the Ream remodelling/interior campaign at 1901 Prairie (building index: remodel by Daniel Burnham) to 1887. Nov. 1886 (vol. VIII no. 7 p. 56, leaf n19) also notes a Hawley laundry dryer being installed in 'Mr. N. B. Ream's residence, 1901 Prairie avenue'.",
@@ -1974,7 +2273,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1885-11-farwell-1625-treat-foltz.jpg",
+   "display_bytes": 295024,
+   "thumb": "research/images/files/dw-inland-1885-11-farwell-1625-treat-foltz-thumb.jpg",
+   "thumb_bytes": 24413,
+   "original_px": [
+    1984,
+    2872
+   ],
+   "original_sha256": "dc8c6c3c6d9484bf4d18314206f4bdd1a46c37b7e3ab006d8182f04140f296b1",
+   "original_bytes": 1003187,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1885-11_6_5/page/n57_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan (addresses 16xx–21xx Prairie)",
   "notes": "A Prairie Avenue house in the study area (west side, 1600 block) not in the building index: Granger Farwell, 1885, Treat & Foltz. Candidate for the unresolved 1600-block parcels.",
@@ -2010,7 +2322,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929 (Inland Architect); scan by Internet Archive (periodicals/sim_microfilm)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1883-hibbard-1616-permit.jpg",
+   "display_bytes": 272976,
+   "thumb": "research/images/files/dw-inland-1883-hibbard-1616-permit-thumb.jpg",
+   "thumb_bytes": 18867,
+   "original_px": [
+    3061,
+    4602
+   ],
+   "original_sha256": "fc69351a8adaa56df806c446313ce8d08b3e566fcebab7517e8987be30d3456e",
+   "original_bytes": 1945992,
+   "fetched_from": "https://archive.org/download/inlandarc114518831884west/page/n49_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text scan ('Hibbard', '16xx Prairie')",
   "notes": "Permit for a W. G. Hibbard house at 1616 Prairie, 24 × 80 ft, 30 ft high. The building index places the Hibbard residence at 1701 Prairie (Jenney) — either a second Hibbard house, an error, or a pre-1909 number; resolve before assigning a building id. Issue/page within the bound volume not yet pinned.",
@@ -2051,12 +2376,25 @@
   "call_number": "mqc 7619 (pencil '1801 Prairie Ave' on mount)",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/7619",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:7619/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published January 1893 in The Inland Architect and News Record vol. 20 no. 6 (AIC record) (pre-1929, US); AIC reproduction. Holder's statement: \"For Rights information please contact the Ryerson and Burnham Archives at archives@artic.edu\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-inland-kimball-1801-entrance-plate.jpg",
+   "display_bytes": 121411,
+   "thumb": "research/images/files/dw-rb-inland-kimball-1801-entrance-plate-thumb.jpg",
+   "thumb_bytes": 18537,
+   "original_px": [
+    738,
+    1056
+   ],
+   "original_sha256": "1bf106e6bc39a5c616b81549fb5f2a262a50dd975e013da6b952267349ec8c28",
+   "original_bytes": 127498,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:7619/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/7619 read and preview image viewed",
-  "notes": "The photogravure listed as 'issued only to subscribers for the Photogravure edition' (dw-inland-1893-01-kimball-entrance-plate-listing) — found here. Shows the carved limestone entrance porch: two round arches on a corner pier, richly carved spandrels and cresting, balcony above, broad stone steps with curved cheek wall. Detail-level evidence for the porch of the newly finished house.",
+  "notes": "The photogravure listed as 'issued only to subscribers for the Photogravure edition' (dw-inland-1893-01-kimball-entrance-plate-listing) — found here. Shows the carved limestone entrance porch: two round arches on a corner pier, richly carved spandrels and cresting, balcony above, broad stone steps with curved cheek wall. Detail-level evidence for the porch of the newly finished house. Rights reviewed 2026-10-02: reclassified public domain (published 1893 periodical plate).",
   "measurements": []
  },
  {
@@ -2083,12 +2421,25 @@
   "call_number": "mqc 4518",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/4518",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:4518/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published October 1888 in The Inland Architect and News Record vol. 12 (AIC record dated 10/1888) (pre-1929, US); AIC reproduction. Holder's statement: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-inland-ames-coleman-1811-plate.jpg",
+   "display_bytes": 99744,
+   "thumb": "research/images/files/dw-rb-inland-ames-coleman-1811-plate-thumb.jpg",
+   "thumb_bytes": 17264,
+   "original_px": [
+    711,
+    1056
+   ],
+   "original_sha256": "bc2058bd78acea80e4b7625ce72253e5f2fcad7f1d8ec877cd3dc3dbe3c3d3e6",
+   "original_bytes": 142722,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:4518/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/4518 read and preview image viewed",
-  "notes": "Photograph of the Coleman/Ames house: rock-faced sandstone, two-storey bay with carved parapet and balcony, steep front gable with arched window group, deep round-arched entrance porch under a steep conical/turreted roof, stone steps. Matches the 1972 NRHP sketch (dw-nrhp-1972-district-p11-coleman-ames-plan-elevation). The October 1888 plate list reads 'Residence of Miner T. Ames, Chicago; Cobb & Frost, architects.' Holder dates the house 1885.",
+  "notes": "Photograph of the Coleman/Ames house: rock-faced sandstone, two-storey bay with carved parapet and balcony, steep front gable with arched window group, deep round-arched entrance porch under a steep conical/turreted roof, stone steps. Matches the 1972 NRHP sketch (dw-nrhp-1972-district-p11-coleman-ames-plan-elevation). The October 1888 plate list reads 'Residence of Miner T. Ames, Chicago; Cobb & Frost, architects.' Holder dates the house 1885. Rights reviewed 2026-10-02: reclassified public domain (published 1888 periodical plate).",
   "measurements": []
  },
  {
@@ -2115,12 +2466,25 @@
   "call_number": "mqc 4609",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/4609",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:4609/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 30 July 1887 in The Building Budget (Chicago) v. 3 p. 97 (AIC record) (pre-1929, US); AIC reproduction. Holder's statement: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-building-budget-1887-entrance-sketch-18xx-prairie.jpg",
+   "display_bytes": 142631,
+   "thumb": "research/images/files/dw-rb-building-budget-1887-entrance-sketch-18xx-prairie-thumb.jpg",
+   "thumb_bytes": 19770,
+   "original_px": [
+    1056,
+    719
+   ],
+   "original_sha256": "69bc5d76bbb69ae44731f53dcd0bb71134ca3e029c2c4dd0b71c285318e1c4e8",
+   "original_bytes": 200284,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:4609/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/4609 read and preview image viewed",
-  "notes": "Pen-and-ink perspective of a rock-faced stone entrance: arcade of round arches on clustered short columns, broad side stair with scroll-ended cheek wall. Holder catalogues it as the Coleman house (1811); the house number in the caption is not legible at the available resolution (max 1056 px) and the arcade resembles the loggia of Cobb & Frost's O. R. Keith house at 1808 (same firm, 1886–87) — verify before assignment.",
+  "notes": "Pen-and-ink perspective of a rock-faced stone entrance: arcade of round arches on clustered short columns, broad side stair with scroll-ended cheek wall. Holder catalogues it as the Coleman house (1811); the house number in the caption is not legible at the available resolution (max 1056 px) and the arcade resembles the loggia of Cobb & Frost's O. R. Keith house at 1808 (same firm, 1886–87) — verify before assignment. Rights reviewed 2026-10-02: reclassified public domain (published 1887 periodical plate).",
   "measurements": []
  },
  {
@@ -2147,12 +2511,25 @@
   "call_number": "mqc 10808",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/10808",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:10808/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1902 in The Inland Architect and News Record vol. 39 (AIC record dated 1902) (pre-1929, US); AIC reproduction. Holder's statement: \"For Rights information please contact the Ryerson and Burnham Archives at archives@artic.edu\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-inland-second-presbyterian-shaw-interior-plate.jpg",
+   "display_bytes": 76235,
+   "thumb": "research/images/files/dw-rb-inland-second-presbyterian-shaw-interior-plate-thumb.jpg",
+   "thumb_bytes": 16362,
+   "original_px": [
+    1056,
+    723
+   ],
+   "original_sha256": "b84a67470e45723526f9415ab621886b9bf6eac71a7cc8cdb1a23a63721c748b",
+   "original_bytes": 79107,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:10808/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/10808 read and preview image viewed",
-  "notes": "Interior after Shaw's 1900–01 rebuild: nave toward the chancel arch and organ screen, timber ceiling, galleries. The interior as it stood in 1904. Volume number partly legible on the mount ('Vol. XX…').",
+  "notes": "Interior after Shaw's 1900–01 rebuild: nave toward the chancel arch and organ screen, timber ceiling, galleries. The interior as it stood in 1904. Volume number partly legible on the mount ('Vol. XX…'). Rights reviewed 2026-10-02: reclassified public domain (published 1902 periodical plate).",
   "measurements": []
  },
  {
@@ -2179,12 +2556,25 @@
   "call_number": "mqc 22670 (page 29)",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/22670",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:22670/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1902 in the Chicago Architectural Sketch Club annual exhibition catalogue, p. 29 (AIC illustration index, casc.1902_29.jpg) (pre-1929, US); AIC reproduction. Holder's statement: \"For publication information please contact the Ryerson and Burnham Archives at archives@artic.edu.\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-sketch-club-second-presbyterian-shaw-details.jpg",
+   "display_bytes": 163898,
+   "thumb": "research/images/files/dw-rb-sketch-club-second-presbyterian-shaw-details-thumb.jpg",
+   "thumb_bytes": 27871,
+   "original_px": [
+    1056,
+    1040
+   ],
+   "original_sha256": "eccdb4cad91fbd4849bf9d24069585edfbe5590abe601839cde5f145b49bac40",
+   "original_bytes": 148226,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:22670/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/22670 read and preview image viewed",
-  "notes": "Catalogue page of halftones of Shaw's fittings (carved seat ends, bronze organ screen, gallery, pulpit, lamp). Interior-detail evidence for 1904.",
+  "notes": "Catalogue page of halftones of Shaw's fittings (carved seat ends, bronze organ screen, gallery, pulpit, lamp). Interior-detail evidence for 1904. Rights reviewed 2026-10-02: reclassified public domain — the AIC record dates the catalogue page to 1902.",
   "measurements": []
  },
  {
@@ -2211,12 +2601,25 @@
   "call_number": "mqc 45169 (page 28)",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/45169",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:45169/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1902 in the Chicago Architectural Sketch Club annual exhibition catalogue, p. 28 (AIC illustration index, casc.1902_28.jpg) (pre-1929, US); AIC reproduction. Holder's statement: \"For publication information please contact the Ryerson and Burnham Archives at archives@artic.edu.\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-sketch-club-second-presbyterian-shaw-interior.jpg",
+   "display_bytes": 175446,
+   "thumb": "research/images/files/dw-rb-sketch-club-second-presbyterian-shaw-interior-thumb.jpg",
+   "thumb_bytes": 26521,
+   "original_px": [
+    1056,
+    1034
+   ],
+   "original_sha256": "52232088728d97ad959b5bcd61645283d0974ff18d88755e030f20ab8ab6db51",
+   "original_bytes": 157642,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:45169/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/45169 read and preview image viewed",
-  "notes": "Nave arcade with galleries, clerestory, art-glass windows; insets of pulpit end and a hanging lamp.",
+  "notes": "Nave arcade with galleries, clerestory, art-glass windows; insets of pulpit end and a hanging lamp. Rights reviewed 2026-10-02: reclassified public domain — the AIC record dates the catalogue page to 1902.",
   "measurements": []
  },
  {
@@ -2243,12 +2646,25 @@
   "call_number": "mqc 24319",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/24319",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:24319/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1926 in the Chicago Architectural Sketch Club annual exhibition catalogue, p. 11 (AIC illustration index, casc.1926_11.jpg) (pre-1929, US); AIC reproduction. Holder's statement: \"For publication information please contact the Ryerson and Burnham Archives at archives@artic.edu.\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-architects-club-house-kimball-1801.jpg",
+   "display_bytes": 90528,
+   "thumb": "research/images/files/dw-rb-architects-club-house-kimball-1801-thumb.jpg",
+   "thumb_bytes": 15535,
+   "original_px": [
+    775,
+    1056
+   ],
+   "original_sha256": "029c5760352f6d83fe1df5520d8d4fc4e58d34f034552293ff237cc5a68cb4bd",
+   "original_bytes": 126844,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:24319/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/24319 read and preview image viewed",
-  "notes": "The Kimball house in its 1920s use as the Architects' Club, seen from the corner (Prairie and 18th): château roofs, turrets, porch. Post-dates 1904 by c. 20 years.",
+  "notes": "The Kimball house in its 1920s use as the Architects' Club, seen from the corner (Prairie and 18th): château roofs, turrets, porch. Post-dates 1904 by c. 20 years. Rights reviewed 2026-10-02: reclassified public domain — the AIC record dates the page to 1926.",
   "measurements": []
  },
  {
@@ -2531,12 +2947,25 @@
   "call_number": "mqc 33690",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/33690",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:33690/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "photograph published 1883–84 in G. W. Sheldon, Artistic Houses (D. Appleton & Co.) v. 2 pt. 1, and in Chicago and Its Makers (1929) p. 465 (AIC record) (pre-1929 first publication, US); AIC reproduction. Holder's statement: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-artistic-houses-doane-1827-hall-stair.jpg",
+   "display_bytes": 205118,
+   "thumb": "research/images/files/dw-rb-artistic-houses-doane-1827-hall-stair-thumb.jpg",
+   "thumb_bytes": 33826,
+   "original_px": [
+    1056,
+    946
+   ],
+   "original_sha256": "edfb6b56e57f05dce312ec771dba092daf8e65e7e7fed22c0f05cba92c0fbb5a",
+   "original_bytes": 278246,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:33690/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/33690 read and preview image viewed",
-  "notes": "Artistic Houses plate of the Doane hall (hall, looking toward staircase): carved grand staircase, coffered ceiling, columns and portières. Holder: also published in Chicago and Its Makers, p. 465. Interior only; Doane house by Theodore V. Wadskier (building index).",
+  "notes": "Artistic Houses plate of the Doane hall (hall, looking toward staircase): carved grand staircase, coffered ceiling, columns and portières. Holder: also published in Chicago and Its Makers, p. 465. Interior only; Doane house by Theodore V. Wadskier (building index). Rights reviewed 2026-10-02: reclassified public domain (published Artistic Houses plate).",
   "measurements": []
  },
  {
@@ -2563,12 +2992,25 @@
   "call_number": "mqc 33874",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/33874",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:33874/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "photograph published 1883–84 in G. W. Sheldon, Artistic Houses (D. Appleton & Co.) v. 2 pt. 1 (AIC record: 'duplicate plate from Artistic Houses') (pre-1929, US); AIC reproduction. Holder's statement: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/dw-rb-artistic-houses-doane-1827-hall-side.jpg",
+   "display_bytes": 216986,
+   "thumb": "research/images/files/dw-rb-artistic-houses-doane-1827-hall-side-thumb.jpg",
+   "thumb_bytes": 36252,
+   "original_px": [
+    1056,
+    952
+   ],
+   "original_sha256": "c40177e2f1244715e39584f004a39c4900acdfe3049f24583f07d0c282a2e70d",
+   "original_bytes": 292862,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:33874/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/33874 read and preview image viewed",
-  "notes": "Artistic Houses plate of the Doane hall (hall, looking toward side of staircase): carved grand staircase, coffered ceiling, columns and portières. Holder: also published in Chicago and Its Makers, p. 465. Interior only; Doane house by Theodore V. Wadskier (building index).",
+  "notes": "Artistic Houses plate of the Doane hall (hall, looking toward side of staircase): carved grand staircase, coffered ceiling, columns and portières. Holder: also published in Chicago and Its Makers, p. 465. Interior only; Doane house by Theodore V. Wadskier (building index). Rights reviewed 2026-10-02: reclassified public domain (published Artistic Houses plate).",
   "measurements": []
  },
  {
@@ -2703,7 +3145,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-indchi-1891-v1-1867-van-osdel-jones.jpg",
+   "display_bytes": 190991,
+   "thumb": "research/images/files/dw-indchi-1891-v1-1867-van-osdel-jones-thumb.jpg",
+   "thumb_bytes": 17530,
+   "original_px": [
+    2186,
+    3312
+   ],
+   "original_sha256": "df7def9e061e1afc59bb188e7433b154312a73b563f5bf79d26515e582e20825",
+   "original_bytes": 755450,
+   "fetched_from": "https://archive.org/download/industrialchicag01good/page/n517_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text scan; OCR read",
   "notes": "Confirms Van Osdel as architect and gives a c.1867 date and cost for the Fernando Jones house (building index pa-1834-9: Van Osdel).",
@@ -2744,7 +3199,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-indchi-1891-v1-1867-wheelock-cochrane-prairie-list.jpg",
+   "display_bytes": 193962,
+   "thumb": "research/images/files/dw-indchi-1891-v1-1867-wheelock-cochrane-prairie-list-thumb.jpg",
+   "thumb_bytes": 16284,
+   "original_px": [
+    2186,
+    3312
+   ],
+   "original_sha256": "e26070cf76230c0142b8b1095cfcd0b0b4f588b9378c28a9a140f0b913547802",
+   "original_bytes": 797436,
+   "fetched_from": "https://archive.org/download/industrialchicag01good/page/n512_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text scan for 'Prairie avenue'; OCR read",
   "notes": "Early (1867) houses on the study blocks, none yet matched to building ids: Wheelock — frame residence for B. F. Chase, corner 16th & Prairie, 2 storeys + French roof, balconies/porches/piazzas, 23×51 ft, $10,000; frame dwelling for C. W. Day near 20th on Prairie, 23×54 ft; first-class house for George W. Gage, corner 22nd & Prairie, 2 storeys, brick, ashlar basement, mansard, 45×83 ft, $60,000; brick riding gallery for C. M. Clark, corner Prairie & 18th, 200×300 ft, $40,000. Cochrane & Garnsey — block of two marble-front residences, corner Prairie & 20th (G. F. Bissel and W. E. Richardson), 2 storeys + basement, $40,000; marble-front residence near 16th for Horace G. Chase, hip roof, $18,000; residence for Charles H. Wheeler between 21st and 22nd, $6,000. Useful for the 1600/2000-block predecessor and unresolved parcels (e.g. 1609–1620, 2000-block corners).",
@@ -2797,7 +3265,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-indchi-1891-v1-moulton-treat-foltz.jpg",
+   "display_bytes": 177593,
+   "thumb": "research/images/files/dw-indchi-1891-v1-moulton-treat-foltz-thumb.jpg",
+   "thumb_bytes": 16839,
+   "original_px": [
+    2186,
+    3312
+   ],
+   "original_sha256": "06c15609458ea573b0e44a6680e293a7a2e5c6a24d1def5706d9cd2fa91817c4",
+   "original_bytes": 690703,
+   "fetched_from": "https://archive.org/download/industrialchicag01good/page/n314_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text scan ('Moulton')",
   "notes": "Second, independent attribution of the B. P. Moulton house (1912 Prairie; later Lowden) to Treat & Foltz (cf. Inland Architect Mar. 1883).",
@@ -2829,7 +3310,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-indchi-1891-v1-sherman-burnham-root.jpg",
+   "display_bytes": 205538,
+   "thumb": "research/images/files/dw-indchi-1891-v1-sherman-burnham-root-thumb.jpg",
+   "thumb_bytes": 19045,
+   "original_px": [
+    2186,
+    3312
+   ],
+   "original_sha256": "04eb009ca2ae191c3adb74d4cf6aa4b61e6dfc24a31d6a198118ef44a5104a30",
+   "original_bytes": 813062,
+   "fetched_from": "https://archive.org/download/industrialchicag01good/page/n706_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text scan ('Sherman')",
   "notes": "Architect and sequence confirmation for 2100 Prairie.",
@@ -2861,7 +3355,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-indchi-1891-v1-edson-keith-stone.jpg",
+   "display_bytes": 196636,
+   "thumb": "research/images/files/dw-indchi-1891-v1-edson-keith-stone-thumb.jpg",
+   "thumb_bytes": 18120,
+   "original_px": [
+    2186,
+    3312
+   ],
+   "original_sha256": "771a20d33cb802bb852e8c0fd4ec24baea12e4f8a2a9e194f46800701b9ff22f",
+   "original_bytes": 776436,
+   "fetched_from": "https://archive.org/download/industrialchicag01good/page/n544_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text scan ('Edson Keith')",
   "notes": "Dates the Edson Keith house (building index: unresolved) to before 1873 and says it was stone-fronted (cut stone by Peter Neu & Co., 350 Fifth Ave.).",
@@ -2893,7 +3400,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1876-04-15-sherman-2100-finished.jpg",
+   "display_bytes": 245520,
+   "thumb": "research/images/files/dw-aabn-1876-04-15-sherman-2100-finished-thumb.jpg",
+   "thumb_bytes": 22620,
+   "original_px": [
+    1736,
+    2592
+   ],
+   "original_sha256": "12da0f0df691da782380ee439b466da2d5cb9bffccb94a92651c22a539b8a97d",
+   "original_bytes": 613935,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1876-04-15_1_16/page/n11_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1876-04-15_1_16, page index 11)",
   "notes": "Completion date (spring 1876) for the Sherman house; describes Burnham & Root as 'professed Gothic men', pupils of P. B. Wight.",
@@ -2925,7 +3445,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1879-sears-1815-basement-permit.jpg",
+   "display_bytes": 251335,
+   "thumb": "research/images/files/dw-aabn-1879-sears-1815-basement-permit-thumb.jpg",
+   "thumb_bytes": 22650,
+   "original_px": [
+    1720,
+    2566
+   ],
+   "original_sha256": "1d1a20a6a0ebe2149f3a7e10ed9a9a0914540f8fc14a2c57956f3627a4cd7850",
+   "original_bytes": 680192,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1879-12-27_6_209/page/n284_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1879-12-27_6_209, page index 284)",
   "notes": "OCR garbled around the cost; a permit for the Sears house foundations in late 1879, before the Burnham & Root superstructure (Monroe lists the Sears residence among their 1882–91 works). Check the page image for the cost figure.",
@@ -2957,7 +3490,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1881-03-doane-1827-permit.jpg",
+   "display_bytes": 241623,
+   "thumb": "research/images/files/dw-aabn-1881-03-doane-1827-permit-thumb.jpg",
+   "thumb_bytes": 22123,
+   "original_px": [
+    1662,
+    2564
+   ],
+   "original_sha256": "f6192b265ae354b8ec7acce7d637a8cc913d4fb5b8500b9af1bdf33cd7b41082",
+   "original_bytes": 638420,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1881-03-05_9_271/page/n28_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-03-05_9_271, page index 28)",
   "notes": "Permit for the Doane house (architect T. V. Wadskier per the building index); the Artistic Houses interiors (dw-rb-artistic-houses-doane-1827-*) show it c. 1883–84.",
@@ -3000,7 +3546,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1881-11-dent-1823-permit.jpg",
+   "display_bytes": 282364,
+   "thumb": "research/images/files/dw-aabn-1881-11-dent-1823-permit-thumb.jpg",
+   "thumb_bytes": 28582,
+   "original_px": [
+    1662,
+    2564
+   ],
+   "original_sha256": "1333fadaa0babcd5cfb9c92e2c877d1ba6ca4a48a00ad5ec5e6285fd0d5b5bd8",
+   "original_bytes": 725745,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1881-12-31_10_314/page/n310_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-12-31_10_314, page index 310)",
   "notes": "Permit for the Dent house (Burnham & Root; cf. Monroe App. B). OCR reads 'W. Dent'; only Thomas Dent is known at this location — confirm on the page image.",
@@ -3048,7 +3607,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1881-marsh-1824-barn-permit.jpg",
+   "display_bytes": 271890,
+   "thumb": "research/images/files/dw-aabn-1881-marsh-1824-barn-permit-thumb.jpg",
+   "thumb_bytes": 27852,
+   "original_px": [
+    1662,
+    2564
+   ],
+   "original_sha256": "fd2cfc9dd287a0990f6eaebfe7e1775113f32b2c82a3d33fd791575b92f03903",
+   "original_bytes": 691364,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1881-12-31_10_314/page/n198_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1881-12-31_10_314, page index 198)",
   "notes": "Rear brick barn/coach house for the Pomeroy/Marsh house — a rear outbuilding to place on the lot for 1904.",
@@ -3086,7 +3658,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1882-03-murray-1919-barn-permit.jpg",
+   "display_bytes": 237584,
+   "thumb": "research/images/files/dw-aabn-1882-03-murray-1919-barn-permit-thumb.jpg",
+   "thumb_bytes": 22016,
+   "original_px": [
+    1756,
+    2544
+   ],
+   "original_sha256": "11927a4cd615072074fe7ff10abe978dd84f3a1ffafd56fee950f21111339107",
+   "original_bytes": 622511,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1882-03-25_11_326/page/n19_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1882-03-25_11_326, page index 19)",
   "notes": "Barn on the Murray lot built before the 1884–85 Beman house.",
@@ -3124,7 +3709,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1884-murray-1919-beman-permit.jpg",
+   "display_bytes": 284087,
+   "thumb": "research/images/files/dw-aabn-1884-murray-1919-beman-permit-thumb.jpg",
+   "thumb_bytes": 26495,
+   "original_px": [
+    1670,
+    2494
+   ],
+   "original_sha256": "0eeb19b384a000a73b28c91f927b45923423a39eca9f95f57e747a22fdd69fed",
+   "original_bytes": 725942,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1884-06-21_15_443/page/n11_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-06-21_15_443, page index 11)",
   "notes": "Permit corresponding to the Beman design reported in Inland Architect (dw-inland-1884-06-murray-beman-plans; dw-inland-1885-06-murray-1919-beman-report).",
@@ -3162,7 +3760,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1884-09-hanford-2010-calumet-barn-permit.jpg",
+   "display_bytes": 271363,
+   "thumb": "research/images/files/dw-aabn-1884-09-hanford-2010-calumet-barn-permit-thumb.jpg",
+   "thumb_bytes": 25229,
+   "original_px": [
+    1722,
+    2536
+   ],
+   "original_sha256": "09ca8a5769017f5a24d0edb0bcb060927b4f544c286a942f7a2eda7f884976d8",
+   "original_bytes": 701449,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1884-09-13_16_455/page/n28_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-09-13_16_455, page index 28)",
   "notes": "Hanford's two-storey barn/coach house (rear outbuilding).",
@@ -3200,7 +3811,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1886-keith-1808-permit.jpg",
+   "display_bytes": 264952,
+   "thumb": "research/images/files/dw-aabn-1886-keith-1808-permit-thumb.jpg",
+   "thumb_bytes": 25372,
+   "original_px": [
+    3196,
+    5072
+   ],
+   "original_sha256": "21c2604d7fdc2a176f5be1d63f07a5d807e1b2f6767995614f67a84fbc3436ed",
+   "original_bytes": 1663396,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1886-12-25_20_574/page/n197_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1886-12-25_20_574, page index 197)",
   "notes": "National-press version of the 1886 Cobb & Frost commission (Inland Architect gives $40,000 and 38 × 80 ft).",
@@ -3238,7 +3862,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1887-high-2021-rear-addition.jpg",
+   "display_bytes": 262867,
+   "thumb": "research/images/files/dw-aabn-1887-high-2021-rear-addition-thumb.jpg",
+   "thumb_bytes": 25099,
+   "original_px": [
+    1732,
+    2552
+   ],
+   "original_sha256": "3bcee433aba203a6a6378039eb44e8b7c96e34e0faac20a0744d51a8f19d20a0",
+   "original_bytes": 677732,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1887-12-31_22_627/page/n193_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1887-12-31_22_627, page index 193)",
   "notes": "A two-storey rear addition to the Adams/High house by W. W. Clay — affects the rear massing in 1904.",
@@ -3314,7 +3951,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1889-dexter-1721-little-alteration.jpg",
+   "display_bytes": 246044,
+   "thumb": "research/images/files/dw-aabn-1889-dexter-1721-little-alteration-thumb.jpg",
+   "thumb_bytes": 28173,
+   "original_px": [
+    1750,
+    2596
+   ],
+   "original_sha256": "3930f7e55fdd9afaf0b1810ad63f7ad369a0469a338b55283391c2ad949b9ce9",
+   "original_bytes": 620456,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1889-06-29_25_705/page/n669_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 669)",
   "notes": "Explains the Arthur Little 'Colonial' Dexter house of the 1891 Inland Architect plate (dw-rb-inland-dexter-1721-plate): an 1889 remodelling of an existing brick house (earlier house credited to Charles A. Alexander).",
@@ -3346,7 +3996,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1889-mcbirney-1736-permit.jpg",
+   "display_bytes": 261690,
+   "thumb": "research/images/files/dw-aabn-1889-mcbirney-1736-permit-thumb.jpg",
+   "thumb_bytes": 28598,
+   "original_px": [
+    1750,
+    2592
+   ],
+   "original_sha256": "6bc5eda3a589c2fa3f599efd64f772c871a38309faaf5644a9a173ebdfcc9e10",
+   "original_bytes": 677507,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1889-06-29_25_705/page/n618_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 618)",
   "notes": "Permit notice for the McBirney house; OCR columns are interleaved so the cost is not reliably attributable — read from the page image.",
@@ -3378,7 +4041,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1893-04-dexter-1721-plate-listing.jpg",
+   "display_bytes": 237190,
+   "thumb": "research/images/files/dw-aabn-1893-04-dexter-1721-plate-listing-thumb.jpg",
+   "thumb_bytes": 22364,
+   "original_px": [
+    1750,
+    2572
+   ],
+   "original_sha256": "76808e534b133036e7987ed62a877bc4b4fa8544483a21732058db6ae3ba7d3e",
+   "original_bytes": 593405,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1893-04-08_40_902/page/n14_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1893-04-08_40_902, page index 14)",
   "notes": "Lead: a gelatine print of the Dexter house exists in the International/Imperial editions of AABN (not in this regular-edition scan). Pair with the 1891 Inland Architect plate.",
@@ -3410,7 +4086,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1900-05-second-presbyterian-rebuild.jpg",
+   "display_bytes": 243409,
+   "thumb": "research/images/files/dw-aabn-1900-05-second-presbyterian-rebuild-thumb.jpg",
+   "thumb_bytes": 26527,
+   "original_px": [
+    1768,
+    2626
+   ],
+   "original_sha256": "9007ee5777ecdd6baf301472401593721241b957b8704527a43fe0a8c097850c",
+   "original_bytes": 645293,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1900-05-12_68_1272/page/n25_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1900-05-12_68_1272, page index 25)",
   "notes": "Post-fire rebuilding budget (March 1900 fire); Shaw's rebuild kept Renwick's walls.",
@@ -3446,7 +4135,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1883-03-treat-foltz-prairie-near-16th.jpg",
+   "display_bytes": 261113,
+   "thumb": "research/images/files/dw-aabn-1883-03-treat-foltz-prairie-near-16th-thumb.jpg",
+   "thumb_bytes": 23258,
+   "original_px": [
+    1756,
+    2600
+   ],
+   "original_sha256": "e88079fdd8af3c3865fe0d6a8cd99f58fdbe0e6d49a24fa52440ff181bb3782e",
+   "original_bytes": 715764,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1883-06-30_13_392/page/n236_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1883-06-30_13_392, page index 236)",
   "notes": "Unnamed client. Same spring the permit list shows W. G. Hibbard's 24 × 80 ft house at 1616 Prairie ($15,000; AABN item 1883-06-30, IA page 292, and Inland Architect — dw-inland-1883-hibbard-1616-permit) — possibly the same house; unresolved.",
@@ -3476,7 +4178,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1882-einstein-1628-barn-permit.jpg",
+   "display_bytes": 244512,
+   "thumb": "research/images/files/dw-aabn-1882-einstein-1628-barn-permit-thumb.jpg",
+   "thumb_bytes": 23727,
+   "original_px": [
+    1756,
+    2545
+   ],
+   "original_sha256": "f416ee653959832a347d216fd1b4256d6f413a9cdf6908b68baa7c4563552e7f",
+   "original_bytes": 620026,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1882-05-06_11_332/page/n23_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1882-05-06_11_332, page index 23)",
   "notes": "Rear barn in the 1600 block (owner not in the building index).",
@@ -3512,7 +4227,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1884-shortall-1608-permit.jpg",
+   "display_bytes": 244535,
+   "thumb": "research/images/files/dw-aabn-1884-shortall-1608-permit-thumb.jpg",
+   "thumb_bytes": 23017,
+   "original_px": [
+    1722,
+    2536
+   ],
+   "original_sha256": "a23eda5df878b9cbb711d7caa63bbb7e042834e9b2f4bb56822e1084bf9e36d8",
+   "original_bytes": 631421,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1884-08-02_16_449/page/n36_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1884-08-02_16_449, page index 36)",
   "notes": "Same project as Inland Architect Aug. 1884 (vol. IV no. 1, IA leaf n15): 'Architect L. B. Dixon is building a residence for John G. Shortall, on Prairie avenue, near Sixteenth street, of variegated brownstone, basement of brick, slate roof, two stories above basement, cost about $12,000.' The building index lists a Shortall/Gregory house at 1638 by John W. Roberts — 1608 vs 1638 to be resolved (separate houses or renumbering).",
@@ -3553,7 +4281,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz.jpg",
+   "display_bytes": 254311,
+   "thumb": "research/images/files/dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz-thumb.jpg",
+   "thumb_bytes": 23845,
+   "original_px": [
+    1728,
+    2556
+   ],
+   "original_sha256": "363859476c32ab66792434addf84d3f32da74428a4eecac163dc40a115a9318f",
+   "original_bytes": 666167,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1885-10-03_18_510/page/n32_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1885-10-03_18_510, page index 32)",
   "notes": "Two Treat & Foltz houses of 1885 in the 1600 block not in the building index; Inland Architect gives Farwell's as 1625 Prairie, $11,000 (dw-inland-1885-11-farwell-1625-treat-foltz). The Farwell line is in the bound volume americanarchitec18newyuoft (IA page 302). A second AABN printing (Sept. 19, 1885, IA item sim_american-architect-and-architecture_1885-09-19_18_508 page 36) reads 'G. Farwell, two-st'y dwell., 1625 Prairie Ave.; cost $10,000; architects, Treat & Foltz' — so 1625 (as in Inland Architect), not 1626.",
@@ -3583,7 +4324,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1896-springer-flats-1625-1635.jpg",
+   "display_bytes": 227471,
+   "thumb": "research/images/files/dw-aabn-1896-springer-flats-1625-1635-thumb.jpg",
+   "thumb_bytes": 24391,
+   "original_px": [
+    1755,
+    2624
+   ],
+   "original_sha256": "f907ba0443dbcc00747bd58e3ab6331d491390009f2f70210e0e212722d95eb5",
+   "original_bytes": 620446,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1896-09-26_54_1083/page/n294_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1896-09-26_54_1083, page index 294)",
   "notes": "If built, a large apartment building replaced houses on the west side of the 1600 block (incl. 1625 Farwell) before 1904 — check the 1911 Sanborn sheets and 1904 directory.",
@@ -3691,7 +4445,20 @@
   "image_url": "https://archive.org/download/sim_inland-architect-and-news-record_1896-10_28_3/page/n19.jpg",
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-inland-1896-10-gorton-2120-music-room.jpg",
+   "display_bytes": 132916,
+   "thumb": "research/images/files/dw-inland-1896-10-gorton-2120-music-room-thumb.jpg",
+   "thumb_bytes": 16555,
+   "original_px": [
+    3724,
+    5352
+   ],
+   "original_sha256": "25bfb3d4dfc12b92d4aa6e41656b61aaacd7f3e0e292e4a3158824547fa3e2b6",
+   "original_bytes": 1202709,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1896-10_28_3/page/n19.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm street-field search 'Prairie' (mqc 4523: 'Gorton, Frank S., Residence, 2120 S. Prairie Ave., Cobb, Henry Ives, c.1896, Music room, Inland Architect') → located the plate in the IA scan",
   "notes": "Interior only (music room with pipe organ, palms, arched overmantel/window). Establishes a c.1896 Cobb-designed or -remodelled Gorton house at 2120 Prairie, a 2100-block parcel not in the building index (between Rees 2110/Rothschild 2112 and Robbins 2126).",
@@ -3723,7 +4490,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1884-10-wheeler-1812-barn-permit.jpg",
+   "display_bytes": 278815,
+   "thumb": "research/images/files/dw-aabn-1884-10-wheeler-1812-barn-permit-thumb.jpg",
+   "thumb_bytes": 25946,
+   "original_px": [
+    1722,
+    2536
+   ],
+   "original_sha256": "eaa6efb0beedcae2d7b55c337c00febb7b008aee9df36f38ee8f3a8f6eccc876",
+   "original_bytes": 723488,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1884-10-04_16_458/page/n36_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA full-text search '\"1812 Prairie\" cost'; OCR of the page read",
   "notes": "Burnham & Root's two-storey barn/coach house for the Wheeler house (the residence itself is also Burnham & Root, 1884) — a rear outbuilding for the 1904 lot.",
@@ -3948,7 +4728,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1879-sears-1815-burnham-root-plans.jpg",
+   "display_bytes": 270997,
+   "thumb": "research/images/files/dw-aabn-1879-sears-1815-burnham-root-plans-thumb.jpg",
+   "thumb_bytes": 24731,
+   "original_px": [
+    1714,
+    2532
+   ],
+   "original_sha256": "28434ce276fdb7ae11d555d902c09a0613879c30118cf289521e2ee510c4dbde",
+   "original_bytes": 718862,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1879-06-28_5_183/page/n226_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1879-06-28_5_183, page index 226)",
   "notes": "Dates the Burnham & Root design for Joseph Sears to spring 1879 (permit for the basement in late 1879, dw-aabn-1879-sears-1815-basement-permit). Compare the 1898 Tribune description: stone, three storeys, lot 76 × 140 ft.",
@@ -3996,7 +4789,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1881-keith-1901-permit.jpg",
+   "display_bytes": 234335,
+   "thumb": "research/images/files/dw-aabn-1881-keith-1901-permit-thumb.jpg",
+   "thumb_bytes": 22273,
+   "original_px": [
+    1662,
+    2564
+   ],
+   "original_sha256": "ecf0032bde3110e2b5774112aea07fb9b5e520e7bc48e6d06ce15825786f0dbd",
+   "original_bytes": 610253,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1881-05-28_9_283/page/n17_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1881-05-28_9_283, page index 17)",
   "notes": "Permit for O. R. Keith's large brick house — the 1901 Prairie house (Lavall B. Dixon, architect; Ryerson dates it 1882; later N. B. Ream, remodelled). OCR columns are interleaved with a New York list; the Keith line itself is intact. Not to be confused with Keith's 1886 house at 1808 by Cobb & Frost.",
@@ -4044,7 +4850,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1882-moulton-1912-permit.jpg",
+   "display_bytes": 321578,
+   "thumb": "research/images/files/dw-aabn-1882-moulton-1912-permit-thumb.jpg",
+   "thumb_bytes": 29048,
+   "original_px": [
+    1756,
+    2544
+   ],
+   "original_sha256": "ee32b436d5886bb96253bf883c918cd014216261eaa58990f52a3477608e07cf",
+   "original_bytes": 885045,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1882-07-01_12_340/page/n24_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1882-07-01_12_340, page index 24)",
   "notes": "Permit for the Moulton house (later Lowden): confirms Treat & Foltz and gives the footprint.",
@@ -4092,7 +4911,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1883-10-hanford-2008-permit.jpg",
+   "display_bytes": 249266,
+   "thumb": "research/images/files/dw-aabn-1883-10-hanford-2008-permit-thumb.jpg",
+   "thumb_bytes": 23803,
+   "original_px": [
+    1670,
+    2562
+   ],
+   "original_sha256": "ea3db336dab02dcde85101385a9e31ecdc9da9f69a1667b76f14b5155519b825",
+   "original_bytes": 645362,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1883-10-06_14_406/page/n20_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1883-10-06_14_406, page index 20)",
   "notes": "Permit for the Hanford house (Jaffray & Scott; the plans note estimated ~$40,000 — the permit valuation is lower).",
@@ -4130,7 +4962,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1887-schwartz-1919-added-storey.jpg",
+   "display_bytes": 242536,
+   "thumb": "research/images/files/dw-aabn-1887-schwartz-1919-added-storey-thumb.jpg",
+   "thumb_bytes": 22985,
+   "original_px": [
+    1714,
+    2588
+   ],
+   "original_sha256": "7d9ae2bd91d2ff724f9ca8f229653dc5fbd21f46ff9489dd63844dcd69bae8a5",
+   "original_bytes": 635605,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1887-06-25_21_600/page/n335_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1887-06-25_21_600, page index 335)",
   "notes": "Charles Schwartz (owner of the former Murray house, later Marshall Field Jr.'s) adding a storey in 1887 — the Beman house of 1884–85 was therefore taller by 1904 than its permit/plans show. Address not given in the notice; attribution to 1919 by owner name (building index: Murray / Schwartz / Field Jr.).",
@@ -4171,7 +5016,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1885-shortall-1600-alexander-permit.jpg",
+   "display_bytes": 279482,
+   "thumb": "research/images/files/dw-aabn-1885-shortall-1600-alexander-permit-thumb.jpg",
+   "thumb_bytes": 26448,
+   "original_px": [
+    1662,
+    2536
+   ],
+   "original_sha256": "da10efa86788013c1d5d3963e9525350beaea6c5e9c3bae8b0bd2696dbe1fae5",
+   "original_bytes": 726875,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1885-05-09_17_489/page/n23_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1885-05-09_17_489, page index 23)",
   "notes": "A third Shortall house (1600 corner of 16th St.) by Charles A. Alexander — cf. 1867 Wadskier pair 'south of Sixteenth', the 1884 Dixon house at 1608, and the Shortall/Gregory house at 1638 in the building index. Inland Architect lists 'J. G. Shortall, 1600 Prairie Avenue' as his address in the 1890s.",
@@ -4207,7 +5065,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1881-van-arman-2015-permit.jpg",
+   "display_bytes": 225964,
+   "thumb": "research/images/files/dw-aabn-1881-van-arman-2015-permit-thumb.jpg",
+   "thumb_bytes": 23418,
+   "original_px": [
+    1662,
+    2564
+   ],
+   "original_sha256": "ead5b7922863862becc5faa36f7fb144180cff18c628d76096f57c389f714fac",
+   "original_bytes": 583900,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1881-09-10_10_298/page/n17_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1881-09-10_10_298, page index 17)",
   "notes": "A substantial 1881 house at 2015 Prairie (between the Reid site 2013 and Adams/High 2021) not in the building index — a candidate for the west-side 2000-block frontage in 1904.",
@@ -4248,7 +5119,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1878-eg-keith-916-prairie-addition.jpg",
+   "display_bytes": 259046,
+   "thumb": "research/images/files/dw-aabn-1878-eg-keith-916-prairie-addition-thumb.jpg",
+   "thumb_bytes": 23492,
+   "original_px": [
+    1714,
+    2532
+   ],
+   "original_sha256": "1f822212cbe0d562079382cb59da2ab63521ae032b6f3a5b6a9ff44c0ef69569",
+   "original_bytes": 693524,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1878-06-29_3_131/page/n286_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1878-06-29_3_131, page index 286)",
   "notes": "Elbridge G. Keith's house was 1900 Prairie by the 1880s. '916' may be a pre-renumbering address or an OCR error; resolve before assigning to pa-1900-25.",
@@ -4288,7 +5172,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published in the United States before 1929",
-  "local": null,
+  "local": {
+   "display": "research/images/files/dw-aabn-1905-08-strauss-warehouse-1609-1611.jpg",
+   "display_bytes": 203708,
+   "thumb": "research/images/files/dw-aabn-1905-08-strauss-warehouse-1609-1611-thumb.jpg",
+   "thumb_bytes": 21854,
+   "original_px": [
+    1632,
+    2384
+   ],
+   "original_sha256": "5f2af43dd6c244f4a820895f3fc59311286c6ce7e1024d9fa05cf123c12ac778",
+   "original_bytes": 443330,
+   "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1905-08-05_88_1545/page/n5_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "IA text of the remaining 1,121 American Architect items scanned (second pass); page OCR read (IA item sim_american-architect-and-architecture_1905-08-05_88_1545, page index 5)",
   "notes": "Plans in mid-1905 to replace 1609–1611 with a four-storey warehouse — consistent with the houses at 1609 and 1611 still standing in 1904 (building index: 'restored for 1904') and gives a terminus for their demolition (after Aug. 1905).",

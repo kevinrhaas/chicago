@@ -2486,6 +2486,18 @@ export async function createTrees({
    * measured 1,621 / 1,393 / 893 stems against caps of 3,030 / 1,920 / 1,110, and
    * every level reaches the north end of the field.
    *
+   * `light` IS NO LONGER ON THIS RULE, and that is a trim and not a refresh
+   * (T-1976, 2026-10-02). The floor had grown back over its own 825,000 and is
+   * won back by trimming, never by raising (AGENTS.md). The furniture and ground
+   * reaches in `main.js` carried most of it, and left the forks 4,921 triangles
+   * clear on desktop; dropping `light`'s keep from 0.225 to 0.191 gives 14,352
+   * more there, which is what puts the floor's headroom back over the absolute
+   * 16,806 T-0672 recorded for the rungs above it. (Re-running the rule against
+   * T-1975's ceilings would NOT have produced this: lambda is pinned to
+   * `light`'s own cap, so it rises as the ratio falls and `light` lands on 0.224
+   * again.) Same species, same zones, same places — about 15 % fewer stems at
+   * this level only. `full` and `balanced` are untouched.
+   *
    * This is a RENDERING density, not a claim about the town: `perHa`, the mixes,
    * `edgeFade`, `clearedFactor`, the waterline gate and the east limits are
    * untouched, and the record's own stand is what the roll would accept at
@@ -2496,7 +2508,7 @@ export async function createTrees({
   const STEMS = {
     full:     { step: 4.0, keep: 0.400, trees: 3030, thickets: 1550 },
     balanced: { step: 4.7, keep: 0.350, trees: 1920, thickets: 1000 },
-    light:    { step: 5.6, keep: 0.225, trees: 1110, thickets: 630 },
+    light:    { step: 5.6, keep: 0.191, trees: 1110, thickets: 630 },
   };
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
