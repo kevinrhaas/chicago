@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1306, ts: '2026-10-02T14:58:17.073Z', date: 'Oct 2, 2026, 9:58 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
+    items: [
+      'Open a reconstructed house on Randolph or Washington Street and you may meet new boarders. 362 more households now have a roof. The records lose track of them before July 1835, but nothing puts them anywhere else, so the town counts them as present.',
+      'Those we know best were housed first: people a record names on the day itself, then people seen both before and after it, then the rest, most recently seen first.',
+      'We stopped where the town reached the 1835 census\u2019s eight people to a dwelling. The other 523 households wait for the houses still to be built, and each one we build makes room for more.',
+      'Twenty-nine households were not in town that day, because they had died or moved away. They are counted separately and are not given a roof. Which roof each person slept under is our reconstruction (liberty L354).',
+    ] },
   { v: 1305, ts: '2026-10-02T14:18:36.212Z', date: 'Oct 2, 2026, 9:18 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
     items: [
       'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',
