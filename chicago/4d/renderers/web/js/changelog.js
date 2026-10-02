@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1282, ts: '2026-10-02T02:16:37.350Z', date: 'Oct 1, 2026, 9:16 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
+    items: [
+      'Look at any frame house in the town. Its windows used to be plain dark rectangles. Now each one shows its wooden sash: the frame, the rail where the two halves meet, and the thin bars between the panes of glass.',
+      'Glass came in boxed sizes, and bigger panes cost more. Merchants\u2019 houses on Washington, Randolph and Wells now have twelve-over-twelve sashes of large 8 \u00d7 10 or 7 \u00d7 9 inch panes, so their windows are taller and wider.',
+      'Tradesmen\u2019s cottages use the small 6 \u00d7 8 inch pane, the only size recorded at Chicago. Most have twelve-over-twelve sashes and some have nine-over-six. Where a storey is too low for a full sash, the window loses a row of panes instead of squashing them.',
+      'Open a house\u2019s card. The Built line now names its sash and glass. These are our reconstruction: no source records the windows of any of these houses. The rule is on the Liberties page (L339).',
+    ] },
   { v: 1281, ts: '2026-10-02T00:56:47.419Z', date: 'Oct 1, 2026, 7:56 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
     items: [
       'Walk Washington, Randolph or Wells and the merchants\u2019 and professional men\u2019s houses now stand apart. Most have a small roofed porch over the door, and most hang board shutters, green or black, at their front windows.',
