@@ -1440,6 +1440,13 @@ step "the river wharves re-derive from the records that state a dock" \
 step "the landing-place camps re-derive from the bank they stand on" \
   python3 tools/place_landing_camps_1835.py --check
 
+# The camps of the two conjectural grounds (T-1804) — the land-sale crowd on the
+# reservation shore and a wagon party at the west approach — are placed against every
+# drawn roadway, fence run, footprint, refused region and the heightfield, so anything
+# built or drawn into their ground must move a camp with it or fail here.
+step "the shore and west-approach camps re-derive from the ground they stand on" \
+  python3 tools/place_camp_grounds_1835.py --check
+
 # ROADMAP K5 (e) also asked for "a river-wharf mode of pier_crib", so that a town
 # assembled from GLBs alone would carry its docks; T-0059 was that clause and was
 # WITHDRAWN on 2026-08-27 on the three readings this holds. Not on an opinion about

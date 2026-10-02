@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1306, ts: '2026-10-02T14:47:42.799Z', date: 'Oct 2, 2026, 9:47 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
+    items: [
+      'Stand at the fort\u2019s south-west corner and look south. Beyond the factor\u2019s house, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
+      'Walk west out of town along Randolph Street, past the last houses beyond Des Plaines Street. Four covered wagons and two small tents stand in a ring on the prairie, an emigrant party stopped for the night.',
+      'Both camps are empty. No figure is drawn, and no fire burns.',
+      'Both are our reconstruction. No source says anybody camped on either spot. The Liberties page (L355) says how we placed and sized them.',
+    ] },
   { v: 1305, ts: '2026-10-02T14:18:36.212Z', date: 'Oct 2, 2026, 9:18 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
     items: [
       'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',
