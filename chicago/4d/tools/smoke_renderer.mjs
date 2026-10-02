@@ -6434,9 +6434,12 @@ for (const [label, viewport, touch] of [
       let notReconstructed = 0;
       for (let i = 0; i < (conf?.count ?? 0); i++) if (conf.getX(i) !== 1) notReconstructed++;
       const apronProbe = (wb?.aprons ?? []).map((ap) => {
-        // Two metres landward of the deck's heel, on its centreline.
-        const e = ap.mid[0] + ap.le * 2;
-        const n = ap.mid[1] + ap.ln * 2;
+        // Two metres landward of the deck's heel on its centreline, or half way
+        // along an apron shorter than four (Newberry & Dole's meets the street
+        // 1.5 m from its deck).
+        const v = Math.min(2, ap.L / 2);
+        const e = ap.mid[0] + ap.le * v;
+        const n = ap.mid[1] + ap.ln * v;
         return { id: ap.id, wear: wb.wearAt(e, n), sward: wb.blocksGrowth(e, n),
           trees: wb.blocksTrees(e, n), toStreet: ap.toStreet };
       });
