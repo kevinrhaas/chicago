@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
+  { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
     items: [
       'Walk down Dearborn to Washington Street. The two boarding houses there now hang boards reading MARK BEAUBIEN\u2019S and SWEET\u2019S, Boarding House beneath.',
       'Tap either house. Its card names the keeper who lives there, Mark Beaubien or Alanson Sweet: two tavern keepers the town plan had already placed on these lots. Before, each house also had a keeper we made up, so two families answered for one roof.',
