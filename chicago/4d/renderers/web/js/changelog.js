@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1305, ts: '2026-10-02T14:50:38.241Z', date: 'Oct 2, 2026, 9:50 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Over the last week the town filled in: houses finished by who lives in them, privies and stables behind them, walks and yards dealt by trade. Behind the scenes we measured how much each view now draws.',
+      'The Full and Balanced detail settings now allow for that town, measured at five places on a desktop and a phone, with a little room and no more.',
+      'The Light setting, the one a slower machine or a phone starts on, was not raised. It still draws more than it should in the busiest views, and the next step trims it back.',
+    ] },
   { v: 1304, ts: '2026-10-02T14:03:50.530Z', date: 'Oct 2, 2026, 9:03 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
     items: [
       'Walk the back lots between Randolph and Washington, west of Clark. In the corner of each yard, by the alley fence, there is now a privy. A hundred and twenty-two houses gained one; the thirty-four that already had a privy keep theirs.',
