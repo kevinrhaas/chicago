@@ -1,3 +1,28 @@
+## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
+
+Piece 3 of 3 of T-1991 (T-1982 → T-1966 → T-1215). Ten reconstructed trade-holders read
+`class_held_no_house` for a reason other than domestic service: the staffing model hires their
+trade in a class of house, every house of it the layer holds is full to the band's high end, and
+`tools/seat_reconstructed_trades_1835.py` concluded *the town is owed more houses of the kind*.
+For eight of them that skipped the premises ruling, and for two it was false:
+
+* **Eight carried their trade on their own account** (the smiths Rufus Nichols, Willard
+  Nichols, Alvah Parmelee and Harvey Thayer; the butchers Samuel Nichols and Alvah Stiles; the painter Rufus Tuttle; the dressmaker Maria
+  Wilcox). Their premises rulings say the trade kept a house of its own. The keeper branch stands
+  aside where the model hires the trade so that a hand is seated in a house the layer holds; once
+  every such house is full, that reason is spent and the ruling stands. They now read
+  `keeps_their_own_house` under a new basis id,
+  `every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own` — the house owed, and T-1992 owns it with the other own-account houses.
+* **Two schoolteachers are owed no house** (Victoire Pothier, Lydia Rice). The model counts six
+  schools trading on 1 July 1835; the layer holds all six (the two high schools open in August),
+  each with its one assistant (`count_high` 1). The count is met, so a new kind,
+  `class_full_none_owed`, states it: the town is not short a school, and the teacher follows the
+  trade with no room in it. The completion audit reads it as stated, not owed.
+
+The domestics are left alone by name (`RULED_ELSEWHERE`): their ruling puts the work in another
+household's house, which is T-1993's answer to give. Owed a workplace **230 → 228**; placed at
+work **457 → 465**; `class_held_no_house` 71 → 61, all domestics.
+
 ## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
 
 Piece 1 of 3 of T-1982 (T-1966 → T-1215, the owner's *"a place to work"*). The completion audit

@@ -101,7 +101,8 @@ DWELLING_WORDS = ("dwelling", "cottage", "house", "residence", "shanty", "cabin"
                   "boarding", "quarters", "hotel", "tavern")
 
 # The employment ledger's reasons, read into the three answers this audit gives.
-WORK_STATED = {"no_employer_named"}          # the trade kept no premises: stated, not owed
+WORK_STATED = {"no_employer_named",          # the trade kept no premises: stated, not owed
+               "class_full_none_owed"}       # the class's count is met (T-1995)
 WORK_OWED = {"class_held_no_house", "trade_attested_no_house_named",
              "no_ruling_on_the_trade", "keeps_their_own_house"}
 
