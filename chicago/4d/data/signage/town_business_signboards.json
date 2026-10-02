@@ -21,7 +21,7 @@
     "geometry": "canvas texture, drawn at load",
     "tiers": {
       "inferred": 39,
-      "reconstructed": 35
+      "reconstructed": 38
     },
     "note": "DRAWN SINCE 2026-08-21, AND RE-WORDED THE SAME DAY. This block used to read 'NOT DRAWN, AND THAT IS THE WHOLE DISCIPLINE OF THIS LAYER', on L25's reasoning generalised: no source gives the wording of any sign in this town, so every board stayed a blank plank. The owner's instruction of 2026-08-18 overruled it — 'you can and should put the name of the location on the sign board … it is fine if they are reconstructions' — and T-0066 then painted THE RECORD'S OWN `name` on every board. T-0130 CORRECTS THAT, on the owner's word of 2026-08-21: 'philo would not have referred to his own place as log drug store, it would be philo carpenter, drugs and medicines, or druggist or whatever he would have referred to himself as on the sign, that may be different than the name of the building for us, the sign may read differently historically' — and, widening it, 'i guess do a pass on all those signs and make sure they feel right for the era'. A record's `name` is OUR LABEL FOR A BUILDING ('Philo Carpenter's Log Drug Store'); a board carries what a signwriter lettered. The two are now separate fields and are allowed to differ. What they must still agree about is WHO: every sign declares a `sign_identity` that appears in the board AND in the card, the generator refuses to build without it, and tools/smoke_renderer.mjs asserts it at run time over every sign. THE REGISTER is the advertisements' own — proprietor or firm first and largest, the trade beneath, the place last and smallest — carried per line in `sign_lines` and lettered in that hierarchy by renderers/web/js/signage.js. Period spelling is theirs and is kept. THE TIERS: a wording taken off a firm's own advertisement is `inferred`; one built out of the evidenced trade vocabulary for a business that left no advertisement is `reconstructed`. NOT ONE IS `attested` YET, and each note says why and what would change it — the seven 1833-35 newspaper pages behind these wordings were supplied as images in conversation on 2026-08-21 and are not committed to data/sources/assets/, so they are transcriptions and a transcription is not a citation. The owner's ruling of that day is the authority for proceeding anyway: 'I will give you all those data sources later in a more comprehensive form proceed where you can and label reconstruction or inferred with a note as you like.' The LETTERFORM, the colours and the panel remain `style`, a table of the combinations the trade worked in rather than of anything Chicago recorded (docs/LIBERTIES.md L159; L169 for the wording). ONE DEVICE IS NOW PAINTED and it is the one a Chicago tradesman described himself: Carpenter's golden mortar, `sign_device` — see its own note. No other board carries an image, and L25 is untouched: it withholds the Wolf Point wolf because that IMAGE was never described, which is the opposite case to a shop whose own advertisement names its sign."
   },
@@ -30,9 +30,9 @@
     "note": "Five mountings, chosen by the trade's class and de-conflicted against every sign within 40 m so that no two neighbours hang alike: `bracket_board` (the wolf sign's own geometry — a plank hung by two straps 0.20 m under a 1.15 m bracket arm, 1.7 m to one side of the facade's centre and clear of the eave), `awning_board` (the same plank under a hood 1.45 m deep that falls 0.34 m to its outer edge), `wall_board` (a board fixed flat on the front under a cap), `post_board` (a pole at the street edge 1.9 m out from the wall, with a cross-arm and the board under it — the Green Tree's own arrangement, T-0082) and `facade_painted` (the name straight onto the boards of the building, no board at all — what image 5 of the owner's brief shows across the Tremont's row, standing with its foot 2.3 m up so it clears a door head, or lower where the wall has not the height for that and 0.25 m of eave besides). Not one of those numbers is a record's. A sign's SIZE is derived from the length of its own name inside the range its mounting allows and inside the frontage it stands on; its `aspect` comes from its style, so two boards on one street are not the same rectangle either.",
     "mountings": {
       "awning_board": 16,
-      "bracket_board": 20,
+      "bracket_board": 22,
       "facade_painted": 23,
-      "post_board": 4,
+      "post_board": 5,
       "wall_board": 11
     }
   },
@@ -41,7 +41,7 @@
     "flat_mounted": 34,
     "counts": {
       "moved": 13,
-      "not flat on the wall": 40,
+      "not flat on the wall": 43,
       "reshaped": 9,
       "shrunk to the door": 12
     },
@@ -505,6 +505,27 @@
       {
         "structure_id": "recon_1835_blk_washington_clark_h3_11",
         "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_washington_dearborn_h3_01",
+        "mounting": "bracket_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_washington_market_h3_01",
+        "mounting": "post_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_washington_market_h3_04",
+        "mounting": "bracket_board",
         "covered_an_opening_before": false,
         "covered_before": [],
         "done": "not flat on the wall"
@@ -4212,6 +4233,222 @@
         [
           592.87,
           -406.36
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_dearborn_h3_01",
+      "name": "Edward McCarthy's boarding house",
+      "sign_text": "EDWARD MCCARTHY'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "EDWARD MCCARTHY'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "McCarthy",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Edward McCarthy's boarding house (rcb_mccarthy_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "gold_on_green",
+        "ground": "#16261c",
+        "letter": "#c8a63c",
+        "face": "signwriter",
+        "panel": "oval",
+        "aspect": 1.75,
+        "note": "gilt letters in an oval field on a dark green ground"
+      },
+      "anchor_local_enu_m": [
+        749.1,
+        -407.62
+      ],
+      "facade_bearing_deg": 0.4,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.46,
+      "board_h_m": 0.83,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 6.61,
+      "wall_height_from": "the record",
+      "frontage_m": 9.51,
+      "ground_quad_local_enu_m": [
+        [
+          742.56,
+          -421.46
+        ],
+        [
+          752.07,
+          -421.52
+        ],
+        [
+          752.16,
+          -407.64
+        ],
+        [
+          742.64,
+          -407.58
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_market_h3_01",
+      "name": "Louis Robillard's boarding house",
+      "sign_text": "LOUIS ROBILLARD'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "LOUIS ROBILLARD'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Robillard",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Louis Robillard's boarding house (rcb_robillard_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "post_board",
+      "mounting_note": null,
+      "style": {
+        "id": "black_on_timber",
+        "ground": "#cbc2b1",
+        "letter": "#241a10",
+        "face": "grotesque",
+        "panel": "plain",
+        "aspect": 2.0,
+        "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
+      },
+      "anchor_local_enu_m": [
+        159.02,
+        -402.83
+      ],
+      "facade_bearing_deg": 0.3,
+      "arm_height_m": 2.55,
+      "height_datum": "the ground under the post itself, sampled where it stands: the post is in the street, not on the building. `post_height_m` is its head over that ground and `arm_height_m` does not apply",
+      "board_w_m": 1.58,
+      "board_h_m": 0.75,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "stand_m": 1.9,
+        "arm_m": 1.3,
+        "hanger_drop_m": 0.2,
+        "post_height_m": 3.54,
+        "post_square_m": 0.16
+      },
+      "reach_m": 2.67,
+      "wall_height_m": 6.46,
+      "wall_height_from": "the record",
+      "frontage_m": 8.66,
+      "ground_quad_local_enu_m": [
+        [
+          152.91,
+          -415.44
+        ],
+        [
+          161.57,
+          -415.49
+        ],
+        [
+          161.65,
+          -402.84
+        ],
+        [
+          152.99,
+          -402.79
+        ]
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_market_h3_04",
+      "name": "Laframboise's boarding house",
+      "sign_text": "LAFRAMBOISE'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "LAFRAMBOISE'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Laframboise",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Laframboise's boarding house (rcb_laframboise_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_green",
+        "ground": "#1d3226",
+        "letter": "#e7ddc0",
+        "face": "signwriter",
+        "panel": "single_rule",
+        "aspect": 1.7,
+        "note": "cream on a Brunswick-green ground"
+      },
+      "anchor_local_enu_m": [
+        155.01,
+        -505.3
+      ],
+      "facade_bearing_deg": 180.3,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.44,
+      "board_h_m": 0.85,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 5.74,
+      "wall_height_from": "the record",
+      "frontage_m": 9.98,
+      "ground_quad_local_enu_m": [
+        [
+          161.78,
+          -491.89
+        ],
+        [
+          151.8,
+          -491.83
+        ],
+        [
+          151.72,
+          -505.28
+        ],
+        [
+          161.7,
+          -505.34
         ]
       ]
     },

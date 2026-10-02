@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 532,
+    "structures_placed": 541,
     "structures_reached": 97,
     "structures_reached_by_grade": {
       "inferred": 24,
       "reconstructed": 73
     },
     "structures_unreached_by_section": {
-      "09": 432,
+      "09": 441,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -39957,6 +39957,9 @@
       "recon_1835_blk_washington_clark_h3_05",
       "recon_1835_blk_washington_clark_h3_06",
       "recon_1835_blk_washington_clark_h3_11",
+      "recon_1835_blk_washington_dearborn_a1_02",
+      "recon_1835_blk_washington_dearborn_a3_03",
+      "recon_1835_blk_washington_dearborn_h3_01",
       "recon_1835_blk_washington_franklin_a1_10",
       "recon_1835_blk_washington_franklin_a2_09",
       "recon_1835_blk_washington_franklin_a3_13",
@@ -39981,6 +39984,12 @@
       "recon_1835_blk_washington_lasalle_h1_02",
       "recon_1835_blk_washington_lasalle_h1_03",
       "recon_1835_blk_washington_lasalle_h2_01",
+      "recon_1835_blk_washington_market_a1_02",
+      "recon_1835_blk_washington_market_a1_05",
+      "recon_1835_blk_washington_market_a3_03",
+      "recon_1835_blk_washington_market_a3_06",
+      "recon_1835_blk_washington_market_h3_01",
+      "recon_1835_blk_washington_market_h3_04",
       "recon_1835_blk_washington_wells_a1_11",
       "recon_1835_blk_washington_wells_a3_08",
       "recon_1835_blk_washington_wells_a3_09",

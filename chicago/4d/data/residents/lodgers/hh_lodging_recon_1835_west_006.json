@@ -12,7 +12,7 @@
   "place_name": "Reconstructed H1 small boarding house #005",
   "class": "boarding_house",
   "beds_ordinary": 6,
-  "beds_crowded": 14,
+  "beds_crowded": 13,
   "on_the_house_before_this_stage": 0,
   "seated_from_the_layer": [],
   "minted_here": 7,
@@ -41,7 +41,7 @@
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 6 people in this house on an ordinary night and 14 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 6 people in this house on an ordinary night and 13 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
   "seed": "lodgers:recon_1835_west_006:lives_at",
   "replaceable_by": {
@@ -471,8 +471,8 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 6 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_fitzgerald_patrick",
-   "name": "Patrick Fitzgerald",
+   "id": "rc_fitzgerald_terence",
+   "name": "Terence Fitzgerald",
    "relationship": "son",
    "grade": "reconstructed",
    "sex": "male",
@@ -502,7 +502,7 @@
     "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
    },
    "name_basis": {
-    "value": "Patrick Fitzgerald",
+    "value": "Terence Fitzgerald",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

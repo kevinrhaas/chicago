@@ -12030,6 +12030,24 @@
       "asset": "gltf/recon_1835_blk_washington_clark_h3_11__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_dearborn_a1_02",
+      "name": "Reconstructed A1 stable #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_a1_02.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_a1_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_a3_03",
+      "name": "Reconstructed A3 privy #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_a3_03.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_h3_01",
+      "name": "Reconstructed H3 boarding house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_h3_01.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_franklin_a1_10",
       "name": "Reconstructed A1 stable #10",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a1_10.json",
@@ -12172,6 +12190,42 @@
       "name": "Reconstructed H2 merchant or professional house #01",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_h2_01.json",
       "asset": "gltf/recon_1835_blk_washington_lasalle_h2_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a1_02",
+      "name": "Reconstructed A1 stable #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a1_02.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a1_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a1_05",
+      "name": "Reconstructed A1 stable #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a1_05.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a1_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a3_03",
+      "name": "Reconstructed A3 privy #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_03.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a3_06",
+      "name": "Reconstructed A3 privy #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_06.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a3_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_h3_01",
+      "name": "Reconstructed H3 boarding house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_h3_01.json",
+      "asset": "gltf/recon_1835_blk_washington_market_h3_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_h3_04",
+      "name": "Reconstructed H3 boarding house #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_h3_04.json",
+      "asset": "gltf/recon_1835_blk_washington_market_h3_04__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_wells_a1_11",
