@@ -567,6 +567,31 @@ const DETAIL_DECLARED = {
   // parcel that reaches it (T-1959's woodpiles read +70,928 at Lake at Canal
   // on PR #272) brings its own number and argues its own raise here.
   //
+  // -- T-1959, 2026-10-02 -- THE WOODPILES' OWN NUMBER, AS PROMISED ABOVE --
+  //
+  // 298 woodpiles, one mesh for the whole town (yard.js says why: the call
+  // budget binds, and one mesh costs two calls everywhere), read with
+  // `tools/woodpile_shots.mjs --anchor lake_at_canal` as the same pose with
+  // the record refused at the network: +70,928 triangles and +2 calls at
+  // `full`, and the same at every stand because the frustum keeps the whole
+  // mesh. Then the sweep, published mirror of the branch on dev @ 768e0a57,
+  // committed as docs/measurements/t-1959-detail-ceilings-desktop.json:
+  //
+  //   full      1,778,094 at Lake at Canal (1,707,166 without the woodpiles)
+  //   balanced  1,545,215 at Lake at Canal (1,474,287 without)
+  //   calls     224 at Lake at Canal, `full` -- inside 240, which does not move
+  //
+  // The same rule, worst stand plus T-0672's absolute headroom, rounded up to
+  // 5,000; the desktop is the worst viewport (390x780 read 1,556,676 on dev
+  // and a mesh cannot add more than its own 70,928 there):
+  //
+  //   full      1,778,094 + 18,059 = 1,796,153  ->  1,725,000 -> 1,800,000
+  //   balanced  1,545,215 + 16,806 = 1,562,021  ->  1,490,000 -> 1,565,000
+  //
+  // `light` DOES NOT PAY FOR THEM: it does not draw them (`light.woodpiles`
+  // below), and it read 944,714 / 102 calls to the triangle with or without,
+  // before T-1976's trim brought it back inside 825,000.
+  //
   // `light` DOES NOT MOVE, and it is OVER: 944,550 at the forks on desktop
   // against 825,000, 845,385 on mobile, and 102 calls at Lake and Market against
   // its 90-call floor. "`light` is the floor and stays the floor" — the tier a
@@ -579,7 +604,7 @@ const DETAIL_DECLARED = {
   // 2026-09-15. Re-reading it against 1,725,000 / 1,490,000 / 825,000 would
   // change the wood a visitor sees at `balanced` and `light`, which is not a
   // budget's job; it stays as stated there.
-  full:     { triangles: 1725000, shadowReachM: 240, furnitureCastsShadow: true,
+  full:     { triangles: 1800000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -588,7 +613,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '1,725,000 set 2026-10-02 (T-1975, the seventh re-basing, on '
+              measured: '1,800,000 set 2026-10-02 (T-1959), the woodpiles\u2019 own '
+                + 'number by T-1975\u2019s rule: worst 1,778,094 at Lake Street at Canal '
+                + 'at 1280x800 with them, 70,928 of it theirs \u2014 21,906 clear, '
+                + "T-0672's 18,059 rounded up to 5,000. Before it: "
+                + '1,725,000 set 2026-10-02 (T-1975, the seventh re-basing, on '
                 + "the owner's T-1215 \u201cthe budgets re-measured and set\u201d), from "
                 + '1,460,000. Read on dev @ 652ca8ea, published mirror, T-0135\'s five '
                 + 'stands: worst 1,705,768 at Lake Street at Canal at 1280x800 and '
@@ -681,11 +710,14 @@ const DETAIL_DECLARED = {
   // that would win the rung back.
   // T-1975, 2026-10-02: 1,280,000 -> 1,490,000 in the seventh re-basing — the
   // reading and the rule are in the block above `full`.
-  balanced: { triangles: 1490000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 1565000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,490,000 set 2026-10-02 (T-1975) in the same re-basing and '
+              measured: '1,565,000 set 2026-10-02 (T-1959) for the woodpiles by the '
+                + 'same rule: worst 1,545,215 at Lake Street at Canal at 1280x800 with '
+                + 'them, 70,928 of it theirs \u2014 19,785 clear. Before it: '
+                + '1,490,000 set 2026-10-02 (T-1975) in the same re-basing and '
                 + 'by the same rule. Read on dev @ 652ca8ea, published mirror: worst '
                 + '1,472,889 at Lake Street at Canal at 1280x800 and 1,332,135 there at '
                 + "390x780 \u2014 17,111 clear, 1.1 %, T-0672's recorded 16,806 rounded "
@@ -745,6 +777,13 @@ const DETAIL_DECLARED = {
   light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
+              // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
+              // town (the call budget's choice, yard.js), so the reach cannot thin
+              // them and they would cost this rung their whole colour pass at every
+              // stand — about 35,000 triangles — on the rung T-1976 has just
+              // trimmed back inside 825,000, which is won back, never spent. `full`
+              // and `balanced` draw them, and `applyFurnitureReach` hides them here.
+              woodpiles: false,
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
@@ -1655,6 +1694,9 @@ async function boot() {
       group.updateWorldMatrix(true, true);
       group.traverse((o) => {
         if (!o.isMesh || !o.geometry) return;
+        // A woodpile mesh its tier does not draw (T-1959) is neither the reach's
+        // nor the far merge's to show again.
+        if (o.parent?.userData.woodpiles && !o.parent.visible) return;
         // The merged far batches (T-0146) are drawn FROM these chunks, not
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
@@ -1684,6 +1726,11 @@ async function boot() {
   });
   function applyFurnitureReach(level) {
     const want = DETAIL[level] ?? DETAIL.full;
+    // T-1959: the woodpiles' group is shown or hidden by the tier, BEFORE the
+    // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
+    scene3d.getObjectByName('yard')?.traverse((o) => {
+      if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+    });
     collectFurniture();
     farMerge.rebuild(furniture.spheres);
     furniture.reachM = typeof want.furnitureReachM === 'number'

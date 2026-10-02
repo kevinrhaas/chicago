@@ -1,3 +1,63 @@
+## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
+
+Piece 1 of 3 of T-1982 (T-1966 → T-1215, the owner's *"a place to work"*). The completion audit
+counted **308** working-age persons owed a workplace. **78** of them were already named on a
+business record — as proprietor or partner (72: the inferred houses of the trades, the houses the
+business band drew and adopted a head to keep) or on its staff (6, all attested: the Indian agent
+and his interpreter, the land-office register, the county clerk, the Presbyterian minister, the
+priest of St Mary's). `tools/employment_coverage_1835.py` read the card's `workplaces[]` and the
+seating only, and loaded `data/businesses/*.json` without `authored/`, where every one of those
+records lives. It now reads `proprietors[]`, `partners[]` and `staff[]` across both folders, on
+records present at the scene date, for any person the card and the seating left without a house
+(never below the working-age floor), with three new reasons and the record's own tier in
+`decided_by`. **88 rows move**: the 78, seven own-account people whose age band straddles the floor,
+two more of those at a trade, and Edmund D. Taylor, the land office's receiver, whose card records
+no trade. Owed a workplace **308 → 230**; at a workplace **233 → 312** (attested 112 → 155).
+`verify` now refuses a register answer whose house does not name the person.
+
+**Not done, and owned:** T-1991 (25 attested + 71 class-held at a trade with no house) and T-1992
+(134 on their own account whose house the register does not hold). The T-1433 seating block on a
+reconstructed head's card still says "Owed a house of their own" where the register now holds it —
+that block is T-1433's record of the draw, and the coverage answer printed beneath it is the
+current one.
+
+## T-1959 — a woodpile at every dwelling, by the yard-by-household rule (2026-10-02)
+
+**What a visitor sees.** Behind 298 of the town's 299 dwellings, a woodpile against the back wall
+(269) or, where the back is taken, a side wall (29). It is a slab heap at a shanty (26), unsplit
+logs on skids and a chopping block at a log cabin (41), one rick of stove wood at a tradesman's
+cottage (130) or one or two at a larger house (54), and one or two bought cords at a merchant's
+house (29) or two or three at an inn, tavern or boarding house (18). Each pile is dealt its own
+length, height, worked-off end and wood (fresh, seasoned, silvered). One house is refused in
+writing because the ground behind it is wet.
+
+**The rule** is `tools/yard_rule_1835.py`, printed in `data/reconstruction/1835_placement_policy.json`
+under `yard`: the household class is the fabric rule's (250 roofs), else a resident household's
+trade (10), a reconstruction's occupation (14), a keeper's by function (6), or a tradesman's by
+default (18, said so on the record); the house is the roof's own family. Wells are the column still to write; privies and stables (T-1960) and trade goods (T-1961) have
+landed beside it. `generate_woodpiles.py --check`
+and the rule's `--self-test` are in `check.sh`. L357 claims the invention; the fact of household
+firewood is `inferred` from the 1835 price current.
+
+**Frame cost, measured on the published mirror, desktop** (`tools/woodpile_shots.mjs --anchor
+lake_at_canal`, the same pose with `town_woodpiles.json` refused at the network for "before"; then
+`tools/measure_detail_ceilings.mjs`, committed as `docs/measurements/t-1959-detail-ceilings-desktop.json`).
++70,928 triangles and +2 calls at every stand at `full` and `balanced`: every woodpile is ONE town mesh
+in a group of its own, because the call budget is the one that binds (chunks three cells across cost
+9-20 calls at a back-lot stand, one mesh exactly 2). T-1975 left the woodpiles to bring their own
+number, so this PR raises `full` 1,725,000 -> 1,800,000 and `balanced` 1,490,000 -> 1,565,000 by its
+rule (worst 1,778,094 / 1,545,215 plus T-0672's headroom, rounded up to 5,000); calls 224 of 240.
+**`light` does not draw them** (`DETAIL.light.woodpiles: false`): it is over and is won back by
+T-1976's trim, never spent, and it reads 944,714 / 102 calls with or without them.
+
+**The merge with dev (2026-10-02).** T-1961's lot loop sent every kind outside its `STACK_KINDS` to
+`buildItem`, which draws no wood, so after the first merge all 298 piles were dropped with no problem
+filed; wood kinds now go to `buildStack`. The generator now also keeps every pile a metre off T-1960's
+privies and stables (none moved). dev's L350 is T-1963's walls' grain, so the woodpiles are L357.
+
+**Unverified / open.** The silvered end-grain cell reads dark in a north wall's shade; the split ends
+are polygons that can read as cobbles at a metre. A woodshed, a sawbuck and the axe are not drawn.
+
 ## T-1975 — the full and balanced ceilings and the draw-call budget re-measured and set (2026-10-02)
 
 Piece 1 of T-1974 (T-1969 → T-1215, the owner's *"the budgets re-measured and set"*). A conscious

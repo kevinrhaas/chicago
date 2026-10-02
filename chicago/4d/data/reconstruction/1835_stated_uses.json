@@ -42,6 +42,87 @@
       "ticket": "T-1826",
       "value": "No household seated — a store with rooms in its attic on the teamster approach south and west of the Western Hotel yard, kept for the wagon trade; its keeper is not named",
       "bounded_by": "The C2 line of the family crosswalk (store-residence: shop below, attic rooms, a front gable to the road) and the West recipe's own cluster, w2_canal_randolph_teamster: loose mixed lots south and west of the documented Western Hotel's teamster yard, where the recipe placed this roof as placement west_rec_020. No household is seated because none can be where it stands: the placement policy admits C2 under one clause only, commercial_front, and no band the off-plat deal was handed names that clause, so data/reconstruction/1835_off_plat_seats.json carried this roof as `roofs_offered_and_unspent` — offered, and nobody in scope could take it. The use stated names no trade, goods or signboard: town_business_signboards.json and town_trade_goods.json refuse all three for an anonymous slot, and this row keeps that refusal. It retires the moment a deal or a source seats a storekeeper here."
+    },
+    {
+      "structure_id": "recon_1835_west_012",
+      "family": "A4",
+      "cluster": "w1_canal_lake_mixed",
+      "serves": "recon_1835_west_003",
+      "ticket": "T-1988",
+      "value": "No household of its own — the woodshed of the two-room frame cottage behind it, west of Canal and Lake",
+      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_012 is drawn in the yard of west_rec_003, the D4 two-room frame cottage the off-plat deal seats under tradesman_dwellings on the canal commissioners' 1830 ground, 39.5 m away. The West generator does not carry `yard_group` onto the record, so the completion audit read this roof as an outbuilding naming no yard; this row states the tie the recipe already made. A woodshed keeps that house's winter cordwood and tools dry; nobody sleeps in it."
+    },
+    {
+      "structure_id": "recon_1835_west_023",
+      "family": "A1",
+      "cluster": "w2_canal_randolph_teamster",
+      "serves": "recon_1835_west_014",
+      "ticket": "T-1988",
+      "value": "No household of its own — the stable of the log house beside it on the Canal and Randolph teamster approach",
+      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_023 is drawn in the yard of west_rec_014, the D1 log dwelling the platted deal seats under labourer_dwellings, 32.5 m away. The lot ledger stands this stable on blk_lake_clinton#04 with the barn west_024 and no dwelling, so the yard the recipe drew is not bounded by one lot. The West generator does not carry `yard_group` onto the record, so the completion audit read this roof as an outbuilding naming no yard; this row states the tie the recipe already made. A stable keeps that house's horse or team; nobody sleeps in it."
+    },
+    {
+      "structure_id": "recon_1835_west_024",
+      "family": "A2",
+      "cluster": "w2_canal_randolph_teamster",
+      "serves": "recon_1835_west_016",
+      "ticket": "T-1988",
+      "value": "No household of its own — the barn or carriage shed of the one-room frame cottage beside it on the Canal and Randolph teamster approach",
+      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_024 is drawn in the yard of west_rec_016, the D3 one-room frame cottage the platted deal seats under tradesman_dwellings, 32.7 m away. The West generator does not carry `yard_group` onto the record, so the completion audit read this roof as an outbuilding naming no yard; this row states the tie the recipe already made. A barn or carriage shed keeps that house's wagon, hay and stock; nobody sleeps in it."
+    },
+    {
+      "structure_id": "recon_1835_west_025",
+      "family": "A3",
+      "cluster": "w2_canal_randolph_teamster",
+      "serves": "recon_1835_west_017",
+      "ticket": "T-1988",
+      "value": "No household of its own — the privy of the two-room frame cottage beside it on the Canal and Randolph teamster approach",
+      "bounded_by": "The West recipe's own `yard_group`: placement west_rec_025 is drawn in the yard of west_rec_017, the D4 two-room frame cottage the off-plat deal seats under tradesman_dwellings on the canal commissioners' 1830 ground, 25.8 m away. The West generator does not carry `yard_group` onto the record, so the completion audit read this roof as an outbuilding naming no yard; this row states the tie the recipe already made. A privy is used by that house; nobody sleeps in it."
+    },
+    {
+      "structure_id": "recon_1835_west_053",
+      "family": "A2",
+      "cluster": "w5_desplaines_open_edge",
+      "serves": "recon_1835_west_054",
+      "ticket": "T-1988",
+      "value": "No household of its own — the barn of the log farmhouse beside it on the Des Plaines open edge",
+      "bounded_by": "The off-plat deal's own farmstead pairing (data/reconstruction/1835_off_plat_seats.json `farmsteads`, T-1794): in the West Division each A2 barn standing off the plat pairs with the nearest unpaired D1 cabin within 150 m, and that cabin is offered to farms_and_country_seats first. This barn pairs with recon_1835_west_054, 47.7 m away on canal section 9's remainder, and the deal seats a farm household in that cabin. T-1781 redealt this slot from a D4 dwelling to an A2 barn because it fronts no street; the recipe gives it no `yard_group` of its own, so the pairing is the only tie, and it is graded `inferred` there: no source pairs these roofs. A barn keeps the farm's hay, grain and stock; nobody sleeps in it."
+    },
+    {
+      "structure_id": "recon_1835_west_055",
+      "family": "A2",
+      "cluster": "w5_desplaines_open_edge",
+      "serves": "recon_1835_west_052",
+      "ticket": "T-1988",
+      "value": "No household of its own — the barn of the log farmhouse on the same holding on the Des Plaines open edge",
+      "bounded_by": "The off-plat deal's own farmstead pairing (data/reconstruction/1835_off_plat_seats.json `farmsteads`, T-1794): this barn pairs with the D1 cabin recon_1835_west_052, 128.3 m away on canal section 9's remainder, inside the deal's 150 m reach (a forty is 402 m on a side, so the two stand on one holding), and the deal seats a farm household in that cabin. The West recipe draws it in the yard of west_rec_053, which T-1781 has since redealt from a dwelling to a barn itself, so that yard no longer has a house in it and the pairing is the tie that holds. It is graded `inferred` there: no source pairs these roofs. A barn keeps the farm's hay, grain and stock; nobody sleeps in it."
+    },
+    {
+      "structure_id": "recon_1835_south_a2_037",
+      "family": "A2",
+      "cluster": "randolph_approach",
+      "serves": "recon_1835_south_d2_024",
+      "ticket": "T-1988",
+      "value": "No household of its own — the barn or carriage shed on the same lot as the plank house beside it, between Wells and LaSalle south of Lake",
+      "bounded_by": "The lot ledger (data/reconstruction/1835_lot_ledger.json) stands this roof and recon_1835_south_d2_024, the D2 rough plank dwelling the platted deal seats under labourer_dwellings, on one lot: blk_lake_wells#01, 39.0 m apart. The South recipe raised it in its randolph_approach row and gave it no `yard_group`, so the shared lot is the tie. A barn or carriage shed keeps that household's wagon, hay and stock; nobody sleeps in it. A second dwelling on the lot would not change the use, only which house it served."
+    },
+    {
+      "structure_id": "recon_1835_west_022",
+      "family": "A1",
+      "cluster": "w2_canal_randolph_teamster",
+      "serves": null,
+      "ticket": "T-1988",
+      "value": "No household of its own — a stable on the Canal and Randolph teamster approach, where the wagon trade put up its teams; whose stable it was is not stated",
+      "bounded_by": "The A1 line of the family crosswalk (a stable with a hay loft) and the West recipe's own cluster, w2_canal_randolph_teamster: loose mixed lots south and west of the documented Western Hotel's teamster yard. T-1781 redealt this slot from a W4 workshop to an A1 stable (the placement policy refuses a workshop on a light street, and the slot and its position stand), and the recipe gives it no `yard_group`. No seated dwelling is tied to it: the nearest, recon_1835_blk_randolph_clinton_d3_04, is 46.0 m away on another block, and nothing committed joins the two. So the row states the use and serves nobody. A stable on the approach keeps horses; nobody sleeps in it."
+    },
+    {
+      "structure_id": "recon_1835_north_a1_047",
+      "family": "A1",
+      "cluster": "rush_east_fringe",
+      "serves": null,
+      "ticket": "T-1988",
+      "value": "No household of its own — a stable in its own yard on the North Division's east fringe, between the north bank and Michigan Street; whose stable it was is not stated",
+      "bounded_by": "The North recipe's own `yard_group`, read the other way: this stable names no yard, but the recipe draws the A5 utility building recon_1835_north_a5_049 in `re_a1_047_yard`, this stable's own yard. So the recipe made it the principal of a service yard, not a building in a house's yard. No dwelling stands in that yard. The nearest seated house, recon_1835_north_d6_044, is 83.2 m away, and its own yard (`re_d6_044_yard`) holds the privy recon_1835_north_a3_051, not this stable. So the row states the use and serves nobody. A stable keeps horses and their hay; nobody sleeps in it."
     }
   ]
 }

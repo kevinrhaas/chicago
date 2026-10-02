@@ -4,14 +4,14 @@
 
 The closeout of the reconstruction (T-1215) asks four joins of the committed data: every household housed, every working person at a workplace, every business roofed or its limit stated, every standing roof occupied or its use stated. This page prints how far each is from total, and every table split by the three tiers — **attested** (a source states it), **inferred** (reasoned from evidence about this particular thing) and **reconstructed** (built within stated bounds because the scene needs it). It is a measurement: nothing here seats, roofs or writes anybody.
 
-## The joins — 1 of 4 closed
+## The joins — 2 of 4 closed
 
 | join | state | what keeps it open |
 |---|---|---|
 | Every household housed | open | 514 households without a roof yet |
-| Every working person at a workplace | open | 308 working people owed a workplace |
+| Every working person at a workplace | open | 230 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
-| Every standing roof occupied or its use stated | open | 9 standing roofs empty and owed somebody |
+| Every standing roof occupied or its use stated | closed | — |
 
 Dangling ids: **0**. The town is **not yet complete**: the open joins above are the work T-1215's remaining pieces owe.
 
@@ -47,10 +47,10 @@ Of the **2,506** people housed in a standing building: **11.4 % attested** (286)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| at a workplace | 112 | 0 | 121 | 233 |
+| at a workplace | 155 | 5 | 152 | 312 |
 | no fixed premises (stated) | 0 | 0 | 147 | 147 |
-| owed a workplace | 67 | 7 | 234 | 308 |
-| no trade recorded | 233 | 934 | 213 | 1,380 |
+| owed a workplace | 25 | 2 | 203 | 230 |
+| no trade recorded | 232 | 934 | 213 | 1,379 |
 | **all** | **412** | **941** | **715** | **2,068** |
 | share | 19.9 % | 45.5 % | 34.6 % | |
 
@@ -69,9 +69,9 @@ Of the **2,506** people housed in a standing building: **11.4 % attested** (286)
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
 | occupied | 50 | 9 | 255 | 314 |
-| occupants named in prose only | 9 | 10 | 55 | 74 |
-| a use that needs nobody | 26 | 7 | 111 | 144 |
-| empty, owing somebody | 0 | 0 | 9 | 9 |
+| occupants named in prose only | 9 | 10 | 51 | 70 |
+| a use that needs nobody | 26 | 7 | 124 | 157 |
+| empty, owing somebody | 0 | 0 | 0 | 0 |
 | **all** | **85** | **26** | **430** | **541** |
 | share | 15.7 % | 4.8 % | 79.5 % | |
 

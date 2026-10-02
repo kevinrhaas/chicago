@@ -1384,6 +1384,16 @@ step "the building material re-derives from the rule that chose the lots" \
 step "the trade yards re-derive from the rule that dealt them" \
   python3 tools/generate_trade_yards.py --check
 
+# A woodpile at every dwelling, by whose house it is (T-1959): the yard-by-household rule
+# in tools/yard_rule_1835.py (printed in the placement policy under `yard`) says what
+# each household kept — a slab heap, a log heap, stove ricks, bought cords — and where
+# it stands is arithmetic on the house's own back wall. Re-derived here byte for byte,
+# and the rule's own guarantees proved by breaking them.
+step "the woodpiles re-derive from the yard-by-household rule" \
+  python3 tools/generate_woodpiles.py --check
+selftest "…and the yard-by-household rule's guarantees fire when broken" \
+  python3 tools/yard_rule_1835.py --self-test
+
 # The fort apron is the same shape of claim about GROUND rather than about things standing
 # on it: both committed Fort Dearborn plates draw the ground round the stockade as bare
 # trodden earth, no source states a foot of it, and the render grew prairie to the pickets.
@@ -6096,7 +6106,7 @@ selftest "…and its guards still fire when broken" \
 # take states why. Refused: a roof outside the deal's scope or answered twice or not at
 # all, a keeper given two roofs, a keeper the ledger owes no house, a keeper of the wrong
 # trade or division, and a roof called unseatable while keepers of its trade wait.
-# docs/LIBERTIES.md L356.
+# docs/LIBERTIES.md L358.
 step "every empty trade roof is kept by a keeper of its trade, or says why none is left" \
   python3 tools/seat_trade_roofs_1835.py --check
 

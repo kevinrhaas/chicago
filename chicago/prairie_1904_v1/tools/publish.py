@@ -10,6 +10,6 @@ for name in ['viewer','data','maps','docs']:
  shutil.copytree(P/name,destination/name,dirs_exist_ok=True)
 # Only government HABS reports/drawings explicitly selected for the public subset.
 if (P/'research/public').exists():shutil.copytree(P/'research/public',destination/'research/public',dirs_exist_ok=True)
-# Derivatives of public-domain / no-known-restrictions images only (research/images/README.md).
-if (P/'research/images/files').exists():shutil.copytree(P/'research/images/files',destination/'research/images/files',dirs_exist_ok=True)
+# The image files are NOT published from here: they live in kevinrhaas/chicago-images and are served
+# by its own Pages site (research/images/files/README.md, research/images/STORE.json).
 print('Prairie Avenue browser published:',destination)

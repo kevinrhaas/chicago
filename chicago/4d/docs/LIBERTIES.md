@@ -19745,7 +19745,86 @@ stopped; either would move a camp to its ground or retire it.
 landing-place camps), **T-1803** (the archetype), **T-1804** (this entry).
 **Recorded:** 2026-10-02.
 
-### L356 — The empty trade roofs kept: a keeper owed a house of their own put in the nearest empty shop, store or warehouse of their trade
+### L356 — The far treeline's top is drawn level and low, with its crown texture fading with distance
+
+**Decision:** the horizon timber band (`renderers/web/js/trees.js` § 5) draws each far body's
+top at a steady **64 %** of its solved canopy (`HORIZON_TOP_K`), lets the crowns move it by at
+most **±14 %** at the nearest bodies (`HORIZON_CROWN_AMP`) and narrows both that and the canopy's
+own swing inside the dossier's range to a quarter by 1.2 km (`farRelief`). Sky opens through a
+stand only within about 700 m, and a gap cuts at most **45 %** of the height
+(`HORIZON_GAP_DEPTH`), never to the ground. An open body's end steps down over its last crown
+and a half, and a body coming within the band's 330 m cut steps down over its last 60 m, so
+neither end is a sheer cliff. The texture is keyed on metres along each body's
+near edge, so it belongs to the world and not to the eye. **The shape of the top is invented.**
+**Why:** the owner, 2026-10-02, from Lake Street at Clark facing west (T-1978): *"it probably
+should be much less wobble if any at this distance, be more stable and lower."* The previous
+modulation ran the top between 40 % and 100 % of the canopy with notches to 5 % at every
+distance, and was keyed on bearing × distance from the eye, so the South Water Street belt
+330–530 m out drew as a range of hills that re-dealt itself with every step. No source gives
+the outline of a treeline seen from the town; the figures are bounded by the dossier's canopy
+ranges (unchanged), by the old modulation's own average (0.70: the new top sits under it, so
+filling the notches does not raise the band), and by the owner's report, which asked for it lower.
+**How to resolve:** a period view from the town toward the river timber (an engraving or a
+traveller's sketch with a horizon) that shows how the far woods' outline read, or a measured
+photograph of a comparable lake-plain treeline at 0.3–1.5 km, to set the top share and the
+relief from evidence.
+**Related:** **L35** (the band's haze cap — the same band), **L182** (the South Water Street
+belt), **T-0120** (the band's eye-height term), **T-1978** (this entry).
+**Recorded:** 2026-10-02.
+
+### L357 — A woodpile at every dwelling: where it stands, how big it is and how it is stacked are invented by whose house it is
+
+**Decision:** every dwelling standing on the scene date — 299 roofs, the T-0052 houses, the
+dwelling families of the reconstruction spec, and the store-residences, taverns, inns, hotels and
+boarding houses — has a woodpile dealt by the yard-by-household rule (`tools/yard_rule_1835.py`,
+printed in the placement policy under `yard`) and written to `data/yard/town_woodpiles.json` by
+`tools/generate_woodpiles.py`. Its household is the fabric rule's (L330) where that rule dealt
+one, else a household that lives there by its trade, else the occupation a reconstruction names,
+else a keeper's by the function, else a tradesman's, said so on the record. Its house is the
+roof's own family and archetype. The row of the rule:
+
+- a labourer's **shanty** — a loose heap of mill slabs and shore wood, 7-12 pieces;
+- a labourer's **log cabin** — 3-5 unsplit lengths of 2.4-3.6 m on two skids, and a block;
+- a tradesman's **cottage** — one rick of 2 ft stove wood, 1.6-2.6 m long and 0.6-1.1 m high;
+- a tradesman's **larger house** (D5-D7, or a documented frame house of 55 m2 or more) — one or
+  two such ricks, 2.2-3.4 m long and 0.7-1.2 m high;
+- a **merchant's or professional man's** house — one or two cords of 4 ft wood racked 8 ft long;
+- a **boarding house, tavern or hotel** — two or three such cords.
+
+Every pile stands against its own house's back wall — the edge whose outward ground is furthest
+from the nearest street on the house's own bank — a hand's gap (0.45 m) off it, then the next
+wall round, then cut down, then refused in writing (one refusal: wet ground). Every rick is dealt
+at or below a full cord's 4 ft, because July is the low point of a household's year in wood.
+
+**What is evidence:** that the town burned wood and bought it by the cord — the Chicago
+Democrat's weekly price current quotes firewood at $2.50 the cord on 27 May 1835 and $2.00 on
+12 August — and the cord's own size and the country's species, from the quartermaster's notice
+for five hundred cords at Fort Dearborn (4 June 1835, again 1 July): 8 ft by 4 ft by 4 ft, white
+oak, hickory, white ash and maple. The record grades the fact of a household woodpile `inferred`
+on those, and the cord's measure `inferred`.
+
+**What we invented:** every pile's place, size, count, kind and stacking; the stove stick's 2 ft;
+the stick's 0.13 m; the slab, the log and the block sizes; that money is what separates a cord
+from a stove rick from a log heap from a slab heap; and the look of the wood — the stick ends,
+sides and sawn rounds are painted procedurally on the yard layer's own canvas atlas, three
+end-grain cells (fresh, a season stacked, silvered), not photographs of any Chicago woodpile.
+Every pile is `reconstructed` at the vertex, so hiding that tier hides the layer.
+
+**Not drawn:** a woodshed (an A4 roof the build tickets raise), a sawbuck, an axe, and anyone
+working the pile — L1.
+
+**How to resolve:** a probate inventory, insurance survey or sale notice of 1834-36 naming wood or
+a woodshed at a particular house puts that house's pile on its evidence; a dated view of a
+Chicago back lot says how town wood was stacked; a household account says how much a family
+burned in a summer month.
+
+**Related:** **L330** (the fabric rule whose class this reads), **L131** and **L173** (the yard
+layer's goods and building material), **L151** (the dooryard stems the piles keep clear of),
+**T-1212** (parent), **T-1959** (this rule and layer), **T-1960** and **T-1961** (the rule's
+next columns).
+**Recorded:** 2026-10-02 (T-1959).
+
+### L358 — The empty trade roofs kept: a keeper owed a house of their own put in the nearest empty shop, store or warehouse of their trade
 
 **Applies to:** `data/reconstruction/1835_trade_roof_seats.json` (written by
 `tools/seat_trade_roofs_1835.py`), the `residents[]` row `tools/compile_scene.py`

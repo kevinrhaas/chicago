@@ -5,7 +5,7 @@
   "parent_ticket": "T-1986",
   "target_date": "1835-07-01",
   "generated_by": "tools/seat_trade_roofs_1835.py",
-  "liberty": "L356",
+  "liberty": "L358",
   "not_a_reading": "no page of any source is read here. Every seat is an adjudication over committed records — which keeper owed a house of their own keeps it under which standing trade roof — and the meeting is the invention. The keeper's card is not touched.",
   "raises_no_roof": "every seat is a keeper put under a roof that already stands.",
   "inputs": [
@@ -52,7 +52,7 @@
     "roofs": 4,
     "seated": 3,
     "unseatable": 1,
-    "keepers_owed_a_house": 188
+    "keepers_owed_a_house": 133
   },
   "seats": [
     {
@@ -67,9 +67,9 @@
       "grade": "reconstructed",
       "home": "recon_1835_west_046",
       "metres_from_home": 38.5,
-      "keepers_offered": 4,
+      "keepers_offered": 3,
       "relation": "worked here",
-      "words": "keeping a carpenter's house of their own: the nearest of 4 west division keeper(s) of a trade this roof serves, who had no workplace, 38 m from their own roof"
+      "words": "keeping a carpenter's house of their own: the nearest of 3 west division keeper(s) of a trade this roof serves, who had no workplace, 38 m from their own roof"
     },
     {
       "structure_id": "recon_1835_forks_freight_f2_001",
@@ -99,9 +99,9 @@
       "grade": "reconstructed",
       "home": "recon_1835_south_d6_031",
       "metres_from_home": 75.7,
-      "keepers_offered": 20,
+      "keepers_offered": 18,
       "relation": "worked here",
-      "words": "keeping a grocer's house of their own: the nearest of 20 south division keeper(s) of a trade this roof serves, who had no workplace, 76 m from their own roof"
+      "words": "keeping a grocer's house of their own: the nearest of 18 south division keeper(s) of a trade this roof serves, who had no workplace, 76 m from their own roof"
     }
   ],
   "unseatable": [

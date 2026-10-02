@@ -2408,7 +2408,7 @@ def overlay_trade_roofs(out: dict[str, list[dict]]) -> None:
             "relation": seat["relation"],
             "why": seat["words"],
             "sources": [],
-            "basis": ("KEPT HERE BY THE DEAL, NOT RECORDED HERE (L356). This keeper's trade "
+            "basis": ("KEPT HERE BY THE DEAL, NOT RECORDED HERE (L358). This keeper's trade "
                       "is one the premises ruling gives a house of its own, and no source says "
                       "where it stood; this is the nearest empty roof of that trade in their "
                       "division. The roof is the invention and the keeper is not."),
