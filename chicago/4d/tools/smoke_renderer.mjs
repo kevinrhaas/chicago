@@ -13757,7 +13757,12 @@ for (const [label, viewport, touch] of [
 
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const wn = await page.evaluate(() => {
       const host = document.getElementById('whatsnew');
       return {
@@ -13791,7 +13796,12 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => document.exitPointerLock?.());
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const ret = await page.evaluate(() => ({
       flagged: [...document.querySelectorAll('#whatsnew .wn-entry.is-new .wn-title')]
         .map((n) => n.textContent),
