@@ -417,7 +417,7 @@ class FrameStorefrontParams:
     # colours it had. `common/materials.py` is what turns either into a surface.
     finish_key: str | None = None
     roof_condition: str | None = None
-    # FIN-L (T-1818): how far one lap course may stand off the stock, and the seed its
+    # FIN-L (T-1962): how far one lap course may stand off the stock, and the seed its
     # lines are drawn from — `common/materials.py`'s `board_lay` and `course_lines`.
     # 0.0 on every record the fabric rule never reached, which keeps its even courses.
     siding_lay_m: float = 0.0

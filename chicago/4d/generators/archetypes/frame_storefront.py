@@ -369,7 +369,7 @@ def _clapboard(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
     The lip is wound so its normal points away from the wall and up, which is the
     face a person standing in the street actually sees. `course` is the record's
     own mill stock (params.siding_exposure_m) — the exposed face per course — and
-    `lay` the fabric rule's bound on how far a course stands off it (FIN-L, T-1818,
+    `lay` the fabric rule's bound on how far a course stands off it (FIN-L, T-1962,
     `materials.course_lines`).
     """
     lip = CLAD_RELIEF_M

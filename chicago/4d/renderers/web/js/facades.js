@@ -44,7 +44,7 @@
  * stacked on the first, and it is not needed: the jitter below is what makes
  * them differ from each other.
  *
- * **Since T-1818 that second reconstruction exists, and it is not invented here.**
+ * **Since T-1962 that second reconstruction exists, and it is not invented here.**
  * The fabric rule (T-1816) deals every reconstructed roof an `age_state` from its
  * household's arrival year, and the material sheet turns it into years of weather
  * (`materials.WEATHER_YEARS_BY_AGE`, rule FIN-W, L346), carried on the sidecar as
@@ -225,7 +225,7 @@ export function toneFor(sidecar) {
   const paintAttr = sidecar?.attributes?.paint ?? null;
   const paint = paintAttr?.value ?? null;
   const confidence = paintAttr?.confidence ?? null;
-  // THE WEAR (T-1818). Where the fabric rule dealt this roof a household, its age is
+  // THE WEAR (T-1962). Where the fabric rule dealt this roof a household, its age is
   // the household's (`fabric_tone.weather_years`, FIN-W on the material sheet) and not
   // the programme's 1835-01-01 — the "absence of a claim" the header records, now
   // filled by the rule T-1816 already applied to its finish. `weather_rate` is how far

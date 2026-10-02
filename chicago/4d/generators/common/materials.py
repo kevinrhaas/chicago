@@ -827,12 +827,12 @@ def trim_rgba(finish: Finish) -> tuple[float, float, float, float]:
 
 # ---------------------------------------------------------------- the lay and the wear
 #
-# T-1818 (T-0002's other half, under T-1210's fabric rule). A finish says what a wall
-# WEARS; these two rows say how the boards were LAID and how long they have stood in
-# the weather — both dealt by whose house it is, both `reconstructed`, and both read
-# by nothing but the reconstructed roofs: a record with no `fabric_basis` is a
-# researched building and keeps exactly the wall it had. materials.md §16, rules
-# FIN-L / FIN-W, liberty L346.
+# T-1962 (piece 1 of T-1818: T-0002's other half, under T-1210's fabric rule). A
+# finish says what a wall WEARS; these two rows say how the boards were LAID and how
+# long they have stood in the weather — both dealt by whose house it is, both
+# `reconstructed`, and both read by nothing but the reconstructed roofs: a record with
+# no `fabric_basis` is a researched building and keeps exactly the wall it had.
+# materials.md §16, rules FIN-L / FIN-W, liberty L346.
 #
 # **FIN-L, the lay.** A mill sends clapboard at one stock (T-0112 deals it), but a man
 # with a hammer lays it, and the exposure he leaves course by course is as true as his

@@ -293,7 +293,7 @@ def _stack_fractions(n: int) -> tuple[float, ...]:
 def _clapboard(b: MeshBuilder, w: float, d: float, lines: list, conf: float) -> None:
     """Horizontal lap courses, modelled as a thin proud lip per course. `lines` are
     the lap heights `materials.course_lines` lays from the record's own mill stock
-    (params.siding_exposure_m) and the fabric rule's lay (FIN-L, T-1818)."""
+    (params.siding_exposure_m) and the fabric rule's lay (FIN-L, T-1962)."""
     lip = 0.018
     for z in lines:
         for y, ny in ((0.0, -lip), (d, d + lip)):

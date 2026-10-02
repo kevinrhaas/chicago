@@ -425,7 +425,7 @@ def _clapboard(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     faces_x = [(x, nx, sgn, nm) for x, nx, sgn, nm in
                ((x0, x0 - lip, -1.0, "left"), (x1, x1 + lip, 1.0, "right"))
                if nm not in skip]
-    # Since T-1818 a lap line may stand off its even height by the fabric rule's lay
+    # Since T-1962 a lap line may stand off its even height by the fabric rule's lay
     # (FIN-L, `materials.course_lines`), so a course's board runs from the line below
     # it. With no lay it still runs from `z - exposure`, so a wall the rule never
     # reached is built to the bit as it was.

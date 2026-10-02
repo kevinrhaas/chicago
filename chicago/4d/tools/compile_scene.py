@@ -2653,7 +2653,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
             sidecar["drawn_by"] = phase["drawn_by"]["layer"]
         if st.get("reconstruction"):
             sidecar["reconstruction"] = st["reconstruction"]
-            # THE LAY AND THE WEAR (T-1818), read off the material sheet's own rule
+            # THE LAY AND THE WEAR (T-1962), read off the material sheet's own rule
             # (FIN-W/FIN-L) so the renderer's silvering takes the household's age,
             # not the programme's date. Only where the fabric rule dealt a class.
             tone = fabric_tone(st["reconstruction"])
