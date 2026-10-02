@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1305, ts: '2026-10-02T14:18:36.212Z', date: 'Oct 2, 2026, 9:18 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
+    items: [
+      'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',
+      'Families take a house of the kind their trade and means suggest, in their own part of town. People on their own take a free bed in a boarding house, or board with a family when the beds run out.',
+      'The town now averages seven people a dwelling, under the 1835 census\u2019s eight. Some houses are crowded: one large house on Washington Street holds 29.',
+      'The people are real records. Which roof each one slept under is our reconstruction, and the card says so. The Liberties page explains how they were placed (L354).',
+    ] },
   { v: 1304, ts: '2026-10-02T14:03:50.530Z', date: 'Oct 2, 2026, 9:03 AM CT', title: 'A privy behind the town\u2019s houses, and stables for the horse-keepers', kind: 'change',
     items: [
       'Walk the back lots between Randolph and Washington, west of Clark. In the corner of each yard, by the alley fence, there is now a privy. A hundred and twenty-two houses gained one; the thirty-four that already had a privy keep theirs.',

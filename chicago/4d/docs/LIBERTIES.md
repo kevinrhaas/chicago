@@ -19589,3 +19589,55 @@ yard mix of the baked yard buildings), **L234** (the fort's well curb), **T-1960
 3 of **T-1212**), **T-1967** (the baked stable and outbuilding roofs the order book still counts).
 
 **Recorded:** 2026-10-02 (T-1960).
+
+### L354 — The present housed: every household in the town on 1 July 1835 seated under a standing dwelling by a deal, the room deciding
+
+**Applies to:** `data/reconstruction/1835_housing_seats.json` (written by
+`tools/house_the_present_1835.py`) and the `residents[]` rows `tools/compile_scene.py`
+(`overlay_housing`) puts on 205 building cards from it.
+
+**Decision:** every household the residents layer holds present on the scene date that no
+card and no other overlay puts under a roof — 1,003 of them, 1,675 people — is given one
+(T-1971, piece 1 of T-1965). The deal is taken in this order. (1) A household the platted
+or off-plat seating already dealt a standing roof (T-1613, T-1614) takes that roof: 83.
+(2) Families of two or more, largest first, take a dwelling of the families their
+placement-policy clause admits, in their own division (169). A household the address book
+never banded — the reconstructed trades, the readmitted, the underdocumented — takes any
+dwelling of its division; a household with no division at all is offered the whole town.
+(3) Single people take a free ordinary-night bed of the lodging model in their division
+(14), and otherwise board in the division's dwellings (737). Among the roofs a household
+may take it takes the one that leaves the fewest people per square metre of floor
+(footprint × storeys), ties broken by a seeded hash. **No source places any of these
+households under any of these roofs**: the people are the layer's and keep their own
+grades and evidence on their own cards, which the seat does not touch; the roof is the
+invention, and any other roof the deal admits would have done as well.
+
+**The ceiling:** the November 1835 census counted 3,265 people in 398 dwellings, 8.204 a
+roof (`data/reconstruction/1835_town_model.json`). After the deal 2,048 people sleep under
+294 standing dwellings, 6.966 a roof, and `--check` refuses any deal above the census's
+figure. The deal is not level across the town: it uses only the 203 reconstruction
+dwellings no record already claims, so the 233 roofs anybody sleeps in average 8.79, and
+the most crowded (a two-storey H2 house on Washington at Wells, 212 m² of floor) holds 29.
+That is printed in the ledger beside the mean, not hidden in it.
+
+**Refused, on T-1613's rules:** every documented building (a policy deal that put an
+invented boarder under a researched house would read back as a fact about that house);
+every roof whose sidecar already states its occupants, including those that say
+"Anonymous stock; no occupant is claimed" — except a roof whose `resident_assignment` names
+the very household being seated (5); and stores, workshops, warehouses, outbuildings and
+civic works.
+
+**Not done, and why:** the 914 households the layer holds `uncertain` or `absent` on the
+scene date are not housed here; ruling them in or counting them apart is T-1972. The town
+census screen's housed count reads card links and does not yet count these seats; that
+screen is T-1967. The People view's "Go to" is not pointed at these roofs.
+
+**How to resolve:** any 1835 source that puts a named person under a named roof — a lot
+sale, a tax or assessment list, a letter's address, a later reminiscence — replaces the
+deal for that household; the next run of the tool then seats it nowhere, because the join
+already houses it.
+
+**Related:** **L167** (houses to let), **L270** (the platted deal), **L271** (the off-plat
+deal), **L276** (the card says so), **T-1199**, **T-1215**, **T-1964**, **T-1965**,
+**T-1971**.
+**Recorded:** 2026-10-02.
