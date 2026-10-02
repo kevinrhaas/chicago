@@ -15,35 +15,35 @@
     "versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 77392,
+      "bytes": 96496,
       "inputs_sha256": "e2ff7d2acd631951594772d6ebc63f1d71fc3f1a9e0d656e9ae2bf2e82cf4167",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "pre-v4",
-      "web_master_sha256": "2bd408abb9e093c48ba29c0751225d2579ef18fc74514d83da102a33813a23f5"
+      "web_master_sha256": "b04ab5c15f8df19158544e2df64e239ed4716eec9f89b2f9b835b65ec85f604c"
     },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 79248,
+      "bytes": 98832,
       "inputs_sha256": "97d7de6299d74a2ee13c25db402b40f312e30781c9667e42c1c6b1690e8ae142",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v2",
-      "web_master_sha256": "896c6c2979759d305d8453e7fdc20030f99203b0358003b2a1462914fdb1dfb6"
+      "web_master_sha256": "98aaea0aa8f7772c23c7c1d634ea72735ff450f984ffd766d9c7655ff0f9a6b0"
     },
     "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 76784,
+      "bytes": 95728,
       "inputs_sha256": "87debb9c50ce1acc1bda8a85d2d40520d285608ad0411dba74f323d04a95fa48",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v3",
-      "web_master_sha256": "b12ecaca764d2896127eaad9a11ea75ec8e5561f06849d296eaf1c38fcfbe15b"
+      "web_master_sha256": "827e6e7dc89c5f5d450bd19ba1e5bc1fd9a81a60dfb498ace65894442663fa6d"
     }
   },
   "inputs_scheme": "resolved-params-v4"
