@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1323, ts: '2026-10-02T20:42:29.795Z', date: 'Oct 2, 2026, 3:42 PM CT', title: 'Twenty-five people with a known trade now say where they worked', kind: 'change',
+    items: [
+      'Open Oscar Pratt\u2019s card and look under Were they at work? It now names the Chicago Democrat\u2019s printing office, where Andreas puts him and Beckford in Calhoun\u2019s employ. T. O. Davis is named at the Chicago American, which he founded, and Capt. Hiram Hugunin at the insurance agency he advertised.',
+      'Twenty more say why no shop is owed them. Major Greene and Dr Maxwell served the garrison at the fort. The two sheriffs and two justices held public offices, not shops. A plasterer, a surveyor and a ship carpenter worked on other people\u2019s ground.',
+      'Some were not at their post on the day. Two army officers are not placed at the fort, the Chicago post office was John Hogan\u2019s and not the two other postmasters\u2019, and Eliza Chappel\u2019s school had closed. Each card gives its reason.',
+      'On the City card, working people owed a workplace drop from 167 to 142.',
+    ] },
   { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
     items: [
       'Open Rufus Nichols\u2019s card, a blacksmith on the West Side, and look under Were they at work? It used to say the town owed another smithy to take him on as a hand. It now says he worked on his own account, as a smith\u2019s trade did, and that his own shop is still to be placed.',
