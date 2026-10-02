@@ -1037,6 +1037,13 @@ function firmChipsHtml(firms, fromSign) {
     ([lead, list]) => `<span class="pop-firms-lead">${escapeHtml(lead)}</span>${chips(list)}`).join('')}</span>`;
 }
 
+// T-1985. The three reasons a record may give for a roof with nobody under it.
+const STATED_USE_WORDS = {
+  storage_operator_unrecorded: 'A store for goods; whose, no source says',
+  occupant_named_seat_refused: 'A source names who used it; the seat is not proven',
+  occupancy_unattested: 'No source places anyone here in July 1835',
+};
+
 function factsHtml(s, firms = [], fromSign = false) {
   const attrs = s.attributes ?? {};
   const rows = [];
@@ -1097,6 +1104,12 @@ function factsHtml(s, firms = [], fromSign = false) {
   }
   if (attrs.occupants?.value) {
     row('Keepers', prettyValue(attrs.occupants.value), attrs.occupants.confidence, 'keepers');
+  }
+  // T-1985. A roof nobody is seated under says why, in the record's own words: the
+  // keeper of a store shed is unrecorded, or a named occupant's card refuses the seat.
+  if (attrs.stated_use?.value) {
+    row('Nobody seated', STATED_USE_WORDS[attrs.stated_use.value] ?? prettyValue(attrs.stated_use.value),
+      attrs.stated_use.confidence, 'why nobody is seated');
   }
   if (!rows.length) return '';
   return `<dl class="pop-facts">${rows.join('')}</dl>`;

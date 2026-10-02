@@ -23,7 +23,8 @@ T-1215's first clause turns it into four joins over committed data:
    business, a reconstructed occupation), or a use that needs nobody (an outbuilding
    that names its yard, a civic or harbour work, a camp ground, a house to let, an
    anonymous roof whose use data/reconstruction/1835_stated_uses.json states, T-1988), or
-   is one building of an establishment whose principal answers (`part_of`, T-1980). A
+   is one building of an establishment whose principal answers (`part_of`, T-1980), or
+   says on its record why nobody is seated under it (`stated_use`, T-1985). A
    sidecar whose `occupants` attribute names people in prose but whose household card
    is not linked is counted on its own row, `occupants_in_prose_only`: the roof is not
    empty, but the person it names is not yet housed by the join, and that link is owed.
@@ -356,6 +357,13 @@ def audit(inputs: dict) -> dict:
             return "use_stated", "civic_or_works", tier
         if function in OUTBUILDING and (recon.get("yard_group") or recon.get("stands_on")):
             return "use_stated", "outbuilding_of_a_yard", tier
+        # T-1985. A roof whose record SAYS why nobody is seated under it — a freight shed
+        # whose keeper no source names, a house whose named occupant's card refuses the
+        # seat, a house nobody is placed in on the scene date — is answered by that
+        # statement, under its own reason, and never by a household invented to fill it.
+        stated = record.get("stated_use") if isinstance(record.get("stated_use"), dict) else {}
+        if stated.get("value") and stated.get("note"):
+            return "use_stated", stated["value"], tier
         kind = ("outbuilding_naming_no_yard" if function in OUTBUILDING
                 else "dwelling" if any(w in function for w in DWELLING_WORDS)
                 else "house_of_trade")
@@ -375,6 +383,12 @@ def audit(inputs: dict) -> dict:
             dangling.append(f"structure {sid} is part of {principal}, which is itself empty")
         elif principal and bucket == "empty":
             bucket, key = "use_stated", "part_of_an_establishment"
+        # T-1985. The statement is about an EMPTY roof. Once somebody is seated there it
+        # is stale, and it is refused rather than left to contradict the seat.
+        stated = value_of(s["record"].get("stated_use"))
+        if stated and bucket in ("occupied", "occupants_in_prose_only"):
+            dangling.append(f"structure {sid} states why nobody is seated ({stated}), "
+                            f"but somebody is")
         tiers["structures"]["empty_owing_somebody" if bucket == "empty" else bucket][tier] += 1
         if bucket == "empty":
             occupied["empty_owing_somebody"][key] += 1
@@ -641,10 +655,18 @@ def self_test(inputs: dict) -> int:
     expect("a premises naming no structure", bad_premises)
     expect("a part_of naming no structure", bad_part_of)
     expect("a part_of naming an empty principal", empty_principal)
+
+    def stale_stated_use(i):
+        # a stated use left on a roof somebody is seated in
+        sid = next(sid for sid, st in sorted(i["structures"].items()) if st["residents"])
+        i["structures"][sid]["record"]["stated_use"] = {
+            "value": "occupancy_unattested", "confidence": "inferred", "note": "self-test"}
+
+    expect("a stated use on an occupied roof", stale_stated_use)
     if failures:
         print("SELF-TEST FAILED — the check did not see: " + "; ".join(failures))
         return 1
-    print("self-test: all six broken links are refused")
+    print("self-test: all seven broken links are refused")
     return 0
 
 

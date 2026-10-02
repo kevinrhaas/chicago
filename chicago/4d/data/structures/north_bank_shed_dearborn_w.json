@@ -90,6 +90,11 @@
   "confidence": "reconstructed",
   "note": "The use comes from the plate and from the place. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on the banks of the reach below the drawbridge, and this reach is where the river traffic and the town's only crossing of the main stem met in July 1835. The specific goods, the trade and the operator are not inferred and are not recorded: an occupant would be a person, and this record claims a building."
  },
+ "stated_use": {
+  "value": "storage_operator_unrecorded",
+  "confidence": "reconstructed",
+  "note": "A FREIGHT SHED HOLDS GOODS, NOT PEOPLE, and whose goods they were is not on the record. The building and its use come from the owner's brief of 2026-08-18, whose plate draws low warehouses on the banks of the reach below the Dearborn drawbridge, and from the place itself: this reach is where the river traffic and the town's one crossing of the main stem met in July 1835. No source names a forwarding house, a merchant or a keeper for any one of these sheds. A forwarding firm written onto it here would be an invented business, and a household seated in it would be an invented person sleeping in a store shed. So the roof states its use and the gap, and nobody is seated. A source naming the warehouses on this reach is what would replace this statement with a keeper."
+ },
  "stands_on_lot": {
   "claims_lot": false,
   "grid": "north_division_tier",

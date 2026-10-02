@@ -11,7 +11,7 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 | Every household housed | open | 523 households without a roof yet |
 | Every working person at a workplace | open | 308 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
-| Every standing roof occupied or its use stated | open | 15 standing roofs empty and owed somebody |
+| Every standing roof occupied or its use stated | open | 5 standing roofs empty and owed somebody |
 
 Dangling ids: **0**. The town is **not yet complete**: the open joins above are the work T-1215's remaining pieces owe.
 
@@ -70,8 +70,8 @@ Of the **2,497** people housed in a standing building: **11.4 % attested** (285)
 |---|---:|---:|---:|---:|
 | occupied | 50 | 9 | 251 | 310 |
 | occupants named in prose only | 9 | 10 | 51 | 70 |
-| a use that needs nobody | 24 | 5 | 117 | 146 |
-| empty, owing somebody | 2 | 2 | 11 | 15 |
+| a use that needs nobody | 26 | 7 | 123 | 156 |
+| empty, owing somebody | 0 | 0 | 5 | 5 |
 | **all** | **85** | **26** | **430** | **541** |
 | share | 15.7 % | 4.8 % | 79.5 % | |
 
