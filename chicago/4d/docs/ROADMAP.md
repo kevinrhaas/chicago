@@ -5068,3 +5068,9 @@ The front door offers 1835, 1904 and 1812 with acquisition and transfer animatio
 ## T-1830 - Glessner west wing and north porch
 
 Owner follow-up after T-1805; reasoning and recovery instructions in RESEARCH/glessner-west-wing-alcove/work.md. Rebuild roof and dormer, carve entry recess, preserve HABS dimensional control, verify full/light elevations and stage to dev.
+
+
+## T-1833 - Owner correction: Glessner rear roof
+
+Replace T-1830 rear hip with a level ridge and balanced south gable, matching the
+north courtyard eave. See RESEARCH/glessner-south-gable/work.md for evidence and progress.

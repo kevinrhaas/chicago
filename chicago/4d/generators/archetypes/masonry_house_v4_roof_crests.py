@@ -10,7 +10,7 @@ from __future__ import annotations
 import math
 
 
-def add_ridge_crest(b, axis, ridge_at, ridge_z, lo, hi, confidence, material):
+def add_ridge_crest(b, axis, ridge_at, ridge_z, lo, hi, confidence, material, skew=0, origin=0):
     """Add one integral raised collar within an existing ridge-cap interval.
 
     Existing caps have140mm radius and sit55mm above the ridge datum. This collar
@@ -28,7 +28,7 @@ def add_ridge_crest(b, axis, ridge_at, ridge_z, lo, hi, confidence, material):
 
     def point(angle,along,outer):
         radius=.14+.055*math.sin(angle)**2 if outer else inner_radius
-        across=ridge_at+radius*math.cos(angle)
+        across=ridge_at+skew*(along-origin)+radius*math.cos(angle)
         z=ridge_z+.055+radius*math.sin(angle)
         return (across,along,z) if axis=='y' else (along,across,z)
 

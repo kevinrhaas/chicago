@@ -435,21 +435,21 @@
     "glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 122347448,
-      "inputs_sha256": "fa707bf29cd4b649a9cb5ef4e6553c9cd0403e1db4ef9b2630e21ec68b9c5f67",
+      "bytes": 125667452,
+      "inputs_sha256": "d95f81107d94e8ded61df4e74fd196000df40399524045ffd1077893af908cb7",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "c8920d3081fcc24805c5715099f79437d7a256425165b670e4fd1c8549958665",
-          "output_sha256": "6a5854ec45de8824b2391e698828ea79af4024b17a505e7595a0d2e9a168c8be",
-          "recipe_sha256": "89e0e2d3b21eb1616784c0244b99c519ecd57f00091e7363661c6c2c3bf468f7",
-          "triangles": 188675
+          "master_sha256": "97c21c1682e7ea744af831fab18be14a94c5f13f900e3c46cd30b7c827fa3a56",
+          "output_sha256": "4133f7e1efcd24dadfcebd8108913f21bd58f0db02a32c2b9329c67be77913d6",
+          "recipe_sha256": "233693649e020f947b4c8efeee80a02945b305c6deb66069a99a5ad8051377ce",
+          "triangles": 197258
         }
       },
-      "web_master_sha256": "c8920d3081fcc24805c5715099f79437d7a256425165b670e4fd1c8549958665"
+      "web_master_sha256": "97c21c1682e7ea744af831fab18be14a94c5f13f900e3c46cd30b7c827fa3a56"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",
@@ -1180,6 +1180,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_a1_08"
     },
+    "recon_1835_blk_indiana_north_cass_a1_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 83908,
+      "inputs_sha256": "81680aa1a8e63659f222a59804b57da5b0e755a5b50836f7d79334affd15ecf7",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a1_10"
+    },
     "recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -1188,6 +1197,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_a3_03"
+    },
+    "recon_1835_blk_indiana_north_cass_a3_11__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 32040,
+      "inputs_sha256": "252ff24a9a2c65d2d10ccb764cbf6536fe33aa9d6386ad688769e81786057184",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_a3_11"
     },
     "recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -1242,6 +1260,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_d4_06"
+    },
+    "recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 42584,
+      "inputs_sha256": "5b43ebe83ddf51144214cf1337ef256fedee41d5778779ceafc3dbb7b6bf4387",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_cass_h3_09"
     },
     "recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2614,8 +2641,8 @@
     "recon_1835_blk_washington_clark_h3_06__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 38204,
-      "inputs_sha256": "133697345fe1f8c5d0baf7445456bfc3484f2af256e380dcd71e484a0acb9b69",
+      "bytes": 37420,
+      "inputs_sha256": "0349d5099f8d68612ee9a3a06f5cfa3798bc1cdaa390d5b70125c185ad35eaa8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
@@ -4036,8 +4063,8 @@
     "recon_1835_west_006__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 57720,
-      "inputs_sha256": "6242988068cda0806de61411ffa68f9723af75c1c6a5068bf3e22b2d8eff33c3",
+      "bytes": 56940,
+      "inputs_sha256": "927b463a25050dfb52ad585012d3842f462f3dca17c5a0b3808026245a593f17",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_006"

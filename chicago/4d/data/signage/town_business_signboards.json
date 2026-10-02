@@ -21,7 +21,7 @@
     "geometry": "canvas texture, drawn at load",
     "tiers": {
       "inferred": 39,
-      "reconstructed": 33
+      "reconstructed": 34
     },
     "note": "DRAWN SINCE 2026-08-21, AND RE-WORDED THE SAME DAY. This block used to read 'NOT DRAWN, AND THAT IS THE WHOLE DISCIPLINE OF THIS LAYER', on L25's reasoning generalised: no source gives the wording of any sign in this town, so every board stayed a blank plank. The owner's instruction of 2026-08-18 overruled it — 'you can and should put the name of the location on the sign board … it is fine if they are reconstructions' — and T-0066 then painted THE RECORD'S OWN `name` on every board. T-0130 CORRECTS THAT, on the owner's word of 2026-08-21: 'philo would not have referred to his own place as log drug store, it would be philo carpenter, drugs and medicines, or druggist or whatever he would have referred to himself as on the sign, that may be different than the name of the building for us, the sign may read differently historically' — and, widening it, 'i guess do a pass on all those signs and make sure they feel right for the era'. A record's `name` is OUR LABEL FOR A BUILDING ('Philo Carpenter's Log Drug Store'); a board carries what a signwriter lettered. The two are now separate fields and are allowed to differ. What they must still agree about is WHO: every sign declares a `sign_identity` that appears in the board AND in the card, the generator refuses to build without it, and tools/smoke_renderer.mjs asserts it at run time over every sign. THE REGISTER is the advertisements' own — proprietor or firm first and largest, the trade beneath, the place last and smallest — carried per line in `sign_lines` and lettered in that hierarchy by renderers/web/js/signage.js. Period spelling is theirs and is kept. THE TIERS: a wording taken off a firm's own advertisement is `inferred`; one built out of the evidenced trade vocabulary for a business that left no advertisement is `reconstructed`. NOT ONE IS `attested` YET, and each note says why and what would change it — the seven 1833-35 newspaper pages behind these wordings were supplied as images in conversation on 2026-08-21 and are not committed to data/sources/assets/, so they are transcriptions and a transcription is not a citation. The owner's ruling of that day is the authority for proceeding anyway: 'I will give you all those data sources later in a more comprehensive form proceed where you can and label reconstruction or inferred with a note as you like.' The LETTERFORM, the colours and the panel remain `style`, a table of the combinations the trade worked in rather than of anything Chicago recorded (docs/LIBERTIES.md L159; L169 for the wording). ONE DEVICE IS NOW PAINTED and it is the one a Chicago tradesman described himself: Carpenter's golden mortar, `sign_device` — see its own note. No other board carries an image, and L25 is untouched: it withholds the Wolf Point wolf because that IMAGE was never described, which is the opposite case to a shop whose own advertisement names its sign."
   },
@@ -30,7 +30,7 @@
     "note": "Five mountings, chosen by the trade's class and de-conflicted against every sign within 40 m so that no two neighbours hang alike: `bracket_board` (the wolf sign's own geometry — a plank hung by two straps 0.20 m under a 1.15 m bracket arm, 1.7 m to one side of the facade's centre and clear of the eave), `awning_board` (the same plank under a hood 1.45 m deep that falls 0.34 m to its outer edge), `wall_board` (a board fixed flat on the front under a cap), `post_board` (a pole at the street edge 1.9 m out from the wall, with a cross-arm and the board under it — the Green Tree's own arrangement, T-0082) and `facade_painted` (the name straight onto the boards of the building, no board at all — what image 5 of the owner's brief shows across the Tremont's row, standing with its foot 2.3 m up so it clears a door head, or lower where the wall has not the height for that and 0.25 m of eave besides). Not one of those numbers is a record's. A sign's SIZE is derived from the length of its own name inside the range its mounting allows and inside the frontage it stands on; its `aspect` comes from its style, so two boards on one street are not the same rectangle either.",
     "mountings": {
       "awning_board": 15,
-      "bracket_board": 19,
+      "bracket_board": 20,
       "facade_painted": 23,
       "post_board": 4,
       "wall_board": 11
@@ -41,7 +41,7 @@
     "flat_mounted": 34,
     "counts": {
       "moved": 13,
-      "not flat on the wall": 38,
+      "not flat on the wall": 39,
       "reshaped": 9,
       "shrunk to the door": 12
     },
@@ -278,6 +278,13 @@
       {
         "structure_id": "pruyne_kimball_drugstore",
         "mounting": "awning_board",
+        "covered_an_opening_before": false,
+        "covered_before": [],
+        "done": "not flat on the wall"
+      },
+      {
+        "structure_id": "recon_1835_blk_indiana_north_cass_h3_09",
+        "mounting": "bracket_board",
         "covered_an_opening_before": false,
         "covered_before": [],
         "done": "not flat on the wall"
@@ -3911,6 +3918,77 @@
       ]
     },
     {
+      "structure_id": "recon_1835_blk_indiana_north_cass_h3_09",
+      "name": "Chapin's boarding house",
+      "sign_text": "CHAPIN'S / Boarding House",
+      "sign_lines": [
+        {
+          "text": "CHAPIN'S",
+          "role": "name"
+        },
+        {
+          "text": "Boarding House",
+          "role": "trade"
+        }
+      ],
+      "sign_identity": "Chapin",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Chapin's boarding house (rcb_chapin_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_confidence": "reconstructed",
+      "sign_text_sources": [],
+      "trade": "boarding_house",
+      "trade_confidence": "reconstructed",
+      "trade_class": "house",
+      "why_a_board": "lodging is sold to arrivals who have to find the door",
+      "confidence": "reconstructed",
+      "mounting": "bracket_board",
+      "mounting_note": null,
+      "style": {
+        "id": "cream_on_red",
+        "ground": "#7c3020",
+        "letter": "#efe3c8",
+        "face": "fat_face",
+        "panel": "single_rule",
+        "aspect": 1.95,
+        "note": "cream fat face on Venetian red"
+      },
+      "anchor_local_enu_m": [
+        958.04,
+        494.23
+      ],
+      "facade_bearing_deg": 180.4,
+      "arm_height_m": 2.55,
+      "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
+      "board_w_m": 1.44,
+      "board_h_m": 0.74,
+      "board_thickness_m": 0.05,
+      "geometry": {
+        "arm_m": 1.15,
+        "hanger_drop_m": 0.2
+      },
+      "reach_m": 1.48,
+      "wall_height_m": 6.5,
+      "wall_height_from": "the record",
+      "frontage_m": 9.88,
+      "ground_quad_local_enu_m": [
+        [
+          964.77,
+          507.48
+        ],
+        [
+          954.89,
+          507.55
+        ],
+        [
+          954.8,
+          494.25
+        ],
+        [
+          964.68,
+          494.19
+        ]
+      ]
+    },
+    {
       "structure_id": "recon_1835_blk_washington_clark_h3_05",
       "name": "Mark Beaubien's boarding house",
       "sign_text": "MARK BEAUBIEN'S / Boarding House",
@@ -4542,11 +4620,11 @@
     },
     {
       "structure_id": "recon_1835_north_h2_022",
-      "name": "Barnes's boarding house",
-      "sign_text": "BARNES'S / Boarding House",
+      "name": "Ezra Barnes's boarding house",
+      "sign_text": "EZRA BARNES'S / Boarding House",
       "sign_lines": [
         {
-          "text": "BARNES'S",
+          "text": "EZRA BARNES'S",
           "role": "name"
         },
         {
@@ -4555,7 +4633,7 @@
         }
       ],
       "sign_identity": "Barnes",
-      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Barnes's boarding house (rcb_barnes_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Ezra Barnes's boarding house (rcb_barnes_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
       "sign_text_confidence": "reconstructed",
       "sign_text_sources": [],
       "trade": "boarding_house",
@@ -4613,11 +4691,11 @@
     },
     {
       "structure_id": "recon_1835_north_h2_028",
-      "name": "Ellen Cavanagh's boarding house",
-      "sign_text": "ELLEN CAVANAGH'S / Boarding House",
+      "name": "Cavanagh's boarding house",
+      "sign_text": "CAVANAGH'S / Boarding House",
       "sign_lines": [
         {
-          "text": "ELLEN CAVANAGH'S",
+          "text": "CAVANAGH'S",
           "role": "name"
         },
         {
@@ -4626,7 +4704,7 @@
         }
       ],
       "sign_identity": "Cavanagh",
-      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Ellen Cavanagh's boarding house (rcb_cavanagh_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Cavanagh's boarding house (rcb_cavanagh_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
       "sign_text_confidence": "reconstructed",
       "sign_text_sources": [],
       "trade": "boarding_house",
@@ -4652,16 +4730,16 @@
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.62,
-      "board_h_m": 0.74,
+      "board_w_m": 1.56,
+      "board_h_m": 0.71,
       "board_thickness_m": 0.05,
       "geometry": {
         "awning_projection_m": 1.45,
         "awning_drop_m": 0.34,
-        "awning_width_m": 2.52,
+        "awning_width_m": 2.46,
         "hanger_drop_m": 0.2
       },
-      "reach_m": 2.04,
+      "reach_m": 2.02,
       "wall_height_m": 5.92,
       "wall_height_from": "the record",
       "frontage_m": 8.88,
@@ -4686,11 +4764,11 @@
     },
     {
       "structure_id": "recon_1835_north_h2_030",
-      "name": "Newell's boarding house",
-      "sign_text": "NEWELL'S / Boarding House",
+      "name": "Lydia Newell's boarding house",
+      "sign_text": "LYDIA NEWELL'S / Boarding House",
       "sign_lines": [
         {
-          "text": "NEWELL'S",
+          "text": "LYDIA NEWELL'S",
           "role": "name"
         },
         {
@@ -4699,7 +4777,7 @@
         }
       ],
       "sign_identity": "Newell",
-      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Newell's boarding house (rcb_newell_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Lydia Newell's boarding house (rcb_newell_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
       "sign_text_confidence": "reconstructed",
       "sign_text_sources": [],
       "trade": "boarding_house",
@@ -4757,11 +4835,11 @@
     },
     {
       "structure_id": "recon_1835_north_h2_045",
-      "name": "Benjamin Gilbert's boarding house",
-      "sign_text": "BENJAMIN GILBERT'S / Boarding House",
+      "name": "Gilbert's boarding house",
+      "sign_text": "GILBERT'S / Boarding House",
       "sign_lines": [
         {
-          "text": "BENJAMIN GILBERT'S",
+          "text": "GILBERT'S",
           "role": "name"
         },
         {
@@ -4770,7 +4848,7 @@
         }
       ],
       "sign_identity": "Gilbert",
-      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Benjamin Gilbert's boarding house (rcb_gilbert_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
+      "sign_text_from": "A RECONSTRUCTED FIRM'S OWN STYLE, LETTERED (T-1834). The business layer records Gilbert's boarding house (rcb_gilbert_boarding_house) in this roof, a reconstructed house of trade with no advertisement, because the firm itself is reconstructed. Its style is the keeper's possessive (T-1184 form 5), written to the register's own forms by T-1184 (docs/RESEARCH/business-naming-1835.md); the board letters the proprietor half large and the trade half beneath, and adds nothing the firm's record does not say. Tap the board and the card leads with the same firm. Reconstructed: no source records this house, its keeper or its board (docs/LIBERTIES.md L340).",
       "sign_text_confidence": "reconstructed",
       "sign_text_sources": [],
       "trade": "boarding_house",

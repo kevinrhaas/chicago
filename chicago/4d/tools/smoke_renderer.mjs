@@ -5350,9 +5350,18 @@ for (const [label, viewport, touch] of [
     // from all 25 aims — to the same traveller's ground as the reading above,
     // looking down onto the deck. The assertion itself does not move: twenty-five
     // aims across the crosshair, and the layer's own pick must name the inn.
+    //
+    // T-1955 — AND THE AIM MOVES WITH THE GROUND THE STAND IS ON. T-1812 graded
+    // Lake Street, and the stand is in its bed: the ground there fell from 1.00 m
+    // to 0.83 m while the walk at N -96.4 to -98.2 kept its 0.99 m. From the
+    // lower eye, pitch -6 put the 390x780 grid's rows 5.3 m and 13.7 m out — one
+    // short of the 1.8 m deck at 6.7 m, the next past it — and all 25 aims
+    // returned nothing although the deck stood at the screen's centre. Pitch -12
+    // lays the crosshair's own row on the deck from this eye in both viewports
+    // (measured: 5 of 25 aims name the inn on each; -10 still misses on mobile).
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -6 }));
+      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -12 }));
     await page.waitForTimeout(600);
     const frontagePick = await page.evaluate(() => {
       const a = window.__chicago4d;

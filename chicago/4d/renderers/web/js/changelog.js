@@ -1,11 +1,30 @@
 export const CHANGELOG = [ // newest first
-  { v: 1288, ts: '2026-10-02T06:16:33.519Z', date: 'Oct 2, 2026, 1:16 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
+  { v: null, ts: '', date: '', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
     items: [
       'Stand on South Water Street and look toward the river. The bank between the street and the water is now trodden earth, darkening to mud at the water\u2019s edge. Grass survives only in a few untrodden patches, and no willows or reeds stand along it.',
       'The five South Water docks now sit low, level with the bank behind them, instead of on a raised platform reached by steps. You walk straight from the street, across bare earth, onto the planks.',
       'Behind every dock a bare earth path runs back to the street, worn by carts and barrows. The two docks on the North Branch and at Wolf Point have one too, cut down their higher bank.',
       'The banks across the river, which no dock works, keep their grass and trees.',
       'All of this is our reconstruction. No 1835 source describes the bank\u2019s surface or a dock\u2019s height. The Liberties page says what we chose and why (L345).',
+    ] },
+  { v: 1290, ts: '2026-10-02T07:00:31.882Z', date: 'Oct 2, 2026, 2:00 AM CT', title: 'Board crossings now rest on the street instead of sinking into it', kind: 'fix',
+    items: [
+      'Since the streets were lowered, the board crossings step down into each street and back up. On those slopes the ends of some crossing boards were buried up to a hand\u2019s width in the dirt. Look at the crossings on Washington, Randolph and South Water Street.',
+      'Each crossing is now cut into shorter boards where the ground slopes, and each board rests on its own patch of ground. Where it slopes across the crossing, the boards step with it. Nothing is buried, and level crossings are unchanged.',
+    ] },
+  { v: 1289, ts: '2026-10-02T05:42:06.241Z', date: 'Oct 2, 2026, 12:42 AM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
+    items: [
+      'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
+      'Its courtyard roof repeats the north wing’s flared eave. The alley dormer rises with the roof so its window remains visible.',
+      'The revised rear shape is a reconstruction following the owner’s sketch; the floor-plan footprint and window positions are retained.'
+    ] },
+  { v: 1288, ts: '2026-10-02T05:18:43.463Z', date: 'Oct 2, 2026, 12:18 AM CT', title: 'A boarding house on Illinois Street, with its stable and privy', kind: 'change',
+    items: [
+      'Cross the river to Kinzie\u2019s Addition and walk east along Illinois Street to Cass. The corner now has a boarding house: two storeys of clapboard set close to the street, with a kitchen wing behind it.',
+      'Eight chamber windows run across its upper floor and five stovepipes rise through its roof, counted from the fourteen people it sleeps on an ordinary night. A log stable and a privy stand in its yard, off the alley.',
+      'Ten people sleep there tonight, and Hannah Chapin keeps the house. Tap it and its card opens on Chapin\u2019s boarding house.',
+      'Some North Side lodgers moved over to it, and Kelsey\u2019s boarding-house now stands empty. The second Washington Street house and a West Side boarding house each sleep one fewer and lose a stovepipe.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper here in 1835. The Liberties page (L344) says how each was placed and sized.',
     ] },
   { v: 1287, ts: '2026-10-02T04:27:28.754Z', date: 'Oct 1, 2026, 11:27 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
