@@ -13418,9 +13418,11 @@ letter-list name is worth), tickets **T-1386**, **T-1172**, **T-1144**, the re-c
 **Recorded:** 2026-09-19.
 
 ### L254 — Two apothecaries' shops stand in the town because a census counted four and the newspapers name two
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, fourteen are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards, fifteen are **L262**'s services, and four are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, fourteen are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards, fifteen are **L262**'s services, and four are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**, to 39 with T-1809's second Washington-tier boarding house in **L257**, to 40 with T-1952's North Division boarding house in **L257**, to 41 with T-1950's third Washington-tier house in **L257**, and to 44 with T-1951's three South houses on the Market and Dearborn blocks in **L257**. The historical decisions below are retained; this entry does not claim those eight additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1184) writes reconstructed business
 records into `data/businesses/authored/`, one for every house the reconstruction order book
@@ -13692,7 +13694,7 @@ adoption there claims a STREET FACE, and a roof off the alley has none.
 
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which FOURTEEN are this
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which FOURTEEN are this
 entry's. **T-1951 added the twelfth, thirteenth and fourteenth on 2026-10-02 the same way:** the South's three H3 boarding houses on `blk_washington_market` and `blk_washington_dearborn` (`recon_1835_blk_washington_market_h3_01`, `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**) got beds and drawn keepers, and *Louis Robillard's*, *Laframboise's* and *Edward McCarthy's boarding house* follow the roofs. **T-1950 added the eleventh on 2026-10-02 the same way:** the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**) got beds and a drawn keeper, and *Trottier's boarding house* follows the roof. **T-1952 added the tenth on 2026-10-02 the same way:** the North Division's one H3 boarding house the plan offers (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**) got beds and a drawn keeper, and *Chapin's boarding house* follows the roof. **T-1809 added the ninth on 2026-10-01 the same way:** the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**) got beds and a drawn keeper, and *Stebbins's boarding house* follows the roof. **T-1778 added the eighth on 2026-10-01 the same way:** it raised the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**), the lodging model gave it beds, the lodgers stage gave it a keeper, and *Lynch's boarding house* follows the roof. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
 yards, **L262**'s services and **L307**'s four Canal approach firms; the
@@ -13700,6 +13702,8 @@ selector reads the whole reconstructed layer, so the count is restated here rath
 narrowed, and each entry says which of the thirty-eight are its own.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1408) writes a reconstructed
 business record for each of the six standing reconstructed boarding houses —
@@ -13777,7 +13781,7 @@ the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
 ### L258 — A brewery and a jeweller's shop stand for a census count, and the brewery carries on its own card the newspaper that argues against it
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade. TWO are this entry's, the
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade. TWO are this entry's, the
 mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, fourteen
 **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and
 lumber yards, fifteen **L262**'s services and four **L307**'s Canal approach firms. The
@@ -13785,6 +13789,8 @@ selector reads the whole layer, so the count is restated here rather than narrow
 register keeps saying how many reconstructed houses of trade the town carries in total
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group mechanics_shops` (T-1185) writes
 **two** houses, the second group of the business reconstruction: *M. Quinn, brewery* on the
@@ -13844,7 +13850,7 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **Recorded:** 2026-09-19.
 
 ### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which ONE is this
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which ONE is this
 entry's: a single law office. The physician's room went the same way as the second law
 office, and the block below says how. The other forty-three are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
@@ -13853,6 +13859,8 @@ this entry's own group, and the half no census line reaches — and **L307**'s f
 reconstructed layer, so the count is restated here rather than narrowed.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1418, of T-1186) writes **two** reconstructed records: *B. Robillard, attorney and counsellor at
@@ -13966,7 +13974,7 @@ nowhere), **T-1404** (a premises for every in-window trade) and **T-1189** (thei
 
 ### L260 — Two livery stables and two lumber yards stand because the men who kept them were already drawn, and nothing else in this town could buy them
 
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which FOUR are this
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which FOUR are this
 entry's. The other forty are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
 **L262**'s services, which take this entry's own fourth form into four more trades, and
@@ -13975,6 +13983,8 @@ selector reads the whole reconstructed layer, so the count is restated here rath
 narrowed, and each entry says which of the thirty-eight are its own.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1424, of T-1409 and T-1187) writes a
 reconstructed business record for each of the four reconstructed trade heads the resident
@@ -14127,7 +14137,7 @@ which takes the West Division streets off the old E −320 clip. **Recorded:** 2
 
 ### L262 — Fifteen service houses stand because the women and men who kept them were already drawn, and the December census has no line that could ever have counted them
 
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which FIFTEEN are
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which FIFTEEN are
 this entry's: nine millineries, four land offices, one dress making shop and one barber's
 shop. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
@@ -14135,6 +14145,8 @@ shop. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned 
 the count is restated here rather than narrowed, and each entry says which of the thirty-eight are its own.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1419, of T-1186) writes fifteen reconstructed business records on **L260**'s fourth form,
@@ -19910,7 +19922,61 @@ yards), **T-0067** (enclosure ground treatments), **T-0124** (the sward gives wa
 ground), **T-1984** (this entry).
 **Recorded:** 2026-10-02.
 
-### L360 — The empty trade roofs offered to the keepers owed a house of their trade, and why none is kept
+
+### L360 — Seven houses of trade stand because their keepers were already drawn at trades no census line and no count of shops reaches
+
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which SEVEN are this
+entry's: three refectories, one auction room, one mill, one brickyard and one soap and candle
+manufactory. The other forty-four are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions,
+**L260**'s liveries and lumber yards, **L262**'s services and **L307**'s four Canal approach
+firms; the selector reads the whole reconstructed layer, so the count is restated here rather
+than narrowed.
+
+**Decision:** `tools/reconstruct_businesses_1835.py --group uncounted_trades` (T-2001, piece 2
+of 2 of T-1998) writes seven reconstructed business records on **L260**'s fourth form, the
+**trade head** — *Hannah Barnes, refectory* on South Water, *Hannah Pratt, refectory* on
+Dearborn, *H. Ingalls, refectory* on Kinzie, *J. Nichols, auction and commission* on
+Dearborn, *T. Vieau, miller* on West Water, *Thomas Nolan, brickmaker* on Market and *J.
+Kellogg, soap and candle manufactory* on West Water. Each adopts its head as sole
+proprietor, takes a `street_only` face off a stated rule, is typed `other`, and is withdrawn
+with the head. What is invented is that each of these seven kept a house of the trade, the
+style it signed, and the street it stood on.
+
+**Why the head and not a count.** The premises rulings send all five trades to premises of the
+keeper's own with census class `other`: the December 1835 State census has no line for a
+refectory, an auction room, a grist mill, a brickyard or a chandlery, and the Chicago
+American's twenty-five mechanics' shops (T-2000's count) do not reach them either. So no
+shortfall can be counted and T-1996's answer — the printed count is already held — has no
+count to hold. What is committed is the person: `trade_households` drew these seven out of the
+1839 trade table, and a drawn keeper of a trade that names its house, with no house, is a
+card that says she keeps a refectory while nothing in the town holds one. And each trade is a
+house the town's own record already holds one of — *the Refectory, kept by J. A. Collett*
+(Chicago Democrat, 9 July 1834), six auction rooms in the register, Blodgett's brickyard,
+Elston's manufactory — which is what confines the forms and the goods lines dealt. The mill is
+the exception, said so in its style: the register's two mills are steam saw mills, and the
+mill takes the naming guide's form 1 with the trade word the head was drawn at.
+
+**Which way it is wrong if it is wrong.** Toward too MANY houses only if two of these heads
+in fact worked in one house, or in a house the register already holds; toward too few
+everywhere else, because only heads already drawn buy houses.
+
+**The physician is not here.** His class is counted (fourteen physicians), the order book
+holds the bucket, and since T-1525 it orders two against one drawn head; the business band
+half-fills no count, so Dr. John McGuire stays owed a house by name under **T-1529**.
+**John Bates Jr.**, the one documented keeper among T-2001's ten, is not here either: his own
+*J. Bates jr., Auction Store* stands in the register, and `attested_trade_houses.json` joins
+him to it at `inferred`. Nothing is invented for him.
+
+**Would replace:** A register, directory or deed naming a real refectory, auction room, mill,
+brickyard or chandlery of 1835 in the same division takes that slot, and the record is
+withdrawn with its head (`tools/substitute_reconstruction.py --dry-run` prints the plan).
+
+**Related:** **L260** (the fourth form itself), **L262** (the same form for the services),
+**L259**; the tickets **T-2001**, **T-1998** (the parent), **T-1996**, **T-1419**, **T-1529**.
+**Recorded:** 2026-10-02.
+
+### L361 — The empty trade roofs offered to the keepers owed a house of their trade, and why none is kept
 
 **Applies to:** `data/reconstruction/1835_trade_roof_seats.json` (written by
 `tools/seat_trade_roofs_1835.py`), the `residents[]` row `tools/compile_scene.py`

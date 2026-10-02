@@ -5,7 +5,7 @@
   "parent_ticket": "T-1986",
   "target_date": "1835-07-01",
   "generated_by": "tools/seat_trade_roofs_1835.py",
-  "liberty": "L360",
+  "liberty": "L361",
   "not_a_reading": "no page of any source is read here. Every seat is an adjudication over committed records — which keeper owed a house of their own keeps it under which standing trade roof — and the meeting is the invention. The keeper's card is not touched.",
   "raises_no_roof": "every seat is a keeper put under a roof that already stands.",
   "inputs": [
@@ -52,7 +52,7 @@
     "roofs": 4,
     "seated": 0,
     "unseatable": 4,
-    "keepers_owed_a_house": 46
+    "keepers_owed_a_house": 39
   },
   "seats": [],
   "unseatable": [

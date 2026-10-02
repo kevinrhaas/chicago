@@ -6117,7 +6117,7 @@ selftest "…and its guards still fire when broken" \
 # take states why. Refused: a roof outside the deal's scope or answered twice or not at
 # all, a keeper given two roofs, a keeper the ledger owes no house, a keeper of the wrong
 # trade or division, and a roof called unseatable while keepers of its trade wait.
-# docs/LIBERTIES.md L360.
+# docs/LIBERTIES.md L361.
 step "every empty trade roof is kept by a keeper of its trade, or says why none is left" \
   python3 tools/seat_trade_roofs_1835.py --check
 
