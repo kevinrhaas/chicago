@@ -1299,6 +1299,8 @@
   "street_sections": {
     "streets_file": "data/streets/1835.json",
     "water_floor_ft": 0.33,
+    "shelf_clear_m": 2.5,
+    "shelf_clear_note": "The cut reaches nothing one heightfield cell INSIDE the worked edge, not at it. The renderer reads the ground bilinearly between 2.5 m samples, so a sample lowered at the worked edge drags the ground down across the next 2.5 m - which on a principal street is the plank walk's own strip, and the walk rule (tools/generate_frontage_works.py, 0.04 m under one stringer bay) refuses a walk on ground that rolls. Held one cell clear, no lowered sample can reach a walk, and the worked earth's outer 2.5 m is the shoulder climbing back to the shelf.",
     "classes": [
       {
         "id": "principal",

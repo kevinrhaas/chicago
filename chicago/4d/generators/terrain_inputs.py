@@ -143,7 +143,7 @@ CONSUMED = {
     "swales": frozenset({"line", "half_width_m", "depth_ft", "depth_profile"}),
     "approaches": frozenset({"line", "mode", "deck_ft", "grade", "half_width_m",
                              "side_slope", "end_overhang_m"}),
-    "street_sections": frozenset({"streets_file", "water_floor_ft", "classes", "traffic",
+    "street_sections": frozenset({"streets_file", "water_floor_ft", "shelf_clear_m", "classes", "traffic",
                                   "worked_share", "crown_depth_ft", "gutter_depth_ft",
                                   "gutter_inset_m", "keep_clear", "e", "n", "flat_m",
                                   "outer_m"}),

@@ -1109,7 +1109,8 @@ def build_field(spec, feats, origin, streets=None):
     # walks, and the shelf and doors beside them, keep the plain's own height;
     # inside the worked width the bed is crowned at the line streets.js draws and
     # deepest in a gutter `gutter_inset_m` inside each shoulder, rising to the
-    # shelf across that inset. Streets combine by the deeper cut, so a crossing
+    # shelf across that inset and reaching it `shelf_clear_m` inside the worked
+    # edge, so no lowered sample reaches the walk. Streets combine by the deeper cut, so a crossing
     # is one surface. It runs before the approaches, whose max()/min() then
     # still meet every deck exactly as authored. A structure standing inside a
     # worked width keeps its ground (`keep_clear`). Every depth is the spec's
@@ -1118,8 +1119,10 @@ def build_field(spec, feats, origin, streets=None):
     ss = spec.get("street_sections")
     if ss and streets:
         cut_ft = np.zeros(E.shape)
+        clear = float(ss.get("shelf_clear_m", 0.0))
         for st in street_lines(streets, ss):
-            pts, half, inset = st["line"], st["half_m"], st["inset_m"]
+            pts, inset = st["line"], st["inset_m"]
+            half = max(st["half_m"] - clear, 2.0 * inset)
             es = [p[0] for p in pts]
             ns = [p[1] for p in pts]
             c0 = max(0, int((min(es) - half - e0) // cell))

@@ -465,6 +465,7 @@ EDGE_PLANK_PITCH_M = 0.32   # 12.5 in boards — a street walk's stock, wider th
 EDGE_STRINGER_PITCH_M = 2.08  # boards to a stringer bay (see the note on cost)
 EDGE_STRINGER_ROLL_M = 0.04   # ground a single bay-length stringer may span (audited)
 EDGE_CROSS_STEP_M = 1.8       # a crossing is cut this often along its run
+EDGE_CROSS_TREAD_M = 0.6      # the shortest walking deck a crossing steps down a shoulder in (T-1812)
 # A TOWN'S WORTH OF BOARDS IS A DIFFERENT ARITHMETIC FROM AN INN'S FRONTAGE, and
 # these three numbers are the whole of the difference. A walk board is a box, and
 # of its twelve triangles the two facing the earth under it are the ones nobody
@@ -3852,15 +3853,50 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
         # The crossing's own walking decks: the same flat-deck rule the walks
         # keep, cut straight out of the run because a crossing is one straight
         # line and its relief is measured end to end.
+        # T-1812. A GRADED STREET IS LOWER THAN THE WALKS IT RUNS BETWEEN, so a
+        # crossing over one steps down off the shelf, runs across the bed and
+        # steps up again. Its boards already follow that (frontage.js cuts them
+        # every `plank_step_m` onto the ground); its walking decks have to as
+        # well, or the walker would stand on a flat deck at the shelf's height
+        # over a hollow it can see the planks lying in. So where the even cut
+        # breaks the flat-deck rule, the run is cut greedily instead, at a
+        # tread's grain (EDGE_CROSS_TREAD_M), into the fewest pieces whose
+        # ground stays inside the rule: a few short treads down each shoulder,
+        # one long deck across the bed, and on level ground exactly the pieces
+        # it always had.
         decks = []
-        pieces = max(1, math.ceil(run / EDGE_DECK_MAX_M))
         hw = EDGE_CROSS_W_M / 2.0
         ux = (b_pt[0] - a_pt[0]) / run
         un = (b_pt[1] - a_pt[1]) / run
+
+        def span_roll(s0, s1):
+            n_st = max(2, int((s1 - s0) / PLANK_PITCH_M))
+            gs = [hf.height(a_pt[0] + ux * (s0 + (s1 - s0) * i / n_st),
+                            a_pt[1] + un * (s0 + (s1 - s0) * i / n_st))
+                  for i in range(n_st + 1)]
+            return max(gs) - min(gs)
+
+        even = max(1, math.ceil(run / EDGE_DECK_MAX_M))
+        bounds = [run * k / even for k in range(even + 1)]
+        if any(span_roll(bounds[k] - EDGE_DECK_LAP_M, bounds[k + 1] + EDGE_DECK_LAP_M)
+               > EDGE_FLAT_M * 2 for k in range(even)):
+            grain = max(1, int(math.ceil(run / EDGE_CROSS_TREAD_M)))
+            cuts = [run * k / grain for k in range(grain + 1)]
+            bounds = [0.0]
+            k = 0
+            while k < grain:
+                j = k + 1
+                while (j < grain and cuts[j + 1] - cuts[k] <= EDGE_DECK_MAX_M
+                       and span_roll(cuts[k] - EDGE_DECK_LAP_M,
+                                     cuts[j + 1] + EDGE_DECK_LAP_M) <= EDGE_FLAT_M * 2):
+                    j += 1
+                bounds.append(cuts[j])
+                k = j
+        pieces = len(bounds) - 1
         rolled = 0.0
         for p in range(pieces):
-            t0 = run * p / pieces - EDGE_DECK_LAP_M
-            t1 = run * (p + 1) / pieces + EDGE_DECK_LAP_M
+            t0 = bounds[p] - EDGE_DECK_LAP_M
+            t1 = bounds[p + 1] + EDGE_DECK_LAP_M
             plow = float("inf")
             phigh = -float("inf")
             for i in range(max(2, int((t1 - t0) / PLANK_PITCH_M)) + 1):
