@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+  { v: 1287, ts: '2026-10-02T05:11:54.908Z', date: 'Oct 2, 2026, 12:11 AM CT', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
     items: [
       'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
       'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fifteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
