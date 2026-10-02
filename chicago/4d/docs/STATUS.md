@@ -1,3 +1,26 @@
+## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
+
+Piece 1 of 3 of T-1982 (T-1966 → T-1215, the owner's *"a place to work"*). The completion audit
+counted **308** working-age persons owed a workplace. **78** of them were already named on a
+business record — as proprietor or partner (72: the inferred houses of the trades, the houses the
+business band drew and adopted a head to keep) or on its staff (6, all attested: the Indian agent
+and his interpreter, the land-office register, the county clerk, the Presbyterian minister, the
+priest of St Mary's). `tools/employment_coverage_1835.py` read the card's `workplaces[]` and the
+seating only, and loaded `data/businesses/*.json` without `authored/`, where every one of those
+records lives. It now reads `proprietors[]`, `partners[]` and `staff[]` across both folders, on
+records present at the scene date, for any person the card and the seating left without a house
+(never below the working-age floor), with three new reasons and the record's own tier in
+`decided_by`. **88 rows move**: the 78, seven own-account people whose age band straddles the floor,
+two more of those at a trade, and Edmund D. Taylor, the land office's receiver, whose card records
+no trade. Owed a workplace **308 → 230**; at a workplace **233 → 312** (attested 112 → 155).
+`verify` now refuses a register answer whose house does not name the person.
+
+**Not done, and owned:** T-1991 (25 attested + 71 class-held at a trade with no house) and T-1992
+(134 on their own account whose house the register does not hold). The T-1433 seating block on a
+reconstructed head's card still says "Owed a house of their own" where the register now holds it —
+that block is T-1433's record of the draw, and the coverage answer printed beneath it is the
+current one.
+
 ## T-1959 — a woodpile at every dwelling, by the yard-by-household rule (2026-10-02)
 
 **What a visitor sees.** Behind 298 of the town's 299 dwellings, a woodpile against the back wall

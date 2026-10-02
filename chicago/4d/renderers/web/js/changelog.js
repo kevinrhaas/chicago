@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1317, ts: '2026-10-02T19:05:34.996Z', date: 'Oct 2, 2026, 2:05 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
+  { v: 1318, ts: '2026-10-02T19:14:24.160Z', date: 'Oct 2, 2026, 2:14 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
     items: [
       'Open the card of one of nine anonymous yard buildings on the West Division approaches, south of Lake Street or on the north side\u2019s east edge. It now says what the building was for and, where something ties it to one, which house it belonged to.',
       'Seven name their house. Four stand where the plan draws them in that house\u2019s yard, one shares a lot with it, and two are the barns of the two farms on the Des Plaines edge.',
       'Two belong to no house we can point to: a stable on the teamster road by Canal and Randolph, and a stable yard by the north pier. Their cards say what they were for and that whose they were is not known.',
       'Nobody is seated in them. What the card states is the building\u2019s use, and it is as much a reconstruction as the building. Nine fewer roofs now count as empty in the town\u2019s completion check.',
+    ] },
+  { v: 1317, ts: '2026-10-02T18:52:16.135Z', date: 'Oct 2, 2026, 1:52 PM CT', title: 'Eighty-eight more people\u2019s cards now name where they worked', kind: 'change',
+    items: [
+      'Open Billy Caldwell\u2019s card and look under Were they at work? It now names the Indian Agency, where he was the interpreter. Thomas Owen, the agent, has the same line.',
+      'James Whitlock and Edmund Taylor are named at the Land Office, Richard Hamilton at the county offices, Jeremiah Porter at the First Presbyterian Church and Father St. Cyr at St. Mary\u2019s.',
+      'Seventy-nine people who keep their own shop, tavern or office now name it, from Rufus Brown\u2019s boarding house to John Miller\u2019s tannery. Some of those shops are our reconstruction, and the card says so.',
+      'The business records already listed these people. Their cards now read those lists. On the City card, people owed a workplace drop from 308 to 230.',
     ] },
   { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
     items: [

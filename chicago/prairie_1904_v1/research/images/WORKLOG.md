@@ -66,14 +66,27 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
-## Image store status (2026-10-02)
+## Image store status — LIVE (verified 2026-10-02)
 
-The bytes live in kevinrhaas/chicago-images (`prairie-1904/files/`, 824 files, 102.9 MB at PR #283).
-Its Pages site (`kevinrhaas.github.io/chicago-images/`) is NOT live yet. The owner has to switch it on
-once (Settings → Pages → Source: GitHub Actions), then re-run its `pages` workflow. Until then the
-viewer serves the package's frozen copy (`research/images/files/`), or the holder's URL for files
-only in the store. When the store serves, drop `research/images/files` from `tools/publish.py` and
-delete the folder (see its README).
+The bytes live in kevinrhaas/chicago-images (`prairie-1904/files/`: 824 files, 102.9 MB). Its Pages
+site is live at `https://kevinrhaas.github.io/chicago-images/`; the owner enabled it on 2026-10-02.
+
+**What was checked:**
+- The live `MANIFEST.json` lists all 824 files.
+- 25 randomly sampled files return 200 `image/jpeg` with byte counts exactly matching `STORE.json`.
+- The dev-preview viewer reads its images from the store at desktop size.
+- At 390×780 the same viewer (a local copy pointed at the live store) renders with zero page
+  errors.
+
+**Cleanup done (2026-10-02, owner-approved).** The retired `research/images/files/` was deleted
+after two checks:
+- All 295 of its files are in the store. 73 Robinson thumbnails there are newer re-derivations, and
+  those are the ones the records cite.
+- Nothing in the pre-fire, postfire or Prairie sites referenced the folder.
+
+`publish.py` no longer copies it, and `validate.py` refuses any image file placed there. The
+package's `research/public/` (Glessner HABS and Houghton files) stays; it is package-served by
+design.
 
 ## Fourth pass — south half and adjacent buildings, by address and owner (2026-10-02)
 

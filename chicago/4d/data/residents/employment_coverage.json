@@ -15,6 +15,7 @@
     "data/residents/{households,reconstructed_trades,lodgers,underdocumented,transients,readmitted,merged}/*.json",
     "data/residents/reconstructed_seating.json (T-1433)",
     "data/businesses/*.json",
+    "data/businesses/authored/*.json (the register's own people rows, T-1990)",
     "data/businesses/rulings/premises_rulings.json",
     "data/reconstruction/1835_business_staffing_model.json",
     "data/reconstruction/1835_town_model.json"
@@ -35,13 +36,15 @@
     "statuses": {
       "at_a_named_house": {
         "reasons": [
-          "named_by_a_source"
+          "named_by_a_source",
+          "on_the_staff_of_a_house"
         ],
         "places_them_at_work": true
       },
       "at_a_seat_this_project_drew": {
         "reasons": [
-          "seated_by_the_staffing_model"
+          "seated_by_the_staffing_model",
+          "drawn_onto_a_house_s_staff"
         ],
         "places_them_at_work": true
       },
@@ -62,18 +65,22 @@
       },
       "on_their_own_account": {
         "reasons": [
-          "keeps_their_own_house"
+          "keeps_their_own_house",
+          "keeps_a_house_the_register_holds"
         ],
         "places_them_at_work": true
       }
     },
     "reasons": {
       "class_held_no_house": "The staffing model names the class of house that employed this trade and the layer holds none of it trading on 1 July 1835, or every one is full to the band's high end. The town is owed more houses of the kind; the person is not put in one that is already full.",
+      "drawn_onto_a_house_s_staff": "A record in the business register carries this person on its staff at the reconstructed tier: this project drew them there, and the record says by what rule.",
+      "keeps_a_house_the_register_holds": "A record in the business register names this person as the house's proprietor or partner, so they kept it and worked in it. The house is named here at the grade that record gives the proprietorship: attested where a source prints it, inferred where the trade's premises ruling raised it, reconstructed where this project drew the house and adopted them to keep it.",
       "keeps_their_own_house": "The premises ruling for this trade says it kept a house of trade of its own, so this person is their own employer. Where the layer holds no such record the house is OWED — a gap in the business register, not a person out of work.",
       "named_by_a_source": "A source names the house this person worked in, and the houses are listed above at the grade the business record gave each one.",
       "no_employer_named": "The premises ruling says this trade kept no premises of its own, and the staffing model employs it in nobody else's: the soldier at the post, the laundress over her own tub, the farmer on his own ground. They are at work and the business layer has no house to join them to.",
       "no_ruling_on_the_trade": "`premises_rulings.json` has never ruled on this trade, so whether it kept premises of its own is unanswered. T-1404 owns the ruling; until it is made this pass says so rather than guessing at it.",
       "no_trade_recorded": "No source records a trade for this person and no reconstruction stage has given them one. This is a statement about the evidence and not about the person: a trade is not read in from the household, and none is supplied here.",
+      "on_the_staff_of_a_house": "A record in the business register names this person on its own staff: the office, church or agency they served, at a source the record cites. They did not keep the house; they worked in it.",
       "seated_by_the_staffing_model": "No source names a house for this person. The staffing model names a class of house that employed their trade, the layer held one with room in its band, and this project seated them there — a draw, shown above with the seed that redraws it.",
       "trade_attested_no_house_named": "The sources name this person's trade and name no house for it. Drawing one would put a man the record knows into a shop nobody put him in, so no seat is drawn and the absence is carried instead."
     },
@@ -82,21 +89,23 @@
   "counts": {
     "people": 3357,
     "by_status": {
-      "at_a_named_house": 112,
+      "at_a_named_house": 121,
       "at_a_seat_this_project_drew": 123,
-      "at_a_trade_with_no_house_to_join": 269,
-      "no_trade_recorded": 2640,
+      "at_a_trade_with_no_house_to_join": 261,
+      "no_trade_recorded": 2639,
       "on_their_own_account": 213
     },
     "by_reason": {
       "class_held_no_house": 71,
-      "keeps_their_own_house": 213,
+      "keeps_a_house_the_register_holds": 79,
+      "keeps_their_own_house": 134,
       "named_by_a_source": 112,
-      "no_employer_named": 162,
-      "no_ruling_on_the_trade": 5,
-      "no_trade_recorded": 2640,
+      "no_employer_named": 161,
+      "no_ruling_on_the_trade": 4,
+      "no_trade_recorded": 2639,
+      "on_the_staff_of_a_house": 9,
       "seated_by_the_staffing_model": 123,
-      "trade_attested_no_house_named": 31
+      "trade_attested_no_house_named": 25
     },
     "by_age_scope": {
       "age_is_not_settled": 544,
@@ -106,32 +115,32 @@
     "by_age_scope_and_status": {
       "age_is_not_settled": {
         "at_a_seat_this_project_drew": 2,
-        "at_a_trade_with_no_house_to_join": 20,
+        "at_a_trade_with_no_house_to_join": 18,
         "no_trade_recorded": 515,
-        "on_their_own_account": 7
+        "on_their_own_account": 9
       },
       "below_working_age": {
         "no_trade_recorded": 541
       },
       "working_age": {
-        "at_a_named_house": 112,
+        "at_a_named_house": 121,
         "at_a_seat_this_project_drew": 121,
-        "at_a_trade_with_no_house_to_join": 249,
-        "no_trade_recorded": 1584,
-        "on_their_own_account": 206
+        "at_a_trade_with_no_house_to_join": 243,
+        "no_trade_recorded": 1583,
+        "on_their_own_account": 204
       }
     },
-    "placed_at_work": 448,
+    "placed_at_work": 457,
     "carry_a_trade": 668,
     "working_age": 2272,
-    "working_age_placed_at_work": 439,
-    "working_age_with_no_trade_recorded": 1584
+    "working_age_placed_at_work": 446,
+    "working_age_with_no_trade_recorded": 1583
   },
   "against_the_town_model": {
     "employed_persons": {
       "model_low": 425,
       "model_high": 588,
-      "the_layer_places": 448,
+      "the_layer_places": 457,
       "inside_the_band": true,
       "method_the_model_used": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "why_this_is_not_a_job_finished": "The model's band is a SIZE struck against a town of 2,353-3,265 people; the layer holds a different number of cards and the model's own open question says the 1840 industry columns have no row for domestic service at all. A figure inside a range is where the argument starts."
@@ -145,8 +154,8 @@
   },
   "what_this_does_not_do": {
     "the_business_side_is_T-1462s": "Nothing is written onto a business record here. `staff[]` stays as the register left it, and the order book's employment buckets stay unfilled until T-1459's re-cut lets the mint run.",
-    "it_supplies_no_trade": "2640 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
-    "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
+    "it_supplies_no_trade": "2639 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
+    "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating, the business register's own proprietors, partners and staff (T-1990) and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
   },
   "rows": [
     {
@@ -659,9 +668,14 @@
       "trade": "carpenter",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#carpenter = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_andrus_thomas_carpenter#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_andrus_thomas_carpenter"
+      ],
+      "house_names": [
+        "Thomas Andrus, carpenter"
+      ]
     },
     {
       "person_id": "ann_cierno",
@@ -1677,9 +1691,14 @@
       "trade": "trader",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#trader = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_beaubien_jean_baptiste_merchant#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_beaubien_jean_baptiste_merchant"
+      ],
+      "house_names": [
+        "Col. Jean Baptiste Beaubien, merchant and trader"
+      ]
     },
     {
       "person_id": "beaubien_john_s",
@@ -1729,9 +1748,14 @@
       "trade": "merchant",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#merchant = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_beaubien_madore_merchant#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_beaubien_madore_merchant"
+      ],
+      "house_names": [
+        "Madore Benjamin Beaubien, merchant"
+      ]
     },
     {
       "person_id": "beaubien_mark",
@@ -1742,9 +1766,14 @@
       "trade": "tavern_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#tavern_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_beaubien_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_beaubien_boarding_house"
+      ],
+      "house_names": [
+        "Mark Beaubien's boarding house"
+      ]
     },
     {
       "person_id": "beaubien_mark_household",
@@ -2372,9 +2401,14 @@
       "trade": "brickmaker",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#brickmaker = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_blodgett_tyler_k_brickmaker#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_blodgett_tyler_k_brickmaker"
+      ],
+      "house_names": [
+        "Tyler K. Blodgett, Henry S. Lampman, brickmaker"
+      ]
     },
     {
       "person_id": "bloget_josiah_i",
@@ -3152,9 +3186,14 @@
       "trade": "blacksmith",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#blacksmith = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_brown_lemuel_blacksmith#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_brown_lemuel_blacksmith"
+      ],
+      "house_names": [
+        "Lemuel Brown, blacksmith"
+      ]
     },
     {
       "person_id": "brown_mrs_rufus",
@@ -3165,9 +3204,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#boarding_house_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_brown_rufus_boarding_house_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_brown_rufus_boarding_house_keeper"
+      ],
+      "house_names": [
+        "Rufus Brown, Mrs Rufus Brown, boarding house keeper"
+      ]
     },
     {
       "person_id": "brown_rufus",
@@ -3178,9 +3222,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "inferred",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#boarding_house_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_brown_rufus_boarding_house_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_brown_rufus_boarding_house_keeper"
+      ],
+      "house_names": [
+        "Rufus Brown, Mrs Rufus Brown, boarding house keeper"
+      ]
     },
     {
       "person_id": "brown_william_h",
@@ -3574,10 +3623,15 @@
       "age_scope": "working_age",
       "trade": "interpreter",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#interpreter = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_indian_agency_chicago#staff (interpreter, attested), read by T-1990",
+      "houses": [
+        "biz_indian_agency_chicago"
+      ],
+      "house_names": [
+        "The United States Indian Agency at Chicago"
+      ]
     },
     {
       "person_id": "calhoun_alvin",
@@ -4507,9 +4561,14 @@
       "trade": "merchant",
       "trade_confidence": "inferred",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#merchant = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_church_thomas_merchant#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_church_thomas_merchant"
+      ],
+      "house_names": [
+        "Thomas Church, merchant"
+      ]
     },
     {
       "person_id": "churchill_alfred",
@@ -4882,9 +4941,14 @@
       "trade": "refectory_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#refectory_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_collett_j_a_refectory_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_collett_j_a_refectory_keeper"
+      ],
+      "house_names": [
+        "J. A. Collett, refectory keeper"
+      ]
     },
     {
       "person_id": "collins_j_h",
@@ -5120,9 +5184,14 @@
       "trade": "hotel_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#hotel_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_couch_ira_hotel_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_couch_ira_hotel_keeper"
+      ],
+      "house_names": [
+        "Ira Couch, James Couch, hotel keeper"
+      ]
     },
     {
       "person_id": "couch_james",
@@ -5133,9 +5202,14 @@
       "trade": "hotel_keeper",
       "trade_confidence": "inferred",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#hotel_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_couch_ira_hotel_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_couch_ira_hotel_keeper"
+      ],
+      "house_names": [
+        "Ira Couch, James Couch, hotel keeper"
+      ]
     },
     {
       "person_id": "courtney_henry",
@@ -5674,9 +5748,14 @@
       "trade": "hotel_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#hotel_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_davis_john_hotel_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_davis_john_hotel_keeper"
+      ],
+      "house_names": [
+        "John Davis, hotel keeper"
+      ]
     },
     {
       "person_id": "davis_t_o",
@@ -6614,9 +6693,14 @@
       "trade": "physician",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#physician = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_egan_william_b_physician#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_egan_william_b_physician"
+      ],
+      "house_names": [
+        "Dr William Bradshaw Egan, physician"
+      ]
     },
     {
       "person_id": "eldridge_john_w",
@@ -7732,9 +7816,14 @@
       "trade": "merchant",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#merchant = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_gale_stephen_f_merchant#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_gale_stephen_f_merchant"
+      ],
+      "house_names": [
+        "Stephen F. Gale, merchant"
+      ]
     },
     {
       "person_id": "galusha_ezra",
@@ -8434,9 +8523,14 @@
       "trade": "tanner",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#tanner = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_miller_john_tanner#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_miller_john_tanner"
+      ],
+      "house_names": [
+        "John Miller, Benjamin Hall, tanner"
+      ]
     },
     {
       "person_id": "hall_george",
@@ -8498,10 +8592,15 @@
       "age_scope": "working_age",
       "trade": "county_clerk",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#county_clerk = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_cook_county_offices#staff (county_clerk, attested), read by T-1990",
+      "houses": [
+        "biz_cook_county_offices"
+      ],
+      "house_names": [
+        "The Cook County offices, in Richard J. Hamilton's own room"
+      ]
     },
     {
       "person_id": "handy_henry_s",
@@ -8527,9 +8626,14 @@
       "trade": "mason",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#mason = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_handy_major_mason#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_handy_major_mason"
+      ],
+      "house_names": [
+        "Major Handy, mason"
+      ]
     },
     {
       "person_id": "hanford_comstock",
@@ -8644,9 +8748,14 @@
       "trade": "physician",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#physician = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_harmon_elijah_d_physician#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_harmon_elijah_d_physician"
+      ],
+      "house_names": [
+        "Dr Elijah Dewey Harmon, physician"
+      ]
     },
     {
       "person_id": "harmon_isaac_d",
@@ -9846,9 +9955,14 @@
       "trade": "cooper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#cooper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_inf_cooper_north_04_cooper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_inf_cooper_north_04_cooper"
+      ],
+      "house_names": [
+        "J. Garland, cooper"
+      ]
     },
     {
       "person_id": "inf_joiner_north_02",
@@ -9859,9 +9973,14 @@
       "trade": "joiner",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#joiner = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_inf_joiner_north_02_joiner#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_inf_joiner_north_02_joiner"
+      ],
+      "house_names": [
+        "J. W. Reed, joiner"
+      ]
     },
     {
       "person_id": "inf_physician_south_01",
@@ -9872,9 +9991,14 @@
       "trade": "physician",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#physician = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_inf_physician_south_01_physician#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_inf_physician_south_01_physician"
+      ],
+      "house_names": [
+        "Dr. Josiah C. Goodhue, physician"
+      ]
     },
     {
       "person_id": "inf_tailor_north_02",
@@ -10964,9 +11088,14 @@
       "trade": "founder",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#founder = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_keeney_g_w_founder#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_keeney_g_w_founder"
+      ],
+      "house_names": [
+        "G. W. Keeney, founder"
+      ]
     },
     {
       "person_id": "keeney_w",
@@ -11208,9 +11337,14 @@
       "trade": "physician",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#physician = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_kimberly_edmund_s_physician#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_kimberly_edmund_s_physician"
+      ],
+      "house_names": [
+        "Dr Edmund Stoughton Kimberly, physician"
+      ]
     },
     {
       "person_id": "kimberly_ira",
@@ -11408,9 +11542,14 @@
       "trade": "merchant",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#merchant = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_kinzie_james_merchant#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_kinzie_james_merchant"
+      ],
+      "house_names": [
+        "James Kinzie, merchant"
+      ]
     },
     {
       "person_id": "kinzie_john_h",
@@ -11848,9 +11987,14 @@
       "trade": "brickmaker",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#brickmaker = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_blodgett_tyler_k_brickmaker#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_blodgett_tyler_k_brickmaker"
+      ],
+      "house_names": [
+        "Tyler K. Blodgett, Henry S. Lampman, brickmaker"
+      ]
     },
     {
       "person_id": "langer_jacob",
@@ -13198,10 +13342,15 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "attested",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#blacksmith = own_premises",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_indian_agency_chicago#staff (blacksmith, attested), read by T-1990",
+      "houses": [
+        "biz_indian_agency_chicago"
+      ],
+      "house_names": [
+        "The United States Indian Agency at Chicago"
+      ]
     },
     {
       "person_id": "mclintock_thomas",
@@ -13342,9 +13491,14 @@
       "trade": "carpenter",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#carpenter = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_meeker_joseph_carpenter#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_meeker_joseph_carpenter"
+      ],
+      "house_names": [
+        "Joseph Meeker, carpenter"
+      ]
     },
     {
       "person_id": "meleney_patrick",
@@ -13576,9 +13730,14 @@
       "trade": "tanner",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#tanner = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_miller_john_tanner#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_miller_john_tanner"
+      ],
+      "house_names": [
+        "John Miller, Benjamin Hall, tanner"
+      ]
     },
     {
       "person_id": "miller_samuel",
@@ -14148,9 +14307,14 @@
       "trade": "tavern_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#tavern_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_murphy_john_tavern_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_murphy_john_tavern_keeper"
+      ],
+      "house_names": [
+        "John Murphy, Harriet Murphy, tavern keeper"
+      ]
     },
     {
       "person_id": "murphy_john",
@@ -14161,9 +14325,14 @@
       "trade": "tavern_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#tavern_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_murphy_john_tavern_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_murphy_john_tavern_keeper"
+      ],
+      "house_names": [
+        "John Murphy, Harriet Murphy, tavern keeper"
+      ]
     },
     {
       "person_id": "murphy_mary",
@@ -14931,10 +15100,15 @@
       "age_scope": "working_age",
       "trade": "indian_agent",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#indian_agent = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_indian_agency_chicago#staff (indian_agent, attested), read by T-1990",
+      "houses": [
+        "biz_indian_agency_chicago"
+      ],
+      "house_names": [
+        "The United States Indian Agency at Chicago"
+      ]
     },
     {
       "person_id": "paddock_jane",
@@ -15783,10 +15957,15 @@
       "age_scope": "working_age",
       "trade": "minister",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#minister = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_first_presbyterian_church#staff (minister, attested), read by T-1990",
+      "houses": [
+        "biz_first_presbyterian_church"
+      ],
+      "house_names": [
+        "The First Presbyterian Church of Chicago"
+      ]
     },
     {
       "person_id": "porthier_joseph",
@@ -15796,10 +15975,15 @@
       "age_scope": "working_age",
       "trade": "blacksmith",
       "trade_confidence": "attested",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#blacksmith = own_premises",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_indian_agency_chicago#staff (blacksmith, attested), read by T-1990",
+      "houses": [
+        "biz_indian_agency_chicago"
+      ],
+      "house_names": [
+        "The United States Indian Agency at Chicago"
+      ]
     },
     {
       "person_id": "pottier_augustin",
@@ -16698,9 +16882,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_bardwell_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_bardwell_boarding_house"
+      ],
+      "house_names": [
+        "Bardwell's boarding house"
+      ]
     },
     {
       "person_id": "rc_bardwell_harriet",
@@ -17267,9 +17456,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_barnes_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_barnes_boarding_house"
+      ],
+      "house_names": [
+        "Ezra Barnes's boarding house"
+      ]
     },
     {
       "person_id": "rc_barnes_george",
@@ -17992,9 +18186,14 @@
       "trade": "barber_surgeon",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_brady_barbers_shop#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_brady_barbers_shop"
+      ],
+      "house_names": [
+        "Daniel Brady, barber"
+      ]
     },
     {
       "person_id": "rc_brady_ellen",
@@ -18693,9 +18892,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_cavanagh_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_cavanagh_boarding_house"
+      ],
+      "house_names": [
+        "Cavanagh's boarding house"
+      ]
     },
     {
       "person_id": "rc_cavanagh_margaret",
@@ -18920,9 +19124,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_chapin_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_chapin_millinery"
+      ],
+      "house_names": [
+        "E. Chapin, millinery and dress making"
+      ]
     },
     {
       "person_id": "rc_chapin_ezra",
@@ -18946,9 +19155,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_chapin_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_chapin_boarding_house"
+      ],
+      "house_names": [
+        "Chapin's boarding house"
+      ]
     },
     {
       "person_id": "rc_chapin_harriet",
@@ -19156,9 +19370,14 @@
       "trade": "watchmaker",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_chevalier_silversmith_jeweller#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_chevalier_silversmith_jeweller"
+      ],
+      "house_names": [
+        "L. Chevalier, watches, jewelry, engravings and fancy goods"
+      ]
     },
     {
       "person_id": "rc_chevalier_medard",
@@ -19374,9 +19593,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_cobb_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_cobb_millinery"
+      ],
+      "house_names": [
+        "Maria Cobb, millinery"
+      ]
     },
     {
       "person_id": "rc_cobb_martha",
@@ -20166,9 +20390,14 @@
       "trade": "druggist",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_crandall_druggist#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_crandall_druggist"
+      ],
+      "house_names": [
+        "B. Crandall, drugs, medicines and dye stuffs"
+      ]
     },
     {
       "person_id": "rc_crandall_calvin",
@@ -20495,9 +20724,14 @@
       "trade": "land_agent",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_crandall_land_office#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_crandall_land_office"
+      ],
+      "house_names": [
+        "William Crandall, land agent"
+      ]
     },
     {
       "person_id": "rc_crocker_h_child_1",
@@ -21766,9 +22000,14 @@
       "trade": "livery_stable_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_dufresne_livery_stable#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_dufresne_livery_stable"
+      ],
+      "house_names": [
+        "J. Dufresne, livery stable"
+      ]
     },
     {
       "person_id": "rc_dufresne_michel",
@@ -22621,9 +22860,14 @@
       "trade": "land_agent",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_fairbanks_land_office#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_fairbanks_land_office"
+      ],
+      "house_names": [
+        "S. Fairbanks, land agent"
+      ]
     },
     {
       "person_id": "rc_fb_anderson_benjamin",
@@ -22633,10 +22877,15 @@
       "age_scope": "age_is_not_settled",
       "trade": "barber",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_ruling_on_the_trade",
-      "decided_by": "reconstructed_seating.json#no_ruling, drawn by T-1433",
-      "houses": []
+      "status": "on_their_own_account",
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_fb_barbers_shop#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_fb_barbers_shop"
+      ],
+      "house_names": [
+        "Benjamin Anderson, barber"
+      ]
     },
     {
       "person_id": "rc_fb_anderson_eliza",
@@ -22646,10 +22895,15 @@
       "age_scope": "age_is_not_settled",
       "trade": "laundress",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
+      "status": "on_their_own_account",
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_fb_washing_and_ironing#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_fb_washing_and_ironing"
+      ],
+      "house_names": [
+        "Eliza Anderson, washing and ironing"
+      ]
     },
     {
       "person_id": "rc_fb_anderson_harriet",
@@ -23433,9 +23687,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_fitzgerald_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_fitzgerald_boarding_house"
+      ],
+      "house_names": [
+        "Martin Fitzgerald's boarding house"
+      ]
     },
     {
       "person_id": "rc_fitzgerald_owen",
@@ -24242,9 +24501,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_gilbert_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_gilbert_boarding_house"
+      ],
+      "house_names": [
+        "Gilbert's boarding house"
+      ]
     },
     {
       "person_id": "rc_gilbert_clarissa",
@@ -24889,9 +25153,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_goodrich_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_goodrich_millinery"
+      ],
+      "house_names": [
+        "S. Goodrich, millinery and dress making"
+      ]
     },
     {
       "person_id": "rc_goodrich_sophronia",
@@ -25950,9 +26219,14 @@
       "trade": "lumber_merchant",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_hubbard_lumber_yard#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_hubbard_lumber_yard"
+      ],
+      "house_names": [
+        "A. Hubbard, lumber yard and store house"
+      ]
     },
     {
       "person_id": "rc_hubbard_benjamin",
@@ -26920,9 +27194,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_kellogg_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_kellogg_millinery"
+      ],
+      "house_names": [
+        "A. Kellogg, millinery"
+      ]
     },
     {
       "person_id": "rc_kellogg_alvah",
@@ -28146,9 +28425,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_laframboise_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_laframboise_boarding_house"
+      ],
+      "house_names": [
+        "Laframboise's boarding house"
+      ]
     },
     {
       "person_id": "rc_laframboise_victoire",
@@ -28678,9 +28962,14 @@
       "trade": "livery_stable_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_leland_livery_stable#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_leland_livery_stable"
+      ],
+      "house_names": [
+        "W. Leland, livery stable"
+      ]
     },
     {
       "person_id": "rc_leland_willard",
@@ -29613,9 +29902,14 @@
       "trade": "grocer",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_canal_mahoney_martin#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_canal_mahoney_martin"
+      ],
+      "house_names": [
+        "Martin Mahoney, grocery and provision store"
+      ]
     },
     {
       "person_id": "rc_mahoney_owen",
@@ -29745,9 +30039,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_mccarthy_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_mccarthy_boarding_house"
+      ],
+      "house_names": [
+        "Edward McCarthy's boarding house"
+      ]
     },
     {
       "person_id": "rc_mccarthy_ellen",
@@ -30219,9 +30518,14 @@
       "trade": "land_agent",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_metcalf_land_office#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_metcalf_land_office"
+      ],
+      "house_names": [
+        "Hiram Metcalf, land agent"
+      ]
     },
     {
       "person_id": "rc_metcalf_jared",
@@ -30297,9 +30601,14 @@
       "trade": "druggist",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_metcalf_druggist#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_metcalf_druggist"
+      ],
+      "house_names": [
+        "Nathaniel Metcalf, drugs, medicines and dye stuffs"
+      ]
     },
     {
       "person_id": "rc_metcalf_sarah",
@@ -30429,9 +30738,14 @@
       "trade": "land_agent",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_murphy_land_office#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_murphy_land_office"
+      ],
+      "house_names": [
+        "H. Murphy, house and land agent"
+      ]
     },
     {
       "person_id": "rc_murphy_margaret",
@@ -31135,9 +31449,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_newell_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_newell_boarding_house"
+      ],
+      "house_names": [
+        "Lydia Newell's boarding house"
+      ]
     },
     {
       "person_id": "rc_newell_maria",
@@ -32579,9 +32898,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_pelletier_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_pelletier_boarding_house"
+      ],
+      "house_names": [
+        "Victoire Pelletier's boarding house"
+      ]
     },
     {
       "person_id": "rc_pierce_asahel_child_1",
@@ -32988,9 +33312,14 @@
       "trade": "grocer",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_canal_pratt_seth#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_canal_pratt_seth"
+      ],
+      "house_names": [
+        "Seth Pratt, grocery and provision store"
+      ]
     },
     {
       "person_id": "rc_pratt_silas",
@@ -33170,9 +33499,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_quinn_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_quinn_millinery"
+      ],
+      "house_names": [
+        "Honora Quinn, millinery"
+      ]
     },
     {
       "person_id": "rc_quinn_james",
@@ -33224,9 +33558,14 @@
       "trade": "brewer",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_quinn_brewery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_quinn_brewery"
+      ],
+      "house_names": [
+        "M. Quinn, brewery"
+      ]
     },
     {
       "person_id": "rc_quinn_michael",
@@ -33819,9 +34158,14 @@
       "trade": "attorney",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_robillard_lawyer#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_robillard_lawyer"
+      ],
+      "house_names": [
+        "B. Robillard, attorney and counsellor at law, and solicitor in chancery"
+      ]
     },
     {
       "person_id": "rc_robillard_joseph",
@@ -33845,9 +34189,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_robillard_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_robillard_boarding_house"
+      ],
+      "house_names": [
+        "Louis Robillard's boarding house"
+      ]
     },
     {
       "person_id": "rc_robillard_medard",
@@ -34490,9 +34839,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_shea_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_shea_millinery"
+      ],
+      "house_names": [
+        "Mary Shea, millinery"
+      ]
     },
     {
       "person_id": "rc_shea_thomas",
@@ -35118,9 +35472,14 @@
       "trade": "carpenter",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_canal_stebbins_horace#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_canal_stebbins_horace"
+      ],
+      "house_names": [
+        "Horace Stebbins, carpenter shop"
+      ]
     },
     {
       "person_id": "rc_stebbins_joseph",
@@ -35880,9 +36239,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_sullivan_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_sullivan_millinery"
+      ],
+      "house_names": [
+        "Mary Sullivan, millinery"
+      ]
     },
     {
       "person_id": "rc_sullivan_thomas",
@@ -36781,9 +37145,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_trottier_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_trottier_boarding_house"
+      ],
+      "house_names": [
+        "Trottier's boarding house"
+      ]
     },
     {
       "person_id": "rc_trottier_joseph",
@@ -37593,9 +37962,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_walsh_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_walsh_millinery"
+      ],
+      "house_names": [
+        "H. Walsh, millinery and dress making"
+      ]
     },
     {
       "person_id": "rc_walsh_johanna",
@@ -38598,9 +38972,14 @@
       "trade": "lumber_merchant",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_woodruff_lumber_yard#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_woodruff_lumber_yard"
+      ],
+      "house_names": [
+        "Woodruff's lumber yard"
+      ]
     },
     {
       "person_id": "rc_woodruff_chauncey",
@@ -38715,9 +39094,14 @@
       "trade": "milliner",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_woodruff_millinery#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_woodruff_millinery"
+      ],
+      "house_names": [
+        "Hannah Woodruff, millinery and dress making"
+      ]
     },
     {
       "person_id": "rc_woodruff_harriet",
@@ -39434,9 +39818,14 @@
       "trade": "trader",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#trader = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_robinson_trading_house_wolf_point#proprietors (proprietor, attested), read by T-1990",
+      "houses": [
+        "biz_robinson_trading_house_wolf_point"
+      ],
+      "house_names": [
+        "Alexander Robinson's store or trading-house at Wolf Point"
+      ]
     },
     {
       "person_id": "robinson_catherine",
@@ -40838,9 +41227,14 @@
       "trade": "coffee_house_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#coffee_house_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_smith_george_coffee_house_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_smith_george_coffee_house_keeper"
+      ],
+      "house_names": [
+        "George Smith, coffee house keeper"
+      ]
     },
     {
       "person_id": "smith_jeremiah",
@@ -41192,10 +41586,15 @@
       "age_scope": "working_age",
       "trade": "priest",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#priest = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_st_marys_church#staff (priest, attested), read by T-1990",
+      "houses": [
+        "biz_st_marys_church"
+      ],
+      "house_names": [
+        "St. Mary's, the Catholic congregation of Chicago"
+      ]
     },
     {
       "person_id": "stafford_b_p",
@@ -41598,9 +41997,14 @@
       "trade": "hotel_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#hotel_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_stow_william_h_hotel_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_stow_william_h_hotel_keeper"
+      ],
+      "house_names": [
+        "William H. Stow, hotel keeper"
+      ]
     },
     {
       "person_id": "stowell_ralph",
@@ -41767,9 +42171,14 @@
       "trade": "tavern_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#tavern_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_sweet_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_sweet_boarding_house"
+      ],
+      "house_names": [
+        "Sweet's boarding house"
+      ]
     },
     {
       "person_id": "sweet_richard_m",
@@ -41847,9 +42256,14 @@
       "trade": "carpenter",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#carpenter = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_taylor_anson_h_carpenter#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_taylor_anson_h_carpenter"
+      ],
+      "house_names": [
+        "Anson H. Taylor, carpenter"
+      ]
     },
     {
       "person_id": "taylor_augustine",
@@ -41860,9 +42274,14 @@
       "trade": "carpenter",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#carpenter = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_taylor_augustine_carpenter#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_taylor_augustine_carpenter"
+      ],
+      "house_names": [
+        "Augustine Deodat Taylor, carpenter"
+      ]
     },
     {
       "person_id": "taylor_c",
@@ -41901,10 +42320,15 @@
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_us_land_office_chicago#staff (land_office_receiver, attested), read by T-1990",
+      "houses": [
+        "biz_us_land_office_chicago"
+      ],
+      "house_names": [
+        "The United States Land Office at Chicago"
+      ]
     },
     {
       "person_id": "taylor_william",
@@ -41998,9 +42422,14 @@
       "trade": "physician",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#physician = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_temple_john_t_physician#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_temple_john_t_physician"
+      ],
+      "house_names": [
+        "Dr John Taylor Temple, physician"
+      ]
     },
     {
       "person_id": "temple_mrs_john_t",
@@ -42024,9 +42453,14 @@
       "trade": "dentist",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#dentist = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_temple_peter_dentist#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_temple_peter_dentist"
+      ],
+      "house_names": [
+        "Dr Peter Temple, dentist"
+      ]
     },
     {
       "person_id": "tensenring_peter",
@@ -43045,9 +43479,14 @@
       "trade": "tavern_keeper",
       "trade_confidence": "inferred",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#tavern_keeper = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_walters_william_tavern_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_walters_william_tavern_keeper"
+      ],
+      "house_names": [
+        "William Walters, tavern keeper"
+      ]
     },
     {
       "person_id": "walton_henry",
@@ -43595,10 +44034,15 @@
       "age_scope": "working_age",
       "trade": "land_office_register",
       "trade_confidence": "attested",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "trade_attested_no_house_named",
-      "decided_by": "premises_rulings.json#land_office_register = no_fixed_premises, and no source names a house",
-      "houses": []
+      "status": "at_a_named_house",
+      "reason": "on_the_staff_of_a_house",
+      "decided_by": "the business register's own row: biz_us_land_office_chicago#staff (land_office_register, attested), read by T-1990",
+      "houses": [
+        "biz_us_land_office_chicago"
+      ],
+      "house_names": [
+        "The United States Land Office at Chicago"
+      ]
     },
     {
       "person_id": "whittier_daniel",
@@ -44077,9 +44521,14 @@
       "trade": "dry_goods_merchant",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: biz_woodworth_james_h_dry_goods_merchant#proprietors (proprietor, inferred), read by T-1990",
+      "houses": [
+        "biz_woodworth_james_h_dry_goods_merchant"
+      ],
+      "house_names": [
+        "James H. Woodworth, dry goods merchant"
+      ]
     },
     {
       "person_id": "woodworth_w",
