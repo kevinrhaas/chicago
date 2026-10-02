@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1325, ts: '2026-10-02T21:32:57.391Z', date: 'Oct 2, 2026, 4:32 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
       'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',
       'Eleven more keepers read the same. The other 26 now say which unbuilt or unsettled roof their house is waiting for.',
       'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 142 to 130.',
+    ] },
+  { v: 1325, ts: '2026-10-02T21:20:57.849Z', date: 'Oct 2, 2026, 4:20 PM CT', title: '37 shopkeepers and lawyers no longer read as owed a shop', kind: 'fix',
+    items: [
+      'Open the card of one of the town\u2019s reconstructed grocers, hardware or dry-goods merchants, lawyers or forwarders and look under \u201cWere they at work?\u201d. It used to say they kept a house of their own that nobody had built. It now says no house is owed, and gives the count that settles it.',
+      'Why: the State census of December 1835 counts 44 stores, and the town already holds 65 on 1 July. It counts 22 lawyers, which scales to 15 for a July town, and we hold 15. One more shop or office would be more than the census printed.',
+      'These 37 people are our reconstruction. Nobody a source names is told this: a documented watchmaker, E. H. Mulford, still waits on his own answer.',
+      'People in town still owed a place to work: 37 fewer than before.',
     ] },
   { v: 1324, ts: '2026-10-02T20:59:16.621Z', date: 'Oct 2, 2026, 3:59 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
     items: [

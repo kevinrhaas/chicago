@@ -15,6 +15,7 @@
     "data/residents/{households,reconstructed_trades,lodgers,underdocumented,transients,readmitted,merged}/*.json",
     "data/residents/reconstructed_seating.json (T-1433)",
     "data/residents/attested_trade_houses.json (T-1994)",
+    "data/reconstruction/1835_reconstruction_order_book.json (the printed counts, T-1996)",
     "data/businesses/*.json",
     "data/businesses/authored/*.json (the register's own people rows, T-1990)",
     "data/businesses/rulings/premises_rulings.json",
@@ -61,7 +62,8 @@
           "serves_an_establishment_outside_the_register",
           "not_held_by_the_establishment_on_the_scene_date",
           "a_civic_seat_and_not_a_house",
-          "works_on_other_people_s_ground"
+          "works_on_other_people_s_ground",
+          "the_printed_count_is_held"
         ],
         "places_them_at_work": false
       },
@@ -98,6 +100,7 @@
       "roofs_kept_none_owed": "The trade's house is a roof the programme schedules, a boarding house, and the order book cannot count one. Every standing boarding house is kept, and the roofs the programme still schedules are owed to the keepers ahead of this one in a seeded draw, so none is owed: the town is not short a boarding house this person would keep. They are still their own employer, and carry the trade on their own account with no house of their own (T-1997).",
       "seated_by_the_staffing_model": "No source names a house for this person. The staffing model names a class of house that employed their trade, the layer held one with room in its band, and this project seated them there — a draw, shown above with the seed that redraws it.",
       "serves_an_establishment_outside_the_register": "The establishment this trade served is held by a committed file that is not the business register — the garrison at the fort, an agency held for a company in another town — and that file places this person in it. They are at work, and no house of trade is owed (T-1994).",
+      "the_printed_count_is_held": "This trade kept a house of its own, and the December 1835 State census counts the class of house it kept. The register and the houses this project drew already hold that count on 1 July 1835 (the figures are below), so a house raised for this person would be one more than the census printed. They follow the trade and no house is owed; which of the held houses they kept, clerked or partnered in is not drawn (T-1996).",
       "trade_attested_no_house_named": "The sources name this person's trade and name no house for it. Drawing one would put a man the record knows into a shop nobody put him in, so no seat is drawn and the absence is carried instead.",
       "works_on_other_people_s_ground": "The premises ruling says this trade is done on somebody else's ground — inside the customer's building, in the field, in the vessel owner's yard — so it keeps no house of its own and is owed none (T-1994)."
     },
@@ -108,9 +111,9 @@
     "by_status": {
       "at_a_named_house": 126,
       "at_a_seat_this_project_drew": 123,
-      "at_a_trade_with_no_house_to_join": 248,
+      "at_a_trade_with_no_house_to_join": 285,
       "no_trade_recorded": 2639,
-      "on_their_own_account": 221
+      "on_their_own_account": 184
     },
     "by_reason": {
       "a_civic_seat_and_not_a_house": 5,
@@ -118,7 +121,7 @@
       "in_service_in_another_household": 61,
       "joined_by_the_attested_trade_ruling": 5,
       "keeps_a_house_the_register_holds": 79,
-      "keeps_their_own_house": 130,
+      "keeps_their_own_house": 93,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
@@ -128,6 +131,7 @@
       "roofs_kept_none_owed": 12,
       "seated_by_the_staffing_model": 123,
       "serves_an_establishment_outside_the_register": 4,
+      "the_printed_count_is_held": 37,
       "works_on_other_people_s_ground": 3
     },
     "by_age_scope": {
@@ -148,22 +152,22 @@
       "working_age": {
         "at_a_named_house": 126,
         "at_a_seat_this_project_drew": 121,
-        "at_a_trade_with_no_house_to_join": 230,
+        "at_a_trade_with_no_house_to_join": 267,
         "no_trade_recorded": 1583,
-        "on_their_own_account": 212
+        "on_their_own_account": 175
       }
     },
-    "placed_at_work": 470,
+    "placed_at_work": 433,
     "carry_a_trade": 668,
     "working_age": 2272,
-    "working_age_placed_at_work": 459,
+    "working_age_placed_at_work": 422,
     "working_age_with_no_trade_recorded": 1583
   },
   "against_the_town_model": {
     "employed_persons": {
       "model_low": 425,
       "model_high": 588,
-      "the_layer_places": 470,
+      "the_layer_places": 433,
       "inside_the_band": true,
       "method_the_model_used": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "why_this_is_not_a_job_finished": "The model's band is a SIZE struck against a town of 2,353-3,265 people; the layer holds a different number of cards and the model's own open question says the 1840 industry columns have no row for domestic service at all. A figure inside a range is where the argument starts."
@@ -178,7 +182,7 @@
   "what_this_does_not_do": {
     "the_business_side_is_T-1462s": "Nothing is written onto a business record here. `staff[]` stays as the register left it, and the order book's employment buckets stay unfilled until T-1459's re-cut lets the mint run.",
     "it_supplies_no_trade": "2639 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
-    "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating, the business register's own proprietors, partners and staff (T-1990), the by-name rulings on the attested trades (T-1994) and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
+    "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating, the business register's own proprietors, partners and staff (T-1990), the by-name rulings on the attested trades (T-1994), the order book's printed counts (T-1996) and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
   },
   "rows": [
     {
@@ -16813,9 +16817,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -17812,9 +17816,9 @@
       "age_scope": "working_age",
       "trade": "merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -17838,9 +17842,9 @@
       "age_scope": "working_age",
       "trade": "forwarding_and_commission",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#forwarding_and_commission = own_premises, census_class storage_and_forwarding; 1835_reconstruction_order_book.json#businesses/storage_and_forwarding: printed 4 establishments, target 4, held 7 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -18862,9 +18866,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -19462,9 +19466,9 @@
       "age_scope": "working_age",
       "trade": "dry_goods_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -19613,9 +19617,9 @@
       "age_scope": "working_age",
       "trade": "merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -20573,9 +20577,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -21219,9 +21223,9 @@
       "age_scope": "working_age",
       "trade": "attorney",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#attorney = own_premises, census_class lawyer; 1835_reconstruction_order_book.json#businesses/lawyer: printed 22 persons, target 15, held 14 known + 1 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -22423,9 +22427,9 @@
       "age_scope": "working_age",
       "trade": "merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -23148,9 +23152,9 @@
       "age_scope": "working_age",
       "trade": "forwarding_and_commission",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#forwarding_and_commission = own_premises, census_class storage_and_forwarding; 1835_reconstruction_order_book.json#businesses/storage_and_forwarding: printed 4 establishments, target 4, held 7 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -25188,9 +25192,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -25871,9 +25875,9 @@
       "age_scope": "working_age",
       "trade": "liquor_dealer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#liquor_dealer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -25897,9 +25901,9 @@
       "age_scope": "working_age",
       "trade": "merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -26135,9 +26139,9 @@
       "age_scope": "working_age",
       "trade": "dry_goods_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -28932,9 +28936,9 @@
       "age_scope": "working_age",
       "trade": "merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -29010,9 +29014,9 @@
       "age_scope": "working_age",
       "trade": "merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -29275,9 +29279,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -29792,9 +29796,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -30525,9 +30529,9 @@
       "age_scope": "working_age",
       "trade": "sutler",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#sutler = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -32344,9 +32348,9 @@
       "age_scope": "working_age",
       "trade": "dry_goods_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -32474,9 +32478,9 @@
       "age_scope": "working_age",
       "trade": "dry_goods_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -32658,9 +32662,9 @@
       "age_scope": "working_age",
       "trade": "attorney",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#attorney = own_premises, census_class lawyer; 1835_reconstruction_order_book.json#businesses/lawyer: printed 22 persons, target 15, held 14 known + 1 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -33254,9 +33258,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -34206,9 +34210,9 @@
       "age_scope": "working_age",
       "trade": "dry_goods_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -34268,9 +34272,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -34294,9 +34298,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -34493,9 +34497,9 @@
       "age_scope": "working_age",
       "trade": "dry_goods_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -34558,9 +34562,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -35429,9 +35433,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -36842,9 +36846,9 @@
       "age_scope": "working_age",
       "trade": "merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -36855,9 +36859,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -37167,9 +37171,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -37943,9 +37947,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -38381,9 +38385,9 @@
       "age_scope": "working_age",
       "trade": "grocer",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -38773,9 +38777,9 @@
       "age_scope": "working_age",
       "trade": "dry_goods_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#dry_goods_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -39051,9 +39055,9 @@
       "age_scope": "working_age",
       "trade": "attorney",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#attorney = own_premises, census_class lawyer; 1835_reconstruction_order_book.json#businesses/lawyer: printed 22 persons, target 15, held 14 known + 1 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -39448,9 +39452,9 @@
       "age_scope": "working_age",
       "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {

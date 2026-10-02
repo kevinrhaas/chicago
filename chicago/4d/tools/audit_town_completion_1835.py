@@ -110,7 +110,9 @@ WORK_STATED = {"no_employer_named",           # the trade kept no premises: stat
                "not_held_by_the_establishment_on_the_scene_date",
                "a_civic_seat_and_not_a_house", "works_on_other_people_s_ground",
                "class_full_none_owed",         # the class's count is met (T-1995)
-               "roofs_kept_none_owed"}         # every boarding roof kept or owed (T-1997)
+               "roofs_kept_none_owed",         # every boarding roof kept or owed (T-1997)
+               # T-1996: a drawn head whose class the census counts and the book holds
+               "the_printed_count_is_held"}
 WORK_OWED = {"class_held_no_house", "trade_attested_no_house_named",
              "no_ruling_on_the_trade", "keeps_their_own_house"}
 

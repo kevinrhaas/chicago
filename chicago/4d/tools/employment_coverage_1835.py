@@ -98,6 +98,7 @@ STAFFING_MODEL = ROOT / "data" / "reconstruction" / "1835_business_staffing_mode
 TOWN_MODEL = ROOT / "data" / "reconstruction" / "1835_town_model.json"
 SEATING = RESIDENTS / "reconstructed_seating.json"
 ATTESTED_HOUSES = RESIDENTS / "attested_trade_houses.json"
+ORDER_BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 COVERAGE_OUT = RESIDENTS / "employment_coverage.json"
 
 SCENE_DATE = "1835-07-01"
@@ -136,7 +137,8 @@ STATUSES = {
     "at_a_trade_with_no_house_to_join": (
         "no_employer_named", "class_held_no_house", "class_full_none_owed",
         "trade_attested_no_house_named", "no_ruling_on_the_trade",
-        "in_service_in_another_household", *ATTESTED_NONE_OWED),
+        "in_service_in_another_household", *ATTESTED_NONE_OWED,
+        "the_printed_count_is_held"),
     "no_trade_recorded": ("no_trade_recorded",),
 }
 
@@ -234,6 +236,13 @@ WORDS = {
         "The premises ruling says this trade is done on somebody else's ground — inside the "
         "customer's building, in the field, in the vessel owner's yard — so it keeps no "
         "house of its own and is owed none (T-1994).",
+    "the_printed_count_is_held":
+        "This trade kept a house of its own, and the December 1835 State census counts "
+        "the class of house it kept. The register and the houses this project drew "
+        "already hold that count on 1 July 1835 (the figures are below), so a house "
+        "raised for this person would be one more than the census printed. They follow "
+        "the trade and no house is owed; which of the held houses they kept, clerked or "
+        "partnered in is not drawn (T-1996).",
     "no_trade_recorded":
         "No source records a trade for this person and no reconstruction stage has given "
         "them one. This is a statement about the evidence and not about the person: a "
@@ -281,6 +290,22 @@ REGISTER_REASONS = ("keeps_a_house_the_register_holds", "on_the_staff_of_a_house
 #: file and nothing else: a row whose person no longer reads that reason is stale and is
 #: refused, because a ruling made against one answer is not a ruling on another.
 ATTESTED_REASON = "trade_attested_no_house_named"
+#: THE PRINTED COUNT ALREADY HELD (T-1996, piece 1 of 3 of T-1992). After the card, the
+#: seating and the register have answered, a drawn head can still read
+#: `keeps_their_own_house` with no house: the resident band drew heads at a trade by the
+#: 1839 trade table's share of the PERSONS it was short, and the business band raises a
+#: house only where the order book ORDERS one — against the December census's printed
+#: count of the class. Where the census counts the class and the book's bucket is full
+#: (`to_reconstruct - filled <= 0`: forty-four stores printed and sixty-five held, the
+#: lawyers' scene-date bracket met), there is no house to owe. The answer reads the
+#: book's own bucket and prints its figures.
+#: ONLY ON A RECONSTRUCTED PERSON. A count a reconstructed house helps fill is exactly
+#: the count a documented man's own house would retire it from (each such record's
+#: `withdrawn_if` says so), so a person a source knows is never told the count is held;
+#: they stay owed until somebody rules on them by name.
+HELD_REASON = "the_printed_count_is_held"
+HELD_FROM = "keeps_their_own_house"
+HELD_GRADE = "reconstructed"
 
 
 class Fault(Exception):
@@ -328,10 +353,25 @@ def load() -> dict:
             if isinstance(row, dict) and row.get("id"):
                 businesses[row["id"]] = row
     seating = _load_json(SEATING)
+    if not ORDER_BOOK.exists():
+        raise Fault(f"{ORDER_BOOK.relative_to(ROOT)} is missing — the printed counts are "
+                    "read from it and are not restated here")
+    buckets = {}
+    for family in _load_json(ORDER_BOOK).get("bucket_families") or []:
+        if family.get("key") != "businesses":
+            continue
+        for bucket in family.get("buckets") or []:
+            klass = (bucket.get("axes") or {}).get("class")
+            if klass:
+                buckets[klass] = bucket
+    if not buckets:
+        raise Fault("the order book holds no business bucket, so no printed count can be "
+                    "read and none will be assumed")
     attested = (_load_json(ATTESTED_HOUSES).get("rows") or []
                 if ATTESTED_HOUSES.exists() else [])
     return {
         "attested_houses": {row["person_id"]: row for row in attested},
+        "buckets": buckets,
         "people": people,
         "businesses": businesses,
         "register": register_rows(businesses),
@@ -600,6 +640,36 @@ def attested_answer(ruling: dict, businesses: dict) -> dict:
     }
 
 
+def bucket_full(bucket: dict) -> bool:
+    """True where the order book orders no further house of the class: what it left to
+    reconstruct, the business band has filled (or there was nothing left to fill)."""
+    return (bucket.get("to_reconstruct") or 0) - (bucket.get("filled") or 0) <= 0
+
+
+def held_answer(person: dict, trade: str, data: dict) -> dict | None:
+    """T-1996's answer for a drawn head whose own house the printed count already holds,
+    or None where it does not apply: a documented person, a trade whose class the census
+    never counted, or a bucket still short of its count."""
+    if person.get("grade") != HELD_GRADE:
+        return None
+    klass = (data["rulings"].get(trade) or {}).get("census_class")
+    bucket = data.get("buckets", {}).get(klass)
+    if bucket is None or not bucket_full(bucket):
+        return None
+    held = f"{bucket.get('known')} known + {bucket.get('filled') or 0} filled"
+    return {
+        "status": "at_a_trade_with_no_house_to_join",
+        "reason": HELD_REASON,
+        "decided_by": f"premises_rulings.json#{trade} = own_premises, census_class "
+                      f"{klass}; 1835_reconstruction_order_book.json#{bucket['key']}: "
+                      f"printed {bucket.get('census_count')} {bucket.get('unit') or ''}"
+                      f"{'s' if bucket.get('unit') else ''}, target "
+                      f"{bucket.get('target')}, held {held}, so none is ordered — "
+                      "ruled by T-1996",
+        "houses": [],
+    }
+
+
 def derive(data: dict) -> dict:
     floor = working_age_floor(data["model"])["floor"]
     context = {"seating": data["seating"], "rulings": data["rulings"],
@@ -627,6 +697,8 @@ def derive(data: dict) -> dict:
                             f"{block['reason']!r}, not {ATTESTED_REASON!r}. The ruling was "
                             "made against the answer it replaces; retire the row.")
             block = attested_answer(ruling, data["businesses"])
+        if block["reason"] == HELD_FROM and not block["houses"]:
+            block = held_answer(person, (occupation.get("value") or ""), data) or block
         rows.append({
             "person_id": person["id"],
             "household_id": household.get("id"),
@@ -702,6 +774,8 @@ def report(data: dict, coverage: dict) -> dict:
             "transients,readmitted,merged}/*.json",
             "data/residents/reconstructed_seating.json (T-1433)",
             "data/residents/attested_trade_houses.json (T-1994)",
+            "data/reconstruction/1835_reconstruction_order_book.json (the printed counts, "
+            "T-1996)",
             "data/businesses/*.json",
             "data/businesses/authored/*.json (the register's own people rows, T-1990)",
             "data/businesses/rulings/premises_rulings.json",
@@ -781,7 +855,8 @@ def report(data: dict, coverage: dict) -> dict:
             "it_re_decides_nothing":
                 "Every answer is already implied by a committed file. T-1432's join, "
                 "T-1433's seating, the business register's own proprietors, partners "
-                "and staff (T-1990), the by-name rulings on the attested trades (T-1994) and "
+                "and staff (T-1990), the by-name rulings on the attested trades (T-1994), "
+                "the order book's printed counts (T-1996) and "
                 "premises_rulings.json each keep their own words; "
                 "this pass only guarantees that one of them reaches every card.",
         },
@@ -818,6 +893,7 @@ def verify(data: dict, coverage: dict, committed: dict) -> None:
         raise Fault(f"{len(missing)} people in the resident layer carry no employment "
                     f"answer — the first is {missing[0]}. A card with no answer is the "
                     "silence this pass exists to remove.")
+    person_of = {person["id"]: person for _, _, person in data["people"]}
     fossils = sorted(set(seen) - layer)
     if fossils:
         raise Fault(f"{len(fossils)} answers are carried for people the layer does not "
@@ -857,6 +933,22 @@ def verify(data: dict, coverage: dict, committed: dict) -> None:
                                 f"register's word ({reason}), and that record names "
                                 "nobody of the id. The register answer is the record's "
                                 "own row or it is nothing.")
+        if reason == HELD_REASON:
+            person = person_of.get(row["person_id"]) or {}
+            if person.get("grade") != HELD_GRADE:
+                raise Fault(f"{row['person_id']} is graded {person.get('grade')!r} and is "
+                            "told the printed count is held. A documented person's own "
+                            "house is what would retire a reconstructed one from that "
+                            "count; they are ruled on by name or left owed.")
+            klass = (data["rulings"].get(row.get("trade")) or {}).get("census_class")
+            bucket = (data.get("buckets") or {}).get(klass)
+            if bucket is None or not bucket_full(bucket):
+                raise Fault(f"{row['person_id']} is told the printed count of "
+                            f"{klass!r} is held, and the order book "
+                            + ("has no bucket for it" if bucket is None else
+                               f"still orders {bucket.get('to_reconstruct')} with "
+                               f"{bucket.get('filled') or 0} filled")
+                            + ". A count still short owes the house.")
 
 
 # ---------------------------------------------------------------- commands --
@@ -1011,7 +1103,27 @@ def cmd_self_test() -> int:
         attested_answer({**ruling, "reason": "because_we_said_so"}, data["businesses"])
     _fires("a T-1994 none-owed answer in a reason outside its four", owed_by_fiat)
 
-    print("OK: all thirteen assertions of the employment coverage fire when broken")
+    def held_on_a_documented_person():
+        bent = json.loads(json.dumps(committed))
+        row = next((r for r in bent["rows"] if r["reason"] == HELD_REASON), None)
+        if row is None:
+            raise Fault("the self-test found nobody the printed count holds")
+        documented = next(p for _, _, p in data["people"]
+                          if p.get("grade") not in (HELD_GRADE, None))
+        bent["rows"] = [r for r in bent["rows"] if r["person_id"] != documented["id"]]
+        row["person_id"] = documented["id"]
+        verify(data, coverage, bent)
+    _fires("a documented person told the printed count is held", held_on_a_documented_person)
+
+    def held_against_a_short_count():
+        row = next(r for r in committed["rows"] if r["reason"] == HELD_REASON)
+        klass = data["rulings"][row["trade"]]["census_class"]
+        short = {**data["buckets"][klass], "to_reconstruct": 99, "filled": 0}
+        bent_data = {**data, "buckets": {**data["buckets"], klass: short}}
+        verify(bent_data, coverage, committed)
+    _fires("a held-count answer against a bucket still short", held_against_a_short_count)
+
+    print("OK: all fifteen assertions of the employment coverage fire when broken")
     return 0
 
 
