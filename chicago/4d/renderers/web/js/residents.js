@@ -2236,8 +2236,16 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
           + `them one, which is a statement about the evidence rather than about the `
           + `person. The town model puts ${coverage.model?.employed_persons?.model_low} `
           + `to ${coverage.model?.employed_persons?.model_high} people of this town in `
-          + `work, so the cover falls inside the band — which is where the argument `
-          + `starts and not where it finishes. ` : '')
+          + (coverage.model?.employed_persons?.inside_the_band
+            ? `work, so the cover falls inside the band — which is where the argument `
+              + `starts and not where it finishes. `
+            // T-2000: the cover can fall short of the band with nobody out of work. A
+            // drawn mechanic told no shop is owed follows the trade in a shop or on a
+            // wall the layer cannot name, and is counted apart rather than placed.
+            : `work, and the cover falls short of that band. Most of the gap is people `
+              + `who follow a trade in a shop or on a building site this project cannot `
+              + `name, so they are counted apart rather than placed — at work, but not `
+              + `at a house the layer holds. `) : '')
       + `Nobody is drawn: this is the research, not a population.`;
     noteMount.removeAttribute('aria-busy');
   }

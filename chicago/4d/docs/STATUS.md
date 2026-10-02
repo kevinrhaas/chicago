@@ -23,10 +23,25 @@ would split him from J. H. Mulford by arithmetic, and seating him at J. H.'s cou
 them the same way. He now reads `held_on_an_identity_question` and **stays counted owed**
 (the completion audit lists that reason as owed) until the question is answered.
 
+**What it moved downstream, all by `--build` and none by hand.** The 57 had been held
+`R_adopted` by the re-family rule (T-1558), on an employment "adoption" that named no house.
+Freed, the rule yields **139 moves, 10 more than the 129 spent**, and
+`reconstruct_trade_households.py` spends the ten on the cards (rung C1, T-1563): **ten
+carpenters' and builders' households** (Bacon, Connor, the two Kelloggs, Lyman, Murphy, Newell,
+Rice, Robillard, Stiles) re-cast to the buckets the book still orders; `refamily_moves_1835.py`
+records them and the book settles at its fixpoint again (139 of 139 spent, 386 held, was 396).
+`rederive.mjs --tail` from the trade households down re-deals the housing (L354, seeded by
+division), which rewrites 60 scene sidecars. Nobody is un-written, no confidence moves, no
+business record changes. **This is the same ten-move reopening T-1996 (#304) makes from its own
+37**: whichever of the two lands second re-runs this chain on the merged tree; the rule's
+ceiling is room, not people, so the yield stays at 139 and only WHICH ten move can change.
+
 Owed a workplace **142 → 85** (attested 2, reconstructed 83). **Moved, and said here so nobody
 reads it as a regression:** the layer's "placed at work" figure falls 470 → 412, below the town
 model's 425–588 `employed_persons` band, because the 57 move from `on_their_own_account` to
-`at_a_trade_with_no_house_to_join`. They are at work; the layer cannot say in whose shop.
+`at_a_trade_with_no_house_to_join`. They are at work; the layer cannot say in whose shop. The
+residents summary used to assert the cover was inside the band; it now reads `inside_the_band`
+from the join and says why when it is not.
 
 **Not done, and owned:** T-2001 (3 refectory keepers, 2 auctioneers (one attested, John
 Bates Jr.), a miller, a brickmaker, a soap and candle maker: trades with neither a census line

@@ -551,7 +551,7 @@
    "file": "reconstructed_trades/hh_rc_connor_owen.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "builder",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_corrigan_honora",
@@ -1160,7 +1160,7 @@
    "file": "reconstructed_trades/hh_rc_kellogg_ira.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "carpenter",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_kellogg_joseph",
@@ -1321,7 +1321,7 @@
    "file": "reconstructed_trades/hh_rc_lyman_samuel.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "carpenter",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_lynch_bryan",
@@ -1475,7 +1475,7 @@
    "file": "reconstructed_trades/hh_rc_murphy_bryan.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "carpenter",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_murphy_dennis",
@@ -1874,7 +1874,7 @@
    "file": "reconstructed_trades/hh_rc_robillard_joseph.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "confectioner",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_robillard_medard",
@@ -2426,7 +2426,7 @@
   "parent_ticket": "T-1559",
   "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired",
   "read_from": "data/reconstruction/1835_refamily_rule.json#the_moves_the_rule_yields",
-  "heads_moved": 39,
+  "heads_moved": 49,
   "out_of": {
    "persons/female/20_29/south/family/trade": 5,
    "persons/female/20_29/west/family/trade": 4,
@@ -2437,11 +2437,12 @@
    "persons/female/50_plus/west/family/trade": 1,
    "persons/male/20_29/north/family/trade": 3,
    "persons/male/20_29/south/family/trade": 8,
-   "persons/male/20_29/west/family/trade": 3,
-   "persons/male/30_39/south/family/trade": 3,
-   "persons/male/30_39/west/family/trade": 2,
+   "persons/male/20_29/west/family/trade": 5,
+   "persons/male/30_39/south/family/trade": 7,
+   "persons/male/30_39/west/family/trade": 5,
    "persons/male/40_49/north/family/trade": 1,
    "persons/male/40_49/south/family/trade": 1,
+   "persons/male/40_49/west/family/trade": 1,
    "persons/male/50_plus/north/family/trade": 1,
    "persons/male/50_plus/south/family/trade": 2
   },
@@ -2456,12 +2457,13 @@
    "persons/female/50_plus/south/lodging/trade": 1,
    "persons/female/50_plus/west/lodging/trade": 1,
    "persons/male/20_29/south/lodging/trade": 11,
-   "persons/male/20_29/west/lodging/trade": 3,
+   "persons/male/20_29/west/lodging/trade": 5,
    "persons/male/30_39/north/lodging/trade": 3,
-   "persons/male/30_39/south/lodging/trade": 1,
-   "persons/male/30_39/west/lodging/trade": 1,
+   "persons/male/30_39/south/lodging/trade": 6,
+   "persons/male/30_39/west/lodging/trade": 3,
    "persons/male/40_49/north/lodging/trade": 1,
    "persons/male/40_49/south/lodging/trade": 1,
+   "persons/male/40_49/west/lodging/trade": 1,
    "persons/male/50_plus/north/lodging/trade": 1,
    "persons/male/50_plus/south/lodging/trade": 1,
    "persons/male/50_plus/west/lodging/trade": 1
