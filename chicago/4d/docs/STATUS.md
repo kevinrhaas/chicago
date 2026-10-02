@@ -1,3 +1,35 @@
+## T-1997 — the 38 boarding-house keepers on their own account with no house (2026-10-02)
+
+Piece 2 of 3 of T-1992 (T-1982 → T-1966 → T-1215). The trade-households stage (T-1347) drew 38
+boarding-house keepers off the 1839 trade table, and every one read `keeps_their_own_house` with a
+basis that said *T-1434 mints the layer's shortfall*. It cannot: the order book counts no boarding
+house (the December 1835 census prints none), and the business band raises one only on a standing
+roof, by adopting the keeper who stands in it (T-1408). Meanwhile every one of the 38 households is
+seated by T-1971 as a boarder in somebody else's dwelling.
+
+**No standing roof is free.** The lodging model schedules 42 boarding houses under
+`larger_boarding_houses`; 16 stand, and all 16 are kept: the 14 reconstructed ones by the keeper
+the lodgers stage drew or the household a platted deal seated there, Rufus Brown's by the
+register, and Kelsey's by whoever a source names (T-1404). So the house could not be raised on a
+standing roof for any of the 38, and `tools/seat_reconstructed_trades_1835.py` now says so, in
+figures it reads off the lodging model and the order book (`roof_draw`, `ROOF_TRADES`):
+
+* **26 are owed a roof** and keep `keeps_their_own_house` under a new basis id,
+  `the_boarding_house_is_owed_a_roof_the_programme_schedules`. The programme's 26 roofs with
+  nobody keeping them are 18 standing H1/H2 houses whose class is the lodging model's open
+  question (T-1293, T-1196) and 8 unbuilt (5 South, T-1957; 3 West, T-1953).
+* **12 are owed none** (Johanna Duffy, Hannah Eastman, Nancy Fisk, Lucy Goodrich, Esther Hastings,
+  Daniel Keegan, Mary McCarthy, Nancy Metcalf, Abigail Parmelee, Angelique Pelletier, Terence
+  Quinn, Ellen Sullivan). A new kind, `roofs_kept_none_owed`, states it: the stage drew more
+  keepers than the programme schedules houses. The coverage join keeps them
+  `on_their_own_account` (own employer, and no house owed), so the re-family rule still holds them
+  as adopted and the order book's fixpoint does not move; the completion audit reads them as
+  stated, not owed.
+
+Who is owed and who is not is a SEEDED DRAW over person and trade (`rank_key`), and each block
+carries its `draw` (rank of 38, against 26 roofs): nothing in the layer orders them, and the block
+says so. Owed a workplace **167 → 155**; placed at work unchanged at 465.
+
 ## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
 
 Piece 3 of 3 of T-1991 (T-1982 → T-1966 → T-1215). Ten reconstructed trade-holders read

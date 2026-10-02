@@ -1506,6 +1506,7 @@ function employmentHtml(seatingByPerson, personId) {
     seated: 'Seated by the staffing model',
     class_held_no_house: 'No house of this kind has room',
     class_full_none_owed: 'Every house of this kind is full, and none is owed',
+    roofs_kept_none_owed: 'Every boarding house is kept, and none is owed',
     keeps_their_own_house: 'Owed a house of their own',
     no_employer_named: 'No employer can be named',
     no_ruling: 'No ruling on this trade yet',

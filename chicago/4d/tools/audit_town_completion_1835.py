@@ -105,7 +105,8 @@ DWELLING_WORDS = ("dwelling", "cottage", "house", "residence", "shanty", "cabin"
 # trade's own premises ruling, and a private household is not a house the register owes.
 WORK_STATED = {"no_employer_named",           # the trade kept no premises: stated, not owed
                "in_service_in_another_household",
-               "class_full_none_owed"}         # the class's count is met (T-1995)
+               "class_full_none_owed",         # the class's count is met (T-1995)
+               "roofs_kept_none_owed"}         # every boarding roof kept or owed (T-1997)
 WORK_OWED = {"class_held_no_house", "trade_attested_no_house_named",
              "no_ruling_on_the_trade", "keeps_their_own_house"}
 

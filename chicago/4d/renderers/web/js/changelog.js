@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1323, ts: '2026-10-02T20:57:31.347Z', date: 'Oct 2, 2026, 3:57 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
+    items: [
+      'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',
+      'Eleven more keepers read the same. The other 26 now say which unbuilt or unsettled roof their house is waiting for.',
+      'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 167 to 155.',
+    ] },
   { v: 1322, ts: '2026-10-02T20:29:28.767Z', date: 'Oct 2, 2026, 3:29 PM CT', title: 'Ten tradespeople\u2019s cards now say why no shop took them on', kind: 'change',
     items: [
       'Open Rufus Nichols\u2019s card, a blacksmith on the West Side, and look under Were they at work? It used to say the town owed another smithy to take him on as a hand. It now says he worked on his own account, as a smith\u2019s trade did, and that his own shop is still to be placed.',
