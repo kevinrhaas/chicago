@@ -205,6 +205,24 @@ being written; a second tool reaching in to delete one record would put the laye
 fixed point `check.sh` holds it to. What retires a reconstruction is the SOURCE, entered
 where sources are entered. This one reads the cost first.
 
+**And a roof is retired by its lot (T-1968).** The anonymous roofs are the largest
+reconstructed population in the town and L81 made their promise first — *a named building found
+later replaces a suitable slot through an explicit substitution; it is not added on top of the
+target* — but until T-1968 nothing could read that promise for a candidate. A roof stands for
+no trade, so the match is not a class of business: a `kind: "structure"` candidate names the
+`lot_id` the lot ledger writes and whether it is a principal roof or a yard building, and it
+retires the anonymous roof of that class on that lot. The class is the one the LOT LEDGER
+counts the roof in (families A1-A5 ancillary, every other family principal), because the plan
+promises that the lot's count does not move, and that is a promise about the ledger. A
+building a source put on the lot is never offered; a party-line lot carrying two anonymous
+dwellings prints both and leaves the choice to the operator. The plan carries the occupants,
+the seated household and every business whose location names the roof — the people are not
+retired with the building — states that the roof programme does not move, and names the
+generator that writes the roof and the entries covering it by its id or its block. `--check`
+holds every anonymous roof on a platted lot to having all three of a class, a generator and
+a liberty, so a plan that could not be carried out is found before the source arrives.
+`tools/fixtures/substitution_candidate_roof.json` is the shipped example.
+
 ## The business record, and the limit as a field (T-1310, 2026-09-18)
 
 A business is the third thing in this dataset with an identity of its own — after a structure

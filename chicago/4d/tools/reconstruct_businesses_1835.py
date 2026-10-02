@@ -2050,15 +2050,17 @@ def write_fills(built):
     book = load_json(ORDER_BOOK)
     mine = fills_for(built)
     tickets = {GROUPS[g]["ticket"] for g in built}
-    kept = [f for f in book.get("fills", []) if f.get("ticket") not in tickets]
+    rows = []
     for ticket, buckets in sorted(mine.items()):
         group = next(g for g, spec in GROUPS.items() if spec["ticket"] == ticket)
-        kept += [{"bucket": key, "ticket": ticket, "stage": group, "records": n,
+        rows += [{"bucket": key, "ticket": ticket, "stage": group, "records": n,
                   "by": "tools/reconstruct_businesses_1835.py --build"}
                  for key, n in sorted(buckets.items())]
-    # APPENDED, NEVER RE-SORTED. The ledger is in the order the stages filled it and two
-    # runs rewriting it whole would collide on every line of a file neither of them changed.
-    book["fills"] = kept
+    # NEVER RE-SORTED, AND SPLICED IN PLACE (T-1968). The ledger is in the order the stages
+    # filled it and two runs rewriting it whole would collide on every line of a file
+    # neither of them changed — and appending moved these rows to the foot on every lone
+    # build, which `rederive.mjs --run` then undid. splice_fills says why.
+    book["fills"] = order_book.splice_fills(book.get("fills", []), tickets, rows)
     with open(ORDER_BOOK, "w", encoding="utf-8") as handle:
         json.dump(book, handle, indent=2, ensure_ascii=False)
         handle.write("\n")
