@@ -1,3 +1,39 @@
+## T-2001 — the ten at a trade no count reaches, and the physician T-1529 owes (2026-10-02)
+
+Piece 2 of 2 of T-1998 (of T-1992 → T-1982 → T-1966 → T-1215, the owner's *"a place to
+work"*). Ten people read `keeps_their_own_house` with no house at a trade whose census class
+is `other` — no line of the December 1835 State census, and no count of shops either — or,
+for the physician, at a counted class whose bucket is short.
+
+**What changed (visible on the card and in the Businesses list).**
+- **Seven houses raised by the business band**, in a sixth group, `uncounted_trades`
+  (`tools/reconstruct_businesses_1835.py`): three refectories (Hannah Barnes, South Water;
+  Hannah Pratt, Dearborn; H. Ingalls, Kinzie), J. Nichols's auction room (Dearborn), T.
+  Vieau's mill (West Water), Thomas Nolan's brickyard (Market) and J. Kellogg's soap and
+  candle manufactory (West Water). T-1419's rule — the trade names the house, one per head,
+  withdrawn with the head. Styles and goods lines are the town's own printings of each trade
+  (Collett's *Refectory*, the six auction rooms, Blodgett's brickyard, Elston's manufactory);
+  the mill has none and takes form 1 with the head's trade word, as the barber's shop did.
+  Faces are a stated rule per house (`TRADE_FACES`). Liberty **L360**; the six other
+  business liberties restate their whole-layer count 44 → 51.
+- **John Bates Jr. joined to his own house.** The register prints *J. Bates jr., Auction
+  Store* across the scene date at `bates_auction_room`, but its rows carry no person_id, so
+  his card read owed. `attested_trade_houses.json` now carries a keeper's row
+  (`replaces: keeps_their_own_house`, `inferred` on Andreas 1884 v1);
+  `employment_coverage_1835.py` accepts that second replaced answer, refuses a keeper's row
+  that would tell him none is owed, and proves it in a fourteenth self-test assertion.
+- **Owed a workplace: 48 → 40** on dev after T-1996 (#304) and T-2000.
+
+**Not done, and why.** **Dr John McGuire** (rc_mcguire_john) stays owed. The physician
+bucket orders 2 (target 10, known 8, filled 0) and the resident band drew 1 physician head;
+`build_group` half-fills no count, by design. His office existed until T-1525's re-cut
+(#12) swept the row to T-1529 and no group spends a T-1529 row, so `rcb_mcguire_physician`
+was retired as a side effect. T-1529's blocked reason (*"T-1525 has not landed"*) is stale;
+the finding is written onto T-1529. SERVICES' physician ruling now says so instead of "T-1418
+filled that bucket".
+
+**Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff`
+names; see the PR.
 ## T-2000 — 57 drawn mechanics set against the American's twenty-five shops; Mulford's hold named (2026-10-02)
 
 Piece 1 of 2 of T-1998 (→ T-1992 → T-1982 → T-1966 → T-1215). **57** reconstructed heads read

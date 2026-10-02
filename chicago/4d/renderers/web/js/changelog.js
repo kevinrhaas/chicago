@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1327, ts: '2026-10-02T22:42:54.201Z', date: 'Oct 2, 2026, 5:42 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
+  { v: 1328, ts: '2026-10-02T22:54:50.366Z', date: 'Oct 2, 2026, 5:54 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
     items: [
       'Most of the town\u2019s buildings are our reconstruction: no record says which house stood on which lot in July 1835. When research does find one, it should replace the invented house on that lot rather than be added beside it, so the town never grows past what it held.',
       'That swap can now be planned before it is made, for every one of the 297 invented buildings on a surveyed lot. The plan names the house that would go, who lives or works in it and moves into the real building, and why the town\u2019s count of buildings stays the same.',
       'A building a source already places on a lot is never offered up. Where a lot holds two invented houses, both are listed and the choice is left to a person.',
       'Behind the scenes, rebuilding all of the town\u2019s research from its sources now gives back exactly the files it started from. Before, two files changed every time for no reason.',
+    ] },
+  { v: 1327, ts: '2026-10-02T22:38:22.537Z', date: 'Oct 2, 2026, 5:38 PM CT', title: 'Three refectories, a mill and four more houses of trade open', kind: 'feature',
+    items: [
+      'Open Hannah Barnes\u2019s card and look under Were they at work? It used to say the town owed her a house. It now names her own refectory on South Water Street. Hannah Pratt and H. Ingalls keep refectories too.',
+      'Four more keepers have their own houses now: J. Nichols\u2019s auction room, T. Vieau\u2019s mill on West Water, Thomas Nolan\u2019s brickyard on Market and J. Kellogg\u2019s soap and candle manufactory. Each is in the Businesses list.',
+      'John Bates Jr., the auctioneer whose building held the 1835 land sales, is now joined to his own Auction Store on Dearborn Street. It was always in the register, but nothing linked him to it.',
+      'The seven new houses are our reconstruction (liberty L360). Dr John McGuire still waits for his office. On the City card, people owed a workplace drop from 48 to 40.',
     ] },
   { v: 1326, ts: '2026-10-02T21:59:53.325Z', date: 'Oct 2, 2026, 4:59 PM CT', title: 'Fifty-seven carpenters, milliners and smiths no longer owed a shop', kind: 'change',
     items: [

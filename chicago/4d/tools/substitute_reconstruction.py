@@ -134,6 +134,7 @@ LIBERTY_OF_TICKET = {
     "T-1424": "L260",   # two livery stables and two lumber yards
     "T-1419": "L262",   # the fifteen service houses
     "T-1766": "L307",   # four Canal approach firms on non-lodging trade roofs
+    "T-2001": "L360",   # seven houses of trade no census line reaches
 }
 
 # The number-words the liberty prose states a share in. A closed list on purpose: a parser

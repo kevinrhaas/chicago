@@ -4,7 +4,7 @@
   "ticket": "T-1994",
   "parent_ticket": "T-1991",
   "target_date": "1835-07-01",
-  "what_it_is": "The 25 people whose trade a source attests and whose premises ruling sends them to an establishment they do not keep, each either JOINED to the house the business register holds for it, at the grade the source allows, or told why none is owed in the words of that ruling. It mints nobody, raises no house, supplies no trade and writes nothing onto a business record or a card.",
+  "what_it_is": "The 25 people whose trade a source attests and whose premises ruling sends them to an establishment they do not keep, each either JOINED to the house the business register holds for it, at the grade the source allows, or told why none is owed in the words of that ruling. Since T-2001 it also carries the one documented KEEPER whose own house the register prints under a name no person_id joins (`replaces: keeps_their_own_house`), joined to that house. It mints nobody, raises no house, supplies no trade and writes nothing onto a business record or a card.",
   "answers": {
     "joined": "The register holds the establishment and a source names this person in it (`attested`) or the card's own reasoning does (`inferred`). Placed at work, at that house.",
     "none_owed": "The person works, and no house in the register is owed: the establishment is held outside it, it does not hold them on the day, the trade is a civic seat, or the work stood on somebody else's ground. Stated, not owed."
@@ -230,6 +230,19 @@
       "tier": "inferred",
       "source_id": "andreas_1884_v1",
       "basis": "The card's trade is itself the reconstruction 'a minor in his merchant father's business is a clerk', read off Andreas's 'John S. Wright, then a minor ... came in 1832' beside 'John Wright, came in 1832, a merchant'. The register holds that merchant's store, and the house the trade was inferred FROM is the house it joins; the grade is the card's, `inferred`, and the father-and-son reading is the card's too."
+    },
+    {
+      "person_id": "bates_john_jr",
+      "trade": "auctioneer",
+      "answer": "joined",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "replaces": "keeps_their_own_house",
+      "ticket": "T-2001",
+      "house": "biz_j_bates_jr_auction_store",
+      "role": "proprietor",
+      "tier": "inferred",
+      "source_id": "andreas_1884_v1",
+      "basis": "THE REGISTER PRINTS HIS HOUSE; NOTHING JOINED HIM TO IT. The papers print 'J. Bates jr., Auction Store' from 16 July to 20 August 1834, and the house stands across the scene date at bates_auction_room, but its rows carry the printed name with no person_id, so his card read `keeps_their_own_house` with no house while his own house stood in the register. Andreas puts the man in that room: the 1835 land sales were held 'in a building on the west side of Dearborn Street, near Water Street ... erected by John Bates, and afterwards occupied by him in his business as an auctioneer', and the card is John Bates Jr., auctioneer, the one Bates Jr. the town holds. The join is that name, trade and room agreeing, so it is `inferred` and no higher. The register's second record at the same room, biz_john_bates_jr (printed 1833-11-26 to 1834-06-11), is the same keeper's earlier printing; the later one is joined because it is the nearer to 1 July 1835."
     }
   ]
 }
