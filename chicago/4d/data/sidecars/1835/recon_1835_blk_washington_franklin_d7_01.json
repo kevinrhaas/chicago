@@ -132,6 +132,14 @@
       ],
       "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a plank stoop at the door on most, and no shutters (rule FORM-P)."
     },
+    "glazing": {
+      "value": "12_over_12_6x8",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve (rule FORM-G)."
+    },
     "siding_exposure_m": {
       "value": 0.127,
       "confidence": "reconstructed",
@@ -191,7 +199,7 @@
       "class": "tradesman",
       "by": "type",
       "household": null,
-      "words": "whitewashed clapboard on a balloon frame, a stoop, under a weathered roof — a small two-story frame house, a year old (rule F-T: a tradesman's by its type)"
+      "words": "whitewashed clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass and a stoop, under a weathered roof — a small two-story frame house, a year old (rule F-T: a tradesman's by its type)"
     }
   }
 }

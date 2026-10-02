@@ -1,0 +1,137 @@
+[
+  {
+    "tree": "this tree",
+    "root": "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/site/4d",
+    "passes": [
+      {
+        "viewport": "desktop 1280x800",
+        "seen": [
+          {
+            "level": "full",
+            "ceiling": 1460000,
+            "atStands": [
+              {
+                "id": "lake_at_canal",
+                "label": "Lake Street at Canal, east down the axis",
+                "tris": 1516064,
+                "calls": 209,
+                "structures": null
+              },
+              {
+                "id": "the_forks",
+                "label": "the forks, from Wolf Point",
+                "tris": 1491033,
+                "calls": 171,
+                "structures": null
+              },
+              {
+                "id": "from_above",
+                "label": "the open aerial",
+                "tris": 1407436,
+                "calls": 138,
+                "structures": null
+              },
+              {
+                "id": "lake_and_market",
+                "label": "Lake and Market",
+                "tris": 1263876,
+                "calls": 175,
+                "structures": null
+              },
+              {
+                "id": "sauganash_26",
+                "label": "the Sauganash at 26 m",
+                "tris": 1091574,
+                "calls": 125,
+                "structures": null
+              }
+            ]
+          },
+          {
+            "level": "balanced",
+            "ceiling": 1280000,
+            "atStands": [
+              {
+                "id": "lake_at_canal",
+                "label": "Lake Street at Canal, east down the axis",
+                "tris": 1330437,
+                "calls": 193,
+                "structures": null
+              },
+              {
+                "id": "the_forks",
+                "label": "the forks, from Wolf Point",
+                "tris": 1305337,
+                "calls": 159,
+                "structures": null
+              },
+              {
+                "id": "from_above",
+                "label": "the open aerial",
+                "tris": 1265503,
+                "calls": 135,
+                "structures": null
+              },
+              {
+                "id": "lake_and_market",
+                "label": "Lake and Market",
+                "tris": 1148563,
+                "calls": 173,
+                "structures": null
+              },
+              {
+                "id": "sauganash_26",
+                "label": "the Sauganash at 26 m",
+                "tris": 1019569,
+                "calls": 125,
+                "structures": null
+              }
+            ]
+          },
+          {
+            "level": "light",
+            "ceiling": 825000,
+            "atStands": [
+              {
+                "id": "lake_at_canal",
+                "label": "Lake Street at Canal, east down the axis",
+                "tris": 880079,
+                "calls": 73,
+                "structures": null
+              },
+              {
+                "id": "the_forks",
+                "label": "the forks, from Wolf Point",
+                "tris": 885296,
+                "calls": 67,
+                "structures": null
+              },
+              {
+                "id": "from_above",
+                "label": "the open aerial",
+                "tris": 883872,
+                "calls": 75,
+                "structures": null
+              },
+              {
+                "id": "lake_and_market",
+                "label": "Lake and Market",
+                "tris": 725554,
+                "calls": 84,
+                "structures": null
+              },
+              {
+                "id": "sauganash_26",
+                "label": "the Sauganash at 26 m",
+                "tris": 683085,
+                "calls": 74,
+                "structures": null
+              }
+            ]
+          }
+        ],
+        "errors": []
+      }
+    ]
+  }
+]

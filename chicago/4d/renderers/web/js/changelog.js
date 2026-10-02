@@ -1,9 +1,45 @@
 export const CHANGELOG = [ // newest first
-  { v: 1282, ts: '2026-10-02T01:43:46.360Z', date: 'Oct 1, 2026, 8:43 PM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
+  { v: 1287, ts: '2026-10-02T04:30:42.958Z', date: 'Oct 1, 2026, 11:30 PM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
     items: [
       'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
       'Its courtyard roof repeats the north wing’s flared eave. The alley dormer rises with the roof so its window remains visible.',
       'The revised rear shape is a reconstruction following the owner’s sketch; the floor-plan footprint and window positions are retained.'
+    ] },
+  { v: 1286, ts: '2026-10-02T03:52:32.676Z', date: 'Oct 1, 2026, 10:52 PM CT', title: 'Mark Beaubien and Alanson Sweet keep the Washington Street boarding houses', kind: 'change',
+    items: [
+      'Walk down Dearborn to Washington Street. The two boarding houses there now hang boards reading MARK BEAUBIEN\u2019S and SWEET\u2019S, Boarding House beneath.',
+      'Tap either house. Its card names the keeper who lives there, Mark Beaubien or Alanson Sweet: two tavern keepers the town plan had already placed on these lots. Before, each house also had a keeper we made up, so two families answered for one roof.',
+      'The two made-up keepers, Cornelius Lynch and Alvah Stebbins, are gone, along with the six children drawn for them. The boarders in both houses are unchanged.',
+      'This is our reconstruction. No source puts either man in either house on 1 July 1835, and his own card still says where he was is not known (liberties L318 and L326).',
+    ] },
+  { v: 1285, ts: '2026-10-02T03:12:17.655Z', date: 'Oct 1, 2026, 10:12 PM CT', title: 'Every frame house\u2019s windows now show their sashes and panes', kind: 'change',
+    items: [
+      'Look at any frame house in the town. Its windows used to be plain dark rectangles. Now each one shows its wooden sash: the frame, the rail where the two halves meet, and the thin bars between the panes of glass.',
+      'Glass came in boxed sizes, and bigger panes cost more. Merchants\u2019 houses on Washington, Randolph and Wells now have twelve-over-twelve sashes of large 8 \u00d7 10 or 7 \u00d7 9 inch panes, so their windows are taller and wider.',
+      'Tradesmen\u2019s cottages use the small 6 \u00d7 8 inch pane, the only size recorded at Chicago. Most have twelve-over-twelve sashes and some have nine-over-six. Where a storey is too low for a full sash, the window loses a row of panes instead of squashing them.',
+      'Open a house\u2019s card. The Built line now names its sash and glass. These are our reconstruction: no source records the windows of any of these houses. The rule is on the Liberties page (L343).',
+    ] },
+  { v: 1284, ts: '2026-10-02T02:44:49.927Z', date: 'Oct 1, 2026, 9:44 PM CT', title: 'South Water and Lake Street hang the newspapers\u2019 own firms\u2019 boards', kind: 'change',
+    items: [
+      'Walk South Water Street and twenty-five more houses of trade now name themselves: A. FILER & CO., JONES, KING & CO., BRIGGS & HUMPHREY and PETER COHEN among them, and more on Lake, Randolph and the cross streets. Some boards hang on brackets or under hoods, and some names are painted across the front.',
+      'Each board letters the firm as the 1833\u201335 papers printed it, with its trade beneath. Nothing is added.',
+      'Tap one of these buildings and its card now names the firm in it: \u201cHoused here \u2014 the paper names only the street.\u201d The paper gives the street. Which building on it is our choice, and the card says so (liberty L341).',
+      'Fourteen of these firms hang no board, and each one says why: a name the paper did not print whole, a school, or a face already crowded with boards. The town\u2019s other 47 boards are unchanged.',
+    ] },
+  { v: 1283, ts: '2026-10-02T02:10:37.412Z', date: 'Oct 1, 2026, 9:10 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
+      'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
+      'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
+      'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1282, ts: '2026-10-02T01:31:30.170Z', date: 'Oct 1, 2026, 8:31 PM CT', title: 'Twelve boarding houses and shops hang their own signboards', kind: 'change',
+    items: [
+      'Walk the north side and you can now pick out its boarding houses from the road. Five of them hang a painted board under a hood, on a bracket or on a post: BARDWELL\u2019S, BARNES\u2019S, NEWELL\u2019S and two more, with Boarding House beneath.',
+      'On Canal Street the two grocers hang boards and the smith and the joiner have their names painted across their fronts. Two west-side boarding houses and Cornelius Lynch\u2019s on Washington Street have boards too.',
+      'Tap a board and the card opens on the same house. Each board says what the house\u2019s own record calls it, and adds nothing.',
+      'These houses are our reconstruction, and so are their boards. No source names them, and each board says so (liberty L340). The town\u2019s other 34 boards are unchanged.',
     ] },
   { v: 1281, ts: '2026-10-02T00:56:47.419Z', date: 'Oct 1, 2026, 7:56 PM CT', title: 'Better houses get porches and shutters; older ones a heavier frame', kind: 'change',
     items: [
