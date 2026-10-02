@@ -314,11 +314,11 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 326,
-  "outside": 215,
+  "inside": 325,
+  "outside": 216,
   "no_committed_position": 0,
   "outside_by_where": {
-   "on_the_united_states_reservation": 28,
+   "on_the_united_states_reservation": 29,
    "north_of_the_limit": 45,
    "west_of_canal_street": 83,
    "south_of_washington_street": 58,
@@ -332,6 +332,7 @@
     "beaubien_trading_post",
     "chicago_lighthouse_1832",
     "chicago_lighthouse_keepers_quarters",
+    "emigrant_camp_shore",
     "fort_dearborn_artillery_house",
     "fort_dearborn_barracks",
     "fort_dearborn_big_barn",
