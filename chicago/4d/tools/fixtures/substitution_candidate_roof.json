@@ -1,0 +1,12 @@
+{
+  "_doc": "THE SHIPPED EXAMPLE OF A ROOF (T-1968), and the fixture tools/substitute_reconstruction.py --self-test runs over the committed town. It is NOT a reading: no source says this building stood, and nothing in data/ cites it. It is the shape a real one would arrive in — a building the research has placed on a platted lot, asking which anonymous roof its arrival would retire. Copy it, put your own reading and your own lot in it, and run --dry-run over the copy.",
+  "kind": "structure",
+  "id": "example_south_water_dwelling",
+  "name": "An example dwelling on South Water Street, offered to the tool and to nothing else",
+  "tier": "attested",
+  "source_id": "example_not_a_source",
+  "claim_ids": [],
+  "lot_id": "blk_south_water_wells#02",
+  "inventory_class": "principal_functional",
+  "present_at_scene_date": true
+}

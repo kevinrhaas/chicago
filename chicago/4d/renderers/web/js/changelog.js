@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1328, ts: '2026-10-02T23:13:39.029Z', date: 'Oct 2, 2026, 6:13 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+  { v: null, ts: '', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [
       'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
       'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
       'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
+  { v: 1328, ts: '2026-10-02T22:54:50.366Z', date: 'Oct 2, 2026, 5:54 PM CT', title: 'A real building found later can now replace an invented one', kind: 'change',
+    items: [
+      'Most of the town\u2019s buildings are our reconstruction: no record says which house stood on which lot in July 1835. When research does find one, it should replace the invented house on that lot rather than be added beside it, so the town never grows past what it held.',
+      'That swap can now be planned before it is made, for every one of the 297 invented buildings on a surveyed lot. The plan names the house that would go, who lives or works in it and moves into the real building, and why the town\u2019s count of buildings stays the same.',
+      'A building a source already places on a lot is never offered up. Where a lot holds two invented houses, both are listed and the choice is left to a person.',
+      'Behind the scenes, rebuilding all of the town\u2019s research from its sources now gives back exactly the files it started from. Before, two files changed every time for no reason.',
     ] },
   { v: 1327, ts: '2026-10-02T22:38:22.537Z', date: 'Oct 2, 2026, 5:38 PM CT', title: 'Three refectories, a mill and four more houses of trade open', kind: 'feature',
     items: [
