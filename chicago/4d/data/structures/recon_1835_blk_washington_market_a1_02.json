@@ -12,8 +12,8 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 447188.957,
-        "utm_n": 4636955.431,
+        "utm_e": 447237.726,
+        "utm_n": 4636955.232,
         "rotation_deg": 180.34,
         "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Washington, Franklin, Madison and Market; a yard building off the block alley behind the Washington Street frontage",
         "confidence": "reconstructed",
@@ -138,7 +138,7 @@
     "programme_phase": "phase3_platted_block_washington_market_boarding_houses",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "block_id": "blk_washington_market",
-    "lot_index": 0,
+    "lot_index": 4,
     "stands_on": "alley",
     "fronts": "washington",
     "sequence": 2,

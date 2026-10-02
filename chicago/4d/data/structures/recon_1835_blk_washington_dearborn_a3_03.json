@@ -12,8 +12,8 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 447788.158,
-        "utm_n": 4636948.45,
+        "utm_e": 447814.058,
+        "utm_n": 4636948.345,
         "rotation_deg": 180.36,
         "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Washington, State, Madison and Dearborn; a yard building off the block alley behind the Washington Street frontage",
         "confidence": "reconstructed",
@@ -138,7 +138,7 @@
     "programme_phase": "phase3_platted_block_washington_dearborn_boarding_house",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "block_id": "blk_washington_dearborn",
-    "lot_index": 0,
+    "lot_index": 2,
     "stands_on": "alley",
     "fronts": "washington",
     "sequence": 3,
