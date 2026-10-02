@@ -13,12 +13,18 @@
     "data/boats/index.json",
     "data/residents/{households,reconstructed_trades,lodgers,underdocumented,readmitted,institutional,transients}/*.json",
     "data/residents/employment_coverage.json",
+    "data/reconstruction/1835_presence_rulings.json",
+    "data/reconstruction/1835_housing_seats.json#counted_apart",
     "data/businesses/*.json",
     "data/businesses/authored/*.json"
   ],
   "summary": {
-    "households_housed": 1146,
-    "households_unhoused": 914,
+    "households_housed": 1508,
+    "households_unhoused": 0,
+    "households_counted_apart": {
+      "absent_on_the_scene_date": 29,
+      "waiting_on_a_roof": 523
+    },
     "working_age_persons_owed_a_workplace": 308,
     "businesses_neither_roofed_nor_stated": 0,
     "structures_empty_owing_somebody": 39,
@@ -27,32 +33,38 @@
   },
   "housed": {
     "households": {
-      "housed": 1146,
-      "unhoused": 914
+      "housed": 1508,
+      "unhoused": 0,
+      "counted_apart": 552
+    },
+    "counted_apart": {
+      "absent_on_the_scene_date": 29,
+      "waiting_on_a_roof": 523
+    },
+    "persons_counted_apart": {
+      "absent_on_the_scene_date": 29,
+      "waiting_on_a_roof": 525
     },
     "persons_housed": {
-      "attested": 164,
-      "inferred": 354,
-      "reconstructed": 1616
+      "attested": 285,
+      "inferred": 595,
+      "reconstructed": 1617
     },
     "persons_unhoused": {
-      "attested": 248,
-      "inferred": 638,
-      "reconstructed": 31
+      "attested": 0,
+      "inferred": 0,
+      "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 2076,
-      "persons_unhoused": 0
+      "persons_housed": 2496,
+      "persons_unhoused": 0,
+      "persons_waiting_on_a_roof": 525
     },
     "housed_through": {
       "lives_at": 56,
-      "seated_by_a_structure": 1090
+      "seated_by_a_structure": 1452
     },
-    "unhoused_by_folder": {
-      "households": 886,
-      "readmitted": 10,
-      "underdocumented": 18
-    },
+    "unhoused_by_folder": {},
     "unhoused_present_households": []
   },
   "visitors_counted_apart": {
@@ -102,19 +114,19 @@
     "open": []
   },
   "occupied": {
-    "structures": 539,
+    "structures": 541,
     "occupied": {
       "attested": 50,
       "inferred": 9,
-      "reconstructed": 244
+      "reconstructed": 251
     },
     "occupants_in_prose_only": {
       "attested": 9,
       "inferred": 10,
-      "reconstructed": 61
+      "reconstructed": 55
     },
     "use_stated": {
-      "camp_ground": 2,
+      "camp_ground": 3,
       "civic_or_works": 18,
       "outbuilding_of_a_yard": 96,
       "vacant_to_let": 1

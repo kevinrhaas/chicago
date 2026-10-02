@@ -12,7 +12,9 @@ them at all. The people and the roofs were both committed; the join between them
     tools/house_the_present_1835.py              write data/reconstruction/1835_housing_seats.json
     tools/house_the_present_1835.py --check      re-derive it and refuse drift, a seat on a roof
                                                  the scene does not stand, a household seated
-                                                 twice, a present household left unhoused, or a
+                                                 twice, a present household left unhoused, a
+                                                 ruled-in one neither seated nor counted apart,
+                                                 a line stopped while the census had room, or a
                                                  town above the census's people per dwelling
     tools/house_the_present_1835.py --report     the deal by rung, division and roof family
     tools/house_the_present_1835.py --self-test  break each guard in memory and prove it fires
@@ -67,6 +69,31 @@ housed people per inhabited roof exceeds that, so the town this draws is never m
 than the town the enumerator walked four months later. The most crowded roof is printed
 beside it, not hidden in the mean.
 
+## THE RULED IN, AND THE LINE THE CEILING DRAWS (T-1972)
+
+Piece 2 of T-1965. The cards of 885 more unhoused households still read `uncertain`, but
+T-1386's presence rulings (`data/reconstruction/1835_presence_rulings.json`) put them in
+the town by the project's standing rule: an attested or inferred resident is present
+unless evidence says otherwise. So they are owed a roof too, and they are seated AFTER the
+present-on-the-card cohort, by the same three rungs, so not one of T-1971's seats moves.
+
+They cannot all be seated. The scene stands 294 dwellings against the roof programme's 377,
+and the whole cohort under the roofs that stand would be ~10 people a dwelling against the
+census's 8.204. The ceiling is not weakened to let them in. Instead the cohort queues, by
+the ruling's strength (a reading on the day, a span, a bracket, then the carried, the
+nearest last reading first), and takes roofs until the next household would push the town
+over the census. The line stops there: everyone behind it is written to `counted_apart` as
+`waiting_on_a_roof`, with their place in the queue. Those roofs are the remaining dwelling
+builds' (T-1755, T-1759, T-1829, T-1957), and each one they raise lengthens the line on the
+next build with no edit here.
+
+The households the town holds OUT of the day — a card ruled `absent` (a death, the
+persistence draw T-1172 made for the underdocumented and readmitted), or one of the
+rulings' two evidenced absences — are written to `counted_apart` as
+`absent_on_the_scene_date`, with the first sentence of their own evidence. They are owed
+no roof in July 1835, and saying so is how the audit's unhoused count reaches zero without
+pretending they were housed.
+
 The invention is docs/LIBERTIES.md **L354**.
 """
 
@@ -76,6 +103,7 @@ import argparse
 import copy
 import hashlib
 import json
+import math
 import sys
 from collections import Counter
 from pathlib import Path
@@ -85,7 +113,14 @@ DATA = ROOT / "data"
 YEAR = "1835"
 OUT = DATA / "reconstruction" / "1835_housing_seats.json"
 TICKET = "T-1971"
+RULED_TICKET = "T-1972"
 LIBERTY = "L354"
+RULINGS = DATA / "reconstruction" / "1835_presence_rulings.json"
+
+# The presence rulings' legs, strongest first (tools/rule_presence_1835.py). The ruled-in
+# cohort takes its roofs in this order, so where the census's ceiling stops the line it is
+# the households the town is least sure of that wait.
+LEG_ORDER = ("on_the_day", "spans", "bracketed", "carried")
 
 sys.path.insert(0, str(ROOT / "tools"))
 from compile_scene import compile_residents  # noqa: E402
@@ -177,9 +212,32 @@ def read_inputs() -> dict:
     # this pass's own overlay, so the ledger never reads itself.
     seated = {h["household"] for rows in compile_residents(housing=False).values() for h in rows}
 
+    # T-1386's rulings: the `uncertain` households the town's own rule puts in the
+    # population, and the two absences it found evidence for. They stand BESIDE the cards
+    # (which keep their `uncertain`), so this pass reads them where they are.
+    rulings = load(RULINGS)
+    ruled = {r["household_id"]: r["leg"] for r in rulings["rulings"]
+             if value_of(r.get("present_on_scene_date")) == "present"}
+    evidenced_absent = {r["household_id"]: r.get("note", "")
+                        for r in rulings.get("evidenced_absences") or []}
+
     return {"roofs": roofs, "standing": standing, "cards": cards, "book": book,
             "clauses": clauses, "vessels": {b["id"] for b in boats if b.get("id")},
-            "seated": seated}
+            "seated": seated, "ruled": ruled, "evidenced_absent": evidenced_absent}
+
+
+def lag_days(card: dict) -> int:
+    """How long before the scene date the corpus last reads this household (T-1144)."""
+    presence = card.get("present_on_scene_date")
+    last = presence.get("last_dated_appearance") if isinstance(presence, dict) else None
+    days = (last or {}).get("days_before_scene_date") if isinstance(last, dict) else None
+    return days if isinstance(days, int) and days >= 0 else 10 ** 6
+
+
+def first_sentence(text: str) -> str:
+    text = " ".join((text or "").split())
+    cut = text.find(". ")
+    return text if cut < 0 else text[:cut + 1]
 
 
 def division_of(card: dict, row: dict | None) -> str | None:
@@ -210,48 +268,55 @@ def deal(inputs: dict) -> dict:
                     if r["family"] in LODGING_FAMILIES and r["beds"]}
 
     owed, already = [], 0
+    ruled_owed, ruled_already, absent = [], 0, []
     for hid, entry in sorted(cards.items()):
         card = entry["card"]
-        if value_of(card.get("present_on_scene_date")) != "present":
-            continue
+        on_card = value_of(card.get("present_on_scene_date"))
         where = value_of(card.get("lives_at"))
-        if (where and (where in standing or where in vessels)) or hid in seated:
-            already += 1
-            continue
-        owed.append(hid)
+        housed = bool((where and (where in standing or where in vessels)) or hid in seated)
+        if on_card == "present":
+            if housed:
+                already += 1
+            else:
+                owed.append(hid)
+        elif hid in inputs["ruled"]:
+            if housed:
+                ruled_already += 1
+            else:
+                ruled_owed.append(hid)
+        elif not housed and (on_card == "absent" or hid in inputs["evidenced_absent"]):
+            presence = card.get("present_on_scene_date") or {}
+            basis = presence.get("basis") if isinstance(presence.get("basis"), dict) else {}
+            absent.append({
+                "household": hid, "file": entry["file"],
+                "persons": len(card.get("persons") or []),
+                "why": "absent_on_the_scene_date",
+                "on_the_card": on_card,
+                "confidence": presence.get("confidence") if on_card == "absent" else "attested",
+                "basis": basis.get("id") or ("evidenced_absence" if on_card != "absent"
+                                             else "the_card's_own_reading"),
+                "evidence": first_sentence(inputs["evidenced_absent"].get(hid)
+                                           or basis.get("note") or presence.get("note") or ""),
+            })
 
     seats, refused = [], []
 
-    def place(hid, sid, rung, words):
+    def place(hid, sid, rung, words, presence="on_the_card"):
         entry = cards[hid]
         n = len(entry["card"].get("persons") or [])
         people[sid] += n
         seats.append({"household": hid, "file": entry["file"], "place": sid,
                       "rung": rung, "relation": RELATION[rung], "persons": n,
                       "division": roofs[sid]["district"], "family": roofs[sid]["family"],
-                      "words": words})
+                      "presence": presence, "words": words})
 
     def best(hid, candidates):
         return min(candidates, key=lambda sid: (
             round((people[sid] + len(cards[hid]["card"].get("persons") or [])) / pool[sid]["area"], 6),
             seed(hid, sid, TICKET)))
 
-    # 1. dealt — the platted and off-plat seating already chose the roof.
-    rest = []
-    for hid in owed:
-        dealt = (book.get(hid) or {}).get("dealt_roof") or {}
-        sid = dealt.get("structure_id") if isinstance(dealt, dict) else None
-        if sid in pool or (sid in roofs and roofs[sid]["assigned_to"] == hid):
-            place(hid, sid, "dealt", f"the roof {dealt.get('dealt_by') or 'the seating'} dealt this "
-                                     "household, joined here and not re-argued")
-        else:
-            rest.append(hid)
-
     def size(hid):
         return len(cards[hid]["card"].get("persons") or [])
-
-    families = sorted((h for h in rest if size(h) >= 2), key=lambda h: (-size(h), seed(h, TICKET)))
-    singles = sorted((h for h in rest if size(h) < 2), key=lambda h: seed(h, TICKET))
 
     def in_division(hid, families_ok):
         division = division_of(cards[hid]["card"], book.get(hid))
@@ -260,45 +325,94 @@ def deal(inputs: dict) -> dict:
                           and r["family"] in families_ok]
 
     homes = DWELLING_FAMILIES - LODGING_FAMILIES
-    # 2. families, by their clause's own families, else the division's dwellings.
-    for hid in families:
-        row = book.get(hid)
-        clause = ((row or {}).get("seat") or {}).get("clause")
-        admitted = inputs["clauses"].get(clause, set()) & homes
-        division, roofs_ok = in_division(hid, admitted) if admitted else (None, [])
-        how = f"a {'/'.join(sorted(admitted))} dwelling, as the {clause} clause admits"
-        if not roofs_ok:
-            division, roofs_ok = in_division(hid, homes)
-            how = "a dwelling of its division" if division else "the town's least crowded dwelling"
-        if not roofs_ok:
-            refused.append({"household": hid, "why": "no dwelling of its division stands"})
-            continue
-        place(hid, best(hid, roofs_ok), "family", how)
 
-    # 3. single people: a free ordinary bed in their division, then boarding.
-    for hid in singles:
-        division = division_of(cards[hid]["card"], book.get(hid))
-        beds = [sid for sid, free in lodging_beds.items()
-                if free > 0 and (division is None or pool[sid]["district"] == division)]
-        if beds:
-            sid = min(beds, key=lambda s: (-lodging_beds[s], seed(hid, s, TICKET)))
-            lodging_beds[sid] -= 1
-            place(hid, sid, "lodger", "a free ordinary-night bed of the lodging model")
+    def seat_cohort(cohort, presence):
+        # 1. dealt — the platted and off-plat seating already chose the roof.
+        rest = []
+        for hid in cohort:
+            dealt = (book.get(hid) or {}).get("dealt_roof") or {}
+            sid = dealt.get("structure_id") if isinstance(dealt, dict) else None
+            if sid in pool or (sid in roofs and roofs[sid]["assigned_to"] == hid):
+                place(hid, sid, "dealt", f"the roof {dealt.get('dealt_by') or 'the seating'} dealt "
+                                         "this household, joined here and not re-argued", presence)
+            else:
+                rest.append(hid)
+
+        families = sorted((h for h in rest if size(h) >= 2), key=lambda h: (-size(h), seed(h, TICKET)))
+        singles = sorted((h for h in rest if size(h) < 2), key=lambda h: seed(h, TICKET))
+
+        # 2. families, by their clause's own families, else the division's dwellings.
+        for hid in families:
+            row = book.get(hid)
+            clause = ((row or {}).get("seat") or {}).get("clause")
+            admitted = inputs["clauses"].get(clause, set()) & homes
+            division, roofs_ok = in_division(hid, admitted) if admitted else (None, [])
+            how = f"a {'/'.join(sorted(admitted))} dwelling, as the {clause} clause admits"
+            if not roofs_ok:
+                division, roofs_ok = in_division(hid, homes)
+                how = "a dwelling of its division" if division else "the town's least crowded dwelling"
+            if not roofs_ok:
+                refused.append({"household": hid, "why": "no dwelling of its division stands"})
+                continue
+            place(hid, best(hid, roofs_ok), "family", how, presence)
+
+        # 3. single people: a free ordinary bed in their division, then boarding.
+        for hid in singles:
+            division = division_of(cards[hid]["card"], book.get(hid))
+            beds = [sid for sid, free in lodging_beds.items()
+                    if free > 0 and (division is None or pool[sid]["district"] == division)]
+            if beds:
+                sid = min(beds, key=lambda s: (-lodging_beds[s], seed(hid, s, TICKET)))
+                lodging_beds[sid] -= 1
+                place(hid, sid, "lodger", "a free ordinary-night bed of the lodging model", presence)
+                continue
+            division, roofs_ok = in_division(hid, homes)
+            if not roofs_ok:
+                refused.append({"household": hid, "why": "no dwelling of its division stands"})
+                continue
+            place(hid, best(hid, roofs_ok),
+                  "boarder", "boarding in the division's least crowded dwelling" if division
+                  else "boarding in the town's least crowded dwelling", presence)
+
+    def standing_dwellings():
+        inhabited = {sid for sid, n in people.items() if n > 0}
+        return {sid for sid, r in roofs.items()
+                if (r["family"] in DWELLING_FAMILIES and not r["documented"])
+                or (r["documented"] and r["function"] in DOCUMENTED_DWELLINGS)} | inhabited
+
+    # THE PRESENT ON THEIR CARDS (T-1971): every one is owed a roof and every one gets one.
+    seat_cohort(owed, "on_the_card")
+
+    # THE RULED IN (T-1972): the households T-1386's rule puts in the town that their cards
+    # still leave `uncertain`. They queue by the strength of the ruling — a reading on the
+    # day, a span, a bracket, then the carried, nearest last reading first — and take roofs
+    # while the town stays within the census's people per dwelling. The line stops at the
+    # first household the ceiling cannot take; everyone behind it waits for the roofs the
+    # programme orders and the scene does not yet stand, and is counted apart saying so.
+    leg_rank = {leg: i for i, leg in enumerate(LEG_ORDER)}
+    ruled_owed.sort(key=lambda h: (leg_rank.get(inputs["ruled"][h], len(LEG_ORDER)),
+                                   lag_days(cards[h]["card"]), seed(h, RULED_TICKET)))
+    room = math.floor(CENSUS_PEOPLE_PER_DWELLING * len(standing_dwellings()) + 1e-9) \
+        - sum(n for n in people.values() if n > 0)
+    admitted, waiting = [], []
+    for hid in ruled_owed:
+        if waiting or size(hid) > room:
+            waiting.append(hid)
             continue
-        division, roofs_ok = in_division(hid, homes)
-        if not roofs_ok:
-            refused.append({"household": hid, "why": "no dwelling of its division stands"})
-            continue
-        place(hid, best(hid, roofs_ok),
-              "boarder", "boarding in the division's least crowded dwelling" if division
-              else "boarding in the town's least crowded dwelling")
+        room -= size(hid)
+        admitted.append(hid)
+    seat_cohort(admitted, "ruled_in")
+    counted_apart = sorted(absent + [{
+        "household": hid, "file": cards[hid]["file"], "persons": size(hid),
+        "why": "waiting_on_a_roof", "leg": inputs["ruled"][hid],
+        "queue_position": len(admitted) + i + 1,
+    } for i, hid in enumerate(waiting)], key=lambda r: r["household"])
 
     seats.sort(key=lambda s: s["household"])
     inhabited = {sid for sid, n in people.items() if n > 0}
     present_housed = sum(people[sid] for sid in inhabited)
-    dwellings = {sid for sid, r in roofs.items()
-                 if (r["family"] in DWELLING_FAMILIES and not r["documented"])
-                 or (r["documented"] and r["function"] in DOCUMENTED_DWELLINGS)} | inhabited
+    dwellings = standing_dwellings()
+    by_presence = Counter(s["presence"] for s in seats)
     crowd = sorted(((people[sid], sid) for sid in pool), reverse=True)
     density = sorted(((round(people[sid] / pool[sid]["area"], 4), sid) for sid in pool),
                      reverse=True)
@@ -307,6 +421,7 @@ def deal(inputs: dict) -> dict:
                         "tools/check.sh re-derives it. Do not hand-edit.",
         "id": "chicago_july_1835_housing_seats",
         "ticket": TICKET,
+        "tickets": [TICKET, RULED_TICKET],
         "parent_ticket": "T-1965",
         "target_date": "1835-07-01",
         "generated_by": "tools/house_the_present_1835.py",
@@ -319,6 +434,7 @@ def deal(inputs: dict) -> dict:
                           "record is written, no slot is requested and nothing is baked.",
         "inputs": [
             "data/residents/{" + ",".join(RESIDENT_FOLDERS) + "}/*.json",
+            "data/reconstruction/1835_presence_rulings.json",
             "data/reconstruction/1835_address_book.json",
             "data/reconstruction/1835_placement_policy.json",
             "data/reconstruction/1835_lodgers_seated.json (through compile_scene)",
@@ -328,9 +444,15 @@ def deal(inputs: dict) -> dict:
         "counts": {
             "present_households_already_housed": already,
             "present_households_owed_a_roof": len(owed),
+            "ruled_in_households_already_housed": ruled_already,
+            "ruled_in_households_owed_a_roof": len(ruled_owed),
             "seated": len(seats),
+            "seated_by_presence": dict(sorted(by_presence.items())),
             "refused": len(refused),
             "persons_seated": sum(s["persons"] for s in seats),
+            "counted_apart": dict(sorted(Counter(r["why"] for r in counted_apart).items())),
+            "persons_counted_apart": dict(sorted(Counter(
+                r["why"] for r in counted_apart for _ in range(r["persons"])).items())),
             "by_rung": dict(sorted(Counter(s["rung"] for s in seats).items())),
             "by_division": dict(sorted(Counter(s["division"] for s in seats).items())),
             "by_family": dict(sorted(Counter(s["family"] for s in seats).items())),
@@ -360,8 +482,38 @@ def deal(inputs: dict) -> dict:
             "densest_roof": {"structure_id": density[0][1], "people_per_m2": density[0][0]}
             if density else None,
         },
+        "the_ruled_in": {
+            "ticket": RULED_TICKET,
+            "who": "households whose cards still read `uncertain` and whom T-1386's rule puts in "
+                   "the town (data/reconstruction/1835_presence_rulings.json): an attested or "
+                   "inferred resident is present unless evidence says otherwise",
+            "order": "the ruling's leg, strongest first (" + ", ".join(LEG_ORDER) + "), then the "
+                     "nearest last dated reading, then a seeded hash",
+            "the_line_stops": "at the first household the census's people per dwelling cannot "
+                              "take; nobody behind it is seated, so a weaker ruling never takes "
+                              "a roof a stronger one waits for",
+            "admitted": len(admitted),
+            "waiting": len(waiting),
+            "admitted_by_leg": dict(sorted(Counter(inputs["ruled"][h] for h in admitted).items())),
+            "waiting_by_leg": dict(sorted(Counter(inputs["ruled"][h] for h in waiting).items())),
+        },
+        "counted_apart_reasons": {
+            "absent_on_the_scene_date": "the card, or the presence rulings' evidenced absences, "
+                                        "put this household out of the town on 1 July 1835 (a "
+                                        "death, a dated departure, or the persistence draw "
+                                        "T-1172 ruled on): it is owed no roof in this scene",
+            "waiting_on_a_roof": "ruled present, and owed a roof the scene does not stand yet. "
+                                 "The roof programme orders 377 dwelling roofs on the scene date "
+                                 "(1835_roof_programme_rederivation.json) and the scene stands "
+                                 "fewer; seating these under the roofs that do stand would put "
+                                 "the town above the census's 8.204 people per dwelling. The "
+                                 "roofs are the remaining dwelling builds (T-1755, T-1759, "
+                                 "T-1829, T-1957); every roof they raise lengthens this deal's "
+                                 "line on the next build, with no edit here",
+        },
         "seats": seats,
         "refused": refused,
+        "counted_apart": counted_apart,
     }
 
 
@@ -389,19 +541,43 @@ def problems(doc: dict, inputs: dict) -> list[str]:
             out.append(f"{s['household']} is seated at {s['place']}, which this deal refuses")
     if doc["refused"]:
         out.append(f"{len(doc['refused'])} present household(s) left without a roof")
+    apart = Counter(r["household"] for r in doc["counted_apart"])
+    for hid, n in apart.items():
+        if n > 1 or hid in seen:
+            out.append(f"{hid} is counted apart and also seated, or counted apart twice")
+    for r in doc["counted_apart"]:
+        if r["why"] == "waiting_on_a_roof" and r["household"] not in inputs["ruled"]:
+            out.append(f"{r['household']} waits on a roof and no presence ruling puts it in the town")
+    owed = set(inputs["ruled"]) - inputs["seated"] - set(seen) - set(apart)
+    for hid in sorted(owed):
+        card = (inputs["cards"].get(hid) or {}).get("card") or {}
+        where = value_of(card.get("lives_at"))
+        if not (where and (where in inputs["standing"] or where in inputs["vessels"])):
+            out.append(f"{hid} is ruled present and neither seated nor counted apart")
     ceiling = doc["the_ceiling"]
     if ceiling["people_per_dwelling"] > CENSUS_PEOPLE_PER_DWELLING:
         out.append(f"{ceiling['people_per_dwelling']} people per standing dwelling is above "
                    f"the census's {CENSUS_PEOPLE_PER_DWELLING}")
+    # A household left waiting while the census still had room for it is a line stopped
+    # early: the next one in the queue must be the one that did not fit.
+    waiting = sorted((r for r in doc["counted_apart"] if r["why"] == "waiting_on_a_roof"),
+                     key=lambda r: r["queue_position"])
+    if waiting:
+        room = math.floor(CENSUS_PEOPLE_PER_DWELLING * ceiling["standing_dwellings"] + 1e-9) \
+            - ceiling["people_under_a_roof"]
+        if waiting[0]["persons"] <= room:
+            out.append(f"{waiting[0]['household']} waits on a roof though the census's ceiling "
+                       f"still has room for {room}")
     return out
 
 
 def report(doc: dict) -> str:
     c, t = doc["counts"], doc["the_ceiling"]
     return "\n".join([
-        f"house the present (T-1971): {c['seated']} of {c['present_households_owed_a_roof']} owed "
-        f"households seated, {c['refused']} refused ({c['present_households_already_housed']} "
-        f"were already housed)",
+        f"house the present (T-1971, T-1972): {c['seated']} households seated "
+        f"{c['seated_by_presence']}, {c['refused']} refused; owed {c['present_households_owed_a_roof']} "
+        f"on the card + {c['ruled_in_households_owed_a_roof']} ruled in",
+        f"  counted apart {c['counted_apart']} households, {c['persons_counted_apart']} persons",
         f"  by rung      {c['by_rung']}",
         f"  by division  {c['by_division']}",
         f"  by family    {c['by_family']}",
@@ -435,10 +611,22 @@ def self_test(inputs: dict) -> int:
            lambda d: d["refused"].append({"household": "hh_x", "why": "test"}))
     expect("a town above the census's crowding",
            lambda d: d["the_ceiling"].update(people_per_dwelling=9.0))
+
+    def drop_a_waiter(d):
+        row = next(r for r in d["counted_apart"] if r["why"] == "waiting_on_a_roof")
+        d["counted_apart"].remove(row)
+
+    def stop_early(d):
+        d["the_ceiling"]["people_under_a_roof"] -= 50
+
+    expect("a ruled-in household neither seated nor counted apart", drop_a_waiter)
+    expect("a household counted apart and seated", lambda d: d["counted_apart"].append(
+        {"household": d["seats"][0]["household"], "why": "absent_on_the_scene_date", "persons": 1}))
+    expect("a line stopped while the census still had room", stop_early)
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))
         return 1
-    print("self-test: all five guards fire")
+    print("self-test: all eight guards fire")
     return 0
 
 

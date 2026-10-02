@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 1309, ts: '2026-10-02T15:39:39.047Z', date: 'Oct 2, 2026, 10:39 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
+    items: [
+      'Open a reconstructed house on Randolph or Washington Street and you may meet new boarders. 362 more households now have a roof. The records lose track of them before July 1835, but nothing puts them anywhere else, so the town counts them as present.',
+      'Those we know best were housed first: people a record names on the day itself, then people seen both before and after it, then the rest, most recently seen first.',
+      'We stopped where the town reached the 1835 census\u2019s eight people to a dwelling. The other 523 households wait for the houses still to be built, and each one we build makes room for more.',
+      'Twenty-nine households were not in town that day, because they had died or moved away. They are counted separately and are not given a roof. Which roof each person slept under is our reconstruction (liberty L354).',
+    ] },
+  { v: 1308, ts: '2026-10-02T15:23:58.924Z', date: 'Oct 2, 2026, 10:23 AM CT', title: 'The frame budgets set for the town as it now stands', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Over the last week the town filled in: houses finished by who lives in them, privies and stables behind them, walks and yards dealt by trade. Behind the scenes we measured how much each view now draws.',
+      'The Full and Balanced detail settings now allow for that town, measured at five places on a desktop and a phone, with a little room and no more.',
+      'The Light setting, the one a slower machine or a phone starts on, was not raised. It still draws more than it should in the busiest views, and the next step trims it back.',
+    ] },
+  { v: 1307, ts: '2026-10-02T15:05:20.551Z', date: 'Oct 2, 2026, 10:05 AM CT', title: 'The town arrives sooner: 2 MB less to download', kind: 'polish',
+    items: [
+      'A first visit now downloads about 2 MB less before you can walk. Every wall, roof and signboard looks exactly as it did.',
+      'The grain on the walls, roofs and signboards now arrives in a smaller image format that keeps every pixel the same.',
+      'These release notes now load when you open this tab, so the dot that says there is something new no longer costs a megabyte.',
+    ] },
+  { v: 1306, ts: '2026-10-02T14:47:42.799Z', date: 'Oct 2, 2026, 9:47 AM CT', title: 'Tents on the shore below the fort, wagons at the west edge', kind: 'change',
+    items: [
+      'Stand at the fort\u2019s south-west corner and look south. Beyond the factor\u2019s house, a scatter of tents now stands on the lake shore, with three covered wagons and cold fire rings. It is the crowd the June land sale drew to town.',
+      'Walk west out of town along Randolph Street, past the last houses beyond Des Plaines Street. Four covered wagons and two small tents stand in a ring on the prairie, an emigrant party stopped for the night.',
+      'Both camps are empty. No figure is drawn, and no fire burns.',
+      'Both are our reconstruction. No source says anybody camped on either spot. The Liberties page (L355) says how we placed and sized them.',
+    ] },
   { v: 1305, ts: '2026-10-02T14:18:36.212Z', date: 'Oct 2, 2026, 9:18 AM CT', title: 'Everyone in town on 1 July 1835 now has a roof', kind: 'change',
     items: [
       'Open the card of almost any reconstructed house, cottage or cabin. It now lists the people who slept there that night. Before this, 223 of the town\u2019s dwellings stood empty, while 1,003 households in town that day had nowhere to sleep.',

@@ -118,9 +118,9 @@ async function loadSubstrate(base, dir, lowSpec) {
   const tileM = Number(sheet.span_m);
   if (!(tileM > 0)) throw new Error(`${dir}: material.json states no span_m`);
   const [nrm, orm, col] = await Promise.all([
-    image(new URL(`${sheet.id}_normal_gl.png`, here).href),
-    image(new URL(`${sheet.id}_orm.png`, here).href),
-    image(new URL(`${sheet.id}_basecolor.png`, here).href)]);
+    image(new URL(`${sheet.id}_normal_gl.webp`, here).href),
+    image(new URL(`${sheet.id}_orm.webp`, here).href),
+    image(new URL(`${sheet.id}_basecolor.webp`, here).href)]);
   const px = lowSpec ? Math.min(LIGHT_PX, orm.naturalWidth) : orm.naturalWidth;
   const aniso = lowSpec ? 4 : 8;
 

@@ -10908,7 +10908,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 97 structures (94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 98 structures (97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -19627,8 +19627,29 @@ every roof whose sidecar already states its occupants, including those that say
 the very household being seated (5); and stores, workshops, warehouses, outbuildings and
 civic works.
 
-**Not done, and why:** the 914 households the layer holds `uncertain` or `absent` on the
-scene date are not housed here; ruling them in or counting them apart is T-1972. The town
+**The ruled in (T-1972):** 885 more unhoused households have cards that still read
+`uncertain`, but T-1386's presence rulings put them in the town by the project's standing
+rule (an attested or inferred resident is present unless evidence says otherwise). They
+are seated by the same deal AFTER the households present on their cards, so no T-1971
+seat moves, and they queue by the strength of the ruling: a reading on the day, then a
+span, then a bracket, then the carried, the nearest last reading first, ties by seeded
+hash. They take roofs while the town stays within the census's 8.204 people per dwelling,
+and **the line stops at the first household the ceiling cannot take**. 362 households are
+seated; the town then stands at 8.201 people per dwelling (2,411 under 294), the most
+crowded roof the same Washington-at-Wells H2 house, now 36 people. The other 523 (525
+people) are written to the ledger's `counted_apart` as `waiting_on_a_roof`, with their
+place in the queue. They are not housed and the audit does not call the join total while
+they wait: the roof programme orders 377 dwelling roofs on the scene date and the scene
+stands 294, and the remaining dwelling builds (T-1755, T-1759, T-1829, T-1957) are what
+lengthens the line, with no edit to the deal. The 29 households the town holds out of the
+day (28 ruled `absent` on their cards by T-1172's persistence draw, and Alexander
+Wolcott, whose card reads him `absent` on the old settlers' death notice) are counted
+apart as `absent_on_the_scene_date` with the first sentence of their own
+evidence. They are owed no roof in July 1835. **The invention added here is the ORDER of
+the queue**: which ruled-in household waits is decided by the ruling's strength and the
+age of its last reading, not by any source about where these people slept.
+
+**Not done, and why:** the town
 census screen's housed count reads card links and does not yet count these seats; that
 screen is T-1967. The People view's "Go to" is not pointed at these roofs.
 
@@ -19640,4 +19661,66 @@ already houses it.
 **Related:** **L167** (houses to let), **L270** (the platted deal), **L271** (the off-plat
 deal), **L276** (the card says so), **T-1199**, **T-1215**, **T-1964**, **T-1965**,
 **T-1971**.
+**Recorded:** 2026-10-02.
+
+### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
+
+**Decision:** two camps stand on the two grounds `data/reconstruction/1835_camp_grounds.json`
+offers and grades `conjectural` (T-1804, the second piece of T-1214).
+`land_sale_camp_shore` is a scatter of 12 tents (wall and wedge alternately), 3 covered
+wagons, a brush lean-to, 6 cold fire rings, 3 woodpiles and 4 heaps of baggage on a 50 x 40 m
+ground of the United States Reservation between local E +1130 and E +1180, N −40 to 0:
+north-east of the Fort Cemetery, south-east of the garrison garden, south-west of the factor's
+house, short of the lake beach, and in view from the fort's south-west corner past the
+factor's house. `west_approach_wagon_camp` is a ring of
+4 covered wagons and 2 wedge tents about 2 fire rings on a 34 x 34 m ground of prairie
+beyond the Des Plaines Street line, between E −700 and E −666, just north of the line
+Randolph would carry west. **Everything drawn is invented, and so is the use of the ground.**
+**Why:** the owner asked for both by name (T-1214: "the land-sale crowd south of the fort, the
+immigrants' wagons at the west approach"), and AGENTS.md § RECONSTRUCTED IS A TIER is the rule
+for a thing the scene needs and nothing states. The camp-grounds file offers the shore as the
+nearest open, unplatted, unsold ground to the landing — and says no source puts anybody on
+it — and the prairie edge as where a wagon party stops without entering the town, resting on
+the direction of the traffic and nothing else. The spots are the placer's
+(`tools/place_camp_grounds_1835.py`): level ground (under 0.25 m of fall) at least 0.5 m above
+the water, at least 3 m from every drawn roadway's edge, fence run and committed footprint,
+and the shore camp outside the cemetery's 30 m skirt. `1835_no_build_ground.json` refuses
+the reservation to a builder and permits this camp by name, because the camp-grounds file
+rules that a crowd sleeping rough for a fortnight is not a dwelling. The counts are bounded,
+not derived: the transient model reserves 77 land-sale visitors the Public Domain register
+names at the sale of 26-27 June 1835 and seats none of them, and 12 tents is the share drawn
+as having come with canvas; four wagons is a party, not a count.
+**Consequence:** from the fort's south-west corner a visitor sees canvas and wagons on the
+shore to the south; at the west edge of town, a ring of wagons on the prairie. **Neither camp
+seats anybody**: `occupants` says so on both, and no resident or transient count moves. **L1
+stands over every vertex** — no figure, no flame, no smoke. **These are not Native or Métis
+camps.** T-1177 refused a count for the unnamed Native and Métis people at Chicago on
+1 July 1835 (`1835_native_and_metis.json` § the_counted_but_unnamed), and a camp with no count
+would be the population that refusal declined to invent; that question is the owner's.
+**How to resolve:** an account of the June 1835 land sale saying where the crowd that came for
+it slept; a letter or diary of an overland party reaching Chicago in 1835 saying where it
+stopped; either would move a camp to its ground or retire it.
+**Covers:** `land_sale_camp_shore.camp_1835.position`, `land_sale_camp_shore.camp_1835.footprint`,
+`land_sale_camp_shore.camp_1835.documented_range`, `land_sale_camp_shore.camp_1835.form.tents`,
+`land_sale_camp_shore.camp_1835.form.tent_kind`, `land_sale_camp_shore.camp_1835.form.wagons`,
+`land_sale_camp_shore.camp_1835.form.brush_shelters`,
+`land_sale_camp_shore.camp_1835.form.fire_rings`, `land_sale_camp_shore.camp_1835.form.woodpiles`,
+`land_sale_camp_shore.camp_1835.form.baggage_heaps`,
+`land_sale_camp_shore.camp_1835.form.arrangement`,
+`land_sale_camp_shore.camp_1835.form.canvas_condition`, `land_sale_camp_shore.function`,
+`land_sale_camp_shore.occupants`,
+`west_approach_wagon_camp.camp_1835.position`, `west_approach_wagon_camp.camp_1835.footprint`,
+`west_approach_wagon_camp.camp_1835.documented_range`,
+`west_approach_wagon_camp.camp_1835.form.tents`,
+`west_approach_wagon_camp.camp_1835.form.tent_kind`,
+`west_approach_wagon_camp.camp_1835.form.wagons`,
+`west_approach_wagon_camp.camp_1835.form.brush_shelters`,
+`west_approach_wagon_camp.camp_1835.form.fire_rings`,
+`west_approach_wagon_camp.camp_1835.form.woodpiles`,
+`west_approach_wagon_camp.camp_1835.form.baggage_heaps`,
+`west_approach_wagon_camp.camp_1835.form.arrangement`,
+`west_approach_wagon_camp.camp_1835.form.canvas_condition`,
+`west_approach_wagon_camp.function`, `west_approach_wagon_camp.occupants`
+**Related:** **L1** (no human figures), **L245** (the transient crowd bounded), **L321** (the
+landing-place camps), **T-1803** (the archetype), **T-1804** (this entry).
 **Recorded:** 2026-10-02.
