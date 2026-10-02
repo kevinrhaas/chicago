@@ -18745,3 +18745,42 @@ house, which outranks the rule for that roof; any count of balloon against brace
 (the siding stocks), **L90** (the anonymous roofs), **T-1210**, **T-1816**, **T-1817** (this
 rule), **T-1818**.
 **Recorded:** 2026-10-01.
+
+### L340 — Twelve reconstructed firms hang their own boards: the wording is the firm's style, the board is ours
+
+**Applies to:** `data/signage/town_business_signboards.json`, the boards on
+`recon_1835_north_h1_007`, `_north_h2_022`, `_north_h2_028`, `_north_h2_030`, `_north_h2_045`,
+`_west_006`, `_west_035`, `_blk_washington_clark_h3_05`, `_canal_trade_c3_001`,
+`_canal_trade_c4_002`, `_canal_trade_w1_003` and `_canal_trade_w2_004`.
+
+**What we invented:** that each of these twelve houses of trade announced itself, and what the
+board said. Every one of the firms is itself reconstructed (T-1187, T-1190) — eight boarding
+houses, two grocers, a smith and a joiner — and no source records any of them, so no source
+records a sign. The wording is not typed anywhere: it is the firm's own style, which T-1184
+wrote to the register's printed forms, split at its joint. The proprietor half ("BARDWELL'S",
+"LEMUEL LYMAN") is line 1; the trade half ("Boarding House", "Blacksmith Shop") is line 2; the
+street is line 3 where the mounting has room. The mounting, colourway and letterform are dealt
+by the same rule as every other board (L159). The board, the trade and the wording are all
+graded `reconstructed`.
+
+**Why:** clauses 1 and 3 of the signboard rule refused a board to any reconstructed roof,
+because an anonymous roof had no proprietor to announce. These twelve are no longer anonymous.
+The business layer records a keeper and a firm in each, and the card a visitor opens names the
+firm. The owner ruled in August 2026 that signs are fine as reconstructions (T-0066), and a
+boarding house with no board on the north side is a house a stranger could not find.
+
+**Consequence:** a visitor sees twelve more named boards, all of them away from South Water: the
+north side's boarding houses, two on the west side, one on Washington Street and the four
+Canal Street trades. None of the 34 boards the evidence carries moved. They are dealt first,
+and `--prove-recon-yields` holds them byte-identical. A visitor reading one of these twelve
+boards as evidence that the house existed is reading this liberty. Each board's
+`sign_text_from` says so.
+
+**How to resolve:** a printing that names any of these keepers or houses would replace the firm
+and its board together. The board follows the firm by rule, so retiring or renaming a firm moves
+or removes its board on the next derivation.
+
+**Related:** **L130** (the fact of a sign), **L159** (mounting and style), **L169** (wording),
+**T-1184**, **T-1190**, **T-1213** (parent), **T-1835** (the register firms housed on South
+Water and Lake, next).
+**Recorded:** 2026-10-02 (T-1834).
