@@ -6386,6 +6386,22 @@ The widths are ordinary carpentry, and that a forwarding house would widen its w
 would not plank its front is a reconstruction from what each trade did at its door.
 **Revised:** 2026-10-01.
 
+**Amended 2026-10-02 — the walk by business carried to the new fronts (T-1823, the second
+piece of T-1814).** A platted face the covered streets do not reach is now laid **fronts-only**:
+no walk at all except in front of a business that opens onto it, and in front of each one the
+walk its trade deals (board, decked or bare ground) with its posts and fittings. A building
+fronts a face when it stands on that block, faces that way (within 45°), and its nearest wall is
+no more than **10 m** behind the lot line. Each walk runs half a march step past the ends of the
+frontage, and where that comes to less than the 10.4 m least run it takes the next clear step
+nearer the shop's middle. A fronts-only face takes no street fence. On today's town that is
+**5 fronts-only walks** (the Western Hotel on Randolph, stores on Lake, Clinton and Fulton, and
+the West Water freight house), **1 more decked walk**, **2 more bare fronts** (the Pierce smithy
+on Lake and a joiner on Randolph) and **1 corner crossing** over Canal Street. The Dearborn front
+of the auction room is refused because the Tremont House stands on its walk line. **All of it is
+invented**: the 10 m depth, the half-step reach and that these fronts were planked on 1 July
+1835. No source in this repository shows a plank walk anywhere in the West Division.
+**Revised:** 2026-10-02.
+
 ### L161 — The town encloses its property: a yard fence on 109 platted lots, in three types, every metre of it invented
 
 **Decision:** the YARD of every improved platted lot in this town is enclosed (T-0068,
@@ -19150,3 +19166,38 @@ second house and the yard mix), **L344** (the North's house, raised the same day
 **T-1950** (this deal, a piece of **T-1810**, of **T-1779**), **T-1209** (the boarding houses built to their beds).
 
 **Recorded:** 2026-10-02.
+
+### L346 — The signboards' wood: grain through the paint, the joints between boards, and the wear
+
+**Applies to:** every board, painted band and piece of hanging carpentry drawn by
+`renderers/web/js/signage.js` — the whole of `data/signage/town_business_signboards.json`.
+
+**What we invented:** what the boards are made of and how a season has used them. The grain is
+the vendored library's (`signboard_weathered` under the paint, `heavy_timber_weathered` in the
+arms, straps, posts, caps and hoods), both deterministic procedural synthesis, neither a
+photograph of any Chicago board. Everything laid over that grain is ours: how much of it a coat of
+paint lets through (0.55 of a soft-light blend; bare boards and carpentry 0.95), that a hung board
+is edge-joined from boards about 0.25 m wide with each joint moved up to an eighth of a board off
+even spacing, the paint worn back to the library's own weathered tone (155/137/105) in chips
+along the edges — weighted to the bottom edge, then the top, then the ends and corners — and in a
+scatter of flakes over the face that takes the lettering with it, a grime gradient over the
+board's lowest quarter, and a roughness of 0.62 for paint against 0.88 for bare timber. Each
+board's wear is seeded from its structure id, so no two boards wear alike and every board wears
+the same way on every load.
+
+**Why:** the owner set photographic quality as the standard (T-1769, 2026-09-30), and a flat
+colour panel with a crisp computer letter is the opposite of it. Nothing records the condition of
+any 1835 Chicago signboard, so the condition is reconstructed and bounded to read as a board in
+use, not a derelict one: the flakes cover a few per cent of a face and the edge chips reach at
+most 5 cm in.
+
+**Consequence:** every board in the town shows wood under its paint and wear at its edges. That
+is a claim about the kind of thing a painted board on a frontier street was, not about any board.
+A visitor who hides `reconstructed` still hides the whole layer, as before (L158, L159).
+
+**How to resolve:** a description or image of a particular 1830s Chicago board's condition
+replaces the seeded wear on that board.
+
+**Related:** **L158**, **L159**, **L340**, **L341**, **T-1213** (parent), **T-1769**, **T-1795**,
+**T-1836**.
+**Recorded:** 2026-10-02 (T-1836).
