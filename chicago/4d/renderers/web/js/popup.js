@@ -1006,7 +1006,8 @@ function firmChipsHtml(firms, fromSign) {
       title="${escapeHtml([f.trade, f.present ? 'trading on 1 July 1835' : 'not trading on 1 July 1835']
     .filter(Boolean).join(' \u2014 '))}"><i class="grade-dot grade-${escapeHtml(f.grade)}"></i>${
   escapeHtml(f.name)}</button>`).join('');
-  const inRoof = firms.filter((f) => f.relation !== 'against');
+  const inRoof = firms.filter((f) => f.relation === 'in');
+  const housed = firms.filter((f) => f.relation === 'housed');
   const against = firms.filter((f) => f.relation === 'against');
   const groups = [];
   if (inRoof.length) {
@@ -1014,6 +1015,15 @@ function firmChipsHtml(firms, fromSign) {
       ? (inRoof.length === 1 ? 'The board hangs for' : 'The board hangs over')
       : (inRoof.length === 1 ? 'The register puts one house here'
         : `The register puts ${inRoof.length} houses here`), inRoof]);
+  }
+  // T-1835. THE PAPER NAMED THE STREET AND THE TOWN CHOSE THE ROOF, so the lead
+  // says both halves: a reader is never told the register put this house in this
+  // building, only on this street, and that the reconstruction housed it here.
+  if (housed.length) {
+    groups.push([fromSign && !inRoof.length
+      ? 'The board hangs for'
+      : (housed.length === 1 ? 'Housed here — the paper names only the street'
+        : `${housed.length} houses housed here — the paper names only the street`), housed]);
   }
   // NOT "HERE". The paper sited these by this building and gave them no roof, and
   // the words have to keep that distance or the card claims a premises the source

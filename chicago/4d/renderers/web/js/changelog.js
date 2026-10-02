@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1284, ts: '2026-10-02T02:38:00.965Z', date: 'Oct 1, 2026, 9:38 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
+  { v: 1285, ts: '2026-10-02T03:16:34.149Z', date: 'Oct 1, 2026, 10:16 PM CT', title: 'The streets now lie lower than the plank walks beside them', kind: 'change',
     items: [
       'Walk down South Water Street and the road is now a little below the plank walks on either side. Before, the road and the walks sat at the same level.',
       'Each open street is highest along its middle and dips at each edge before rising to the walk. The busiest streets dip about a foot. Quieter streets dip less.',
       'When you step off a walk into the street you now step down, and you walk on the lower roadway. The board crossings step down into the street and back up again.',
       'The walks, doors and buildings stayed where they were. Six wagons that stood on the lowest ground by the river are gone for now.',
-      'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L341).',
+      'How deep each street lies is our reconstruction. No 1835 Chicago source measures it. The Liberties page says so (L342).',
+    ] },
+  { v: 1284, ts: '2026-10-02T02:44:49.927Z', date: 'Oct 1, 2026, 9:44 PM CT', title: 'South Water and Lake Street hang the newspapers\u2019 own firms\u2019 boards', kind: 'change',
+    items: [
+      'Walk South Water Street and twenty-five more houses of trade now name themselves: A. FILER & CO., JONES, KING & CO., BRIGGS & HUMPHREY and PETER COHEN among them, and more on Lake, Randolph and the cross streets. Some boards hang on brackets or under hoods, and some names are painted across the front.',
+      'Each board letters the firm as the 1833\u201335 papers printed it, with its trade beneath. Nothing is added.',
+      'Tap one of these buildings and its card now names the firm in it: \u201cHoused here \u2014 the paper names only the street.\u201d The paper gives the street. Which building on it is our choice, and the card says so (liberty L341).',
+      'Fourteen of these firms hang no board, and each one says why: a name the paper did not print whole, a school, or a face already crowded with boards. The town\u2019s other 47 boards are unchanged.',
     ] },
   { v: 1283, ts: '2026-10-02T02:10:37.412Z', date: 'Oct 1, 2026, 9:10 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [

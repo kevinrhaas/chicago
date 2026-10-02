@@ -13115,6 +13115,12 @@ for (const [label, viewport, touch] of [
       const roofs = new Set(idx.businesses
         .filter((b) => b.where?.kind === 'premises' && b.where.structure_id)
         .map((b) => b.where.structure_id));
+      // T-1835: a roof the street-face adoption houses a firm in names it too, so
+      // it is no candidate for the empty card below.
+      const housedRows = idx.businesses.filter((b) => b.where?.kind === 'street_only'
+        && b.where.housed_in?.structure_id && api.registry.has(b.where.housed_in.structure_id));
+      for (const b of housedRows) roofs.add(b.where.housed_in.structure_id);
+      const housedRoof = housedRows.map((b) => b.where.housed_in.structure_id).sort()[0] ?? null;
       return {
         // John Dean Caton holds four of these houses, which is the fact about the
         // town that no card said before this…
@@ -13140,6 +13146,12 @@ for (const [label, viewport, touch] of [
         // …and a roof the register puts no house in must say nothing at all,
         // because an empty Use row is a claim.
         empty: [...api.registry.keys()].find((id) => !roofs.has(id)) ?? null,
+        housed: {
+          roof: housedRoof,
+          ids: housedRows.filter((b) => b.where.housed_in.structure_id === housedRoof)
+            .map((b) => b.id).sort(),
+          count: housedRows.length,
+        },
       };
     });
     const personFirms = await page.evaluate(async () => {
@@ -13209,9 +13221,24 @@ for (const [label, viewport, touch] of [
       out.signLead = document.querySelector('#popup .pop-firms-lead')?.textContent.trim() ?? '';
       api.pick(ids.empty);
       out.empty = document.querySelectorAll('#popup .pop-firm').length;
+      out.housed = { ids: [], lead: '' };
+      if (ids.housed.roof) {
+        api.pick(ids.housed.roof);
+        out.housed.ids = [...document.querySelectorAll('#popup .pop-firm')]
+          .map((c) => c.dataset.business).sort();
+        out.housed.lead = document.querySelector('#popup .pop-firms-lead')?.textContent.trim() ?? '';
+      }
       api.popup.close();
       return out;
     }, wanted);
+    // T-1835: the register firm the paper puts on a street, and the street-face
+    // adoption houses in a roof of it, is named on that roof's card — with the
+    // lead keeping the distance between the paper's street and the town's roof.
+    check(`${label}: a building card names the firm the street-face adoption houses in it`,
+      wanted.housed.count >= 30 && wanted.housed.ids.length >= 1
+      && roofFirms.housed.ids.join(',') === wanted.housed.ids.join(',')
+      && /housed here — the paper names only the street$/i.test(roofFirms.housed.lead),
+      JSON.stringify({ housed: roofFirms.housed, wanted: wanted.housed }));
     check(`${label}: a building card's Use row names the firms the register puts in that roof`,
       roofFirms.onUseRow && roofFirms.ids.length === wanted.roof.length && wanted.roof.length === 3
       && roofFirms.ids.join(',') === wanted.roof.join(',')
