@@ -1,10 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1312, ts: '2026-10-02T17:21:44.077Z', date: 'Oct 2, 2026, 12:21 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
+  { v: 1315, ts: '2026-10-02T18:10:58.422Z', date: 'Oct 2, 2026, 1:10 PM CT', title: 'Doors kept clear, signs off the doors, worn ground at every entrance', kind: 'change',
     items: [
       'Walk Lake Street and look at the shopfronts. Eleven stores and four cottages had a window run into the door beside it. Every door and window now has wall between them.',
       'Twelve signs used to be fixed across a door. Seven are now lettered on the shop\u2019s fascia above the door, as G. Blanchard\u2019s is, and five are smaller boards on clear wall.',
       'The front steps of 34 stores now stand at the door instead of the middle of the front. Casks and crates are set to either side of a door, and fences no longer cross the doors of nine houses and sheds.',
       'The ground in front of every building with a door is now trodden earth, with a worn path from each door out to the street. Prairie no longer grows to the sill. The worn ground is our reconstruction (liberty L357).',
+    ] },
+  { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
+    items: [
+      'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
+      'Billy Caldwell\u2019s agency log house and the Clybourne cabins say a source names who used them, but the seat is not proven. Caldwell had two houses and nobody can say which he slept in. The cabins stand some miles from where the family really lived.',
+      'The old U.S. Factor\u2019s House and Miller House say that no source places anyone in them in July 1835. Every occupant we know of is from an earlier year.',
+      'Each card\u2019s evidence gives the full reasoning and its grade. Nobody has been invented to fill these ten roofs.',
+    ] },
+  { v: 1313, ts: '2026-10-02T17:25:04.351Z', date: 'Oct 2, 2026, 12:25 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
+    items: [
+      'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
+      'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
+      'Full and Balanced are unchanged.',
+    ] },
+  { v: 1312, ts: '2026-10-02T17:06:29.693Z', date: 'Oct 2, 2026, 12:06 PM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
+    items: [
+      'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
+      'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
+      'Where Clark and La Salle Streets meet the river, their lowered ends are held back from the walk the same way.',
     ] },
   { v: 1311, ts: '2026-10-02T16:34:09.800Z', date: 'Oct 2, 2026, 11:34 AM CT', title: 'How complete the town is, on the City card', kind: 'feature',
     items: [

@@ -43,9 +43,10 @@ function slice(src, start, end, what) {
 }
 
 async function loadLadder(src) {
-  // The rung literals name the furniture reaches; they are not what this gate is
+  // The rung literals name the furniture and ground reaches; they are not what this gate is
   // about, so they are stubbed rather than sliced in.
-  const mod = 'const FURNITURE_REACH_BALANCED_M = null, FURNITURE_REACH_LIGHT_M = null;\n'
+  const mod = 'const FURNITURE_REACH_BALANCED_M = null, FURNITURE_REACH_LIGHT_M = null,\n'
+    + '  GROUND_DETAIL_REACH_LIGHT_M = null;\n'
     + slice(src, 'const DETAIL_DECLARED = {', '\n};', 'the declared table') + '\n'
     + slice(src, "const DETAIL_ORDER = [", '];', 'the tier order') + '\n'
     + slice(src, 'const sealLadder = (declared, order) => {', '\n};', 'the seal') + '\n'

@@ -111,6 +111,14 @@
     ],
     "note": "NO SEAT IS CLAIMED HERE, AND THE REFUSAL IS THE POINT. Andreas names Billy Caldwell as the occupant of one of the small log buildings in this vicinity, and that is why this record exists. But his household card holds TWO candidate residences and refuses to choose between them: this ring of log buildings, and the frame house 'built for him by the Department for Indian Affairs on the North Side near where is now the corner of State Street and Chicago Avenue', which Andreas elsewhere calls probably the first frame building in Chicago after Robert Kinzie's store. Neither is dated to 1835. Raising this building does not settle that question — it makes one of the two candidates a thing a visitor can see — so hh_caldwell_billy keeps lives_at: null and this roof carries no occupant. THE USE IS STATED INSTEAD: a dwelling of the agency's log ring. Writing a seat here would be this project choosing, by hand, the question its own card says it cannot answer."
   },
+  "stated_use": {
+    "value": "occupant_named_seat_refused",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "ANDREAS NAMES WHO USED THE LOG RING, and the household card refuses the seat. The source puts 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency' in this vicinity, and that sentence is why this building stands. But hh_caldwell_billy holds two candidate houses: this ring, and the frame house the Indian Department built for him near State Street and Chicago Avenue. Neither is dated to 1835, so his lives_at is null and says why. Choosing this house because it is the one that got modelled would be the worst reason available. Which of the two men had which building is not attested either. So the roof states the refusal rather than seating anybody, and it carries no occupant until a source dates one of the two houses to 1835 or places him in either on the scene date."
+  },
   "stands_on_lot": {
     "claims_lot": false,
     "grid": "north_division_tier",
