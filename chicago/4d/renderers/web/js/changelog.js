@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1313, ts: '2026-10-02T17:26:38.202Z', date: 'Oct 2, 2026, 12:26 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+  { v: 1315, ts: '2026-10-02T18:19:09.822Z', date: 'Oct 2, 2026, 1:19 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
       'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
       'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
       'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
       'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L356).',
+    ] },
+  { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
+    items: [
+      'Open the card of a freight shed on the river below the Dearborn drawbridge. A new line, Nobody seated, says it held goods, and that no source names whose.',
+      'Billy Caldwell\u2019s agency log house and the Clybourne cabins say a source names who used them, but the seat is not proven. Caldwell had two houses and nobody can say which he slept in. The cabins stand some miles from where the family really lived.',
+      'The old U.S. Factor\u2019s House and Miller House say that no source places anyone in them in July 1835. Every occupant we know of is from an earlier year.',
+      'Each card\u2019s evidence gives the full reasoning and its grade. Nobody has been invented to fill these ten roofs.',
+    ] },
+  { v: 1313, ts: '2026-10-02T17:25:04.351Z', date: 'Oct 2, 2026, 12:25 PM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
+    items: [
+      'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
+      'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
+      'Full and Balanced are unchanged.',
     ] },
   { v: 1312, ts: '2026-10-02T17:06:29.693Z', date: 'Oct 2, 2026, 12:06 PM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
     items: [
