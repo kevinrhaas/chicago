@@ -18,7 +18,7 @@ AND A THIRD, FOR THE EMIGRANTS MOVED OFF THE WHARVES (T-1979, the owner's report
 boats" is read now as SOME: four tent households stay at the landing, and the other
 eleven of the class are dealt by tools/reconstruct_transients_1835.py to the lake shore
 south of the fort. Their camp stands here, a pocket of canvas further down the shore than
-the land-sale camp, at the same conjectural tier and labelled so (L356). Unlike the two
+the land-sale camp, at the same conjectural tier and labelled so (L357). Unlike the two
 camps below it SEATS people: the households whose own cards name the shore.
 
 WHO SLEEPS THERE (the land-sale camp and the wagon camp): NOBODY THIS LAYER COUNTS.
@@ -284,32 +284,32 @@ def record(camp: dict, m: dict, datum: dict, ground: dict, hh: list) -> dict:
         "1835_transient_persons.json deals to 'a tent at the landing place' and then to "
         "this shore: the American says SOME built tents at the landing, so four stand "
         "there and the rest of the class is drawn here, off the working wharf frontage "
-        "(T-1979). One family to one tent is the reading that invents no sharing. L356.")
+        "(T-1979). One family to one tent is the reading that invents no sharing. L357.")
     form["wagons"]["note"] = (
         "NOT ATTESTED. A family that came by lake and shipped its wagon on the schooner "
         "drove it off the wharf to wherever it camped; two to eleven tents is the "
         "restrained reading, and the owner has asked that wagons not be rationed "
-        "(AGENTS.md, 2026-08-18). Invented. L356.")
+        "(AGENTS.md, 2026-08-18). Invented. L357.")
     form["baggage_heaps"]["note"] = (
-        "None: every household here has a tent and its baggage is in it. L356.")
+        "None: every household here has a tent and its baggage is in it. L357.")
     form["arrangement"]["note"] = (
         "A scatter, because families that came off different vessels over a fortnight "
         "pitched where there was room, not in a row.")
     ph["position"]["note"] = ph["position"]["note"].replace(
         "the nearest open ground to the landing", "the nearest open ground to the "
-        "landing, off the working wharf frontage,").replace("L355.", "L356.")
+        "landing, off the working wharf frontage,").replace("L355.", "L357.")
     ph["position"]["symbolic_location"] = ph["position"]["symbolic_location"].replace(
         "north-east of the Fort Cemetery, south-east of the garrison garden, south-west "
         "of the factor's house, and short of the lake beach.",
         "east of the Fort Cemetery, south of the land-sale camp, and short of the lake "
         "beach.")
-    ph["footprint"]["note"] = ph["footprint"]["note"].replace("L355.", "L356.")
+    ph["footprint"]["note"] = ph["footprint"]["note"].replace("L355.", "L357.")
     ph["change_note"] = ("Emigrants' tents on the reservation shore, moved off the South "
                          "Water wharves. T-1979.")
     rec["function"]["note"] = rec["function"]["note"].replace(
         "on the owner's ask (T-1214) and labelled so; L355.",
         "on the owner's report of 2026-10-02 that a camp belongs off the town's working "
-        "frontage (T-1979), and labelled so; L356.")
+        "frontage (T-1979), and labelled so; L357.")
     names = "; ".join(f"{r[2].split(' — ')[0]} ({r[1]})" for r in hh)
     rec["occupants"] = {
         "value": f"{len(hh)} households of the summer's crowd, {persons} persons, in "

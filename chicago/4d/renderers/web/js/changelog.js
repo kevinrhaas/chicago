@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1315, ts: '2026-10-02T18:19:09.822Z', date: 'Oct 2, 2026, 1:19 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+  { v: 1316, ts: '2026-10-02T18:43:40.736Z', date: 'Oct 2, 2026, 1:43 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
     items: [
       'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
       'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
       'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
-      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L356).',
+      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L357).',
+    ] },
+  { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+    items: [
+      'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
+      'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
+      'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
+      'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
     ] },
   { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [

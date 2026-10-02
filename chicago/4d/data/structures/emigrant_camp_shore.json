@@ -23,7 +23,7 @@
         "rotation_deg": 0.0,
         "symbolic_location": "On the United States Reservation south of Fort Dearborn, between local E +1170 and E +1212 and N -140 to -108: east of the Fort Cemetery, south of the land-sale camp, and short of the lake beach.",
         "confidence": "reconstructed",
-        "note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the lake shore south of the fort as the nearest open ground to the landing, off the working wharf frontage, that carried no lot line in July 1835 — unplatted, unsold, with no street across it — and grades the candidacy conjectural: no source says anybody camped there. This camp stands on the stretch of it a visitor at the fort's south-west corner looks across: every sampled point of its ground between 2.52 and 2.68 m above the water plane on the committed heightfield; 165.5 m clear of the drawn edge of the nearest roadway (fort_road); 145.5 m clear of the nearest committed footprint; 181.2 m clear of the nearest fence run; 47.6 m clear of the Fort Cemetery's ring, outside its 30 m skirt. It stands on ground 1835_no_build_ground.json refuses to a builder, and that file permits it by name: the camp-grounds file rules that a crowd sleeping rough on the shore for a fortnight is not a dwelling and asked nobody's leave. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L356.",
+        "note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the lake shore south of the fort as the nearest open ground to the landing, off the working wharf frontage, that carried no lot line in July 1835 — unplatted, unsold, with no street across it — and grades the candidacy conjectural: no source says anybody camped there. This camp stands on the stretch of it a visitor at the fort's south-west corner looks across: every sampled point of its ground between 2.52 and 2.68 m above the water plane on the committed heightfield; 165.5 m clear of the drawn edge of the nearest roadway (fort_road); 145.5 m clear of the nearest committed footprint; 181.2 m clear of the nearest fence run; 47.6 m clear of the Fort Cemetery's ring, outside its 30 m skirt. It stands on ground 1835_no_build_ground.json refuses to a builder, and that file permits it by name: the camp-grounds file rules that a crowd sleeping rough on the shore for a fortnight is not a dwelling and asked nobody's leave. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L357.",
         "derivation": {
           "method": "not_derivable",
           "reason": "Placed against the drawn street lines, the heightfield, the fences, the refused regions and every footprint by tools/place_camp_grounds_1835.py, which re-derives it with --check; it is not a street line or a traced waterline validate.py can re-derive a coordinate from."
@@ -49,13 +49,13 @@
           ]
         ],
         "confidence": "reconstructed",
-        "note": "The camp's ground, 42.0 x 32.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L356."
+        "note": "The camp's ground, 42.0 x 32.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L357."
       },
       "form": {
         "tents": {
           "value": 11,
           "confidence": "reconstructed",
-          "note": "ONE TENT A HOUSEHOLD, for the 11 households 1835_transient_persons.json deals to 'a tent at the landing place' and then to this shore: the American says SOME built tents at the landing, so four stand there and the rest of the class is drawn here, off the working wharf frontage (T-1979). One family to one tent is the reading that invents no sharing. L356."
+          "note": "ONE TENT A HOUSEHOLD, for the 11 households 1835_transient_persons.json deals to 'a tent at the landing place' and then to this shore: the American says SOME built tents at the landing, so four stand there and the rest of the class is drawn here, off the working wharf frontage (T-1979). One family to one tent is the reading that invents no sharing. L357."
         },
         "tent_kind": {
           "value": "mixed",
@@ -65,7 +65,7 @@
         "wagons": {
           "value": 2,
           "confidence": "reconstructed",
-          "note": "NOT ATTESTED. A family that came by lake and shipped its wagon on the schooner drove it off the wharf to wherever it camped; two to eleven tents is the restrained reading, and the owner has asked that wagons not be rationed (AGENTS.md, 2026-08-18). Invented. L356."
+          "note": "NOT ATTESTED. A family that came by lake and shipped its wagon on the schooner drove it off the wharf to wherever it camped; two to eleven tents is the restrained reading, and the owner has asked that wagons not be rationed (AGENTS.md, 2026-08-18). Invented. L357."
         },
         "brush_shelters": {
           "value": 1,
@@ -85,7 +85,7 @@
         "baggage_heaps": {
           "value": 0,
           "confidence": "reconstructed",
-          "note": "None: every household here has a tent and its baggage is in it. L356."
+          "note": "None: every household here has a tent and its baggage is in it. L357."
         },
         "arrangement": {
           "value": "scatter",
@@ -105,7 +105,7 @@
     "value": "emigrant_camp",
     "confidence": "reconstructed",
     "sources": [],
-    "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. Open, level, unplatted, unsold, and the nearest large ground to the landing that carried no lot line in July 1835 — 22.57 ha of United States Reservation and 9.53 ha of sand bar, by the no-build file's own measurement, with no street across either. No committed source says anybody camped there. It is offered because a crowd turned out of the public houses walks to the nearest open ground, and that sentence is an argument about crowds and not a reading of Chicago. Since T-1979 (the owner's report of 2026-10-02) it is also where the transient model deals the tent households beyond the first four: the American says SOME built tents at the landing, and a row of canvas along the town's working wharf frontage for the season is more than that sentence carries. The candidacy stays conjectural; being dealt to does not make it evidence. Built at the reconstructed tier on the owner's report of 2026-10-02 that a camp belongs off the town's working frontage (T-1979), and labelled so; L356."
+    "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. Open, level, unplatted, unsold, and the nearest large ground to the landing that carried no lot line in July 1835 — 22.57 ha of United States Reservation and 9.53 ha of sand bar, by the no-build file's own measurement, with no street across either. No committed source says anybody camped there. It is offered because a crowd turned out of the public houses walks to the nearest open ground, and that sentence is an argument about crowds and not a reading of Chicago. Since T-1979 (the owner's report of 2026-10-02) it is also where the transient model deals the tent households beyond the first four: the American says SOME built tents at the landing, and a row of canvas along the town's working wharf frontage for the season is more than that sentence carries. The candidacy stays conjectural; being dealt to does not make it evidence. Built at the reconstructed tier on the owner's report of 2026-10-02 that a camp belongs off the town's working frontage (T-1979), and labelled so; L357."
   },
   "occupants": {
     "value": "11 households of the summer's crowd, 39 persons, in tents: The Carroll camp (hh_rc_carroll_edward); The Sawyer camp (hh_rc_sawyer_warren); The Kellogg camp (hh_rc_kellogg_horace); The Cavanagh camp (hh_rc_cavanagh_dennis); The Chapin camp (hh_rc_chapin_asa); The Chapin camp (hh_rc_chapin_martha); The Fairbanks camp (hh_rc_fairbanks_amos); The Doyle camp (hh_rc_doyle_daniel); The McGuire camp (hh_rc_mcguire_cornelius); The Stiles camp (hh_rc_stiles_nancy); The Gilbert camp (hh_rc_gilbert_esther).",
