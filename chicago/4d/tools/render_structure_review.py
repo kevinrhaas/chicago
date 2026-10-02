@@ -64,6 +64,9 @@ CAMERAS = {
 }
 # Additional presentation angles; the fixed comparison cameras above are unchanged.
 CAMERAS.update({
+    "stable-south-roof": {"position": (5.41, -20, 10), "target": (5.41, 4.34, 6.4), "lens": 42},
+    "courtyard-west-roof": {"position": (29, -12, 14), "target": (8, 11, 7.4), "lens": 38},
+    "alley-rear-roof": {"position": (-24, -9, 14), "target": (3, 10, 7.6), "lens": 40},
     "stable-north-detail": {"position": (6.17, 50, 1.7), "target": (6.17, 22.55, 6.1), "lens": 48},
     "stable-northwest-roof": {"position": (-9, 41, 18), "target": (6, 19, 8), "lens": 42},
     "prairie-entry-oblique": {"position": (62.5, 18, 1.7), "target": (49.15, 12.5, 4.15), "lens": 42},

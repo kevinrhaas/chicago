@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 329,
+  "count": 330,
   "liberties": [
     {
       "id": "L1",
@@ -20869,6 +20869,31 @@
         {
           "label": "Recorded",
           "text": "2026-10-01."
+        }
+      ]
+    },
+    {
+      "id": "L338",
+      "title": "Glessner's balanced south gable and continuous rear ridge",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`, rear alley cornice."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-1833."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-01. The owner rejected L331's asymmetric hipped rear roof in two model screenshots and supplied a balanced gable sketch. The replacement is reconstructed: equal 26.5-ft shoulders, a centered W143.5 ridge at 38.6 ft ng, and a solid brick south gable. The ridge stays level but shifts 2.5 ft in plan between S14.6 and S26.83, so the front gable retains its door/loft axis. HABS footprint and opening plan positions remain unchanged. No source establishes this as a measured 1904 roof. The rear flared eaves repeat the north court's 5.7-ft run and 26.6-degree pitch; the 0.20-m overhang repeats the existing generator's north eave. Carrying those features here is reconstructed. Raising the alley cornice to 26.5 ft and the existing dormer by 7 ft (eave 33, peak 37 ft ng) keeps its sash and cheeks above the new roof. The dormer's footprint, opening width and hood proportions are retained. This supersedes L331's rear hip and unequal rear eaves, not its north entrance. A measured original roof plan/section or dated rear elevation would resolve the choice and the heights (currently proportional, approximately ±1.5 ft). No reference image pixels are copied into the model."
         }
       ]
     },

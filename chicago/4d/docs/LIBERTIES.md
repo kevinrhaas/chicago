@@ -18693,3 +18693,26 @@ is a pattern, not a place.
 **Related:** **L32** (the sward's density is a budget; the 7 % thatch), **L329** (the lake's sand,
 T-1824's sibling piece), **T-1772**, **T-1820**, **T-1825**.
 **Recorded:** 2026-10-01.
+
+
+### L338 — Glessner's balanced south gable and continuous rear ridge
+
+**Applies to:** `glessner_house.as_built_1887.form.v4_detail`, rear alley cornice.
+**Ticket:** T-1833. **Recorded:** 2026-10-01.
+
+The owner rejected L331's asymmetric hipped rear roof in two model screenshots
+and supplied a balanced gable sketch. The replacement is reconstructed: equal
+26.5-ft shoulders, a centered W143.5 ridge at 38.6 ft ng, and a solid brick south
+gable. The ridge stays level but shifts 2.5 ft in plan between S14.6 and S26.83,
+so the front gable retains its door/loft axis. HABS footprint and opening plan
+positions remain unchanged. No source establishes this as a measured 1904 roof.
+The rear flared eaves repeat the north court's 5.7-ft run and 26.6-degree pitch;
+the 0.20-m overhang repeats the existing generator's north eave. Carrying those
+features here is reconstructed. Raising the alley cornice to 26.5 ft and the existing dormer
+by 7 ft (eave 33, peak 37 ft ng) keeps its sash and cheeks above the new roof.
+The dormer's footprint, opening width and hood proportions are retained.
+
+This supersedes L331's rear hip and unequal rear eaves, not its north entrance.
+A measured original roof plan/section or dated rear elevation would resolve the
+choice and the heights (currently proportional, approximately ±1.5 ft). No
+reference image pixels are copied into the model.

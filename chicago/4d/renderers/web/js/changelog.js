@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1281, ts: '2026-10-02T01:25:15.980Z', date: 'Oct 1, 2026, 8:25 PM CT', title: 'Glessner’s rear roof ends in a balanced gable', kind: 'change',
+    items: [
+      'The west wing has a level rear ridge and a full, centered south gable in place of the uneven hipped roof.',
+      'Its courtyard roof repeats the north wing’s flared eave. The alley dormer rises with the roof so its window remains visible.',
+      'The revised rear shape is a reconstruction following the owner’s sketch; the floor-plan footprint and window positions are retained.'
+    ] },
   { v: 1280, ts: '2026-10-02T00:30:46.880Z', date: 'Oct 1, 2026, 7:30 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
     items: [
       'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
