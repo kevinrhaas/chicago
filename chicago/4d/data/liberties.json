@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 343,
+  "count": 344,
   "liberties": [
     {
       "id": "L1",
@@ -21801,6 +21801,49 @@
         {
           "label": "Related",
           "text": "**L126** (the facade tones' bounds), **L320** (the street timber's grain), **L346** (the signboards' wear), **T-1769** (the preparation), **T-1801** (the proof), **T-1962** (the lay and the wear), **T-1963** (this layer)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L351",
+      "title": "The working trades' yards: casks, barrels, boards, hides, hay ricks and yard wagons, dealt by trade",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`data/yard/town_trade_yards.json` (written by `tools/generate_trade_yards.py`)."
+        },
+        {
+          "label": "Decision",
+          "text": "every standing structure whose function is a working trade gets its trade's goods in its own rear or side yard, never on its street front (T-1961, piece 4 of T-1212). A cooperage gets a rank of six finished casks. A packing or slaughter house gets a rank of eight barrels. A carpenter's or joiner's shop gets a stickered pile of boards (12 ft x 12 in x 2 in, three a course, six courses). The tannery gets two drying rails of hides. A stable outside the hay limits gets one rick (3.0 x 2.0 m, 1.5 m to the eave, 2.4 m to the ridge). A forwarding house gets a farm wagon, and the teamster's yard gets a farm wagon and a covered freight wagon. Named and reconstructed trades are dealt alike. Where each stands is the first clear ground a fixed search of the building's rear and side faces finds. It is refused near any wall, on a walk, in a garden or pen, in a travelled track, on a wharf, in the water, across a fence run, or within 2.6 m of anything already standing."
+        },
+        {
+          "label": "Why",
+          "text": "the owner asked for it (T-1212): *barrels at the coopers and packers, wagons at the forwarders and the teamsters, lumber at the joiners, hides at the tannery, hay at the stables within the hay limits*, every record belonging to its business, and his standing ruling of 2026-08-18 lets reconstructed items be added when he asks, labelled as such. **No source places any of these objects in any of these yards on 1 July 1835**, and none gives a count, a size, a shape or a colour. Every object is reconstructed and every size is invented. The tones are reconstructed too: the rick a weathered straw (`#a89160`) and the hides a raw brown (`#5e4231`)."
+        },
+        {
+          "label": "The hay limits",
+          "text": "Sec. 22 of the ordinance of 5 August 1835 forbids stacking hay inside the line `data/reconstruction/1835_hay_limits.json` derives. It postdates the scene by five weeks, and that record places nothing. This one reads it conservatively at the owner's instruction: no rick stands inside the ring, and the 22 stables inside it keep their hay in the mow and are refused in writing. The opposite reading (a corporation legislates against what people already do, so ricks stood inside the line in July) is declined, not disproved."
+        },
+        {
+          "label": "Not done, and why",
+          "text": "the yard casks carry no marks. The frontage goods' mark rule (L166) deals a merchant's commodity words, and nothing here says what a cooper's or a packer's cask was marked with. Newberry & Dole's forwarding warehouse gets no wagon: the search finds no clear ground round it, and the last stand it tries is in the river. Woodpiles, wells, privies and household stables are T-1959 and T-1960, not this."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a lot description, insurance survey, sale notice or view naming what stood in any of these yards; a cooper's or packer's advertisement stating a stock; a description of the tannery; any 1835 complaint about a rick inside the line."
+        },
+        {
+          "label": "Related",
+          "text": "**L131** (the frontage goods), **L162** (the town's wagons), **L173** (the building material), **L306** (the bridge timber), **T-0334** (the hay limits), **T-1212**, **T-1961**."
         },
         {
           "label": "Recorded",

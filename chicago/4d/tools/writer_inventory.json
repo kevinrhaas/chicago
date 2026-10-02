@@ -572,6 +572,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_trade_yards.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-02 — directly after generate_yard_goods.py, whose output it reads (T-1961)"
+    },
     "generate_west_infill.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
