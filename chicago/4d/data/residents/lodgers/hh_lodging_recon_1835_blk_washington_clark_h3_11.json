@@ -1,31 +1,41 @@
 {
- "id": "hh_lodging_recon_1835_north_h1_007",
- "name": "The lodgers of Reconstructed H1 small boarding house #007",
- "division": "north",
- "head": "rc_bardwell_esther",
+ "id": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
+ "name": "The lodgers of Reconstructed H3 boarding house #11",
+ "division": "south",
+ "head": "rc_trottier_baptiste",
  "source_pass": "reconstructed_lodging_household",
  "lodging_household": {
   "ticket": "T-1371",
   "parent_ticket": "T-1175",
   "stage": "lodgers",
-  "place": "recon_1835_north_h1_007",
-  "place_name": "Reconstructed H1 small boarding house #007",
+  "place": "recon_1835_blk_washington_clark_h3_11",
+  "place_name": "Reconstructed H3 boarding house #11",
   "class": "boarding_house",
-  "beds_ordinary": 6,
-  "beds_crowded": 14,
+  "beds_ordinary": 15,
+  "beds_crowded": 35,
   "on_the_house_before_this_stage": 0,
-  "seated_from_the_layer": [],
-  "minted_here": 9,
+  "seated_from_the_layer": [
+   "bailly_esther",
+   "beaubien_archange",
+   "brown_jesse_b",
+   "cook_thomas",
+   "funk_absolom",
+   "harmon_m_d",
+   "laughton_david",
+   "schwartz_adam",
+   "whistler_john_harrison"
+  ],
+  "minted_here": 10,
   "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
   "withdrawn_if": "a re-cut lodging model that gives this house a smaller ordinary-night figure, or sources naming the people who actually lodged here; the retirement runs through --build, never by hand",
-  "note": "BEDS, AND ONE FAMILY. 6 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
+  "note": "BEDS, AND ONE FAMILY. 6 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 4 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
  },
  "household_owed": {
-  "size_drawn": 4,
+  "size_drawn": 5,
   "seated_by": "T-1533 (the keeper's children, drawn here), T-1179 (converge)",
-  "children_drawn": 3,
-  "children_the_model_wants": 3,
-  "note": "DRAWN HERE, AND ONLY THE CHILDREN. The 1840 size histogram draws this keeper a household of 4: the keeper, and 3 child(ren) of whom 3 could be ordered out of the book's `under_10/north/lodging/none` cells. No spouse is drawn — the ledger's `keeper_families` row says why — so this is a FLOOR on the household and not a finished count."
+  "children_drawn": 4,
+  "children_the_model_wants": 4,
+  "note": "DRAWN HERE, AND ONLY THE CHILDREN. The 1840 size histogram draws this keeper a household of 5: the keeper, and 4 child(ren) of whom 4 could be ordered out of the book's `under_10/south/lodging/none` cells. No spouse is drawn — the ledger's `keeper_families` row says why — so this is a FLOOR on the household and not a finished count."
  },
  "arrival": {
   "value": null,
@@ -35,15 +45,15 @@
   "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
  },
  "lives_at": {
-  "value": "recon_1835_north_h1_007",
+  "value": "recon_1835_blk_washington_clark_h3_11",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 6 people in this house on an ordinary night and 14 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 15 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
-  "seed": "lodgers:recon_1835_north_h1_007:lives_at",
+  "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:lives_at",
   "replaceable_by": {
    "kind": "person",
    "match": "sources naming the people who lodged in this house in 1835"
@@ -71,23 +81,23 @@
  },
  "persons": [
   {
-   "id": "rc_bardwell_esther",
-   "name": "Esther Bardwell",
+   "id": "rc_trottier_baptiste",
+   "name": "Baptiste Trottier",
    "relationship": "head",
    "grade": "reconstructed",
-   "sex": "female",
+   "sex": "male",
    "age_band": {
-    "value": "20-29",
-    "low": 20,
-    "high": 29,
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 10_19; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:keeper:001:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:keeper:001:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -95,82 +105,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Esther Bardwell",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
-    },
-    "seed": "lodgers:recon_1835_north_h1_007:keeper:001:forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a real person who lodged in this house"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "1835_reconstruction_order_book",
-    "bucket": "persons/female/20_29/north/lodging/trade",
-    "note": "The book's bucket persons/female/20_29/north/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 6."
-   },
-   "seed": "lodgers:recon_1835_north_h1_007:keeper:001:forename",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a person who lodged in this house, who would take this bed instead"
-   },
-   "reconstruction": {
-    "stage": "lodgers",
-    "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
-    "review_required": false
-   },
-   "resident_subtype": "reconstructed_lodger",
-   "occupation": {
-    "value": "boarding_house_keeper",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "rule",
-     "id": "the_house_s_own_function",
-     "note": "READ OFF THE BUILDING, NOT DEALT. This roof's record says its function is small_boarding_house, and a house of that function was kept by somebody at boarding_house_keeper. No directory share is consulted and no trade is drawn: the building states the trade and this person is the keeper it implies."
-    },
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming the keeper of this house in 1835"
-    },
-    "note": "The staffing under a keeper — the bar-keeper, the hostler, the cook, the chambermaid — is T-1183's model and is not written here."
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This roof is itself a reconstruction of the 1835 building programme, raised as a lodging place, and a lodging place with no keeper is not one. The whole of what is claimed is that: an adult of this sex and band kept this invented house. A NAMED house is never given a keeper this way — see the tool's refusals. The family this keeper is owed is not drawn here; `household_owed` says which ticket owes it. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_chevalier_therese",
-   "name": "Therese Chevalier",
-   "relationship": "boarder",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "20-29",
-    "low": 20,
-    "high": 29,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
-    },
-    "seed": "lodgers:recon_1835_north_h1_007:female:20_29:001:age_band",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
-   },
-   "name_basis": {
-    "value": "Therese Chevalier",
+    "value": "Baptiste Trottier",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -178,7 +113,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the french_colonial pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:female:20_29:001:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:keeper:001:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -188,10 +123,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/female/20_29/north/lodging/none",
-    "note": "The book's bucket persons/female/20_29/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 6."
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "note": "The book's bucket persons/male/10_19/south/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_11's, from the lodging model's ordinary-night figure of 15."
    },
-   "seed": "lodgers:recon_1835_north_h1_007:female:20_29:001:forename",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:keeper:001:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -204,80 +139,25 @@
    },
    "resident_subtype": "reconstructed_lodger",
    "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 6 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_fairbanks_eliza",
-   "name": "Eliza Fairbanks",
-   "relationship": "boarder",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
+    "value": "boarding_house_keeper",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
-     "kind": "model",
-     "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "kind": "rule",
+     "id": "the_house_s_own_function",
+     "note": "READ OFF THE BUILDING, NOT DEALT. This roof's record says its function is large_boarding_house, and a house of that function was kept by somebody at boarding_house_keeper. No directory share is consulted and no trade is drawn: the building states the trade and this person is the keeper it implies."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:female:30_39:002:age_band",
     "replaceable_by": {
      "kind": "person",
-     "match": "a source that states this person's age or their birth year"
+     "match": "a source naming the keeper of this house in 1835"
     },
-    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+    "note": "The staffing under a keeper — the bar-keeper, the hostler, the cook, the chambermaid — is T-1183's model and is not written here."
    },
-   "name_basis": {
-    "value": "Eliza Fairbanks",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
-    },
-    "seed": "lodgers:recon_1835_north_h1_007:female:30_39:002:forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a real person who lodged in this house"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "1835_reconstruction_order_book",
-    "bucket": "persons/female/30_39/north/lodging/none",
-    "note": "The book's bucket persons/female/30_39/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 6."
-   },
-   "seed": "lodgers:recon_1835_north_h1_007:female:30_39:002:forename",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a person who lodged in this house, who would take this bed instead"
-   },
-   "reconstruction": {
-    "stage": "lodgers",
-    "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
-    "review_required": false
-   },
-   "resident_subtype": "reconstructed_lodger",
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 6 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This roof is itself a reconstruction of the 1835 building programme, raised as a lodging place, and a lodging place with no keeper is not one. The whole of what is claimed is that: an adult of this sex and band kept this invented house. A NAMED house is never given a keeper this way — see the tool's refusals. The family this keeper is owed is not drawn here; `household_owed` says which ticket owes it. No figure is drawn (L1)."
   },
   {
-   "id": "rc_parmelee_otis",
-   "name": "Otis Parmelee",
+   "id": "rc_fisk_charles",
+   "name": "Charles Fisk",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
@@ -292,7 +172,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:male:20_29:003:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:001:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -300,7 +180,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Otis Parmelee",
+    "value": "Charles Fisk",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -308,7 +188,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:male:20_29:003:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:001:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -318,10 +198,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/20_29/north/lodging/none",
-    "note": "The book's bucket persons/male/20_29/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 6."
+    "bucket": "persons/male/20_29/south/lodging/none",
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_11's, from the lodging model's ordinary-night figure of 15."
    },
-   "seed": "lodgers:recon_1835_north_h1_007:male:20_29:003:forename",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:001:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -338,11 +218,11 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 6 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_goodrich_willard",
-   "name": "Willard Goodrich",
+   "id": "rc_cobb_lemuel",
+   "name": "Lemuel Cobb",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
@@ -357,7 +237,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:male:20_29:004:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:002:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -365,7 +245,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Willard Goodrich",
+    "value": "Lemuel Cobb",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -373,7 +253,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:male:20_29:004:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:002:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -383,10 +263,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/20_29/north/lodging/none",
-    "note": "The book's bucket persons/male/20_29/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 6."
+    "bucket": "persons/male/20_29/south/lodging/none",
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_11's, from the lodging model's ordinary-night figure of 15."
    },
-   "seed": "lodgers:recon_1835_north_h1_007:male:20_29:004:forename",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:002:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -403,11 +283,76 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 6 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_ingalls_rufus",
-   "name": "Rufus Ingalls",
+   "id": "rc_hastings_harvey",
+   "name": "Harvey Hastings",
+   "relationship": "boarder",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:003:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "name_basis": {
+    "value": "Harvey Hastings",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:003:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real person who lodged in this house"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_11's, from the lodging model's ordinary-night figure of 15."
+   },
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:20_29:003:forename",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a person who lodged in this house, who would take this bed instead"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_lodger",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_hastings_levi",
+   "name": "Levi Hastings",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
@@ -422,7 +367,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:male:30_39:005:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:30_39:004:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -430,7 +375,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Rufus Ingalls",
+    "value": "Levi Hastings",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -438,7 +383,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:male:30_39:005:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:30_39:004:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -448,10 +393,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/30_39/north/lodging/none",
-    "note": "The book's bucket persons/male/30_39/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 6."
+    "bucket": "persons/male/30_39/south/lodging/none",
+    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_11's, from the lodging model's ordinary-night figure of 15."
    },
-   "seed": "lodgers:recon_1835_north_h1_007:male:30_39:005:forename",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:30_39:004:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -468,83 +413,76 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 6 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_bardwell_david",
-   "name": "David Bardwell",
-   "relationship": "son",
+   "id": "rc_goodrich_otis",
+   "name": "Otis Goodrich",
+   "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "0-9",
-    "low": 0,
-    "high": 9,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:child:001:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:30_39:005:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
     },
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
-   "kin_of": {
-    "person": "rc_bardwell_esther",
-    "name": "Esther Bardwell",
-    "household": "hh_lodging_recon_1835_north_h1_007",
-    "relation": "child of the keeper of this house",
-    "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
-   },
    "name_basis": {
-    "value": "David Bardwell",
+    "value": "Otis Goodrich",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the yankee pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:child:001:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:30_39:005:forename",
     "replaceable_by": {
      "kind": "person",
-     "match": "a source naming a child of this keeper"
+     "match": "a source naming a real person who lodged in this house"
     },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this child. The name exists so a reader can tell one drawn child from another, and it is checked against every real name in the layer."
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
    },
    "basis": {
     "kind": "model",
-    "id": "1835_town_model",
-    "note": "The 1840 size histogram drew this keeper's household at 4 people. The keeper is one of them and the other 3 are their children; this is child 1 of that 3. The book's bucket persons/male/under_10/north/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the north division, which the boarders stage left whole."
+    "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/30_39/south/lodging/none",
+    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_11's, from the lodging model's ordinary-night figure of 15."
    },
-   "seed": "lodgers:recon_1835_north_h1_007:child:001:age_band",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:male:30_39:005:forename",
    "replaceable_by": {
     "kind": "person",
-    "match": "a source naming the household of this house's keeper, which would retire every child drawn here"
+    "match": "a source naming a person who lodged in this house, who would take this bed instead"
    },
    "reconstruction": {
     "stage": "lodgers",
-    "ticket": "T-1533",
     "programme": "chicago_1835_resident_reconstruction",
     "community": "yankee",
     "review_required": false
    },
-   "resident_subtype": "reconstructed_keeper_child",
+   "resident_subtype": "reconstructed_lodger",
    "occupation": {
     "value": "none_recorded",
     "confidence": "reconstructed",
-    "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
+    "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 4 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_bardwell_nancy",
-   "name": "Nancy Bardwell",
+   "id": "rc_trottier_therese",
+   "name": "Therese Trottier",
    "relationship": "daughter",
    "grade": "reconstructed",
    "sex": "female",
@@ -559,7 +497,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:child:002:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:001:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -567,22 +505,22 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "kin_of": {
-    "person": "rc_bardwell_esther",
-    "name": "Esther Bardwell",
-    "household": "hh_lodging_recon_1835_north_h1_007",
+    "person": "rc_trottier_baptiste",
+    "name": "Baptiste Trottier",
+    "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
     "relation": "child of the keeper of this house",
     "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
    },
    "name_basis": {
-    "value": "Nancy Bardwell",
+    "value": "Therese Trottier",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the yankee pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the french_colonial pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:child:002:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:001:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a child of this keeper"
@@ -592,9 +530,9 @@
    "basis": {
     "kind": "model",
     "id": "1835_town_model",
-    "note": "The 1840 size histogram drew this keeper's household at 4 people. The keeper is one of them and the other 3 are their children; this is child 2 of that 3. The book's bucket persons/female/under_10/north/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the north division, which the boarders stage left whole."
+    "note": "The 1840 size histogram drew this keeper's household at 5 people. The keeper is one of them and the other 4 are their children; this is child 1 of that 4. The book's bucket persons/female/under_10/south/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the south division, which the boarders stage left whole."
    },
-   "seed": "lodgers:recon_1835_north_h1_007:child:002:age_band",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:001:age_band",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming the household of this house's keeper, which would retire every child drawn here"
@@ -603,7 +541,7 @@
     "stage": "lodgers",
     "ticket": "T-1533",
     "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
+    "community": "french_colonial",
     "review_required": false
    },
    "resident_subtype": "reconstructed_keeper_child",
@@ -612,11 +550,83 @@
     "confidence": "reconstructed",
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 4 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 5 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_bardwell_henry",
-   "name": "Henry Bardwell",
+   "id": "rc_trottier_madeleine",
+   "name": "Madeleine Trottier",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:002:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "kin_of": {
+    "person": "rc_trottier_baptiste",
+    "name": "Baptiste Trottier",
+    "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
+    "relation": "child of the keeper of this house",
+    "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
+   },
+   "name_basis": {
+    "value": "Madeleine Trottier",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the french_colonial pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:002:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a child of this keeper"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this child. The name exists so a reader can tell one drawn child from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_town_model",
+    "note": "The 1840 size histogram drew this keeper's household at 5 people. The keeper is one of them and the other 4 are their children; this is child 2 of that 4. The book's bucket persons/female/under_10/south/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the south division, which the boarders stage left whole."
+   },
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:002:age_band",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming the household of this house's keeper, which would retire every child drawn here"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "ticket": "T-1533",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_keeper_child",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 5 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_trottier_pierre",
+   "name": "Pierre Trottier",
    "relationship": "son",
    "grade": "reconstructed",
    "sex": "male",
@@ -631,7 +641,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:child:003:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:003:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -639,22 +649,22 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "kin_of": {
-    "person": "rc_bardwell_esther",
-    "name": "Esther Bardwell",
-    "household": "hh_lodging_recon_1835_north_h1_007",
+    "person": "rc_trottier_baptiste",
+    "name": "Baptiste Trottier",
+    "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
     "relation": "child of the keeper of this house",
     "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
    },
    "name_basis": {
-    "value": "Henry Bardwell",
+    "value": "Pierre Trottier",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the yankee pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the french_colonial pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
     },
-    "seed": "lodgers:recon_1835_north_h1_007:child:003:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:003:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a child of this keeper"
@@ -664,9 +674,9 @@
    "basis": {
     "kind": "model",
     "id": "1835_town_model",
-    "note": "The 1840 size histogram drew this keeper's household at 4 people. The keeper is one of them and the other 3 are their children; this is child 3 of that 3. The book's bucket persons/male/under_10/north/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the north division, which the boarders stage left whole."
+    "note": "The 1840 size histogram drew this keeper's household at 5 people. The keeper is one of them and the other 4 are their children; this is child 3 of that 4. The book's bucket persons/male/under_10/south/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the south division, which the boarders stage left whole."
    },
-   "seed": "lodgers:recon_1835_north_h1_007:child:003:age_band",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:003:age_band",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming the household of this house's keeper, which would retire every child drawn here"
@@ -675,7 +685,7 @@
     "stage": "lodgers",
     "ticket": "T-1533",
     "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
+    "community": "french_colonial",
     "review_required": false
    },
    "resident_subtype": "reconstructed_keeper_child",
@@ -684,7 +694,79 @@
     "confidence": "reconstructed",
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 4 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 5 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_trottier_medard",
+   "name": "Medard Trottier",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:004:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "kin_of": {
+    "person": "rc_trottier_baptiste",
+    "name": "Baptiste Trottier",
+    "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
+    "relation": "child of the keeper of this house",
+    "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
+   },
+   "name_basis": {
+    "value": "Medard Trottier",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the french_colonial pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+    },
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:004:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a child of this keeper"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this child. The name exists so a reader can tell one drawn child from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_town_model",
+    "note": "The 1840 size histogram drew this keeper's household at 5 people. The keeper is one of them and the other 4 are their children; this is child 4 of that 4. The book's bucket persons/male/under_10/south/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the south division, which the boarders stage left whole."
+   },
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_11:child:004:age_band",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming the household of this house's keeper, which would retire every child drawn here"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "ticket": "T-1533",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_keeper_child",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 5 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,
