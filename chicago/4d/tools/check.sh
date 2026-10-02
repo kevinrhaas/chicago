@@ -1225,6 +1225,13 @@ step "every reader of the platted grid says which of its two lines its answer st
 selftest "…and the declaration is checked against the calls, in the tree and not in the prose" \
   python3 tools/check_corridor_line.py --self-test
 
+# T-1812. The graded street section: the 1835 ground lowers every opened street's worked
+# roadway below the shelf its walks and doors stand on. The painted width (streets.js
+# WORKED_SHARE) and the graded width (the spec's worked_share) are one number in two
+# files, and the committed heightfield has to carry the cut — both read here.
+step "every opened street's bed lies below its walks, as wide as the road is painted (T-1812)" \
+  python3 tools/check_street_section.py --gate
+
 # T-0875. The School Section's 142 block numerals, read off the 600-dpi NA sheet.
 # It sits beside the Thompson grid because it is the same question answered the
 # other way round: there, two legible numerals could not say how a run passes from

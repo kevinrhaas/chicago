@@ -688,6 +688,14 @@ export async function createTerrain({
      * a sample rather than the out-of-bounds fallback (T-0110). */
     inBounds(e, n) { return heightfield.contains(e, n); },
 
+    /** The sample lattice `surfaceHeight()` interpolates between (T-1812): the
+     * bilinear ground is straight along any line between two of its grid lines,
+     * which is where a draped mesh needs its vertices and nowhere else. */
+    get grid() {
+      return { cellM: heightfield.cellM, originE: heightfield.originE,
+        originN: heightfield.originN };
+    },
+
     /** Drift the ripples. One line in the render loop; nothing else animates. */
     update(dt) {
       t += dt;
