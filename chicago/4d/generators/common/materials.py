@@ -832,7 +832,7 @@ def trim_rgba(finish: Finish) -> tuple[float, float, float, float]:
 # long they have stood in the weather — both dealt by whose house it is, both
 # `reconstructed`, and both read by nothing but the reconstructed roofs: a record with
 # no `fabric_basis` is a researched building and keeps exactly the wall it had.
-# materials.md §16, rules FIN-L / FIN-W, liberty L346.
+# materials.md §16, rules FIN-L / FIN-W, liberty L347.
 #
 # **FIN-L, the lay.** A mill sends clapboard at one stock (T-0112 deals it), but a man
 # with a hammer lays it, and the exposure he leaves course by course is as true as his

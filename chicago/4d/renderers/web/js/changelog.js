@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1294, ts: '2026-10-02T08:54:09.734Z', date: 'Oct 2, 2026, 3:54 AM CT', title: 'Older houses look weathered, and their siding is laid by hand', kind: 'change',
+    items: [
+      'Walk down any street of the reconstructed town. A house dated to the 1832\u201333 boom, or one standing before that, now shows its age: its boards have turned a little greyer and duller than a house raised this spring.',
+      'A merchant\u2019s or a boarding-house keeper\u2019s house weathers more slowly than a cottage, because its owner kept the paint and the limewash up.',
+      'The clapboard courses are no longer perfectly even. Each board sits a few millimetres high or low, as a carpenter would lay it. A merchant\u2019s joiner laid them more evenly than a labourer did.',
+      'All of this is invented within stated bounds. No source says how weathered any one 1835 house was. The Liberties page (L347) says how each value is set.',
+    ] },
   { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
     items: [
       'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
