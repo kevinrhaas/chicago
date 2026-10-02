@@ -96,12 +96,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2013prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/williamhreid1895.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published February 1895 in The Inland Architect and News Record vol. 25 no. 1 (pre-1929, US); chicagology reproduction",
+  "local": {
+   "display": "research/images/files/a20-chicagology-2013-reid-ia1895.jpg",
+   "display_bytes": 147523,
+   "thumb": "research/images/files/a20-chicagology-2013-reid-ia1895-thumb.jpg",
+   "thumb_bytes": 29160,
+   "original_px": [
+    773,
+    1200
+   ],
+   "original_sha256": "e2faf5c50b9b39ee5d144ad2dc60580a1ab9ad02ba2678dcda49d5fae654b98f",
+   "original_bytes": 337000,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/williamhreid1895.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2013 Prairie page; Reid NRHP bibliography",
-  "notes": "Captioned halftone plate 'RESIDENCE OF W. H. REID, CHICAGO.' Shows the new 1894 Beers, Clay & Dutton front: cream brick and terra cotta, entrance portico with Ionic columns and balustraded parapet (parapet now missing), oval windows, central tripartite/Palladian windows, roof balustrade with urn-topped end posts (balustrade now gone). Neighbors visible: at left the rock-faced Richardsonian 2011 Prairie with conical-roofed tower; at right 2017 (gabled, high stoop with iron railing). Iron front fence, stone sidewalk. Essentially the 1904 appearance (house finished 1894). Nomination says the front was cream brick with granite basement; inter Ocean (4 Mar 1894, quoted) gives front 25 ft, depth 90 ft, 14 rooms.",
+  "notes": "Captioned halftone plate 'RESIDENCE OF W. H. REID, CHICAGO.' Shows the new 1894 Beers, Clay & Dutton front: cream brick and terra cotta, entrance portico with Ionic columns and balustraded parapet (parapet now missing), oval windows, central tripartite/Palladian windows, roof balustrade with urn-topped end posts (balustrade now gone). Neighbors visible: at left the rock-faced Richardsonian 2011 Prairie with conical-roofed tower; at right 2017 (gabled, high stoop with iron railing). Iron front fence, stone sidewalk. Essentially the 1904 appearance (house finished 1894). Nomination says the front was cream brick with granite basement; inter Ocean (4 Mar 1894, quoted) gives front 25 ft, depth 90 ft, 14 rooms. Rights reviewed 2026-10-02: reclassified public domain — the same photograph and caption as the plate held as a20-ia-1895-02-reid-plate (compared side by side).",
   "measurements": [
    {
     "what": "frontage × depth per 1894 architects' notice",
@@ -496,7 +509,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may2026prairie.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1874 in the US (public domain by date); Chicagology scan, link only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2026-wahl-landowner-1874.jpg",
+   "display_bytes": 253030,
+   "thumb": "research/images/files/a20-chicagology-2026-wahl-landowner-1874-thumb.jpg",
+   "thumb_bytes": 33559,
+   "original_px": [
+    1447,
+    1163
+   ],
+   "original_sha256": "316593d531752647e09663057dcdc89fe60b4b29d9b5459e6354b01a4bc41af1",
+   "original_bytes": 779216,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may2026prairie.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2026 Prairie page",
   "notes": "Wood engraving from The Land Owner, May 1874, banner 'LOUIS WAHL': large Second Empire house with mansard and tower, ornate stoop, plus neighbouring houses and a low fence/wall; west side of the 2000 block between 2021-opposite and 2036 (old 964 = 2026). Not an indexed building, but an 1874 street-front view on the 2000 block. Source periodical identified on page; locate an original Land Owner copy for a better scan.",
@@ -543,12 +569,25 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2100prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2100prairie1886map.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "1886 atlas is public domain by date; the crops are Chicagology scans of an unidentified copy",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1886 in Robinson's Atlas of the City of Chicago (pre-1929, US); chicagology reproduction (crop and arrow added)",
+  "local": {
+   "display": "research/images/files/a20-chicagology-robinson-1886-crops.jpg",
+   "display_bytes": 272629,
+   "thumb": "research/images/files/a20-chicagology-robinson-1886-crops-thumb.jpg",
+   "thumb_bytes": 14370,
+   "original_px": [
+    3698,
+    1400
+   ],
+   "original_sha256": "d49a3ed910af0a81051bb62e464ec0fe96bc73d5b8bef467361dfb3d8f4158f9",
+   "original_bytes": 2884392,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2100prairie1886map.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Chicagology address pages (each ends with a Robinson 1886 crop)",
-  "notes": "Hand-coloured fire-insurance atlas plate (north at right) showing 16th–22nd Streets between Indiana and Calumet: lot lines with frontage figures (mostly 25 and 50 ft), footprints coloured pink (brick) / yellow (frame) / brown (stone), rear stables along the alleys, Second Presbyterian church, street names. Pages reuse crops from one scan: e.g. 2009prairie1886map.jpg, 2013prairie1886map.jpg, 2021…, 2027…, 2031…, 2033…, 2036…, 2108…, 2109…, 2110…, 2112…, 2115…, 2126…, 2130… under chicagoimages9/. Shows 2108, 2110, 2125 and 2130 as EMPTY lots in 1886 (Rees 1888, Murdoch 1890 built later) and 2009 before the 1888 Burnham & Root house. Footprint reference for pre-1904 state; combine with Sanborn 1911 (held in maps/originals) for 1904.",
+  "notes": "Hand-coloured fire-insurance atlas plate (north at right) showing 16th–22nd Streets between Indiana and Calumet: lot lines with frontage figures (mostly 25 and 50 ft), footprints coloured pink (brick) / yellow (frame) / brown (stone), rear stables along the alleys, Second Presbyterian church, street names. Pages reuse crops from one scan: e.g. 2009prairie1886map.jpg, 2013prairie1886map.jpg, 2021…, 2027…, 2031…, 2033…, 2036…, 2108…, 2109…, 2110…, 2112…, 2115…, 2126…, 2130… under chicagoimages9/. Shows 2108, 2110, 2125 and 2130 as EMPTY lots in 1886 (Rees 1888, Murdoch 1890 built later) and 2009 before the 1888 Burnham & Root house. Footprint reference for pre-1904 state; combine with Sanborn 1911 (held in maps/originals) for 1904. Rights reviewed 2026-10-02: reclassified public domain, matching the chicagology-north/south Robinson crop records.",
   "measurements": []
  },
  {
@@ -936,7 +975,20 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv-tg9i4irNu1xISnvhVxjmHcCPL6oJ_tmfRSB9DZvVTPClZOXWUmm1vvHYlScmGCp03MJAuXDDAX_93yR-ExcljgZofdpM9Q_ujcVVnoo9ocLCAj_jd6YRGu1lyN_kZE021A4i9fHpJI/s1600/14-08-04+House+in+transit.jpg",
   "rights": "public domain",
   "rights_basis": "Published in a US newspaper in 1891 (public domain by date); blog scan, link only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-tribune-1891-house-move-sketch.jpg",
+   "display_bytes": 104586,
+   "thumb": "research/images/files/a20-glessner-tribune-1891-house-move-sketch-thumb.jpg",
+   "thumb_bytes": 45199,
+   "original_px": [
+    530,
+    675
+   ],
+   "original_sha256": "ae7e2a14e4e29a4fa2847013e86f6650f6b917694827d54be2540c70ddfad846",
+   "original_bytes": 130737,
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv-tg9i4irNu1xISnvhVxjmHcCPL6oJ_tmfRSB9DZvVTPClZOXWUmm1vvHYlScmGCp03MJAuXDDAX_93yR-ExcljgZofdpM9Q_ujcVVnoo9ocLCAj_jd6YRGu1lyN_kZE021A4i9fHpJI/s1600/14-08-04+House+in+transit.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog 2014-08-04",
   "notes": "Line cut of the two-storey frame house (from 1833 Michigan) on cribbing in Prairie Avenue, between parkway trees, with a stone stoop at left. The quoted Tribune text gives a key street measurement: the house was 29 ft 4 in wide 'while the street is but thirty-two feet from curb to curb' (Prairie Ave roadway, 2100 block, 1891), and lists the neighbouring residents (Sherman, Armour 2115, Pike 2101, Roloson, Rothschild, Mrs E. J. Kimball). Image date not stated on blog beyond the article context.",
@@ -1113,12 +1165,25 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2015/03/unearthing-hanford.html",
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD0lDHmxOJWXqLp_3SSSWh8NWKY9pHY6EicnmLNZyzgWtOPJrtgKTw-ooko9zXWJi-Uc-9x196h9MU4Yof8934x-3feWImbTVFZoNYVULtBZVtRVq2Qws2VdKSU5ZxVY-6L8Uu6atOegM/s1600/2008+CA.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Probably a 19th-c. publication engraving (public domain by date) but source not credited; link only",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published December 1883 in The Inland Architect and Builder, p. 147 ('Residence of P. C. Hanford, Esq., Chicago — Jaffray & Scott, Architects'; Paul C. Lautrup del.) (pre-1929, US); Glessner House Museum blog reproduction",
+  "local": {
+   "display": "research/images/files/a20-glessner-hanford-engraving.jpg",
+   "display_bytes": 105084,
+   "thumb": "research/images/files/a20-glessner-hanford-engraving-thumb.jpg",
+   "thumb_bytes": 36311,
+   "original_px": [
+    675,
+    565
+   ],
+   "original_sha256": "d9afeb64dc3c03d378ac4a3fb8199f3a4d1b213560aee6aeccbc8a8361f90142",
+   "original_bytes": 142000,
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD0lDHmxOJWXqLp_3SSSWh8NWKY9pHY6EicnmLNZyzgWtOPJrtgKTw-ooko9zXWJi-Uc-9x196h9MU4Yof8934x-3feWImbTVFZoNYVULtBZVtRVq2Qws2VdKSU5ZxVY-6L8Uu6atOegM/s1600/2008+CA.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Hanford'",
-  "notes": "Line engraving of the Henry S. Jaffray-designed Hanford house (1883): massive two-and-a-half/three-storey ashlar (Connecticut brownstone per blog) block with a steep pyramidal/hipped slate roof, tall dormers with gables and finials, an oriel on the side, bay windows, a corner entrance porch with columns and balustraded deck reached by a long stone stair. The blog: largest house on Calumet; vacant for decades after Hanford's 1893 suicide; fire-damaged; demolished 1953. In 1904 the house was standing but unoccupied (caretaker) per blog.",
+  "notes": "Line engraving of the Henry S. Jaffray-designed Hanford house (1883): massive two-and-a-half/three-storey ashlar (Connecticut brownstone per blog) block with a steep pyramidal/hipped slate roof, tall dormers with gables and finials, an oriel on the side, bay windows, a corner entrance porch with columns and balustraded deck reached by a long stone stair. The blog: largest house on Calumet; vacant for decades after Hanford's 1893 suicide; fire-damaged; demolished 1953. In 1904 the house was standing but unoccupied (caretaker) per blog. Rights reviewed 2026-10-02: reclassified public domain — the same drawing as dw-inland-1883-12-hanford-plate (compared side by side).",
   "measurements": []
  },
  {
@@ -1778,7 +1843,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published before 1911 in the US — public domain by date",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-ia-1889-05-meyer-completion-notice.jpg",
+   "display_bytes": 266412,
+   "thumb": "research/images/files/a20-ia-1889-05-meyer-completion-notice-thumb.jpg",
+   "thumb_bytes": 23025,
+   "original_px": [
+    1834,
+    2708
+   ],
+   "original_sha256": "edd8b949250a3571b35e087232c2cc380f7f47154652aca96c12e4c116c19c7a",
+   "original_bytes": 776120,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1889-05_13_5/page/n10_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "full-text grep of 751 Inland Architect djvu texts (1883–1911) downloaded from archive.org this session",
   "notes": "Text: 'R. W. Maxton … secretary of the Bruschke Furniture Company … Max Meyer's residence, 2009 Prairie avenue, is just being completed by the same firm, who had the whole building under contract. They have also completed another residence by the same architects (Burnham & Root)…' Fixes completion of 2009 to spring 1889 and names the general contractor (Bruschke Furniture Co. / R. W. Maxton).",
@@ -1810,7 +1888,20 @@
   "image_url": null,
   "rights": "public domain",
   "rights_basis": "Published before 1911 in the US — public domain by date",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-ia-1883-10-hanford-notice.jpg",
+   "display_bytes": 329031,
+   "thumb": "research/images/files/a20-ia-1883-10-hanford-notice-thumb.jpg",
+   "thumb_bytes": 26731,
+   "original_px": [
+    1844,
+    2742
+   ],
+   "original_sha256": "ed3d0f34109928226724e656b616b193ff2f841c578f2ef1e7263d3d0f2cc2f7",
+   "original_bytes": 966658,
+   "fetched_from": "https://archive.org/download/sim_inland-architect-and-news-record_1883-10_2_3/page/n10_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "full-text grep of 751 Inland Architect djvu texts (1883–1911) downloaded from archive.org this session",
   "notes": "Text: 'Architects Jaffray & Scott have prepared plans for a residence for P. C. Hanford, to be built on Calumet avenue near Twentieth street. The walls will be built of Connecticut brown stone, and the structure when completed, will cost about $40,000 … The foundations have been commenced.' Confirms architects (Henry S. Jaffray & Isaac E. Scott in partnership), material and cost.",
@@ -1923,12 +2014,25 @@
   "call_number": "AIC mqc 11605; IA4504_4181.jpg",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/11605",
   "image_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/11605/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "AIC CONTENTdm record: 'For publication/rights information please contact the Ryerson and Burnham Archives' — kept link-only",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1905 in The Inland Architect and News Record vol. 45 no. 4 (AIC record 'Inland Architect, vol. 45, no. 4') (pre-1929, US); AIC reproduction. Holder's statement: \"For Rights information please contact the Ryerson and Burnham Archives at archives@artic.edu\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/a20-aic-ia-robbins-plate.jpg",
+   "display_bytes": 101519,
+   "thumb": "research/images/files/a20-aic-ia-robbins-plate-thumb.jpg",
+   "thumb_bytes": 20538,
+   "original_px": [
+    1056,
+    733
+   ],
+   "original_sha256": "50cd835fd17e9e37b75e31a26900baa6185042f18b6280c1285a69502bc5a98f",
+   "original_bytes": 105001,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:11605/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "AIC CONTENTdm API search (artic.contentdm.oclc.org, collection mqc) 'prairie avenue' / 'Prairie Ave'",
-  "notes": "AIC's toned scan of the same May 1905 Inland Architect plate (a20-ia-1905-05-robbins-plate), far clearer than the microfilm: symmetrical five-bay three-storey dark-brick Georgian front, white stone belt course and window heads, carved panel over a fanlit central door, roof parapet with brick end chimneys, low stone/iron area wall with urn-topped piers either side of the entry steps; a Victorian neighbour with tall chimneys at right (north, toward 2120) and the edge of another house at left (south, toward 2130). Record notes: 'Demolished 2002'; reference Tyre, Chicago's Historic Prairie Avenue p.48. KEY FOR THE 1904 QUESTION: the plate appeared in the May 1905 issue ('Special Plates': 'Residence for Edward F. Robbins, 2126 Prairie Ave., Chicago; Mann, McNeille & Lindeberg, architects, New York and Chicago'), photographed with bare trees — so the house was externally complete by winter 1904–05 / early spring 1905 (the issue's text also lists it in the 1905–06 volume index). The AIC building index (a20-aic-ryerson-building-index-monographs) says the earlier Hamill house on the lot was razed by Robbins in 1904. Another scan of the same plate (archive.org inlandarchitectv45nc) is in the drawings stream.",
+  "notes": "AIC's toned scan of the same May 1905 Inland Architect plate (a20-ia-1905-05-robbins-plate), far clearer than the microfilm: symmetrical five-bay three-storey dark-brick Georgian front, white stone belt course and window heads, carved panel over a fanlit central door, roof parapet with brick end chimneys, low stone/iron area wall with urn-topped piers either side of the entry steps; a Victorian neighbour with tall chimneys at right (north, toward 2120) and the edge of another house at left (south, toward 2130). Record notes: 'Demolished 2002'; reference Tyre, Chicago's Historic Prairie Avenue p.48. KEY FOR THE 1904 QUESTION: the plate appeared in the May 1905 issue ('Special Plates': 'Residence for Edward F. Robbins, 2126 Prairie Ave., Chicago; Mann, McNeille & Lindeberg, architects, New York and Chicago'), photographed with bare trees — so the house was externally complete by winter 1904–05 / early spring 1905 (the issue's text also lists it in the 1905–06 volume index). The AIC building index (a20-aic-ryerson-building-index-monographs) says the earlier Hamill house on the lot was razed by Robbins in 1904. Another scan of the same plate (archive.org inlandarchitectv45nc) is in the drawings stream. Rights reviewed 2026-10-02: reclassified public domain (published 1905 periodical plate).",
   "measurements": []
  },
  {
@@ -1955,12 +2059,25 @@
   "call_number": "AIC mqc 9295; IA2501_1747.jpg",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/9295",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:9295/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "AIC CONTENTdm record: 'For publication/rights information please contact the Ryerson and Burnham Archives' — kept link-only",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1895 in The Inland Architect and News Record vol. 25 no. 1 (AIC record) (pre-1929, US); AIC reproduction. Holder's statement: \"For Rights information please contact the Ryerson and Burnham Archives at archives@artic.edu\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/a20-aic-ia-reid-plate.jpg",
+   "display_bytes": 117327,
+   "thumb": "research/images/files/a20-aic-ia-reid-plate-thumb.jpg",
+   "thumb_bytes": 23804,
+   "original_px": [
+    1056,
+    716
+   ],
+   "original_sha256": "842990132b3663fb5e2f23cc94f26812435dd2f90f21d160b2b3dd98d3704473",
+   "original_bytes": 122389,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:9295/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "AIC CONTENTdm API search (artic.contentdm.oclc.org, collection mqc) 'prairie avenue' / 'Prairie Ave'",
-  "notes": "AIC's toned scan of the Inland Architect vol. 25 no. 1 plate (same as a20-ia-1895-02-reid-plate), with the Cummings Hotel on the same leaf. Record also cites 'Chicago Blue Book, 1897, p.655'.",
+  "notes": "AIC's toned scan of the Inland Architect vol. 25 no. 1 plate (same as a20-ia-1895-02-reid-plate), with the Cummings Hotel on the same leaf. Record also cites 'Chicago Blue Book, 1897, p.655'. Rights reviewed 2026-10-02: reclassified public domain (published 1895 periodical plate).",
   "measurements": []
  },
  {
@@ -1987,12 +2104,25 @@
   "call_number": "AIC mqc 16039 (book: mqc 15977, p.13 of 163)",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/16039",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:16039/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "AIC CONTENTdm record: 'For publication/rights information please contact the Ryerson and Burnham Archives' — kept link-only",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1898 (AIC record: date 1898, printed matter, Ryerson and Burnham Libraries Book Collection 720.973 I290cv, p. 13) (pre-1929, US); AIC reproduction. Holder's statement: \"For Rights information please contact the Ryerson and Burnham Archives at archives@artic.edu\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/a20-aic-quarter-century-tucker-residence.jpg",
+   "display_bytes": 133916,
+   "thumb": "research/images/files/a20-aic-quarter-century-tucker-residence-thumb.jpg",
+   "thumb_bytes": 14166,
+   "original_px": [
+    4236,
+    3257
+   ],
+   "original_sha256": "134c4f486e91824418ee63e94ec30a5d18d5d6954ced121323c7fbc6688aa4ab",
+   "original_bytes": 785462,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:16039/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "AIC CONTENTdm API search (artic.contentdm.oclc.org, collection mqc) 'prairie avenue' / 'Prairie Ave'",
-  "notes": "Halftone page captioned 'Residence erected for Wm. F. Tucker, Prairie Avenue and Twenty-second Street'. NB the AIC record gives street '2126 S. Prairie Ave.' and alternate name Hamill — that is an error/conflation: the caption and the view (corner house on 22nd St with round tower) identify the 2140 house (old 1010). Shows polychrome brick, flat-topped round tower with cresting, octagonal corner tower, columned Prairie Ave porch, gas lamp, iron fence — the same state as the P. B. Greene stereograph; whether this was still the roofline in 1898/1904 or an old photograph reused is unresolved (cf. the conical-roofed state in a20-chicagology-2140-photo-a).",
+  "notes": "Halftone page captioned 'Residence erected for Wm. F. Tucker, Prairie Avenue and Twenty-second Street'. NB the AIC record gives street '2126 S. Prairie Ave.' and alternate name Hamill — that is an error/conflation: the caption and the view (corner house on 22nd St with round tower) identify the 2140 house (old 1010). Shows polychrome brick, flat-topped round tower with cresting, octagonal corner tower, columned Prairie Ave porch, gas lamp, iron fence — the same state as the P. B. Greene stereograph; whether this was still the roofline in 1898/1904 or an old photograph reused is unresolved (cf. the conical-roofed state in a20-chicagology-2140-photo-a). Rights reviewed 2026-10-02: reclassified public domain (published 1898 book plate).",
   "measurements": []
  },
  {
@@ -2117,12 +2247,25 @@
   "call_number": "AIC mqc 7046; IA10XX_0119.jpg",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/7046",
   "image_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/7046/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "AIC CONTENTdm record: 'For publication/rights information please contact the Ryerson and Burnham Archives' — kept link-only",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published 1887 in The Inland Architect and News Record vol. 10 (AIC record) (pre-1929, US); AIC reproduction. Holder's statement: \"For Rights information please contact the Ryerson and Burnham Archives at archives@artic.edu\" (a permissions contact, not a copyright claim).",
+  "local": {
+   "display": "research/images/files/a20-aic-ia-dewey-residence-drawing-1887.jpg",
+   "display_bytes": 141267,
+   "thumb": "research/images/files/a20-aic-ia-dewey-residence-drawing-1887-thumb.jpg",
+   "thumb_bytes": 17989,
+   "original_px": [
+    727,
+    1056
+   ],
+   "original_sha256": "e590346e7caa18ce32c6727c00c74594a54c6277e223836734705bab51976ea7",
+   "original_bytes": 148473,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:7046/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "AIC CONTENTdm API search (artic.contentdm.oclc.org, collection mqc) 'prairie avenue' / 'Prairie Ave'",
-  "notes": "Pen perspective of a rock-faced Richardsonian Romanesque house with a corner tower and conical roof, two broad round-arched openings at the ground floor (entrance and loggia), steep gables and tall chimneys. ADDRESS CONFLICT: the Inter Ocean (1 Oct 1887) notice quoted on Chicagology puts 'A. B. Dewey's' $40,000 Bedford-stone house (72×32 ft, three storeys) at No. 2031 Prairie, but directories quoted on the same page show Samuel A. Tolman living at 2031 from 1873 until his death there in 1919, and AIC places the drawing at '2631 S. Prairie Ave. [?]'. Left unlinked to pa-2031-nrhp until resolved; if Dewey did build at 2031, the 1869 marble front there was replaced in 1887–88 and this drawing shows the 1904 building.",
+  "notes": "Pen perspective of a rock-faced Richardsonian Romanesque house with a corner tower and conical roof, two broad round-arched openings at the ground floor (entrance and loggia), steep gables and tall chimneys. ADDRESS CONFLICT: the Inter Ocean (1 Oct 1887) notice quoted on Chicagology puts 'A. B. Dewey's' $40,000 Bedford-stone house (72×32 ft, three storeys) at No. 2031 Prairie, but directories quoted on the same page show Samuel A. Tolman living at 2031 from 1873 until his death there in 1919, and AIC places the drawing at '2631 S. Prairie Ave. [?]'. Left unlinked to pa-2031-nrhp until resolved; if Dewey did build at 2031, the 1869 marble front there was replaced in 1887–88 and this drawing shows the 1904 building. Rights reviewed 2026-10-02: reclassified public domain (published 1887 periodical plate).",
   "measurements": [
    {
     "what": "Dewey dwelling per 1887 notice",

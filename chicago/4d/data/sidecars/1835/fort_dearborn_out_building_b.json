@@ -111,6 +111,14 @@
         "isa_public_domain_land_tract_sales"
       ],
       "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 76 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    },
+    "part_of": {
+      "value": "Fort Dearborn — the stockade",
+      "confidence": "inferred",
+      "sources": [
+        "harrison_1830_river_mouth"
+      ],
+      "note": "The 1830 plan letters this pair Out Buildings and draws them on the fort's own ground south of the stockade; the plate does not say whose they were, and they are the post's because they stand on the post's ground and the plate draws no other keeper there. What went on inside is not claimed. The post was garrisoned continuously from June 1832 to 29 December 1836 (the stockade's own occupants block, after Andreas), so on 1 July 1835 its service buildings were the garrison's; the people are seated on the stockade and are not repeated here."
     }
   },
   "residents": [],

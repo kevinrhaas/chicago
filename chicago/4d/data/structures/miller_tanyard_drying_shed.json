@@ -95,6 +95,11 @@
     "confidence": "reconstructed",
     "note": "The closed vocabulary has no `drying shed`; `small_utility_building` is family A5's own term and the nearest it carries. The specific use is in the record's NAME and in this note. The use comes from the tannery's own record, which names 'drying sheds' among the things a tannery is and this model does not have. No occupant is claimed."
   },
+  "part_of": {
+    "value": "miller_tannery",
+    "confidence": "reconstructed",
+    "note": "This building was raised as a drying shed of John Miller's tannery, its west wall on the tannery's own east wall line, out of the tannery record's naming 'drying sheds' among what a tannery is; it has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284, the works rule of T-1709). The tannery's keepers are seated on the tannery and are not repeated here."
+  },
   "research_note": "A RECONSTRUCTED YARD BUILDING AT THE SETTLEMENT'S FIRST FACTORY - T-1709, of T-1203. WHAT IS HELD: Andreas and DRLOIH for the tannery. WHAT IS INVENTED: this building and every attribute of it. WHAT IS STILL NOT MODELLED: the lime pits and tan vats. WHAT WOULD UPGRADE IT: any account of Miller and Hall's tanyard. Built under the owner's standing ruling of 2026-08-18. Links: T-1709 - T-1203 - T-1640 - docs/RESEARCH/branch_noxious_works.md - docs/LIBERTIES.md L284.",
   "review_required": false
 }
