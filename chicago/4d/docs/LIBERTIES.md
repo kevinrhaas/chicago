@@ -14361,10 +14361,11 @@ documentary brick size from the yards that supplied the town.
 
 ### L265 — Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it
 
-**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 11 roofs, re-derived from
+**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 12 roofs, re-derived from
 `data/reconstruction/1835_phase2_west_wolf_point_approaches.json` into
-`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022` (T-1451), and
-`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781, see the amendment below).
+`recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022` (T-1451),
+`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781), and `recon_1835_west_046`
+(T-1827) — see the amendments below.
 The first six are six of the
 twenty anonymous West Division roofs **L90** raised; nothing here adds, removes or moves
 a roof, and none of the thirty-five slots **L90** holds back for want of ground is
@@ -14436,6 +14437,20 @@ cabins, and the two tradesman households that had held `_052` and `_053` move to
 roofs in the Clinton cluster (`_043`, `_045`); the cascade leaves two other tradesman households (Butterfield, Cappy)
 without a roof, handed on to T-1615 with the rest of the owed, and two labourer households
 (Barnes, Doyle) gain one in the re-seating.
+**Amended 2026-10-01 (T-1827): `_046`, the freight shed, becomes an H2 house.** Its verdict is
+T-1445's, quoted in the recipe: an F1 standing 36.63 m off the street line breaks
+`commercial_front`, which puts a freight roof on it. Carried out alone with
+`execute_roof_redeal.py --apply --only recon_1835_west_046`, it is the one footprint in this
+entry that shrinks: 24 × 44 ft to 24 × 36 ft, the corner of the H2 band nearest the standing
+area, on the same centre and rotation. The platted deal then adopts the roof for a West
+household under `merchant_and_professional_dwellings` (blk_west_randolph_des_plaines#01, **L270**),
+so `tools/generate_west_infill.py` gives it the function the South's H2 records carry,
+`merchant_or_professional_house` — the crosswalk's own reading of H2 — rather than the
+`medium_boarding_house` its other West H2s carry. That keeps it out of the lodging model's
+boarding-house class, so no keeper or boarder is invented into a house the deal has already given
+to a household, and not one of the boarders standing in the nineteen lodging places moves. The
+generator refuses the reading the moment the deal stops seating a merchant household there.
+`_013` and `_020` are still left standing, for the tickets that own them.
 **Recorded:** 2026-09-20.
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
@@ -14753,9 +14768,9 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 338 lots are enumerated from records this project already held, and then 184 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 183 households given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 184 households given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15797,9 +15812,9 @@ for on the taverns.
 
 ### L278 — The freight shed's cargo opening: 2.20 × 2.35 m, two of them, and no source describes either
 
-**Scope:** `structures.phases[cargo_openings]` — 2 phases built with the freight shed's
-`cargo` opening: `recon_1835_south_f1_038` and `recon_1835_west_046`, the town's two F1
-roofs. The opening itself is `DOOR_SIZE_M["cargo"]` and `door_bays` in
+**Scope:** `structures.phases[cargo_openings]` — 1 phase built with the freight shed's
+`cargo` opening: `recon_1835_south_f1_038`, the town's one F1 roof since T-1827 carried out
+T-1445's H2 verdict on the other, `recon_1835_west_046`. The opening itself is `DOOR_SIZE_M["cargo"]` and `door_bays` in
 `generators/archetypes/outbuilding_params.py`, and the `door: cargo` / `door_bays: 2` the
 five anonymous-parcel generators now deal family **F1** — so every F1 roof dealt after
 this stands on it too.
@@ -17819,7 +17834,10 @@ seated household's yard carded as an anonymous count-unit forever.
 **Omission:** The freight shed `recon_1835_west_046` is given no stated use. It carries an
 outstanding H2 verdict from T-1445, and a roof with an occupancy is kept by the redeal whatever
 its verdict, so stating a use would bury the verdict. Carrying it out moves the lodger layer and
-is T-1827's (split from T-1774 on 2026-10-01 for exactly that).
+is T-1827's (split from T-1774 on 2026-10-01 for exactly that). **Discharged 2026-10-01
+(T-1827):** the verdict is carried out (**L265**), the platted deal adopts the H2 for a
+household under its merchant clause, so it needs no stated use, and `recon_1835_west_047`'s
+row is restated as the stable of that two-storey house.
 
 **Would replace:** A keeper seated on any of the three by a deal or a source retires its row
 outright (`tools/inferred_occupancy.py` refuses a roof given both). A dated description of a West

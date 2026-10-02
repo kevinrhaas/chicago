@@ -4394,10 +4394,10 @@
       "structure_id": "recon_1835_west_045"
     },
     "recon_1835_west_046__inferred_1835.glb": {
-      "archetype": "outbuilding",
+      "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 168080,
-      "inputs_sha256": "00e968d3b30b62657adbe3a1082c81b7ae3218799bf4b04554f34494334c9056",
+      "bytes": 22640,
+      "inputs_sha256": "7c1df3bc4cd3063b8344f26ea48e444f343bafab21bfef2b705bfd684235561b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_046"

@@ -40,11 +40,11 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 149,
+    "adopted_seats": 150,
     "written": 23,
-    "refused": 80,
+    "refused": 81,
     "owed": 46,
-    "refused_letter_list": 78,
+    "refused_letter_list": 79,
     "refused_no_source": 0,
     "refused_name_disagrees": 2,
     "refused_on_the_card": 37,
@@ -1783,6 +1783,17 @@
       "lot_id": "blk_west_lake_des_plaines#04",
       "clause": "tradesman_dwellings",
       "family": "D4",
+      "district": "west",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
+      "household_id": "hh_arrowsmith_sidney",
+      "structure_id": "recon_1835_west_046",
+      "block_id": "blk_west_randolph_des_plaines",
+      "lot_id": "blk_west_randolph_des_plaines#01",
+      "clause": "merchant_and_professional_dwellings",
+      "family": "H2",
       "district": "west",
       "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
       "on_the_card": false

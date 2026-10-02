@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1280, ts: '2026-10-02T00:31:51.913Z', date: 'Oct 1, 2026, 7:31 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+  { v: 1281, ts: '2026-10-02T01:51:10.505Z', date: 'Oct 1, 2026, 8:51 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
       'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
       'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
       'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
       'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
       'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
+  { v: 1280, ts: '2026-10-02T00:30:46.880Z', date: 'Oct 1, 2026, 7:30 PM CT', title: 'The long shed on Des Plaines Street is now a two-storey house', kind: 'change',
+    items: [
+      'Walk west along Randolph to Des Plaines Street. The long, low freight shed that stood well back from the road is gone. In its place stands a shorter two-storey frame house with two chimneys, and the stable beside it now belongs to the house.',
+      'A freight shed belongs on a street, where wagons can load at its doors. This one stood 37 metres back, so it is now a house, of the kind the town plan gives a merchant or professional family.',
+      'The house and its use are our reconstruction. No source names who lived there, so its card names nobody.',
     ] },
   { v: 1279, ts: '2026-10-01T23:50:54.518Z', date: 'Oct 1, 2026, 6:50 PM CT', title: 'Glessner’s west roof and north entrance take shape', kind: 'change',
     items: [
