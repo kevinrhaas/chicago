@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
+  { v: null, ts: '', title: 'A third boarding house, on the corner of Washington and Clark', kind: 'change',
     items: [
       'Walk west along Washington Street to Clark and the corner now has a boarding house: two storeys of clapboard facing Washington, with a kitchen wing behind it and Clark Street running down to the river along its side. It is the third boarding house on the block.',
       'Eight chamber windows run across its upper floor and five iron stovepipes rise through its roof, counted from the fifteen people it sleeps on an ordinary night. Baptiste Trottier keeps it, and his four children live there too.',
       'A log stable and a privy stand in the yard behind it, off the alley, like the other two boarding houses on the block.',
       'The town is still filling up. A family that had asked for this corner now has a lot further along the block. Kelsey\u2019s boarding house on the North Side stands empty tonight because no lodgers were left to send there.',
-      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L341) says how each was placed and sized.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on this corner in 1835. The Liberties page (L342) says how each was placed and sized.',
+    ] },
+  { v: 1284, ts: '2026-10-02T02:44:49.927Z', date: 'Oct 1, 2026, 9:44 PM CT', title: 'South Water and Lake Street hang the newspapers\u2019 own firms\u2019 boards', kind: 'change',
+    items: [
+      'Walk South Water Street and twenty-five more houses of trade now name themselves: A. FILER & CO., JONES, KING & CO., BRIGGS & HUMPHREY and PETER COHEN among them, and more on Lake, Randolph and the cross streets. Some boards hang on brackets or under hoods, and some names are painted across the front.',
+      'Each board letters the firm as the 1833\u201335 papers printed it, with its trade beneath. Nothing is added.',
+      'Tap one of these buildings and its card now names the firm in it: \u201cHoused here \u2014 the paper names only the street.\u201d The paper gives the street. Which building on it is our choice, and the card says so (liberty L341).',
+      'Fourteen of these firms hang no board, and each one says why: a name the paper did not print whole, a school, or a face already crowded with boards. The town\u2019s other 47 boards are unchanged.',
     ] },
   { v: 1283, ts: '2026-10-02T02:10:37.412Z', date: 'Oct 1, 2026, 9:10 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
     items: [
