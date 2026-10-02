@@ -920,5 +920,144 @@
   "rights_basis": "Published in the United States before 1929",
   "verified": "viewed",
   "period": "in-period"
+ },
+ {
+  "id": "nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence",
+  "title": "[Real estate] \"Edward F. Robbins of the Board of Trade firm of Vilas & Robbins has purchased from Mrs. Charles Hamill the residence at 2126 Prairie avenue for $25,000…\"",
+  "building_ids": [
+   "pa-2126-20"
+  ],
+  "addresses": [
+   "2126 S. Prairie Avenue"
+  ],
+  "date": "November 3, 1901",
+  "date_earliest": 1901,
+  "date_latest": 1901,
+  "creator": "Chicago Sunday Tribune (real estate column)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Sunday Tribune, November 3, 1901 (vol. 60 no. 306)",
+  "call_number": "per_chicago-daily-tribune_1901-11-03_60_306, page index 28",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-11-03_60_306/page/n28/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-11-03_60_306/page/n28_w1200.jpg",
+  "found_via": "IA full-text search '\"2126 prairie\" AND collection:pub_chicago-daily-tribune'; passage read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"Edward F. Robbins of the Board of Trade firm of Vilas & Robbins has purchased from Mrs. Charles Hamill the residence at 2126 Prairie avenue for $25,000. The ground has a frontage of fifty feet, with a depth of 180 feet. The residence is a three-story brick, built some years ago.\" Bearing on the 2126 question: the Robbins family bought the EXISTING Hamill house in Nov 1901 and are listed at 2126 in the Blue Books of 1903, 1904 and 1905 (street pages, this stream). So in 1902–03 they lived in the Hamill house; the Mann, MacNeille & Lindeberg 'Residence for Edward F. Robbins' published in Inland Architect, May 1905, is the house that followed. Whether that work was a rebuilding from the ground (the library's '1904 construction'; the first-pass note that the Hamill house was razed in 1904) or a remodelling of the three-storey brick Hamill house is NOT settled by any newspaper item found: no 1903–04 permit or razing notice for 2126 turned up (see worklog). Lot: 50 × 180 here vs 58 × 178 in 1909.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "50 × 180 ft",
+    "locator": "Tribune 3 Nov 1901, p. index 28"
+   },
+   {
+    "what": "house (Hamill, pre-Robbins)",
+    "value": "three-storey brick, 'built some years ago'",
+    "locator": "same"
+   },
+   {
+    "what": "price",
+    "value": "$25,000",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2126-tribune-1909-04-22-armour-buys-three-story-brick-14-rooms",
+  "title": "[Real estate] \"J. Watson Armour … has purchased … from William H. Johnson the residence property at 2126 Prairie avenue for $32,500 … The house is on a lot 58x178 feet, and is a three story brick structure containing fourteen rooms.\"",
+  "building_ids": [
+   "pa-2126-20"
+  ],
+  "addresses": [
+   "2126 S. Prairie Avenue"
+  ],
+  "date": "April 22, 1909",
+  "date_earliest": 1909,
+  "date_latest": 1909,
+  "creator": "Chicago Daily Tribune (real estate column)",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "collection": "Chicago Daily Tribune, April 22, 1909 (vol. 68 no. 96)",
+  "call_number": "per_chicago-daily-tribune_1909-04-22_68_96, page index 10",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1909-04-22_68_96/page/n10/mode/1up",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1909-04-22_68_96/page/n10_w1200.jpg",
+  "found_via": "IA full-text search '\"2126 prairie\" AND collection:pub_chicago-daily-tribune'; passage read on the page image (IIIF crop)",
+  "notes": "Read on the page: \"J. Watson Armour, formerly of Kansas City … has purchased through Eugene A. Bournique & Co., from William H. Johnson the residence property at 2126 Prairie avenue for $32,500 … The house is on a lot 58x178 feet, and is a three story brick structure containing fourteen rooms.\" With the Tribune of 17 Jan 1909 (Johnson took 'the Bingham residence at 2126 Prairie avenue, including 58x178 feet of ground' in part payment from Arthur E. Bingham, at $45,000) it gives the post-1904 Robbins house: THREE STOREYS, BRICK, 14 ROOMS, on 58 × 178 ft. Owners: Robbins (1901–c. 1907), Bingham (to Jan 1909), W. H. Johnson (Jan–Apr 1909), the A. Watson Armours (1909–13). The 'three-storey brick' description is the same as the Hamill house's in 1901 (nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence), which keeps open whether 1904 was a rebuild or a remodel.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "58 × 178 ft",
+    "locator": "Tribune 22 Apr 1909, p. index 10 (also 17 Jan 1909, p. index 69)"
+   },
+   {
+    "what": "storeys",
+    "value": "3",
+    "locator": "same"
+   },
+   {
+    "what": "material",
+    "value": "brick",
+    "locator": "same"
+   },
+   {
+    "what": "rooms",
+    "value": "14",
+    "locator": "same"
+   }
+  ],
+  "kind": "newspaper item",
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
+ },
+ {
+  "id": "nps-2126-council-1904-01-11-robbins-water-tax-rebate",
+  "kind": "document",
+  "title": "Chicago City Council, Committee on Finance report of January 11, 1904: rebate of water taxes to \"E. F. Roberts [= Robbins], 2126 Prairie avenue … $14.85\"",
+  "building_ids": [
+   "pa-2126-20"
+  ],
+  "addresses": [
+   "2126 S. Prairie Avenue"
+  ],
+  "date": "January 11 and 18, 1904 (amended March 23, 1904)",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "creator": "City of Chicago, City Council",
+  "repository": "Internet Archive (Proceedings of the City Council of the City of Chicago, 1903–04)",
+  "collection": "Proceedings of the City Council of the City of Chicago, 1903–04 (proceedingsofcit52chic)",
+  "call_number": "proceedingsofcit52chic, page index 845 (printed p. 1954); amendment at index 1775 (p. 2761) and 1890 (p. 2872)",
+  "catalog_url": "https://archive.org/details/proceedingsofcit52chic/page/n845/mode/1up",
+  "image_url": "https://archive.org/download/proceedingsofcit52chic/page/n845_w1200.jpg",
+  "found_via": "IA full-text search '\"E. F. Robbins\" AND year:1904'; then search inside the volume for 'Robbins' and '\"2126 Prairie\"'; read on the page image",
+  "notes": "Read on the page: the Committee on Finance, \"to whom was referred claims of E. F. Roberts, William Ashton … for rebates of water taxes … recommend the passage of the following order: Ordered, That the Commissioner of Public Works be … authorized … to issue vouchers to the following persons … in full of claims for rebates on water taxes on properties named …: E. F. Roberts, 2126 Prairie avenue….$14 85.\" On 23 Mar 1904 the order was amended, at the Commissioner of Public Works' request, 'to read E. F. Robbins in place of E. F. Roberts'. Bearing (indirect): in the winter of 1903–04 Robbins claimed back part of the water tax on 2126 — such rebates were claimed for premises vacant or not using water for part of the year, so it is CONSISTENT with the old Hamill house being emptied (and razed) before the 1904 rebuilding, but the order does not state the reason. Use only as supporting evidence for the 1904 construction timeline.",
+  "measurements": [
+   {
+    "what": "water-tax rebate",
+    "value": "$14.85",
+    "locator": "Proceedings 1903–04, p. 1954"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "verified": "viewed",
+  "period": "in-period"
  }
 ]

@@ -23,3 +23,10 @@ Streams edited: every `stream-*.json` except `stream-newspapers-north-owners.jso
 ## Progress log
 
 (in progress — updated every ~25 records)
+
+- 15:26 phase A started: 219 eligible PD/NKR records with an image URL (73 Robinson crops
+  re-fetched at 2000 px; chicagology crops; AIC Ryerson & Burnham microfilm frames and
+  plates; archive.org plates; Sanborn 1911/1950 sheets at 2000 px).
+- ~15:50: 122 downloaded, 3 failed (AIC www.artic.edu IIIF returns HTTP 403 to scripted
+  requests — the three Renwick drawings a19-aic-2ndpres-renwick-*; left link-only).
+- Rights review drafted for 39 records (applied after phase A finishes; see below).

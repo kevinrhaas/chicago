@@ -152,3 +152,47 @@ Same as `worklog-newspapers-north.md`, with two refinements:
 - **Seen, not recorded:** Tribune 6 and 8 Sep 1893 (Rothschild funeral 'at the gilt-trimmed residence' —
   headline already held); 1911–12 rooms/suites to rent at 2112 (rooming era); 1895 'Mrs. Levy P. Mayer,
   No. 2112' (unexplained, not opened).
+
+**Method note (from here on):** the FTS endpoint accepts Lucene filters: `"<n> prairie" AND
+collection:pub_chicago-daily-tribune` restricts to the Tribune run (2126: 5,193 hits overall, 37 in the
+Tribune), and `AND year:1904` narrows by year. Plain owner-name queries without such a filter return
+noise because the backend ORs unquoted terms.
+
+### 2036 Buckingham (pa-2036-38)
+
+- **Queries:** IA `"2036 prairie"` (c. 60).
+- **Nothing recorded.** The '2036 Prairie' stable and brougham ads of 1903–04 read **2936** on the
+  page images (24 Mar and 6 Apr 1904); the 1934 '2036' rooming-house ad is the 2035 ad (OCR); the
+  Abendpost 7 Jul 1904 tax list gives 'Silas B. Cobb, 2036' (a misprint). Society notes 1912–1923 and the
+  1937 Kate Buckingham article (headline already held) only confirm occupancy ('the old mansion her
+  father had built at 2036'). Blue Books 1903–05: E. Buckingham & drs., Clarence Buckingham.
+
+### 1923 Kellogg (pa-1923-35)
+
+- **Queries:** IA `"1923 prairie"` (noise from '1923. Prairie Oil'); Tribune hits are society and the 1912
+  burglary (paintings worth $25,000 stolen from Mrs. C. P. Kellogg) — nothing on the building.
+- **Resolved by the Blue Books:** Mrs. C. P. Kellogg and Mrs. Lois Kellogg at 1923 in 1904 and 1905;
+  Tribune 27 Aug 1902 (Mrs. Kellogg 'removed yesterday to her residence at 1923'). The house stood and
+  was occupied in 1904. 1905 electric brougham for sale at 1923 (Tribune 12 and 30 Oct 1905).
+
+### 2126 Robbins (pa-2126-20)
+
+- **Queries:** IA `"2126 prairie"` (5,193 — World Book Co. noise), restricted to the Tribune (37);
+  `"Edward F. Robbins"` (127); `"E. F. Robbins" AND collection:pub_chicago-daily-tribune` (31);
+  `Robbins AND "Prairie av" AND … year:1903/1904` (113/96, noise); `"Mann, MacNeille"`, `"Mann &
+  MacNeille"`, `"MacNeille & Lindeberg"` (only the 1905–06 Inland Architect plates and other works);
+  `"E. F. Robbins" AND year:1904` → the City Council proceedings.
+- **Recorded (3):** Tribune 3 Nov 1901 (Robbins buys the Hamill residence: 'three-story brick, built some
+  years ago', lot 50 × 180, $25,000); Tribune 22 Apr 1909 (Armour buys from W. H. Johnson: 'three story
+  brick structure containing fourteen rooms', lot 58 × 178; with 17 Jan 1909, the Bingham sale);
+  City Council proceedings, Jan–Mar 1904 (water-tax rebate to E. F. Robbins, 2126 Prairie).
+- **Seen, not recorded:** Hamill society notices at 2126, 1890–1898 (Charles D. Hamill; his mother died
+  there Feb 1895); DAR directory 1904 'Hamill, Susan W. (Mrs Chas. D.) 2126 Prairie' (a stale address);
+  A. Watson Armour notices 1910–13; Tribune 8–9 Jan 1916 (2126 sold — not opened); 1920s–50s World Book Co.
+- **Not found:** any 1903–04 building permit, razing notice or completion notice for 2126 in the
+  Tribune run (the permit columns were not found under 'Robbins' or '2126'); the Real Estate and Building
+  Journal on IA stops in the 1890s; no Chicago Economist run surfaced on IA. The completion date
+  therefore still rests on the May 1905 Inland Architect plate.
+- **Open question:** 1901 'three-story brick' (Hamill) vs 1909 'three story brick … fourteen rooms'
+  (Robbins). Both fit; whether the Mann, MacNeille & Lindeberg house of 1904 replaced or remodelled the
+  Hamill house needs the permit ledger (UIC) or the Inland Architect text.

@@ -695,5 +695,278 @@
   "verified": "viewed",
   "period": "in-period",
   "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n653_w1200.jpg"
+ },
+ {
+  "id": "npo-1811-tribune-1904-04-16-to-rent-16-room-billiard-ball",
+  "kind": "newspaper item",
+  "title": "\"TO RENT—1811 PRAIRIE-AV., 16 ROOM house; light on all sides; beautifully finished; 3 bathrooms, billiard and ball rooms; will decorate to suit tenant; 2 story stable. HOLTON, SEELYE & CO., 204 Dearborn-st.\"",
+  "building_ids": [
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1811 S. Prairie Avenue"
+  ],
+  "date": "April 16, 1904",
+  "date_earliest": 1904,
+  "date_latest": 1904,
+  "creator": "Chicago Daily Tribune (classified advertisement, 'To Rent—Houses')",
+  "collection": "The Chicago Daily Tribune, April 16, 1904 (vol. 63 no. 92), classified page",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1904-04-16_63_92/page/n9/mode/1up",
+  "found_via": "IA full-text search '\"1811 Prairie\" AND year:[1885 TO 1907]' (owner-name pass for Coleman/Ames); advertisement read on the page image (IIIF crop)",
+  "notes": "THE target-year datum for 1811: in April 1904 the Coleman/Ames house was EMPTY and offered for rent — which is why no household appears at 1811 in the 1904 Blue Book (npo-bluebook-1904-p186-prairie-avenue-1600-1816). It was a 16-room house with 'light on all sides' (i.e. detached, with side yards), three bathrooms, billiard and ball rooms, and a TWO-STOREY STABLE at the rear; the agents would redecorate. Same agents and wording as the Sept. 1905 sale ad already in the collection (np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms), which shows the house stayed on the market into 1905. For the 1904 model: 1811 stood, detached, brownstone (npo-1811-tribune-1905-11-02-brown-stone-detached-reduced), with a two-storey stable; unoccupied in spring 1904.",
+  "measurements": [
+   {
+    "what": "rooms",
+    "value": "16, incl. billiard and ball rooms; 3 bathrooms",
+    "locator": "Tribune Apr. 16, 1904, classified"
+   },
+   {
+    "what": "stable",
+    "value": "2-storey",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_1904-04-16_63_92, page index 9",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1904-04-16_63_92/page/n9_w1200.jpg"
+ },
+ {
+  "id": "npo-1811-tribune-1905-11-02-brown-stone-detached-reduced",
+  "kind": "newspaper item",
+  "title": "\"FOR SALE—BROWN STONE DETACHED RESidence and barn, 1811 Prairie-av.; immediate possession; price reduced to $37,500 to effect a quick sale. HOLTON, SEELYE & CO., 204 Dearborn-st.\"",
+  "building_ids": [
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1811 S. Prairie Avenue"
+  ],
+  "date": "November 2, 1905",
+  "date_earliest": 1905,
+  "date_latest": 1905,
+  "creator": "Chicago Daily Tribune (classified advertisement, 'For Sale')",
+  "collection": "The Chicago Daily Tribune, Nov. 2, 1905 (vol. 64 no. 262), classified page",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1905-11-02_64_262/page/n14/mode/1up",
+  "found_via": "IA full-text search '\"1811 Prairie\" AND year:[1885 TO 1907]'; advertisement read on the page image (IIIF crop); repeated Nov. 13, 1905 (per_chicago-daily-tribune_1905-11-13_64_271, page n14, seen)",
+  "notes": "Confirms the material and setting of 1811 shortly after 1904: a BROWNSTONE, DETACHED residence with a BARN, vacant ('immediate possession'), the price cut to $37,500. Agrees with the library's 'brown sandstone; Romanesque' (Cobb & Frost, 1886). The house sold 14 months later for only $25,000 (npo-1811-tribune-1907-01-16-cowen-estate-to-fish-46x150).",
+  "measurements": [
+   {
+    "what": "material",
+    "value": "brownstone, detached",
+    "locator": "Tribune Nov. 2, 1905, classified"
+   },
+   {
+    "what": "asking price",
+    "value": "$37,500",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_1905-11-02_64_262, page index 14",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1905-11-02_64_262/page/n14_w1200.jpg"
+ },
+ {
+  "id": "npo-1811-tribune-1907-01-16-cowen-estate-to-fish-46x150",
+  "kind": "newspaper item",
+  "title": "\"Sale by Cowen Estate. The Cowen estate of Baltimore has sold to Joseph Fish the three story stone front residence at 1811 Prairie avenue, with lot 46x150 feet, for $25,000 cash.\"",
+  "building_ids": [
+   "pa-1811-24"
+  ],
+  "addresses": [
+   "1811 S. Prairie Avenue"
+  ],
+  "date": "January 16, 1907",
+  "date_earliest": 1907,
+  "date_latest": 1907,
+  "creator": "Chicago Daily Tribune (real-estate news)",
+  "collection": "The Chicago Daily Tribune, Jan. 16, 1907 (vol. 66 no. 14), real-estate column",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1907-01-16_66_14/page/n9/mode/1up",
+  "found_via": "IA full-text search '\"1811 Prairie\" AND year:[1885 TO 1907]' (the OCR reads 'lot 446x150'); passage read on the page image (IIIF crop)",
+  "notes": "Bears on the 1811 lot conflict (40 ft in the Abendpost's report of the same sale, np-1811-abendpost-1907-01-16-fish-buys-40x150, vs 46½ ft in the 1894 sale ad, a18-gh-1811-for-sale-1894). The Tribune prints the lot as '4[6]x150' — the second digit is blotted on the microfilm (OCR '446'), but it is not a 0; read 46 ft, which agrees with the 1894 figure (46½) and makes the Abendpost's '40' the error. Also fixes the form: a THREE-STOREY STONE-FRONT residence. The seller was the Cowen estate of Baltimore (the Abendpost's 'von Baltimore'), owners after the Ames family. Use 46½ × 150 ft for the 1904 lot.",
+  "measurements": [
+   {
+    "what": "lot",
+    "value": "46 × 150 ft [second digit blotted; OCR uncertain]",
+    "locator": "Tribune Jan. 16, 1907, 'Sale by Cowen Estate'"
+   },
+   {
+    "what": "storeys",
+    "value": "3, stone front",
+    "locator": "same"
+   },
+   {
+    "what": "price",
+    "value": "$25,000 cash",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_1907-01-16_66_14, page index 9",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1907-01-16_66_14/page/n9_w1200.jpg"
+ },
+ {
+  "id": "npo-1721-tribune-1898-01-01-pullman-buys-dexter-105x275-brick-colonial",
+  "kind": "newspaper item",
+  "title": "\"George M. Pullman bought from Henry W. King and Mrs. Wirt Dexter in July the Wirt Dexter residence, 1721 Prairie avenue. The property has a west frontage of 105 feet and is 275 feet deep… The house is constructed of brick, in the colonial style of architecture…\"",
+  "building_ids": [
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1721 S. Prairie Avenue"
+  ],
+  "date": "January 1, 1898",
+  "date_earliest": 1897,
+  "date_latest": 1898,
+  "creator": "Chicago Daily Tribune (annual real-estate review of 1897)",
+  "collection": "The Chicago Daily Tribune, Jan. 1, 1898 (vol. 57 no. 1), real-estate review",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1898-01-01_57_1/page/n16/mode/1up",
+  "found_via": "IA full-text search '\"Dexter residence\" Prairie' (owner-name pass); passage read on the page image (IIIF crop)",
+  "notes": "The only period description of the Dexter house's material and style: 'The property has a west frontage of 105 feet and is 275 feet deep, to the right of way of the Illinois Central. The house is constructed of BRICK, in the COLONIAL style of architecture, and is handsomely finished in selected hardwoods. The consideration was $50,000.' Pullman (next door at 1729) bought it from Henry W. King and Mrs. Wirt Dexter in July 1897, shortly before his death (Oct. 1897). 'Colonial' fits the Arthur Little front addition of 1889 (the library's note) — Little was a Colonial Revival architect. The 105 ft frontage was later split: the house went to Spalding in 1901 with 65 ft (npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding), the remaining c.40 ft presumably staying with the Pullman lot to the south. Lot depth: 275 ft to the IC right of way.",
+  "measurements": [
+   {
+    "what": "lot (1897)",
+    "value": "105 ft west frontage × 275 ft deep, to the IC right of way",
+    "locator": "Tribune Jan. 1, 1898, real-estate review"
+   },
+   {
+    "what": "material/style",
+    "value": "brick, colonial style; interior in selected hardwoods",
+    "locator": "same"
+   },
+   {
+    "what": "price",
+    "value": "$50,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_the-chicago-daily-tribun_1898-01-01_57_1, page index 16",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-daily-tribun_1898-01-01_57_1/page/n16_w1200.jpg"
+ },
+ {
+  "id": "npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding",
+  "kind": "newspaper item",
+  "title": "\"Wirt Dexter Residence Bought by Jesse Spalding. He Purchases It from the Trustee of George M. Pullman's Daughters for $25,000\"",
+  "building_ids": [
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1721–1723 S. Prairie Avenue"
+  ],
+  "date": "November 28, 1901",
+  "date_earliest": 1901,
+  "date_latest": 1901,
+  "creator": "Chicago Daily Tribune (real-estate news)",
+  "collection": "The Chicago Daily Tribune, Nov. 28, 1901 (vol. 60 no. 331), real-estate page",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-11-28_60_331/page/n6/mode/1up",
+  "found_via": "IA full-text search '\"Dexter residence\" Prairie' (owner-name pass); article read on the page image (IIIF crops); the Sunday round-up of Dec. 1, 1901 repeats it (per_chicago-daily-tribune_1901-12-01_60_335, page n28, OCR seen)",
+  "notes": "KEY for the 1721 phase question (library: 'Arthur Little front addition, 1889; later relocation of addition requires dated phase model'): 'Jesse Spalding has purchased from the Illinois Trust and Savings Bank, trustee for Mrs. Florence Pullman Lowden and Mrs. Harriet Pullman Carolan, the old Wirt Dexter residence, 1721-1723 Prairie avenue, for $25,000. The purchase is said to have been made for a member of Mr. Spalding's family, and a condition of the sale was that the purchaser should either BUILD ANEW on the property or MOVE BACK THE PRESENT BRICK BUILDING to conform with the TWENTY-FOOT BUILDING LINE along that street. Mr. Dexter originally built up to the twenty-foot line, but subsequently made a FRONT ADDITION which carried the building UP TO THE STREET LINE. … The building is THREE STORIES high, with a frontage of 65 feet, running through to the Illinois Central right of way.' So in Nov. 1901 the 1889 front addition stood on the street line, and the sale obliged the buyer to pull the house back to the 20-ft line (or rebuild) — i.e. the addition was to be removed or moved between Nov. 1901 and the Walkers' occupancy (H. H. Walker = Spalding's son-in-law; at 1721 by March 1903, npo-1721-tribune-1903-03-20-walker-porch-pillars; 1904 Blue Book). For the 1904 model: a three-storey brick colonial house set back to the 20-ft building line, with a pillared front porch — NOT the 1889–1901 street-line front. No permit for the alteration has been found yet (search 1902 permits for Spalding/Walker at 1721).",
+  "measurements": [
+   {
+    "what": "storeys",
+    "value": "3",
+    "locator": "Tribune Nov. 28, 1901"
+   },
+   {
+    "what": "lot (1901 sale)",
+    "value": "65 ft frontage, through to the IC right of way",
+    "locator": "same"
+   },
+   {
+    "what": "building line",
+    "value": "20 ft from the street line (front addition had reached the street line)",
+    "locator": "same"
+   },
+   {
+    "what": "price",
+    "value": "$25,000",
+    "locator": "same"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_1901-11-28_60_331, page index 6",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-11-28_60_331/page/n6_w1200.jpg"
+ },
+ {
+  "id": "npo-1721-tribune-1903-03-20-walker-porch-pillars",
+  "kind": "newspaper item",
+  "title": "\"…Walker During the Dinner Hour. While the family of H. H. Walker, 1721 Prairie avenue, sat at dinner porch climbers scaled the pillars in front of the house and forced an entrance into an upstairs bedroom.\"",
+  "building_ids": [
+   "pa-1721-4"
+  ],
+  "addresses": [
+   "1721 S. Prairie Avenue"
+  ],
+  "date": "March 20, 1903",
+  "date_earliest": 1903,
+  "date_latest": 1903,
+  "creator": "Chicago Daily Tribune (local news)",
+  "collection": "The Chicago Daily Tribune, March 20, 1903 (vol. 62 no. 79), page index 4",
+  "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1903-03-20_62_79/page/n4/mode/1up",
+  "found_via": "IA full-text search '\"1721 Prairie\" AND year:[1901 TO 1906]' (following the Dexter/Spalding owner-name hits); item read on the page image (IIIF crop); the Abendpost of the same day reports it too",
+  "notes": "A rare view of the 1721 front a year before the target date: the house had PILLARS IN FRONT carrying a porch roof that thieves climbed to reach an UPSTAIRS BEDROOM window — a columned front porch/portico, consistent with 'brick, in the colonial style' (npo-1721-tribune-1898-01-01-pullman-buys-dexter-105x275-brick-colonial). It also fixes the household: Henry H. Walker (Jesse Spalding's son-in-law) at 1721 by March 1903, as in the 1904 Blue Book. Whether the pillared porch is the 1889 front addition or a new front after the 1901 setback condition (npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding) is not stated.",
+  "measurements": [
+   {
+    "what": "front",
+    "value": "pillared porch below an upstairs bedroom",
+    "locator": "Tribune Mar. 20, 1903"
+   }
+  ],
+  "streetscape": false,
+  "view": "text",
+  "facing": null,
+  "camera_position": null,
+  "local": null,
+  "rights": "public domain",
+  "rights_basis": "Published in the United States before 1929",
+  "call_number": "per_chicago-daily-tribune_1903-03-20_62_79, page index 4",
+  "verified": "viewed",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "period": "in-period",
+  "image_url": "https://archive.org/download/per_chicago-daily-tribune_1903-03-20_62_79/page/n4_w1200.jpg"
  }
 ]

@@ -19,9 +19,9 @@
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 893,
-  "local": 253,
-  "in_period": 578,
+  "images": 902,
+  "local": 305,
+  "in_period": 587,
   "buildings_with_images": 62,
   "buildings": 62,
   "lots_with_images": 85,
@@ -190,7 +190,10 @@
    "a16-pullman-det-4a08065",
    "cgn-1721-randmcnally-1893-strip",
    "dw-aabn-1893-04-dexter-1721-plate-listing",
-   "a16-chm-clark-ichi-071912-dexter-c1905"
+   "npo-1721-tribune-1898-01-01-pullman-buys-dexter-105x275-brick-colonial",
+   "npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding",
+   "a16-chm-clark-ichi-071912-dexter-c1905",
+   "npo-1721-tribune-1903-03-20-walker-porch-pillars"
   ],
   "pa-1729-5": [
    "a16-ghm-blog-1720-atlas-crop",
@@ -442,9 +445,12 @@
    "nps-bluebook-1905-prairie-street-p186-2109-2140",
    "nps-bluebook-1903-prairie-street-p184-2027-2140",
    "cgs-2126-robinson-1886",
+   "nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence",
    "a20-aic-ia-robbins-plate",
    "dw-inland-1905-05-robbins-2126-plate",
+   "nps-2126-council-1904-01-11-robbins-water-tax-rebate",
    "dw-inland-1905-05-robbins-plate-list",
+   "nps-2126-tribune-1909-04-22-armour-buys-three-story-brick-14-rooms",
    "a20-rees-landmark-report-1951-street-view"
   ],
   "pa-2140-21": [
@@ -538,8 +544,11 @@
    "dw-rb-inland-ames-coleman-1811-plate",
    "a18-gh-1811-for-sale-1894",
    "cgn-1811-tribune-1894-ames-for-sale-ad",
+   "npo-1811-tribune-1904-04-16-to-rent-16-room-billiard-ball",
    "np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms",
+   "npo-1811-tribune-1905-11-02-brown-stone-detached-reduced",
    "np-1811-abendpost-1907-01-16-fish-buys-40x150",
+   "npo-1811-tribune-1907-01-16-cowen-estate-to-fish-46x150",
    "np-1811-abendpost-1921-01-19-sold-to-midland-press",
    "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation"
   ],
@@ -1662,7 +1671,10 @@
    "a16-pullman-det-4a08065",
    "cgn-1721-randmcnally-1893-strip",
    "dw-aabn-1893-04-dexter-1721-plate-listing",
+   "npo-1721-tribune-1898-01-01-pullman-buys-dexter-105x275-brick-colonial",
+   "npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding",
    "a16-chm-clark-ichi-071912-dexter-c1905",
+   "npo-1721-tribune-1903-03-20-walker-porch-pillars",
    "st-randmcnally-1893-p233-west-1700-1800"
   ],
   "prairie_1726": [
@@ -1935,9 +1947,12 @@
    "nps-bluebook-1905-prairie-street-p186-2109-2140",
    "nps-bluebook-1903-prairie-street-p184-2027-2140",
    "cgs-2126-robinson-1886",
+   "nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence",
    "a20-aic-ia-robbins-plate",
    "dw-inland-1905-05-robbins-2126-plate",
+   "nps-2126-council-1904-01-11-robbins-water-tax-rebate",
    "dw-inland-1905-05-robbins-plate-list",
+   "nps-2126-tribune-1909-04-22-armour-buys-three-story-brick-14-rooms",
    "a20-rees-landmark-report-1951-street-view",
    "a20-glessner-2100-block-east-side-1890s"
   ],
@@ -2208,8 +2223,11 @@
    "dw-rb-inland-ames-coleman-1811-plate",
    "a18-gh-1811-for-sale-1894",
    "cgn-1811-tribune-1894-ames-for-sale-ad",
+   "npo-1811-tribune-1904-04-16-to-rent-16-room-billiard-ball",
    "np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms",
+   "npo-1811-tribune-1905-11-02-brown-stone-detached-reduced",
    "np-1811-abendpost-1907-01-16-fish-buys-40x150",
+   "npo-1811-tribune-1907-01-16-cowen-estate-to-fish-46x150",
    "np-1811-abendpost-1921-01-19-sold-to-midland-press",
    "dw-nrhp-1972-district-p11-coleman-ames-plan-elevation"
   ],
@@ -3028,8 +3046,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1612-robinson-1886.jpg",
+    "display_bytes": 253722,
     "thumb": "research/images/files/cgn-1612-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23118,
+    "thumb_bytes": 15101,
     "original_px": [
      3841,
      1482
@@ -3037,7 +3057,7 @@
     "original_sha256": "40ab757036e4e5af174fa65acc6e2af3d880bd03aff3b4ce08a8cfd64d7fd221",
     "original_bytes": 2775336,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1612prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -3462,7 +3482,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline11mar1905mrsbrown.jpg",
    "rights": "public domain",
    "rights_basis": "published 1905 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1612-tribune-1905-mrs-brown-headline.jpg",
+    "display_bytes": 44651,
+    "thumb": "research/images/files/cgn-1612-tribune-1905-mrs-brown-headline-thumb.jpg",
+    "thumb_bytes": 22400,
+    "original_px": [
+     563,
+     684
+    ],
+    "original_sha256": "88d79aa552a8c5386d098ea74289b6d190f31192ff9bc5943f539012ade70505",
+    "original_bytes": 138318,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline11mar1905mrsbrown.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline graphic only; the value is the article text on the page: in May 1904 Charles E. Brown filed for divorce, and by order of Judge Tuley Mrs Brown was given possession of \"the residence, 1612 Prairie avenue\" pending the suit — i.e. the Browns occupied 1612 in 1904 (between Studebaker, gone c.1899, and Bishop Anderson, who bought it March 1905 — lot 50.45×177.25, Tribune 14 Mar 1905). Occupancy evidence for the 1904 model, not a building image.",
@@ -3755,7 +3788,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline19dec1880gregoryhibbard.jpg",
    "rights": "public domain",
    "rights_basis": "published 1880 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1638-tribune-1880-gregory-hibbard-headline.jpg",
+    "display_bytes": 124837,
+    "thumb": "research/images/files/cgn-1638-tribune-1880-gregory-hibbard-headline-thumb.jpg",
+    "thumb_bytes": 25483,
+    "original_px": [
+     1100,
+     1321
+    ],
+    "original_sha256": "0cdf4399a11f8ecb7728c1a4ed7bcbe288f94f3d1265a9f6c6ac098ccb387182",
+    "original_bytes": 335374,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline19dec1880gregoryhibbard.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the wedding report quoted on the page: reception at 1701 (calcium lights, parlors at the north end of the house), and \"Mr. and Mrs. Gregory took possession of their new home directly opposite Mr. Hibbard's residence\" — 1638 occupied by the Gregorys from Dec 1880.",
@@ -3840,8 +3886,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1638-robinson-1886.jpg",
+    "display_bytes": 253394,
     "thumb": "research/images/files/cgn-1638-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23080,
+    "thumb_bytes": 15098,
     "original_px": [
      3841,
      1482
@@ -3849,7 +3897,7 @@
     "original_sha256": "f1ff9db8dddc9e1d98d243c1bac16728adddd2e6d641eea2922e7c7b93e14dc4",
     "original_bytes": 2773106,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1638prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -4018,7 +4066,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic16dec1920rbgregory.jpg",
    "rights": "public domain",
    "rights_basis": "published 1920 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1701-tribune-1920-mrs-gregory-portrait.jpg",
+    "display_bytes": 90186,
+    "thumb": "research/images/files/cgn-1701-tribune-1920-mrs-gregory-portrait-thumb.jpg",
+    "thumb_bytes": 15544,
+    "original_px": [
+     1002,
+     2071
+    ],
+    "original_sha256": "26934e34a239728361f5b6011a8baa10c887d273e0d3f74d72d162717ed5d3fa",
+    "original_bytes": 353526,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic16dec1920rbgregory.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Halftone portrait of Addie Hibbard Gregory (of 1638) printed with the report that the heirs would furnish a Dutch room at the Art Institute from the Hibbard home at 1701 (estate inventory: 500 paintings). Interior-contents context for 1701; a person, not the house.",
@@ -4300,8 +4361,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1701-robinson-1886.jpg",
+    "display_bytes": 253783,
     "thumb": "research/images/files/cgn-1701-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23156,
+    "thumb_bytes": 15127,
     "original_px": [
      3841,
      1482
@@ -4309,7 +4372,7 @@
     "original_sha256": "d35638481f7e912fcbcb805ecad114afd423dc0580f6f44afdbe130e962f83e3",
     "original_bytes": 2776842,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1701prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -4416,7 +4479,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1701prairie1893map.jpg",
    "rights": "public domain",
    "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1701-randmcnally-1893-strip.jpg",
+    "display_bytes": 355112,
+    "thumb": "research/images/files/cgn-1701-randmcnally-1893-strip-thumb.jpg",
+    "thumb_bytes": 19576,
+    "original_px": [
+     2406,
+     848
+    ],
+    "original_sha256": "d74baf61f56839564b5da43be42ccb6ca0a8181fd721d9da4c88fe33008a757a",
+    "original_bytes": 1301910,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1701prairie1893map.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Chicagology crop of a Rand McNally \"Bird's Eye Views and Guide to Chicago\" (1893) perspective street strip with an arrow added by Chicagology. The same plates are already recorded at full-page resolution from the Internet Archive by the streetscape stream (st-randmcnally-1893-p233-east-1700-1800); this is a separate, arrowed copy. Captioned on the page \"Bird's Eye Views of Chicago, Rand McNally, 1893\". Arrow at 1701 Hibbard at the left end of the strip; numbers 1701, 1709, 1721, 1729, 1801, 1811, 1815 printed.",
@@ -4452,7 +4528,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline12oct1903hibbard.jpg",
    "rights": "public domain",
    "rights_basis": "published 1903 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1701-tribune-1903-hibbard-headline.jpg",
+    "display_bytes": 125669,
+    "thumb": "research/images/files/cgn-1701-tribune-1903-hibbard-headline-thumb.jpg",
+    "thumb_bytes": 26954,
+    "original_px": [
+     3176,
+     2699
+    ],
+    "original_sha256": "9b75a3b27b7fb44729d323aab20bbd54adde47a86f30667dd49c49dfad1c0c4c",
+    "original_bytes": 667803,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline12oct1903hibbard.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the obituary quoted on the page: Hibbard died at 1701 in Oct 1903; after the 1871 fire the firm did business \"within Mr. Hibbard's Prairie avenue house, headquarters which he had built three years before\" (i.e. built 1868) — \"the same house in which he died\". His widow Lydia is at 1701 in the 1904 directory.",
@@ -4710,8 +4799,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1721-robinson-1886.jpg",
+    "display_bytes": 253738,
     "thumb": "research/images/files/cgn-1721-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23113,
+    "thumb_bytes": 15109,
     "original_px": [
      3841,
      1482
@@ -4719,7 +4810,7 @@
     "original_sha256": "be88e5b1d943dcdd7e280e715cfab8a604677d75d79f2195787f538f173e35fe",
     "original_bytes": 2775582,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1721prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -4925,7 +5016,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline19may1890dexter.jpg",
    "rights": "public domain",
    "rights_basis": "published 1890 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1721-tribune-1890-dexter-headline.jpg",
+    "display_bytes": 23676,
+    "thumb": "research/images/files/cgn-1721-tribune-1890-dexter-headline-thumb.jpg",
+    "thumb_bytes": 20532,
+    "original_px": [
+     449,
+     278
+    ],
+    "original_sha256": "abbda5c3705ed71f1db9527406a40be4c385f900e8d14b6ea2481dae4885980e",
+    "original_bytes": 53800,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline19may1890dexter.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the obituary quoted on the page (Dexter died at 1721 on 17 May 1890).",
@@ -4961,7 +5065,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic19may1890dexter.jpg",
    "rights": "public domain",
    "rights_basis": "published 1890 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1721-tribune-1890-dexter-portrait.jpg",
+    "display_bytes": 13038,
+    "thumb": "research/images/files/cgn-1721-tribune-1890-dexter-portrait-thumb.jpg",
+    "thumb_bytes": 13038,
+    "original_px": [
+     210,
+     334
+    ],
+    "original_sha256": "b8383d0dedf6c1d842f7d2e16f54893d845dc68197dd83d59dcf755a179a4971",
+    "original_bytes": 29072,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic19may1890dexter.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Small pen portrait printed with the obituary. A person, not the house.",
@@ -5049,7 +5166,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1721prairie1893map.jpg",
    "rights": "public domain",
    "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1721-randmcnally-1893-strip.jpg",
+    "display_bytes": 368218,
+    "thumb": "research/images/files/cgn-1721-randmcnally-1893-strip-thumb.jpg",
+    "thumb_bytes": 20721,
+    "original_px": [
+     2341,
+     836
+    ],
+    "original_sha256": "da89dc91534a07ce53318246321d7f405bb469d8f697f9b9a84bfaa541ccce0d",
+    "original_bytes": 1087666,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1721prairie1893map.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Chicagology crop of a Rand McNally \"Bird's Eye Views and Guide to Chicago\" (1893) perspective street strip with an arrow added by Chicagology. The same plates are already recorded at full-page resolution from the Internet Archive by the streetscape stream (st-randmcnally-1893-p233-east-1700-1800); this is a separate, arrowed copy. Arrow at 1721 (Dexter) after the 1889 front addition.",
@@ -5096,6 +5226,115 @@
    ]
   },
   {
+   "id": "npo-1721-tribune-1898-01-01-pullman-buys-dexter-105x275-brick-colonial",
+   "kind": "newspaper item",
+   "title": "\"George M. Pullman bought from Henry W. King and Mrs. Wirt Dexter in July the Wirt Dexter residence, 1721 Prairie avenue. The property has a west frontage of 105 feet and is 275 feet deep… The house is constructed of brick, in the colonial style of architecture…\"",
+   "building_ids": [
+    "pa-1721-4"
+   ],
+   "addresses": [
+    "1721 S. Prairie Avenue"
+   ],
+   "date": "January 1, 1898",
+   "date_earliest": 1897,
+   "date_latest": 1898,
+   "creator": "Chicago Daily Tribune (annual real-estate review of 1897)",
+   "collection": "The Chicago Daily Tribune, Jan. 1, 1898 (vol. 57 no. 1), real-estate review",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1898-01-01_57_1/page/n16/mode/1up",
+   "found_via": "IA full-text search '\"Dexter residence\" Prairie' (owner-name pass); passage read on the page image (IIIF crop)",
+   "notes": "The only period description of the Dexter house's material and style: 'The property has a west frontage of 105 feet and is 275 feet deep, to the right of way of the Illinois Central. The house is constructed of BRICK, in the COLONIAL style of architecture, and is handsomely finished in selected hardwoods. The consideration was $50,000.' Pullman (next door at 1729) bought it from Henry W. King and Mrs. Wirt Dexter in July 1897, shortly before his death (Oct. 1897). 'Colonial' fits the Arthur Little front addition of 1889 (the library's note) — Little was a Colonial Revival architect. The 105 ft frontage was later split: the house went to Spalding in 1901 with 65 ft (npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding), the remaining c.40 ft presumably staying with the Pullman lot to the south. Lot depth: 275 ft to the IC right of way.",
+   "measurements": [
+    {
+     "what": "lot (1897)",
+     "value": "105 ft west frontage × 275 ft deep, to the IC right of way",
+     "locator": "Tribune Jan. 1, 1898, real-estate review"
+    },
+    {
+     "what": "material/style",
+     "value": "brick, colonial style; interior in selected hardwoods",
+     "locator": "same"
+    },
+    {
+     "what": "price",
+     "value": "$50,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "call_number": "per_chicago-daily-tribune_the-chicago-daily-tribun_1898-01-01_57_1, page index 16",
+   "verified": "viewed",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "period": "in-period",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_the-chicago-daily-tribun_1898-01-01_57_1/page/n16_w1200.jpg",
+   "stream": "newspapers-north-owners",
+   "parcel_ids": [
+    "prairie_1721"
+   ]
+  },
+  {
+   "id": "npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding",
+   "kind": "newspaper item",
+   "title": "\"Wirt Dexter Residence Bought by Jesse Spalding. He Purchases It from the Trustee of George M. Pullman's Daughters for $25,000\"",
+   "building_ids": [
+    "pa-1721-4"
+   ],
+   "addresses": [
+    "1721–1723 S. Prairie Avenue"
+   ],
+   "date": "November 28, 1901",
+   "date_earliest": 1901,
+   "date_latest": 1901,
+   "creator": "Chicago Daily Tribune (real-estate news)",
+   "collection": "The Chicago Daily Tribune, Nov. 28, 1901 (vol. 60 no. 331), real-estate page",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-11-28_60_331/page/n6/mode/1up",
+   "found_via": "IA full-text search '\"Dexter residence\" Prairie' (owner-name pass); article read on the page image (IIIF crops); the Sunday round-up of Dec. 1, 1901 repeats it (per_chicago-daily-tribune_1901-12-01_60_335, page n28, OCR seen)",
+   "notes": "KEY for the 1721 phase question (library: 'Arthur Little front addition, 1889; later relocation of addition requires dated phase model'): 'Jesse Spalding has purchased from the Illinois Trust and Savings Bank, trustee for Mrs. Florence Pullman Lowden and Mrs. Harriet Pullman Carolan, the old Wirt Dexter residence, 1721-1723 Prairie avenue, for $25,000. The purchase is said to have been made for a member of Mr. Spalding's family, and a condition of the sale was that the purchaser should either BUILD ANEW on the property or MOVE BACK THE PRESENT BRICK BUILDING to conform with the TWENTY-FOOT BUILDING LINE along that street. Mr. Dexter originally built up to the twenty-foot line, but subsequently made a FRONT ADDITION which carried the building UP TO THE STREET LINE. … The building is THREE STORIES high, with a frontage of 65 feet, running through to the Illinois Central right of way.' So in Nov. 1901 the 1889 front addition stood on the street line, and the sale obliged the buyer to pull the house back to the 20-ft line (or rebuild) — i.e. the addition was to be removed or moved between Nov. 1901 and the Walkers' occupancy (H. H. Walker = Spalding's son-in-law; at 1721 by March 1903, npo-1721-tribune-1903-03-20-walker-porch-pillars; 1904 Blue Book). For the 1904 model: a three-storey brick colonial house set back to the 20-ft building line, with a pillared front porch — NOT the 1889–1901 street-line front. No permit for the alteration has been found yet (search 1902 permits for Spalding/Walker at 1721).",
+   "measurements": [
+    {
+     "what": "storeys",
+     "value": "3",
+     "locator": "Tribune Nov. 28, 1901"
+    },
+    {
+     "what": "lot (1901 sale)",
+     "value": "65 ft frontage, through to the IC right of way",
+     "locator": "same"
+    },
+    {
+     "what": "building line",
+     "value": "20 ft from the street line (front addition had reached the street line)",
+     "locator": "same"
+    },
+    {
+     "what": "price",
+     "value": "$25,000",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "call_number": "per_chicago-daily-tribune_1901-11-28_60_331, page index 6",
+   "verified": "viewed",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "period": "in-period",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-11-28_60_331/page/n6_w1200.jpg",
+   "stream": "newspapers-north-owners",
+   "parcel_ids": [
+    "prairie_1721"
+   ]
+  },
+  {
    "id": "a16-chm-clark-ichi-071912-dexter-c1905",
    "kind": "photograph",
    "title": "Wirt Dexter residence",
@@ -5127,6 +5366,48 @@
    "notes": "Only a 375-px contact thumbnail is online (PDF page 27); full image via CHM images site (Cloudflare-blocked to this session). Shows the Dexter house c.1905 from the north-west: the three-storey Arthur Little front block with balustraded parapet, chimneys, shuttered windows and the curved bay, behind a low stone kerb wall with elms; at right further mansard/brick houses. This is the closest-dated (c.1905) exterior of 1721 to the 1904 target and confirms that the 1889 addition still fronted the street then. Same holder lists i71913 'George M. Pullman residence' (1905) on the same page.",
    "measurements": [],
    "stream": "1600-1700",
+   "parcel_ids": [
+    "prairie_1721"
+   ]
+  },
+  {
+   "id": "npo-1721-tribune-1903-03-20-walker-porch-pillars",
+   "kind": "newspaper item",
+   "title": "\"…Walker During the Dinner Hour. While the family of H. H. Walker, 1721 Prairie avenue, sat at dinner porch climbers scaled the pillars in front of the house and forced an entrance into an upstairs bedroom.\"",
+   "building_ids": [
+    "pa-1721-4"
+   ],
+   "addresses": [
+    "1721 S. Prairie Avenue"
+   ],
+   "date": "March 20, 1903",
+   "date_earliest": 1903,
+   "date_latest": 1903,
+   "creator": "Chicago Daily Tribune (local news)",
+   "collection": "The Chicago Daily Tribune, March 20, 1903 (vol. 62 no. 79), page index 4",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1903-03-20_62_79/page/n4/mode/1up",
+   "found_via": "IA full-text search '\"1721 Prairie\" AND year:[1901 TO 1906]' (following the Dexter/Spalding owner-name hits); item read on the page image (IIIF crop); the Abendpost of the same day reports it too",
+   "notes": "A rare view of the 1721 front a year before the target date: the house had PILLARS IN FRONT carrying a porch roof that thieves climbed to reach an UPSTAIRS BEDROOM window — a columned front porch/portico, consistent with 'brick, in the colonial style' (npo-1721-tribune-1898-01-01-pullman-buys-dexter-105x275-brick-colonial). It also fixes the household: Henry H. Walker (Jesse Spalding's son-in-law) at 1721 by March 1903, as in the 1904 Blue Book. Whether the pillared porch is the 1889 front addition or a new front after the 1901 setback condition (npo-1721-tribune-1901-11-28-dexter-residence-bought-by-spalding) is not stated.",
+   "measurements": [
+    {
+     "what": "front",
+     "value": "pillared porch below an upstairs bedroom",
+     "locator": "Tribune Mar. 20, 1903"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "call_number": "per_chicago-daily-tribune_1903-03-20_62_79, page index 4",
+   "verified": "viewed",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "period": "in-period",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1903-03-20_62_79/page/n4_w1200.jpg",
+   "stream": "newspapers-north-owners",
    "parcel_ids": [
     "prairie_1721"
    ]
@@ -5590,7 +5871,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/atandreashistoryofchicago1884massacretree.jpg",
    "rights": "public domain",
    "rights_basis": "published 1884 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-andreas-1884-historic-tree-copy.jpg",
+    "display_bytes": 402254,
+    "thumb": "research/images/files/cgn-1729-andreas-1884-historic-tree-copy-thumb.jpg",
+    "thumb_bytes": 33580,
+    "original_px": [
+     2309,
+     3095
+    ],
+    "original_sha256": "c4bf7f674ae3d3242faa7f65d44061c3e6434f60e202c81450b68086b9137809",
+    "original_bytes": 4259961,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/atandreashistoryofchicago1884massacretree.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "SAME PLATE as a16-andreas-1884-chicagos-historic-tree (Internet Archive scan, already held locally): the cottonwood \"massacre tree\" on 18th Street with the Pullman stable/outbuilding (mansard, cupola) at left and the lake beyond. Chicagology's copy is a high-resolution scan (2309×3095). No local copy made (original held).",
@@ -5699,8 +5993,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1729-robinson-1886.jpg",
+    "display_bytes": 253638,
     "thumb": "research/images/files/cgn-1729-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23133,
+    "thumb_bytes": 15100,
     "original_px": [
      3841,
      1482
@@ -5708,7 +6004,7 @@
     "original_sha256": "a7ff768322286e3024c779f1b22c816cca35d343679492e6b36a9f5bbafb315e",
     "original_bytes": 2775235,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1729prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -5924,7 +6220,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1729prairie1901.jpg",
    "rights": "public domain",
    "rights_basis": "Detroit Publishing Co. print issued by 1901 (pre-1929, US); LoC: no known restrictions; reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-pullman-1901-detroit-copy.jpg",
+    "display_bytes": 175783,
+    "thumb": "research/images/files/cgn-1729-pullman-1901-detroit-copy-thumb.jpg",
+    "thumb_bytes": 20732,
+    "original_px": [
+     1280,
+     714
+    ],
+    "original_sha256": "2f7071713fb4c161b68530e30cb839730666a01448928ad74146363897e4f13d",
+    "original_bytes": 624387,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1729prairie1901.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "SAME PHOTOGRAPH as a16-pullman-det-4a08065 (LoC Detroit Publishing \"The Pullman Residence, Chicago\", no. 012551), cropped tighter. The Detroit image was issued commercially by 1901 (Detroit catalogue J), hence PD; no local copy made here because the LoC original is already held.",
@@ -6334,7 +6643,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/interoceanheadline7feb1892massacremonument.jpg",
    "rights": "public domain",
    "rights_basis": "published 1892 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-inter-ocean-1892-history-in-bronze-headline.jpg",
+    "display_bytes": 23353,
+    "thumb": "research/images/files/cgn-1729-inter-ocean-1892-history-in-bronze-headline-thumb.jpg",
+    "thumb_bytes": 19337,
+    "original_px": [
+     457,
+     418
+    ],
+    "original_sha256": "ea9aec8496bf716592718388a93c18299bbedd570e34f3e564025703ef8f8905",
+    "original_bytes": 88628,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/interoceanheadline7feb1892massacremonument.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the article on the Pullman-commissioned monument group (pedestal of dark Quincy granite; group 9 ft on a 10-ft pedestal, \"nineteen in all\"; to stand at 18th Street and Calumet Avenue near the Pullman house; cast by Henry Bonnard Bronze Co.). Date conflict between page caption and file name noted.",
@@ -6376,7 +6698,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/interoceangraphic7feb1892massacremonument.jpg",
    "rights": "public domain",
    "rights_basis": "published 1892 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-inter-ocean-1892-monument-views.jpg",
+    "display_bytes": 105990,
+    "thumb": "research/images/files/cgn-1729-inter-ocean-1892-monument-views-thumb.jpg",
+    "thumb_bytes": 19567,
+    "original_px": [
+     900,
+     1952
+    ],
+    "original_sha256": "14a9aae540c26a9fcd31da8595b971e94b43b9682859dbb0fc9e30cc637fe752",
+    "original_bytes": 533809,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/interoceangraphic7feb1892massacremonument.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Two newspaper sketches of the sculpture group from front and rear. Street-furniture detail for the 18th Street corner opposite 1729 (unveiled 1893; removed 1931).",
@@ -6520,7 +6855,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribuneheadline20may1894massacretree.jpg",
    "rights": "public domain",
    "rights_basis": "published 1894 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-tribune-1894-chips-for-souvenirs-headline.jpg",
+    "display_bytes": 116880,
+    "thumb": "research/images/files/cgn-1729-tribune-1894-chips-for-souvenirs-headline-thumb.jpg",
+    "thumb_bytes": 24362,
+    "original_px": [
+     2000,
+     1552
+    ],
+    "original_sha256": "cc18fa2b9832d6e6ed73b5cce07b84699dfd1713309014fd5b875b144a199a71",
+    "original_bytes": 422275,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribuneheadline20may1894massacretree.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the article quoted on the page: the tree fell in the storm of 18 May 1894; it stood in 18th Street, whose grade had been raised six feet and which was \"covered with asphalt close to the very bark\" — ASPHALT on 18th Street by 1894; Pullman had furnished an iron railing round its base; the trunk was cut in two and laid in \"Mr. Pullman's two gardens, one on each side of Eighteenth street\". Street-surface and site evidence.",
@@ -6556,7 +6904,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribunegraphic20may1894massacretree.jpg",
    "rights": "public domain",
    "rights_basis": "published 1894 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-tribune-1894-tree-destruction-sketch.jpg",
+    "display_bytes": 95544,
+    "thumb": "research/images/files/cgn-1729-tribune-1894-tree-destruction-sketch-thumb.jpg",
+    "thumb_bytes": 15782,
+    "original_px": [
+     2000,
+     1192
+    ],
+    "original_sha256": "35a7bc1ba41c8adfb0d53c12ca4fb2ae01af5b133dee130887fe5fae5b213975",
+    "original_bytes": 327289,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribunegraphic20may1894massacretree.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Newspaper sketch of the fallen tree in the curving roadway with men examining it; behind, square stone gate posts with caps and a fence/railing — the Pullman grounds' boundary on 18th Street. Useful for the gate-pier form.",
@@ -6592,7 +6953,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribunegraphic20may1894massacretreeplaque.jpg",
    "rights": "public domain",
    "rights_basis": "published 1894 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-tribune-1894-tree-placard.jpg",
+    "display_bytes": 36647,
+    "thumb": "research/images/files/cgn-1729-tribune-1894-tree-placard-thumb.jpg",
+    "thumb_bytes": 8053,
+    "original_px": [
+     1959,
+     361
+    ],
+    "original_sha256": "4bd2035e8fdce9f8f0f043e6a4fd61e61e434fcf10145f377c5c2d4e9c04c71f",
+    "original_bytes": 185584,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/PreFire3/chicagotribunegraphic20may1894massacretreeplaque.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Typeset reproduction of the inscription Fernando Jones hung on the massacre tree. Text only.",
@@ -6849,7 +7223,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline15aug1899butterflies.jpg",
    "rights": "public domain",
    "rights_basis": "published 1899 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-tribune-1899-butterflies-headline.jpg",
+    "display_bytes": 153167,
+    "thumb": "research/images/files/cgn-1729-tribune-1899-butterflies-headline-thumb.jpg",
+    "thumb_bytes": 27755,
+    "original_px": [
+     2300,
+     2017
+    ],
+    "original_sha256": "2f87102b1e720170450c556509946a301dd52950a94153659aff2a499ebf369b",
+    "original_bytes": 779798,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline15aug1899butterflies.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the article quoted on the page, which describes the 1899 Pullman grounds: the gardener (John Algots, \"keeper of the Pullman green house\") working \"on the lawn in front of the residence\"; \"several young birch trees in the corner of the lawn\", large trees, and \"the vines on the side of the house\"; neighbours watching include the McBirney family across the street (1736), Ralph C. Otis at 1730 and J. J. Glessner at 1800. Landscape evidence for 1729 c.1900.",
@@ -7030,7 +7417,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline29mar1921mrspullman.jpg",
    "rights": "public domain",
    "rights_basis": "published 1921 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-tribune-1921-mrs-pullman-headline.jpg",
+    "display_bytes": 69260,
+    "thumb": "research/images/files/cgn-1729-tribune-1921-mrs-pullman-headline-thumb.jpg",
+    "thumb_bytes": 10392,
+    "original_px": [
+     2300,
+     454
+    ],
+    "original_sha256": "daa6d49544b8dd1aa88aefabb2cebc534dc99e6c43046bc53a0595be0bc4c331",
+    "original_bytes": 357974,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline29mar1921mrspullman.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Masthead and banner headline of the obituary quoted on the page (which says the house was \"built in the '70s by John M. Dunphy\" — a builder/contractor name that conflicts with the page's and the index's architect, Henry S. Jaffray; likely the builder, not the architect).",
@@ -7066,7 +7466,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunesubheadline29mar1921mrspullman.jpg",
    "rights": "public domain",
    "rights_basis": "published 1921 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-tribune-1921-mrs-pullman-subheadline.jpg",
+    "display_bytes": 26081,
+    "thumb": "research/images/files/cgn-1729-tribune-1921-mrs-pullman-subheadline-thumb.jpg",
+    "thumb_bytes": 20007,
+    "original_px": [
+     405,
+     499
+    ],
+    "original_sha256": "80b8c55930d30f1df3b8d9d7577ee5021f6c651a76e04efa2ba3695140614634",
+    "original_bytes": 60932,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunesubheadline29mar1921mrspullman.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Subheadline of the same obituary. Text only.",
@@ -7102,7 +7515,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic29mar1921mrspullman.jpg",
    "rights": "public domain",
    "rights_basis": "published 1921 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1729-tribune-1921-three-generations.jpg",
+    "display_bytes": 511455,
+    "thumb": "research/images/files/cgn-1729-tribune-1921-three-generations-thumb.jpg",
+    "thumb_bytes": 44141,
+    "original_px": [
+     3061,
+     2882
+    ],
+    "original_sha256": "60b8f75dd3f991031780f6958140ed691410e184075fb51e62373e8988c29898",
+    "original_bytes": 5172521,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic29mar1921mrspullman.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Halftone group portrait printed with the obituary. People, not the house.",
@@ -7419,7 +7845,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/18041808prairie.jpg",
    "rights": "public domain",
    "rights_basis": "published 1874 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1804-landowner-1874-double-house.jpg",
+    "display_bytes": 99794,
+    "thumb": "research/images/files/cgn-1804-landowner-1874-double-house-thumb.jpg",
+    "thumb_bytes": 29861,
+    "original_px": [
+     900,
+     571
+    ],
+    "original_sha256": "d03a102e1e0cfb98f2ac0790689c1a3a8790669ad77964ac2e7a0a371e69e646",
+    "original_bytes": 219349,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/18041808prairie.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Crop of the Land Owner vignette showing the three-storey Hitchcock/Galloway double house (mansard, dormers) at old 888/890, with a lower gabled building and a church-like tower beyond, picket fences and a carriage in the street. SAME ENGRAVING as a18-gh-hitchcock-galloway-1874-sketch (Glessner blog crop). CHICAGOLOGY CAPTION ERROR: \"588 & 590 Prairie\" — the old numbers were 888 & 890 (Lakeside 1876; the a18 Tribune 1885 record repeats \"588 & 590\").",
@@ -7510,8 +7949,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1808-robinson-1886.jpg",
+    "display_bytes": 254265,
     "thumb": "research/images/files/cgn-1808-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23181,
+    "thumb_bytes": 15169,
     "original_px": [
      3841,
      1482
@@ -7519,7 +7960,7 @@
     "original_sha256": "af0a50cbc558550d61980d56f0afa81c802efa9586ef913f880ab584f01c50eb",
     "original_bytes": 2779492,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1808prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -8310,7 +8751,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1808prairieaechitecturaldigestvolxi.jpg",
    "rights": "public domain",
    "rights_basis": "published 1888 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1808-inland-1888-keith-copy.jpg",
+    "display_bytes": 113261,
+    "thumb": "research/images/files/cgn-1808-inland-1888-keith-copy-thumb.jpg",
+    "thumb_bytes": 23495,
+    "original_px": [
+     674,
+     953
+    ],
+    "original_sha256": "3503549a2ba833aa94dbc2c0afcefecb6d974dfc51d4fb10c853c276a0995b31",
+    "original_bytes": 369441,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1808prairieaechitecturaldigestvolxi.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "SAME PLATE as a18-inland-architect-1888-02-keith-plate / a18-rba-ia-1888-keith-1808 (photogravure with the first-floor plan). Chicagology's file name calls it \"Architectural Digest vol. XI\" — a MISLABEL; the plate header reads \"Vol. XI · The Inland Architect and News Record · No. 1\". No local copy (original held).",
@@ -9510,8 +9964,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1812-robinson-1886.jpg",
+    "display_bytes": 272518,
     "thumb": "research/images/files/cgn-1812-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22516,
+    "thumb_bytes": 14349,
     "original_px": [
      3698,
      1400
@@ -9519,7 +9975,7 @@
     "original_sha256": "ee55c1019bac696984a2704846dc8e454c2a8c6e671cf9bd4b0ab2463852c1e6",
     "original_bytes": 2882568,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1812prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -9707,8 +10163,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1824-robinson-1886.jpg",
+    "display_bytes": 253855,
     "thumb": "research/images/files/cgn-1824-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23119,
+    "thumb_bytes": 15105,
     "original_px": [
      3841,
      1482
@@ -9716,7 +10174,7 @@
     "original_sha256": "489b1e4ccdc9fe5ed6ede22dc74996a08c2ef375daa853561f75bafa07cfcb16",
     "original_bytes": 2775663,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1824prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -10373,8 +10831,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1834-robinson-1886.jpg",
+    "display_bytes": 253588,
     "thumb": "research/images/files/cgs-1834-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23102,
+    "thumb_bytes": 15095,
     "original_px": [
      3841,
      1482
@@ -10382,7 +10842,7 @@
     "original_sha256": "b206b1c4d89a75e32ba2576446defe1b5b6e3289d6f3a302a24572509b4d5481",
     "original_bytes": 2773742,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1834prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -10876,8 +11336,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1912-robinson-1886.jpg",
+    "display_bytes": 253463,
     "thumb": "research/images/files/cgs-1912-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23075,
+    "thumb_bytes": 15093,
     "original_px": [
      3841,
      1482
@@ -10885,7 +11347,7 @@
     "original_sha256": "e354a31a70eb40a5e1bd4d80020dc3ea530bebb699a26e408281408d075d96a1",
     "original_bytes": 2773151,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1912prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -11016,7 +11478,20 @@
    "image_url": "https://collections.carli.illinois.edu/digital/api/singleitem/image/chm_pp/1296/default.jpg",
    "rights": "no known restrictions",
    "rights_basis": "CHM record: 'No known copyright restrictions'; CHM nonetheless asks that reproduction be licensed via images.chicagohistory.org — kept link-only",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-chm-ichi66015-west-side-north-from-allerton.jpg",
+    "display_bytes": 31595,
+    "thumb": "research/images/files/a19-chm-ichi66015-west-side-north-from-allerton-thumb.jpg",
+    "thumb_bytes": 12405,
+    "original_px": [
+     750,
+     565
+    ],
+    "original_sha256": "bd142745422cacf872cbcb807a1765267f9b9b07d49b723ead8bb1d686f5a477",
+    "original_bytes": 32459,
+    "fetched_from": "https://collections.carli.illinois.edu/digital/api/singleitem/image/chm_pp/1296/default.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "CARLI CONTENTdm API (collections.carli.illinois.edu) title search 'prairie avenue' → chm_pp/1296",
    "notes": "THE closest-dated streetscape of this stream's west-side houses (c.1905; 4.5×3.25 in nitrate negative): at the left edge the bracketed cornice of the Allerton (Thompson) house; then the brownstone château of 1912 Prairie (Moulton/Lowden — Lowden owned it until 1908) with its round corner turret, steep slate roof with crocketed dormers and finial, tall chimney and stone balustrade along the front; then a stone-fronted house with arched porch and bay (1906 Edson Keith); then the mansard of 1900 Elbridge Keith and the long line of the 1800-block houses toward 18th Street; wide paved street with granite-curbed parkway, young street trees, a horse-drawn vehicle in the distance. The catalogue title's 'at 18th Street' conflicts with 'north from the Allerton residence' (Allerton stood at 20th); the image shows the 1900 block from near 20th. House identifications are by comparison with other views, not captioned.",
@@ -11358,8 +11833,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1936-robinson-1886.jpg",
+    "display_bytes": 253752,
     "thumb": "research/images/files/cgs-1936-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23083,
+    "thumb_bytes": 15111,
     "original_px": [
      3841,
      1482
@@ -11367,7 +11844,7 @@
     "original_sha256": "e4692098807f25239e6ed0b72c1d6a76567dfde17a580aeb60fc7ba202c2d0a7",
     "original_bytes": 2774957,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1936prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -11725,8 +12202,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1815-robinson-1886.jpg",
+    "display_bytes": 253778,
     "thumb": "research/images/files/cgn-1815-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23106,
+    "thumb_bytes": 15092,
     "original_px": [
      3841,
      1482
@@ -11734,7 +12213,7 @@
     "original_sha256": "3e350e71cd6ed254f95b234646dbd859e8d56f52751e7d66e6704f66a8e8af21",
     "original_bytes": 2775590,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1815prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -12369,8 +12848,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1823-robinson-1886.jpg",
+    "display_bytes": 254126,
     "thumb": "research/images/files/cgn-1823-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23156,
+    "thumb_bytes": 15156,
     "original_px": [
      3841,
      1482
@@ -12378,7 +12859,7 @@
     "original_sha256": "92d1b120008901962c21f6a5daa5fc17f0090e8c53db3e3f1f651f91786f79fc",
     "original_bytes": 2778063,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1823prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -13127,8 +13608,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1827-robinson-1886.jpg",
+    "display_bytes": 254122,
     "thumb": "research/images/files/cgn-1827-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23166,
+    "thumb_bytes": 15168,
     "original_px": [
      3841,
      1482
@@ -13136,7 +13619,7 @@
     "original_sha256": "c2535ca11dcdb1376530bdd2ac64511c9dc9ab07a1a2521180d10449d943b2ed",
     "original_bytes": 2778766,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1827prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -13304,8 +13787,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1901-robinson-1886.jpg",
+    "display_bytes": 253988,
     "thumb": "research/images/files/cgs-1901-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23147,
+    "thumb_bytes": 15160,
     "original_px": [
      3841,
      1482
@@ -13313,7 +13798,7 @@
     "original_sha256": "3ca8227f892862c265346368dee6f36f00279fdd1efbb2d44ca9fb08f10e0a64",
     "original_bytes": 2776922,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1901prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -13471,7 +13956,20 @@
    "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n98_w1600.jpg",
    "rights": "public domain",
    "rights_basis": "Published in the United States 1893/1896",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-pictorial-1896-ream.jpg",
+    "display_bytes": 166533,
+    "thumb": "research/images/files/a19-pictorial-1896-ream-thumb.jpg",
+    "thumb_bytes": 20425,
+    "original_px": [
+     1708,
+     1364
+    ],
+    "original_sha256": "a070e508e0de6603933a28b2092b2ce0eb99c7125c72a99c10e3c18fc91e281a",
+    "original_bytes": 237159,
+    "fetched_from": "https://archive.org/download/randmcnallycospi1892chic/page/n98_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "archive.org page browse near the Field plate (caption OCR missed it)",
    "notes": "Reprint of the Ream plate in the later edition (page viewed; printed sideways, left-hand image this time). Not downloaded (duplicate image).",
@@ -13957,7 +14455,20 @@
    "image_url": "https://archive.org/download/Artistichouses2/page/n160_w600.jpg",
    "rights": "public domain",
    "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-ah-field-hall-plate.jpg",
+    "display_bytes": 98315,
+    "thumb": "research/images/files/a19-ah-field-hall-plate-thumb.jpg",
+    "thumb_bytes": 8791,
+    "original_px": [
+     2512,
+     3898
+    ],
+    "original_sha256": "b32acf1623961c2f314bc6f6ca74d560642b7e0c05dfc4f07bb53ae80443791b",
+    "original_bytes": 689720,
+    "fetched_from": "https://archive.org/download/Artistichouses2/page/n160_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
    "notes": "The published photogravure plate of the entrance hall, Smithsonian copy; same photograph as LoC LC-DIG-ppmsca-56274 (recorded in stream-drawings as dw-field-1905-artistic-houses-entrance-hall). Recorded here as the publication context and a second public-domain source; not downloaded (duplicate image).",
@@ -13993,7 +14504,20 @@
    "image_url": "https://archive.org/download/Artistichouses2/page/n162_w600.jpg",
    "rights": "public domain",
    "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-ah-field-library-plate.jpg",
+    "display_bytes": 100592,
+    "thumb": "research/images/files/a19-ah-field-library-plate-thumb.jpg",
+    "thumb_bytes": 9956,
+    "original_px": [
+     2512,
+     3898
+    ],
+    "original_sha256": "088118cd12581038faf26886ecfac0c3105f28792ba536a4c9d4b1f6d831ed47",
+    "original_bytes": 673262,
+    "fetched_from": "https://archive.org/download/Artistichouses2/page/n162_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
    "notes": "Published plate of the library (bound sideways), Smithsonian copy; same photograph as LoC LC-DIG-ppmsca-56275 (stream-drawings dw-field-1905-artistic-houses-library). Text (p.46) places the library behind the drawing-room with its fireplace and a stained-glass Muse window at the east end.",
@@ -14029,7 +14553,20 @@
    "image_url": "https://archive.org/download/Artistichouses2/page/n52_w600.jpg",
    "rights": "public domain",
    "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-ah-field-text.jpg",
+    "display_bytes": 177541,
+    "thumb": "research/images/files/a19-ah-field-text-thumb.jpg",
+    "thumb_bytes": 12748,
+    "original_px": [
+     2617,
+     3899
+    ],
+    "original_sha256": "96ef02926fb56cc9d71e6404860412939e6adea8006d03f03b856908abd9cc9a",
+    "original_bytes": 947236,
+    "fetched_from": "https://archive.org/download/Artistichouses2/page/n52_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
    "notes": "Contemporary (1883–84) description of the house exterior and plan — the best period text for the 1904 model: 'red pressed brick, with trimmings of light sandstone, three stories in height, with main entrance in the center of the west front, at the head of a broad flight of granite steps, a high porte-cochère on the northern side, and a fine large conservatory on the southern. Stables and other out-buildings are in the rear, on the side nearest the lake'; 'spacious lawn and scattered shade-trees' on the south side; vestibule floored in varied marbles; main hall runs the entire depth ending at a winding stairway under a large stained-glass window; reception room (right of hall) with a window into the conservatory (fountain); drawing-room left of hall; library behind it with fireplace at the east end; dining room opposite, glass doors into the conservatory. Field lived here until his death in Jan 1906, so the exterior description should still apply in 1904 (porte-cochère/conservatory survival to 1904 to be checked against the 1911 Sanborn).",
@@ -14186,7 +14723,20 @@
    "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n88_w1600.jpg",
    "rights": "public domain",
    "rights_basis": "Published in the United States 1893/1896",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-pictorial-1896-field.jpg",
+    "display_bytes": 180390,
+    "thumb": "research/images/files/a19-pictorial-1896-field-thumb.jpg",
+    "thumb_bytes": 22023,
+    "original_px": [
+     1708,
+     1364
+    ],
+    "original_sha256": "df3c0b4bb62f26878606b7901e01f1227c9599504d0ea4b23f746bad23816e6a",
+    "original_bytes": 256104,
+    "fetched_from": "https://archive.org/download/randmcnallycospi1892chic/page/n88_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "archive.org djvu.xml caption search",
    "notes": "Same photograph as the 1893 edition plate (a19-pictorial-1893-field), reprinted in the later edition — confirms the view was still current for the publisher in the mid-1890s. Not downloaded (duplicate image).",
@@ -14763,8 +15313,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2009-robinson-1886.jpg",
+    "display_bytes": 254095,
     "thumb": "research/images/files/cgs-2009-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23168,
+    "thumb_bytes": 15196,
     "original_px": [
      3841,
      1482
@@ -14772,7 +15324,7 @@
     "original_sha256": "c56faaeb55ce55b1c6d04c5217bc07c0bf90afcb7e5c6e9825a2b7418dd284dd",
     "original_bytes": 2778794,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2009prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -15669,8 +16221,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2115-robinson-1886.jpg",
+    "display_bytes": 273061,
     "thumb": "research/images/files/cgs-2115-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22599,
+    "thumb_bytes": 14451,
     "original_px": [
      3698,
      1400
@@ -15678,7 +16232,7 @@
     "original_sha256": "896fbfa5c00ba63f799c2dc34a0267c1a0f9d60d21e8a94c720b20baa01ada07",
     "original_bytes": 2887360,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2115prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -15983,6 +16537,58 @@
    ]
   },
   {
+   "id": "nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence",
+   "title": "[Real estate] \"Edward F. Robbins of the Board of Trade firm of Vilas & Robbins has purchased from Mrs. Charles Hamill the residence at 2126 Prairie avenue for $25,000…\"",
+   "building_ids": [
+    "pa-2126-20"
+   ],
+   "addresses": [
+    "2126 S. Prairie Avenue"
+   ],
+   "date": "November 3, 1901",
+   "date_earliest": 1901,
+   "date_latest": 1901,
+   "creator": "Chicago Sunday Tribune (real estate column)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "Chicago Sunday Tribune, November 3, 1901 (vol. 60 no. 306)",
+   "call_number": "per_chicago-daily-tribune_1901-11-03_60_306, page index 28",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1901-11-03_60_306/page/n28/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1901-11-03_60_306/page/n28_w1200.jpg",
+   "found_via": "IA full-text search '\"2126 prairie\" AND collection:pub_chicago-daily-tribune'; passage read on the page image (IIIF crop)",
+   "notes": "Read on the page: \"Edward F. Robbins of the Board of Trade firm of Vilas & Robbins has purchased from Mrs. Charles Hamill the residence at 2126 Prairie avenue for $25,000. The ground has a frontage of fifty feet, with a depth of 180 feet. The residence is a three-story brick, built some years ago.\" Bearing on the 2126 question: the Robbins family bought the EXISTING Hamill house in Nov 1901 and are listed at 2126 in the Blue Books of 1903, 1904 and 1905 (street pages, this stream). So in 1902–03 they lived in the Hamill house; the Mann, MacNeille & Lindeberg 'Residence for Edward F. Robbins' published in Inland Architect, May 1905, is the house that followed. Whether that work was a rebuilding from the ground (the library's '1904 construction'; the first-pass note that the Hamill house was razed in 1904) or a remodelling of the three-storey brick Hamill house is NOT settled by any newspaper item found: no 1903–04 permit or razing notice for 2126 turned up (see worklog). Lot: 50 × 180 here vs 58 × 178 in 1909.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "50 × 180 ft",
+     "locator": "Tribune 3 Nov 1901, p. index 28"
+    },
+    {
+     "what": "house (Hamill, pre-Robbins)",
+     "value": "three-storey brick, 'built some years ago'",
+     "locator": "same"
+    },
+    {
+     "what": "price",
+     "value": "$25,000",
+     "locator": "same"
+    }
+   ],
+   "kind": "newspaper item",
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-south",
+   "parcel_ids": [
+    "prairie_2126"
+   ]
+  },
+  {
    "id": "a20-aic-ia-robbins-plate",
    "kind": "publication plate",
    "title": "Robbins, Edward F., Residence",
@@ -16068,6 +16674,48 @@
    ]
   },
   {
+   "id": "nps-2126-council-1904-01-11-robbins-water-tax-rebate",
+   "kind": "document",
+   "title": "Chicago City Council, Committee on Finance report of January 11, 1904: rebate of water taxes to \"E. F. Roberts [= Robbins], 2126 Prairie avenue … $14.85\"",
+   "building_ids": [
+    "pa-2126-20"
+   ],
+   "addresses": [
+    "2126 S. Prairie Avenue"
+   ],
+   "date": "January 11 and 18, 1904 (amended March 23, 1904)",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "City of Chicago, City Council",
+   "repository": "Internet Archive (Proceedings of the City Council of the City of Chicago, 1903–04)",
+   "collection": "Proceedings of the City Council of the City of Chicago, 1903–04 (proceedingsofcit52chic)",
+   "call_number": "proceedingsofcit52chic, page index 845 (printed p. 1954); amendment at index 1775 (p. 2761) and 1890 (p. 2872)",
+   "catalog_url": "https://archive.org/details/proceedingsofcit52chic/page/n845/mode/1up",
+   "image_url": "https://archive.org/download/proceedingsofcit52chic/page/n845_w1200.jpg",
+   "found_via": "IA full-text search '\"E. F. Robbins\" AND year:1904'; then search inside the volume for 'Robbins' and '\"2126 Prairie\"'; read on the page image",
+   "notes": "Read on the page: the Committee on Finance, \"to whom was referred claims of E. F. Roberts, William Ashton … for rebates of water taxes … recommend the passage of the following order: Ordered, That the Commissioner of Public Works be … authorized … to issue vouchers to the following persons … in full of claims for rebates on water taxes on properties named …: E. F. Roberts, 2126 Prairie avenue….$14 85.\" On 23 Mar 1904 the order was amended, at the Commissioner of Public Works' request, 'to read E. F. Robbins in place of E. F. Roberts'. Bearing (indirect): in the winter of 1903–04 Robbins claimed back part of the water tax on 2126 — such rebates were claimed for premises vacant or not using water for part of the year, so it is CONSISTENT with the old Hamill house being emptied (and razed) before the 1904 rebuilding, but the order does not state the reason. Use only as supporting evidence for the 1904 construction timeline.",
+   "measurements": [
+    {
+     "what": "water-tax rebate",
+     "value": "$14.85",
+     "locator": "Proceedings 1903–04, p. 1954"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-south",
+   "parcel_ids": [
+    "prairie_2126"
+   ]
+  },
+  {
    "id": "dw-inland-1905-05-robbins-plate-list",
    "kind": "document",
    "title": "Inland Architect plate list, May 1905: 'Residence for Edward F. Robbins, 2126 Prairie Ave., Chicago; Mann, McNeille & Lindeberg, architects, New York and Chicago.'",
@@ -16099,6 +16747,63 @@
    "notes": "'Our Illustrations' list; same list also names 'Residence for John B. Drake, Jr., 2106 Calumet Ave., Chicago; Howard V. Shaw, architect' (adjacent block, not in building index).",
    "measurements": [],
    "stream": "drawings",
+   "parcel_ids": [
+    "prairie_2126"
+   ]
+  },
+  {
+   "id": "nps-2126-tribune-1909-04-22-armour-buys-three-story-brick-14-rooms",
+   "title": "[Real estate] \"J. Watson Armour … has purchased … from William H. Johnson the residence property at 2126 Prairie avenue for $32,500 … The house is on a lot 58x178 feet, and is a three story brick structure containing fourteen rooms.\"",
+   "building_ids": [
+    "pa-2126-20"
+   ],
+   "addresses": [
+    "2126 S. Prairie Avenue"
+   ],
+   "date": "April 22, 1909",
+   "date_earliest": 1909,
+   "date_latest": 1909,
+   "creator": "Chicago Daily Tribune (real estate column)",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "collection": "Chicago Daily Tribune, April 22, 1909 (vol. 68 no. 96)",
+   "call_number": "per_chicago-daily-tribune_1909-04-22_68_96, page index 10",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1909-04-22_68_96/page/n10/mode/1up",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1909-04-22_68_96/page/n10_w1200.jpg",
+   "found_via": "IA full-text search '\"2126 prairie\" AND collection:pub_chicago-daily-tribune'; passage read on the page image (IIIF crop)",
+   "notes": "Read on the page: \"J. Watson Armour, formerly of Kansas City … has purchased through Eugene A. Bournique & Co., from William H. Johnson the residence property at 2126 Prairie avenue for $32,500 … The house is on a lot 58x178 feet, and is a three story brick structure containing fourteen rooms.\" With the Tribune of 17 Jan 1909 (Johnson took 'the Bingham residence at 2126 Prairie avenue, including 58x178 feet of ground' in part payment from Arthur E. Bingham, at $45,000) it gives the post-1904 Robbins house: THREE STOREYS, BRICK, 14 ROOMS, on 58 × 178 ft. Owners: Robbins (1901–c. 1907), Bingham (to Jan 1909), W. H. Johnson (Jan–Apr 1909), the A. Watson Armours (1909–13). The 'three-storey brick' description is the same as the Hamill house's in 1901 (nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence), which keeps open whether 1904 was a rebuild or a remodel.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "58 × 178 ft",
+     "locator": "Tribune 22 Apr 1909, p. index 10 (also 17 Jan 1909, p. index 69)"
+    },
+    {
+     "what": "storeys",
+     "value": "3",
+     "locator": "same"
+    },
+    {
+     "what": "material",
+     "value": "brick",
+     "locator": "same"
+    },
+    {
+     "what": "rooms",
+     "value": "14",
+     "locator": "same"
+    }
+   ],
+   "kind": "newspaper item",
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "verified": "viewed",
+   "period": "in-period",
+   "stream": "newspapers-south",
    "parcel_ids": [
     "prairie_2126"
    ]
@@ -19696,8 +20401,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1800-robinson-1886.jpg",
+    "display_bytes": 254217,
     "thumb": "research/images/files/cgn-1800-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23155,
+    "thumb_bytes": 15156,
     "original_px": [
      3841,
      1482
@@ -19705,7 +20412,7 @@
     "original_sha256": "85d1e29c16f0cd24742be463b65f320f831aa691eb5151dabf7b5402a09499f5",
     "original_bytes": 2779405,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1800prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -22677,7 +23384,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1801prairie1898map.jpg",
    "rights": "public domain",
    "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1801-randmcnally-1893-strip.jpg",
+    "display_bytes": 356825,
+    "thumb": "research/images/files/cgn-1801-randmcnally-1893-strip-thumb.jpg",
+    "thumb_bytes": 19833,
+    "original_px": [
+     2406,
+     872
+    ],
+    "original_sha256": "469ad4a4f7fff4c3ced95b82d87c31da404ac6fabf61142a98d64a7e1cb09d60",
+    "original_bytes": 1318295,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1801prairie1898map.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Chicagology crop of a Rand McNally \"Bird's Eye Views and Guide to Chicago\" (1893) perspective street strip with an arrow added by Chicagology. The same plates are already recorded at full-page resolution from the Internet Archive by the streetscape stream (st-randmcnally-1893-p233-east-1700-1800); this is a separate, arrowed copy. CONFLICT: Chicagology captions this crop \"1898\", but it is the same strip as the 1893 Rand McNally plate (same drawing, same numbers 1701–1815); a later edition may have reused it. Arrow at 1801 Kimball.",
@@ -22749,7 +23469,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline17dec1904kimball.jpg",
    "rights": "public domain",
    "rights_basis": "published 1904 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1801-tribune-1904-kimball-headline.jpg",
+    "display_bytes": 121797,
+    "thumb": "research/images/files/cgn-1801-tribune-1904-kimball-headline-thumb.jpg",
+    "thumb_bytes": 24351,
+    "original_px": [
+     2300,
+     1883
+    ],
+    "original_sha256": "c69b1c35d9ddc4f3d06ab27bfc04afed187939ddea56c93cd34c5bd8d0b0ade1",
+    "original_bytes": 530725,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline17dec1904kimball.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the obituary quoted on the page: Kimball died at 1801 on 16 Dec 1904 — the house was occupied by the Kimballs throughout 1904.",
@@ -22785,7 +23518,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement14dec1924kimballauction.jpg",
    "rights": "public domain",
    "rights_basis": "published 1924 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1801-tribune-1924-kimball-auction-ad.jpg",
+    "display_bytes": 109862,
+    "thumb": "research/images/files/cgn-1801-tribune-1924-kimball-auction-ad-thumb.jpg",
+    "thumb_bytes": 22108,
+    "original_px": [
+     3246,
+     2300
+    ],
+    "original_sha256": "3d6ee7b246eccd2aebd25cf6d246de2f21392a8cebf55e3b4841df08f84f78cd",
+    "original_bytes": 905098,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement14dec1924kimballauction.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Auction of the Kimball furnishings (bedroom, dining and library sets, oriental rugs, paintings, hall and stair carpets…). Chicagology prints it inside the 1904 obituary. Interior-contents context.",
@@ -23378,8 +24124,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1811-robinson-1886.jpg",
+    "display_bytes": 273059,
     "thumb": "research/images/files/cgn-1811-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22621,
+    "thumb_bytes": 14428,
     "original_px": [
      3698,
      1400
@@ -23387,7 +24135,7 @@
     "original_sha256": "78980e4c6ce5d45321ec0702d03b145a54775edb528e067cfb186ad1bb9b32ac",
     "original_bytes": 2886072,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1811prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -23565,6 +24313,53 @@
    ]
   },
   {
+   "id": "npo-1811-tribune-1904-04-16-to-rent-16-room-billiard-ball",
+   "kind": "newspaper item",
+   "title": "\"TO RENT—1811 PRAIRIE-AV., 16 ROOM house; light on all sides; beautifully finished; 3 bathrooms, billiard and ball rooms; will decorate to suit tenant; 2 story stable. HOLTON, SEELYE & CO., 204 Dearborn-st.\"",
+   "building_ids": [
+    "pa-1811-24"
+   ],
+   "addresses": [
+    "1811 S. Prairie Avenue"
+   ],
+   "date": "April 16, 1904",
+   "date_earliest": 1904,
+   "date_latest": 1904,
+   "creator": "Chicago Daily Tribune (classified advertisement, 'To Rent—Houses')",
+   "collection": "The Chicago Daily Tribune, April 16, 1904 (vol. 63 no. 92), classified page",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1904-04-16_63_92/page/n9/mode/1up",
+   "found_via": "IA full-text search '\"1811 Prairie\" AND year:[1885 TO 1907]' (owner-name pass for Coleman/Ames); advertisement read on the page image (IIIF crop)",
+   "notes": "THE target-year datum for 1811: in April 1904 the Coleman/Ames house was EMPTY and offered for rent — which is why no household appears at 1811 in the 1904 Blue Book (npo-bluebook-1904-p186-prairie-avenue-1600-1816). It was a 16-room house with 'light on all sides' (i.e. detached, with side yards), three bathrooms, billiard and ball rooms, and a TWO-STOREY STABLE at the rear; the agents would redecorate. Same agents and wording as the Sept. 1905 sale ad already in the collection (np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms), which shows the house stayed on the market into 1905. For the 1904 model: 1811 stood, detached, brownstone (npo-1811-tribune-1905-11-02-brown-stone-detached-reduced), with a two-storey stable; unoccupied in spring 1904.",
+   "measurements": [
+    {
+     "what": "rooms",
+     "value": "16, incl. billiard and ball rooms; 3 bathrooms",
+     "locator": "Tribune Apr. 16, 1904, classified"
+    },
+    {
+     "what": "stable",
+     "value": "2-storey",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "call_number": "per_chicago-daily-tribune_1904-04-16_63_92, page index 9",
+   "verified": "viewed",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "period": "in-period",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1904-04-16_63_92/page/n9_w1200.jpg",
+   "stream": "newspapers-north-owners",
+   "parcel_ids": [
+    "prairie_1811"
+   ]
+  },
+  {
    "id": "np-1811-tribune-1905-09-01-for-sale-billiard-ball-rooms",
    "kind": "newspaper item",
    "title": "\"For Sale—By Holton, Seelye & Co., … Dearborn; 1811 Prairie-av., 16 rooms with billiard and ball rooms, 2 story stable.\"",
@@ -23612,6 +24407,53 @@
    ]
   },
   {
+   "id": "npo-1811-tribune-1905-11-02-brown-stone-detached-reduced",
+   "kind": "newspaper item",
+   "title": "\"FOR SALE—BROWN STONE DETACHED RESidence and barn, 1811 Prairie-av.; immediate possession; price reduced to $37,500 to effect a quick sale. HOLTON, SEELYE & CO., 204 Dearborn-st.\"",
+   "building_ids": [
+    "pa-1811-24"
+   ],
+   "addresses": [
+    "1811 S. Prairie Avenue"
+   ],
+   "date": "November 2, 1905",
+   "date_earliest": 1905,
+   "date_latest": 1905,
+   "creator": "Chicago Daily Tribune (classified advertisement, 'For Sale')",
+   "collection": "The Chicago Daily Tribune, Nov. 2, 1905 (vol. 64 no. 262), classified page",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1905-11-02_64_262/page/n14/mode/1up",
+   "found_via": "IA full-text search '\"1811 Prairie\" AND year:[1885 TO 1907]'; advertisement read on the page image (IIIF crop); repeated Nov. 13, 1905 (per_chicago-daily-tribune_1905-11-13_64_271, page n14, seen)",
+   "notes": "Confirms the material and setting of 1811 shortly after 1904: a BROWNSTONE, DETACHED residence with a BARN, vacant ('immediate possession'), the price cut to $37,500. Agrees with the library's 'brown sandstone; Romanesque' (Cobb & Frost, 1886). The house sold 14 months later for only $25,000 (npo-1811-tribune-1907-01-16-cowen-estate-to-fish-46x150).",
+   "measurements": [
+    {
+     "what": "material",
+     "value": "brownstone, detached",
+     "locator": "Tribune Nov. 2, 1905, classified"
+    },
+    {
+     "what": "asking price",
+     "value": "$37,500",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "call_number": "per_chicago-daily-tribune_1905-11-02_64_262, page index 14",
+   "verified": "viewed",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "period": "in-period",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1905-11-02_64_262/page/n14_w1200.jpg",
+   "stream": "newspapers-north-owners",
+   "parcel_ids": [
+    "prairie_1811"
+   ]
+  },
+  {
    "id": "np-1811-abendpost-1907-01-16-fish-buys-40x150",
    "kind": "newspaper item",
    "title": "'Der …-Nachlaß von Baltimore hat an Joseph Fish das Wohnhaus 1811 Prairie Avenue, 40 bei 150 Fuß, für $25,000 verkauft.'",
@@ -23654,6 +24496,58 @@
    "verified": "viewed",
    "period": "in-period",
    "stream": "newspapers-north",
+   "parcel_ids": [
+    "prairie_1811"
+   ]
+  },
+  {
+   "id": "npo-1811-tribune-1907-01-16-cowen-estate-to-fish-46x150",
+   "kind": "newspaper item",
+   "title": "\"Sale by Cowen Estate. The Cowen estate of Baltimore has sold to Joseph Fish the three story stone front residence at 1811 Prairie avenue, with lot 46x150 feet, for $25,000 cash.\"",
+   "building_ids": [
+    "pa-1811-24"
+   ],
+   "addresses": [
+    "1811 S. Prairie Avenue"
+   ],
+   "date": "January 16, 1907",
+   "date_earliest": 1907,
+   "date_latest": 1907,
+   "creator": "Chicago Daily Tribune (real-estate news)",
+   "collection": "The Chicago Daily Tribune, Jan. 16, 1907 (vol. 66 no. 14), real-estate column",
+   "catalog_url": "https://archive.org/details/per_chicago-daily-tribune_1907-01-16_66_14/page/n9/mode/1up",
+   "found_via": "IA full-text search '\"1811 Prairie\" AND year:[1885 TO 1907]' (the OCR reads 'lot 446x150'); passage read on the page image (IIIF crop)",
+   "notes": "Bears on the 1811 lot conflict (40 ft in the Abendpost's report of the same sale, np-1811-abendpost-1907-01-16-fish-buys-40x150, vs 46½ ft in the 1894 sale ad, a18-gh-1811-for-sale-1894). The Tribune prints the lot as '4[6]x150' — the second digit is blotted on the microfilm (OCR '446'), but it is not a 0; read 46 ft, which agrees with the 1894 figure (46½) and makes the Abendpost's '40' the error. Also fixes the form: a THREE-STOREY STONE-FRONT residence. The seller was the Cowen estate of Baltimore (the Abendpost's 'von Baltimore'), owners after the Ames family. Use 46½ × 150 ft for the 1904 lot.",
+   "measurements": [
+    {
+     "what": "lot",
+     "value": "46 × 150 ft [second digit blotted; OCR uncertain]",
+     "locator": "Tribune Jan. 16, 1907, 'Sale by Cowen Estate'"
+    },
+    {
+     "what": "storeys",
+     "value": "3, stone front",
+     "locator": "same"
+    },
+    {
+     "what": "price",
+     "value": "$25,000 cash",
+     "locator": "same"
+    }
+   ],
+   "streetscape": false,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "local": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "call_number": "per_chicago-daily-tribune_1907-01-16_66_14, page index 9",
+   "verified": "viewed",
+   "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+   "period": "in-period",
+   "image_url": "https://archive.org/download/per_chicago-daily-tribune_1907-01-16_66_14/page/n9_w1200.jpg",
+   "stream": "newspapers-north-owners",
    "parcel_ids": [
     "prairie_1811"
    ]
@@ -23873,8 +24767,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1900-robinson-1886.jpg",
+    "display_bytes": 253358,
     "thumb": "research/images/files/cgs-1900-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23102,
+    "thumb_bytes": 15107,
     "original_px": [
      3841,
      1482
@@ -23882,7 +24778,7 @@
     "original_sha256": "390d41d16f3304219080d3e4598a384ff1b638b003586fd792fa710a9c81752a",
     "original_bytes": 2772972,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1900prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -24546,8 +25442,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1919-robinson-1886.jpg",
+    "display_bytes": 254480,
     "thumb": "research/images/files/cgs-1919-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23198,
+    "thumb_bytes": 15207,
     "original_px": [
      3841,
      1482
@@ -24555,7 +25453,7 @@
     "original_sha256": "ba76b2129161f2e7c69d124ddc29ccbd430777d9ffc2e3f3570a13b8b837868f",
     "original_bytes": 2780699,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1919prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -26345,8 +27243,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2013-robinson-1886.jpg",
+    "display_bytes": 254004,
     "thumb": "research/images/files/cgs-2013-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23192,
+    "thumb_bytes": 15183,
     "original_px": [
      3841,
      1482
@@ -26354,7 +27254,7 @@
     "original_sha256": "c52814d920035d5dc45aebce5239f1014f747b477652dd235a30de1601cc520b",
     "original_bytes": 2778007,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2013prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -26812,8 +27712,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2110-robinson-1886.jpg",
+    "display_bytes": 272492,
     "thumb": "research/images/files/cgs-2110-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22517,
+    "thumb_bytes": 14351,
     "original_px": [
      3698,
      1400
@@ -26821,7 +27723,7 @@
     "original_sha256": "b5b148f2dcf4f6fc9e5e2803e41457f1af3457124437e8f518fd2c2687c81c73",
     "original_bytes": 2882844,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2110prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -28723,7 +29625,20 @@
    "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n9_w1600.jpg",
    "rights": "public domain",
    "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-hb-1904-2ndpres-candelabra.jpg",
+    "display_bytes": 231823,
+    "thumb": "research/images/files/a19-hb-1904-2ndpres-candelabra-thumb.jpg",
+    "thumb_bytes": 26464,
+    "original_px": [
+     1724,
+     2278
+    ],
+    "original_sha256": "a4075c9d5dc749e8e0c5b6bc0615135d0f5f3127d0ddaa323da93d6b5f0c3511",
+    "original_bytes": 479694,
+    "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n9_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
    "notes": "Seven-branch candlestick for the 1900–01 interior, as published Dec 1904 (same object as HABS IL-328 sheet 19).",
@@ -28804,7 +29719,20 @@
    "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
    "rights": "public domain",
    "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-hb-1904-2ndpres-mural.jpg",
+    "display_bytes": 241934,
+    "thumb": "research/images/files/a19-hb-1904-2ndpres-mural-thumb.jpg",
+    "thumb_bytes": 24822,
+    "original_px": [
+     1724,
+     2274
+    ],
+    "original_sha256": "4c06d2e1c00ab1f70b19ecd2dc880a7c6bb22907a873989f7bb9a3a54576b474",
+    "original_bytes": 509333,
+    "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
    "notes": "Halftone of two of Bartlett's angel figures from the arch frescoes, as published Dec 1904. Interior decoration only.",
@@ -28838,7 +29766,20 @@
    "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n8_w1600.jpg",
    "rights": "public domain",
    "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-hb-1904-2ndpres-windows.jpg",
+    "display_bytes": 222527,
+    "thumb": "research/images/files/a19-hb-1904-2ndpres-windows-thumb.jpg",
+    "thumb_bytes": 26011,
+    "original_px": [
+     1724,
+     2274
+    ],
+    "original_sha256": "26f7cad2471fbd8f2b32b07c72b8c8ae6cfa5f0f9e48f0d1c544e9ba73284b01",
+    "original_bytes": 453137,
+    "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n8_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
    "notes": "Two Morris & Co. windows designed by Burne-Jones, installed by Dec 1904 (vestibule/narthex per the article). Confirms these windows were in place in 1904 (HABS 2010 records window sheets — use this to date them).",
@@ -30305,8 +31246,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1816-robinson-1886.jpg",
+    "display_bytes": 253664,
     "thumb": "research/images/files/cgn-1816-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23085,
+    "thumb_bytes": 15090,
     "original_px": [
      3841,
      1482
@@ -30314,7 +31257,7 @@
     "original_sha256": "1f896d2267f4066e4689c2a2cb2604c46d3f5e2a25ed4b48a5291f4d95d9c3dd",
     "original_bytes": 2775001,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1816prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -30554,8 +31497,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1906-robinson-1886.jpg",
+    "display_bytes": 253474,
     "thumb": "research/images/files/cgs-1906-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23095,
+    "thumb_bytes": 15099,
     "original_px": [
      3841,
      1482
@@ -30563,7 +31508,7 @@
     "original_sha256": "09fbac976ace41ca0b0020537e42e588f58ae7d6f753767edfe624eda2363e6c",
     "original_bytes": 2773043,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1906prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -30673,8 +31618,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1923-robinson-1886.jpg",
+    "display_bytes": 254414,
     "thumb": "research/images/files/cgs-1923-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23196,
+    "thumb_bytes": 15183,
     "original_px": [
      3841,
      1482
@@ -30682,7 +31629,7 @@
     "original_sha256": "88dd60878fcfe80fbf885c24608e0a82a08074f46082335e9c7ba52e475d5166",
     "original_bytes": 2780705,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1923prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -30720,8 +31667,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2021-robinson-1886.jpg",
+    "display_bytes": 273172,
     "thumb": "research/images/files/cgs-2021-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22625,
+    "thumb_bytes": 14436,
     "original_px": [
      3698,
      1400
@@ -30729,7 +31678,7 @@
     "original_sha256": "58746cc405f45c87037a949e6e023830e8a8117ff6e558f37ca8dbd26ee58602",
     "original_bytes": 2889155,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2021prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -30962,8 +31911,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2027-robinson-1886.jpg",
+    "display_bytes": 254147,
     "thumb": "research/images/files/cgs-2027-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23152,
+    "thumb_bytes": 15134,
     "original_px": [
      3841,
      1482
@@ -30971,7 +31922,7 @@
     "original_sha256": "03c6b594fce586c168607ddef09a4a3585aee211686f50c54ba1626b7a68317a",
     "original_bytes": 2779409,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2027prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -31249,8 +32200,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2036-robinson-1886.jpg",
+    "display_bytes": 272363,
     "thumb": "research/images/files/cgs-2036-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22513,
+    "thumb_bytes": 14357,
     "original_px": [
      3698,
      1400
@@ -31258,7 +32211,7 @@
     "original_sha256": "b0579b656649444c45c763d532fd153756a1418db8cba6152da0f19542e35a36",
     "original_bytes": 2883585,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2036prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -31410,8 +32363,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2112-robinson-1886.jpg",
+    "display_bytes": 272608,
     "thumb": "research/images/files/cgs-2112-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22479,
+    "thumb_bytes": 14336,
     "original_px": [
      3698,
      1400
@@ -31419,7 +32374,7 @@
     "original_sha256": "9bfab295101d2888be756673f9cbd03c6ba1011cb507628dacdc8b437e7eb4b6",
     "original_bytes": 2884188,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2112prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -31618,8 +32573,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2108-robinson-1886.jpg",
+    "display_bytes": 272416,
     "thumb": "research/images/files/cgs-2108-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22502,
+    "thumb_bytes": 14358,
     "original_px": [
      3698,
      1400
@@ -31627,7 +32584,7 @@
     "original_sha256": "77ab84ef71ccd1ef6ab440cc45b7d9ca663a9f25065341c45ed7fea1ca895df0",
     "original_bytes": 2884165,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2108prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -31800,8 +32757,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2109-robinson-1886.jpg",
+    "display_bytes": 273228,
     "thumb": "research/images/files/cgs-2109-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22628,
+    "thumb_bytes": 14467,
     "original_px": [
      3698,
      1400
@@ -31809,7 +32768,7 @@
     "original_sha256": "36a8f4df368e963c4b639648044cb8d20e5e4fbe3e22b6c444ee887e945b0f04",
     "original_bytes": 2889400,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2109prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -32157,8 +33116,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1702-robinson-1886.jpg",
+    "display_bytes": 254283,
     "thumb": "research/images/files/cgn-1702-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23213,
+    "thumb_bytes": 15194,
     "original_px": [
      3841,
      1482
@@ -32166,7 +33127,7 @@
     "original_sha256": "398ee624d62d52b1b1d82b1c5104ecbdd30c4d749d1c2ba33daeb7ad493e1a97",
     "original_bytes": 2780091,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1702prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -32464,8 +33425,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1637-robinson-1886.jpg",
+    "display_bytes": 272953,
     "thumb": "research/images/files/cgn-1637-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22594,
+    "thumb_bytes": 14424,
     "original_px": [
      3698,
      1400
@@ -32473,7 +33436,7 @@
     "original_sha256": "f5e114519fc34528fa8c52a634ad92cf3a26fd29c0d50554ff8d3fccc03fc92a",
     "original_bytes": 2887025,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1637prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -32553,7 +33516,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagoeveningpostannouncement5april1868kelloggco.jpg",
    "rights": "public domain",
    "rights_basis": "published 1868 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1709-evening-post-1868-kellogg-notice.jpg",
+    "display_bytes": 209281,
+    "thumb": "research/images/files/cgn-1709-evening-post-1868-kellogg-notice-thumb.jpg",
+    "thumb_bytes": 40588,
+    "original_px": [
+     3000,
+     3400
+    ],
+    "original_sha256": "c1328ae7a2611ef626ff2b20e0424afa90d23b07d8385d9dabf02b32e980646f",
+    "original_bytes": 1746235,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagoeveningpostannouncement5april1868kelloggco.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Business notice signed by Palmer V. Kellogg (owner of 1709). Chicagology places it under a \"Chicago Tribune, October 9, 1872\" caption; the clipping is headed Chicago Evening Post, 5 April 1868. Owner context only.",
@@ -32626,8 +33602,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1709-robinson-1886.jpg",
+    "display_bytes": 273024,
     "thumb": "research/images/files/cgn-1709-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22607,
+    "thumb_bytes": 14431,
     "original_px": [
      3698,
      1400
@@ -32635,7 +33613,7 @@
     "original_sha256": "b523c2f92b0634f7beb6a946c4803a946f259344c917a9e5697221dac8bc6caf",
     "original_bytes": 2887511,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1709prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -32942,8 +33920,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1635-robinson-1886.jpg",
+    "display_bytes": 273127,
     "thumb": "research/images/files/cgn-1635-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22635,
+    "thumb_bytes": 14450,
     "original_px": [
      3698,
      1400
@@ -32951,7 +33931,7 @@
     "original_sha256": "3983a809bec472797d70a02e4e7a9f939329b2fdbfb0e5b072885f5c5c7503a4",
     "original_bytes": 2888206,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1635prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -33201,7 +34181,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadlin13feb1905ewalterherrick.jpg",
    "rights": "public domain",
    "rights_basis": "published 1905 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1635-tribune-1905-herrick-headline.jpg",
+    "display_bytes": 140544,
+    "thumb": "research/images/files/cgn-1635-tribune-1905-herrick-headline-thumb.jpg",
+    "thumb_bytes": 16518,
+    "original_px": [
+     722,
+     2220
+    ],
+    "original_sha256": "80ce1239a2f12d4f26a90ee4c98896b2c12c16316f89ccd2974bb5a2a57cb349",
+    "original_bytes": 491256,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadlin13feb1905ewalterherrick.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline and halftone portrait of E. Walter Herrick, who died at \"his home, 2018 Prairie ave.\" in Feb 1905 — i.e. the Herrick family, at 1635 in the 1874–1885 directories, had moved to 2018 Prairie by 1905. Bears on the unresolved 1635 (index: \"uncertain; likely absent\"): the family that had occupied it was elsewhere by 1904.",
@@ -33369,8 +34362,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1736-robinson-1886.jpg",
+    "display_bytes": 253582,
     "thumb": "research/images/files/cgn-1736-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23089,
+    "thumb_bytes": 15098,
     "original_px": [
      3841,
      1482
@@ -33378,7 +34373,7 @@
     "original_sha256": "02eaf84bd67b6532d7e9268b54d430cdc4e04b3668ea06331594ea16f3ac35fb",
     "original_bytes": 2955333,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1736prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -33487,7 +34482,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1736prairie1893map.jpg",
    "rights": "public domain",
    "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1736-randmcnally-1893-strip.jpg",
+    "display_bytes": 360856,
+    "thumb": "research/images/files/cgn-1736-randmcnally-1893-strip-thumb.jpg",
+    "thumb_bytes": 19848,
+    "original_px": [
+     2406,
+     871
+    ],
+    "original_sha256": "8b8e48465308a1b668c72cf6ef71131881313b8a93497a09561ab8aed53b367c",
+    "original_bytes": 1325156,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1736prairie1893map.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Chicagology crop of a Rand McNally \"Bird's Eye Views and Guide to Chicago\" (1893) perspective street strip with an arrow added by Chicagology. The same plates are already recorded at full-page resolution from the Internet Archive by the streetscape stream (st-randmcnally-1893-p233-west-1700-1800); this is a separate, arrowed copy. Arrow at the mansard house labelled 1736 (McBirney) at the NW corner of 18th Street.",
@@ -33596,8 +34604,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1630-robinson-1886.jpg",
+    "display_bytes": 272577,
     "thumb": "research/images/files/cgn-1630-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22513,
+    "thumb_bytes": 14352,
     "original_px": [
      3698,
      1400
@@ -33605,7 +34615,7 @@
     "original_sha256": "312d975df62439a2b701186be62f9b42439fd7690b448b96a1e0d772a3cb15ef",
     "original_bytes": 2884754,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1630prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -33790,8 +34800,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1726-robinson-1886.jpg",
+    "display_bytes": 253470,
     "thumb": "research/images/files/cgn-1726-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23112,
+    "thumb_bytes": 15099,
     "original_px": [
      3841,
      1482
@@ -33799,7 +34811,7 @@
     "original_sha256": "d9c3d79a39e2debad7e3ff9c8007613555428faa9b74f77ed3115fba92086467",
     "original_bytes": 2954262,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1726prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -34201,7 +35213,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/uscensus1910johngmglessner1706prairie.jpg",
    "rights": "public domain",
    "rights_basis": "U.S. federal government record (1910 census schedule) — public domain; faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1706-us-census-1910-glessner.jpg",
+    "display_bytes": 263917,
+    "thumb": "research/images/files/cgn-1706-us-census-1910-glessner-thumb.jpg",
+    "thumb_bytes": 21820,
+    "original_px": [
+     3663,
+     1647
+    ],
+    "original_sha256": "1727e7f92a99d30c7a35a5f5564ae8705c9430e4324d33624da73e98e007b595",
+    "original_bytes": 3612384,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/uscensus1910johngmglessner1706prairie.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Manuscript census sheet with an arrow at the John G. M. Glessner household at 1706 Prairie. Occupancy evidence (household size/servants) for the 1706 townhouse, 1910; no building information.",
@@ -34362,8 +35387,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1720-robinson-1886.jpg",
+    "display_bytes": 272597,
     "thumb": "research/images/files/cgn-1720-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22519,
+    "thumb_bytes": 14370,
     "original_px": [
      3698,
      1400
@@ -34371,7 +35398,7 @@
     "original_sha256": "fc921038364329e36173bf447afcff0b484aaf20604a730a8b953eef39ec51f9",
     "original_bytes": 2884651,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1720prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -34408,7 +35435,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1720prairie1893map.jpg",
    "rights": "public domain",
    "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1720-randmcnally-1893-strip.jpg",
+    "display_bytes": 360653,
+    "thumb": "research/images/files/cgn-1720-randmcnally-1893-strip-thumb.jpg",
+    "thumb_bytes": 19807,
+    "original_px": [
+     2406,
+     871
+    ],
+    "original_sha256": "f36580ad337996d70c719c059005ad9a88ad6bb9511aab50b6023675a9b9fa90",
+    "original_bytes": 1324914,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1720prairie1893map.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Chicagology crop of a Rand McNally \"Bird's Eye Views and Guide to Chicago\" (1893) perspective street strip with an arrow added by Chicagology. The same plates are already recorded at full-page resolution from the Internet Archive by the streetscape stream (st-randmcnally-1893-p233-west-1700-1800); this is a separate, arrowed copy. Arrow at 1720 (Walker): a broad house with a deep porch across the front.",
@@ -34851,8 +35891,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2031-robinson-1886.jpg",
+    "display_bytes": 273232,
     "thumb": "research/images/files/cgs-2031-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22621,
+    "thumb_bytes": 14430,
     "original_px": [
      3698,
      1400
@@ -34860,7 +35902,7 @@
     "original_sha256": "c185e07dde02ebe70d630d93c857c6b6b1d986d18672926e8ff1993bac475859",
     "original_bytes": 2888081,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2031prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -34899,8 +35941,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2033-robinson-1886.jpg",
+    "display_bytes": 273206,
     "thumb": "research/images/files/cgs-2033-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22613,
+    "thumb_bytes": 14432,
     "original_px": [
      3698,
      1400
@@ -34908,7 +35952,7 @@
     "original_sha256": "26fc27c7376a7ac7028720d540d9c367669a96e4c02db7b0dd38fce0906c2a43",
     "original_bytes": 2908868,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2033prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -35187,8 +36231,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1611-robinson-1886.jpg",
+    "display_bytes": 272574,
     "thumb": "research/images/files/cgn-1611-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22542,
+    "thumb_bytes": 14396,
     "original_px": [
      3698,
      1400
@@ -35196,7 +36242,7 @@
     "original_sha256": "6fe9d57712a8aba7636516767fe182b8430ae07f1cf15d098fcd1915541b2b38",
     "original_bytes": 2883548,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1611prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -35678,8 +36724,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1620-robinson-1886.jpg",
+    "display_bytes": 253477,
     "thumb": "research/images/files/cgn-1620-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23086,
+    "thumb_bytes": 15129,
     "original_px": [
      3841,
      1482
@@ -35687,7 +36735,7 @@
     "original_sha256": "10d9f12cfbfe45af084e73cd94f7bd8d44400ed971e56bc05eb2a8fc8b37cfb2",
     "original_bytes": 2774236,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1620prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -35777,7 +36825,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagodirectoryadvertisement1887robertlaw.jpg",
    "rights": "public domain",
    "rights_basis": "directory advertisement published 1887 (date from the file name; pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1620-law-coal-directory-ad-1887.jpg",
+    "display_bytes": 108558,
+    "thumb": "research/images/files/cgn-1620-law-coal-directory-ad-1887-thumb.jpg",
+    "thumb_bytes": 20970,
+    "original_px": [
+     1740,
+     852
+    ],
+    "original_sha256": "ce11e227ab113ab00f8f1a5579d4bd1061faf247fb157cae5008d913f87d2564",
+    "original_bytes": 457334,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagodirectoryadvertisement1887robertlaw.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Typeset advertisement: Robert Law / Robert H. Law, coal, principal office 196 Dearborn Street; yards at the 18th Street Bridge, North Pier, 21 East Division, 21st and Grove (rail yard). Business context for the 1620 owner; no building information.",
@@ -35813,7 +36874,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline25feb1898robertlaw.jpg",
    "rights": "public domain",
    "rights_basis": "published 1898 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1620-tribune-1898-robert-law-headline.jpg",
+    "display_bytes": 92174,
+    "thumb": "research/images/files/cgn-1620-tribune-1898-robert-law-headline-thumb.jpg",
+    "thumb_bytes": 24593,
+    "original_px": [
+     1095,
+     1224
+    ],
+    "original_sha256": "902ad84afc1db5e229d8e46a1971b437378efc54ad6aac248a2f63cd5c445b20",
+    "original_bytes": 275075,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneheadline25feb1898robertlaw.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the obituary quoted on the page: Law died \"at his house, 1620 Prairie avenue\" and \"had lived at 1620 Prairie avenue for the last twenty-six years\" — i.e. from c.1872, dating the house to c.1872.",
@@ -35849,7 +36923,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic25feb1898robertlaw.jpg",
    "rights": "public domain",
    "rights_basis": "published 1898 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1620-tribune-1898-robert-law-portrait.jpg",
+    "display_bytes": 312831,
+    "thumb": "research/images/files/cgn-1620-tribune-1898-robert-law-portrait-thumb.jpg",
+    "thumb_bytes": 43010,
+    "original_px": [
+     2092,
+     2314
+    ],
+    "original_sha256": "6867e32074307f3f19be7ac8f0041de718b2d4e94aa2b6432487edd62918edf9",
+    "original_bytes": 1778470,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic25feb1898robertlaw.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Pen portrait of Robert Law (signed by the newspaper artist) printed with his obituary. A person, not the house.",
@@ -36380,7 +37467,20 @@
    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/1872-1945-prairie-avenue-looking-north.jpg",
    "rights": "public domain",
    "rights_basis": "Commons: public domain in the US (faithful reproduction of a public-domain work)",
-   "local": null,
+   "local": {
+    "display": "research/images/files/a19-commons-1945-prairie-looking-north.jpg",
+    "display_bytes": 138529,
+    "thumb": "research/images/files/a19-commons-1945-prairie-looking-north-thumb.jpg",
+    "thumb_bytes": 21057,
+    "original_px": [
+     926,
+     1128
+    ],
+    "original_sha256": "f15d194ee61f4977b1ec46019bb7fda9fcbcfc089961653ebc4b97d9a2f88a03",
+    "original_bytes": 197564,
+    "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/c/c2/1872-1945-prairie-avenue-looking-north.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "WebFetch of Commons Category:Prairie_Avenue file list; image itself seen as Chicagology '1945sprairie.jpg' (a19-cgy-1945-armour)",
    "notes": "Same photograph as a19-cgy-1945-armour: the Armour house at the SE end of the block with its turned-baluster stone railing and corner bay, and the east-side frontage of the 1900 block receding north (stoops, iron fences, parkway trees) — includes the fronts of 1923 Kellogg and 1919 at a distance though not individually legible at Commons resolution (926×1128). Commons date 'circa 1872' is doubtful; the mature trees suggest the 1880s–90s. A companion PNG (File:1872-1945-prairie-avenue-chicago-il.png, 353×438, 'source: Google Books') shows 1945 Prairie as well. Not downloaded (Commons upload server rate-limited this session).",
@@ -36637,7 +37737,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneannoiuncement5dec1876einstein.jpg",
    "rights": "public domain",
    "rights_basis": "published 1876 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1628-tribune-1876-einstein-dissolution.jpg",
+    "display_bytes": 144975,
+    "thumb": "research/images/files/cgn-1628-tribune-1876-einstein-dissolution-thumb.jpg",
+    "thumb_bytes": 27263,
+    "original_px": [
+     2500,
+     1723
+    ],
+    "original_sha256": "6439a26b9c64f9be224a6cee056601403f78f53045dc83e1ee099f06cc6e5835",
+    "original_bytes": 925101,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneannoiuncement5dec1876einstein.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Business notices (Clayburgh, Einstein & Co. dissolved 30 Nov 1876 and re-formed 1 Dec 1876 at 64–66 Wabash). Owner context for 1628 (Morris Einstein); no building information. Chicagology prints it under an \"August 24, 1873\" caption; the clipping is headed 5 Dec 1876.",
@@ -36851,7 +37964,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement21sep1880bartlett.jpg",
    "rights": "public domain",
    "rights_basis": "published 1880 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1634-tribune-1880-auction-ad.jpg",
+    "display_bytes": 195608,
+    "thumb": "research/images/files/cgn-1634-tribune-1880-auction-ad-thumb.jpg",
+    "thumb_bytes": 38504,
+    "original_px": [
+     3414,
+     3360
+    ],
+    "original_sha256": "6a0960b0fd6d098b05e5a1422c0d20e40e1eacbae1e82c9bd008eb949855a058",
+    "original_bytes": 1587507,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement21sep1880bartlett.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Auction of the Bartlett household (Moquet carpets, \"Elegant Hall-Tree, cost $200\", carom billiard table…) as C. S. Bartlett left 1634. The file name says 21 Sept; the clipping header says 23 Sept 1880. Chicagology places it under the 1886 Preston obituary.",
@@ -37074,7 +38200,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement3may18831619prairiefurniture.jpg",
    "rights": "public domain",
    "rights_basis": "published 1883 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1619-tribune-1883-furniture-auction-ad.jpg",
+    "display_bytes": 106581,
+    "thumb": "research/images/files/cgn-1619-tribune-1883-furniture-auction-ad-thumb.jpg",
+    "thumb_bytes": 19677,
+    "original_px": [
+     1059,
+     2600
+    ],
+    "original_sha256": "da3ea20bda96250eb46fcb0003fbb46b35d06efadec1dffad0be1faad3666d3c",
+    "original_bytes": 690612,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribuneadvertisement3may18831619prairiefurniture.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Auction advertisement for the contents of 1619 (rosewood parlor and chamber suits, mirrors, piano, oil paintings, \"House elegantly furnished throughout. Sale peremptory; family going to Europe\"). CHICAGOLOGY MISPLACEMENT: the page sets this image under a \"Chicago Tribune, September 4, 1874\" caption; the clipping itself is headed \"Chicago Tribune, May 3, 1883\". Occupancy turnover evidence only (McBirney 1884, Hamline 1886). 1619 is not in the index.",
@@ -37447,8 +38586,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1600-robinson-1886.jpg",
+    "display_bytes": 254136,
     "thumb": "research/images/files/cgn-1600-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23227,
+    "thumb_bytes": 15223,
     "original_px": [
      3841,
      1482
@@ -37456,7 +38597,7 @@
     "original_sha256": "3e7737ecde1887def89f714a8c9cc20bbb01378846a7629ed2ee9838dc83b374",
     "original_bytes": 2778568,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1600prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37492,8 +38633,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1608-robinson-1886.jpg",
+    "display_bytes": 253763,
     "thumb": "research/images/files/cgn-1608-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23147,
+    "thumb_bytes": 15141,
     "original_px": [
      3841,
      1482
@@ -37501,7 +38644,7 @@
     "original_sha256": "0834a022ba39de9d9df14490d78d6961b05ff67e03f4aa0546deb228fab05cc4",
     "original_bytes": 2775759,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1608prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37537,8 +38680,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1613-robinson-1886.jpg",
+    "display_bytes": 272713,
     "thumb": "research/images/files/cgn-1613-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22594,
+    "thumb_bytes": 14408,
     "original_px": [
      3698,
      1400
@@ -37546,7 +38691,7 @@
     "original_sha256": "6138ef6d9f6d174a38893617c2bac765b523e59138b07687fde8b8369d36db5e",
     "original_bytes": 2885041,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1613prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37582,8 +38727,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1616-robinson-1886.jpg",
+    "display_bytes": 272425,
     "thumb": "research/images/files/cgn-1616-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22535,
+    "thumb_bytes": 14367,
     "original_px": [
      3698,
      1400
@@ -37591,7 +38738,7 @@
     "original_sha256": "8f5c777acd5fcf2889a438b2dd54ad10e85624287d75604e452a6269729763e0",
     "original_bytes": 2883022,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1616prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37628,7 +38775,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1811sprairiedrawing.jpg",
    "rights": "public domain",
    "rights_basis": "published in The Building Budget, June 188- (1885–1889; pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1619-1625-building-budget-hamline-farwell.jpg",
+    "display_bytes": 146230,
+    "thumb": "research/images/files/cgn-1619-1625-building-budget-hamline-farwell-thumb.jpg",
+    "thumb_bytes": 32183,
+    "original_px": [
+     900,
+     946
+    ],
+    "original_sha256": "7cb3eaf2f1c27c083457f99ac0bb563d3231c29c81ca6295b9a92b78ad103f98",
+    "original_bytes": 769292,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1811sprairiedrawing.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "KEY RE-IDENTIFICATION: Chicagology posts this on its 1811 page as \"1811 S. Prairie Ave.\", but the drawing is lettered \"Houses · Prairie Ave. · Treat and Foltz · Archts\" with \"J. H. Hamline Esq.\" under the left house and \"G. Farwell Esq.\" under the right — the pair of houses for John H. Hamline (directories: 1621 Prairie in 1884–87; Inter Ocean 18 Apr 1886: \"removed to their new residence, No. 1619 Prairie avenue\") and Granger Farwell (Inland Architect Nov 1885: Treat & Foltz, \"for Granger Farwell, at 1625 Prairie avenue\" — dw-inland-1885-11-farwell-1625-treat-foltz). It is NOT the Coleman/Ames house (Cobb & Frost). Pen elevation of two attached three-storey stone fronts on the east side of the 1600 block: left (Hamline) a full-height rounded swell bay with a balcony and pedimented dormer, round-arched entrance up a stoop; right (Farwell) a canted bay with a richly carved oriel, a steep conical roof and a broad arched entrance; a small floor plan inset top left. The Robinson 1886 plate shows a brick row of three swell-fronted houses on sublots 12/1/2 (1619–1623). Thin/unindexed addresses 1619–1625; whether the Farwell house stood in 1904 vs. H. J. McBirney's 1889 house \"at 1625\" needs ruling (address conflict).",
@@ -37665,8 +38825,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1619-robinson-1886.jpg",
+    "display_bytes": 254030,
     "thumb": "research/images/files/cgn-1619-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23159,
+    "thumb_bytes": 15176,
     "original_px": [
      3841,
      1482
@@ -37674,7 +38836,7 @@
     "original_sha256": "4bd881b1be328d1c07847a36d72de50b1b7e67f4a5123b1f4894004f7ab32570",
     "original_bytes": 2777337,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1619prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37710,8 +38872,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1621-robinson-1886.jpg",
+    "display_bytes": 272939,
     "thumb": "research/images/files/cgn-1621-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22644,
+    "thumb_bytes": 14454,
     "original_px": [
      3698,
      1400
@@ -37719,7 +38883,7 @@
     "original_sha256": "05e50a9df548975237192360525f5771a3fe2d103a179d7155d4e04d69a990f1",
     "original_bytes": 2887288,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1621prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37755,8 +38919,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1626-robinson-1886.jpg",
+    "display_bytes": 253680,
     "thumb": "research/images/files/cgn-1626-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23132,
+    "thumb_bytes": 15109,
     "original_px": [
      3841,
      1482
@@ -37764,7 +38930,7 @@
     "original_sha256": "c9527b812f0fc4824e28c25935842ffe47950eaf6d12552e4804ccbc1c0508e6",
     "original_bytes": 2775728,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1626prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37800,8 +38966,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1628-robinson-1886.jpg",
+    "display_bytes": 253599,
     "thumb": "research/images/files/cgn-1628-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23127,
+    "thumb_bytes": 15116,
     "original_px": [
      3841,
      1482
@@ -37809,7 +38977,7 @@
     "original_sha256": "9f456d06d3350a0c9319fe52f64584f992545cccf5a37b871283a34041447acc",
     "original_bytes": 2774587,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1628prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37845,8 +39013,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1634-robinson-1886.jpg",
+    "display_bytes": 253466,
     "thumb": "research/images/files/cgn-1634-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23103,
+    "thumb_bytes": 15096,
     "original_px": [
      3841,
      1482
@@ -37854,7 +39024,7 @@
     "original_sha256": "bc44dd10e69520103d1ccd48af8640883c45468205562e8c042a73161108fa41",
     "original_bytes": 2773392,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1634prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37890,8 +39060,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1636-robinson-1886.jpg",
+    "display_bytes": 253622,
     "thumb": "research/images/files/cgn-1636-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23097,
+    "thumb_bytes": 15104,
     "original_px": [
      3841,
      1482
@@ -37899,7 +39071,7 @@
     "original_sha256": "1f35b95b166d4c9ca1dbc050e96145eb6549b3422c23d5578a6a6eba7760c739",
     "original_bytes": 2773901,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1636prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37935,8 +39107,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-16th-station-robinson-1886.jpg",
+    "display_bytes": 253666,
     "thumb": "research/images/files/cgn-16th-station-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23124,
+    "thumb_bytes": 15123,
     "original_px": [
      3841,
      1482
@@ -37944,7 +39118,7 @@
     "original_sha256": "bdd10b146f55c69b9e670e67c43d64e811ad35f61ffc33d643b561d790b6d389",
     "original_bytes": 2774577,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/16thstreetstation1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -37977,7 +39151,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphc8aug188616thstreetstation.jpg",
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-16th-station-tribune-1886-sketch.jpg",
+    "display_bytes": 58304,
+    "thumb": "research/images/files/cgn-16th-station-tribune-1886-sketch-thumb.jpg",
+    "thumb_bytes": 19943,
+    "original_px": [
+     963,
+     855
+    ],
+    "original_sha256": "5f25e3b164bc7ab34b996185870a06b6b0e1f8e1f7cb49412beb3b2d25c0e46f",
+    "original_bytes": 164463,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphc8aug188616thstreetstation.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Newspaper line sketch of a one-storey frame depot with a large gabled roof, many windows and a wide platform, tracks in the foreground. CONFLICT/CAUTION: the accompanying text (quoted on the page) says the C. B. & Q. depot formerly at Sixteenth Street had been MOVED three or four years earlier to Meagher Street and Stewart Avenue (\"a one-story frame shanty about 70×20\"), so the sketch probably shows that building at its new site, not the station beside Prairie Avenue. The Robinson 1886 plate shows a long frame \"16th St. Station I.C.R.R.\" on the east side of Prairie south of 16th.",
@@ -38016,8 +39203,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1712-robinson-1886.jpg",
+    "display_bytes": 272439,
     "thumb": "research/images/files/cgn-1712-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22485,
+    "thumb_bytes": 14349,
     "original_px": [
      3698,
      1400
@@ -38025,7 +39214,7 @@
     "original_sha256": "4889fa9baf8a48c8f3e247d3b9587a4d2525e05d3138f9089dbe89912d7f78f6",
     "original_bytes": 2883799,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1712prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -38061,8 +39250,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1730-robinson-1886.jpg",
+    "display_bytes": 272698,
     "thumb": "research/images/files/cgn-1730-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22517,
+    "thumb_bytes": 14351,
     "original_px": [
      3698,
      1400
@@ -38070,7 +39261,7 @@
     "original_sha256": "1743057a47f3e953d028e19e2abaeb0a3e6c2c1d9b712c0d09f8c002fa313e28",
     "original_bytes": 2885059,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1730prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -38106,8 +39297,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgn-1828-robinson-1886.jpg",
+    "display_bytes": 253537,
     "thumb": "research/images/files/cgn-1828-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23099,
+    "thumb_bytes": 15095,
     "original_px": [
      3841,
      1482
@@ -38115,7 +39308,7 @@
     "original_sha256": "c2dbb438ccbdff0a0cd588caaaa617cc56a706a0f3602ce3055f36f524d85200",
     "original_bytes": 2773182,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1828prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
@@ -38151,8 +39344,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-1945-robinson-1886.jpg",
+    "display_bytes": 254440,
     "thumb": "research/images/files/cgs-1945-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23214,
+    "thumb_bytes": 15208,
     "original_px": [
      3841,
      1482
@@ -38160,7 +39355,7 @@
     "original_sha256": "c5dd24ac98d848fb02ee7d477cfbe96b82ad0e3d3197093a995ce41d066e877c",
     "original_bytes": 2781304,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1945prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38196,8 +39391,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2000-robinson-1886.jpg",
+    "display_bytes": 253462,
     "thumb": "research/images/files/cgs-2000-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23101,
+    "thumb_bytes": 15092,
     "original_px": [
      3841,
      1482
@@ -38205,7 +39402,7 @@
     "original_sha256": "2303dced7ed1cea6d1027f7157411c386746e40ff45156acd7bcc73b1dcf7c47",
     "original_bytes": 2774215,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2000prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38241,8 +39438,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2001-robinson-1886.jpg",
+    "display_bytes": 254292,
     "thumb": "research/images/files/cgs-2001-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23223,
+    "thumb_bytes": 15179,
     "original_px": [
      3841,
      1482
@@ -38250,7 +39449,7 @@
     "original_sha256": "27ae99a8c0dbab67b518c45541a9d6ecb5a0d0efc1ae615f09dae987d68a97e1",
     "original_bytes": 2779991,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2001prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38286,8 +39485,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2003-robinson-1886.jpg",
+    "display_bytes": 254226,
     "thumb": "research/images/files/cgs-2003-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23204,
+    "thumb_bytes": 15167,
     "original_px": [
      3841,
      1482
@@ -38295,7 +39496,7 @@
     "original_sha256": "f74a4bd1498705c6c659bedff7ce7a8cb7f13d7e6e9da6374a4455925692298f",
     "original_bytes": 2780255,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2003prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38331,8 +39532,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2010-robinson-1886.jpg",
+    "display_bytes": 272580,
     "thumb": "research/images/files/cgs-2010-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22501,
+    "thumb_bytes": 14358,
     "original_px": [
      3698,
      1400
@@ -38340,7 +39543,7 @@
     "original_sha256": "014b8848e086f27d19ccbaa38af1a7a055722222d18d021c8116678919a56c58",
     "original_bytes": 2884463,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2010prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38376,8 +39579,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2011-robinson-1886.jpg",
+    "display_bytes": 254145,
     "thumb": "research/images/files/cgs-2011-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23167,
+    "thumb_bytes": 15159,
     "original_px": [
      3841,
      1482
@@ -38385,7 +39590,7 @@
     "original_sha256": "4d5cf767a5a003fdd88ec865313ab84b19c26e30f700a3f94725d61e5c58745e",
     "original_bytes": 2779588,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2011prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38421,8 +39626,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2017-robinson-1886.jpg",
+    "display_bytes": 254211,
     "thumb": "research/images/files/cgs-2017-robinson-1886-thumb.jpg",
-    "thumb_bytes": 23193,
+    "thumb_bytes": 15184,
     "original_px": [
      3841,
      1482
@@ -38430,7 +39637,7 @@
     "original_sha256": "1ad366198e71a36d3181cb580d4ae31c30c9a7ae8337cdfe3f8edfc427ed8aef",
     "original_bytes": 2779504,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2017prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38466,8 +39673,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2026-robinson-1886.jpg",
+    "display_bytes": 272543,
     "thumb": "research/images/files/cgs-2026-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22501,
+    "thumb_bytes": 14369,
     "original_px": [
      3698,
      1400
@@ -38475,7 +39684,7 @@
     "original_sha256": "9ddbf4f5d04701e426c158c5c9f552a939f5f2471f69e0a45eb938a7d6ecea3e",
     "original_bytes": 2884673,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2026prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38511,8 +39720,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2101-robinson-1886.jpg",
+    "display_bytes": 273187,
     "thumb": "research/images/files/cgs-2101-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22621,
+    "thumb_bytes": 14413,
     "original_px": [
      3698,
      1400
@@ -38520,7 +39731,7 @@
     "original_sha256": "8d1e1f7f150a4c27e3144c98163414e842666b85bdb060eb19ca59690367d98b",
     "original_bytes": 2889704,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2101prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38556,8 +39767,10 @@
    "rights": "public domain",
    "rights_basis": "published 1886 (pre-1929, US); faithful reproduction via chicagology",
    "local": {
+    "display": "research/images/files/cgs-2120-robinson-1886.jpg",
+    "display_bytes": 272494,
     "thumb": "research/images/files/cgs-2120-robinson-1886-thumb.jpg",
-    "thumb_bytes": 22486,
+    "thumb_bytes": 14365,
     "original_px": [
      3698,
      1400
@@ -38565,7 +39778,7 @@
     "original_sha256": "1ccffd39b3f1713020c2d81bca67ddeca10eefe0b115ba27fa9cc1b11256f339",
     "original_bytes": 2883040,
     "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2120prairie1886map.jpg",
-    "fetched": "2026-10-01"
+    "fetched": "2026-10-02"
    },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
@@ -38959,7 +40172,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1625sprairie.jpg",
    "rights": "public domain",
    "rights_basis": "published January 1890 in The Inland Architect (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1625-mcbirney-inland-1890-copy.jpg",
+    "display_bytes": 74508,
+    "thumb": "research/images/files/cgn-1625-mcbirney-inland-1890-copy-thumb.jpg",
+    "thumb_bytes": 20750,
+    "original_px": [
+     670,
+     900
+    ],
+    "original_sha256": "9365c1ffef8d69ddaf982a3304e56a8e1b09fe76f69acbd33d127eab0849a634",
+    "original_bytes": 341119,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1625sprairie.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Front of the new Tudor house of Hugh J. McBirney Jr. at 1625: three storeys of rock-faced stone with a steep front gable (oculus), mullioned windows, a flat-headed ground-floor entrance, a two-storey oriel and round-arched entrance of the neighbour at left, a picket fence and building debris (stone, barrels) in front — just completed. SAME PHOTOGRAPH as the Inland Architect plate already held (a16-inland-1890-hj-mcbirney-residence, AIC), here trimmed of its caption — confirms that the first pass's reattribution of the AIC \"1736\" plate to about 1625 is right: Chicagology places it at 1625 S. Prairie. Page text: Tribune 6 May 1889 permit \"three-story dwelling No. 1627 (sic) Prairie avenue, $9,000\"; Tribune 9 June 1889, Burling & Whitehouse, Tudor, \"red [Prentice] stone and Roman tile exterior\", estimated $18,000. Lifespan per page 1889–1937. 1625 is not in the building index.",
@@ -39349,7 +40575,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/interoceanheadline17mar1893springer.jpg",
    "rights": "public domain",
    "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1634-inter-ocean-1893-springer-headline.jpg",
+    "display_bytes": 30105,
+    "thumb": "research/images/files/cgn-1634-inter-ocean-1893-springer-headline-thumb.jpg",
+    "thumb_bytes": 6904,
+    "original_px": [
+     1587,
+     568
+    ],
+    "original_sha256": "88fdee9c17b5432c16f2af85ee1bb5ef7db31e8c062bb29b47c53c2b0fbc4649",
+    "original_bytes": 89211,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/interoceanheadline17mar1893springer.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Headline of the suit quoted on the page: 1634 \"worth $40,000\", bought by Springer for $35,000. With the Inter Ocean of 10 Sept 1890 (\"the brown stone mansion No. 1634 Prairie avenue\") it gives a brownstone front for 1634.",
@@ -39383,7 +40622,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1712prairie1893map.jpg",
    "rights": "public domain",
    "rights_basis": "published 1893 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1712-randmcnally-1893-strip.jpg",
+    "display_bytes": 360907,
+    "thumb": "research/images/files/cgn-1712-randmcnally-1893-strip-thumb.jpg",
+    "thumb_bytes": 19801,
+    "original_px": [
+     2406,
+     871
+    ],
+    "original_sha256": "1b366abdfc70258e8ded22d66f4d7368fd0bbd6a2052e25c9c576a965414ea8f",
+    "original_bytes": 1325778,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1712prairie1893map.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Chicagology crop of a Rand McNally \"Bird's Eye Views and Guide to Chicago\" (1893) perspective street strip with an arrow added by Chicagology. The same plates are already recorded at full-page resolution from the Internet Archive by the streetscape stream (st-randmcnally-1893-p233-west-1700-1800); this is a separate, arrowed copy. Arrow at 1712 (Sturges): a two-storey-and-attic house with a porch, between 1720 and 1702 at the right end of the strip. 1712 is not in the building index.",
@@ -39725,7 +40977,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/hibbardspenceroffice3.jpg",
    "rights": "public domain",
    "rights_basis": "published 1899 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1701-hibbard-spencer-bartlett-store-1899.jpg",
+    "display_bytes": 262580,
+    "thumb": "research/images/files/cgn-1701-hibbard-spencer-bartlett-store-1899-thumb.jpg",
+    "thumb_bytes": 30644,
+    "original_px": [
+     1200,
+     915
+    ],
+    "original_sha256": "b3f651b830790521b2311c7fb24c7f5b6d3d9772513e490f681f64ed9a56133e",
+    "original_bytes": 1543907,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire/hibbardspenceroffice3.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Colour view of the firm's six-storey brick wholesale hardware building with drays at the loading front — the owner's business premises downtown, NOT Prairie Avenue. Context only.",
@@ -39821,7 +41086,20 @@
    "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/interoceangraphic23july1905eastmankodak.jpg",
    "rights": "public domain",
    "rights_basis": "published 1905 (pre-1929, US); faithful reproduction via chicagology",
-   "local": null,
+   "local": {
+    "display": "research/images/files/cgn-1712-inter-ocean-1905-kodak-factory.jpg",
+    "display_bytes": 169381,
+    "thumb": "research/images/files/cgn-1712-inter-ocean-1905-kodak-factory-thumb.jpg",
+    "thumb_bytes": 22019,
+    "original_px": [
+     3239,
+     1939
+    ],
+    "original_sha256": "36cfeac8dccb1bd03ed4fce60b131c725fa093e3f2b3f9a4826f9ac9a1be2300",
+    "original_bytes": 997436,
+    "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/interoceangraphic23july1905eastmankodak.jpg",
+    "fetched": "2026-10-02"
+   },
    "verified": "viewed",
    "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
    "notes": "Perspective of the four-storey Taprell, Loomis & Co. (later Eastman Kodak, 1727 Indiana) loft building, 122×178 ft, cherry-red pressed brick with Bedford trim, $185,000 — rising in 1905 on the Indiana side of the block, i.e. behind the 1736 and 1700-block houses. Shows the industrial encroachment just after 1904; on the 1736 page Chicagology notes the NW corner of 18th & Prairie later became Kodak's. Printed on both pages.",

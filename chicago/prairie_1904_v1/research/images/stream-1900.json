@@ -1013,7 +1013,20 @@
   "image_url": "https://archive.org/download/Artistichouses2/page/n52_w600.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-ah-field-text.jpg",
+   "display_bytes": 177541,
+   "thumb": "research/images/files/a19-ah-field-text-thumb.jpg",
+   "thumb_bytes": 12748,
+   "original_px": [
+    2617,
+    3899
+   ],
+   "original_sha256": "96ef02926fb56cc9d71e6404860412939e6adea8006d03f03b856908abd9cc9a",
+   "original_bytes": 947236,
+   "fetched_from": "https://archive.org/download/Artistichouses2/page/n52_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
   "notes": "Contemporary (1883–84) description of the house exterior and plan — the best period text for the 1904 model: 'red pressed brick, with trimmings of light sandstone, three stories in height, with main entrance in the center of the west front, at the head of a broad flight of granite steps, a high porte-cochère on the northern side, and a fine large conservatory on the southern. Stables and other out-buildings are in the rear, on the side nearest the lake'; 'spacious lawn and scattered shade-trees' on the south side; vestibule floored in varied marbles; main hall runs the entire depth ending at a winding stairway under a large stained-glass window; reception room (right of hall) with a window into the conservatory (fountain); drawing-room left of hall; library behind it with fireplace at the east end; dining room opposite, glass doors into the conservatory. Field lived here until his death in Jan 1906, so the exterior description should still apply in 1904 (porte-cochère/conservatory survival to 1904 to be checked against the 1911 Sanborn).",
@@ -1045,7 +1058,20 @@
   "image_url": "https://archive.org/download/Artistichouses2/page/n160_w600.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-ah-field-hall-plate.jpg",
+   "display_bytes": 98315,
+   "thumb": "research/images/files/a19-ah-field-hall-plate-thumb.jpg",
+   "thumb_bytes": 8791,
+   "original_px": [
+    2512,
+    3898
+   ],
+   "original_sha256": "b32acf1623961c2f314bc6f6ca74d560642b7e0c05dfc4f07bb53ae80443791b",
+   "original_bytes": 689720,
+   "fetched_from": "https://archive.org/download/Artistichouses2/page/n160_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
   "notes": "The published photogravure plate of the entrance hall, Smithsonian copy; same photograph as LoC LC-DIG-ppmsca-56274 (recorded in stream-drawings as dw-field-1905-artistic-houses-entrance-hall). Recorded here as the publication context and a second public-domain source; not downloaded (duplicate image).",
@@ -1077,7 +1103,20 @@
   "image_url": "https://archive.org/download/Artistichouses2/page/n162_w600.jpg",
   "rights": "public domain",
   "rights_basis": "Published 1883–84 in the United States; Internet Archive/Smithsonian Libraries scan",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-ah-field-library-plate.jpg",
+   "display_bytes": 100592,
+   "thumb": "research/images/files/a19-ah-field-library-plate-thumb.jpg",
+   "thumb_bytes": 9956,
+   "original_px": [
+    2512,
+    3898
+   ],
+   "original_sha256": "088118cd12581038faf26886ecfac0c3105f28792ba536a4c9d4b1f6d831ed47",
+   "original_bytes": 673262,
+   "fetched_from": "https://archive.org/download/Artistichouses2/page/n162_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org item Artistichouses2 (full text search 'Marshall Field'), leaf numbers located via the item's djvu.xml",
   "notes": "Published plate of the library (bound sideways), Smithsonian copy; same photograph as LoC LC-DIG-ppmsca-56275 (stream-drawings dw-field-1905-artistic-houses-library). Text (p.46) places the library behind the drawing-room with its fireplace and a stained-glass Muse window at the east end.",
@@ -2106,7 +2145,20 @@
   "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-mural.jpg",
+   "display_bytes": 241934,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-mural-thumb.jpg",
+   "thumb_bytes": 24822,
+   "original_px": [
+    1724,
+    2274
+   ],
+   "original_sha256": "4c06d2e1c00ab1f70b19ecd2dc880a7c6bb22907a873989f7bb9a3a54576b474",
+   "original_bytes": 509333,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n7_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
   "notes": "Halftone of two of Bartlett's angel figures from the arch frescoes, as published Dec 1904. Interior decoration only.",
@@ -2138,7 +2190,20 @@
   "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n8_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-windows.jpg",
+   "display_bytes": 222527,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-windows-thumb.jpg",
+   "thumb_bytes": 26011,
+   "original_px": [
+    1724,
+    2274
+   ],
+   "original_sha256": "26f7cad2471fbd8f2b32b07c72b8c8ae6cfa5f0f9e48f0d1c544e9ba73284b01",
+   "original_bytes": 453137,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n8_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
   "notes": "Two Morris & Co. windows designed by Burne-Jones, installed by Dec 1904 (vestibule/narthex per the article). Confirms these windows were in place in 1904 (HABS 2010 records window sheets — use this to date them).",
@@ -2170,7 +2235,20 @@
   "image_url": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n9_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published December 1904 in the United States (copyright 1904 by Herbert S. Stone; expired)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-hb-1904-2ndpres-candelabra.jpg",
+   "display_bytes": 231823,
+   "thumb": "research/images/files/a19-hb-1904-2ndpres-candelabra-thumb.jpg",
+   "thumb_bytes": 26464,
+   "original_px": [
+    1724,
+    2278
+   ],
+   "original_sha256": "a4075c9d5dc749e8e0c5b6bc0615135d0f5f3127d0ddaa323da93d6b5f0c3511",
+   "original_bytes": 479694,
+   "fetched_from": "https://archive.org/download/sim_house-beautiful_1904-12_17_1/page/n9_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "NRHP 74000754 bibliography 'House Beautiful Mag., V.17, No.1 (Dec.1904)' → archive.org advancedsearch 'house beautiful' 1904–05; pages located via djvu.xml",
   "notes": "Seven-branch candlestick for the 1900–01 interior, as published Dec 1904 (same object as HABS IL-328 sheet 19).",
@@ -2292,7 +2370,20 @@
   "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n88_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published in the United States 1893/1896",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-pictorial-1896-field.jpg",
+   "display_bytes": 180390,
+   "thumb": "research/images/files/a19-pictorial-1896-field-thumb.jpg",
+   "thumb_bytes": 22023,
+   "original_px": [
+    1708,
+    1364
+   ],
+   "original_sha256": "df3c0b4bb62f26878606b7901e01f1227c9599504d0ea4b23f746bad23816e6a",
+   "original_bytes": 256104,
+   "fetched_from": "https://archive.org/download/randmcnallycospi1892chic/page/n88_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org djvu.xml caption search",
   "notes": "Same photograph as the 1893 edition plate (a19-pictorial-1893-field), reprinted in the later edition — confirms the view was still current for the publisher in the mid-1890s. Not downloaded (duplicate image).",
@@ -2324,7 +2415,20 @@
   "image_url": "https://archive.org/download/randmcnallycospi1892chic/page/n98_w1600.jpg",
   "rights": "public domain",
   "rights_basis": "Published in the United States 1893/1896",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-pictorial-1896-ream.jpg",
+   "display_bytes": 166533,
+   "thumb": "research/images/files/a19-pictorial-1896-ream-thumb.jpg",
+   "thumb_bytes": 20425,
+   "original_px": [
+    1708,
+    1364
+   ],
+   "original_sha256": "a070e508e0de6603933a28b2092b2ce0eb99c7125c72a99c10e3c18fc91e281a",
+   "original_bytes": 237159,
+   "fetched_from": "https://archive.org/download/randmcnallycospi1892chic/page/n98_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org page browse near the Field plate (caption OCR missed it)",
   "notes": "Reprint of the Ream plate in the later edition (page viewed; printed sideways, left-hand image this time). Not downloaded (duplicate image).",
@@ -3261,7 +3365,20 @@
   "image_url": "https://collections.carli.illinois.edu/digital/api/singleitem/image/chm_pp/1296/default.jpg",
   "rights": "no known restrictions",
   "rights_basis": "CHM record: 'No known copyright restrictions'; CHM nonetheless asks that reproduction be licensed via images.chicagohistory.org — kept link-only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-chm-ichi66015-west-side-north-from-allerton.jpg",
+   "display_bytes": 31595,
+   "thumb": "research/images/files/a19-chm-ichi66015-west-side-north-from-allerton-thumb.jpg",
+   "thumb_bytes": 12405,
+   "original_px": [
+    750,
+    565
+   ],
+   "original_sha256": "bd142745422cacf872cbcb807a1765267f9b9b07d49b723ead8bb1d686f5a477",
+   "original_bytes": 32459,
+   "fetched_from": "https://collections.carli.illinois.edu/digital/api/singleitem/image/chm_pp/1296/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "CARLI CONTENTdm API (collections.carli.illinois.edu) title search 'prairie avenue' → chm_pp/1296",
   "notes": "THE closest-dated streetscape of this stream's west-side houses (c.1905; 4.5×3.25 in nitrate negative): at the left edge the bracketed cornice of the Allerton (Thompson) house; then the brownstone château of 1912 Prairie (Moulton/Lowden — Lowden owned it until 1908) with its round corner turret, steep slate roof with crocketed dormers and finial, tall chimney and stone balustrade along the front; then a stone-fronted house with arched porch and bay (1906 Edson Keith); then the mansard of 1900 Elbridge Keith and the long line of the 1800-block houses toward 18th Street; wide paved street with granite-curbed parkway, young street trees, a horse-drawn vehicle in the distance. The catalogue title's 'at 18th Street' conflicts with 'north from the Allerton residence' (Allerton stood at 20th); the image shows the 1900 block from near 20th. House identifications are by comparison with other views, not captioned.",
@@ -3527,7 +3644,20 @@
   "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/1872-1945-prairie-avenue-looking-north.jpg",
   "rights": "public domain",
   "rights_basis": "Commons: public domain in the US (faithful reproduction of a public-domain work)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a19-commons-1945-prairie-looking-north.jpg",
+   "display_bytes": 138529,
+   "thumb": "research/images/files/a19-commons-1945-prairie-looking-north-thumb.jpg",
+   "thumb_bytes": 21057,
+   "original_px": [
+    926,
+    1128
+   ],
+   "original_sha256": "f15d194ee61f4977b1ec46019bb7fda9fcbcfc089961653ebc4b97d9a2f88a03",
+   "original_bytes": 197564,
+   "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/c/c2/1872-1945-prairie-avenue-looking-north.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "WebFetch of Commons Category:Prairie_Avenue file list; image itself seen as Chicagology '1945sprairie.jpg' (a19-cgy-1945-armour)",
   "notes": "Same photograph as a19-cgy-1945-armour: the Armour house at the SE end of the block with its turned-baluster stone railing and corner bay, and the east-side frontage of the 1900 block receding north (stoops, iron fences, parkway trees) — includes the fronts of 1923 Kellogg and 1919 at a distance though not individually legible at Commons resolution (926×1128). Commons date 'circa 1872' is doubtful; the mature trees suggest the 1880s–90s. A companion PNG (File:1872-1945-prairie-avenue-chicago-il.png, 353×438, 'source: Google Books') shows 1945 Prairie as well. Not downloaded (Commons upload server rate-limited this session).",

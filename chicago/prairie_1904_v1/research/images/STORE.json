@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 44959345,
+ "bytes": 74278737,
  "files": {
   "a16-albertype-1890-pullman-residence-thumb.jpg": {
    "bytes": 35938,
@@ -757,6 +757,14 @@
    "bytes": 408879,
    "sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f"
   },
+  "a19-chm-ichi66015-west-side-north-from-allerton-thumb.jpg": {
+   "bytes": 12405,
+   "sha256": "72cb62d4d1e4517de360c1edb680ef0c3ae084efdf645a1e6a2fe638aaad8c8a"
+  },
+  "a19-chm-ichi66015-west-side-north-from-allerton.jpg": {
+   "bytes": 31595,
+   "sha256": "d7d48df330921c0aaeb399cc41cabf4d814a72d611c2432a3c2443e11c18fa72"
+  },
   "a19-clarke-habs-photo-061183-thumb.jpg": {
    "bytes": 44219,
    "sha256": "487a5a99af24ba152b2f4d356877e10d15ca51e7919559c55a11e3299010cd02"
@@ -797,6 +805,14 @@
    "bytes": 155971,
    "sha256": "f8e19691d8617dee5b05b33bff04bfe39bfd29776f6372b537dcfcaac0ef0086"
   },
+  "a19-commons-1945-prairie-looking-north-thumb.jpg": {
+   "bytes": 21057,
+   "sha256": "b212b906a105815ab489c78c89ab2961d824148f35c4e5e5d25e838fa6ea2844"
+  },
+  "a19-commons-1945-prairie-looking-north.jpg": {
+   "bytes": 138529,
+   "sha256": "7ddd83063dcf7d407367f5e31c04a91327834adcb71530cb6271e8d2b615d81b"
+  },
   "a19-field-cdn-dn0003324-thumb.jpg": {
    "bytes": 29980,
    "sha256": "185a1c12ed958c8806fde536ed1c94e76a1e031817a7d200150f410ccdb75adf"
@@ -805,6 +821,14 @@
    "bytes": 54476,
    "sha256": "69af6f6f8fab65746096090d5f81ca7bc486515bf769ca00690bc01f3b292423"
   },
+  "a19-hb-1904-2ndpres-candelabra-thumb.jpg": {
+   "bytes": 26464,
+   "sha256": "291ec32ab510286ecf6734f430729f6e532111e2808930077023c4b996137e9d"
+  },
+  "a19-hb-1904-2ndpres-candelabra.jpg": {
+   "bytes": 231823,
+   "sha256": "ed0d5f649c19d4673405af06dc3a7f44077511db4b882f662db6fb04612083d8"
+  },
   "a19-hb-1904-2ndpres-interior-thumb.jpg": {
    "bytes": 28974,
    "sha256": "f814beb53e30d1dff58e3ea9ae878edbf0bfef3cc0297ada0c37954fa69e0c8d"
@@ -812,6 +836,22 @@
   "a19-hb-1904-2ndpres-interior.jpg": {
    "bytes": 196574,
    "sha256": "a8dacaf8a6d154f2bf70ce96063795c5b2ff740df7816410eb08ca128423b690"
+  },
+  "a19-hb-1904-2ndpres-mural-thumb.jpg": {
+   "bytes": 24822,
+   "sha256": "4141665e6818bcacfebdeebc83b52b0f5c17f259dca7299a4885d44fedd797cd"
+  },
+  "a19-hb-1904-2ndpres-mural.jpg": {
+   "bytes": 241934,
+   "sha256": "a9ee4449a1da7f513dda6038aae6805fb38a55442f4480b367199b814261ea9f"
+  },
+  "a19-hb-1904-2ndpres-windows-thumb.jpg": {
+   "bytes": 26011,
+   "sha256": "e90fc18d76c8e9d96157cd51faabc5a04bb51d8c6a13a9a2781cfa7b1e1dd913"
+  },
+  "a19-hb-1904-2ndpres-windows.jpg": {
+   "bytes": 222527,
+   "sha256": "e96770171c173d4a4713fd71c1671e6ff7e3268c2a18c93aa64f646f5bfa07a0"
   },
   "a19-nby-newchicagoalbum-1883-residences-thumb.jpg": {
    "bytes": 32058,
@@ -853,6 +893,22 @@
    "bytes": 324700,
    "sha256": "7abdb63399c1f20145f3271dfc6ca855267a27d0fa38ec37cd2b59b2de27e4a8"
   },
+  "a19-pictorial-1896-field-thumb.jpg": {
+   "bytes": 22023,
+   "sha256": "b5390b9943b0a184d735cf42e053307b9043450064f1ddc9c220d4b199dafdd4"
+  },
+  "a19-pictorial-1896-field.jpg": {
+   "bytes": 180390,
+   "sha256": "8f9dbcd3dc60af1bf8f0c1afee1e891eeb60d32bf96ee68390e49d2138bee6b0"
+  },
+  "a19-pictorial-1896-ream-thumb.jpg": {
+   "bytes": 20425,
+   "sha256": "ec8a0a7848b097a34def4558981fb2c8f38d5ccd13f34a9f1b4b14b4cc55e102"
+  },
+  "a19-pictorial-1896-ream.jpg": {
+   "bytes": 166533,
+   "sha256": "d841e4a9e5282291b1ba905114722e73eeceb2ff33de7361fda6f7f8ba54fc7b"
+  },
   "a19-rebj-1884-murray-permit-thumb.jpg": {
    "bytes": 44498,
    "sha256": "9b73272b871df8cfcf3f5fefc6f36cebc61e795b84ff65d4bfe2c1be1f2d20b2"
@@ -860,6 +916,22 @@
   "a19-rebj-1884-murray-permit.jpg": {
    "bytes": 1051004,
    "sha256": "eff053507d639d618308832fff83e88e57182d66d176ebe2334444a44f47d70b"
+  },
+  "a20-chicagology-2026-wahl-landowner-1874-thumb.jpg": {
+   "bytes": 33559,
+   "sha256": "d5a53bdc586078ef68130f89ed1846150b625e43c28586050864ca4456b587ae"
+  },
+  "a20-chicagology-2026-wahl-landowner-1874.jpg": {
+   "bytes": 253030,
+   "sha256": "f09857bdce3dcfe247a804f71d873471ae1ecf2699c66a2be5a02092d09dcd48"
+  },
+  "a20-glessner-tribune-1891-house-move-sketch-thumb.jpg": {
+   "bytes": 45199,
+   "sha256": "e055e11af8e0754d17e30b93373a91194ab9bd6ea96da1df018f36793c048530"
+  },
+  "a20-glessner-tribune-1891-house-move-sketch.jpg": {
+   "bytes": 104586,
+   "sha256": "0a251cda1c73e99187a412c98fd1e0e4403eead335fb61f8c5888c757020751a"
   },
   "a20-ia-1895-02-reid-plate-thumb.jpg": {
    "bytes": 32674,
@@ -894,296 +966,972 @@
    "sha256": "c2fc6b70f15d237949eb3c4e3aae042e805c387f63e39cdd92264bcaeb964436"
   },
   "cgn-1600-robinson-1886-thumb.jpg": {
-   "bytes": 23227,
-   "sha256": "080fb1b517ed8288c2a9355a838f06e80ea8bb955bddb7d660a1c3474d721134"
+   "bytes": 15223,
+   "sha256": "1b0e8e75cefb65ceaa2154d90da310c753ef3a65bd4b02099d3ff59891395294"
+  },
+  "cgn-1600-robinson-1886.jpg": {
+   "bytes": 254136,
+   "sha256": "15a60d4c528b4aead6b12c9f56037ef878f67dec0d712886b463b7f6eb9096b2"
   },
   "cgn-1608-robinson-1886-thumb.jpg": {
-   "bytes": 23147,
-   "sha256": "520e2d43d9e04797ab07c4006e32fe67f6748036203b1848277697775f6ac42e"
+   "bytes": 15141,
+   "sha256": "9625f4ec510e57291305a9054d15b0a55c2bf74fb142bdd5313dc7f3ce9ff1b4"
+  },
+  "cgn-1608-robinson-1886.jpg": {
+   "bytes": 253763,
+   "sha256": "24f4d244a4066f5d09e58d02e4e110e5398c06c7610f1f4625b563ea0ad531bb"
   },
   "cgn-1611-robinson-1886-thumb.jpg": {
-   "bytes": 22542,
-   "sha256": "7daf2cd9f75fb60fca448ff7f91889857439e5395008a17fb8f1222ac7c8052a"
+   "bytes": 14396,
+   "sha256": "472642e87bcfa68d6be3a9ff3d5a935d82ae43b458530ec8951a9e166f83f71e"
+  },
+  "cgn-1611-robinson-1886.jpg": {
+   "bytes": 272574,
+   "sha256": "dd5454aa701105fa5aea8467d406954c71b98f7182c0d4ef9409b9192477d230"
   },
   "cgn-1612-robinson-1886-thumb.jpg": {
-   "bytes": 23118,
-   "sha256": "b3006f5f38e983a3c0e19e4fe85be73af775e1d346b1e0f23e3fc97f653a2660"
+   "bytes": 15101,
+   "sha256": "d074aed84e07cd0580763e7d8448177e9848ef97fff0a627c6c7a5f624424f39"
+  },
+  "cgn-1612-robinson-1886.jpg": {
+   "bytes": 253722,
+   "sha256": "c940752e10429a4ee19ed4c7aea984f7d6df5a70b0436b3b74b18f403043c84e"
+  },
+  "cgn-1612-tribune-1905-mrs-brown-headline-thumb.jpg": {
+   "bytes": 22400,
+   "sha256": "ab87ad0ec369dbf4384bf1036561696a3cf51fda17e6e4c8c744b001c67863d8"
+  },
+  "cgn-1612-tribune-1905-mrs-brown-headline.jpg": {
+   "bytes": 44651,
+   "sha256": "14423bf157358779f2b97246dea044e701003e9f99eb00f5d13b290fafa27d71"
   },
   "cgn-1613-robinson-1886-thumb.jpg": {
-   "bytes": 22594,
-   "sha256": "d704c89d6c22a2478edde7548a018505b8d5beed0821c95912e8913b49e5a984"
+   "bytes": 14408,
+   "sha256": "8c6364231d3d959f378669ab6579d95f0b4d928f71d6c4be202f11bb086c6adc"
+  },
+  "cgn-1613-robinson-1886.jpg": {
+   "bytes": 272713,
+   "sha256": "a4235a995c9e65532b00c201a085f77be104dfa870e778b3b146ae8a81b2b179"
   },
   "cgn-1616-robinson-1886-thumb.jpg": {
-   "bytes": 22535,
-   "sha256": "f1de377411462cd7b9512f0cd76d84273641715e6e1e2d15d2544f665302e680"
+   "bytes": 14367,
+   "sha256": "c2ea9d11f483d7ee299f4a31ef3d72715976a795e39789168b722ad2af615942"
+  },
+  "cgn-1616-robinson-1886.jpg": {
+   "bytes": 272425,
+   "sha256": "b5feb3ea2a6097e091bd7c0bbf09cec12789283852826e8bd945193b8efe5654"
+  },
+  "cgn-1619-1625-building-budget-hamline-farwell-thumb.jpg": {
+   "bytes": 32183,
+   "sha256": "02461ce4c2447c0bae1dfe1619334e02ba7f4947b4808e910b871ac4ceb8c2b2"
+  },
+  "cgn-1619-1625-building-budget-hamline-farwell.jpg": {
+   "bytes": 146230,
+   "sha256": "1a7240d2b6c3a6c6247ef54d07c767840dd9faeef648ae29be808ef74753ba67"
   },
   "cgn-1619-robinson-1886-thumb.jpg": {
-   "bytes": 23159,
-   "sha256": "6fe6066d7e157de859533f0c42f7b5e1a3b5719925a2528e98f06e7da66783ee"
+   "bytes": 15176,
+   "sha256": "bb96326ec1cab47daadc0fa4ab46aec0babdb232003947c2068a0af1ed14968e"
+  },
+  "cgn-1619-robinson-1886.jpg": {
+   "bytes": 254030,
+   "sha256": "4034c3cf4e745fdd9ca4b47e9bfdd150614ed594fe2c99aca9395405232bafaa"
+  },
+  "cgn-1619-tribune-1883-furniture-auction-ad-thumb.jpg": {
+   "bytes": 19677,
+   "sha256": "d21d305cc4b9997f2688dd56bc0e02bfbd2bd90bfeabda082fc629eb8d8928f1"
+  },
+  "cgn-1619-tribune-1883-furniture-auction-ad.jpg": {
+   "bytes": 106581,
+   "sha256": "3afba2ad28d7f7b4e79b0d2f88ef0df7dd98f22570bf798c351485d62beef11e"
+  },
+  "cgn-1620-law-coal-directory-ad-1887-thumb.jpg": {
+   "bytes": 20970,
+   "sha256": "99c1e3bfd5453c6d9af2ac27ae5ad031e135bbef8302076483b05f64e643c5f8"
+  },
+  "cgn-1620-law-coal-directory-ad-1887.jpg": {
+   "bytes": 108558,
+   "sha256": "1af14766cce2c1ff3fca7e26850b1796fb242c23c0653b22c59a181eddb9b13d"
   },
   "cgn-1620-robinson-1886-thumb.jpg": {
-   "bytes": 23086,
-   "sha256": "c316d56491b36922dbfe6a00ca7a02ae1befd9c6735c4a61a46da6c43be3b376"
+   "bytes": 15129,
+   "sha256": "072836d7242b9c2dbecb8d93bf86625a8677217cbba89decc7f214042bc21d23"
+  },
+  "cgn-1620-robinson-1886.jpg": {
+   "bytes": 253477,
+   "sha256": "49b1c41fc1c6bcf5e4d6d314cd590da2390f498a5fd0624ba13c27879e0e67d3"
+  },
+  "cgn-1620-tribune-1898-robert-law-headline-thumb.jpg": {
+   "bytes": 24593,
+   "sha256": "4058c7a832aa1653e119d62cf1a82d956266a9ba2821516944c0426cdb5ccfed"
+  },
+  "cgn-1620-tribune-1898-robert-law-headline.jpg": {
+   "bytes": 92174,
+   "sha256": "9dc60c2f58080ed73044fa91286c3b17018788223cea407ae55c7b143646f5b8"
+  },
+  "cgn-1620-tribune-1898-robert-law-portrait-thumb.jpg": {
+   "bytes": 43010,
+   "sha256": "f65221519246813f741bd413f324976b38163118d63a46718ba6ec845b228525"
+  },
+  "cgn-1620-tribune-1898-robert-law-portrait.jpg": {
+   "bytes": 312831,
+   "sha256": "0a98116e99b060f91262231c878d0a247e681cca6882ff1b7c0b898b6f2c00b7"
   },
   "cgn-1621-robinson-1886-thumb.jpg": {
-   "bytes": 22644,
-   "sha256": "ad641af78090253066dcf1a1fe4b35b979cd5d52e9c512ee819f7f8c30317331"
+   "bytes": 14454,
+   "sha256": "64d8ea8ed3da80ef8d1f04354b1a55fa1e0cb170ac04cedc7d6b06b93a337585"
+  },
+  "cgn-1621-robinson-1886.jpg": {
+   "bytes": 272939,
+   "sha256": "75abcb02ca56ab3ec8289595ac1fe0f5077c278532e751e59239c35b84abcbb4"
+  },
+  "cgn-1625-mcbirney-inland-1890-copy-thumb.jpg": {
+   "bytes": 20750,
+   "sha256": "69be949cc96bd954f1a26f5a0a31290a5b66c3a8c82d034fc21e58a69f08250f"
+  },
+  "cgn-1625-mcbirney-inland-1890-copy.jpg": {
+   "bytes": 74508,
+   "sha256": "a237b1424e388c09a55cd371102bfb4c11789452f1cc1ed315abe9bedda26e5b"
   },
   "cgn-1626-robinson-1886-thumb.jpg": {
-   "bytes": 23132,
-   "sha256": "0262b05dc01660f390152118870cff72baf8b4d8b7f976f80db4cb655c34d752"
+   "bytes": 15109,
+   "sha256": "4dad52d821f41ec1a81c0ee0c6c88187bc26e94f5d0012d9482f515619bf0593"
+  },
+  "cgn-1626-robinson-1886.jpg": {
+   "bytes": 253680,
+   "sha256": "b797cb56244e93f0458d3e062568699744f635b8dd9be324d99dc4fd14f3075b"
   },
   "cgn-1628-robinson-1886-thumb.jpg": {
-   "bytes": 23127,
-   "sha256": "a98b08fb1e0994bfb3ea1ef36a7798861df3c435ab62625b1b3abfcd42015d9b"
+   "bytes": 15116,
+   "sha256": "9dabbbcb6cf4a22543c9d48329052605dda0c79e4885c3fd568894413d45e69d"
+  },
+  "cgn-1628-robinson-1886.jpg": {
+   "bytes": 253599,
+   "sha256": "207670e8a29ffea372085a0d948cd0f121702762d371f755468c8b76182ebcd7"
+  },
+  "cgn-1628-tribune-1876-einstein-dissolution-thumb.jpg": {
+   "bytes": 27263,
+   "sha256": "19eabde8d19f387e49354dc969caedd1a8c7a482d0d645f36d5052b92d004707"
+  },
+  "cgn-1628-tribune-1876-einstein-dissolution.jpg": {
+   "bytes": 144975,
+   "sha256": "0345f92fd411c43bb9c17caafe7c934d17cdbe2a534029a517bdbffd62b19bb3"
   },
   "cgn-1630-robinson-1886-thumb.jpg": {
-   "bytes": 22513,
-   "sha256": "d87aa2cd8f87e4ff945df5368ee9afd30d398bc0f2a985ece83a8924f3827f27"
+   "bytes": 14352,
+   "sha256": "567361cccb1650d6d08f50af5a5140fb48dfc3b9b1084ecee7253c2d7f1bd60a"
+  },
+  "cgn-1630-robinson-1886.jpg": {
+   "bytes": 272577,
+   "sha256": "6ec38e8ce5c2d129a81246062d8bb7c39ba63987f969a5d4504c3837f4304eeb"
+  },
+  "cgn-1634-inter-ocean-1893-springer-headline-thumb.jpg": {
+   "bytes": 6904,
+   "sha256": "43161e5732c7724fd7e556c2ee61b71b4efff9a48353c010d8a69f26b5949654"
+  },
+  "cgn-1634-inter-ocean-1893-springer-headline.jpg": {
+   "bytes": 30105,
+   "sha256": "7a4c8761ecd3a0e106e1bec6ae3027fcb1d91c6f779749adc089e2367ca9536d"
   },
   "cgn-1634-robinson-1886-thumb.jpg": {
-   "bytes": 23103,
-   "sha256": "0e8a5db134e8bdbd79c4ec39c0106a45ad9ac82a2b1fd27fb21e3de86d69f5be"
+   "bytes": 15096,
+   "sha256": "957bc5d420f37eaeaba46c59a1c72d6b9564894b91368cb62bb19c09cc866363"
+  },
+  "cgn-1634-robinson-1886.jpg": {
+   "bytes": 253466,
+   "sha256": "28748ecb0605edbe99db3eb661cbdfda54d4ee9e4f3ae6429656af22266591c3"
+  },
+  "cgn-1634-tribune-1880-auction-ad-thumb.jpg": {
+   "bytes": 38504,
+   "sha256": "a9a702b635b8a703bb7fb6314f1066a0d3b1a027c854525a61bb5971c468e03a"
+  },
+  "cgn-1634-tribune-1880-auction-ad.jpg": {
+   "bytes": 195608,
+   "sha256": "505438eabce092f342d368221f7f3b1c9688236c9cff443d6a9d279d1b49c5a7"
   },
   "cgn-1635-robinson-1886-thumb.jpg": {
-   "bytes": 22635,
-   "sha256": "dd8e2fad8d6bb21203edd6683c309358d2410f799407c906e9637543ff5a765b"
+   "bytes": 14450,
+   "sha256": "e23e4dd644581f6a0a6da2fdf80757a49c584e1270ff2317a7424bf78f381393"
+  },
+  "cgn-1635-robinson-1886.jpg": {
+   "bytes": 273127,
+   "sha256": "6def3fbdccef31fca072d9ea68f8e27cbea14e5531eeb1acb366799bfcbd334c"
+  },
+  "cgn-1635-tribune-1905-herrick-headline-thumb.jpg": {
+   "bytes": 16518,
+   "sha256": "c698b8820a4e643219d96f6a6e4a2eb2e42b9fbfcab1b7d07edd3e7f490f16a0"
+  },
+  "cgn-1635-tribune-1905-herrick-headline.jpg": {
+   "bytes": 140544,
+   "sha256": "37287d7c458770e90e6b186d43b235fe2c871c97ce4c74b003b9dc01e3dcf287"
   },
   "cgn-1636-robinson-1886-thumb.jpg": {
-   "bytes": 23097,
-   "sha256": "622bf065ce253ac8473959596d83c8d30484a51210cf400d1e886b029b1ba2a0"
+   "bytes": 15104,
+   "sha256": "e4604334625adb9573fa5602e9b28047f1cb9798ec334844ae6262891bdb42ce"
+  },
+  "cgn-1636-robinson-1886.jpg": {
+   "bytes": 253622,
+   "sha256": "a8a23ac6711ff5cede6a15816ab18788c7438adf07a0fe61810b7dca7798ce71"
   },
   "cgn-1637-robinson-1886-thumb.jpg": {
-   "bytes": 22594,
-   "sha256": "938cea3b961247ffc08f13130a5faadbf7cdb62a9a2db91c10e8c427b43e8242"
+   "bytes": 14424,
+   "sha256": "1543705cbc777837bf550a9ca3bd4ac82871d626b13f0c8a118ee6e9168be890"
+  },
+  "cgn-1637-robinson-1886.jpg": {
+   "bytes": 272953,
+   "sha256": "e6c02bb2bf0b7d15f6b9869d20a326e29e7bd3ef4039f528af816c97b88f957c"
   },
   "cgn-1638-robinson-1886-thumb.jpg": {
-   "bytes": 23080,
-   "sha256": "f7ceec2fe6794f47cc670163781723edcb1d444fc5dc21d1b93dba244b180f18"
+   "bytes": 15098,
+   "sha256": "b6d9a18a9a1520b69b18591667690a455cc36643c9dda9a9cd7570aca2660a74"
+  },
+  "cgn-1638-robinson-1886.jpg": {
+   "bytes": 253394,
+   "sha256": "de06d4a5e438bc155bd65befda743c466557530f6a53349ade09598902d1ed53"
+  },
+  "cgn-1638-tribune-1880-gregory-hibbard-headline-thumb.jpg": {
+   "bytes": 25483,
+   "sha256": "16cc454782f91287ff8632e6412e6c52c2dd10b15b1937a9bed757683ec5f3c5"
+  },
+  "cgn-1638-tribune-1880-gregory-hibbard-headline.jpg": {
+   "bytes": 124837,
+   "sha256": "df49616eef7e29a92611d472f005cecc8190e13d19bc93fe26f596962678f763"
   },
   "cgn-16th-station-robinson-1886-thumb.jpg": {
-   "bytes": 23124,
-   "sha256": "0e371835f4cea3a0e4e2adde6ec54cc9241561bd96d9d2aed8bc603b54c3fdfa"
+   "bytes": 15123,
+   "sha256": "364386c27adff86dca8f49631618fee5efd9b07aad3f16a0fdc4384f89eff2d6"
+  },
+  "cgn-16th-station-robinson-1886.jpg": {
+   "bytes": 253666,
+   "sha256": "7cd2acdd81810053ed0dd528738f5e677f1165edaeac820aa49a1ebaa2019ee5"
+  },
+  "cgn-16th-station-tribune-1886-sketch-thumb.jpg": {
+   "bytes": 19943,
+   "sha256": "446b782313984024045688a245da1483bf7d40699760caae1eea7bf60437c60e"
+  },
+  "cgn-16th-station-tribune-1886-sketch.jpg": {
+   "bytes": 58304,
+   "sha256": "be2945966b2f373bc4f446309723d37c3ae283a59a3bbfd5e1d0fbf880b821f1"
+  },
+  "cgn-1701-hibbard-spencer-bartlett-store-1899-thumb.jpg": {
+   "bytes": 30644,
+   "sha256": "62121a2bceb613bc9ad4052d1ce22aa94611a2fa43cb2ceb18248c62c245a674"
+  },
+  "cgn-1701-hibbard-spencer-bartlett-store-1899.jpg": {
+   "bytes": 262580,
+   "sha256": "1a680cdbd816ff02ed716555eb29b31622430e0ce3cde7fef68fbf877e350ae6"
+  },
+  "cgn-1701-randmcnally-1893-strip-thumb.jpg": {
+   "bytes": 19576,
+   "sha256": "16340c1559c2ceb2d08f19e54b14dddf6689597a3a75a164edf0e6770c055a42"
+  },
+  "cgn-1701-randmcnally-1893-strip.jpg": {
+   "bytes": 355112,
+   "sha256": "f7f1135bdc432226612c23a94c71882277c0c8b83ca0548c641d67adbc0c9f83"
   },
   "cgn-1701-robinson-1886-thumb.jpg": {
-   "bytes": 23156,
-   "sha256": "a5a9697a04fbad1904ea89a44c713fbb9677d345f21b077d30659498fdf925b8"
+   "bytes": 15127,
+   "sha256": "6fdec5c117c058fd4c97fd8fc2af1c9972ab80e11d72099b8fe74313886b7cdb"
+  },
+  "cgn-1701-robinson-1886.jpg": {
+   "bytes": 253783,
+   "sha256": "fce48ab6b256dbc3ec2d5f32e2dc78cde44910fde832d4166bd5978ef7b40b99"
+  },
+  "cgn-1701-tribune-1903-hibbard-headline-thumb.jpg": {
+   "bytes": 26954,
+   "sha256": "a15e5036f96825553b18e92674965af9b7755e72f331c26e4c8f5d2e6c7f9f51"
+  },
+  "cgn-1701-tribune-1903-hibbard-headline.jpg": {
+   "bytes": 125669,
+   "sha256": "84fceaca8ebfc8132ca6df4490fb6cafec90e08c5db3f73d975a76707ab58727"
+  },
+  "cgn-1701-tribune-1920-mrs-gregory-portrait-thumb.jpg": {
+   "bytes": 15544,
+   "sha256": "bf79c5755c6068cc6c691c1f74db6a26e24fa731c2fdb96a8842a9cdd3e79e2f"
+  },
+  "cgn-1701-tribune-1920-mrs-gregory-portrait.jpg": {
+   "bytes": 90186,
+   "sha256": "b1bd84f5e4b698965eb7dc62dab93d6c8714779fddf4dc272cb8a3f619fece8c"
   },
   "cgn-1702-robinson-1886-thumb.jpg": {
-   "bytes": 23213,
-   "sha256": "6f8f9222f523ffc758016160cf81116955d285471a8c6d22eda42968adc9da37"
+   "bytes": 15194,
+   "sha256": "7ac05b01aa6806801202c82806755ab0ecb5da60b048ed8dfdc6ec7d251b388c"
+  },
+  "cgn-1702-robinson-1886.jpg": {
+   "bytes": 254283,
+   "sha256": "070f7d21333a372a8976cbbd042bdd2e1fbc29a9e0f4c90634549a8b7e1dbf78"
+  },
+  "cgn-1706-us-census-1910-glessner-thumb.jpg": {
+   "bytes": 21820,
+   "sha256": "c90d54326aa5928c6b8050b1acebcf39647aaa45cc02329def05e87f44d5938c"
+  },
+  "cgn-1706-us-census-1910-glessner.jpg": {
+   "bytes": 263917,
+   "sha256": "4757fc3eab2969e81c5e50061d32765e586591ae9747ea2b3d087dd63c6c7f50"
+  },
+  "cgn-1709-evening-post-1868-kellogg-notice-thumb.jpg": {
+   "bytes": 40588,
+   "sha256": "464abb564b4b7693149c5e5e69fd64f19d509dc2bac959c2d7481d9d85ac37b9"
+  },
+  "cgn-1709-evening-post-1868-kellogg-notice.jpg": {
+   "bytes": 209281,
+   "sha256": "281d57e0a26b86b31c9bc4f4da8c0d3e81f62e8aaf9f6a06c8eee05afab0d0d8"
   },
   "cgn-1709-robinson-1886-thumb.jpg": {
-   "bytes": 22607,
-   "sha256": "aaf4345b447c9bc8376ba10224eb59614378d6dd6a589a143f0d1a85489c57f3"
+   "bytes": 14431,
+   "sha256": "0c97c4b6676ee3afb84c455776ade8e3e82e6ca10aa4675f399c56951bb735ce"
+  },
+  "cgn-1709-robinson-1886.jpg": {
+   "bytes": 273024,
+   "sha256": "0578904709c6739a8bc14cbfa531b08c6fdc3c9b857acf514c8334b2fa952442"
+  },
+  "cgn-1712-inter-ocean-1905-kodak-factory-thumb.jpg": {
+   "bytes": 22019,
+   "sha256": "097121865e706f5a2ab5a83c8f3603bf2f4c692f060ee852c3bda70d6908d1ce"
+  },
+  "cgn-1712-inter-ocean-1905-kodak-factory.jpg": {
+   "bytes": 169381,
+   "sha256": "7eda477220b43295bac7488ca5b6acce4ff7126fe15176bd140ce213315501fb"
+  },
+  "cgn-1712-randmcnally-1893-strip-thumb.jpg": {
+   "bytes": 19801,
+   "sha256": "840a617d0f410d91772d570cf9d9f5ff0ae4a33d4861d913439714b8ef1dc486"
+  },
+  "cgn-1712-randmcnally-1893-strip.jpg": {
+   "bytes": 360907,
+   "sha256": "3d65925e905bdc2aa9ae353d533f78c2d21e2eb4fb62bdf71068e420afd5f0bf"
   },
   "cgn-1712-robinson-1886-thumb.jpg": {
-   "bytes": 22485,
-   "sha256": "a67d5370ae3ccebb8fe4d2ba246346a4e7163b4523ce70c8f8a5085ffa2a0e51"
+   "bytes": 14349,
+   "sha256": "95efe2a164676b4ff879b9ad242cd2e3d3d858dd2b5d84cabbe29f119d1a938e"
+  },
+  "cgn-1712-robinson-1886.jpg": {
+   "bytes": 272439,
+   "sha256": "8f23361b22f2032d8fac01db70dcf51ad2a711b982577797d8e3e6b359da8a2b"
+  },
+  "cgn-1720-randmcnally-1893-strip-thumb.jpg": {
+   "bytes": 19807,
+   "sha256": "de2a6ecbc534602029b7d7da9bd9ca30794292cf9028a048eacd24107b0de188"
+  },
+  "cgn-1720-randmcnally-1893-strip.jpg": {
+   "bytes": 360653,
+   "sha256": "fe69964c054d7418f6a8338d3f2750e6a03460543afe4170de8d247b4c2b2000"
   },
   "cgn-1720-robinson-1886-thumb.jpg": {
-   "bytes": 22519,
-   "sha256": "e24a238563c9378f087dc8911667d35dd6da9c96d039d0b0300d741d1cda2509"
+   "bytes": 14370,
+   "sha256": "3904f401bc1df7a6444ceb83b441dd2afe166c18ec4985834d4b321e328aeb5e"
+  },
+  "cgn-1720-robinson-1886.jpg": {
+   "bytes": 272597,
+   "sha256": "55cd1ac098efd7255e9d13778222dbccf647b087ca778f63d5f8fb7b8fc8cd73"
+  },
+  "cgn-1721-randmcnally-1893-strip-thumb.jpg": {
+   "bytes": 20721,
+   "sha256": "d9a6be3a84fd01fa1ae2b0ec1634161d17d38868c595267d324bdf30844ed1db"
+  },
+  "cgn-1721-randmcnally-1893-strip.jpg": {
+   "bytes": 368218,
+   "sha256": "2d8a4469d20236126b001bf1df87498dbe68605d2593c8d0223e6dcadf558afe"
   },
   "cgn-1721-robinson-1886-thumb.jpg": {
-   "bytes": 23113,
-   "sha256": "0532695402b58f153b84a39f5af2bc4701bd10cb663462e433f5fcdf5c109947"
+   "bytes": 15109,
+   "sha256": "6245ef4281f91502570b2cc816b425168295cd263676ea7d521c0a0e6fc2368a"
+  },
+  "cgn-1721-robinson-1886.jpg": {
+   "bytes": 253738,
+   "sha256": "095ae63818ea700d1e3b689efb666ae0f9c66b59f41500f773bfeeb915a1601e"
+  },
+  "cgn-1721-tribune-1890-dexter-headline-thumb.jpg": {
+   "bytes": 20532,
+   "sha256": "83020cd16a9fdaf3b49a5122e5c40f3be39830fe1b3b4bd1b3a2ae145fe367d1"
+  },
+  "cgn-1721-tribune-1890-dexter-headline.jpg": {
+   "bytes": 23676,
+   "sha256": "6709a763d01a6d41ee635dbf89b729db0898ad8c99dc777a73de6542fdb99e26"
+  },
+  "cgn-1721-tribune-1890-dexter-portrait-thumb.jpg": {
+   "bytes": 13038,
+   "sha256": "5dbf2341c48d695061badcddefce6cb29e5ba45151303a5fdd3421527d8bf627"
+  },
+  "cgn-1721-tribune-1890-dexter-portrait.jpg": {
+   "bytes": 13038,
+   "sha256": "5dbf2341c48d695061badcddefce6cb29e5ba45151303a5fdd3421527d8bf627"
   },
   "cgn-1726-robinson-1886-thumb.jpg": {
-   "bytes": 23112,
-   "sha256": "e20717c93dd557d19308b4297b2dd3d3c793574b61844fb3b525415036d20abf"
+   "bytes": 15099,
+   "sha256": "16bc129626082dfefeef69d9828b5a091af8c2c6b55a1841c328c637f0b4a10a"
+  },
+  "cgn-1726-robinson-1886.jpg": {
+   "bytes": 253470,
+   "sha256": "ea30dad4ef5756b0327a5efccbd8c73a86269757819d7df315ebf5746ec18527"
+  },
+  "cgn-1729-andreas-1884-historic-tree-copy-thumb.jpg": {
+   "bytes": 33580,
+   "sha256": "d56abb58e1230701068cf3869f75da21548a82c77d81597ffb44c7c5eed0c914"
+  },
+  "cgn-1729-andreas-1884-historic-tree-copy.jpg": {
+   "bytes": 402254,
+   "sha256": "0a20e48e13ebb6eab283507cb731ce6a8dbb58612b666b3522b287803bf8f004"
+  },
+  "cgn-1729-inter-ocean-1892-history-in-bronze-headline-thumb.jpg": {
+   "bytes": 19337,
+   "sha256": "376124afd75d4840450d6fb0d7151e23a0f47b2aa52d4b9b5983b9fdf1e9ec67"
+  },
+  "cgn-1729-inter-ocean-1892-history-in-bronze-headline.jpg": {
+   "bytes": 23353,
+   "sha256": "1971a49c8e47545859cd7c4baebbdcf7cda6c8aaedb16734b44a34cf349dd30c"
+  },
+  "cgn-1729-inter-ocean-1892-monument-views-thumb.jpg": {
+   "bytes": 19567,
+   "sha256": "c3da28f9daef1077118f033a637bb3d0b2092179a0ff5d2f933589338fed1862"
+  },
+  "cgn-1729-inter-ocean-1892-monument-views.jpg": {
+   "bytes": 105990,
+   "sha256": "ff1b5d202ee5b962b8cc3a25a996b350f74f5b8ae14e4a722748c8361abaab37"
+  },
+  "cgn-1729-pullman-1901-detroit-copy-thumb.jpg": {
+   "bytes": 20732,
+   "sha256": "155c224c4002f83a2d58b35319c26a1eb2eaa18c64f976485d460836eafc6fbc"
+  },
+  "cgn-1729-pullman-1901-detroit-copy.jpg": {
+   "bytes": 175783,
+   "sha256": "19a9915106eeb64dff259c3bdff54aa35df5f0786dd8beb9cbf3496e6901e240"
   },
   "cgn-1729-robinson-1886-thumb.jpg": {
-   "bytes": 23133,
-   "sha256": "848b94d396058ec4a9d038e6d05e91190d1423af49a9a8a2f930ee84c644894a"
+   "bytes": 15100,
+   "sha256": "6ba16c280c2a8d7aa19890f7df594e5557cc0f8a82447eb5e6aad069117db8af"
+  },
+  "cgn-1729-robinson-1886.jpg": {
+   "bytes": 253638,
+   "sha256": "0560283057e2cc4fe6fe0c183725d8f614836ca8dafeacc3de590460a82bd1e7"
+  },
+  "cgn-1729-tribune-1894-chips-for-souvenirs-headline-thumb.jpg": {
+   "bytes": 24362,
+   "sha256": "5f9c077f9211b801d7d767de4d9b79e64735941d7ca5eee79188597d21532fb5"
+  },
+  "cgn-1729-tribune-1894-chips-for-souvenirs-headline.jpg": {
+   "bytes": 116880,
+   "sha256": "2d7fbc276f0dabad96d8c0b95e8fcb5456fdb86c4638fc39389ccc9a1e2c4cc1"
+  },
+  "cgn-1729-tribune-1894-tree-destruction-sketch-thumb.jpg": {
+   "bytes": 15782,
+   "sha256": "9ec4bc9be622f8bb08dd702199d641896fe8d96e7422dd3a2da2441e3914b77d"
+  },
+  "cgn-1729-tribune-1894-tree-destruction-sketch.jpg": {
+   "bytes": 95544,
+   "sha256": "a00c1ad0d6b3ee2cb803fe7db6e4d0c92b4138ecc80b2767aa1f65a1b3a1ae43"
+  },
+  "cgn-1729-tribune-1894-tree-placard-thumb.jpg": {
+   "bytes": 8053,
+   "sha256": "63dcc940c6116070af490fa50116f24c8c90dc88f075dffbaed0f37085caf047"
+  },
+  "cgn-1729-tribune-1894-tree-placard.jpg": {
+   "bytes": 36647,
+   "sha256": "386c4de25a9c01b3ad3d96af9de1303a3d88f9475f004a0d27e20472d67965ee"
+  },
+  "cgn-1729-tribune-1899-butterflies-headline-thumb.jpg": {
+   "bytes": 27755,
+   "sha256": "67504b44992d7ff11e6e67dfdf361906c708c02d1017f297ea438bb4a7278453"
+  },
+  "cgn-1729-tribune-1899-butterflies-headline.jpg": {
+   "bytes": 153167,
+   "sha256": "4282223ee18cf5de38c3a3496a68ab85e05b4c3cf9446b5c5fc8b5ddd1a0e94b"
+  },
+  "cgn-1729-tribune-1921-mrs-pullman-headline-thumb.jpg": {
+   "bytes": 10392,
+   "sha256": "8c1fca01fad7bef9dd7363e415b918fbdfa5b567d7f403d8a18e226d204f40ca"
+  },
+  "cgn-1729-tribune-1921-mrs-pullman-headline.jpg": {
+   "bytes": 69260,
+   "sha256": "b592ba2c56ab1854539ea02490036c98acee707898945e0ee7d2053314c4cdac"
+  },
+  "cgn-1729-tribune-1921-mrs-pullman-subheadline-thumb.jpg": {
+   "bytes": 20007,
+   "sha256": "f82b324937f7d50e3ee823aab47838659cad8a4822af90aee7b163a58b7aa938"
+  },
+  "cgn-1729-tribune-1921-mrs-pullman-subheadline.jpg": {
+   "bytes": 26081,
+   "sha256": "7afb19ae643cb9da7dacd98666539c0c602ebda5e3244b76702a1c8d72d6d00d"
+  },
+  "cgn-1729-tribune-1921-three-generations-thumb.jpg": {
+   "bytes": 44141,
+   "sha256": "9830480ae1642ef39712bcc3ab84a870ad2483be9d9b91acb456daad2172d108"
+  },
+  "cgn-1729-tribune-1921-three-generations.jpg": {
+   "bytes": 511455,
+   "sha256": "17c25c0c7a00af81b1c5bcabd74179bff95c7a11157be5ac612837a7297513a3"
   },
   "cgn-1730-robinson-1886-thumb.jpg": {
-   "bytes": 22517,
-   "sha256": "e7d2fb1e42757a5ab9e5f6e4dd2a5efded51021095c5d83ab387b804ae87562a"
+   "bytes": 14351,
+   "sha256": "5be9cd6865f6ca0a660c2c5a27529174e59b9d86159e90f4c3252965e5a2d646"
+  },
+  "cgn-1730-robinson-1886.jpg": {
+   "bytes": 272698,
+   "sha256": "e75fe16d488d036b005703ac9a30f1a557feaf0d2dcc45319e8b83580a2e945a"
+  },
+  "cgn-1736-randmcnally-1893-strip-thumb.jpg": {
+   "bytes": 19848,
+   "sha256": "d5041408299b8358661628209285b1fbf8c70e34659235b373341d9351b51ff9"
+  },
+  "cgn-1736-randmcnally-1893-strip.jpg": {
+   "bytes": 360856,
+   "sha256": "c40585ad47d264a762ac3768833bf49808db89bdbdb42fff3355d62e6fa4ed59"
   },
   "cgn-1736-robinson-1886-thumb.jpg": {
-   "bytes": 23089,
-   "sha256": "8d08c5a2b80e8e814e79b983f816a1131528df369eb723b48b55a17a038b2634"
+   "bytes": 15098,
+   "sha256": "b02a6e44742d8c776be1ef7c8bcf4552bf1a6b3cab212bd2c333f355b100de36"
+  },
+  "cgn-1736-robinson-1886.jpg": {
+   "bytes": 253582,
+   "sha256": "6734e64c6a80a50a6875972a1e3f4e468c3205c05c2bb2be326d1aa2488a8f27"
   },
   "cgn-1800-robinson-1886-thumb.jpg": {
-   "bytes": 23155,
-   "sha256": "0ad68fca3773e66f73b58d700b0ac7f1ddd42b1da81c0dcf396ec93619b60d33"
+   "bytes": 15156,
+   "sha256": "f568368d3c1736d1314528ef7de4ba9a199501fbc08cd5cf763022a8b0654bfa"
+  },
+  "cgn-1800-robinson-1886.jpg": {
+   "bytes": 254217,
+   "sha256": "bde1464130a1bf18b4c73db0bbfb9d1e1e643c4b6bdb10f4ef40c6c150d52cb9"
+  },
+  "cgn-1801-randmcnally-1893-strip-thumb.jpg": {
+   "bytes": 19833,
+   "sha256": "ef805a5507883d54f9d399f441db6a0e2e25f69d16e66c517cce89e0ce0d5856"
+  },
+  "cgn-1801-randmcnally-1893-strip.jpg": {
+   "bytes": 356825,
+   "sha256": "b989b21c9761c2778eaed3d2a248ddda7800f7ebbfb6d7a03a58a3a5bfb03d30"
+  },
+  "cgn-1801-tribune-1904-kimball-headline-thumb.jpg": {
+   "bytes": 24351,
+   "sha256": "36029d118c65adbc596517ff43fd2cb7bbf7b824cc23c6c93372c88b638c3290"
+  },
+  "cgn-1801-tribune-1904-kimball-headline.jpg": {
+   "bytes": 121797,
+   "sha256": "4ec4cc29bd35d15cace5dd3b8d09890aa935885d87235c277e431ce9d2584e08"
+  },
+  "cgn-1801-tribune-1924-kimball-auction-ad-thumb.jpg": {
+   "bytes": 22108,
+   "sha256": "6e15c399c4bfaf6d4364c607630c6f669c69dfc378f47ef42c629c5ae1c4ff16"
+  },
+  "cgn-1801-tribune-1924-kimball-auction-ad.jpg": {
+   "bytes": 109862,
+   "sha256": "ab30d7bce6f1697cce59da4df0e2db05bc9637d67762daef0070f5fb74354643"
+  },
+  "cgn-1804-landowner-1874-double-house-thumb.jpg": {
+   "bytes": 29861,
+   "sha256": "f1369bd7d194327c3e1b329c5a180b11194a002041843e4d7fe215cd1a71063d"
+  },
+  "cgn-1804-landowner-1874-double-house.jpg": {
+   "bytes": 99794,
+   "sha256": "be951d92a061bab3bd1682b45358b0ee1ce98c875d40e61bae2d5088d3149105"
+  },
+  "cgn-1808-inland-1888-keith-copy-thumb.jpg": {
+   "bytes": 23495,
+   "sha256": "620ba8e9943630f0ee3d702d7fcb024cd3de1394ed7d16d6eec83bc109d26b20"
+  },
+  "cgn-1808-inland-1888-keith-copy.jpg": {
+   "bytes": 113261,
+   "sha256": "b32fe308a5bc60e7b93bc1ac750da382523cd5c293b435b827b5f0e898625ad1"
   },
   "cgn-1808-robinson-1886-thumb.jpg": {
-   "bytes": 23181,
-   "sha256": "b8104c56e7a81fe7f49982c6d43393f0bafe8730525e58c5a7730761c9333c0e"
+   "bytes": 15169,
+   "sha256": "8fa7c80ebc64b5e8c30940d98f1fab683c46793574bcd4bbf7b63e19422bd32e"
+  },
+  "cgn-1808-robinson-1886.jpg": {
+   "bytes": 254265,
+   "sha256": "a78b5501871b6655588bf07c33696931742522c31729614f16d4b364b1b0c074"
   },
   "cgn-1811-robinson-1886-thumb.jpg": {
-   "bytes": 22621,
-   "sha256": "eee15c9b6e0a26aaeebe97e0d51f897caf62b789da05a9af1cc53a77666ed9c7"
+   "bytes": 14428,
+   "sha256": "de1c2e875bb2ae8568448950178571c7ce9c29977c2fcf2581e8828e37f2b236"
+  },
+  "cgn-1811-robinson-1886.jpg": {
+   "bytes": 273059,
+   "sha256": "3dd64b7997a543290616d45ecc99da0ba476bc3f9f44563a442774cd28037a45"
+  },
+  "cgn-1811-tribune-1894-ames-for-sale-ad-thumb.jpg": {
+   "bytes": 22354,
+   "sha256": "42b84dfc9d32b719b2b54d0869dca5135fbc97b88018bdc73ee37ed5c348b455"
+  },
+  "cgn-1811-tribune-1894-ames-for-sale-ad.jpg": {
+   "bytes": 122485,
+   "sha256": "cf77f8cb6b34bfeea4e4b261c54bbe68f3187975956949250a1921b4e29e00d8"
   },
   "cgn-1812-robinson-1886-thumb.jpg": {
-   "bytes": 22516,
-   "sha256": "99408cbfc98fe6ffb72e84c1c161a32f3b052ab031516c9432ac60fe4c7831c0"
+   "bytes": 14349,
+   "sha256": "e6eb9571ab79fa3ed00de776a1570a32017d234801ac1fc7a7e94ec5753f517a"
+  },
+  "cgn-1812-robinson-1886.jpg": {
+   "bytes": 272518,
+   "sha256": "f3931a0ba4747cd5f5017edfdfdf0df93c3a561290a347f700f6d4756ee2bb11"
+  },
+  "cgn-1812-tribune-1915-mabel-wheeler-young-thumb.jpg": {
+   "bytes": 17850,
+   "sha256": "bd197f3d6bca62d1c433c057c84d55369dd52d8fee771d518270ae9efbd5b292"
+  },
+  "cgn-1812-tribune-1915-mabel-wheeler-young.jpg": {
+   "bytes": 113718,
+   "sha256": "dbc6dda39f50b777330a1cc37697bea2a9bb9595531072712af79d94a7d76b11"
   },
   "cgn-1815-robinson-1886-thumb.jpg": {
-   "bytes": 23106,
-   "sha256": "0059f754613bc2c61e4cfee64216a13c724169bd26b943c7abaa488a9385d65b"
+   "bytes": 15092,
+   "sha256": "a1c3cc69141a9fbe5d88a73eea564050989916e8eccb2b74e354ddfd8cad66e8"
+  },
+  "cgn-1815-robinson-1886.jpg": {
+   "bytes": 253778,
+   "sha256": "6a60aacda11a4655001ea219ce14fc90f58f7d3fcc54bbfff84cef60578c10af"
+  },
+  "cgn-1816-landowner-1874-henderson-thumb.jpg": {
+   "bytes": 40912,
+   "sha256": "a90dd9a921236568b478efed4a185941b49b9eecefa322b4988758cfbdc23794"
+  },
+  "cgn-1816-landowner-1874-henderson.jpg": {
+   "bytes": 177041,
+   "sha256": "27f5d5eb4c4da9feb36b835eb4e3698f09c99f869569263ffa8e51fa07df9ece"
   },
   "cgn-1816-robinson-1886-thumb.jpg": {
-   "bytes": 23085,
-   "sha256": "592f2ab65e85b25b996b49fefcc5807addcff8926cce99780b48988226f90169"
+   "bytes": 15090,
+   "sha256": "e3550f6aa35f7d0eed562b1509cbacde3187f87c126fa229eaa86c80d5ace8a7"
+  },
+  "cgn-1816-robinson-1886.jpg": {
+   "bytes": 253664,
+   "sha256": "03943db052d9f5c58659553e82019c10ea74a2e9be145a1819d9886addb833f6"
   },
   "cgn-1823-robinson-1886-thumb.jpg": {
-   "bytes": 23156,
-   "sha256": "a23588491fb4848bbc65348fa3df93d2f4affd19b522c29d8f31aabe2490e797"
+   "bytes": 15156,
+   "sha256": "8f1bb6d9444b2883d2f3d20296e0782341d8baee3a17ed84be2c1c28c93c261a"
+  },
+  "cgn-1823-robinson-1886.jpg": {
+   "bytes": 254126,
+   "sha256": "e8b800f7b39cb26e931014183c540d6bfd812f89a5c5670f5ae7bb7d5fe5f9cb"
   },
   "cgn-1824-robinson-1886-thumb.jpg": {
-   "bytes": 23119,
-   "sha256": "a76423dce9616730bca87bc92cb2c18315ad888b77b50be60287cbfd1bbe6aee"
+   "bytes": 15105,
+   "sha256": "8f451d650481c8fae68737bbf6ccf6e8e54a21de62bb9b068896eb9e8b8c5df2"
+  },
+  "cgn-1824-robinson-1886.jpg": {
+   "bytes": 253855,
+   "sha256": "75e85821a6743035e8170dd4967f89b0f071c23b94cf4aa934907de1bc9a60a9"
   },
   "cgn-1827-robinson-1886-thumb.jpg": {
-   "bytes": 23166,
-   "sha256": "30cf737b81b92f8f407e7466a2d8317abb16ce323ab71875597b3d7b04d6ea38"
+   "bytes": 15168,
+   "sha256": "aa93cf0e96ab0c8f0e355459158e7f813f3e61e4d319bb7dc2f587d4eeb4ef8e"
+  },
+  "cgn-1827-robinson-1886.jpg": {
+   "bytes": 254122,
+   "sha256": "c535440083f67c41a5b4c2470cf4ffcf299ba96d13318ad854899d37afdd1d6a"
+  },
+  "cgn-1827-tribune-1882-chicago-home-headline-thumb.jpg": {
+   "bytes": 5667,
+   "sha256": "9ff2a3a862a39b1a680c81538ab4ff492ff04be0818d9296fbd3b0694fd5c733"
+  },
+  "cgn-1827-tribune-1882-chicago-home-headline.jpg": {
+   "bytes": 15219,
+   "sha256": "8f863802ffc23d8f8cfddd76984e0080c66ac84e701168aec7b8cdbfe280a27c"
   },
   "cgn-1828-robinson-1886-thumb.jpg": {
-   "bytes": 23099,
-   "sha256": "3b20474d7421e9523aaf1c4688a397cc5a734ed6654de407e0e239bf9107c706"
+   "bytes": 15095,
+   "sha256": "db659869f4e0a718b7549391383bcfbcbf21c802cc1b72bc29a1c8a39a736f2f"
+  },
+  "cgn-1828-robinson-1886.jpg": {
+   "bytes": 253537,
+   "sha256": "546eb07e339cff76a2a39accb862257c1bbd4b90e08ea3f83f980d173c4e1b68"
+  },
+  "cgs-1834-inter-ocean-1911-jones-portraits-thumb.jpg": {
+   "bytes": 31155,
+   "sha256": "8df975ceb3042dc5950be319f375a32d9753fff8449a0d87c1276460da59db4f"
+  },
+  "cgs-1834-inter-ocean-1911-jones-portraits.jpg": {
+   "bytes": 267766,
+   "sha256": "c569e4a99249f8930371611bc021d3d85d4b78ebdb4d011ce11b8d3f0b088d44"
   },
   "cgs-1834-robinson-1886-thumb.jpg": {
-   "bytes": 23102,
-   "sha256": "447aa486e6dc59b918e676c1bde400f2b41e8f1f4aa5c9ac33ffff758a621296"
+   "bytes": 15095,
+   "sha256": "1144371107b656d4a0c7e1e5fcef0b786658b0b1ac7b5e4d546e958dbbc7d28f"
+  },
+  "cgs-1834-robinson-1886.jpg": {
+   "bytes": 253588,
+   "sha256": "894d2b5381ec8e2d85ddcda7472906513383ff73cced23459a0267198dc34f58"
+  },
+  "cgs-1834-tribune-1911-jones-headline-thumb.jpg": {
+   "bytes": 22873,
+   "sha256": "34fb45da8bb755fe548a4a2bfae550dc3ec299cac5a5a75fd5c9f6203d8c93d1"
+  },
+  "cgs-1834-tribune-1911-jones-headline.jpg": {
+   "bytes": 116683,
+   "sha256": "2eed2dd02d9df5a9e2fb51edc4ef486ca299eccc737d19c2250314b0d876938d"
   },
   "cgs-1900-robinson-1886-thumb.jpg": {
-   "bytes": 23102,
-   "sha256": "29e318ebc28fec075129d124a0248d14e45aad1b455d9ff2d864af232e892616"
+   "bytes": 15107,
+   "sha256": "4453488cce6ba44493aaf7ca92c103bc52700303151f93bbc186c832b516c0fd"
+  },
+  "cgs-1900-robinson-1886.jpg": {
+   "bytes": 253358,
+   "sha256": "cfeb8628c4f998ec8daa46e624a6b15420d1a67c973ac783e7ad664507a76f21"
   },
   "cgs-1901-robinson-1886-thumb.jpg": {
-   "bytes": 23147,
-   "sha256": "87f5fe52ad0b735703d1e4359cd3a01c111ccc1a6f1ea727043c7fac18a6598a"
+   "bytes": 15160,
+   "sha256": "94fb9a172043109958258c5a983fc38cb5cdaed0eab5f24f14f0d6c6f47d714d"
+  },
+  "cgs-1901-robinson-1886.jpg": {
+   "bytes": 253988,
+   "sha256": "f64ab7a70888b36a78533b953b5b30ffc5be779774e87a0e2031eb9ef7dd89ea"
   },
   "cgs-1906-robinson-1886-thumb.jpg": {
-   "bytes": 23095,
-   "sha256": "3dfa4334404ea5b4c6ebadfa3febb57592be99578490cbc5469d324324ea3c16"
+   "bytes": 15099,
+   "sha256": "dfa4c7d37db05133fea1fc5862bd5389d525ec3d3a0b4630bcde4d8cc7e17487"
+  },
+  "cgs-1906-robinson-1886.jpg": {
+   "bytes": 253474,
+   "sha256": "521b77cb68a35e65a3e81f29256fc1027f7f6f5dcd1768ed1c57129613e436a0"
   },
   "cgs-1912-robinson-1886-thumb.jpg": {
-   "bytes": 23075,
-   "sha256": "f8848a97bcdc0663670cedfb853151bc8ca4cc83fa0d346dcdbefb73d0ed923b"
+   "bytes": 15093,
+   "sha256": "be8c93435c820c8a5904642b7faad5b6cd945b69d4cdca0a1eb3d7adbd528dd7"
+  },
+  "cgs-1912-robinson-1886.jpg": {
+   "bytes": 253463,
+   "sha256": "017971383ff3b2b31b08c6475157b019e235da4bbc1394d70f38ddfc3dcc1388"
   },
   "cgs-1919-robinson-1886-thumb.jpg": {
-   "bytes": 23198,
-   "sha256": "01ea0f39d7fd875b548e7de86a541983acc5ede3e85b98cc2b3471b80e9cb449"
+   "bytes": 15207,
+   "sha256": "8a926c3df725d755eb220c69dbcd5db78d5bdd83b8f8f878a888922addb3eeaf"
+  },
+  "cgs-1919-robinson-1886.jpg": {
+   "bytes": 254480,
+   "sha256": "f9c4747946c22ee81509d53280389049902ea7561fcb6a81bedf446b93f96ed8"
   },
   "cgs-1923-robinson-1886-thumb.jpg": {
-   "bytes": 23196,
-   "sha256": "cd22c25ceefb139910e2cad2ca5a4aa1c6594d8c6a8dfa3440a62901931b0ab2"
+   "bytes": 15183,
+   "sha256": "36e9a696c4ac5ede2df34ba7564209a797b4f0aa45365bab2b2453ac76f566ec"
+  },
+  "cgs-1923-robinson-1886.jpg": {
+   "bytes": 254414,
+   "sha256": "bbbe44e486a1245781a7e6efd126039e6fb8f1637e84916445a2057d434ce489"
   },
   "cgs-1936-robinson-1886-thumb.jpg": {
-   "bytes": 23083,
-   "sha256": "40dbc65055f3965757df1e9f6c28345cd764846d58cf8eb4e460bdb9e431eb08"
+   "bytes": 15111,
+   "sha256": "c373297dbacfd867efe228c1b6487606f147777c10d8bae943f366effa707e5e"
+  },
+  "cgs-1936-robinson-1886.jpg": {
+   "bytes": 253752,
+   "sha256": "3631be6fd8e381668781914a338403e4eb83585cfc2b3211a53cf8c2da02536a"
   },
   "cgs-1945-robinson-1886-thumb.jpg": {
-   "bytes": 23214,
-   "sha256": "205124e0f8088ac6f22085f2ab8c22f482937575c0dbf6e4e774b444349abc71"
+   "bytes": 15208,
+   "sha256": "24a11a97b88a5ca27b3412d34c9d7a5c6fafaebba662c6a1aa0af3270637524f"
+  },
+  "cgs-1945-robinson-1886.jpg": {
+   "bytes": 254440,
+   "sha256": "a4e9da8a984e2b1204f70f127136caa53032a501a17be7be049dce19d3d29398"
   },
   "cgs-2000-robinson-1886-thumb.jpg": {
-   "bytes": 23101,
-   "sha256": "74e6a2edfccd0af7eb316d8426cd16a5c75f566bb9cf908bdee6a5da2813fb20"
+   "bytes": 15092,
+   "sha256": "4a65b16a934626f605221801445df2628642b026364dd72dde7f0009d33e7ef6"
+  },
+  "cgs-2000-robinson-1886.jpg": {
+   "bytes": 253462,
+   "sha256": "c7088962d8e3edf2591b12e5856fdb94826d6bbb8315a96a6cf1089a079165c3"
   },
   "cgs-2001-robinson-1886-thumb.jpg": {
-   "bytes": 23223,
-   "sha256": "cae0ad0dfb164d98e0c27e84ba548b9628936d9fb46a91e0ce2ce401c1d0e015"
+   "bytes": 15179,
+   "sha256": "0455cb112a8f9dc98a6e948f0f5447eef7d968e6aec5e48ba1dbb9ae4cbde673"
+  },
+  "cgs-2001-robinson-1886.jpg": {
+   "bytes": 254292,
+   "sha256": "c5c955bbc4b4e35fe6b49f400cb652610549253baeea2c0d2a601ec964e781b0"
   },
   "cgs-2003-robinson-1886-thumb.jpg": {
-   "bytes": 23204,
-   "sha256": "b3729640bc8f81f0d5efb0fa684f03154c66c701faa1ac04f9f10e3704db7aff"
+   "bytes": 15167,
+   "sha256": "c194ef5c16461fcff6a28d53150fc0051df08e082d368bbf1c264dbc328377c2"
+  },
+  "cgs-2003-robinson-1886.jpg": {
+   "bytes": 254226,
+   "sha256": "823a7d14d304cbbce6851a5d596395f39e740cfda509c4fd154ccfbd0a5ad61b"
   },
   "cgs-2009-robinson-1886-thumb.jpg": {
-   "bytes": 23168,
-   "sha256": "d44f780d0cc7461c34ddcff925d64c261f8d5de23728131432283b41f330237f"
+   "bytes": 15196,
+   "sha256": "146656fa779eeb39479d1c2f60c9a6e128a5e8ebbd77ce217ca1fb0d04e9f6d8"
+  },
+  "cgs-2009-robinson-1886.jpg": {
+   "bytes": 254095,
+   "sha256": "140f2354a15ae2623e4c2dbd3bd617a85066a58c17f16db2b963b068a3ae0d46"
   },
   "cgs-2010-robinson-1886-thumb.jpg": {
-   "bytes": 22501,
-   "sha256": "a72fc3db06b14f2feed1ea0aac48a17131213a8f6ccac5f7c53cdea353cfa86d"
+   "bytes": 14358,
+   "sha256": "176b57005c663234aba05380c13ac698e2ee0b5fa3683d3aba8e4aecdf66bc82"
+  },
+  "cgs-2010-robinson-1886.jpg": {
+   "bytes": 272580,
+   "sha256": "8c4c73a0ef8b6a35717caa2f33806e9a36bee65d8fc239e87af6a13984f6c117"
   },
   "cgs-2011-robinson-1886-thumb.jpg": {
-   "bytes": 23167,
-   "sha256": "c1f52d3a7384bcff719d703a89ddadefac265fbc3b98fca04c677d8fe94a0cd8"
+   "bytes": 15159,
+   "sha256": "08f1b61b82b8f80f35227b0f42996337f8a8ffe294be21b99a6462b4cbef0b6d"
+  },
+  "cgs-2011-robinson-1886.jpg": {
+   "bytes": 254145,
+   "sha256": "4b07f36a79d388c949faf23690d2382f0246dcd94554ea124754c1c8193f9f68"
   },
   "cgs-2013-robinson-1886-thumb.jpg": {
-   "bytes": 23192,
-   "sha256": "2243e4ed74fbbaf11b5423ab3a25b19a365edcbfce9b465f393f1f891d44d040"
+   "bytes": 15183,
+   "sha256": "adaffe62357208b4ded12f5044073155ff447c6342db5c316ce60a1f51b7504b"
+  },
+  "cgs-2013-robinson-1886.jpg": {
+   "bytes": 254004,
+   "sha256": "4e86377e535df7c34b3d44c651eaa386864886fda0b1fa8c7c7a7ad6284051f3"
   },
   "cgs-2017-robinson-1886-thumb.jpg": {
-   "bytes": 23193,
-   "sha256": "0a5f04142cbd8de41a47d1030dbf3e456d6317b5a3c17eadf3a37d0d845eb340"
+   "bytes": 15184,
+   "sha256": "ceb262697ac6b31a10d4d995c704166a3cb6a25c6ae1317dd0f27ba2a6bcb63a"
+  },
+  "cgs-2017-robinson-1886.jpg": {
+   "bytes": 254211,
+   "sha256": "605ad330fcd15a7dbf16e1baf53eee6d535051be8d475f7c5e08c52530924e1e"
   },
   "cgs-2021-robinson-1886-thumb.jpg": {
-   "bytes": 22625,
-   "sha256": "9b018a9ce641ba4848cbd6ff28930fe00ffba431e0cd09579f80cbf8b0176dac"
+   "bytes": 14436,
+   "sha256": "d28923479199f6031976102db9dbad4f550cd158f88d2daa1ce39fe43c3eaf62"
+  },
+  "cgs-2021-robinson-1886.jpg": {
+   "bytes": 273172,
+   "sha256": "86ab2021e9c7871b104d8390b6364ab48861c8aa62079f5393df464c9863aecb"
   },
   "cgs-2026-robinson-1886-thumb.jpg": {
-   "bytes": 22501,
-   "sha256": "e96e7bdc22db4b91f8c48b80d9c7ee88ae3d185a6af00c97b9aea41dab17f36f"
+   "bytes": 14369,
+   "sha256": "e2ad5bdccdefc8ccd80685923ee8d4c7b123c2598e312825c078cb8d21d821cb"
+  },
+  "cgs-2026-robinson-1886.jpg": {
+   "bytes": 272543,
+   "sha256": "179caac466f516352c1e97ccb06abfd7f5744244697e0d37e5d63b873d179735"
   },
   "cgs-2027-robinson-1886-thumb.jpg": {
-   "bytes": 23152,
-   "sha256": "456b2937f017be6a6b5144d0f04bdb068a9b84359f1c447762afd90b456bdd92"
+   "bytes": 15134,
+   "sha256": "be6bc0cc8f02fe642be14e103088c21b63e02e6c6ba01362afef824f3e6cbc43"
+  },
+  "cgs-2027-robinson-1886.jpg": {
+   "bytes": 254147,
+   "sha256": "2204bdec6645c4cc27cb2db3a2b44c25912707568a0ef10c4f7081f2eb9fb77b"
   },
   "cgs-2031-robinson-1886-thumb.jpg": {
-   "bytes": 22621,
-   "sha256": "3f40268fa2ab9a4351e4546f9669a0051ff751b2669624352afc3e84c53e0fd4"
+   "bytes": 14430,
+   "sha256": "4c59d26e34c71c48497c4b05e80b9ed2c687f060c553e0e6781f33eaf3b9641b"
+  },
+  "cgs-2031-robinson-1886.jpg": {
+   "bytes": 273232,
+   "sha256": "422a79b427cece4fab34eda7e0e0d923d53301e8cf7855a65e5a38a5346e7ee9"
   },
   "cgs-2033-robinson-1886-thumb.jpg": {
-   "bytes": 22613,
-   "sha256": "55631f768eb7e5726b8961abeb206dc97dff7485299b82a8ef8ccd83e3b196f2"
+   "bytes": 14432,
+   "sha256": "44a7f1bdfea326ee6d28f29f2f2d2de72e5517a716555f1305ac7ac794e3dae8"
+  },
+  "cgs-2033-robinson-1886.jpg": {
+   "bytes": 273206,
+   "sha256": "e112392c6e2c64dc5793745812b04d0d43f3e4ecb87cd3a9c15c428faa5132d8"
   },
   "cgs-2036-robinson-1886-thumb.jpg": {
-   "bytes": 22513,
-   "sha256": "eeb091f983f86e8a510fedc093aa2ebef74f19f879d477cd884aa279b4c6e008"
+   "bytes": 14357,
+   "sha256": "61235777e4d2d88fba48a6714e01f50b413f61b0d21fedba16eca34586c4384b"
+  },
+  "cgs-2036-robinson-1886.jpg": {
+   "bytes": 272363,
+   "sha256": "cd507fe337943eaa79dc8bd6531658d6a2362a5dd1f224c96a26a8856bda91c2"
   },
   "cgs-2101-robinson-1886-thumb.jpg": {
-   "bytes": 22621,
-   "sha256": "5852c9ba56e5c66903f59aebb469f34d28d6b248f166295ae040167940ae6c9f"
+   "bytes": 14413,
+   "sha256": "2d5388e1346e128f11f58029de301800cbccf37c185703c2e0b644773f3e2fb6"
+  },
+  "cgs-2101-robinson-1886.jpg": {
+   "bytes": 273187,
+   "sha256": "bc311e573c0e2dc39dace6d5f6fa7ba1e8e9f46a4b708ffab7c0573065ee93e8"
   },
   "cgs-2108-robinson-1886-thumb.jpg": {
-   "bytes": 22502,
-   "sha256": "26bc42503f395f785cafff68a94f8a5798080c54d9235baf2631a47089a56630"
+   "bytes": 14358,
+   "sha256": "febb9a0658d535dd2076f23bf602ef30192bc754346d06674e3490b2e219db37"
+  },
+  "cgs-2108-robinson-1886.jpg": {
+   "bytes": 272416,
+   "sha256": "c0e48f3c0c5a5f508010d2554c57f542ebe7dda0995c398da19932ac1ab3f9e4"
   },
   "cgs-2109-robinson-1886-thumb.jpg": {
-   "bytes": 22628,
-   "sha256": "4d3bba7835a8ad28341728a02099036736a9372ce569a920d51c19d98b188a7f"
+   "bytes": 14467,
+   "sha256": "1179e8496c1e6855c12c879fd02dff749957cd9b875ebe5f23d4e4cc324ef8c4"
+  },
+  "cgs-2109-robinson-1886.jpg": {
+   "bytes": 273228,
+   "sha256": "67ae1925bd9545137749465d4a837a5fdf83601565d01230654e40b2517baab2"
   },
   "cgs-2110-robinson-1886-thumb.jpg": {
-   "bytes": 22517,
-   "sha256": "6c868286f92122d9b57e240c4914df4ced56631f8807a495f4d1de495e1a062b"
+   "bytes": 14351,
+   "sha256": "51bcf53a525282627511c6ec9ca14a8b7c07c3b253497a2b8480e673aea95172"
+  },
+  "cgs-2110-robinson-1886.jpg": {
+   "bytes": 272492,
+   "sha256": "e0021fdfc92208d9d77c0c090063764338eb85ccbc0550b056b680f63dee6e7a"
   },
   "cgs-2112-robinson-1886-thumb.jpg": {
-   "bytes": 22479,
-   "sha256": "93d6cbd372e118e65d7de93bcead0300040466f967655b557eda25771cb6c406"
+   "bytes": 14336,
+   "sha256": "ef4590514a3d89dae9069106f7ed7ca443a0aa40139940c872dd325f8249efac"
+  },
+  "cgs-2112-robinson-1886.jpg": {
+   "bytes": 272608,
+   "sha256": "cc966d48c06ce52f4900d22451f0f45adf280c5dc98b3abf3cc5540aaccb572b"
   },
   "cgs-2115-robinson-1886-thumb.jpg": {
-   "bytes": 22599,
-   "sha256": "21388f8f0d8f086e6d10389bc8403ad5d696db93379ace7425810da6fe225ac2"
+   "bytes": 14451,
+   "sha256": "c936ea32ecc2ea637758425841772b179dd4d8d6266f1a83b4c0a17dff81a194"
+  },
+  "cgs-2115-robinson-1886.jpg": {
+   "bytes": 273061,
+   "sha256": "f12badb86c57bd4941c952582e777a61253482d8c0dd861df674f02be256913e"
   },
   "cgs-2120-robinson-1886-thumb.jpg": {
-   "bytes": 22486,
-   "sha256": "c3198f7479fb8c3d7a34ad6ea349ae90ccfa8d7a0baafcd0cbf80f76ca91cfb1"
+   "bytes": 14365,
+   "sha256": "0bfd273c84730dbcf39b25f877fcea342f0cb4759e572d07581e981bb1e53f52"
+  },
+  "cgs-2120-robinson-1886.jpg": {
+   "bytes": 272494,
+   "sha256": "42154dce2db563a743d411ca6f62c0c83e992f63c48b12ad94e3d463e3d8d934"
   },
   "cgs-2123-robinson-1886-thumb.jpg": {
-   "bytes": 22619,
-   "sha256": "0af81af2a206accf1e095748fd930587e0f7f53a22378a9f62afc832f851f612"
+   "bytes": 14430,
+   "sha256": "2433b585d02865cf8843295360e0e66d5a1812441bc65e836fbaeace96880f12"
+  },
+  "cgs-2123-robinson-1886.jpg": {
+   "bytes": 273236,
+   "sha256": "f0dd70331ea06ce9d26623c23e5fc4cf0e71576849e4308e695ad169c5919b6e"
   },
   "cgs-2125-robinson-1886-thumb.jpg": {
-   "bytes": 22600,
-   "sha256": "9aa8367f4fd9cfa47f3b4aef6cb0b2f780a3d461a2ccd12d315b2122a9a28659"
+   "bytes": 14416,
+   "sha256": "33b10772eb660b2736de11c2f5eb1954bfebccfd7eb31a9eb9d5c7ff3fa3a5e9"
+  },
+  "cgs-2125-robinson-1886.jpg": {
+   "bytes": 273127,
+   "sha256": "e40308d1a8d44d0172515960a3e782c514dd36174f092dafb99d5f879e880328"
   },
   "cgs-2126-robinson-1886-thumb.jpg": {
-   "bytes": 22518,
-   "sha256": "6dd475e65b0072249f08bf2d2c2200c44a7c3a385e56d0b3100e32b033503527"
+   "bytes": 14367,
+   "sha256": "30bdf980a169747ba09938335672ddf8c469bf247e8d1fbbd434e7dd650492ad"
+  },
+  "cgs-2126-robinson-1886.jpg": {
+   "bytes": 272522,
+   "sha256": "7dc89e58941d9a260dffe1c109d7b447dd16d7fe689b54b53da2fc684aab4892"
   },
   "cgs-2130-robinson-1886-thumb.jpg": {
-   "bytes": 22513,
-   "sha256": "b429b0a6dd24effa4799b1fdf143dae7920aad5367ec95c142d69eabc8c6948c"
+   "bytes": 14348,
+   "sha256": "e748a29cdb6ffc8cc3c7bd1ed6121a3825d225892d7052b1de2160f8cb36eea7"
+  },
+  "cgs-2130-robinson-1886.jpg": {
+   "bytes": 272527,
+   "sha256": "56c3f88ee87903aa33034a415762523c6fd2205db895db912cef0801d63eb50d"
   },
   "cgs-2140-robinson-1886-thumb.jpg": {
-   "bytes": 22530,
-   "sha256": "94f5b42104c19787218dfec9df51b216afee7dd78a1fbfa72e3a565cd852acbc"
+   "bytes": 14361,
+   "sha256": "a1bc2110f5e4f39cdd225efad2c65882504e13d2c2cbcca5ebeee6254abf469b"
+  },
+  "cgs-2140-robinson-1886.jpg": {
+   "bytes": 272487,
+   "sha256": "a20fee4982c36e3c8004ce370a3b694bb16aab06e57b3882c65824a222693572"
   },
   "dw-aabn-1876-09-30-sherman-2100-plate-thumb.jpg": {
    "bytes": 37876,
