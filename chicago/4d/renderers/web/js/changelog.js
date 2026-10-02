@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1303, ts: '2026-10-02T14:13:10.388Z', date: 'Oct 2, 2026, 9:13 AM CT', title: 'The river walk sits level on its bank again', kind: 'fix',
+    items: [
+      'Walk the plank path along the river from Dearborn to Jones\u2019s landing. Its boards lie flat on the bank again, with no edge standing off the ground.',
+      'When South Water was lowered below its walks, the dig reached under the river walk too, and the bank tipped toward the road. The road\u2019s lowered bed now stops short of the walk.',
+      'Where Clark and La Salle Streets meet the river, their lowered ends are held back from the walk the same way.',
+    ] },
   { v: 1302, ts: '2026-10-02T13:17:54.396Z', date: 'Oct 2, 2026, 8:17 AM CT', title: 'Counting what the town still owes', kind: 'chore',
     items: [
       'Nothing in the town changed. Behind the scenes we now count how far it is from finished: who has a house, who has a place to work, which shops have a roof, and which roofs have somebody under them.',

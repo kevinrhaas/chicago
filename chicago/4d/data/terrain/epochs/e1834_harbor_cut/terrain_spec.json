@@ -1364,7 +1364,116 @@
         "outer_m": 8.8
       }
     ],
-    "keep_clear_note": "A structure that stands inside a worked width keeps the ground it was seated on: the cut is held at nothing within `flat_m` of the footprint's centroid (its circumradius plus 1.5 m) and eases back to the full section by `outer_m`. Each is a building or bridge whose contact outline the cut otherwise left more than the walker's 0.35 m step off the terrain (tools/validate.py's ground-contact check named all four), so this list is that gate's answer and the gate is what adds to it. A building is not dug round, and a road does not run under a door."
+    "keep_clear_note": "A structure that stands inside a worked width keeps the ground it was seated on: the cut is held at nothing within `flat_m` of the footprint's centroid (its circumradius plus 1.5 m) and eases back to the full section by `outer_m`. Each is a building or bridge whose contact outline the cut otherwise left more than the walker's 0.35 m step off the terrain (tools/validate.py's ground-contact check named all four), so this list is that gate's answer and the gate is what adds to it. A building is not dug round, and a road does not run under a door.",
+    "keep_clear_lines": [
+      {
+        "id": "river_plank_walk_crossing_footway",
+        "streets": [
+          "south_water"
+        ],
+        "line": [
+          [
+            803.6,
+            14.2
+          ],
+          [
+            815.0,
+            14.2
+          ]
+        ],
+        "flat_m": 4.5,
+        "outer_m": 7.0
+      },
+      {
+        "id": "river_plank_walk_east_reach",
+        "streets": [
+          "south_water"
+        ],
+        "line": [
+          [
+            803.6,
+            14.2
+          ],
+          [
+            760.0,
+            14.6
+          ],
+          [
+            731.0,
+            13.8
+          ],
+          [
+            703.77,
+            13.92
+          ]
+        ],
+        "flat_m": 4.5,
+        "outer_m": 7.0
+      },
+      {
+        "id": "river_plank_walk_west_reach",
+        "streets": [
+          "south_water",
+          "clark"
+        ],
+        "line": [
+          [
+            694.17,
+            13.92
+          ],
+          [
+            667.0,
+            13.9
+          ],
+          [
+            638.0,
+            14.4
+          ],
+          [
+            600.0,
+            15.0
+          ],
+          [
+            576.0,
+            15.4
+          ],
+          [
+            537.0,
+            15.4
+          ],
+          [
+            497.0,
+            15.3
+          ],
+          [
+            489.0,
+            14.6
+          ]
+        ],
+        "flat_m": 4.5,
+        "outer_m": 7.0
+      },
+      {
+        "id": "river_plank_walk_wharf_reach_1",
+        "streets": [
+          "south_water",
+          "lasalle"
+        ],
+        "line": [
+          [
+            459.5,
+            14.3
+          ],
+          [
+            364.08,
+            30.19
+          ]
+        ],
+        "flat_m": 4.5,
+        "outer_m": 7.0
+      }
+    ],
+    "keep_clear_lines_note": "T-1956. The river walk (data/frontage/river_walk_frontage.json) lies inside South Water's worked width, north of the travelled track, so the T-1812 cut reached under it - and so did the ends of Clark's and La Salle's cuts where those streets meet South Water at the bank - and tilted its bank up to 0.16 m across the walk's 1.83 m. Each street a line names (`streets`) has its cut held at nothing within `flat_m` of each reach's committed centreline - half the walk's width plus the diagonal of one 2.5 m heightfield cell (0.915 + 3.54 m), so none of the four samples the renderer reads bilinearly under any board is a lowered one - and eases back to the full section by `outer_m`. Dearborn is not named: its own cut under the board crossing is T-1955's and is left as it is. The lines are copied from the committed walk, not derived from it, because the walk generator reads this heightfield; if the walk moves, these move with it (tools/generate_frontage_works.py audits every board against the ground)."
   },
   "micro_relief": {
     "amplitude_ft": 0.1,
