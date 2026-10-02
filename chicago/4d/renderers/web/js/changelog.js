@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1295, ts: '2026-10-02T09:54:07.300Z', date: 'Oct 2, 2026, 4:54 AM CT', title: 'Weathered, grained timber at every shop door', kind: 'change',
+    items: [
+      'Stand on Lake Street outside George Dole\u2019s warehouse. His wagon apron, the stoops along the street and the hitching posts are no longer white. They now match the walks in weathered grey and brown, and each business\u2019s timber is its own shade.',
+      'Every board now shows wood grain, a few drying cracks and darker end grain. Boards darken where they meet the mud, so the walks and steps look set into the street.',
+      'Stoops and mounting blocks are built as steps: plank treads with seams, and a front edge that throws a shadow line. Look at the Mansion House and the row of shops west of it on Lake Street.',
+      'The colours, the grain and the step joinery are our reconstruction. No source describes them. The Liberties page says so (L320).',
+    ] },
   { v: 1294, ts: '2026-10-02T08:51:28.084Z', date: 'Oct 2, 2026, 3:51 AM CT', title: 'South Water\u2019s river bank is now worn earth, with low docks', kind: 'change',
     items: [
       'Stand on South Water Street and look toward the river. The bank between the street and the water is now trodden earth, darkening to mud at the water\u2019s edge. Grass survives only in a few untrodden patches, and no willows or reeds stand along it.',
