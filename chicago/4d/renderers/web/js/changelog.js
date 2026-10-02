@@ -7,19 +7,19 @@ export const CHANGELOG = [ // newest first
       'The banks across the river, which no dock works, keep their grass and trees.',
       'All of this is our reconstruction. No 1835 source describes the bank\u2019s surface or a dock\u2019s height. The Liberties page says what we chose and why (L347).',
     ] },
-  { v: null, ts: '', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
-    items: [
-      'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
-      'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
-      'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
-      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L346) says how it was bounded.',
-    ] },
-  { v: 1293, ts: '2026-10-02T08:56:38.695Z', date: 'Oct 2, 2026, 3:56 AM CT', title: 'Weathered, grained timber at every shop door', kind: 'change',
+  { v: 1294, ts: '2026-10-02T09:29:54.049Z', date: 'Oct 2, 2026, 4:29 AM CT', title: 'Weathered, grained timber at every shop door', kind: 'change',
     items: [
       'Stand on Lake Street outside George Dole\u2019s warehouse. His wagon apron, the stoops along the street and the hitching posts are no longer white. They now match the walks in weathered grey and brown, and each business\u2019s timber is its own shade.',
       'Every board now shows wood grain, a few drying cracks and darker end grain. Boards darken where they meet the mud, so the walks and steps look set into the street.',
       'Stoops and mounting blocks are built as steps: plank treads with seams, and a front edge that throws a shadow line. Look at the Mansion House and the row of shops west of it on Lake Street.',
       'The colours, the grain and the step joinery are our reconstruction. No source describes them. The Liberties page says so (L320).',
+    ] },
+  { v: 1293, ts: '2026-10-02T08:21:32.142Z', date: 'Oct 2, 2026, 3:21 AM CT', title: 'Shop signs look like painted wood, worn by the weather', kind: 'change',
+    items: [
+      'Walk up to any shop or tavern sign. The board now shows wood grain through its paint, the seams between its planks, and paint chipped off its edges and flaking from its letters.',
+      'The arms, straps and posts that hold the signs now show weathered timber grain, where before they were plain grey.',
+      'Paint now looks a little glossier than the bare wood around it, so the low sun picks out the boards.',
+      'The wear is invented: no record says how worn any 1835 Chicago sign was. The Liberties page (L346) says how it was bounded.',
     ] },
   { v: 1292, ts: '2026-10-02T08:03:58.613Z', date: 'Oct 2, 2026, 3:03 AM CT', title: 'Plank walks in front of the West Side\u2019s shops and hotel', kind: 'change',
     items: [
