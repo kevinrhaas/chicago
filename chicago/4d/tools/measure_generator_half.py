@@ -365,13 +365,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # withdrawn for the West workshops row). Four new structure assets on the same terms as
 # every entry above; terrain reach still 4 and pier_crib still 2.
 #
+# 523 -> 528 and 519 -> 524 on 2026-10-01 (T-1809): the second H3 boarding house on
+# `blk_washington_clark` and a stable and a privy behind each of the two — five more
+# meshes on the same terms; terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 523,
+    "assets": 528,
     "restales": {
-        "generators/common/*.py": 523,
+        "generators/common/*.py": 528,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 519,
+        "generators/emit.py": 524,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

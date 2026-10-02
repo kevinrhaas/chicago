@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1283, ts: '2026-10-02T02:10:37.412Z', date: 'Oct 1, 2026, 9:10 PM CT', title: 'A second boarding house on Washington Street, and stables behind both', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street to Washington and the corner across from the first boarding house now has a second one: two storeys of clapboard facing Washington Street, with a kitchen wing behind it. Its back yard meets the first house\u2019s at the alley.',
+      'It is a little bigger than the first. Eight chamber windows run across its upper floor and six iron stovepipes rise through its roof, counted from the sixteen people it sleeps on an ordinary night.',
+      'Both boarding houses now have a log stable and a privy in the yard behind them, off the alley. The town\u2019s documented inns all kept a stable behind the house, so these two do too.',
+      'A few lodgers moved over from the small boarding house on the North Side, so it now sleeps six on an ordinary night and has two stovepipes instead of three.',
+      'None of this is claimed as evidence. No source puts a boarding house, a stable or a keeper on these lots in 1835. The Liberties page (L326) says how each was placed and sized.',
+    ] },
   { v: 1282, ts: '2026-10-02T01:31:30.170Z', date: 'Oct 1, 2026, 8:31 PM CT', title: 'Twelve boarding houses and shops hang their own signboards', kind: 'change',
     items: [
       'Walk the north side and you can now pick out its boarding houses from the road. Five of them hang a painted board under a hood, on a bracket or on a post: BARDWELL\u2019S, BARNES\u2019S, NEWELL\u2019S and two more, with Boarding House beneath.',

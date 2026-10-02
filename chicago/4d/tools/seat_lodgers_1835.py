@@ -1543,8 +1543,28 @@ def fill() -> tuple:
         if house["standing"] == RECONSTRUCTED and not house["keeper_household"]:
             weights = [((sex, band), n) for (div, sex, band, axis), (_, n) in sorted(room.items())
                        if div == house["division"] and axis == "trade" and band in ADULT_BANDS and n > 0]
+            # T-1809 (of T-1779). A KEEPER PICKED INTO A CELL THE BOOK NO LONGER LEAVES OPEN IS SHED,
+            # and only then. The frozen room is what keeps a re-cut from moving a keeper
+            # already standing, and it can carry a cell the book has since re-cut away:
+            # raising the second boarding house on blk_washington_clark picked its keeper
+            # out of `female/10_19/south/lodging/trade`, which the frozen basis still holds
+            # at 8 and the book no longer carries, and `refuse()` stopped the build. The
+            # pick is taken over the frozen weights exactly as before, so every keeper
+            # whose cell is open — every keeper standing on dev, or the build would already
+            # have been refused — draws the same person. A closed cell is re-picked over
+            # the cells still open on the live book: its order, less the heads the
+            # re-family ledger has landed in it, less what this build has drawn, which is
+            # the arithmetic `build_order_book_1835.py` refuses the book on.
+            def still_open(sex: str, band: str) -> bool:
+                key = room[(house["division"], sex, band, "trade")][0]
+                return (live_by_key.get(key, 0) - arrivals.get(key, 0) - fills[key]) > 0
+            shed = None
+            if weights and not still_open(*pick(f"{STAGE}:{house['id']}:keeper", weights)):
+                shed = [((sex, band), n) for (sex, band), n in weights
+                        if still_open(sex, band)]
             if weights:
-                sex, band = pick(f"{STAGE}:{house['id']}:keeper", weights)
+                sex, band = (pick(f"{STAGE}:{house['id']}:keeper:shed", shed) if shed
+                             else pick(f"{STAGE}:{house['id']}:keeper", weights))
                 key = room[(house["division"], sex, band, "trade")][0]
                 # T-1782: THE KEEPER IS UNDER THE SAME OPEN-ORDER CEILING AS THE BOARDERS.
                 # T-1717 capped the boarders' deal and left this pick on the frozen room
