@@ -2733,8 +2733,10 @@ export async function createYardGoods({
       for (const item of lot.items ?? []) {
         // T-1961: a cooper's or a packer's casks stand on a lot as a rank, so a
         // lot can hold barrels as well as piles; the frontage's own builder draws
-        // them, unmarked.
-        const draw = STACK_KINDS.has(item.kind) ? buildStack : buildItem;
+        // them, unmarked. A woodpile's kinds (T-1959) go to `buildStack` too, which
+        // hands them to `buildWood`.
+        const draw = STACK_KINDS.has(item.kind) || WOOD_KINDS.has(item.kind)
+          ? buildStack : buildItem;
         if (!draw(chunk.buf, item, form, terrain,
           LEVEL[lot.confidence] ?? level, problems, lot.structure_id)) continue;
         drew += 1;
@@ -2913,7 +2915,10 @@ export async function createYardGoods({
     if (!camera) return null;
     raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
     raycaster.far = Math.max(400, camera.position.y * 4);
-    const hits = raycaster.intersectObjects(meshes, false);
+    // A raycast does not skip what is hidden, so the woodpiles' group, which the
+    // `light` tier hides (main.js, T-1959), is left out of it while it is hidden.
+    const hits = raycaster.intersectObjects(
+      meshes.filter((m) => !m.parent?.userData.woodpiles || m.parent.visible), false);
     if (!hits.length) return null;
     const hit = hits[0];
     // The span table is the CHUNK's, so a hit resolves against the objects that

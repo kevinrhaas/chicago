@@ -702,6 +702,13 @@ const DETAIL_DECLARED = {
   // that a trim worked.
   light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
+              // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
+              // town (the call budget's choice, yard.js), so the reach cannot thin
+              // them and they would cost this rung their whole colour pass at every
+              // stand — about 35,000 triangles — on a rung that is over and is won
+              // back by a trim, never spent. `full` and `balanced` draw them, and
+              // `applyFurnitureReach` hides them here.
+              woodpiles: false,
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
@@ -1607,6 +1614,9 @@ async function boot() {
       group.updateWorldMatrix(true, true);
       group.traverse((o) => {
         if (!o.isMesh || !o.geometry) return;
+        // A woodpile mesh its tier does not draw (T-1959) is neither the reach's
+        // nor the far merge's to show again.
+        if (o.parent?.userData.woodpiles && !o.parent.visible) return;
         // The merged far batches (T-0146) are drawn FROM these chunks, not
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
@@ -1636,6 +1646,11 @@ async function boot() {
   });
   function applyFurnitureReach(level) {
     const want = DETAIL[level] ?? DETAIL.full;
+    // T-1959: the woodpiles' group is shown or hidden by the tier, BEFORE the
+    // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
+    scene3d.getObjectByName('yard')?.traverse((o) => {
+      if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+    });
     collectFurniture();
     farMerge.rebuild(furniture.spheres);
     furniture.reachM = typeof want.furnitureReachM === 'number'
