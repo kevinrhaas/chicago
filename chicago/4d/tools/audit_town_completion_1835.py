@@ -21,8 +21,9 @@ T-1215's first clause turns it into four joins over committed data:
    T-1147's limits, preserved and printed.
 4. **Occupied.** Every standing structure carries somebody (a household, a lodger, a
    business, a reconstructed occupation), or a use that needs nobody (an outbuilding
-   that names its yard, a civic or harbour work, a camp ground, a house to let), or is
-   one building of an establishment whose principal answers (`part_of`, T-1980), or
+   that names its yard, a civic or harbour work, a camp ground, a house to let, an
+   anonymous roof whose use data/reconstruction/1835_stated_uses.json states, T-1988), or
+   is one building of an establishment whose principal answers (`part_of`, T-1980), or
    says on its record why nobody is seated under it (`stated_use`, T-1985). A
    sidecar whose `occupants` attribute names people in prose but whose household card
    is not linked is counted on its own row, `occupants_in_prose_only`: the roof is not
@@ -100,7 +101,10 @@ DWELLING_WORDS = ("dwelling", "cottage", "house", "residence", "shanty", "cabin"
                   "boarding", "quarters", "hotel", "tavern")
 
 # The employment ledger's reasons, read into the three answers this audit gives.
-WORK_STATED = {"no_employer_named"}          # the trade kept no premises: stated, not owed
+# T-1993: a domestic the taverns had no room for is in another household's service by the
+# trade's own premises ruling, and a private household is not a house the register owes.
+WORK_STATED = {"no_employer_named",           # the trade kept no premises: stated, not owed
+               "in_service_in_another_household"}
 WORK_OWED = {"class_held_no_house", "trade_attested_no_house_named",
              "no_ruling_on_the_trade", "keeps_their_own_house"}
 
@@ -154,8 +158,13 @@ def read_inputs() -> dict:
     seats_path = DATA / "reconstruction" / "1835_housing_seats.json"
     apart = load(seats_path).get("counted_apart") or [] if seats_path.exists() else []
 
+    # T-1988. A stated use (T-1782) reaches the card as an `occupants` block, but it names
+    # nobody, so it is read from its own ledger as a use and never as a person owed a link.
+    stated = load(DATA / "reconstruction" / "1835_stated_uses.json").get("rows") or []
+
     return {
         "structures": structures,
+        "stated_uses": {row["structure_id"] for row in stated},
         "ruled_present": {r["household_id"] for r in rulings
                           if value_of(r.get("present_on_scene_date")) == "present"},
         "counted_apart": {r["household"]: r["why"] for r in apart},
@@ -343,6 +352,8 @@ def audit(inputs: dict) -> dict:
             return "use_stated", "vacant_to_let", tier
         if function in CAMP:
             return "use_stated", "camp_ground", tier
+        if sid in inputs["stated_uses"]:
+            return "use_stated", "stated_use_of_an_anonymous_roof", tier
         if s["occupants"]:
             return "occupants_in_prose_only", tier, tier
         if function in CIVIC:

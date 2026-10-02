@@ -130,34 +130,17 @@
       "street": "south_water",
       "structure": "hogan_store"
     },
-    "landing_camp_east:camp_1835": {
-      "anchor_in": [
-        "south_water"
-      ],
-      "anchor_offset_m": 11.82,
-      "body_toward_street": true,
-      "category": "building",
-      "centroid_in": [
-        "south_water"
-      ],
-      "depth_m": 7.37,
-      "layer": "research",
-      "phase": "camp_1835",
-      "position_confidence": "reconstructed",
-      "street": "south_water",
-      "structure": "landing_camp_east"
-    },
     "landing_camp_west:camp_1835": {
       "anchor_in": [
         "south_water"
       ],
-      "anchor_offset_m": 11.12,
+      "anchor_offset_m": 11.27,
       "body_toward_street": true,
       "category": "building",
       "centroid_in": [
         "south_water"
       ],
-      "depth_m": 7.47,
+      "depth_m": 7.32,
       "layer": "research",
       "phase": "camp_1835",
       "position_confidence": "reconstructed",
@@ -378,8 +361,8 @@
       "structure": "western_hotel"
     }
   },
-  "measured": "2026-10-01",
-  "placed_phases": 517,
+  "measured": "2026-10-02",
+  "placed_phases": 543,
   "refused": {
     "harmon_loomis_store:frame_1833": {
       "depth_m": 0.21,
@@ -390,16 +373,6 @@
       "street": "clark",
       "ticket": "T-0195",
       "why": "T-0195. THE ONLY TRANSLATION THAT CLEARS THIS CORRIDOR RUNS SIDEWAYS ACROSS THE RECORD'S OWN FRONT, so it moves where along South Water Street the building stands \u2014 and the corner is the one part of this placement a source argues. The setback was re-derived against this project's committed South Water centreline by T-0127's method (T-0198, T-0199); the cross-street half of the same offset was left on the OpenStreetMap junction centre, and this residual IS that disagreement. It is refused rather than repaired because the repair would spend a source-argued coordinate on a derived number two orders of magnitude below the placement's own working uncertainty (about 20 m, on a datum with 17.5 m RMS). Argued in full in the record's own position.note; reproduce the geometry with tools/measure_corridor_intrusion.py --escape."
-    },
-    "landing_camp_east:camp_1835": {
-      "depth_m": 7.37,
-      "escape_bearing_deg": 359.48,
-      "escape_m": 7.375,
-      "escape_vs_facade": "across",
-      "on": "2026-10-01",
-      "street": "south_water",
-      "ticket": "T-1803",
-      "why": "T-1803. THE WHOLE DRY STRIP THIS CAMP STANDS ON LIES INSIDE SOUTH WATER'S CONTROL CORRIDOR. The camp's ground is documented (Chicago American, 13 June 1835: tents 'upon the spot they were landed from the boats'; 1835_camp_grounds.json grades the landing place documented) and the spot on it is reconstructed (L321): tools/place_landing_camps_1835.py seats it on the bank between the street's DRAWN roadway and the traced 1834 bank, which is the line the scene's road stands on (AGENTS.md rule 10). The lap is deeper than the camp is deep, so the only escape runs north across its own front and off the bank into the river; anywhere else is not the ground the source names. Refused rather than repaired because the repair would spend a source-argued place on a corridor this project derived, and the owner ruled on T-0419 that the drawn and control lines are not re-cut onto each other. Argued in the record's own position.note; reproduce with tools/measure_corridor_intrusion.py --escape."
     },
     "landing_camp_west:camp_1835": {
       "depth_m": 7.47,

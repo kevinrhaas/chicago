@@ -47,8 +47,9 @@ THE FIVE ANSWERS. Every person gets exactly one, and the first three are the tic
                                      and where the layer holds no such record the house
                                      is OWED rather than absent.
   `at_a_trade_with_no_house_to_join` they carry a trade and the business layer holds no
-                                     house this project may join them to. Four reasons,
-                                     each somebody else's ticket to close.
+                                     house this project may join them to. Five reasons:
+                                     four are somebody else's ticket to close, and one
+                                     (T-1993) says no house of trade is owed at all.
   `no_trade_recorded`                the layer records no trade for them and this pass
                                      does not supply one.
 
@@ -114,12 +115,14 @@ NOT_A_TRADE = ("none_recorded", "not_recorded", "unknown", None, "")
 #: without a reason: "he is not at work" is not an answer, "the layer records no trade
 #: for him" is. Closed here and asserted against in `verify`.
 STATUSES = {
-    "at_a_named_house": ("named_by_a_source",),
-    "at_a_seat_this_project_drew": ("seated_by_the_staffing_model",),
-    "on_their_own_account": ("keeps_their_own_house",),
+    "at_a_named_house": ("named_by_a_source", "on_the_staff_of_a_house"),
+    "at_a_seat_this_project_drew": ("seated_by_the_staffing_model",
+                                    "drawn_onto_a_house_s_staff"),
+    "on_their_own_account": ("keeps_their_own_house", "keeps_a_house_the_register_holds"),
     "at_a_trade_with_no_house_to_join": (
         "no_employer_named", "class_held_no_house",
-        "trade_attested_no_house_named", "no_ruling_on_the_trade"),
+        "trade_attested_no_house_named", "no_ruling_on_the_trade",
+        "in_service_in_another_household"),
     "no_trade_recorded": ("no_trade_recorded",),
 }
 
@@ -156,10 +159,31 @@ WORDS = {
         "The sources name this person's trade and name no house for it. Drawing one "
         "would put a man the record knows into a shop nobody put him in, so no seat is "
         "drawn and the absence is carried instead.",
+    "in_service_in_another_household":
+        "The premises ruling for this trade says the work is given in another "
+        "household's house: domestic service, done in a family's kitchen, washhouse and "
+        "yard rather than in a house of trade. The staffing model employs the trade in "
+        "the town's taverns and hotels only, and every one was full, but that does not "
+        "make the town owed another tavern — no house of trade is owed for this person. "
+        "Which household employed them no source says and this pass draws none.",
     "no_ruling_on_the_trade":
         "`premises_rulings.json` has never ruled on this trade, so whether it kept "
         "premises of its own is unanswered. T-1404 owns the ruling; until it is made "
         "this pass says so rather than guessing at it.",
+    "keeps_a_house_the_register_holds":
+        "A record in the business register names this person as the house's proprietor "
+        "or partner, so they kept it and worked in it. The house is named here at the "
+        "grade that record gives the proprietorship: attested where a source prints it, "
+        "inferred where the trade's premises ruling raised it, reconstructed where this "
+        "project drew the house and adopted them to keep it.",
+    "on_the_staff_of_a_house":
+        "A record in the business register names this person on its own staff: the "
+        "office, church or agency they served, at a source the record cites. They did "
+        "not keep the house; they worked in it.",
+    "drawn_onto_a_house_s_staff":
+        "A record in the business register carries this person on its staff at the "
+        "reconstructed tier: this project drew them there, and the record says by what "
+        "rule.",
     "no_trade_recorded":
         "No source records a trade for this person and no reconstruction stage has given "
         "them one. This is a statement about the evidence and not about the person: a "
@@ -167,6 +191,35 @@ WORDS = {
 }
 
 AGE_SCOPES = ("working_age", "below_working_age", "age_is_not_settled")
+
+#: THE TRADES WHOSE WORK IS GIVEN IN SOMEBODY ELSE'S HOUSEHOLD (T-1993, piece 1 of 3 of
+#: T-1991). T-1433 seats a reconstructed trade-holder in the class of house the staffing
+#: model employs the trade in, and where every house of that class is full it answers
+#: `class_held_no_house` — "the town is owed more houses of the kind". That is right for
+#: a smith and wrong for a servant. The model staffs only HOUSES OF TRADE, so the one
+#: class it employs `domestic` in is `tavern_or_hotel`, and 61 working-age domestics the
+#: taverns had no room for read on 2 October 2026 as a town owed 61 hotel places. The
+#: premises ruling already says where the rest of the trade worked — "Domestic service is
+#: given in another household's house" — and a private household is not a house of trade
+#: the register owes. So the overflow carries the ruling's answer instead of the model's.
+#: The value is the ruling's own words, asserted against its `basis` in `verify` so the
+#: day the ruling says otherwise this stops agreeing with it out loud. No household is
+#: drawn for them: which family kept which servant is not in any file this reads.
+IN_ANOTHER_HOUSEHOLD = {"domestic": "given in another household's house"}
+
+#: THE REGISTER'S OWN PEOPLE ROWS (T-1990, piece 1 of 3 of T-1982). A business record
+#: names the people it holds in three lists, and until this pass the join read none of
+#: them: it read the CARD's `workplaces[]` (T-1432) and the SEATING (T-1433), so a man the
+#: Indian Agency's own record names as its interpreter, or a milliner the business band
+#: adopted to keep a reconstructed shop, still read "at a trade with no house" or "the
+#: house is OWED" on their card — 78 of the 308 the completion audit counted owed a
+#: workplace on 2026-10-02. The register already answered them; this reads its answer.
+#: It writes nothing onto the record and decides no seat: the row is the business
+#: record's, at the record's own tier, and `decided_by` says which record and which row.
+REGISTER_KEEPS = ("proprietors", "partners")
+REGISTER_STAFF = ("staff",)
+REGISTER_REASONS = ("keeps_a_house_the_register_holds", "on_the_staff_of_a_house",
+                    "drawn_onto_a_house_s_staff")
 
 
 class Fault(Exception):
@@ -200,7 +253,11 @@ def load() -> dict:
     if not people:
         raise Fault("the residents layer holds no person")
     businesses = {}
-    for path in sorted(BUSINESSES.glob("*.json")):
+    # The authored records are the register too (the civic establishments T-1188 raised,
+    # the inferred houses of the trades, the reconstructed houses the business band
+    # drew), and a join that read the top folder alone could not name one of them.
+    for path in sorted(BUSINESSES.glob("*.json")) + sorted(
+            (BUSINESSES / "authored").glob("*.json")):
         if path.name == "index.json":
             continue
         record = _load_json(path)
@@ -213,6 +270,7 @@ def load() -> dict:
     return {
         "people": people,
         "businesses": businesses,
+        "register": register_rows(businesses),
         "seating": {row["person_id"]: row for row in seating.get("rows") or []},
         "seating_ticket": seating.get("ticket"),
         "rulings": {r["occupation"]: r for r in _load_json(PREMISES_RULINGS)["rulings"]},
@@ -315,11 +373,16 @@ def answer(person: dict, context: dict) -> dict:
                         "no answer for. A new kind is a new answer and must be ruled on "
                         "here, not folded into an old one.")
         status, reason = FROM_SEATING[kind]
+        decided_by = (f"reconstructed_seating.json#{kind}, drawn by "
+                      f"{context['seating_ticket']}")
+        if kind == "class_held_no_house" and trade in IN_ANOTHER_HOUSEHOLD:
+            reason = "in_service_in_another_household"
+            decided_by += (f"; premises_rulings.json#{trade} = no_fixed_premises, "
+                           f"{IN_ANOTHER_HOUSEHOLD[trade]!r}, read by T-1993")
         return {
             "status": status,
             "reason": reason,
-            "decided_by": f"reconstructed_seating.json#{kind}, drawn by "
-                          f"{context['seating_ticket']}",
+            "decided_by": decided_by,
             "houses": [seat["business_id"]] if seat.get("business_id") else [],
         }
 
@@ -355,22 +418,93 @@ def answer(person: dict, context: dict) -> dict:
     }
 
 
+def _covers_scene_date(row: dict) -> bool:
+    """False only where the row's own dates put it wholly off 1 July 1835. A partial
+    date ("1833-05") is compared at its own precision; a missing one bounds nothing."""
+    start, end = row.get("from"), row.get("to")
+    if start and str(start) > SCENE_DATE[:len(str(start))]:
+        return False
+    if end and str(end) < SCENE_DATE[:len(str(end))]:
+        return False
+    return True
+
+
+def register_rows(businesses: dict) -> dict:
+    """person_id -> the business register's rows naming them, on records present at the
+    scene date and not excluded, in id order so the answer does not depend on the order
+    the folder is read in."""
+    out: dict = {}
+    for bid, record in sorted(businesses.items()):
+        if record.get("present_at_scene_date") is False or record.get("exclusion"):
+            continue
+        for side in REGISTER_KEEPS + REGISTER_STAFF:
+            for row in record.get(side) or []:
+                pid = row.get("person_id") if isinstance(row, dict) else None
+                if not pid or not _covers_scene_date(row):
+                    continue
+                name = record.get("name")
+                if isinstance(name, dict):
+                    name = name.get("value")
+                out.setdefault(pid, []).append({
+                    "business_id": bid, "name": name or bid, "side": side,
+                    "role": row.get("role"),
+                    "tier": row.get("tier") or row.get("confidence")})
+    return out
+
+
+def register_answer(rows: list) -> dict:
+    """The register's answer for one person. Keeping a house outranks serving on a staff
+    roll, because the house a person keeps is where they are their own employer; the
+    houses listed are every record of that rank, so two partnerships are both named."""
+    keeps = [r for r in rows if r["side"] in REGISTER_KEEPS]
+    chosen = keeps or rows
+    if keeps:
+        status, reason = "on_their_own_account", "keeps_a_house_the_register_holds"
+    elif all(r["tier"] == "reconstructed" for r in chosen):
+        status, reason = "at_a_seat_this_project_drew", "drawn_onto_a_house_s_staff"
+    else:
+        status, reason = "at_a_named_house", "on_the_staff_of_a_house"
+    named = "; ".join(f"{r['business_id']}#{r['side']} ({r['role'] or 'unstated'}, "
+                      f"{r['tier'] or 'ungraded'})" for r in chosen)
+    houses = sorted({r["business_id"] for r in chosen})
+    names = {r["business_id"]: r["name"] for r in chosen}
+    return {
+        "status": status,
+        "reason": reason,
+        "decided_by": f"the business register's own row: {named}, read by T-1990",
+        "houses": houses,
+        # The card has no business index to look a name up in, and the house is the
+        # answer, so the name travels with it — on these rows only, which are the only
+        # ones whose house the card does not already print from its own block.
+        "house_names": [names[h] for h in houses],
+    }
+
+
 def derive(data: dict) -> dict:
     floor = working_age_floor(data["model"])["floor"]
     context = {"seating": data["seating"], "rulings": data["rulings"],
                "seating_ticket": data["seating_ticket"]}
+    register = data.get("register") or {}
     rows = []
     for folder, household, person in data["people"]:
         occupation = person.get("occupation") or {}
         band = person.get("age_band")
         band = band.get("value") if isinstance(band, dict) else band
         block = answer(person, context)
+        scope = age_scope(band, floor)
+        # The card and the seating answer first and keep their answer where it names a
+        # house. Where it names none, a register row naming the person is the house —
+        # except below the working-age floor, where a child on a staff roll is a fault
+        # in one of the two files and is left for `verify`'s guard to say so, not placed.
+        if (not block["houses"] and person["id"] in register
+                and scope != "below_working_age"):
+            block = register_answer(register[person["id"]])
         rows.append({
             "person_id": person["id"],
             "household_id": household.get("id"),
             "record_folder": folder,
             "age_band": band,
-            "age_scope": age_scope(band, floor),
+            "age_scope": scope,
             "trade": (occupation.get("value")
                       if occupation.get("value") not in NOT_A_TRADE else None),
             "trade_confidence": occupation.get("confidence"),
@@ -440,6 +574,7 @@ def report(data: dict, coverage: dict) -> dict:
             "transients,readmitted,merged}/*.json",
             "data/residents/reconstructed_seating.json (T-1433)",
             "data/businesses/*.json",
+            "data/businesses/authored/*.json (the register's own people rows, T-1990)",
             "data/businesses/rulings/premises_rulings.json",
             "data/reconstruction/1835_business_staffing_model.json",
             "data/reconstruction/1835_town_model.json",
@@ -516,7 +651,8 @@ def report(data: dict, coverage: dict) -> dict:
                 "under a quota.",
             "it_re_decides_nothing":
                 "Every answer is already implied by a committed file. T-1432's join, "
-                "T-1433's seating and premises_rulings.json each keep their own words; "
+                "T-1433's seating, the business register's own proprietors, partners "
+                "and staff (T-1990) and premises_rulings.json each keep their own words; "
                 "this pass only guarantees that one of them reaches every card.",
         },
         "rows": rows,
@@ -528,8 +664,17 @@ def report(data: dict, coverage: dict) -> dict:
 def verify(data: dict, coverage: dict, committed: dict) -> None:
     """The cover, asserted. Four ways it can be wrong and each is a failure, never a
     warning: a person with no answer, a person with two, an answer in a word the
-    vocabulary does not hold, and a child at work."""
+    vocabulary does not hold, and a child at work. T-1990 added the register's word
+    for a house whose record does not name the person; T-1993 adds another household's
+    service claimed for a trade, or under a ruling, that does not give it."""
     rows = committed.get("rows") or []
+    for trade, words in sorted(IN_ANOTHER_HOUSEHOLD.items()):
+        ruling = data["rulings"].get(trade) or {}
+        if ruling.get("premises") != "no_fixed_premises" or \
+                words not in (ruling.get("basis") or ""):
+            raise Fault(f"premises_rulings.json#{trade} no longer says the work is "
+                        f"{words!r} at no fixed premises of its own, and T-1993 answers "
+                        "that trade's overflow in those words. Re-rule here with it.")
     seen: dict = {}
     for row in rows:
         pid = row.get("person_id")
@@ -556,6 +701,12 @@ def verify(data: dict, coverage: dict, committed: dict) -> None:
         if reason not in STATUSES[status]:
             raise Fault(f"{row['person_id']} carries {status!r} with the reason "
                         f"{reason!r}, which that status does not admit")
+        if reason == "in_service_in_another_household" and (
+                row.get("trade") not in IN_ANOTHER_HOUSEHOLD or row.get("houses")):
+            raise Fault(f"{row['person_id']} carries {reason!r} at the trade "
+                        f"{row.get('trade')!r}{' and a house' if row.get('houses') else ''}"
+                        ". Only a trade the premises ruling gives in another household's "
+                        "house may say so, and saying so names no house of trade.")
         if row.get("age_scope") not in AGE_SCOPES:
             raise Fault(f"{row['person_id']} carries the age scope "
                         f"{row.get('age_scope')!r}, which is in no vocabulary here")
@@ -567,6 +718,15 @@ def verify(data: dict, coverage: dict, committed: dict) -> None:
             if house not in data["businesses"]:
                 raise Fault(f"{row['person_id']} is placed at {house!r}, which the "
                             "business layer does not hold")
+            if reason in REGISTER_REASONS:
+                record = data["businesses"][house]
+                named = {r.get("person_id") for side in REGISTER_KEEPS + REGISTER_STAFF
+                         for r in record.get(side) or [] if isinstance(r, dict)}
+                if row["person_id"] not in named:
+                    raise Fault(f"{row['person_id']} is placed at {house!r} on the "
+                                f"register's word ({reason}), and that record names "
+                                "nobody of the id. The register answer is the record's "
+                                "own row or it is nothing.")
 
 
 # ---------------------------------------------------------------- commands --
@@ -660,11 +820,39 @@ def cmd_self_test() -> int:
         verify(data, coverage, bent)
     _fires("a child below the model's floor placed in a shop", child_at_work)
 
+    def register_house_not_named():
+        bent = json.loads(json.dumps(committed))
+        row = next((r for r in bent["rows"] if r["reason"] in REGISTER_REASONS), None)
+        if row is None:
+            raise Fault("the self-test found nobody the business register places")
+        other = next(b for b in sorted(data["businesses"]) if b not in row["houses"]
+                     and row["person_id"] not in json.dumps(data["businesses"][b]))
+        row["houses"] = [other]
+        verify(data, coverage, bent)
+    _fires("a register answer naming a house whose record does not name the person",
+           register_house_not_named)
+
+    def servant_at_a_forge():
+        bent = json.loads(json.dumps(committed))
+        row = next(r for r in bent["rows"] if r["reason"] == "class_held_no_house")
+        row["reason"] = "in_service_in_another_household"
+        row["trade"] = "blacksmith"
+        verify(data, coverage, bent)
+    _fires("another household's service claimed for a trade the ruling keeps in a shop",
+           servant_at_a_forge)
+
+    def ruling_moved():
+        bent = dict(data)
+        bent["rulings"] = {**data["rulings"], "domestic": {
+            **data["rulings"]["domestic"], "premises": "own_premises"}}
+        verify(bent, coverage, committed)
+    _fires("the domestic ruling changing under T-1993's answer", ruling_moved)
+
     def unreadable_band():
         band_bounds("middle-aged")
     _fires("an age band in a form this pass cannot read", unreadable_band)
 
-    print("OK: all seven assertions of the employment coverage fire when broken")
+    print("OK: all ten assertions of the employment coverage fire when broken")
     return 0
 
 

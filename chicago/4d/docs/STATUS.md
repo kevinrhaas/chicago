@@ -1,3 +1,49 @@
+## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
+
+Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990
+the completion audit still counted **230** working-age persons owed a workplace, and **61** of them
+were reconstructed domestics, every one answered `class_held_no_house` — "the town is owed more
+houses of the kind". The staffing model only staffs houses of trade, so the one class it employs
+`domestic` in is `tavern_or_hotel`, and when the town's taverns were full the overflow read as a
+town owed 61 hotel places. That was never the claim: `premises_rulings.json#domestic` already says
+*"Domestic service is given in another household's house"*, and a private household is not a house
+the register owes. `tools/employment_coverage_1835.py` now carries that ruling for a domestic the
+seating found no room for, under a new reason `in_service_in_another_household` (status unchanged,
+`at_a_trade_with_no_house_to_join`, no house named), with both files in `decided_by`.
+`verify` refuses the reason on any other trade or beside a house, and refuses to run if the
+domestic ruling stops saying those words; both guards fire in `--self-test`. The audit counts the
+reason as stated, beside `no_employer_named`. **Exactly the 61 rows move**, all working-age, all
+reconstructed (50 in `reconstructed_trades/`, 11 in `households/`). Owed a workplace **230 → 169**;
+no fixed premises (stated) **147 → 208**.
+
+**Not done, and owned:** which household employed each of them is not drawn — no file says which
+families kept help, and a draw would invent an employer. T-1994 (the 25 attested at a no-premises
+trade), T-1995 (the 10 reconstructed tradespeople at a full class) and T-1992 (134 on their own
+account) hold the other 169.
+
+## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
+
+Piece 1 of 3 of T-1982 (T-1966 → T-1215, the owner's *"a place to work"*). The completion audit
+counted **308** working-age persons owed a workplace. **78** of them were already named on a
+business record — as proprietor or partner (72: the inferred houses of the trades, the houses the
+business band drew and adopted a head to keep) or on its staff (6, all attested: the Indian agent
+and his interpreter, the land-office register, the county clerk, the Presbyterian minister, the
+priest of St Mary's). `tools/employment_coverage_1835.py` read the card's `workplaces[]` and the
+seating only, and loaded `data/businesses/*.json` without `authored/`, where every one of those
+records lives. It now reads `proprietors[]`, `partners[]` and `staff[]` across both folders, on
+records present at the scene date, for any person the card and the seating left without a house
+(never below the working-age floor), with three new reasons and the record's own tier in
+`decided_by`. **88 rows move**: the 78, seven own-account people whose age band straddles the floor,
+two more of those at a trade, and Edmund D. Taylor, the land office's receiver, whose card records
+no trade. Owed a workplace **308 → 230**; at a workplace **233 → 312** (attested 112 → 155).
+`verify` now refuses a register answer whose house does not name the person.
+
+**Not done, and owned:** T-1991 (25 attested + 71 class-held at a trade with no house) and T-1992
+(134 on their own account whose house the register does not hold). The T-1433 seating block on a
+reconstructed head's card still says "Owed a house of their own" where the register now holds it —
+that block is T-1433's record of the draw, and the coverage answer printed beneath it is the
+current one.
+
 ## T-1959 — a woodpile at every dwelling, by the yard-by-household rule (2026-10-02)
 
 **What a visitor sees.** Behind 298 of the town's 299 dwellings, a woodpile against the back wall

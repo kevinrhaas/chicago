@@ -1,11 +1,39 @@
 export const CHANGELOG = [ // newest first
-  { v: 1317, ts: '2026-10-02T19:09:20.294Z', date: 'Oct 2, 2026, 2:09 PM CT', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
+  { v: null, ts: '', title: 'Grass no longer pushes up through the roads as you walk', kind: 'fix',
     items: [
       'Walk up Lake Street to Market, or along South Water Street. The dirt road now stays dirt right up to your feet. Before, patches of grass seemed to grow over it as you came close.',
       'Seen from above, the road surface no longer breaks into light and dark blocks every few steps, and its grassy edges run straight instead of in a sawtooth.',
       'Where a street ends on another, such as Market at Lake or Wells at South Water, it now blends into the street it joins instead of stopping on a hard line.',
       'Along the river side of South Water, the worn bank meets the road in a soft, uneven edge instead of rows of square teeth, and road edges at the river and at cut banks no longer step like stairs.',
       'All of this is in the Full and Balanced detail settings. Light, the setting a phone starts on, gets most of it, but a few small patches can still show close up, so that it stays as fast as it was.',
+    ] },
+  { v: 1320, ts: '2026-10-02T19:45:34.002Z', date: 'Oct 2, 2026, 2:45 PM CT', title: 'Sixty-one servants are now in service, not waiting for a hotel', kind: 'change',
+    items: [
+      'Open Bridget Hayes\u2019s card and look under Were they at work? It used to say the town owed her a place in a tavern. It now says she was in domestic service in another family\u2019s house, as our ruling on the trade says domestic service was.',
+      'The same is true for all 61 domestics the taverns had no room for. Taverns and hotels were the only places our staffing model could put them, so the overflow looked like a shortage of hotels. It never was.',
+      'Which family each one worked for is not recorded, so the card does not name one.',
+      'On the City card, people owed a workplace drop from 230 to 169.',
+    ] },
+  { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+    items: [
+      'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
+      'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
+      'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
+      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L358).',
+    ] },
+  { v: 1318, ts: '2026-10-02T19:14:24.160Z', date: 'Oct 2, 2026, 2:14 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
+    items: [
+      'Open the card of one of nine anonymous yard buildings on the West Division approaches, south of Lake Street or on the north side\u2019s east edge. It now says what the building was for and, where something ties it to one, which house it belonged to.',
+      'Seven name their house. Four stand where the plan draws them in that house\u2019s yard, one shares a lot with it, and two are the barns of the two farms on the Des Plaines edge.',
+      'Two belong to no house we can point to: a stable on the teamster road by Canal and Randolph, and a stable yard by the north pier. Their cards say what they were for and that whose they were is not known.',
+      'Nobody is seated in them. What the card states is the building\u2019s use, and it is as much a reconstruction as the building. Nine fewer roofs now count as empty in the town\u2019s completion check.',
+    ] },
+  { v: 1317, ts: '2026-10-02T18:52:16.135Z', date: 'Oct 2, 2026, 1:52 PM CT', title: 'Eighty-eight more people\u2019s cards now name where they worked', kind: 'change',
+    items: [
+      'Open Billy Caldwell\u2019s card and look under Were they at work? It now names the Indian Agency, where he was the interpreter. Thomas Owen, the agent, has the same line.',
+      'James Whitlock and Edmund Taylor are named at the Land Office, Richard Hamilton at the county offices, Jeremiah Porter at the First Presbyterian Church and Father St. Cyr at St. Mary\u2019s.',
+      'Seventy-nine people who keep their own shop, tavern or office now name it, from Rufus Brown\u2019s boarding house to John Miller\u2019s tannery. Some of those shops are our reconstruction, and the card says so.',
+      'The business records already listed these people. Their cards now read those lists. On the City card, people owed a workplace drop from 308 to 230.',
     ] },
   { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
     items: [
