@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1310, ts: '2026-10-02T16:14:59.160Z', date: 'Oct 2, 2026, 11:14 AM CT', title: 'The Light setting fits a slower machine again', kind: 'polish',
+    items: [
+      'The Light setting, the one a phone or a slower machine starts on, draws less again in the busiest views, such as the forks from Wolf Point and Lake Street from Canal. It is back inside its own limit everywhere we measure.',
+      'On Light, fences, plank walks and barrels now stop 250 m away instead of 350 m. Beyond 240 m the ground is drawn from a coarser version of the same survey. The wood is a little thinner on Light only. At street level the picture looks the same; seen from the air, the far furniture fades a little sooner.',
+      'Full and Balanced are unchanged.',
+    ] },
   { v: 1309, ts: '2026-10-02T15:39:39.047Z', date: 'Oct 2, 2026, 10:39 AM CT', title: 'More of the town\u2019s people housed, and the rest accounted for', kind: 'change',
     items: [
       'Open a reconstructed house on Randolph or Washington Street and you may meet new boarders. 362 more households now have a roof. The records lose track of them before July 1835, but nothing puts them anywhere else, so the town counts them as present.',
