@@ -740,6 +740,151 @@
       "liberty": "L338, L343, L352"
     }
   },
+  "yard": {
+    "ticket": "T-1959",
+    "dealt_by": "tools/yard_rule_1835.py — tools/generate_woodpiles.py deals data/yard/town_woodpiles.json through it",
+    "household_order": [
+      "1. the roof's fabric_basis.class (tools/fabric_rule_1835.py), which already prefers a written keeper's trade to the family label",
+      "2. a household whose lives_at names the roof, by its trade (seat_known_1835.TRADE_CLAUSE)",
+      "3. the occupation the reconstruction names, by the same table",
+      "4. a tavern, hotel or boarding house by its function is a keeper's",
+      "5. otherwise a tradesman's, said so on the record"
+    ],
+    "house": {
+      "shanty": "family D2, or a dwelling drawn on the outbuilding archetype",
+      "log": "family D1, or a log_dwelling",
+      "larger": "families D5, D6, D7, H1, H2, or a documented frame house of 55 m2 or more",
+      "small": "every other dwelling"
+    },
+    "woodpile": {
+      "shanty": {
+        "rule": "Y-W1",
+        "who": "a labourer's shanty",
+        "kind": "slab_heap",
+        "pieces": [
+          7,
+          12
+        ],
+        "block": false,
+        "why": "a shanty bought no cords; it kept what came to hand — mill slabs off the sawmills and wood off the shore — in a loose heap at the wall"
+      },
+      "cabin": {
+        "rule": "Y-W2",
+        "who": "a labourer's log cabin",
+        "kind": "log_heap",
+        "logs": [
+          3,
+          5
+        ],
+        "log_length_m": [
+          2.4,
+          3.6
+        ],
+        "block": true,
+        "why": "a cabin household hauled its own, as unsplit lengths laid on two skids, and worked them off with an axe at the block as the fire wanted"
+      },
+      "cottage": {
+        "rule": "Y-W3",
+        "who": "a tradesman's cottage",
+        "kind": "cordwood",
+        "stick": "stove",
+        "ricks": [
+          1,
+          1
+        ],
+        "length_m": [
+          1.6,
+          2.6
+        ],
+        "height_m": [
+          0.6,
+          1.1
+        ],
+        "block": true,
+        "why": "a tradesman bought a little at a time and sawed it to the stove's length: one short rick of 2 ft wood by the back door, and the block beside it"
+      },
+      "house": {
+        "rule": "Y-W4",
+        "who": "a tradesman's larger house",
+        "kind": "cordwood",
+        "stick": "stove",
+        "ricks": [
+          1,
+          2
+        ],
+        "length_m": [
+          2.2,
+          3.4
+        ],
+        "height_m": [
+          0.7,
+          1.2
+        ],
+        "block": true,
+        "why": "more rooms, more fires: a longer rick of stove wood, a second on some"
+      },
+      "merchant": {
+        "rule": "Y-W5",
+        "who": "a merchant's or professional man's house",
+        "kind": "cordwood",
+        "stick": "cord",
+        "ricks": [
+          1,
+          2
+        ],
+        "length_m": [
+          2.44,
+          2.44
+        ],
+        "height_m": [
+          0.75,
+          1.22
+        ],
+        "block": true,
+        "why": "money bought the wood by the cord, delivered as 4 ft sticks racked 8 ft long, and a household that bought by the cord shows it as cords"
+      },
+      "keeper": {
+        "rule": "Y-W6",
+        "who": "a boarding house, tavern or hotel",
+        "kind": "cordwood",
+        "stick": "cord",
+        "ricks": [
+          2,
+          3
+        ],
+        "length_m": [
+          2.44,
+          2.44
+        ],
+        "height_m": [
+          0.9,
+          1.22
+        ],
+        "block": true,
+        "why": "a house that cooked for the public burned the most and bought the most: two or three cords racked behind it even at the summer's low"
+      }
+    },
+    "row_of_class_and_house": {
+      "labourer x shanty": "shanty",
+      "labourer x log": "cabin",
+      "labourer x small": "cottage",
+      "labourer x larger": "cottage",
+      "tradesman x shanty": "cottage",
+      "tradesman x log": "cottage",
+      "tradesman x small": "cottage",
+      "tradesman x larger": "house",
+      "merchant x shanty": "merchant",
+      "merchant x log": "merchant",
+      "merchant x small": "merchant",
+      "merchant x larger": "merchant",
+      "keeper x shanty": "keeper",
+      "keeper x log": "keeper",
+      "keeper x small": "keeper",
+      "keeper x larger": "keeper"
+    },
+    "still_to_write": "wells; privies and stables (T-1960) and trade goods by trade (T-1961) are their own records in data/yard/",
+    "liberty": "L357"
+  },
   "clauses": [
     {
       "id": "commercial_front",

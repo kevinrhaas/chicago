@@ -1,10 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1315, ts: '2026-10-02T18:07:38.033Z', date: 'Oct 2, 2026, 1:07 PM CT', title: 'Eighty-eight more people\u2019s cards now name where they worked', kind: 'change',
+  { v: 1317, ts: '2026-10-02T18:52:16.135Z', date: 'Oct 2, 2026, 1:52 PM CT', title: 'Eighty-eight more people\u2019s cards now name where they worked', kind: 'change',
     items: [
       'Open Billy Caldwell\u2019s card and look under Were they at work? It now names the Indian Agency, where he was the interpreter. Thomas Owen, the agent, has the same line.',
       'James Whitlock and Edmund Taylor are named at the Land Office, Richard Hamilton at the county offices, Jeremiah Porter at the First Presbyterian Church and Father St. Cyr at St. Mary\u2019s.',
       'Seventy-nine people who keep their own shop, tavern or office now name it, from Rufus Brown\u2019s boarding house to John Miller\u2019s tannery. Some of those shops are our reconstruction, and the card says so.',
       'The business records already listed these people. Their cards now read those lists. On the City card, people owed a workplace drop from 308 to 230.',
+    ] },
+  { v: 1316, ts: '2026-10-02T18:38:07.071Z', date: 'Oct 2, 2026, 1:38 PM CT', title: 'A woodpile behind every house in town', kind: 'change',
+    items: [
+      'Walk round the back of any house in the town and its winter wood is stacked against the back wall: 298 woodpiles at 299 dwellings. Only one house has none, because the ground behind it is wet.',
+      'What a household kept depends on who it was. A shanty has a loose heap of mill slabs. A log cabin has unsplit logs on two skids beside a chopping block. A tradesman\u2019s cottage has a short rick of stove-length wood. A merchant\u2019s house has bought cords, 8 ft long and 4 ft high, and an inn or boarding house has two or three of them.',
+      'Every pile is different, and in July they stand low: some ricks are drawn down at one end, the split ends show fresh, seasoned or silvered wood, and split sticks lie by the block.',
+      'The Chicago Democrat priced firewood by the cord every week in 1835, so the town certainly kept wood. Where each pile stood and how big it was is invented, and the Liberties page (L357) says how.',
+      'On the Light setting, the one a phone starts on, the woodpiles are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
+    ] },
+  { v: 1315, ts: '2026-10-02T18:12:56.292Z', date: 'Oct 2, 2026, 1:12 PM CT', title: 'The far treeline sits low and level and holds still', kind: 'fix',
+    items: [
+      'Stand on Lake Street near Clark and look west. The woods along the river beyond the houses used to rise and fall like a range of hills, with a deep notch cut into them. They now sit lower, as a level line of treetops.',
+      'Walk, drive the wagon or ride toward them and the outline stays put. Before, it reshuffled its bumps with every few steps.',
+      'Where a belt of woods ends, it now steps down over its last trees instead of stopping in a sheer wall.',
+      'The shape of that far outline is our reconstruction. The Liberties page explains it (L356).',
     ] },
   { v: 1314, ts: '2026-10-02T17:45:38.919Z', date: 'Oct 2, 2026, 12:45 PM CT', title: 'Empty sheds and houses now say why nobody lives there', kind: 'change',
     items: [
