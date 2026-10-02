@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A new jaunt: Outfit for the West', kind: 'feature',
+  { v: 1330, ts: '2026-10-02T23:58:54.913Z', date: 'Oct 2, 2026, 6:58 PM CT', title: 'A new jaunt: Outfit for the West', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Outfit for the West. You have an imagined fifteen dollars to get ready for the road west.',
       'Five stops: the Green Tree, Peck\u2019s store, the Jones grocery, Cobb\u2019s saddlery and Pierce\u2019s smithy. Each sells what its own advertisement or history says it sold: hardware from the merchant, provisions from the grocer, harness from the saddler, ironwork from the smith.',
