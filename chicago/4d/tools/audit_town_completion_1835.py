@@ -8,7 +8,11 @@ T-1215's first clause turns it into four joins over committed data:
 1. **Housed.** Every resident card's household reaches a standing structure, a vessel or
    a camp — through its own `lives_at`, or because a structure's sidecar seats it under
    `residents[]` (the lodging houses and the reconstructed roofs carry their people that
-   way round, and a card cannot point back at a bed).
+   way round, and a card cannot point back at a bed). A household the housing deal counts
+   APART with a stated reason (T-1972: absent on the scene date, or ruled present and
+   waiting on a roof the scene does not stand yet) is not counted unhoused, and is not
+   counted housed either: it has its own row, and a household still WAITING keeps the
+   join from reading total. Presence is the card's, or T-1386's ruling where it has one.
 2. **At work.** Every person of working age carries a workplace, or a stated reason why
    none is owed. This is a read of `data/residents/employment_coverage.json` (T-1461),
    which already adjudicates one employment answer per person; it is not re-decided here.
@@ -137,8 +141,18 @@ def read_inputs() -> dict:
     boats = load(DATA / "boats" / "index.json").get("boats") or []
     vessels = {b["id"] for b in boats if isinstance(b, dict) and b.get("id")}
 
+    # Who the town holds present beyond the cards (T-1386's rulings), and who the housing
+    # deal counted apart with a stated reason (T-1972): an absence on the day, or a ruled-in
+    # household waiting for a roof the scene does not stand yet.
+    rulings = load(DATA / "reconstruction" / "1835_presence_rulings.json")["rulings"]
+    seats_path = DATA / "reconstruction" / "1835_housing_seats.json"
+    apart = load(seats_path).get("counted_apart") or [] if seats_path.exists() else []
+
     return {
         "structures": structures,
+        "ruled_present": {r["household_id"] for r in rulings
+                          if value_of(r.get("present_on_scene_date")) == "present"},
+        "counted_apart": {r["household"]: r["why"] for r in apart},
         "cards": cards,
         "businesses": businesses,
         "vessels": vessels,
@@ -169,9 +183,11 @@ def audit(inputs: dict) -> dict:
             else:
                 seated_at.setdefault(hid, sid)
 
-    housed = {"households": {"housed": 0, "unhoused": 0},
+    housed = {"households": {"housed": 0, "unhoused": 0, "counted_apart": 0},
+              "counted_apart": Counter(), "persons_counted_apart": Counter(),
               "persons_housed": by_tier(), "persons_unhoused": by_tier(),
-              "present_on_scene_date": {"persons_housed": 0, "persons_unhoused": 0},
+              "present_on_scene_date": {"persons_housed": 0, "persons_unhoused": 0,
+                                        "persons_waiting_on_a_roof": 0},
               "housed_through": Counter(), "unhoused_by_folder": Counter(),
               "unhoused_present_households": []}
     lives_at_of: dict[str, str] = {}
@@ -192,15 +208,25 @@ def audit(inputs: dict) -> dict:
         if through is None and hid in seated_at:
             through = "seated_by_a_structure"
         persons = card.get("persons") or []
-        present = value_of(card.get("present_on_scene_date")) == "present"
+        present = (value_of(card.get("present_on_scene_date")) == "present"
+                   or hid in inputs["ruled_present"])
+        apart = None if through else inputs["counted_apart"].get(hid)
         if through:
             housed["households"]["housed"] += 1
             housed["housed_through"][through] += 1
+        elif apart:
+            housed["households"]["counted_apart"] += 1
+            housed["counted_apart"][apart] += 1
+            housed["persons_counted_apart"][apart] += len(persons)
         else:
             housed["households"]["unhoused"] += 1
             housed["unhoused_by_folder"][entry["folder"]] += 1
             if present:
                 housed["unhoused_present_households"].append(hid)
+        if apart:
+            if present:
+                housed["present_on_scene_date"]["persons_waiting_on_a_roof"] += len(persons)
+            continue
         side = "persons_housed" if through else "persons_unhoused"
         for p in persons:
             housed[side][tier_of(p.get("grade"))] += 1
@@ -306,6 +332,7 @@ def audit(inputs: dict) -> dict:
 
     housed_n = housed["households"]["housed"]
     unhoused_n = housed["households"]["unhoused"]
+    waiting_n = housed["counted_apart"].get("waiting_on_a_roof", 0)
     owed_n = sum(work["owed"].values())
     open_roofs = len(roofed["open"])
     empty_n = len(occupied["empty"])
@@ -326,16 +353,20 @@ def audit(inputs: dict) -> dict:
             "data/structures/*.json", "data/boats/index.json",
             "data/residents/{" + ",".join(RESIDENT_FOLDERS + (TRANSIENT_FOLDER,)) + "}/*.json",
             "data/residents/employment_coverage.json",
+            "data/reconstruction/1835_presence_rulings.json",
+            "data/reconstruction/1835_housing_seats.json#counted_apart",
             "data/businesses/*.json", "data/businesses/authored/*.json",
         ],
         "summary": {
             "households_housed": housed_n,
             "households_unhoused": unhoused_n,
+            "households_counted_apart": dict(sorted(housed["counted_apart"].items())),
             "working_age_persons_owed_a_workplace": owed_n,
             "businesses_neither_roofed_nor_stated": open_roofs,
             "structures_empty_owing_somebody": empty_n,
             "dangling_ids": len(dangling),
-            "the_join_is_total": not (unhoused_n or owed_n or open_roofs or empty_n or dangling),
+            "the_join_is_total": not (unhoused_n or waiting_n or owed_n or open_roofs or empty_n
+                                      or dangling),
         },
         "housed": plain(housed),
         "visitors_counted_apart": visitors,
@@ -356,7 +387,8 @@ def report(doc: dict) -> str:
     return "\n".join([
         f"town completion (T-1215): the join is {'TOTAL' if s['the_join_is_total'] else 'not yet total'}",
         f"  housed      {s['households_housed']} households, {s['households_unhoused']} unhoused "
-        f"({len(h['unhoused_present_households'])} of them present on the scene date)",
+        f"({len(h['unhoused_present_households'])} of them present on the scene date); "
+        f"counted apart {s['households_counted_apart']}",
         f"  at work     {s['working_age_persons_owed_a_workplace']} working-age persons owed a workplace",
         f"  roofed      {s['businesses_neither_roofed_nor_stated']} businesses neither roofed nor stated",
         f"  occupied    {s['structures_empty_owing_somebody']} standing structures empty and owing somebody",

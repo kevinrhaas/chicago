@@ -6077,7 +6077,11 @@ selftest "…and its own assertions still fire when broken" \
 # roof the scene does not stand, on a documented building or a roof whose record already
 # names its occupants (unless it names THIS household), a household seated twice or also
 # housed by another overlay, any present household left over, and a town more crowded
-# than the 1835 census's 8.204 people per dwelling. docs/LIBERTIES.md L354.
+# than the 1835 census's 8.204 people per dwelling. T-1972 (piece 2) seats the households
+# T-1386's rulings put in the town after them, strongest ruling first, until the census's
+# ceiling stops the line; the rest are counted apart as waiting on a roof, and the absent
+# as absent — refused: a ruled-in household neither seated nor counted apart, and a line
+# stopped while the ceiling still had room. docs/LIBERTIES.md L354.
 step "every household present on the scene date sleeps under a standing roof" \
   python3 tools/house_the_present_1835.py --check
 
