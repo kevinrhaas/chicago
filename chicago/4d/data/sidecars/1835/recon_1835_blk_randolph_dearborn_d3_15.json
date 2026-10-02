@@ -243,5 +243,14 @@
       "abuts": "recon_1835_blk_randolph_dearborn_h1_14",
       "why": "T-0143, the succession T-0105 owes. THE BLOCK'S BUSINESS FACE IS FULL, so the clause of the core density standard that tightens a commercial frontage has nothing left to bind here: the first deal and T-0105 between them took every free lot on Randolph, and the two lots this block has left are both on the Washington tier. WHAT DOES BIND IS THE STANDARD'S THIRD CLAUSE, and this is the first parcel in the project able to demonstrate it — T-0105 recorded in writing that lot 4 was an interior lot and the corner clause had nothing to bind on. Lot 1 is the block's one free CORNER lot, the south-west one, and it fronts Washington along its long edge and Dearborn Street along its short one. THE FACE IS MEASURED RATHER THAN ASSUMED, by the command T-A14 made of it — tools/measure_street_frontage.py randolph washington dearborn state — and on the committed dataset Washington carries 1 documented record and no inferred household while DEARBORN carries 6 and 1. So the ground this row is built to is not valuable because of the street it fronts; it is valuable because of the street it stands at the end of, and Dearborn in July 1835 is the only crossing of the main stem. The row is packed WEST to that corner rather than east away from it, which is exactly what `corner: west` is for, and it is graded on T-A11's end rule read the same way T-0105 read it: the best roof nearest the crossing. NO COORDINATE IS AUTHORED: the line, its bearing, the lot's own stretch of it and the end the run packs toward are all read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage. The Washington face carries no committed street wall for the run to adopt — the two roofs already standing on that tier are one-per-lot placements set back inside their own lots — so this run is the first line on the face and states the margin rather than adopting one."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

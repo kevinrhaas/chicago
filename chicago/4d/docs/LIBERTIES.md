@@ -19279,3 +19279,35 @@ summer of 1835 would replace the 0.35 m floor.
 street section the aprons lead to), **T-0041**, **T-0058**, **T-0062**, **T-1771** (this
 layer), **T-1797** (the ground-strip method).
 **Recorded:** 2026-10-02.
+
+### L348 — The lay of a wall's boards and the years it has weathered are dealt by whose house it is
+
+**Decision:** every reconstructed roof the fabric rule reaches (T-1816, L330) has two more values
+dealt on the material sheet (`generators/common/materials.py`, rules **FIN-L** and **FIN-W**,
+materials.md §16). Both are `reconstructed`, and neither touches a researched building or an
+attested finish.
+
+- **FIN-L, the lay.** On a clapboard wall, a course's exposure stands off its mill stock by at
+  most 3 mm on a merchant's house, 4 mm on a keeper's, 6 mm on a tradesman's and 8 mm on a
+  labourer's or a yard or works building. Each lap line is drawn by a hash of the record's id
+  and phase. The error never accumulates, so the top course still meets the plate where it did.
+  It is invented: no source gives the laying tolerance of any 1835 Chicago wall. The bound is
+  argued from the tools. A joiner setting out with a story pole holds about an eighth of an inch;
+  a man laying by eye, about a quarter to five-sixteenths. Every bound sits well inside the
+  0.018 m lip, so no course climbs over the one above it.
+- **FIN-W, the wear.** A roof's `age_state`, which the fabric rule deals from its household's
+  arrival year, is read as years of weather: `new` 0.5, `recent` 1.5, `established` 2.5,
+  `older_frontier` 5.0. A merchant's house weathers at half the rate and a keeper's at three
+  quarters, because a coat that is kept up is renewed. The renderer's silvering (L126) reads
+  these in place of the programme date. That date, 1835-01-01, was never a construction date.
+  The years are invented within the window the age names, and the rates are invented outright.
+  L126's bounds on how far a wall may silver are unchanged.
+
+**How to resolve:** any source giving the date a particular reconstructed-lot house was raised
+(it moves that roof's `age_state`, and through it the wear); any account of how 1830s Chicago
+carpenters set out siding. A named discovery replaces the anonymous roof and its deal together.
+
+**Related:** **L126** (the facade tone this extends), **L330** (the fabric rule's finish deal),
+**L338** (its form deal), **L148** (the siding stock), **T-1962** (this deal, piece 1 of
+**T-1818**, of **T-1210**), **T-1963** (the relief that lets it read at walking distance).
+**Recorded:** 2026-10-02 (T-1962).

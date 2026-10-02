@@ -299,5 +299,14 @@
       "household": "hh_abell_sidney",
       "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 8 × 10 in glass, green shutters and a stoop, under a new roof — The Abell household's, in Chicago since 1834 (rule F-M)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "merchant",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 0.5,
+    "lay_m": 0.003,
+    "confidence": "reconstructed"
   }
 }

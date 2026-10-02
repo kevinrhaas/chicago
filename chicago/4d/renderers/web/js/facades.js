@@ -44,6 +44,13 @@
  * stacked on the first, and it is not needed: the jitter below is what makes
  * them differ from each other.
  *
+ * **Since T-1962 that second reconstruction exists, and it is not invented here.**
+ * The fabric rule (T-1816) deals every reconstructed roof an `age_state` from its
+ * household's arrival year, and the material sheet turns it into years of weather
+ * (`materials.WEATHER_YEARS_BY_AGE`, rule FIN-W, L348), carried on the sidecar as
+ * `fabric_tone`. Where it is present it replaces the programme date; where it is
+ * not — every researched building — the dated age above stands unchanged.
+ *
  * **2. Identity.** A deterministic hash of `id|phase` gives every structure its
  * own small offset in value and in warmth. Deterministic because a scene that
  * repainted itself on reload would make every frame gate in this suite
@@ -218,7 +225,17 @@ export function toneFor(sidecar) {
   const paintAttr = sidecar?.attributes?.paint ?? null;
   const paint = paintAttr?.value ?? null;
   const confidence = paintAttr?.confidence ?? null;
-  const age = ageYears(sidecar?.documented_range?.from, sidecar?.target_date);
+  // THE WEAR (T-1962). Where the fabric rule dealt this roof a household, its age is
+  // the household's (`fabric_tone.weather_years`, FIN-W on the material sheet) and not
+  // the programme's 1835-01-01 — the "absence of a claim" the header records, now
+  // filled by the rule T-1816 already applied to its finish. `weather_rate` is how far
+  // the class kept its walls up, which slows the silvering and never stops it.
+  const ft = sidecar?.fabric_tone ?? null;
+  const ruled = Number.isFinite(ft?.weather_years);
+  const age = ruled
+    ? ft.weather_years
+    : ageYears(sidecar?.documented_range?.from, sidecar?.target_date);
+  const kept = ruled && Number.isFinite(ft?.weather_rate) ? ft.weather_rate : 1;
 
   // The whole of the honesty rule, in one branch: a source spoke for this
   // surface, so nothing here may move it.
@@ -231,7 +248,7 @@ export function toneFor(sidecar) {
 
   const masonry = FACADE.masonry.includes(paint);
   const rate = masonry ? 0 : (paint === 'whitewash' ? FACADE.whitewashRate : 1);
-  const weather = Math.min(1, age / FACADE.ageFullYears) * rate;
+  const weather = Math.min(1, age / FACADE.ageFullYears) * rate * kept;
 
   const [, u2] = uniforms(`${sidecar?.id ?? ''}|${sidecar?.phase ?? ''}`);
   const spread = masonry ? FACADE.masonryJitter : 1;
@@ -250,7 +267,8 @@ export function toneFor(sidecar) {
     eligible: true,
     reason: masonry
       ? `masonry (${paint}) — jitter only, no silvering`
-      : `${paint ?? 'no stated paint'} at ${age.toFixed(1)} y`,
+      : `${paint ?? 'no stated paint'} at ${age.toFixed(1)} y`
+        + (ruled ? ` (${ft.age_state}, a ${ft.class}'s — ${ft.rule})` : ''),
   };
 }
 

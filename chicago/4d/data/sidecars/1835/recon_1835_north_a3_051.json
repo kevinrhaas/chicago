@@ -193,5 +193,14 @@
       "words": "silvered boards under a weather-darkened roof — a privy, from the 1832–33 town (rule F-Y: a yard building's by its type)"
     },
     "yard_group": "re_d6_044_yard"
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "yard",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }
