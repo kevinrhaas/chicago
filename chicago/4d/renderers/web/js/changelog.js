@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1319, ts: '2026-10-02T19:35:14.713Z', date: 'Oct 2, 2026, 2:35 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
+  { v: 1320, ts: '2026-10-02T19:48:42.751Z', date: 'Oct 2, 2026, 2:48 PM CT', title: 'Three empty shops get their keepers, and a shed becomes a home', kind: 'change',
     items: [
       'Open the joiner\u2019s shop on Randolph at Des Plaines: Otis Bacon, a carpenter, now works there. Louis Bertrand keeps the narrow warehouse at the forks, and Silas Bacon, a grocer, keeps the two-storey store on Lake Street.',
-      'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L358).',
+      'All three are reconstructed people who had a trade of their own and nowhere to work. Each took the nearest empty roof of that trade in their own part of town. Which shop each one kept is our reconstruction (liberty L359).',
       'The big riverside work shop on Wolcott stays empty, and its card now says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
       'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five lives there, and nine more households that were waiting now have a roof.',
+    ] },
+  { v: 1319, ts: '2026-10-02T19:23:24.414Z', date: 'Oct 2, 2026, 2:23 PM CT', title: 'Fewer tents on South Water Street, more on the shore', kind: 'fix',
+    items: [
+      'Walk South Water Street between Franklin and Wells and look down at the bank. Four tents stand there now, where there were fifteen with wagons and heaps of baggage.',
+      'Go south from the fort along the lake shore. Past the land-sale tents there is now a second camp: eleven tents, two covered wagons and cold fire rings. These are the emigrant families we moved off the wharves.',
+      'Why: a Chicago newspaper of June 1835 says store houses were opened so newcomers would not have to sleep on the wharves, and that some pitched tents where they landed. We had read that as a whole season of tents along the busiest street in town.',
+      'The four tents at the landing rest on that newspaper. No source puts anyone on the shore camp, so it is our reconstruction (liberty L358).',
     ] },
   { v: 1318, ts: '2026-10-02T19:14:24.160Z', date: 'Oct 2, 2026, 2:14 PM CT', title: 'Nine stables, barns and sheds now say what they were for', kind: 'feature',
     items: [

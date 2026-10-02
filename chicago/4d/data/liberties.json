@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 351,
+  "count": 352,
   "liberties": [
     {
       "id": "L1",
@@ -14308,14 +14308,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 98
+        "count": 99
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 98 structures (97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)"
+          "text": "`structures.land_owner[constructed_section_grid]` — 99 structures (98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)"
         },
         {
           "label": "Decision",
@@ -20300,91 +20300,12 @@
     },
     {
       "id": "L321",
-      "title": "Two emigrants' camps on the South Water bank: the ground documented, the tents invented",
+      "title": "The emigrants' tents at the landing: the ground documented, the tents invented, the count the paper's \"some\"",
       "section": "per_subject",
       "subjects": [
-        "landing_camp_east",
         "landing_camp_west"
       ],
       "covers": [
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": null,
-          "aspect": "occupants"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "documented_range"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.arrangement"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.baggage_heaps"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.brush_shelters"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.canvas_condition"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.fire_rings"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.tent_kind"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.tents"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.wagons"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "form.woodpiles"
-        },
-        {
-          "domain": "structure",
-          "structure": "landing_camp_east",
-          "phase": "camp_1835",
-          "aspect": "position"
-        },
         {
           "domain": "structure",
           "structure": "landing_camp_west",
@@ -20469,15 +20390,15 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "two camps of tents stand on the South Water Street bank of the main stem (T-1803, the first piece of T-1214): `landing_camp_west` between local E +264 and E +297 and `landing_camp_east` between E +300 and E +342, between the street's drawn roadway and the traced 1834 bank, and between J. H. Kinzie's landing and Jones's. They hold the 28 camp households `data/reconstruction/1835_transient_persons.json` deals to the landing place: one tent to each of the 15 households \"in a tent at the landing place\", and a heap of baggage — two chests, a barrel and a blanket roll — for each of the 13 \"under the open sky upon the wharves\". The camps carry 7 and 8 tents in the alternating wall and wedge forms, a covered wagon each, a brush lean-to in the east camp, one cold fire ring to two tents with a pot crane over it, and cordwood. **Everything drawn is invented except the use of the ground.**"
+          "text": "one short row of tents stands on the South Water Street bank of the main stem (T-1803, the first piece of T-1214; thinned by T-1979): `landing_camp_west`, between local E +264 and E +280, between the street's drawn roadway and the traced 1834 bank, at the west end of the stretch between J. H. Kinzie's landing and Jones's. It holds the 4 households `data/reconstruction/1835_transient_persons.json` deals to the landing place, one tent each, in the alternating wall and wedge forms, with two cold fire rings and a woodpile. No wagon and no baggage stands there. **Everything drawn is invented except the use of the ground.**"
         },
         {
           "label": "Why",
-          "text": "the Chicago American of 13 June 1835 says the emigrants \"remained under the open sky upon the wharves. Some build tents upon the spot they were landed from the boats\", and `1835_camp_grounds.json` grades that ground `documented` and resolves it to the bank the landings stand their decks on. The paper says neither where along the riverfront nor what the tents were. The stretch is chosen because it is the only one the measurement leaves: the dry strip between the roadway and the water is 9 to 16 m wide here and closes to nothing west of it and under the river walk east of it (`tools/place_landing_camps_1835.py` measures it and refuses a camp within 1 m of the roadway, a deck, a walk, a beached boat or a footprint, or on ground under 0.20 m above the water). The tents are the two forms an outfitter of the 1830s sold — the 9 x 12 ft wall tent and the 7 x 9 ft wedge tent — at their catalogue sizes (`generators/archetypes/camp_params.py`). One tent a household is the reading that invents no sharing. The wagons answer the owner's ruling that wagons are not to be rationed (AGENTS.md, 2026-08-18); a family that came by lake shipped its wagon on the schooner."
+          "text": "the Chicago American of 13 June 1835 says \"even some store houses have been thrown open to receive the unsheltered emigrants, who had else remained under the open sky upon the wharves. Some build tents upon the spot they were landed from the boats\", and `1835_camp_grounds.json` grades that ground `documented` and resolves it to the bank the landings stand their decks on. The paper says neither where along the riverfront nor what the tents were. The stretch is the only one the measurement leaves: the dry strip between the roadway and the water is 9 to 16 m wide here and closes to nothing west of it and under the river walk east of it (`tools/place_landing_camps_1835.py` measures it and refuses a camp within 1 m of the roadway, a deck, a walk, a beached boat or a footprint, or on ground under 0.20 m above the water). The tents are the two forms an outfitter of the 1830s sold — the 9 x 12 ft wall tent and the 7 x 9 ft wedge tent — at their catalogue sizes (`generators/archetypes/camp_params.py`). One tent a household is the reading that invents no sharing. **Until T-1979 this entry stood two camps here, 15 tents, 2 wagons and 13 heaps of baggage**; the owner questioned a row of canvas along the town's working frontage (2026-10-02), and the sentence, re-read, carries less than that — see **L358**."
         },
         {
           "label": "Consequence",
-          "text": "a visitor on South Water Street sees a row of greyed canvas on the bank below the stores, with wagons, fire rings and piled baggage, and nobody there. **L1 stands over every vertex**: no figure is drawn, and no flame or smoke either — a column of smoke is the one thing a visitor would read as a person at the fire. On the street's CONTROL line (AGENTS.md rule 10) the platted South Water Street ran to the water, so these camps stand in the plat's roadway; that is what a crowd nobody had a room for did, and it is said on both records. These are not Native or Métis camps, which are T-1804's and carry the standing constraint's review."
+          "text": "a visitor on South Water Street sees four greyed tents on the bank below the stores, with two fire rings and nobody there. **L1 stands over every vertex**: no figure is drawn, and no flame or smoke either. On the street's CONTROL line (AGENTS.md rule 10) the platted South Water Street ran to the water, so this camp stands in the plat's roadway; that is what the paper says the emigrants did, and it is said on the record. These are not Native or Métis camps, which carry the standing constraint's review."
         },
         {
           "label": "How to resolve",
@@ -20485,15 +20406,15 @@
         },
         {
           "label": "Covers",
-          "text": "`landing_camp_west.camp_1835.position`, `landing_camp_west.camp_1835.footprint`, `landing_camp_west.camp_1835.form.tents`, `landing_camp_west.camp_1835.form.tent_kind`, `landing_camp_west.camp_1835.form.wagons`, `landing_camp_west.camp_1835.form.brush_shelters`, `landing_camp_west.camp_1835.form.fire_rings`, `landing_camp_west.camp_1835.form.woodpiles`, `landing_camp_west.camp_1835.form.baggage_heaps`, `landing_camp_west.camp_1835.form.canvas_condition`, `landing_camp_east.camp_1835.position`, `landing_camp_east.camp_1835.footprint`, `landing_camp_east.camp_1835.form.tents`, `landing_camp_east.camp_1835.form.tent_kind`, `landing_camp_east.camp_1835.form.wagons`, `landing_camp_east.camp_1835.form.brush_shelters`, `landing_camp_east.camp_1835.form.fire_rings`, `landing_camp_east.camp_1835.form.woodpiles`, `landing_camp_east.camp_1835.form.baggage_heaps`, `landing_camp_east.camp_1835.form.canvas_condition`, `landing_camp_west.camp_1835.form.arrangement`, `landing_camp_east.camp_1835.form.arrangement`, `landing_camp_west.camp_1835.documented_range`, `landing_camp_east.camp_1835.documented_range`, `landing_camp_west.occupants`, `landing_camp_east.occupants`"
+          "text": "`landing_camp_west.camp_1835.position`, `landing_camp_west.camp_1835.footprint`, `landing_camp_west.camp_1835.form.tents`, `landing_camp_west.camp_1835.form.tent_kind`, `landing_camp_west.camp_1835.form.wagons`, `landing_camp_west.camp_1835.form.brush_shelters`, `landing_camp_west.camp_1835.form.fire_rings`, `landing_camp_west.camp_1835.form.woodpiles`, `landing_camp_west.camp_1835.form.baggage_heaps`, `landing_camp_west.camp_1835.form.canvas_condition`, `landing_camp_west.camp_1835.form.arrangement`, `landing_camp_west.camp_1835.documented_range`, `landing_camp_west.occupants`"
         },
         {
           "label": "Related",
-          "text": "**L1** (no human figures), **L245** (the transient crowd bounded), **T-1353** (the camp households), **T-1804** (the other grounds and the Native and Métis camps)."
+          "text": "**L1** (no human figures), **L245** (the transient crowd bounded), **L358** (the re-reading that thinned this camp), **T-1353** (the camp households), **T-1804** (the other grounds and the Native and Métis camps), **T-1979** (the thinning)."
         },
         {
           "label": "Recorded",
-          "text": "2026-10-01."
+          "text": "2026-10-01; amended 2026-10-02 (T-1979)."
         }
       ]
     },
@@ -22286,6 +22207,132 @@
     },
     {
       "id": "L358",
+      "title": "The open sky the store houses spared, and the emigrants' tents moved off the wharves to the shore",
+      "section": "per_subject",
+      "subjects": [
+        "emigrant_camp_shore"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.arrangement"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.baggage_heaps"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.brush_shelters"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.canvas_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.fire_rings"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.tent_kind"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.tents"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.wagons"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "emigrant_camp_shore",
+          "phase": "camp_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "two changes to the summer crowd of 1835, made on the owner's report of 2026-10-02 that a row of tents along South Water Street and the main stem is unlikely without evidence for it (T-1979). **(1)** The 13 households `tools/reconstruct_transients_1835.py` deals to the class \"the open sky upon the wharves\" are `party` households now, and their `lodged_at` row resolves to the class \"a store house thrown open\". Their slots keep their key, so no name is redrawn and the cohort's equal deal over T-1352's six classes is untouched. **(2)** Of the 15 households dealt to \"a tent at the landing place\", the first four in slot order name the landing place as their ground and stand there (**L321**); the other eleven name the lake shore south of the fort, and `emigrant_camp_shore` stands them: a scatter of 11 tents (wall and wedge alternately), 2 covered wagons, a brush lean-to, 6 cold fire rings and 3 woodpiles on a 42 x 32 m ground of the United States Reservation between local E +1170 and E +1212, N −140 to −108 — east of the Fort Cemetery and outside its 30 m skirt, south of the land-sale camp (**L355**), short of the lake beach. **The ground is a conjecture and the spot is ours; the tents are invented.**"
+        },
+        {
+          "label": "Why",
+          "text": "the one sentence every camp household stands on is the Chicago American of 13 June 1835, p. 2 col. 1: \"even some store houses have been thrown open to receive the unsheltered emigrants, who had else remained under the open sky upon the wharves. Some build tents upon the spot they were landed from the boats\", and the passage runs on (OCR-heavy) to \"Westward Ho!\" and \"they press on still deeper into the interminable prairies\". In the paper's own grammar the open sky is what the store houses SPARED them — \"had else\" is this project's own normalization of the OCR's \"fad bye\", and the cohort model quotes it — so a heap of baggage on the bank for each of 13 households read the sentence backwards. The OCR is heavy there; if \"had else\" proves to be \"had before\", the households slept out before the store houses opened and were under a roof by 13 June either way. And the tents are SOME, pitched \"upon the spot they were landed\" by people pressing on west: a handful at any one time, not a season-long row of fifteen along the town's working wharf frontage, where the town's business stood (Moses & Kirkland, *History of Chicago* v1: business \"had heretofore been confined to South Water street\"). FOUR is a reasoned count, not a reading. The rest are dealt to the nearest open ground off that frontage that carried no lot line in July 1835 — the reservation shore, which `1835_camp_grounds.json` offers and grades `conjectural` because no committed source puts anybody on it. The nearest thing the corpus holds is a different year: Moses & Kirkland v1 say that in 1831 some four hundred immigrants \"temporarily stopped at the fort and adjacent buildings\". That is a precedent for transients on the reservation, not evidence of tents there in 1835, and it is not cited as one. The spot is the placer's (`tools/place_camp_grounds_1835.py`), under the same tests as L355: level ground at least 0.5 m above the water, at least 3 m from every drawn roadway, fence and committed footprint, and outside the cemetery's skirt."
+        },
+        {
+          "label": "Consequence",
+          "text": "South Water's bank carries four tents instead of fifteen and no baggage; a visitor walking down the shore south of the fort finds two pockets of canvas, the land-sale camp and, further on, the emigrants' camp. 55 persons move from the open sky to the store houses and 39 from the landing to the shore; no count changes, no name changes, and **L1 stands over every vertex** — no figure, no flame, no smoke. These are not Native or Métis camps."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a letter, a diary or a view of the summer of 1835 saying where the emigrants who could not get a room pitched — it would move this camp to its ground or retire it; a cleaner reading of the American's \"had else\" from the page image; any source that ranks the six sleeping classes or gives one of them a count."
+        },
+        {
+          "label": "Covers",
+          "text": "`emigrant_camp_shore.camp_1835.position`, `emigrant_camp_shore.camp_1835.footprint`, `emigrant_camp_shore.camp_1835.documented_range`, `emigrant_camp_shore.camp_1835.form.tents`, `emigrant_camp_shore.camp_1835.form.tent_kind`, `emigrant_camp_shore.camp_1835.form.wagons`, `emigrant_camp_shore.camp_1835.form.brush_shelters`, `emigrant_camp_shore.camp_1835.form.fire_rings`, `emigrant_camp_shore.camp_1835.form.woodpiles`, `emigrant_camp_shore.camp_1835.form.baggage_heaps`, `emigrant_camp_shore.camp_1835.form.arrangement`, `emigrant_camp_shore.camp_1835.form.canvas_condition`, `emigrant_camp_shore.function`, `emigrant_camp_shore.occupants`"
+        },
+        {
+          "label": "Related",
+          "text": "**L1** (no human figures), **L245** (the transient crowd bounded), **L321** (the tents that stay at the landing), **L355** (the land-sale camp on the same shore), **T-1353** (the camp households), **T-1979** (this entry)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L359",
       "title": "The empty trade roofs kept: a keeper owed a house of their own put in the nearest empty shop, store or warehouse of their trade",
       "section": "per_subject",
       "subjects": [],

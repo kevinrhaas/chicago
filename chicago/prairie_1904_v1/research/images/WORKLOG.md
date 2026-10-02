@@ -66,6 +66,16 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
+## Rights requests drafted (2026-10-02)
+
+`rights-requests/` holds both drafts and a status table, ready for the owner to send:
+- **Art Institute** (archives@artic.edu): 8 Renwick 1874 microfilm frames, plus files for the 3
+  sheets it already marks public domain.
+- **Glessner House Museum** (info@glessnerhouse.org): 10 George Glessner photographs, c. 1888–1901
+  (13 records).
+
+Record the answers there, then update each record's rights.
+
 ## Rights rule widened (2026-10-02)
 
 The public-domain cutoff is now "published in the US 95+ years ago", which is 1930 or earlier as

@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 107860218,
+ "bytes": 109566784,
  "files": {
   "a16-albertype-1890-pullman-residence-thumb.jpg": {
    "bytes": 35938,
@@ -61,6 +61,22 @@
    "bytes": 117020,
    "sha256": "7ec1f304bc3d8a9929791313a647f18ff2b5cfbac5006b7ed8e579820c0de16b"
   },
+  "a16-ghm-blog-1700-1706-construction-1901-thumb.jpg": {
+   "bytes": 24667,
+   "sha256": "f6587f98283dbb19282fbfb27a750145bd740f2be025bc9dd88f8f3ca87a75a8"
+  },
+  "a16-ghm-blog-1700-1706-construction-1901.jpg": {
+   "bytes": 62869,
+   "sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b"
+  },
+  "a16-ghm-blog-1708-1706-1700-christmas-thumb.jpg": {
+   "bytes": 22862,
+   "sha256": "883d8ae7db5b56e3a927e4aea643f32511f4c9221ff243c40243d3781430797d"
+  },
+  "a16-ghm-blog-1708-1706-1700-christmas.jpg": {
+   "bytes": 121258,
+   "sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63"
+  },
   "a16-ghm-blog-1720-atlas-crop-thumb.jpg": {
    "bytes": 32414,
    "sha256": "934831d74001a8eb150c9d4752e20e1b123d4c69881ab69581a0915cca58caf6"
@@ -68,6 +84,22 @@
   "a16-ghm-blog-1720-atlas-crop.jpg": {
    "bytes": 224047,
    "sha256": "5fef608a8b4f00ced4e21f4bbddbdf33e2c265a3206d6f839af2354e9ce1515e"
+  },
+  "a16-ghm-blog-1721-dexter-c1888-thumb.jpg": {
+   "bytes": 22601,
+   "sha256": "6fb2b010e09c044a380a4143f24855c960e5baaaf0d778b64838568907218f44"
+  },
+  "a16-ghm-blog-1721-dexter-c1888.jpg": {
+   "bytes": 75961,
+   "sha256": "cf6aeeb2325eb9fb01d3a7d336bda285db484bd1797c6f055b07d29b4a28a77d"
+  },
+  "a16-ghm-blog-massacre-tree-george-glessner-c1888-thumb.jpg": {
+   "bytes": 21140,
+   "sha256": "3d9b805cd0cfd9bd08790cb14b859de7acbfaeac51ea6a5c805875954a33f458"
+  },
+  "a16-ghm-blog-massacre-tree-george-glessner-c1888.jpg": {
+   "bytes": 62092,
+   "sha256": "0d381f0e9306cd3fd2719040c88f650c2fcc79a24bafaede7aaa4647fed0fd52"
   },
   "a16-industrial-chicago-1867-review-1600-block-thumb.jpg": {
    "bytes": 18221,
@@ -181,6 +213,14 @@
    "bytes": 96863,
    "sha256": "be1c39794fe71d84dff1e465215fc1a1cc0e730f1367ece701db20665a4cb6a7"
   },
+  "a18-gh-1800-block-sw-george-glessner-thumb.jpg": {
+   "bytes": 19677,
+   "sha256": "d6363b97bcd610c6345e5796d2159db9380ca42ebf3f3944b167ad1bf39637a7"
+  },
+  "a18-gh-1800-block-sw-george-glessner.jpg": {
+   "bytes": 84968,
+   "sha256": "7bbe83f1475cad2414a156cafef0650122ee2ecff1f96e16e3fb4b6d98033aa6"
+  },
   "a18-gh-1811-for-sale-1894-thumb.jpg": {
    "bytes": 23023,
    "sha256": "02e42d473e262d48768f3a60467a35e6274a24af47be6de734a679f0dc4d5509"
@@ -213,6 +253,22 @@
    "bytes": 185337,
    "sha256": "f9109f149fc55db5c49fdbda92ecd982747a7017452cf4e30f7f7140a594928e"
   },
+  "a18-gh-glessner-female-servants-entrance-thumb.jpg": {
+   "bytes": 24647,
+   "sha256": "e1900ee52adf2607c668532e9e0c7b3098eac8429148c0b500fd28e916759503"
+  },
+  "a18-gh-glessner-female-servants-entrance.jpg": {
+   "bytes": 65322,
+   "sha256": "37837f85d41c72651002cf4c08d94d2d225b3fbfdf5aa296e84a796912e7a85c"
+  },
+  "a18-gh-glessner-main-hall-1888-thumb.jpg": {
+   "bytes": 22933,
+   "sha256": "b6b3bc5cf1c5982cc520ddccdb63c9f758529b9a3df84f1c4e829e22edd4fe4a"
+  },
+  "a18-gh-glessner-main-hall-1888.jpg": {
+   "bytes": 94458,
+   "sha256": "d8046c4bd7a12e39349e1a53b831e0c57986ada658caa895f924533a95033558"
+  },
   "a18-gh-hitchcock-galloway-1874-sketch-thumb.jpg": {
    "bytes": 29580,
    "sha256": "49496f0ac27ee568312d174cf137447fbf56cffc2149140be72c3c42af5879b6"
@@ -220,6 +276,22 @@
   "a18-gh-hitchcock-galloway-1874-sketch.jpg": {
    "bytes": 66368,
    "sha256": "183f0a9dce20d6e6390ca833be28745e8bc2d8ba0e0a5e7940067af3bf4c9b16"
+  },
+  "a18-gh-ic-train-foot-of-18th-c1888-thumb.jpg": {
+   "bytes": 15171,
+   "sha256": "34b1d6f35c60c3a20c68ded870f8dad2496fa1a86ab8eb3d5851915f43ecb550"
+  },
+  "a18-gh-ic-train-foot-of-18th-c1888.jpg": {
+   "bytes": 63380,
+   "sha256": "072bcb6524da437f6ad8da6914ce9bd69dc156f141faa1dfede66b621205e425"
+  },
+  "a18-gh-kimball-lot-c1888-thumb.jpg": {
+   "bytes": 29787,
+   "sha256": "108c0c4077380df582ddd3404c1aa058fb78f5174e00559f69395164223e0e35"
+  },
+  "a18-gh-kimball-lot-c1888.jpg": {
+   "bytes": 85953,
+   "sha256": "318b7214188812dc31c8e2b98efbdec536ac1c04ff7896c0d18ee27337626813"
   },
   "a18-gh-landowner-1874-glessner-site-thumb.jpg": {
    "bytes": 30646,
@@ -236,6 +308,14 @@
   "a18-gh-landowner-1874-plate.jpg": {
    "bytes": 91315,
    "sha256": "7dbbb465db50bac37a5c0cee11d472fcc3ed365f7a1d281b7a405b08b4d2d424"
+  },
+  "a18-gho-porte-cochere-doors-c1888-thumb.jpg": {
+   "bytes": 20049,
+   "sha256": "e29f66d3d46f4763d1f978d3b1e1ed21de69d41982f2ca94ebba67ec407da594"
+  },
+  "a18-gho-porte-cochere-doors-c1888.jpg": {
+   "bytes": 208399,
+   "sha256": "98691f114dfdbf05e7135bc8327b68c4c35c8623ec2376085b577f84d406cceb"
   },
   "a18-inland-architect-1886-09-keith-notice-thumb.jpg": {
    "bytes": 22962,
@@ -1532,6 +1612,14 @@
   "cgn-1720-robinson-1886.jpg": {
    "bytes": 272597,
    "sha256": "55cd1ac098efd7255e9d13778222dbccf647b087ca778f63d5f8fb7b8fc8cd73"
+  },
+  "cgn-1721-dexter-winter-photo-copy-thumb.jpg": {
+   "bytes": 21205,
+   "sha256": "9ab8eb13a876319de60c61825d62b51adbc18d2e429cf997b59147b88aa0cb5f"
+  },
+  "cgn-1721-dexter-winter-photo-copy.jpg": {
+   "bytes": 79731,
+   "sha256": "d29c2f306064a6153a2e74f0419f3844e07eced8a3e9323c2e60dfeb4345af6e"
   },
   "cgn-1721-randmcnally-1893-strip-thumb.jpg": {
    "bytes": 20721,
@@ -2989,6 +3077,70 @@
    "bytes": 76235,
    "sha256": "b7a78bc04894649378e71caeb6c5b26707e3d21ec024657d23d342b87363729f"
   },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-354-thumb.jpg": {
+   "bytes": 6124,
+   "sha256": "5d5dec1dba449992a3f320d48e51ebfc6e1dd9ff4e8f906eb5d59684e239830b"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-354.jpg": {
+   "bytes": 16595,
+   "sha256": "3a7c64e36de5dc673f38d10a6ebf4ed9a98a554a3c0953ec14e6f555f6ca32c7"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-355-thumb.jpg": {
+   "bytes": 6972,
+   "sha256": "663be79c1c114f771f2c41f0771bd0937e81ca8e1b297f1e3430806cba29b229"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-355.jpg": {
+   "bytes": 19583,
+   "sha256": "a07376899f949298f4605a6c4032b7ac5b6fd86242eb5455ee187472d5b316af"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-356-thumb.jpg": {
+   "bytes": 9299,
+   "sha256": "7de941139881cc350602bbb9febf3c526cf32f6c0702f239fcb17109e34fa61d"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-356.jpg": {
+   "bytes": 28186,
+   "sha256": "b5ff1bdb30fde7a269033618577bbc6af9f95aff8fcaed4f36cd1e91513c9abd"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-357-thumb.jpg": {
+   "bytes": 9628,
+   "sha256": "7ce79af8c96499e24dc9f715ca7700d7c2dbe6110bdab299d29a453f11f91c13"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-357.jpg": {
+   "bytes": 28782,
+   "sha256": "812f38ecf533bed377d3e9d5dccc3272c35d40083df571ed7366748c4a3424a8"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-358-thumb.jpg": {
+   "bytes": 11866,
+   "sha256": "6ec7c94650c6928b10c16037ceeb20b4147f90a68063561e1b6e8523351fcc32"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-358.jpg": {
+   "bytes": 35642,
+   "sha256": "a6d868783865c73a89815911cbc506b8f4e71236c12d2000376b738fb72224f8"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-359-thumb.jpg": {
+   "bytes": 11774,
+   "sha256": "36e63afd05ec759a7c7482340eb6db15d2cf9070e274b6cf75ce388d03c9cc5d"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-359.jpg": {
+   "bytes": 34915,
+   "sha256": "c4f103565f0c83d3f772c80c16dd0d5cfe317ae024f3ff0a198d02773f46edca"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-360-thumb.jpg": {
+   "bytes": 9032,
+   "sha256": "1b0211173fd1ddcea8eb0d939463fbb5359e72483a4cbe3e415e611efd0a8688"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-360.jpg": {
+   "bytes": 27315,
+   "sha256": "a8757cae8b8f1b8b996ba9e63219c8488c427c85794a5f7814c188b062e06fbc"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-362-thumb.jpg": {
+   "bytes": 14883,
+   "sha256": "97442baa625bf9a1261819a8313eb253bf0c61e14611548f1db4239f564439c4"
+  },
+  "dw-rb-microfilm-second-presbyterian-renwick-frame-362.jpg": {
+   "bytes": 46356,
+   "sha256": "2fd25a23134bc6e4c9a3249d6b6d2a14e46f562dfe6006ea9e205cdfde28c148"
+  },
   "dw-rb-sketch-club-second-presbyterian-shaw-details-thumb.jpg": {
    "bytes": 27871,
    "sha256": "12b38701362fd9868a8ea29872e1861df6bfc14fd360e537b3aa84874e8afbd2"
@@ -3140,6 +3292,22 @@
   "st-flinn-1892-looking-south-prairie-from-18th.jpg": {
    "bytes": 958419,
    "sha256": "2ed2906898b0a7e706b0b3047ebfdafbb3e93e8f2f2e2a68dee60aa5fb153acc"
+  },
+  "st-ghm-1700-1706-under-construction-1901-thumb.jpg": {
+   "bytes": 24667,
+   "sha256": "f6587f98283dbb19282fbfb27a750145bd740f2be025bc9dd88f8f3ca87a75a8"
+  },
+  "st-ghm-1700-1706-under-construction-1901.jpg": {
+   "bytes": 62869,
+   "sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b"
+  },
+  "st-ghm-george-glessner-ic-train-18th-thumb.jpg": {
+   "bytes": 16246,
+   "sha256": "c727ab216cf002dc555487300ec825dc6f5662ef019810a0869d65d002484e38"
+  },
+  "st-ghm-george-glessner-ic-train-18th.jpg": {
+   "bytes": 36702,
+   "sha256": "e2c184fe571ceedf3dfaa9dd543fba743923d2495d830d31a91cc4b4e0c9d4f8"
   },
   "st-ghm-indiana-22nd-viaduct-souvenir-1925-thumb.jpg": {
    "bytes": 35684,

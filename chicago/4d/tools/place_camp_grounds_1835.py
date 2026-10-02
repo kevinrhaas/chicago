@@ -13,8 +13,16 @@ land-sale crowd south of the fort, the immigrants' wagons at the west approach")
 AGENTS.md § RECONSTRUCTED IS A TIER is the rule for a thing the scene needs and nothing
 states: build it at the reconstructed tier, bound it, and say so on every attribute.
 
-WHO SLEEPS THERE: NOBODY THIS LAYER COUNTS. 1835_transient_persons.json deals all 28 of
-its camp households to the landing place and none to either ground here. The land-sale
+AND A THIRD, FOR THE EMIGRANTS MOVED OFF THE WHARVES (T-1979, the owner's report of
+2026-10-02). The American's "Some build tents upon the spot they were landed from the
+boats" is read now as SOME: four tent households stay at the landing, and the other
+eleven of the class are dealt by tools/reconstruct_transients_1835.py to the lake shore
+south of the fort. Their camp stands here, a pocket of canvas further down the shore than
+the land-sale camp, at the same conjectural tier and labelled so (L358). Unlike the two
+camps below it SEATS people: the households whose own cards name the shore.
+
+WHO SLEEPS THERE (the land-sale camp and the wagon camp): NOBODY THIS LAYER COUNTS.
+1835_transient_persons.json seats none of the land-sale crowd and no overland party. The land-sale
 crowd is its first refusal — 77 visitors the Public Domain register NAMES at the sale of
 26-27 June 1835, reserved and left unminted because a drawn person may never stand in
 for a named one. So the shore camp seats nobody and moves no count; its tents stand for
@@ -59,6 +67,7 @@ DATUM = DATA / "datum.json"
 STREETS = DATA / "streets" / "1835.json"
 ENCLOSURES = DATA / "enclosures"
 SIDECARS = DATA / "sidecars" / "1835"
+TRANSIENTS = DATA / "residents" / "transients"
 STRUCTURES = DATA / "structures"
 EPOCH = DATA / "terrain" / "epochs" / "e1834_harbor_cut"
 
@@ -100,6 +109,28 @@ CAMPS = (
                       "the sale, canvas stood here. T-1804.",
     },
     {
+        "id": "emigrant_camp_shore",
+        "name": "The emigrants' tents on the lake shore",
+        "aka": ["the tents further down the shore"],
+        "ground": "the_lake_shore_south_of_the_fort",
+        "on_reservation": True,
+        "seats": True,
+        # A pocket south and east of the land-sale camp, the cemetery's skirt between
+        # them and the town: the nearest open ground off the wharf frontage.
+        "e": (1170.0, 1212.0), "n": (-140.0, -108.0),
+        "tents": 11, "tent_kind": "mixed", "wagons": 2, "brush_shelters": 1,
+        "fire_rings": 6, "woodpiles": 3, "baggage_heaps": 0,
+        "arrangement": "scatter", "canvas_condition": "weathered",
+        "function": "emigrant_camp",
+        "range": ("1835-06-01", "1835-09-30"),
+        "range_sources": ["chicago_american_1835"],
+        "range_note": "THE SEASON, NOT THE CAMP. The American of 13 June 1835 has the "
+                      "emigrants' tents already standing at the landing; the range runs "
+                      "the navigation summer they came in on. No source dates a tent on "
+                      "this shore or says there was one. What the range says is that on "
+                      "1 July 1835 canvas stood here. T-1979.",
+    },
+    {
         "id": "west_approach_wagon_camp",
         "name": "The emigrants' wagon camp at the west approach",
         "aka": ["the wagons beyond the Des Plaines Street line"],
@@ -125,6 +156,21 @@ CAMPS = (
 
 def load(p: Path) -> dict:
     return json.loads(p.read_text())
+
+
+def seated(ground: str) -> list:
+    """(slot, household id, name, persons) for the tent households whose own cards name
+    `ground` (tools/reconstruct_transients_1835.py deals them)."""
+    out = []
+    for f in sorted(TRANSIENTS.glob("*.json")):
+        d = load(f)
+        t = d.get("transient") or {}
+        if t.get("household_kind") != "camp":
+            continue
+        if ground not in {r.get("place_id") for r in d.get("lodged_at") or []}:
+            continue
+        out.append((t["slot"], d["id"], d["name"], len(d.get("persons") or [])))
+    return sorted(out)
 
 
 def grounds() -> dict:
@@ -224,7 +270,67 @@ def measure(camp: dict, field: Heightfield, streets: list, walls: list, prints: 
             "built": built, "cemetery": grave}
 
 
-def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
+def record(camp: dict, m: dict, datum: dict, ground: dict, hh: list) -> dict:
+    rec = _record(camp, m, datum, ground)
+    if not camp.get("seats"):
+        return rec
+    # The emigrants' shore camp (T-1979): the land-sale camp's ground tests and tent
+    # forms, with what it is FOR said in its own words.
+    ph = rec["phases"][0]
+    form = ph["form"]
+    persons = sum(r[3] for r in hh)
+    form["tents"]["note"] = (
+        f"ONE TENT A HOUSEHOLD, for the {len(hh)} households "
+        "1835_transient_persons.json deals to 'a tent at the landing place' and then to "
+        "this shore: the American says SOME built tents at the landing, so four stand "
+        "there and the rest of the class is drawn here, off the working wharf frontage "
+        "(T-1979). One family to one tent is the reading that invents no sharing. L358.")
+    form["wagons"]["note"] = (
+        "NOT ATTESTED. A family that came by lake and shipped its wagon on the schooner "
+        "drove it off the wharf to wherever it camped; two to eleven tents is the "
+        "restrained reading, and the owner has asked that wagons not be rationed "
+        "(AGENTS.md, 2026-08-18). Invented. L358.")
+    form["baggage_heaps"]["note"] = (
+        "None: every household here has a tent and its baggage is in it. L358.")
+    form["arrangement"]["note"] = (
+        "A scatter, because families that came off different vessels over a fortnight "
+        "pitched where there was room, not in a row.")
+    ph["position"]["note"] = ph["position"]["note"].replace(
+        "the nearest open ground to the landing", "the nearest open ground to the "
+        "landing, off the working wharf frontage,").replace("L355.", "L358.")
+    ph["position"]["symbolic_location"] = ph["position"]["symbolic_location"].replace(
+        "north-east of the Fort Cemetery, south-east of the garrison garden, south-west "
+        "of the factor's house, and short of the lake beach.",
+        "east of the Fort Cemetery, south of the land-sale camp, and short of the lake "
+        "beach.")
+    ph["footprint"]["note"] = ph["footprint"]["note"].replace("L355.", "L358.")
+    ph["change_note"] = ("Emigrants' tents on the reservation shore, moved off the South "
+                         "Water wharves. T-1979.")
+    rec["function"]["note"] = rec["function"]["note"].replace(
+        "on the owner's ask (T-1214) and labelled so; L355.",
+        "on the owner's report of 2026-10-02 that a camp belongs off the town's working "
+        "frontage (T-1979), and labelled so; L358.")
+    names = "; ".join(f"{r[2].split(' — ')[0]} ({r[1]})" for r in hh)
+    rec["occupants"] = {
+        "value": f"{len(hh)} households of the summer's crowd, {persons} persons, in "
+                 f"tents: {names}.",
+        "confidence": "reconstructed",
+        "note": "Every one of these households is RECONSTRUCTED by "
+                "tools/reconstruct_transients_1835.py (T-1353): a name off the 1835 "
+                "surname pool given to a slot the cohort model counts, and not a person "
+                "any source names. Their own records name the lake shore south of the "
+                "fort as the candidate ground, conjectural; this camp is where T-1214 "
+                "stands it. No figure is drawn for any of them (L1).",
+    }
+    rec["research_note"] = (
+        "T-1979, on the owner's report of 2026-10-02: the emigrants' tents the American "
+        "puts at the landing, all but four of them moved to the nearest open ground off "
+        "the wharf frontage. WHAT WOULD REPLACE THIS: a letter, a diary or a view of the "
+        "summer of 1835 saying where the emigrants who could not get a room pitched.")
+    return rec
+
+
+def _record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
     (e0, e1), (n0, n1) = camp["e"], camp["n"]
     length, depth = round(e1 - e0, 2), round(n1 - n0, 2)
     shore = camp["on_reservation"]
@@ -358,8 +464,8 @@ def record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
         "stand for that crowd's ground. No figure is drawn (L1)."
         if shore else
         "Nobody this layer counts. The transient model (T-1352/T-1353) counts the lake "
-        "arrivals the papers describe and deals all 28 of its camp households to the "
-        "landing place; no overland party is a row of it. So this camp seats nobody and "
+        "arrivals the papers describe and deals its camp households to the landing "
+        "place and the lake shore; no overland party is a row of it. So this camp seats nobody and "
         "moves no count. No figure is drawn (L1).")
     return {
         "id": camp["id"],
@@ -448,7 +554,12 @@ def derive() -> list:
             raise SystemExit(f"{camp['id']}: 1835_camp_grounds.json has no ground "
                              f"'{camp['ground']}'")
         m = measure(camp, field, streets, walls, prints, rings)
-        out.append(record(camp, m, datum, ground))
+        hh = seated(camp["ground"]) if camp.get("seats") else []
+        if camp.get("seats") and len(hh) != camp["tents"]:
+            raise SystemExit(f"{camp['id']}: the transient model deals {len(hh)} tent "
+                             f"households to {camp['ground']}; the camp pitches "
+                             f"{camp['tents']}. One tent a household: re-count CAMPS.")
+        out.append(record(camp, m, datum, ground, hh))
     return out
 
 

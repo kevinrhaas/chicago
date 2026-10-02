@@ -44,7 +44,7 @@ The roof goes to the keeper whose own roof — the card's `lives_at`, else the h
 seat — stands nearest it, ties broken by a seeded hash. One keeper a roof, one roof a
 keeper. **No source places any of these people at any of these roofs**: the keeper is the
 residents layer's, with their own grade on their own card; the roof is the 668-roof
-programme's; what is invented is which of them meet, and it is docs/LIBERTIES.md **L358**.
+programme's; what is invented is which of them meet, and it is docs/LIBERTIES.md **L359**.
 
 The seat travels beside the card, as the housing deal's do: `tools/compile_scene.py`
 (`overlay_trade_roofs`) puts the keeper on the roof's card as "worked here". No card and no
@@ -80,7 +80,7 @@ DATA = ROOT / "data"
 YEAR = "1835"
 OUT = DATA / "reconstruction" / "1835_trade_roof_seats.json"
 TICKET = "T-1989"
-LIBERTY = "L358"
+LIBERTY = "L359"
 
 sys.path.insert(0, str(ROOT / "tools"))
 from compile_scene import compile_residents  # noqa: E402

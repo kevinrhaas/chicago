@@ -2691,13 +2691,27 @@
   "call_number": "mqc 62777; microfilm roll #26, frame #354",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/62777",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:62777/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-354.jpg",
+   "display_bytes": 16595,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-354-thumb.jpg",
+   "thumb_bytes": 6124,
+   "original_px": [
+    800,
+    552
+   ],
+   "original_sha256": "ade26525953eb862f84ce5d5ed4debf52ec0532df3b014affe6183038c33d51a",
+   "original_bytes": 35885,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:62777/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/62777 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: Side elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: Side elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-microfilm-second-presbyterian-renwick-frame-355",
@@ -2723,13 +2737,27 @@
   "call_number": "mqc 62597; microfilm roll #26, frame #355",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/62597",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:62597/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-355.jpg",
+   "display_bytes": 19583,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-355-thumb.jpg",
+   "thumb_bytes": 6972,
+   "original_px": [
+    800,
+    553
+   ],
+   "original_sha256": "229914def408664ce2387c872c1e61f4f862caf78dbab066730f33ca3ebbc688",
+   "original_bytes": 41199,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:62597/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/62597 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: Alley [elevation]. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: Alley [elevation]. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-microfilm-second-presbyterian-renwick-frame-356",
@@ -2755,13 +2783,27 @@
   "call_number": "mqc 62374; microfilm roll #26, frame #356",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/62374",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:62374/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-356.jpg",
+   "display_bytes": 28186,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-356-thumb.jpg",
+   "thumb_bytes": 9299,
+   "original_px": [
+    800,
+    554
+   ],
+   "original_sha256": "91cdd8c4a1b610610a6b07cb72225f56f2bea30785f051a289d0b7060eb5faf8",
+   "original_bytes": 54728,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:62374/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/62374 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: South elevation (20th Street). Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: South elevation (20th Street). Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-microfilm-second-presbyterian-renwick-frame-357",
@@ -2787,13 +2829,27 @@
   "call_number": "mqc 62435; microfilm roll #26, frame #357",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/62435",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:62435/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-357.jpg",
+   "display_bytes": 28782,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-357-thumb.jpg",
+   "thumb_bytes": 9628,
+   "original_px": [
+    800,
+    554
+   ],
+   "original_sha256": "2c4164c1f5c52ee4b6a36582b757668d69c7d44ccecc2dad7f37a1a70e608ff4",
+   "original_bytes": 55433,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:62435/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/62435 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: North elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: North elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-microfilm-second-presbyterian-renwick-frame-358",
@@ -2819,13 +2875,27 @@
   "call_number": "mqc 62596; microfilm roll #26, frame #358",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/62596",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:62596/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-358.jpg",
+   "display_bytes": 35642,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-358-thumb.jpg",
+   "thumb_bytes": 11866,
+   "original_px": [
+    800,
+    553
+   ],
+   "original_sha256": "924add5049dcdca1d85d95323ba23f99b687c6e162d27dd0b97b1dc53068d6db",
+   "original_bytes": 67606,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:62596/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/62596 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: Front elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: Front elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-microfilm-second-presbyterian-renwick-frame-359",
@@ -2851,13 +2921,27 @@
   "call_number": "mqc 62643; microfilm roll #26, frame #359",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/62643",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:62643/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-359.jpg",
+   "display_bytes": 34915,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-359-thumb.jpg",
+   "thumb_bytes": 11774,
+   "original_px": [
+    800,
+    553
+   ],
+   "original_sha256": "199625bb34d42878cd5f946e7c60852d7f080995182fe487cafa004a85c2f8d2",
+   "original_bytes": 65945,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:62643/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/62643 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: Transverse sections (two drawings on one frame). Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: Transverse sections (two drawings on one frame). Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-microfilm-second-presbyterian-renwick-frame-360",
@@ -2883,13 +2967,27 @@
   "call_number": "mqc 63060; microfilm roll #26, frame #360",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/63060",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:63060/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-360.jpg",
+   "display_bytes": 27315,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-360-thumb.jpg",
+   "thumb_bytes": 9032,
+   "original_px": [
+    800,
+    553
+   ],
+   "original_sha256": "709fba6faa37c45265da0c0680a3a2adb6863f8294f56ca95c40f5bda1fc5045",
+   "original_bytes": 53450,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:63060/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/63060 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: Ground plan. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: Ground plan. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-microfilm-second-presbyterian-renwick-frame-362",
@@ -2915,13 +3013,27 @@
   "call_number": "mqc 62526; microfilm roll #26, frame #362",
   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/62526",
   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:62526/full/full/0/default.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Holder: 'For publication information please contact the Art Institute of Chicago Archives' (underlying plate is a pre-1929 US publication)",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from the Art Institute of Chicago, Ryerson & Burnham Archives, 2026-10-02 (rights-requests/aic-renwick-2026-10.md); stored meanwhile on the owner's decision. The drawings are unpublished works by James Renwick (d. 1895), in the US public domain by term (life + 70); the pending question is the holder's terms for its microfilm scans.",
+  "local": {
+   "display": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-362.jpg",
+   "display_bytes": 46356,
+   "thumb": "research/images/files/dw-rb-microfilm-second-presbyterian-renwick-frame-362-thumb.jpg",
+   "thumb_bytes": 14883,
+   "original_px": [
+    800,
+    553
+   ],
+   "original_sha256": "e6d95c83c03bd14f048d4b7b06acf986bb81b2fbb72f8f25d69d78f3d4fa1741",
+   "original_bytes": 86094,
+   "fetched_from": "https://artic.contentdm.oclc.org/iiif/2/mqc:62526/full/full/0/default.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Ryerson & Burnham CONTENTdm (artic.contentdm.oclc.org) API search by owner name; item record mqc/62526 read and preview image viewed",
-  "notes": "Microfilm frame of an original drawing for the church: Variation of front elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire.",
-  "measurements": []
+  "notes": "Microfilm frame of an original drawing for the church: Variation of front elevation. Holder note: 'no directions indicated on drawings, obviously some are mirror images.' Gives the full Renwick set (plan, all elevations, sections) — more than the three originals online at AIC (dw-aic-second-presbyterian-renwick-*). Pre-1900-fire design; exterior walls and tower survived the fire. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/aic-renwick-2026-10.md"
  },
  {
   "id": "dw-rb-artistic-houses-doane-1827-hall-stair",
