@@ -2975,13 +2975,27 @@
   "call_number": null,
   "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1721prairie/",
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1721prairie.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from Glessner House Museum, 2026-10-02 (rights-requests/ghm-george-glessner-2026-10.md); stored meanwhile on the owner's decision. The photographs are unpublished works by George Glessner (d. 1929), in the US public domain by term (life + 70); the pending question is the museum's terms for its scans.",
+  "local": {
+   "display": "research/images/files/cgn-1721-dexter-winter-photo-copy.jpg",
+   "display_bytes": 79731,
+   "thumb": "research/images/files/cgn-1721-dexter-winter-photo-copy-thumb.jpg",
+   "thumb_bytes": 21205,
+   "original_px": [
+    1052,
+    646
+   ],
+   "original_sha256": "32daa01845dc1ca4fadaf4980bc965c8ca7b118b077296f078757711487c6819",
+   "original_bytes": 467685,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1721prairie.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
-  "notes": "SAME PHOTOGRAPH as a16-ghm-blog-1721-dexter-c1888 (George Glessner, c.1888): the frame Dexter house before Arthur Little's 1889 addition, in snow — two storeys with a central gable, bracketed eaves, a belvedere and tall chimneys, shuttered windows, low wall/fence, gas lamp in the foreground. Bounds: the Glessners arrived 1887; the addition was building in Nov 1889 (Inter Ocean, quoted on the page).",
-  "measurements": []
+  "notes": "SAME PHOTOGRAPH as a16-ghm-blog-1721-dexter-c1888 (George Glessner, c.1888): the frame Dexter house before Arthur Little's 1889 addition, in snow — two storeys with a central gable, bracketed eaves, a belvedere and tall chimneys, shuttered windows, low wall/fence, gas lamp in the foreground. Bounds: the Glessners arrived 1887; the addition was building in Nov 1889 (Inter Ocean, quoted on the page). [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/ghm-george-glessner-2026-10.md"
  },
  {
   "id": "cgn-1721-tribune-1890-dexter-headline",
