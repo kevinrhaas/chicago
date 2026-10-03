@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 542,
-    "structures_reached": 99,
+    "structures_placed": 548,
+    "structures_reached": 104,
     "structures_reached_by_grade": {
       "inferred": 26,
-      "reconstructed": 73
+      "reconstructed": 78
     },
     "structures_unreached_by_section": {
-      "09": 440,
+      "09": 441,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -2224,6 +2224,10 @@
           "margin_m": 73.8
         },
         {
+          "id": "recon_1835_north_c4_067",
+          "margin_m": 7.3
+        },
+        {
           "id": "recon_1835_north_d1_013",
           "margin_m": 45.2
         },
@@ -2286,6 +2290,10 @@
         {
           "id": "recon_1835_north_h2_030",
           "margin_m": 79.6
+        },
+        {
+          "id": "recon_1835_north_t1_061",
+          "margin_m": 3.2
         }
       ]
     },
@@ -2774,6 +2782,14 @@
           "margin_m": 63.4
         },
         {
+          "id": "recon_1835_north_c3_064",
+          "margin_m": 4.0
+        },
+        {
+          "id": "recon_1835_north_c3_066",
+          "margin_m": 73.9
+        },
+        {
           "id": "recon_1835_north_d2_046",
           "margin_m": 73.2
         },
@@ -2832,6 +2848,10 @@
         {
           "id": "recon_1835_north_h2_045",
           "margin_m": 95.9
+        },
+        {
+          "id": "recon_1835_north_w2_065",
+          "margin_m": 39.1
         },
         {
           "id": "recon_1835_north_w5_040",
@@ -2999,6 +3019,14 @@
           "margin_m": 63.4
         },
         {
+          "id": "recon_1835_north_c3_064",
+          "margin_m": 4.0
+        },
+        {
+          "id": "recon_1835_north_c3_066",
+          "margin_m": 73.9
+        },
+        {
           "id": "recon_1835_north_d2_046",
           "margin_m": 73.2
         },
@@ -3057,6 +3085,10 @@
         {
           "id": "recon_1835_north_h2_045",
           "margin_m": 95.9
+        },
+        {
+          "id": "recon_1835_north_w2_065",
+          "margin_m": 39.1
         },
         {
           "id": "recon_1835_north_w5_040",
@@ -40037,6 +40069,7 @@
       "recon_1835_north_d4_018",
       "recon_1835_north_d6_021",
       "recon_1835_north_h1_007",
+      "recon_1835_north_w3_062",
       "recon_1835_south_a1_046",
       "recon_1835_south_a2_037",
       "recon_1835_south_a2_047",

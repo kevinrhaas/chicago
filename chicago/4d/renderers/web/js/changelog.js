@@ -1,10 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+  { v: null, ts: '', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
       'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
       'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
       '277 men are still owed a wife that no woman in the town can be.',
+    ] },
+  { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+    items: [
+      'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
+      'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
+      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
+    ] },
+  { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
+      'Take the leather to S. B. Cobb\u2019s saddlery and the iron to Asahel Pierce\u2019s smithy at Lake and Canal, then decide at the Green Tree whether to take the long road or keep the trip short.',
+      'The crack, the repairs and the keepsake, Sound Tack, are our reconstruction (liberty L-jaunt-mend-harness). The stable, the shops and their trades come from the sources.',
     ] },
   { v: 1358, ts: '2026-10-03T10:31:34.336Z', date: 'Oct 3, 2026, 5:31 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
     items: [

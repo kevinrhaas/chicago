@@ -10908,7 +10908,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 99 structures (98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 104 structures (99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -14266,7 +14266,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 511 phases (512 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 517 phases (518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -20165,6 +20165,13 @@ off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery hous
 own card puts its works at the documented tannery 847 m away at the forks; seating them here
 would give one firm a second works no source records, and the deal declines it in words.
 
+**Five more, T-1205 (2026-10-03).** The trade roofs **L368** raises on the north face of Kinzie
+Street join the deal: the W3 shop, the two C3 stores, the W2 joiner's shop and the C4 store
+(the T1 tavern is a lodging house and its lodgers fill it). The C4 is offered to the C3's store
+and grocery keepers; the W3 to coopers and wheelwrights, the two trades its crosswalk label
+names. None is kept: 6 storekeepers and 5 carpenters and joiners of the North Division are held
+by their count, and no cooper or wheelwright there is owed a house, so each card says which.
+
 **Not done, and why:** with no keeper seated, the town audit's at-work count does not move
 here; a seat the deal makes later is joined into the employment ledger by T-1982.
 
@@ -20427,3 +20434,69 @@ office through `--build` (`order_for`, T-1506), and the floor releases the drawn
 **L360** (where the debt was left by name), **L262**; the tickets **T-1529**, **T-1525**,
 **T-1418**, **T-2001**, **T-1459**.
 **Recorded:** 2026-10-03.
+
+### L-jaunt-mend-harness — Mend the Harness: an invented repair at two trades' shops
+
+**Decision:** Mend the Harness links four existing exterior destinations (the stable behind W. H. Stow's Western Hotel, S. B. Cobb's saddle, harness and trunk manufactory, Asahel Pierce's blacksmith shop and the Green Tree Tavern) in an invented harness check before a long road. The wagon, the long road, the cracked trace, the worn whiffletree hook, the inspection in the yard, the restitching, the twine, the work at the forge, the decision at the Green Tree, the four endings and the Sound Tack keepsake are reconstructed, and so are the reading and action seconds. What each place did is sourced: the stable and its wagon yard from Stow's own account, the saddlery's trade and its promise of repairs from Goss & Cobb's November 1833 advertisement and Cobb's June 1835 continuation card, the smith's iron work from Andreas's account of Pierce, and the Green Tree's building and landlord from the hotel pages. That the trace goes to the saddler and the hook to the smith is the ordinary division of the two trades as their own records describe them; neither shop is claimed to have mended this harness, charged for it or had anyone at work on the day. No named person speaks or is met, no interior is opened and no front door is claimed. Which corner of Lake and Canal each shop held is not attested and the stops say so.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat's 26 November 1833 issue, the American's June 1835 issues, Andreas's paragraph on Pierce, the chicagology pages on the Western Hotel and the Green Tree, and brief 15 of JAUNTS-INITIAL-LIBRARY.md. The route, the damage, the repairs and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record of a repair at either shop, or of the stable's own fittings, would let a stop name real work in place of the invented crack and hook.
+
+**Applies to:** `data/jaunts/mend-the-harness.json`.
+
+**Recorded:** 2026-10-03 (T-2024).
+
+### L368 — Six invented trade roofs on the north face of Kinzie Street, and the warehouse left owed
+
+**Decision:** the North Division's owed trade roofs — three stores, an inn or tavern and two
+workshops, the order book's `structures/{stores_mixed_use,inns_taverns,workshops}/north` rows —
+stand as six anonymous roofs on the north face of Kinzie Street between Dearborn and the first
+lots east of Wolcott: a T1 tavern nearest the Dearborn drawbridge approach, a W3 wagon or
+cooper's shop, a C4 wide store on the Kinzie-and-Wolcott corner west of Wolcott, a C3 store on
+the corner east of it, a W2 joiner's shop and a second C3. They are recipe rows 61-66 of
+`data/reconstruction/1835_north_division_initial_parcel.json` (`kinzie_street_trade`), built by
+`tools/generate_north_infill.py`. **Everything about them is invented**: that any of them stood,
+what trade each kept, where it stands, its size and its form. The families are the programme's;
+the street is the memo's.
+
+**Why Kinzie Street and not the blocks the schedule dealt them to.** The 665-roof schedule put
+these families on `blk_indiana_north_wolcott` and `blk_indiana_north_cass` in Kinzie's Addition,
+and the block generator refuses every one of them there: Wolcott is graded `light` and the
+addition's other streets `none`, and no store, warehouse or workshop is built on either grade.
+Those two blocks are also at the ceiling the memo's alternation puts on them (L294). They are
+owed at all because T-1480 refamilied seven of this recipe's own trade roofs as dwellings when
+T-1445 found them standing 9 to 48 m back from any street line. Kinzie Street is graded
+`ordinary`, its north face had nothing on the street line from Clark to east of Wolcott, and
+`docs/RESEARCH/1835_north_division_extent_and_infill.md` names the Wolcott-Kinzie core as the
+strongest anonymous north cluster for exactly that combination of river approach and street.
+So the trade went back to the street, front walls about 0.6 m clear of the
+Kinzie corridor on its control line, with open ground between every pair: the memo's alternation, not a street wall.
+
+**The warehouse is not here.** The F3 the same order book owes belongs on the North Water bank,
+the one north street graded `light`, and no committed clause seats a warehouse on a light
+street. It is left owed rather than forced onto Kinzie Street.
+
+**How to resolve:** any dated record of a store, tavern or shop on Kinzie Street in 1835 (a
+press notice, a lot sale with improvements, a reminiscence that places one) would substitute
+for the nearest of these by family, and a better reading of the river band's frontage would
+move them.
+
+**Covers:** `recon_1835_north_t1_061.inferred_1835.position`,
+`recon_1835_north_t1_061.inferred_1835.footprint`,
+`recon_1835_north_w3_062.inferred_1835.position`,
+`recon_1835_north_w3_062.inferred_1835.footprint`,
+`recon_1835_north_c4_067.inferred_1835.position`,
+`recon_1835_north_c4_067.inferred_1835.footprint`,
+`recon_1835_north_c3_064.inferred_1835.position`,
+`recon_1835_north_c3_064.inferred_1835.footprint`,
+`recon_1835_north_w2_065.inferred_1835.position`,
+`recon_1835_north_w2_065.inferred_1835.footprint`,
+`recon_1835_north_c3_066.inferred_1835.position`,
+`recon_1835_north_c3_066.inferred_1835.footprint`
+
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L294** (the
+addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** and **T-1445**
+(the trade roofs refamilied away from here), **T-1746**.
+
+**Recorded:** 2026-10-03 (T-1205).
