@@ -1,19 +1,165 @@
-/* Shared interface skin tokens. Skin and the existing light/dark control are independent. */
-html[data-skin="scifi"] { --page:#080f16;--panel:rgba(12,25,34,.94);--panel-solid:#0e1b24;--ink:#e7efed;--ink-dim:#a2b7bf;--edge:#2d464f;--accent:#9edfd4;--brass:#9edfd4;--skin-radius:5px;--skin-font:ui-sans-serif,system-ui,sans-serif;--skin-display:ui-sans-serif,system-ui,sans-serif;--skin-glow:rgba(99,193,189,.1); }
-html[data-skin="steampunk"] { --page:#17120e;--panel:rgba(37,27,19,.96);--panel-solid:#251c15;--ink:#f4e6cd;--ink-dim:#c4ae8e;--edge:#705537;--accent:#e3b970;--brass:#e3b970;--skin-radius:3px;--skin-font:Georgia,serif;--skin-display:Georgia,serif;--skin-glow:rgba(208,151,62,.12); }
-html[data-skin="spaceage"] { --page:#eae5d9;--panel:rgba(246,241,229,.97);--panel-solid:#f6f1e5;--ink:#193c40;--ink-dim:#516868;--edge:#a5b3a9;--accent:#ae492e;--brass:#ae492e;--skin-radius:25px;--skin-font:ui-sans-serif,system-ui,sans-serif;--skin-display:ui-sans-serif,system-ui,sans-serif;--skin-glow:rgba(68,125,125,.14);color-scheme:light; }
-html[data-skin="scifi"][data-theme="light"] {--page:#e3edee;--panel:rgba(237,246,246,.96);--panel-solid:#edf6f6;--ink:#17363f;--ink-dim:#42616a;--edge:#8aafb4;--accent:#226a70;--brass:#226a70;}
-html[data-skin="steampunk"][data-theme="light"] {--page:#e9dcc4;--panel:rgba(247,235,214,.97);--panel-solid:#f7ebd6;--ink:#382819;--ink-dim:#6d5035;--edge:#ad8b57;--accent:#805213;--brass:#805213;}
-html[data-skin] .gate-card,html[data-skin] .drawer,html[data-skin] .card,html[data-skin] dialog {border-radius:var(--skin-radius);font-family:var(--skin-font);}
-html[data-skin] .gate-card h1,html[data-skin] .drawer h2 {font-family:var(--skin-display);}
-.skin-tools {display:flex;align-items:center;gap:10px;justify-content:center;margin:14px 0 0;font:11px/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--ink-dim);}
-.skin-tools select {max-width:160px;background:var(--panel-solid);color:var(--ink);border:1px solid var(--edge);padding:6px;border-radius:var(--skin-radius);font:inherit;}
-.skin-tools a {color:var(--accent);}
-html[data-transfer] .gate-card {animation:skin-arrival .7s ease-out both;}
-@keyframes skin-arrival {from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){html[data-transfer] .gate-card{animation:none}}
-html[data-skin] { --r:var(--skin-radius); }
-html[data-skin] body,html[data-skin] .hud-panel,html[data-skin] .popup { font-family:var(--skin-font); }
-html[data-skin] .panel-title,html[data-skin] .pop-title-row h2 { font-family:var(--skin-display); }
+/* Shared interface skins: four time machines (T-2036, the Temporal Observatory design).
+   One stylesheet for the portal (/4d/), the pending door and the renderer. skin.js sets
+   <html data-skin> before paint; each machine has a native tone (World's Fair is the light
+   one) and the renderer's light/dark switch still works — the [data-theme] blocks below give
+   every machine its other tone so the switch never strands dark ink on a dark panel.
+   Evidence grades (--doc/--inf/--con) are deliberately NOT touched here: walk.css owns them.
+   Webfonts are self-hosted latin subsets (fonts/LICENSE.md, SIL OFL 1.1); a face downloads
+   only when the active machine uses it. */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/barlow-400.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/barlow-500.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/barlow-600.woff2) format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(../fonts/barlow-semi-condensed-300.woff2) format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/barlow-semi-condensed-400.woff2) format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/barlow-semi-condensed-500.woff2) format('woff2')}
+@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/barlow-semi-condensed-600.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 600;font-display:swap;src:url(../fonts/cormorant-garamond.woff2) format('woff2')}
+@font-face{font-family:'Cormorant SC';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/cormorant-sc-500.woff2) format('woff2')}
+@font-face{font-family:'Cormorant SC';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/cormorant-sc-600.woff2) format('woff2')}
+@font-face{font-family:'Courier Prime';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/courier-prime-400.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/ibm-plex-mono-400.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/ibm-plex-mono-500.woff2) format('woff2')}
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/instrument-serif-400.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:400 600;font-display:swap;src:url(../fonts/jost.woff2) format('woff2')}
+@font-face{font-family:'League Spartan';font-style:normal;font-weight:500 800;font-display:swap;src:url(../fonts/league-spartan.woff2) format('woff2')}
+@font-face{font-family:'Saira';font-style:normal;font-weight:200 500;font-display:swap;src:url(../fonts/saira.woff2) format('woff2')}
+@font-face{font-family:'Share Tech Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/share-tech-mono-400.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/space-mono-400.woff2) format('woff2')}
+html[data-skin] {
+  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Consolas,monospace;--font-label:var(--font-mono);
+  --display-weight:300;--display-tracking:-.035em;--label-tracking:.14em;--label-weight:400;
+  --r-control:4px;--r-screen:10px;--chamfer:0px;
+  --inset-bezel:inset 0 0 0 1px rgba(0,0,0,.35),inset 0 2px 8px rgba(0,0,0,.45);
+  --ease-machine:cubic-bezier(.4,0,.2,1);--ease-detent:cubic-bezier(.2,.9,.25,1.2);
+}
+/* 1960s Control Room — the standard machine: console blue, ivory enamel, signal red, phosphor green. */
+html[data-skin="control-room"] { color-scheme:dark;
+  --page:#0A1426;--panel:rgba(16,32,58,.94);--panel-solid:#12233F;--panel-raised:#1A3052;
+  --ink:#ECE6D8;--ink-dim:#A7B4C8;--ink-faint:#6C7C96;--edge:#2A3F63;--edge-strong:#3E5A86;
+  --accent:#8CF5A8;--accent-ink:#0A1426;--brass:#8CF5A8;
+  --signal:#D6352B;--signal-ink:#FFF1EC;--signal-deep:#8E1F18;
+  --lamp:#F3A43B;--hazard:#E8C547;--alert:#E0457B;--ok:#8CF5A8;
+  --screen:#07130F;--screen-ink:#8CF5A8;--skin-glow:rgba(90,140,230,.16);
+  --font-display:'Barlow Semi Condensed',ui-sans-serif,system-ui,sans-serif;--font-body:'Barlow',ui-sans-serif,system-ui,sans-serif;--font-accent:'Instrument Serif',Georgia,serif;
+  --skin-radius:6px;
+}
+html[data-skin="control-room"][data-theme="light"] { color-scheme:light;
+  --page:#E4DED0;--panel:rgba(244,240,231,.96);--panel-solid:#F4F0E7;--panel-raised:#FFFFFF;
+  --ink:#10203A;--ink-dim:#4A5A74;--ink-faint:#7D8899;--edge:#B9BDBF;--edge-strong:#8FA3BF;
+  --accent:#1E5A8A;--accent-ink:#FFFFFF;--brass:#1E5A8A;--skin-glow:rgba(30,58,102,.12);
+}
+/* Precision Brass — brass, walnut, ivory, verdigris, amber; engraved serif. */
+html[data-skin="brass"] { color-scheme:dark;
+  --page:#17120E;--panel:rgba(42,30,21,.96);--panel-solid:#2A1E15;--panel-raised:#36271B;
+  --ink:#F4E6CD;--ink-dim:#C4AE8E;--ink-faint:#8C7556;--edge:#705537;--edge-strong:#9C7A4C;
+  --accent:#F2B154;--accent-ink:#2A1606;--brass:#D4A85A;
+  --signal:#D4A85A;--signal-ink:#2A1E15;--signal-deep:#7A5A2A;
+  --lamp:#7CC86A;--hazard:#F2B154;--alert:#B8612F;--ok:#7CC86A;
+  --screen:#2B1606;--screen-ink:#F7B24A;--skin-glow:rgba(208,151,62,.14);
+  --font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Cormorant Garamond',Georgia,serif;--font-accent:'Cormorant Garamond',Georgia,serif;
+  --font-mono:'Courier Prime','Courier New',monospace;--font-label:'Cormorant SC',Georgia,serif;
+  --display-weight:500;--display-tracking:-.01em;--label-tracking:.16em;--label-weight:600;
+  --skin-radius:3px;--r-control:2px;
+}
+html[data-skin="brass"][data-theme="light"] { color-scheme:light;
+  --page:#E9DCC4;--panel:rgba(247,235,214,.97);--panel-solid:#F7EBD6;--panel-raised:#FFF7E8;
+  --ink:#382819;--ink-dim:#6D5035;--ink-faint:#94785A;--edge:#AD8B57;--edge-strong:#8E6A33;
+  --accent:#805213;--accent-ink:#FFF5E4;--brass:#8E6A33;--skin-glow:rgba(128,82,19,.12);
+}
+/* World's Fair — ivory, turquoise, orange, graphite; geometric sans; pill controls. */
+html[data-skin="worlds-fair"] { color-scheme:light;
+  --page:#EFE9DC;--panel:rgba(248,244,234,.97);--panel-solid:#F8F4EA;--panel-raised:#FFFFFF;
+  --ink:#1E3A3D;--ink-dim:#4F6767;--ink-faint:#7F8E8B;--edge:#B9C2B8;--edge-strong:#8EA19A;
+  --accent:#138A92;--accent-ink:#FFFFFF;--brass:#138A92;
+  --signal:#EC6A1E;--signal-ink:#FFFFFF;--signal-deep:#B04A0E;
+  --lamp:#F59A2B;--hazard:#F2B21C;--alert:#D23C24;--ok:#2E9B6A;
+  --screen:#10201F;--screen-ink:#9FE4DE;--skin-glow:rgba(19,138,146,.16);
+  --font-display:'League Spartan','Jost',ui-sans-serif,sans-serif;--font-body:'Jost',ui-sans-serif,sans-serif;--font-accent:'League Spartan','Jost',sans-serif;
+  --font-mono:'Space Mono',ui-monospace,monospace;--font-label:'Jost',ui-sans-serif,sans-serif;
+  --display-weight:700;--display-tracking:-.04em;--label-tracking:.16em;--label-weight:600;
+  --skin-radius:22px;--r-control:14px;--r-screen:18px;
+  --inset-bezel:inset 0 0 0 1px rgba(30,58,61,.18),inset 0 2px 8px rgba(30,58,61,.25);
+}
+html[data-skin="worlds-fair"][data-theme="dark"] { color-scheme:dark;
+  --page:#11282C;--panel:rgba(24,51,55,.96);--panel-solid:#183337;--panel-raised:#21434A;
+  --ink:#F4EBD8;--ink-dim:#C3C8B9;--ink-faint:#8A9A94;--edge:#5B7778;--edge-strong:#7E9A97;
+  --accent:#5CC8CF;--accent-ink:#10201F;--brass:#5CC8CF;--skin-glow:rgba(92,200,207,.12);
+}
+/* Deep Space — obsidian, ceramic, cyan, amber; thin precise sans; chamfered corners. */
+html[data-skin="deep-space"] { color-scheme:dark;
+  --page:#07090C;--panel:rgba(17,20,26,.92);--panel-solid:#11141A;--panel-raised:#181C23;
+  --ink:#E4E2DC;--ink-dim:#98A0AB;--ink-faint:#5B636E;--edge:#262C35;--edge-strong:#3A4350;
+  --accent:#7AD7F6;--accent-ink:#07090C;--brass:#7AD7F6;
+  --signal:#F5A742;--signal-ink:#160E02;--signal-deep:#9A6214;
+  --lamp:#F5A742;--hazard:#F5A742;--alert:#F2645A;--ok:#6BE3B0;
+  --screen:#050A10;--screen-ink:#7AD7F6;--skin-glow:rgba(122,215,246,.12);
+  --font-display:'Saira',ui-sans-serif,system-ui,sans-serif;--font-body:'Saira',ui-sans-serif,system-ui,sans-serif;--font-accent:'Saira',ui-sans-serif,sans-serif;
+  --font-mono:'Share Tech Mono',ui-monospace,monospace;--font-label:'Saira',ui-sans-serif,sans-serif;
+  --display-weight:200;--display-tracking:.01em;--label-tracking:.24em;
+  --skin-radius:2px;--r-control:2px;--r-screen:4px;--chamfer:14px;
+}
+html[data-skin="deep-space"][data-theme="light"] { color-scheme:light;
+  --page:#E4E2DC;--panel:rgba(240,239,235,.95);--panel-solid:#F0EFEB;--panel-raised:#FFFFFF;
+  --ink:#11141A;--ink-dim:#4E5560;--ink-faint:#7A818B;--edge:#B8BCC2;--edge-strong:#8D949E;
+  --accent:#0E6F92;--accent-ink:#FFFFFF;--brass:#0E6F92;--skin-glow:rgba(14,111,146,.12);
+}
+/* Aliases every machine derives from its own tokens. */
+html[data-skin] {
+  --r:var(--skin-radius);--skin-font:var(--font-body);--skin-display:var(--font-display);
+  --wash:color-mix(in srgb,var(--accent) 16%,transparent);
+  --shadow-button:0 2px 0 var(--signal-deep),0 6px 18px color-mix(in srgb,var(--signal) 35%,transparent);
+  --glow-phosphor:0 0 12px var(--accent);
+}
+html[data-skin="deep-space"] { --shadow-button:0 0 0 1px var(--signal),0 0 22px color-mix(in srgb,var(--signal) 40%,transparent); }
 
-html[data-skin="spaceage"][data-theme="dark"] {--page:#11282c;--panel:rgba(24,51,55,.96);--panel-solid:#183337;--ink:#f4ebd8;--ink-dim:#c3c8b9;--edge:#5b7778;--accent:#ed9b72;--brass:#ed9b72;color-scheme:dark;}
+/* ---- the renderer, under any machine ---- */
+html[data-skin] body,html[data-skin] .hud-panel,html[data-skin] .popup,html[data-skin] dialog { font-family:var(--skin-font); }
+html[data-skin] .gate-card,html[data-skin] .drawer,html[data-skin] .card,html[data-skin] dialog { border-radius:var(--skin-radius); }
+html[data-skin] .gate-card h1,html[data-skin] .drawer h2,html[data-skin] .panel-title,html[data-skin] .pop-title-row h2 { font-family:var(--skin-display); }
+
+/* Card and Go-to labels read in the machine's label face (HANDOFF §3). */
+html[data-skin] .pop-kind,html[data-skin] .pop-facts dt,html[data-skin] .jump-group { font-family:var(--font-label);letter-spacing:var(--label-tracking); }
+
+/* The arrival card is the machine's briefing panel: mono-caps eyebrow, a lamp-lit
+   readout for the year, and the Engage key in the one signal colour. */
+html[data-skin] .gate-eyebrow,html[data-skin] .arrival-label { font-family:var(--font-label);font-weight:var(--label-weight);letter-spacing:var(--label-tracking); }
+html[data-skin] .gate-card { border-color:var(--edge-strong);box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 18px 46px rgba(0,0,0,.45); }
+html[data-skin] .arrival-instrument { border-top-color:var(--edge); }
+html[data-skin] .arrival-year { font-family:var(--font-mono); }
+html[data-skin] .arrival-digit,html[data-skin] .arrival-digit-flap { background:var(--screen);color:var(--lamp);border-color:var(--edge-strong);border-radius:var(--r-control); }
+html[data-skin] .arrival-digit { box-shadow:var(--inset-bezel);text-shadow:0 0 8px color-mix(in srgb,var(--lamp) 70%,transparent); }
+html[data-skin] .arrival-digit::after { border-top-color:rgba(0,0,0,.55); }
+html[data-skin] .gate-bar > i { background:var(--accent);box-shadow:var(--glow-phosphor); }
+html[data-skin] .gate:not([data-state="welcome"]) .gate-btn { border-radius:var(--r-control);background:var(--signal);color:var(--signal-ink);border:1px solid var(--signal-deep);box-shadow:var(--shadow-button);font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;transition:transform .12s var(--ease-machine),box-shadow .12s,filter .12s; }
+html[data-skin] .gate:not([data-state="welcome"]) .gate-btn:not(:disabled):hover { transform:translateY(-1px); }
+html[data-skin] .gate:not([data-state="welcome"]) .gate-btn:not(:disabled):active { transform:translateY(2px);box-shadow:none; }
+html[data-skin] .gate-keys .k { font-family:var(--font-mono);border-radius:var(--r-control); }
+html[data-skin="brass"] .gate-card { box-shadow:inset 0 0 0 4px var(--panel-solid),inset 0 0 0 5px var(--edge),0 18px 46px rgba(0,0,0,.45); }
+html[data-skin="brass"] .gate:not([data-state="welcome"]) .gate-btn { font-family:var(--font-label);font-weight:600;background:linear-gradient(180deg,#F0D18E 0%,#B88A43 50%,#E2BD72 100%);color:#2A1E15;border-color:#6E4F22;text-shadow:0 1px 0 rgba(255,240,200,.5); }
+html[data-skin="brass"] .arrival-digit,html[data-skin="brass"] .arrival-digit-flap { background:linear-gradient(180deg,#B9AC92 0,#F6EEDB 30%,#F6EEDB 70%,#B9AC92 100%);color:#2A1E15;text-shadow:none;font-family:var(--font-display);border-color:#8E6A33; }
+html[data-skin="worlds-fair"] .gate-card { border-top:5px solid var(--signal); }
+html[data-skin="worlds-fair"] .gate:not([data-state="welcome"]) .gate-btn { border-radius:999px;font-family:var(--font-label);font-weight:600; }
+html[data-skin="deep-space"] .gate-card { clip-path:polygon(var(--chamfer) 0,100% 0,100% calc(100% - var(--chamfer)),calc(100% - var(--chamfer)) 100%,0 100%,0 var(--chamfer)); }
+html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn { background:color-mix(in srgb,var(--signal) 10%,transparent);color:var(--signal);border-color:var(--signal);box-shadow:inset 0 0 18px color-mix(in srgb,var(--signal) 25%,transparent);letter-spacing:.24em; }
+html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn:not(:disabled):hover { background:var(--signal);color:var(--signal-ink); }
+
+/* The machine selector — the portal masthead, the arrival card and the settings panel. */
+.machines { display:flex;gap:4px;flex-wrap:wrap; }
+.machine { display:grid;gap:5px;min-width:0;padding:6px 9px;border:1px solid var(--edge);border-radius:var(--r-control);background:var(--panel);color:var(--ink);cursor:pointer;font:inherit;text-align:left;transition:border-color .12s,background .12s; }
+.machine:hover { border-color:var(--edge-strong);background:var(--panel-raised); }
+.machine[aria-pressed="true"] { border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent); }
+.machine:focus-visible { outline:2px solid var(--accent);outline-offset:2px; }
+.machine-swatch { display:flex;height:6px;border-radius:2px;overflow:hidden; }
+.machine-swatch span { flex:1; }
+.machine-name { font:500 11px/1.2 var(--font-body);white-space:nowrap; }
+html[data-skin="deep-space"] .machine { clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px); }
+.skin-tools { display:grid;gap:8px;justify-items:center;margin:14px 0 0;font:11px/1.4 var(--font-label,ui-sans-serif);letter-spacing:var(--label-tracking,.12em);text-transform:uppercase;color:var(--ink-dim); }
+.skin-tools .machines { justify-content:center; }
+.skin-tools a { color:var(--accent); }
+.settings-group.skin-tools { justify-items:start;text-transform:none;letter-spacing:0; }
+.settings-group.skin-tools .machines { justify-content:flex-start; }
+.skin-tools-label { margin:0;font-size:10px; }
+html[data-transfer] .gate-card { animation:skin-arrival .7s ease-out both; }
+@keyframes skin-arrival { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+@media (max-width:480px) { .skin-tools .machines { display:grid;grid-template-columns:1fr 1fr;width:100%; } }
+@media (prefers-reduced-motion:reduce) { html[data-transfer] .gate-card{animation:none} .machine,.gate-btn{transition:none!important} }

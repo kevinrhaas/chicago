@@ -61,11 +61,11 @@
 .jump-pill[aria-pressed="true"] {
   background: var(--accent);
   border-color: var(--accent);
-  color: #1d1a14;
+  color: var(--accent-ink, #1d1a14);
   font-weight: 600;
 }
 /* The light theme's accent is a dark amber, so the pressed pill's text flips light. */
-[data-theme="light"] .jump-pill[aria-pressed="true"] { color: #faf8f3; }
+[data-theme="light"] .jump-pill[aria-pressed="true"] { color: var(--accent-ink, #faf8f3); }
 .jump-pill:disabled { opacity: .45; cursor: default; }
 .jump-pill-n {
   font-size: 10px;
