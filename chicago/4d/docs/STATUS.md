@@ -1,3 +1,136 @@
+## T-2030 — Calling on Neighbors, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Calling on Neighbors* (Social life, Horse,
+4 stops, Neighbors). A newcomer lodging at Mrs Rufus Brown's log boarding house behind Peck's store
+chooses which letter of introduction to present (a merchant's or a minister's); reads the Peck
+household on its card at the corner of South Water and LaSalle rather than at its door; finds at
+the Exchange Coffee House a public meeting place — the Democrat reports Democratic meetings held
+there in April and June 1835, and J. A. Marshall's November 1834 dancing-school notice asked
+would-be pupils to leave their address there — and leaves a calling card there or at the
+Sauganash. Three endings; the keepsake *An Introduction Made* goes to Neighbors. Content only: one
+JSON file, a liberty (`L-jaunt-calling-on-neighbors`), the regenerated catalog and source-use
+edges, and brief 21's route note. No engine, compiler or CSS change. Third of the four pieces
+T-1269 was split into.
+
+**The brief's cautions hold by construction.** No named person is met, quoted or said to be at
+home; Peck's household is read on its card, which marks what is inferred. The two new attested
+claims are the Democrat's own meeting reports (20 May 1835 p. 1 col. 3; 10 June 1835 p. 2 col. 5)
+and the dancing-school card (19 Nov 1834 p. 3 col. 2). The April meeting's printed day and weekday
+do not agree in the transcription, so the stop gives the month only.
+
+**Recommended mode moved from Walk to Horse.** The primary path (merchant's letter → card left at
+the Exchange) measured 522 s at Walk against the card's 533 s at 390×780 — past the 4–6 min band —
+so the card recommends Horse: 244 s against 244 s at 390×780 and 237 s against 235 s at 1280×800.
+Fly: 193 s against 200 s and 192 s against 198 s. Wagon: 309 s and 297 s. Walk stays allowed.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 4 paths, three endings, one keepsake. Card estimates
+at 390×780: Walk 9 min, Wagon 5, Horse 4, Fly 3.5, Instantly 2.5. A Playwright drive at 390×780
+(card, Start Jaunt, the first stop, About this place and back to the same stop, the ending; a
+second Start then End Jaunt back to the menu) reached `merchant-at-the-exchange`; zero page errors
+at either viewport. Stills and the receipt are in `docs/performance/jaunt-calling-on-neighbors/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API,
+and the desktop card's mode estimates were not read (the card's selector did not appear inside
+30 s in the headless desktop page).
+
+## T-2032 — Along the Working Harbor, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Along the Working Harbor* (River
+transportation, Horse, 4 stops, Wayfinding). It starts at Newberry & Dole's warehouse, whose
+card in the Democrat of 1 July 1835 offers storage, forwarding and commission for the Merchants'
+Line. It passes Norton's 1834 drawbridge at Dearborn Street (about 300 ft, a sixty-foot draw,
+gallows frames), then the forty-foot 1832 light at the river's mouth. It ends at the south pier,
+looking across the cut at the north pier: 180 vessels discharged there in 1834, and $32,800 more
+was voted in 1835. One choice decides what goes on the route note, the light or the end of the
+north pier. Two endings; the keepsake *Knows the Harbor* goes to Wayfinding. Content only: one
+JSON file, a liberty (`L-jaunt-along-the-harbor`), the regenerated catalog and source-use edges,
+and brief 23's route note. No engine, compiler or CSS change. First of the three pieces T-1270
+was split into.
+
+**The route was re-cut, on a measurement.** In the briefed order the card read Horse 9.5 min.
+The north pier's stand-off is on the north bank, 949 m from the Dearborn draw, and every order
+of the four briefed stops routes at 2.6 km or more. The south pier's stand-off is 147 m from the
+light and about 93 m from the north pier's, across the channel. So the jaunt stops there and
+looks across; the north pier remains the subject of the stop and of the choice. Both piers'
+lengths are interpolations, and the stop calls them our estimate.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, two endings, one keepsake. Card estimates on
+the published mirror, identical at 390×780 and 1280×800: Walk 17 min, Wagon 8.5, Horse 6, Fly 4,
+Instantly 2.5. The primary path (mark the end of the north pier) measured 355 s at Horse and
+221 s at Fly against the card's 350 s and 227 s at 390×780. At 1280×800 it measured 320 s and
+221 s against 354 s and 228 s. A Playwright drive at 390×780 (card, Start, the first stop, About
+this place and back to the same stop, the choice, the ending, End back to the menu) reached
+`a-note-to-redraw`. Zero page errors at either viewport. Stills and the receipt are in
+`docs/performance/jaunt-along-the-harbor/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+At 1280×800 the first leg rode in 40 s against 81 s at 390×780, and this run did not find out
+why. Both viewports sit inside the 4–6 min band.
+
+## T-2033 — From Prairie to Town, a published 1835 arrival jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *From Prairie to Town* (Migration and
+routes, Horse, 4 stops, Wayfinding). It starts on open ground by the lake three-quarters of a
+mile south of the fort, the scene anchor `lake_shore_south`, and the stop calls itself a
+viewpoint, not a place. What it says of the ground is cited: Wright's 1834 map names it
+Fractional Section 15, the state register has no entry on it before 31 May 1836, and Moses &
+Kirkland date its platting to 13 June 1836. Next comes Fort Dearborn's stockade (Kinzie's high
+pickets and two gates; garrisoned since June 1832), then Peck's store at South Water and LaSalle
+(his card's stock; Porter's night in the unfinished loft), and finally the door of the
+Sauganash. One ending; the keepsake *Into Town* goes to Wayfinding. Content only: one JSON file,
+a liberty (`L-jaunt-from-prairie-to-town`), the regenerated catalog and source-use edges, and
+brief 24's route note. No engine, compiler or CSS change. Piece 2 of the three T-1270 was split
+into.
+
+**The brief's cautions hold by construction.** Nothing of August 1812 is staged on this shore:
+no removal, no battle and no Native presence. The first leg passes the conjectural camps on the
+reservation, and its note says any tents there are our conjecture (L355, L358). Nobody is met,
+and no bed or purchase is claimed.
+
+**Measured: the long leg, as the brief asked.** `play_jaunt.mjs --all-paths`: 1 path, one
+ending, one keepsake. Card estimates on the published mirror, the same at 390×780 and 1280×800:
+Walk 39 min, Wagon 17, Horse 10, Fly 4, Instantly 2. The shore → stockade leg alone is 300 s at
+Horse and 58 s at Fly. The primary path measured 560 s at Horse against the card's 612 s (610 s
+at 1280), and 231 s at Fly against 239 s. **Horse is three and a half minutes over the 4–6 min
+band, and that is kept on purpose:** the outing is about arriving from outside the town, the
+anchor is the brief's, and Fly (4 min) and Instantly stay offered at every stop. A Playwright
+drive at 390×780 went from the card through Start, the first stop, the stockade's card and back
+to the same stop, the ending (`in-town`, keepsake kept), and a second Start with End back to the
+menu. Zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-from-prairie-to-town/`.
+
+## T-2031 — Gossip or Printed Notice?, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Gossip or Printed Notice?* (News and social
+life, Horse, 4 stops, News & Knowledge). Two invented rumors heard at the Wolf Point Tavern — a
+million dollars at the land sale, a bank opening on the square within weeks — are carried past
+the Exchange Coffee House, where someone asks if they are true, to the town's two printing
+offices. The Democrat of 1 July 1835 would only guess at the land office's take; the American of
+27 June reprints the Sangamon Journal: a Chicago branch decided, no officers named, and the brick
+building on the square is Springfield's. At the American the visitor chooses what to carry back.
+Five endings; the keepsake *A Careful Reader* goes to News & Knowledge. Content only: one JSON
+file, a liberty (`L-jaunt-gossip-or-notice`), the regenerated catalog and source-use edges, and
+brief 22's route note. No engine, compiler or CSS change. Last of the four pieces T-1269 was
+split into (T-2028..T-2031).
+
+**The brief's cautions hold by construction.** Neither rumor is said by a real person, and no
+named person is met. The Democrat's estimate is quoted with its own hedge, and its second figure,
+which the transcription loses, is not supplied: the extraction's "[Six Hund]red" is an editor's
+fill, so the stop says the figure is lost. "Not settled" and "say nothing" are full endings.
+
+**The route was re-cut.** The briefed order (tavern → Democrat → American → Exchange) doubles back
+from Dearborn to Wells: Walk 1,233 s and Horse 402 s on the published mirror. Taking the Exchange
+second never doubles back. No order makes a 4–6 min walk, because the forks are across the river
+from both papers, so the default mode is Horse (as for A Schoolday Errand).
+
+**Measured.** `play_jaunt.mjs --all-paths`: 12 paths, five endings, one keepsake. Card estimates
+on the published mirror: Walk 15 min (14.5 at 1280×800), Wagon 7.5, Horse 5.5, Fly 4, Instantly 3.
+The primary path (promise → note the guess → carry the print → true-to-the-page) measured 340 s
+at Horse against the card's 333 s, and 227 s at Fly against 233 s (331 s and 226 s at 1280×800);
+Walk 821 s against 889 s. A Playwright drive at 390×780 went card → Start → first stop → the
+tavern's card and back to the same stop → ending → menu, zero page errors at both viewports.
+Stills and receipt: `docs/performance/jaunt-gossip-or-notice/`.
+
 ## T-2028 — A Schoolday Errand, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *A Schoolday Errand* (Education, Horse, 4

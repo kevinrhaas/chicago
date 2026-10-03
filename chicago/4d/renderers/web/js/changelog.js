@@ -1,9 +1,46 @@
 export const CHANGELOG = [ // newest first
-  { v: 1371, ts: '2026-10-03T16:07:36.059Z', date: 'Oct 3, 2026, 11:07 AM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1377, ts: '2026-10-03T18:37:28.426Z', date: 'Oct 3, 2026, 1:37 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
+  { v: 1376, ts: '2026-10-03T18:14:03.459Z', date: 'Oct 3, 2026, 1:14 PM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Calling on Neighbors, about four minutes on horseback.',
+      'Present a letter of introduction from Mrs Brown\u2019s boarding house, read the Peck household on its card, find the town\u2019s meeting place at the Exchange Coffee House, and leave a calling card.',
+      'The newcomer, the letters, the calls and the keepsake, An Introduction Made, are our reconstruction (liberty L-jaunt-calling-on-neighbors). The meetings and the 1834 notice asking for addresses at the Exchange come from the Chicago Democrat.',
+    ] },
+  { v: 1375, ts: '2026-10-03T17:42:34.011Z', date: 'Oct 3, 2026, 12:42 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
+    items: [
+      'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
+      'Pick a machine at the top right: the 1960s Control Room (the standard), Precision Brass, World\u2019s Fair or Deep Space. The choice follows you into the town, and the arrival card and settings panel carry the same selector.',
+      'If you had chosen an earlier skin, you keep it under its new name: Sci-fi is now the Control Room, Steampunk is Precision Brass and Space Age is World\u2019s Fair.',
+      'The Confluence Laboratory and its aperture are framing fiction for the front door. They make no claim about the town; the evidence grades on every card are unchanged.',
+    ] },
+  { v: 1374, ts: '2026-10-03T17:24:17.483Z', date: 'Oct 3, 2026, 12:24 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',
+      'Follow freight from Newberry \u0026 Dole\u2019s warehouse past Norton\u2019s Dearborn Street drawbridge to the 1832 light at the river\u2019s mouth, and finish at the south pier looking across the cut at the north pier. Then mark the light or the end of the north pier on your route note.',
+      'The walk, the note and the keepsake, Knows the Harbor, are our reconstruction (liberty L-jaunt-along-the-harbor). Both piers were still being built that summer, so their lengths are our estimate, and the stop says so.',
+    ] },
+  { v: 1373, ts: '2026-10-03T17:05:20.078Z', date: 'Oct 3, 2026, 12:05 PM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick From Prairie to Town. You arrive from open ground by the lake south of the fort and ride into town. It takes about ten minutes on horseback, or four if you fly.',
+      'Ride north past Fort Dearborn\u2019s stockade and west along the river to Peck\u2019s store. Finish at the door of the Sauganash.',
+      'The traveller, the ride and the keepsake, Into Town, are our reconstruction (liberty L-jaunt-from-prairie-to-town). The first stop is a viewpoint, not a named place, and nothing of 1812 is staged on that shore.',
+    ] },
+  { v: 1372, ts: '2026-10-03T16:54:14.525Z', date: 'Oct 3, 2026, 11:54 AM CT', title: 'A new jaunt: Gossip or Printed Notice?', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Gossip or Printed Notice?, about five and a half minutes on horseback from the Wolf Point Tavern to the town\u2019s two printing offices.',
+      'Two rumors from the forks meet what the papers actually printed: the Democrat of 1 July would only guess at the land sale\u2019s take, and the American of 27 June says the Chicago branch bank has no officers yet. The brick bank on the square is Springfield\u2019s.',
+      'Decide what to carry back: what was printed, that nothing is settled, or nothing. The rumors and the keepsake, A Careful Reader, are our reconstruction (liberty L-jaunt-gossip-or-notice).',
+    ] },
+  { v: 1371, ts: '2026-10-03T16:14:36.599Z', date: 'Oct 3, 2026, 11:14 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
+    items: [
+      'Two boarding houses on the block at Washington and Market streets have four new boarders between them: three at Louis Robillard\u2019s and one at Michel Laframboise\u2019s. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a tailor. Open a house\u2019s card to see them.',
+      'The town was still owed four working lodgers in the South Division, and these houses still had empty beds after this morning\u2019s youths took theirs. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
+      'The two clerks work at John Dean Caton\u2019s and at his law office, and the tailor at George Holsman\u2019s, in places those houses still had open. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
     ] },
   { v: 1370, ts: '2026-10-03T15:42:04.279Z', date: 'Oct 3, 2026, 10:42 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
