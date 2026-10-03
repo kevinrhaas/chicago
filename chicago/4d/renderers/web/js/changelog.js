@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1377, ts: '2026-10-03T18:37:28.426Z', date: 'Oct 3, 2026, 1:37 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1378, ts: '2026-10-03T18:56:52.384Z', date: 'Oct 3, 2026, 1:56 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
+  { v: 1377, ts: '2026-10-03T18:36:59.827Z', date: 'Oct 3, 2026, 1:36 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
+      'The evening, the route and the keepsake, A Pleasant Circuit, are our reconstruction (liberty L-jaunt-an-evening-stroll). No entertainment or dated event is claimed, and the light does not change.',
     ] },
   { v: 1376, ts: '2026-10-03T18:14:03.459Z', date: 'Oct 3, 2026, 1:14 PM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
     items: [
