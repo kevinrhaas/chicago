@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1332, ts: '2026-10-03T00:52:36.496Z', date: 'Oct 2, 2026, 7:52 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick New in Chicago. It now recommends walking, and every leg between its five stops has a route note.',
+      'At the Democrat\u2019s old corner, read a real notice: Kinzie and Forsyth\u2019s lithographed town maps, still advertised in June 1835.',
+      'Peck\u2019s store is now your supply shop, read from his own advertisements. At Brown\u2019s boarding house, choose board by the week or a bed close to the stores. Each choice has its own ending.',
+      'The errand and the boarding choice are our reconstruction (liberty L-jaunt-new-in-chicago); no room, rate or sale is claimed.',
+    ] },
   { v: 1331, ts: '2026-10-03T00:20:58.425Z', date: 'Oct 2, 2026, 7:20 PM CT', title: 'A new jaunt: Outfit for the West', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Outfit for the West. You have an imagined fifteen dollars to get ready for the road west.',

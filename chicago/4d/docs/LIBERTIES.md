@@ -16386,6 +16386,18 @@ row whose idiom it borrows), **L10** (the yard that is still a fence nobody mode
 
 **Recorded:** 2026-09-27 (T-1253).
 
+### L-jaunt-new-in-chicago — New in Chicago: an invented first day, its map errand and a bed by cost or convenience
+
+**Decision:** The finished New in Chicago keeps L-jaunt-pilot's five exterior stops and adds three inventions to them. At the Democrat's old office the visitor reads Kinzie and Forsyth's town-map notice; the notice is attested, but the reading, and any wish to buy a map, are not. At Brown's the visitor chooses a boarding arrangement — board by the week (cost) or a bed close to the stores (convenience). That choice, the two endings it leads to and the route note are reconstructed. No room, rate, vacancy, sale or conversation is attested; Mrs Brown and the map sellers say nothing; no interior is opened; no price is given.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records, brief 03 of JAUNTS-INITIAL-LIBRARY.md, and the notice's own printing window (dated 18 June 1834, still running on 10 June 1835). Brown's position stays reconstructed and the stop says so.
+
+**How to resolve:** A dated 1835 boarding rate for Brown's house, or any record of a lodger's terms there, would replace the invented arrangement as its own cited claim; the errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/new-in-chicago.json`.
+
+**Recorded:** 2026-10-03 (T-1262).
+
 ### L285 — The agency's ring of log buildings: four sentences that name the occupants and never describe a house
 
 **Decision:** three `log_dwelling` records — `mckee_log_house`, `caldwell_agency_log_house` and
