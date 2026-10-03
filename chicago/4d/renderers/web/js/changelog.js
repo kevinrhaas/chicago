@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1388, ts: '2026-10-03T22:45:44.575Z', date: 'Oct 3, 2026, 5:45 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
+  { v: 1389, ts: '2026-10-03T23:03:26.529Z', date: 'Oct 3, 2026, 6:03 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
       'Boots, Leather and the Road now views Miller\u2019s tannery across the North Branch from Wolf Point, without riding over the river to it. Its stops read a little shorter, and the ride takes just under six minutes, down from almost eight.',
       'Soap and Candles now starts at Wolf Point, looking up the North Branch to where we place Elston & Co.\u2019s works, so you cross the river once instead of twice. The ride takes under six minutes, down from seven.',
       'Each was timed by riding it on the published site. Flying and Instantly are still faster on all three. What the stops say about each place is unchanged, and new claims are cited in the stop\u2019s sources.',
+    ] },
+  { v: 1388, ts: '2026-10-03T22:49:02.145Z', date: 'Oct 3, 2026, 5:49 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The first Fort Dearborn, burned in August 1812, will be built from the plan its commandant drew in January 1808. That plan is now read and measured.',
+      'His drawing shows a double row of pickets about 110 feet square, blockhouses at the north-west and south-east corners, barracks on all four sides and a brick magazine. The 75-foot flagstaff he drew laid flat gives the scale.',
+      'It gives no building heights and no compass bearing, and it says itself that the houses outside the walls are not to scale. Those questions stay open.',
     ] },
   { v: 1387, ts: '2026-10-03T22:08:33.624Z', date: 'Oct 3, 2026, 5:08 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
     items: [
