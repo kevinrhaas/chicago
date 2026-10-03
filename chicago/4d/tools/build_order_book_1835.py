@@ -210,8 +210,10 @@ PERSON_TICKET_RULES = (
     # households the boarders stage had already built and filed no fill for — and once
     # those fifteen are counted, 49 are still ordered and every one of them waits on a
     # roof. A row that still owes work may not name a ticket that is finished.
+    # T-1538 CLOSED on 2026-10-03 with a frozen top-up (seat_lodgers_1835.py) that seated
+    # the one bed the book still ordered; what is left waits on a roof and is T-2023's.
     ("a boarder, a bed rather than a household",
-     lambda a: a["household_type"] == "lodging", "T-1538"),
+     lambda a: a["household_type"] == "lodging", "T-2023"),
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
     # T-1346 (read the 1839 trade table) and T-1347 (draw the heads), and a bucket whose
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
@@ -261,8 +263,10 @@ HOUSEHOLD_BUCKETS = (
     # left, and all 49 wait on a roof. So the owner is T-1538, not T-1537: every one of
     # the town's 144 ordinary night beds is slept in and all 16 built lodging places hold a
     # household, and T-1537 is a counter that closes when it lands.
-    ("boarding_house", "larger_boarding_houses", "T-1538"),
-    ("inn_tavern", "inns_taverns", "T-1538"),
+    # T-1538 seated the one bed the book still ordered and left the rest to T-2023
+    # (2026-10-03): the West's adults with no free bed and the houses with no roof yet.
+    ("boarding_house", "larger_boarding_houses", "T-2023"),
+    ("inn_tavern", "inns_taverns", "T-2023"),
     # T-1188 split (T-1410, T-1411); the institutional HOUSEHOLDS are the people who
     # lived at a church, a parsonage or a school. T-1410's three establishments — post
     # office, land office, county rooms — house nobody. T-1411 split in turn (T-1421,
