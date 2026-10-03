@@ -150,6 +150,21 @@
       ]
     },
     {
+      "why": "A MEASUREMENT OF ONE COMMITTED LINE AGAINST ANOTHER (T-1286): how far the Harrison 1830 pre-cut reading (data/terrain/harrison_1830_pre_cut_reading.geojson, committed, re-traced only by hand because the tracer needs the network) sits from the 1812 shore derive_shore_1812.py writes. It reads that step's output, so it follows it. It changes no geometry, and the file it writes is nothing but the measurement, so the manifest owns it: a conflict there is settled by measuring again.",
+      "command": [
+        "python3",
+        "tools/measure_shore_1812_harrison.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/terrain/1812_harrison_cross_check.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/measure_shore_1812_harrison.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-1250): the four Prairie Avenue sheets' GCP files, fitted from picks written in the tool, the committed rasters under chicago/reference/ and data/traces/prairie_1904_control.json. It reads nothing another step writes, so it sits with the other readers at the head of the manifest; tools/trace_ic_edge_1904.py reads its output and follows it.",
       "command": [
         "python3",

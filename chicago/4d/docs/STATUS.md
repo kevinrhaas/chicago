@@ -1,4 +1,4 @@
-## T-1264 — Across Wolf Point, the third published 1835 jaunt (2026-10-03)
+## T-1264 — Across Wolf Point, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Across Wolf Point* (River and routes,
 Walk, 4 stops, Wayfinding). It is a quiet crossing with no purse and no branches: the Wolf Point
@@ -27,6 +27,58 @@ copy"), and End Jaunt returned to the menu.
 and End steps were cut off by the 580 s cap; those two were proved at 390×780 only. The stills
 are not committed.
 
+## T-1286 — the 1812 shore measured against Harrison 1830, the one pre-cut sheet (2026-10-02)
+
+**Nothing in the scene changed, and no geometry moved.** The owner ruled on 2026-09-17 that
+Wright 1834 carries `shore_1812_pre_cut`; this measures how far the only pre-cut reading
+sits from it. The closed PR's tracer is kept as `tools/trace_shoreline_1830.py` (it
+re-traced byte for byte on 2026-10-02; stockade check 8.0 px) and writes a cross-check
+reading outside `epochs/`; `tools/measure_shore_1812_harrison.py` measures it every 2 m
+against the derived lines, and `check.sh` re-measures it and holds the 1812 file's
+`evidence_limit` to the sentence it produces.
+
+- **Agrees near the fort**: median 9 m, worst 31 m, within 100 m of the transform's anchor;
+  the main stem still within about 20 m at 200 m west.
+- **Strengthens L240**: Harrison's lake shore runs a median 7 m from the line the derived
+  state draws where the bar met the mainland.
+- **Disagrees down the old channel**: 40 m at 150 m from the fort, 71 m at 200 m, then a
+  median 120 m and worst 157 m; Harrison letters the old mouth 357 m north of the adopted
+  station (367 m north of Wright's bar tip), and his sheet stops 253 m short of it.
+- **Filed, not resolved** — the cause (single-anchor transform, memory additions, or a mouth
+  that moved between 1812, 1828 and 1830) is written onto T-1243, which lays the ground there.
+  `docs/RESEARCH/shore_1812_pre_cut.md` § 6 is the full reading.
+
+## T-1263 — Shopping South Water Street, a Commerce jaunt on the riverfront (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Shopping South Water Street* (Commerce,
+Walk). It has four exterior stops: Carpenter's drug store, Peck's store, Harmon, Loomis & Co.
+at Clark, and Thomas Church's store on Lake Street. The visitor has an imagined $3 purse and a
+basket of three. A liquorice ball comes from Carpenter, flour or calico from Peck, and Young
+Hyson tea and loaf sugar or a crockery bowl from Harmon & Loomis. If the purse has run short
+at the tea counter, a cheaper Souchong stands in. Every good is one the firm's own dated
+advertisement lists (1833–20 June 1835). Nothing is sold at Church's, because the one note
+that records his store names no stock, so that stop is the tally. The ending is *list filled*
+with a staple, the remedy and tea, and *list short* otherwise. The keepsake *The Household
+List* goes to Provisions. Content only: one JSON file, a liberty
+(`L-jaunt-shopping-south-water`), the regenerated catalog and source-use edges. There is no
+engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 18 paths to both endings, with one keepsake.
+The substitution is reachable: flour plus liquorice leaves 75¢, and only Souchong fits. Read
+on the published mirror at both 390×780 and 1280×800, with the real router and no
+"approximate route" suffix, the card gives Walk about 6.5 min, Wagon 4, Horse 3, Fly 2.5 and
+Instantly 2. There were no page errors at 390×780; the desktop pass ended before it could
+count them. **Walk is half a minute over the 3–6 min band.** The
+four owner-named stores are only about 350 m apart, so the time is the walking pace plus the
+reading. The story order was changed to start at Carpenter's, which stands west of Peck's on
+the same block face. That cut the double-back and brought Walk down from 7 to 6.5 min.
+
+**Unverified.** At 390×780 these stills were taken: the catalog card, the opening, a detail
+card and Return, and a mid-leg walk with its leg note. The scripted pass did not reach the
+ending in the browser at either viewport. Headless software rendering stalled the page after
+the second stop, so the ending, the daybook entry and replay rest on the walker. The marker
+for Carpenter is mid-block and Church's place on Lake Street is reconstructed, and the stops
+say both.
 ## T-2002 — the 1812 ground's zone table, written as what 1834 had that 1812 did not (2026-10-02)
 
 Piece 1 of 2 of T-1243 (of T-0468, the owner's e1812 battle landscape). T-1243 asked for the
