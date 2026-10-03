@@ -27,7 +27,7 @@
  *     vertex samples `terrain.surfaceHeight()`, nothing here regrades anything,
  *     and nothing here is a collision surface.
  *
- * THREE TREATMENTS, because a fence's ground is a statement about the fence:
+ * FOUR TREATMENTS, because a fence's ground is a statement about the fence:
  *
  *   `worn_earth`      A WORKING YARD. Bare, dusty, hoof- and wheel-worn dirt,
  *                     with sparse trampled grass surviving at the edges where
@@ -37,6 +37,11 @@
  *   `trodden_earth`   AN ANIMAL PEN. Bare trodden earth, darker, finer, and
  *                     without the ruts a wheel makes or much of a fringe: a
  *                     pound is trodden right up to its rails. The estray pen.
+ *   `road_earth`      THE GROUND AT A DOOR (T-1984, T-2013). The town's own road
+ *                     dirt — `streets.js`'s grit tile and worn-earth tones, laid
+ *                     in world coordinates — so a door's path that meets the
+ *                     street continues it with no seam in grain or colour, and
+ *                     a soft edge into the grass. No canvas of its own.
  *   `dooryard_garden` A DOORYARD OR GARDEN. Curated ground: short green over the
  *                     whole plot, a bank of tilled beds in rows on the side away
  *                     from the gate, and a trodden path in from the gateway. The
@@ -59,6 +64,8 @@
  */
 
 import * as THREE from 'three';
+import { GRIT_TILE_M } from './ground-strip-mask.js';
+import { DIRT_TONES, linearTone, roadGrit } from './streets.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -78,7 +85,7 @@ const LIFT_M = { base: 0.022, bed: 0.028, path: 0.034 };
  *  and how far in a garden's mown border runs. Both are the same kind of
  *  invention as the treatment itself and are drawn in the vertex colour rather
  *  than in the map, because the fringe follows the FENCE and the map tiles. */
-const FRINGE_M = { worn_earth: 1.3, trodden_earth: 0.45, dooryard_garden: 0.55 };
+const FRINGE_M = { worn_earth: 1.3, trodden_earth: 0.45, road_earth: 0.6, dooryard_garden: 0.55 };
 
 /** The beds in a dooryard, in metres: a bed, the walkway beside it, how many are
  *  laid at most, and how long a bed may run. The cap is what makes one rule work
@@ -322,8 +329,78 @@ function surfaceTexture(surface) {
   return texture;
 }
 
+/**
+ * T-2013 — THE ROAD'S DIRT, for the ground at the doors. The owner, on dev:
+ * "that texture is not nearly as nice as the road texture ... make those areas
+ * with dirt the same as where the road is". So `road_earth` has no canvas: it is
+ * the road ribbon's fragment shading cut down to what a flat patch needs — the
+ * same 256 px grit tile over the same 1.6 m, sampled in WORLD east/north as the
+ * road samples it (so the grain runs straight on across the join), the same
+ * worn-earth lane and between-lane tones mixed by the same kind of value noise,
+ * the same 35 m broad tone, and the grit's relief as the normal. What it leaves
+ * out is everything that belongs to a street's frame: lanes along an axis,
+ * ruts, shoulders and sod islands.
+ */
+const ROAD_EARTH_HEAD = /* glsl */`
+varying vec3 vYardWorld;
+uniform sampler2D uGrit;
+uniform float uGritM;
+uniform float uGritMean;
+uniform vec3 uDirtLane;
+uniform vec3 uDirtRest;
+float yardHash(vec2 p) {
+  vec3 q = fract(vec3(p.xyx) * 0.1031);
+  q += dot(q, q.yzx + 33.33);
+  return fract((q.x + q.y) * q.z);
+}
+float yardNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(yardHash(i), yardHash(i + vec2(1.0, 0.0)), u.x),
+             mix(yardHash(i + vec2(0.0, 1.0)), yardHash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+`;
+const ROAD_EARTH_FRAGMENT = /* glsl */`
+  vec2 yardEN = vec2(vYardWorld.x, -vYardWorld.z);
+  vec4 yardGrit = texture2D(uGrit, yardEN / uGritM);
+  float yardGrain = yardGrit.r / max(uGritMean, 1e-6);
+  float yardWear = 0.6 * yardNoise(yardEN / 3.0) + 0.4 * yardNoise(yardEN / 1.1 + 7.3);
+  float yardBroad = 0.93 + 0.14 * yardNoise(yardEN / 35.0);
+  vec3 yardDirt = mix(uDirtRest, uDirtLane, smoothstep(0.15, 0.75, yardWear)) * yardBroad;
+  diffuseColor.rgb = min(yardDirt * mix(1.0, yardGrain, 0.65), vec3(1.0));
+`;
+const ROAD_EARTH_NORMAL = /* glsl */`
+  vec3 yardTn = normalize(vec3(yardGrit.gb * 2.0 - 1.0, 1.0));
+  vec3 yardEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
+  vec3 yardT = normalize(yardEastV - normal * dot(yardEastV, normal));
+  vec3 yardB = cross(normal, yardT);
+  normal = normalize(yardT * yardTn.x + yardB * yardTn.y + normal * yardTn.z);
+`;
+
+/** The road's dirt on a yard material (T-2013). Set before `confidence.patch()`,
+ *  which chains whatever `onBeforeCompile` it finds. */
+function roadEarth(mat, grit) {
+  const tones = DIRT_TONES.worn_earth;
+  mat.onBeforeCompile = (shader) => {
+    Object.assign(shader.uniforms, {
+      uGrit: { value: grit.texture },
+      uGritM: { value: GRIT_TILE_M },
+      uGritMean: { value: grit.mean },
+      uDirtLane: { value: linearTone(tones.lane) },
+      uDirtRest: { value: linearTone(tones.rest) },
+    });
+    shader.vertexShader = `varying vec3 vYardWorld;\n${shader.vertexShader}`.replace(
+      '#include <begin_vertex>',
+      '#include <begin_vertex>\n  vYardWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
+    shader.fragmentShader = `${ROAD_EARTH_HEAD}\n${shader.fragmentShader}`
+      .replace('#include <map_fragment>', ROAD_EARTH_FRAGMENT)
+      .replace('#include <normal_fragment_maps>', ROAD_EARTH_NORMAL);
+  };
+}
+
 /** How big one tile of each surface is on the ground, in metres. */
-const PERIOD_M = { worn_earth: 7.0, trodden_earth: 3.1, garden_bed: 1.8, dooryard_green: 2.4 };
+const PERIOD_M = { worn_earth: 7.0, trodden_earth: 3.1, road_earth: 1.0, garden_bed: 1.8, dooryard_green: 2.4 };
 
 /**
  * The three treatments, as the surfaces they are made of. `base` covers the
@@ -333,6 +410,7 @@ const PERIOD_M = { worn_earth: 7.0, trodden_earth: 3.1, garden_bed: 1.8, dooryar
 const TREATMENTS = {
   worn_earth: { base: 'worn_earth', fringe: [0.66, 0.86, 0.74], alpha: [0.96, 0.62] },
   trodden_earth: { base: 'trodden_earth', fringe: [0.80, 0.90, 0.84], alpha: [0.97, 0.78] },
+  road_earth: { base: 'road_earth', fringe: [1, 1, 1], alpha: [1.0, 0.35] },
   dooryard_garden: {
     base: 'dooryard_green', beds: 'garden_bed', path: 'worn_earth',
     fringe: [1.0, 1.02, 0.94], alpha: [0.95, 0.72],
@@ -677,7 +755,9 @@ export function createFencedGround({
     geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
     geo.computeVertexNormals();
     geo.computeBoundingSphere();
-    const map = surfaceTexture(surface);
+    // `road_earth` draws the road's own grit (T-2013) and carries no canvas.
+    const grit = surface === 'road_earth' ? roadGrit() : null;
+    const map = grit ? null : surfaceTexture(surface);
     const mat = new THREE.MeshStandardMaterial({
       map,
       vertexColors: true,
@@ -695,6 +775,7 @@ export function createFencedGround({
       polygonOffsetUnits: -32,
     });
     mat.name = `yard-${surface}`;
+    if (grit) roadEarth(mat, grit);
     confidence?.patch(mat);
     // This layer's own program, for the reason enclosures.js records at length:
     // `customProgramCacheKey` defaults to the SOURCE TEXT of `onBeforeCompile`,
@@ -711,7 +792,7 @@ export function createFencedGround({
     mesh.receiveShadow = true;
     mesh.renderOrder = surface === 'garden_bed' ? 2 : (surface === 'worn_earth' ? 1 : 0);
     group.add(mesh);
-    disposables.push(geo, mat, map);
+    disposables.push(geo, mat, map ?? grit.texture);
   }
   group.userData.census = out.census;
   if (!group.children.length) {
