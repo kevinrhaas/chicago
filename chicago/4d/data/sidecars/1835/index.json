@@ -12450,6 +12450,24 @@
       "asset": "gltf/recon_1835_north_a5_049__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_north_c3_064",
+      "name": "Reconstructed C3 narrow two-story store #064",
+      "sidecar": "sidecars/1835/recon_1835_north_c3_064.json",
+      "asset": "gltf/recon_1835_north_c3_064__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_c3_066",
+      "name": "Reconstructed C3 narrow two-story store #066",
+      "sidecar": "sidecars/1835/recon_1835_north_c3_066.json",
+      "asset": "gltf/recon_1835_north_c3_066__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_c4_063",
+      "name": "Reconstructed C4 wide two-story store or mixed block #063",
+      "sidecar": "sidecars/1835/recon_1835_north_c4_063.json",
+      "asset": "gltf/recon_1835_north_c4_063__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_north_d1_001",
       "name": "Reconstructed D1 older log dwelling #001",
       "sidecar": "sidecars/1835/recon_1835_north_d1_001.json",
@@ -12706,6 +12724,24 @@
       "name": "Reconstructed H2 medium boarding house #045",
       "sidecar": "sidecars/1835/recon_1835_north_h2_045.json",
       "asset": "gltf/recon_1835_north_h2_045__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_t1_061",
+      "name": "Reconstructed T1 small inn or tavern #061",
+      "sidecar": "sidecars/1835/recon_1835_north_t1_061.json",
+      "asset": "gltf/recon_1835_north_t1_061__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_w2_065",
+      "name": "Reconstructed W2 carpenter or joiner shop #065",
+      "sidecar": "sidecars/1835/recon_1835_north_w2_065.json",
+      "asset": "gltf/recon_1835_north_w2_065__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_w3_062",
+      "name": "Reconstructed W3 cooper, wagon, or wheelwright shop #062",
+      "sidecar": "sidecars/1835/recon_1835_north_w3_062.json",
+      "asset": "gltf/recon_1835_north_w3_062__inferred_1835.glb"
     },
     {
       "id": "recon_1835_north_w5_040",

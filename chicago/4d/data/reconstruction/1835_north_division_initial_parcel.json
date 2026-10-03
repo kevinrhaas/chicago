@@ -3,7 +3,7 @@
   "district": "north",
   "target_date": "1835-07-01",
   "status": "inferred_anonymous_parcel_recipe",
-  "description": "Sixty anonymous inferred roofs on the already modelled North Division ground between the north bank, Kinzie Street, and Michigan Street. These are production slots, not recovered buildings or recovered lots.",
+  "description": "Sixty anonymous inferred roofs on the already modelled North Division ground between the north bank, Kinzie Street, and Michigan Street, and since T-1205 six trade roofs on the north face of Kinzie Street (sequences 61-66). These are production slots, not recovered buildings or recovered lots.",
   "source_ids": [
     "owner_chicago_1835_reconstruction_spec_2026",
     "wright_1834",
@@ -51,17 +51,19 @@
     "extension_note": "Extend the terrain, water mask, North Branch bank traces, flora zones, and collision heightfield together from N +400 to at least N +760 before placing roofs north of Michigan Street. Ohio Street control lies near N +633; the extra 127 m provides a complete outer block and visible open prairie rather than ending the world on a street. Keep E +1700: it already clears the 1834 lake shore. Do not extend west for this North parcel; Wabansia and the west side of the North Branch require a separately traced hydrology parcel."
   },
   "inventory": {
-    "roof_total": 60,
-    "principal_functional": 44,
+    "roof_total": 66,
+    "principal_functional": 50,
     "ancillary": 16,
     "share_of_north_district_target": 0.4,
     "north_district_target": 150,
     "group_totals": {
       "ordinary_dwellings": 38,
       "larger_boarding_houses": 5,
-      "workshops": 1,
+      "workshops": 3,
       "barns_stables": 8,
-      "small_outbuildings": 8
+      "small_outbuildings": 8,
+      "stores_mixed_use": 3,
+      "inns_taverns": 1
     },
     "family_totals": {
       "D1": 6,
@@ -78,7 +80,12 @@
       "A2": 3,
       "A3": 3,
       "A4": 3,
-      "A5": 2
+      "A5": 2,
+      "C3": 2,
+      "C4": 1,
+      "T1": 1,
+      "W2": 1,
+      "W3": 1
     }
   },
   "density_logic": [
@@ -916,6 +923,84 @@
       0,
       "kinzie_michigan_interior",
       null
+    ],
+    [
+      61,
+      "t1_061",
+      718,
+      274.1,
+      "T1",
+      "principal_functional",
+      30,
+      40,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      62,
+      "w3_062",
+      762,
+      272.1,
+      "W3",
+      "principal_functional",
+      26,
+      30,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      63,
+      "c4_063",
+      810,
+      274.2,
+      "C4",
+      "principal_functional",
+      28,
+      40,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      64,
+      "c3_064",
+      845,
+      273.1,
+      "C3",
+      "principal_functional",
+      22,
+      40,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      65,
+      "w2_065",
+      880,
+      271.4,
+      "W2",
+      "principal_functional",
+      24,
+      30,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      66,
+      "c3_066",
+      915,
+      272.8,
+      "C3",
+      "principal_functional",
+      22,
+      40,
+      180,
+      "wolcott_kinzie_core",
+      null
     ]
   ],
   "placement_constraints": [
@@ -1128,6 +1213,26 @@
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
         "why": "the placement policy refuses this family here — stands 37.63 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands"
+      }
+    ]
+  },
+  "kinzie_street_trade": {
+    "on": "2026-10-03",
+    "ticket": "T-1205",
+    "sequences": [
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ],
+    "why": "THE NORTH DIVISION'S TRADE ROOFS GO BACK TO THE STREET THE MEMO NAMES FOR THEM. The order book owes the North three stores, one inn or tavern and two workshops (`structures/{stores_mixed_use,inns_taverns,workshops}/north`, T-1205's rows), and they are owed because T-1480 refamilied seven of this recipe's own trade roofs as dwellings when T-1445 found them standing 9 to 48 m back from any street line. The 665-roof schedule then dealt their families to blk_indiana_north_wolcott and blk_indiana_north_cass in Kinzie's Addition, where the block generator refuses every one of them: Wolcott is graded `light`, Indiana, Illinois and Cass `none`, and no store, warehouse or workshop stands on either grade. Kinzie Street is graded `ordinary`, its north face was empty on the street line from Clark Street to east of Wolcott, and `docs/RESEARCH/1835_north_division_extent_and_infill.md` names the Wolcott-Kinzie core as the strongest north cluster for exactly that combination of river approach and street. So the six stand there, fronting Kinzie (bearing 180), each front wall about half a metre clear of the platted corridor, with open ground between every pair: the memo's alternation of roof and open yard, not a street wall. The T1 is the nearest to the Dearborn drawbridge approach, which is where the lodging clause puts an inn; the C4 and a C3 take the two Kinzie corners of Wolcott. Every value is reconstructed and none is a reading of a source about these buildings (L366).",
+    "deferred": [
+      {
+        "family": "F3",
+        "bucket": "structures/warehouses_freight/north",
+        "why": "The North Water bank is where a forwarding warehouse would stand and it is the one north street the committed hierarchy grades `light`; the commercial-front clause avoids light streets and the block generator refuses a store, warehouse or workshop on one. Seating it needs a bank-landing clause or a regrade of North Water argued on its own evidence, which is a separate question from this deal, so it is left owed rather than forced onto Kinzie Street."
       }
     ]
   }
