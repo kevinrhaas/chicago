@@ -10392,6 +10392,12 @@
       "asset": "gltf/elston_soap_candle_manufactory__works_1833.glb"
     },
     {
+      "id": "emigrant_camp_shore",
+      "name": "The emigrants' tents on the lake shore",
+      "sidecar": "sidecars/1835/emigrant_camp_shore.json",
+      "asset": "gltf/emigrant_camp_shore__camp_1835.glb"
+    },
+    {
       "id": "estray_pen",
       "name": "Estray pen",
       "sidecar": "sidecars/1835/estray_pen.json",
@@ -10824,14 +10830,8 @@
       "asset": "gltf/land_sale_camp_shore__camp_1835.glb"
     },
     {
-      "id": "landing_camp_east",
-      "name": "The emigrants' camp at the landing, east",
-      "sidecar": "sidecars/1835/landing_camp_east.json",
-      "asset": "gltf/landing_camp_east__camp_1835.glb"
-    },
-    {
       "id": "landing_camp_west",
-      "name": "The emigrants' camp at the landing, west",
+      "name": "The emigrants' tents at the landing",
       "sidecar": "sidecars/1835/landing_camp_west.json",
       "asset": "gltf/landing_camp_west__camp_1835.glb"
     },
@@ -13075,7 +13075,7 @@
     },
     {
       "id": "recon_1835_west_013",
-      "name": "Reconstructed A5 small utility building #022",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #022",
       "sidecar": "sidecars/1835/recon_1835_west_013.json",
       "asset": "gltf/recon_1835_west_013__inferred_1835.glb"
     },

@@ -7,7 +7,7 @@
   "proprietors": "ADOPTED from data/residents/reconstructed_trades/, never minted. tools/reconstruct_residents_1835.py is the one writer of a person.",
   "style_guide": "docs/RESEARCH/business-naming-1835.md",
   "liberty": "docs/LIBERTIES.md § L254",
-  "records": 38,
+  "records": 45,
   "groups": {
     "lodging_river_and_transport": {
       "ticket": "T-1187",
@@ -174,6 +174,40 @@
       "proprietors_adopted": [
         "rc_crandall_benjamin",
         "rc_metcalf_nathaniel"
+      ]
+    },
+    "uncounted_trades": {
+      "ticket": "T-2001",
+      "title": "the trades no census line and no count of shops reaches",
+      "records": 7,
+      "by_class": {
+        "other": 7
+      },
+      "by_street": {
+        "Dearborn Street": 2,
+        "Kinzie Street": 1,
+        "Market Street": 1,
+        "South Water Street": 1,
+        "West Water Street": 2
+      },
+      "by_roof": {},
+      "ids": [
+        "rcb_barnes_refectory",
+        "rcb_ingalls_refectory",
+        "rcb_kellogg_soap_and_candle_manufactory",
+        "rcb_nichols_auction_room",
+        "rcb_nolan_brickyard",
+        "rcb_pratt_refectory",
+        "rcb_vieau_mill"
+      ],
+      "proprietors_adopted": [
+        "rc_barnes_hannah",
+        "rc_ingalls_hannah",
+        "rc_kellogg_joseph",
+        "rc_nichols_john",
+        "rc_nolan_thomas",
+        "rc_pratt_hannah",
+        "rc_vieau_toussaint"
       ]
     }
   },
@@ -806,7 +840,7 @@
           {
             "person_id": "rc_woodruff_chauncey",
             "name": "Chauncey Woodruff",
-            "division": "south",
+            "division": "west",
             "head_slot": "trade_households:persons/male/30_39/south/family/trade:attorney:001",
             "firm": null
           }
@@ -1420,7 +1454,7 @@
         "kind": "census_bucket",
         "deferred_to": null,
         "heads": 1,
-        "why": "THE COUNT IS PRINTED, SO THE COUNT ORDERS. The census counts fourteen physicians and T-1418 filled that bucket against the register's standing rooms; the same rule as the lawyers, for the same reason.",
+        "why": "THE COUNT IS PRINTED, SO THE COUNT ORDERS. The census counts fourteen physicians, the same rule as the lawyers, for the same reason. T-1418 filled the bucket; then T-1525's re-cut (2026-09-24) raised its order to two and moved the row to T-1529, and the office the one drawn head kept went with it, because no group spends a T-1529 row. The book now orders 2 and the resident band has drawn 1 head at the trade, and this tool half-fills no count (`build_group`), so the head waits on T-1529 by name (T-2001).",
         "people": [
           {
             "person_id": "rc_mcguire_john",
@@ -1459,6 +1493,110 @@
             "division": "south",
             "head_slot": "trade_households:persons/male/20_29/west/family/trade:surveyor:021",
             "firm": null
+          }
+        ]
+      }
+    ]
+  },
+  "uncounted_trades": {
+    "_doc": "EVERY RECONSTRUCTED HEAD AT A NEVER-COUNTED TRADE, and the house of trade behind it or the reason there is none. `kind` says which sort of absence a headless trade is: `house_of_trade` this programme builds, `census_bucket` the order book counts and another ticket fills, `count_already_held` the register already over-holds, `employment` has no premises to keep, `commands_a_vessel` keeps a hull and not a house, `contract_not_premises` holds a route and not a stand, `deferred` waits on the ticket named. No head is passed over in silence — that is what this table is for.",
+    "ticket": "T-2001",
+    "trades": 5,
+    "heads": 7,
+    "heads_this_programme_owes_a_house": 0,
+    "heads_still_deferred": 0,
+    "rows": [
+      {
+        "trade": "auctioneer",
+        "kind": "house_of_trade",
+        "deferred_to": null,
+        "heads": 1,
+        "why": "the trade names the house; this programme builds one per head.",
+        "people": [
+          {
+            "person_id": "rc_nichols_john",
+            "name": "John Nichols",
+            "division": "south",
+            "head_slot": "trade_households:persons/male/20_29/south/family/trade:auctioneer:002",
+            "firm": "rcb_nichols_auction_room"
+          }
+        ]
+      },
+      {
+        "trade": "brickmaker",
+        "kind": "house_of_trade",
+        "deferred_to": null,
+        "heads": 1,
+        "why": "the trade names the house; this programme builds one per head.",
+        "people": [
+          {
+            "person_id": "rc_nolan_thomas",
+            "name": "Thomas Nolan",
+            "division": "south",
+            "head_slot": "trade_households:persons/male/30_39/south/family/trade:brickmaker:006",
+            "firm": "rcb_nolan_brickyard"
+          }
+        ]
+      },
+      {
+        "trade": "miller",
+        "kind": "house_of_trade",
+        "deferred_to": null,
+        "heads": 1,
+        "why": "the trade names the house; this programme builds one per head.",
+        "people": [
+          {
+            "person_id": "rc_vieau_toussaint",
+            "name": "Toussaint Vieau",
+            "division": "west",
+            "head_slot": "trade_households:persons/male/20_29/west/family/trade:miller:020",
+            "firm": "rcb_vieau_mill"
+          }
+        ]
+      },
+      {
+        "trade": "refectory_keeper",
+        "kind": "house_of_trade",
+        "deferred_to": null,
+        "heads": 3,
+        "why": "the trade names the house; this programme builds one per head.",
+        "people": [
+          {
+            "person_id": "rc_ingalls_hannah",
+            "name": "Hannah Ingalls",
+            "division": "north",
+            "head_slot": "trade_households:persons/female/20_29/north/family/trade:refectory_keeper:015",
+            "firm": "rcb_ingalls_refectory"
+          },
+          {
+            "person_id": "rc_barnes_hannah",
+            "name": "Hannah Barnes",
+            "division": "south",
+            "head_slot": "trade_households:persons/female/20_29/south/family/trade:refectory_keeper:035",
+            "firm": "rcb_barnes_refectory"
+          },
+          {
+            "person_id": "rc_pratt_hannah",
+            "name": "Hannah Pratt",
+            "division": "south",
+            "head_slot": "trade_households:persons/female/30_39/south/family/trade:refectory_keeper:016",
+            "firm": "rcb_pratt_refectory"
+          }
+        ]
+      },
+      {
+        "trade": "soap_and_candle_maker",
+        "kind": "house_of_trade",
+        "deferred_to": null,
+        "heads": 1,
+        "why": "the trade names the house; this programme builds one per head.",
+        "people": [
+          {
+            "person_id": "rc_kellogg_joseph",
+            "name": "Joseph Kellogg",
+            "division": "west",
+            "head_slot": "trade_households:persons/male/40_49/west/family/trade:soap_and_candle_maker:003",
+            "firm": "rcb_kellogg_soap_and_candle_manufactory"
           }
         ]
       }

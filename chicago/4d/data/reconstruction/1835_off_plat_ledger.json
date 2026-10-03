@@ -51,7 +51,7 @@
   },
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 137,
+  "principal_roofs_standing": 138,
   "ground_m2": 7314847.5
  },
  "what_the_roof_programme_does_not_carry": {
@@ -6926,6 +6926,7 @@
     "beaubien_trading_post",
     "chicago_lighthouse_1832",
     "chicago_lighthouse_keepers_quarters",
+    "emigrant_camp_shore",
     "fort_dearborn_artillery_house",
     "fort_dearborn_barracks",
     "fort_dearborn_big_barn",
@@ -6956,6 +6957,7 @@
     "beaubien_trading_post": "C1",
     "chicago_lighthouse_1832": "I3",
     "chicago_lighthouse_keepers_quarters": "D1",
+    "emigrant_camp_shore": null,
     "fort_dearborn_artillery_house": "M1",
     "fort_dearborn_barracks": "M1",
     "fort_dearborn_big_barn": "A2",
@@ -7031,7 +7033,6 @@
     "inf_wheelwright_shop_west",
     "james_kinzie_house",
     "kinzie_hunter_warehouse",
-    "landing_camp_east",
     "landing_camp_west",
     "lasalle_slough_crossing",
     "log_jail",
@@ -7103,7 +7104,6 @@
     "inf_wheelwright_shop_west": "W3",
     "james_kinzie_house": "D1",
     "kinzie_hunter_warehouse": "F1",
-    "landing_camp_east": null,
     "landing_camp_west": null,
     "lasalle_slough_crossing": null,
     "log_jail": "I3",
@@ -7134,7 +7134,7 @@
     "recon_1835_west_010": "D3",
     "recon_1835_west_011": "D2",
     "recon_1835_west_012": "A4",
-    "recon_1835_west_013": "A5",
+    "recon_1835_west_013": "D2",
     "recon_1835_west_017": "D4",
     "recon_1835_west_020": "C2",
     "recon_1835_west_022": "A1",
@@ -7158,7 +7158,7 @@
     "wolf_point_tavern": "T1",
     "wolf_point_tavern_stable": "A1"
    },
-   "principal_roofs_standing": 51
+   "principal_roofs_standing": 52
   },
   {
    "parcel_id": "wabansia",

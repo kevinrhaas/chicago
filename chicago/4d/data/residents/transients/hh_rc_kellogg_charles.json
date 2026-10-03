@@ -1,6 +1,6 @@
 {
  "id": "hh_rc_kellogg_charles",
- "name": "The Kellogg camp — a household of the summer's crowd",
+ "name": "The Kellogg party — a household of the summer's crowd",
  "division": "unplaced",
  "head": "rc_kellogg_charles",
  "source_pass": "reconstructed_transient",
@@ -8,7 +8,7 @@
   "ticket": "T-1353",
   "parent_ticket": "T-1178",
   "stage": "transients",
-  "household_kind": "camp",
+  "household_kind": "party",
   "cohort_row": "immigrant families awaiting lots",
   "sleeping_class": "the_open_sky_upon_the_wharves",
   "sleeping_place": "the open sky upon the wharves",
@@ -36,22 +36,22 @@
  },
  "lodged_at": [
   {
-   "kind": "camp",
-   "place_id": "the_landing_place",
-   "resolves_to": "camp_ground_candidate",
+   "kind": "roofed_in_the_town",
+   "place_id": "a_store_house_thrown_open",
+   "resolves_to": "sleeping_class",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "tier": "reconstructed",
    "confidence": "conjectural",
    "basis": {
     "kind": "source",
-    "id": "1835_camp_grounds",
-    "note": "The one ground a committed source puts people on. the American, 13 June 1835: “'who had else remained under the open sky upon the wharves'”"
+    "id": "1835_transient_cohort",
+    "note": "THE OPEN SKY IS WHAT THE STORE HOUSES SPARED THEM. the American, 13 June 1835: “even some store houses have been thrown open to receive the unsheltered emigrants, who had else remained under the open sky upon the wharves”. The class is dealt as T-1352 prints it and sheltered as the sentence says (T-1979)."
    },
    "replaceable_by": {
     "kind": "place",
-    "match": "T-1214's placement of the camp grounds, which owns where a camp stands and how large it is; this row names a CANDIDATE and never a polygon"
+    "match": "T-1371 and T-1372, which deal the lodging model's surge beds; a re-reading of the American's 'had else' that puts these people out of doors on 1 July returns them to the wharves"
    },
-   "note": "A CANDIDATE, NOT A PLACEMENT. No coordinate is authored here and none may be: docs/LIBERTIES.md refuses a fabricated location outright."
+   "note": "NO HOUSE IS NAMED. The paper does not say whose store houses were opened; this row reaches the class and not the building."
   }
  ],
  "arrival": {
@@ -137,7 +137,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'the open sky upon the wharves' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'the open sky upon the wharves' and so sleeping under a roof in the town."
    },
    "seed": "transients:the_open_sky_upon_the_wharves:012:head:rc_kellogg_charles",
    "replaceable_by": {
@@ -201,7 +201,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'the open sky upon the wharves' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'the open sky upon the wharves' and so sleeping under a roof in the town."
    },
    "seed": "transients:the_open_sky_upon_the_wharves:012:household_member:rc_kellogg_betsey",
    "replaceable_by": {
@@ -265,7 +265,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_transient_cohort",
-    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'the open sky upon the wharves' and so sleeping in a camp at the landing place."
+    "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'the open sky upon the wharves' and so sleeping under a roof in the town."
    },
    "seed": "transients:the_open_sky_upon_the_wharves:012:household_member:rc_kellogg_harriet",
    "replaceable_by": {

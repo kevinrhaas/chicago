@@ -21,9 +21,11 @@ T-1215's first clause turns it into four joins over committed data:
    T-1147's limits, preserved and printed.
 4. **Occupied.** Every standing structure carries somebody (a household, a lodger, a
    business, a reconstructed occupation), or a use that needs nobody (an outbuilding
-   that names its yard, a civic or harbour work, a camp ground, a house to let), or is
-   one building of an establishment whose principal answers (`part_of`, T-1980), or
-   says on its record why nobody is seated under it (`stated_use`, T-1985). A
+   that names its yard, a civic or harbour work, a camp ground, a house to let, an
+   anonymous roof whose use data/reconstruction/1835_stated_uses.json states, T-1988), or
+   is one building of an establishment whose principal answers (`part_of`, T-1980), or
+   says on its record why nobody is seated under it (`stated_use`, T-1985; for an
+   anonymous trade roof, the trade-roof deal's `unseatable` row, T-1989). A
    sidecar whose `occupants` attribute names people in prose but whose household card
    is not linked is counted on its own row, `occupants_in_prose_only`: the roof is not
    empty, but the person it names is not yet housed by the join, and that link is owed.
@@ -100,9 +102,25 @@ DWELLING_WORDS = ("dwelling", "cottage", "house", "residence", "shanty", "cabin"
                   "boarding", "quarters", "hotel", "tavern")
 
 # The employment ledger's reasons, read into the three answers this audit gives.
-WORK_STATED = {"no_employer_named"}          # the trade kept no premises: stated, not owed
+# T-1993: a domestic the taverns had no room for is in another household's service by the
+# trade's own premises ruling, and a private household is not a house the register owes.
+WORK_STATED = {"no_employer_named",           # the trade kept no premises: stated, not owed
+               "in_service_in_another_household",
+               # T-1994: an attested trade ruled on by name, and no house owed for it
+               "serves_an_establishment_outside_the_register",
+               "not_held_by_the_establishment_on_the_scene_date",
+               "a_civic_seat_and_not_a_house", "works_on_other_people_s_ground",
+               "class_full_none_owed",         # the class's count is met (T-1995)
+               "roofs_kept_none_owed",         # every boarding roof kept or owed (T-1997)
+               # T-1996: a drawn head whose class the census counts and the book holds
+               "the_printed_count_is_held",
+               # T-2000: an uncounted mechanic trade, the American's 25 shops already held
+               "the_mechanics_shops_are_over_their_count"}
+# T-2000: an identity hold is not a gap the register owes and not a ruling that none is;
+# it is an open question, so it stays counted owed under its own name until answered.
 WORK_OWED = {"class_held_no_house", "trade_attested_no_house_named",
-             "no_ruling_on_the_trade", "keeps_their_own_house"}
+             "no_ruling_on_the_trade", "keeps_their_own_house",
+             "held_on_an_identity_question"}
 
 
 def load(path: Path):
@@ -154,8 +172,22 @@ def read_inputs() -> dict:
     seats_path = DATA / "reconstruction" / "1835_housing_seats.json"
     apart = load(seats_path).get("counted_apart") or [] if seats_path.exists() else []
 
+    # T-1989. An anonymous trade roof's generator owns its record, so the trade-roof deal
+    # states why nobody is seated there beside it, and it is read as the record's own.
+    trade_roofs = DATA / "reconstruction" / "1835_trade_roof_seats.json"
+    for row in (load(trade_roofs).get("unseatable") or [] if trade_roofs.exists() else []):
+        if row["structure_id"] in structures:
+            structures[row["structure_id"]]["record"] = dict(
+                structures[row["structure_id"]]["record"],
+                stated_use={"value": row["value"], "note": row["note"]})
+
+    # T-1988. A stated use (T-1782) reaches the card as an `occupants` block, but it names
+    # nobody, so it is read from its own ledger as a use and never as a person owed a link.
+    stated = load(DATA / "reconstruction" / "1835_stated_uses.json").get("rows") or []
+
     return {
         "structures": structures,
+        "stated_uses": {row["structure_id"] for row in stated},
         "ruled_present": {r["household_id"] for r in rulings
                           if value_of(r.get("present_on_scene_date")) == "present"},
         "counted_apart": {r["household"]: r["why"] for r in apart},
@@ -343,6 +375,8 @@ def audit(inputs: dict) -> dict:
             return "use_stated", "vacant_to_let", tier
         if function in CAMP:
             return "use_stated", "camp_ground", tier
+        if sid in inputs["stated_uses"]:
+            return "use_stated", "stated_use_of_an_anonymous_roof", tier
         if s["occupants"]:
             return "occupants_in_prose_only", tier, tier
         if function in CIVIC:

@@ -11,7 +11,7 @@ window.PrairieImages = (() => {
   const svg = (tag, attrs = {}) => { const el = document.createElementNS(SVG, tag); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); return el; };
   // A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
   const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
-  // The package's own copy of a file (the retired first store, still published as a fallback).
+  // The package's own copy of a file (research/public/ and other package paths).
   function packageURL(path) {
     if (!path || typeof path !== 'string' || /^[a-z]+:/i.test(path) || path.startsWith('/') || path.split('/').includes('..')) return null;
     try { return new URL(packagePath(path), location.href).href; } catch { return null; }
@@ -28,7 +28,9 @@ window.PrairieImages = (() => {
   // Every place an image can come from, in order: the store, the package copy, the holder.
   function candidates(r, which, size) {
     const path = r.local && (which === 'thumb' ? (r.local.thumb || r.local.display) : (r.local.display || (!r.image_url && r.local.thumb)));
-    return [...new Set([path && localURL(path), path && packageURL(path), fallbackURL(r, size)].filter(Boolean))];
+    // A store path has no package copy any more (research/images/files/ was emptied on 2026-10-02).
+    const st = imgs?.image_store, inStore = st && path && path.startsWith(st.prefix);
+    return [...new Set([path && localURL(path), path && !inStore && packageURL(path), fallbackURL(r, size)].filter(Boolean))];
   }
   // Point an <img> at the first candidate and step to the next on error; onFail when all fail.
   function loadChain(img, urls, onFail) {
@@ -42,7 +44,7 @@ window.PrairieImages = (() => {
   let lib = null, imgs = null, plan = null, byId = new Map(), buildingsById = new Map(), ready = false;
   let view = 'grid', current = [], openIndex = -1, selectedParcel = null;
   const PERIOD_LABEL = { 'in-period': 'In period · to 1911', 'near-period': 'Near period · 1912–1930', later: 'Later · 1931 on' };
-  const RIGHTS_LABEL = { 'public domain': 'Public domain', 'no known restrictions': 'No known restrictions', 'copyright — link only': 'In copyright · link only', 'unknown — link only': 'Rights unknown · link only' };
+  const RIGHTS_LABEL = { 'public domain': 'Public domain', 'no known restrictions': 'No known restrictions', 'pending — permission requested': 'Rights pending · permission requested from the holder', 'copyright — link only': 'In copyright · link only', 'unknown — link only': 'Rights unknown · link only' };
   // Street order: the library's building order, then the street and district views.
   const buildingName = id => { const b = buildingsById.get(id); return b ? (b.address || '').replace(/\s*S\.\s*Prairie Avenue/, ' Prairie') + ' · ' + (b.name || id) : id; };
   const shortAddr = id => { const b = buildingsById.get(id); return b ? (b.address || id).replace(/\s*S\.\s*Prairie Avenue/, ' Prairie').replace(/ Avenue| Street/, '') : id; };
@@ -129,6 +131,7 @@ window.PrairieImages = (() => {
     const b = node('div', null, 'img-badges');
     b.append(node('span', PERIOD_LABEL[r.period] || r.period, 'badge period-' + r.period));
     if (!r.local) b.append(node('span', 'Link only', 'badge link-badge')); else if (!r.local.display) b.append(node('span', 'Thumbnail here', 'badge link-badge'));
+    if (r.rights === 'pending — permission requested') b.append(node('span', 'Rights pending', 'badge pending-badge'));
     return b;
   }
   function chipsFor(r, onPick) {

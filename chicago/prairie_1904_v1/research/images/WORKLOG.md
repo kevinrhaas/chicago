@@ -66,14 +66,50 @@ instead:
 - **1905:** the "Hallway" image is a mirrored copy of the Artistic Houses plate.
 - **2018 S. Prairie:** the Herrick house, not 2018 S. Calumet.
 
-## Image store status (2026-10-02)
+## Rights requests drafted (2026-10-02)
 
-The bytes live in kevinrhaas/chicago-images (`prairie-1904/files/`, 824 files, 102.9 MB at PR #283).
-Its Pages site (`kevinrhaas.github.io/chicago-images/`) is NOT live yet. The owner has to switch it on
-once (Settings → Pages → Source: GitHub Actions), then re-run its `pages` workflow. Until then the
-viewer serves the package's frozen copy (`research/images/files/`), or the holder's URL for files
-only in the store. When the store serves, drop `research/images/files` from `tools/publish.py` and
-delete the folder (see its README).
+`rights-requests/` holds both drafts and a status table, ready for the owner to send:
+- **Art Institute** (archives@artic.edu): 8 Renwick 1874 microfilm frames, plus files for the 3
+  sheets it already marks public domain.
+- **Glessner House Museum** (info@glessnerhouse.org): 10 George Glessner photographs, c. 1888–1901
+  (13 records).
+
+Record the answers there, then update each record's rights.
+
+## Rights rule widened (2026-10-02)
+
+The public-domain cutoff is now "published in the US 95+ years ago", which is 1930 or earlier as
+of 2026 (README rule 2; it rolls forward each January). The whole collection was re-checked for
+items published in 1929–1930:
+
+- **Qualified: one record.** `nps-1901-tribune-1929-10-27-crerar-mansion-torn-down` is now public
+  domain. It stays link-only as a text column.
+- **Not qualified, by evidence:**
+  - Undated photographs and website reproductions with no proven publication.
+  - The 2021 "1930" halftone, whose date is only a file-name guess.
+  - Houghton drawings and Chicago History Museum items, which follow their holders' terms.
+
+## Image store status — LIVE (verified 2026-10-02)
+
+The bytes live in kevinrhaas/chicago-images (`prairie-1904/files/`: 824 files, 102.9 MB). Its Pages
+site is live at `https://kevinrhaas.github.io/chicago-images/`; the owner enabled it on 2026-10-02.
+
+**What was checked:**
+- The live `MANIFEST.json` lists all 824 files.
+- 25 randomly sampled files return 200 `image/jpeg` with byte counts exactly matching `STORE.json`.
+- The dev-preview viewer reads its images from the store at desktop size.
+- At 390×780 the same viewer (a local copy pointed at the live store) renders with zero page
+  errors.
+
+**Cleanup done (2026-10-02, owner-approved).** The retired `research/images/files/` was deleted
+after two checks:
+- All 295 of its files are in the store. 73 Robinson thumbnails there are newer re-derivations, and
+  those are the ones the records cite.
+- Nothing in the pre-fire, postfire or Prairie sites referenced the folder.
+
+`publish.py` no longer copies it, and `validate.py` refuses any image file placed there. The
+package's `research/public/` (Glessner HABS and Houghton files) stays; it is package-served by
+design.
 
 ## Fourth pass — south half and adjacent buildings, by address and owner (2026-10-02)
 

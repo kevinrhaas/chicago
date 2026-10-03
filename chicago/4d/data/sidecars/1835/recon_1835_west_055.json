@@ -131,6 +131,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the A2 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "No household of its own — the barn of the log farmhouse on the same holding on the Des Plaines open edge",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1988; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The off-plat deal's own farmstead pairing (data/reconstruction/1835_off_plat_seats.json `farmsteads`, T-1794): this barn pairs with the D1 cabin recon_1835_west_052, 128.3 m away on canal section 9's remainder, inside the deal's 150 m reach (a forty is 402 m on a side, so the two stand on one holding), and the deal seats a farm household in that cabin. The West recipe draws it in the yard of west_rec_053, which T-1781 has since redealt from a dwelling to a barn itself, so that yard no longer has a house in it and the pairing is the tie that holds. It is graded `inferred` there: no source pairs these roofs. A barn keeps the farm's hay, grain and stock; nobody sleeps in it. The roof's own existence, position and footprint remain the invention they were."
     }
   },
   "residents": [],

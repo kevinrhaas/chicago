@@ -948,3 +948,159 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
     )
     p.resolve()
     return p
+
+
+# ---------------------------------------------------------------------------
+# THE FRONT'S SET-OUT (T-1984) — moved here out of the builder so the signage
+# layer and the entrance reader read the same door and windows the builder draws,
+# without Blender (the T-0520 pattern `frame_storefront_params` already follows).
+# ---------------------------------------------------------------------------
+
+DOOR_W_M, DOOR_H_M = 0.92, 2.02
+# The threshold stands on the sill rather than on the ground. Small, and load-bearing
+# for the GROUND_CONTACT claim: the boarded surround around an opening reaches 75 mm
+# past it on every side, so a door drawn from z = 0.02 puts trim below the base of the
+# walls and the archetype stops being flat on its own footprint.
+DOOR_SILL_M = 0.10
+# The least blank wall between two holes on one front: a cased opening's trim is
+# ~75 mm a side, so two holes closer than this read as one hole. Before T-1984 four
+# one-room houses had two windows 3 cm apart, clamped onto each other by the snap.
+OPENING_GAP_M = 0.15
+CORNER_CLEAR_M = 0.72
+
+
+def _snap_bay(x: float, p: "FrameDwellingParams", w: float) -> float:
+    """Nearest stud-bay centre, kept clear of the corner boards."""
+    stud = p.stud_spacing_m
+    k = math.floor(x / stud)
+    u = (k + 0.5) * stud
+    return min(max(u, CORNER_CLEAR_M), w - CORNER_CLEAR_M)
+
+
+def _opening_w(p: "FrameDwellingParams", kind: str) -> float:
+    return DOOR_W_M if kind == "door" else p.window_w_m
+
+
+def _clash(a: tuple, b: tuple, p: "FrameDwellingParams") -> bool:
+    """Do two `(centre, kind)` openings stand closer than OPENING_GAP_M?"""
+    return abs(b[0] - a[0]) < (_opening_w(p, a[1]) + _opening_w(p, b[1])) / 2.0 \
+        + OPENING_GAP_M - 1e-9
+
+
+def _part(p: "FrameDwellingParams", raw: list, w: float) -> list:
+    """Snap every centre to a stud bay, then part any two the snap has pushed onto
+    each other (T-1984). A window that clashes is moved one stud bay away from its
+    neighbour where the wall has room for it; where it has none, it is not cut — a
+    house with one window fewer reads as a house, two holes run together do not.
+    The door never moves: the plan decides where it is."""
+    stud = p.stud_spacing_m
+    lo, hi = CORNER_CLEAR_M, w - CORNER_CLEAR_M
+    out = sorted(((_snap_bay(x, p, w), k) for x, k in raw), key=lambda o: o[0])
+    i = 0
+    while i < len(out) - 1:
+        a, b = out[i], out[i + 1]
+        if not _clash(a, b, p):
+            i += 1
+            continue
+        moved = False
+        for j, step in ((i + 1, stud), (i, -stud)):
+            o = out[j]
+            if o[1] == "door":
+                continue
+            for n in (1, 2):
+                x = o[0] + step * n
+                if not (lo - 1e-9 <= x <= hi + 1e-9):
+                    break
+                trial = out[:j] + [(x, o[1])] + out[j + 1:]
+                if all(not _clash(trial[k], trial[k + 1], p)
+                       for k in range(max(0, j - 1), min(len(trial) - 1, j + 1))):
+                    out = trial
+                    moved = True
+                    break
+            if moved:
+                break
+        if not moved:
+            drop = i + 1 if b[1] != "door" else i
+            out = out[:drop] + out[drop + 1:]
+        i = max(0, i - 1)
+    return out
+
+
+def facade_bays(p: "FrameDwellingParams") -> list:
+    """Where the openings go across the front, as `(centre_x, kind)`.
+
+    **This is the archetype's answer to docs/LIBERTIES.md L23** — one window
+    arrangement on every frame building. The front is not a fixed five bays: the count
+    comes from the frontage (or from the record) and the ARRANGEMENT comes from the
+    plan behind the wall, which is what actually decides where a door is.
+
+    - `hall_parlour`, the default and the commonest vernacular plan, divides the front
+      at the partition between the larger heated hall and the smaller parlour. The door
+      opens into the hall, near the middle of it, so it is well off the centre of the
+      building and the two rooms' windows are spaced differently from one another —
+      with a wider gap over the partition. That gap is the plan showing through the
+      wall, and it is what makes the front read as a house rather than as a facade.
+    - `centre_passage` is the symmetrical alternative, and it has to be asked for.
+    - `single_pen` is one room: a door and a window or two beside it.
+
+    Every centre is then snapped to a stud-bay centre, so an opening's jambs land
+    against studs. That is a real constraint on where a window can go in a framed wall,
+    and it is what makes the stud module something the facade obeys rather than
+    something the sidecar mentions. Openings the snap runs together are parted
+    (`_part`, T-1984).
+    """
+    w, n = p.width_m, p.bays
+    if p.plan == "centre_passage":
+        centres = [w * (i + 0.5) / n for i in range(n)]
+        door = n // 2
+        return _part(p, [(x, "door" if i == door else "window")
+                         for i, x in enumerate(centres)], w)
+
+    hf = 0.5 if p.plan == "single_pen" else HALL_FRACTION
+    xp = w * hf
+    if p.plan == "single_pen":
+        n_hall = 1
+    else:
+        n_hall = 1 + min(max(int(round((n - 1) * hf)), 1), n - 2)
+    n_parlour = n - n_hall
+
+    out = []
+    door_i = n_hall // 2
+    for i in range(n_hall):
+        out.append((xp * (i + 0.5) / n_hall, "door" if i == door_i else "window"))
+    for j in range(n_parlour):
+        out.append((xp + (w - xp) * (j + 0.5) / n_parlour, "window"))
+    return _part(p, out, w)
+
+
+def front_wall(p: "FrameDwellingParams") -> dict:
+    """`{u0, u1, wall_height_m, openings}` of the front elevation, for
+    `facade_openings` — the rectangles `frame_dwelling._facade` cuts, from the same
+    numbers. `u` runs along the front from the footprint's origin; the builder draws
+    the house over `0..width_m` with the front on +y, the footprint's max-v edge."""
+    w = float(p.width_m)
+    wall_z = float(p.wall_height_m)
+    story_h = wall_z / 2.0 if p.stories >= 2.0 else wall_z
+    sill = min(0.95, story_h * 0.36)
+    top_head = wall_z - 0.28
+    h = sash_rows(p.glazing, (story_h - 0.14 if p.stories >= 2.0 else top_head) - sill)[2]
+    door_h = min(DOOR_H_M, top_head - DOOR_SILL_M)
+    hw = p.window_w_m / 2.0
+    out = []
+    for cx, kind in facade_bays(p):
+        if kind == "door":
+            if door_h > 1.6:
+                out.append({"kind": "door", "u0": cx - DOOR_W_M / 2, "u1": cx + DOOR_W_M / 2,
+                            "z0": DOOR_SILL_M, "z1": DOOR_SILL_M + door_h})
+            continue
+        if h >= 0.5:
+            out.append({"kind": "window", "u0": cx - hw, "u1": cx + hw,
+                        "z0": sill, "z1": sill + h})
+    if p.stories >= 2.0:
+        z = story_h + sill
+        hu = sash_rows(p.glazing, top_head - z)[2]
+        if hu >= 0.5:
+            for cx, _kind in facade_bays(p):
+                out.append({"kind": "window", "u0": cx - hw, "u1": cx + hw,
+                            "z0": z, "z1": z + hu})
+    return {"u0": 0.0, "u1": w, "wall_height_m": wall_z, "openings": out}

@@ -3,7 +3,7 @@
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
   "measured": "2026-10-02",
   "gate_verdict": "CHECK FAIL",
-  "declared_steps": 683,
+  "declared_steps": 743,
   "exempt": {
     "site/": {
       "reason": "THE PUBLISHED MIRROR, AND THE GATE'S OWN FIRST STEP REGENERATES IT WHOLESALE. site/4d/ is generated (T-0938) and check.sh opens by running publish.sh over it; the single check_flush barrier T-1289 added sits directly after that step, with the comment 'everything below reads the mirror the step above writes'. So these writes are ordered rather than racing, and they are the one mutation this gate is built around instead of against. A write anywhere OUTSIDE site/ is not covered by this."
@@ -1548,6 +1548,13 @@
         "site/4d/data/residents/lodgers/hh_lodging_exchange_coffee_house.json",
         "site/4d/data/residents/lodgers/hh_lodging_mansion_house.json",
         "site/4d/data/residents/lodgers/hh_lodging_new_york_house.json",
+        "site/4d/data/residents/lodgers/hh_lodging_recon_1835_blk_indiana_north_cass_h3_09.json",
+        "site/4d/data/residents/lodgers/hh_lodging_recon_1835_blk_washington_clark_h3_05.json",
+        "site/4d/data/residents/lodgers/hh_lodging_recon_1835_blk_washington_clark_h3_06.json",
+        "site/4d/data/residents/lodgers/hh_lodging_recon_1835_blk_washington_clark_h3_11.json",
+        "site/4d/data/residents/lodgers/hh_lodging_recon_1835_blk_washington_dearborn_h3_01.json",
+        "site/4d/data/residents/lodgers/hh_lodging_recon_1835_blk_washington_market_h3_01.json",
+        "site/4d/data/residents/lodgers/hh_lodging_recon_1835_blk_washington_market_h3_04.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h1_007.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h2_022.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h2_028.json",
@@ -1556,7 +1563,6 @@
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_west_006.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_west_035.json",
         "site/4d/data/residents/lodgers/hh_lodging_sauganash_hotel.json",
-        "site/4d/data/residents/lodgers/hh_lodging_steamboat_hotel.json",
         "site/4d/data/residents/lodgers/hh_lodging_tremont_house_1.json",
         "site/4d/data/residents/lodgers/hh_lodging_western_hotel.json",
         "site/4d/data/residents/lodgers/hh_lodging_wolf_point_tavern.json",
@@ -2245,103 +2251,127 @@
       ],
       "wrote_by": [
         "- ../../site/4d/data/residents",
-        "- ../../site/4d/walk/index.html build f7204173 · Sep 28, 2026, 9:36 AM CT"
+        "- ../../site/4d/walk/index.html build 0a35b91c · Oct 2, 2026, 12:28 PM CT renderers/web/js/changelog.js"
       ]
     },
     "-c": {
       "wrote": []
     },
-    "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/.github/chicago-4d-dev-preview.mjs": {
+    "/home/claude/chicago/.github/chicago-4d-dev-preview.mjs": {
       "wrote": []
     },
-    "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/.github/chicago-4d-url-check.mjs": {
+    "/home/claude/chicago/.github/chicago-4d-url-check.mjs": {
       "wrote": []
     },
-    "/tmp/c4d-repomode-883bnh/bin/gh": {
+    "/tmp/c4d-repomode-scJVxy/bin/gh": {
       "wrote": []
     },
-    "/tmp/prstuck-0se5f3/gh.mjs": {
+    "/tmp/prstuck-5xs7zv/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-2Q3QWB/gh.mjs": {
+    "/tmp/prstuck-7jaRQ5/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-AvZnvH/gh.mjs": {
+    "/tmp/prstuck-CckYsB/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-DU1aVI/gh.mjs": {
+    "/tmp/prstuck-FognJi/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-F5PaTN/gh.mjs": {
+    "/tmp/prstuck-GS80eK/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-F6j4z7/gh.mjs": {
+    "/tmp/prstuck-K9HwD1/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-GElo2s/gh.mjs": {
+    "/tmp/prstuck-L90noi/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-Hwy2j9/gh.mjs": {
+    "/tmp/prstuck-LmdDMh/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-I0x8mt/gh.mjs": {
+    "/tmp/prstuck-NJwFeh/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-MpYEhN/gh.mjs": {
+    "/tmp/prstuck-QdfuA7/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-OxhPCS/gh.mjs": {
+    "/tmp/prstuck-XjdB0J/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-PzdXGd/gh.mjs": {
+    "/tmp/prstuck-cEmtle/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-RLp9Qa/gh.mjs": {
+    "/tmp/prstuck-drtldW/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-TLW4bO/gh.mjs": {
+    "/tmp/prstuck-e4orpP/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-WGfjGP/gh.mjs": {
+    "/tmp/prstuck-gf3YSr/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-ZMmiT5/gh.mjs": {
+    "/tmp/prstuck-jR2yl7/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-Zdgk8r/gh.mjs": {
+    "/tmp/prstuck-jc0ZmR/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-bunC5O/gh.mjs": {
+    "/tmp/prstuck-mdVqys/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-cFvZ9h/gh.mjs": {
+    "/tmp/prstuck-mx6TnD/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-dryRZ6/gh.mjs": {
+    "/tmp/prstuck-nJtkXN/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-ip263c/gh.mjs": {
+    "/tmp/prstuck-pGQRYd/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-mIlw2h/gh.mjs": {
+    "/tmp/prstuck-pQecpv/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-nZ8SZx/gh.mjs": {
+    "/tmp/prstuck-qP7Pgo/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-ph7Ocs/gh.mjs": {
+    "/tmp/prstuck-qzVWup/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-sFPbk8/gh.mjs": {
+    "/tmp/prstuck-smDhan/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-uUAsBa/gh.mjs": {
+    "/tmp/prstuck-uaxfJc/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-wEmRJF/gh.mjs": {
+    "/tmp/prstuck-vv68YR/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-xiEeoE/gh.mjs": {
+    "/tmp/prstuck-wm2qO9/gh.mjs": {
+      "wrote": []
+    },
+    "/tmp/tmp1aftk60c/bin/npx": {
+      "wrote": []
+    },
+    "/tmp/tmp1aftk60c/bin/python3": {
+      "wrote": []
+    },
+    "/tmp/tmpfvi5u9da/bin/npx": {
+      "wrote": []
+    },
+    "/tmp/tmpfvi5u9da/bin/python3": {
+      "wrote": []
+    },
+    "/tmp/tmpntt11qn2/bin/npx": {
+      "wrote": []
+    },
+    "/tmp/tmpntt11qn2/bin/python3": {
+      "wrote": []
+    },
+    "/tmp/tmpxmuevg1e/bin/npx": {
+      "wrote": []
+    },
+    "/tmp/tmpxmuevg1e/bin/python3": {
       "wrote": []
     },
     "generators/ao_export.py": {
@@ -2354,6 +2384,9 @@
       "wrote": []
     },
     "generators/placeholder.py": {
+      "wrote": []
+    },
+    "generators/terrain_gen_graded.py": {
       "wrote": []
     },
     "tools/adjudicate_wright_na_fit.py": {
@@ -2689,6 +2722,9 @@
     "tools/generate_dooryard_plantings.py": {
       "wrote": []
     },
+    "tools/generate_entrances.py": {
+      "wrote": []
+    },
     "tools/generate_fort_apron.py": {
       "wrote": []
     },
@@ -2735,6 +2771,9 @@
       "wrote": []
     },
     "tools/generate_west_infill.py": {
+      "wrote": []
+    },
+    "tools/generate_woodpiles.py": {
       "wrote": []
     },
     "tools/generate_yard_goods.py": {
@@ -2810,6 +2849,9 @@
       "wrote": []
     },
     "tools/measure_corridor_strip.py": {
+      "wrote": []
+    },
+    "tools/measure_doorways.py": {
       "wrote": []
     },
     "tools/measure_face_rule.py": {
@@ -3001,9 +3043,6 @@
     "tools/measure_west_of_box.mjs": {
       "wrote": []
     },
-    "tools/measure_west_swale_corridors.py": {
-      "wrote": []
-    },
     "tools/measure_wright_lighthouse.py": {
       "wrote": []
     },
@@ -3091,6 +3130,9 @@
     "tools/placement_policy_1835.py": {
       "wrote": []
     },
+    "tools/play_jaunt.mjs": {
+      "wrote": []
+    },
     "tools/printed_twice.py": {
       "wrote": []
     },
@@ -3107,10 +3149,12 @@
         "site/4d/prairie-1904/data/building_events.csv",
         "site/4d/prairie-1904/data/building_sources.csv",
         "site/4d/prairie-1904/data/buildings.csv",
+        "site/4d/prairie-1904/data/images.json",
         "site/4d/prairie-1904/data/library.json",
         "site/4d/prairie-1904/data/map_frontages.csv",
         "site/4d/prairie-1904/data/measurements.csv",
         "site/4d/prairie-1904/data/occupancy_candidates.csv",
+        "site/4d/prairie-1904/data/site-plan.json",
         "site/4d/prairie-1904/data/sources.csv",
         "site/4d/prairie-1904/docs/glessner-1904.md",
         "site/4d/prairie-1904/docs/map-guidance.md",
@@ -3122,8 +3166,340 @@
         "site/4d/prairie-1904/maps/originals/sanborn-1911-sheet-20.jpg",
         "site/4d/prairie-1904/maps/originals/sanborn-1911-sheet-28.jpg",
         "site/4d/prairie-1904/maps/originals/sanborn-1911-sheet-35.jpg",
+        "site/4d/prairie-1904/research/images/files/README.md",
+        "site/4d/prairie-1904/research/images/files/RETIRED.json",
+        "site/4d/prairie-1904/research/images/files/a16-albertype-1890-pullman-residence-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-albertype-1890-pullman-residence.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-andreas-1884-chicagos-historic-tree-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-andreas-1884-chicagos-historic-tree.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-landowner-1874-1620-law-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-landowner-1874-1620-law.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-landowner-1874-1730-dewey-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-landowner-1874-1730-dewey.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-tribune-1898-prairie-widows-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-tribune-1898-prairie-widows.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-tribune-1922-pullman-wrecked-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-cgy-tribune-1922-pullman-wrecked.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-chm-ichi-19208-monument-pullman-wall-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-chm-ichi-19208-monument-pullman-wall.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-industrial-chicago-1867-review-1600-block-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-industrial-chicago-1867-review-1600-block.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1890-hj-mcbirney-residence-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1890-hj-mcbirney-residence.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1891-dexter-residence-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1891-dexter-residence.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1894-pullman-conservatory-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1894-pullman-conservatory.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1894-pullman-palm-house-stable-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-inland-1894-pullman-palm-house-stable.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-kirkland-1893-massacre-tree-pullman-house-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-kirkland-1893-massacre-tree-pullman-house.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-loc-stereo-1s12433-monument-1930-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-loc-stereo-1s12433-monument-1930.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-pullman-det-4a08065-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-pullman-det-4a08065.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-pullman-det-4a08066-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a16-pullman-det-4a08066.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-artistic-houses-doane-hall-2-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-artistic-houses-doane-hall-2.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-chm-clark-c1905-prairie-west-side-north-from-1936-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-chm-clark-c1905-prairie-west-side-north-from-1936.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-inland-architect-1888-02-glessner-plate-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-inland-architect-1888-02-glessner-plate.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-inland-architect-1888-02-keith-plate-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-inland-architect-1888-02-keith-plate.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-kimball-habs-photo-01-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-kimball-habs-photo-01.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-kimball-habs-photo-02-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-kimball-habs-photo-02.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-kimball-habs-photo-03-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-kimball-habs-photo-03.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-ia-1888-glessner-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-ia-1888-glessner.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-ia-1888-keith-1808-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-ia-1888-keith-1808.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-levy-1812-wheeler-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-levy-1812-wheeler.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-lowe-glessner-stable-18th-c1900-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-lowe-glessner-stable-18th-c1900.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-lowe-taylor-9974-copy-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-lowe-taylor-9974-copy.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f27-prairie-elevation-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f27-prairie-elevation.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f28-entrance-detail-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f28-entrance-detail.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f29-entrance-detail-ink-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f29-entrance-detail-ink.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f30-chimney-caps-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f30-chimney-caps.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f31-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f31.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f32-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f32.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f33-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f33.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f34-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f34.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f35-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f35.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f36-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f36.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f37-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f37.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f38-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f38.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f39-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f39.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f40-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f40.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f41-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f41.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f42-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f42.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f58-front-hall-plan-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f58-front-hall-plan.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f68-main-entrance-door-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f68-main-entrance-door.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f78-floor-level-diagram-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-mf-glessner-f78-floor-level-diagram.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-1801-kimball-c1895-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-1801-kimball-c1895.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-2135-glessner-ne-print2-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-2135-glessner-ne-print2.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-2135-glessner-ne-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-2135-glessner-ne.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-9974-prairie-south-from-18th-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-9974-prairie-south-from-18th.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-doane-hall-fixture-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a18-rba-taylor-doane-hall-fixture.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-andreas-1886-2ndpres-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-andreas-1886-2ndpres.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-andreas-1886-prairie-20th-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-andreas-1886-prairie-20th.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-andreas-1886-prairie-north-from-20th-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-andreas-1886-prairie-north-from-20th.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-bluebook-1912-gatlin-1919-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-bluebook-1912-gatlin-1919.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-cdnalmanac-1913-gatlin-1919-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-cdnalmanac-1913-gatlin-1919.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061183-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061183.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061184-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061184.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061185-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061185.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061186-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-photo-061186.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-sheet-5-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-clarke-habs-sheet-5.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-field-cdn-dn0003324-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-field-cdn-dn0003324.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-hb-1904-2ndpres-interior-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-hb-1904-2ndpres-interior.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-nby-newchicagoalbum-1883-residences-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-nby-newchicagoalbum-1883-residences.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-nby-sloan-2ndpres-elevated-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-nby-sloan-2ndpres-elevated.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-nby-sloan-2ndpres-street-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-nby-sloan-2ndpres-street.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-pictorial-1893-field-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-pictorial-1893-field.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-pictorial-1893-ream-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-pictorial-1893-ream.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-rebj-1884-murray-permit-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a19-rebj-1884-murray-permit.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-ia-1895-02-reid-plate-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-ia-1895-02-reid-plate.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-monroe-1896-meyer-hall-p158-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-monroe-1896-meyer-hall-p158.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-monroe-1896-meyer-house-p155-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-monroe-1896-meyer-house-p155.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-nypl-dennis-tucker-1010-prairie-stereo-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/a20-nypl-dennis-tucker-1010-prairie-stereo.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1600-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1608-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1611-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1612-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1613-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1616-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1619-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1620-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1621-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1626-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1628-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1630-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1634-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1635-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1636-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1637-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1638-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-16th-station-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1701-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1702-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1709-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1712-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1720-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1721-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1726-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1729-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1730-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1736-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1800-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1808-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1811-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1812-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1815-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1816-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1823-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1824-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1827-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgn-1828-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1834-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1900-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1901-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1906-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1912-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1919-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1923-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1936-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-1945-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2000-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2001-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2003-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2009-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2010-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2011-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2013-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2017-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2021-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2026-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2027-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2031-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2033-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2036-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2101-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2108-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2109-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2110-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2112-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2115-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2120-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2123-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2125-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2126-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2130-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/cgs-2140-robinson-1886-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-aabn-1876-09-30-sherman-2100-plate-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-aabn-1876-09-30-sherman-2100-plate.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-field-1905-artistic-houses-entrance-hall-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-field-1905-artistic-houses-entrance-hall.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-field-1905-artistic-houses-library-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-field-1905-artistic-houses-library.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-field-1905-hunt-principal-floor-plan-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-field-1905-hunt-principal-floor-plan.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-0-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-0.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-1-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-1.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-2-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-2.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-6-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il135-clarke-sheet-6.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-01-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-01.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-02-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-02.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-03-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-03.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-04-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-04.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-05-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-05.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-06-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-06.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-07-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-07.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-08-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-08.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-09-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-09.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-10-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-habs-il328-second-presbyterian-sheet-10.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-inland-1883-12-hanford-plate-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-inland-1883-12-hanford-plate.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-inland-1905-05-robbins-2126-plate-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/dw-inland-1905-05-robbins-2126-plate.jpg",
+        "site/4d/prairie-1904/research/images/files/st-champion-1908-elevated-boulevards-south-detail-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-champion-1908-elevated-boulevards-south-detail.jpg",
+        "site/4d/prairie-1904/research/images/files/st-currier-ives-1892-city-of-chicago-south-detail-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-currier-ives-1892-city-of-chicago-south-detail.jpg",
+        "site/4d/prairie-1904/research/images/files/st-det-lake-front-from-ic-station-12544-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-det-lake-front-from-ic-station-12544.jpg",
+        "site/4d/prairie-1904/research/images/files/st-flinn-1892-looking-south-prairie-from-18th-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-flinn-1892-looking-south-prairie-from-18th.jpg",
+        "site/4d/prairie-1904/research/images/files/st-ghm-postcard-1908-prairie-south-at-18th-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-ghm-postcard-1908-prairie-south-at-18th.jpg",
+        "site/4d/prairie-1904/research/images/files/st-ghm-ward-1887-prairie-north-from-20th-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-ghm-ward-1887-prairie-north-from-20th.jpg",
+        "site/4d/prairie-1904/research/images/files/st-greeley-carlson-1891-prairie-environs-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-greeley-carlson-1891-prairie-environs.jpg",
+        "site/4d/prairie-1904/research/images/files/st-ilhap-1938-cook-bwq-8-50-district-crop-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-ilhap-1938-cook-bwq-8-50-district-crop.jpg",
+        "site/4d/prairie-1904/research/images/files/st-landowner-1874-homes-of-prairie-avenue-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-landowner-1874-homes-of-prairie-avenue.jpg",
+        "site/4d/prairie-1904/research/images/files/st-picturesque-chicago-1892-prairie-avenue-p199-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-picturesque-chicago-1892-prairie-avenue-p199.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p233-east-1700-1800-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p233-east-1700-1800.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p233-west-1700-1800-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p233-west-1700-1800.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p269-east-1800-1900-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p269-east-1800-1900.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p269-west-1800-1900-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1893-p269-west-1800-1900.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1910-pullman-corner-18th-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-randmcnally-1910-pullman-corner-18th.jpg",
+        "site/4d/prairie-1904/research/images/files/st-views-of-chicago-1905-fort-dearborn-memorials-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-views-of-chicago-1905-fort-dearborn-memorials.jpg",
+        "site/4d/prairie-1904/research/images/files/st-views-of-chicago-1905-prairie-and-michigan-avenues-thumb.jpg",
+        "site/4d/prairie-1904/research/images/files/st-views-of-chicago-1905-prairie-and-michigan-avenues.jpg",
         "site/4d/prairie-1904/research/public/clarke-habs-data.pdf",
         "site/4d/prairie-1904/research/public/glessner-habs-data.pdf",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-01-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-01.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-02-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-02.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-03-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-03.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-04-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-04.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-05-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-05.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-06-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-06.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-07-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-07.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-08-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-08.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-09-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-09.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-10-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-10.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-11-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-11.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-12-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-12.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-13-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-13.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-14-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-14.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-15-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-15.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-16-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-16.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-17-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-17.jpg",
+        "site/4d/prairie-1904/research/public/glessner-habs-photo-captions.pdf",
         "site/4d/prairie-1904/research/public/glessner-habs-sheet-1.png",
         "site/4d/prairie-1904/research/public/glessner-habs-sheet-1.tif",
         "site/4d/prairie-1904/research/public/glessner-habs-sheet-2.png",
@@ -3136,9 +3512,32 @@
         "site/4d/prairie-1904/research/public/glessner-habs-sheet-5.tif",
         "site/4d/prairie-1904/research/public/glessner-habs-sheet-6.png",
         "site/4d/prairie-1904/research/public/glessner-habs-sheet-6.tif",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b1-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b1.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b2-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b2.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b6-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b6.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b7-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b7.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b9-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-b9.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-d15-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-d15.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-e3-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-e3.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-e4d-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-e4d.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-e5y-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-e5y.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-f1-thumb.jpg",
+        "site/4d/prairie-1904/research/public/glessner-houghton-gle-f1.jpg",
         "site/4d/prairie-1904/research/public/kimball-habs-data.pdf",
         "site/4d/prairie-1904/viewer/app.js",
+        "site/4d/prairie-1904/viewer/images.css",
+        "site/4d/prairie-1904/viewer/images.js",
         "site/4d/prairie-1904/viewer/index.html",
+        "site/4d/prairie-1904/viewer/root-served.js",
         "site/4d/prairie-1904/viewer/style.css"
       ],
       "wrote_by": [
@@ -3424,6 +3823,9 @@
     "tools/seat_reconstructed_trades_1835.py": {
       "wrote": []
     },
+    "tools/seat_trade_roofs_1835.py": {
+      "wrote": []
+    },
     "tools/seat_wabansia_streets.py": {
       "wrote": []
     },
@@ -3452,7 +3854,13 @@
       "wrote": []
     },
     "tools/serve_from_root.py": {
-      "wrote": []
+      "wrote": [
+        "site/4d/prairie-1904/viewer/root-served.js",
+        "site/4d/pre-fire/viewer/root-served.js"
+      ],
+      "wrote_by": [
+        "tools/serve_from_root.py ../../site/4d ../../site"
+      ]
     },
     "tools/smoke_budget.mjs": {
       "wrote": []
@@ -3547,8 +3955,11 @@
         "site/4d/walk/js/changelog.js"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
+        "/home/claude/chicago/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
       ]
+    },
+    "tools/structure_versions.py": {
+      "wrote": []
     },
     "tools/substitute_reconstruction.py": {
       "wrote": []
@@ -3786,11 +4197,16 @@
         "site/4d/1835/index.html",
         "site/4d/1880",
         "site/4d/1880/index.html",
+        "site/4d/1904",
+        "site/4d/1904/index.html",
         "site/4d/index.html"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
+        "/home/claude/chicago/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
       ]
+    },
+    "tools/yard_rule_1835.py": {
+      "wrote": []
     },
     "{\"1242\":\"dirty\",\"1315\":\"blocked\",\"1316\":\"blocked\",\"1319\":\"clean\"}": {
       "wrote": []

@@ -1360,6 +1360,17 @@ step "an adopted register firm's signboard moves no board already hung" \
 # committed sidecars and the wagon-yard perimeter (ROADMAP K5 (c), T-0040).
 step "the yard goods re-derive from the rule that chose their frontages" \
   python3 tools/generate_yard_goods.py --check
+# T-1984. EVERY DOOR, ONCE, AND NOTHING IN FRONT OF IT. The owner, walking Lake Street on
+# 2026-10-02, found goods in front of doors, a sign on a door leaf, a window run into a door
+# and prairie up to every threshold. `generate_entrances` reads each door off the front
+# elevation its mesh is built from, re-derives the trodden apron in front of it, and
+# refuses any front whose holes run together; `measure_doorways` holds every placed object
+# in the town — goods, carts, posts, fittings, fences, sign posts, wells, planted stems —
+# out of every doorway.
+step "every door is read once, its apron re-derives, and no two holes on a front run together (T-1984)" \
+  python3 tools/generate_entrances.py --check
+step "nothing placed in the town stands in a doorway (T-1984)" \
+  python3 tools/measure_doorways.py --gate
 # The yard outbuildings (T-1960) are the same shape again: a privy in a rear corner of every
 # dwelling lot the plat reaches and a stable for the horse-keeping households, dealt from the
 # lot survey the fences read and the house's own class and age — a rule, so re-derived here.
@@ -1383,6 +1394,16 @@ step "the building material re-derives from the rule that chose the lots" \
 # stays a rule.
 step "the trade yards re-derive from the rule that dealt them" \
   python3 tools/generate_trade_yards.py --check
+
+# A woodpile at every dwelling, by whose house it is (T-1959): the yard-by-household rule
+# in tools/yard_rule_1835.py (printed in the placement policy under `yard`) says what
+# each household kept — a slab heap, a log heap, stove ricks, bought cords — and where
+# it stands is arithmetic on the house's own back wall. Re-derived here byte for byte,
+# and the rule's own guarantees proved by breaking them.
+step "the woodpiles re-derive from the yard-by-household rule" \
+  python3 tools/generate_woodpiles.py --check
+selftest "…and the yard-by-household rule's guarantees fire when broken" \
+  python3 tools/yard_rule_1835.py --self-test
 
 # The fort apron is the same shape of claim about GROUND rather than about things standing
 # on it: both committed Fort Dearborn plates draw the ground round the stockade as bare
@@ -6087,6 +6108,21 @@ step "every household present on the scene date sleeps under a standing roof" \
 
 selftest "…and its guards still fire when broken" \
   python3 tools/house_the_present_1835.py --self-test
+
+# T-1989, piece 2 of T-1986. THE EMPTY TRADE ROOFS. Four anonymous trade roofs (a joiner's
+# shop, a warehouse, a riverside work shop, a store) stood empty while the employment
+# ledger owed 188 keepers a house of their own. `seat_trade_roofs_1835.py` offers each
+# roof to the keepers of a trade its family serves in its own division, nearest first, and
+# compile_scene's `overlay_trade_roofs` carries the seat to the card; a roof no keeper can
+# take states why. Refused: a roof outside the deal's scope or answered twice or not at
+# all, a keeper given two roofs, a keeper the ledger owes no house, a keeper of the wrong
+# trade or division, and a roof called unseatable while keepers of its trade wait.
+# docs/LIBERTIES.md L361.
+step "every empty trade roof is kept by a keeper of its trade, or says why none is left" \
+  python3 tools/seat_trade_roofs_1835.py --check
+
+selftest "…and its guards still fire when broken" \
+  python3 tools/seat_trade_roofs_1835.py --self-test
 
 # T-1352, piece 1 of T-1178. THE ROW THE ORDER BOOK CANNOT APPORTION. `persons/transient/
 # town` sits in the book above with no target and no quota, because the town model bounds

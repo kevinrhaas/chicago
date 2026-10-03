@@ -131,6 +131,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the A1 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "No household of its own — a stable on the Canal and Randolph teamster approach, where the wagon trade put up its teams; whose stable it was is not stated",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1988; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The A1 line of the family crosswalk (a stable with a hay loft) and the West recipe's own cluster, w2_canal_randolph_teamster: loose mixed lots south and west of the documented Western Hotel's teamster yard. T-1781 redealt this slot from a W4 workshop to an A1 stable (the placement policy refuses a workshop on a light street, and the slot and its position stand), and the recipe gives it no `yard_group`. No seated dwelling is tied to it: the nearest, recon_1835_blk_randolph_clinton_d3_04, is 46.0 m away on another block, and nothing committed joins the two. So the row states the use and serves nobody. A stable on the approach keeps horses; nobody sleeps in it. The roof's own existence, position and footprint remain the invention they were."
     }
   },
   "residents": [],

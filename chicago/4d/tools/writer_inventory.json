@@ -7,6 +7,12 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "seat_trade_roofs_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "continuously",
+      "finding": "In the manifest immediately after house_the_present_1835.py and before compile_scene: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. With --build it writes data/reconstruction/1835_trade_roof_seats.json; a second run changes no byte."
+    },
     "house_the_present_1835.py": {
       "placement": "manifest",
       "write_mode": null,
@@ -502,6 +508,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_entrances.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, rewrote data/enclosures/town_entrance_aprons.json byte for byte, changed no committed byte.",
+      "placed": "not yet placed: it reads data/sidecars/1835/ and data/streets/1835.json, and tools/generate_yard_goods.py reads its output (wagon stands on the trodden ground are refused), so its slot is after the sidecar and street writers and before generate_yard_goods.py — to be measured in its own ordering pass (T-1453), not appended blind (T-1984)"
+    },
     "generate_fort_apron.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -611,6 +624,13 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
       "placed": "by layer, 2026-10-01 \u2014 reasoned, not derived; beside generate_west_infill.py in the manifest"
+    },
+    "generate_woodpiles.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
+      "placed": "not yet ordered (T-1959): it reads data/enclosures/town_dooryard_pickets.json, data/flora/plantings/*.json and data/yard/*.json, so its slot is after generate_dooryard_pickets, generate_dooryard_plantings and generate_yard_goods; the manifest's own ordering pass places it"
     },
     "generate_yard_goods.py": {
       "placement": "manifest",

@@ -12,10 +12,444 @@ scroll position. Explore Myself uses the shared destination picker and clears
 paused sessions. Sources & City opens the existing Evidence hub before entry,
 returning to the welcome on close without entering the world.
 
-Validation is in progress on this branch. `tools/test_jaunt_menu.mjs` uses the
-harness-only 55-entry catalog against the published mirror, at both gate
-viewports, and records scroll/focus plus screenshots under
-`docs/performance/jaunt-menu/`. This ticket authors no new stories.
+Validation passed on the recovered implementation integrated with dev `604daa6`:
+preflight (including the full check.sh gate); the published-menu acceptance at
+390×780 and 1280×800; and scaffold smoke stage 1 at both viewports (80 passed,
+zero failed each). The 55-row harness mounts at most 26 cards, loads no jaunt
+code/catalog at boot, and restores the exact scroll and focused Start control.
+The standalone first-load measurement passed at 12.911 MB of the 13 MB budget.
+The first payload attempt timed out under concurrent validation; the standalone
+retry passed without changing the test. Desktop smoke took 10m31s on this host.
+Receipts and reviewed screenshots are under `docs/performance/jaunt-menu/`;
+`validation.json` records the tested integration base and command coverage.
+The full preflight passed again after integrating dev `1159e30` and rebuilding
+the 1835 catalog to retain the newly landed Outfit for the West story.
+This ticket authors no new stories. Full scene smoke parts 2–13 were not rerun;
+the targeted menu test and scaffold smoke cover this interface change.
+
+## T-1989 — the four empty trade roofs: none can be kept, and each card says why (2026-10-02)
+
+Piece 2 of T-1986 (of T-1966 → T-1215). Four anonymous trade roofs stood empty after every
+other programme: the W2 joiner's shop on Randolph at Des Plaines, the F2 warehouse at the forks,
+the W5 riverside work shop on Wolcott and the C3 store on Lake. `tools/seat_trade_roofs_1835.py`
+offers each to the keepers the employment ledger owes a house of their own, in its own division,
+of a trade the roof serves (L361). The W5 has no keeper of a heavy trade left in the North
+Division, and the off-plat deal's tannery household already has its works at the forks.
+
+**Three seats were withdrawn on the merges with T-1996 and T-2000.** The first build seated Otis
+Bacon (carpenter) at the W2, Louis Bertrand (forwarder) at the F2 and Silas Bacon (grocer) at the
+C3. Those two tickets then told the keepers no house is owed, because their trade's shops are
+already held to their count: 65 stores against the census's 44, 7 forwarding houses against 4,
+and 45 mechanics' shops against the Chicago American's twenty-five. A seat in any of the three
+would be one shop more than that count. So the deal no longer offers those roofs to them, and
+each card says so with the count (`stated_use`: 3 carpenters and joiners at the W2, 1 forwarder at
+the F2, 18 storekeepers and grocers at the C3) rather than reading as though the town had nobody
+of the trade. A guard refuses an unseatable roof that misstates that count, and with no seat
+committed, the self-test re-owes one held keeper in a copy of the inputs so every seat guard still
+fires on a real seat.
+
+The small D2 shed on Lake west of Canal (`recon_1835_west_013`) is re-familied as a rough plank
+dwelling; the housing deal moves Ellen Doyle's household there from `recon_1835_west_011` and the
+room that frees seats nine more households that had no roof (523 → 514 unroofed). The roof join stays **closed**; owed a workplace stays
+at dev's **28**.
+
+**Unverified:** no source places any keeper at any of these roofs; the seat is the invention.
+
+## T-1260 — Outfit for the West, the second published 1835 jaunt (2026-10-02)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Outfit for the West* (Migration,
+Wagon) beside *New in Chicago*. It has five exterior stops: the Green Tree, Peck's store, the
+Jones grocery, Cobb's saddlery and Pierce's smithy. The visitor has an imagined $15 purse and a
+readiness count. Four optional purchases each go to the trade its own source names. The ending
+is *prepared* at readiness 3 or more and *light* otherwise. The keepsake *Ready for the Road*
+goes to Provisions. Content only: one JSON file, a liberty (`L-jaunt-outfit-west`), the
+regenerated catalog and source-use edges. There is no engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 23 paths to both endings, with one keepsake.
+The harness path cannot also afford the repair, which is deliberate. The catalog card's
+estimate was read on the published mirror at 390×780, with the real router and no "approximate
+route" suffix: Wagon about 9 min, Horse 6, Fly 4, Instantly 2.5, Walk 18. There were no page
+errors. **Wagon is over the brief's 4–6 min.** The five owner-named stops straddle the South
+Branch, so no order of them comes under about 7 min at the 3.6 m/s wagon pace. The route was
+re-ordered to cut 240 m, and the reasoning is in brief 01's route note.
+
+**Unverified.** The full acceptance sequence of stills was not taken: opening, a mid-leg mode
+switch, a detail card, the ending and back to the menu. Stills were taken of the catalog card
+and the route preview at 390×780 only. The desktop pass of that measuring script timed out on
+the Jaunts button, but smoke part 3 passed at both viewports, 102/0 each. Jones's initial
+(B. or H.) stays open, and the stop says it is disputed.
+
+## T-1997 — the 38 boarding-house keepers on their own account with no house (2026-10-02)
+
+Piece 2 of 3 of T-1992 (T-1982 → T-1966 → T-1215). The trade-households stage (T-1347) drew 38
+boarding-house keepers off the 1839 trade table, and every one read `keeps_their_own_house` with a
+basis that said *T-1434 mints the layer's shortfall*. It cannot: the order book counts no boarding
+house (the December 1835 census prints none), and the business band raises one only on a standing
+roof, by adopting the keeper who stands in it (T-1408). Meanwhile every one of the 38 households is
+seated by T-1971 as a boarder in somebody else's dwelling.
+
+**No standing roof is free.** The lodging model schedules 42 boarding houses under
+`larger_boarding_houses`; 16 stand, and all 16 are kept: the 14 reconstructed ones by the keeper
+the lodgers stage drew or the household a platted deal seated there, Rufus Brown's by the
+register, and Kelsey's by whoever a source names (T-1404). So the house could not be raised on a
+standing roof for any of the 38, and `tools/seat_reconstructed_trades_1835.py` now says so, in
+figures it reads off the lodging model and the order book (`roof_draw`, `ROOF_TRADES`):
+
+* **26 are owed a roof** and keep `keeps_their_own_house` under a new basis id,
+  `the_boarding_house_is_owed_a_roof_the_programme_schedules`. The programme's 26 roofs with
+  nobody keeping them are 18 standing H1/H2 houses whose class is the lodging model's open
+  question (T-1293, T-1196) and 8 unbuilt (5 South, T-1957; 3 West, T-1953).
+* **12 are owed none** (Johanna Duffy, Hannah Eastman, Nancy Fisk, Lucy Goodrich, Esther Hastings,
+  Daniel Keegan, Mary McCarthy, Nancy Metcalf, Abigail Parmelee, Angelique Pelletier, Terence
+  Quinn, Ellen Sullivan). A new kind, `roofs_kept_none_owed`, states it: the stage drew more
+  keepers than the programme schedules houses. The coverage join keeps them
+  `on_their_own_account` (own employer, and no house owed), so the re-family rule still holds them
+  as adopted and the order book's fixpoint does not move; the completion audit reads them as
+  stated, not owed.
+
+Who is owed and who is not is a SEEDED DRAW over person and trade (`rank_key`), and each block
+carries its `draw` (rank of 38, against 26 roofs): nothing in the layer orders them, and the block
+says so. Owed a workplace **40 → 28** (after T-2001); placed at work unchanged at 375.
+## T-1970 — the visible walk, fort to Wolf Point, and the card that says whether the town is finished (2026-10-02)
+
+The last piece of T-1215. **Acceptance, stated before the work:** (1) a walk from the fort to
+Wolf Point along South Water, Lake and Canal with a screenshot at each stand, committed under
+`docs/RESEARCH/shots/`; (2) the "Reconstructing the town" card reads the completion audit and
+says *complete* exactly when `the_join_is_total` does — and until then says what keeps each join
+open, in the audit's words; (3) this section lists what remains unverified.
+
+**What a visitor sees.** Evidence → Reconstructing the town now opens on *Is the town finished?*,
+the four joins of `data/render/town_completion_1835.json` (T-1964) with the count still open on
+each. It reads, at this build: **1 of 4 joins closed** — every business roofed or its limit
+stated; 523 households waiting on a roof, 40 working people owed a workplace, 5 standing roofs
+empty and owed somebody. The City tile already read the same joins (T-1967); the card that is
+*about* reconstructing the town never did. **The card does not read complete, because the town is
+not**, and that is the honest reading of T-1215's "the card reads complete": the card is now the
+place that will say so, and it will say so through the audit, not by an edit to the card.
+
+**The walk.** Eight of the scene's own anchors (`tools/shoot.mjs --anchors`, new): fort_dearborn →
+south_water → newberry_dole_wharf → first_post_office → lake_market → green_tree → lake_at_canal →
+forks. Eight 960 px JPGs and their table are in `docs/RESEARCH/shots/README.md`. The shooting
+run reported zero page errors and 540 of 540 expected structures standing.
+
+**What remains unverified — read this before calling T-1215 finished:**
+
+1. **The forks are not visible from "The forks, from Wolf Point".** At the `forks` anchor
+   (-100, -28, yaw 75°) a log cabin stands a few metres in front of the camera and fills the
+   frame; the forks are behind it. Either the anchor moves to a clear stand or the cabin's seat is
+   re-read. Not done here: moving a scene anchor moves a smoke station.
+2. **The town is not complete.** 523 households waiting on a roof, 40 working people owed a
+   workplace and 5 empty roofs owed somebody — T-1965 and T-1966's open pieces own them. The
+   stop condition ("every door has a name, a trade, a family and a reason behind it") is not met.
+3. **Doors were not opened.** The walk is exterior frames only; nobody clicked a door at any
+   stand, so "every door has a name" is unread by this walk.
+4. **Desktop only, full detail only.** The frames are 1280 × 800 at `full`; 390 × 780 and the
+   `balanced` and `light` tiers were not shot on this walk.
+5. **The core only.** The walk does not reach the North Division (the Kinzie block), the West
+   Division beyond Canal, or the South Division's outer band — each has its own anchors.
+6. **The wharf stand frames the deck, not the warehouse.** `newberry_dole_wharf` stands *in*
+   the warehouse door and looks out across the river, so the frame shows planking and posts; the
+   building it is named for is behind the camera.
+
+## T-2001 — the ten at a trade no count reaches, and the physician T-1529 owes (2026-10-02)
+
+Piece 2 of 2 of T-1998 (of T-1992 → T-1982 → T-1966 → T-1215, the owner's *"a place to
+work"*). Ten people read `keeps_their_own_house` with no house at a trade whose census class
+is `other` — no line of the December 1835 State census, and no count of shops either — or,
+for the physician, at a counted class whose bucket is short.
+
+**What changed (visible on the card and in the Businesses list).**
+- **Seven houses raised by the business band**, in a sixth group, `uncounted_trades`
+  (`tools/reconstruct_businesses_1835.py`): three refectories (Hannah Barnes, South Water;
+  Hannah Pratt, Dearborn; H. Ingalls, Kinzie), J. Nichols's auction room (Dearborn), T.
+  Vieau's mill (West Water), Thomas Nolan's brickyard (Market) and J. Kellogg's soap and
+  candle manufactory (West Water). T-1419's rule — the trade names the house, one per head,
+  withdrawn with the head. Styles and goods lines are the town's own printings of each trade
+  (Collett's *Refectory*, the six auction rooms, Blodgett's brickyard, Elston's manufactory);
+  the mill has none and takes form 1 with the head's trade word, as the barber's shop did.
+  Faces are a stated rule per house (`TRADE_FACES`). Liberty **L360**; the six other
+  business liberties restate their whole-layer count 44 → 51.
+- **John Bates Jr. joined to his own house.** The register prints *J. Bates jr., Auction
+  Store* across the scene date at `bates_auction_room`, but its rows carry no person_id, so
+  his card read owed. `attested_trade_houses.json` now carries a keeper's row
+  (`replaces: keeps_their_own_house`, `inferred` on Andreas 1884 v1);
+  `employment_coverage_1835.py` accepts that second replaced answer, refuses a keeper's row
+  that would tell him none is owed, and proves it in a fourteenth self-test assertion.
+- **Owed a workplace: 48 → 40** on dev after T-1996 (#304) and T-2000.
+
+**Not done, and why.** **Dr John McGuire** (rc_mcguire_john) stays owed. The physician
+bucket orders 2 (target 10, known 8, filled 0) and the resident band drew 1 physician head;
+`build_group` half-fills no count, by design. His office existed until T-1525's re-cut
+(#12) swept the row to T-1529 and no group spends a T-1529 row, so `rcb_mcguire_physician`
+was retired as a side effect. T-1529's blocked reason (*"T-1525 has not landed"*) is stale;
+the finding is written onto T-1529. SERVICES' physician ruling now says so instead of "T-1418
+filled that bucket".
+
+**Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff`
+names; see the PR.
+## T-2000 — 57 drawn mechanics set against the American's twenty-five shops; Mulford's hold named (2026-10-02)
+
+Piece 1 of 2 of T-1998 (→ T-1992 → T-1982 → T-1966 → T-1215). **57** reconstructed heads read
+`keeps_their_own_house` with no house at a trade whose census class is `other` (20 carpenters,
+12 milliners, 9 builders, 4 smiths, 2 each of masons, carriage makers, coopers and butchers, a
+hatter, a confectioner, a painter, a dressmaker). The December census never counted those
+trades, so the order book cannot order their houses and no bucket could ever say none is owed.
+The ONE printed count of their premises is the *Chicago American* of 15 August 1835 (quoted by
+Andreas): "twenty-five mechanics' shops of all kinds", which docs/RESEARCH/business-layer.md
+(T-1185) already rules the bound on the TOTAL, never a row. `tools/employment_coverage_1835.py`
+now reads which trades that count covers from the premises rulings themselves (every basis
+citing "one of the twenty-five mechanics' shops the Chicago American counted", plus T-1185's
+works trades: smiths, butchers, tanners, saddlers), counts the register's **printed** houses of
+those trades trading on 1 July 1835 (**45**; no inferred or reconstructed house counts toward
+it), and, at or above 25, answers the drawn head with the new reason
+`the_mechanics_shops_are_over_their_count`, with no house owed. That applies ONLY to a
+reconstructed person, as T-1996 rules: a documented man is ruled on by name. Gated four ways in
+`verify` and fired in `--self-test` (17 assertions).
+
+**E. H. Mulford**, the attested watchmaker T-1996 handed on, is answered by the hold the premises
+ruling already carries (`identity_holds` → `mulford_one_letter`, T-1007): raising his own shop
+would split him from J. H. Mulford by arithmetic, and seating him at J. H.'s counter would merge
+them the same way. He now reads `held_on_an_identity_question` and **stays counted owed**
+(the completion audit lists that reason as owed) until the question is answered.
+
+**What it moved downstream, all by `--build` and none by hand.** The 57 had been held
+`R_adopted` by the re-family rule (T-1558), on an employment "adoption" that named no house.
+Freed, they stand on movable rungs (758 movable, was fewer), but the rule's yield is bounded by
+ROOM, not by people: it stays at **139**, all already spent by T-1996's ten and the 129 before
+them, so `reconstruct_trade_households.py` writes no card and no household moves. The rule's
+roster, the programme report and the book's record of it re-derive; the housing deal does not
+move. (Built first on the tree before T-1996 landed, the same freeing spent the ten moves on
+carpenters' households instead; re-run on the merged tree it settles where T-1996 left it.)
+
+Owed a workplace **105 → 48** (T-1996 left 105). **Moved, and said here so nobody reads it as a
+regression:** the layer's "placed at work" figure falls 433 → 375, further below the town
+model's 425–588 `employed_persons` band, because the 57 move from `on_their_own_account` to
+`at_a_trade_with_no_house_to_join`. They are at work; the layer cannot say in whose shop. The
+residents summary already reads `inside_the_band` from the join (T-1996) and says so.
+
+**Not done, and owned:** T-2001 (3 refectory keepers, 2 auctioneers (one attested, John
+Bates Jr.), a miller, a brickmaker, a soap and candle maker: trades with neither a census line
+nor a count of shops, plus the physician whose bucket T-1529 is blocked on), T-1997 (38
+boarding-house keepers).
+
+
+## T-1996 — the printed count already held: 37 drawn heads told no house is owed (2026-10-02)
+
+Piece 1 of 3 of T-1992 (of T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After
+T-1990 the completion audit counted **230** working-age persons owed a workplace, 134 of them
+reading `keeps_their_own_house` with no house behind it. The resident band drew those heads by
+the 1839 trade table's share of the PERSONS it was short; the business band raises a house only
+where the order book ORDERS one, against the December 1835 census's printed count of the class.
+Where the census counts the class and the bucket is full, there is no house to owe — and the
+join never asked. `tools/employment_coverage_1835.py` now reads the order book's business
+buckets and answers such a head `the_printed_count_is_held` (status
+`at_a_trade_with_no_house_to_join`, a STATED reason the audit counts apart from owed), with the
+bucket's own figures in `decided_by`: **32 at a store** (8 grocers, 8 hardware, 7 merchants,
+7 dry goods, a liquor dealer, a sutler — printed 44, held 65), **3 attorneys** (printed 22 men,
+scene-date target 15, 14 known + 1 filled), **2 forwarders** (printed 4, held 7). Owed a workplace
+**142 → 105** (on top of T-1993, T-1994 and T-1995, which landed while this was built). `verify` refuses the answer on a documented person or against a short bucket; the
+self-test fires both.
+
+**Refused, and why.** The rule is for RECONSTRUCTED people only. E. H. Mulford, an attested
+watchmaker (Andreas, 1833), reads the same way — his class, silversmith_jeweller, is full at 2 —
+but one of those 2 is rcb_chevalier, a house this project drew, and a documented man's own shop
+is exactly what would retire it. He stays owed and is written into T-1998. The physician bucket
+(target 10, 8 known, 0 filled) is still short, so its one head stays owed too (T-1998, T-1529).
+
+**What got worse, on purpose.** "Placed at work" falls **470 → 433**, eight above the low end
+of the town model's `employed_persons` band (425-588): those 37 had been counted on their own
+account in houses nobody had raised. The residents summary used to ASSERT the cover sat inside
+the band; it now reads `inside_the_band` from the join and says which, so the next change that
+takes it under says so on the page. The audit's row for stated reasons is still headed "no fixed
+premises (stated)", which these 37 are not — it is the audit's one bucket for a stated,
+not-owed answer.
+
+**What it moved downstream, all by `--build` and none by hand.** The 37 were held in place by
+the re-family rule (T-1558) as `R_adopted` — but the "adoption" was an employment seat on their
+own account naming NO house, the phantom one. With no house owed, 33 of them stand on a movable
+rung and the rule yields **139 moves, 10 more than the 129 spent**, which reopens the programme
+exactly as `the_programme_step` says a wider yield must. `reconstruct_trade_households.py --build`
+spends the ten on the cards (`refamilied`, rung C1, T-1563): **5 merchants, 2 grocers, 2 dry-goods
+merchants, a forwarder and an attorney** are re-cast from a family house to boarding at their
+trade (`family/trade` → `lodging/trade`; four change division, as the rule's open orders sit
+there). `refamily_moves_1835.py` records them, the book settles at its fixpoint again (139 of 139
+spent; **386** still held, was 396), and the town converges to 2,621 (was 2,631). Knock-on:
+the staffing mint order's payable trade slots fall **14 → 4** (the ten filled open lodging/trade
+orders it had counted on), the business ledger's division for the moved attorney, four seating
+divisions, and the housing deal (L354), which is a seeded deal by division and so re-roofs
+**103 households** when ten heads change division and kind. Nobody is un-written, no confidence
+moves, no business record changes.
+
+**Not done, and owned:** T-1997 (38 boarding-house keepers with no standing roof), T-1998
+(57 at a trade the census never counted, the physician, E. H. Mulford).
+## T-1994 — the 25 attested at a no-premises trade, each joined or told why no house is owed (2026-10-02)
+
+Piece 2 of 3 of T-1991 (→ T-1982 → T-1966 → T-1215). After T-1990, **25** working-age people
+still read `trade_attested_no_house_named`: a source attests their trade, its premises ruling
+sends them to an establishment they did not keep, and nothing joined them to one. Each is now
+ruled on BY NAME in the authored `data/residents/attested_trade_houses.json`, which
+`tools/employment_coverage_1835.py` applies (a row whose person no longer reads that reason is
+refused as stale). **5 joined** to a house the register holds: Oscar Pratt and Beckford to the
+Democrat printing office (`inferred` — Andreas's "in the employ of Mr. Calhoun" is 1833), T. O.
+Davis to the Chicago American (`attested`), Capt. Hiram Hugunin to the North Western Fire and
+Marine agency (`attested` — the register's own proprietor string is his printing), John S. Wright
+to his father's store (`inferred`, the card's own reasoning). **20 stated, none owed**, under four
+new reasons: the garrison or an agency held outside the register (Greene, Maxwell, Allen,
+E. K. Hubbard); not held by the establishment on the day (Baxley and Jamison, refused by T-1348;
+postmasters Arnold and Galaher, whose office was not Chicago's — Hogan holds that one; Lathrop,
+a church member and not its minister; Legg, read off 1838; Eliza Chappel, whose school closed in
+1834; Myers, quartermaster clerk 1831-33); a civic seat and not a house (two sheriffs, two
+justices, H. Crocker, a school district's clerk); work on other people's ground (Norton, Steele,
+Snow). Owed a workplace **230 → 205** on this ticket alone; merged after T-1993 (the 61 domestics)
+and T-1995 (the 10 at a class with no room) it is **167 → 142**, and what is left of T-1991 is
+T-1992: the own-account houses the register does not hold.
+
+**Found, not fixed:** Arnold's and Galaher's cards carry an `associated_with` civic seat at the
+Chicago post office corner; on this reading they kept other offices, so that row is likely wrong.
+
+
+## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
+
+Piece 3 of 3 of T-1991 (T-1982 → T-1966 → T-1215). Ten reconstructed trade-holders read
+`class_held_no_house` for a reason other than domestic service: the staffing model hires their
+trade in a class of house, every house of it the layer holds is full to the band's high end, and
+`tools/seat_reconstructed_trades_1835.py` concluded *the town is owed more houses of the kind*.
+For eight of them that skipped the premises ruling, and for two it was false:
+
+* **Eight carried their trade on their own account** (the smiths Rufus Nichols, Willard
+  Nichols, Alvah Parmelee and Harvey Thayer; the butchers Samuel Nichols and Alvah Stiles; the painter Rufus Tuttle; the dressmaker Maria
+  Wilcox). Their premises rulings say the trade kept a house of its own. The keeper branch stands
+  aside where the model hires the trade so that a hand is seated in a house the layer holds; once
+  every such house is full, that reason is spent and the ruling stands. They now read
+  `keeps_their_own_house` under a new basis id,
+  `every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own` — the house owed, and T-1992 owns it with the other own-account houses.
+* **Two schoolteachers are owed no house** (Victoire Pothier, Lydia Rice). The model counts six
+  schools trading on 1 July 1835; the layer holds all six (the two high schools open in August),
+  each with its one assistant (`count_high` 1). The count is met, so a new kind,
+  `class_full_none_owed`, states it: the town is not short a school, and the teacher follows the
+  trade with no room in it. The completion audit reads it as stated, not owed.
+
+The domestics are left alone by name (`RULED_ELSEWHERE`): their ruling puts the work in another
+household's house, which is T-1993's answer, given in the coverage join. Owed a workplace
+**169 → 167** (after T-1993); placed at
+work **457 → 465**. In the seating, `class_held_no_house` 71 → 61, every one a domestic, and
+T-1993's coverage reads all 61 as in another household's service.
+
+## T-1984 — nothing in a doorway, no sign over a door, no door run into a window, worn ground at every entrance (2026-10-02)
+
+The owner, walking Lake Street on dev with five screenshots: goods and furniture in front of doors,
+signs on the face of a building covering a door or window, doors and windows that run together,
+and prairie grass right up to the entrances. One cause per symptom, each fixed where it starts:
+
+- **Merged openings.** `frame_storefront_params.front_window_rects` set out a plain store's
+  ground-storey windows without asking where the door was (11 stores: the bakery, barber,
+  butcher, shoemaker, tailor, physician, Old Bank, Temple building and three freight stores).
+  `frame_dwelling` snapped two windows into one stud bay on four single-pen cottages, 3 cm
+  apart. The dwelling's set-out moved into `frame_dwelling_params.facade_bays`, which parts a
+  clash by a stud bay or drops the window; `facade_openings` now reads `frame_dwelling` too.
+  `generate_entrances.py --check` refuses any two holes on a read front that run together.
+  15 GLBs rebaked; every other asset rebuilt byte-identical.
+- **Signs over doors.** `generate_business_signboards` had a "shrunk to the door" move. It is
+  gone: a shop with a fascia has its name lettered there (7, Blanchard's among them); otherwise
+  the board keeps its proportions and shrinks onto clear wall (5). 77 signs, none on a door;
+  the renderer smoke now treats any fixing but a fascia as over an opening.
+- **Things in doorways.** Stoops stood at `FIT_DOOR_ALONG = 0.5`; 34 now stand at the door.
+  Trade goods were laid from the wall's left end and now step round the door; lot-line fences
+  crossed 9 doors and are now cut round them. `measure_doorways.py --gate` (new check.sh step)
+  sweeps every placed object in the town against every doorway: 11 goods at 5 doors and
+  fences across 9 before, none now. The woodpiles T-1959 landed meanwhile keep off doorways too: 4 stood
+  in one, and 16 piles moved.
+- **Worn ground.** `generate_entrances.py` writes `town_entrance_aprons.json`: every door
+  (509), and a trodden-earth ring per front — a strip along the wall and a path from each door
+  to the street's track (167 doors) or 3.4 m into the yard. `yards.js` draws it and the sward
+  gives way to it, as inside the fort apron; wagon stands on it are refused (73 wagons, was 79).
+  Reconstructed, docs/LIBERTIES.md L359.
+
+**Known gap, not widened here:** the staleness hash covers builder modules and resolved params
+but not `*_params.py` bytes, so a set-out change living in a params module (`front_window_rects`,
+now `facade_bays`) does not mark its assets stale by itself; these were rebaked by hand.
+## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
+
+Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990
+the completion audit still counted **230** working-age persons owed a workplace, and **61** of them
+were reconstructed domestics, every one answered `class_held_no_house` — "the town is owed more
+houses of the kind". The staffing model only staffs houses of trade, so the one class it employs
+`domestic` in is `tavern_or_hotel`, and when the town's taverns were full the overflow read as a
+town owed 61 hotel places. That was never the claim: `premises_rulings.json#domestic` already says
+*"Domestic service is given in another household's house"*, and a private household is not a house
+the register owes. `tools/employment_coverage_1835.py` now carries that ruling for a domestic the
+seating found no room for, under a new reason `in_service_in_another_household` (status unchanged,
+`at_a_trade_with_no_house_to_join`, no house named), with both files in `decided_by`.
+`verify` refuses the reason on any other trade or beside a house, and refuses to run if the
+domestic ruling stops saying those words; both guards fire in `--self-test`. The audit counts the
+reason as stated, beside `no_employer_named`. **Exactly the 61 rows move**, all working-age, all
+reconstructed (50 in `reconstructed_trades/`, 11 in `households/`). Owed a workplace **230 → 169**;
+no fixed premises (stated) **147 → 208**.
+
+**Not done, and owned:** which household employed each of them is not drawn — no file says which
+families kept help, and a draw would invent an employer. T-1994 (the 25 attested at a no-premises
+trade), T-1995 (the 10 reconstructed tradespeople at a full class) and T-1992 (134 on their own
+account) hold the other 169.
+
+## T-1990 — the employment join reads the business register's own people rows (2026-10-02)
+
+Piece 1 of 3 of T-1982 (T-1966 → T-1215, the owner's *"a place to work"*). The completion audit
+counted **308** working-age persons owed a workplace. **78** of them were already named on a
+business record — as proprietor or partner (72: the inferred houses of the trades, the houses the
+business band drew and adopted a head to keep) or on its staff (6, all attested: the Indian agent
+and his interpreter, the land-office register, the county clerk, the Presbyterian minister, the
+priest of St Mary's). `tools/employment_coverage_1835.py` read the card's `workplaces[]` and the
+seating only, and loaded `data/businesses/*.json` without `authored/`, where every one of those
+records lives. It now reads `proprietors[]`, `partners[]` and `staff[]` across both folders, on
+records present at the scene date, for any person the card and the seating left without a house
+(never below the working-age floor), with three new reasons and the record's own tier in
+`decided_by`. **88 rows move**: the 78, seven own-account people whose age band straddles the floor,
+two more of those at a trade, and Edmund D. Taylor, the land office's receiver, whose card records
+no trade. Owed a workplace **308 → 230**; at a workplace **233 → 312** (attested 112 → 155).
+`verify` now refuses a register answer whose house does not name the person.
+
+**Not done, and owned:** T-1991 (25 attested + 71 class-held at a trade with no house) and T-1992
+(134 on their own account whose house the register does not hold). The T-1433 seating block on a
+reconstructed head's card still says "Owed a house of their own" where the register now holds it —
+that block is T-1433's record of the draw, and the coverage answer printed beneath it is the
+current one.
+
+## T-1959 — a woodpile at every dwelling, by the yard-by-household rule (2026-10-02)
+
+**What a visitor sees.** Behind 298 of the town's 299 dwellings, a woodpile against the back wall
+(269) or, where the back is taken, a side wall (29). It is a slab heap at a shanty (26), unsplit
+logs on skids and a chopping block at a log cabin (41), one rick of stove wood at a tradesman's
+cottage (130) or one or two at a larger house (54), and one or two bought cords at a merchant's
+house (29) or two or three at an inn, tavern or boarding house (18). Each pile is dealt its own
+length, height, worked-off end and wood (fresh, seasoned, silvered). One house is refused in
+writing because the ground behind it is wet.
+
+**The rule** is `tools/yard_rule_1835.py`, printed in `data/reconstruction/1835_placement_policy.json`
+under `yard`: the household class is the fabric rule's (250 roofs), else a resident household's
+trade (10), a reconstruction's occupation (14), a keeper's by function (6), or a tradesman's by
+default (18, said so on the record); the house is the roof's own family. Wells are the column still to write; privies and stables (T-1960) and trade goods (T-1961) have
+landed beside it. `generate_woodpiles.py --check`
+and the rule's `--self-test` are in `check.sh`. L357 claims the invention; the fact of household
+firewood is `inferred` from the 1835 price current.
+
+**Frame cost, measured on the published mirror, desktop** (`tools/woodpile_shots.mjs --anchor
+lake_at_canal`, the same pose with `town_woodpiles.json` refused at the network for "before"; then
+`tools/measure_detail_ceilings.mjs`, committed as `docs/measurements/t-1959-detail-ceilings-desktop.json`).
++70,928 triangles and +2 calls at every stand at `full` and `balanced`: every woodpile is ONE town mesh
+in a group of its own, because the call budget is the one that binds (chunks three cells across cost
+9-20 calls at a back-lot stand, one mesh exactly 2). T-1975 left the woodpiles to bring their own
+number, so this PR raises `full` 1,725,000 -> 1,800,000 and `balanced` 1,490,000 -> 1,565,000 by its
+rule (worst 1,778,094 / 1,545,215 plus T-0672's headroom, rounded up to 5,000); calls 224 of 240.
+**`light` does not draw them** (`DETAIL.light.woodpiles: false`): it is over and is won back by
+T-1976's trim, never spent, and it reads 944,714 / 102 calls with or without them.
+
+**The merge with dev (2026-10-02).** T-1961's lot loop sent every kind outside its `STACK_KINDS` to
+`buildItem`, which draws no wood, so after the first merge all 298 piles were dropped with no problem
+filed; wood kinds now go to `buildStack`. The generator now also keeps every pile a metre off T-1960's
+privies and stables (none moved). dev's L350 is T-1963's walls' grain, so the woodpiles are L357.
+
+**Unverified / open.** The silvered end-grain cell reads dark in a north wall's shade; the split ends
+are polygons that can read as cobbles at a metre. A woodshed, a sawbuck and the axe are not drawn.
 
 ## T-1975 — the full and balanced ceilings and the draw-call budget re-measured and set (2026-10-02)
 
