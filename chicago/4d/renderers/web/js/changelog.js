@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1343, ts: '2026-10-03T04:58:08.664Z', date: 'Oct 2, 2026, 11:58 PM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+  { v: 1344, ts: '2026-10-03T04:58:50.915Z', date: 'Oct 2, 2026, 11:58 PM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
       'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
       'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
       'Finish to keep A Cupboard Begun in your daybook under Provisions.',
+    ] },
+  { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
+      'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
+      'At the Democrat\u2019s first corner, read the paper\u2019s list of letters nobody had called for. End at Hogan\u2019s, the former mail corner. The post office had moved a year earlier to an unplaced spot on South Water Street, so you leave with a plan for posting, not a receipt.',
+      'The keepsake is A Letter Ready to Send. The letter and the route are our reconstruction (liberty L-jaunt-letter-home).',
     ] },
   { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [
