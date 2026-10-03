@@ -28,6 +28,7 @@ Provisions.
 **Unverified.** At 1280×800 the drive reached the `brushed` ending with its keepsake, but the
 return to the menu was cut off by the 560 s cap; menu return is proved at 390×780 only. The stills
 are not committed.
+
 ## T-2008 — Look Before You Buy a Lot, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Look Before You Buy a Lot* (Land, Walk,
