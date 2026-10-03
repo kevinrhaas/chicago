@@ -1413,6 +1413,13 @@
       ]
     },
     {
+      "ticket": "T-1529",
+      "records": 2,
+      "buckets": [
+        "businesses/physician"
+      ]
+    },
+    {
       "ticket": "T-1418",
       "records": 1,
       "buckets": [
@@ -4825,7 +4832,7 @@
           "known": 8,
           "to_reconstruct": 2,
           "records_opening_after_scene_date": 0,
-          "filled": 0,
+          "filled": 2,
           "owning_ticket": "T-1529",
           "documented_zero": false,
           "staff_implied": null,
@@ -6714,6 +6721,13 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "businesses/physician",
+      "ticket": "T-1529",
+      "stage": "physicians",
+      "records": 2,
+      "by": "tools/reconstruct_businesses_1835.py --build"
     }
   ],
   "re_family_ledger": {

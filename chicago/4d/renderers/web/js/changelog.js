@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1358, ts: '2026-10-03T10:46:26.295Z', date: 'Oct 3, 2026, 5:46 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
+  { v: 1359, ts: '2026-10-03T10:59:58.119Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
     items: [
       'Edward McCarthy\u2019s boarding house, on the block at Washington and Dearborn streets, has four new boarders. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a labourer. Open the house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and this house had empty beds. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'Three of them work at E. W. Haddock\u2019s. One reconstructed clerk who worked there before now works at a wine and liquor store on Dearborn Street. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1358, ts: '2026-10-03T10:31:34.336Z', date: 'Oct 3, 2026, 5:31 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+    items: [
+      'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
+      'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
+      'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
+      'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
     ] },
   { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [
