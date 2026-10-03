@@ -23069,7 +23069,7 @@
       "subjects": [
         "recon_1835_north_c3_064",
         "recon_1835_north_c3_066",
-        "recon_1835_north_c4_063",
+        "recon_1835_north_c4_067",
         "recon_1835_north_t1_061",
         "recon_1835_north_w2_065",
         "recon_1835_north_w3_062"
@@ -23101,13 +23101,13 @@
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_north_c4_063",
+          "structure": "recon_1835_north_c4_067",
           "phase": "inferred_1835",
           "aspect": "footprint"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_north_c4_063",
+          "structure": "recon_1835_north_c4_067",
           "phase": "inferred_1835",
           "aspect": "position"
         },
@@ -23153,7 +23153,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the North Division's owed trade roofs — three stores, an inn or tavern and two workshops, the order book's `structures/{stores_mixed_use,inns_taverns,workshops}/north` rows — stand as six anonymous roofs on the north face of Kinzie Street between Dearborn and the first lots east of Wolcott: a T1 tavern nearest the Dearborn drawbridge approach, a W3 wagon or cooper's shop, a C4 wide store on the Kinzie-and-Wolcott corner west of Wolcott, a C3 store on the corner east of it, a W2 joiner's shop and a second C3. They are recipe rows 61-66 of `data/reconstruction/1835_north_division_initial_parcel.json` (`kinzie_street_trade`), built by `tools/generate_north_infill.py`. **Everything about them is invented**: that any of them stood, what trade each kept, where it stands, its size and its form. The families are the programme's; the street is the memo's. **Why Kinzie Street and not the blocks the schedule dealt them to.** The 665-roof schedule put these families on `blk_indiana_north_wolcott` and `blk_indiana_north_cass` in Kinzie's Addition, and the block generator refuses every one of them there: Wolcott is graded `light` and the addition's other streets `none`, and no store, warehouse or workshop is built on either grade. Those two blocks are also at the ceiling the memo's alternation puts on them (L294). They are owed at all because T-1480 refamilied seven of this recipe's own trade roofs as dwellings when T-1445 found them standing 9 to 48 m back from any street line. Kinzie Street is graded `ordinary`, its north face had nothing on the street line from Clark to east of Wolcott, and `docs/RESEARCH/1835_north_division_extent_and_infill.md` names the Wolcott-Kinzie core as the strongest anonymous north cluster for exactly that combination of river approach and street. So the trade went back to the street, front walls about half a metre clear of the platted corridor, with open ground between every pair: the memo's alternation, not a street wall. **The warehouse is not here.** The F3 the same order book owes belongs on the North Water bank, the one north street graded `light`, and no committed clause seats a warehouse on a light street. It is left owed rather than forced onto Kinzie Street."
+          "text": "the North Division's owed trade roofs — three stores, an inn or tavern and two workshops, the order book's `structures/{stores_mixed_use,inns_taverns,workshops}/north` rows — stand as six anonymous roofs on the north face of Kinzie Street between Dearborn and the first lots east of Wolcott: a T1 tavern nearest the Dearborn drawbridge approach, a W3 wagon or cooper's shop, a C4 wide store on the Kinzie-and-Wolcott corner west of Wolcott, a C3 store on the corner east of it, a W2 joiner's shop and a second C3. They are recipe rows 61-66 of `data/reconstruction/1835_north_division_initial_parcel.json` (`kinzie_street_trade`), built by `tools/generate_north_infill.py`. **Everything about them is invented**: that any of them stood, what trade each kept, where it stands, its size and its form. The families are the programme's; the street is the memo's. **Why Kinzie Street and not the blocks the schedule dealt them to.** The 665-roof schedule put these families on `blk_indiana_north_wolcott` and `blk_indiana_north_cass` in Kinzie's Addition, and the block generator refuses every one of them there: Wolcott is graded `light` and the addition's other streets `none`, and no store, warehouse or workshop is built on either grade. Those two blocks are also at the ceiling the memo's alternation puts on them (L294). They are owed at all because T-1480 refamilied seven of this recipe's own trade roofs as dwellings when T-1445 found them standing 9 to 48 m back from any street line. Kinzie Street is graded `ordinary`, its north face had nothing on the street line from Clark to east of Wolcott, and `docs/RESEARCH/1835_north_division_extent_and_infill.md` names the Wolcott-Kinzie core as the strongest anonymous north cluster for exactly that combination of river approach and street. So the trade went back to the street, front walls about 0.6 m clear of the Kinzie corridor on its control line, with open ground between every pair: the memo's alternation, not a street wall. **The warehouse is not here.** The F3 the same order book owes belongs on the North Water bank, the one north street graded `light`, and no committed clause seats a warehouse on a light street. It is left owed rather than forced onto Kinzie Street."
         },
         {
           "label": "How to resolve",
@@ -23161,7 +23161,7 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_north_t1_061.inferred_1835.position`, `recon_1835_north_t1_061.inferred_1835.footprint`, `recon_1835_north_w3_062.inferred_1835.position`, `recon_1835_north_w3_062.inferred_1835.footprint`, `recon_1835_north_c4_063.inferred_1835.position`, `recon_1835_north_c4_063.inferred_1835.footprint`, `recon_1835_north_c3_064.inferred_1835.position`, `recon_1835_north_c3_064.inferred_1835.footprint`, `recon_1835_north_w2_065.inferred_1835.position`, `recon_1835_north_w2_065.inferred_1835.footprint`, `recon_1835_north_c3_066.inferred_1835.position`, `recon_1835_north_c3_066.inferred_1835.footprint`"
+          "text": "`recon_1835_north_t1_061.inferred_1835.position`, `recon_1835_north_t1_061.inferred_1835.footprint`, `recon_1835_north_w3_062.inferred_1835.position`, `recon_1835_north_w3_062.inferred_1835.footprint`, `recon_1835_north_c4_067.inferred_1835.position`, `recon_1835_north_c4_067.inferred_1835.footprint`, `recon_1835_north_c3_064.inferred_1835.position`, `recon_1835_north_c3_064.inferred_1835.footprint`, `recon_1835_north_w2_065.inferred_1835.position`, `recon_1835_north_w2_065.inferred_1835.footprint`, `recon_1835_north_c3_066.inferred_1835.position`, `recon_1835_north_c3_066.inferred_1835.footprint`"
         },
         {
           "label": "Related",

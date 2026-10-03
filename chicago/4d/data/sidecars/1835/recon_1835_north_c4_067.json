@@ -1,10 +1,10 @@
 {
-  "id": "recon_1835_north_c4_063",
+  "id": "recon_1835_north_c4_067",
   "phase": "inferred_1835",
-  "name": "Reconstructed C4 wide two-story store or mixed block #063",
+  "name": "Reconstructed C4 wide two-story store or mixed block #067",
   "aka": [],
   "archetype": "frame_storefront",
-  "asset": "gltf/recon_1835_north_c4_063__inferred_1835.glb",
+  "asset": "gltf/recon_1835_north_c4_067__inferred_1835.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
   "documented_range": {
@@ -16,8 +16,8 @@
   },
   "change_note": "Reconstructed anonymous July 1835 North Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total.",
   "placement": {
-    "local_e": 815.33,
-    "local_n": 281.461,
+    "local_e": 814.811,
+    "local_n": 286.935,
     "rotation_deg": 180.0,
     "position_confidence": "reconstructed",
     "position_sources": [],
@@ -35,21 +35,21 @@
         0
       ],
       [
-        10.659,
+        9.622,
         0
       ],
       [
-        10.659,
-        14.522
+        9.622,
+        17.069
       ],
       [
         0,
-        14.522
+        17.069
       ]
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "A 10.66 × 14.52 m rectangle sampled deterministically inside the C4 family's authored footprint band in the reconstruction specification; no individual dimensions are documented."
+    "note": "A 9.62 × 17.07 m rectangle sampled deterministically inside the C4 family's authored footprint band in the reconstruction specification; no individual dimensions are documented."
   },
   "attributes": {
     "stories": {
@@ -61,7 +61,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C4 band in the supplied reconstruction specification; it is not evidence for this anonymous North Division instance."
     },
     "wall_height_m": {
-      "value": 6.934,
+      "value": 6.564,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -77,7 +77,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C4 band in the supplied reconstruction specification; it is not evidence for this anonymous North Division instance."
     },
     "roof_pitch_deg": {
-      "value": 28.3,
+      "value": 26.6,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -109,7 +109,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the C4 band in the supplied reconstruction specification; it is not evidence for this anonymous North Division instance."
     },
     "paint": {
-      "value": "unpainted",
+      "value": "whitewash",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -162,7 +162,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. STATED RATHER THAN DEFAULTED (T-1667). The C4 variants line authors 4-6 bays, and a facade bay counts the door (docs/FACADE-BAYS.md), so the family asks this archetype for 3 to 5 show windows. Its own default answers 1 on this 10.659 m front — 2 facade bays, outside the band — because SHOPFRONT_MAX_FRACTION (45%) refuses 61.0% of the front, and that fraction was argued for a store filling a 55 ft lot frontage rather than for the narrow end of this family's own footprint band. 3 is the LOWEST count in band this frontage carries: 6.502 m of opening leaves 2.078 m of plain wall at each end against a 0.60 m minimum pier. Nothing here is evidence that this front carried 4 openings; it is the family's authored range taken at its minimum."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. STATED RATHER THAN DEFAULTED (T-1667). The C4 variants line authors 4-6 bays, and a facade bay counts the door (docs/FACADE-BAYS.md), so the family asks this archetype for 3 to 5 show windows. Its own default answers 1 on this 9.622 m front — 2 facade bays, outside the band — because SHOPFRONT_MAX_FRACTION (45%) refuses 67.6% of the front, and that fraction was argued for a store filling a 55 ft lot frontage rather than for the narrow end of this family's own footprint band. 3 is the LOWEST count in band this frontage carries: 6.502 m of opening leaves 1.560 m of plain wall at each end against a 0.60 m minimum pier. Nothing here is evidence that this front carried 4 openings; it is the family's authored range taken at its minimum."
     },
     "siding_exposure_m": {
       "value": 0.127,
@@ -176,26 +176,10 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the C4 family to satisfy the aggregate North Division mix; no occupant or individual use is known."
-    },
-    "land_owner": {
-      "value": "The ground was entered by Alexander Wolcott, 29 September 1830",
-      "confidence": "reconstructed",
-      "sources": [
-        "isa_public_domain_land_tract_sales"
-      ],
-      "note": "THE ROOF IS AN INVENTION AND THIS CANNOT OUTRANK IT. The footprint stands 2 m inside the tract's nearest boundary, which on a documented building would carry the middle tier, but this building was dealt to its lot by a recipe and is not there. The tract is real and the register's words about it are read; what is graded here is the claim that THIS roof stands on it, and that claim is the recipe's. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
     }
   },
   "residents": [],
   "citations": [
-    {
-      "source_id": "isa_public_domain_land_tract_sales",
-      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
-      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness"
-    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
@@ -226,8 +210,8 @@
     "inventory_class": "principal_functional",
     "programme_phase": "phase2_north_division_initial",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-    "sequence": 63,
-    "finish_key": "ochre",
+    "sequence": 67,
+    "finish_key": "whitewash",
     "roof_condition": "fresh",
     "age_state": "new",
     "fabric_basis": {
@@ -235,7 +219,7 @@
       "class": "merchant",
       "by": "type",
       "household": null,
-      "words": "ochre-washed clapboard on a balloon frame under a new roof — a wide two-story store, new-built (rule F-M: a merchant's or professional man's by its type)"
+      "words": "whitewashed clapboard on a balloon frame under a new roof — a wide two-story store, new-built (rule F-M: a merchant's or professional man's by its type)"
     }
   },
   "fabric_tone": {

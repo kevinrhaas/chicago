@@ -387,13 +387,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # approach — two more `camp` meshes on the same terms; terrain reach still 4 and
 # pier_crib still 2.
 #
+# 545 -> 551 and 541 -> 547 on 2026-10-03 (T-1205): six trade roofs on the north face of
+# Kinzie Street from the North Division recipe, the same `generate_north_infill` meshes as
+# its sixty; terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 545,
+    "assets": 551,
     "restales": {
-        "generators/common/*.py": 545,
+        "generators/common/*.py": 551,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 541,
+        "generators/emit.py": 547,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

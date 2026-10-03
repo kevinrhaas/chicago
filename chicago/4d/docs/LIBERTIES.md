@@ -20325,8 +20325,8 @@ T-1445 found them standing 9 to 48 m back from any street line. Kinzie Street is
 `ordinary`, its north face had nothing on the street line from Clark to east of Wolcott, and
 `docs/RESEARCH/1835_north_division_extent_and_infill.md` names the Wolcott-Kinzie core as the
 strongest anonymous north cluster for exactly that combination of river approach and street.
-So the trade went back to the street, front walls about half a metre clear of the platted
-corridor, with open ground between every pair: the memo's alternation, not a street wall.
+So the trade went back to the street, front walls about 0.6 m clear of the
+Kinzie corridor on its control line, with open ground between every pair: the memo's alternation, not a street wall.
 
 **The warehouse is not here.** The F3 the same order book owes belongs on the North Water bank,
 the one north street graded `light`, and no committed clause seats a warehouse on a light
@@ -20341,8 +20341,8 @@ move them.
 `recon_1835_north_t1_061.inferred_1835.footprint`,
 `recon_1835_north_w3_062.inferred_1835.position`,
 `recon_1835_north_w3_062.inferred_1835.footprint`,
-`recon_1835_north_c4_063.inferred_1835.position`,
-`recon_1835_north_c4_063.inferred_1835.footprint`,
+`recon_1835_north_c4_067.inferred_1835.position`,
+`recon_1835_north_c4_067.inferred_1835.footprint`,
 `recon_1835_north_c3_064.inferred_1835.position`,
 `recon_1835_north_c3_064.inferred_1835.footprint`,
 `recon_1835_north_w2_065.inferred_1835.position`,
