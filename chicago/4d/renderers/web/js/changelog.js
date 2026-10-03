@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'South Water Street now reaches State Street', kind: 'change',
+  { v: 1353, ts: '2026-10-03T07:41:24.128Z', date: 'Oct 3, 2026, 2:41 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
       'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
       'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
