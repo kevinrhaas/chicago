@@ -4041,10 +4041,13 @@ function vert(g, x, y, z, nx, ny, nz, r, gg, b, dx, dz, sx = 0, sy = 0, sz = 0) 
 /** Tapered twig, with its root and tip attached to the shrub scaffold. */
 function branchlet(g, from, to, width, dx, dz) {
   const row = [];
+  const tangent = to.map((v, i) => v - from[i]);
+  const normal = new THREE.Vector3(-dx * tangent[1],
+    dx * tangent[0] + dz * tangent[2], -dz * tangent[1]).normalize();
   for (const [point, scale] of [[from, 1], [to, 0.38]]) {
     for (const side of [-1, 1]) {
       const v = vert(g, point[0] - dz * width * scale * side, point[1],
-        point[2] + dx * width * scale * side, dx, 0.35, dz,
+        point[2] + dx * width * scale * side, normal.x, normal.y, normal.z,
         0.48, 0.48, 0.48, dx, dz);
       botany(g, v, 0, 0, -1);
       row.push(v);
@@ -4092,8 +4095,8 @@ function curvedLeaf(g, { base, dx, dz, len, wide, rise, curl, segments, k0, k1 }
       row.push(v);
     }
     if (previous) for (let c = 0; c < row.length - 1; c++) {
-      g.idx.push(previous[c], row[c], previous[c + 1],
-        previous[c + 1], row[c], row[c + 1]);
+      g.idx.push(previous[c], previous[c + 1], row[c],
+        previous[c + 1], row[c + 1], row[c]);
     }
     previous = row;
   }
@@ -4261,6 +4264,10 @@ function cardGeometry(columns = 7) {
     const b = vert(g, cx + w0, 0, 0, 0, 0.90, 0.44, k0, k0, k0, 0, 0);
     const c = vert(g, cx + tip - w0 * 0.14, top, 0, 0, 0.90, 0.44, k1, k1, k1, 0, 0);
     const d = vert(g, cx + tip + w0 * 0.14, top, 0, 0, 0.90, 0.44, k1, k1, k1, 0, 0);
+    // Each support column resolves into three fine curved blades. The
+    // physical envelope, instance census and two-triangle budget stay fixed.
+    botany(g, a, 0, 0, 4); botany(g, b, 1, 0, 4);
+    botany(g, c, 0, 1, 4); botany(g, d, 1, 1, 4);
     g.idx.push(a, b, c, b, d, c);
   }
   return finishGeo(g, 'flora-card');
@@ -4358,10 +4365,11 @@ function peduncle(g, drop = 1.5, wide = 0.022, k = 0.42) {
     const a = (i / 2) * Math.PI;
     const dx = Math.sin(a) * wide;
     const dz = Math.cos(a) * wide;
-    const p0 = vert(g, -dx, -drop, -dz, dx, 0.4, dz, k, k, k, 0, 0);
-    const p1 = vert(g, dx, -drop, dz, dx, 0.4, dz, k, k, k, 0, 0);
-    const p2 = vert(g, -dx, 0, -dz, dx, 0.4, dz, k * 1.5, k * 1.5, k * 1.5, 0, 0);
-    const p3 = vert(g, dx, 0, dz, dx, 0.4, dz, k * 1.5, k * 1.5, k * 1.5, 0, 0);
+    const p0 = vert(g, -dx, -drop, -dz, -Math.cos(a), 0, Math.sin(a), k, k, k, 0, 0);
+    const p1 = vert(g, dx, -drop, dz, -Math.cos(a), 0, Math.sin(a), k, k, k, 0, 0);
+    const p2 = vert(g, -dx, 0, -dz, -Math.cos(a), 0, Math.sin(a), k * 1.5, k * 1.5, k * 1.5, 0, 0);
+    const p3 = vert(g, dx, 0, dz, -Math.cos(a), 0, Math.sin(a), k * 1.5, k * 1.5, k * 1.5, 0, 0);
+    for (const v of [p0, p1, p2, p3]) botany(g, v, 0, 0, -2);
     g.idx.push(p0, p1, p2, p1, p3, p2);
   }
   for (let i = 1; i < g.pos.length; i += 3) g.pos[i] += drop;
@@ -4499,12 +4507,14 @@ function pompomGeometry() {
     const phi = (i / 3) * Math.PI;
     const dx = Math.sin(phi) * 0.5;
     const dz = Math.cos(phi) * 0.5;
-    const nx = Math.cos(phi);
-    const nz = -Math.sin(phi);
-    const a = vert(g, -dx, -0.30, -dz, nx, 0.5, nz, 0.72, 0.72, 0.72, 0, 0);
-    const b = vert(g, dx, -0.30, dz, nx, 0.5, nz, 0.72, 0.72, 0.72, 0, 0);
-    const c = vert(g, -dx, 0.34, -dz, nx, 0.5, nz, 1.14, 1.14, 1.14, 0, 0);
-    const d = vert(g, dx, 0.34, dz, nx, 0.5, nz, 1.14, 1.14, 1.14, 0, 0);
+    const nx = -Math.cos(phi);
+    const nz = Math.sin(phi);
+    const a = vert(g, -dx, -0.30, -dz, nx, 0, nz, 0.72, 0.72, 0.72, 0, 0);
+    const b = vert(g, dx, -0.30, dz, nx, 0, nz, 0.72, 0.72, 0.72, 0, 0);
+    const c = vert(g, -dx, 0.34, -dz, nx, 0, nz, 1.14, 1.14, 1.14, 0, 0);
+    const d = vert(g, dx, 0.34, dz, nx, 0, nz, 1.14, 1.14, 1.14, 0, 0);
+    botany(g, a, 0, 0, 5); botany(g, b, 1, 0, 5);
+    botany(g, c, 0, 1, 5); botany(g, d, 1, 1, 5);
     g.idx.push(a, b, c, b, d, c);
   }
   peduncle(g, PEDUNCLE.pompom, 0.030);
@@ -4536,6 +4546,8 @@ function domeGeometry() {
       row.push(vert(g, dx * rr, yy - 0.08, dz * rr,
         dx * Math.sin(th), Math.cos(th) + 0.15, dz * Math.sin(th), k, k, k, 0, 0));
     }
+    for (const v of row) botany(g, v, g.pos[v * 3] + 0.5,
+      g.pos[v * 3 + 2] + 0.5, 7);
     grid.push(row);
   }
   for (let r = 0; r < rings; r++) {
@@ -4570,9 +4582,12 @@ function corymbGeometry() {
     ring.push(vert(g, dx * rr, 0.02 + 0.03 * Math.sin(a * 2.0), dz * rr,
       dx * 0.30, 0.94, dz * 0.30, 0.90, 0.90, 0.90, 0, 0));
   }
+  for (const v of [c0, ...ring]) botany(g, v, g.pos[v * 3] + 0.5,
+    g.pos[v * 3 + 2] + 0.5, 7);
   for (let i = 0; i < seg; i++) g.idx.push(c0, ring[i], ring[(i + 1) % seg]);
   // The under-side, so the disc has a body when it is seen from below.
   const u0 = vert(g, 0, -0.09, 0, 0, -1, 0, 0.58, 0.58, 0.58, 0, 0);
+  botany(g, u0, 0.5, 0.5, 7);
   for (let i = 0; i < seg; i++) g.idx.push(u0, ring[(i + 1) % seg], ring[i]);
   peduncle(g, PEDUNCLE.corymb, 0.020);
   return finishGeo(g, 'flora-head-corymb');
@@ -4598,6 +4613,9 @@ function compoundGeometry() {
       ring.push(vert(g, cx + Math.sin(b) * rr, cy, cz + Math.cos(b) * rr,
         Math.sin(b) * 0.4, 0.9, Math.cos(b) * 0.4, 0.86, 0.86, 0.86, 0, 0));
     }
+    for (const v of [c0, ...ring]) botany(g, v,
+      (g.pos[v * 3] - cx) / (rr * 2) + 0.5,
+      (g.pos[v * 3 + 2] - cz) / (rr * 2) + 0.5, 7);
     for (let i = 0; i < seg; i++) g.idx.push(c0, ring[i], ring[(i + 1) % seg]);
     // The ray that carries it back to the centre.
     if (u > 0) {
@@ -4845,6 +4863,15 @@ varying float vChiLit;      // how much of the sky this point can see, 0..1.6
 varying float vChiFade;     // the ring ramp, as coverage: 0 absent, 1 solid
 varying float vChiDither;   // this plant's own phase on the ordered dither
 ` + shader.vertexShader
+      .replace('#include <color_vertex>', /* glsl */`
+#include <color_vertex>
+#ifdef USE_COLOR
+  // Stem albedo is set in the fragment before the confidence hook. Retain
+  // color.g separately as canopy occlusion, but do not dye wood green or a
+  // flower stalk white with the instance's foliage/petal color.
+  if (aSide.w < -0.5) vColor.rgb = vec3(1.0);
+#endif
+`)
       .replace('#include <beginnormal_vertex>', /* glsl */`
 #include <beginnormal_vertex>
 {
@@ -5033,6 +5060,7 @@ if (vChiFade < 1.0 && fract(chiBayer4(gl_FragCoord.xy) + vChiDither) >= vChiFade
 // Atlas tiles are padded and use ordinary mipmaps; alpha clipping keeps leaf
 // gaps and depth ordering without sorting thousands of transparent plants.
 vec3 chiLeafSurface = vec3(1.0);
+vec3 chiRoundedN = normalize(vChiNW) * (gl_FrontFacing ? 1.0 : -1.0);
 if (vChiBotany.z > 0.5 && vChiBotany.z < 2.5) {
   float chiColumn = step(1.5, vChiBotany.z);
   vec2 chiUV = (clamp(vChiBotany.xy, 0.001, 0.999) + vec2(chiColumn,
@@ -5045,23 +5073,74 @@ if (vChiBotany.z > 0.5 && vChiBotany.z < 2.5) {
     0.08, smoothstep(0.04, 0.25, chiFootprint));
   if (chiTexel.a < chiClip) discard;
   chiLeafSurface = chiTexel.rgb;
-} else if (vChiBotany.z > 2.5) {
+} else if (vChiBotany.z > 2.5 && vChiBotany.z < 3.5) {
   // Longitudinal ridges at leaf scale, faded when smaller than a pixel.
   float chiRidges = sin(vChiBotany.x * 94.248);
   float chiResolvable = 1.0 - smoothstep(0.012, 0.05, fwidth(vChiBotany.x));
   chiLeafSurface *= 0.94 + 0.055 * chiRidges * chiResolvable;
+} else if (vChiBotany.z > 3.5 && vChiBotany.z < 4.5) {
+  // Three stems inside each mid/far support column, with narrow rooted bases
+  // and unequal, curving tips. Derivative width keeps subpixel distant blades
+  // from disappearing without returning a solid close-up rectangle.
+  float chiBladeEdge = 1.0;
+  float chiPixel = min(0.16, 0.35 * fwidth(vChiBotany.x));
+  for (int i = 0; i < 3; i++) {
+    float j = float(i);
+    float top = i == 1 ? 1.0 : (i == 0 ? 0.89 : 0.76);
+    float t = vChiBotany.y / top;
+    float centre = (j + 0.5) / 3.0
+      + 0.085 * sin(t * 3.14159 + j * 2.1) * t * t;
+    float halfWidth = 0.13 * pow(max(0.0, 1.0 - t), 0.55)
+      * smoothstep(0.0, 0.08, t);
+    float edge = abs(vChiBotany.x - centre) - max(halfWidth, chiPixel);
+    if (t <= 1.0) chiBladeEdge = min(chiBladeEdge, edge);
+  }
+  if (chiBladeEdge > 0.0) discard;
+  chiLeafSurface *= 0.84 + 0.16 * smoothstep(0.0, 0.08, -chiBladeEdge);
+} else if (vChiBotany.z > 4.5) {
+  vec2 p = vChiBotany.xy * 2.0 - 1.0;
+  if (vChiBotany.z < 5.5) {
+    // A small globe of florets, rather than three intersecting rectangles.
+    // Its original width/height support and attachment point are unchanged.
+    float rim = 0.975 + 0.025 * sin(atan(p.y, p.x) * 13.0);
+    if (dot(p, p) > rim * rim) discard;
+    vec3 dpX = dFdx(vChiPW), dpY = dFdy(vChiPW);
+    vec2 uvX = dFdx(vChiBotany.xy), uvY = dFdy(vChiBotany.xy);
+    float det = uvX.x * uvY.y - uvX.y * uvY.x;
+    float inv = sign(det) / max(abs(det), 1e-8);
+    vec3 T = normalize((dpX * uvY.y - dpY * uvX.y) * inv);
+    vec3 B = normalize((dpY * uvX.x - dpX * uvY.x) * inv);
+    chiRoundedN = normalize(T * p.x + B * p.y
+      + chiRoundedN * sqrt(max(0.035, 1.0 - dot(p, p))));
+  }
+  // Fine individual florets, mip-like suppression when no longer resolved.
+  vec2 floret = vChiBotany.xy * 13.0;
+  floret.x += mod(floor(floret.y), 2.0) * 0.5;
+  float grain = max(0.0, 1.0 - dot(fract(floret) - 0.5, fract(floret) - 0.5) * 3.3);
+  float resolved = 1.0 - smoothstep(0.035, 0.12,
+    max(fwidth(vChiBotany.x), fwidth(vChiBotany.y)));
+  chiLeafSurface *= mix(0.96, 0.81 + 0.19 * grain, resolved);
 }
 
 `).replace('#include <color_fragment>', /* glsl */`
-#include <color_fragment>
-if (vChiBotany.z < -0.5) {
-  // Wood keeps its own subdued brown rather than inheriting leaf chlorophyll.
+// Set stem albedo BEFORE color_fragment, where confidence.patch applies
+// its evidence tint. vColor was neutralized for stems in color_vertex, so
+// these colors do not inherit petal/leaf hue and cannot overwrite grading.
+if (vChiBotany.z < -1.5) {
+  diffuseColor.rgb = vec3(0.105, 0.16, 0.048) * (0.48 + vChiLit);
+} else if (vChiBotany.z < -0.5) {
   diffuseColor.rgb = vec3(0.19, 0.135, 0.075) * (0.48 + vChiLit);
+}
+#include <color_fragment>
+`).replace('#include <normal_fragment_begin>', /* glsl */`
+#include <normal_fragment_begin>
+if (vChiBotany.z > 4.5 && vChiBotany.z < 5.5) {
+  normal = normalize(mat3(viewMatrix) * chiRoundedN);
 }
 `).replace('#include <opaque_fragment>', /* glsl */`
 {
   // The face we can see, whichever side of the sheet it is.
-  vec3 chiN = normalize(vChiNW) * (gl_FrontFacing ? 1.0 : -1.0);
+  vec3 chiN = chiRoundedN;
   vec3 chiV = normalize(cameraPosition - vChiPW);
   float chiNL = dot(chiN, uChiSun);
 
@@ -5111,12 +5190,13 @@ if (vChiBotany.z < -0.5) {
   // its independently measured July transmission.
   float chiBroad = step(0.5, vChiBotany.z) * (1.0 - step(2.5, vChiBotany.z));
   outgoingLight = outgoingLight * chiLeafSurface
-    + chiExtra * step(-0.5, vChiBotany.z) * mix(1.0, 0.68, chiBroad) * chiLeafSurface;
+    + chiExtra * step(-0.5, vChiBotany.z) * mix(1.0, 0.68, chiBroad)
+      * (1.0 - 0.88 * step(4.5, vChiBotany.z)) * chiLeafSurface;
 }
 #include <opaque_fragment>
 `);
   };
-  mat.customProgramCacheKey = () => `flora-botanical-2-${billboard}-${membrane}`;
+  mat.customProgramCacheKey = () => `flora-botanical-3-${billboard}-${membrane}`;
   mat.needsUpdate = true;
   return mat;
 }

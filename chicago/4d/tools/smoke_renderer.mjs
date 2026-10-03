@@ -2806,7 +2806,7 @@ for (const [label, viewport, touch] of [
       // working yard, an animal pen and a picketed dooryard. Not a centroid: the
       // Western Hotel's yard is an L wrapped round the hotel's own corner and
       // the average of its six corners lands inside the hotel.
-      const wanted = ['worn_earth', 'trodden_earth', 'dooryard_garden'];
+      const wanted = ['worn_earth', 'trodden_earth', 'road_earth', 'dooryard_garden'];
       const stands = wanted.map((t) => {
         const i = (y?.interiors ?? []).find((x) => x.treatment === t);
         if (!i) return { treatment: t, missing: true };
@@ -2906,7 +2906,8 @@ for (const [label, viewport, touch] of [
     check(`${label}: every fenced interior in the town carries a ground treatment`,
       fenced.declared.length >= 4 && fenced.declared.every((d) => d.interiors >= 1)
       && fenced.census?.interiors >= 8 && fenced.meshes >= 3 && fenced.tris > 0
-      && Object.keys(fenced.census?.byTreatment ?? {}).length === 3,
+      // T-2013: a fourth, `road_earth` — the town's door ground in the road's dirt.
+      && Object.keys(fenced.census?.byTreatment ?? {}).length === 4,
       `${fenced.declared.length} record(s) declare a treatment `
       + `[${fenced.declared.map((d) => `${d.id} ${d.treatment} x${d.interiors}`).join(', ')}]; `
       + `${fenced.census?.interiors} interior(s) in ${fenced.meshes} mesh(es), `
@@ -9053,8 +9054,11 @@ for (const [label, viewport, touch] of [
     // over the 200 it was set against, and 222 + 15 rounds up to 240). A
     // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
     // below is untouched and still red at 102 until T-1976's trim.
+    // T-2015: six-stand published sweep adds prairie, 243 calls before and
+    // after the vegetation upgrade. Owner-authorized 243 + 15 -> 260; the
+    // separate light floor remains 90. Both runtime and this pinned gate move.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 240,
+      stats.budget.drawCalls === 260,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,

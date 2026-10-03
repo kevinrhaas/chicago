@@ -44,4 +44,35 @@ The isolated real BatchedMesh review passes 180 species/seed/tier cases: unchang
 
 The first scene preview was rejected: two flora shader programs exceeded the 16-attribute floor, hiding grass. Botanical UV/kind now occupy unused components in existing `aDir`/`aSide` attributes; CPU audit metadata remains available. Fixed-scene verification is in progress.
 
-The previous published scene at `de81fad2` already exceeded its full and balanced limits at Lake/Canal (1,857,270 and 1,626,747 triangles), and its light limit at the forks (851,431). The previously uncovered prairie view drew 1,949,552 triangles and 243 calls at full. These inherited excesses are recorded separately from the upgrade. The owner explicitly approved measured upper-tier budget increases. The light limit remains 825,000 triangles / 90 calls. Final candidate readings will determine the new upper limits.
+The previous published scene at `de81fad2` already exceeded its full and balanced limits at Lake/Canal (1,857,270 and 1,626,747 triangles), and its light limit at the forks (851,431). The previously uncovered prairie view drew 1,949,552 triangles and 243 calls at full. These inherited excesses are recorded separately from the upgrade. The owner explicitly approved measured upper-tier budget increases. The initial plan retained 825,000 triangles / 90 calls; the measured light exception below supersedes the triangle target with the owner’s explicit budget authorization.
+
+## Measured budget decision
+
+The owner explicitly added “yes you can raise budgets if you need to.” The six-stand published sweep on checkpoint `e9c02d7` has zero page errors and retains the same call counts as baseline. Its narrow 390 × 780 viewport uses DPR 1; the actual touch/DPR-2 mobile gate is the separate published smoke.
+
+| Tier | Desktop worst | Narrow viewport worst | Declared ceiling | Margin rule |
+| --- | ---: | ---: | ---: | --- |
+| Full | 2,225,752, aerial | 2,039,360, aerial | 2,245,000 | +18,059, round up to 5,000 |
+| Balanced | 1,693,122, prairie | 1,533,147, prairie | 1,710,000 | +16,806, round up to 5,000 |
+| Light | 887,259, prairie | 788,289, prairie | 910,000 | +21,933, round up to 5,000 |
+
+Full’s worst call count is 243 at prairie, exactly the baseline count: +15 rounded to five gives **260**. Light’s separate **90-call** cap stays unchanged; measured worst is 73. The light triangle adjustment is an explicit owner-authorized exception to the standing 825,000 policy, documented at the runtime declaration. It adds no triangles, density or reach: all original comparison views use 2,720–20,480 fewer triangles than baseline. The geometry remains the least expensive tier.
+
+A diagnostic considered reducing light terrain/furniture reach. Native-light prairie read 877,317; 120 m detailed ground plus 200 m furniture reduced it to 818,397. The full-to-light sweep carried 9,942 more triangles, so this would still predict 828,339 against 825,000. These reductions are **not shipped**. The approved measured ceiling preserves the existing landscape and furniture visibility. The complete smoke must validate the final dev integration, including its slightly newer entrance-apron changes.
+
+The final understory refinement preserves positions and triangle counts in 20 archetype/tier comparisons. It adds analytic grass-blade cutouts, round floret silhouettes and stem colours, and repairs leaf winding and confidence-colour ordering. No additional texture, attribute or draw call is required. Final images and smoke receipts are pending below.
+
+## Final visual review and release state
+
+The final published mirror includes dev `8c3537a1` plus this branch. All eight fixed frames (four poses, 1280 × 800 and 390 × 780 at DPR 1) complete with zero console/page errors. The actual production tick updates plants after each teleport; animation is held for comparison. Cold ready intervals were 53.0 s desktop and 51.2 s narrow viewport on the shared SwiftShader host, not a hardware-GPU performance result. Full-tier prairie reads 2,168,162 triangles / 244 calls; its one extra call after the earlier sweep comes with the newer dev entrance surfaces, and fits 260.
+
+The 750-step source gate and final preflight pass. The complete published smoke and the T-2014 composition walk are in progress; this checkpoint is reviewable but has not yet merged to dev.
+
+![Bridge before](vegetation-quality/before-bridge-desktop.jpg)
+![Bridge after](vegetation-quality/after-bridge-desktop.jpg)
+![Prairie after](vegetation-quality/after-prairie-desktop.jpg)
+![Woodland after](vegetation-quality/after-woodland-desktop.jpg)
+
+### Limits
+
+These are deterministic, family-level botanical reconstructions, not photographic scans or a newly sourced inventory. The existing ground/lighting pipeline remains in use; photographic quality is the visual target, not a benchmark score proved by geometry counts. The review covers existing shared flora consumers and does not add missing landscape records to other years. Runtime FPS on consumer GPUs is not established by SwiftShader screenshots. T-2014 owns the distant shrub-band feature and remains a separate PR.

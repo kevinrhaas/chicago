@@ -79,6 +79,7 @@ const browser = await chromium.launch({
 });
 const errors = [];
 const stats = {};
+try {
 for (const [vp, size] of Object.entries(VIEWPORTS)) {
   if (VIEW !== 'both' && VIEW !== vp) continue;
   const page = await browser.newPage({ viewport: size, deviceScaleFactor: 1 });
@@ -141,8 +142,12 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
   });
   await page.close();
 }
+} catch (error) {
+  errors.push(`review: ${error.stack ?? error}`);
+} finally {
 await writeFile(path.join(OUT, `${TAG}-stats.json`), JSON.stringify({ detail: DETAIL, stats, errors }, null, 2));
 console.log(JSON.stringify({ frames: Object.keys(stats).filter(k => stats[k].drawCalls !== undefined).length, errors }, null, 2));
 await browser.close();
 server.close();
+}
 process.exit(errors.length ? 1 : 0);

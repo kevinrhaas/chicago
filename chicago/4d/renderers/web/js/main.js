@@ -622,7 +622,15 @@ const DETAIL_DECLARED = {
   // 2026-09-15. Re-reading it against 1,725,000 / 1,490,000 / 825,000 would
   // change the wood a visitor sees at `balanced` and `light`, which is not a
   // budget's job; it stays as stated there.
-  full:     { triangles: 1845000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-2015, 2026-10-03: owner-authorized botanical detail, measured on the
+  // published checkpoint e9c02d7 at the five existing stands plus west prairie,
+  // 1280x800 and 390x780. Full worst 2,225,752 at the aerial; balanced worst
+  // 1,693,122 at prairie. Retain the defended margins and round up to 5,000:
+  // full +18,059 -> 2,245,000; balanced +16,806 -> 1,710,000. The old tree was
+  // already over at Lake/Canal (1,857,270 / 1,626,747); prairie adds permanent
+  // coverage, not a one-off exception. No tree stations/densities change here.
+  // Raw receipts: docs/RESEARCH/vegetation-quality/*-ceilings.json.
+  full:     { triangles: 2245000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -631,7 +639,10 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '2,245,000 set 2026-10-03 (T-2015): porous botanical crowns, '
+                + 'curved branches and leaves. Published six-stand sweep, worst 2,225,752 '
+                + 'at the aerial, 1280x800; +18,059 rounded up to 5,000. Before it: '
+                + '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,778,094 (the block above "
                 + "`full`), plus T-0672's 18,059 rounded up to 5,000. Before it: "
                 + '1,800,000 set 2026-10-02 (T-1959), the woodpiles\u2019 own '
@@ -733,11 +744,14 @@ const DETAIL_DECLARED = {
   // reading and the rule are in the block above `full`.
   // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
   // same rule — the reading is in the block above `full`.
-  balanced: { triangles: 1615000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 1710000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '1,710,000 set 2026-10-03 (T-2015): botanical foliage detail. '
+                + 'Published six-stand sweep, worst 1,693,122 at west prairie, 1280x800; '
+                + 'the defended 16,806 rounded up to 5,000. Before it: '
+                + '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,545,215, plus T-0672's "
                 + '16,806 rounded up to 5,000. Before it: '
                 + '1,565,000 set 2026-10-02 (T-1959) for the woodpiles by the '
@@ -800,7 +814,15 @@ const DETAIL_DECLARED = {
   // moves -- no geometry, no reach, no shadow tier, no cull. This is only the
   // ceiling following a trim DOWN, which T-0149 named as the strongest evidence
   // that a trim worked.
-  light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-2015, 2026-10-03: the owner explicitly authorized budget increases in
+  // this session. The expanded six-stand sweep finds 887,259 at west prairie
+  // after full -> light, despite every original stand being 2,720-20,480
+  // triangles cheaper than before. 887,259 + the prior 21,933 margin, rounded
+  // up to 5,000, gives 910,000. This changes the declared ceiling, not geometry,
+  // plant density, visibility reach or the separate 90-call light cap. It is
+  // an explicit owner-authorized exception to the repository's standing
+  // keep-825,000 guidance; light remains the least expensive rung.
+  light:    { triangles: 910000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -813,7 +835,11 @@ const DETAIL_DECLARED = {
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '825,000 set 2026-09-03, the one raise of this rung ever '
+              measured: '910,000 set 2026-10-03 (T-2015), explicitly authorized by '
+                + 'the owner. Published six-stand worst 887,259 at west prairie after '
+                + 'full -> light; +21,933 rounded up to 5,000. Existing-view geometry '
+                + 'decreases versus baseline; density, reach and 90 calls are unchanged. '
+                + 'Before this exception: 825,000 set 2026-09-03, the one raise of this rung ever '
                 + 'taken and taken only on a second explicit ruling. BACK INSIDE BY A '
                 + 'TRIM, T-1976, 2026-10-02: furniture reach 350 -> 250 m, detailed '
                 + 'ground 600 -> 240 m, tree keep 0.225 -> 0.191, all at this rung '
@@ -989,7 +1015,11 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // that stand and fit, and the parcel after them argues its own. `light`'s own
 // 90-call floor in `tools/smoke_renderer.mjs` is a separate promise and does
 // NOT move — it reads 102 and is T-1976's to win back by a trim.
-const BUDGET = { drawCalls: 240, triangles: DETAIL.full.triangles };
+// T-2015: the newly covered prairie stand already drew 243 calls before this
+// upgrade and still does after it. Keep the previous 15-call margin and round
+// up to 5: 243 + 15 -> 260. Owner explicitly approved measured budget raises.
+// The light tier's separate 90-call floor is unchanged.
+const BUDGET = { drawCalls: 260, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
