@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 370,
+  "count": 371,
   "liberties": [
     {
       "id": "L1",
@@ -22794,6 +22794,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-03 (T-1264)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-a-decent-coat",
+      "title": "A Decent Coat: an invented call and a choice of coat",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "A Decent Coat links four existing exterior destinations — John Holbrook's clothing store, Harmon, Loomis & Co.'s store, Mrs Rufus Brown's boarding house and the Sauganash — in an invented errand to be decently dressed for a call. The call, the acquaintance, the travel-worn coat, the route order (west along South Water Street from Dearborn to LaSalle, then to Lake and Market), the weighing of a call against a day's work, the choice between a made coat and the old one brushed, both endings and the Fit for the Occasion memento are reconstructed, and so are the reading and action seconds. Holbrook's card (Democrat 10 June 1835; American 13 June 1835) and Harmon, Loomis & Co.'s cloth list (Democrat 5 Nov 1834, carried by their June 1835 notice) are cited at their own tiers; all are transcription-mediated readings. No purchase, price, size, fitting, tailor or maker is invented: Holbrook's card offers made goods as the manufacturers' agent and names no tailoring, and no maker for the cloth is named. No named person speaks; no interior is opened. This is the batch's quiet outing: it declares no variable or inventory and shows no strip."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the four structure records, the two papers' June 1835 cards and brief 14 of JAUNTS-INITIAL-LIBRARY.md. The route, the choice and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated record of a clothing sale, a price or a tailor at work in the town in 1835 would let the errand name one; until then it stays a look and a choice. A scan read of the three cards upgrades or corrects the transcription-mediated readings."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/a-decent-coat.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2011)."
         }
       ]
     },
