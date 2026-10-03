@@ -96,9 +96,9 @@ permissions:
 #
 # THE GATE IS STILL BOTH VIEWPORTS AND NOTHING LESS, which is smoke_renderer.mjs's
 # own rule. Each matrix leg prints "NOT THE FULL GATE" because on its own it is
-# not one; all eight legs together are, and `needs: smoke` fails if ANY fails.
+# not one; all ten legs together are, and `needs: smoke` fails if ANY fails.
 # The workflow reconstitutes the gate the suite refuses to let one run claim —
-# which holds only while the stage ranges tile 1..13 with no gap and no overlap.
+# which holds only while the stage ranges tile 1..14 with no gap and no overlap.
 #
 # WHY THE BRANCH IS PUSHED BEFORE THE SMOKE RUNS, and the PR only after. The push
 # is in `bake` so a red smoke never destroys twenty minutes of Blender output —
@@ -556,8 +556,8 @@ jobs:
   # `1-2 3-6 7-9 10-13`. The old part 10's content is now parts 10 and 11, both
   # inside the fourth leg, so no leg gained or lost a check.
   #
-  # THE RANGES MUST COVER 1..13 EXACTLY ONCE. Each leg prints "NOT THE FULL GATE"
-  # because on its own it is not one; the UNION of the eight legs is, and that
+  # THE RANGES MUST COVER 1..14 EXACTLY ONCE. Each leg prints "NOT THE FULL GATE"
+  # because on its own it is not one; the UNION of the ten legs is, and that
   # holds only while these four ranges tile the parts with no gap and no overlap.
   # smoke_renderer.mjs's own arithmetic — the parts' staged counts sum to an
   # unfiltered run's — is what makes the union checkable rather than asserted.
@@ -581,6 +581,11 @@ jobs:
   # short follow-up, not proof against every future tail. ROADMAP THE RUN
   # BUDGET and docs/measurements/T-0437-checkouts.json retain the full record.
   # Re-measure before changing this number; the eight-leg coverage is unchanged.
+  #
+  # T-2044 APPENDED PART 14 — the arrival-to-jaunt path on a fresh context — as a
+  # leg of its own, `14`, rather than widening `10-13`: the desktop tail is the
+  # largest body measured above (1930 s), and part 14 boots the town a second
+  # time. Ten legs now tile 1..14; parts 1-13 and their legs are untouched.
   smoke:
     needs: bake
     runs-on: ubuntu-latest
@@ -589,7 +594,7 @@ jobs:
       fail-fast: false
       matrix:
         viewport: [mobile, desktop]
-        stage: ['1-2', '3-6', '7-9', '10-13']
+        stage: ['1-2', '3-6', '7-9', '10-13', '14']
     steps:
       # T-0437: smoke imports tools and reads its two baseline JSON files;
       # the boot check also reads docs/SITE-BUDGET.md. All browser inputs come
