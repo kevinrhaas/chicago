@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1330, ts: '2026-10-02T23:53:15.980Z', date: 'Oct 2, 2026, 6:53 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+  { v: 1331, ts: '2026-10-03T00:08:09.855Z', date: 'Oct 2, 2026, 7:08 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [
       'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
       'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
       'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
+  { v: 1330, ts: '2026-10-02T23:49:18.714Z', date: 'Oct 2, 2026, 6:49 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
+    items: [
+      'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',
+      'Eleven more keepers read the same. The other 26 now say which unbuilt or unsettled roof their house is waiting for.',
+      'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 40 to 28.',
     ] },
   { v: 1329, ts: '2026-10-02T23:07:46.373Z', date: 'Oct 2, 2026, 6:07 PM CT', title: 'Reconstructing the town now says whether the town is finished', kind: 'change',
     items: [

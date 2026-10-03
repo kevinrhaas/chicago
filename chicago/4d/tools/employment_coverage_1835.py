@@ -45,7 +45,9 @@ THE FIVE ANSWERS. Every person gets exactly one, and the first three are the tic
   `on_their_own_account`             `premises_rulings.json` says this trade kept
                                      premises of its own. They are their own employer,
                                      and where the layer holds no such record the house
-                                     is OWED rather than absent.
+                                     is OWED rather than absent — unless it is a roof
+                                     the programme has none left to owe, which is
+                                     stated (T-1997).
   `at_a_trade_with_no_house_to_join` they carry a trade and the business layer holds no
                                      house this project may join them to. Five reasons:
                                      four are somebody else's ticket to close, and one
@@ -130,7 +132,8 @@ STATUSES = {
                          "joined_by_the_attested_trade_ruling"),
     "at_a_seat_this_project_drew": ("seated_by_the_staffing_model",
                                     "drawn_onto_a_house_s_staff"),
-    "on_their_own_account": ("keeps_their_own_house", "keeps_a_house_the_register_holds"),
+    "on_their_own_account": ("keeps_their_own_house", "keeps_a_house_the_register_holds",
+                             "roofs_kept_none_owed"),
     "at_a_trade_with_no_house_to_join": (
         "no_employer_named", "class_held_no_house", "class_full_none_owed",
         "trade_attested_no_house_named", "no_ruling_on_the_trade",
@@ -175,6 +178,13 @@ WORDS = {
         "band's high end. The trade keeps no house of its own, so none is owed: the town "
         "is not short a house, and the person follows the trade with no room in it to "
         "join (T-1995).",
+    "roofs_kept_none_owed":
+        "The trade's house is a roof the programme schedules, a boarding house, and the "
+        "order book cannot count one. Every standing boarding house is kept, and the "
+        "roofs the programme still schedules are owed to the keepers ahead of this one in "
+        "a seeded draw, so none is owed: the town is not short a boarding house this "
+        "person would keep. They are still their own employer, and carry the trade on "
+        "their own account with no house of their own (T-1997).",
     "trade_attested_no_house_named":
         "The sources name this person's trade and name no house for it. Drawing one "
         "would put a man the record knows into a shop nobody put him in, so no seat is "
@@ -493,7 +503,8 @@ def age_scope(band, floor: int) -> str:
     return "age_is_not_settled"
 
 
-#: T-1433's six kinds (T-1995 added `class_full_none_owed`), mapped onto this pass's
+#: T-1433's seven kinds (T-1995 added `class_full_none_owed`, T-1997
+#: `roofs_kept_none_owed`), mapped onto this pass's
 #: answers. The mapping is the whole of what this pass says about those 524 people: it
 #: re-words nothing and re-decides nothing.
 FROM_SEATING = {
@@ -501,6 +512,7 @@ FROM_SEATING = {
     "keeps_their_own_house": ("on_their_own_account", "keeps_their_own_house"),
     "class_held_no_house": ("at_a_trade_with_no_house_to_join", "class_held_no_house"),
     "class_full_none_owed": ("at_a_trade_with_no_house_to_join", "class_full_none_owed"),
+    "roofs_kept_none_owed": ("on_their_own_account", "roofs_kept_none_owed"),
     "no_employer_named": ("at_a_trade_with_no_house_to_join", "no_employer_named"),
     "no_ruling": ("at_a_trade_with_no_house_to_join", "no_ruling_on_the_trade"),
 }
