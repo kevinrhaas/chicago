@@ -1,0 +1,162 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 9 min at Walk",
+      "wagon": "about 5 min at Wagon",
+      "horse": "about 4 min at Horse",
+      "fly": "about 3.5 min at Fly",
+      "instantly": "about 2.5 min at Instantly"
+    },
+    "measured": {
+      "walk": {
+        "estimate": 532.4878509261409,
+        "reading": 159,
+        "legs": [
+          41.733333333333526,
+          171.59999999999283,
+          149.99999999999406
+        ],
+        "seconds": 522.3333333333204,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      },
+      "wagon": {
+        "estimate": 310.32843995636233,
+        "reading": 159,
+        "legs": [
+          17.600000000000033,
+          69.93333333333193,
+          62.63333333333234
+        ],
+        "seconds": 309.1666666666643,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      },
+      "horse": {
+        "estimate": 243.4819052066007,
+        "reading": 159,
+        "legs": [
+          10.166666666666641,
+          39.266666666667,
+          35.200000000000564
+        ],
+        "seconds": 243.6333333333342,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      },
+      "fly": {
+        "estimate": 199.67327482171655,
+        "reading": 159,
+        "legs": [
+          5.899999999999989,
+          14.366666666666626,
+          13.999999999999961
+        ],
+        "seconds": 193.2666666666666,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      }
+    },
+    "ui_drive": {
+      "ending": "merchant-at-the-exchange",
+      "detail_card_returned_to_same_stop": true,
+      "after_end_phase": "menu",
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png",
+        "390-menu.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "unread": "locator.waitFor: Timeout 30000ms exceeded."
+    },
+    "measured": {
+      "walk": {
+        "estimate": 493.47038124408425,
+        "reading": 159,
+        "legs": [
+          33.800000000000644,
+          154.53333333332714,
+          143.9999999999944
+        ],
+        "seconds": 491.3333333333222,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      },
+      "wagon": {
+        "estimate": 294.6130702233117,
+        "reading": 159,
+        "legs": [
+          15.766666666666621,
+          63.033333333332315,
+          58.866666666665886
+        ],
+        "seconds": 296.6666666666648,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      },
+      "horse": {
+        "estimate": 234.7780081236803,
+        "reading": 159,
+        "legs": [
+          9.566666666666643,
+          35.30000000000056,
+          33.133333333334015
+        ],
+        "seconds": 237.00000000000122,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      },
+      "fly": {
+        "estimate": 197.981393852004,
+        "reading": 159,
+        "legs": [
+          4.999999999999992,
+          13.199999999999964,
+          14.666666666666625
+        ],
+        "seconds": 191.8666666666666,
+        "phase": "outcome",
+        "outcome": "merchant-at-the-exchange",
+        "path": [
+          "merchant-letter",
+          "card-at-exchange"
+        ]
+      }
+    },
+    "page_errors": 0
+  }
+}
