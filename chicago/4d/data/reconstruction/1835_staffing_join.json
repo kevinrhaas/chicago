@@ -16,12 +16,12 @@
   ],
   "counts": {
     "business_records": 193,
-    "person_rows_in_the_business_layer": 317,
+    "person_rows_in_the_business_layer": 320,
     "rows_carrying_a_person_id": 143,
     "distinct_persons_tied_to_a_workplace": 112,
     "businesses_with_at_least_one_named_person": 155,
     "businesses_with_none": 38,
-    "town_cards": 3369
+    "town_cards": 3373
   },
   "by_role": [
     {
@@ -256,7 +256,7 @@
     ]
   },
   "what_this_does_not_do": {
-    "it_does_not_carry_the_reconstructed_seats_onto_the_cards": "T-1462 put 122 reconstructed hands on the business records — the seats T-1433 drew — and this join leaves every one of them off `workplaces`. `workplaces` is the list of houses a SOURCE puts a person in; the seats' person-side record is data/residents/reconstructed_seating.json, which re-derives under its own gate and states, for each one, which term of the order rule seated them where. Three fifths of those people stand outside `households/` in directories their own mints re-derive whole, so carrying the key back needs those mints to carry it, and writing it for the minority that do stand in `households/` would make one seat read as a workplace and the next as nothing at all.",
+    "it_does_not_carry_the_reconstructed_seats_onto_the_cards": "T-1462 put 125 reconstructed hands on the business records — the seats T-1433 drew — and this join leaves every one of them off `workplaces`. `workplaces` is the list of houses a SOURCE puts a person in; the seats' person-side record is data/residents/reconstructed_seating.json, which re-derives under its own gate and states, for each one, which term of the order rule seated them where. Three fifths of those people stand outside `households/` in directories their own mints re-derive whole, so carrying the key back needs those mints to carry it, and writing it for the minority that do stand in `households/` would make one seat read as a workplace and the next as nothing at all.",
     "the_shortfall_is_left_standing": "The staffing model implies 65–199–411 hands over 176 houses. This join writes none of them: it carries across only what a source already names.",
     "T-1433": "Seats the reconstructed residents who have a trade and no workplace, and gives the no-fixed-premises trades their employer or a casual entry with its reason.",
     "T-1434": "Mints the shortfall to the model's typical band, gives every working-age person a workplace or an explicit reason, and prints the filled count on the business card and in the order book."

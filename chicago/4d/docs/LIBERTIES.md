@@ -13318,8 +13318,9 @@ have no household attached to give them one — so thirteen ordinary-night beds 
 at the end of this stage and the ledger names every one of them rather than guessing a
 division to spend a bucket on. It gives **no named house a keeper**: who kept the New York
 House in 1835 is a research question, and a reconstructed proprietor inside a documented
-building would be an answer the sources never gave. It deals **no trade onto a lodger** —
-that is T-1173's machinery and the 1839 shares are its table — and it draws **no child**,
+building would be an answer the sources never gave. It deals **no trade onto a boarder** —
+that is T-1173's machinery and the 1839 shares are its table; the working lodgers T-1532
+deals last read their trade through T-1347's own reader — and it draws **no child**,
 because the 156 people under ten the book orders into lodging households are keepers'
 families and not boarders. And it draws **no keeper's family**, despite the ticket's own
 title saying "with each keeper's own household complete": the kin of a household are
