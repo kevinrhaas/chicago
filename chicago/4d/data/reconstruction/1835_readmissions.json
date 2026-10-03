@@ -71,24 +71,24 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 902,
+   "R1_in_window_uncertain": 894,
    "R2_in_window_single_source": 207,
    "R3_1834_return_or_muster": 28,
    "R5_later_only_backprojectable": 53
   },
   "readmitted": {
-   "R1_in_window_uncertain": 787,
+   "R1_in_window_uncertain": 782,
    "R2_in_window_single_source": 62,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
   },
   "withheld": {
-   "R1_in_window_uncertain": 115,
+   "R1_in_window_uncertain": 112,
    "R2_in_window_single_source": 145,
    "R3_1834_return_or_muster": 8,
    "R5_later_only_backprojectable": 14
   },
-  "presence_ruled_present": 744,
+  "presence_ruled_present": 739,
   "presence_ruled_absent": 43,
   "cards_minted": 121,
   "minted_present": 111
@@ -2163,34 +2163,6 @@
      "note": "The corpus last names this person on 1835, 0.50 years before the scene date, and says nothing after it. The persistence model gives 0.969 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_blaisdell_b:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_blake_edio_l",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_blake_edio_l",
-   "name_as_read": "Edio L Blake",
-   "dated_evidence": "1835",
-   "dated_evidence_read_as": "1835-01-01",
-   "years_before_the_scene": 0.4956,
-   "persistence": 0.969,
-   "seed": "hh_blake_edio_l:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1835, 0.50 years before the scene date, and says nothing after it. The persistence model gives 0.969 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_blake_edio_l:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -5588,34 +5560,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_dell_frank",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_dell_frank",
-   "name_as_read": "Frank Dell",
-   "dated_evidence": "1834",
-   "dated_evidence_read_as": "1834-01-01",
-   "years_before_the_scene": 1.4949,
-   "persistence": 0.9094,
-   "seed": "hh_dell_frank:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834, 1.49 years before the scene date, and says nothing after it. The persistence model gives 0.909 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_dell_frank:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_derocher_jean_baptiste",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_derocher_jean_baptiste",
@@ -7016,34 +6960,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_field_secretary",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_field_secretary",
-   "name_as_read": "Secretary Field",
-   "dated_evidence": "1835-06-24",
-   "dated_evidence_read_as": "1835-06-24",
-   "years_before_the_scene": 0.0192,
-   "persistence": 0.9988,
-   "seed": "hh_field_secretary:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1835-06-24, 0.02 years before the scene date, and says nothing after it. The persistence model gives 0.999 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_field_secretary:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_filer_a",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_filer_a",
@@ -7119,34 +7035,6 @@
      "note": "The corpus last names this person on 1835-02-23, 0.35 years before the scene date, and says nothing after it. The persistence model gives 0.978 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_finegan_bridget:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_finley_clement_a",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_finley_clement_a",
-   "name_as_read": "Clement A Finley",
-   "dated_evidence": "1833",
-   "dated_evidence_read_as": "1833-01-01",
-   "years_before_the_scene": 2.4942,
-   "persistence": 0.8534,
-   "seed": "hh_finley_clement_a:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1833, 2.49 years before the scene date, and says nothing after it. The persistence model gives 0.853 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_finley_clement_a:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -21660,34 +21548,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_witkins_thomas",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_witkins_thomas",
-   "name_as_read": "Thomas Witkins",
-   "dated_evidence": "1835-04-21",
-   "dated_evidence_read_as": "1835-04-21",
-   "years_before_the_scene": 0.1944,
-   "persistence": 0.9877,
-   "seed": "hh_witkins_thomas:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1835-04-21, 0.19 years before the scene date, and says nothing after it. The persistence model gives 0.988 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_witkins_thomas:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_wode_catherine",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_wode_catherine",
@@ -24800,13 +24660,6 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_beaubien_b",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "B Beaubien",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_bennett_h_c",
    "class": "R1_in_window_uncertain",
    "name_as_read": "H. C. Bennett",
@@ -24852,13 +24705,6 @@
    "row_id": "card:hh_brackett_e_c",
    "class": "R1_in_window_uncertain",
    "name_as_read": "E C Brackett",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_braxton_lewis",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Lewis Braxton",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
@@ -25029,13 +24875,6 @@
    "name_as_read": "Hiram Everts",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_foot_s",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "S. Foot",
-   "reason": "the_evidence_pins_no_day_before_the_scene",
-   "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_forbes_stephen",

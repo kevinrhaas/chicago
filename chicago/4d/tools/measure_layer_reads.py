@@ -869,6 +869,12 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "modelled_family.kin_seated": ("shown", "escapeHtml(String(block.kin_seated))"),
     "modelled_family.seed": ("shown", "escapeHtml(String(block.seed))"),
     "modelled_family.note": ("shown", "escapeHtml(String(block.note || ''))"),
+    # T-2020. A married house given the wife and children of a woman-headed house the town
+    # already held: `marriedHtml` prints the whole sub-block under the family the model drew.
+    "modelled_family.married.ticket": ("shown", "escapeHtml(String(married.ticket))"),
+    "modelled_family.married.wife": ("shown", "escapeHtml(String(married.wife))"),
+    "modelled_family.married.from_household": ("shown", "escapeHtml(String(married.from_household))"),
+    "modelled_family.married.what_happened": ("shown", "escapeHtml(String(married.what_happened || ''))"),
     # T-1564. THE ONE FIGURE OF THE RE-FAMILY BLOCK A RENDERER ALREADY REACHES. The
     # household card's `refamilied` block records the move a held head was counted into,
     # and `businessBlockHtml` prints the `withdrawn_if` of any block it is handed — so
@@ -882,6 +888,10 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # `basis`, `seed` and `replaceable_by` read through the same expressions the blocks do.
     "persons[].reconstruction.stage": ("shown", "escapeHtml(String(rc.stage || ''))"),
     "persons[].reconstruction.ticket": ("shown", "escapeHtml(String(rc.ticket))"),
+    # T-2020. Where a person moved by a fold was dealt, printed under why they are here.
+    "persons[].folded_in.ticket": ("shown", "escapeHtml(String(folded.ticket))"),
+    "persons[].folded_in.from_household": ("shown", "escapeHtml(String(folded.from_household))"),
+    "persons[].folded_in.relationship_as_dealt": ("shown", "escapeHtml(words(folded.relationship_as_dealt))"),
     "persons[].reconstruction.community": ("shown", "escapeHtml(words(rc.community))"),
     "persons[].reconstruction.review_required": (
         "shown", "rc.review_required ? ' This reconstruction carries a standing review.'"),

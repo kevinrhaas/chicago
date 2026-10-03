@@ -27,9 +27,9 @@ Each line is *how many of the 2383 people carry at least one record of that kind
 | --- | ---: | ---: | --- |
 | identities | **1401** | 58.8% | a name with at least one source id anywhere on the card |
 | occupations | **340** | 14.3% | an occupation that is not `none_recorded` |
-| household membership | **1102** | 46.2% | recorded inside a household of two or more people |
-| kinship | **684** | 28.7% | a stated kin relationship (brother, child, daughter, father, husband, mother, sister, son, wife) |
-| property / address | **269** | 11.3% | the household resolves a `lives_at` or a `works_at` |
+| household membership | **1200** | 50.4% | recorded inside a household of two or more people |
+| kinship | **775** | 32.5% | a stated kin relationship (brother, child, daughter, father, husband, mother, sister, son, wife) |
+| property / address | **276** | 11.6% | the household resolves a `lives_at` or a `works_at` |
 | voter / civic evidence | **304** | 12.8% | a poll book, tax list, muster roll, treaty payment or other public record |
 | census linkage | **47** | 2.0% | an 1840 census row bridged to this person |
 
@@ -327,9 +327,9 @@ defect in this export.
 | gap | people | what it means |
 | --- | ---: | --- |
 | no census linkage | 2336 | no 1840 census row is bridged to this person |
-| no address | 2114 | neither `lives_at` nor `works_at` resolves |
+| no address | 2107 | neither `lives_at` nor `works_at` resolves |
+| unplaced | 1917 | the household carries division `unplaced`: in the town, on no lot |
 | no research row | 1547 | no cohort ticket has reviewed this person; the programme reached 836 of 2383 |
-| unplaced | 1526 | the household carries division `unplaced`: in the town, on no lot |
 | no source of their own | 982 | the collective `household_member` rows — "the rest of the Beaubien household, unnamed" and its two fellows — which are an inferred count of people, not named individuals; the household record carries the sources |
 | rests on one source | 921 | one source id on the card and no second category to check it against |
 | rests on the letter lists alone | 564 | known only from the post office's uncalled-for lists |

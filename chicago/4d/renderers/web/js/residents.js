@@ -1391,8 +1391,16 @@ function reconstructionHtml(person) {
       “${escapeHtml(String(rc.band_1840))}”${span ? `, which is ${escapeHtml(span)} on 1 July 1835` : ''}.
       </span>` : ''}${
     rc.community ? `<br><span class="res-why">The invented forename is drawn from the
-      ${escapeHtml(String(rc.community))} pool.</span>` : ''}
+      ${escapeHtml(String(rc.community))} pool.</span>` : ''}${foldedInHtml(person.folded_in)}
     ${basisHtml(person)}</dd>`;
+}
+
+/** T-2020: a person moved, with the house they were dealt in, into a married house. */
+function foldedInHtml(folded) {
+  if (!folded || typeof folded !== 'object') return '';
+  return `<br><span class="res-why">Dealt as ${escapeHtml(words(folded.relationship_as_dealt))}
+    of the house <code>${escapeHtml(String(folded.from_household))}</code>, which
+    ${escapeHtml(String(folded.ticket))} folded into this one.</span>`;
 }
 
 /**
@@ -1810,7 +1818,20 @@ function modelledFamilyHtml(block) {
     of the 1835 resident reconstruction programme, ${escapeHtml(String(block.ticket))}.
     ${escapeHtml(String(block.note || ''))}${
     block.seed ? ` Redrawn with the seed <code>${escapeHtml(String(block.seed))}</code>.` : ''}
-    </span></dd>`;
+    </span></dd>${marriedHtml(block.married)}`;
+}
+
+/**
+ * T-2020: a married house the order book had no woman left for, given the wife and
+ * children of a woman-headed house the town already held rather than drawn ones.
+ */
+function marriedHtml(married) {
+  if (!married || typeof married !== 'object') return '';
+  return `<dt>Where the wife and children came from</dt><dd>${swatch('reconstructed')}
+    ${escapeHtml(String(married.what_happened || ''))}
+    <br><span class="res-why">Moved by ${escapeHtml(String(married.ticket))}: the wife
+    <code>${escapeHtml(String(married.wife))}</code> and her house, once the record
+    <code>${escapeHtml(String(married.from_household))}</code>.</span></dd>`;
 }
 
 export function householdHtml(hh, citationsById, researchByPerson, directoryByPerson, ladderRules,

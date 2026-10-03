@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 464. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -35,7 +35,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 ### households are counted in two different units
 
-*The model wants 643 households and the layer holds 1,510 records. Are those the same thing?*
+*The model wants 643 households and the layer holds 1,419 records. Are those the same thing?*
 
 Of the 1,375 records the layer holds present, 82 carry a reading about a dwelling and 1,293 do not. The quota is taken against the 82, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
@@ -345,7 +345,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 | ticket | persons drawn | buckets |
 |---|---:|---:|
-| T-1174 | 680 | 27 |
+| T-1174 | 589 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 295 | 19 |
 | T-1371 | 132 | 34 |
@@ -372,30 +372,30 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 ## Real names before invented ones
 
-The roster offers 1,787 names the corpus printed and this project withheld. Each class is a licence, not a quota:
+The roster offers 1,779 names the corpus printed and this project withheld. Each class is a licence, not a quota:
 
 | class | offered | ticket |
 |---|---:|---|
-| `R1_in_window_uncertain` | 902 | T-1172 |
+| `R1_in_window_uncertain` | 894 | T-1172 |
 | `R2_in_window_single_source` | 207 | T-1172 |
 | `R3_1834_return_or_muster` | 28 | T-1172 |
-| `R4_surname_only_census` | 436 | T-1170 |
+| `R4_surname_only_census` | 428 | T-1170 |
 | `R5_later_only_backprojectable` | 53 | T-1172 |
-| `R6_native_metis_black` | 161 | T-1177 |
+| `R6_native_metis_black` | 169 | T-1177 |
 
 ## Where the ordered households are standing
 
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
-- offered ground: 1,478
+- offered ground: 1,387
 - seated: 252 — 223 by adopting a roof that already stands, 29 by asking for one
-- still on no ground at all: 1,226
+- still on no ground at all: 1,135
 - of the 547 roofs the town already has, 223 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,478 | 179 | 150 | 29 | 1,299 |
-| The ground the plat does not draw | T-1614 | 1,299 | 73 | 73 | 0 | 1,226 |
+| The committed plat | T-1613 | 1,387 | 179 | 150 | 29 | 1,208 |
+| The ground the plat does not draw | T-1614 | 1,208 | 73 | 73 | 0 | 1,135 |
 
 29 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -431,7 +431,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_barre_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D2 | `labourer_dwellings` |
 | `hh_bruno_anne_franoise_apolline` | `blk_west_lake_canal` | `blk_west_lake_canal#08` | D2 | `labourer_dwellings` |
 
-1,226 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,135 of the 1,387 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -591,9 +591,9 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 1 | 11 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 7 | 34 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 1 | 8 | 2 | T-2023 |
-| `households/family_dwelling/north` | 123 | 12 | 111 | 26 | T-2021 |
-| `households/family_dwelling/south` | 258 | 41 | 217 | 65 | T-2021 |
-| `households/family_dwelling/west` | 110 | 7 | 103 | 33 | T-2021 |
+| `households/family_dwelling/north` | 123 | 12 | 111 | 8 | T-2021 |
+| `households/family_dwelling/south` | 258 | 41 | 217 | 15 | T-2021 |
+| `households/family_dwelling/west` | 110 | 7 | 103 | 10 | T-2021 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
 | `households/inn_tavern/south` | 7 | 1 | 6 | 6 | T-2023 |
 | `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-2023 |
