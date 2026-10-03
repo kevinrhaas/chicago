@@ -7,24 +7,24 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 299,
+  "dwellings": 300,
   "by_row": {
    "cabin": 41,
    "cottage": 130,
    "house": 54,
    "keeper": 18,
    "merchant": 29,
-   "shanty": 26
+   "shanty": 27
   },
   "by_class": {
    "keeper": 18,
-   "labourer": 69,
+   "labourer": 70,
    "merchant": 29,
    "tradesman": 182
   },
   "by_basis": {
    "default": 18,
-   "fabric_rule": 250,
+   "fabric_rule": 251,
    "function": 6,
    "household_trade": 10,
    "reconstruction_occupation": 14
@@ -33,9 +33,9 @@
    "chopping_block": 272,
    "cordwood": 300,
    "log_heap": 41,
-   "slab_heap": 26
+   "slab_heap": 27
   },
-  "piled": 298,
+  "piled": 299,
   "refused": 1
  },
  "existence": {
@@ -10062,6 +10062,30 @@
      "bearing_deg": 267.0,
      "pieces": 12,
      "seed": 889094539
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_west_013",
+   "name": "Reconstructed D2 rough plank dwelling or shanty #022",
+   "function": "rough_plank_dwelling_or_shanty",
+   "household_class": "labourer",
+   "household_by": "fabric_rule",
+   "house": "shanty",
+   "row": "shanty",
+   "rule": "Y-W1",
+   "confidence": "reconstructed",
+   "wall": "side",
+   "items": [
+    {
+     "kind": "slab_heap",
+     "at_local_enu_m": [
+      -311.09,
+      -88.71
+     ],
+     "bearing_deg": 269.0,
+     "pieces": 8,
+     "seed": 1816268508
     }
    ]
   },

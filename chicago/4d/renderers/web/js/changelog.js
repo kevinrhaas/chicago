@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1332, ts: '2026-10-03T00:31:39.376Z', date: 'Oct 2, 2026, 7:31 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+  { v: 1333, ts: '2026-10-03T00:57:48.917Z', date: 'Oct 2, 2026, 7:57 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [
       'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
       'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
       'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
+  { v: 1332, ts: '2026-10-03T00:26:46.380Z', date: 'Oct 2, 2026, 7:26 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
+    items: [
+      'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five moves in, and nine more households that were waiting now have a roof.',
+      'The joiner\u2019s shop on Randolph at Des Plaines, the narrow warehouse at the forks and the two-storey store on Lake stay empty, and their cards now say why. The town already has more mechanics\u2019 shops, stores and forwarding houses than were counted in 1835, so a carpenter, grocer or forwarder there would be one too many.',
+      'The big riverside work shop on Wolcott stays empty too, and its card says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
     ] },
   { v: 1331, ts: '2026-10-03T00:20:58.425Z', date: 'Oct 2, 2026, 7:20 PM CT', title: 'A new jaunt: Outfit for the West', kind: 'feature',
     items: [

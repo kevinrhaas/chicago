@@ -168,6 +168,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the C3 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
+    },
+    "stated_use": {
+      "value": "the_printed_count_is_held",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE SOUTH DIVISION. This narrow two story store is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'), and there are 0. 18 more keeper(s) of a trade it serves live in the south division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
     }
   },
   "residents": [],

@@ -286,15 +286,15 @@
    "west/tradesman_dwellings": 137
   },
   "reconstructed_seats": 1509,
-  "dealt_a_roof": 251,
-  "dealt_a_standing_roof": 222,
+  "dealt_a_roof": 252,
+  "dealt_a_standing_roof": 223,
   "dealt_a_slot_not_yet_built": 29,
   "dealt_by_ticket": {
    "T-1613": 179,
-   "T-1614": 72
+   "T-1614": 73
   },
   "dealt_by_ground": {
-   "off_plat_parcel": 72,
+   "off_plat_parcel": 73,
    "platted_lot": 179
   }
  },
@@ -46970,7 +46970,7 @@
    },
    "seed": "hh_rc_doyle_ellen|west|domestic|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_011",
+    "structure_id": "recon_1835_west_013",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
@@ -46985,7 +46985,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_011, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_013, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47022,14 +47022,14 @@
    },
    "seed": "hh_rc_duffy_margaret|west|domestic|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_001",
+    "structure_id": "recon_1835_west_011",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
     "on": "canal_commissioners_1830",
     "block_id": null,
     "fronts": null,
-    "family": "D1",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "west",
     "stands_on": "tract",
@@ -47037,7 +47037,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_001, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_011, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -47127,7 +47127,24 @@
     "from_trade": "laundress"
    },
    "seed": "hh_rc_eastman_emily|west|laundress|T-1512",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_west_001",
+    "how": "adopted",
+    "dealt_by": "T-1614",
+    "ground": "off_plat_parcel",
+    "on": "canal_commissioners_1830",
+    "block_id": null,
+    "fronts": null,
+    "family": "D1",
+    "clause": "labourer_dwellings",
+    "district": "west",
+    "stands_on": "tract",
+    "deal_seed": "hh_rc_eastman_emily|west|laundress|T-1512",
+    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_001, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_rc_eastman_esther",
