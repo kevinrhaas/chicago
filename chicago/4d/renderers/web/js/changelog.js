@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1354, ts: '2026-10-03T08:26:22.962Z', date: 'Oct 3, 2026, 3:26 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+  { v: 1355, ts: '2026-10-03T08:59:40.491Z', date: 'Oct 3, 2026, 3:59 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [
       'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
       'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
       'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
+    ] },
+  { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed, and nobody moved house.',
+      'The model wants 368 of the town\u2019s lone men married, but the town has no unmarried woman left to draw for them. We counted how many could marry a woman already keeping her own house here, keeping each pair\u2019s ages plausible: 91 can. The other 277 cannot marry anyone the town holds.',
+      'The Liberties note on reconstructed families now says so. Moving those women would not even out the town\u2019s men and women either: a move adds nobody.',
     ] },
   { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
     items: [

@@ -12765,13 +12765,17 @@ documented heads the order book had been refusing, which is why the head count r
 people count fell. A source saying one of these five men kept a house retires the container, not
 the refusal.
 
-**What it does not fix.** The layer's adult sex ratio moves from 583.7 men per 100 women to 412.9
-and the model's range is 120.9 to 150.0. It is not met and this stage cannot meet it: T-1174 and
-T-1347 drew the women and children the pyramid was short, but as records of their own rather than
-into these houses, and 310 married houses this stage drew stand with no woman left in their cell.
-Re-housing them is T-1179's convergence. The measurement is printed against the model in
-`data/reconstruction/1835_modelled_families.json` and says so rather than reading as a target
-reached.
+**What it does not fix.** The layer's adult sex ratio moves from 614.7 men per 100 women to 435.4
+(2026-10-03) and the model's range is 120.9 to 150.0. It is not met and this stage cannot meet it:
+T-1174 and T-1347 drew the women and children the pyramid was short, but as records of their own
+rather than into these houses, and 368 married houses this stage drew stand with no woman left in
+their cell. **Moving those women would not meet it either**, because a move puts nobody new in the
+town. What a move would change is who keeps house with whom, and T-2019 measured how far that
+goes before anybody is moved: 91 of the 368 houses could take the wife and children of one of
+T-1174's woman-headed houses by this stage's own spacing rule and child cap, and 277 can take no
+woman the town holds. T-2020 makes those moves; T-2021 rules on the rest. The measurement is
+printed against the model in `data/reconstruction/1835_modelled_families.json` (`re_housing`) and
+says so rather than reading as a target reached.
 
 Related: tickets **T-1171**, from **T-1167**; **T-1161**'s town model and **T-1166**'s order book
 are the two files it draws against. **Recorded:** 2026-09-18.
