@@ -2795,7 +2795,7 @@ for (const [label, viewport, touch] of [
       // working yard, an animal pen and a picketed dooryard. Not a centroid: the
       // Western Hotel's yard is an L wrapped round the hotel's own corner and
       // the average of its six corners lands inside the hotel.
-      const wanted = ['worn_earth', 'trodden_earth', 'dooryard_garden'];
+      const wanted = ['worn_earth', 'trodden_earth', 'road_earth', 'dooryard_garden'];
       const stands = wanted.map((t) => {
         const i = (y?.interiors ?? []).find((x) => x.treatment === t);
         if (!i) return { treatment: t, missing: true };
@@ -2895,7 +2895,8 @@ for (const [label, viewport, touch] of [
     check(`${label}: every fenced interior in the town carries a ground treatment`,
       fenced.declared.length >= 4 && fenced.declared.every((d) => d.interiors >= 1)
       && fenced.census?.interiors >= 8 && fenced.meshes >= 3 && fenced.tris > 0
-      && Object.keys(fenced.census?.byTreatment ?? {}).length === 3,
+      // T-2013: a fourth, `road_earth` — the town's door ground in the road's dirt.
+      && Object.keys(fenced.census?.byTreatment ?? {}).length === 4,
       `${fenced.declared.length} record(s) declare a treatment `
       + `[${fenced.declared.map((d) => `${d.id} ${d.treatment} x${d.interiors}`).join(', ')}]; `
       + `${fenced.census?.interiors} interior(s) in ${fenced.meshes} mesh(es), `

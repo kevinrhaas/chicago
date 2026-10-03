@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Plank walks down the cross streets', kind: 'feature',
+  { v: 1347, ts: '2026-10-03T05:43:57.132Z', date: 'Oct 3, 2026, 12:43 AM CT', title: 'Plank walks down the cross streets', kind: 'feature',
     items: [
       'Market, Franklin, Wells, La Salle, Clark, Dearborn and State Streets now have the same plank sidewalks as Lake, South Water, Randolph and Washington. That is nearly five more kilometres of boards on 46 block fronts.',
       'Board crossings join them at the corners, so you can walk the town\u2019s grid on planks and turn any corner without stepping into the mud.',
       'Like the walks on the other streets, these are our reconstruction from the plat, drawn by the same rule.',
       'On the Light setting, the one a phone starts on, the cross-street walks are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
+    ] },
+  { v: 1346, ts: '2026-10-03T05:18:28.781Z', date: 'Oct 3, 2026, 12:18 AM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
+    items: [
+      'Stand on Lake Street in front of Matthias Mason\u2019s smithy and look at the worn path to his door. It now has the same grain and colour as the street it runs into, with no seam where the two meet.',
+      'The worn ground before every door in town was drawn in a darker, coarser dirt that looked blocky up close. It is now drawn from the road\u2019s own surface, and its edge fades softly into the grass.',
+    ] },
+  { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
+    items: [
+      'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
+      'The north windows sit beneath the eave. The entrance stonework, stable doors and loft surround follow the architectural references more closely.',
+      'Measured stone courses guide the north openings; the west elevation and unmeasured details remain declared reconstructions.'
     ] },
   { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
     items: [

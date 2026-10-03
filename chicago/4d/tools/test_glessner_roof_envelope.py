@@ -27,22 +27,62 @@ for i in range(1800):
         assert abs(n[2])>1e-10
         actual=a[2]-(n[0]*(x-a[0])+n[1]*(y-a[1]))/n[2]
         assert abs(actual-max(expected))<1e-6,(i,actual,max(expected))
-# Owner's rear correction: equal shoulders, centered solid gable, no rear hip,
-# and an unbroken level ridge from the front gable to the rear wall.
+# The active reconstruction has a lower rear gable. Test its silhouette against
+# explicit owner-reference proportions, not merely the implementation's planes.
 g=r['stable_roof'];mid=(r['x0']+r['x1'])/2
 assert r['conf_roof']==r['conf_plan']==1.0
-assert abs(g['rear_x']-mid)<1e-4
-for y in [r['y0'],(74-40)*.3048,g['north_range']['y0']]:
-    assert abs(height(r,mid,y)-38.6*.3048)<1e-4
-    for offset in [0,1,2,3,4]:
-        assert abs(height(r,mid-offset,y)-height(r,mid+offset,y))<1e-4
-for i in range(41):
-    t=i/40;lo,hi=g['north_range']['y0'],g['cross_y']
-    x=g['rear_x']+(r['ridge_at']-g['rear_x'])*t
-    assert abs(height(r,x,lo+(hi-lo)*t)-38.6*.3048)<1e-4
-assert abs(height(r,r['x0'],r['y0'])-26.5*.3048)<1e-4
-assert abs(height(r,r['x1'],r['y0'])-g['north_range']['eave_lo_z'])<1e-4
-for W in [139,144,149]:assert height(r,(161.25-W)*.3048,r['y0'])>=23*.3048
+if g.get('lower_rear_gable'):
+    assert not g.get('continuous_south_gable')
+    assert abs(g['cross_y']-(74-18.4)*.3048)<1e-4
+    assert abs(height(r,r['x0'],g['cross_y'])-38.6*.3048)<1e-4
+    assert abs(height(r,r['x0'],r['y1'])-23.1*.3048)<1e-4
+    for south in [35,40,50,59.75]:
+        y=(74-south)*.3048
+        assert abs(height(r,r['x0'],y)-16.5*.3048)<1e-4
+        assert abs(height(r,g['rear_x'],y)-25.5*.3048)<1e-4
+        assert abs(height(r,r['x1'],y)-23.1*.3048)<1e-4
+    # The east edge must meet the independent, measured north-range section.
+    # Roof-wall rays alone could pass while leaving a vertical gap at this join.
+    import math
+    n=g['north_range'];run=n['kick']['run_m'];yk=n['y0']+run
+    rise=math.tan(math.radians(n['kick']['pitch_deg']))
+    zk=n['eave_lo_z']+run*rise
+    for i in range(81):
+        y=n['y0']-.20+(n['y1']-n['y0']+.20)*i/80
+        if y<=yk:expected=n['eave_lo_z']+(y-n['y0'])*rise
+        elif y<=n['ridge_at']:expected=zk+(n['ridge_z']-zk)*(y-yk)/(n['ridge_at']-yk)
+        else:expected=n['ridge_z']+(n['eave_hi_z']-n['ridge_z'])*(y-n['ridge_at'])/(n['y1']-n['ridge_at'])
+        assert abs(height(r,r['x1'],y)-expected)<1e-5,(y,expected)
+    # Every internal envelope edge meets its neighbour. A cover-count test alone
+    # cannot detect an abrupt height step between two nonoverlapping patches.
+    for _,pts in patches(r,False):
+        for a,b in zip(pts,pts[1:]+pts[:1]):
+            dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
+            if length<1e-8:continue
+            for t in [.2,.5,.8]:
+                x=a[0]+dx*t;y=a[1]+dy*t
+                if not (r['x0']-.15+1e-5<x<r['x1']-1e-5 and r['y0']-.20+1e-5<y<r['y1']-1e-5):continue
+                xx,yy=-dy/length*1e-6,dx/length*1e-6
+                assert abs(height(r,x+xx,y+yy)-height(r,x-xx,y-yy))<1e-4,(x,y)
+    # Upper court/south windows remain below the actual roof, including reveals.
+    for o in p.openings:
+        if o['face']=='south' and abs(o['at']-r['y0'])<1e-5:
+            for x in (o['u0']-.24,o['u1']+.24):
+                assert height(r,x,r['y0'])>=o['z1']+.21+.06,(o,x,height(r,x,r['y0']))
+else:
+    assert abs(g['rear_x']-mid)<1e-4
+    # Retain T-1833's prior mode contract; a record selecting that historical
+    # reconstruction must still get its balanced, level-ridge south gable.
+    for y in [r['y0'],(74-40)*.3048,g['north_range']['y0']]:
+        assert abs(height(r,mid,y)-38.6*.3048)<1e-4
+        for offset in [0,1,2,3,4]:
+            assert abs(height(r,mid-offset,y)-height(r,mid+offset,y))<1e-4
+    for i in range(41):
+        t=i/40;lo,hi=g['north_range']['y0'],g['cross_y']
+        x=g['rear_x']+(r['ridge_at']-g['rear_x'])*t
+        assert abs(height(r,x,lo+(hi-lo)*t)-38.6*.3048)<1e-4
+    assert abs(height(r,r['x0'],r['y0'])-26.5*.3048)<1e-4
+    assert abs(height(r,r['x1'],r['y0'])-g['north_range']['eave_lo_z'])<1e-4
 for face in ['west','east','south']:
     for a,b in zip(profile(r,face),profile(r,face)[1:]):
         assert b[0]>a[0]
@@ -54,8 +94,29 @@ d=p.detail['west_dormer']
 for y in [d['u0'],(d['u0']+d['u1'])/2,d['u1']]:
     assert d['eave_z']-1.35>height(r,d['front'],y)
     assert d['eave_z']>height(r,d['back'],y)
+# Inspect emitted light geometry against the independent host-roof envelope.
+# The reduced cap once ignored the descending crest and floated horizontally.
+if g.get('lower_rear_gable'):
+    from types import SimpleNamespace
+    from _glessner_lod import _ridges
+    from archetypes.masonry_house_v4_west_roof import ridge_ranges
+    class Capture:
+        def __init__(self):self.vertices=[]
+        def raw(self,points,*args):self.vertices.extend(points)
+    captured=Capture();_ridges(captured,SimpleNamespace(ranges=[r]),None)
+    measured=0
+    for run,lo,hi in ridge_ranges(r):
+        if not run.get('ridge_slope'):continue
+        for x,y,h in captured.vertices:
+            along,across=(y,x) if run['axis']=='y' else (x,y)
+            center=run['ridge_at']+run.get('ridge_skew',0)*(along-run.get('ridge_origin',0))
+            if lo<along<hi and abs(across-center)<1e-7:
+                clearance=h-height(r,x,y)
+                assert min(abs(clearance-v) for v in [.193,.195,.250])<1e-6,(x,y,h,clearance)
+                measured+=1
+    assert measured>=20,measured
 entry=p.detail['north_entry_alcove']
 assert entry['east_x']>entry['x'][1]
 assert entry['threshold_z']>entry['landing_z']>0
 assert any(o.get('style')=='north_entry_alcove' for o in p.openings)
-print('PASS: 1800 independent roof rays see exactly one planar envelope; balanced south gable, continuous ridge, matching court eave and left-turn porch dimensions hold.')
+print('PASS: 1800 independent roof rays see one planar envelope; west silhouette, solid south gable, continuous joins, matching court roof and left-turn porch dimensions hold.')
