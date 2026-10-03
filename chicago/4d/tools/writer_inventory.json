@@ -25,6 +25,12 @@
       "measured": "continuously",
       "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
     },
+    "check_terrain_e1830.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-02",
+      "finding": "Run bare it prints the --check verdict on the e1830_natural overlay, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: --resolve prints the effective 1812 table to stdout. A checker (T-2002)."
+    },
     "check_terrain_e1871.py": {
       "placement": "manifest",
       "write_mode": "--write",

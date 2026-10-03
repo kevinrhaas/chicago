@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1333, ts: '2026-10-03T00:57:48.917Z', date: 'Oct 2, 2026, 7:57 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+  { v: 1334, ts: '2026-10-03T01:31:11.369Z', date: 'Oct 2, 2026, 8:31 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [
       'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
       'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
       'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
+  { v: 1333, ts: '2026-10-03T00:59:27.495Z', date: 'Oct 2, 2026, 7:59 PM CT', title: 'The ground of 1812 is written down, ready to be built', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. This is the plan for the ground the 1812 Fort Dearborn landscape will stand on, written before any of it is built.',
+      'It starts from the 1835 ground and takes out what did not exist yet: the harbour cut, the bridges and the streets. Everything else is kept, with a reason for each.',
+      'The sand spit that turned the river south now joins the mainland. It is a neck of sand 100 feet wide at the spit\u2019s own height of 4 feet, and it is recorded as our reconstruction.',
+      'Where an 1830 map and the 1834 survey disagree about the old channel\u2019s west bank, we keep the survey and mark that stretch of ground as the least certain in the scene.',
     ] },
   { v: 1332, ts: '2026-10-03T00:26:46.380Z', date: 'Oct 2, 2026, 7:26 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
     items: [

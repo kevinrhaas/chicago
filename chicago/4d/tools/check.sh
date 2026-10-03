@@ -411,6 +411,18 @@ step "the e1871_postfire zone table re-derives from its readings (T-1251)" \
 selftest "…and a hand-edited crown, a constant fill or an inherited limit still fails it" \
   python3 tools/check_terrain_e1871.py --self-test
 
+# T-2002. The 1812 ground's zone table, written as an OVERLAY on the 1834 one: every
+# 1834 block is carried, excepted, replaced or dropped with a reason, so a block added
+# to 1834 later cannot reach the 1812 ground by default. The blocks it authors (the
+# lake stage, the spit, the isthmus L240 left open, the live outlet channel, the shore
+# north of the spit root, the west-bank ruling T-1286 asked for) cite dossier zones and
+# stay inside their ranges, and the effective table resolve() builds carries no work.
+step "the e1830_natural zone table accounts for every 1834 block (T-2002)" \
+  python3 tools/check_terrain_e1830.py --check
+
+selftest "…and an undecided block, a harbour work carried back or a breached isthmus still fails it" \
+  python3 tools/check_terrain_e1830.py --self-test
+
 # T-1738. …and the heightfield that zone table and the scene line generate. The
 # field is numpy arithmetic and re-derives byte for byte; the meshes are Blender's
 # and are held by their input hash (validate.py --stale) and the fit gates below.
