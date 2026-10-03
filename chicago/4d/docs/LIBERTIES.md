@@ -20218,6 +20218,18 @@ sounding of the pre-cut channel.
 
 **Recorded:** 2026-10-03 (T-1264).
 
+### L-jaunt-inspect-a-lot — Look Before You Buy a Lot: an invented land errand that ends in caution
+
+**Decision:** Look Before You Buy a Lot links four existing exterior destinations — the former Chicago Democrat corner, John Bates Jr.'s auction room, Peck's store and the La Salle slough crossing — in an invented errand to look at land before paying for it. The visitor's errand, the choice between two notices, the question about what the Marseilles sale sold, the route order, the decision to inquire or to hold, the three endings and the Read the Ground memento are reconstructed, and so are the reading and action seconds. The two land notices (E. K. Hubbard's lots, 27 May 1835; J. W. Fell's canal-route land, 17 June 1835) and the Marseilles lot sale (10 June 1835) are issue-dated, located to page and column and printed before the scene date; all are transcription-mediated readings. No lot is chosen, and no owner, price, title, bank or purchase is invented: both notices name no price, so the errand ends at an inquiry or at holding your money, and caution is a successful ending. No named person is met or speaks, no interior is opened and no front door is claimed. The slough crossing the last stop stands on is itself a reconstruction (L195), and the stop says so.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat run for May–June 1835, and brief 11 of JAUNTS-INITIAL-LIBRARY.md. The route, the choices and the keepsake are present-day interpretive choices.
+
+**How to resolve:** A matched, in-window record of a particular lot (its number, block, owner and asking price) would allow a precise offer; until then the errand stays an inquiry. A scan read of the three notices upgrades or corrects the transcription-mediated readings.
+
+**Applies to:** `data/jaunts/inspect-a-lot.json`.
+
+**Recorded:** 2026-10-03 (T-2008).
+
 ### L-jaunt-bed-for-the-night — A Bed for the Night: an invented search for lodging
 
 **Decision:** A Bed for the Night links four existing exterior destinations — the Western Hotel, the Sauganash, Mrs Rufus Brown's boarding house and the Mansion House — in an invented search for a bed by a visitor with a modest purse. The search itself, the cost-or-convenience preference, the route order (west side, over the South Branch bridge, east along Lake Street), the relative cost of the four houses, the choice of where to ask first, the three endings and the A Place to Lay Your Head memento are reconstructed. No price, vacancy, booking, conversation or encounter is attested; no named person speaks; no interior is opened. The houses, their keepers and their fabric are each cited at their own tier, and the crowding of June 1835 is told in the two papers' own words. The Mansion House's keeper on the scene date (Haddock or Markle) is stated as open rather than chosen, and Brown's exact spot is called a placement.
@@ -20229,3 +20241,51 @@ sounding of the pre-cut channel.
 **Applies to:** `data/jaunts/bed-for-the-night.json`.
 
 **Recorded:** 2026-10-03 (T-2006).
+
+
+### L365 — Glessner north and west elevations reconciled with the owner references
+
+**Applies to:** `glessner_house`, T-1999, canonical detailed model and its light derivative.
+**Decision:** Rebuild the west front gable and lower rear gable roof to the owner's
+2 October 2026 square-on reconstructed elevation, retaining the HABS footprint and
+measured north range. The west gable peak is at S18.4/z38.6 ft; its south foot
+at S35 joins the 16.5-ft rear alley eave. A 25.5-ft rear ridge continues to the
+solid south gable. Its courtyard shoulder remains high enough for the existing
+upper windows; the roof is asymmetric behind the west view. The stable turret
+aligns at S18.4/W141, with body top38.9 and apex 43.3 ft. This supersedes L339's
+raised rear roof and L331's south hip, not the surveyed building footprint.
+
+The west eight-light arrangement is explicitly reconstructed: two broad lower
+lights, two upper slits and four equal narrow rear lights at 5.5-ft centers.
+The low roof carries a broad dark hood opening, side supports without a center
+post, a square hipped tile cap and finial. Three downpipes follow the west
+corners and gable foot, connected to a half-round rear gutter. Pipe sections,
+leadwork, roof returns, joinery dimensions and surface relief are reconstructed.
+The printed HABS sheet 5 ashlar sequence is retained; carrying it across this
+west façade and into the gable is a reconstruction, not a block-by-block survey.
+
+**North correction:** sheet 5's printed course sums put the lower corridor
+apertures at 111–173.5in and upper apertures at 231–267in above north grade, leaving
+the 4 in cap. Those replace the incorrect raster-scaled upper head above the eave.
+Applying the measured pair along the rest of the north corridor is inferred.
+The 12-ft porch arch and 12.1-ft carriage opening are retained. The porch cheek
+has a deep rounded coping; stable leaves have vertical lower boards and a
+gridded upper glazed zone, with rough monolithic lintels, a segmental relieving
+arch and projecting hoist stone. Their unmeasured proportions and hardware are
+reconstructed from the supplied northwest view, whose capture date is not
+independently established.
+
+**Basis:** owner brief `owner_glessner_v4_reconstruction_brief_2026`, supplied
+images listed in `docs/RESEARCH/glessner-elevation-rebuild/work.md`, HABS IL-1015
+sheets 2–5 and the existing source dossier. The owner elevation is a design
+target, not newly discovered historical testimony. No photographic pixels are
+used as textures.
+**How to resolve:** a measured original west elevation or roof section and a
+dated pre1946 stable-door photograph would replace the proportional choices.
+**Covers:** `glessner_house.as_built_1887.form.openings_alley`,
+`glessner_house.as_built_1887.form.v4_detail`,
+`glessner_house.as_built_1887.form.turret_stable`,
+`glessner_house.as_built_1887.form.opening_heights`,
+`glessner_house.as_built_1887.form.openings_stable_doors`,
+`glessner_house.as_built_1887.form.eave_cornice`.
+**Recorded:** 2026-10-02.

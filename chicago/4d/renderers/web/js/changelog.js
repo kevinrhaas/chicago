@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1344, ts: '2026-10-03T04:58:50.915Z', date: 'Oct 2, 2026, 11:58 PM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+  { v: 1346, ts: '2026-10-03T05:23:48.544Z', date: 'Oct 3, 2026, 12:23 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
       'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
       'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
       'Finish to keep A Cupboard Begun in your daybook under Provisions.',
+    ] },
+  { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
+    items: [
+      'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
+      'The north windows sit beneath the eave. The entrance stonework, stable doors and loft surround follow the architectural references more closely.',
+      'Measured stone courses guide the north openings; the west elevation and unmeasured details remain declared reconstructions.'
+    ] },
+  { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Look Before You Buy a Lot. It is a four-stop land errand along South Water Street, about seven minutes on foot or four by wagon.',
+      'Start at John Bates Jr.\u2019s new auction room on Dearborn, where fifty Marseilles town lots were cried in June, and say what that sale really sold.',
+      'At the Democrat\u2019s old corner, follow one of two real land notices: E. K. Hubbard\u2019s town lots or J. W. Fell\u2019s land on the canal route.',
+      'Take your bearings at Peck\u2019s corner, then look at the wet ground by the La Salle slough. Inquire about one lot, or hold your money: caution is a good ending.',
+      'Finish to keep Read the Ground under News & Knowledge. The errand is our reconstruction (liberty L-jaunt-inspect-a-lot); no lot, owner or price is claimed.',
     ] },
   { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
     items: [

@@ -23,6 +23,47 @@ page errors.
 
 **Unverified.** The stills were taken (card, opening, outcome) but are not committed, and no detail
 card was opened during the drive.
+## T-2008 — Look Before You Buy a Lot, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Look Before You Buy a Lot* (Land, Walk,
+4 stops, News & Knowledge). Bates's new auction room on Dearborn → the former Democrat corner →
+Peck's store → the La Salle slough crossing. Two small choices: what the Marseilles lot sale at
+Bates's actually sold (another town's lots, cried in a Chicago room), and which of two real land
+notices to follow — E. K. Hubbard's town lots (Democrat, 27 May 1835, p. 3 col. 4) or J. W.
+Fell's canal-route land (17 June 1835, p. 3 col. 3). At the slough the visitor inquires about one
+lot or holds their money; three endings, all completion-eligible, one keepsake (*Read the Ground*).
+Content only: one JSON file, a liberty (`L-jaunt-inspect-a-lot`), the regenerated catalog and
+source-use edges, and brief 11's route note. No engine, compiler or CSS change.
+
+**What it refuses to claim.** Neither notice names a price, and no matched in-window record of a
+particular lot was found, so no lot, owner, price, title, bank or purchase appears; the errand ends
+at an inquiry, which the brief allows. The last stop's crossing is itself reconstructed (L195) and
+the stop text says so; the drain and the marshy South Division are cited at their own tiers.
+T-1267 was split into four one-jaunt tickets (T-2008..T-2011) on the T-1266 precedent: each
+jaunt is one run's demonstration.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 8 paths, endings `inquire-town`, `inquire-canal`,
+`held`, one keepsake each. The brief's order read 9.5 min at Walk on the published mirror because
+it doubled back from Dearborn to LaSalle, so the route was re-cut to start at the sale room. The
+catalog card now reads, at 390×780: Walk about 7, Wagon 4, Horse 3.5, Fly 3, Instantly 2.5
+(Walk 6.5, Horse 3 at 1280×800). Walk stays a minute over the 4–6 min target: the auction room is
+a block east of the other three stops and 2.5 min is reading. A Playwright drive at 390×780 took
+stills in order (card, first stop, the detail card and back to the same stop, the ending, the
+menu) with zero page errors; the keepsake landed under News & Knowledge.
+
+**Unverified.** The 1280×800 drive read the card's figures and opened the detail card with zero
+page errors, but the ride to the ending was cut off by the 580 s cap; the ending was proved at
+390×780 only. The stills are not committed.
+## T-1999 — Glessner north and west elevation repair (2026-10-02)
+
+The owner references drive a new west silhouette, regularized rear openings,
+clear dormer joinery and west rainwater fittings. North window heads are
+reconciled to HABS printed stone courses; north entrance widths remain measured.
+Roof and façade detail changes are reconstructed where unmeasured (L365).
+Full/light spatial checks, the 745-step source gate, preflight and bounded
+published desktop/mobile review pass. Receipts are in
+`docs/RESEARCH/glessner-elevation-rebuild/work.md`.
+
 ## T-2007 — Work on the Waterfront, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Work on the Waterfront* (Employment, Horse,
@@ -80,6 +121,7 @@ to the menu.
 
 **Unverified.** The 1280×800 drive read the card's figures but was cut off by the 560 s cap
 before the ending; the walk-through is proved at 390×780 only. The stills are not committed.
+
 ## T-1265 — Fort Dearborn Errand, a five-stop jaunt round the fort's service buildings (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Fort Dearborn Errand* (Fort Dearborn, Walk).
@@ -223,6 +265,7 @@ ending in the browser at either viewport. Headless software rendering stalled th
 the second stop, so the ending, the daybook entry and replay rest on the walker. The marker
 for Carpenter is mid-block and Church's place on Lake Street is reconstructed, and the stops
 say both.
+
 ## T-2002 — the 1812 ground's zone table, written as what 1834 had that 1812 did not (2026-10-02)
 
 Piece 1 of 2 of T-1243 (of T-0468, the owner's e1812 battle landscape). T-1243 asked for the
@@ -344,6 +387,7 @@ figures it reads off the lodging model and the order book (`roof_draw`, `ROOF_TR
 Who is owed and who is not is a SEEDED DRAW over person and trade (`rank_key`), and each block
 carries its `draw` (rank of 38, against 26 roofs): nothing in the layer orders them, and the block
 says so. Owed a workplace **40 → 28** (after T-2001); placed at work unchanged at 375.
+
 ## T-1970 — the visible walk, fort to Wolf Point, and the card that says whether the town is finished (2026-10-02)
 
 The last piece of T-1215. **Acceptance, stated before the work:** (1) a walk from the fort to
@@ -421,6 +465,7 @@ filled that bucket".
 
 **Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff`
 names; see the PR.
+
 ## T-2000 — 57 drawn mechanics set against the American's twenty-five shops; Mulford's hold named (2026-10-02)
 
 Piece 1 of 2 of T-1998 (→ T-1992 → T-1982 → T-1966 → T-1215). **57** reconstructed heads read
@@ -516,6 +561,7 @@ moves, no business record changes.
 
 **Not done, and owned:** T-1997 (38 boarding-house keepers with no standing roof), T-1998
 (57 at a trade the census never counted, the physician, E. H. Mulford).
+
 ## T-1994 — the 25 attested at a no-premises trade, each joined or told why no house is owed (2026-10-02)
 
 Piece 2 of 3 of T-1991 (→ T-1982 → T-1966 → T-1215). After T-1990, **25** working-age people
@@ -602,6 +648,7 @@ and prairie grass right up to the entrances. One cause per symptom, each fixed w
 **Known gap, not widened here:** the staleness hash covers builder modules and resolved params
 but not `*_params.py` bytes, so a set-out change living in a params module (`front_window_rects`,
 now `facade_bays`) does not mark its assets stale by itself; these were rebaked by hand.
+
 ## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
 
 Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990
@@ -1172,6 +1219,7 @@ substitutes for an anonymous A1 slot. The programme now reads **495 standing, 17
 to fixpoint holds the platted seats at 177 and the keepers at 24, and moves no standing roof.
 The Sauganash's corner lot is nearest Market from every point, so its stable carries an
 `OUTLIER_REASONS` line in `tools/placement_policy_1835.py`.
+
 ## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
 
 **What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,
@@ -1244,6 +1292,7 @@ Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
 
 **Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
 the build. Nothing in the scene changed.
+
 ## T-1781 — the Des Plaines edge farmsteads: five standing redeal verdicts carried out (2026-10-01)
 
 T-1208 (the West Division's outer clusters and Wabansia) was more than one demonstration, so it
@@ -1271,6 +1320,7 @@ band's floor. Baked with `bake.sh --only` (five GLBs and their web derivatives).
 **Not done here, and owned:** no new ground is opened (T-1783 needs a measured West lot
 density, and the ground waits on T-1414); no farm household is seated on these cabins — the
 re-seating put labourers there, and the farms-and-country-seats band stays owed to T-1784.
+
 ## T-1775 — the Western Hotel's stable re-sized to its guests (2026-10-01)
 
 First piece of T-1209 (split this run into T-1775..T-1780). `western_hotel_stable` was
@@ -19937,6 +19987,7 @@ levels. The sidecar validator includes the alternate-version indexes the viewer
 loads; regression cases preserve the missing-field refusal. Full GitHub gate
 and published desktop/mobile smoke are pending. No final photographic-quality
 claim or production promotion. See docs/RESEARCH/glessner_v4_work.md.
+
 ## T-1757 — two more Cass-block cottages and the resumed integration (2026-09-30)
 
 `blk_indiana_north_cass` now carries four cottages and four yard buildings:
