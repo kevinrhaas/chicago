@@ -10,7 +10,9 @@
  *
  *   1. a claim is pushed the moment it is taken, and a second run's claim of the same
  *      ticket is REFUSED — whether it read before or after the first push;
- *   2. a claim older than the run window is stolen;
+ *   2. a claim older than the run window is stolen, and `list --workable` says so on its
+ *      line before anybody tries — TAKEABLE with its age, beside a fresh claim that still
+ *      reads claimed and is still refused (T-1612);
  *   3. `done` sets `review` and keeps the queue line; `settle` makes it `done` (queue
  *      line gone) once the PR has merged, and reopens it if the PR closed unmerged;
  *   4. new tickets land in their folder of 250, and a ticket id two writers minted at
@@ -128,6 +130,19 @@ try {
   writeFileSync(dead, readFileSync(dead, 'utf8').replace('state: open', 'state: claimed')
     .replace('claimed_by: null', 'claimed_by: run 9/1/2026, 1:00:00 AM CT'));
   tool(B, 'sync', '-m', 'an old claim');
+  // T-1612: what a run SEES before it claims. T-1502 is A's claim from a moment ago,
+  // T-1503 is three weeks dead; the list must tell them apart on the line itself.
+  const listed = tool(B, 'list', '--workable').stdout;
+  const line = (id) => (new RegExp(`^${id}  .*$`, 'm').exec(listed) || [''])[0];
+  check('list --workable prints a dead claim as TAKEABLE, with its age, in its queue place',
+    /^T-1503  TAKEABLE dead claim \d+d \d+h /.test(line('T-1503'))
+    && listed.indexOf('T-1502  ') < listed.indexOf('T-1503  '), listed);
+  check('…and a fresh claim as claimed, with its age, and not takeable',
+    /^T-1502  claimed \d+m /.test(line('T-1502')) && !/TAKEABLE/.test(line('T-1502')), listed);
+  check('…and says a dead claim is workable and claim steals it',
+    /1 claim\(s\) above are older than the 3h run window[\s\S]*WORKABLE[\s\S]*steals a dead claim/.test(listed), listed);
+  r = tool(B, 'claim', 'T-1502');
+  check('the fresh claim is still protected: claim refuses it', r.status === 1 && /ALREADY CLAIMED/.test(r.stderr), r.stderr);
   r = tool(A, 'claim', 'T-1503');
   check('a claim from three weeks ago is stolen', r.status === 0 && /stealing a dead claim/.test(r.stdout), r.stdout + r.stderr);
 

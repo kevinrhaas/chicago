@@ -2097,6 +2097,18 @@ function claimAgeHours(t) {
   return Number.isFinite(at) ? (Date.now() - at) / 3.6e6 : null;
 }
 
+/** Has this claim outlived its run, so that `claim` would take it? (T-1612.) The ONE
+ *  place the rule lives: `claim` refuses below it and steals at or above it, and `list`
+ *  prints the same verdict on the ticket's line. Before this, `list --workable` said
+ *  `claimed` and nothing else, and the picking rule says skip a claimed ticket — so
+ *  T-1444's dead claim parked a queue row for 131.8 hours that `claim` would have
+ *  taken without argument. An unreadable age is a live claim: the benefit of the doubt
+ *  `claim` gives it. */
+function claimIsDead(t) {
+  const age = claimAgeHours(t);
+  return t.state === 'claimed' && age !== null && age >= RUN_HOURS;
+}
+
 /** The owner question an `ask` wrote into a ticket body, read back for the board. */
 export function decisionOf(body) {
   const sec = /\n## Decision needed\n([\s\S]*?)(?=\n## |$)/.exec(`\n${body ?? ''}`)?.[1] ?? '';
@@ -2442,7 +2454,7 @@ switch (cmd) {
     // (older than RUN_HOURS) is stolen, exactly as the marker branches were.
     if (inRepoMode() && t.state === 'claimed' && !has('force')) {
       const age = claimAgeHours(t);
-      if (age === null || age < RUN_HOURS) {
+      if (!claimIsDead(t)) {
         console.error(`${t.id} IS ALREADY CLAIMED — ${t.claimed_by ?? 'by another run'}`
           + `${t.claimed_run ? `\n  ${t.claimed_run}` : ''}\n`
           + `Take the next workable ticket instead:  node tools/ticket.mjs list --workable\n`
@@ -2782,8 +2794,23 @@ switch (cmd) {
       : (!want || t.state === want));
     const order = queueIds();
     shown.sort((a, b) => (order.indexOf(a.id) + 1 || 9999) - (order.indexOf(b.id) + 1 || 9999));
+    // A claim says HOW OLD it is, and a dead one says it is takeable (T-1612): the
+    // state word alone sent every run past a claim `claim` would have stolen.
+    const span = (h) => elapsedWords(new Date(Date.now() - h * 3.6e6).toISOString());
+    const cell = (t) => {
+      if (t.state !== 'claimed') return String(t.state);
+      const age = claimAgeHours(t);
+      if (claimIsDead(t)) return `TAKEABLE dead claim ${span(age)}`;
+      return age === null ? 'claimed' : `claimed ${span(age)}`;
+    };
+    const width = Math.max(13, ...shown.map((t) => cell(t).length));
     for (const t of shown) {
-      console.log(`${t.id}  ${String(t.state).padEnd(13)} ${t.requested_by === 'owner' ? 'OWNER ' : '      '}${t.title}`);
+      console.log(`${t.id}  ${cell(t).padEnd(width)} ${t.requested_by === 'owner' ? 'OWNER ' : '      '}${t.title}`);
+    }
+    const dead = shown.filter(claimIsDead);
+    if (dead.length) {
+      console.log(`\n${dead.length} claim(s) above are older than the ${RUN_HOURS}h run window — a run that died. `
+        + 'They are WORKABLE, in their queue place: `claim` steals a dead claim without --force.');
     }
     if (has('workable')) {
       const waiting = tickets.filter((t) => WORKABLE.includes(t.state) && t.decision === 'pending');
