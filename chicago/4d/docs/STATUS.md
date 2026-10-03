@@ -1,25 +1,36 @@
-## T-2035 / T-2037 / T-2038 — vegetation and plankwalk continuity (release checks)
+## T-2035 / T-2037 / T-2038 — continuous vegetation and distant plankwalks
 
-Draft PR #364 preserves six checkpoints through `21db432f`. Seven motion routes
-across three tiers and both viewports pass after the final Light flight fade fix:
-zero abrupt coverage changes, plant identity errors or instance-cap shortfalls.
-The evidence retains the initial two Light flight failures and their passing repeat.
+PR #364 addresses the owner's walking/flying plant pop-in, wild shrub rows and
+South Water plankwalk gaps. Seven recoverable checkpoints were saved through
+`3f33f4f7`; this final evidence update integrates dev `8fa8ca4d`.
 
-The plank repair addresses unresolved board gaps, low crossings buried by coarse
-terrain, and complete sidewalks lost to Light furniture reach. The far batch
-retains exact emitted deck tops, shares the material and adds at most one call.
-Crossing-only refinement adds 8,704 ground triangles; all 107,532 emitted tops
-are clear. All 144 paired views plus two reach controls pass; intentional gaps remain.
+Near and distant plants retain the same rooted identities through their detail
+transitions, downward flight retains visible vegetation, and wild shrubs use
+independent full-cell scatter. The sampled community includes red-osier and grey
+dogwoods, common elderberry and ninebark, with meadowsweet nearby.
 
-The owner's October 3 authorization supports the measured triangle limits of
-2,840,000 Full / 2,145,000 Balanced / 1,040,000 Light after removing zero-area
-grass tips. Draw-call caps are unchanged. Current dev `8fa8ca4d` is integrated, including its appearance dial.
-Preflight passes 761 steps and mobile release-notes part 12 passes 97 checks.
-Initial mobile parts 1–2 found a derived-mesh census error and coarse fence
-measurement cancellation; both instruments are corrected with their original
-thresholds retained and additional assertions. The repeated mobile part 1 passes 82 checks. The corrected census repeats,
-remaining desktop release CI, final release-notes checks and dev merge are pending. See the
-vegetation continuity research note for the original failures and exact scope.
+The plank repair filters subpixel board gaps, refines ground only under emitted
+crossings, and retains exact distant deck tops beyond the furniture reach.
+It removes all 1,855 measured ground intersections, adds 8,704 ground triangles
+and at most one distant-walk call. All 107,532 emitted top triangles are clear.
+Footprints, walking heights, recorded species and intentional slough gaps remain.
+
+After removing zero-area grass-tip triangles, measured limits are 2,840,000 Full /
+2,145,000 Balanced / 1,040,000 Light, under the owner's October 3 authorization.
+Draw-call caps are unchanged. Six-stand measurements fit those limits; these
+software-rendered readings do not predict consumer frame rates.
+
+All 13 release sections have passing published desktop/mobile coverage across
+recorded checkpoints, with parts 1–2 repeated after instrument corrections and
+part 12 repeated on the final v1388 interface. The original failed census and
+coarse fence measurements are retained; their original thresholds remain, with
+additional derived-mesh and restoration checks. The dedicated appearance test
+also passes at both widths and without JavaScript. Source preflight passes 761
+steps; the final evidence update is re-gated before merge. Seven motion routes
+across all tiers and both viewports pass after the recorded Light repeat, with
+zero coverage jumps, identity errors or instance shortfalls. All 144 plank pairs
+and two reach controls pass. See `docs/RESEARCH/vegetation-motion-continuity.md`
+for exact scope and limitations. Production promotion is not part of this work.
 
 ## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
 

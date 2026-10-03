@@ -219,8 +219,33 @@ complete original run manifest and precise source commits remain in the receipt.
 
 Dev `8fa8ca4d` adds a small appearance dial and renames its four choices. Those
 seven files are integrated without changing this parcel's scene geometry.
-Preflight passes 761 steps on that merge, including the dial's browser tests.
+Preflight passes 761 source steps on that merge. The dial has a separate
+browser regression; it subsequently passed on the integrated published mirror.
 The changelog is stamped v1388. Part 12 is repeating at both viewports to cover
 the integrated settings and release notes; remaining desktop CI and the
 corrected part 2 census must finish before merge. All three tickets are now
 `review` on the tickets repository, linked to PR #364; only a merged PR closes them.
+
+
+## Completed release validation, 22:54 UTC
+
+All 13 published browser sections are covered by passing desktop and mobile
+results. The original run IDs and two failures remain in
+`vegetation-motion-continuity/release-ci-manifest.json`; the corrected repeats
+supersede only their affected sections. Mobile part 1 passes 82 checks, mobile
+part 2 passes 103, and desktop parts 1–2 pass 175. The final integrated v1388
+part 12 passes 97 checks at each viewport. Dev's dedicated appearance regression
+passes desktop, phone and no-JavaScript views. No page errors were reported.
+
+This is coverage across checkpoints, not a claim that all tests ran on one
+commit. Scene geometry has not changed since `db49ce6`; subsequent merges add
+jaunt copy, appearance controls and release notes. Parts 1–2 carry the instrument
+corrections described above; part 12 and the dedicated appearance test cover the
+final integrated interface. Local logs are retained alongside the canonical smoke
+ledger; CI logs are available at the exact run URLs. The old and new phone fence
+frames are also retained for visual review.
+
+The six-stand geometry costs, 42 motion combinations with the final Light repeat,
+exact tuft attribute/triangle proof, 144 plank image pairs and two reach controls
+are complete. The final post-evidence preflight and GitHub gate are the remaining
+merge steps. This parcel targets the dev preview only.

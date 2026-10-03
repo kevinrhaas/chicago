@@ -1,5 +1,5 @@
 {
-  "scope": "Original complete release sweep. Runs before the census and fence instrumentation correction; later repeats supersede only the affected sections. Tested commits are authoritative; results are not relabeled as current-tree tests.",
+  "scope": "Complete published release coverage across the recorded checkpoints. Original failures are retained. Repeats supersede the affected sections. The renderer geometry is unchanged after db49ce6; later changes integrate a jaunt wording correction, appearance controls and release notes, and repair parts 1\u20132 instrumentation. Final part 12 was rerun on the integrated v1388 tree; the dedicated appearance test also passed. These are not all tests of one commit.",
   "runs": [
     {
       "id": 37156826413,
@@ -38,8 +38,8 @@
       "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
       "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157020341",
       "createdAt": "2026-10-03T22:01:13Z",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
     {
       "id": 37157073679,
@@ -58,8 +58,8 @@
       "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
       "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157088665",
       "createdAt": "2026-10-03T22:02:40Z",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
     {
       "id": 37157228565,
@@ -68,8 +68,8 @@
       "sha": "ac66939285d99b7d2904628e028f4dd981d9e43d",
       "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157228565",
       "createdAt": "2026-10-03T22:05:11Z",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
     {
       "id": 37157238337,
@@ -78,8 +78,73 @@
       "sha": "ac66939285d99b7d2904628e028f4dd981d9e43d",
       "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157238337",
       "createdAt": "2026-10-03T22:05:21Z",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "repeats": [
+    {
+      "id": 37159054129,
+      "viewport": "desktop",
+      "stage": "1-2",
+      "sha": "21db432fec09fc8b2113ef869a3535ef0707515e",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37159054129",
+      "createdAt": "2026-10-03T22:37:04Z",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37159084356,
+      "viewport": "mobile",
+      "stage": "2",
+      "sha": "21db432fec09fc8b2113ef869a3535ef0707515e",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37159084356",
+      "createdAt": "2026-10-03T22:37:40Z",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37159393848,
+      "viewport": "mobile",
+      "stage": "12",
+      "sha": "3f33f4f713af358e84bdd9c5b8b501a7b62c13d5",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37159393848",
+      "createdAt": "2026-10-03T22:43:21Z",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "local": [
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "commit": "21db432fec09",
+      "treeHash": "sha256:43f851728e29f916",
+      "passed": 82,
+      "failed": 0,
+      "source": "release-mobile-1.log",
+      "scope": "Corrected fence instrument; same source inputs as checkpoint six; run on staged merge before commit."
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "commit": "3f33f4f713af",
+      "treeHash": "sha256:1ac9ff5ef035c9e5",
+      "passed": 97,
+      "failed": 0,
+      "source": "release-desktop-12.log",
+      "scope": "Final v1388 release notes and integrated settings."
+    },
+    {
+      "test": "test_temporal_menu_browser.mjs",
+      "commit": "3f33f4f713af",
+      "result": "pass",
+      "viewports": [
+        1280,
+        390
+      ],
+      "noJavaScript": true,
+      "source": "release-appearance.log"
     }
   ]
 }

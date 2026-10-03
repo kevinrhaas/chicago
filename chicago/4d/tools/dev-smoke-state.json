@@ -2,6 +2,119 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 97,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 670,
+      "takenAt": "2026-10-03T22:50:52.720Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "3f33f4f713af",
+      "devCommit": "8fa8ca4dba51",
+      "treeHash": "sha256:1ac9ff5ef035c9e5",
+      "treeDirty": false,
+      "changelogHash": "sha256:0d4e988c3f4f219b",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          4,
+          6,
+          5.9
+        ]
+      },
+      "source": "/tmp/t2035-final-desktop-12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 97,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 480,
+      "takenAt": "2026-10-03T22:43:21Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "3f33f4f713af",
+      "devCommit": "8fa8ca4dba51",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
+      },
+      "source": "gh-run:37159393848 https://github.com/kevinrhaas/chicago/actions/runs/37159393848"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 103,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 184,
+      "takenAt": "2026-10-03T22:37:40Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "21db432fec09",
+      "devCommit": "3c22369f5e6e",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
+      },
+      "source": "gh-run:37159084356 https://github.com/kevinrhaas/chicago/actions/runs/37159084356"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 175,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 844,
+      "takenAt": "2026-10-03T22:37:04Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "21db432fec09",
+      "devCommit": "3c22369f5e6e",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
+      },
+      "source": "gh-run:37159054129 https://github.com/kevinrhaas/chicago/actions/runs/37159054129"
+    },
+    {
       "viewport": "mobile",
       "stage": "1",
       "parts": [
@@ -62,6 +175,36 @@
         ]
       },
       "source": "/tmp/t2035-final-mobile-12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "10-13",
+      "parts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 247,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 2106,
+      "takenAt": "2026-10-03T22:05:21Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "ac66939285d9",
+      "devCommit": "98ece8ad1996",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": "sha256:3b108f29a6f45897",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
+      },
+      "source": "gh-run:37157238337 https://github.com/kevinrhaas/chicago/actions/runs/37157238337"
     },
     {
       "viewport": "mobile",
@@ -150,6 +293,36 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37157073679 https://github.com/kevinrhaas/chicago/actions/runs/37157073679"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3-6",
+      "parts": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 143,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 2641,
+      "takenAt": "2026-10-03T22:01:13Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "db49ce6adfeb",
+      "devCommit": "a9c98af7a1f5",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": "sha256:abee9f43dc2687ae",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
+      },
+      "source": "gh-run:37157020341 https://github.com/kevinrhaas/chicago/actions/runs/37157020341"
     },
     {
       "viewport": "mobile",
@@ -1674,243 +1847,6 @@
         ]
       },
       "source": "/tmp/t1765-mobile1.log /tmp/t1765-mobile2.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-09-30T22:45:34.836Z",
-      "ref": "steward/t1765-bridge-head-recovery",
-      "commit": "91c584e64a5b",
-      "devCommit": "a2d8d58955ff",
-      "treeHash": "sha256:56ca884317ca9904",
-      "treeDirty": false,
-      "changelogHash": "sha256:1794399ca6ff1c7f",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          14.1,
-          14.9,
-          12.7
-        ]
-      },
-      "source": "/tmp/t1765-mobile1.log /tmp/t1765-mobile2.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "all",
-      "parts": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 569,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 2652,
-      "takenAt": "2026-09-30T04:08:41.334Z",
-      "ref": "steward/glessner-v4-final-20260930",
-      "commit": "823442ee1bdc",
-      "devCommit": "308dcacf1117",
-      "treeHash": "sha256:da40ab7c053f7196",
-      "treeDirty": false,
-      "changelogHash": "sha256:2f68a649c54134b2",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          2.7,
-          6.4,
-          9.4
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-v4-qa/desktop-refined06.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "all",
-      "parts": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 572,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1771,
-      "takenAt": "2026-09-30T03:53:35.824Z",
-      "ref": "steward/glessner-v4-final-20260930",
-      "commit": "823442ee1bdc",
-      "devCommit": "308dcacf1117",
-      "treeHash": "sha256:da40ab7c053f7196",
-      "treeDirty": false,
-      "changelogHash": "sha256:2f68a649c54134b2",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          12.7,
-          14.2,
-          13.7
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-v4-qa/mobile-refined06.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 158,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 170,
-      "takenAt": "2026-09-29T23:07:59.402Z",
-      "ref": "steward/frontage-census-t1752",
-      "commit": "308dcacf1117",
-      "devCommit": "308dcacf1117",
-      "treeHash": "sha256:001a8c5194069f6e",
-      "treeDirty": true,
-      "changelogHash": "sha256:0d27d104e3ece95b",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          2.3,
-          4.8,
-          6.5
-        ]
-      },
-      "source": "/workspace/scratch/2b9723ff55ae/t1752-mobile-1-2.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "5-13",
-      "parts": [
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 311,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1607,
-      "takenAt": "2026-09-29T23:07:36.594Z",
-      "ref": "steward/glessner-v4",
-      "commit": "ba854300291e",
-      "devCommit": "308dcacf1117",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": "sha256:c73210f522966295",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          3.2,
-          5.1,
-          6.7
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-v4-qa/desktop-checkpoint5-stages5-13.log",
-      "treeHashNote": "Desktop continuation after earlier full run stopped at part5. Published v4 candidate was replaced during this continuation; functional source remained unchanged. This log is not an exact-tree reading of the later v4 model."
-    },
-    {
-      "viewport": "mobile",
-      "stage": "all",
-      "parts": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 569,
-      "failed": 3,
-      "failures": [
-        "mobile 390x780: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 51 walk(s), 46 crossing(s), 18 post(s), 32 fence run(s), 939480 vertices, 119 wall(s) refused, problems [none]",
-        "mobile 390x780: the frontage layer draws the meshes it authored — 58 authored mesh(es) (frontage, frontage-chunk x57), 0 far-merge artefact(s) [none], 58 drawn in all",
-        "mobile 390x780: the street edge is generated from the plat, not placed on one block — record true, card town_street_edge, 40 block face(s), 3617.4 m of walk, 32 fence run(s), 291 walking deck(s) registered"
-      ],
-      "wallSeconds": 2600,
-      "takenAt": "2026-09-29T22:47:43.709Z",
-      "ref": "steward/glessner-v4",
-      "commit": "6292eb4eac05",
-      "devCommit": "308dcacf1117",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": "sha256:c73210f522966295",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          7.3,
-          8,
-          9.6
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-v4-qa/mobile-checkpoint4.log",
-      "treeHashNote": "Filed after v4 geometry/materials changed. This is the checkpoint4 published full-mobile reading (569 pass, 3 inherited T-1752 failures), not an exact-tree reading of the later v4 model. Keep this hash unavailable rather than stamp the post-run tree as tested."
     }
   ]
 }
