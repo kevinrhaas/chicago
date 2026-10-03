@@ -3,7 +3,7 @@ export const CHANGELOG = [ // newest first
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
       'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
-      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings also stay above the distant ground.',
     ] },
   { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [

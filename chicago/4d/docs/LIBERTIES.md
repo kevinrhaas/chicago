@@ -20667,3 +20667,16 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `renderers/web/js/frontage.js`.
 
 **Recorded:** 2026-10-03 (T-2037).
+
+
+### L-plank-crossing-ground-refinement — preserving recorded ground beneath low timber crossings
+
+**Decision:** The distant terrain mesh retains heightfield sample spacing in coarse cells underneath emitted board crossings when the coarse triangle exceeds a sample by more than 25 mm. Adjacent cells share edge samples to close the transition. The threshold selects cells for refinement; it is not a guaranteed error bound between samples. Crossing clearance is checked against the actual emitted deck triangles.
+
+**Bounds:** Only the renderer mesh changes. The authoritative heightfield, walking surface, timber heights, street alignment, water and intentional slough gaps remain unchanged. The 1835 crossing-only correction adds 8,704 terrain triangles, with no new draw call. The original coarse surface intersected 1,855 emitted top triangles; exact triangle-overlap comparison finds none after refinement, with at least 47.9 mm clearance.
+
+**How to resolve:** Keep validating actual deck/ground intersections as the heightfield or frontage records change; improve the representation without inventing a higher deck or biased depth.
+
+**Applies to:** `renderers/web/js/terrain-base.js`, `renderers/web/js/terrain.js`, `renderers/web/js/frontage.js`.
+
+**Recorded:** 2026-10-03 (T-2037).

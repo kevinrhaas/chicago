@@ -82,7 +82,7 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
   page.on('pageerror', (e) => errors.push(`${vp}: ${e}`));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(`${vp} console: ${m.text()}`); });
   await page.addInitScript((d) => {
-    localStorage.setItem('chicago4d.detail', d);
+    localStorage.setItem('chicago4d.settings', JSON.stringify({detail:d}));
     localStorage.setItem('chicago4d.entered', '1');
   }, DETAIL);
   page.setDefaultTimeout(240000);
@@ -104,6 +104,9 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
     content: 'body > *:not(canvas):not(#view):not(main) { visibility: hidden !important; }'
       + ' #hud, .hud, #help, .card, .popup, .toast, header, nav, footer { visibility: hidden !important; }',
   });
+  await page.evaluate(d => window.__chicago4d.setDetail(d), DETAIL);
+  const actualDetail = await page.evaluate(() => window.__chicago4d.detail);
+  if (actualDetail !== DETAIL) throw new Error(`Requested ${DETAIL}, got ${actualDetail}`);
   const poses = [
     ['river-walk', {local_e:550,local_n:14.8,yaw_deg:90,pitch_deg:-3}],
     ['river-flight', {local_e:550,local_n:14.8,yaw_deg:90,pitch_deg:-20,altitude_m:35}],

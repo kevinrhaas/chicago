@@ -83,3 +83,37 @@ ticket commit `902070e`) and is editing the same branch name with additional
 flora and adaptive-ground work. Reconcile the two implementations before merging
 to dev; compare both plank diagnoses against actual rendered ground triangles.
 This checkpoint is recovery material, not a completed repair or deployment.
+
+
+## Reconciled diagnosis and second movement pass
+
+Checkpoint `e518e6f9` contains the recovered work and passed all 753 source checks.
+The other continuation is now isolated on `steward/flora-recovery-experiment`.
+Its terrain diagnosis was reconciled with actual emitted geometry: the original
+longitudinal-walk sample omitted street crossings. Across all 213 walks/crossings,
+752,724 top-face samples, and an exact overlap check of 107,532 top triangles,
+the old base intersects 1,855 top triangles, all in board crossings. The reviewed
+crossing-only adaptive mesh removes every intersection and leaves at least
+47.90 mm clearance. Its 103 refined cells add 8,704 triangles, versus 28,064
+for protecting every vegetation exclusion. The transition has no internal open
+edges, non-manifold edges, downward triangles or degenerate triangles. The
+25 mm setting is the refinement trigger at sample vertices, not a global error
+bound between samples.
+
+The full-detail strafe and reverse routes also passed with zero coverage jumps
+and identity mismatches. The additional nadir prairie route exposed a different
+failure: walking clearance removed plants beneath a flying camera. Clearance
+now applies only when the camera body could meet the plant. Pitched views also
+exposed undersized flower/rosette allocations; the light near set needed up to
+465 instances against its old 420 cap. Allocations are enlarged without changing
+placement density, botanical heights, or the rendering ceilings.
+
+The corrected full and balanced desktop nadir routes passed without shortfalls.
+The first multi-tier diagnostic revealed its initial mobile/full label was wrong:
+it wrote an obsolete preference key, so that first mobile tier was actually light.
+That reading is excluded. Both browser tools now use the real settings preference,
+explicitly select the requested tier and verify `api.detail`. The final sweep
+persists each finished route and samples every production placement tick; its
+optional sparse-render mode draws saved frames only. Renderer budget gates still
+perform their normal complete renders. Final all-tier/mobile results and release
+gates remain pending.

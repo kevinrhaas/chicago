@@ -1311,6 +1311,9 @@ export async function createFrontage({
   const buf = timberBuf();
   const spans = [];
   const boards = [];
+  // T-2037: planting exclusions also include yards and fittings. Only emitted
+  // board crossings ask the far terrain to resolve their lowered street bed.
+  const crossingFootprints = [];
   /** What the string pieces down the walks' edges came to (T-0460). */
   const edgeStats = { kerb: 0, kerbStep: 0 };
   /**
@@ -1443,6 +1446,19 @@ export async function createFrontage({
       }
       if (!ok) continue;
       out.walks.push(walk);
+      if (crossing) {
+        // buildCrossing uses the first two points and this 1.22 m fallback.
+        const [a, b] = line;
+        const de = b[0] - a[0], dn = b[1] - a[1];
+        const halfWidth = (walk.width_m ?? 1.22) / 2;
+        const length = Math.hypot(de, dn);
+        const pe = -dn / length * halfWidth, pn = de / length * halfWidth;
+        crossingFootprints.push({
+          id: walk.id,
+          pts: [[a[0] + pe, a[1] + pn], [b[0] + pe, b[1] + pn],
+            [b[0] - pe, b[1] - pn], [a[0] - pe, a[1] - pn]],
+        });
+      }
       out.census[crossing ? 'crossings' : 'walks'] += 1;
       // A walk that rides a committed deck registers the planks as a surface
       // the walker stands on (T-0119) — see `walkableDecks` above.
@@ -1734,6 +1750,7 @@ export async function createFrontage({
   out.census.meshes = group.children.length;
   out.census.kerb = edgeStats.kerb;
   out.census.kerbStep_m = Math.round(edgeStats.kerbStep * 1000) / 1000;
+  terrain.protectGroundUnder?.(crossingFootprints);
 
   const letters = makeLettering(boards);
   let letterMat = null;

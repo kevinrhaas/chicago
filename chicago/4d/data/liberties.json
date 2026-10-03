@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 389,
+  "count": 390,
   "liberties": [
     {
       "id": "L1",
@@ -23730,6 +23730,37 @@
         {
           "label": "Applies to",
           "text": "`renderers/web/js/frontage.js`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2037)."
+        }
+      ]
+    },
+    {
+      "id": "L-plank-crossing-ground-refinement",
+      "title": "preserving recorded ground beneath low timber crossings",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The distant terrain mesh retains heightfield sample spacing in coarse cells underneath emitted board crossings when the coarse triangle exceeds a sample by more than 25 mm. Adjacent cells share edge samples to close the transition. The threshold selects cells for refinement; it is not a guaranteed error bound between samples. Crossing clearance is checked against the actual emitted deck triangles."
+        },
+        {
+          "label": "Bounds",
+          "text": "Only the renderer mesh changes. The authoritative heightfield, walking surface, timber heights, street alignment, water and intentional slough gaps remain unchanged. The 1835 crossing-only correction adds 8,704 terrain triangles, with no new draw call. The original coarse surface intersected 1,855 emitted top triangles; exact triangle-overlap comparison finds none after refinement, with at least 47.9 mm clearance."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Keep validating actual deck/ground intersections as the heightfield or frontage records change; improve the representation without inventing a higher deck or biased depth."
+        },
+        {
+          "label": "Applies to",
+          "text": "`renderers/web/js/terrain-base.js`, `renderers/web/js/terrain.js`, `renderers/web/js/frontage.js`."
         },
         {
           "label": "Recorded",

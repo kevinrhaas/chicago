@@ -1,14 +1,16 @@
-## T-2035 / T-2037 / T-2038 — owner-reported vegetation and plankwalk continuity (in progress)
+## T-2035 / T-2037 / T-2038 — vegetation and plankwalk continuity (validation in progress)
 
-The 2026-10-03 owner screenshots show walking/flying vegetation pop, regular shrub
-rows and partial South Water plankwalks. Tickets are claimed in the shared queue.
-The first checkpoint adds same-slot grass/reed carry geometry, per-frame distant
-plant transitions, pitch-aware placement cones and independent full-cell shrub
-jitter. The source gate passes all 750 steps. The first full/desktop roadside
-motion pass has zero abrupt coverage changes (101 before) and zero identity errors. Published before/after still comparisons are being measured; motion,
-mobile, cost ceilings and release gates remain unverified. Plankwalk diagnosis
-is still open: sampled boards clear the terrain, and reach/subpixel effects need
-browser discrimination. Do not treat this checkpoint as completion or deployment.
+Draft PR #364 preserves the work at `e518e6f9`. The repeated full/desktop roadside,
+riverbank, flight, strafe, reverse and downward-view routes now show no abrupt
+coverage changes or plant identity errors. Balanced desktop passes the same seven
+routes. The final all-tier desktop/mobile sweep and release gates are running.
+
+The reconciled plank diagnosis has two parts: unresolved board gaps, and low street
+crossings buried by coarse terrain. A subpixel gap filter adds no triangles/calls.
+The crossing-only ground correction adds 8,704 triangles and leaves all 107,532
+actual emitted plank top triangles clear, with watertight terrain transitions.
+The intentional slough gap remains. Visual pairs, final budgets and dev deployment
+are still pending; this is a recovery checkpoint, not a completed release.
 
 ## T-2003 — the 1812 ground generated: mouth, heightfield, ground and water meshes (2026-10-03)
 

@@ -4,8 +4,12 @@
  * comparisons and frame census. Usage:
  * NODE_PATH=... PW_EXECUTABLE=... node tools/vegetation_motion_review.mjs ../../site out
  *   --tag before|after --viewport desktop|mobile|both --detail full|balanced|light
+ * Comma-separated tiers reuse one page, e.g. --detail balanced,light.
  * The same world poses, July light, animation hold and pixel ratio are used in
- * each run. Generated evidence is checked in beside the research note.
+ * each run. --sparse-render samples placement at every step and renders the saved
+ * frames (every fourth step and the endpoint); it reports costs only at those
+ * rendered frames. Independent budget gates always render their complete sweep.
+ * Generated evidence is checked in beside the research note.
  */
 import { createServer } from 'node:http';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -35,7 +39,10 @@ const ROOT = path.resolve(positional[0] ?? '../../site');
 const OUT = path.resolve(positional[1] ?? '/tmp/vegetation-review');
 const TAG = flag('--tag', 'after');
 const DETAIL = flag('--detail', 'full');
+const DETAILS = DETAIL.split(',');
+if (DETAILS.some(d => !['full', 'balanced', 'light'].includes(d))) throw new Error('Unknown detail tier');
 const IS_BASELINE = argv.includes('--baseline');
+const SPARSE_RENDER = argv.includes('--sparse-render');
 const baselineRef = flag('--baseline-ref', null);
 const baselineFlora = baselineRef ? execFileSync('git', ['show', baselineRef + ':chicago/4d/renderers/web/js/flora.js'], {encoding:'utf8'}) : null;
 const VIEW = flag('--viewport', 'both');
@@ -82,9 +89,9 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
   page.on('pageerror', (e) => errors.push(`${vp}: ${e}`));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(`${vp} console: ${m.text()}`); });
   await page.addInitScript((d) => {
-    localStorage.setItem('chicago4d.detail', d);
+    localStorage.setItem('chicago4d.settings', JSON.stringify({detail:d}));
     localStorage.setItem('chicago4d.entered', '1');
-  }, DETAIL);
+  }, DETAILS[0]);
   page.setDefaultTimeout(240000);
   const start = Date.now();
   await page.goto(`${base}/4d/walk/?year=1835`, { waitUntil: 'load', timeout: 240000 });
@@ -104,6 +111,10 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
     content: 'body > *:not(canvas):not(#view):not(main) { visibility: hidden !important; }'
       + ' #hud, .hud, #help, .card, .popup, .toast, header, nav, footer { visibility: hidden !important; }',
   });
+  for (const quality of DETAILS) {
+    await page.evaluate(d => window.__chicago4d.setDetail(d), quality);
+    const actualDetail = await page.evaluate(() => window.__chicago4d.detail);
+    if (actualDetail !== quality) throw new Error(`Requested ${quality}, got ${actualDetail}`);
   const routes = [
     ['verge', {local_e:305,local_n:0.6,yaw_deg:84,pitch_deg:-8}, 1,0,0.25,32],
     ['reeds', {local_e:550,local_n:14.8,yaw_deg:90,pitch_deg:-3}, 1,0,0.25,32],
@@ -120,9 +131,17 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
     for (let frame=0;frame<count;frame++) {
       const t={...pose, local_e:pose.local_e+de*stride*frame,local_n:pose.local_n+dn*stride*frame};
       if(name==='downward')t.pitch_deg=pose.pitch_deg-frame*2;
-      const reading=await page.evaluate(t=>{
-        const a=window.__chicago4d;a.setFly(t.altitude_m!=null);a.walker.teleport(t);a.step();
-        const gl=a.renderer.getContext();gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(4));
+      const renderFrame=!SPARSE_RENDER||frame%4===0||frame===count-1;
+      const reading=await page.evaluate(({t,renderFrame})=>{
+        const a=window.__chicago4d;a.setFly(t.altitude_m!=null);a.walker.teleport(t);
+        // Root coverage/identity are sampled at EVERY production placement tick.
+        // Optional sparse rendering skips only uncaptured GPU work; the same
+        // saved frames still render normally. Budgets use the separate full
+        // rendering sweep, never these uncaptured frames' stale renderer.info.
+        const draw=a.renderer.render;
+        try { if(!renderFrame)a.renderer.render=()=>{}; a.step(); }
+        finally { a.renderer.render=draw; }
+        if(renderFrame){const gl=a.renderer.getContext();gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(4));}
         const current=new Map(), identities=new Map(), identityErrors=[];
         const V=new a.camera.position.constructor();
         function group(name){if(name==='flora-near-carry')return 'flora-near';if(name==='flora-mid-carry')return 'flora-mid';if(name==='flora-shrub-far')return 'flora-shrub';return name;}
@@ -150,33 +169,35 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
           if(jump>0.45&&screen(p,a.camera)&&screen(p,prior.camera))jumps.push({key,jump,from:old?.fade??0,to:now?.fade??0,p});
         }
         window.__motionPrior={plants:current,camera:a.camera.clone()};
-        return {pose:t,jumps,identityErrors,stats:a.stats(),flora:a.flora.stats,
+        return {pose:t,detail:a.detail,jumps,identityErrors,rendered:renderFrame,stats:renderFrame?a.stats():null,flora:a.flora.stats,
           zone:a.flora.zoneAt(t.local_e,t.local_n),near:a.camera.near,
           shrubZones:[...current].filter(([k,v])=>k.startsWith('flora-shrub')&&v.fade>0.9).slice(0,20).map(([k,v])=>({key:k,zone:a.flora.zoneAt(v.p[0],-v.p[2])}))};
-      },t);
+      },{t,renderFrame});
       route.jumps.push(...reading.jumps.map(j=>({frame,...j})));route.identityErrors.push(...reading.identityErrors);
-      route.maxTriangles=Math.max(route.maxTriangles,reading.stats.triangles);route.maxCalls=Math.max(route.maxCalls,reading.stats.drawCalls);
+      if(reading.stats){route.maxTriangles=Math.max(route.maxTriangles,reading.stats.triangles);route.maxCalls=Math.max(route.maxCalls,reading.stats.drawCalls);}
       route.frames.push({frame,...reading});
       if(!IS_BASELINE&&Object.keys(reading.flora.shortfall).length)errors.push(`${vp}/${name}/${frame}: instance cap truncated ${JSON.stringify(reading.flora.shortfall)}`);
-      if(frame%4===0||frame===count-1)await page.screenshot({path:path.join(OUT,`${TAG}-${DETAIL}-${vp}-${name}-${String(frame).padStart(3,'0')}.jpg`),type:'jpeg',quality:85});
+      if(frame%4===0||frame===count-1)await page.screenshot({path:path.join(OUT,`${TAG}-${quality}-${vp}-${name}-${String(frame).padStart(3,'0')}.jpg`),type:'jpeg',quality:85});
     }
-    stats[`${name}-${vp}`]=route;
-    console.log(`${TAG} ${DETAIL} ${vp} ${name}: ${route.jumps.length} abrupt on-screen changes; ${route.identityErrors.length} identity errors; ${route.maxTriangles} triangles / ${route.maxCalls} calls`);
+    stats[`${name}-${quality}-${vp}`]=route;
+    await writeFile(path.join(OUT, `${TAG}-${DETAIL}-${VIEW}-motion.json`), JSON.stringify({ detail: DETAIL, sparseRender:SPARSE_RENDER, incomplete:true, stats, errors }, null, 2));
+    console.log(`${TAG} ${quality} ${vp} ${name}: ${route.jumps.length} abrupt on-screen changes; ${route.identityErrors.length} identity errors; ${route.maxTriangles} triangles / ${route.maxCalls} calls`);
     if(!IS_BASELINE&&(route.jumps.length||route.identityErrors.length))errors.push(`${vp}/${name}: discontinuity or identity mismatch`);
   }
-  stats[`vegetation-${vp}`] = await page.evaluate(() => {
+  stats[`vegetation-${quality}-${vp}`] = await page.evaluate(() => {
     const a = window.__chicago4d;
     const gl = a.renderer.getContext();
     const dbg = gl.getExtension('WEBGL_debug_renderer_info');
     return { trees: a.trees.stats, flora: a.flora.stats, problems: a.problems,
       device: dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER) };
   });
+  }
   await page.close();
 }
 } catch (error) {
   errors.push(`review: ${error.stack ?? error}`);
 } finally {
-await writeFile(path.join(OUT, `${TAG}-${DETAIL}-${VIEW}-motion.json`), JSON.stringify({ detail: DETAIL, stats, errors }, null, 2));
+await writeFile(path.join(OUT, `${TAG}-${DETAIL}-${VIEW}-motion.json`), JSON.stringify({ detail: DETAIL, sparseRender:SPARSE_RENDER, stats, errors }, null, 2));
 console.log(JSON.stringify({ frames: Object.keys(stats).filter(k => stats[k].frames).reduce((n,k)=>n+stats[k].frames.length,0), errors }, null, 2));
 await browser.close();
 server.close();

@@ -326,7 +326,10 @@ const TUNE = {
    *  of them — T-0214 split it by measured demand, so the nine sum to nine times
    *  this number and each gets `head x HEAD_SHARE[kind]`. Halving `head` at a
    *  detail tier still halves every archetype with it. */
-  cap: { near: 2400, mid: 4400, forb: 900, head: 820, far: 420, farShrub: 3200 },
+  // The pitched aerial sees the complete disc instead of a horizontal cone.
+  // Reserve twice the old head allocation; placement density is unchanged.
+  // T-2035's nadir prairie sweep exhausted ray/raydroop/pompom otherwise.
+  cap: { near: 2400, mid: 4400, forb: 900, head: 1640, far: 420, farShrub: 3200 },
   wind: { speedNear: 1.35, sway: 0.085, waveM: 9.0 },
   /**
    * Rebuild the lattice when the camera has moved this far. It is also the
@@ -789,7 +792,7 @@ const LOW = {
   // T-2014. Shallower on the phone, as its far band is: the sward's own far
   // band stops at 120 m here and the shrubs stop well inside it.
   farShrub: { radius: 70.0, ramp: 24.0 },
-  cap: { near: 420, mid: 900, forb: 260, head: 240, far: 190, farShrub: 900 },
+  cap: { near: 600, mid: 900, forb: 260, head: 480, far: 190, farShrub: 900 },
 };
 
 /**
@@ -821,7 +824,7 @@ const MID = {
     minPx: 2.0,
   },
   farShrub: { radius: 105.0, ramp: 35.0 },
-  cap: { near: 1500, mid: 2700, forb: 580, head: 520, far: 300, farShrub: 2000 },
+  cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 300, farShrub: 2000 },
 };
 
 /** The closed `form` list, split by how it is drawn. */
@@ -1226,7 +1229,7 @@ export async function createFlora({
   // names the rosette explicitly and it is the plant's whole diagnosis. Drawn
   // with the generic forb it became a leafy giant that filled the foreground.
   const rosetteSet = instSet('flora-rosette', rosetteGeometry(botanicalSegments), bladeMat,
-    Math.max(48, Math.round(tune.cap.forb * 0.45)));
+    Math.max(48, Math.round(tune.cap.forb * 0.80)));
   // ...and a shrub is not a stem with leaves up it either (K53). Twenty-one
   // records across eight zones carry `form: 'shrub_low'` — hazel, elder,
   // dogwood, buttonbush, the lakeshore's sand cherry and the black-oak grubs —
@@ -1429,7 +1432,7 @@ export async function createFlora({
         countDealt(c, sp, wet);
         const y = station(e, n, zone, sp, wet);
         if (y === null) { if (c) c.row.rejStation++; return; }
-        if (crowdsTheWalker(sp, r)) { if (c) c.row.rejWalker++; return; }
+        if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) { if (c) c.row.rejWalker++; return; }
         // The head is placed off the height the PLANT was actually given, and
         // only if the plant was actually drawn. Round 1 drew the two from
         // independent draws of the same range, so a 2.0 m cordgrass spike
@@ -1520,7 +1523,7 @@ export async function createFlora({
         countDealt(c, sp, wet);
         const y = station(e, n, zone, sp, wet);
         if (y === null) { if (c) c.row.rejStation++; return; }
-        if (crowdsTheWalker(sp, r)) { if (c) c.row.rejWalker++; return; }
+        if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) { if (c) c.row.rejWalker++; return; }
         countDraw(c, sp, wet);
         const set = sp.form === 'forb_basal_scape' ? rosetteSet : forbSet;
         set.ring(ringAt(f.fade, off, _ring));
@@ -1556,7 +1559,7 @@ export async function createFlora({
         countDealt(c, sp, wet);
         const y = station(e, n, zone, sp, wet);
         if (y === null) { if (c) c.row.rejStation++; return; }
-        if (crowdsTheWalker(sp, r)) { if (c) c.row.rejWalker++; return; }
+        if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) { if (c) c.row.rejWalker++; return; }
         countDraw(c, sp, wet);
         shrubSet.ring(ringAt(f.fade, off, _ring));
         const h = placeShrub(shrubSet, sp, e, y, n, rng);
@@ -3858,7 +3861,11 @@ const _c = new THREE.Color();
  * that person has walked through.
  */
 const WALKER_RADIUS_M = 0.34;
-function crowdsTheWalker(sp, r) {
+function crowdsTheWalker(sp, r, eyeAboveRoot = 0) {
+  // T-2035: a flying camera has no body sweeping a hole through the ground
+  // beneath it. Preserve the walking clearance, but keep the rooted plant
+  // when the eye is safely above even its tallest possible crown.
+  if (eyeAboveRoot > sp.height[1] * 1.25 + WALKER_RADIUS_M) return false;
   const clump = clumpRadiusOf(sp);
   return r < WALKER_RADIUS_M + clump;
 }
