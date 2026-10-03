@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1343, ts: '2026-10-03T04:31:58.670Z', date: 'Oct 2, 2026, 11:31 PM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
+  { v: 1344, ts: '2026-10-03T04:52:39.083Z', date: 'Oct 2, 2026, 11:52 PM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
     items: [
       'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
       'The north windows sit beneath the eave. The entrance stonework, stable doors and loft surround follow the architectural references more closely.',
       'Measured stone courses guide the north openings; the west elevation and unmeasured details remain declared reconstructions.'
+    ] },
+  { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
+      'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
+      'At the Democrat\u2019s first corner, read the paper\u2019s list of letters nobody had called for. End at Hogan\u2019s, the former mail corner. The post office had moved a year earlier to an unplaced spot on South Water Street, so you leave with a plan for posting, not a receipt.',
+      'The keepsake is A Letter Ready to Send. The letter and the route are our reconstruction (liberty L-jaunt-letter-home).',
     ] },
   { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [
