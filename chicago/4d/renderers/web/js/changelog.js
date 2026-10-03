@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1362, ts: '2026-10-03T12:28:48.591Z', date: 'Oct 3, 2026, 7:28 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+  { v: 1363, ts: '2026-10-03T13:03:50.681Z', date: 'Oct 3, 2026, 8:03 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [
       'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, five at the boarding house on the Dearborn block of Washington Street and three at the one on the Market block. Open a house\u2019s card to see them among its boarders.',
       'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
       'Nine children under ten are still owed in South and West Division lodging houses. A child is only ever placed with a keeper\u2019s family, so they will arrive with the keepers of boarding houses not yet raised.',
+    ] },
+  { v: 1362, ts: '2026-10-03T12:26:25.726Z', date: 'Oct 3, 2026, 7:26 AM CT', title: 'A new jaunt: Soap and Candles', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Soap and Candles, a quiet outing of about seven minutes on horseback.',
+      'Start at Daniel Elston & Co.\u2019s soap and candle works on the North Branch, make your list at Jones\u2019s grocery on South Water Street, and carry candles, soap or both home to the boarding house behind Peck\u2019s store.',
+      'The errand, the bundle and the keepsake, Light for the Evening, are our reconstruction (liberty L-jaunt-soap-and-candles). The works\u2019 goods come from its own 1833 notice; where it stood is our placement.',
     ] },
   { v: 1361, ts: '2026-10-03T12:09:06.934Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
     items: [
