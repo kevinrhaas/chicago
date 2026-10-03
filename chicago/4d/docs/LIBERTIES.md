@@ -20206,6 +20206,18 @@ sounding of the pre-cut channel.
 
 **Recorded:** 2026-10-03 (T-1264).
 
+### L-jaunt-a-decent-coat — A Decent Coat: an invented call and a choice of coat
+
+**Decision:** A Decent Coat links four existing exterior destinations — John Holbrook's clothing store, Harmon, Loomis & Co.'s store, Mrs Rufus Brown's boarding house and the Sauganash — in an invented errand to be decently dressed for a call. The call, the acquaintance, the travel-worn coat, the route order (west along South Water Street from Dearborn to LaSalle, then to Lake and Market), the weighing of a call against a day's work, the choice between a made coat and the old one brushed, both endings and the Fit for the Occasion memento are reconstructed, and so are the reading and action seconds. Holbrook's card (Democrat 10 June 1835; American 13 June 1835) and Harmon, Loomis & Co.'s cloth list (Democrat 5 Nov 1834, carried by their June 1835 notice) are cited at their own tiers; all are transcription-mediated readings. No purchase, price, size, fitting, tailor or maker is invented: Holbrook's card offers made goods as the manufacturers' agent and names no tailoring, and no maker for the cloth is named. No named person speaks; no interior is opened. This is the batch's quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the two papers' June 1835 cards and brief 14 of JAUNTS-INITIAL-LIBRARY.md. The route, the choice and the keepsake are present-day interpretive choices.
+
+**How to resolve:** A dated record of a clothing sale, a price or a tailor at work in the town in 1835 would let the errand name one; until then it stays a look and a choice. A scan read of the three cards upgrades or corrects the transcription-mediated readings.
+
+**Applies to:** `data/jaunts/a-decent-coat.json`.
+
+**Recorded:** 2026-10-03 (T-2011).
+
 ### L-jaunt-inspect-a-lot — Look Before You Buy a Lot: an invented land errand that ends in caution
 
 **Decision:** Look Before You Buy a Lot links four existing exterior destinations — the former Chicago Democrat corner, John Bates Jr.'s auction room, Peck's store and the La Salle slough crossing — in an invented errand to look at land before paying for it. The visitor's errand, the choice between two notices, the question about what the Marseilles sale sold, the route order, the decision to inquire or to hold, the three endings and the Read the Ground memento are reconstructed, and so are the reading and action seconds. The two land notices (E. K. Hubbard's lots, 27 May 1835; J. W. Fell's canal-route land, 17 June 1835) and the Marseilles lot sale (10 June 1835) are issue-dated, located to page and column and printed before the scene date; all are transcription-mediated readings. No lot is chosen, and no owner, price, title, bank or purchase is invented: both notices name no price, so the errand ends at an inquiry or at holding your money, and caution is a successful ending. No named person is met or speaks, no interior is opened and no front door is claimed. The slough crossing the last stop stands on is itself a reconstruction (L195), and the stop says so.
@@ -20277,3 +20289,15 @@ dated pre1946 stable-door photograph would replace the proportional choices.
 `glessner_house.as_built_1887.form.openings_stable_doors`,
 `glessner_house.as_built_1887.form.eave_cornice`.
 **Recorded:** 2026-10-02.
+
+### L-jaunt-freight-store — Freight for the Store: an invented consignment and its tally
+
+**Decision:** Freight for the Store links four existing exterior destinations (Newberry & Dole's forwarding house, P. F. W. Peck's store, Thomas Church's store and George W. Dole's 1832 warehouse) in an invented delivery of three packages from wharf to shop. The consignment, the bill of lading, the packages and their marks, the counting, the wagon load and its three-package limit, the second trip, the delivery at each store, the tally carried to Dole's warehouse, the four endings and the Cargo Accounted For keepsake are reconstructed, and so are the reading and action seconds. What each firm did is sourced: Newberry & Dole's trade from their own November 1833 card and the American's June 1835 Michigan freight notice, Peck's stock from his own cards of 1833-34, Church's store from the one modern sentence that records it. No firm is claimed to have shipped, received or paid for these goods, and no bill, freight charge or price is named. No named person speaks or is met, no interior is opened and no front door is claimed. Newberry & Dole's house and Church's store stand at reconstructed positions and the stops say so. The tally ends at Dole's warehouse because Dole was the firm's partner and the warehouse sits a block from Church's store; that the firm squared its bills there is invented.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat and American runs, Andreas's account of the firm and its packing, the chicagology note on Church's store, and brief 12 of JAUNTS-INITIAL-LIBRARY.md. The route, the load, the packages and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated Newberry & Dole notice of goods received for a named Chicago store would let the wharf stop name a real consignment; any dated record of Church's stock would let his stop say what the package held.
+
+**Applies to:** `data/jaunts/freight-for-the-store.json`.
+
+**Recorded:** 2026-10-03 (T-2009).
