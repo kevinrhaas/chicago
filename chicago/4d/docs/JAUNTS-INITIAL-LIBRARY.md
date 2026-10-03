@@ -246,6 +246,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** No invented current post-office address. If dated evidence resolves a current counter during authoring, substitute that typed location; otherwise end with the posting inquiry honestly unresolved, not a false mailed receipt.
 
+**Route note (published, T-2005):** The shipped story order is Brown → Peck → the Democrat's corner → Hogan's. The proposed order walks west from Brown's to Hogan's and then back east past Peck's to Clark, about 870 m in straight lines; the shipped order runs the block once, east and then west along South Water, about 585 m, and ends at the former mail corner, where the posting question is asked. At the brief's Walk pace (1.45 m/s) either order reads about 11 min on the card, so the default is **Horse** (about 5 min) and Walk stays offered. **The paper comes from the druggist, not Peck**: Peck's cards name no stationery, and the only advertisement read that lists letter paper is Frederick Thomas's (Chicago American, 20 June 1835, p. 1 col. 2), so the stop links his card and sells nothing. **The eligible postal notice** is the Democrat's List of Letters remaining on 31 March, printed 27 May 1835 (p. 4 col. 4). **No current counter is substituted**: Hogan's card (30 July 1834, still printed 27 May 1835) puts the post office "one door below" his South Water Street store, and Andreas puts it at Franklin and South Water from about July 1834 — a street and a neighbour, not a lot — so the outing ends with a posting plan, not a mailed receipt.
+
 ## 09. A Bed for the Night
 
 **ID:** `bed-for-the-night` · **Owner ticket:** [T-1266](../tickets/T-1266-publish-news-mail-lodging-and-work-jaunts.md)
@@ -306,6 +308,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Read the Ground (News & Knowledge); fictional narrative memento.
 
 **Evidence and route cautions:** Use only a matched in-window lot for a precise offer; do not invent parcel ownership, price or a functioning 1835 bank. Caution can be a successful ending.
+
+**Route note (published, T-2008):** The shipped story order is Bates's auction room → the former Democrat corner → Peck's store → the La Salle slough crossing. The order proposed above starts at the Democrat corner, walks a block east to Dearborn and then doubles back west past Clark to LaSalle; on the published mirror that read about 9.5 min at Walk. Starting at the sale room removes the backtrack and still tells auction context before the particular notice. The catalog card on the published mirror gives these routed figures at 390×780: Walk about 7 min, Wagon 4, Horse 3.5, Fly 3, Instantly 2.5 (Walk 6.5 and Horse 3 at 1280×800). Walk stays a minute over the 4–6 min target because the auction room stands mid-block on Dearborn, a block east of the other three stops, and two and a half minutes of it is reading; Wagon is the faster mode. The two notices it reads are E. K. Hubbard's town lots (Democrat, 27 May 1835) and J. W. Fell's canal-route land (17 June 1835); neither names a lot price, so the errand ends at an inquiry or at holding your money.
 
 ## 12. Freight for the Store
 
