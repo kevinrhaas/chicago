@@ -1,21 +1,57 @@
-## T-2035 / T-2037 / T-2038 — vegetation and plankwalk continuity (validation in progress)
+## T-2035 / T-2037 / T-2038 — vegetation and plankwalk continuity (release checks)
 
-Draft PR #364 preserves four checkpoints through `db49ce6a`. Seven motion routes
-across three tiers and both viewports pass after the final light-flight fade fix:
+Draft PR #364 preserves five checkpoints through `ac669392`. Seven motion routes
+across three tiers and both viewports pass after the final Light flight fade fix:
 zero abrupt coverage changes, plant identity errors or instance-cap shortfalls.
-The evidence retains the initial two light-flight failures and their passing repeat.
+The evidence retains the initial two Light flight failures and their passing repeat.
 
 The plank repair addresses unresolved board gaps, low crossings buried by coarse
-terrain, and complete sidewalks lost to light-tier furniture reach. The new far
-batch retains exact emitted deck tops, uses the shared material and adds at most
-one call. Crossing-only ground refinement adds 8,704 triangles and leaves all
-107,532 emitted top triangles clear. Intentional slough gaps remain.
+terrain, and complete sidewalks lost to Light furniture reach. The far batch
+retains exact emitted deck tops, shares the material and adds at most one call.
+Crossing-only refinement adds 8,704 ground triangles; all 107,532 emitted tops
+are clear. All 144 paired views plus two reach controls pass; intentional gaps remain.
 
-Current dev `98ece8ad` is integrated; its final update contains only jaunt timing
-reports/tooling and release notes. The owner authorized a measured rendering
-limit increase if needed on October 3 at 16:35 CDT; zero-area grass-tip triangles
-are removed first. Final integrated budgets, paired plank views and complete
-release gates are pending. No completed dev deployment is claimed yet.
+The owner's October 3 authorization supports the measured triangle limits of
+2,840,000 Full / 2,145,000 Balanced / 1,040,000 Light after removing zero-area
+grass tips. Draw-call caps are unchanged. Current dev `3c22369f` is integrated.
+Preflight passes 761 steps and mobile release-notes part 12 passes 97 checks.
+Initial mobile parts 1–2 found a derived-mesh census error and coarse fence
+measurement cancellation; both instruments are corrected with their original
+thresholds retained and additional assertions. Affected browser sections are
+being repeated; remaining release CI and the dev merge are pending. See the
+vegetation continuity research note for the original failures and exact scope.
+
+## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
+
+**One stop's wording changed; the rest is a gate.** `compile_jaunts.py` proves a jaunt is
+well-formed; nothing read what a jaunt SAYS. `tools/audit_jaunt_refusals.py` now reads every
+visitor-facing passage of all 27 jaunts (26 in 1835, one in 1904) for four refusals and runs
+in `check.sh` with an in-memory self-test that breaks each rule once:
+
+- **No reconstructed Indigenous encounter.** No stop may visit a Native or Métis home or
+  business (91 people, 2 places, 1 business, read from the records' `community` and
+  `touches_removal`). An Indigenous subject may not be named in the story's invented voice
+  (premise, opening, choices, endings, keepsake), and may be named in a told passage only
+  where an attested or inferred claim of that passage names it, no reconstructed claim of it
+  touches the subject, and the sentence does not put the visitor in it. The lexicon includes
+  the names of every Native and Métis person record. One name is exempt: "Sauganash" names the
+  tavern, and only in a jaunt that references `sauganash_hotel`.
+- **No figure.** No string outside the claims may carry an asset path or URL, and the schema
+  must stay closed at every object, so a field that could carry one is a visible schema change.
+- **No quotation in a named person's mouth.** Every quoted span must stand verbatim in an
+  attested claim the passage cites, and no named person "tells you" or "asks you" anything.
+- **Rights.** No `restricted` source may be cited. `check_required` sources are cited in text
+  only, which is rule 6's allowance.
+
+**What it found, and the fix.** One quotation. The stop at the American quoted the bank
+notice's "on the square, near the court house". The transcription reads "on the squa[re,
+near] the court house": the comma and "near" are the extraction's supplies, not print, and
+the attested claim gives the phrase unquoted. The stop now gives it in plain words, as the
+same jaunt already does with the land-sale figure it cannot read (content_version 2).
+
+**Unverified, and said so.** An invented sentence describing an unnamed person's appearance
+is not detected; no lexicon for it would spare "a wet street has told you enough". The
+library's shape (T-2039) and timing (T-2041) are other pieces of T-1271.
 
 
 ## T-2051 — every jaunt's primary path ridden and timed, measurement half of T-2041 (2026-10-03)

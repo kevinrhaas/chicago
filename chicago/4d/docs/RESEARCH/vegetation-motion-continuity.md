@@ -172,3 +172,39 @@ ceilings rather than rewriting historical readings to pass.
 
 The integrated source gate passed 759 steps, including 313 self-tests, before
 this table update. Full preflight is now repeating against the updated limits.
+
+
+## Release checks and fence measurement, 22:30 UTC
+
+Checkpoint five (`ac669392`) integrates dev `98ece8ad`; current dev `3c22369f`
+adds an unrelated jaunt wording correction and its refusal audit. The final
+144 plank pairs (plus two Light reach controls) pass across all tiers and both
+viewports, with zero page/material errors and zero filter cost delta. The
+source preflight on the integrated tree passes 761 steps, including 314
+self-tests. Mobile release-notes part 12 passes 97 checks.
+
+The first mobile release run of parts 1–2 caught two instrument issues. The
+frontage census classified the single exact distant top-face batch as an extra
+authored mesh. The original authored and far-merge assertions are retained;
+the derived batch is counted separately and asserted to be one shared-material,
+non-shadow-casting mesh with exactly 107,532 candidate triangles and a draw
+range matching its live statistics. An unrelated extra mesh still fails.
+
+The fence itself is visible at the unchanged Western Hotel yard camera. With
+Light, touch input and DPR 2, the coarse 12×12 luminance cells produce a mean
+difference of 0.2708 with the continuous grass, versus 0.3889 using dev's old
+flora. Hiding flora yields 0.5278 in both versions: fence/ground geometry did
+not change. Coarse cells cancel opposite-sign rail/background differences;
+the same captures at 96×96 retain them (0.3188 current, 0.4227 old flora).
+The fence test therefore uses 96×96 at the same view, keeps BOTH original
+thresholds (mean >=0.3, worst >=6), and additionally requires its restored
+frame to agree with the original. It does not remove grass, move the camera,
+change the fence or lower a limit. Full comparison and the resolution sweep
+are saved beside this note. A complete repeat of the affected release sections
+is required before merge.
+
+GitHub runs retain their tested commit and original result, including the
+initial failure; the canonical smoke ledger uses its unchanged parser. CI
+source hashes are left null because the untracked published page from those
+runners is not available for an exact digest. Commit provenance is retained,
+and no older test is represented as a test of a newer tree.

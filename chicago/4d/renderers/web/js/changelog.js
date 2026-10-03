@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1386, ts: '2026-10-03T21:57:18.505Z', date: 'Oct 3, 2026, 4:57 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+  { v: 1387, ts: '2026-10-03T22:10:35.884Z', date: 'Oct 3, 2026, 5:10 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
       'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
       'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
+    ] },
+  { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
+    items: [
+      'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
+      'Every jaunt is now read for four things it must never do: stage a meeting with Native people, show a figure of anyone, quote a named person without a source, or cite a source whose terms forbid it. All 27 pass.',
     ] },
   { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
     items: [

@@ -2763,6 +2763,15 @@ step "Jaunt library shape: roster, featured six, families, ranks, subjects (T-20
 selftest "…and each of its assertions still fires when the library is broken" \
   python3 tools/audit_jaunts.py --self-test
 
+# compile_jaunts proves a jaunt is well-formed; this reads what it SAYS: no Indigenous
+# encounter staged, no figure or asset carried, no quotation the claims do not hold
+# verbatim, no restricted source cited (T-2040).
+step "Jaunt content refusals across the library (T-2040)" \
+  python3 tools/audit_jaunt_refusals.py
+
+selftest "…and each refusal still fires when broken (T-2040)" \
+  python3 tools/audit_jaunt_refusals.py --self-test
+
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check
 

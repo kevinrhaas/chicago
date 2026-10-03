@@ -1,0 +1,85 @@
+{
+  "scope": "Original complete release sweep. Runs before the census and fence instrumentation correction; later repeats supersede only the affected sections. Tested commits are authoritative; results are not relabeled as current-tree tests.",
+  "runs": [
+    {
+      "id": 37156826413,
+      "viewport": "mobile",
+      "stage": "1-2",
+      "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37156826413",
+      "createdAt": "2026-10-03T21:57:51Z",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 37156913316,
+      "viewport": "desktop",
+      "stage": "1-2",
+      "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37156913316",
+      "createdAt": "2026-10-03T21:59:23Z",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 37156977873,
+      "viewport": "mobile",
+      "stage": "3-6",
+      "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37156977873",
+      "createdAt": "2026-10-03T22:00:27Z",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37157020341,
+      "viewport": "desktop",
+      "stage": "3-6",
+      "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157020341",
+      "createdAt": "2026-10-03T22:01:13Z",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 37157073679,
+      "viewport": "mobile",
+      "stage": "7-9",
+      "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157073679",
+      "createdAt": "2026-10-03T22:02:20Z",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37157088665,
+      "viewport": "desktop",
+      "stage": "7-9",
+      "sha": "db49ce6adfebb2d9d509ad140edbe65d6d0ec4ea",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157088665",
+      "createdAt": "2026-10-03T22:02:40Z",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 37157228565,
+      "viewport": "mobile",
+      "stage": "10-13",
+      "sha": "ac66939285d99b7d2904628e028f4dd981d9e43d",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157228565",
+      "createdAt": "2026-10-03T22:05:11Z",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 37157238337,
+      "viewport": "desktop",
+      "stage": "10-13",
+      "sha": "ac66939285d99b7d2904628e028f4dd981d9e43d",
+      "url": "https://github.com/kevinrhaas/chicago/actions/runs/37157238337",
+      "createdAt": "2026-10-03T22:05:21Z",
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ]
+}
