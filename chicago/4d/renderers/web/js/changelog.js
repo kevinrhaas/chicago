@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
+  { v: 1352, ts: '2026-10-03T07:12:28.066Z', date: 'Oct 3, 2026, 2:12 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
     items: [
       'Cross the Lake Street bridge to the block between Clinton and Canal. A plank walk now runs the whole Lake Street front, not just the stretch outside its one shop.',
       'Its Randolph Street side has a walk of its own now, about 97 m of planks, with a board crossing over Randolph at the corner.',
