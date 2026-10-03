@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1356, ts: '2026-10-03T09:28:24.814Z', date: 'Oct 3, 2026, 4:28 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
+  { v: null, ts: '', title: 'A new jaunt: Mend the Harness', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
       'Take the leather to S. B. Cobb\u2019s saddlery and the iron to Asahel Pierce\u2019s smithy at Lake and Canal, then decide at the Green Tree whether to take the long road or keep the trip short.',
       'The crack, the repairs and the keepsake, Sound Tack, are our reconstruction (liberty L-jaunt-mend-harness). The stable, the shops and their trades come from the sources.',
+    ] },
+  { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
+    items: [
+      'A North Division boarding house had one bed empty that the town was still owed a lodger for. Henry Metcalf, a man in his twenties, now sleeps there. Open the house\u2019s card to see him among its boarders.',
+      'Nobody already in the town moved to make room. He is our reconstruction, like every boarder no source names (liberty L252).',
+      'Seven more lodgers are owed in the West Division, where every bed is taken. They will move in as new boarding houses are raised.',
     ] },
   { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
