@@ -127,7 +127,7 @@
         "auctioneer"
       ],
       "column_1840": "Commerce",
-      "establishments_at_the_scene_date": 10,
+      "establishments_at_the_scene_date": 7,
       "staff_roles": [
         {
           "role": "clerk",
@@ -1608,8 +1608,8 @@
     }
   ],
   "dry_run": {
-    "businesses_staffed": 179,
-    "principals_already_in_the_layer": 165,
+    "businesses_staffed": 176,
+    "principals_already_in_the_layer": 163,
     "staff_by_role": [
       {
         "occupation_term": "clerk",
@@ -1617,8 +1617,8 @@
         "sex_rule": "male",
         "age_band": "young_adult_16_25",
         "low": 31,
-        "typical": 58,
-        "high": 116,
+        "typical": 55,
+        "high": 113,
         "from_classes": [
           "auction_and_commission_room",
           "drug_store",
@@ -1638,7 +1638,7 @@
         "age_band": "adult_18_45",
         "low": 14,
         "typical": 36,
-        "high": 99,
+        "high": 96,
         "from_classes": [
           "auction_and_commission_room",
           "brewery",
@@ -2053,8 +2053,8 @@
       },
       "male": {
         "low": 51,
-        "typical": 169,
-        "high": 352
+        "typical": 166,
+        "high": 346
       },
       "predominantly_male": {
         "low": 7,
@@ -2064,34 +2064,34 @@
     },
     "staff_total": {
       "low": 65,
-      "typical": 202,
-      "high": 417
+      "typical": 199,
+      "high": 411
     },
     "staff_living_on_the_premises": {
       "low": 31.1,
-      "typical": 87.5,
-      "high": 149.4
+      "typical": 86.3,
+      "high": 148.2
     },
     "working_persons_implied": {
-      "low": 230,
-      "typical": 367,
-      "high": 582
+      "low": 228,
+      "typical": 362,
+      "high": 574
     },
     "not_a_roster": "Counts of ROLES over establishments. No person is named, drawn or written; T-1189 does that and this is the quota it does it to."
   },
   "reconciliation": {
     "against_the_clerk_calibration": {
-      "layer_principals_in_clerk_employing_classes": 86,
+      "layer_principals_in_clerk_employing_classes": 84,
       "ratio_1839_like_for_like": 0.68778,
-      "clerks_the_1839_ratio_predicts": 59.1,
-      "clerks_this_model_puts_in_those_classes": 59,
-      "delta": -0.1,
-      "tolerance": 14.8,
+      "clerks_the_1839_ratio_predicts": 57.8,
+      "clerks_this_model_puts_in_those_classes": 56,
+      "delta": -1.8,
+      "tolerance": 14.4,
       "agrees": true,
       "on_the_wide_ratio_instead": {
         "ratio_1839_wide": 0.48718,
-        "clerks_predicted": 41.9,
-        "delta": 17.1,
+        "clerks_predicted": 40.9,
+        "delta": 15.1,
         "note": "The wide ratio divides the same clerks by tavern, livery and boarding-house keepers as well, and on it the model looks over-clerked. Printed rather than buried: it is the reading a sceptic would take."
       },
       "if_it_disagrees": "The per-house rules are period convention and the ratio is a 1839 measurement of a bigger town. A disagreement is STATED here and neither side is moved to close it; T-1189 spends against the rules and reports the residual."
@@ -2099,9 +2099,9 @@
     "against_the_town_model_employment": {
       "employed_persons_low": 425,
       "employed_persons_high": 588,
-      "working_persons_implied_typical": 367,
-      "working_persons_implied_low": 230,
-      "working_persons_implied_high": 582,
+      "working_persons_implied_typical": 362,
+      "working_persons_implied_low": 228,
+      "working_persons_implied_high": 574,
       "inside_the_bracket": false,
       "method": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "what_it_does_not_mean": "The town model's employed persons counts EVERY working person — the labourers of the harbour works, the garrison, the farmers outside the limits, the domestic service the 1840 columns have no row for. The businesses of this layer are a PART of that figure, so falling below the low end is expected and falling above it is a refusal."
@@ -2127,7 +2127,7 @@
     },
     {
       "question": "The records the layer gives no trade to.",
-      "why_it_matters": "9 of the 179 houses standing at the scene date carry no `occupation`, so they are staffed by nobody here. T-1182's audit is what fixes that, and until it runs this model understates the town.",
+      "why_it_matters": "9 of the 176 houses standing at the scene date carry no `occupation`, so they are staffed by nobody here. T-1182's audit is what fixes that, and until it runs this model understates the town.",
       "owned_by": [
         "T-1182"
       ]

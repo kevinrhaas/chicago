@@ -59,10 +59,10 @@ Of the **2,506** people housed in a standing building: **11.4 % attested** (286)
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
 | at a standing structure | 29 | 17 | 18 | 64 |
-| a stated limit | 2 | 188 | 35 | 225 |
+| a stated limit | 2 | 185 | 35 | 222 |
 | neither (owed) | 0 | 0 | 0 | 0 |
-| **all** | **31** | **205** | **53** | **289** |
-| share | 10.7 % | 70.9 % | 18.3 % | |
+| **all** | **31** | **202** | **53** | **286** |
+| share | 10.8 % | 70.6 % | 18.5 % | |
 
 ### Standing structures
 

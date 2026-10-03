@@ -100,7 +100,7 @@
     }
   },
   "roofed": {
-    "businesses": 289,
+    "businesses": 286,
     "at_a_standing_structure": {
       "attested": 29,
       "inferred": 17,
@@ -108,7 +108,7 @@
     },
     "stated_limit": {
       "anchored": 28,
-      "street_only": 95,
+      "street_only": 92,
       "unplaceable": 102
     },
     "open": []
@@ -195,7 +195,7 @@
       },
       "stated_limit": {
         "attested": 2,
-        "inferred": 188,
+        "inferred": 185,
         "reconstructed": 35
       },
       "open": {

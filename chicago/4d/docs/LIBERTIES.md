@@ -12015,7 +12015,7 @@ house and the shop, the same plate and the same grade) · **L1** (no figure is d
 **Covers:** `fort_dearborn_us_factors_house.us_factors_house_1818.form.roof_type`, `fort_dearborn_us_factors_house.us_factors_house_1818.form.roof_pitch_deg`, `fort_dearborn_us_factors_house.us_factors_house_1818.form.wall_height_m`, `fort_dearborn_us_factors_house.us_factors_house_1818.form.chimneys`.
 **Recorded:** 2026-09-11 (T-1036).
 
-### L232 — 26 documented businesses stand on 1 July 1835 because the only paper that names them was printed afterwards
+### L232 — 24 documented businesses stand on 1 July 1835 because the only paper that names them was printed afterwards
 **Decision:** every business the newspaper register flags `backdating_liberty_required` is
 treated as standing at the scene date. Its existence is documented — a dated advertisement or
 notice in the *Chicago Democrat* or the *Chicago American* — but the earliest surviving
@@ -12038,17 +12038,17 @@ year and a day before the scene date. The proxy had excluded from the July town 
 demonstrably stood in it. What is left after that reading is made everywhere it can be made
 is this class: documented houses whose standing on 1 July 1835 rests on ruling 3 — a
 documented business is built at the scene date unless contradicted — and on nothing else.
-**Scope:** `register_1835.businesses[backdating_liberty_required]` — 26 businesses, enumerated
+**Scope:** `register_1835.businesses[backdating_liberty_required]` — 24 businesses, enumerated
 by `tools/compile_register.py` from the gazetteer and the committed town, and re-counted by
 `tools/compile_liberties.py` on every compile. The number cannot drift from the register
 without `check.sh` saying so, which is the point of writing it down. **It is a measurement and
 not the figure this entry's ticket quoted:** T-0404 was filed at *33* on 2026-08-29, before the
 flag it names was computed; the register's own summary has read 30 (T-0356, which minted it),
-then 28 (T-0402), 27 (T-0340) and 26 (T-0413). Every one of those movements is an identity
+then 28 (T-0402), 27 (T-0340), 26 (T-0413) and 24 (T-0386, where the four headings of W. Montgomery's auction house became one house whose first printing, 1835-06-24, is before the scene date). Every one of those movements is an identity
 pass judging two printed styles to be one house — not one business leaving Chicago.
-**How the class is bounded, and how it is cleared.** 27 businesses stand in the July town whose
+**How the class is bounded, and how it is cleared.** 25 businesses stand in the July town whose
 first surviving issue postdates the scene date. **One** of them owes no liberty, and the
-mechanism is the one that makes the other 26 honest: an opening notice dated on or before
+mechanism is the one that makes the other 24 honest: an opening notice dated on or before
 1835-07-01 is positive evidence the house stood, so `compile_register.py` clears the flag —
 Taylor's `effected` dateline of 8 July 1834 is that notice. (John Holbrook's *"is now
 opening"* of 10 June 1835 is the same kind of reading, and he never needed it: his own first
@@ -13486,7 +13486,7 @@ the river in 1835 retires the house that stands in its slot — each record says
 `replaceable_by`, and the retirement runs through `--build`, never by hand. A re-cut of the
 order book that no longer orders the bucket retires both.
 
-Related: **L248** (the trade heads these houses adopt), **L232** (the 26 businesses that
+Related: **L248** (the trade heads these houses adopt), **L232** (the 24 businesses that
 stand on the scene date because the only paper naming them was printed later), tickets
 **T-1184**, **T-1173**, the order book **T-1166**, the successors **T-1185** … **T-1189**.
 **Recorded:** 2026-09-19.

@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1353, ts: '2026-10-03T08:02:34.968Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+  { v: 1354, ts: '2026-10-03T08:20:41.188Z', date: 'Oct 3, 2026, 3:20 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
     items: [
       'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
       'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
       'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
       'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
+    ] },
+  { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
+    items: [
+      'Walk South Water Street to the store lettered W. MONTGOMERY, Auction & Commission House. He opened there in the last week of June 1835 and held his first sale on 1 July, the day the town is set.',
+      'The two Chicago papers ran his notice under four different headings, and the town held them as four businesses, so none of them could hang a board. They are one house now. His card gathers every printing, and his own words place him in David Carver\u2019s old store, a few doors west of J. Wright\u2019s.',
+      'Neither paper gives a door number, so which store on the street is his is our allocation. A few other South Water merchants moved one roof along to make room.',
     ] },
   { v: 1352, ts: '2026-10-03T07:12:28.066Z', date: 'Oct 3, 2026, 2:12 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
     items: [

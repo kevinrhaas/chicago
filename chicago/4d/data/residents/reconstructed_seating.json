@@ -60,6 +60,11 @@
         "seats": 1
       },
       {
+        "business_id": "biz_a_leather_stock_chicago_june_1835",
+        "role": "labourer",
+        "seats": 1
+      },
+      {
         "business_id": "biz_a_new_tailoring_establishment_chicago_june_1835",
         "role": "dressmaker",
         "seats": 2
@@ -132,6 +137,11 @@
       {
         "business_id": "biz_cooley_and_hol_b_man",
         "role": "tailor",
+        "seats": 1
+      },
+      {
+        "business_id": "biz_d_carver_co",
+        "role": "labourer",
         "seats": 1
       },
       {
@@ -320,16 +330,6 @@
         "seats": 1
       },
       {
-        "business_id": "biz_montgomery_auction_and_commission_house",
-        "role": "clerk",
-        "seats": 1
-      },
-      {
-        "business_id": "biz_montgomery_auction_and_commission_house",
-        "role": "labourer",
-        "seats": 1
-      },
-      {
         "business_id": "biz_mrs_h_sherman",
         "role": "dressmaker",
         "seats": 2
@@ -408,6 +408,11 @@
         "business_id": "biz_sarah_d_howe",
         "role": "dressmaker",
         "seats": 2
+      },
+      {
+        "business_id": "biz_the_boston_market",
+        "role": "clerk",
+        "seats": 1
       },
       {
         "business_id": "biz_the_boston_market",
@@ -490,11 +495,6 @@
         "seats": 1
       },
       {
-        "business_id": "biz_w_montgomery_auction_and_commission_house",
-        "role": "labourer",
-        "seats": 1
-      },
-      {
         "business_id": "biz_wm_h_taylor",
         "role": "shoemaker",
         "seats": 1
@@ -522,7 +522,7 @@
     "nearest": 0,
     "seeded_draw": 122,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
-    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 196 business records name a structure this project holds, and 55 of 2209 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
+    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 193 business records name a structure this project holds, and 55 of 2209 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
   "by_trade": {
     "attorney": {
@@ -1180,7 +1180,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 90
+      "candidates_considered": 87
     },
     {
       "person_id": "rc_bardwell_jared",
@@ -1210,7 +1210,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 76
+      "candidates_considered": 73
     },
     {
       "person_id": "rc_bardwell_otis",
@@ -1752,7 +1752,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 89
+      "candidates_considered": 86
     },
     {
       "person_id": "rc_bourassa_hyacinthe",
@@ -1927,7 +1927,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 89
+      "candidates_considered": 86
     },
     {
       "person_id": "rc_burke_bryan",
@@ -1957,7 +1957,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 75
+      "candidates_considered": 72
     },
     {
       "person_id": "rc_burke_hugh",
@@ -1987,7 +1987,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 74
+      "candidates_considered": 71
     },
     {
       "person_id": "rc_burke_mary",
@@ -2043,7 +2043,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 73
+      "candidates_considered": 70
     },
     {
       "person_id": "rc_cardinal_louis",
@@ -2408,7 +2408,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 72
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_chapin_anna",
@@ -2605,7 +2605,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 88
+      "candidates_considered": 85
     },
     {
       "person_id": "rc_chevalier_louis",
@@ -2721,7 +2721,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 72
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_cobb_clarissa",
@@ -2761,18 +2761,18 @@
       "trade": "clerk",
       "premises": "no_fixed_premises",
       "division_of_the_person": "west",
-      "business_id": "biz_montgomery_auction_and_commission_house",
-      "business_name": "Montgomery, auction and commission house",
+      "business_id": "biz_the_boston_market",
+      "business_name": "The Boston Market",
       "role": "clerk",
       "tier": "reconstructed",
       "seed": "rc_cobb_erastus:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
-      "establishment_class": "auction_and_commission_room",
+      "establishment_class": "grocery_and_provision_store",
       "basis": {
         "kind": "model",
-        "id": "1835_business_staffing_model#auction_and_commission_room.clerk",
-        "note": "The staffing model puts 1 of this role in an auction and commission room at the typical band and 1 at the high end, on directory_1839. A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+        "id": "1835_business_staffing_model#grocery_and_provision_store.clerk",
+        "note": "The staffing model puts 1 of this role in a grocery and provision store at the typical band and 1 at the high end, on directory_1839. A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
       },
       "replaceable_by": {
         "kind": "person",
@@ -2781,7 +2781,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 87
+      "candidates_considered": 84
     },
     {
       "person_id": "rc_cobb_hiram",
@@ -2840,7 +2840,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 71
+      "candidates_considered": 68
     },
     {
       "person_id": "rc_cobb_maria",
@@ -3212,7 +3212,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 86
+      "candidates_considered": 83
     },
     {
       "person_id": "rc_crandall_almira",
@@ -3411,7 +3411,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 85
+      "candidates_considered": 82
     },
     {
       "person_id": "rc_crandall_william",
@@ -3636,7 +3636,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 84
+      "candidates_considered": 81
     },
     {
       "person_id": "rc_dickinson_otis",
@@ -3916,7 +3916,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 71
+      "candidates_considered": 68
     },
     {
       "person_id": "rc_doyle_ellen",
@@ -4756,7 +4756,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 83
+      "candidates_considered": 80
     },
     {
       "person_id": "rc_eastman_samuel",
@@ -5194,7 +5194,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 70
+      "candidates_considered": 67
     },
     {
       "person_id": "rc_fisk_abner",
@@ -5682,7 +5682,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 69
+      "candidates_considered": 66
     },
     {
       "person_id": "rc_flynn_daniel",
@@ -5827,7 +5827,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 68
+      "candidates_considered": 65
     },
     {
       "person_id": "rc_gagnier_hyacinthe",
@@ -7118,7 +7118,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 67
+      "candidates_considered": 64
     },
     {
       "person_id": "rc_hayes_hugh",
@@ -7252,7 +7252,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 66
+      "candidates_considered": 63
     },
     {
       "person_id": "rc_hayes_patrick",
@@ -7311,7 +7311,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 65
+      "candidates_considered": 62
     },
     {
       "person_id": "rc_hubbard_asa",
@@ -7377,18 +7377,18 @@
       "trade": "labourer",
       "premises": "no_fixed_premises",
       "division_of_the_person": "south",
-      "business_id": "biz_w_montgomery_auction_and_commission_house",
-      "business_name": "W. Montgomery, Auction and Commission House",
+      "business_id": "biz_d_carver_co",
+      "business_name": "D. Carver & Co.",
       "role": "labourer",
       "tier": "reconstructed",
       "seed": "rc_hubbard_joseph:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
-      "establishment_class": "auction_and_commission_room",
+      "establishment_class": "lumber_yard",
       "basis": {
         "kind": "model",
-        "id": "1835_business_staffing_model#auction_and_commission_room.labourer",
-        "note": "The staffing model puts 0 of this role in an auction and commission room at the typical band and 1 at the high end, on period_convention. A porter on sale days. Analogue: the stores above. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+        "id": "1835_business_staffing_model#lumber_yard.labourer",
+        "note": "The staffing model puts 2 of this role in a lumber yard at the typical band and 3 at the high end, on period_convention. A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
       },
       "replaceable_by": {
         "kind": "person",
@@ -7397,7 +7397,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 64
+      "candidates_considered": 61
     },
     {
       "person_id": "rc_ingalls_abigail",
@@ -7707,7 +7707,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 82
+      "candidates_considered": 79
     },
     {
       "person_id": "rc_kellogg_almira",
@@ -8070,7 +8070,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 81
+      "candidates_considered": 78
     },
     {
       "person_id": "rc_laframboise_madeleine",
@@ -8249,7 +8249,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 80
+      "candidates_considered": 77
     },
     {
       "person_id": "rc_leland_abigail",
@@ -8906,18 +8906,18 @@
       "trade": "labourer",
       "premises": "no_fixed_premises",
       "division_of_the_person": "west",
-      "business_id": "biz_montgomery_auction_and_commission_house",
-      "business_name": "Montgomery, auction and commission house",
+      "business_id": "biz_a_leather_stock_chicago_june_1835",
+      "business_name": "a leather stock, Chicago, June 1835",
       "role": "labourer",
       "tier": "reconstructed",
       "seed": "rc_lynch_bryan:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
-      "establishment_class": "auction_and_commission_room",
+      "establishment_class": "dry_goods_store",
       "basis": {
         "kind": "model",
-        "id": "1835_business_staffing_model#auction_and_commission_room.labourer",
-        "note": "The staffing model puts 0 of this role in an auction and commission room at the typical band and 1 at the high end, on period_convention. A porter on sale days. Analogue: the stores above. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+        "id": "1835_business_staffing_model#dry_goods_store.labourer",
+        "note": "The staffing model puts 0 of this role in a dry-goods store at the typical band and 1 at the high end, on period_convention. A porter to shift goods, at the larger houses only. Analogue: the 1839 list's seven porters, counted under labourer, against 151 commerce principals. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
       },
       "replaceable_by": {
         "kind": "person",
@@ -8926,7 +8926,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 63
+      "candidates_considered": 61
     },
     {
       "person_id": "rc_lynch_catherine",
@@ -9066,7 +9066,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 62
+      "candidates_considered": 60
     },
     {
       "person_id": "rc_mahoney_catherine",
@@ -9229,7 +9229,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 62
+      "candidates_considered": 60
     },
     {
       "person_id": "rc_mahoney_terence",
@@ -9509,7 +9509,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 79
+      "candidates_considered": 76
     },
     {
       "person_id": "rc_mccarthy_mary",
@@ -9795,7 +9795,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 79
+      "candidates_considered": 76
     },
     {
       "person_id": "rc_metcalf_george",
@@ -9994,7 +9994,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 61
+      "candidates_considered": 59
     },
     {
       "person_id": "rc_murphy_hugh",
@@ -10222,7 +10222,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 78
+      "candidates_considered": 75
     },
     {
       "person_id": "rc_newell_hiram",
@@ -10611,7 +10611,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 77
+      "candidates_considered": 74
     },
     {
       "person_id": "rc_nichols_john",
@@ -11234,7 +11234,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 76
+      "candidates_considered": 73
     },
     {
       "person_id": "rc_parmelee_silas",
@@ -11462,7 +11462,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 60
+      "candidates_considered": 58
     },
     {
       "person_id": "rc_pratt_ezra",
@@ -11808,7 +11808,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 59
+      "candidates_considered": 57
     },
     {
       "person_id": "rc_quinn_johanna",
@@ -12068,7 +12068,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 75
+      "candidates_considered": 72
     },
     {
       "person_id": "rc_reilly_owen",
@@ -12098,7 +12098,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 58
+      "candidates_considered": 56
     },
     {
       "person_id": "rc_reilly_terence",
@@ -12154,7 +12154,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 74
+      "candidates_considered": 71
     },
     {
       "person_id": "rc_rice_levi",
@@ -12184,7 +12184,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 73
+      "candidates_considered": 70
     },
     {
       "person_id": "rc_rice_luther",
@@ -12781,7 +12781,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 57
+      "candidates_considered": 55
     },
     {
       "person_id": "rc_shea_edward",
@@ -12970,7 +12970,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 73
+      "candidates_considered": 70
     },
     {
       "person_id": "rc_sheldon_erastus",
@@ -13304,7 +13304,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 57
+      "candidates_considered": 55
     },
     {
       "person_id": "rc_stebbins_lemuel",
@@ -13760,7 +13760,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 72
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_sullivan_ellen",
@@ -13822,7 +13822,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 72
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_sullivan_johanna",
@@ -14780,7 +14780,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 71
+      "candidates_considered": 68
     },
     {
       "person_id": "rc_vieau_louis",
@@ -14923,7 +14923,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 56
+      "candidates_considered": 54
     },
     {
       "person_id": "rc_wadsworth_ezra",
@@ -15144,7 +15144,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 56
+      "candidates_considered": 54
     },
     {
       "person_id": "rc_walsh_edward",

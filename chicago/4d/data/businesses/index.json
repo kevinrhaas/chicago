@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 289,
-    "compiled_from_register": 196,
+    "records": 286,
+    "compiled_from_register": 193,
     "authored": 93,
-    "present_at_scene_date": 272,
+    "present_at_scene_date": 269,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,7 +16,7 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 135,
+      "other": 132,
       "physician": 10,
       "printing_office": 3,
       "school": 7,
@@ -30,22 +30,22 @@
     "by_location_kind": {
       "anchored": 28,
       "premises": 65,
-      "street_only": 95,
+      "street_only": 92,
       "unplaceable": 106
     },
-    "named_people": 422,
-    "named_people_linked_to_a_town_card": 368,
+    "named_people": 420,
+    "named_people_linked_to_a_town_card": 366,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
-      "attested": 166,
+      "attested": 163,
       "inferred": 70,
       "reconstructed": 53
     },
     "by_where_kind": {
       "anchored": 28,
       "premises": 64,
-      "street_only": 95,
+      "street_only": 92,
       "unplaceable": 102
     },
     "by_street": {
@@ -59,7 +59,7 @@
       "Monroe Street": 1,
       "North Water Street": 5,
       "Randolph Street": 2,
-      "South Water Street": 42,
+      "South Water Street": 39,
       "West Water Street": 2
     },
     "by_proprietor_community": {
@@ -71,8 +71,8 @@
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 106,
-      "yankee": 81
+      "unknown": 105,
+      "yankee": 79
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -116,7 +116,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 81
+        "count": 79
       },
       {
         "value": "new_york",
@@ -151,7 +151,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 106
+        "count": 105
       }
     ]
   },
@@ -486,7 +486,17 @@
         "Skirting"
       ],
       "firm_styles": [],
-      "people": [],
+      "people": [
+        {
+          "name": "Bryan Lynch",
+          "person_id": "rc_lynch_bryan",
+          "role": "household_member",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
       "where": {
         "kind": "unplaceable",
         "structure_id": null,
@@ -504,63 +514,6 @@
       "dates_tier": "inferred",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
-      "review_required": false,
-      "liberties": []
-    },
-    {
-      "id": "biz_a_new_auction_and_commission_room_south_water_street",
-      "file": "biz_a_new_auction_and_commission_room_south_water_street.json",
-      "name": "a new auction and commission room, South Water Street",
-      "register_id": "business_a_new_auction_and_commission_room_south_water_street",
-      "provenance": "compiled_from_register",
-      "type": [
-        "other"
-      ],
-      "present_at_scene_date": true,
-      "grade": "attested",
-      "trade": "auction and commission",
-      "occupation": "auctioneer",
-      "goods": [
-        "Crockery",
-        "Dry Goods",
-        "Groceries",
-        "Hardware"
-      ],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "W. Montgomery",
-          "person_id": "montgomery_w",
-          "role": "proprietor",
-          "tier": "attested",
-          "from": "1835-06-27",
-          "to": "1835-07-25",
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "street_only",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": "south_water",
-        "street": "South Water Street",
-        "tier": "inferred",
-        "from": "1835-06-27",
-        "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"J. Wright's\" names nothing the committed town holds.",
-        "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
-          "by": "street_face_adoption",
-          "tier": "reconstructed",
-          "claims_lot": false
-        }
-      },
-      "locations": 1,
-      "opened": "1835-06-27",
-      "closed": null,
-      "dates_tier": "inferred",
-      "proprietor_community": "yankee",
-      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": []
     },
@@ -1401,7 +1354,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -2245,7 +2198,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of randolph and names nothing narrower.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+          "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -2764,6 +2717,15 @@
           "from": "1834-09-10",
           "to": "1834-09-10",
           "also_printed_as": []
+        },
+        {
+          "name": "Joseph Hubbard",
+          "person_id": "rc_hubbard_joseph",
+          "role": "household_member",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
         }
       ],
       "where": {
@@ -2851,7 +2813,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Newberry & Dole's store\" names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+          "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -5243,7 +5205,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor '[…] So[u]th Water Street, Mme sete Sayth Water Street,' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
+          "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -6407,7 +6369,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Printing Office' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -7750,7 +7712,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -8239,7 +8201,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"P. Cohen's Store\" names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+          "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -8818,74 +8780,6 @@
       "liberties": [
         "survival_required"
       ]
-    },
-    {
-      "id": "biz_montgomery_auction_and_commission_house",
-      "file": "biz_montgomery_auction_and_commission_house.json",
-      "name": "Montgomery, auction and commission house",
-      "register_id": "business_montgomery_auction_and_commission_house",
-      "provenance": "compiled_from_register",
-      "type": [
-        "other"
-      ],
-      "present_at_scene_date": true,
-      "grade": "attested",
-      "trade": "auction and commission house, selling merchandize and real estate",
-      "occupation": "auctioneer",
-      "goods": [
-        "goods on commission",
-        "merchandize at auction",
-        "real estate at auction"
-      ],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Montgomery",
-          "person_id": null,
-          "role": "proprietor",
-          "tier": "attested",
-          "from": "1835-06-24",
-          "to": "1835-06-24",
-          "also_printed_as": []
-        },
-        {
-          "name": "Erastus Cobb",
-          "person_id": "rc_cobb_erastus",
-          "role": "clerk",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        },
-        {
-          "name": "Bryan Lynch",
-          "person_id": "rc_lynch_bryan",
-          "role": "household_member",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "street_only",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": "south_water",
-        "street": "South Water Street",
-        "tier": "inferred",
-        "from": "1835-06-24",
-        "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower."
-      },
-      "locations": 1,
-      "opened": "1835-06-24",
-      "closed": null,
-      "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
-      "review_required": false,
-      "liberties": []
     },
     {
       "id": "biz_mrs_h_sherman",
@@ -9665,7 +9559,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
+          "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -11422,6 +11316,15 @@
           "name": "Jared Bardwell",
           "person_id": "rc_bardwell_jared",
           "role": "household_member",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        },
+        {
+          "name": "Erastus Cobb",
+          "person_id": "rc_cobb_erastus",
+          "role": "clerk",
           "tier": "reconstructed",
           "from": null,
           "to": null,
@@ -13460,18 +13363,37 @@
       ],
       "present_at_scene_date": true,
       "grade": "attested",
-      "trade": "auction and commission house",
+      "trade": "auction and commission",
       "occupation": "auctioneer",
-      "goods": [],
+      "goods": [
+        "Crockery",
+        "Dry Goods",
+        "Groceries",
+        "Hardware",
+        "goods on commission",
+        "merchandize at auction",
+        "real estate at auction"
+      ],
       "firm_styles": [],
       "people": [
         {
           "name": "W. Montgomery",
           "person_id": "montgomery_w",
-          "role": "proprietor",
+          "role": "partner",
           "tier": "attested",
-          "from": "1835-07-08",
-          "to": "1835-07-29",
+          "from": "1835-06-24",
+          "to": "1835-08-05",
+          "also_printed_as": [
+            "Montgomery, W."
+          ]
+        },
+        {
+          "name": "Montgomery",
+          "person_id": null,
+          "role": "partner",
+          "tier": "attested",
+          "from": "1835-06-24",
+          "to": "1835-08-05",
           "also_printed_as": []
         },
         {
@@ -13491,66 +13413,15 @@
         "street_id": "south_water",
         "street": "South Water Street",
         "tier": "inferred",
-        "from": "1835-07-08",
+        "from": "1835-06-24",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"David Carver's Old Stand\" names nothing the committed town holds."
-      },
-      "locations": 1,
-      "opened": "1835-07-06",
-      "closed": null,
-      "dates_tier": "attested",
-      "proprietor_community": "yankee",
-      "proprietor_community_tier": "reconstructed",
-      "review_required": false,
-      "liberties": [
-        "backdating_required"
-      ]
-    },
-    {
-      "id": "biz_w_montgomery_auction_and_commission_house",
-      "file": "biz_w_montgomery_auction_and_commission_house.json",
-      "name": "W. Montgomery, Auction and Commission House",
-      "register_id": "business_w_montgomery_auction_and_commission_house",
-      "provenance": "compiled_from_register",
-      "type": [
-        "other"
-      ],
-      "present_at_scene_date": true,
-      "grade": "attested",
-      "trade": "auction and commission",
-      "occupation": "auctioneer",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Montgomery, W.",
-          "person_id": "montgomery_w",
-          "role": "proprietor",
-          "tier": "attested",
-          "from": "1835-08-05",
-          "to": "1835-08-05",
-          "also_printed_as": []
-        },
-        {
-          "name": "Joseph Hubbard",
-          "person_id": "rc_hubbard_joseph",
-          "role": "household_member",
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"J. Wright's\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+          "by": "street_face_adoption",
           "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
+          "claims_lot": false
         }
-      ],
-      "where": {
-        "kind": "street_only",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": "south_water",
-        "street": "South Water Street",
-        "tier": "inferred",
-        "from": "1835-08-05",
-        "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"David Carver's old stand\" names nothing the committed town holds."
       },
       "locations": 1,
       "opened": "1835-07-06",
@@ -13559,9 +13430,7 @@
       "proprietor_community": "yankee",
       "proprietor_community_tier": "reconstructed",
       "review_required": false,
-      "liberties": [
-        "backdating_required"
-      ]
+      "liberties": []
     },
     {
       "id": "biz_w_reed",
