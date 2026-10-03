@@ -29,6 +29,38 @@ menu) with zero page errors; the keepsake landed under News & Knowledge.
 **Unverified.** The 1280×800 drive read the card's figures and opened the detail card with zero
 page errors, but the ride to the ending was cut off by the 580 s cap; the ending was proved at
 390×780 only. The stills are not committed.
+## T-1265 — Fort Dearborn Errand, a five-stop jaunt round the fort's service buildings (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Fort Dearborn Errand* (Fort Dearborn, Walk).
+It has five exterior stops: the stockade from the south-west, the guard-house and the store-house
+on either side of the south gate, the sutler's store east of the north gate, and the shop on the
+outer ground toward the lake. The visitor carries an imagined note. They choose candles or thread
+at the sutler's, tally the parcel outside the store-house and set it down at the shop. The ending
+is *accounted* when all three are done (readiness 3), otherwise *unfinished*. The keepsake
+*Accounted for at the Fort* goes to Livelihood. The store-house stop has the only dated document
+of use behind it: the Army's fresh-beef proposals of 28 May and 4 June 1834. The sutler's goods
+are invented, because no stock list was found. The shop is a workshop and not a smithy, because
+the 1830 plan letters it "Shop" and names no trade. No soldier, sentry or garrison routine is
+staged. Content only: one JSON file, a liberty (`L-jaunt-fort-dearborn-errand`), the regenerated
+catalog and source-use edges. There is no engine, compiler or CSS change.
+
+**A substitution, and why.** The brief's first stop was `fort_dearborn_palisade`. Its stand-off
+resolves to the river's NORTH bank, so the real router walked leg 1 for 1,191 m round by a bridge
+against a 128 m line, and the card read **Walk about 19.5 min**. Stop 1 is now the scene anchor
+`fort_dearborn` ("Fort Dearborn, from the south-west"), 48 m from the guard-house. It keeps the
+stockade's card link. This is an engine finding for whoever owns stand-offs: a structure on a
+riverbank can be framed from the far bank.
+
+**Measured** on the published mirror with the real router: mobile 380 s (the card shows about
+6.5 min), desktop 347 s (about 6 min, with "approximate route" on desktop only). Wagon 4, Horse
+3–3.5, Fly 3, Instantly 2.5. Mobile is over the 3–6 min band because the router takes the
+sutler's → store-house leg 163 m round inside the stockade against a 69 m line. Second engine
+finding: on desktop `router.plan(sutler stand → store-house stand)` returns null while the reverse
+plans 117 m, so that leg is priced at a straight line × 1.3. `play_jaunt.mjs --all-paths`: 7
+paths, both endings, one keepsake. A scripted browser play-through at 390×780 and 1280×800 went
+menu → opening → mid-leg switch to Fly → detail card and back → Previous → choices → ending
+`accounted` → menu. It awarded the keepsake once under Livelihood, a replay added no second one,
+and there were 0 page errors at both viewports. End and Jaunts Menu were not pressed.
 
 ## T-1262 — New in Chicago, finished as the first-day Orientation jaunt (2026-10-03)
 
