@@ -27,7 +27,7 @@ The existing `measure_detail_ceilings.mjs` checks all three tiers at the five es
 
 ## Coordination with T-2014
 
-The owner flagged active T-2014 during this run. PR #328 (`claude/project-thread-uzqpmm`) extends shrubs to 140 m at full detail, using the same lattice slots and a coarser `farShrubGeometry`. T-2015 keeps the reach/deal/seeding logic owned by that change, and makes its near and distant geometry use the same leaf-cutout material. The shared `shrubGeometry(grain, name, reach, segments)` signature permits the distant 48-triangle form to remain inexpensive. Integration validation must be on a tree containing both changes, including a forward walk at Kinzie/Clark.
+The owner flagged active T-2014 during this run. PR #328 (`claude/project-thread-uzqpmm`) extends shrubs to 140 m at full detail, using the same lattice slots and a coarser `farShrubGeometry`. It landed as dev `b06a063a` during recovery and is included in the final integration. T-2015 keeps its reach/deal/seeding logic and makes its near and distant geometry use the same leaf-cutout material. The shared `shrubGeometry(grain, name, reach, segments)` signature permits the distant 48-triangle form to remain inexpensive. The resolved module matches the previously validated composition except for an explanatory comment; the current geometry audit reads 48 far triangles and 136 / 392 / 520 near triangles at light / balanced / full, all finite.
 
 ## API references
 
@@ -66,7 +66,21 @@ The final understory refinement preserves positions and triangle counts in 20 ar
 
 The final published mirror includes dev `8c3537a1` plus this branch. All eight fixed frames (four poses, 1280 × 800 and 390 × 780 at DPR 1) complete with zero console/page errors. The actual production tick updates plants after each teleport; animation is held for comparison. Cold ready intervals were 53.0 s desktop and 51.2 s narrow viewport on the shared SwiftShader host, not a hardware-GPU performance result. Full-tier prairie reads 2,168,162 triangles / 244 calls; its one extra call after the earlier sweep comes with the newer dev entrance surfaces, and fits 260.
 
-The 750-step source gate and final preflight pass. The complete published smoke and the T-2014 composition walk are in progress; this checkpoint is reviewable but has not yet merged to dev.
+Checkpoint `c328395c` passes the 750-step source gate and preflight and is saved in draft PR #333. Final integration now includes T-0192's cross-street walks and T-2014's distant shrubs, through dev `b06a063a`. The combined budget measurement below is complete; final published checks are pending. Earlier parallel browser attempts on the shared software-rendering host timed out at startup; those attempts are not passing smoke receipts.
+
+### Integrated budget reading
+
+The final six-stand sweep includes both merged features and records all 36 viewport/tier/stand combinations with zero page errors in `vegetation-quality/integrated-ceilings.json`. It uses the diagnostic `measure_detail_ceilings.mjs --stepped` path: two actual production frames and a GPU finish at each view, with the background loop stopped. The ordinary animation-loop smoke remains the release assertion. This cost reading was taken before changing the provisional ceilings, so its full/balanced OVER reports describe those old ceilings.
+
+| Tier | Desktop worst | Narrow DPR-1 worst | Final ceiling |
+| --- | ---: | ---: | ---: |
+| Full | 2,456,812, prairie | 2,215,555, prairie | 2,475,000 |
+| Balanced | 1,860,932, prairie | 1,705,352, Lake/Canal | 1,880,000 |
+| Light | 885,447, prairie | 790,681, prairie | 910,000 |
+
+Full and balanced retain the established margins of 18,059 and 16,806, rounding upward to 5,000. Light remains inside its initial owner-authorized ceiling. The worst call count is 277 at narrow prairie; the existing 15-call margin rounded upward to five gives 295. Light peaks at 74 and keeps its separate 90-call cap. These are combined-scene costs, not an attribution of the cross-street walks or distant-shrub feature to this ticket.
+
+The reviewed browser scope is published smoke parts 5 and 9–11 at desktop and touch/DPR-2 mobile, plus focused confidence restoration, current traced-water assertions, shader/material parity, changelog and L366 disclosure checks. The stock path mapper conservatively requests all parts for `main.js` and unknown modules; review narrows this budget-only `main.js` diff and the two new surface modules to their actual consumers. The focused checks do not constitute complete parts 2, 12 or 13, and this is not a claim that all 13 parts passed. Final results are pending.
 
 ![Bridge before](vegetation-quality/before-bridge-desktop.jpg)
 ![Bridge after](vegetation-quality/after-bridge-desktop.jpg)
@@ -75,4 +89,4 @@ The 750-step source gate and final preflight pass. The complete published smoke 
 
 ### Limits
 
-These are deterministic, family-level botanical reconstructions, not photographic scans or a newly sourced inventory. The existing ground/lighting pipeline remains in use; photographic quality is the visual target, not a benchmark score proved by geometry counts. The review covers existing shared flora consumers and does not add missing landscape records to other years. Runtime FPS on consumer GPUs is not established by SwiftShader screenshots. T-2014 owns the distant shrub-band feature and remains a separate PR.
+These are deterministic, family-level botanical reconstructions, not photographic scans or a newly sourced inventory. The existing ground/lighting pipeline remains in use; photographic quality is the visual target, not a benchmark score proved by geometry counts. The review covers existing shared flora consumers and does not add missing landscape records to other years. Runtime FPS on consumer GPUs is not established by SwiftShader screenshots. T-2014 owns the distant shrub-band feature, landed separately in PR #328.

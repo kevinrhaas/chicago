@@ -50,7 +50,7 @@ import * as THREE from 'three';
 // The shrub archetype's LAYOUT, in a module that imports nothing, so
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
-import { SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
+import { SHRUB_GRAIN, FAR_SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 import { softExtentWeight, ditherHash } from './lakeshore.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 
@@ -291,13 +291,42 @@ const TUNE = {
     // and the heads inside it quadratically, so 2.0 draws a quarter of them.
     minPx: 1.0,
   },
+  /**
+   * THE FAR SHRUBS — T-2014. The owner, 2026-10-03, walking Kinzie toward Clark:
+   * "the plants appear to still pop up from nowhere, you have a pixely fade in
+   * … render them small and far away and keep rendering them into better
+   * quality and larger when they are close … a MUCH longer field of vision for
+   * the plants to see them down the road and in the distance."
+   *
+   * The far band above carries the grass and the forbs to 175 m; nothing
+   * carried the SHRUBS, which stood only on the forb ring and were screen-doored
+   * in over its last five metres at 26 m. So a bush came out of empty ground at
+   * a constant row of the frame on every step.
+   *
+   * This is the same SLOT, not a second planting. The far pass walks the shrub
+   * pass's own lattice — its cell, its salt, its deal and its per-slot generator
+   * — so the far bush at a slot is the near bush's own position, species,
+   * height, width, yaw and colour, drawn with `FAR_SHRUB_GRAIN`'s 48 triangles
+   * instead of 136. It is drawn whole (no dither) and hidden by a HARD inner
+   * edge at the radius where that slot's detailed bush is fully drawn, so over
+   * the forb ring's dither band the stipple shows the coarse bush through its
+   * holes rather than the sky, and closer in only the detailed one is drawn.
+   *
+   * `radius`/`ramp`: thinned by a world-anchored rank over the last `ramp`
+   * metres, as the far band is, so the edge is a density and not a circle.
+   * `step`: rebuilt only after this much walking, because the lattice is a
+   * hundred metres deep and re-dealing it every 0.6 m would be most of a frame.
+   * The hard inner edge is evaluated per frame in the shader, and the lattice
+   * reaches `step` inside it, so a lagging rebuild never leaves a hole.
+   */
+  farShrub: { radius: 140.0, ramp: 45.0, step: 4.0 },
   /** Hard caps. The palette's `budget` is advisory; this is the ceiling.
    *
    *  `head` is the average of the NINE head archetypes' ceilings and not any one
    *  of them — T-0214 split it by measured demand, so the nine sum to nine times
    *  this number and each gets `head x HEAD_SHARE[kind]`. Halving `head` at a
    *  detail tier still halves every archetype with it. */
-  cap: { near: 2400, mid: 4400, forb: 900, head: 820, far: 420 },
+  cap: { near: 2400, mid: 4400, forb: 900, head: 820, far: 420, farShrub: 3200 },
   wind: { speedNear: 1.35, sway: 0.085, waveM: 9.0 },
   /**
    * Rebuild the lattice when the camera has moved this far. It is also the
@@ -609,6 +638,16 @@ function farRank(e, n, band) {
   return unitHash(Math.round(e * 8), Math.round(n * 8), 0x1b9f31c7 ^ (band * 0x9e3779b9));
 }
 
+/** T-2014. The far shrubs' thinning toward their own outer radius, and the
+ *  slot's world-anchored place in it — `farKeepAt` and `farRank`, one stratum
+ *  over. No inner ramp: the handover is the slot's own hard edge. */
+function farShrubKeepAt(d, fs) {
+  return fs.ramp > 0 ? clamp01((fs.radius - d) / fs.ramp) : (d <= fs.radius ? 1 : 0);
+}
+function farShrubRank(e, n) {
+  return unitHash(Math.round(e * 8), Math.round(n * 8), 0x6d2b79f5);
+}
+
 /** The far band is not faded by the shader at all — see `farKeepAt`. This is
  *  the ring that says so: an outer radius nothing can reach, and a band wide
  *  enough that `chiFade` lands on 1 and the fragment shader's guard skips the
@@ -718,7 +757,10 @@ const LOW = {
     // way it culls furniture at 350 m and the rungs above it do not.
     minPx: null,
   },
-  cap: { near: 420, mid: 900, forb: 260, head: 240, far: 190 },
+  // T-2014. Shallower on the phone, as its far band is: the sward's own far
+  // band stops at 120 m here and the shrubs stop well inside it.
+  farShrub: { radius: 70.0, ramp: 24.0 },
+  cap: { near: 420, mid: 900, forb: 260, head: 240, far: 190, farShrub: 900 },
 };
 
 /**
@@ -749,7 +791,8 @@ const MID = {
     ],
     minPx: 2.0,
   },
-  cap: { near: 1500, mid: 2700, forb: 580, head: 520, far: 300 },
+  farShrub: { radius: 105.0, ramp: 35.0 },
+  cap: { near: 1500, mid: 2700, forb: 580, head: 520, far: 300, farShrub: 2000 },
 };
 
 /** The closed `form` list, split by how it is drawn. */
@@ -1185,12 +1228,17 @@ export async function createFlora({
   // ground — a silhouette read at fifty metres wants more tops in it, and two
   // extra triangles is what they cost.
   const farSet = instSet('flora-far', cardGeometry(tune.far.columns), cardMat, tune.cap.far);
-  const sets = [nearSet, midSet, forbSet, rosetteSet, shrubSet, farSet, ...Object.values(heads)];
+  // T-2014. The shrubs past the forb ring, on the shrub's own material — one
+  // more draw call and no new shader program. See `TUNE.farShrub`.
+  const farShrubSet = instSet('flora-shrub-far', farShrubGeometry(), bladeMat,
+    tune.cap.farShrub);
+  const sets = [nearSet, midSet, forbSet, rosetteSet, shrubSet, farSet, farShrubSet,
+    ...Object.values(heads)];
   for (const s of sets) { group.add(s.mesh); disposables.push(s.mesh.geometry); }
 
   // ---- placement --------------------------------------------------------- //
 
-  const centres = { near: null, yaw: null };
+  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null };
   const waterY = terrain.heightfield?.meta?.water_surface_m ?? 0;
 
   // The lattice each layer is scattered on, and the ring the shader fades it
@@ -1615,13 +1663,66 @@ export async function createFlora({
     }
   }
 
+  /**
+   * THE FAR SHRUBS — T-2014. See `TUNE.farShrub` for why this is the shrub
+   * pass's own lattice and not a second planting.
+   *
+   * The generator call order below matches the shrub pass up to `placeShrub`
+   * (`scatter` hands both the same per-slot `rng` and `u`), which is the whole
+   * of the refinement: the far bush and the detailed bush are one plant. Like
+   * the far band it is NOT counted into the drawn census — the detailed pass
+   * already counts the slots inside the forb ring, and past it this is the
+   * same population seen further off, not more of it.
+   */
+  const _farShrubRing = [FAR_RING[0], FAR_RING[1], 0, HARD];
+  function* rebuildFarShrubs(camE, camN, cone) {
+    farShrubSet.reset();
+    const f = rings.forb;
+    const fs = tune.farShrub;
+    // The nearest radius any slot's own handover can stand at, less the
+    // rebuild step: the hard edge is per frame, so the lattice has to reach
+    // in past it by as far as the walker can go before the next rebuild.
+    const inner = Math.max(0, f.fade[0] - f.fade[1] - f.fringe - fs.step);
+    yield* scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
+      fs.radius, inner, 0x7b5c1d, 'lattice', cone,
+      (e, n, r, rng, _cellSeed, u) => {
+        const off = fringeOf(e, n, f.fringe);
+        // Where THIS slot's detailed bush stops fading and is drawn whole.
+        const handover = f.fade[0] + off - f.fade[1];
+        if (r < handover - fs.step) return;
+        if (farShrubRank(e, n) >= farShrubKeepAt(r, fs)) return;
+        const zone = finder(e, n);
+        if (!zone || !zone.shrubs.length) return;
+        const wet = water.isWater(e, n);
+        const sp = dealt(wet ? zone.wet.shrubs : zone.dry.shrubs,
+          wet ? zone.shrubShareWet : zone.shrubShare, u);
+        if (!sp) return;
+        const y = station(e, n, zone, sp, wet);
+        if (y === null) return;
+        _farShrubRing[2] = handover;
+        farShrubSet.ring(_farShrubRing);
+        placeShrub(farShrubSet, sp, e, y, n, rng);
+      });
+    farShrubSet.commit();
+  }
+
+  /** The frame's flora figures, off every set as it stands now. Read after
+   *  either rebuild, because the far shrubs rebuild on their own step. */
+  function tally() {
+    stats.instances = sets.reduce((a, s) => a + s.mesh.count, 0);
+    stats.sets = Object.fromEntries(sets.map((s) => [s.mesh.name, s.mesh.count]));
+    stats.triangles = sets.reduce((a, s) => a + s.mesh.count * s.tris, 0);
+    stats.drawCalls = sets.filter((s) => s.mesh.count > 0).length;
+  }
+
   function* rebuildAll(camE, camN, cone) {
     openCensus();
     yield* rebuildGround(camE, camN, cone);
     yield* rebuildForbs(camE, camN, cone);
     yield* rebuildFar(camE, camN, cone);
     closeCensus();
-    for (const s of sets) s.commit();
+    // The far shrubs commit themselves, on their own step.
+    for (const s of sets) if (s !== farShrubSet) s.commit();
     stats.instances = sets.reduce((a, s) => a + s.mesh.count, 0);
     stats.sets = Object.fromEntries(sets.map((s) => [s.mesh.name, s.mesh.count]));
     /** T-0034. The ceiling beside the count, because `capped` answers only
@@ -1829,6 +1930,8 @@ export async function createFlora({
      *  the placer what fraction of the ground carries a card at `d` rather than
      *  re-deriving it. Zero at both ends is the assertion worth making. */
     farBand: { ...tune.far, coverAt: (d) => farCoverAt(d, tune.far) },
+    /** T-2014. The far shrubs' tuning and their thinning, read the same way. */
+    farShrubs: { ...tune.farShrub, keepAt: (d) => farShrubKeepAt(d, tune.farShrub) },
     /**
      * The height multiplier the vertex shader gives an instance of `setName`
      * standing `d` metres from the camera — the same ramp, in JS.
@@ -1878,11 +1981,15 @@ export async function createFlora({
       const e = tmpV.x, n = -tmpV.z;
       const fl = Math.hypot(tmpF.x, tmpF.z) || 1;
       const fe = tmpF.x / fl, fn = -tmpF.z / fl;
+      for (const row of rebuildFarShrubs(e, n, { fe, fn, cos: CONE_COS })) {
+        const pause = checkpoint(); if (pause) await pause;
+      }
       for (const row of rebuildAll(e, n, { fe, fn, cos: CONE_COS })) {
         onProgress(row.done, row.total);
         const pause = checkpoint(); if (pause) await pause;
       }
       centres.near = { e, n }; centres.yaw = Math.atan2(fe, fn);
+      centres.farShrub = { e, n }; centres.farShrubYaw = centres.yaw;
     },
 
     update(dt, camera) {
@@ -1904,11 +2011,23 @@ export async function createFlora({
       const turned = centres.yaw === null
         || Math.abs(((yaw - centres.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
            > CONE_YAW_STEP;
+      const turnedFar = centres.farShrubYaw === null
+        || Math.abs(((yaw - centres.farShrubYaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
+           > CONE_YAW_STEP;
+      let rebuilt = false;
+      if (turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step)) {
+        for (const _ of rebuildFarShrubs(e, n, { fe, fn, cos: CONE_COS })) { /* synchronous */ }
+        centres.farShrub = { e, n };
+        centres.farShrubYaw = yaw;
+        rebuilt = true;
+      }
       if (turned || moved(centres.near, e, n, step)) {
         for (const _ of rebuildAll(e, n, { fe, fn, cos: CONE_COS })) { /* runtime synchronous path */ }
         centres.near = { e, n };
         centres.yaw = yaw;
+        rebuilt = false;
       }
+      if (rebuilt) tally();
     },
 
     dispose() {
@@ -2010,7 +2129,8 @@ function sunFromScene(group, uniforms, problems) {
 function mergeTune(level) {
   const t = {
     near: { ...TUNE.near }, mid: { ...TUNE.mid }, forb: { ...TUNE.forb },
-    far: { ...TUNE.far }, cap: { ...TUNE.cap }, step: { ...TUNE.step },
+    far: { ...TUNE.far }, farShrub: { ...TUNE.farShrub },
+    cap: { ...TUNE.cap }, step: { ...TUNE.step },
   };
   const preset = level === 'light' ? LOW : level === 'balanced' ? MID : null;
   if (preset) {
@@ -2018,6 +2138,7 @@ function mergeTune(level) {
     Object.assign(t.mid, preset.mid);
     Object.assign(t.forb, preset.forb);
     Object.assign(t.far, preset.far);
+    Object.assign(t.farShrub, preset.farShrub);
     Object.assign(t.cap, preset.cap);
   }
   return t;
@@ -4716,6 +4837,7 @@ function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, seg
   // seed and the generator stay here, because a measurement that re-seeds is
   // measuring a different bush.
   const { stems, sprays } = shrubLayout(rng, grain);
+  // `reach` rescales the horizontal only (T-2014's far archetype; 1 here).
   const fit = (p) => [p[0] * reach, p[1], p[2] * reach];
   for (const s of stems) {
     // Woody, but not a silhouette: `color.g` is this module's only occlusion
@@ -4796,6 +4918,26 @@ function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, seg
     }
   }
   return finishGeo(g, name);
+}
+
+/** The furthest any corner of a shrub layout stands from its root, in plan. */
+function shrubReach(grain) {
+  const { stems, sprays } = shrubLayout(rngFrom(0x5c123b00), grain);
+  let r = 0;
+  for (const q of [...stems, ...sprays]) {
+    for (const p of q.corners) r = Math.max(r, Math.hypot(p[0], p[2]));
+  }
+  return r;
+}
+
+/**
+ * T-2014. The far shrub: `FAR_SHRUB_GRAIN`'s fewer, larger leaf masses, with
+ * the horizontal brought back to the detailed archetype's own reach so the
+ * bigger plates fill the shell rather than widen the bush past its record.
+ */
+function farShrubGeometry() {
+  return shrubGeometry(FAR_SHRUB_GRAIN, 'flora-shrub-far',
+    shrubReach(SHRUB_GRAIN) / shrubReach(FAR_SHRUB_GRAIN), 1);
 }
 
 /** Smooth value noise, 0..1. No texture, no table. */

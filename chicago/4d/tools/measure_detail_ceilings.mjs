@@ -4,6 +4,7 @@
  *   PW_EXECUTABLE=/opt/pw-browsers/chromium-1194/chrome-linux/chrome \
  *     node tools/measure_detail_ceilings.mjs [--source] [--only desktop|mobile]
  *                                            [--json out.json] [--against DIR]
+ *                                            [--stepped]
  *
  * `tools/smoke_renderer.mjs` already walks this sweep and holds each tier to its
  * ceiling — that is the GATE and this is not it. The problem is where the sweep
@@ -31,6 +32,14 @@
  * does: the source tree loads uncompressed masters and the site loads compressed
  * derivatives, and bugs have shipped in the gap twice. `--source` reads the working
  * tree instead.
+ *
+ * `--stepped` (T-2015) stops the background render loop after boot and settles
+ * each view with two production `api.step()` calls followed by a GPU finish.
+ * It preserves the stands, tier order, placement update and actual draw-count
+ * reading while avoiding unrelated background frames on a contended software
+ * renderer. This is a diagnostic cost reading; published smoke part 5 remains
+ * the release assertion and uses the normal animation loop. Each stand is
+ * logged immediately so an interrupted sweep retains its completed readings.
  *
  * The stand list is COPIED from `tools/smoke_renderer.mjs` STANDS, where the set is
  * owned and each stand's reason is written, and copied rather than imported for the
@@ -126,6 +135,7 @@ const argAt = (name) => {
   return i >= 0 ? process.argv[i + 1] : null;
 };
 const wantSource = process.argv.includes('--source');
+const wantStepped = process.argv.includes('--stepped');
 const wantSouth = process.argv.includes('--south');
 const jsonOut = argAt('--json');
 const against = argAt('--against');
@@ -343,15 +353,20 @@ async function sweep(browser, root, entry, port, treeLabel) {
       viewport: { width: vp.width, height: vp.height },
     });
     const errors = [];
+    await page.exposeFunction('reportDetailStand', (row) => {
+      console.log(JSON.stringify({ viewport: vp.label, ...row }));
+    });
     page.on('pageerror', (e) => errors.push(String(e)));
     await page.goto(`http://127.0.0.1:${port}${entry}?year=${YEAR}`, { waitUntil: 'load' });
     // The scene boots on a software renderer here; the gate allows the same.
     await page.waitForFunction(() => window.__chicago4d?.ready === true,
       null, { timeout: 300_000 });
-    const seen = await page.evaluate(async ({ stands, price, budgetStandIds }) => {
+    const seen = await page.evaluate(async ({ stands, price, budgetStandIds, stepped }) => {
       const a = window.__chicago4d;
-      const settle = () => new Promise((r) => requestAnimationFrame(
-        () => requestAnimationFrame(r)));
+      if (stepped) a.renderer.setAnimationLoop(null);
+      const settle = stepped
+        ? async () => { a.step(); a.step(); a.renderer.getContext().finish(); }
+        : () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
       // `goTo` on the aerial anchor turns flight ON and every `frame` stand turns
       // it off again, so one has to be last — the smoke orders it the same way.
       const order = [...stands.filter((s) => s.kind !== 'frame'),
@@ -374,6 +389,8 @@ async function sweep(browser, root, entry, port, treeLabel) {
           } else a.goTo(st.target);
           await settle();
           const r = a.stats();
+          await window.reportDetailStand({ level, stand: st.id,
+            triangles: r.triangles, calls: r.drawCalls });
           atStands.push({ id: st.id, label: st.label,
                           tris: r.triangles, calls: r.drawCalls, structures: null });
         }
@@ -431,12 +448,15 @@ async function sweep(browser, root, entry, port, treeLabel) {
       }
       await a.setDetail(started);
       return rows;
-    }, { stands: STANDS, price: wantPrice, budgetStandIds: DOWNTOWN.map((s) => s.id) });
+    }, { stands: STANDS, price: wantPrice, budgetStandIds: DOWNTOWN.map((s) => s.id),
+      stepped: wantStepped });
     passes.push({ viewport: vp.label, seen, errors });
     await page.close();
   }
   server.close();
-  return { tree: treeLabel, root, passes };
+  return { tree: treeLabel, root,
+    renderLoop: wantStepped ? 'two production steps and GPU finish' : 'normal animation loop',
+    passes };
 }
 
 const num = (n) => n.toLocaleString('en-US');
