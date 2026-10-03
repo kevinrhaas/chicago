@@ -1,3 +1,39 @@
+## T-2027 — Boots, Leather and the Road, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Boots, Leather and the Road* (Trades,
+Horse, 4 stops, Livelihood). A rider who leaves tomorrow chooses boots or a hat at John
+Holbrook's clothing store one door east of Dearborn; looks from the road at John Miller's
+tannery at the forks, recorded as the town's first factory; chooses a bridle or a trunk at S. B.
+Cobb's saddle, harness and trunk shop at Lake and Canal, or asks him for boots and is told by his
+own card why not; and lays the outfit out at the Green Tree. Four endings; the keepsake *Equipped
+to Travel* goes to Livelihood. The kit is a two-item inventory (the engine shows it as a
+"Basket 1/2" strip); no purse, price or sale is claimed. Content only: one JSON file, a liberty
+(`L-jaunt-boots-and-leather`), the regenerated catalog and source-use edges, and brief 18's
+route note. No engine, compiler or CSS change. Last of the four pieces T-1268 was split into.
+
+**The brief's cautions hold by construction.** The saddler is not made a bootmaker: his card
+(Democrat, 26 November 1833; Cobb's continuation card, American, 13 June 1835) lists saddles,
+harness, bridles, martingales, trunks and repairing, and the boots are Holbrook's (Democrat, 10
+June 1835; American, 13 June 1835), so no shoemaker was substituted. The tannery stop says its
+source trail ends in 1832 and claims no work on the scene date. Nobody is met.
+
+**The route was re-cut.** The briefed order (tannery → Cobb → Holbrook → Green Tree) runs about
+1,871 m in straight lines and crosses the South Branch twice; starting at Holbrook's runs about
+1,090 m one way, east to west.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 24 min, Wagon 11.5, Horse 7.5, Fly 4, Instantly 3
+(Walk 23.5 at 1280×800, the rest the same). The primary path (boots → bridle → ride →
+`equipped`) measured 464 s at Horse and 233 s at Fly against the card's 458 s and 239 s (455 s
+and 233 s at 1280×800). **Horse is 1.5 minutes over the 4–6 min band**: 143 s of it is the one
+ride from South Water Street over the river to the forks, which any order that includes both
+Holbrook's and the tannery pays; Fly is the quick version. Zero page errors at both viewports;
+End returns to the menu. Stills and the receipt are in `docs/performance/jaunt-boots-and-leather/`.
+
+**Unverified.** The detail-card round trip was proven on a first pass (card opened from the
+tannery stop and returned to it) but not on the final pass that produced the stills; T-2025's
+stills remain the batch's full card → detail → ending sequence.
+
 ## T-2025 — Soap and Candles, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Soap and Candles* (Household and trades,

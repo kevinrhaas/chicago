@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1365, ts: '2026-10-03T14:05:37.923Z', date: 'Oct 3, 2026, 9:05 AM CT', title: 'A new jaunt: Boots, Leather and the Road', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Boots, Leather and the Road, an outing of about seven and a half minutes on horseback.',
+      'Outfit a rider for tomorrow\u2019s road: boots or a hat at John Holbrook\u2019s on South Water Street, a look at John Miller\u2019s tannery at the forks, a bridle or a trunk at S. B. Cobb\u2019s saddlery, and the Green Tree to lay it all out. Ask the saddler for boots and his own card tells you why not.',
+      'The rider, the purchases and the keepsake, Equipped to Travel, are our reconstruction (liberty L-jaunt-boots-and-leather). What each shop sold comes from its own 1833 and 1835 newspaper cards.',
+    ] },
   { v: 1364, ts: '2026-10-03T13:24:25.493Z', date: 'Oct 3, 2026, 8:24 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [
       'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, five at the boarding house on the Dearborn block of Washington Street and three at the one on the Market block. Open a house\u2019s card to see them among its boarders.',
