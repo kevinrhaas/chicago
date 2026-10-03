@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1373, ts: '2026-10-03T17:05:20.078Z', date: 'Oct 3, 2026, 12:05 PM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick From Prairie to Town. You arrive from open ground by the lake south of the fort and ride into town. It takes about ten minutes on horseback, or four if you fly.',
+      'Ride north past Fort Dearborn\u2019s stockade and west along the river to Peck\u2019s store. Finish at the door of the Sauganash.',
+      'The traveller, the ride and the keepsake, Into Town, are our reconstruction (liberty L-jaunt-from-prairie-to-town). The first stop is a viewpoint, not a named place, and nothing of 1812 is staged on that shore.',
+    ] },
   { v: 1372, ts: '2026-10-03T16:54:14.525Z', date: 'Oct 3, 2026, 11:54 AM CT', title: 'A new jaunt: Gossip or Printed Notice?', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Gossip or Printed Notice?, about five and a half minutes on horseback from the Wolf Point Tavern to the town\u2019s two printing offices.',

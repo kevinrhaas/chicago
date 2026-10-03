@@ -1,0 +1,120 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 39 min at Walk",
+      "wagon": "about 17 min at Wagon",
+      "horse": "about 10 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 2 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 611.9540255275215,
+        "reading": 114,
+        "legs": [
+          300.5333333333568,
+          85.19999999999773,
+          60.83333333333244
+        ],
+        "seconds": 560.566666666687,
+        "phase": "outcome"
+      },
+      "fly": {
+        "estimate": 238.50287077707983,
+        "reading": 114,
+        "legs": [
+          58.399999999999245,
+          37.70000000000042,
+          20.633333333333518
+        ],
+        "seconds": 230.73333333333318,
+        "phase": "outcome"
+      },
+      "walk": {
+        "estimate": 2340.98356270958,
+        "reading": 114,
+        "legs": [
+          1339.933333332772,
+          372.7666666667476,
+          266.1333333333294
+        ],
+        "seconds": 2092.833333332849,
+        "phase": "outcome"
+      }
+    },
+    "ui_drive": {
+      "stop0": "0",
+      "detail_card_returned_to_same_stop": true,
+      "back": "1",
+      "trail": [
+        "atStop",
+        "atStop",
+        "atStop",
+        "atStop",
+        "outcome"
+      ],
+      "ending": {
+        "phase": "outcome",
+        "outcome": "in-town"
+      },
+      "award": "Kept in your daybook\n\nRoute note · Directions, in pencil\n\nInto Town\n\nA fictional route note of a first ride in from the open shore south of the fort, by way of a store, to the Sauganash's door.\n\nWayfinding\n\n0\nProvisions\n0\nLivelihood\n1\nWayfinding\n0\nNews & Knowledge\n0\nNeighbors",
+      "outcome_buttons": [],
+      "after_back_phase": "outcome",
+      "after_end_phase": "menu",
+      "menu_visible": true,
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png",
+        "390-menu.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 39 min at Walk",
+      "wagon": "about 17 min at Wagon",
+      "horse": "about 10 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 2 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 610.5360845701354,
+        "reading": 114,
+        "legs": [
+          300.5333333333568,
+          84.86666666666441,
+          60.66666666666578
+        ],
+        "seconds": 560.066666666687,
+        "phase": "outcome"
+      },
+      "fly": {
+        "estimate": 239.30249649401375,
+        "reading": 114,
+        "legs": [
+          58.399999999999245,
+          37.800000000000416,
+          21.133333333333542
+        ],
+        "seconds": 231.3333333333332,
+        "phase": "outcome"
+      },
+      "walk": {
+        "estimate": 2334.627275659228,
+        "reading": 114,
+        "legs": [
+          1339.933333332772,
+          372.7000000000809,
+          266.76666666666324
+        ],
+        "seconds": 2093.3999999995162,
+        "phase": "outcome"
+      }
+    },
+    "page_errors": 0
+  }
+}
