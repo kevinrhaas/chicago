@@ -4798,6 +4798,22 @@
       "phase_id": "documented_1835",
       "structure_id": "temple_lake_st_building"
     },
+    "terrain__e1830_natural.glb": {
+      "baked_ao": false,
+      "bytes": 29586568,
+      "generator": "generators/terrain_gen_e1830.py",
+      "inputs_sha256": "86e14af249a1336324111918ae19e2fa09aa29fdf6226126671987963b70e244",
+      "kind": "generated",
+      "layer": "ground",
+      "mesh_vs_heightfield": {
+        "max_m": 0.0104,
+        "misses": 0,
+        "rms_m": 0.00027,
+        "samples": 210897
+      },
+      "terrain_epoch": "e1830_natural",
+      "triangles": 1136722
+    },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
       "bytes": 30300760,
@@ -4883,6 +4899,16 @@
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "walker_meeting_house"
+    },
+    "water__e1830_natural.glb": {
+      "baked_ao": false,
+      "bytes": 1368,
+      "generator": "generators/terrain_gen_e1830.py",
+      "inputs_sha256": "86e14af249a1336324111918ae19e2fa09aa29fdf6226126671987963b70e244",
+      "kind": "generated",
+      "layer": "water",
+      "terrain_epoch": "e1830_natural",
+      "triangles": 2
     },
     "water__e1834_harbor_cut.glb": {
       "baked_ao": false,

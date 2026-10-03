@@ -20207,6 +20207,15 @@ N +205, just south of the neck, and that is the recorded upper alternative.
 **How to resolve:** a pre-1833 chart or sounding of the mouth, or any written width of the bar where
 the soldiers cut it.
 
+**Generated (T-2003):** `generators/terrain_gen_e1830.py` lays the ribbon on the gap line and
+carries its faces back to the north bank and the chord and on to the spit's ring, so the neck meets
+both bodies of land exactly. Where it meets the mainland it grades into the ground already there
+across its own width: the root stands at about +5.9 ft and the crest is +4.0 ft from about 25 m out.
+That grading is invented too. The spit's `material` (beach and dune sand) is not drawn, because the
+ground is one surface colour across the whole box.
+
+**Covers:** `terrain.e1830_natural.isthmus_1812`, `terrain.e1830_natural.spit_1812`
+
 **Related:** **L240** (the hole this fills), **T-2002**, **T-1243**, **T-2003** (which generates it).
 **Recorded:** 2026-10-02.
 
@@ -20229,6 +20238,8 @@ It is never wrong toward a headland invented in the lake.
 
 **How to resolve:** a pre-1833 chart of the lake shore north of the river.
 
+**Covers:** `terrain.e1830_natural.north_lake_shore_1812`
+
 **Related:** **L240**, **L362**; the tickets **T-2002**, **T-1242**, **T-2003**.
 **Recorded:** 2026-10-02.
 
@@ -20250,6 +20261,8 @@ direction that does not invent a navigable mouth the record says was not there.
 
 **How to resolve:** a Michigan–Huron stage reconstruction for the 1810s (NOAA/GLERL), or any
 sounding of the pre-cut channel.
+
+**Covers:** `terrain.e1830_natural.lake_stage_1812`, `terrain.e1830_natural.outlet_channel_1812`
 
 **Related:** **L362**, **L363**; the tickets **T-2002**, **T-2003**.
 **Recorded:** 2026-10-02.

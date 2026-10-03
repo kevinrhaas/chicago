@@ -1,18 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1379, ts: '2026-10-03T19:16:47.298Z', date: 'Oct 3, 2026, 2:16 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1381, ts: '2026-10-03T19:56:24.136Z', date: 'Oct 3, 2026, 2:56 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
     ] },
-  { v: 1378, ts: '2026-10-03T18:54:29.680Z', date: 'Oct 3, 2026, 1:54 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
+  { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
+      'In 1812 the river turns south behind the sand spit and runs out to the lake near present Madison Street. There is no cut, no pier and no bridge, and no streets yet.',
+      'The spit is joined to the north shore by a narrow sand neck at its own 4 ft crest. The neck, the spit\u2019s height and the lake shore north of it are our reconstruction (liberties L362\u2013L364).',
+      'Everything south of Twelfth Street, the spit, and the old channel\u2019s west bank, where the 1830 plat and Wright\u2019s 1834 survey disagree, are marked conjectural. No point of this ground is documented.',
+    ] },
+  { v: 1379, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'Abandoned work no longer hides at the top of the to-do list', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind the scenes, a ticket whose worker stopped answering more than three hours ago now reads as free to take on the project\u2019s to-do list, so the next worker picks it up instead of walking past it for days.',
+    ] },
+  { v: 1378, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
     items: [
       'Nothing you can see in the town changed.',
       'Fences, plank walks, docks, signs, boats, yard goods, wells, plants and streets are drawn by the web page from our records. They are not part of the baked buildings, and now they never will be: each will be exported by the same code that draws it.',
       'Each export is stamped with the ground it was laid on, so a moved shoreline or street rebuilds it rather than leaving it floating.',
       'People and animals stay on their cards. No figure of anyone is exported.',
     ] },
-  { v: 1377, ts: '2026-10-03T18:36:59.827Z', date: 'Oct 3, 2026, 1:36 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+  { v: 1377, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
       'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
