@@ -583,3 +583,21 @@ inside the box — e2 stands wholly south of N 0 and would otherwise have refuse
 positions anonymously.
 
 The liberty is **L281**; the record's own `position.note` carries the rule in full.
+
+## The street reached State, and the first shed went, 2026-10-03 (T-2012)
+
+The owner ruled that South Water Street runs its last 22 m to State Street. The carried line
+(**L365**) puts the platted corridor across `south_bank_shed_dearborn_e1`'s footprint by 11.07 m,
+so that shed is withdrawn on the owner's choice of the same day (**L274**, struck). The strip
+between South Water's old end and State Street's corridor, which this page has measured since
+T-1636, no longer exists: the two corridors now meet. `south_bank_shed_dearborn_e2` stands clear
+of the corridor and keeps its seat (**L281**, revised).
+
+The reading was re-read and re-banked. At the generators' 0.30 m clause the bank still takes
+**0** positions anywhere on the reach and **0** beside the platted street, so T-0134's refusal
+stands. The counts at the looser clauses rose (beside the street 44 at 1.00 m against 21, and 102
+with no relief clause against 40) because the frontage beside the street now runs to E 827.0
+rather than E 805.0. The positions that used to read as standing on the riverside walk's boards
+now read as standing in the street, because the extended corridor covers that end of the walk.
+`--self-test`'s on-reach check now asserts the drawbridge's south landing, the footprint that still
+stands inside the box, and its rectangle tests use e2's ring.

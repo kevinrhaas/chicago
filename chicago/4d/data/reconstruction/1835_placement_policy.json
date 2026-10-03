@@ -1270,7 +1270,7 @@
         "fronting_no_street": 2,
         "on_the_street_line": 0,
         "setback_m_min": 11.32,
-        "setback_m_max": 360.15
+        "setback_m_max": 352.11
       }
     },
     {
@@ -1421,14 +1421,14 @@
         },
         "fronting_no_street": 4,
         "on_the_street_line": 0,
-        "setback_m_min": 373.89,
-        "setback_m_max": 405.45
+        "setback_m_min": 359.15,
+        "setback_m_max": 397.44
       }
     }
   ],
   "coverage": {
-    "documented_roofs_with_a_family": 102,
-    "conforming": 76,
+    "documented_roofs_with_a_family": 101,
+    "conforming": 75,
     "outliers": 26,
     "by_family": {
       "A1": [

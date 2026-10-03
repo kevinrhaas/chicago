@@ -37,7 +37,7 @@ And each of those open lots is declared open in the recipe with a stated reason 
 | --- | --- | --- | --- | ---: | --- | --- |
 | `western_hotel_stable` | A1 | canal | ordinary | 0.55 | no | no |
 | `wolf_point_tavern_stable` | A1 | lake | principal | 36.70 | yes | yes |
-| `fort_dearborn_big_barn` | A2 | (none) | — | 270.75 | cannot speak — it fronts none | yes |
+| `fort_dearborn_big_barn` | A2 | (none) | — | 250.41 | cannot speak — it fronts none | yes |
 | `fort_dearborn_wash_house` | A5 | (none) | — | 420.22 | cannot speak — it fronts none | yes |
 
 ## The three remedies, and what each one changes
