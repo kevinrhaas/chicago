@@ -30,6 +30,45 @@ same jaunt already does with the land-sale figure it cannot read (content_versio
 is not detected; no lexicon for it would spare "a wet street has told you enough". The
 library's shape (T-2039) and timing (T-2041) are other pieces of T-1271.
 
+## T-2051 — every jaunt's primary path ridden and timed, measurement half of T-2041 (2026-10-03)
+
+**What a visitor sees: nothing.** This is the measurement half of a split (AGENTS.md's
+visible-progress exemption 2). T-2041 asked to time all 25 primary paths and re-cut any outside
+3–6 minutes. The timing found 14 to re-cut, which is more than one run, so it was split into this
+measurement and five fix tickets (T-2052–T-2056) that carry the readings. Landing the reading red
+first means a fix cannot redefine success.
+
+- **`tools/time_jaunts.mjs`** serves the published mirror and starts each available jaunt in the
+  real walkthrough. It rides every leg with the travel controller itself (`travel.simulate`, the
+  harness path of `tick()`) until it arrives. Measured = opening read + each visited stop's read
+  and action time + simulated ride seconds. The menu's own estimate (`jaunts.state.estimate` at
+  the first stop) sits beside each reading. At a branching stop it takes the choice that leads to
+  the next listed stop, and falls through when a stop refuses one (taverns-of-chicago's `glass`
+  needs money ≥ 6). `--continue` and `--merge` let the 78 runs be taken across several 600 s
+  calls. Each run is saved the moment it ends.
+- **The phone is the reference viewport.** The clock is simulated, so a viewport moves a reading
+  only through where a stop is framed from. Mostly that is a few seconds, but on across-wolf-point
+  it is 21 s, and along-the-harbor's estimate reads 35 s above its ride on 1280×800 against 5 s
+  on the phone. The software renderer draws the phone 3–7× faster, which is what made 78 runs
+  fit. The six jaunts near the line carry desktop readings too.
+- **Taken on the tree this merges onto.** `dev` took T-1743 (Beaubien's homestead, off the fort
+  road) mid-run, so the library was ridden again after it. Two readings moved:
+  fort-dearborn-errand +11 s (6.18 → 6.37 min, and over on desktop too now) and along-the-harbor
+  +2 s. The other 73 runs repeated to the second.
+
+**Measured** (`docs/measurements/jaunt-timing.md`, 390×780, seed 1279, default paces): 78 runs
+over all 26 jaunts (over-the-draw, T-2042's 26th, landed mid-run and reads 4.73 min on
+horseback), zero page errors, no stalled ride. 12 in band, 14 over, 0 under. Over: news-before-breakfast
+17.65 min on foot, new-in-chicago 10.42 on foot, from-prairie-to-town 9.35 horse,
+outfit-for-the-west 8.98 wagon, boots-and-leather 7.73, soap-and-candles 7.13, inspect-a-lot 6.78,
+shopping-south-water 6.60, sunday-circuit 6.55, schoolday-errand 6.35, work-on-waterfront 6.23,
+fort-dearborn-errand 6.37, freight-for-the-store 6.12, materials-for-a-roof 6.07. Fly and
+Instantly are faster than the recommended mode on all 26. On the phone the menu's estimate
+tracks the ride within 15 s everywhere except from-prairie-to-town, where it reads 51 s above
+the ride. The
+readings agree with the per-jaunt figures earlier runs filed (an-evening-stroll 268 s at Horse,
+the same here). Repeat runs give the same seconds.
+
 ## T-1743 — Col. Beaubien's homestead is one house and two outbuildings, off the fort road (2026-10-03)
 
 **Owner-reported**, so the visible-progress rule's first exemption would apply; it is visible anyway.

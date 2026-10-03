@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1385, ts: '2026-10-03T21:24:48.567Z', date: 'Oct 3, 2026, 4:24 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
+  { v: 1386, ts: '2026-10-03T21:49:01.679Z', date: 'Oct 3, 2026, 4:49 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
       'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
       'Every jaunt is now read for four things it must never do: stage a meeting with Native people, show a figure of anyone, quote a named person without a source, or cite a source whose terms forbid it. All 27 pass.',
+    ] },
+  { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
+    items: [
+      'Nothing you can see changed. All 26 jaunts were ridden end to end, at the pace each one suggests, by air and instantly, and the time each took was written down.',
+      'Twelve take three to six minutes. Fourteen take longer at their suggested pace, the longest being News Before Breakfast at about seventeen and a half minutes on foot. Each of the fourteen now has a fix queued to bring it inside six minutes.',
+      'On a phone, the time the Jaunts menu shows matched the ride to within a quarter of a minute on every jaunt but From Prairie to Town, where it reads almost a minute long. Flying and Instantly were faster than the suggested pace on all 26.',
     ] },
   { v: 1384, ts: '2026-10-03T21:05:07.845Z', date: 'Oct 3, 2026, 4:05 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
     items: [
