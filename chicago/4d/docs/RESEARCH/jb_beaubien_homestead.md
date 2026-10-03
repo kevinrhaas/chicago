@@ -87,10 +87,39 @@ Any future evidence should be read as fixing this building relative to the **for
 that arrived later. The facade bearing has **no attested basis whatever** and is a placeholder
 inherited from the retrospective grid.
 
-## 4. The homestead was four buildings and all four are now modelled
+## 4. The homestead was four buildings, and the scene draws one house and two outbuildings
 
 Andreas describes: the factory building (this record), a **new residence**, a **small trading
 post**, and a **cabin converted to a barn**.
+
+**T-1743, 2026-10-03 — the owner's ruling, and what it changed.** The owner read the group T-1712
+built as *three identical log houses by the fort, two of them on the fort road*, and both halves
+were measured true: the house, the new residence and the trading post were all `log_dwelling`
+at one wall height, one pitch and one chimney, and the two T-1712 records stood 17.9 m east of
+the house on the centreline of `fort_road`, 0.0 m from it, in the road `data/streets/1835.json`
+already drew to the fort's south gate. The owner ruled for **one dwelling and two outbuildings**
+(answer b on the ticket):
+
+- **Andreas's "new residence" is read as the house this record already models**, and
+  `beaubien_new_residence` is withdrawn. § 6a reads Wentworth's "traditional residence" at the
+  corner as most likely the new residence, so the two records were very probably one house drawn
+  twice. This is a reading, not a finding: nothing reached says which of Andreas's two houses
+  stood at the corner, and if a source ever separates them, the residence comes back as its own
+  record with a place of its own. The phrase is kept on this record's `aka`.
+- **`beaubien_trading_post` is an outbuilding** — a low log store, single-slope roof, one door, no
+  chimney — **west** of the house, 4.0 m clear of its west wall, the side
+  away from the road. Its place and its form are as invented as before and L283 says so.
+- **`beaubien_barn` keeps its place** behind the house, 13.8 m from the road's centreline and
+  outside its 12 m corridor, and gains a hay-loft door so it reads as a barn.
+- **The road is clear**, and `tools/check_structure_corridors.py --gate` now refuses any building
+  newly drawn in any street corridor at the street's own width — the check whose absence let the
+  two records stand on an unplatted road, since every corridor gate before it asked only the
+  platted grid.
+
+So the scene shows the attested group as Wentworth's sale describes it — *"Beaubien's house,
+out-buildings, and garden"* — one house with its out-buildings, and the garden still unbuilt.
+The text below is the section as T-1712 left it, kept because it is the record of how the group
+came to be drawn four-up.
 
 **This section used to say "and one is modelled", and to refuse the other three** — "nothing
 reached gives any of them a size, a material, a form, or a position relative to the factory

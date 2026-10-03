@@ -276,6 +276,10 @@ def _range(b, r) -> None:
         else:
             z = roof_z(c1) if (face in ("east", "north")) else roof_z(c0)
             wall_prof = [(u0, z), (u1, z)]
+            if (r['name']=='north_range' and face=='south' and
+                    getattr(b,'params',None) and b.params.detail.get('dining_roof_junction')):
+                from archetypes.masonry_house_v4_courtyard_roof import wall_profile
+                wall_prof=wall_profile(b.params,u0,u1,z)
             if face == "west" and r.get("north_cross_gable"):
                 g = r["north_cross_gable"]
                 wall_prof = [(u0, z), (g["cross_y0"], z),
@@ -314,8 +318,13 @@ def _range(b, r) -> None:
         return (c, l, z) if ax == "y" else (l, c, z)
 
     for (ca, za), (cb, zb2) in zip(ov_prof, ov_prof[1:]):
-        _two_sided_roof(b, [P(ca, a0, za), P(cb, a0, zb2), P(cb, a1, zb2), P(ca, a1, za)],
-                        r["conf_roof"], ROOF)
+        pts=[P(ca, a0, za), P(cb, a0, zb2), P(cb, a1, zb2), P(ca, a1, za)]
+        fragments=[pts]
+        if r['name']=='north_range' and getattr(b,'params',None) and b.params.detail.get('dining_roof_junction'):
+            from archetypes.masonry_house_v4_courtyard_roof import clip_host
+            fragments=clip_host(pts,b.params)
+        for fragment in fragments:
+            _two_sided_roof(b,fragment,r['conf_roof'],ROOF)
     # the crested ridge: a low ridge roll the length of the roof
     cr = 0.12
     _up(b, [P(ra - cr, a0, rz + 0.02), P(ra, a0, rz + cr * 1.4),
