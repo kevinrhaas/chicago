@@ -20479,3 +20479,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 (the trade roofs refamilied away from here), **T-1746**.
 
 **Recorded:** 2026-10-03 (T-1205).
+
+### L-jaunt-soap-and-candles — Soap and Candles: an invented boarder's errand past a works nobody placed
+
+**Decision:** Soap and Candles links four existing exterior destinations (Jones's grocery and provision store on South Water Street, Daniel Elston & Co.'s soap and candle manufactory, the Lake Street store Thomas Church built, and the log boarding house behind Peck's store kept by Mrs Rufus Brown) in an invented errand: a boarder makes a short list, sees what the works made, chooses what to carry and brings it home. The boarder, the list, which item heads it, the route, the bundle, where it was obtained, the four endings and the Light for the Evening keepsake are reconstructed, and so are the reading and action seconds. What each place did is sourced: Jones's provisions and Elston & Co.'s hard and soft soap, wax and other candles and their cash for tallow and house ashes from the Chicago Democrat's first number (26 November 1833) and the Elston notice's printing of 2 July 1834; Church's store from one undated modern sentence that names no stock, so nothing is bought there; Brown's house, its keeper and its place behind Peck's from Andreas. No shop counter is claimed at the works and no sale at any of the four places; the works' site is the scene's conjectural placement and the stop says so. No named person speaks or is met, no interior is opened and no front door is claimed.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat's 26 November 1833 and 2 July 1834 issues, Andreas vol. 1, the chicagology early-street-maps addendum, and brief 16 of JAUNTS-INITIAL-LIBRARY.md. The errand, the choices and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record of where Elston & Co. sold their goods, or of the works' site, would let the second stop name a real counter or a real place in place of the road.
+
+**Applies to:** `data/jaunts/soap-and-candles.json`.
+
+**Recorded:** 2026-10-03 (T-2025).
