@@ -11710,33 +11710,6 @@
       "chosen_by": []
     },
     {
-      "person_id": "rc_pratt_otis",
-      "person_name": "Otis Pratt",
-      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
-      "kind": "keeps_their_own_house",
-      "trade": "carpenter",
-      "premises": "own_premises",
-      "division_of_the_person": "south",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_pratt_otis:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "classes": [],
-      "basis": {
-        "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
-      },
-      "chosen_by": []
-    },
-    {
       "person_id": "rc_pratt_seth",
       "person_name": "Seth Pratt",
       "household_id": "hh_rc_pratt_seth",
@@ -12366,6 +12339,33 @@
       "replaceable_by": {
         "kind": "business",
         "match": "a source naming the house this person worked in, or a re-count of the class, after which this person seats at it"
+      },
+      "chosen_by": []
+    },
+    {
+      "person_id": "rc_rice_otis",
+      "person_name": "Otis Rice",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "kind": "keeps_their_own_house",
+      "trade": "carpenter",
+      "premises": "own_premises",
+      "division_of_the_person": "south",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_rice_otis:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },

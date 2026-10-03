@@ -83,23 +83,23 @@
  },
  "persons": [
   {
-   "id": "rc_leland_abner",
-   "name": "Abner Leland",
+   "id": "rc_lyman_asa",
+   "name": "Asa Lyman",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "10-19",
-    "low": 10,
-    "high": 19,
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 10_19; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:10_19:001:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:20_29:001:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -107,7 +107,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Abner Leland",
+    "value": "Asa Lyman",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -115,7 +115,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:10_19:001:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:20_29:001:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -125,10 +125,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/10_19/south/lodging/none",
-    "note": "The book's bucket persons/male/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_06's, from the lodging model's ordinary-night figure of 13."
+    "bucket": "persons/male/20_29/south/lodging/none",
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_06's, from the lodging model's ordinary-night figure of 13."
    },
-   "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:10_19:001:forename",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:20_29:001:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -278,23 +278,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 13 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_rice_silas",
-   "name": "Silas Rice",
+   "id": "rc_lyman_harvey",
+   "name": "Harvey Lyman",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "20-29",
-    "low": 20,
-    "high": 29,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:20_29:004:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:30_39:004:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -302,7 +302,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Silas Rice",
+    "value": "Harvey Lyman",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -310,7 +310,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:20_29:004:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:30_39:004:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -320,10 +320,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/20_29/south/lodging/none",
-    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_06's, from the lodging model's ordinary-night figure of 13."
+    "bucket": "persons/male/30_39/south/lodging/none",
+    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_06's, from the lodging model's ordinary-night figure of 13."
    },
-   "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:20_29:004:forename",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:30_39:004:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -408,23 +408,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 13 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_pratt_calvin",
-   "name": "Calvin Pratt",
+   "id": "rc_fairbanks_alanson",
+   "name": "Alanson Fairbanks",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 40_49; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:30_39:006:age_band",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:40_49:006:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -432,7 +432,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Calvin Pratt",
+    "value": "Alanson Fairbanks",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -440,7 +440,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:30_39:006:forename",
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:40_49:006:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -450,10 +450,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "bucket": "persons/male/30_39/south/lodging/none",
-    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_06's, from the lodging model's ordinary-night figure of 13."
+    "bucket": "persons/male/40_49/south/lodging/none",
+    "note": "The book's bucket persons/male/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_clark_h3_06's, from the lodging model's ordinary-night figure of 13."
    },
-   "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:30_39:006:forename",
+   "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:male:40_49:006:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"

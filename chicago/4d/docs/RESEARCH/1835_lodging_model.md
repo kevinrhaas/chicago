@@ -13,7 +13,7 @@ It reads no source. It measures committed structure records and apportions figur
 | class | scheduled | built | unbuilt | ordinary | full |
 |---|---:|---:|---:|---:|---:|
 | boarding house | 42 | 16 | 26 | 9 | 21 |
-| inn tavern | 10 | 9 | 1 | 9 | 35 |
+| inn tavern | 10 | 10 | 0 | 9 | 35 |
 
 `ordinary` and `full` are the per-place figures, which this model does not move: the 1840 household tail's p90 (9), p99 (21) and observed maximum (35).
 
@@ -41,6 +41,7 @@ It reads no source. It measures committed structure records and apportions figur
 | Green Tree Tavern | inn tavern | named | 186 m² | 8 | 35 | inferred · clamped |
 | Mansion House | inn tavern | named | 108 m² | 5 | 35 | reconstructed · clamped |
 | New York House | inn tavern | named | 186 m² | 8 | 35 | reconstructed · clamped |
+| Reconstructed T1 small inn or tavern #061 | inn tavern | reconstructed | 212 m² | 9 | 35 | reconstructed · clamped |
 | Sauganash Hotel | inn tavern | named | 159 m² | 7 | 35 | reconstructed · clamped |
 | Steamboat Hotel | inn tavern | named | 240 m² | 11 | 35 | reconstructed · clamped |
 | Tremont House (the first) | inn tavern | named | 279 m² | 12 | 35 | reconstructed · clamped |
@@ -56,7 +57,7 @@ Every inn tavern carries the same 35 in the `full` column, and that is the town 
 Built places at their apportioned capacity, plus the unbuilt slots at the model's own per-place figure, give **468–1,232** against the town model's **468–1,232**. They agree, as they must: the apportionment preserves each class's mean exactly.
 
 - The larger boarding houses programme is **16 of 42**: 26 slots hold no building yet, and the 234–546 beds behind them are scheduled rather than standing.
-- The inns taverns programme is **9 of 10**: 1 slots hold no building yet, and the 9–35 beds behind them are scheduled rather than standing.
+- The inns taverns programme is **complete at 10 of 10**.
 
 ## Open questions
 

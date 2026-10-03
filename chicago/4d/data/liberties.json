@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 375,
+  "count": 376,
   "liberties": [
     {
       "id": "L1",
@@ -14308,14 +14308,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 99
+        "count": 104
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 99 structures (98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)"
+          "text": "`structures.land_owner[constructed_section_grid]` — 104 structures (99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)"
         },
         {
           "label": "Decision",
@@ -16257,14 +16257,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 511
+        "count": 517
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 511 phases (512 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 517 phases (518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Scope revision, 2026-10-01 (T-1766)",
@@ -22698,7 +22698,7 @@
         },
         {
           "label": "The W5 stays empty too",
-          "text": "no keeper of a heavy trade is left without a house in the North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery household, whose own card puts its works at the documented tannery 847 m away at the forks; seating them here would give one firm a second works no source records, and the deal declines it in words."
+          "text": "no keeper of a heavy trade is left without a house in the North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery household, whose own card puts its works at the documented tannery 847 m away at the forks; seating them here would give one firm a second works no source records, and the deal declines it in words. **Five more, T-1205 (2026-10-03).** The trade roofs **L368** raises on the north face of Kinzie Street join the deal: the W3 shop, the two C3 stores, the W2 joiner's shop and the C4 store (the T1 tavern is a lodging house and its lodgers fill it). The C4 is offered to the C3's store and grocery keepers; the W3 to coopers and wheelwrights, the two trades its crosswalk label names. None is kept: 6 storekeepers and 5 carpenters and joiners of the North Division are held by their count, and no cooper or wheelwright there is owed a house, so each card says which."
         },
         {
           "label": "Not done, and why",
@@ -23166,6 +23166,117 @@
         {
           "label": "Recorded",
           "text": "2026-10-03 (T-2024)."
+        }
+      ]
+    },
+    {
+      "id": "L368",
+      "title": "Six invented trade roofs on the north face of Kinzie Street, and the warehouse left owed",
+      "section": "per_subject",
+      "subjects": [
+        "recon_1835_north_c3_064",
+        "recon_1835_north_c3_066",
+        "recon_1835_north_c4_067",
+        "recon_1835_north_t1_061",
+        "recon_1835_north_w2_065",
+        "recon_1835_north_w3_062"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_c3_064",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_c3_064",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_c3_066",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_c3_066",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_c4_067",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_c4_067",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_t1_061",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_t1_061",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_w2_065",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_w2_065",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_w3_062",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_north_w3_062",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the North Division's owed trade roofs — three stores, an inn or tavern and two workshops, the order book's `structures/{stores_mixed_use,inns_taverns,workshops}/north` rows — stand as six anonymous roofs on the north face of Kinzie Street between Dearborn and the first lots east of Wolcott: a T1 tavern nearest the Dearborn drawbridge approach, a W3 wagon or cooper's shop, a C4 wide store on the Kinzie-and-Wolcott corner west of Wolcott, a C3 store on the corner east of it, a W2 joiner's shop and a second C3. They are recipe rows 61-66 of `data/reconstruction/1835_north_division_initial_parcel.json` (`kinzie_street_trade`), built by `tools/generate_north_infill.py`. **Everything about them is invented**: that any of them stood, what trade each kept, where it stands, its size and its form. The families are the programme's; the street is the memo's. **Why Kinzie Street and not the blocks the schedule dealt them to.** The 665-roof schedule put these families on `blk_indiana_north_wolcott` and `blk_indiana_north_cass` in Kinzie's Addition, and the block generator refuses every one of them there: Wolcott is graded `light` and the addition's other streets `none`, and no store, warehouse or workshop is built on either grade. Those two blocks are also at the ceiling the memo's alternation puts on them (L294). They are owed at all because T-1480 refamilied seven of this recipe's own trade roofs as dwellings when T-1445 found them standing 9 to 48 m back from any street line. Kinzie Street is graded `ordinary`, its north face had nothing on the street line from Clark to east of Wolcott, and `docs/RESEARCH/1835_north_division_extent_and_infill.md` names the Wolcott-Kinzie core as the strongest anonymous north cluster for exactly that combination of river approach and street. So the trade went back to the street, front walls about 0.6 m clear of the Kinzie corridor on its control line, with open ground between every pair: the memo's alternation, not a street wall. **The warehouse is not here.** The F3 the same order book owes belongs on the North Water bank, the one north street graded `light`, and no committed clause seats a warehouse on a light street. It is left owed rather than forced onto Kinzie Street."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any dated record of a store, tavern or shop on Kinzie Street in 1835 (a press notice, a lot sale with improvements, a reminiscence that places one) would substitute for the nearest of these by family, and a better reading of the river band's frontage would move them."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_north_t1_061.inferred_1835.position`, `recon_1835_north_t1_061.inferred_1835.footprint`, `recon_1835_north_w3_062.inferred_1835.position`, `recon_1835_north_w3_062.inferred_1835.footprint`, `recon_1835_north_c4_067.inferred_1835.position`, `recon_1835_north_c4_067.inferred_1835.footprint`, `recon_1835_north_c3_064.inferred_1835.position`, `recon_1835_north_c3_064.inferred_1835.footprint`, `recon_1835_north_w2_065.inferred_1835.position`, `recon_1835_north_w2_065.inferred_1835.footprint`, `recon_1835_north_c3_066.inferred_1835.position`, `recon_1835_north_c3_066.inferred_1835.footprint`"
+        },
+        {
+          "label": "Related",
+          "text": "**L90** (the anonymous roofs the reconstruction programme raises), **L294** (the addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** and **T-1445** (the trade roofs refamilied away from here), **T-1746**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1205)."
         }
       ]
     },

@@ -8666,7 +8666,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "western_hotel"
+          "place": "recon_1835_north_t1_061"
         }
       ],
       "deal_key": "trade_households:persons/male/20_29/north/family/trade:boatman:004",
@@ -11217,7 +11217,7 @@
         },
         {
           "layer": "lodging",
-          "place": "new_york_house"
+          "place": "western_hotel"
         }
       ],
       "deal_key": "trade_households:persons/male/20_29/south/family/trade:baker:003",
@@ -13651,7 +13651,7 @@
         },
         {
           "layer": "lodging",
-          "place": "western_hotel"
+          "place": "new_york_house"
         }
       ],
       "deal_key": "trade_households:persons/male/20_29/north/family/trade:painter:022",
