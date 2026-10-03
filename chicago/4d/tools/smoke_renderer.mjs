@@ -5081,8 +5081,16 @@ for (const [label, viewport, touch] of [
       // runs (the Western Hotel, four West Division stores) and the freight house's
       // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
       // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
-      frontage.census?.records === 5 && frontage.census?.walks === 61
-        && frontage.census?.crossings === 47
+      // T-1951 (#266) laid Washington's north faces of blk_washington_dearborn and
+      // blk_washington_market (+2 walks) and four crossings over and along
+      // Washington (+4), 61 to 63 and 47 to 51, refusals 128 to 134, and did not
+      // move this line, so dev read red here from that merge. T-0193 lays
+      // blk_lake_clinton's Randolph face (+1 walk) and its crossing over Randolph
+      // (+1); its Lake face was already one fronts-only run and stays one run:
+      // 63 to 64 and 51 to 52. Refusals hold at 134 — the block's own refusal
+      // retires and nothing new is refused. ID-set deltas, read off the record.
+      frontage.census?.records === 5 && frontage.census?.walks === 64
+        && frontage.census?.crossings === 52
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5212,7 +5220,7 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 128
+        && frontage.census?.refused === 134
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5397,7 +5405,11 @@ for (const [label, viewport, touch] of [
     // fittings share ONE standing mesh of their own (+1), 65; the crossing over
     // Canal rides the Randolph run's chunk.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 66 : 65)
+      // T-1951 — its two new Washington runs name their own chunks, 67 (dev red
+      // from #266, as above). T-0193 — blk_lake_clinton's new Randolph run names
+      // its chunk (+1) and the block's standing timber rides a west-bank mesh of
+      // its own rather than Lake's and Randolph's (+1), 69.
+      frontage.authored === (frontage.census?.lettered === 1 ? 70 : 69)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -6132,8 +6144,12 @@ for (const [label, viewport, touch] of [
       // Washington north face under the existing T-1707 rule: 36+4=40.
       // Walk-length, fence and deck floors retain their existing strength.
       // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
+      // T-1951 (#266) — Washington's north faces of the Dearborn and Market blocks,
+      // 47, without moving this line. T-0193 — blk_lake_clinton comes off the skip
+      // list: its Lake face stops being fronts-only and is laid as a street face,
+      // and its Randolph face is new: 48.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 45 && edge.walkM >= 3050 && edge.fences >= 31
+        && edge.faces === 48 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6162,8 +6178,10 @@ for (const [label, viewport, touch] of [
     // streets a face is laid fronts-only; each of its five runs is drawn and the
     // boot is on planks in the middle of it.
     check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
-      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
-        && edge.byBusiness.frontsOn === 5,
+      // T-0193 — four: blk_lake_clinton's Lake face is a covered face now, its
+      // walk the whole face rather than the store's front.
+      edge.byBusiness.frontsRecs === 4 && edge.byBusiness.frontsDrawn === 4
+        && edge.byBusiness.frontsOn === 4,
       `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
       + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
