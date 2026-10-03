@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A new jaunt: Soap and Candles', kind: 'feature',
+  { v: 1362, ts: '2026-10-03T12:26:25.726Z', date: 'Oct 3, 2026, 7:26 AM CT', title: 'A new jaunt: Soap and Candles', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Soap and Candles, a quiet outing of about seven minutes on horseback.',
       'Start at Daniel Elston & Co.\u2019s soap and candle works on the North Branch, make your list at Jones\u2019s grocery on South Water Street, and carry candles, soap or both home to the boarding house behind Peck\u2019s store.',
