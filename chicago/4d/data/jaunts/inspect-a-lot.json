@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "inspect-a-lot",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Look Before You Buy a Lot",
   "premise": "Read a land notice, see the room where lots are cried, find your corner and look at the ground before you pay.",
   "category": "Land",
@@ -10,7 +10,7 @@
     "text": "Money in mind and land in view: look in on the room where lots are sold, read a land notice, take your bearings at a known corner and see the ground before you pay. The errand is invented; the notices and the ground are not.",
     "read_s": 15
   },
-  "default_mode": "walk",
+  "default_mode": "horse",
   "allowed_modes": [
     "walk",
     "wagon",
@@ -402,7 +402,7 @@
     },
     {
       "id": "errand",
-      "text": "The visitor's errand, the choice of notice, the reading of the sale, the walk, the decision to inquire or hold, the three endings, the timing inputs and the Read the Ground keepsake are invented connective narrative. No lot, owner, price, title or purchase is claimed, and no named person is met.",
+      "text": "The visitor's errand, the choice of notice, the reading of the sale, the ride on horseback (the recommended mode), the decision to inquire or hold, the three endings, the timing inputs and the Read the Ground keepsake are invented connective narrative. No lot, owner, price, title or purchase is claimed, and no named person is met.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-inspect-a-lot"

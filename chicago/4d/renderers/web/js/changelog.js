@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'Open Jaunts and pick Look Before You Buy a Lot: it now recommends riding, and takes about three and a half minutes instead of seven on foot.',
+      'Shopping South Water Street now recommends a light wagon for the household list, and takes about four minutes instead of six and a half.',
+      'Fort Dearborn Errand now starts at the fort\'s south gate, where one stop tells you about the stockade and the guard-house together. It takes about five and a half minutes on foot.',
+      'You can still walk any of them. The ride, the wagon and the shorter fort errand are our reconstruction, noted in the liberties for each jaunt.',
+    ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
       'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
