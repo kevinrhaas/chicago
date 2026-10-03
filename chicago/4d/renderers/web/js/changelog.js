@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1364, ts: '2026-10-03T13:54:17.657Z', date: 'Oct 3, 2026, 8:54 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
+  { v: 1365, ts: '2026-10-03T14:14:54.093Z', date: 'Oct 3, 2026, 9:14 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Materials for a Roof, about six minutes on horseback.',
       'Start at Newberry \u0026 Dole\u2019s warehouse on the river, choose nails or nail rods at Peck\u2019s corner, decide on brick at the town\u2019s first brickyard, and end looking at the Lake House going up at Rush Street.',
       'The builder, the list and the keepsake, A Builder\u2019s List, are our reconstruction (liberty L-jaunt-materials-for-a-roof). The goods come from the merchants\u2019 own notices; the Lake House shell is our reconstruction of a building site.',
+    ] },
+  { v: 1364, ts: '2026-10-03T13:24:25.493Z', date: 'Oct 3, 2026, 8:24 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+    items: [
+      'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, five at the boarding house on the Dearborn block of Washington Street and three at the one on the Market block. Open a house\u2019s card to see them among its boarders.',
+      'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
+      'Nine children under ten are still owed in South and West Division lodging houses. A child is only ever placed with a keeper\u2019s family, so they will arrive with the keepers of boarding houses not yet raised.',
     ] },
   { v: 1363, ts: '2026-10-03T13:05:29.979Z', date: 'Oct 3, 2026, 8:05 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
     items: [

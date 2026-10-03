@@ -694,7 +694,7 @@
     "ticket": "T-1459",
     "what_moved": 9,
     "the_re_cut_wanted": 36,
-    "the_younger_bands_had_undrawn": 12,
+    "the_younger_bands_had_undrawn": 9,
     "the_adult_cells_had_undrawn": 9,
     "bands_reopened": [
       "10_19"
@@ -790,11 +790,9 @@
         "owning_ticket": "T-1532",
         "the_re_cut_wanted": 2,
         "the_remainder_could_pay": 0,
-        "already_drawn_in_the_way": 6,
-        "drawn_by": "T-1536",
-        "the_unaudited_stages_that_drew_here": [
-          "(a fill naming no ticket)"
-        ],
+        "already_drawn_in_the_way": 12,
+        "drawn_by": "T-2023",
+        "the_unaudited_stages_that_drew_here": [],
         "why": "the re-cut would seat a working youth in a cell drawn against by a stage that is NOT stable under a quota change: it reads the bucket's whole `to_reconstruct`, so re-cutting one undrawn slot re-deals its entire draw. The stages that HAVE been made stable are in `REMAINDER_STABLE_STAGES` and their remainder is spent freely (T-1503 put the lodging stage there). This cell's is not, so it is refused by name rather than clamped in silence."
       },
       {
@@ -817,7 +815,7 @@
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 5,
-        "drawn_by": "T-1536",
+        "drawn_by": "T-2023",
         "the_unaudited_stages_that_drew_here": [
           "(a fill naming no ticket)"
         ],
@@ -843,11 +841,9 @@
         "owning_ticket": "T-1532",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
-        "already_drawn_in_the_way": 4,
-        "drawn_by": "T-1536",
-        "the_unaudited_stages_that_drew_here": [
-          "(a fill naming no ticket)"
-        ],
+        "already_drawn_in_the_way": 6,
+        "drawn_by": "T-2023",
+        "the_unaudited_stages_that_drew_here": [],
         "why": "the re-cut would seat a working youth in a cell drawn against by a stage that is NOT stable under a quota change: it reads the bucket's whole `to_reconstruct`, so re-cutting one undrawn slot re-deals its entire draw. The stages that HAVE been made stable are in `REMAINDER_STABLE_STAGES` and their remainder is spent freely (T-1503 put the lodging stage there). This cell's is not, so it is refused by name rather than clamped in silence."
       },
       {
@@ -885,7 +881,7 @@
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 5,
-        "drawn_by": "T-1536",
+        "drawn_by": "T-2023",
         "the_unaudited_stages_that_drew_here": [
           "(a fill naming no ticket)"
         ],
@@ -1142,6 +1138,7 @@
     "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
     "remainder_stable_stages": {
       "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)",
+      "T-1536": "tools/seat_lodgers_1835.py — the youths' top-up, dealt against the committed `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json",
       "T-1538": "tools/seat_lodgers_1835.py — the top-up room, read live once and carried in `quota_basis.top_up` of the same file, so a re-cut moves nobody it seats (T-1538; named here on 2026-10-03 when T-1205's re-cut first touched a cell it had drawn in)"
     },
     "held_by_an_unaudited_stage": {
@@ -1152,9 +1149,6 @@
       "persons/female/10_19/south/family/none": [
         "T-1171",
         "T-1174"
-      ],
-      "persons/female/10_19/south/lodging/none": [
-        "(a fill naming no ticket)"
       ],
       "persons/female/10_19/west/family/none": [
         "T-1174"
@@ -1189,9 +1183,6 @@
       "persons/male/10_19/north/family/none": [
         "T-1171",
         "T-1174"
-      ],
-      "persons/male/10_19/north/lodging/none": [
-        "(a fill naming no ticket)"
       ],
       "persons/male/10_19/south/family/none": [
         "T-1171",
@@ -1343,11 +1334,12 @@
     },
     {
       "ticket": "T-1371",
-      "records": 131,
+      "records": 132,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
         "households/boarding_house/west",
+        "households/inn_tavern/north",
         "households/inn_tavern/south",
         "households/inn_tavern/west",
         "persons/female/10_19/north/lodging/none",
@@ -1389,6 +1381,16 @@
         "persons/male/under_10/north/lodging/none",
         "persons/male/under_10/south/lodging/none",
         "persons/male/under_10/west/lodging/none"
+      ]
+    },
+    {
+      "ticket": "T-1536",
+      "records": 11,
+      "buckets": [
+        "persons/female/10_19/north/lodging/none",
+        "persons/female/10_19/south/lodging/none",
+        "persons/male/10_19/north/lodging/none",
+        "persons/male/10_19/south/lodging/none"
       ]
     },
     {
@@ -1470,14 +1472,14 @@
     "roofs_standing": 547,
     "roofs_to_build": 139,
     "persons_standing": 2381,
-    "persons_still_owed": 239,
-    "persons_when_the_book_is_filled": 2620,
+    "persons_still_owed": 228,
+    "persons_when_the_book_is_filled": 2609,
     "persons_target_range": [
       2362,
       3265
     ],
     "households_standing": 217,
-    "households_still_owed": 417
+    "households_still_owed": 416
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1868,14 +1870,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2381,
-      "persons_still_owed": 239,
-      "converges_to": 2620,
+      "persons_still_owed": 228,
+      "converges_to": 2609,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 239 still owed is 2,620, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 77 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,381 standing plus 228 still owed is 2,609, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 66 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -2000,8 +2002,8 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 3,
-          "filled": 2,
-          "owning_ticket": "T-1536",
+          "filled": 3,
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -2037,10 +2039,10 @@
           "known_attested": 4,
           "known_inferred": 11,
           "to_reconstruct": 12,
-          "filled": 6,
-          "owning_ticket": "T-1536",
+          "filled": 12,
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 0,
+          "drawn_here": 6,
           "refamilied_in": 6
         },
         {
@@ -2077,7 +2079,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 5,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 0,
           "refamilied_in": 5
@@ -3052,7 +3054,7 @@
           "known_inferred": 8,
           "to_reconstruct": 8,
           "filled": 8,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 6,
           "refamilied_in": 2
@@ -3091,7 +3093,7 @@
           "known_inferred": 18,
           "to_reconstruct": 20,
           "filled": 16,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 5,
           "refamilied_in": 11
@@ -3130,7 +3132,7 @@
           "known_inferred": 6,
           "to_reconstruct": 8,
           "filled": 4,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 0,
           "refamilied_in": 4
@@ -3188,10 +3190,10 @@
           "known_attested": 2,
           "known_inferred": 5,
           "to_reconstruct": 6,
-          "filled": 4,
-          "owning_ticket": "T-1536",
+          "filled": 6,
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 0,
+          "drawn_here": 2,
           "refamilied_in": 4
         },
         {
@@ -3246,10 +3248,10 @@
           "known_attested": 5,
           "known_inferred": 13,
           "to_reconstruct": 6,
-          "filled": 4,
-          "owning_ticket": "T-1536",
+          "filled": 6,
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 2,
+          "drawn_here": 4,
           "refamilied_in": 2
         },
         {
@@ -3306,7 +3308,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 5,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 0,
           "refamilied_in": 5
@@ -4238,7 +4240,7 @@
           "known_inferred": 8,
           "to_reconstruct": 10,
           "filled": 10,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 7,
           "refamilied_in": 3
@@ -4277,7 +4279,7 @@
           "known_inferred": 21,
           "to_reconstruct": 22,
           "filled": 21,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 4,
           "refamilied_in": 17
@@ -4316,7 +4318,7 @@
           "known_inferred": 7,
           "to_reconstruct": 9,
           "filled": 9,
-          "owning_ticket": "T-1536",
+          "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
           "drawn_here": 3,
           "refamilied_in": 6
@@ -4461,7 +4463,7 @@
           "target": 3,
           "known": 0,
           "to_reconstruct": 3,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-2023",
           "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the north division"
         },
@@ -6178,6 +6180,34 @@
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
+      "bucket": "persons/female/10_19/north/lodging/none",
+      "ticket": "T-1536",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/south/lodging/none",
+      "ticket": "T-1536",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/north/lodging/none",
+      "ticket": "T-1536",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/lodging/none",
+      "ticket": "T-1536",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
       "bucket": "households/boarding_house/north",
       "ticket": "T-1371",
       "stage": "lodgers",
@@ -6196,6 +6226,13 @@
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/inn_tavern/north",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -9240,11 +9277,11 @@
       "buckets_refused": 45,
       "people_held": 386,
       "people_still_held": 386,
-      "open_headroom_in_person_buckets": 239,
+      "open_headroom_in_person_buckets": 228,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 239,
+      "still_owed_now": 228,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }
