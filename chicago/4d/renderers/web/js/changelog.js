@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1366, ts: '2026-10-03T14:38:02.225Z', date: 'Oct 3, 2026, 9:38 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
+  { v: 1368, ts: '2026-10-03T15:10:12.029Z', date: 'Oct 3, 2026, 10:10 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Schoolday Errand, an outing of about six and a half minutes on horseback past the places Chicago\u2019s first classes met.',
       'Start at the Michigan Street house where John Watkins taught, see the north-bank school-house that was the North Side\u2019s public school in 1835, cross to Eliza Chappel\u2019s log house by State Street, and finish at the Democrat\u2019s corner with the School District No. 4 meeting notice from the paper dated that very day.',
       'The household, its question and the keepsake, A Schooling Note, are our reconstruction (liberty L-jaunt-schoolday-errand). Two of the schools had moved on by 1835, and the stops say so.',
+    ] },
+  { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Materials for a Roof, about six minutes on horseback.',
+      'Start at Newberry \u0026 Dole\u2019s warehouse on the river, choose nails or nail rods at Peck\u2019s corner, decide on brick at the town\u2019s first brickyard, and end looking at the Lake House going up at Rush Street.',
+      'The builder, the list and the keepsake, A Builder\u2019s List, are our reconstruction (liberty L-jaunt-materials-for-a-roof). The goods come from the merchants\u2019 own notices; the Lake House shell is our reconstruction of a building site.',
+    ] },
+  { v: 1366, ts: '2026-10-03T14:21:05.994Z', date: 'Oct 3, 2026, 9:21 AM CT', title: 'A new jaunt: Boots, Leather and the Road', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Boots, Leather and the Road, an outing of about seven and a half minutes on horseback.',
+      'Outfit a rider for tomorrow\u2019s road: boots or a hat at John Holbrook\u2019s on South Water Street, a look at John Miller\u2019s tannery at the forks, a bridle or a trunk at S. B. Cobb\u2019s saddlery, and the Green Tree to lay it all out. Ask the saddler for boots and his own card tells you why not.',
+      'The rider, the purchases and the keepsake, Equipped to Travel, are our reconstruction (liberty L-jaunt-boots-and-leather). What each shop sold comes from its own 1833 and 1835 newspaper cards.',
     ] },
   { v: 1365, ts: '2026-10-03T13:40:43.663Z', date: 'Oct 3, 2026, 8:40 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
     items: [

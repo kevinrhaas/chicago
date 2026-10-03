@@ -435,6 +435,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Lake House is under construction, not open lodging; material costs and the customer’s order are reconstructed.
 
+**Route note (published, T-2026):** The shipped story order is Newberry & Dole's warehouse → Peck's store → Blodgett's brickyard → the Lake House. The order proposed above goes north to the brickyard and the Lake House and then back over the river to Peck's, so it crosses twice: about 1,660 m in straight lines (435 + 498 + 726). Taking Peck's second crosses once (228 + 228 + 498, about 954 m) and lets the jaunt end at its biggest sight, the brick shell going up at Rush Street. The bounded order is two choices and no prices: **nails or nail rods** at Peck's (both are lines of his own notice, 10 September 1834, p. 3 col. 1) and **brick for a chimney or none** at the yard; three endings. **No order, price or sale is claimed anywhere**, and the Lake House stop does not say its brick came from Blodgett's yard, because no source says so; the structure record's research note leans that way and the jaunt does not follow it. The Lake House is a building site, not lodging: Andreas describes the finished hotel (brick, three storeys and a basement, opened autumn 1836), the 1835 groundbreaking is an uncredited modern paragraph and the stop says so, and the one-storey roofless shell is called our reconstruction. Newberry & Dole's card is the Democrat of the scene date itself (1 July 1835, p. 4 col. 4: storage, forwarding and commission, agents for the Merchants' Line). **Timing sits inside the band:** the card reads Horse about 6 min, Walk 17.5, Wagon 8.5, Fly 4 and Instantly 3 at both 390×780 and 1280×800. The primary path (cut nails, brick chimney) measured 364 s at Horse and 226 s at Fly against estimates of 361 s and 232 s at 390×780 (365 s and 225 s against 364 s and 232 s at 1280×800). Receipt: `docs/performance/jaunt-materials-for-a-roof/`.
+
 ## 18. Boots, Leather and the Road
 
 **ID:** `boots-and-leather` · **Owner ticket:** [T-1268](../tickets/T-1268-publish-harness-candles-building-materials-and-l.md)
@@ -453,6 +455,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Equipped to Travel (Livelihood); fictional narrative memento.
 
 **Evidence and route cautions:** Do not turn the saddler into a bootmaker; substitute a verified shoemaker business only if its dated location resolves.
+
+**Route note (published, T-2027):** The shipped story order is Holbrook's store → Miller's tannery → Cobb's saddlery → the Green Tree. The order proposed above starts at the forks, goes west to Lake and Canal, east across the South Branch to South Water Street and back west again: about 1,871 m in straight lines, crossing the South Branch twice. Starting at Holbrook's goes one way, east to west (Holbrook → tannery 718 m, → Cobb 250 m, → Green Tree 122 m, about 1,090 m), and the story still reads: made goods shipped in, then where the town's own leather began, then the leather trade that is not the clothier's. **No shoemaker was substituted** — the boots come from Holbrook's card, which names boots and shoes; the saddler's card names none, and a choice at his stop says so. The tannery stop claims no work on the scene date: its source trail ends in 1832.
 
 ## 19. A Schoolday Errand
 
