@@ -49,14 +49,14 @@
         "T3"
       ],
       "scheduled_roofs": 10,
-      "built_places": 9,
-      "unbuilt_slots": 1,
+      "built_places": 10,
+      "unbuilt_slots": 0,
       "ordinary_per_place": 9,
       "crowded_per_place": 35,
-      "built_beds_ordinary": 81,
-      "built_beds_crowded": 315,
-      "unbuilt_beds_ordinary": 9,
-      "unbuilt_beds_crowded": 35,
+      "built_beds_ordinary": 90,
+      "built_beds_crowded": 350,
+      "unbuilt_beds_ordinary": 0,
+      "unbuilt_beds_crowded": 0,
       "crowded_end_is_the_ceiling": true
     }
   ],
@@ -419,6 +419,24 @@
       "beds_crowded": 35,
       "clamped_at_1840_maximum": true,
       "basis": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 186 m² of enclosed floor (93 m² × 2 storeys) is of the class's floor area.",
+      "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright."
+    },
+    {
+      "id": "recon_1835_north_t1_061",
+      "name": "Reconstructed T1 small inn or tavern #061",
+      "function": "small_inn_or_tavern",
+      "class": "inn_tavern",
+      "family": "T1",
+      "division": "north",
+      "standing": "reconstructed",
+      "footprint_m2": 105.77,
+      "storeys": 2.0,
+      "enclosed_floor_m2": 211.53,
+      "capacity_grade": "reconstructed",
+      "beds_ordinary": 9,
+      "beds_crowded": 35,
+      "clamped_at_1840_maximum": true,
+      "basis": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 212 m² of enclosed floor (106 m² × 2 storeys) is of the class's floor area.",
       "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright."
     },
     {

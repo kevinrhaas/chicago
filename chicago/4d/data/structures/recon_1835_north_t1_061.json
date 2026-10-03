@@ -154,14 +154,14 @@
     "sources": [
       "isa_public_domain_land_tract_sales"
     ],
-    "note": "THE ROOF IS AN INVENTION AND THIS CANNOT OUTRANK IT. The footprint stands 0 m inside the tract's nearest boundary, which on a documented building would carry the middle tier, but this building was dealt to its lot by a recipe and is not there. The tract is real and the register's words about it are read; what is graded here is the claim that THIS roof stands on it, and that claim is the recipe's. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "note": "THE ROOF IS AN INVENTION AND THIS CANNOT OUTRANK IT. The footprint stands 3 m inside the tract's nearest boundary, which on a documented building would carry the middle tier, but this building was dealt to its lot by a recipe and is not there. The tract is real and the register's words about it are read; what is graded here is the claim that THIS roof stands on it, and that claim is the recipe's. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
     "tract": "E2NE of section 09, T39N R14E",
     "entries": [
       "ls0056"
     ],
     "date_purchased": "1830-09-29",
     "type_of_sale": "canal land sale",
-    "margin_m": 0.2,
+    "margin_m": 3.2,
     "generated_by": "tools/resolve_land_tracts.py --build"
   }
 }
