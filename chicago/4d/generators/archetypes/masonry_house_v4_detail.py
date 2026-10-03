@@ -835,6 +835,8 @@ def bow(b,w):
         a,c=op['a0'],op['a1'];mid=(a+c)/2
         p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
         facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'])
+    if b.params.detail.get('continuous_copper_corner'):
+        return  # One joined fan and return are emitted in supplemental().
     z=w['wall_top_z'];zr=z+w['roof_rise_m'];ro=r+.20
     for i in range(48):
         a=a0+(a1-a0)*i/48;c=a0+(a1-a0)*(i+1)/48
@@ -1393,7 +1395,18 @@ def west_hood(b,p,d):
             strip=rect_clip([(v[0],v[1]) for v in pts],
                             d['hood_front'],lo,back,hi)
             if strip:
-                legacy._two_sided_roof(b,[(x,y,roof_z(x,y)) for x,y in strip],conf,ROOF)
+                fragments=[strip]
+                if d.get('connected_ridge'):
+                    fragments=[]
+                    for name,hood in patches(r,True):
+                        if not name.startswith('dormer'):continue
+                        part=strip
+                        poly=[(v[0],v[1]) for v in hood]
+                        if area(poly)<0:poly.reverse()
+                        for pa,pb in zip(poly,poly[1:]+poly[:1]):part=clip(part,pa,pb)
+                        if part:fragments.append(part)
+                for fragment in fragments:
+                    legacy._two_sided_roof(b,[(x,y,roof_z(x,y)) for x,y in fragment],conf,ROOF)
     old=b.decorate;b.decorate=False
     # Wooden boards around an actual aperture; no opaque panel behind the glass.
     # The sash is set into the roof, above a steep tiled apron. A tall wooden
@@ -1409,7 +1422,11 @@ def west_hood(b,p,d):
         zf=height(r,front,u);zb=height(r,back,u)
         b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,19,
               (0,-1 if u==a else 1,0))
-        cheek=[(front,u,zf),(back,u,zb),(back,u,d['eave_z']),(front,u,d['eave_z'])]
+        cheek_back=back
+        if d.get('connected_ridge') and zb>d['eave_z']:
+            cheek_back=front+(back-front)*(d['eave_z']-zf)/(zb-zf)
+            zb=d['eave_z']
+        cheek=[(front,u,zf),(cheek_back,u,zb),(cheek_back,u,d['eave_z']),(front,u,d['eave_z'])]
         b.raw(cheek,conf,19,(0,-1 if u==a else 1,0))
         # Restrained overlapping tile courses on the cheeks (not masonry).
         low=min(zf,zb);step=.13
@@ -1417,7 +1434,7 @@ def west_hood(b,p,d):
             zl=low+i*step;zh=min(d['eave_z'],zl+step)
             if zh<=max(zf,zb):continue
             at=u+(-.014 if u==a else .014)
-            b.raw([(front,at,max(zl,zf)),(back,at,max(zl,zb)),(back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
+            b.raw([(front,at,max(zl,zf)),(cheek_back,at,max(zl,zb)),(cheek_back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
     opening(b,o)
     # Outward fascia, sill and small hood brackets are visible from below.
     slab(b,pl,a-overhang,c+overhang,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
@@ -1453,11 +1470,21 @@ def supplemental(b,p):
             legacy._two_sided_roof(b,[(d['front']-.1,u,d['eave_z']),(d['back'],u,d['eave_z']),(d['back'],mid,d['apex_z']),(d['front']-.1,mid,d['apex_z'])],d['conf'],ROOF)
         opening(b,o)
     r=p.detail.get('copper_return')
-    if r:
+    if r and not p.detail.get('continuous_copper_corner'):
         z=r['wall_top_z'];zt=z+r['rise_m']
         copper_seams(b,[(r['x0'],r['y0'],z),(r['x1'],r['y0'],z),(r['x1'],r['y1'],zt),(r['x0'],r['y1'],zt)],r['conf'])
         # Folded front fascia gives the metal roof its thickness in silhouette.
         b.raw([(r['x0'],r['y0'],z-.055),(r['x1'],r['y0'],z-.055),(r['x1'],r['y0'],z),(r['x0'],r['y0'],z)],r['conf'],COPPER,(0,-1,0))
+
+
+    if p.detail.get('dining_roof_junction'):
+        from archetypes.masonry_house_v4_courtyard_roof import dining
+        for tri in dining(p)[0]:
+            legacy._two_sided_roof(b,list(tri),1.0,ROOF)
+    if p.detail.get('continuous_copper_corner'):
+        from archetypes.masonry_house_v4_courtyard_roof import copper
+        for tri in copper(p)[0]:
+            copper_seams(b,list(tri),1.0)
 
 
 

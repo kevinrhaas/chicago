@@ -20373,6 +20373,40 @@ dated pre1946 stable-door photograph would replace the proportional choices.
 `glessner_house.as_built_1887.form.eave_cornice`.
 **Recorded:** 2026-10-02.
 
+
+### L-glessner-connected-roof-2016 — Connected north, stable and courtyard roofs
+
+**Decision:** T-2016 supersedes L365's S18.4 cross-gable and 25.5-ft lower rear
+ridge. Continue the north ridge straight at S14.6/z34.1 ft, with a planar court
+slope, and the stable ridge at W141/z38.6 ft to the full south gable. Move the
+stable turret onto their plan intersection. Retain the corrected apertures and
+stonework. Extend the west dormer into its host with ridge decoration; join two
+triangular tile returns to the dining bay copper cap and continue copper across
+the north/east courtyard corner. These joins, the changed west profile and
+unmeasured details are owner-directed reconstructions. The planar north slope
+supersedes the earlier HABS sheet 4 kick interpretation; it is not claimed as
+a newly measured historical fact.
+
+Two courtyard service stacks shown by the modern aerial are carried into 1904
+as reconstructed. The archive review did not establish either pre-1904 presence
+or post-1904 installation. The owner allowed omission if absence was reasonably
+established; that condition was not met. Approximate positions, heights, flues
+and cap details remain inventions, not HABS attestations.
+
+**Basis:** Owner's 3 October 2026 aerial/model references and followups; HABS
+IL-1015 photo 5 (circa 1923) for the dining copper cap and tiled return; sheets
+2–4, photo 1 and data pages for context. See
+`docs/RESEARCH/glessner-connected-roof-plan/work.md` for disagreements and limits.
+**How to resolve:** A measured original roof plan or section, dated chimney
+photographs or restoration records would replace these proportional choices.
+**Applies to:** `glessner_house`, canonical detailed model and its light derivative.
+**Covers:** `glessner_house.as_built_1887.form.ridge_north_range`,
+`glessner_house.as_built_1887.form.v4_detail`,
+`glessner_house.as_built_1887.form.turret_stable`,
+`glessner_house.as_built_1887.form.chimney_service_east`,
+`glessner_house.as_built_1887.form.chimney_service_west`.
+**Recorded:** 2026-10-03.
+
 ### L369 — Leaf-scale procedural vegetation
 
 **Decision:** The branch sprays, individual leaf silhouettes, leaf veins, bark fissures, twig forks, canopy shading and per-tree surface variation are code-authored visual reconstructions bounded by the existing species families and July appearance. They are not photographs of historical Chicago vegetation, measurements of individual trees, or new evidence for their placement. Existing `data/flora` records continue to own species, dimensions, communities, historical claims and flowering eligibility. Confidence values are retained on the new surfaces. Light detail uses fewer geometric sprays of the same cutout foliage rather than closing the crown into a faceted solid. See `docs/RESEARCH/procedural-vegetation-quality.md` for review and limitations.
