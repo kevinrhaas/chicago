@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1347, ts: '2026-10-03T05:40:36.623Z', date: 'Oct 3, 2026, 12:40 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+  { v: 1348, ts: '2026-10-03T06:02:20.681Z', date: 'Oct 3, 2026, 1:02 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
       'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
       'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
       'Finish to keep A Cupboard Begun in your daybook under Provisions.',
+    ] },
+  { v: 1347, ts: '2026-10-03T05:37:25.027Z', date: 'Oct 3, 2026, 12:37 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Decent Coat. It is a short, quiet ride west along South Water Street to a call at the Sauganash, about four minutes on horseback, with nothing to count or carry.',
+      'Start at John Holbrook\u2019s, which opened in June 1835 selling made clothing, boots and shoes as agent for the manufacturers. A block on, Harmon, Loomis & Co.\u2019s card lists broadcloth, cassimere and flannel by the piece.',
+      'At Brown\u2019s boarding house, weigh tonight\u2019s call against tomorrow\u2019s work. At the Sauganash, go in a ready-made coat or your old one brushed.',
+      'Finish to keep Fit for the Occasion under Provisions. The errand is our reconstruction (liberty L-jaunt-a-decent-coat). No price, fitting or tailor is claimed.',
     ] },
   { v: 1346, ts: '2026-10-03T05:18:28.781Z', date: 'Oct 3, 2026, 12:18 AM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
     items: [
