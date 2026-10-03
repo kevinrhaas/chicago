@@ -5,6 +5,13 @@ export const CHANGELOG = [ // newest first
       'Follow freight from Newberry \u0026 Dole\u2019s warehouse past Norton\u2019s Dearborn Street drawbridge to the 1832 light at the river\u2019s mouth, and finish at the south pier looking across the cut at the north pier. Then mark the light or the end of the north pier on your route note.',
       'The walk, the note and the keepsake, Knows the Harbor, are our reconstruction (liberty L-jaunt-along-the-harbor). Both piers were still being built that summer, so their lengths are our estimate, and the stop says so.',
     ] },
+  { v: 1370, ts: '2026-10-03T15:42:04.279Z', date: 'Oct 3, 2026, 10:42 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+    items: [
+      'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
+      'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
+      'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
+      '277 men are still owed a wife that no woman in the town can be.',
+    ] },
   { v: 1369, ts: '2026-10-03T15:38:36.981Z', date: 'Oct 3, 2026, 10:38 AM CT', title: 'A new jaunt: A Sunday Circuit', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Sunday Circuit, a quiet outing of about six and a half minutes on horseback, with nothing to count or carry.',

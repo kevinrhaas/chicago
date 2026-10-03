@@ -148,9 +148,9 @@
           ]
         },
         "known_by_presence": {
-          "present": 2836,
-          "absent": 73,
-          "uncertain": 154
+          "present": 2665,
+          "absent": 106,
+          "uncertain": 292
         }
       }
     },
@@ -492,11 +492,11 @@
         },
         {
           "figure": "household_records_the_layer_carries",
-          "low": 2061,
-          "high": 2061,
+          "low": 1970,
+          "high": 1970,
           "point": null,
           "is_a_count": true,
-          "method": "2,061 household records for 1,404 people — 0.68 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
+          "method": "1,970 household records for 1,404 people — 0.71 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -924,18 +924,18 @@
             },
             {
               "year": 1833,
-              "people": 264,
-              "share": 0.109
+              "people": 357,
+              "share": 0.1474
             },
             {
               "year": 1834,
-              "people": 685,
-              "share": 0.2828
+              "people": 834,
+              "share": 0.3443
             },
             {
               "year": 1835,
-              "people": 1383,
-              "share": 0.571
+              "people": 1141,
+              "share": 0.4711
             }
           ]
         },
