@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1373, ts: '2026-10-03T17:10:43.972Z', date: 'Oct 3, 2026, 12:10 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
+  { v: null, ts: '', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',
       'Follow freight from Newberry \u0026 Dole\u2019s warehouse past Norton\u2019s Dearborn Street drawbridge to the 1832 light at the river\u2019s mouth, and finish at the south pier looking across the cut at the north pier. Then mark the light or the end of the north pier on your route note.',
       'The walk, the note and the keepsake, Knows the Harbor, are our reconstruction (liberty L-jaunt-along-the-harbor). Both piers were still being built that summer, so their lengths are our estimate, and the stop says so.',
+    ] },
+  { v: 1373, ts: '2026-10-03T17:05:20.078Z', date: 'Oct 3, 2026, 12:05 PM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick From Prairie to Town. You arrive from open ground by the lake south of the fort and ride into town. It takes about ten minutes on horseback, or four if you fly.',
+      'Ride north past Fort Dearborn\u2019s stockade and west along the river to Peck\u2019s store. Finish at the door of the Sauganash.',
+      'The traveller, the ride and the keepsake, Into Town, are our reconstruction (liberty L-jaunt-from-prairie-to-town). The first stop is a viewpoint, not a named place, and nothing of 1812 is staged on that shore.',
     ] },
   { v: 1372, ts: '2026-10-03T16:54:14.525Z', date: 'Oct 3, 2026, 11:54 AM CT', title: 'A new jaunt: Gossip or Printed Notice?', kind: 'feature',
     items: [
