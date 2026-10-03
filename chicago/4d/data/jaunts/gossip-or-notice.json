@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "gossip-or-notice",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Gossip or Printed Notice?",
   "premise": "Two rumors are going round the forks. Carry them past the Exchange to the town's two printing offices, read what the papers actually said, and decide what you will carry back.",
   "category": "News and social life",
@@ -177,7 +177,7 @@
         "kind": "structure",
         "id": "chicago_american_office"
       },
-      "text": "Near the drawbridge, the American is three weeks old. Its 27 June number reprints the Sangamon Journal: the State Bank's directors have decided on a branch at Chicago, but its officers are not yet known. The brick building 'on the square, near the court house' is read as Springfield's, not Chicago's.",
+      "text": "Near the drawbridge, the American is three weeks old. Its 27 June number reprints the Sangamon Journal: the State Bank's directors have decided on a branch at Chicago, but its officers are not yet known. The brick building on the square near the court house is read as Springfield's, not Chicago's.",
       "read_s": 32,
       "action_s": 10,
       "links": [
