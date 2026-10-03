@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1352, ts: '2026-10-03T07:15:15.254Z', date: 'Oct 3, 2026, 2:15 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+  { v: null, ts: '', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
       'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
       'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
       'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
+    ] },
+  { v: 1352, ts: '2026-10-03T07:12:28.066Z', date: 'Oct 3, 2026, 2:12 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
+    items: [
+      'Cross the Lake Street bridge to the block between Clinton and Canal. A plank walk now runs the whole Lake Street front, not just the stretch outside its one shop.',
+      'Its Randolph Street side has a walk of its own now, about 97 m of planks, with a board crossing over Randolph at the corner.',
+      'The shop keeps its hitching post. No fences: this block\u2019s lots open onto Clinton and Canal, so these fronts are the ends of the lot rows.',
+      'The walks are our reconstruction, like every walk in the town (liberty L160).',
     ] },
   { v: 1351, ts: '2026-10-03T06:48:49.856Z', date: 'Oct 3, 2026, 1:48 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
     items: [
