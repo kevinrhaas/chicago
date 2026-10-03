@@ -1,3 +1,28 @@
+## T-2010 — Stock the Household, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Stock the Household* (Household, Walk,
+4 stops, Provisions). With an imagined two dollars and a share of a room at Mrs Rufus Brown's,
+the visitor picks a list for the table or for the room. Then comes Jones's grocery for coffee and
+sugar or tea, Carpenter's drug store for cream of tartar or tooth powder, and Peck's corner for a
+crockery cup and plate or a length of flannel. Every good is offered only where that store's own
+advertisement lists it. There are four endings, and the keepsake *A Cupboard Begun* goes to
+Provisions. Content only: one JSON file, a liberty (`L-jaunt-household-provisions`), the
+regenerated catalog and source-use edges, and brief 13's route note. There is no engine, compiler
+or CSS change.
+
+**The brief's cautions hold by construction.** Quantities and prices are bounded and labelled
+reconstructed, and there is no health score. Jones's stop says that no source places the store and
+that his initial is disputed. Carpenter's cut window-glass notice is not used, because its own
+extract warns it is not proved to be his.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 54 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780 were Walk 5 min, Wagon 3.5, Horse 3, Fly 2.5 and Instantly 2.5; at
+1280×800, Walk 4.5 and Wagon 3. A Playwright drive at both viewports (table → coffee → cream of
+tartar → crockery) reached the `table-laid` ending once, with the keepsake under Receipt and zero
+page errors.
+
+**Unverified.** The stills were taken (card, opening, outcome) but are not committed, and no detail
+card was opened during the drive.
 ## T-2007 — Work on the Waterfront, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Work on the Waterfront* (Employment, Horse,

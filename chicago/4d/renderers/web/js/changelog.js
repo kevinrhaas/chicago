@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1343, ts: '2026-10-03T04:58:08.664Z', date: 'Oct 2, 2026, 11:58 PM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
+      'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
+      'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
+      'Finish to keep A Cupboard Begun in your daybook under Provisions.',
+    ] },
   { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Work on the Waterfront. It is a morning ride looking for work, from the old Democrat corner to two Newberry & Dole warehouses and on to breakfast at the Exchange Coffee House. It takes about six minutes on horseback.',

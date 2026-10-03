@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "id": "household-provisions",
+  "content_version": 1,
+  "title": "Stock the Household",
+  "premise": "Start a cupboard of your own from one block of South Water Street, with a short list and a small purse.",
+  "category": "Household",
+  "scene": "1835",
+  "opening": {
+    "text": "Suppose you have just found a share of a room at a boarding house behind Peck's store, and you have an imagined two dollars to begin a cupboard of your own. Four stops, all on one block. The room, the list, the purse and every price are reconstructed; the trades are documented.",
+    "read_s": 18
+  },
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "money": {
+      "min": 0,
+      "max": 200,
+      "initial": 200,
+      "unit": "cents"
+    },
+    "list": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "inventory": {
+    "items": [
+      "coffee",
+      "tea",
+      "tartar",
+      "tooth-powder",
+      "crockery",
+      "flannel"
+    ],
+    "initial": [],
+    "capacity": 3
+  },
+  "stops": [
+    {
+      "id": "the-room",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "Start behind Peck's store at Mrs Rufus Brown's log boarding house, where in this imagined errand you have a share of a room. Andreas names her as keeper of one of the first-class boarding houses; its exact spot is our placement. Decide what your short list is for.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "brown_boarding_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        }
+      ],
+      "evidence": [
+        "brown",
+        "brown-place",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "table",
+          "label": "A list for the table",
+          "consequence": "Something to drink in the morning, and something for the baking.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "list",
+              "value": 1
+            }
+          ],
+          "next": "provisions"
+        },
+        {
+          "id": "room",
+          "label": "A list for the room",
+          "consequence": "Something warm for the night, and something for the washstand.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "list",
+              "value": 2
+            }
+          ],
+          "next": "provisions"
+        }
+      ],
+      "narrative": "Choose what the list is for: the table or the room."
+    },
+    {
+      "id": "provisions",
+      "destination": {
+        "kind": "structure",
+        "id": "h_jones_store"
+      },
+      "text": "West along the block to Jones's grocery and provision store. His November 1833 advertisement keeps tea, coffee, sugar and most kinds of provisions on hand. No source says where the store stood, so this spot is reconstructed; even his initial, B or H, is disputed.",
+      "read_s": 28,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "h_jones_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_b_jones_grocery_and_provision_store",
+          "label": "The grocery's card"
+        }
+      ],
+      "evidence": [
+        "jones-trade",
+        "jones-place",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "coffee",
+          "label": "Coffee and sugar — 50¢",
+          "consequence": "The morning pot is provided for.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 50
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -50
+            },
+            {
+              "op": "add",
+              "item": "coffee",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "tea",
+          "label": "A paper of tea — 40¢",
+          "consequence": "Tea for the evenings, and a little more left in the purse.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 40
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -40
+            },
+            {
+              "op": "add",
+              "item": "tea",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "the-druggist",
+      "narrative": "Buy something to drink, or save the purse."
+    },
+    {
+      "id": "the-druggist",
+      "destination": {
+        "kind": "structure",
+        "id": "carpenter_south_water_store"
+      },
+      "text": "Back east to Philo Carpenter's, the druggist at the Sign of the Golden Mortar. His notice of 27 June 1835 lists cream of tartar, lemon syrup, black lead and tooth powder among his drugs. Andreas puts his small store on this block; which lot is not recorded.",
+      "read_s": 26,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "carpenter_south_water_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "carpenter_philo",
+          "label": "Philo Carpenter"
+        },
+        {
+          "kind": "business",
+          "id": "biz_philo_carpenter",
+          "label": "The druggist's card"
+        }
+      ],
+      "evidence": [
+        "carpenter-trade",
+        "carpenter-place",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "tartar",
+          "label": "Cream of tartar for the baking — 15¢",
+          "consequence": "A small paper of it for the cupboard shelf.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 15
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -15
+            },
+            {
+              "op": "add",
+              "item": "tartar",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "tooth-powder",
+          "label": "Tooth powder for the washstand — 20¢",
+          "consequence": "A box of it beside the basin.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 20
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -20
+            },
+            {
+              "op": "add",
+              "item": "tooth-powder",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "the-corner",
+      "narrative": "Pick one small thing from the druggist's list, or pass it by."
+    },
+    {
+      "id": "the-corner",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "End at Peck's corner of LaSalle and South Water, a few steps from where you began. His card lists dry goods, hardware, groceries and crockery, and a December 1834 notice adds flannels and calicoes. Choose one last thing, then carry the basket round to the boarding house.",
+      "read_s": 26,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
+        },
+        {
+          "kind": "business",
+          "id": "biz_p_f_peck",
+          "label": "The store's card"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "crockery",
+          "label": "A crockery cup and plate — 30¢",
+          "consequence": "Your own cup at a shared table.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 30
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -30
+            },
+            {
+              "op": "add",
+              "item": "crockery",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "flannel",
+          "label": "A length of flannel — 75¢",
+          "consequence": "Warmth for the nights, and most of what is left in the purse.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 75
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -75
+            },
+            {
+              "op": "add",
+              "item": "flannel",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "$end",
+      "narrative": "Finish the basket, or keep what is left."
+    }
+  ],
+  "endings": [
+    {
+      "id": "table-laid",
+      "text": "Something to drink and a cup of your own to drink it from. In this imagined errand your place at the boarding-house table is begun, and the cupboard with it.",
+      "read_s": 12,
+      "when": {
+        "all": [
+          {
+            "var": "list",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "has": "coffee"
+              },
+              {
+                "has": "tea"
+              }
+            ]
+          },
+          {
+            "has": "crockery"
+          }
+        ]
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "room-kept",
+      "text": "Flannel for the nights and tooth powder by the basin. In this imagined errand your share of the room is starting to feel like your own.",
+      "read_s": 12,
+      "when": {
+        "all": [
+          {
+            "var": "list",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "has": "flannel"
+          },
+          {
+            "has": "tooth-powder"
+          }
+        ]
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "purse-kept",
+      "text": "You bought little and kept most of the purse. In this imagined errand a household can begin with patience, and the block's stores will be there tomorrow.",
+      "read_s": 12,
+      "when": {
+        "var": "money",
+        "op": ">=",
+        "value": 170
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "basket-begun",
+      "text": "A basket that is not quite the list you set out with, which is how most first days go. In this imagined errand the cupboard is begun, if not yet finished.",
+      "read_s": 12,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Provisions",
+    "id": "a-cupboard-begun",
+    "title": "A Cupboard Begun",
+    "text": "A fictional receipt for a first basket of household things, bought along one block of South Water Street and carried home to a boarding house."
+  },
+  "evidence": [
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as keeper of one of the first-class boarding houses, and places Brown's log house as the first building in the rear of Peck's store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "brown-place",
+      "text": "The boarding house is placed directly behind Peck's store at the south-west corner of South Water and LaSalle; its distance behind the store is not documented.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives the position only relative to Peck's store. The structure record sets the house directly south of the store's footprint on the same lot line and grades the coordinate reconstructed, so the stop calls the exact spot our placement."
+    },
+    {
+      "id": "jones-trade",
+      "text": "A display advertisement headed 'Grocery & Provision Store. B. JONES.' says he keeps constantly on hand all kinds of groceries, such as tea, coffee and sugar, and most kinds of provisions. Andreas lists the same trade, with forwarding and commission, among the 1834 advertisers as H. Jones.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "Chicago Democrat, 26 Nov 1833, supplied scan page 1 (the advertisement page), the right-hand merchants' advertisements, 'Grocery & Provision Store. B. JONES.', copy dated Nov. 26, 1833; Andreas vol. 1, the 1834 advertisers' summary ('grocery and provision store and forwarding and commission store by H. Jones'). Transcription-mediated reading of a damaged sheet."
+    },
+    {
+      "id": "jones-place",
+      "text": "Neither source gives the store's street or lot; its position on South Water Street, at the Wells end of this block, is a reconstruction.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-household-provisions"
+    },
+    {
+      "id": "carpenter-trade",
+      "text": "Philo Carpenter advertised as a druggist at the Sign of the Golden Mortar on South Water Street; on 27 June 1835 his notice listed cream of tartar, lemon syrup, black lead and tooth powder and paste among his drugs, medicines and dye-stuffs.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "locator": "Chicago Democrat, 25 June 1834, p. 3, col. 2 (Carpenter's card, 'at the Sign of the Golden Mortar, South Water Street'); Chicago American, 27 June 1835, p. 3, col. 6 (the drug list, claim c013). Transcription-mediated reading."
+    },
+    {
+      "id": "carpenter-place",
+      "text": "Andreas has Carpenter buy a lot on South Water Street between LaSalle and Wells and erect a small store there in summer 1833; the lot within that block face is not recorded, and the marker stands at its middle.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The block face is Andreas's; the mid-block point is the structure record's convention, not evidence. That this South Water store is the one the 1834-35 advertisements were written from is the record's continuity argument: the advertisements name the street and no lot."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes and hats; a later notice lists flannels, sattinetts, merino cloths, muslins, ginghams and calicoes.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck's card); 10 Dec 1834, p. 4, col. 4 ('New Goods!!', the dry-goods summary from flannels to calicoes). Transcription-mediated reading."
+    },
+    {
+      "id": "continuity",
+      "text": "Each store's stock is carried to 1 July 1835 from advertisements printed before it; none records a sale, a price or a customer on that day.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835",
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Carpenter's drug list is dated four days before the scene date. Peck's last card in the run is December 1834; he is attested keeping and living in this store across 1833-35. Jones's is the weakest carry: his only advertisement is November 1833 and Andreas's summary is of 1834, and the structure record carries the business to the end of 1835 on the ordinary continuity cut."
+    },
+    {
+      "id": "errand",
+      "text": "The share of a room, the two-dollar purse, the two lists, every price, the basket, the four endings and the A Cupboard Begun keepsake are invented connective narrative, not historical events or prices. Each good is bought only from a store whose own advertisement lists it.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-household-provisions"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-household-provisions"
+  ],
+  "legs": [
+    {
+      "from": "the-room",
+      "to": "provisions",
+      "note": "Round to South Water Street and west along its south side to the Wells end of the block; the whole outing keeps to this one block face.",
+      "evidence": [
+        "jones-place"
+      ],
+      "story": "Start with what the list needs most.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "provisions",
+      "to": "the-druggist",
+      "note": "Back east along the same block face to its middle.",
+      "evidence": [
+        "carpenter-place"
+      ],
+      "story": "Something small for the shelf or the washstand.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "the-druggist",
+      "to": "the-corner",
+      "note": "On east to Peck's corner at LaSalle, beside the boarding house where you began.",
+      "evidence": [
+        "brown-place"
+      ],
+      "story": "One last thing, and the basket is full enough to carry.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ]
+}
