@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1384, ts: '2026-10-03T21:09:15.662Z', date: 'Oct 3, 2026, 4:09 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
+  { v: 1385, ts: '2026-10-03T21:26:35.538Z', date: 'Oct 3, 2026, 4:26 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
     items: [
       'Nothing you can see changes yet. The first Fort Dearborn, burned in August 1812, will be built from the plan its commandant drew in January 1808. That plan is now read and measured.',
       'His drawing shows a double row of pickets about 110 feet square, blockhouses at the north-west and south-east corners, barracks on all four sides and a brick magazine. The 75-foot flagstaff he drew laid flat gives the scale.',
       'It gives no building heights and no compass bearing, and it says itself that the houses outside the walls are not to scale. Those questions stay open.',
+    ] },
+  { v: 1384, ts: '2026-10-03T21:05:07.845Z', date: 'Oct 3, 2026, 4:05 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Over the Draw to the North Side, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Start at the foot of the Dearborn Street drawbridge, cross to the North Side and look at Blodgett\u2019s brickyard, the first house built for a school, and the Lake House going up at Rush Street. Then choose to end there or go back over the draw.',
+      'It is the library\u2019s 26th jaunt, and the first added after the original 25. It was added as one data file, with no change to the page\u2019s code.',
+      'The outing, the crossing and the keepsake, North of the River, are our reconstruction (liberty L-jaunt-over-the-draw). Every fact about the four places is one already cited in another jaunt.',
     ] },
   { v: 1383, ts: '2026-10-03T20:41:08.977Z', date: 'Oct 3, 2026, 3:41 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
