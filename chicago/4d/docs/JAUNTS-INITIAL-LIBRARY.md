@@ -265,6 +265,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Room prices/availability are narrative bounds, not documented bookings; a four-stop path can finish early without padding.
 
+**Route note (published, T-2006):** The shipped story order is Western Hotel → Sauganash → Brown's boarding house → Mansion House. The order proposed above runs east from the Sauganash to Brown's, back west over the South Branch to the Western and then east again to Dearborn, crossing the river twice; starting at the Western on the west side and riding east once over the bridge and along Lake Street visits the same four houses without the backtrack. The four houses still span the town from Canal Street to Dearborn, about 0.9 km, so even the re-cut order reads **about 15.5 min at Walk** on the published mirror; the recommended pace is therefore **Horse**, as for New in Chicago and Taverns of Chicago, with Walk still offered. The catalog card on the published mirror gives these routed figures at 390×780 and 1280×800 alike: Horse about 5.5 min, Wagon 8, Walk 15.5, Fly 4, Instantly 2.5. This is the batch's quiet outing: a hidden cost-or-convenience preference and the choice of where to ask first decide among three endings, and no purse, basket or resource strip is shown.
+
 ## 10. Work on the Waterfront
 
 **ID:** `work-on-waterfront` · **Owner ticket:** [T-1266](../tickets/T-1266-publish-news-mail-lodging-and-work-jaunts.md)
