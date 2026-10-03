@@ -1315,6 +1315,10 @@ def person_buckets(model: dict, composition: dict, inventory: dict, known: dict,
 REMAINDER_STABLE_STAGES = {
     "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in "
               "data/reconstruction/1835_lodgers_seated.json (T-1503)",
+    "T-1538": "tools/seat_lodgers_1835.py — the top-up room, read live once and carried in "
+              "`quota_basis.top_up` of the same file, so a re-cut moves nobody it seats "
+              "(T-1538; named here on 2026-10-03 when T-1205's re-cut first touched a cell "
+              "it had drawn in)",
 }
 
 

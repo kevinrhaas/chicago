@@ -1141,7 +1141,8 @@
     ],
     "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
     "remainder_stable_stages": {
-      "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)"
+      "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)",
+      "T-1538": "tools/seat_lodgers_1835.py — the top-up room, read live once and carried in `quota_basis.top_up` of the same file, so a re-cut moves nobody it seats (T-1538; named here on 2026-10-03 when T-1205's re-cut first touched a cell it had drawn in)"
     },
     "held_by_an_unaudited_stage": {
       "persons/female/10_19/north/family/none": [
