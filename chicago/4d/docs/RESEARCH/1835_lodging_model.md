@@ -12,7 +12,7 @@ It reads no source. It measures committed structure records and apportions figur
 
 | class | scheduled | built | unbuilt | ordinary | full |
 |---|---:|---:|---:|---:|---:|
-| boarding house | 42 | 13 | 29 | 9 | 21 |
+| boarding house | 42 | 16 | 26 | 9 | 21 |
 | inn tavern | 10 | 9 | 1 | 9 | 35 |
 
 `ordinary` and `full` are the per-place figures, which this model does not move: the 1840 household tail's p90 (9), p99 (21) and observed maximum (35).
@@ -22,18 +22,21 @@ It reads no source. It measures committed structure records and apportions figur
 | place | class | standing | floor | ordinary | full | grade |
 |---|---|---|---:|---:|---:|---|
 | Rufus Brown's Boarding House | boarding house | named | 89 m² | 4 | 10 | reconstructed |
-| Kelsey's boarding-house | boarding house | named | 78 m² | 4 | 9 | reconstructed |
-| Reconstructed H3 boarding house #09 | boarding house | reconstructed | 263 m² | 13 | 30 | reconstructed |
-| Reconstructed H3 boarding house #05 | boarding house | reconstructed | 209 m² | 10 | 24 | reconstructed |
-| Reconstructed H3 boarding house #06 | boarding house | reconstructed | 290 m² | 14 | 33 | reconstructed |
-| Reconstructed H3 boarding house #11 | boarding house | reconstructed | 292 m² | 14 | 33 | reconstructed |
-| Reconstructed H1 small boarding house #007 | boarding house | reconstructed | 119 m² | 6 | 14 | reconstructed |
-| Reconstructed H2 medium boarding house #022 | boarding house | reconstructed | 165 m² | 8 | 19 | reconstructed |
-| Reconstructed H2 medium boarding house #028 | boarding house | reconstructed | 195 m² | 10 | 22 | reconstructed |
-| Reconstructed H2 medium boarding house #030 | boarding house | reconstructed | 173 m² | 9 | 20 | reconstructed |
-| Reconstructed H2 medium boarding house #045 | boarding house | reconstructed | 190 m² | 9 | 22 | reconstructed |
-| Reconstructed H1 small boarding house #005 | boarding house | reconstructed | 123 m² | 6 | 14 | reconstructed |
-| Reconstructed H2 medium boarding house #035 | boarding house | reconstructed | 198 m² | 10 | 23 | reconstructed |
+| Kelsey's boarding-house | boarding house | named | 78 m² | 4 | 8 | reconstructed |
+| Reconstructed H3 boarding house #09 | boarding house | reconstructed | 263 m² | 12 | 28 | reconstructed |
+| Reconstructed H3 boarding house #05 | boarding house | reconstructed | 209 m² | 10 | 22 | reconstructed |
+| Reconstructed H3 boarding house #06 | boarding house | reconstructed | 290 m² | 13 | 31 | reconstructed |
+| Reconstructed H3 boarding house #11 | boarding house | reconstructed | 292 m² | 13 | 31 | reconstructed |
+| Reconstructed H3 boarding house #01 | boarding house | reconstructed | 264 m² | 12 | 28 | reconstructed |
+| Reconstructed H3 boarding house #01 | boarding house | reconstructed | 219 m² | 10 | 24 | reconstructed |
+| Reconstructed H3 boarding house #04 | boarding house | reconstructed | 268 m² | 12 | 29 | reconstructed |
+| Reconstructed H1 small boarding house #007 | boarding house | reconstructed | 119 m² | 5 | 13 | reconstructed |
+| Reconstructed H2 medium boarding house #022 | boarding house | reconstructed | 165 m² | 8 | 18 | reconstructed |
+| Reconstructed H2 medium boarding house #028 | boarding house | reconstructed | 195 m² | 9 | 21 | reconstructed |
+| Reconstructed H2 medium boarding house #030 | boarding house | reconstructed | 173 m² | 8 | 19 | reconstructed |
+| Reconstructed H2 medium boarding house #045 | boarding house | reconstructed | 190 m² | 9 | 20 | reconstructed |
+| Reconstructed H1 small boarding house #005 | boarding house | reconstructed | 123 m² | 6 | 13 | reconstructed |
+| Reconstructed H2 medium boarding house #035 | boarding house | reconstructed | 198 m² | 9 | 21 | reconstructed |
 | Exchange Coffee House | inn tavern | named | 252 m² | 11 | 35 | reconstructed · clamped |
 | Green Tree Tavern | inn tavern | named | 186 m² | 8 | 35 | inferred · clamped |
 | Mansion House | inn tavern | named | 108 m² | 5 | 35 | reconstructed · clamped |
@@ -52,7 +55,7 @@ Every inn tavern carries the same 35 in the `full` column, and that is the town 
 
 Built places at their apportioned capacity, plus the unbuilt slots at the model's own per-place figure, give **468–1,232** against the town model's **468–1,232**. They agree, as they must: the apportionment preserves each class's mean exactly.
 
-- The larger boarding houses programme is **13 of 42**: 29 slots hold no building yet, and the 261–609 beds behind them are scheduled rather than standing.
+- The larger boarding houses programme is **16 of 42**: 26 slots hold no building yet, and the 234–546 beds behind them are scheduled rather than standing.
 - The inns taverns programme is **9 of 10**: 1 slots hold no building yet, and the 9–35 beds behind them are scheduled rather than standing.
 
 ## Open questions

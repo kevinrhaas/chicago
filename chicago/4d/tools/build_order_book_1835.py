@@ -402,7 +402,12 @@ STRUCTURE_TICKETS = {
     # H3 on blk_washington_clark and closes first, so no cell stays on it; the South's cell
     # moves to T-1951 (the plan's H3s on the Dearborn and Market blocks, whose free lots are
     # all requested), the West's to T-1953 (on T-1414's ground) and the North's to T-1952.
-    ("south", "larger_boarding_houses"): "T-1951",
+    # T-1951 raised the three H3s the plan held on those two blocks when it was claimed
+    # (two on blk_washington_market, one on blk_washington_dearborn) and closes on them, so
+    # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
+    # schedule re-apportions to blk_washington_market once those three stand, the one on
+    # the gated blk_south_water_market, and three the plan holds no roof for at all.
+    ("south", "larger_boarding_houses"): "T-1957",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -446,8 +451,19 @@ STRUCTURE_TICKETS = {
     # half that would still owe. It is not read while the bands stand.
     ("south", "warehouses_freight"): "T-1673",
     ("south", "institutional_public"): "T-1202",
-    ("south", "barns_stables"): "T-1212",
-    ("south", "small_outbuildings"): "T-1212",
+    # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies were
+    # T-1960's, "wells, privies and stables by household", in all three divisions.
+    # MOVED TO T-1215, THEN T-1967, by the pull request that closed T-1960. T-1960 dealt its privies and
+    # stables to the YARD LAYER (data/yard/town_yard_outbuildings.json, drawn at load) —
+    # a privy behind every dwelling lot the plat reaches — and raised no roof, so the roofs
+    # these cells still count are not owed by any yard deal. T-1215, which converges the
+    # programme and owns its remainders, is the ticket that answered for them; it was split the
+    # same day (T-1964..T-1970) and T-1967, "the programme reconciled", answered next.
+    # T-1967 shipped the completion report and the City card's completion row and handed
+    # "the programme reconciled" — these roofs with it — to T-1983, which answers now.
+    # Naming the closed T-1960 or the split T-1215 would order work nobody can claim.
+    ("south", "barns_stables"): "T-1983",
+    ("south", "small_outbuildings"): "T-1983",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -500,8 +516,8 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-1829",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-1212",
-    ("west", "small_outbuildings"): "T-1212",
+    ("west", "barns_stables"): "T-1983",  # moved with the South's, above
+    ("west", "small_outbuildings"): "T-1983",  # moved with the South's, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -570,8 +586,8 @@ STRUCTURE_TICKETS = {
     ("north", "workshops"): "T-1205",
     ("north", "warehouses_freight"): "T-1205",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-1212",
-    ("north", "small_outbuildings"): "T-1212",
+    ("north", "barns_stables"): "T-1983",  # moved with the South's, above
+    ("north", "small_outbuildings"): "T-1983",  # moved with the South's, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
     ("fort", "workshops"): "T-1204",
@@ -3792,6 +3808,32 @@ def report_text(doc: dict) -> str:
 
 # ------------------------------------------------------------------ commands --
 
+def splice_fills(fills: list, tickets, rows: list) -> list:
+    """A filler's rows go back WHERE ITS ROWS STOOD, never to the end (T-1968).
+
+    Every filler used to drop its own rows and append the new ones, so the ledger's order
+    recorded which tool ran LAST rather than anything about the town. A PR that re-ran
+    `reconstruct_businesses_1835.py --build` alone left its lawyer row at the foot of the
+    ledger; the next `rederive.mjs --run` re-ran three household stages past it and moved
+    56 rows above it; the next lone business build moved it back. A fourteen-line diff
+    about nothing, on every lap, and `--run` was never a fixed point of a committed tree.
+
+    Still never re-sorted — the ledger keeps the order the stages first filled it in, and a
+    writer's own rows keep the order it emits them in. A writer whose tickets hold no row
+    yet appends, as before; one that built nothing clears its rows, as before.
+    """
+    tickets = set(tickets)
+    out, placed = [], False
+    for fill in fills:
+        if fill.get("ticket") in tickets:
+            if not placed:
+                out += rows
+                placed = True
+            continue
+        out.append(fill)
+    return out if placed else out + list(rows)
+
+
 def _fills_on_disk() -> list:
     if not BOOK.exists():
         return []
@@ -4729,8 +4771,15 @@ def cmd_self_test() -> int:
     # takes lot 0, which hh_beaubien_monique's D7 slot had asked for; she moves along the
     # block, the slots behind her shift a lot, and hh_berger_f_c, left with only kept-open
     # lots, is owed to T-1614 (183 -> 182 platted seats, L270, L345).
+    # 254 -> 251 on 2026-10-02 (T-1951): the South's last three planned H3s stand on
+    # blk_washington_market#04/#05 and blk_washington_dearborn#02, all three lots a slot
+    # request had asked for; hh_bently_wm_t, hh_benton_datas_e and hh_clarke_h_b are owed
+    # to T-1614 (182 -> 179 platted seats, L270, L349).
+    # 251 -> 252 on 2026-10-02 (T-1989): `recon_1835_west_013`, re-dealt from a utility shed
+    # to a D2 on Lake west of Canal, is a standing roof `labourer_dwellings` admits off the
+    # plat, so the off-plat pass adopts it for hh_rc_doyle_ellen (72 -> 73, L271, L265).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 254
+        data["inventory"], data["programme"], occ))["seated"] == 252
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4752,6 +4801,19 @@ def cmd_self_test() -> int:
     fires("a seats file with no counts at all",
           lambda: seats_against_roofs(dropped, structure_buckets(
               dropped["inventory"], dropped["programme"], occ)))
+
+    # T-1968: a filler's rows go back where they stood, whoever ran last.
+    ledger = [{"ticket": "T-A", "bucket": "a"}, {"ticket": "T-B", "bucket": "b"},
+              {"ticket": "T-C", "bucket": "c"}]
+    new_b = [{"ticket": "T-B", "bucket": "b2"}, {"ticket": "T-B", "bucket": "b3"}]
+    assert [f["bucket"] for f in splice_fills(ledger, {"T-B"}, new_b)] == \
+        ["a", "b2", "b3", "c"], "a filler's rows moved off their place in the ledger"
+    assert [f["bucket"] for f in splice_fills(ledger, {"T-D"}, [{"ticket": "T-D",
+            "bucket": "d"}])] == ["a", "b", "c", "d"], "a first fill did not append"
+    assert [f["bucket"] for f in splice_fills(ledger, {"T-B"}, [])] == ["a", "c"], \
+        "a filler that built nothing kept its rows"
+    once = splice_fills(ledger, {"T-B"}, new_b)
+    assert splice_fills(once, {"T-B"}, new_b) == once, "splicing is not a fixed point"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

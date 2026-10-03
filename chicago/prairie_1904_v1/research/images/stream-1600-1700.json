@@ -179,13 +179,27 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMd6lKkEV6uipmD4nak4Ltr0MOLMYq7OLuX47Po8vbrrNpRl08Tlq6LCzVTI9NYb43Mf-H_L-T9IV5RPZEFfq0rsva9JfUnhGWllQOBv1T6VpxXAOixY87bV1ueof1xAzC4vqlQ6VM1Bs/s1600/1721+Prairie.JPG",
-  "rights": "unknown — link only",
-  "rights_basis": "Museum photograph reproduced on blog; no rights statement",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from Glessner House Museum, 2026-10-02 (rights-requests/ghm-george-glessner-2026-10.md); stored meanwhile on the owner's decision. The photographs are unpublished works by George Glessner (d. 1929), in the US public domain by term (life + 70); the pending question is the museum's terms for its scans.",
+  "local": {
+   "display": "research/images/files/a16-ghm-blog-1721-dexter-c1888.jpg",
+   "display_bytes": 75961,
+   "thumb": "research/images/files/a16-ghm-blog-1721-dexter-c1888-thumb.jpg",
+   "thumb_bytes": 22601,
+   "original_px": [
+    900,
+    650
+   ],
+   "original_sha256": "daf42fd1ffb879e01c2640ae3b7f6f77bd43678e9ec7951fb51b500d0c2a4c37",
+   "original_bytes": 90094,
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMd6lKkEV6uipmD4nak4Ltr0MOLMYq7OLuX47Po8vbrrNpRl08Tlq6LCzVTI9NYb43Mf-H_L-T9IV5RPZEFfq0rsva9JfUnhGWllQOBv1T6VpxXAOixY87bV1ueof1xAzC4vqlQ6VM1Bs/s1600/1721+Prairie.JPG",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Dexter'",
-  "notes": "Winter view by George Glessner (the Glessners' son, an amateur photographer) of the 1863 frame Dexter house BEFORE Arthur Little's 1889 brick front addition: two-storey clapboard house with central front gable (round attic window), shuttered windows, bracketed eaves, a square cupola/belvedere and several tall chimneys, ground-floor bays, a low stone wall along the sidewalk with gate piers, a gas street lamp in the foreground; the neighbouring house at right (south, toward Pullman) shows masonry bays. Because the 1889 addition was built nearly to the lot line, the 1904 frontage looked very different; this documents the original block that stood behind the addition until a later owner demolished it.",
-  "measurements": []
+  "notes": "Winter view by George Glessner (the Glessners' son, an amateur photographer) of the 1863 frame Dexter house BEFORE Arthur Little's 1889 brick front addition: two-storey clapboard house with central front gable (round attic window), shuttered windows, bracketed eaves, a square cupola/belvedere and several tall chimneys, ground-floor bays, a low stone wall along the sidewalk with gate piers, a gas street lamp in the foreground; the neighbouring house at right (south, toward Pullman) shows masonry bays. Because the 1889 addition was built nearly to the lot line, the 1904 frontage looked very different; this documents the original block that stood behind the addition until a later owner demolished it. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/ghm-george-glessner-2026-10.md"
  },
  {
   "id": "a16-ghm-blog-1736-mcbirney-c1890",
@@ -605,7 +619,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire2/chicagotribuneheadline9jan1898prairiewidows.jpg",
   "rights": "public domain",
   "rights_basis": "US newspaper illustration published 1898 (pre-1931); not downloaded — only a secondary web copy was reached",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-tribune-1898-prairie-widows.jpg",
+   "display_bytes": 156215,
+   "thumb": "research/images/files/a16-cgy-tribune-1898-prairie-widows-thumb.jpg",
+   "thumb_bytes": 14936,
+   "original_px": [
+    3500,
+    935
+   ],
+   "original_sha256": "1ccee6acfbdf6981d531d6e9d3669fe976381ef380b4ed8a40ed16ab0c7734d1",
+   "original_bytes": 1982626,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire2/chicagotribuneheadline9jan1898prairiewidows.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1620 / 1720 pages",
   "notes": "Strip of five pen-and-ink vignettes of house fronts, each labelled with its number: 1600 (corner house with round tower and gate piers), 1620 (bay-fronted house with arched windows behind a lattice fence — the Robert Law house, Law died there Feb 1898), 1720 (two-storey Italianate with full-width front porch, central entrance, cupola/belvedere and lattice fence — the frame Walker house; text: 'The dark colored frame house, with the entrance in the center, is the residence of Mrs. J. M. Walker'), 1726 (brick front with round-arched entrance under a corner tower), 1812. Valuable for 1620 and 1720, both of which were lost by 1910–11. Original Tribune page should be pulled from ProQuest Historical Newspapers for a clean copy.",
@@ -747,7 +774,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic6july1922pullmanhome.jpg",
   "rights": "public domain",
   "rights_basis": "US newspaper photograph published 1922 (pre-1931); not downloaded — only a secondary web copy reached",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-tribune-1922-pullman-wrecked.jpg",
+   "display_bytes": 350143,
+   "thumb": "research/images/files/a16-cgy-tribune-1922-pullman-wrecked-thumb.jpg",
+   "thumb_bytes": 32006,
+   "original_px": [
+    3247,
+    2056
+   ],
+   "original_sha256": "4ddae76c952c996e1d6b2c24298ba562389bf071509df86ef3e8fd39a17812ee",
+   "original_bytes": 2912288,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic6july1922pullmanhome.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1729 page",
   "notes": "Newspaper halftone of the house during demolition: mansard and roof already removed, window openings empty, rubble in front, a workman on the cornice. Caption: 'The George M. Pullman home at 18th street and Prairie avenue, facing the site of the Fort Dearborn massacre, is being torn down to make possible contemplated improvements along the lake shore.' Fixes the demolition date (summer 1922) and shows the bare masonry shell (wall thickness, window rhythm, storey heights) of one front.",
@@ -823,12 +863,25 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2022/01/burley-tyrrell-chicagos-forgotten.html",
   "image_url": "https://blogger.googleusercontent.com/img/a/AVvXsEj9GcpcIEv1kIU8LzOBLRHcKn9c2gisIQq508f9GN0Hvoufu0kODAu8TofZ8l3WxzkVeO36bDcQzAVQY4WxSh5zcTerqRvTLUFoz6Q0_BsIOqPwNycZLurmKx5ruPZ43CjSXurm6MAvE1zi-QZN1yNQweoygKemEhOoYfzKrYXr12g5_ZIiNjmXIHEF=s1600",
-  "rights": "unknown — link only",
-  "rights_basis": "Blog reproduction of a 19th-c. atlas plate (itself public domain); atlas edition/holder not stated",
-  "local": null,
+  "rights": "public domain",
+  "rights_basis": "published fire-insurance atlas plate (pre-1929, US): its content pre-dates the 1886–87 Glessner house and its colour scheme, lettering and water-main notes match Robinson's Atlas of the City of Chicago (1886); Glessner House Museum blog reproduction (arrows and a label added — not original expression)",
+  "local": {
+   "display": "research/images/files/a16-ghm-blog-1720-atlas-crop.jpg",
+   "display_bytes": 224047,
+   "thumb": "research/images/files/a16-ghm-blog-1720-atlas-crop-thumb.jpg",
+   "thumb_bytes": 32414,
+   "original_px": [
+    1200,
+    1096
+   ],
+   "original_sha256": "3d59c6d3024951b6de6ce2cde5b04229b48aa3463f15733d5fe357a71652edcd",
+   "original_bytes": 313328,
+   "fetched_from": "https://blogger.googleusercontent.com/img/a/AVvXsEj9GcpcIEv1kIU8LzOBLRHcKn9c2gisIQq508f9GN0Hvoufu0kODAu8TofZ8l3WxzkVeO36bDcQzAVQY4WxSh5zcTerqRvTLUFoz6Q0_BsIOqPwNycZLurmKx5ruPZ43CjSXurm6MAvE1zi-QZN1yNQweoygKemEhOoYfzKrYXr12g5_ZIiNjmXIHEF=s1600",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Tyrrell'",
-  "notes": "Hand-coloured fire/real-estate atlas detail covering the whole 1600 and 1700 blocks of Prairie between 16th St (top/north) and 18th St, with the Illinois Central tracks, '16th St. Station I.C.R.R.' and the lakeshore: pink = brick, yellow = frame, brown = stone (Pullman house at 18th St). Lot numbers, subdivision names, frontages and outbuildings (crossed = stables) are legible. Shows NO through 17th Street between Indiana and the lake — the 1600 and 1700 blocks are continuous on both sides of Prairie, which matters for siting 1638/1700 and 1637/1701. The blue arrow marks the yellow (frame) Tyrrell/Walker house at 1720; the 1702 Staples/Harvey house (pre-1899) is still shown, so the plate pre-dates the 1700/1706 townhouses. Compare with project file maps/originals/robinson-1886-north-block.jpg (likely the same plate).",
+  "notes": "Hand-coloured fire/real-estate atlas detail covering the whole 1600 and 1700 blocks of Prairie between 16th St (top/north) and 18th St, with the Illinois Central tracks, '16th St. Station I.C.R.R.' and the lakeshore: pink = brick, yellow = frame, brown = stone (Pullman house at 18th St). Lot numbers, subdivision names, frontages and outbuildings (crossed = stables) are legible. Shows NO through 17th Street between Indiana and the lake — the 1600 and 1700 blocks are continuous on both sides of Prairie, which matters for siting 1638/1700 and 1637/1701. The blue arrow marks the yellow (frame) Tyrrell/Walker house at 1720; the 1702 Staples/Harvey house (pre-1899) is still shown, so the plate pre-dates the 1700/1706 townhouses. Compare with project file maps/originals/robinson-1886-north-block.jpg (likely the same plate). Rights reviewed 2026-10-02: reclassified public domain — a published atlas plate, compared with the Robinson 1886 crops (cgn-1720-robinson-1886).",
   "measurements": []
  },
  {
@@ -861,13 +914,27 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2015/01/george-glessner-photographer.html",
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjU9A5J-MoCMH_hY2KTLJvQkFPGOhBR_COqrPnMbPqtYtrdeYi8kf_V9nOBfgBqm5yn_sLoAp91I4VG9BG0i-I-ivieHPxY6ursBvvYVMtsZvM8acbJwdqAaW9D9LfeP5wWqbT3xa8zxRQ/s1600/1700-1706+construction.JPG",
-  "rights": "unknown — link only",
-  "rights_basis": "Museum photograph reproduced on blog; no rights statement",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from Glessner House Museum, 2026-10-02 (rights-requests/ghm-george-glessner-2026-10.md); stored meanwhile on the owner's decision. The photographs are unpublished works by George Glessner (d. 1929), in the US public domain by term (life + 70); the pending question is the museum's terms for its scans.",
+  "local": {
+   "display": "research/images/files/a16-ghm-blog-1700-1706-construction-1901.jpg",
+   "display_bytes": 62869,
+   "thumb": "research/images/files/a16-ghm-blog-1700-1706-construction-1901-thumb.jpg",
+   "thumb_bytes": 24667,
+   "original_px": [
+    675,
+    494
+   ],
+   "original_sha256": "31674b329c5ed004608e14819a1d4e740b3dc7d4c6d4a14981d193b26ee5c7c3",
+   "original_bytes": 84344,
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjU9A5J-MoCMH_hY2KTLJvQkFPGOhBR_COqrPnMbPqtYtrdeYi8kf_V9nOBfgBqm5yn_sLoAp91I4VG9BG0i-I-ivieHPxY6ursBvvYVMtsZvM8acbJwdqAaW9D9LfeP5wWqbT3xa8zxRQ/s1600/1700-1706+construction.JPG",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search '1700 Prairie'",
-  "notes": "Construction photo by George Glessner: the brick shell of the Shepley, Rutan & Coolidge townhouses with slate mansard and pedimented dormers in place, window openings still unglazed, a builder's shed and lumber in the front yard; stone string course, keystoned first-floor arches and a sign board over the door. At left a three-storey brick/stone house with a two-storey bay and a hooded doorway (= 1708, the house immediately south; Thorne residence by 1911 — see the Christmas-tree photograph captioned 1708/1706/1700; 1911 Sanborn: 1708 3-storey brick dwelling); at right the steep-gabled Gothic Revival house with porch (1638, Gregory — the 1600 and 1700 blocks were not separated by a through 17th Street). Gives the exact massing and materials (red brick, light stone trim) of the pair as finished c.1902 and shows the neighbours in 1901.",
-  "measurements": []
+  "notes": "Construction photo by George Glessner: the brick shell of the Shepley, Rutan & Coolidge townhouses with slate mansard and pedimented dormers in place, window openings still unglazed, a builder's shed and lumber in the front yard; stone string course, keystoned first-floor arches and a sign board over the door. At left a three-storey brick/stone house with a two-storey bay and a hooded doorway (= 1708, the house immediately south; Thorne residence by 1911 — see the Christmas-tree photograph captioned 1708/1706/1700; 1911 Sanborn: 1708 3-storey brick dwelling); at right the steep-gabled Gothic Revival house with porch (1638, Gregory — the 1600 and 1700 blocks were not separated by a through 17th Street). Gives the exact massing and materials (red brick, light stone trim) of the pair as finished c.1902 and shows the neighbours in 1901. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/ghm-george-glessner-2026-10.md"
  },
  {
   "id": "a16-ghm-blog-1730-otis-1940s",
@@ -1062,13 +1129,27 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2021/12/the-glessner-house-christmas-tree.html",
   "image_url": "https://blogger.googleusercontent.com/img/a/AVvXsEhmQiSovL7whNan-E-rioWOSCfD9L6ow4jIj3O9h2__AZgXecQ_Uzq8GPXHrRdBC0kF1Q46qQgQ-HowP2tkTeE1uqNKiEPwHRs8MpauBGbNo-4WP57s1KM6m1cdBJFQwuZmm_Mc_WUOPpS45iyFsTk7U7xtuvof3VV3rIS1g_87VgdUEYLqpTUs63l1=s1600",
-  "rights": "unknown — link only",
-  "rights_basis": "Museum photograph reproduced on blog; no rights statement",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from Glessner House Museum, 2026-10-02 (rights-requests/ghm-george-glessner-2026-10.md); stored meanwhile on the owner's decision. The photographs are unpublished works by George Glessner (d. 1929), in the US public domain by term (life + 70); the pending question is the museum's terms for its scans.",
+  "local": {
+   "display": "research/images/files/a16-ghm-blog-1708-1706-1700-christmas.jpg",
+   "display_bytes": 121258,
+   "thumb": "research/images/files/a16-ghm-blog-1708-1706-1700-christmas-thumb.jpg",
+   "thumb_bytes": 22862,
+   "original_px": [
+    1200,
+    983
+   ],
+   "original_sha256": "b1a53e0ead7765d7df2a25f7c64d1a0cea1724b1b6e4fda1815bf9c67788f902",
+   "original_bytes": 144962,
+   "fetched_from": "https://blogger.googleusercontent.com/img/a/AVvXsEhmQiSovL7whNan-E-rioWOSCfD9L6ow4jIj3O9h2__AZgXecQ_Uzq8GPXHrRdBC0kF1Q46qQgQ-HowP2tkTeE1uqNKiEPwHRs8MpauBGbNo-4WP57s1KM6m1cdBJFQwuZmm_Mc_WUOPpS45iyFsTk7U7xtuvof3VV3rIS1g_87VgdUEYLqpTUs63l1=s1600",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Thorne' / 'Blewett Lee'",
-  "notes": "The best located view of the townhouse pair with its southern neighbour. 1700/1706: dark red brick, slate mansard with three pedimented dormers per unit and a central chimney with a lattice-railed roof deck, modillioned cornice, stone keystone panels, round-arched first-floor windows with carved tympana and iron balconettes, two Ionic-columned entrance porches with iron balcony rails above, iron area railings and steps. At left, 1708 (the Thorne residence by 1911): a three-storey brick house with stone quoin-like trim, a full-height canted bay and a heavy cornice — the only located image of pa-1708-54 (identity of its 1904 occupant still unresolved). A cast-iron street lamp at left; young parkway trees. Occupancy in the caption is the 1911 Christmas, not 1904.",
-  "measurements": []
+  "notes": "The best located view of the townhouse pair with its southern neighbour. 1700/1706: dark red brick, slate mansard with three pedimented dormers per unit and a central chimney with a lattice-railed roof deck, modillioned cornice, stone keystone panels, round-arched first-floor windows with carved tympana and iron balconettes, two Ionic-columned entrance porches with iron balcony rails above, iron area railings and steps. At left, 1708 (the Thorne residence by 1911): a three-storey brick house with stone quoin-like trim, a full-height canted bay and a heavy cornice — the only located image of pa-1708-54 (identity of its 1904 occupant still unresolved). A cast-iron street lamp at left; young parkway trees. Occupancy in the caption is the 1911 Christmas, not 1904. [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/ghm-george-glessner-2026-10.md"
  },
  {
   "id": "a16-ghm-blog-1701-sullivan-post",
@@ -1287,7 +1368,20 @@
   "image_url": "https://archive.org/download/industrialchicag01good/page/leaf517_w800.jpg",
   "rights": "public domain",
   "rights_basis": "US publication of 1891 (pre-1931)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-industrial-chicago-1867-review-1600-block.jpg",
+   "display_bytes": 194896,
+   "thumb": "research/images/files/a16-industrial-chicago-1867-review-1600-block-thumb.jpg",
+   "thumb_bytes": 18221,
+   "original_px": [
+    2186,
+    3312
+   ],
+   "original_sha256": "36f37fd2c79d611dbab6fc461395250f82c9641348c745f5f01e5712607a918b",
+   "original_bytes": 752880,
+   "fetched_from": "https://archive.org/download/industrialchicag01good/page/leaf517_w1600.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "archive.org full text of Industrial Chicago vol. 1, grep for owner names / 'Prairie avenue'",
   "notes": "Architects' 1867 lists with dimensions and costs for early 1600-block houses: T. V. Wadskier — 'Two first-class dwellings on Prairie avenue south of Sixteenth street. Pressed-brick fronts with stone trimmings; three stories and basement, for John G. Shortall, Esq.; cost, $25,000' (p. 433; possibly the attached stone-trimmed pair recorded at 1634/1636 on the 1911 Sanborn — not the 1638 Gothic house, which was by J. W. Roberts); O. L. Wheelock — 'One frame residence, for B. F. Chase, on the corner of Sixteenth street and Prairie avenue, two stories, French roof, and brick basement, finished up with balconies, porches and piazzas complete; size, 23x51; cost, $10,000'; Cochrane & Garnsey — 'First-class residence, marble front, stone steps, etc., hip-roof, erected on Prairie avenue near Sixteenth street for Horace G. Chase, Esq., costing $18,000'. None of these is a building-index id; recorded for the 1600-block streetscape and as context for the Shortall name attached to pa-1638-2. Exact address attribution needs directory/permit confirmation.",
@@ -1708,12 +1802,12 @@
   "call_number": "DPC7474",
   "catalog_url": "https://collections.carli.illinois.edu/digital/collection/nby_teich/id/333240",
   "image_url": null,
-  "rights": "unknown — link only",
-  "rights_basis": "Newberry: Detroit Publishing Company images may be re-purposed for personal or educational use; other uses by permission",
+  "rights": "public domain",
+  "rights_basis": "published as a Detroit Publishing Co. postcard (series no. DPC7474; the firm issued postcards c. 1898–1924) — pre-1929, US. Newberry use statement (a permissions policy, not a copyright claim): 'Images from the Detroit Publishing Company Collection may be re-purposed for personal or educational use. For permission on other uses, contact Digital Initiatives and Services, Newberry Library'",
   "local": null,
   "verified": "catalog-only",
   "found_via": "CARLI CONTENTdm search 'residence pullman' in nby_teich",
-  "notes": "'Description only' record — no image online. Almost certainly the postcard (Phostint) version of one of the Detroit Publishing negatives LC-D4-12551/12552 (c.1900), so it adds a colour-printed state rather than new geometry; worth checking for colour of stone, roof and foliage.",
+  "notes": "'Description only' record — no image online. Almost certainly the postcard (Phostint) version of one of the Detroit Publishing negatives LC-D4-12551/12552 (c.1900), so it adds a colour-printed state rather than new geometry; worth checking for colour of stone, roof and foliage. Rights reviewed 2026-10-02: reclassified public domain (published postcard); the Newberry record is description-only, so there is no image to fetch — LoC holds the same Detroit view (a16-pullman-det-4a08066).",
   "measurements": []
  },
  {
@@ -1740,13 +1834,27 @@
   "call_number": null,
   "catalog_url": "https://glessnerhouse.blogspot.com/2012/08/august-15-2012-to-mark-bicentennial-of.html",
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghksEa9Fpip0VbXcXws12YCwEqEZHUHOD1RSUjNCKc34LfgqJFeuWdsiTHV8gBW1QafAyBmfPKP_i9ts_3p2VhE9yC9Xa7XUWp2_ZH5gJG0Um6PBs4ds1rmUl149l0zUY_kRtQ8dHscuY/s1600/12-08-13+Tree+photograph.jpg",
-  "rights": "unknown — link only",
-  "rights_basis": "Museum photograph reproduced on blog; no rights statement",
-  "local": null,
+  "rights": "pending — permission requested",
+  "rights_basis": "Pending: permission requested from Glessner House Museum, 2026-10-02 (rights-requests/ghm-george-glessner-2026-10.md); stored meanwhile on the owner's decision. The photographs are unpublished works by George Glessner (d. 1929), in the US public domain by term (life + 70); the pending question is the museum's terms for its scans.",
+  "local": {
+   "display": "research/images/files/a16-ghm-blog-massacre-tree-george-glessner-c1888.jpg",
+   "display_bytes": 62092,
+   "thumb": "research/images/files/a16-ghm-blog-massacre-tree-george-glessner-c1888-thumb.jpg",
+   "thumb_bytes": 21140,
+   "original_px": [
+    602,
+    750
+   ],
+   "original_sha256": "57a1581069ae2d542c0c1075cf9cdf05649b04f08405abdb6e1801164e5d5de9",
+   "original_bytes": 92421,
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghksEa9Fpip0VbXcXws12YCwEqEZHUHOD1RSUjNCKc34LfgqJFeuWdsiTHV8gBW1QafAyBmfPKP_i9ts_3p2VhE9yC9Xa7XUWp2_ZH5gJG0Um6PBs4ds1rmUl149l0zUY_kRtQ8dHscuY/s1600/12-08-13+Tree+photograph.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Pullman'",
-  "notes": "Photographic counterpart of the Andreas engraving: the dying cottonwood (felled 18 May 1894) in the 18th Street parkway, and at left the Pullman coach house/stable before Beman's 1892 enlargement — one-storey-plus-mansard brick building with arched carriage doors, round-headed dormers, iron roof cresting and a small square cupola, a low coped wall along the walk; gravel/macadam roadway with a gutter, a gas lamp at right, elms on the north parkway, and the open lake shore at the end of the street. Pre-1904 state of the coach house (enlarged and remodelled 1892).",
-  "measurements": []
+  "notes": "Photographic counterpart of the Andreas engraving: the dying cottonwood (felled 18 May 1894) in the 18th Street parkway, and at left the Pullman coach house/stable before Beman's 1892 enlargement — one-storey-plus-mansard brick building with arched carriage doors, round-headed dormers, iron roof cresting and a small square cupola, a low coped wall along the walk; gravel/macadam roadway with a gutter, a gas lamp at right, elms on the north parkway, and the open lake shore at the end of the street. Pre-1904 state of the coach house (enlarged and remodelled 1892). [2026-10-02: stored and shown with rights pending, on the owner's decision; permission requested from the holder.]",
+  "measurements": [],
+  "rights_request": "research/images/rights-requests/ghm-george-glessner-2026-10.md"
  },
  {
   "id": "a16-cgy-landowner-1874-1620-law",
@@ -1774,7 +1882,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1620prairie.jpg",
   "rights": "public domain",
   "rights_basis": "US periodical illustration published 1874; not downloaded — only a secondary web crop was reached",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-landowner-1874-1620-law.jpg",
+   "display_bytes": 187187,
+   "thumb": "research/images/files/a16-cgy-landowner-1874-1620-law-thumb.jpg",
+   "thumb_bytes": 30230,
+   "original_px": [
+    1136,
+    756
+   ],
+   "original_sha256": "019979fd45d5b1ba99a81d35217f75d6c863fc9f287568bce7df637d86aa9214",
+   "original_bytes": 537318,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1620prairie.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1620 page; plate described on Glessner House blog 'Prairie Avenue in 1874'",
   "notes": "The only located image of the 1620 house (Robert Law, coal merchant; built c.1872; Inter Ocean 1887 called it 'commodious, olive green in color'): a three-storey Second Empire house with slate mansard and arched dormers, round-arched windows, a canted front bay with an ornate bracketed hood, a front porch with balustrade, a side-entrance wing, behind a lattice-pattern front fence; at left a taller plain block (neighbour) and at right a mansard outbuilding. 1620 stood in 1904 (later 'old W. G. Hibbard residence', 77×177 ft, sold 1910) but was razed by 1911 (vacant lot on Sanborn). Not in the a18 whole-plate record's building list.",
@@ -1810,7 +1931,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1730prairie.jpg",
   "rights": "public domain",
   "rights_basis": "US periodical illustration published 1874; not downloaded (secondary crop only)",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a16-cgy-landowner-1874-1730-dewey.jpg",
+   "display_bytes": 158308,
+   "thumb": "research/images/files/a16-cgy-landowner-1874-1730-dewey-thumb.jpg",
+   "thumb_bytes": 39684,
+   "original_px": [
+    931,
+    765
+   ],
+   "original_sha256": "ba859ab1cdbccb352289aa5f035cb4458ea08300d64c37907dff377451182c88",
+   "original_bytes": 459412,
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/landownergraphic1874may1730prairie.jpg",
+   "fetched": "2026-10-02"
+  },
   "verified": "viewed",
   "found_via": "chicagology 1730 page",
   "notes": "1730 is not in the building index but was a 1904 dwelling in this block (Mrs. Joseph E. Otis in the 1904 Blue Book; demolished 1946 — see the 1940s photograph record). Shows a three-storey Second Empire brick house with steep mansard and pedimented dormer group, a two-storey canted bay with balustrade, a round-arched entrance up a stoop, tall chimneys and a board fence.",

@@ -140,10 +140,26 @@
       ],
       "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve (rule FORM-G)."
     },
-    "siding_exposure_m": {
-      "value": 0.14,
+    "trim": {
+      "value": "plain",
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the plain corner boards and frieze a sided frame needs to keep water out (rule FORM-T)."
+    },
+    "chimney_head": {
+      "value": "corbel",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a brick stack finished in one corbelled course; the stack's brick is inferred and not dealt (rule FORM-H)."
+    },
+    "siding_exposure_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
     },
     "function": {
       "value": "deep_plan_frame_cottage",
@@ -154,7 +170,157 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D5 family to satisfy the block's scheduled mix; no occupant or individual use is known."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_janea_russell",
+      "name": "The Janea household — a name from the post office's letter lists",
+      "division": "unplaced",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Russell Janea",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Russell Janea' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 5 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+    },
+    {
+      "household": "hh_maynard_elias",
+      "name": "The Maynard household — a name from the post office's letter lists",
+      "division": "unplaced",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "Elias Maynard",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Maynard, Elias' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+    },
+    {
+      "household": "hh_payne_l_w",
+      "name": "The Payne household — a name the town's own records carry",
+      "division": "unplaced",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "L W Payne",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "THE 1835 POLL LIST ALONE. Read from poll_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2a), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. poll_1835 names this person at Chicago by 31 December 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of 1835 — “Payne, L. W.” (poll_1835_056, line 343). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Payne' agrees with the entry's forenames; 2 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json)."
+        }
+      ],
+      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+    },
+    {
+      "household": "hh_rc_laframboise_archange",
+      "name": "Reconstructed household — Archange Laframboise, a woman keeping her own house in the south division",
+      "division": "south",
+      "relation": "shared this roof",
+      "why": "a D3/D4/D5/D6 dwelling, as the tradesman_dwellings clause admits",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Archange Laframboise",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "dressmaker",
+          "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
+        },
+        {
+          "name": "Toussaint Laframboise",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Jean Laframboise",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Hyacinthe Laframboise",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Pierre Laframboise",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Louis Laframboise",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn dressmaker, in the south division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
+    },
+    {
+      "household": "hh_rc_mccarthy_mary",
+      "name": "The McCarthy household — a trade the rosters never printed",
+      "division": "south",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Mary McCarthy",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "boarding_house_keeper",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the south division, at boarding_house_keeper. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
+      "household": "hh_witkins_thomas",
+      "name": "The Witkins household — a name the town's own records carry",
+      "division": "unplaced",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "Thomas Witkins",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 21 April 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+    }
+  ],
   "citations": [
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
@@ -198,7 +364,7 @@
       "class": "tradesman",
       "by": "type",
       "household": null,
-      "words": "new-sawn clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass and a stoop, under a new roof — a deep-plan frame cottage, new-built (rule F-T: a tradesman's by its type)"
+      "words": "new-sawn clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — a deep-plan frame cottage, new-built (rule F-T: a tradesman's by its type)"
     },
     "frontage": {
       "block": "blk_randolph_market",
@@ -207,5 +373,14 @@
       "abuts": "recon_1835_blk_randolph_market_d1_10",
       "why": "T-0317, the successor T-0028's programme owes, and the first parcel in this project where the core density standard's corner clause and the end rule point in OPPOSITE directions. THE FACE IS MEASURED RATHER THAN ASSUMED, by the command T-A14 made of it — tools/measure_street_frontage.py randolph washington market franklin — and on the committed dataset Randolph carries 7 documented records and 7 inferred households against Washington's 1 and 0, Market's 2 and 1, and Franklin's 2 and 1. Randolph is this block's business face by the town's own record and it is FULL: the first deal took lots 0 and 2 and the inferred-household layer's two sawyer dwellings hold 4 and 6, so every lot on that face carries a roof and the two lots this block has left are both on the Washington tier. WHAT BINDS IS THE STANDARD'S THIRD CLAUSE. Lot 1 is the block's one free CORNER lot, the south-west one, fronting Washington along its long edge and Market Street along its short one, and a corner lot BUILDS TO THE CORNER — an east-anchored run packs back toward the middle of the face and stops wherever its roofs run out, so the corner is the one piece of frontage a row can never reach. The run is packed WEST to it. AND THE GRADING RUNS THE OTHER WAY, which is the finding here. On blk_randolph_dearborn's third deal the free corner was at Dearborn — the only crossing of the main stem in July 1835 — so building to the corner and standing the best roof nearest the crossing were the same act, and the parcel could not tell the two clauses apart. This corner is at MARKET, the far end of the face from that bridge, so they separate: the corner clause fixes WHERE THE ROW STANDS and the end rule fixes WHICH ROOF STANDS WHERE IN IT, and on this block they are demonstrably different questions. THE END RULE IS READ, NOT ASSERTED: tools/measure_end_rule.py reads this face at a spread of 71.03 m and a unit step of 6.07 m under the walked criterion and grades on it, while the same face under T-A11's straight line reads 4.82 m and is BELOW THE FLOOR — so the walk is what makes a grading possible here at all, and the straight line would have been grading this parcel's own declared setback invention. The row is therefore graded EAST, toward Franklin and the bridge beyond it: the meanest dwelling stands on the corner and the best closes the run at the east end. NO COORDINATE IS AUTHORED: the line, its bearing, the lot's own stretch of it and the end the run packs toward are all read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage. The Washington face carries no committed street wall for the run to adopt — the two roofs already standing on that tier are one-per-lot placements set back inside their own lots — so this run is the first line on the face and states the margin rather than adopting one."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
   }
 }

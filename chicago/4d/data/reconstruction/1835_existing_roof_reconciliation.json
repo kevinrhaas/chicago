@@ -1327,7 +1327,7 @@
       "reasoning": "A camp of tents on the South Water bank (T-1803): canvas, not a roof. 1835_camp_grounds.json rules that a tent is not a building, so the camp answers no family in the roof programme and fills no anonymous slot."
     },
     {
-      "structure_id": "landing_camp_east",
+      "structure_id": "land_sale_camp_shore",
       "district": "south",
       "roof_count": 0,
       "inventory_eligible": false,
@@ -1335,7 +1335,29 @@
       "likely_family": null,
       "substitutes_anonymous_slots": 0,
       "confidence": "moderate",
-      "reasoning": "A camp of tents on the South Water bank (T-1803): canvas, not a roof. 1835_camp_grounds.json rules that a tent is not a building, so the camp answers no family in the roof programme and fills no anonymous slot."
+      "reasoning": "A camp of tents on the reservation shore south of the fort (T-1804): canvas and wagons, not a roof. 1835_camp_grounds.json rules that a tent is not a building, so the camp answers no family in the roof programme and fills no anonymous slot."
+    },
+    {
+      "structure_id": "emigrant_camp_shore",
+      "district": "south",
+      "roof_count": 0,
+      "inventory_eligible": false,
+      "inventory_roof_count": 0,
+      "likely_family": null,
+      "substitutes_anonymous_slots": 0,
+      "confidence": "moderate",
+      "reasoning": "The emigrants' tents moved off the South Water wharves to the reservation shore (T-1979): canvas and wagons, not a roof. 1835_camp_grounds.json rules that a tent is not a building, so the camp answers no family in the roof programme and fills no anonymous slot."
+    },
+    {
+      "structure_id": "west_approach_wagon_camp",
+      "district": "west",
+      "roof_count": 0,
+      "inventory_eligible": false,
+      "inventory_roof_count": 0,
+      "likely_family": null,
+      "substitutes_anonymous_slots": 0,
+      "confidence": "moderate",
+      "reasoning": "A wagon party's camp at the west approach (T-1804): canvas and wagons, not a roof. 1835_camp_grounds.json rules that a tent is not a building, so the camp answers no family in the roof programme and fills no anonymous slot."
     }
   ]
 }

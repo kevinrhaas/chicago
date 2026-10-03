@@ -131,6 +131,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the A1 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "No household of its own — the stable of the log house beside it on the Canal and Randolph teamster approach",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1988; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The West recipe's own `yard_group`: placement west_rec_023 is drawn in the yard of west_rec_014, the D1 log dwelling the platted deal seats under labourer_dwellings, 32.5 m away. The lot ledger stands this stable on blk_lake_clinton#04 with the barn west_024 and no dwelling, so the yard the recipe drew is not bounded by one lot. The West generator does not carry `yard_group` onto the record, so the completion audit read this roof as an outbuilding naming no yard; this row states the tie the recipe already made. A stable keeps that house's horse or team; nobody sleeps in it. The roof's own existence, position and footprint remain the invention they were."
     }
   },
   "residents": [],
@@ -176,5 +184,14 @@
       "household": null,
       "words": "new-sawn boards under a new roof — a stable, new-built (rule F-Y: a yard building's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "yard",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

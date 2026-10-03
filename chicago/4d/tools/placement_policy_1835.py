@@ -79,6 +79,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fabric_rule_1835  # noqa: E402  (T-1816)
+import yard_rule_1835  # noqa: E402  (T-1959)
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -922,6 +923,10 @@ def build() -> dict:
         # generators deal through; printed here because this is the file the build
         # tickets build by.
         "fabric": fabric_rule_1835.policy_table(),
+        # T-1959 (T-1212's second piece): what a dwelling's YARD holds by whose house it
+        # is — the woodpile column today. Authored in tools/yard_rule_1835.py, which
+        # tools/generate_woodpiles.py deals through; printed here for the same reason.
+        "yard": yard_rule_1835.policy_table(),
         "clauses": [{**c, "witness": witness(c, result)} for c in CLAUSES],
         "coverage": {
             "documented_roofs_with_a_family": len(result["rows"]),

@@ -8,6 +8,12 @@
  *
  *   node tools/shoot.mjs <root-dir> <entry> <out-dir> [--detail full|balanced|light]
  *                                                     [--at e,n,yaw[,name]]
+ *                                                     [--anchors id,id,…]
+ *
+ * `--anchors` stands at the 1835 scene's own named anchors (data/scenes/1835.json),
+ * in the order given, one PNG each named for its anchor — so a walk is a list of
+ * stands a visitor can also reach, not a set of coordinates typed into a command
+ * (T-1970: the fort-to-Wolf-Point walk in docs/RESEARCH/shots/).
  */
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
@@ -32,7 +38,7 @@ const { chromium } = await loadPlaywright();
 // Flags may sit anywhere, so the positional arguments are read off the list
 // with the flags and their values removed. Before this, `--at` after the output
 // directory was fine and `--at` before it became the output directory.
-const FLAGS = new Set(['--detail', '--at']);
+const FLAGS = new Set(['--detail', '--at', '--anchors']);
 const argv = process.argv.slice(2);
 const positional = [];
 const flags = {};
@@ -51,6 +57,20 @@ const AT = flags['--at']
   ? (() => {
     const [e, n, yaw, name] = flags['--at'].split(',');
     return [[name || 'at', { e: Number(e), n: Number(n), yaw: Number(yaw ?? 0) }]];
+  })()
+  : null;
+const ANCHORS = flags['--anchors']
+  ? await (async () => {
+    const scene = JSON.parse(await readFile(new URL('../data/scenes/1835.json', import.meta.url), 'utf8'));
+    const byId = new Map((scene.anchors ?? []).map((a) => [a.id, a]));
+    return flags['--anchors'].split(',').map((id) => {
+      const a = byId.get(id);
+      if (!a) throw new Error(`--anchors: no anchor "${id}" in data/scenes/1835.json`);
+      const t = { e: a.local_e, n: a.local_n, yaw: a.yaw_deg };
+      if (typeof a.pitch_deg === 'number') t.pitch_deg = a.pitch_deg;
+      if (typeof a.altitude_m === 'number') t.altitude_m = a.altitude_m;
+      return [id, t];
+    });
   })()
   : null;
 mkdirSync(OUT, { recursive: true });
@@ -150,7 +170,7 @@ await page.evaluate(() => {
 });
 await page.waitForTimeout(600);
 
-for (const [name, { e, n, yaw, ...rest }] of AT ?? shots) {
+for (const [name, { e, n, yaw, ...rest }] of AT ?? ANCHORS ?? shots) {
   await page.evaluate((t) => {
     const api = window.__chicago4d;
     // Altitude only survives in fly mode: the walker reconciles itself against

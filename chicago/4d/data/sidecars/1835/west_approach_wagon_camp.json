@@ -1,0 +1,145 @@
+{
+  "id": "west_approach_wagon_camp",
+  "phase": "camp_1835",
+  "name": "The emigrants' wagon camp at the west approach",
+  "aka": [
+    "the wagons beyond the Des Plaines Street line"
+  ],
+  "archetype": "camp",
+  "asset": "gltf/west_approach_wagon_camp__camp_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-06-01",
+    "to": "1835-09-30",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_american_1835"
+    ],
+    "note": "THE SEASON, NOT THE CAMP. The American of 13 June 1835 has the summer's emigrants already arriving; the range runs the emigrating summer. No source dates a wagon camp at the west approach or says there was one, and a party stopping a night or two before going on west was gone before anybody could write it down. What the range says is that on 1 July 1835 a party stood here. T-1804."
+  },
+  "change_note": "A wagon party's camp at the west edge of town. T-1804.",
+  "placement": {
+    "local_e": -700.0,
+    "local_n": -236.0,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the prairie edge beyond the westernmost platted corridor as where a wagon party stops without entering the town, and grades the candidacy conjectural: it rests on the direction of the traffic and nothing else. The camp stands at the western edge of the modelled ground, off the end of Randolph's drawn line: every sampled point of its ground between 1.32 and 1.33 m above the water plane on the committed heightfield; 134.1 m clear of the drawn edge of the nearest roadway (des_plaines); 48.0 m clear of the nearest committed footprint; 178.2 m clear of the nearest fence run. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L355.",
+    "symbolic_location": "On the prairie west of the Des Plaines Street line, between local E -700 and E -666 and N -236 to -202: beyond the last drawn street of the West Division, just north of the line Randolph would carry west, where the road out to the Des Plaines crossing left the town.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "ground",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        34.0,
+        0
+      ],
+      [
+        34.0,
+        34.0
+      ],
+      [
+        0,
+        34.0
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "The camp's ground, 34.0 x 34.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L355."
+  },
+  "attributes": {
+    "tents": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "2 WEDGE TENTS for a party of four wagons: the wagon beds carried the bedding and the tents took who did not fit. Invented. L355."
+    },
+    "tent_kind": {
+      "value": "wedge",
+      "confidence": "reconstructed",
+      "note": "NO SOURCE DESCRIBES THE TENTS. The wedge tent is the smaller and cheaper of the two forms the archetype carries, and the one a family going on by wagon would carry. L355."
+    },
+    "wagons": {
+      "value": 4,
+      "confidence": "reconstructed",
+      "note": "A PARTY OF FOUR WAGONS, invented: families came overland to Chicago from Indiana and Ohio in 1835 as well as by lake, and a party travelled together. L355."
+    },
+    "brush_shelters": {
+      "value": 0,
+      "confidence": "reconstructed",
+      "note": "A lean-to of poles and cut brush, the cheapest roof there is. Invented. L355."
+    },
+    "fire_rings": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "Two cooking fires inside the ring of wagons. Drawn out: no flame, no smoke, nobody at them (L1). L355."
+    },
+    "woodpiles": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Cordwood for the fires. Invented. L355."
+    },
+    "baggage_heaps": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "What came off the wagons for the night. Invented. L355."
+    },
+    "arrangement": {
+      "value": "ring",
+      "confidence": "reconstructed",
+      "note": "A ring about the fires, because one party camps round its own fires with its wagons drawn up close."
+    },
+    "canvas_condition": {
+      "value": "patched",
+      "confidence": "reconstructed",
+      "note": "Patched: wagon covers and tents that had come hundreds of miles overland."
+    },
+    "function": {
+      "value": "emigrant_camp",
+      "confidence": "reconstructed",
+      "sources": [],
+      "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. The overland road came in from the west and the wagons that carried immigrant families came with it; the ground beyond the westernmost platted corridor is where a wagon party stops without entering the town. No committed source names a camp here. The candidacy rests on the direction of the traffic and nothing else. Built at the reconstructed tier on the owner's ask (T-1214) and labelled so; L355."
+    },
+    "occupants": {
+      "value": "Nobody this layer counts. The transient model (T-1352/T-1353) counts the lake arrivals the papers describe and deals its camp households to the landing place and the lake shore; no overland party is a row of it. So this camp seats nobody and moves no count. No figure is drawn (L1).",
+      "confidence": "reconstructed",
+      "note": "Seats nobody: see the value. T-1804."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_american_1835",
+      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+        "the paper's own correction of its first masthead date"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions",
+        "a reliable reading of a dense body column — this run had no reconciled second pass",
+        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+        "identification by volume and number: No. 12 is printed on two different issues",
+        "anything at all from an engraving — the cuts are the printer's stock",
+        "a citation without an issue page and column"
+      ]
+    }
+  ],
+  "research_note": "T-1804, the second piece of T-1214: the camps of the two conjectural grounds the owner named. The Native and Métis camps are NOT built here — T-1177 refused a count for them and the question is the owner's. WHAT WOULD REPLACE THIS: a letter or diary of an overland party reaching Chicago in 1835 saying where it stopped.",
+  "research_doc": "",
+  "review_required": false
+}

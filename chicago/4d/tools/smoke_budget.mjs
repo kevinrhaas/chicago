@@ -197,6 +197,10 @@ const COVERAGE = [
   ['renderers/web/index.html', ALL, 'the page itself'],
   ['renderers/web/css/', ALL, 'the chrome every panel check clicks'],
   ['data/reconstruction/', ALL, 'the infill programme the records are expanded from'],
+  // T-1971. The housing deal's ledger reaches the scene only through the sidecars
+  // compile_scene writes from it (`residents[]` on the building card), which are priced
+  // by their own rows. No module under renderers/ fetches it.
+  ['data/reconstruction/1835_housing_seats.json', NONE, 'the housing deal\u2019s ledger \u2014 read by compile_scene, fetched by no renderer'],
 
   // --- AND NO ROW FOR site/4d/ ANY MORE (T-0938). The published mirror had six
   // rows here, and every one of them existed to price a path that could appear in a diff.
@@ -221,6 +225,7 @@ const COVERAGE = [
   ['renderers/web/js/frontage.js', [2], 'the frontage layer (T-0082, T-0090)'],
   ['renderers/web/js/yard.js', [2], 'the yard goods at the trading frontages (T-0040)'],
   ['renderers/web/js/wharves.js', [2], 'the river wharves (T-0041) and walking one (T-0058)'],
+  ['renderers/web/js/working-bank.js', [2], 'the worked river bank and its landing aprons (T-1771)'],
   ['renderers/web/js/boats.js', [2], 'the boats on the river (T-0063)'],
   ['renderers/web/js/confidence.js', [2, 3, 6], 'the confidence view, its card and its menu'],
   ['data/frontage/', [2], 'the frontage records'],
@@ -254,6 +259,12 @@ const COVERAGE = [
   ['renderers/web/js/agencies.js', [3, 13], 'the agency on the card, and on the person'],
   ['renderers/web/js/people.js', [13], 'the directory of everyone in the town'],
   ['data/reconstruction/1835_agencies.json', [3, 13], 'the compiled relation both cards read'],
+  // T-1959. The placement policy is the seating and yard generators' rule book: what
+  // it decides reaches the scene only through the records those generators write (the
+  // structures, data/yard/), which are priced by their own rows. No module under
+  // renderers/ fetches it, so it is priced as read by nothing rather than at the whole
+  // gate that `data/reconstruction/` would otherwise charge a rule's every new column.
+  ['data/reconstruction/1835_placement_policy.json', NONE, 'the generators\u2019 rule book \u2014 fetched by no renderer'],
   // T-1160. The Evidence hub is asserted in PART 12 (ten tiles since T-1292, each
   // counting its own mount) and its mounts are stress-measured for overflow in PART 13, so the
   // population profile and the hub itself are read by both and by nothing else.
@@ -303,6 +314,8 @@ const COVERAGE = [
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],
   ['renderers/web/js/buildings.js', [8, 9], 'the facades and the shadow reach they carry, and the merged batch part 8 reads the roughness channel out of'],
   ['renderers/web/js/roof-relief.js', [8, 9], 'T-1488, the roof coverings\' relief maps — it binds them inside buildings.js\'s own load loop and adds two batches to the merge part 8 counts'],
+  ['renderers/web/js/wall-relief.js', [8, 9], 'T-1963, the walls\' relief maps — bound inside buildings.js\'s load loop like the roofs\', and two more batches for the merge part 8 counts'],
+  ['renderers/web/js/wall-grain.js', [8, 9], 'T-1963, which walls take the relief and how much grain their finish shows'],
 
   // --- PARTS 10-11: what grows, what moves, and the streets a visitor reads
   ['renderers/web/js/flora.js', [10, 11], 'the flora census, and the boundary it fades at'],
@@ -316,6 +329,7 @@ const COVERAGE = [
   ['data/streets/', [2, 7, 8, 10, 11], 'the street records'],
   ['data/traces/', [2, 7, 8, 10, 11], 'the traced lines the streets and the bank are built from'],
   ['data/town_census.json', [12], 'the two ladders in Evidence → City'],
+  ['data/render/town_completion_1835.json', [12], 'the completion row in Evidence → City'],
 
   // --- PART 12: the settings, the Go-to tab and What's-new
   ['renderers/web/js/whatsnew.js', [12], "what's new"],

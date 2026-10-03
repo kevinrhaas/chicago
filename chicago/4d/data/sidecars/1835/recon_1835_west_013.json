@@ -1,7 +1,7 @@
 {
   "id": "recon_1835_west_013",
   "phase": "inferred_1835",
-  "name": "Reconstructed A5 small utility building #022",
+  "name": "Reconstructed D2 rough plank dwelling or shanty #022",
   "aka": [],
   "archetype": "outbuilding",
   "asset": "gltf/recon_1835_west_013__inferred_1835.glb",
@@ -16,8 +16,8 @@
   },
   "change_note": "Reconstructed anonymous July 1835 West Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total.",
   "placement": {
-    "local_e": -315.192,
-    "local_n": -91.545,
+    "local_e": -315.786,
+    "local_n": -92.47,
     "rotation_deg": -1.0,
     "position_confidence": "reconstructed",
     "position_sources": [],
@@ -35,30 +35,30 @@
         0
       ],
       [
-        2.438,
+        3.658,
         0
       ],
       [
-        2.438,
-        3.048
+        3.658,
+        4.877
       ],
       [
         0,
-        3.048
+        4.877
       ]
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "A 8 × 10 ft rectangle assigned by the reconstruction recipe within the A5 family band; no individual dimensions are documented."
+    "note": "A 12 × 16 ft rectangle assigned by the reconstruction recipe within the D2 family band; no individual dimensions are documented."
   },
   "attributes": {
     "wall_height_m": {
-      "value": 2.236,
+      "value": 2.185,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the A5 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
     },
     "roof_type": {
       "value": "shed",
@@ -66,15 +66,15 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the A5 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
     },
     "roof_pitch_deg": {
-      "value": 18.0,
+      "value": 20.7,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the A5 family's key geometry parameters do not speak to a roof pitch, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
     },
     "construction": {
       "value": "plank",
@@ -82,7 +82,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the A5 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
     },
     "door": {
       "value": "man",
@@ -90,7 +90,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the A5 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to a door type, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous West Division instance."
     },
     "door_side": {
       "value": "front",
@@ -98,7 +98,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the A5 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to a door side, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous West Division instance."
     },
     "loft": {
       "value": false,
@@ -106,7 +106,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the A5 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
     },
     "board_gap_m": {
       "value": 0.012,
@@ -114,7 +114,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the A5 family's key geometry parameters do not speak to a board gap, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
     },
     "paint": {
       "value": "unpainted",
@@ -122,18 +122,66 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the A5 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous West Division instance."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous West Division instance."
     },
     "function": {
-      "value": "small_utility_building",
+      "value": "rough_plank_dwelling_or_shanty",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the A5 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D2 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_rc_doyle_ellen",
+      "name": "Reconstructed household — Ellen Doyle, a woman keeping her own house in the west division",
+      "division": "west",
+      "relation": "lived here",
+      "why": "the roof T-1614 dealt this household, joined here and not re-argued",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Ellen Doyle",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "domestic",
+          "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
+        },
+        {
+          "name": "Michael Doyle",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Bryan Doyle",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Johanna Doyle",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Owen Doyle",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn domestic, in the west division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
+    }
+  ],
   "citations": [
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
@@ -160,21 +208,30 @@
   "review_required": false,
   "reconstruction": {
     "status": "inferred_anonymous",
-    "family": "A5",
+    "family": "D2",
     "district": "west",
     "inventory_class": "ancillary",
     "programme_phase": "phase2_west_wolf_point_approaches",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 22,
     "finish_key": "mixed_patch",
-    "roof_condition": "patched",
-    "age_state": "older_frontier",
+    "roof_condition": "weathered",
+    "age_state": "recent",
     "fabric_basis": {
-      "rule": "F-Y",
-      "class": "yard",
+      "rule": "F-L",
+      "class": "labourer",
       "by": "type",
       "household": null,
-      "words": "patched boards under a patched roof — a small utility shed, older than the boom (rule F-Y: a yard building's by its type)"
+      "words": "patched boards under a weathered roof — a rough plank dwelling or shanty, a year old (rule F-L: a labourer's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

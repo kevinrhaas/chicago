@@ -125,7 +125,27 @@
       "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_randolph_market#01, fronting washington, a standing roof of family D1 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_barney_anne_maria",
+      "name": "The Barney household — a name the town's own records carry",
+      "division": "unplaced",
+      "relation": "lived here",
+      "why": "the roof T-1613 dealt this household, joined here and not re-argued",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "Anne Maria Barney",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "none_recorded",
+          "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 27 May 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+    }
+  ],
   "citations": [
     {
       "source_id": "chicago_democrat_1833_1835",
@@ -206,5 +226,14 @@
       "abuts": "recon_1835_blk_randolph_market_d2_09",
       "why": "T-0317, the successor T-0028's programme owes, and the first parcel in this project where the core density standard's corner clause and the end rule point in OPPOSITE directions. THE FACE IS MEASURED RATHER THAN ASSUMED, by the command T-A14 made of it — tools/measure_street_frontage.py randolph washington market franklin — and on the committed dataset Randolph carries 7 documented records and 7 inferred households against Washington's 1 and 0, Market's 2 and 1, and Franklin's 2 and 1. Randolph is this block's business face by the town's own record and it is FULL: the first deal took lots 0 and 2 and the inferred-household layer's two sawyer dwellings hold 4 and 6, so every lot on that face carries a roof and the two lots this block has left are both on the Washington tier. WHAT BINDS IS THE STANDARD'S THIRD CLAUSE. Lot 1 is the block's one free CORNER lot, the south-west one, fronting Washington along its long edge and Market Street along its short one, and a corner lot BUILDS TO THE CORNER — an east-anchored run packs back toward the middle of the face and stops wherever its roofs run out, so the corner is the one piece of frontage a row can never reach. The run is packed WEST to it. AND THE GRADING RUNS THE OTHER WAY, which is the finding here. On blk_randolph_dearborn's third deal the free corner was at Dearborn — the only crossing of the main stem in July 1835 — so building to the corner and standing the best roof nearest the crossing were the same act, and the parcel could not tell the two clauses apart. This corner is at MARKET, the far end of the face from that bridge, so they separate: the corner clause fixes WHERE THE ROW STANDS and the end rule fixes WHICH ROOF STANDS WHERE IN IT, and on this block they are demonstrably different questions. THE END RULE IS READ, NOT ASSERTED: tools/measure_end_rule.py reads this face at a spread of 71.03 m and a unit step of 6.07 m under the walked criterion and grades on it, while the same face under T-A11's straight line reads 4.82 m and is BELOW THE FLOOR — so the walk is what makes a grading possible here at all, and the straight line would have been grading this parcel's own declared setback invention. The row is therefore graded EAST, toward Franklin and the bridge beyond it: the meanest dwelling stands on the corner and the best closes the run at the east end. NO COORDINATE IS AUTHORED: the line, its bearing, the lot's own stretch of it and the end the run packs toward are all read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage. The Washington face carries no committed street wall for the run to adopt — the two roofs already standing on that tier are one-per-lot placements set back inside their own lots — so this run is the first line on the face and states the margin rather than adopting one."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "labourer",
+    "age_state": "new",
+    "weather_years": 0.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

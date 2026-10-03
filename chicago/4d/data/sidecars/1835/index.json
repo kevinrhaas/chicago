@@ -10392,6 +10392,12 @@
       "asset": "gltf/elston_soap_candle_manufactory__works_1833.glb"
     },
     {
+      "id": "emigrant_camp_shore",
+      "name": "The emigrants' tents on the lake shore",
+      "sidecar": "sidecars/1835/emigrant_camp_shore.json",
+      "asset": "gltf/emigrant_camp_shore__camp_1835.glb"
+    },
+    {
       "id": "estray_pen",
       "name": "Estray pen",
       "sidecar": "sidecars/1835/estray_pen.json",
@@ -10818,14 +10824,14 @@
       "asset": "gltf/lake_house_construction__shell_1835.glb"
     },
     {
-      "id": "landing_camp_east",
-      "name": "The emigrants' camp at the landing, east",
-      "sidecar": "sidecars/1835/landing_camp_east.json",
-      "asset": "gltf/landing_camp_east__camp_1835.glb"
+      "id": "land_sale_camp_shore",
+      "name": "The land-sale camp on the lake shore south of the fort",
+      "sidecar": "sidecars/1835/land_sale_camp_shore.json",
+      "asset": "gltf/land_sale_camp_shore__camp_1835.glb"
     },
     {
       "id": "landing_camp_west",
-      "name": "The emigrants' camp at the landing, west",
+      "name": "The emigrants' tents at the landing",
       "sidecar": "sidecars/1835/landing_camp_west.json",
       "asset": "gltf/landing_camp_west__camp_1835.glb"
     },
@@ -12030,6 +12036,24 @@
       "asset": "gltf/recon_1835_blk_washington_clark_h3_11__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_dearborn_a1_02",
+      "name": "Reconstructed A1 stable #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_a1_02.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_a1_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_a3_03",
+      "name": "Reconstructed A3 privy #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_a3_03.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_h3_01",
+      "name": "Reconstructed H3 boarding house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_h3_01.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_franklin_a1_10",
       "name": "Reconstructed A1 stable #10",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_franklin_a1_10.json",
@@ -12172,6 +12196,42 @@
       "name": "Reconstructed H2 merchant or professional house #01",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_lasalle_h2_01.json",
       "asset": "gltf/recon_1835_blk_washington_lasalle_h2_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a1_02",
+      "name": "Reconstructed A1 stable #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a1_02.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a1_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a1_05",
+      "name": "Reconstructed A1 stable #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a1_05.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a1_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a3_03",
+      "name": "Reconstructed A3 privy #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_03.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a3_06",
+      "name": "Reconstructed A3 privy #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_06.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a3_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_h3_01",
+      "name": "Reconstructed H3 boarding house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_h3_01.json",
+      "asset": "gltf/recon_1835_blk_washington_market_h3_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_h3_04",
+      "name": "Reconstructed H3 boarding house #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_h3_04.json",
+      "asset": "gltf/recon_1835_blk_washington_market_h3_04__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_wells_a1_11",
@@ -13015,7 +13075,7 @@
     },
     {
       "id": "recon_1835_west_013",
-      "name": "Reconstructed A5 small utility building #022",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #022",
       "sidecar": "sidecars/1835/recon_1835_west_013.json",
       "asset": "gltf/recon_1835_west_013__inferred_1835.glb"
     },
@@ -13396,6 +13456,12 @@
       "name": "Richard J. Hamilton's house on Michigan Street",
       "sidecar": "sidecars/1835/watkins_school_house.json",
       "asset": "gltf/watkins_school_house__house_1833.glb"
+    },
+    {
+      "id": "west_approach_wagon_camp",
+      "name": "The emigrants' wagon camp at the west approach",
+      "sidecar": "sidecars/1835/west_approach_wagon_camp.json",
+      "asset": "gltf/west_approach_wagon_camp__camp_1835.glb"
     },
     {
       "id": "western_hotel",

@@ -133,7 +133,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. The H3 crosswalk entry's variants line asks for it in as many words, and its assumption note says the count indicates capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio."
     },
     "stovepipes": {
-      "value": 5,
+      "value": 4,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -141,9 +141,9 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. The H3 crosswalk entry's variants line asks for it in as many words, and its assumption note says the count indicates capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio."
     },
     "siding_exposure_m": {
-      "value": 0.127,
+      "value": 0.14,
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in or 5.5 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
     },
     "function": {
       "value": "large_boarding_house",
@@ -183,8 +183,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_brown_jesse_b",
-      "name": "Jesse B Brown",
+      "household": "hh_cook_thomas",
+      "name": "Thomas Cook",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -192,26 +192,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Jesse B Brown",
-          "relationship": "boarder",
-          "grade": "attested",
-          "occupation": "",
-          "note": ""
-        }
-      ],
-      "research_note": ""
-    },
-    {
-      "household": "hh_derocher_jean_baptiste",
-      "name": "Jean Baptiste Derocher",
-      "division": "",
-      "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
-      "sources": [],
-      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Jean Baptiste Derocher",
+          "name": "Thomas Cook",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -221,8 +202,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_glaumbake_frank",
-      "name": "Frank Glaumbake",
+      "household": "hh_goodrich_john",
+      "name": "John Goodrich",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -230,7 +211,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Frank Glaumbake",
+          "name": "John Goodrich",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -240,8 +221,27 @@
       "research_note": ""
     },
     {
-      "household": "hh_laird_william",
-      "name": "William Laird",
+      "household": "hh_james_phillips",
+      "name": "The James household — a name from the post office's letter lists",
+      "division": "unplaced",
+      "relation": "lodged here",
+      "why": "a free ordinary-night bed of the lodging model",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Phillips James",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Phillips James' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 5 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+    },
+    {
+      "household": "hh_laughton_david",
+      "name": "David Laughton",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -249,7 +249,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "William Laird",
+          "name": "David Laughton",
           "relationship": "boarder",
           "grade": "attested",
           "occupation": "",
@@ -263,7 +263,7 @@
       "name": "The lodgers of Reconstructed H3 boarding house #09",
       "division": "north",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 13 people in this house on an ordinary night and 30 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 28 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
       "sources": [],
       "basis": "BEDS, AND ONE FAMILY. 1 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
       "persons": [
@@ -299,8 +299,27 @@
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
-      "household": "hh_sasoton_a_b",
-      "name": "A B Sasoton",
+      "household": "hh_rc_chevalier_pierre",
+      "name": "The Chevalier household — a trade the rosters never printed",
+      "division": "north",
+      "relation": "lodged here",
+      "why": "a free ordinary-night bed of the lodging model",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Pierre Chevalier",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "dry_goods_merchant",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the north division, at dry_goods_merchant. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
+      "household": "hh_smith_william",
+      "name": "William Smith",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -308,9 +327,9 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "A B Sasoton",
+          "name": "William Smith",
           "relationship": "boarder",
-          "grade": "inferred",
+          "grade": "attested",
           "occupation": "",
           "note": ""
         }
@@ -318,23 +337,23 @@
       "research_note": ""
     },
     {
-      "household": "hh_whistler_john_harrison",
-      "name": "John Harrison Whistler",
-      "division": "",
+      "household": "hh_um_pay_co_je_bai",
+      "name": "Pay Co Je Bai — of the company the 1832 roll heads INDIAN",
+      "division": "unplaced",
       "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "why": "a free ordinary-night bed of the lodging model",
       "sources": [],
-      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "John Harrison Whistler",
-          "relationship": "boarder",
-          "grade": "inferred",
-          "occupation": "",
-          "note": ""
+          "name": "Pay Co Je Bai",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "CARDED FROM THE BORDERLINE ROSTER'S R6 (T-1376, stage `underdocumented`). Enrolled at Chicago in 1832 in the company the Black Hawk War roll heads INDIAN, with no 1835 corroboration and no card. The licence is R3's — the same roll, the same year, the same page — and the twenty men of Kercheval's company the town already carries were re-admitted under it. The roll prints him as `PAY CO JE BAI`, company `INDIAN`, enrolled at `CHICAGO`. The research READ this name and WITHHELD it, and that refusal is not overturned: this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence, and it says so on its face. The reading, the source and the refusal stand at `civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_086#0` in data/reconstruction/1835_borderline_roster.json. REVIEW REQUIRED: this card is a record of a Native person at Chicago in the three years of the removal, and AGENTS.md's standing constraint holds it for review by Native scholars or community organisations before any scene carrying it may be marked released. No figure is drawn (L1)."
         }
       ],
-      "research_note": ""
+      "research_note": "WRITTEN BY tools/reconstruct_underdocumented.py (T-1376), the `native_and_metis` half of the `underdocumented` stage of the 1835 resident reconstruction programme, under the owner's ruling of 2026-09-17 recorded in AGENTS.md. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a card written here lives beside the re-admissions and is overlaid onto the scene by tools/compile_scene.py. REVIEW REQUIRED AND TOUCHES REMOVAL, both true, for the subject this record is about: a Native man at Chicago in 1832, three years before the removal of the Potawatomi from this place, inside the project's first target year. The review AGENTS.md commits to has not been held; until it is, no scene carrying this card may be marked released. docs/RESEARCH/native_and_metis_1835.md lists every source read and what is still owed. docs/LIBERTIES.md carries the invention."
     }
   ],
   "citations": [
@@ -392,21 +411,30 @@
       "words": "whitewashed clapboard on a balloon frame under a weathered roof — a boarding house, a year old (rule F-B: a boarding-house or tavern keeper's by its type)"
     },
     "capacity": {
-      "beds_ordinary": 13,
-      "beds_crowded": 30,
+      "beds_ordinary": 12,
+      "beds_crowded": 28,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_blk_indiana_north_cass_h3_09]",
       "sizes": {
-        "upper_windows": "ceil(30 crowded beds / 3 to a chamber) = 10, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.88 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(13 ordinary beds / 3 to a stove) = 5, held to 2-6: 5",
+        "upper_windows": "ceil(28 crowded beds / 3 to a chamber) = 10, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.88 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(12 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }
   },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "keeper",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 0.75,
+    "lay_m": 0.004,
+    "confidence": "reconstructed"
+  },
   "lodging": {
     "class": "boarding_house",
-    "beds_ordinary": 13,
-    "beds_crowded": 30,
+    "beds_ordinary": 12,
+    "beds_crowded": 28,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
     "enclosed_floor_m2": 262.74,
@@ -414,10 +442,10 @@
     "note": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 263 m² of enclosed floor (131 m² × 2 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
-      "people": 8,
-      "beds_ordinary": 13,
-      "empty": 5,
-      "statement": "8 on this card against an ordinary night's 13 beds: 7 seated here from elsewhere in the layer, where no source gives them a roof, a keeper drawn for a roof this programme raised.",
+      "people": 6,
+      "beds_ordinary": 12,
+      "empty": 6,
+      "statement": "6 on this card against an ordinary night's 12 beds: 5 seated here from elsewhere in the layer, where no source gives them a roof, a keeper drawn for a roof this programme raised.",
       "empty_note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
       "keeper_persons": 4,
       "keeper_owed": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."

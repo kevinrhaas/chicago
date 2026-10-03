@@ -34,7 +34,7 @@
     "west_target": 135
   },
   "inventory_group_totals": {
-    "ordinary_dwellings": 39,
+    "ordinary_dwellings": 40,
     "larger_boarding_houses": 3,
     "stores_mixed_use": 2,
     "inns_taverns": 0,
@@ -42,11 +42,11 @@
     "warehouses_freight": 0,
     "institutional_public": 0,
     "barns_stables": 7,
-    "small_outbuildings": 3
+    "small_outbuildings": 2
   },
   "family_totals": {
     "D1": 13,
-    "D2": 4,
+    "D2": 5,
     "D3": 7,
     "D4": 6,
     "D5": 5,
@@ -60,8 +60,7 @@
     "A1": 4,
     "A2": 3,
     "A3": 1,
-    "A4": 1,
-    "A5": 1
+    "A4": 1
   },
   "redealt": {
     "on": "2026-09-20",
@@ -141,6 +140,26 @@
         ],
         "footprint_moved": false,
         "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_013",
+        "slot": "west_rec_013",
+        "was": "A5",
+        "now": "D2",
+        "was_group": "small_outbuildings",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          8,
+          10
+        ],
+        "footprint_ft": [
+          12,
+          16
+        ],
+        "footprint_moved": true,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands",
+        "ticket": "T-1989",
+        "on": "2026-10-02"
       },
       {
         "id": "recon_1835_west_021",
@@ -412,7 +431,7 @@
     {"id":"west_rec_010","cluster":"w1_canal_lake_mixed","family":"D3","inventory_class":"ancillary","center_local_enu_m":[-218,-84],"footprint_ft":[16,24],"rotation_deg":2,"density_zone":"B","yard_group":"west_rec_001"},
     {"id":"west_rec_011","cluster":"w1_canal_lake_mixed","family":"D2","inventory_class":"ancillary","center_local_enu_m":[-250,-86],"footprint_ft":[12,16],"rotation_deg":-3,"density_zone":"B","yard_group":"west_rec_002"},
     {"id":"west_rec_012","cluster":"w1_canal_lake_mixed","family":"A4","inventory_class":"ancillary","center_local_enu_m":[-280,-88],"footprint_ft":[8,12],"rotation_deg":1,"density_zone":"B","yard_group":"west_rec_003"},
-    {"id":"west_rec_013","cluster":"w1_canal_lake_mixed","family":"A5","inventory_class":"ancillary","center_local_enu_m":[-314,-90],"footprint_ft":[8,10],"rotation_deg":-1,"density_zone":"B","yard_group":"west_rec_004"},
+    {"id":"west_rec_013","cluster":"w1_canal_lake_mixed","family":"D2","inventory_class":"ancillary","center_local_enu_m":[-314,-90],"footprint_ft":[12,16],"rotation_deg":-1,"density_zone":"B","yard_group":"west_rec_004"},
 
     {"id":"west_rec_014","cluster":"w2_canal_randolph_teamster","family":"D1","inventory_class":"principal_functional","center_local_enu_m":[-214,-204],"footprint_ft":[18,24],"rotation_deg":0,"density_zone":"B"},
     {"id":"west_rec_015","cluster":"w2_canal_randolph_teamster","family":"D2","inventory_class":"principal_functional","center_local_enu_m":[-246,-206],"footprint_ft":[14,20],"rotation_deg":2,"density_zone":"B"},

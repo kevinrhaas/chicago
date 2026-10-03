@@ -304,6 +304,14 @@ selftest "…and shoreline-state assertions still fire when collapsed" \
 step "the 1812 pre-cut shore still re-derives from its readings (T-1242)" \
   python3 tools/derive_shore_1812.py --check
 
+# T-1286. The one pre-cut sheet held, Harrison 1830, read as a second line and
+# measured against the derived one. Wright carries the state by the owner's ruling;
+# this keeps the measurement of how far the only pre-cut reading disagrees with it
+# true to the lines it was taken from, and the sentence the 1812 file's
+# evidence_limit quotes from it true to the measurement.
+step "the Harrison 1830 cross-check still measures what the 1812 shore quotes (T-1286)" \
+  python3 tools/measure_shore_1812_harrison.py --check
+
 # T-1249. A scene date is a claim about WHEN this reconstruction stands, and until
 # now the 1880s one was the only claim in the terrain layer that nothing derived and
 # nothing checked: the step above carried a bare `date(1885, 7, 1)` that T-1152 wrote
@@ -369,6 +377,28 @@ step "the 1904 street surfaces cover the grid, cite real sources and bound the s
 selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
   python3 tools/check_street_surfaces.py --self-test
 
+# T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
+# fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
+# clapboard, and how much of the wood's grain its finish lets through. That route's
+# stated price is a renderer rule that must stay in step with materials.py, so this runs
+# renderers/web/js/wall-grain.js itself over every record and holds it to
+# wall_substrate() / wall_finish(), and to the `wall` materials the GLBs actually carry.
+step "the walls' relief rule matches the substrate and finish the generators build (T-1963)" \
+  python3 tools/check_wall_relief.py --check
+
+selftest "…and a coat read as bare, a vertical board bound as clapboard or a finish_key outranking a coating still fails it" \
+  python3 tools/check_wall_relief.py --self-test
+
+# T-1973. The relief maps the walls, roofs, street edge and signboards bind ship as
+# lossless WebP beside their PNG masters — boot bytes every visitor downloads, a third
+# smaller on the wire. "Lossless" is a claim about pixels, so the gate reads them back:
+# every derivative decodes to exactly its master, and none is an orphan.
+step "the WebP maps the renderer binds decode pixel-identical to their PNG masters (T-1973)" \
+  python3 tools/web_textures.py --check
+
+selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
+  python3 tools/web_textures.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and
@@ -380,6 +410,18 @@ step "the e1871_postfire zone table re-derives from its readings (T-1251)" \
 
 selftest "…and a hand-edited crown, a constant fill or an inherited limit still fails it" \
   python3 tools/check_terrain_e1871.py --self-test
+
+# T-2002. The 1812 ground's zone table, written as an OVERLAY on the 1834 one: every
+# 1834 block is carried, excepted, replaced or dropped with a reason, so a block added
+# to 1834 later cannot reach the 1812 ground by default. The blocks it authors (the
+# lake stage, the spit, the isthmus L240 left open, the live outlet channel, the shore
+# north of the spit root, the west-bank ruling T-1286 asked for) cite dossier zones and
+# stay inside their ranges, and the effective table resolve() builds carries no work.
+step "the e1830_natural zone table accounts for every 1834 block (T-2002)" \
+  python3 tools/check_terrain_e1830.py --check
+
+selftest "…and an undecided block, a harbour work carried back or a breached isthmus still fails it" \
+  python3 tools/check_terrain_e1830.py --self-test
 
 # T-1738. …and the heightfield that zone table and the scene line generate. The
 # field is numpy arithmetic and re-derives byte for byte; the meshes are Blender's
@@ -1338,6 +1380,22 @@ step "an adopted register firm's signboard moves no board already hung" \
 # committed sidecars and the wagon-yard perimeter (ROADMAP K5 (c), T-0040).
 step "the yard goods re-derive from the rule that chose their frontages" \
   python3 tools/generate_yard_goods.py --check
+# T-1984. EVERY DOOR, ONCE, AND NOTHING IN FRONT OF IT. The owner, walking Lake Street on
+# 2026-10-02, found goods in front of doors, a sign on a door leaf, a window run into a door
+# and prairie up to every threshold. `generate_entrances` reads each door off the front
+# elevation its mesh is built from, re-derives the trodden apron in front of it, and
+# refuses any front whose holes run together; `measure_doorways` holds every placed object
+# in the town — goods, carts, posts, fittings, fences, sign posts, wells, planted stems —
+# out of every doorway.
+step "every door is read once, its apron re-derives, and no two holes on a front run together (T-1984)" \
+  python3 tools/generate_entrances.py --check
+step "nothing placed in the town stands in a doorway (T-1984)" \
+  python3 tools/measure_doorways.py --gate
+# The yard outbuildings (T-1960) are the same shape again: a privy in a rear corner of every
+# dwelling lot the plat reaches and a stable for the horse-keeping households, dealt from the
+# lot survey the fences read and the house's own class and age — a rule, so re-derived here.
+step "the yard outbuildings re-derive from the rule that dealt them by household" \
+  python3 tools/generate_yard_outbuildings.py --check
 
 # And the OTHER HALF of that ordinance, which the goods record refused in writing:
 # timber, stone and brick are building material on a lot that is going up, not a
@@ -1348,6 +1406,24 @@ step "the yard goods re-derive from the rule that chose their frontages" \
 # re-derives which one and where the piles stand (T-0057).
 step "the building material re-derives from the rule that chose the lots" \
   python3 tools/generate_lot_building_material.py --check
+
+# The working trades' yards (T-1961, piece 4 of T-1212): casks at the cooperages and
+# packers, boards at the joiners', hides at the tannery, hay ricks at the stables outside
+# the 1835 hay limits, wagons at the forwarders and the teamster's yard. Re-derived from
+# the sidecars, the committed ground and the other yard records, so where each stands
+# stays a rule.
+step "the trade yards re-derive from the rule that dealt them" \
+  python3 tools/generate_trade_yards.py --check
+
+# A woodpile at every dwelling, by whose house it is (T-1959): the yard-by-household rule
+# in tools/yard_rule_1835.py (printed in the placement policy under `yard`) says what
+# each household kept — a slab heap, a log heap, stove ricks, bought cords — and where
+# it stands is arithmetic on the house's own back wall. Re-derived here byte for byte,
+# and the rule's own guarantees proved by breaking them.
+step "the woodpiles re-derive from the yard-by-household rule" \
+  python3 tools/generate_woodpiles.py --check
+selftest "…and the yard-by-household rule's guarantees fire when broken" \
+  python3 tools/yard_rule_1835.py --self-test
 
 # The fort apron is the same shape of claim about GROUND rather than about things standing
 # on it: both committed Fort Dearborn plates draw the ground round the stockade as bare
@@ -1414,6 +1490,13 @@ step "the river wharves re-derive from the records that state a dock" \
 # deck, walk, boat or footprint must move a camp with it or fail here.
 step "the landing-place camps re-derive from the bank they stand on" \
   python3 tools/place_landing_camps_1835.py --check
+
+# The camps of the two conjectural grounds (T-1804) — the land-sale crowd on the
+# reservation shore and a wagon party at the west approach — are placed against every
+# drawn roadway, fence run, footprint, refused region and the heightfield, so anything
+# built or drawn into their ground must move a camp with it or fail here.
+step "the shore and west-approach camps re-derive from the ground they stand on" \
+  python3 tools/place_camp_grounds_1835.py --check
 
 # ROADMAP K5 (e) also asked for "a river-wharf mode of pier_crib", so that a town
 # assembled from GLBs alone would carry its docks; T-0059 was that clause and was
@@ -1747,6 +1830,19 @@ selftest "…and its own assertions still fire when broken" \
 # carry, which would silently drop people out of the count.
 step "the gate's town census re-derives from the roofs and the residents" \
   python3 tools/town_census.py --check
+
+# How far the town is from complete (T-1964, piece 1 of T-1215): the four joins the
+# closeout names — every household housed, every working person at a workplace, every
+# business roofed or its limit stated, every standing roof occupied or its use stated —
+# counted by tier into data/render/town_completion_1835.json. The GAPS are the work the
+# rest of T-1215 owes and do not fail this step; a DANGLING id (a lives_at, a seat, a
+# workplace or a premises naming something that does not exist) does, and so does a
+# ledger a run forgot to regenerate.
+step "the town's completion audit re-derives, and no join names a missing record" \
+  python3 tools/audit_town_completion_1835.py --check
+
+selftest "…and it still refuses each kind of broken link" \
+  python3 tools/audit_town_completion_1835.py --self-test
 
 # Ground the town held in common is not building ground, and every gate this project
 # had asked whether a building CLEARED the roadway, stood inside its own lot lines and
@@ -6013,6 +6109,40 @@ step "the boarders re-derive, and no house sleeps more than the 1840 enumerator 
 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/seat_lodgers_1835.py --self-test
+
+# T-1971, piece 1 of T-1965. THE PRESENT WITH NO ROOF. 1,003 households the residents
+# layer holds present on 1 July 1835 reached no roof, while 223 of the programme's own
+# dwellings stood with nobody in them. `house_the_present_1835.py` seats each one beside
+# its card (the cards are re-derived whole, so a seat cannot live on them) and
+# compile_scene's `overlay_housing` carries it to the building card. Refused: a seat on a
+# roof the scene does not stand, on a documented building or a roof whose record already
+# names its occupants (unless it names THIS household), a household seated twice or also
+# housed by another overlay, any present household left over, and a town more crowded
+# than the 1835 census's 8.204 people per dwelling. T-1972 (piece 2) seats the households
+# T-1386's rulings put in the town after them, strongest ruling first, until the census's
+# ceiling stops the line; the rest are counted apart as waiting on a roof, and the absent
+# as absent — refused: a ruled-in household neither seated nor counted apart, and a line
+# stopped while the ceiling still had room. docs/LIBERTIES.md L354.
+step "every household present on the scene date sleeps under a standing roof" \
+  python3 tools/house_the_present_1835.py --check
+
+selftest "…and its guards still fire when broken" \
+  python3 tools/house_the_present_1835.py --self-test
+
+# T-1989, piece 2 of T-1986. THE EMPTY TRADE ROOFS. Four anonymous trade roofs (a joiner's
+# shop, a warehouse, a riverside work shop, a store) stood empty while the employment
+# ledger owed 188 keepers a house of their own. `seat_trade_roofs_1835.py` offers each
+# roof to the keepers of a trade its family serves in its own division, nearest first, and
+# compile_scene's `overlay_trade_roofs` carries the seat to the card; a roof no keeper can
+# take states why. Refused: a roof outside the deal's scope or answered twice or not at
+# all, a keeper given two roofs, a keeper the ledger owes no house, a keeper of the wrong
+# trade or division, and a roof called unseatable while keepers of its trade wait.
+# docs/LIBERTIES.md L361.
+step "every empty trade roof is kept by a keeper of its trade, or says why none is left" \
+  python3 tools/seat_trade_roofs_1835.py --check
+
+selftest "…and its guards still fire when broken" \
+  python3 tools/seat_trade_roofs_1835.py --self-test
 
 # T-1352, piece 1 of T-1178. THE ROW THE ORDER BOOK CANNOT APPORTION. `persons/transient/
 # town` sits in the book above with no target and no quota, because the town model bounds

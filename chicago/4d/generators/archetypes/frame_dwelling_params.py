@@ -88,6 +88,11 @@ and records that state a rhythm rather than a glazing type". That is `bays` and 
   Green Tree light — and the window's size is built from it, lights, muntins and
   rails, so a house glazed with 8 x 10 in glass has bigger windows than a cottage
   glazed with 6 x 8, and every window shows its sash bars.
+- `trim` and `chimney_head` (T-1839) are what the household class reads off the frame
+  besides its glass: how wide the corner boards and how deep the frieze (`TRIMS`), and
+  how many corbelled courses finish the brick stack (`CHIMNEY_HEADS`). The defaults are
+  `plain` and `corbel`, which are exactly what this archetype built before either had a
+  name, so a record that states neither does not move.
 
 The default therefore produces a plainer and less regular front than the taverns', on
 purpose. A whole-scene critic reading the existing frame buildings as 1850s Greek
@@ -147,6 +152,22 @@ GLAZINGS = {
     "12_over_12_8x10": (4, 3, 3, 8, 10),
 }
 DEFAULT_GLAZING = "12_over_12_6x8"
+# T-1839 — the trim, as (extra corner-board width m, frieze depth m, crown projection m).
+# `plain` is the trim this archetype has always built: a 0.13 m corner board on a
+# balloon frame (0.19 m on a braced one), a 0.20 m frieze and no crown. `boxed` widens
+# the board and runs a crown board under the eaves, standing proud of the frieze; the
+# frieze itself cannot deepen, because the upper sash heads rise to 0.28 m under the
+# plate. `scant` narrows the board and the frieze. Dealt by class (docs/LIBERTIES.md L352).
+TRIMS = {"scant": (-0.03, 0.14, 0.0), "plain": (0.0, 0.20, 0.0),
+         "boxed": (0.07, 0.20, 0.075)}
+CROWN_M = 0.09
+DEFAULT_TRIM = "plain"
+# T-1839 — how many corbelled courses finish a stack's head. `corbel` is the one course
+# every frame_dwelling stack has always carried; it is the head the 1835 by-law census
+# measured (docs/RESEARCH/chimneys.md §7), and `double_corbel` adds a second course
+# ABOVE it, so no stack is lowered. Dealt by class (L352). The brick is not dealt.
+CHIMNEY_HEADS = {"plain": 0, "corbel": 1, "double_corbel": 2}
+DEFAULT_CHIMNEY_HEAD = "corbel"
 INCH_M = 0.0254
 # The sash's own timber, seen from the street: a stile or a top or bottom rail, the
 # two meeting rails together where the sashes pass, and a muntin (7/8 in).
@@ -290,6 +311,7 @@ CONSUMED = frozenset({
     "stories", "wall_height_m", "knee_wall_m", "roof_type", "roof_pitch_deg",
     "construction", "plan", "bays", "porch", "ell", "ell_wall_height_m",
     "chimneys", "paint", "shutters", "siding_exposure_m", "stovepipes", "glazing",
+    "trim", "chimney_head",
 })
 # NOT in the set, and each absence is a decision rather than an oversight:
 #   `cladding`      — this archetype always builds clapboard over sheathing, so a
@@ -365,6 +387,9 @@ class FrameDwellingParams:
     # the attested Chicago pane in a 12-over-12, which is the window this archetype has
     # always been sized from.
     glazing: str = DEFAULT_GLAZING
+    # How heavily the trim boxes the frame, and how the stacks are finished (T-1839).
+    trim: str = DEFAULT_TRIM
+    chimney_head: str = DEFAULT_CHIMNEY_HEAD
     shutters: str | None = None
     porch: str | None = None
 
@@ -407,6 +432,11 @@ class FrameDwellingParams:
     # colours it had. `common/materials.py` is what turns either into a surface.
     finish_key: str | None = None
     roof_condition: str | None = None
+    # FIN-L (T-1962): how far one lap course may stand off the stock, and the seed its
+    # lines are drawn from — `common/materials.py`'s `board_lay` and `course_lines`.
+    # 0.0 on every record the fabric rule never reached, which keeps its even courses.
+    siding_lay_m: float = 0.0
+    siding_seed: str = ""
 
     # per-attribute confidence, keyed by the attribute name in the record
     confidence: dict = field(default_factory=dict)
@@ -525,6 +555,9 @@ class FrameDwellingParams:
         if not 0.10 <= self.siding_exposure_m <= 0.16:
             raise ParamError(f"siding_exposure_m {self.siding_exposure_m} outside "
                              f"0.10-0.16 m (~4-6.3 in): not a period clapboard exposure")
+        if not 0.0 <= self.siding_lay_m <= 0.010:
+            raise ParamError(f"siding_lay_m {self.siding_lay_m} outside 0-0.010 m: a lay "
+                             f"that wide would climb a course over its 0.018 m lip")
         if self.construction not in CONSTRUCTIONS:
             raise ParamError(
                 f"construction '{self.construction}' not in {CONSTRUCTIONS}. A log house "
@@ -616,6 +649,11 @@ class FrameDwellingParams:
                              f"a colour for")
         if self.glazing not in GLAZINGS:
             raise ParamError(f"glazing '{self.glazing}' not in {tuple(GLAZINGS)}")
+        if self.trim not in TRIMS:
+            raise ParamError(f"trim '{self.trim}' not in {tuple(TRIMS)}")
+        if self.chimney_head not in CHIMNEY_HEADS:
+            raise ParamError(f"chimney_head '{self.chimney_head}' not in "
+                             f"{tuple(CHIMNEY_HEADS)}")
         if not isinstance(self.bays, int) or isinstance(self.bays, bool):
             raise ParamError(f"bays {self.bays!r} is not a whole number of openings")
         # 0 is the unresolved state and from_phase never leaves it there; a golden case
@@ -813,6 +851,12 @@ def read_plan(poly: list) -> dict:
             "ell_width_m": ell_width, "ell_depth_m": ell_depth, "ell_side": side}
 
 
+
+def _board_lay(recon: dict) -> float:
+    """The fabric rule's lay for this roof (FIN-L), from the material sheet."""
+    from common.materials import board_lay  # noqa: E402 — generators/ is on the path
+    return board_lay(recon)
+
 def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
     """Resolve one structure phase into generator parameters.
 
@@ -880,6 +924,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         bays=int(val("bays", 0)),
         paint=str(val("paint", "unpainted")),
         glazing=str(val("glazing", DEFAULT_GLAZING)),
+        trim=str(val("trim", DEFAULT_TRIM)),
+        chimney_head=str(val("chimney_head", DEFAULT_CHIMNEY_HEAD)),
         siding_exposure_m=float(val("siding_exposure_m", 0.14)),
         shutters=(None if shutters in (None, False, "") else str(shutters)),
         porch=(None if porch in (None, False, "") else str(porch)),
@@ -896,7 +942,165 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         # applied in and why a stated coating outranks them.
         finish_key=recon.get("finish_key"),
         roof_condition=recon.get("roof_condition"),
+        siding_lay_m=_board_lay(recon),
+        siding_seed=f"{(record or {}).get('id', '')}|{phase.get('id', '')}",
         confidence=confidences,
     )
     p.resolve()
     return p
+
+
+# ---------------------------------------------------------------------------
+# THE FRONT'S SET-OUT (T-1984) — moved here out of the builder so the signage
+# layer and the entrance reader read the same door and windows the builder draws,
+# without Blender (the T-0520 pattern `frame_storefront_params` already follows).
+# ---------------------------------------------------------------------------
+
+DOOR_W_M, DOOR_H_M = 0.92, 2.02
+# The threshold stands on the sill rather than on the ground. Small, and load-bearing
+# for the GROUND_CONTACT claim: the boarded surround around an opening reaches 75 mm
+# past it on every side, so a door drawn from z = 0.02 puts trim below the base of the
+# walls and the archetype stops being flat on its own footprint.
+DOOR_SILL_M = 0.10
+# The least blank wall between two holes on one front: a cased opening's trim is
+# ~75 mm a side, so two holes closer than this read as one hole. Before T-1984 four
+# one-room houses had two windows 3 cm apart, clamped onto each other by the snap.
+OPENING_GAP_M = 0.15
+CORNER_CLEAR_M = 0.72
+
+
+def _snap_bay(x: float, p: "FrameDwellingParams", w: float) -> float:
+    """Nearest stud-bay centre, kept clear of the corner boards."""
+    stud = p.stud_spacing_m
+    k = math.floor(x / stud)
+    u = (k + 0.5) * stud
+    return min(max(u, CORNER_CLEAR_M), w - CORNER_CLEAR_M)
+
+
+def _opening_w(p: "FrameDwellingParams", kind: str) -> float:
+    return DOOR_W_M if kind == "door" else p.window_w_m
+
+
+def _clash(a: tuple, b: tuple, p: "FrameDwellingParams") -> bool:
+    """Do two `(centre, kind)` openings stand closer than OPENING_GAP_M?"""
+    return abs(b[0] - a[0]) < (_opening_w(p, a[1]) + _opening_w(p, b[1])) / 2.0 \
+        + OPENING_GAP_M - 1e-9
+
+
+def _part(p: "FrameDwellingParams", raw: list, w: float) -> list:
+    """Snap every centre to a stud bay, then part any two the snap has pushed onto
+    each other (T-1984). A window that clashes is moved one stud bay away from its
+    neighbour where the wall has room for it; where it has none, it is not cut — a
+    house with one window fewer reads as a house, two holes run together do not.
+    The door never moves: the plan decides where it is."""
+    stud = p.stud_spacing_m
+    lo, hi = CORNER_CLEAR_M, w - CORNER_CLEAR_M
+    out = sorted(((_snap_bay(x, p, w), k) for x, k in raw), key=lambda o: o[0])
+    i = 0
+    while i < len(out) - 1:
+        a, b = out[i], out[i + 1]
+        if not _clash(a, b, p):
+            i += 1
+            continue
+        moved = False
+        for j, step in ((i + 1, stud), (i, -stud)):
+            o = out[j]
+            if o[1] == "door":
+                continue
+            for n in (1, 2):
+                x = o[0] + step * n
+                if not (lo - 1e-9 <= x <= hi + 1e-9):
+                    break
+                trial = out[:j] + [(x, o[1])] + out[j + 1:]
+                if all(not _clash(trial[k], trial[k + 1], p)
+                       for k in range(max(0, j - 1), min(len(trial) - 1, j + 1))):
+                    out = trial
+                    moved = True
+                    break
+            if moved:
+                break
+        if not moved:
+            drop = i + 1 if b[1] != "door" else i
+            out = out[:drop] + out[drop + 1:]
+        i = max(0, i - 1)
+    return out
+
+
+def facade_bays(p: "FrameDwellingParams") -> list:
+    """Where the openings go across the front, as `(centre_x, kind)`.
+
+    **This is the archetype's answer to docs/LIBERTIES.md L23** — one window
+    arrangement on every frame building. The front is not a fixed five bays: the count
+    comes from the frontage (or from the record) and the ARRANGEMENT comes from the
+    plan behind the wall, which is what actually decides where a door is.
+
+    - `hall_parlour`, the default and the commonest vernacular plan, divides the front
+      at the partition between the larger heated hall and the smaller parlour. The door
+      opens into the hall, near the middle of it, so it is well off the centre of the
+      building and the two rooms' windows are spaced differently from one another —
+      with a wider gap over the partition. That gap is the plan showing through the
+      wall, and it is what makes the front read as a house rather than as a facade.
+    - `centre_passage` is the symmetrical alternative, and it has to be asked for.
+    - `single_pen` is one room: a door and a window or two beside it.
+
+    Every centre is then snapped to a stud-bay centre, so an opening's jambs land
+    against studs. That is a real constraint on where a window can go in a framed wall,
+    and it is what makes the stud module something the facade obeys rather than
+    something the sidecar mentions. Openings the snap runs together are parted
+    (`_part`, T-1984).
+    """
+    w, n = p.width_m, p.bays
+    if p.plan == "centre_passage":
+        centres = [w * (i + 0.5) / n for i in range(n)]
+        door = n // 2
+        return _part(p, [(x, "door" if i == door else "window")
+                         for i, x in enumerate(centres)], w)
+
+    hf = 0.5 if p.plan == "single_pen" else HALL_FRACTION
+    xp = w * hf
+    if p.plan == "single_pen":
+        n_hall = 1
+    else:
+        n_hall = 1 + min(max(int(round((n - 1) * hf)), 1), n - 2)
+    n_parlour = n - n_hall
+
+    out = []
+    door_i = n_hall // 2
+    for i in range(n_hall):
+        out.append((xp * (i + 0.5) / n_hall, "door" if i == door_i else "window"))
+    for j in range(n_parlour):
+        out.append((xp + (w - xp) * (j + 0.5) / n_parlour, "window"))
+    return _part(p, out, w)
+
+
+def front_wall(p: "FrameDwellingParams") -> dict:
+    """`{u0, u1, wall_height_m, openings}` of the front elevation, for
+    `facade_openings` — the rectangles `frame_dwelling._facade` cuts, from the same
+    numbers. `u` runs along the front from the footprint's origin; the builder draws
+    the house over `0..width_m` with the front on +y, the footprint's max-v edge."""
+    w = float(p.width_m)
+    wall_z = float(p.wall_height_m)
+    story_h = wall_z / 2.0 if p.stories >= 2.0 else wall_z
+    sill = min(0.95, story_h * 0.36)
+    top_head = wall_z - 0.28
+    h = sash_rows(p.glazing, (story_h - 0.14 if p.stories >= 2.0 else top_head) - sill)[2]
+    door_h = min(DOOR_H_M, top_head - DOOR_SILL_M)
+    hw = p.window_w_m / 2.0
+    out = []
+    for cx, kind in facade_bays(p):
+        if kind == "door":
+            if door_h > 1.6:
+                out.append({"kind": "door", "u0": cx - DOOR_W_M / 2, "u1": cx + DOOR_W_M / 2,
+                            "z0": DOOR_SILL_M, "z1": DOOR_SILL_M + door_h})
+            continue
+        if h >= 0.5:
+            out.append({"kind": "window", "u0": cx - hw, "u1": cx + hw,
+                        "z0": sill, "z1": sill + h})
+    if p.stories >= 2.0:
+        z = story_h + sill
+        hu = sash_rows(p.glazing, top_head - z)[2]
+        if hu >= 0.5:
+            for cx, _kind in facade_bays(p):
+                out.append({"kind": "window", "u0": cx - hw, "u1": cx + hw,
+                            "z0": z, "z1": z + hu})
+    return {"u0": 0.0, "u1": w, "wall_height_m": wall_z, "openings": out}

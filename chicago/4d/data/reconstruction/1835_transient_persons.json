@@ -22,7 +22,7 @@
   "why_not_the_other": "A measured comparandum with one invented step is preferred to a rhetorical band read at its middle. Both sit inside T-1352's 192-900 bracket; this is the lower."
  },
  "the_capacity_argument_this_file_refuses": {
-  "built_surge_beds": 390,
+  "built_surge_beds": 426,
   "programme_surge_beds": 764,
   "persons_minted": 307,
   "why_it_is_refused": "The BUILT lodging places carry a surge close to the minted cohort, which reads as a confirmation of the point adopted. It is not one. The town had 42 boarding houses and this reconstruction has built five; the programme's full surge is the figure above it, and the fit measures how far the structure band has got rather than anything the crowd did. Letting it choose a population would be reading this project's own incompleteness as evidence."
@@ -65,12 +65,12 @@
   "persons_minted": 307,
   "households_minted": 83,
   "persons_by_household_kind": {
-   "camp": 102,
-   "party": 205
+   "camp": 51,
+   "party": 256
   },
   "households_by_household_kind": {
-   "camp": 28,
-   "party": 55
+   "camp": 15,
+   "party": 68
   },
   "resident_counts_this_file_moves": 0
  },
@@ -122,13 +122,13 @@
   {
    "key": "the_open_sky_upon_the_wharves",
    "place": "the open sky upon the wharves",
-   "household_kind": "camp",
+   "household_kind": "party",
    "source": "the American, 13 June 1835",
    "says": "'who had else remained under the open sky upon the wharves'",
    "quota": 51,
    "households": 13,
    "persons": 51,
-   "lodged_at_rung": "camp_ground_candidate"
+   "lodged_at_rung": "sleeping_class"
   },
   {
    "key": "a_tent_at_the_landing_place",
@@ -586,7 +586,7 @@
   {
    "id": "hh_rc_lyman_otis",
    "file": "transients/hh_rc_lyman_otis.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:001",
    "persons": 4
@@ -594,7 +594,7 @@
   {
    "id": "hh_rc_kellogg_willard",
    "file": "transients/hh_rc_kellogg_willard.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:002",
    "persons": 5
@@ -602,7 +602,7 @@
   {
    "id": "hh_rc_rice_benjamin",
    "file": "transients/hh_rc_rice_benjamin.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:003",
    "persons": 3
@@ -610,7 +610,7 @@
   {
    "id": "hh_rc_newell_ira",
    "file": "transients/hh_rc_newell_ira.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:004",
    "persons": 1
@@ -618,7 +618,7 @@
   {
    "id": "hh_rc_gilbert_william",
    "file": "transients/hh_rc_gilbert_william.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:005",
    "persons": 4
@@ -626,7 +626,7 @@
   {
    "id": "hh_rc_dickinson_polly",
    "file": "transients/hh_rc_dickinson_polly.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:006",
    "persons": 4
@@ -634,7 +634,7 @@
   {
    "id": "hh_rc_leland_henry",
    "file": "transients/hh_rc_leland_henry.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:007",
    "persons": 5
@@ -642,7 +642,7 @@
   {
    "id": "hh_rc_goodrich_maria",
    "file": "transients/hh_rc_goodrich_maria.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:008",
    "persons": 5
@@ -650,7 +650,7 @@
   {
    "id": "hh_rc_kellogg_chauncey",
    "file": "transients/hh_rc_kellogg_chauncey.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:009",
    "persons": 5
@@ -658,7 +658,7 @@
   {
    "id": "hh_rc_sheldon_almira",
    "file": "transients/hh_rc_sheldon_almira.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:010",
    "persons": 3
@@ -666,7 +666,7 @@
   {
    "id": "hh_rc_hubbard_levi",
    "file": "transients/hh_rc_hubbard_levi.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:011",
    "persons": 3
@@ -674,7 +674,7 @@
   {
    "id": "hh_rc_kellogg_charles",
    "file": "transients/hh_rc_kellogg_charles.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:012",
    "persons": 3
@@ -682,7 +682,7 @@
   {
    "id": "hh_rc_tuttle_lydia",
    "file": "transients/hh_rc_tuttle_lydia.json",
-   "household_kind": "camp",
+   "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:013",
    "persons": 6

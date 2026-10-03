@@ -361,9 +361,14 @@ function paintCell(ctx, x, y, cellW, sign) {
   // smallest whatever the board turns out to be. A `trade` or `place` line that
   // is long may take TWO rows rather than dragging the whole block down with it,
   // which is why the arrangements are enumerated instead of one being assumed.
-  const given = Array.isArray(sign.sign_lines) && sign.sign_lines.length
+  const all = Array.isArray(sign.sign_lines) && sign.sign_lines.length
     ? sign.sign_lines
     : [{ text: String(sign.sign_text || ''), role: 'name' }];
+  // T-1984: a name lettered on a shop's FASCIA carries only the roles the record
+  // names — a fascia is a hand's breadth deep and three lines would read as none.
+  const keep = Array.isArray(sign.geometry?.lines) ? sign.geometry.lines : null;
+  const kept = keep ? all.filter((l) => keep.includes(l.role)) : all;
+  const given = kept.length ? kept : all;
   const src = given
     .map((l) => ({
       words: String(l.text || '').toUpperCase().split(/\s+/).filter(Boolean),
@@ -428,6 +433,438 @@ function paintCell(ctx, x, y, cellW, sign) {
   return { rx, ry, rw, rh };
 }
 
+/* -------------------------------------------------------------------------- */
+/* the wood under the paint — T-1836                                          */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * WHAT A SIGN IS PAINTED ON, out of the vendored library rather than invented
+ * here. T-1769's preparation map (docs/RESEARCH/1835_photographic_fabric_
+ * preparation.md, row "Signboard and paint") ruled it: reuse
+ * `signboard_weathered`'s relief under the existing lettering atlas, and keep
+ * the lettering in this file. The carpentry that hangs a board — arm, strut,
+ * straps, post, cap, hood — is `heavy_timber_weathered`, the library's own sheet
+ * for "heavy posts, docks and bridge members". Both are `deterministic
+ * procedural synthesis` with their licence in assets/LICENSES.md; neither is a
+ * photograph, and both are generated as UPRIGHT planks, so both are turned 90°
+ * here — the fabric proof's finding (docs/RESEARCH/1835_fabric_proof.md § 5).
+ *
+ * Only the basecolor's GRAIN is taken, never its tone. The board keeps the
+ * colour its style record gives it and the carpentry keeps `TIMBER_HEX`, the
+ * archetype's own; the library's albedo is used as a luminance modulation
+ * around its own mean, which is what lets one map sit under eleven colourways.
+ */
+const WOOD = {
+  board: 'textures/chicago_1835_pbr/props/signboard_weathered/',
+  timber: 'textures/chicago_1835_pbr/timber/heavy_timber_weathered/',
+};
+const WOOD_TILE_PX = 512;     // each library map is read down from 1024 to this
+
+/**
+ * HOW MUCH OF THE WOOD A COAT OF PAINT LETS THROUGH. Reconstructed, and from the
+ * fabric proof rather than from taste: at full strength the grain made white
+ * lead read as "a photograph of wood painted over" (§ 2, defect 3), and its
+ * captures settled near a third. `soft-light` is a different blend from the
+ * proof's multiply, so the number is this layer's own reading of the same look:
+ * grain visible on the board from the footway, gone at the context stand.
+ * Unpainted timber takes it nearly whole. docs/LIBERTIES.md records both.
+ */
+const GRAIN_PAINTED = 0.55;
+const GRAIN_BARE = 0.95;
+const GRAIN_STD = 30;         // the grain tile normalised to this spread about mid-grey
+
+/**
+ * THE BOARD A SIGN IS MADE OF, by width. A hung board 0.6 m deep was two or
+ * three boards edge-joined, not one plank: white pine in 1835 came off the
+ * Michigan mills in widths around ten inches (0.25 m), and the joint between
+ * two of them is the line every painted board shows first as it shrinks. The
+ * width is reconstructed — it bounds the joint spacing and nothing else — and
+ * each joint is moved off the even spacing by up to an eighth of a board, so
+ * no two boards in the town split alike.
+ */
+const BOARD_WIDTH_M = 0.25;
+
+/**
+ * THE CARPENTRY'S CELL, metric: the timber grain is laid into the atlas's first
+ * cell at this many pixels a metre, so a member mapped at the same rate shows
+ * grain at the size the library drew it (`heavy_timber_weathered` is 4 m a
+ * tile). 200 px/m over a 512 × 256 cell is 2.56 m × 1.28 m of timber.
+ */
+const TIMBER_PX_PER_M = 200;
+const TIMBER_INSET = 12;
+
+/** A small deterministic generator, seeded from a sign's structure id. */
+function seeded(str) {
+  let h = 2166136261;
+  for (const ch of String(str)) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); }
+  return () => {
+    h = (h + 0x6d2b79f5) | 0;
+    let t = Math.imul(h ^ (h >>> 15), 1 | h);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function tileCanvas() {
+  const c = document.createElement('canvas');
+  c.width = WOOD_TILE_PX;
+  c.height = WOOD_TILE_PX;
+  return c;
+}
+
+/**
+ * A library map turned a quarter: (x, y) → (N − y, x), so grain that ran up the
+ * tile runs across it. For a NORMAL map the vectors turn with the pixels, and in
+ * the GL convention (+x right, +y up the image) a quarter turn clockwise sends
+ * (X, Y) to (Y, −X) — so R takes G, and G takes the inverse of R.
+ */
+function turned(img, isNormal) {
+  const c = tileCanvas();
+  const ctx = c.getContext('2d', { willReadFrequently: true });
+  ctx.translate(WOOD_TILE_PX, 0);
+  ctx.rotate(Math.PI / 2);
+  ctx.drawImage(img, 0, 0, WOOD_TILE_PX, WOOD_TILE_PX);
+  if (isNormal) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    const d = ctx.getImageData(0, 0, WOOD_TILE_PX, WOOD_TILE_PX);
+    const p = d.data;
+    for (let i = 0; i < p.length; i += 4) {
+      const r = p[i];
+      p[i] = p[i + 1];
+      p[i + 1] = 255 - r;
+    }
+    ctx.putImageData(d, 0, 0);
+  }
+  return c;
+}
+
+/**
+ * The basecolor's luminance as a grey modulation about mid-grey — `soft-light`
+ * leaves a 50 % grey untouched, so this carries only the grain's variation and
+ * none of the library's tone. Normalised to `GRAIN_STD` because the library's
+ * own contrast is low (it was made to be seen as albedo, full strength).
+ */
+function grainOf(colour) {
+  const ctx = colour.getContext('2d', { willReadFrequently: true });
+  const d = ctx.getImageData(0, 0, WOOD_TILE_PX, WOOD_TILE_PX);
+  const p = d.data;
+  const n = p.length / 4;
+  const lum = new Float32Array(n);
+  let sum = 0;
+  for (let i = 0; i < n; i += 1) {
+    lum[i] = 0.299 * p[4 * i] + 0.587 * p[4 * i + 1] + 0.114 * p[4 * i + 2];
+    sum += lum[i];
+  }
+  const mean = sum / n;
+  let sq = 0;
+  for (let i = 0; i < n; i += 1) sq += (lum[i] - mean) ** 2;
+  const k = GRAIN_STD / Math.max(1, Math.sqrt(sq / n));
+  const out = tileCanvas();
+  const octx = out.getContext('2d');
+  const od = octx.createImageData(WOOD_TILE_PX, WOOD_TILE_PX);
+  for (let i = 0; i < n; i += 1) {
+    const v = Math.max(0, Math.min(255, Math.round(128 + (lum[i] - mean) * k)));
+    od.data[4 * i] = v; od.data[4 * i + 1] = v; od.data[4 * i + 2] = v; od.data[4 * i + 3] = 255;
+  }
+  octx.putImageData(od, 0, 0);
+  return out;
+}
+
+/**
+ * Bare weathered wood as a tile: a tone with the grain whole. Where paint has
+ * worn off a board the wood showing is the library sheet's own weathered mean
+ * (`signboard_weathered`'s first `colors` entry, 155/137/105), which is darker
+ * than the archetype's silvered `TIMBER_HEX` — a fresh chip has not had the
+ * seasons the carpentry has. On a black board the light timber tone read as
+ * snow on it.
+ */
+const WORN_HEX = '#9b8969';
+function bareWoodOf(grain, tone = TIMBER_HEX) {
+  const c = tileCanvas();
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = tone;
+  ctx.fillRect(0, 0, WOOD_TILE_PX, WOOD_TILE_PX);
+  ctx.globalCompositeOperation = 'soft-light';
+  ctx.globalAlpha = GRAIN_BARE;
+  ctx.drawImage(grain, 0, 0);
+  return c;
+}
+
+async function loadBitmap(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
+  return createImageBitmap(await res.blob());
+}
+
+/**
+ * Both sheets, or null — a sign layer whose wood failed to load still hangs
+ * every board, painted flat, which is the layer as it shipped before T-1836.
+ * That is a degradation and is recorded as a problem; it is never an error.
+ */
+async function loadWood(assetBase, problems) {
+  if (!assetBase || typeof document === 'undefined'
+    || typeof createImageBitmap !== 'function') return null;
+  try {
+    const sheet = async (dir) => {
+      const meta = await getJSON(new URL(`${dir}material.json`, assetBase));
+      const id = meta.id;
+      const [colour, normal] = await Promise.all([
+        loadBitmap(new URL(`${dir}${id}_basecolor.webp`, assetBase)),
+        loadBitmap(new URL(`${dir}${id}_normal_gl.webp`, assetBase)),
+      ]);
+      const grain = grainOf(turned(colour, false));
+      colour.close?.();
+      const n = turned(normal, true);
+      normal.close?.();
+      return { id, span: Number(meta.span_m) || 2, grain, normal: n, bare: bareWoodOf(grain, WORN_HEX) };
+    };
+    const [board, timber] = await Promise.all([sheet(WOOD.board), sheet(WOOD.timber)]);
+    return { board, timber };
+  } catch (err) {
+    problems.push(`signage: the wood maps did not load (${err.message}) — the boards `
+      + 'are painted flat, as before T-1836');
+    return null;
+  }
+}
+
+/** A pattern of `tile` laid at `pxPerM` atlas pixels a metre, from (ox, oy). */
+function woodPattern(ctx, tile, span, pxPerM, ox, oy) {
+  const pat = ctx.createPattern(tile, 'repeat');
+  const s = (pxPerM * span) / WOOD_TILE_PX;
+  pat.setTransform(new DOMMatrix().translateSelf(ox, oy).scaleSelf(s, s));
+  return pat;
+}
+
+/** Is this board's ground the bare timber — a board nobody painted? */
+function isBare(sign) {
+  return String(sign.style?.ground || TIMBER_HEX).toLowerCase() === TIMBER_HEX;
+}
+
+/**
+ * THE WEAR ON ONE BOARD, as a list of outlines in atlas pixels — computed once
+ * and then drawn into all three atlases (colour, relief, roughness), so the
+ * bare wood a visitor sees is the same patch that turns rough and shows its
+ * grain in relief.
+ *
+ * Where paint goes first on a board that has hung a few seasons, which is what
+ * the placement is weighted by: the BOTTOM edge, where rain runs off and stands;
+ * the TOP edge, under the sun; the ends less; and the corners, which take every
+ * knock. Then a scatter of small flakes over the face, letters included, because
+ * lettering wears with the ground it is on. How MUCH is reconstructed — bounded
+ * to read as a board in use, not a derelict one: the flakes cover a few
+ * per cent of the face and the edge chips reach at most 5 cm in.
+ */
+function wearOf(sign, r, pxPerM) {
+  if (isBare(sign)) return [];
+  const rnd = seeded(sign.structure_id);
+  const band = sign.mounting === 'facade_painted';
+  const wM = r.rw / pxPerM;
+  const hM = r.rh / pxPerM;
+  const shapes = [];
+  const blob = (cx, cy, rx, ry) => {
+    const pts = [];
+    const n = 9;
+    for (let k = 0; k < n; k += 1) {
+      const a = (k / n) * Math.PI * 2;
+      const j = 0.55 + rnd() * 0.75;
+      pts.push([cx + Math.cos(a) * rx * j, cy + Math.sin(a) * ry * j]);
+    }
+    shapes.push(pts);
+  };
+  // Edge chips, by perimeter. A painted band is on the building's own boards and
+  // has no free edge but its bottom, where the splash off the street reaches.
+  const per = band ? wM * 3 : (wM + hM) * 2 * 6;
+  for (let k = 0; k < per; k += 1) {
+    const pick = rnd();
+    const len = (0.012 + rnd() * 0.05) * pxPerM;
+    const dep = Math.min(0.05, 0.006 + (-Math.log(1 - rnd() * 0.95)) * 0.010) * pxPerM;
+    if (band || pick < 0.45) {
+      blob(r.rx + rnd() * r.rw, r.ry + r.rh, len, dep);
+    } else if (pick < 0.70) {
+      blob(r.rx + rnd() * r.rw, r.ry, len, dep * 0.8);
+    } else if (pick < 0.85) {
+      blob(r.rx, r.ry + rnd() * r.rh, dep, len * 0.7);
+    } else {
+      blob(r.rx + r.rw, r.ry + rnd() * r.rh, dep, len * 0.7);
+    }
+  }
+  if (!band) {
+    for (const [cx, cy] of [[r.rx, r.ry], [r.rx + r.rw, r.ry],
+      [r.rx, r.ry + r.rh], [r.rx + r.rw, r.ry + r.rh]]) {
+      if (rnd() < 0.7) blob(cx, cy, (0.02 + rnd() * 0.03) * pxPerM, (0.02 + rnd() * 0.03) * pxPerM);
+    }
+  }
+  // Flakes over the face, by area.
+  const flakes = Math.round(wM * hM * (band ? 6 : 16));
+  for (let k = 0; k < flakes; k += 1) {
+    const rad = (0.002 + rnd() * rnd() * 0.012) * pxPerM;
+    blob(r.rx + rnd() * r.rw, r.ry + Math.sqrt(rnd()) * r.rh, rad * (1 + rnd()), rad);
+  }
+  return shapes;
+}
+
+function tracePath(ctx, shapes, s) {
+  ctx.beginPath();
+  for (const pts of shapes) {
+    ctx.moveTo(pts[0][0] * s, pts[0][1] * s);
+    for (let i = 1; i < pts.length; i += 1) ctx.lineTo(pts[i][0] * s, pts[i][1] * s);
+    ctx.closePath();
+  }
+}
+
+/**
+ * The joints between the boards a hung sign is made of, as y positions in atlas
+ * pixels. None for a painted band — that is paint on the building's own
+ * cladding, whose courses the GLB already draws — and none for a board narrow
+ * enough to be one plank.
+ */
+function jointsOf(sign, r, pxPerM) {
+  if (sign.mounting === 'facade_painted') return [];
+  const n = Math.round((r.rh / pxPerM) / BOARD_WIDTH_M);
+  if (n < 2) return [];
+  const rnd = seeded(`${sign.structure_id}#joints`);
+  const out = [];
+  for (let k = 1; k < n; k += 1) {
+    out.push(r.ry + (r.rh * (k + (rnd() - 0.5) * 0.25)) / n);
+  }
+  return out;
+}
+
+/**
+ * EVERYTHING THAT MAKES A PAINTED CELL A BOARD rather than a flat panel: the
+ * grain through the paint, the joints, the wear and the grime at its foot, in
+ * the colour atlas; the same grain and joints in relief, with the paint filling
+ * the grain and the worn patches showing it raised again; and the roughness —
+ * paint at 0.62, bare wood at the library's 0.86. Drawn AFTER the lettering, so
+ * the letters wear with the board they are on.
+ */
+function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
+  const { ctx, nctx, rctx, ns, rs } = ctxs;
+  const pxPerM = r.rw / Math.max(0.2, Number(sign.board_w_m) || 1);
+  const bare = isBare(sign);
+  const rnd = seeded(`${sign.structure_id}#grain`);
+  const ox = x + rnd() * WOOD_TILE_PX;
+  const oy = y + rnd() * WOOD_TILE_PX;
+  const shapes = wearOf(sign, r, pxPerM);
+  const joints = jointsOf(sign, r, pxPerM);
+  const B = wood.board;
+
+  // COLOUR. The grain, through the paint.
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x, y, cellW, TILE_H);
+  ctx.clip();
+  ctx.globalCompositeOperation = 'soft-light';
+  ctx.globalAlpha = bare ? GRAIN_BARE : GRAIN_PAINTED;
+  ctx.fillStyle = woodPattern(ctx, B.grain, B.span, pxPerM, ox, oy);
+  ctx.fillRect(x, y, cellW, TILE_H);
+  ctx.restore();
+  // The joints: a dark line where the boards meet, a lit lip under it.
+  ctx.save();
+  const jw = Math.max(1.2, pxPerM * 0.004);
+  for (const jy of joints) {
+    ctx.fillStyle = 'rgba(20, 14, 8, 0.45)';
+    ctx.fillRect(r.rx, jy - jw / 2, r.rw, jw);
+    ctx.fillStyle = 'rgba(255, 250, 235, 0.10)';
+    ctx.fillRect(r.rx, jy + jw / 2, r.rw, jw * 0.6);
+  }
+  ctx.restore();
+  // The wear: bare wood where the paint has gone.
+  if (shapes.length) {
+    ctx.save();
+    ctx.globalAlpha = 0.85;
+    ctx.fillStyle = woodPattern(ctx, B.bare, B.span, pxPerM, ox, oy);
+    tracePath(ctx, shapes, 1);
+    ctx.fill();
+    ctx.restore();
+  }
+  // Grime at the foot: rain splash and street dirt, darkest at the bottom edge.
+  ctx.save();
+  const g = ctx.createLinearGradient(0, r.ry + r.rh * 0.72, 0, r.ry + r.rh);
+  g.addColorStop(0, 'rgba(48, 36, 24, 0)');
+  g.addColorStop(1, `rgba(48, 36, 24, ${sign.mounting === 'facade_painted' ? 0.22 : 0.16})`);
+  ctx.fillStyle = g;
+  ctx.fillRect(r.rx, r.ry + r.rh * 0.72, r.rw, r.rh * 0.28);
+  ctx.restore();
+  // The board's own edges take ONE colour (`solid`): paint half worn to wood,
+  // which is what the arris of a hung board is after a season.
+  if (!bare) {
+    ctx.save();
+    ctx.fillStyle = sign.style?.ground || TIMBER_HEX;
+    ctx.fillRect(x + 1, y + 1, 7, 7);
+    ctx.globalAlpha = 0.45;
+    ctx.fillStyle = TIMBER_HEX;
+    ctx.fillRect(x + 1, y + 1, 7, 7);
+    ctx.restore();
+  }
+
+  // RELIEF. The board's grain over the whole cell, then the paint filling it on
+  // the face, then the worn patches and the joints cut back in.
+  if (nctx) {
+    nctx.save();
+    nctx.beginPath();
+    nctx.rect(x * ns, y * ns, cellW * ns, TILE_H * ns);
+    nctx.clip();
+    nctx.fillStyle = woodPattern(nctx, B.normal, B.span, pxPerM * ns, ox * ns, oy * ns);
+    nctx.fillRect(x * ns, y * ns, cellW * ns, TILE_H * ns);
+    if (!bare) {
+      nctx.globalAlpha = 0.5;
+      nctx.fillStyle = 'rgb(128, 128, 255)';
+      nctx.fillRect(r.rx * ns, r.ry * ns, r.rw * ns, r.rh * ns);
+      nctx.globalAlpha = 1;
+      if (shapes.length) {
+        nctx.fillStyle = woodPattern(nctx, B.normal, B.span, pxPerM * ns, ox * ns, oy * ns);
+        tracePath(nctx, shapes, ns);
+        nctx.fill();
+      }
+    }
+    const gw = Math.max(1, pxPerM * 0.004 * ns);
+    for (const jy of joints) {
+      nctx.fillStyle = 'rgb(128, 84, 236)';    // the upper flank faces down
+      nctx.fillRect(r.rx * ns, jy * ns - gw, r.rw * ns, gw);
+      nctx.fillStyle = 'rgb(128, 172, 236)';   // the lower flank faces up
+      nctx.fillRect(r.rx * ns, jy * ns, r.rw * ns, gw);
+    }
+    nctx.restore();
+  }
+
+  // ROUGHNESS (green channel): paint on the face, bare wood where it wore.
+  if (rctx) {
+    rctx.save();
+    if (!bare) {
+      rctx.fillStyle = 'rgb(158, 158, 158)';
+      rctx.fillRect(r.rx * rs, r.ry * rs, r.rw * rs, r.rh * rs);
+      if (shapes.length) {
+        rctx.fillStyle = 'rgb(219, 219, 219)';
+        tracePath(rctx, shapes, rs);
+        rctx.fill();
+      }
+    }
+    rctx.restore();
+  }
+}
+
+/** The carpentry's cell: the timber tone, the timber's grain, its relief. */
+function paintTimberCell(ctxs, wood) {
+  const { ctx, nctx, ns } = ctxs;
+  const T = wood.timber;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, 0, TILE_W, TILE_H);
+  ctx.clip();
+  ctx.globalCompositeOperation = 'soft-light';
+  ctx.globalAlpha = GRAIN_BARE;
+  ctx.fillStyle = woodPattern(ctx, T.grain, T.span, TIMBER_PX_PER_M, 0, 0);
+  ctx.fillRect(0, 0, TILE_W, TILE_H);
+  ctx.restore();
+  if (nctx) {
+    nctx.save();
+    nctx.fillStyle = woodPattern(nctx, T.normal, T.span, TIMBER_PX_PER_M * ns, 0, 0);
+    nctx.fillRect(0, 0, TILE_W * ns, TILE_H * ns);
+    nctx.restore();
+  }
+}
+
 /**
  * Lay every sign out on one canvas and hand back the texture plus, for each
  * sign, the uv rectangle its face samples and the uv point its edges take.
@@ -437,7 +874,7 @@ function paintCell(ctx, x, y, cellW, sign) {
  * which is the layer as T-0039 shipped it and is a degradation rather than a
  * failure.
  */
-function buildAtlas(signs) {
+function buildAtlas(signs, wood = null) {
   if (typeof document === 'undefined') return null;
   const canvas = document.createElement('canvas');
   const cells = [];
@@ -467,15 +904,62 @@ function buildAtlas(signs) {
   ctx.fillStyle = TIMBER_HEX;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  /**
+   * THE RELIEF AND ROUGHNESS ATLASES (T-1836), on the SAME layout as the colour
+   * one so every uv the layer emits samples all three at once. Smaller, because
+   * neither carries a letter: relief at half the colour atlas's size (the
+   * board grain is still ~110 px a metre on a hung board there) and roughness
+   * at a quarter (it changes only between paint and bare wood). Both are data,
+   * not colour, and are uploaded without an sRGB decode.
+   */
+  let normalCanvas = null;
+  let roughCanvas = null;
+  const ns = 0.5;
+  const rs = 0.25;
+  let nctx = null;
+  let rctx = null;
+  if (wood) {
+    normalCanvas = document.createElement('canvas');
+    normalCanvas.width = canvas.width * ns;
+    normalCanvas.height = canvas.height * ns;
+    nctx = normalCanvas.getContext('2d');
+    roughCanvas = document.createElement('canvas');
+    roughCanvas.width = canvas.width * rs;
+    roughCanvas.height = canvas.height * rs;
+    rctx = roughCanvas.getContext('2d');
+    if (nctx && rctx) {
+      nctx.fillStyle = 'rgb(128, 128, 255)';
+      nctx.fillRect(0, 0, normalCanvas.width, normalCanvas.height);
+      rctx.fillStyle = 'rgb(224, 224, 224)';   // bare weathered timber, 0.88
+      rctx.fillRect(0, 0, roughCanvas.width, roughCanvas.height);
+    } else {
+      normalCanvas = null; roughCanvas = null; nctx = null; rctx = null;
+    }
+  }
+  const ctxs = { ctx, nctx, rctx, ns, rs };
+  if (wood) paintTimberCell(ctxs, wood);
+
   const W = canvas.width;
   const H = canvas.height;
   const uvOf = (px, py) => [px / W, 1 - py / H];
   const out = { timber: uvOf(TILE_W * 0.5, TILE_H * 0.5), signs: new Map() };
+  if (wood) {
+    // The metric cell the carpentry maps onto (`timberUv`), inset so no mip
+    // level reaches the painted cell beside it.
+    const i = TIMBER_INSET;
+    out.timber = {
+      rect: [i / W, 1 - (TILE_H - i) / H, (TILE_W - i) / W, 1 - i / H],
+      spanU: (TILE_W - 2 * i) / TIMBER_PX_PER_M,
+      spanV: (TILE_H - 2 * i) / TIMBER_PX_PER_M,
+      point: out.timber,
+    };
+  }
   for (const cell of cells) {
     const x = cell.col * TILE_W;
     const y = cell.row * TILE_H;
     const cellW = cell.span * TILE_W;
     const r = paintCell(ctx, x, y, cellW, cell.sign);
+    if (wood) weatherCell(ctxs, x, y, cellW, r, cell.sign, wood);
     out.signs.set(cell.sign.structure_id, {
       // The face's rectangle, as (u0, v0) bottom-left to (u1, v1) top-right.
       rect: [r.rx / W, 1 - (r.ry + r.rh) / H, (r.rx + r.rw) / W, 1 - r.ry / H],
@@ -489,6 +973,15 @@ function buildAtlas(signs) {
   texture.anisotropy = 4;
   texture.needsUpdate = true;
   out.texture = texture;
+  const dataTexture = (c) => {
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.NoColorSpace;
+    t.anisotropy = 4;
+    t.needsUpdate = true;
+    return t;
+  };
+  if (normalCanvas) out.normalMap = dataTexture(normalCanvas);
+  if (roughCanvas) out.roughnessMap = dataTexture(roughCanvas);
   out.cells = cells.length;
   out.size = [canvas.width, canvas.height];
   return out;
@@ -576,9 +1069,57 @@ function boxCorners(cx, cy, cz, ux, uz, halfLen, halfW, halfH) {
   ]);
 }
 
+/**
+ * THE GRAIN ON A MEMBER, metric and along its length (T-1836). Until this, every
+ * bracket, strap, post and cap sampled ONE point of the atlas's timber cell, so
+ * the whole of a sign's carpentry was a single flat colour — the CG look the
+ * photographic benchmark exists to end. The timber cell now carries the
+ * library's `heavy_timber_weathered` grain at a known number of pixels a metre,
+ * and each face of a member is mapped onto it at that scale with the grain run
+ * along the face's LONGER side, which is the way a sawn member's grain runs —
+ * up a post, out along an arm. A member longer than the cell is compressed onto
+ * it rather than tiled, because one atlas cell cannot repeat; at 2.5 m of cell
+ * only a post exceeds it, and a post's grain stretched by a third is not a thing
+ * the footway can see. Each member takes its own offset into the cell (`seed`,
+ * from its position) so neighbouring members do not show the same knot.
+ *
+ * `timber` is either the bare uv point the layer used to hand out — which is
+ * still what a sign gets when the wood maps failed to load — or the cell.
+ */
+function timberUv(timber, halfA, halfB, halfC, seed) {
+  if (Array.isArray(timber)) return () => timber;
+  const [u0, v0, u1, v1] = timber.rect;
+  const fit = (half, span, off) => {
+    const len = 2 * half;
+    const k = len > span ? span / len : 1;
+    const slack = span - len * k;
+    return (x) => (x * half * k + half * k + slack * off) / span;
+  };
+  const r1 = (seed * 0.6180339887) % 1;
+  const r2 = (seed * 0.4142135623) % 1;
+  const axes = {
+    a: [halfB, halfC, 1, 2],    // the ends: across × up
+    b: [halfA, halfC, 0, 2],    // the long sides: along × up
+    c: [halfA, halfB, 0, 1],    // top and bottom: along × across
+  };
+  return (id, i) => {
+    let [h1, h2, k1, k2] = axes[id[0]];
+    if (h2 > h1) [h1, h2, k1, k2] = [h2, h1, k2, k1];
+    const fu = fit(h1, timber.spanU, r1);
+    const fv = fit(h2, timber.spanV, r2);
+    const corner = CORNER[i];
+    return [u0 + fu(corner[k1]) * (u1 - u0), v0 + fv(corner[k2]) * (v1 - v0)];
+  };
+}
+
+/** A seed off a position, so the same member always takes the same offset. */
+function seedAt(x, y, z) {
+  return Math.abs(Math.sin(x * 12.9898 + y * 78.233 + z * 37.719) * 43758.5453) % 1 * 97 + 1;
+}
+
 function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level, solid) {
   pushHull(buf, boxCorners(cx, cy, cz, ux, uz, halfLen, halfW, halfH), level,
-    () => solid);
+    timberUv(solid, halfLen, halfW, halfH, seedAt(cx, cy, cz)));
 }
 
 /**
@@ -598,7 +1139,8 @@ function pushBar(buf, a, b, wx, wz, halfW, halfT, level, solid) {
       a[2] + t * (b[2] - a[2]) + wz * cb * halfW,
     ];
   });
-  pushHull(buf, p, level, () => solid);
+  const halfLen = Math.hypot(b[0] - a[0], b[1] - a[1], b[2] - a[2]) / 2;
+  pushHull(buf, p, level, timberUv(solid, halfLen, halfW, halfT, seedAt(a[0], a[1], a[2])));
 }
 
 /**
@@ -735,7 +1277,8 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
           az + wz * ca * aw + oz * outAt,
         ];
       });
-      pushHull(buf, hull, level, () => solid);
+      pushHull(buf, hull, level, timberUv(solid, aw, proj / 2, AWNING_T_M / 2,
+        seedAt(ax, y, az)));
       // Two knees carrying it: from the wall, well below the hood, out and up to
       // under its outer edge. Diagonal on purpose — a horizontal strut under a
       // hood reads as a second shelf rather than as the thing holding the first.
@@ -770,9 +1313,13 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
       const cy = y - bh / 2;
       pushBoard(buf, ax + ox * (proud + bt / 2), cy, az + oz * (proud + bt / 2),
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
-      pushBox(buf,
-        ax + ox * (proud + bt), y + WALL_CAP_T_M / 2, az + oz * (proud + bt),
-        wx, wz, bw / 2 + 0.05, bt, WALL_CAP_T_M / 2, level, solid);
+      // A name lettered on a shop's fascia sits under the fascia's own cornice
+      // and carries no cap (T-1984, `capped: false`).
+      if (g.capped !== false) {
+        pushBox(buf,
+          ax + ox * (proud + bt), y + WALL_CAP_T_M / 2, az + oz * (proud + bt),
+          wx, wz, bw / 2 + 0.05, bt, WALL_CAP_T_M / 2, level, solid);
+      }
       break;
     }
     case 'post_board': {
@@ -865,6 +1412,12 @@ async function getJSON(url) {
 export async function createSignage({
   dataBase, terrain, confidence = null, problems = [],
   /**
+   * WHERE THE WOOD IS — the asset root the roof relief and the ground strip
+   * resolve their library maps against (`../../assets/` in the dev tree,
+   * `../data/` in the published one). Absent, the boards are painted flat.
+   */
+  assetBase = null,
+  /**
    * IS THIS BOARD'S BUILDING ACTUALLY STANDING? — T-1126.
    *
    * Every sign in this layer is a function of a wall: the record carries the
@@ -905,6 +1458,8 @@ export async function createSignage({
     problems.push(`signage: ${err.message} — no signboard is hung`);
     return out;
   }
+  // The wood loads beside the records; the atlas waits for both.
+  const woodLoading = loadWood(assetBase, problems);
   const wanted = Array.isArray(index.signage) ? index.signage : [];
   const loaded = await Promise.all(wanted.map(async (s) => {
     if (!s.file) return [s.id, null, 'the manifest gave no file'];
@@ -924,7 +1479,8 @@ export async function createSignage({
 
   // ONE ATLAS FOR THE WHOLE TOWN, painted before a triangle is emitted, because
   // every triangle needs the uv it hands back.
-  const atlas = buildAtlas(all);
+  const wood = await woodLoading;
+  const atlas = buildAtlas(all, wood);
   if (!atlas) {
     problems.push('signage: no canvas to paint the signs on — the boards are drawn '
       + 'blank, in plain timber');
@@ -1000,6 +1556,12 @@ export async function createSignage({
    */
   mat.shadowSide = THREE.BackSide;
   if (atlas) mat.map = atlas.texture;
+  if (atlas?.normalMap) {
+    mat.normalMap = atlas.normalMap;
+    mat.roughnessMap = atlas.roughnessMap ?? null;
+    // The map carries the roughness, so the factor is the identity.
+    if (mat.roughnessMap) mat.roughness = 1.0;
+  }
   mat.name = 'signboard-timber';
   confidence?.patch(mat);
   /**
@@ -1029,7 +1591,9 @@ export async function createSignage({
   mesh.receiveShadow = true;
   group.add(mesh);
   group.userData.census = out.census;
-  if (atlas) out.atlas = { cells: atlas.cells, size: atlas.size };
+  if (atlas) {
+    out.atlas = { cells: atlas.cells, size: atlas.size, wood: wood ? [wood.board.id, wood.timber.id] : null };
+  }
 
   const raycaster = new THREE.Raycaster();
   /** The business this sign belongs to, or null. Same ray budget as the fences. */
@@ -1049,6 +1613,8 @@ export async function createSignage({
     geo.dispose();
     mat.dispose();
     atlas?.texture?.dispose();
+    atlas?.normalMap?.dispose();
+    atlas?.roughnessMap?.dispose();
   };
   return out;
 }

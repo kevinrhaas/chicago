@@ -1,6 +1,6 @@
 {
   "$schema_note": "DERIVED — regenerate with tools/seat_reconstructed_trades_1835.py --build; tools/check.sh re-derives it. Do not hand-edit.",
-  "the_join_and_the_card": "A JOIN BESIDE THE RESIDENT LAYER, AND SINCE T-1489 ONE KEY ON IT. Every block here is keyed on `person_id`; the `seated` ones ALSO stand on the person's own card as `persons[].employment`, carrying the house, the role, the tier and the seed and leaving the reasoning here. The other four kinds are statements about an absence and no card carries one. Two thirds of the people in scope stand on cards a reconstruction stage derives whole and compares byte for byte, which is why the key stopped at `households/` until T-1489 gave those stages the same fixed carry slot tools/resident_mint_carry.py already gave `workplaces`. The walkthrough loads this file the way it loads residents/directories.json, and losing it costs the block on a card and never the card.",
+  "the_join_and_the_card": "A JOIN BESIDE THE RESIDENT LAYER, AND SINCE T-1489 ONE KEY ON IT. Every block here is keyed on `person_id`; the `seated` ones ALSO stand on the person's own card as `persons[].employment`, carrying the house, the role, the tier and the seed and leaving the reasoning here. The other six kinds are statements about an absence and no card carries one. Two thirds of the people in scope stand on cards a reconstruction stage derives whole and compares byte for byte, which is why the key stopped at `households/` until T-1489 gave those stages the same fixed carry slot tools/resident_mint_carry.py already gave `workplaces`. The walkthrough loads this file the way it loads residents/directories.json, and losing it costs the block on a card and never the card.",
   "id": "1835_reconstructed_seating",
   "ticket": "T-1433",
   "parent_ticket": "T-1189",
@@ -16,15 +16,19 @@
     "data/businesses/*.json",
     "data/businesses/rulings/premises_rulings.json",
     "data/reconstruction/1835_business_staffing_model.json",
+    "data/reconstruction/1835_lodging_model.json",
+    "data/reconstruction/1835_reconstruction_order_book.json",
     "data/structures/*.json"
   ],
   "counts": {
-    "people_in_scope": 528,
+    "people_in_scope": 531,
     "by_kind": {
-      "class_held_no_house": 71,
-      "keeps_their_own_house": 167,
+      "class_full_none_owed": 2,
+      "class_held_no_house": 61,
+      "keeps_their_own_house": 166,
       "no_employer_named": 162,
       "no_ruling": 5,
+      "roofs_kept_none_owed": 12,
       "seated": 123
     },
     "houses_taking_a_reconstructed_hand": 84,
@@ -523,7 +527,7 @@
     "nearest": 0,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
-    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 196 business records name a structure this project holds, and 53 of 2207 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
+    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 196 business records name a structure this project holds, and 55 of 2209 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
   "by_trade": {
     "attorney": {
@@ -560,13 +564,14 @@
       "people": 8,
       "kinds": {
         "seated": 4,
-        "class_held_no_house": 4
+        "keeps_their_own_house": 4
       }
     },
     "boarding_house_keeper": {
-      "people": 47,
+      "people": 50,
       "kinds": {
-        "keeps_their_own_house": 47
+        "keeps_their_own_house": 38,
+        "roofs_kept_none_owed": 12
       }
     },
     "boatman": {
@@ -597,7 +602,7 @@
       "people": 3,
       "kinds": {
         "seated": 1,
-        "class_held_no_house": 2
+        "keeps_their_own_house": 2
       }
     },
     "carpenter": {
@@ -653,7 +658,7 @@
       "people": 23,
       "kinds": {
         "seated": 22,
-        "class_held_no_house": 1
+        "keeps_their_own_house": 1
       }
     },
     "druggist": {
@@ -792,7 +797,7 @@
       "people": 2,
       "kinds": {
         "seated": 1,
-        "class_held_no_house": 1
+        "keeps_their_own_house": 1
       }
     },
     "physician": {
@@ -823,7 +828,7 @@
       "people": 8,
       "kinds": {
         "seated": 6,
-        "class_held_no_house": 2
+        "class_full_none_owed": 2
       }
     },
     "seaman": {
@@ -1505,15 +1510,20 @@
       "seed": "rc_barnes_maria:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 13,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 13 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -1532,15 +1542,20 @@
       "seed": "rc_barnes_mary:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 26,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 26 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -1872,15 +1887,20 @@
       "seed": "rc_brady_honora:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 12,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 12 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -2158,15 +2178,20 @@
       "seed": "rc_cavanagh_bridget:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 15,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 15 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -2948,15 +2973,20 @@
       "seed": "rc_connor_ellen:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 1,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 1 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -3963,15 +3993,20 @@
       "seed": "rc_doyle_margaret:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 18,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 18 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -4170,7 +4205,7 @@
       "person_id": "rc_duffy_johanna",
       "person_name": "Johanna Duffy",
       "household_id": "hh_rc_duffy_johanna",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -4181,15 +4216,20 @@
       "seed": "rc_duffy_johanna:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 28,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 28 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -4505,7 +4545,7 @@
       "person_id": "rc_eastman_hannah",
       "person_name": "Hannah Eastman",
       "household_id": "hh_rc_eastman_hannah",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -4516,15 +4556,20 @@
       "seed": "rc_eastman_hannah:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 31,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 31 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -4725,7 +4770,7 @@
       "kind": "keeps_their_own_house",
       "trade": "merchant",
       "premises": "own_premises",
-      "division_of_the_person": "north",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -5226,15 +5271,20 @@
       "seed": "rc_fisk_clarissa:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 7,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 7 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -5390,15 +5440,20 @@
       "seed": "rc_fisk_maria:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 24,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 24 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -5406,7 +5461,7 @@
       "person_id": "rc_fisk_nancy",
       "person_name": "Nancy Fisk",
       "household_id": "hh_rc_fisk_nancy",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -5417,15 +5472,20 @@
       "seed": "rc_fisk_nancy:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 34,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 34 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -6350,15 +6410,20 @@
       "seed": "rc_gilbert_phebe:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 20,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 20 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -6426,7 +6491,7 @@
       "person_id": "rc_goodrich_lucy",
       "person_name": "Lucy Goodrich",
       "household_id": "hh_rc_goodrich_lucy",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -6437,15 +6502,20 @@
       "seed": "rc_goodrich_lucy:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 35,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 35 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -6693,15 +6763,20 @@
       "seed": "rc_hastings_anna:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 16,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 16 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -6709,7 +6784,7 @@
       "person_id": "rc_hastings_esther",
       "person_name": "Esther Hastings",
       "household_id": "hh_rc_hastings_esther",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -6720,15 +6795,20 @@
       "seed": "rc_hastings_esther:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 32,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 32 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -6884,15 +6964,20 @@
       "seed": "rc_hastings_sarah:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 5,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 5 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -7446,15 +7531,20 @@
       "seed": "rc_ingalls_nancy:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 17,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 17 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -7518,7 +7608,7 @@
       "person_id": "rc_keegan_daniel",
       "person_name": "Daniel Keegan",
       "household_id": "hh_rc_keegan_daniel",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -7529,15 +7619,20 @@
       "seed": "rc_keegan_daniel:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 27,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 27 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -8027,6 +8122,38 @@
       "seed": "rc_laframboise_madeleine:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 19,
+        "of": 38,
+        "roofs": 26
+      },
+      "classes": [],
+      "basis": {
+        "kind": "rule",
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 19 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
+      "person_id": "rc_laframboise_michel",
+      "person_name": "Michel Laframboise",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_04",
+      "kind": "keeps_their_own_house",
+      "trade": "boarding_house_keeper",
+      "premises": "own_premises",
+      "division_of_the_person": "south",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_laframboise_michel:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
       "classes": [],
       "basis": {
         "kind": "rule",
@@ -8174,15 +8301,20 @@
       "seed": "rc_leland_abigail:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 9,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 9 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -8417,7 +8549,7 @@
       "kind": "keeps_their_own_house",
       "trade": "merchant",
       "premises": "own_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -9244,6 +9376,33 @@
       "chosen_by": []
     },
     {
+      "person_id": "rc_mccarthy_edward",
+      "person_name": "Edward McCarthy",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "kind": "keeps_their_own_house",
+      "trade": "boarding_house_keeper",
+      "premises": "own_premises",
+      "division_of_the_person": "south",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_mccarthy_edward:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
       "person_id": "rc_mccarthy_ellen",
       "person_name": "Ellen McCarthy",
       "household_id": "hh_rc_mccarthy_ellen",
@@ -9391,7 +9550,7 @@
       "person_id": "rc_mccarthy_mary",
       "person_name": "Mary McCarthy",
       "household_id": "hh_rc_mccarthy_mary",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -9402,15 +9561,20 @@
       "seed": "rc_mccarthy_mary:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 29,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 29 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -9753,7 +9917,7 @@
       "person_id": "rc_metcalf_nancy",
       "person_name": "Nancy Metcalf",
       "household_id": "hh_rc_metcalf_nancy",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -9764,15 +9928,20 @@
       "seed": "rc_metcalf_nancy:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 38,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 38 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -10590,7 +10759,7 @@
       "person_id": "rc_nichols_rufus",
       "person_name": "Rufus Nichols",
       "household_id": "hh_rc_nichols_rufus",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -10606,12 +10775,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -10619,7 +10788,7 @@
       "person_id": "rc_nichols_samuel",
       "person_name": "Samuel Nichols",
       "household_id": "hh_rc_nichols_samuel",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "butcher",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -10635,12 +10804,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in butcher_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in butcher_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a slaughter yard names the firm the drover is delivering to — WORKS_TRADES `slaughterhouse_packing`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -10648,7 +10817,7 @@
       "person_id": "rc_nichols_willard",
       "person_name": "Willard Nichols",
       "household_id": "hh_rc_nichols_willard",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -10664,12 +10833,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -10764,7 +10933,7 @@
       "kind": "keeps_their_own_house",
       "trade": "dry_goods_merchant",
       "premises": "own_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -10817,7 +10986,7 @@
       "person_id": "rc_parmelee_abigail",
       "person_name": "Abigail Parmelee",
       "household_id": "hh_rc_parmelee_abigail",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -10828,15 +10997,20 @@
       "seed": "rc_parmelee_abigail:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 37,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 37 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -10902,7 +11076,7 @@
       "person_id": "rc_parmelee_alvah",
       "person_name": "Alvah Parmelee",
       "household_id": "hh_rc_parmelee_alvah",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -10918,12 +11092,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -11127,7 +11301,7 @@
       "person_id": "rc_pelletier_angelique",
       "person_name": "Angelique Pelletier",
       "household_id": "hh_rc_pelletier_angelique",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -11138,15 +11312,20 @@
       "seed": "rc_pelletier_angelique:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 36,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 36 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -11235,7 +11414,7 @@
       "person_id": "rc_pothier_victoire",
       "person_name": "Victoire Pothier",
       "household_id": "hh_rc_pothier_victoire",
-      "kind": "class_held_no_house",
+      "kind": "class_full_none_owed",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
       "division_of_the_person": "west",
@@ -11251,12 +11430,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in school, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "the_class_s_count_is_met_and_every_house_is_full",
+        "note": "The staffing model hires this trade in school and counts the houses of it trading on 1835-07-01; the business layer holds every one of them (school: 6 counted, 6 held), and each already has the band's high end of this role. The count is met, so no house is owed: the town is not short one, and seating this person would put more hands in a house than the model allows. The premises ruling: A school is an establishment, and the December census counts seven of them against the seven the town holds. T-1188 establishes the schools as businesses and T-1189 staffs them. exercised at an establishment the person does not keep."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a source naming the house this person worked in, or a re-count of the class, after which this person seats at it"
       },
       "chosen_by": []
     },
@@ -11448,15 +11627,20 @@
       "seed": "rc_pratt_maria:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 11,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 11 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -11504,15 +11688,20 @@
       "seed": "rc_pratt_silas:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 22,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 22 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -11773,7 +11962,7 @@
       "person_id": "rc_quinn_terence",
       "person_name": "Terence Quinn",
       "household_id": "hh_rc_quinn_terence",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -11784,15 +11973,20 @@
       "seed": "rc_quinn_terence:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 33,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 33 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -12058,7 +12252,7 @@
       "person_id": "rc_rice_lydia",
       "person_name": "Lydia Rice",
       "household_id": "hh_rc_rice_lydia",
-      "kind": "class_held_no_house",
+      "kind": "class_full_none_owed",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
       "division_of_the_person": "west",
@@ -12074,12 +12268,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in school, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "the_class_s_count_is_met_and_every_house_is_full",
+        "note": "The staffing model hires this trade in school and counts the houses of it trading on 1835-07-01; the business layer holds every one of them (school: 6 counted, 6 held), and each already has the band's high end of this role. The count is met, so no house is owed: the town is not short one, and seating this person would put more hands in a house than the model allows. The premises ruling: A school is an establishment, and the December census counts seven of them against the seven the town holds. T-1188 establishes the schools as businesses and T-1189 staffs them. exercised at an establishment the person does not keep."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a source naming the house this person worked in, or a re-count of the class, after which this person seats at it"
       },
       "chosen_by": []
     },
@@ -12163,6 +12357,33 @@
         "kind": "rule",
         "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
         "note": "The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. The staffing model keeps small_luxury_shop at this trade and employs it in no class. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
+      "person_id": "rc_robillard_louis",
+      "person_name": "Louis Robillard",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "kind": "keeps_their_own_house",
+      "trade": "boarding_house_keeper",
+      "premises": "own_premises",
+      "division_of_the_person": "south",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_robillard_louis:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
       },
       "replaceable_by": {
         "kind": "business",
@@ -13162,15 +13383,20 @@
       "seed": "rc_stebbins_lydia:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 21,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 21 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -13215,15 +13441,20 @@
       "seed": "rc_stebbins_mary:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 4,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 4 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -13271,15 +13502,20 @@
       "seed": "rc_stebbins_ruth:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 10,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 10 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -13345,7 +13581,7 @@
       "person_id": "rc_stiles_alvah",
       "person_name": "Alvah Stiles",
       "household_id": "hh_rc_stiles_alvah",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "butcher",
       "premises": "own_premises",
       "division_of_the_person": "south",
@@ -13361,12 +13597,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in butcher_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in butcher_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a slaughter yard names the firm the drover is delivering to — WORKS_TRADES `slaughterhouse_packing`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -13565,7 +13801,7 @@
       "person_id": "rc_sullivan_ellen",
       "person_name": "Ellen Sullivan",
       "household_id": "hh_rc_sullivan_ellen",
-      "kind": "keeps_their_own_house",
+      "kind": "roofs_kept_none_owed",
       "trade": "boarding_house_keeper",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -13576,15 +13812,20 @@
       "seed": "rc_sullivan_ellen:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 30,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 30 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. Every one of those roofs is owed to a keeper ahead of them, so the programme holds no boarding house for this person to keep and none is owed: the trade-households stage drew more keepers from the 1839 trade table than the programme schedules houses, and this one carries the trade with no house of their own."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a source naming the boarding house this person kept, or a roof programme that schedules more boarding houses, after which this person is owed one"
       },
       "chosen_by": []
     },
@@ -13820,7 +14061,7 @@
       "person_id": "rc_thayer_harvey",
       "person_name": "Harvey Thayer",
       "household_id": "hh_rc_thayer_harvey",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "blacksmith",
       "premises": "own_premises",
       "division_of_the_person": "north",
@@ -13836,12 +14077,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in smithy, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in smithy, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -14003,15 +14244,20 @@
       "seed": "rc_tobin_alice:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 2,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 2 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -14351,15 +14597,20 @@
       "seed": "rc_tuttle_clarissa:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 3,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 3 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -14423,7 +14674,7 @@
       "person_id": "rc_tuttle_rufus",
       "person_name": "Rufus Tuttle",
       "household_id": "hh_rc_tuttle_rufus",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "painter",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -14439,12 +14690,12 @@
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in painter_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in painter_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -14463,15 +14714,20 @@
       "seed": "rc_tuttle_ruth:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 14,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 14 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -14573,15 +14829,20 @@
       "seed": "rc_vieau_marie:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 6,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 6 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -14792,15 +15053,20 @@
       "seed": "rc_wadsworth_susan:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 25,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 25 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -15197,7 +15463,7 @@
       "person_id": "rc_wilcox_maria",
       "person_name": "Maria Wilcox",
       "household_id": "hh_rc_wilcox_maria",
-      "kind": "class_held_no_house",
+      "kind": "keeps_their_own_house",
       "trade": "dressmaker",
       "premises": "own_premises",
       "division_of_the_person": "west",
@@ -15209,17 +15475,16 @@
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "classes": [
-        "millinery_and_dressmaking",
-        "tailor_shop"
+        "millinery_and_dressmaking"
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in millinery_and_dressmaking, tailor_shop, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "every_house_that_hires_this_trade_is_full_and_the_trade_keeps_its_own",
+        "note": "The staffing model hires this trade in millinery_and_dressmaking, tailor_shop, and every house of that kind the business layer holds trading on 1835-07-01 already has the band's high end of hands. The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. So this person carried the trade on their own account, as a keeper and not as somebody's overflow hand. The house is owed, and T-1992 owns the own-account houses the register does not hold."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -15423,7 +15688,7 @@
       "kind": "keeps_their_own_house",
       "trade": "attorney",
       "premises": "own_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -15541,15 +15806,20 @@
       "seed": "rc_woodruff_harriet:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 23,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 23 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -15598,15 +15868,20 @@
       "seed": "rc_woodruff_john:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "draw": {
+        "rank": 8,
+        "of": 38,
+        "roofs": 26
+      },
       "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. A boarding house is a roof before it is a firm: the order book cannot count one, and the business band raises one only on a standing roof, by adopting the keeper who stands in it (T-1408). The lodging model schedules 42 boarding houses under the roof programme's `larger_boarding_houses`; 16 stand and 16 of them are kept — by the keeper the lodgers stage drew, by the household a platted deal seated there, or, at a named house, by whoever a source names. That leaves 26 roofs the programme schedules with nobody keeping them: 18 stand as dwellings, the H1 and H2 houses whose class is the lodging model's open question (T-1293 and T-1196); 8 are unbuilt (5 in the South Division, T-1957; 3 in the West Division, T-1953). This person is 8 of the 38 keepers of the trade this pass holds with no house, in a seeded draw over person and trade, since nothing in the layer orders them. The draw reaches them, so one of those roofs is theirs to keep: the house is owed, and it waits on the roof."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
       },
       "chosen_by": []
     },

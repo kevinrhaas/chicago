@@ -12,9 +12,9 @@
   "data/reconstruction/1835_presence_rulings.json"
  ],
  "buildings": {
-  "standing": 515,
+  "standing": 524,
   "target": 668,
-  "records_in_scene": 530,
+  "records_in_scene": 541,
   "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
  },
@@ -81,8 +81,8 @@
   "persons": 307,
   "households": 83,
   "by_household_kind": {
-   "camp": 102,
-   "party": 205
+   "camp": 51,
+   "party": 256
   },
   "point_adopted": 384,
   "point_reading": "twice the 1843 rate",

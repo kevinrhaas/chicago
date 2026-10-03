@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 277,
+    "records": 287,
     "compiled_from_register": 196,
-    "authored": 81,
-    "present_at_scene_date": 260,
+    "authored": 91,
+    "present_at_scene_date": 270,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,7 +16,7 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 125,
+      "other": 135,
       "physician": 8,
       "printing_office": 3,
       "school": 7,
@@ -29,49 +29,50 @@
     },
     "by_location_kind": {
       "anchored": 28,
-      "premises": 62,
-      "street_only": 86,
+      "premises": 65,
+      "street_only": 93,
       "unplaceable": 106
     },
-    "named_people": 411,
-    "named_people_linked_to_a_town_card": 357,
+    "named_people": 421,
+    "named_people_linked_to_a_town_card": 367,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
       "inferred": 70,
-      "reconstructed": 41
+      "reconstructed": 51
     },
     "by_where_kind": {
       "anchored": 28,
-      "premises": 61,
-      "street_only": 86,
+      "premises": 64,
+      "street_only": 93,
       "unplaceable": 102
     },
     "by_street": {
       "Canal Street": 10,
-      "Dearborn Street": 29,
+      "Dearborn Street": 31,
       "Franklin Street": 1,
-      "Kinzie Street": 4,
+      "Kinzie Street": 5,
       "La Salle Street": 4,
       "Lake Street": 19,
-      "Market Street": 1,
+      "Market Street": 2,
       "Monroe Street": 1,
       "North Water Street": 5,
       "Randolph Street": 2,
-      "South Water Street": 41
+      "South Water Street": 42,
+      "West Water Street": 2
     },
     "by_proprietor_community": {
       "british": 11,
       "free_black": 2,
-      "french_canadian": 5,
-      "irish": 10,
+      "french_canadian": 6,
+      "irish": 11,
       "metis": 1,
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 103,
-      "yankee": 75
+      "unknown": 106,
+      "yankee": 80
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -105,7 +106,7 @@
       {
         "value": "french_canadian",
         "label": "French Canadian",
-        "count": 5
+        "count": 6
       },
       {
         "value": "free_black",
@@ -115,7 +116,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 75
+        "count": 80
       },
       {
         "value": "new_york",
@@ -125,7 +126,7 @@
       {
         "value": "irish",
         "label": "Irish",
-        "count": 10
+        "count": 11
       },
       {
         "value": "german",
@@ -150,7 +151,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 103
+        "count": 106
       }
     ]
   },
@@ -14330,6 +14331,54 @@
       "liberties": []
     },
     {
+      "id": "rcb_barnes_refectory",
+      "file": "rcb_barnes_refectory.json",
+      "name": "Hannah Barnes, refectory",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "refectory",
+      "occupation": "refectory_keeper",
+      "goods": [
+        "refectory"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Hannah Barnes",
+          "person_id": "rc_barnes_hannah",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "south_water",
+        "street": "South Water Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a refectory keeper the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_beaubien_boarding_house",
       "file": "rcb_beaubien_boarding_house.json",
       "name": "Mark Beaubien's boarding house",
@@ -15324,6 +15373,54 @@
       "liberties": []
     },
     {
+      "id": "rcb_ingalls_refectory",
+      "file": "rcb_ingalls_refectory.json",
+      "name": "H. Ingalls, refectory",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "refectory",
+      "occupation": "refectory_keeper",
+      "goods": [
+        "refectory"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Hannah Ingalls",
+          "person_id": "rc_ingalls_hannah",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "kinzie",
+        "street": "Kinzie Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a refectory keeper the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_kellogg_millinery",
       "file": "rcb_kellogg_millinery.json",
       "name": "A. Kellogg, millinery",
@@ -15372,6 +15469,100 @@
       "liberties": []
     },
     {
+      "id": "rcb_kellogg_soap_and_candle_manufactory",
+      "file": "rcb_kellogg_soap_and_candle_manufactory.json",
+      "name": "J. Kellogg, soap and candle manufactory",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "soap and candle manufactory",
+      "occupation": "soap_and_candle_maker",
+      "goods": [
+        "soap and candle manufactory"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Joseph Kellogg",
+          "person_id": "rc_kellogg_joseph",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "west_water",
+        "street": "West Water Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a soap and candle maker the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_laframboise_boarding_house",
+      "file": "rcb_laframboise_boarding_house.json",
+      "name": "Laframboise's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Michel Laframboise",
+          "person_id": "rc_laframboise_michel",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_market_h3_04",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_leland_livery_stable",
       "file": "rcb_leland_livery_stable.json",
       "name": "W. Leland, livery stable",
@@ -15416,6 +15607,52 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "yankee",
       "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_mccarthy_boarding_house",
+      "file": "rcb_mccarthy_boarding_house.json",
+      "name": "Edward McCarthy's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Edward McCarthy",
+          "person_id": "rc_mccarthy_edward",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_dearborn_h3_01",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
       "review_required": false,
       "liberties": []
     },
@@ -15610,6 +15847,102 @@
       "liberties": []
     },
     {
+      "id": "rcb_nichols_auction_room",
+      "file": "rcb_nichols_auction_room.json",
+      "name": "J. Nichols, auction and commission",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "auction room",
+      "occupation": "auctioneer",
+      "goods": [
+        "auction and commission"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "John Nichols",
+          "person_id": "rc_nichols_john",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "dearborn",
+        "street": "Dearborn Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a auctioneer the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_nolan_brickyard",
+      "file": "rcb_nolan_brickyard.json",
+      "name": "Thomas Nolan, brickmaker",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "brickyard",
+      "occupation": "brickmaker",
+      "goods": [
+        "brickmaker"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Thomas Nolan",
+          "person_id": "rc_nolan_thomas",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "market",
+        "street": "Market Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a brickmaker the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "irish",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_pelletier_boarding_house",
       "file": "rcb_pelletier_boarding_house.json",
       "name": "Victoire Pelletier's boarding house",
@@ -15652,6 +15985,54 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_pratt_refectory",
+      "file": "rcb_pratt_refectory.json",
+      "name": "Hannah Pratt, refectory",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "refectory",
+      "occupation": "refectory_keeper",
+      "goods": [
+        "refectory"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Hannah Pratt",
+          "person_id": "rc_pratt_hannah",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "dearborn",
+        "street": "Dearborn Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a refectory keeper the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": []
     },
@@ -15748,6 +16129,52 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "irish",
       "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_robillard_boarding_house",
+      "file": "rcb_robillard_boarding_house.json",
+      "name": "Louis Robillard's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Louis Robillard",
+          "person_id": "rc_robillard_louis",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_market_h3_01",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
       "review_required": false,
       "liberties": []
     },
@@ -16032,6 +16459,54 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_vieau_mill",
+      "file": "rcb_vieau_mill.json",
+      "name": "T. Vieau, miller",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "mill",
+      "occupation": "miller",
+      "goods": [
+        "miller"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Toussaint Vieau",
+          "person_id": "rc_vieau_toussaint",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "west_water",
+        "street": "West Water Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the resident band drew a miller the town was short of, and the trade names the house he keeps. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "french_canadian",
+      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": []
     },

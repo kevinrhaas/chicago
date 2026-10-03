@@ -33,6 +33,7 @@ import * as THREE from 'three';
 import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
+import { loadWallRelief } from './wall-relief.js';
 
 /** Walk up until something claims a structure_id. Returns null if nothing does. */
 export function structureIdOf(object) {
@@ -329,7 +330,7 @@ function materialKey(m) {
  * @param {object} o.terrain                from createTerrain (for ground height)
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
-  onProgress = () => {}, preserveMaterials = false }) {
+  onProgress = () => {}, preserveMaterials = false, lowSpec = false }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -355,6 +356,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const relief = await loadRoofRelief();
   if (relief.problem) problems.push(relief.problem);
+  /**
+   * The walls' relief (T-1963): clapboard and laid logs, by the record's own
+   * substrate and finish — see wall-relief.js and wall-grain.js. Loaded before
+   * the loop for the roofs' reason: `apply()` must run before `materialKey()`
+   * reads the material, so every bound wall in the town lands in one batch per
+   * substrate. 512 px maps on a coarse device.
+   */
+  const walls = await loadWallRelief({ lowSpec });
+  if (walls.problem) problems.push(walls.problem);
 
   const dealt = dealTones([...registry.values()]
     // Only what will actually be drawn: a record with no GLB stands in nobody's
@@ -412,12 +422,23 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // docs/GLB-CONTRACT.md § Roof coverings.
       const reliefWarning = relief.apply(material);
       if (reliefWarning) problems.push(`${label}: ${reliefWarning}`);
+      // A number when this is a bound wall: how much of the wood's figure its
+      // finish lets through, written per vertex below (wall-grain.js).
+      const grain = walls.apply(material, record.sidecar);
       let prepared;
       try {
         prepared = normalizeGeometry(mesh.geometry, matrix, material, confidence, label, tone);
         // After the channel exists and is float — see existenceFloor for why the
         // building's own existence grade governs what its parts may claim.
         applyExistence(prepared.geo, existenceFloor(record));
+        // Only on a bound wall's geometry, and so only in a wall batch: a batch
+        // takes its attribute set from its first geometry, and every geometry
+        // in one shares a material key, so the set is uniform by construction.
+        if (grain !== null) {
+          const count = prepared.geo.getAttribute('position').count;
+          prepared.geo.setAttribute('_grain',
+            new THREE.BufferAttribute(new Float32Array(count).fill(grain), 1));
+        }
       } catch (err) {
         if (preserveMaterials) material.dispose();
         problems.push(`${label}: ${err.message}`);
@@ -720,6 +741,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       standing: expected.length - missing.size,
       missing: [...missing],
     },
+    /**
+     * What the walls were bound with (T-1963): `off` under `?walls=flat`, else
+     * each substrate's library id, map size, tile and mean roughness.
+     */
+    wallRelief: walls.off ? { off: true } : { off: false, substrates: walls.sets ?? null },
     /** Draw calls these buildings cost in the colour pass. */
     get drawCalls() { return batches.length; },
 

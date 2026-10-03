@@ -1,0 +1,133 @@
+{
+  "id": "land_sale_camp_shore",
+  "name": "The land-sale camp on the lake shore south of the fort",
+  "aka": [
+    "the tents on the reservation shore"
+  ],
+  "archetype": "camp",
+  "phases": [
+    {
+      "id": "camp_1835",
+      "documented_range": {
+        "from": "1835-06-15",
+        "to": "1835-07-31",
+        "confidence": "reconstructed",
+        "sources": [
+          "isa_public_domain_land_tract_sales"
+        ],
+        "note": "THE SALE, NOT THE CAMP. The Public Domain register enters 232 purchases at Chicago on 26-27 June 1835; the range opens a fortnight before the sale, when the crowd it drew was arriving, and closes a month after it, by when the buyers had gone to see their land. No source dates any tent here, or says there was one. What the range says is that on 1 July 1835, four days after the sale, canvas stood here. T-1804."
+      },
+      "position": {
+        "utm_e": 448202.7,
+        "utm_n": 4637355.8,
+        "rotation_deg": 0.0,
+        "symbolic_location": "On the United States Reservation south of Fort Dearborn, between local E +1130 and E +1180 and N -40 to +0: north-east of the Fort Cemetery, south-east of the garrison garden, south-west of the factor's house, and short of the lake beach.",
+        "confidence": "reconstructed",
+        "note": "THE GROUND IS A CONJECTURE AND THE SPOT IS OURS. 1835_camp_grounds.json offers the lake shore south of the fort as the nearest open ground to the landing that carried no lot line in July 1835 — unplatted, unsold, with no street across it — and grades the candidacy conjectural: no source says anybody camped there. This camp stands on the stretch of it a visitor at the fort's south-west corner looks across: every sampled point of its ground between 2.51 and 2.54 m above the water plane on the committed heightfield; 50.5 m clear of the drawn edge of the nearest roadway (fort_road); 42.6 m clear of the nearest committed footprint; 66.0 m clear of the nearest fence run; 33.7 m clear of the Fort Cemetery's ring, outside its 30 m skirt. It stands on ground 1835_no_build_ground.json refuses to a builder, and that file permits it by name: the camp-grounds file rules that a crowd sleeping rough on the shore for a fortnight is not a dwelling and asked nobody's leave. The point recorded is the camp's south-west corner, the footprint's origin at rotation 0, so the camp opens north. Placed by tools/place_camp_grounds_1835.py; L355.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Placed against the drawn street lines, the heightfield, the fences, the refused regions and every footprint by tools/place_camp_grounds_1835.py, which re-derives it with --check; it is not a street line or a traced waterline validate.py can re-derive a coordinate from."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            50.0,
+            0
+          ],
+          [
+            50.0,
+            40.0
+          ],
+          [
+            0,
+            40.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "The camp's ground, 50.0 x 40.0 m. INVENTED in its extent: room for the pitches the form asks at the archetype's spacing, inside the ground the placer measured clear. L355."
+      },
+      "form": {
+        "tents": {
+          "value": 12,
+          "confidence": "reconstructed",
+          "note": "12 TENTS, AND NOT A COUNT OF ANYBODY. The register's 77 unseated visitors at the sale would fill this many wall tents about one and a half times over at four men to a tent; most of them slept where the transient model already sleeps the crowd, in rooms and on floors, and twelve is the share drawn as having come with canvas. Invented. L355."
+        },
+        "tent_kind": {
+          "value": "mixed",
+          "confidence": "reconstructed",
+          "note": "NO SOURCE DESCRIBES THE TENTS. Wall and wedge tents alternately, the two forms an outfitter of the 1830s sold. L355."
+        },
+        "wagons": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "note": "THE COUNTRY CAME TO THE SALE BY ROAD. A buyer from the settlements west of the town drove in, and the owner has asked that wagons not be rationed (AGENTS.md, 2026-08-18); the number is invented. L355."
+        },
+        "brush_shelters": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "A lean-to of poles and cut brush, the cheapest roof there is. Invented. L355."
+        },
+        "fire_rings": {
+          "value": 6,
+          "confidence": "reconstructed",
+          "note": "One cooking fire to two tents. The fires are drawn out: no flame, no smoke, nobody at them (L1). L355."
+        },
+        "woodpiles": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "note": "Cordwood for the fires. Invented. L355."
+        },
+        "baggage_heaps": {
+          "value": 4,
+          "confidence": "reconstructed",
+          "note": "Chests and a barrel set down where a buyer had no tent of his own. Invented. L355."
+        },
+        "arrangement": {
+          "value": "scatter",
+          "confidence": "reconstructed",
+          "note": "A scatter, because a crowd that arrived party by party over a fortnight pitched where there was room, not in a row."
+        },
+        "canvas_condition": {
+          "value": "weathered",
+          "confidence": "reconstructed",
+          "note": "Weathered: canvas a fortnight in the sun on the lake shore."
+        }
+      },
+      "change_note": "Canvas on the reservation shore in the week of the land sale. T-1804."
+    }
+  ],
+  "function": {
+    "value": "land_sale_camp",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "THE GROUND IS A CONJECTURE AND SO IS THE USE. Open, level, unplatted, unsold, and the nearest large ground to the landing that carried no lot line in July 1835 — 22.57 ha of United States Reservation and 9.53 ha of sand bar, by the no-build file's own measurement, with no street across either. No committed source says anybody camped there. It is offered because a crowd turned out of the public houses walks to the nearest open ground, and that sentence is an argument about crowds and not a reading of Chicago. Since T-1979 (the owner's report of 2026-10-02) it is also where the transient model deals the tent households beyond the first four: the American says SOME built tents at the landing, and a row of canvas along the town's working wharf frontage for the season is more than that sentence carries. The candidacy stays conjectural; being dealt to does not make it evidence. Built at the reconstructed tier on the owner's ask (T-1214) and labelled so; L355."
+  },
+  "occupants": {
+    "value": "Nobody this layer counts. The land-sale crowd is the transient model's first refusal (1835_transient_persons.json § refusals): 77 visitors the Public Domain register names at the sale of 26-27 June 1835 whom no resident card places, reserved and left unminted because a drawn person may never stand in for a named one. So this camp seats none of them and moves no count; its tents stand for that crowd's ground. No figure is drawn (L1).",
+    "confidence": "reconstructed",
+    "note": "Seats nobody: see the value. T-1804."
+  },
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 117 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 117.4,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "T-1804, the second piece of T-1214: the camps of the two conjectural grounds the owner named. The Native and Métis camps are NOT built here — T-1177 refused a count for them and the question is the owner's. WHAT WOULD REPLACE THIS: an account of the June 1835 land sale saying where the crowd that came for it slept.",
+  "review_required": false
+}

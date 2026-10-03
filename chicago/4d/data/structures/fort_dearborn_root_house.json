@@ -102,6 +102,14 @@
     ],
     "note": "Winter storage for the garrison's roots and vegetables, dug into the river bank."
   },
+  "part_of": {
+    "value": "fort_dearborn_palisade",
+    "confidence": "attested",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Kinzie, of 1831, names them 'the root-houses of the garrison' on the bank west of the fort, so whose they were is in her words; where on that bank they stood is not, and the record's position says so. The post was garrisoned continuously from June 1832 to 29 December 1836 (the stockade's own occupants block, after Andreas), so on 1 July 1835 its service buildings were the garrison's; the people are seated on the stockade and are not repeated here."
+  },
   "research_note": "ONE SENTENCE OF EVIDENCE AND EVERYTHING ELSE OURS. Kinzie puts the root-houses on the river bank west of the fort in 1831; nothing says how big, what shape or exactly where, and the only thing she does say about how many is that there was more than one — carried since T-1715 by `fort_dearborn_root_house_b`. It is built because it is the kind of structure that makes a military post read as a place people lived rather than a parade of buildings, and it is graded conjectural in position, footprint and every dimension so that a visitor can see that the mound is our idea of a root house standing at our idea of a spot.",
   "review_required": false,
   "land_owner": {

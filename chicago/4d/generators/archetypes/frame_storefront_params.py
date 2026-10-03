@@ -417,6 +417,11 @@ class FrameStorefrontParams:
     # colours it had. `common/materials.py` is what turns either into a surface.
     finish_key: str | None = None
     roof_condition: str | None = None
+    # FIN-L (T-1962): how far one lap course may stand off the stock, and the seed its
+    # lines are drawn from — `common/materials.py`'s `board_lay` and `course_lines`.
+    # 0.0 on every record the fabric rule never reached, which keeps its even courses.
+    siding_lay_m: float = 0.0
+    siding_seed: str = ""
 
     # per-attribute confidence, keyed by the attribute name in the record
     confidence: dict = field(default_factory=dict)
@@ -608,6 +613,9 @@ class FrameStorefrontParams:
         if not 0.10 <= self.siding_exposure_m <= 0.16:
             raise ParamError(f"siding_exposure_m {self.siding_exposure_m} outside "
                              f"0.10-0.16 m (~4-6.3 in): not a period clapboard exposure")
+        if not 0.0 <= self.siding_lay_m <= 0.010:
+            raise ParamError(f"siding_lay_m {self.siding_lay_m} outside 0-0.010 m: a lay "
+                             f"that wide would climb a course over its 0.018 m lip")
         band_lo, band_hi = wall_height_band_m(float(self.stories), self.knee_wall_m,
                                               shopfront=self.shopfront)
         if not band_lo <= self.wall_height_m <= band_hi:
@@ -1046,6 +1054,12 @@ def default_shopfront_bays(width_m: float) -> int:
     return shopfront_bay_verdict(width_m)[0]
 
 
+
+def _board_lay(recon: dict) -> float:
+    """The fabric rule's lay for this roof (FIN-L), from the material sheet."""
+    from common.materials import board_lay  # noqa: E402 — generators/ is on the path
+    return board_lay(recon)
+
 def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams:
     """Resolve one structure phase into generator parameters.
 
@@ -1145,6 +1159,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams
         # applied in and why a stated coating outranks them.
         finish_key=recon.get("finish_key"),
         roof_condition=recon.get("roof_condition"),
+        siding_lay_m=_board_lay(recon),
+        siding_seed=f"{(record or {}).get('id', '')}|{phase.get('id', '')}",
         confidence=confidences,
     )
     p.validate()
@@ -1278,6 +1294,12 @@ def front_window_rects(p: "FrameStorefrontParams", x0: float, x1: float,
     front_w = x1 - x0
     bays = max(2, min(7, int(round(front_w / 2.45))))
     module = module_m(p)
+    # THE DOOR TAKES ITS BAY (T-1984). A store with no shopfront shows the street one
+    # plain door on its ground storey, and this list used to be set out by bay count
+    # without asking where that door was — so on eleven stores a window overlapped the
+    # door and the two holes drew as one notched opening. A ground-storey window that
+    # would come within OPENING_GAP_M of the door is not cut: the door stands in its bay.
+    door = None if shop is not None else plain_door_rect(x0, x1)
     out: list[tuple] = []
     for story in range(p.full_stories):
         z0 = storey_sill_z(p, story)
@@ -1286,8 +1308,17 @@ def front_window_rects(p: "FrameStorefrontParams", x0: float, x1: float,
         for i in range(bays):
             cx = snap(x0 + front_w * (i + 0.5) / bays, x0, module)
             cx = min(max(cx, x0 + win_w), x1 - win_w)
+            if (story == 0 and door is not None
+                    and cx + win_w / 2 > door[0] - OPENING_GAP_M
+                    and cx - win_w / 2 < door[1] + OPENING_GAP_M):
+                continue
             out.append((cx - win_w / 2, cx + win_w / 2, z0, z0 + win_h))
     return out
+
+
+# The least blank wall between two holes on one front (T-1984): a cased opening's
+# trim is ~75 mm a side, so two holes closer than this read as one hole.
+OPENING_GAP_M = 0.15
 
 
 def plain_door_rect(u0: float, u1: float) -> tuple[float, float, float, float]:

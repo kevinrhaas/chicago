@@ -1037,6 +1037,16 @@ function firmChipsHtml(firms, fromSign) {
     ([lead, list]) => `<span class="pop-firms-lead">${escapeHtml(lead)}</span>${chips(list)}`).join('')}</span>`;
 }
 
+// T-1985. The three reasons a record may give for a roof with nobody under it.
+const STATED_USE_WORDS = {
+  storage_operator_unrecorded: 'A store for goods; whose, no source says',
+  occupant_named_seat_refused: 'A source names who used it; the seat is not proven',
+  occupancy_unattested: 'No source places anyone here in July 1835',
+  no_keeper_of_its_trade: 'Nobody of its trade is left in the town to keep it',
+  the_printed_count_is_held: 'Its trade already fills every shop the census counted',
+  the_mechanics_shops_are_over_their_count: 'The town already has more mechanics\u2019 shops than were counted',
+};
+
 function factsHtml(s, firms = [], fromSign = false) {
   const attrs = s.attributes ?? {};
   const rows = [];
@@ -1060,6 +1070,12 @@ function factsHtml(s, firms = [], fromSign = false) {
   }
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
     firmChipsHtml(firms, fromSign));
+  // T-1980. A building of an establishment — the fort's barn, the tannery's bark
+  // shed — names the building it belongs to. Its keepers are that building's, so
+  // this row answers "who used it?" without seating anybody here.
+  if (attrs.part_of?.value) {
+    row('Part of', attrs.part_of.value, attrs.part_of.confidence, 'part of');
+  }
   row('Built', builtWords(attrs, s.reconstruction?.fabric_basis),
     weaker(attrs.construction?.confidence, attrs.stories?.confidence), 'fabric');
   row('Roof', roofWords(attrs),
@@ -1091,6 +1107,12 @@ function factsHtml(s, firms = [], fromSign = false) {
   }
   if (attrs.occupants?.value) {
     row('Keepers', prettyValue(attrs.occupants.value), attrs.occupants.confidence, 'keepers');
+  }
+  // T-1985. A roof nobody is seated under says why, in the record's own words: the
+  // keeper of a store shed is unrecorded, or a named occupant's card refuses the seat.
+  if (attrs.stated_use?.value) {
+    row('Nobody seated', STATED_USE_WORDS[attrs.stated_use.value] ?? prettyValue(attrs.stated_use.value),
+      attrs.stated_use.confidence, 'why nobody is seated');
   }
   if (!rows.length) return '';
   return `<dl class="pop-facts">${rows.join('')}</dl>`;

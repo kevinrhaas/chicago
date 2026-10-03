@@ -662,10 +662,228 @@
           "why": "the attested 6 x 8 in pane in the fewest lights, six or nine to a sash"
         }
       },
+      "trim_by_class": {
+        "merchant": {
+          "trim": "boxed",
+          "why": "wide corner boards under a deep frieze, the trim of a house built to be seen"
+        },
+        "keeper": {
+          "trim": "boxed",
+          "why": "wide corner boards under a deep frieze, the trim of a house built to be seen"
+        },
+        "tradesman": {
+          "trim": "plain",
+          "why": "the plain corner boards and frieze a sided frame needs to keep water out"
+        },
+        "labourer": {
+          "trim": "scant",
+          "why": "the narrowest corner boards and frieze that keep the weather out"
+        }
+      },
+      "chimney_head_by_class": {
+        "merchant": {
+          "head": "double_corbel",
+          "why": "a brick stack finished in two corbelled courses"
+        },
+        "keeper": {
+          "head": "double_corbel",
+          "why": "a brick stack finished in two corbelled courses"
+        },
+        "tradesman": {
+          "head": "corbel",
+          "why": "a brick stack finished in one corbelled course"
+        },
+        "labourer": {
+          "head": "plain",
+          "why": "a brick stack carried straight up, with no corbel at its head"
+        }
+      },
+      "siding_stock_by_class": {
+        "ticket": "T-1839",
+        "dealt_by": "tools/siding_stock.py deal_records, inside the class's stocks and then off every neighbour within 60 m (T-0112)",
+        "classes": {
+          "merchant": {
+            "stocks_m": [
+              0.114,
+              0.127
+            ],
+            "why": "the narrowest stock, 4.5 or 5 in to the weather"
+          },
+          "keeper": {
+            "stocks_m": [
+              0.127,
+              0.14
+            ],
+            "why": "a 5 or 5.5 in stock"
+          },
+          "tradesman": {
+            "stocks_m": [
+              0.127,
+              0.14,
+              0.152
+            ],
+            "why": "the common stock, 5 to 6 in to the weather"
+          },
+          "labourer": {
+            "stocks_m": [
+              0.14,
+              0.152
+            ],
+            "why": "the widest stock, 5.5 or 6 in to the weather"
+          }
+        },
+        "other_classes": "all four stocks"
+      },
+      "cladding": "clapboard on every frame dwelling — the one wall the archetype builds; a vertical-board wall is a freight or works building's and is not dealt here",
+      "chimney_fabric": "brick on every framed house, inferred (chimneys.md §2), never dealt; the class deals only the head",
       "never_moved": "an attested or inferred value, and any construction that is not a frame",
-      "not_dealt": "cladding, trim, chimney fabric, siding stock (T-0112) — T-1839",
-      "liberty": "L338, L343"
+      "liberty": "L338, L343, L352"
     }
+  },
+  "yard": {
+    "ticket": "T-1959",
+    "dealt_by": "tools/yard_rule_1835.py — tools/generate_woodpiles.py deals data/yard/town_woodpiles.json through it",
+    "household_order": [
+      "1. the roof's fabric_basis.class (tools/fabric_rule_1835.py), which already prefers a written keeper's trade to the family label",
+      "2. a household whose lives_at names the roof, by its trade (seat_known_1835.TRADE_CLAUSE)",
+      "3. the occupation the reconstruction names, by the same table",
+      "4. a tavern, hotel or boarding house by its function is a keeper's",
+      "5. otherwise a tradesman's, said so on the record"
+    ],
+    "house": {
+      "shanty": "family D2, or a dwelling drawn on the outbuilding archetype",
+      "log": "family D1, or a log_dwelling",
+      "larger": "families D5, D6, D7, H1, H2, or a documented frame house of 55 m2 or more",
+      "small": "every other dwelling"
+    },
+    "woodpile": {
+      "shanty": {
+        "rule": "Y-W1",
+        "who": "a labourer's shanty",
+        "kind": "slab_heap",
+        "pieces": [
+          7,
+          12
+        ],
+        "block": false,
+        "why": "a shanty bought no cords; it kept what came to hand — mill slabs off the sawmills and wood off the shore — in a loose heap at the wall"
+      },
+      "cabin": {
+        "rule": "Y-W2",
+        "who": "a labourer's log cabin",
+        "kind": "log_heap",
+        "logs": [
+          3,
+          5
+        ],
+        "log_length_m": [
+          2.4,
+          3.6
+        ],
+        "block": true,
+        "why": "a cabin household hauled its own, as unsplit lengths laid on two skids, and worked them off with an axe at the block as the fire wanted"
+      },
+      "cottage": {
+        "rule": "Y-W3",
+        "who": "a tradesman's cottage",
+        "kind": "cordwood",
+        "stick": "stove",
+        "ricks": [
+          1,
+          1
+        ],
+        "length_m": [
+          1.6,
+          2.6
+        ],
+        "height_m": [
+          0.6,
+          1.1
+        ],
+        "block": true,
+        "why": "a tradesman bought a little at a time and sawed it to the stove's length: one short rick of 2 ft wood by the back door, and the block beside it"
+      },
+      "house": {
+        "rule": "Y-W4",
+        "who": "a tradesman's larger house",
+        "kind": "cordwood",
+        "stick": "stove",
+        "ricks": [
+          1,
+          2
+        ],
+        "length_m": [
+          2.2,
+          3.4
+        ],
+        "height_m": [
+          0.7,
+          1.2
+        ],
+        "block": true,
+        "why": "more rooms, more fires: a longer rick of stove wood, a second on some"
+      },
+      "merchant": {
+        "rule": "Y-W5",
+        "who": "a merchant's or professional man's house",
+        "kind": "cordwood",
+        "stick": "cord",
+        "ricks": [
+          1,
+          2
+        ],
+        "length_m": [
+          2.44,
+          2.44
+        ],
+        "height_m": [
+          0.75,
+          1.22
+        ],
+        "block": true,
+        "why": "money bought the wood by the cord, delivered as 4 ft sticks racked 8 ft long, and a household that bought by the cord shows it as cords"
+      },
+      "keeper": {
+        "rule": "Y-W6",
+        "who": "a boarding house, tavern or hotel",
+        "kind": "cordwood",
+        "stick": "cord",
+        "ricks": [
+          2,
+          3
+        ],
+        "length_m": [
+          2.44,
+          2.44
+        ],
+        "height_m": [
+          0.9,
+          1.22
+        ],
+        "block": true,
+        "why": "a house that cooked for the public burned the most and bought the most: two or three cords racked behind it even at the summer's low"
+      }
+    },
+    "row_of_class_and_house": {
+      "labourer x shanty": "shanty",
+      "labourer x log": "cabin",
+      "labourer x small": "cottage",
+      "labourer x larger": "cottage",
+      "tradesman x shanty": "cottage",
+      "tradesman x log": "cottage",
+      "tradesman x small": "cottage",
+      "tradesman x larger": "house",
+      "merchant x shanty": "merchant",
+      "merchant x log": "merchant",
+      "merchant x small": "merchant",
+      "merchant x larger": "merchant",
+      "keeper x shanty": "keeper",
+      "keeper x log": "keeper",
+      "keeper x small": "keeper",
+      "keeper x larger": "keeper"
+    },
+    "still_to_write": "wells; privies and stables (T-1960) and trade goods by trade (T-1961) are their own records in data/yard/",
+    "liberty": "L357"
   },
   "clauses": [
     {

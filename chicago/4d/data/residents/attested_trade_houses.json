@@ -1,0 +1,248 @@
+{
+  "$schema_note": "AUTHORED — one ruling per person. tools/employment_coverage_1835.py reads it and tools/check.sh re-derives the join it feeds; a row whose person no longer reads `trade_attested_no_house_named` before it is applied is refused as stale.",
+  "id": "1835_attested_trade_houses",
+  "ticket": "T-1994",
+  "parent_ticket": "T-1991",
+  "target_date": "1835-07-01",
+  "what_it_is": "The 25 people whose trade a source attests and whose premises ruling sends them to an establishment they do not keep, each either JOINED to the house the business register holds for it, at the grade the source allows, or told why none is owed in the words of that ruling. Since T-2001 it also carries the one documented KEEPER whose own house the register prints under a name no person_id joins (`replaces: keeps_their_own_house`), joined to that house. It mints nobody, raises no house, supplies no trade and writes nothing onto a business record or a card.",
+  "answers": {
+    "joined": "The register holds the establishment and a source names this person in it (`attested`) or the card's own reasoning does (`inferred`). Placed at work, at that house.",
+    "none_owed": "The person works, and no house in the register is owed: the establishment is held outside it, it does not hold them on the day, the trade is a civic seat, or the work stood on somebody else's ground. Stated, not owed."
+  },
+  "reasons": {
+    "serves_an_establishment_outside_the_register": "The establishment the ruling names is held by a committed file that is not the business register — the garrison, an agency held for a company in another town — and that file places the person in it.",
+    "not_held_by_the_establishment_on_the_scene_date": "The establishment the ruling names does not hold this person on 1 July 1835: its own record names somebody else in the seat, or the source dates the work out of the window, or a ruling already refused them.",
+    "a_civic_seat_and_not_a_house": "The ruling calls the trade a civic seat and not a house of trade. Where the seat sat is the person's `associated_with` (T-1405); the register's county offices are the clerk's room and do not hold it.",
+    "works_on_other_people_s_ground": "The ruling says the trade is done on somebody else's ground — the customer's building, the field, the owner's yard — so the trade keeps no house of its own and is owed none."
+  },
+  "rows": [
+    {
+      "person_id": "allen_lieut_james",
+      "trade": "army_officer",
+      "answer": "none_owed",
+      "reason": "serves_an_establishment_outside_the_register",
+      "reads": "data/reconstruction/1835_garrison.json#officers.named_at_the_post_by_the_layer",
+      "basis": "The premises ruling sends an army officer to the garrison, which is the fort's establishment and not a house of trade. The garrison file names him at the post (T-1348 admitted him, `inferred`), so his work is placed there; the business register holds no house for a garrison and none is owed to it."
+    },
+    {
+      "person_id": "arnold_levi_f",
+      "trade": "postmaster",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "data/businesses/authored/biz_chicago_post_office.json#staff",
+      "basis": "The ruling's establishment is the post office, and the register's Post Office at Chicago holds one postmaster across the scene date: John S. C. Hogan, attested at Andreas. The papers print this man 'P.M.' and associate him with Plainfield, so the office he kept is not Chicago's and Chicago owes him no seat in it."
+    },
+    {
+      "person_id": "baxley_j_m",
+      "trade": "army_officer",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "docs/RESEARCH/fort_dearborn_garrison_1835.md § 2",
+      "basis": "The ruling sends an army officer to the garrison, and T-1348's ruling on the garrison refuses him under its clause 3: one notice, 224 days before the scene date and nothing after it. The establishment does not hold him on the day, so no house is owed."
+    },
+    {
+      "person_id": "beckford_printer",
+      "trade": "printer",
+      "answer": "joined",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "house": "biz_chicago_democrat_printing_office",
+      "role": "printer",
+      "tier": "inferred",
+      "source_id": "andreas_1884_v1",
+      "basis": "Andreas: 'Oscar Pratt and Beckford, printers, were in the employ of Mr. Calhoun at that time.' The house is named; the time is 1833, and the register's Democrat printing office stands across the scene date under Calhoun, so the employment is carried to 1 July 1835 at `inferred` and no further."
+    },
+    {
+      "person_id": "crocker_h",
+      "trade": "schoolteacher",
+      "answer": "none_owed",
+      "reason": "a_civic_seat_and_not_a_house",
+      "reads": "data/businesses/rulings/premises_rulings.json#schoolteacher",
+      "basis": "The papers print him 'H. CROCKER, Clerk' of a school district, which the vocabulary's nearest word turned into `schoolteacher`. A district's clerk keeps its minutes and keeps no school, so the school the ruling would send a teacher to is not his workplace; the clerkship is a civic seat, and a seat is a place (T-1405's `associated_with`) and not a house of trade."
+    },
+    {
+      "person_id": "davis_t_o",
+      "trade": "editor",
+      "answer": "joined",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "house": "biz_the_chicago_american_newspaper_and_job_printing_office",
+      "role": "editor_and_publisher",
+      "tier": "attested",
+      "source_id": "andreas_1884_v1",
+      "basis": "Andreas: founder and publisher of the Chicago American, the town's second newspaper, from June 1835. The ruling says an editor conducts a paper printed in a printing office, and the register holds that office; the source names the paper, which is the house."
+    },
+    {
+      "person_id": "forbes_stephen",
+      "trade": "sheriff",
+      "answer": "none_owed",
+      "reason": "a_civic_seat_and_not_a_house",
+      "reads": "data/businesses/rulings/premises_rulings.json#sheriff",
+      "basis": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location' (T-1405). The register's county offices are Richard J. Hamilton's own room and its record names the clerk's, probate, recording and notary work and not the sheriff's, so no house is owed; which of the two sheriffs printed held the seat on the day is the card's question, not this one's."
+    },
+    {
+      "person_id": "galaher_thomas",
+      "trade": "postmaster",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "data/businesses/authored/biz_chicago_post_office.json#staff",
+      "basis": "The ruling's establishment is the post office, and the register's Post Office at Chicago holds John S. C. Hogan as its one postmaster across the scene date, attested at Andreas. 'THOMAS GALAHER, P.M.' is printed once, in the same column of 21 January 1835 that prints L. F. Arnold 'P.M.', a man the corpus associates with Plainfield; the card's own role reads `place: not_stated`. He kept another office, and Chicago owes him no seat in its own."
+    },
+    {
+      "person_id": "greene_john",
+      "trade": "army_officer",
+      "answer": "none_owed",
+      "reason": "serves_an_establishment_outside_the_register",
+      "reads": "data/reconstruction/1835_garrison.json#officers.named_at_the_post_by_the_layer",
+      "basis": "Commanding officer of Fort Dearborn across the scene date (Andreas; the fort dossier). The garrison file names him at the post; the garrison is the fort's establishment and the register holds no house for it, by the premises ruling's own word."
+    },
+    {
+      "person_id": "hubbard_elijah_kent",
+      "trade": "insurance_agent",
+      "answer": "none_owed",
+      "reason": "serves_an_establishment_outside_the_register",
+      "reads": "data/reconstruction/1835_agencies.json#agency_howard_fire_insurance_company",
+      "basis": "The ruling: 'An agency is HELD, not kept.' The agencies file holds his: the Howard Fire Insurance Company of New York, sold at Chicago over 'E. K. HUBBARD.' from 20 June 1835, and it says itself that neither the company nor the agency is a house in this town. Whether he was a partner in Hubbard & Co. no printing says, so he is not joined to it."
+    },
+    {
+      "person_id": "hugunin_hiram",
+      "trade": "insurance_agent",
+      "answer": "joined",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "house": "biz_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
+      "role": "agent",
+      "tier": "attested",
+      "source_id": "chicago_democrat_1833_1835",
+      "basis": "The Democrat of 17 June 1835 prints 'Capt. HIRAM HUGUNIN, Agent, Chicago', and the register's North Western Fire and Marine agency is that printing: its proprietor row reads the same string and claims no link only because the register's person list spells him otherwise. The card and the record cite the same column, so the join is the source's."
+    },
+    {
+      "person_id": "jamison_l_t",
+      "trade": "army_officer",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "docs/RESEARCH/fort_dearborn_garrison_1835.md § 2",
+      "basis": "The ruling sends an army officer to the garrison, and T-1348 refuses him under its clauses 2 and 3: he is on the town's 1835 poll list, which makes him a man of the town, and his presence on the day reads `uncertain`. The establishment does not hold him, so no house is owed."
+    },
+    {
+      "person_id": "lathrop_samuel_s",
+      "trade": "minister",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "data/sources/rr_baptist_chicago_lathrop.json",
+      "basis": "The ruling sends a minister to his church, and the source behind this card names him a MEMBER of the First Baptist Church who built the fence round Rev. A. B. Freeman's grave, not its minister. The register's church record carries its own minister's row and not him; nothing places him in a pulpit, so none is owed."
+    },
+    {
+      "person_id": "legg_gregory_e",
+      "trade": "priest",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "data/businesses/authored/biz_st_marys_church.json#staff",
+      "basis": "The ruling sends a priest to his church. Chicago's one Catholic congregation on the scene date is St. Mary's, whose record holds John Mary St. Cyr as its priest, attested at Andreas; this card's reading is dated 1838-05-31 and may date and corroborate but never place. The establishment does not hold him on the day."
+    },
+    {
+      "person_id": "maxwell_philip",
+      "trade": "army_surgeon",
+      "answer": "none_owed",
+      "reason": "serves_an_establishment_outside_the_register",
+      "reads": "data/reconstruction/1835_garrison.json#officers.named_at_the_post_by_the_layer",
+      "basis": "Andreas: assistant surgeon on duty at the fort from 3 February 1833 until its abandonment. The ruling says the post surgeon serves the garrison and keeps no practice; the garrison file names him at the post, and the register holds no house for a garrison."
+    },
+    {
+      "person_id": "myers_frederick",
+      "trade": "clerk",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "data/sources/resident_research_myers_glen_ellyn.json",
+      "basis": "The source behind the trade gives him as quartermaster clerk at Fort Dearborn in 1831-33 and a fur trader after; the clerkship's own dates close two years before the scene date, and the garrison is not a house the register holds. No source names a counter he kept on 1 July 1835, and none is drawn for an attested man."
+    },
+    {
+      "person_id": "norton_nelson_r",
+      "trade": "ship_carpenter",
+      "answer": "none_owed",
+      "reason": "works_on_other_people_s_ground",
+      "reads": "data/businesses/rulings/premises_rulings.json#ship_carpenter",
+      "basis": "The ruling: a vessel is built in a yard belonging to her owner. Andreas names his works — the Dearborn Street drawbridge, March 1834, and the sloop Clarissa, launched 12 May 1836 — and neither is a house: the bridge is the town's work and the sloop's yard is not named. The work stood where the owner's did."
+    },
+    {
+      "person_id": "porter_eliza_chappel",
+      "trade": "schoolteacher",
+      "answer": "none_owed",
+      "reason": "not_held_by_the_establishment_on_the_scene_date",
+      "reads": "data/residents/households/hh_porter_jeremiah.json#associated_with",
+      "basis": "The ruling sends a teacher to a school, and the school she kept is closed before the day: her card's own row dates the infant school 1833-34, and Andreas calls her 'then late of Chicago' at her marriage sixteen days before the scene date. No school the register holds is hers on 1 July 1835."
+    },
+    {
+      "person_id": "pratt_oscar",
+      "trade": "printer",
+      "answer": "joined",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "house": "biz_chicago_democrat_printing_office",
+      "role": "printer",
+      "tier": "inferred",
+      "source_id": "andreas_1884_v1",
+      "basis": "Andreas's 1833 roster: 'Oscar Pratt and Beckford, printers, were in the employ of Mr. Calhoun at that time.' The house is named and the register holds it across the scene date; the year is 1833, so the employment is carried to 1 July 1835 at `inferred`."
+    },
+    {
+      "person_id": "salisbury_stephen_m",
+      "trade": "justice_of_the_peace",
+      "answer": "none_owed",
+      "reason": "a_civic_seat_and_not_a_house",
+      "reads": "data/businesses/rulings/premises_rulings.json#justice_of_the_peace",
+      "basis": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE.' A justice heard causes where he sat, and that place is the person's `associated_with` (T-1405), not a business; the register's county offices are the clerk's room and hold no justice."
+    },
+    {
+      "person_id": "sherman_silas_w",
+      "trade": "sheriff",
+      "answer": "none_owed",
+      "reason": "a_civic_seat_and_not_a_house",
+      "reads": "data/businesses/rulings/premises_rulings.json#sheriff",
+      "basis": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE.' The register's county offices are Richard J. Hamilton's own room, naming the clerk's, probate, recording and notary work and not the sheriff's; where the seat was kept is T-1405's `associated_with`, so no house is owed."
+    },
+    {
+      "person_id": "snow_george_w",
+      "trade": "surveyor",
+      "answer": "none_owed",
+      "reason": "works_on_other_people_s_ground",
+      "reads": "data/businesses/rulings/premises_rulings.json#surveyor",
+      "basis": "The ruling: surveying is done in the field and the plat drawn where the surveyor lodges, and no source gives this town a surveyor's office in 1835. Andreas has him appointed the town's Assessor and Surveyor by the trustees on 4 December 1833 — an office, and not a house."
+    },
+    {
+      "person_id": "steele_ashbel",
+      "trade": "plasterer",
+      "answer": "none_owed",
+      "reason": "works_on_other_people_s_ground",
+      "reads": "data/businesses/rulings/premises_rulings.json#plasterer",
+      "basis": "The ruling: plastering is done inside the customer's building. Andreas names his trade by an act — he 'plastered Calhoun's printing office in November, 1833' — which is exactly that: the work stood in somebody else's house, and a plasterer keeps none of his own."
+    },
+    {
+      "person_id": "walker_james",
+      "trade": "justice_of_the_peace",
+      "answer": "none_owed",
+      "reason": "a_civic_seat_and_not_a_house",
+      "reads": "data/businesses/rulings/premises_rulings.json#justice_of_the_peace",
+      "basis": "The ruling: 'A CIVIC SEAT, NOT A HOUSE OF TRADE.' A justice heard causes where he sat, and that place is the person's `associated_with` (T-1405), not a business; the register's county offices are the clerk's room and hold no justice."
+    },
+    {
+      "person_id": "wright_john_s",
+      "trade": "clerk",
+      "answer": "joined",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "house": "biz_john_wright",
+      "role": "clerk",
+      "tier": "inferred",
+      "source_id": "andreas_1884_v1",
+      "basis": "The card's trade is itself the reconstruction 'a minor in his merchant father's business is a clerk', read off Andreas's 'John S. Wright, then a minor ... came in 1832' beside 'John Wright, came in 1832, a merchant'. The register holds that merchant's store, and the house the trade was inferred FROM is the house it joins; the grade is the card's, `inferred`, and the father-and-son reading is the card's too."
+    },
+    {
+      "person_id": "bates_john_jr",
+      "trade": "auctioneer",
+      "answer": "joined",
+      "reason": "joined_by_the_attested_trade_ruling",
+      "replaces": "keeps_their_own_house",
+      "ticket": "T-2001",
+      "house": "biz_j_bates_jr_auction_store",
+      "role": "proprietor",
+      "tier": "inferred",
+      "source_id": "andreas_1884_v1",
+      "basis": "THE REGISTER PRINTS HIS HOUSE; NOTHING JOINED HIM TO IT. The papers print 'J. Bates jr., Auction Store' from 16 July to 20 August 1834, and the house stands across the scene date at bates_auction_room, but its rows carry the printed name with no person_id, so his card read `keeps_their_own_house` with no house while his own house stood in the register. Andreas puts the man in that room: the 1835 land sales were held 'in a building on the west side of Dearborn Street, near Water Street ... erected by John Bates, and afterwards occupied by him in his business as an auctioneer', and the card is John Bates Jr., auctioneer, the one Bates Jr. the town holds. The join is that name, trade and room agreeing, so it is `inferred` and no higher. The register's second record at the same room, biz_john_bates_jr (printed 1833-11-26 to 1834-06-11), is the same keeper's earlier printing; the later one is joined because it is the nearer to 1 July 1835."
+    }
+  ]
+}

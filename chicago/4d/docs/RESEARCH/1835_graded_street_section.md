@@ -178,3 +178,35 @@ South Water from its south shelf (500, −1.2, 35°), South Water from 16 m, and
 - From the air it is invisible, as it should be at 16 m and 70 m.
 - Ruts are still colour only. Rut walls would need sub-cell relief, and the 2.5 m heightfield
   cannot carry them.
+
+## T-1956 — the river walk keeps its bank
+
+The river walk (`data/frontage/river_walk_frontage.json`) lies inside South Water's worked
+width, north of the travelled track. So the cut above reached under it, and so did the
+end-caps of Clark's and La Salle's cuts where they meet South Water at the bank. The bank
+under the walk's south half fell by up to 0.22 m and tilted 0.16 m across the walk's 1.83 m.
+On mobile part 2, "the plank decks tie into the ground they cross" read 0.191 m against its
+0.18 m band.
+
+`street_sections.keep_clear_lines` holds the cut off the walk. Each entry carries one reach's
+committed centreline and names the streets whose cut it holds. Within `flat_m` of the line
+those streets' section depth is zero, and it eases back to the full section by `outer_m`.
+`flat_m` is 4.5 m: half the walk (0.915 m) plus the diagonal of one 2.5 m heightfield cell
+(3.54 m). The renderer reads the ground bilinearly from the four samples round a point, so no
+sample under any board is a lowered one. 3.5 m, one cell square, left 0.05 m at Clark's mouth,
+so the diagonal is the bound. Dearborn is deliberately not named. The walk crosses it on its
+own boards, and T-1955 seated that crossing on Dearborn's graded shoulders.
+
+Measured every 0.5 m along each reach, at the centreline and both edges, against the
+heightfield before T-1812 (`353f7898^`):
+
+| reach | stations | dev, worst Δ | now, worst Δ | cross-tilt before / dev / now |
+|---|---|---|---|---|
+| crossing footway | 69 | 0.000 | 0.000 | 0.011 / 0.011 / 0.011 |
+| east reach | 606 | 0.220 | 0.000 | 0.084 / 0.196 / 0.084 |
+| west reach | 1,251 | 0.219 | 0.000 | 0.160 / 0.164 / 0.160 |
+| wharf reach 1 | 582 | 0.164 | 0.000 | 0.115 / 0.125 / 0.115 |
+
+What a visitor sees: along the river, South Water's lowered bed now stops short of the river
+walk. The north half of the road climbs back to the bank the walk stands on, rather than the
+bank tilting down under the boards.

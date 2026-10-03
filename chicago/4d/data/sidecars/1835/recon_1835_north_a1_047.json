@@ -132,6 +132,14 @@
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the A1 family to satisfy the aggregate North Division mix; no occupant or individual use is known."
     },
+    "occupants": {
+      "value": "No household of its own — a stable in its own yard on the North Division's east fringe, between the north bank and Michigan Street; whose stable it was is not stated",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "A STATED USE, NOT AN OCCUPANT (data/reconstruction/1835_stated_uses.json, T-1988; liberty L310). No household holds this roof and nobody is named for it: what is stated is what the building was for. The North recipe's own `yard_group`, read the other way: this stable names no yard, but the recipe draws the A5 utility building recon_1835_north_a5_049 in `re_a1_047_yard`, this stable's own yard. So the recipe made it the principal of a service yard, not a building in a house's yard. No dwelling stands in that yard. The nearest seated house, recon_1835_north_d6_044, is 83.2 m away, and its own yard (`re_d6_044_yard`) holds the privy recon_1835_north_a3_051, not this stable. So the row states the use and serves nobody. A stable keeps horses and their hay; nobody sleeps in it. The roof's own existence, position and footprint remain the invention they were."
+    },
     "land_owner": {
       "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
       "confidence": "reconstructed",
@@ -192,5 +200,14 @@
       "household": null,
       "words": "silvered boards under a weather-darkened roof — a stable, from the 1832–33 town (rule F-Y: a yard building's by its type)"
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "yard",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.008,
+    "confidence": "reconstructed"
   }
 }

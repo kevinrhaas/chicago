@@ -1126,11 +1126,10 @@ def write_fills(ledger: dict) -> None:
     """Carry this stage's fills into the order book and re-derive it."""
     import build_order_book_1835 as ob
     book = json.loads(BOOK.read_text(encoding="utf-8"))
-    kept = [f for f in book.get("fills", []) if f.get("ticket") != TICKET]
-    kept += [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
+    rows = [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
               "by": "tools/reconstruct_women_children.py --build"}
              for key, n in sorted(ledger["fills"].items())]
-    book["fills"] = kept
+    book["fills"] = ob.splice_fills(book.get("fills", []), {TICKET}, rows)
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ob.cmd_build()
 

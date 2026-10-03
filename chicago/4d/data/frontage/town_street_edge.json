@@ -24,11 +24,11 @@
       "randolph",
       "washington"
     ],
-    "faces_laid": 45,
-    "walk_m": 3695.7,
-    "crossing_m": 1067.6,
+    "faces_laid": 47,
+    "walk_m": 3865.7,
+    "crossing_m": 1160.5,
     "fence_m": 1748.8,
-    "walking_decks": 358,
+    "walking_decks": 376,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
@@ -56,10 +56,10 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 3695.7,
+        "value": 3865.7,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "49 run(s) of sidewalk on 45 platted block face(s), plus 1067.6 m of board crossing at 45 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "51 run(s) of sidewalk on 47 platted block face(s), plus 1160.5 m of board crossing at 49 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
         "value": 1748.8,
@@ -4647,6 +4647,80 @@
       "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_randolph_dearborn's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 72.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_randolph_dearborn_south_crossing_over_washington",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_randolph_dearborn_south_1",
+      "centreline_local_enu_m": [
+        [
+          712.7,
+          -382.56
+        ],
+        [
+          712.72,
+          -404.61
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 22.05,
+      "footway_decks": [
+        {
+          "y": 0.945,
+          "pts": [
+            [
+              711.79,
+              -382.48
+            ],
+            [
+              711.79,
+              -393.66
+            ],
+            [
+              713.62,
+              -393.66
+            ],
+            [
+              713.62,
+              -382.48
+            ]
+          ],
+          "ground_roll_m": 0.112
+        },
+        {
+          "y": 0.93,
+          "pts": [
+            [
+              711.79,
+              -393.5
+            ],
+            [
+              711.8,
+              -404.69
+            ],
+            [
+              713.63,
+              -404.69
+            ],
+            [
+              713.62,
+              -393.5
+            ]
+          ],
+          "ground_roll_m": 0.104
+        }
+      ],
+      "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
       "id": "blk_randolph_dearborn_south_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -6281,6 +6355,80 @@
         }
       ],
       "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_randolph_market_south_crossing_over_washington",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_randolph_market_south_1",
+      "centreline_local_enu_m": [
+        [
+          100.5,
+          -377.59
+        ],
+        [
+          100.52,
+          -399.64
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 22.05,
+      "footway_decks": [
+        {
+          "y": 0.835,
+          "pts": [
+            [
+              99.59,
+              -377.51
+            ],
+            [
+              99.59,
+              -388.69
+            ],
+            [
+              101.42,
+              -388.69
+            ],
+            [
+              101.42,
+              -377.51
+            ]
+          ],
+          "ground_roll_m": 0.103
+        },
+        {
+          "y": 0.84,
+          "pts": [
+            [
+              99.59,
+              -388.53
+            ],
+            [
+              99.6,
+              -399.72
+            ],
+            [
+              101.43,
+              -399.72
+            ],
+            [
+              101.42,
+              -388.53
+            ]
+          ],
+          "ground_roll_m": 0.114
+        }
+      ],
+      "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_randolph_market_south_walk_1",
@@ -9813,6 +9961,80 @@
       "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_south_water_wells's south face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 0.0 m to 97.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_washington_clark_north_crossing_blk_washington_dearborn_north",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_clark_north_1",
+      "centreline_local_enu_m": [
+        [
+          684.18,
+          -404.38
+        ],
+        [
+          708.57,
+          -404.58
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 24.39,
+      "footway_decks": [
+        {
+          "y": 0.926,
+          "pts": [
+            [
+              684.09,
+              -405.29
+            ],
+            [
+              696.45,
+              -405.39
+            ],
+            [
+              696.46,
+              -403.56
+            ],
+            [
+              684.11,
+              -403.46
+            ]
+          ],
+          "ground_roll_m": 0.057
+        },
+        {
+          "y": 0.925,
+          "pts": [
+            [
+              696.29,
+              -405.39
+            ],
+            [
+              708.64,
+              -405.49
+            ],
+            [
+              708.66,
+              -403.66
+            ],
+            [
+              696.3,
+              -403.56
+            ]
+          ],
+          "ground_roll_m": 0.059
+        }
+      ],
+      "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
       "id": "blk_washington_clark_north_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -9952,6 +10174,125 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_clark's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 98.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_dearborn_north_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_dearborn_north_1",
+      "centreline_local_enu_m": [
+        [
+          708.57,
+          -404.58
+        ],
+        [
+          781.1,
+          -405.16
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 7.21,
+      "footway_decks": [
+        {
+          "y": 0.975,
+          "pts": [
+            [
+              708.48,
+              -405.49
+            ],
+            [
+              729.36,
+              -405.66
+            ],
+            [
+              729.38,
+              -403.83
+            ],
+            [
+              708.5,
+              -403.66
+            ]
+          ],
+          "ground_roll_m": 0.001
+        },
+        {
+          "y": 0.98,
+          "pts": [
+            [
+              729.2,
+              -405.66
+            ],
+            [
+              750.09,
+              -405.83
+            ],
+            [
+              750.1,
+              -404.0
+            ],
+            [
+              729.22,
+              -403.83
+            ]
+          ],
+          "ground_roll_m": 0.005
+        },
+        {
+          "y": 0.985,
+          "pts": [
+            [
+              749.93,
+              -405.83
+            ],
+            [
+              770.81,
+              -405.99
+            ],
+            [
+              770.82,
+              -404.16
+            ],
+            [
+              749.94,
+              -404.0
+            ]
+          ],
+          "ground_roll_m": 0.005
+        },
+        {
+          "y": 0.996,
+          "pts": [
+            [
+              770.65,
+              -405.99
+            ],
+            [
+              781.17,
+              -406.08
+            ],
+            [
+              781.18,
+              -404.25
+            ],
+            [
+              770.66,
+              -404.16
+            ]
+          ],
+          "ground_roll_m": 0.016
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_dearborn's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 72.5 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_washington_franklin_north_crossing_blk_washington_wells_north",
@@ -10448,6 +10789,243 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_lasalle's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 98.9 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_market_north_crossing_blk_washington_franklin_north",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_market_north_1",
+      "centreline_local_enu_m": [
+        [
+          193.91,
+          -400.4
+        ],
+        [
+          218.29,
+          -400.6
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 24.38,
+      "footway_decks": [
+        {
+          "y": 0.87,
+          "pts": [
+            [
+              193.82,
+              -401.31
+            ],
+            [
+              201.12,
+              -401.37
+            ],
+            [
+              201.13,
+              -399.54
+            ],
+            [
+              193.84,
+              -399.48
+            ]
+          ],
+          "ground_roll_m": 0.092
+        },
+        {
+          "y": 0.791,
+          "pts": [
+            [
+              200.96,
+              -401.37
+            ],
+            [
+              211.23,
+              -401.45
+            ],
+            [
+              211.24,
+              -399.62
+            ],
+            [
+              200.97,
+              -399.54
+            ]
+          ],
+          "ground_roll_m": 0.125
+        },
+        {
+          "y": 0.875,
+          "pts": [
+            [
+              211.07,
+              -401.45
+            ],
+            [
+              218.36,
+              -401.51
+            ],
+            [
+              218.38,
+              -399.68
+            ],
+            [
+              211.08,
+              -399.62
+            ]
+          ],
+          "ground_roll_m": 0.109
+        }
+      ],
+      "note": "A BOARD CROSSING OVER WASHINGTON STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_market_north_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_market_north_1",
+      "centreline_local_enu_m": [
+        [
+          96.38,
+          -399.61
+        ],
+        [
+          193.91,
+          -400.4
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 7.21,
+      "footway_decks": [
+        {
+          "y": 0.895,
+          "pts": [
+            [
+              96.29,
+              -400.52
+            ],
+            [
+              116.98,
+              -400.69
+            ],
+            [
+              117.0,
+              -398.86
+            ],
+            [
+              96.31,
+              -398.69
+            ]
+          ],
+          "ground_roll_m": 0.006
+        },
+        {
+          "y": 0.901,
+          "pts": [
+            [
+              116.82,
+              -400.69
+            ],
+            [
+              137.52,
+              -400.85
+            ],
+            [
+              137.53,
+              -399.02
+            ],
+            [
+              116.84,
+              -398.86
+            ]
+          ],
+          "ground_roll_m": 0.007
+        },
+        {
+          "y": 0.91,
+          "pts": [
+            [
+              137.36,
+              -400.85
+            ],
+            [
+              158.05,
+              -401.02
+            ],
+            [
+              158.06,
+              -399.19
+            ],
+            [
+              137.37,
+              -399.02
+            ]
+          ],
+          "ground_roll_m": 0.01
+        },
+        {
+          "y": 0.91,
+          "pts": [
+            [
+              157.89,
+              -401.02
+            ],
+            [
+              178.58,
+              -401.19
+            ],
+            [
+              178.6,
+              -399.36
+            ],
+            [
+              157.9,
+              -399.19
+            ]
+          ],
+          "ground_roll_m": 0.0
+        },
+        {
+          "y": 0.915,
+          "pts": [
+            [
+              178.42,
+              -401.18
+            ],
+            [
+              193.98,
+              -401.31
+            ],
+            [
+              194.0,
+              -399.48
+            ],
+            [
+              178.44,
+              -399.35
+            ]
+          ],
+          "ground_roll_m": 0.005
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_market's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 97.5 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_washington_wells_north_crossing_blk_washington_lasalle_north",
@@ -13357,7 +13935,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed bakery (baker). WHY HERE is a rule and not a placement: the front's trade is `bakery` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed bakery (baker). WHY HERE is a rule and not a placement: the front's trade is `bakery` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_clark_north_stoop_inf_butcher_market",
@@ -13400,7 +13978,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed butcher shop (butcher). WHY HERE is a rule and not a placement: the front's trade is `butcher_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed butcher shop (butcher). WHY HERE is a rule and not a placement: the front's trade is `butcher_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_clark_north_stoop_recon_1835_blk_lake_clark_c1_01",
@@ -13416,17 +13994,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        591.5,
-        -126.85
+        592.6,
+        -126.86
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.706,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            591.5,
-            -127.11
+            592.6,
+            -127.12
           ],
           "len_m": 1.52,
           "depth_m": 0.75,
@@ -13435,15 +14013,15 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            591.5,
-            -126.58
+            592.6,
+            -126.59
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop or office #01. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop or office #01. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.71 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_clark_north_stoop_recon_1835_blk_lake_clark_c2_02",
@@ -13459,16 +14037,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        597.26,
-        -126.89
+        598.35,
+        -126.9
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.677,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            597.26,
+            598.35,
             -127.16
           ],
           "len_m": 1.52,
@@ -13478,15 +14056,15 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            597.26,
-            -126.63
+            598.35,
+            -126.64
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #02. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #02. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.68 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_clark_north_stoop_recon_1835_blk_lake_clark_c3_03",
@@ -13502,16 +14080,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        603.61,
+        604.53,
         -126.95
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.64,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            603.61,
+            604.53,
             -127.21
           ],
           "len_m": 1.52,
@@ -13521,15 +14099,15 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            603.61,
-            -126.68
+            604.53,
+            -126.69
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #03. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #03. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_clark_north_stoop_recon_1835_south_c3_015",
@@ -13545,17 +14123,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        681.7,
-        -127.58
+        682.67,
+        -127.59
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.652,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            681.69,
-            -127.84
+            682.67,
+            -127.85
           ],
           "len_m": 1.52,
           "depth_m": 0.75,
@@ -13564,7 +14142,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            681.7,
+            682.67,
             -127.32
           ],
           "len_m": 1.52,
@@ -13572,7 +14150,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #015. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #015. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_lake_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.80 m back of the lot line at the door, so the stoop spans 1.05 m to the walk: a 0.75 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_dearborn_north_tie_rail_mason_blacksmith_shop",
@@ -13626,7 +14204,7 @@
           "thick_m": 0.1
         }
       ],
-      "note": "A tie rail in the verge, where a horse waits on its shoeing or a cart on its wheel, at Matthias Mason & Co.'s Blacksmith Shop. WHY HERE is a rule and not a placement: the front's trade is `blacksmith_shop` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a works, and a works's front takes tie rail. WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — no record places a door, so the middle of the front stands in for one — two posts 2.44 m apart on the verge line, 2.98 m out from the lot line, and a rail at 1.03 m, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A tie rail in the verge, where a horse waits on its shoeing or a cart on its wheel, at Matthias Mason & Co.'s Blacksmith Shop. WHY HERE is a rule and not a placement: the front's trade is `blacksmith_shop` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a works, and a works's front takes tie rail. WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — the middle of the front, where no elevation places a door — two posts 2.44 m apart on the verge line, 2.98 m out from the lot line, and a rail at 1.03 m, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_dearborn_north_wagon_apron_dole_warehouse_south",
@@ -13749,7 +14327,7 @@
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at George W. Dole's Warehouse. WHY HERE is a rule and not a placement: the front's trade is `warehouse_and_slaughter_yard` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at George W. Dole's Warehouse. WHY HERE is a rule and not a placement: the front's trade is `warehouse_and_slaughter_yard` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_dearborn's north face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_franklin_north_stoop_recon_1835_blk_lake_franklin_c2_01",
@@ -13765,17 +14343,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        288.69,
-        -124.61
+        289.8,
+        -124.62
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.681,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            288.68,
-            -125.18
+            289.79,
+            -125.19
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -13784,7 +14362,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            288.69,
+            289.8,
             -124.5
           ],
           "len_m": 1.52,
@@ -13794,15 +14372,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            288.69,
-            -124.16
+            289.8,
+            -124.17
           ],
           "len_m": 1.216,
           "depth_m": 0.379,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_franklin's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.68 of the building's own frontage along blk_lake_franklin's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_lasalle_north_stoop_physicians_office",
@@ -13855,7 +14433,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed physicians office (physician). WHY HERE is a rule and not a placement: the front's trade is `physicians_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_lasalle's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed physicians office (physician). WHY HERE is a rule and not a placement: the front's trade is `physicians_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_lasalle_north_wagon_apron_old_bank_building",
@@ -13978,7 +14556,7 @@
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at The Old Bank Building. WHY HERE is a rule and not a placement: the front's trade is `packing_house` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_lasalle's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.63 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at The Old Bank Building. WHY HERE is a rule and not a placement: the front's trade is `packing_house` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_lasalle's north face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the Lake Street track, on committed ground at +0.63 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_market_north_stoop_recon_1835_blk_lake_market_c2_01",
@@ -13994,16 +14572,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        184.87,
+        185.59,
         -123.77
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.618,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            184.86,
+            185.58,
             -124.34
           ],
           "len_m": 1.52,
@@ -14013,8 +14591,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            184.87,
-            -123.65
+            185.59,
+            -123.66
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14023,15 +14601,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            184.87,
-            -123.31
+            185.59,
+            -123.32
           ],
           "len_m": 1.216,
-          "depth_m": 0.382,
+          "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_market's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.62 of the building's own frontage along blk_lake_market's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_wells_north_stoop_inf_barber_shop",
@@ -14047,16 +14625,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        409.03,
+        409.01,
         -125.35
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.494,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            409.03,
+            409.0,
             -125.6
           ],
           "len_m": 1.52,
@@ -14066,7 +14644,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            409.03,
+            409.01,
             -125.09
           ],
           "len_m": 1.52,
@@ -14074,7 +14652,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed barber shop (barber-surgeon). WHY HERE is a rule and not a placement: the front's trade is `barber_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.76 m back of the lot line at the door, so the stoop spans 1.01 m to the walk: a 0.71 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed barber shop (barber-surgeon). WHY HERE is a rule and not a placement: the front's trade is `barber_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.49 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 0.76 m back of the lot line at the door, so the stoop spans 1.01 m to the walk: a 0.71 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_wells_north_stoop_inf_shoemaker_shop",
@@ -14090,26 +14668,26 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        349.03,
+        349.0,
         -124.83
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.494,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            349.03,
+            349.0,
             -125.05
           ],
           "len_m": 1.52,
-          "depth_m": 0.584,
+          "depth_m": 0.585,
           "top_m": 0.38
         },
         {
           "part": "step",
           "at_local_enu_m": [
-            349.04,
+            349.01,
             -124.61
           ],
           "len_m": 1.52,
@@ -14117,7 +14695,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed shoemaker shop (shoemaker). WHY HERE is a rule and not a placement: the front's trade is `shoemaker_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.63 m back of the lot line at the door, so the stoop spans 0.88 m to the walk: a 0.58 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed shoemaker shop (shoemaker). WHY HERE is a rule and not a placement: the front's trade is `shoemaker_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.49 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 0.63 m back of the lot line at the door, so the stoop spans 0.88 m to the walk: a 0.58 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_lake_wells_north_stoop_inf_tailor_shop",
@@ -14133,16 +14711,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        379.03,
+        379.01,
         -125.09
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.494,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            379.03,
+            379.0,
             -125.32
           ],
           "len_m": 1.52,
@@ -14152,7 +14730,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            379.03,
+            379.01,
             -124.85
           ],
           "len_m": 1.52,
@@ -14160,7 +14738,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed tailor shop (tailor). WHY HERE is a rule and not a placement: the front's trade is `tailor_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_lake_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.70 m back of the lot line at the door, so the stoop spans 0.95 m to the walk: a 0.65 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed tailor shop (tailor). WHY HERE is a rule and not a placement: the front's trade is `tailor_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.49 of the building's own frontage along blk_lake_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 0.70 m back of the lot line at the door, so the stoop spans 0.95 m to the walk: a 0.65 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.81 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_randolph_clark_north_stoop_inf_gunsmith_shop",
@@ -14176,26 +14754,26 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        599.04,
+        599.01,
         -269.7
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.494,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            599.03,
+            599.0,
             -269.96
           ],
           "len_m": 1.52,
-          "depth_m": 0.758,
+          "depth_m": 0.759,
           "top_m": 0.38
         },
         {
           "part": "step",
           "at_local_enu_m": [
-            599.04,
+            599.01,
             -269.43
           ],
           "len_m": 1.52,
@@ -14203,7 +14781,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed gunsmith shop (gunsmith). WHY HERE is a rule and not a placement: the front's trade is `gunsmith_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_randolph_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.81 m back of the lot line at the door, so the stoop spans 1.06 m to the walk: a 0.76 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.87 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed gunsmith shop (gunsmith). WHY HERE is a rule and not a placement: the front's trade is `gunsmith_shop` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.49 of the building's own frontage along blk_randolph_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 0.81 m back of the lot line at the door, so the stoop spans 1.06 m to the walk: a 0.76 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.87 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_randolph_clark_north_stoop_recon_1835_blk_randolph_clark_c2_01",
@@ -14219,16 +14797,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        671.2,
+        672.12,
         -270.53
       ],
       "facade_bearing_deg": 0.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.64,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            671.2,
+            672.11,
             -271.1
           ],
           "len_m": 1.52,
@@ -14238,8 +14816,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            671.2,
-            -270.41
+            672.12,
+            -270.42
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14248,15 +14826,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            671.2,
+            672.12,
             -270.07
           ],
           "len_m": 1.216,
-          "depth_m": 0.384,
+          "depth_m": 0.382,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_randolph_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.88 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_randolph_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.88 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_clark_north_stoop_pruyne_kimball_drugstore",
@@ -14272,16 +14850,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        631.06,
+        631.79,
         -4.53
       ],
       "facade_bearing_deg": 0.9,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.594,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            631.05,
+            631.78,
             -5.11
           ],
           "len_m": 1.52,
@@ -14291,7 +14869,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            631.07,
+            631.79,
             -4.43
           ],
           "len_m": 1.52,
@@ -14301,15 +14879,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            631.07,
+            631.8,
             -4.06
           ],
           "len_m": 1.216,
-          "depth_m": 0.441,
+          "depth_m": 0.429,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Pruyne & Kimball's Drug Store. WHY HERE is a rule and not a placement: the front's trade is `drug_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.56 m back of the lot line at the door, so the stoop spans 1.81 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.44 m of boards, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Pruyne & Kimball's Drug Store. WHY HERE is a rule and not a placement: the front's trade is `drug_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.59 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.55 m back of the lot line at the door, so the stoop spans 1.80 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.43 m of boards, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_clark_north_stoop_recon_1835_blk_south_water_clark_c2_06",
@@ -14325,17 +14903,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        624.33,
-        -4.37
+        625.23,
+        -4.39
       ],
       "facade_bearing_deg": 0.9,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.656,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            624.32,
-            -4.94
+            625.22,
+            -4.96
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -14344,8 +14922,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            624.33,
-            -4.26
+            625.23,
+            -4.27
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14354,15 +14932,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            624.34,
-            -3.92
+            625.23,
+            -3.93
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #06. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #06. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.66 of the building's own frontage along blk_south_water_clark's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.68 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_clark_south_mounting_block_tremont_house_1",
@@ -14405,7 +14983,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at Tremont House (the first). WHY HERE is a rule and not a placement: the front's trade is `hotel` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A mounting block in the verge, between the inn's two posts, at Tremont House (the first). WHY HERE is a rule and not a placement: the front's trade is `hotel` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's south face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_clark_south_stoop_tremont_house_1",
@@ -14421,16 +14999,16 @@
       "trade_confidence": "attested",
       "business_class": "inn",
       "at_local_enu_m": [
-        680.15,
+        680.19,
         -101.82
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.502,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            680.16,
+            680.2,
             -101.09
           ],
           "len_m": 1.52,
@@ -14440,7 +15018,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            680.15,
+            680.19,
             -101.78
           ],
           "len_m": 1.52,
@@ -14450,7 +15028,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            680.15,
+            680.18,
             -102.6
           ],
           "len_m": 1.216,
@@ -14458,7 +15036,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Tremont House (the first). WHY HERE is a rule and not a placement: the front's trade is `hotel` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's south face — no record places a door, so the middle of the front stands in for one — its front wall stands 2.46 m back of the lot line at the door, so the stoop spans 2.71 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 1.34 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Tremont House (the first). WHY HERE is a rule and not a placement: the front's trade is `hotel` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's south face — at the door its front elevation states (T-1984) — its front wall stands 2.46 m back of the lot line at the door, so the stoop spans 2.71 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 1.34 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_north_stoop_chicago_american_office",
@@ -14474,16 +15052,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        717.3,
+        717.19,
         -6.25
       ],
       "facade_bearing_deg": 1.6,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.491,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            717.28,
+            717.17,
             -6.85
           ],
           "len_m": 1.52,
@@ -14493,7 +15071,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            717.3,
+            717.19,
             -6.17
           ],
           "len_m": 1.52,
@@ -14503,15 +15081,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            717.31,
+            717.2,
             -5.74
           ],
           "len_m": 1.216,
-          "depth_m": 0.549,
+          "depth_m": 0.552,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at The Chicago American Office. WHY HERE is a rule and not a placement: the front's trade is `printing_office` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.67 m back of the lot line at the door, so the stoop spans 1.92 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.55 m of boards, on committed ground at +0.69 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at The Chicago American Office. WHY HERE is a rule and not a placement: the front's trade is `printing_office` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.49 of the building's own frontage along blk_south_water_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.67 m back of the lot line at the door, so the stoop spans 1.92 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.55 m of boards, on committed ground at +0.69 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_north_stoop_frederick_thomas_shop",
@@ -14527,16 +15105,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        749.27,
-        -7.12
+        750.01,
+        -7.13
       ],
       "facade_bearing_deg": 1.6,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.579,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            749.25,
+            749.99,
             -7.71
           ],
           "len_m": 1.52,
@@ -14546,7 +15124,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            749.27,
+            750.01,
             -7.03
           ],
           "len_m": 1.52,
@@ -14556,15 +15134,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            749.29,
-            -6.63
+            750.02,
+            -6.64
           ],
           "len_m": 1.216,
-          "depth_m": 0.507,
+          "depth_m": 0.486,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Frederick Thomas's Shop. WHY HERE is a rule and not a placement: the front's trade is `drug_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.63 m back of the lot line at the door, so the stoop spans 1.88 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.51 m of boards, on committed ground at +0.74 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Frederick Thomas's Shop. WHY HERE is a rule and not a placement: the front's trade is `drug_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.58 of the building's own frontage along blk_south_water_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.61 m back of the lot line at the door, so the stoop spans 1.86 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.49 m of boards, on committed ground at +0.74 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_north_stoop_john_holbrook_store",
@@ -14580,16 +15158,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        731.01,
-        -6.6
+        731.73,
+        -6.61
       ],
       "facade_bearing_deg": 1.6,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.577,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            730.99,
+            731.71,
             -7.19
           ],
           "len_m": 1.52,
@@ -14599,7 +15177,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            731.01,
+            731.73,
             -6.51
           ],
           "len_m": 1.52,
@@ -14609,15 +15187,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            731.03,
-            -6.11
+            731.74,
+            -6.12
           ],
           "len_m": 1.216,
-          "depth_m": 0.504,
+          "depth_m": 0.484,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at John Holbrook's Clothing Store. WHY HERE is a rule and not a placement: the front's trade is `store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.62 m back of the lot line at the door, so the stoop spans 1.87 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.50 m of boards, on committed ground at +0.69 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at John Holbrook's Clothing Store. WHY HERE is a rule and not a placement: the front's trade is `store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.58 of the building's own frontage along blk_south_water_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.60 m back of the lot line at the door, so the stoop spans 1.85 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.48 m of boards, on committed ground at +0.69 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_north_stoop_recon_1835_blk_south_water_dearborn_c1_08",
@@ -14633,17 +15211,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        741.97,
-        -6.81
+        743.09,
+        -6.84
       ],
       "facade_bearing_deg": 1.6,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.711,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            741.95,
-            -7.38
+            743.07,
+            -7.41
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -14652,8 +15230,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            741.97,
-            -6.7
+            743.09,
+            -6.73
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14662,15 +15240,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            741.98,
-            -6.36
+            743.1,
+            -6.39
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop or office #08. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.72 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C1 small shop or office #08. WHY HERE is a rule and not a placement: the front's trade is `small_shop_or_office` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.71 of the building's own frontage along blk_south_water_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.72 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_north_stoop_recon_1835_blk_south_water_dearborn_c2_07",
@@ -14686,17 +15264,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        757.12,
-        -7.24
+        758.1,
+        -7.27
       ],
       "facade_bearing_deg": 1.6,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.655,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            757.1,
-            -7.81
+            758.09,
+            -7.84
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -14705,8 +15283,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            757.12,
-            -7.12
+            758.11,
+            -7.15
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14715,15 +15293,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            757.13,
-            -6.78
+            758.12,
+            -6.81
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #07. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.74 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #07. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.66 of the building's own frontage along blk_south_water_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.75 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_south_mounting_block_mansion_house",
@@ -14766,7 +15344,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at Mansion House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A mounting block in the verge, between the inn's two posts, at Mansion House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's south face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_south_stoop_mansion_house",
@@ -14782,16 +15360,16 @@
       "trade_confidence": "attested",
       "business_class": "inn",
       "at_local_enu_m": [
-        718.17,
+        718.21,
         -101.87
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.503,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            718.18,
+            718.22,
             -101.09
           ],
           "len_m": 1.52,
@@ -14801,7 +15379,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            718.17,
+            718.21,
             -101.78
           ],
           "len_m": 1.52,
@@ -14811,15 +15389,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            718.17,
+            718.2,
             -102.75
           ],
           "len_m": 1.216,
-          "depth_m": 1.643,
+          "depth_m": 1.644,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Mansion House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's south face — no record places a door, so the middle of the front stands in for one — its front wall stands 2.76 m back of the lot line at the door, so the stoop spans 3.01 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 1.64 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Mansion House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's south face — at the door its front elevation states (T-1984) — its front wall stands 2.76 m back of the lot line at the door, so the stoop spans 3.01 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 1.64 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_north_stoop_recon_1835_blk_south_water_franklin_c2_08",
@@ -14835,17 +15413,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        264.71,
-        -6.18
+        265.68,
+        -6.17
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.652,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            264.71,
-            -6.75
+            265.69,
+            -6.74
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -14854,8 +15432,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            264.71,
-            -6.07
+            265.68,
+            -6.06
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14864,15 +15442,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            264.71,
-            -5.73
+            265.68,
+            -5.72
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #08. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.77 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #08. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_south_water_franklin's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.77 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_north_stoop_recon_1835_blk_south_water_franklin_c2_09",
@@ -14888,17 +15466,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        258.49,
-        -6.24
+        259.24,
+        -6.23
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.625,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            258.49,
-            -6.81
+            259.25,
+            -6.8
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -14907,8 +15485,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            258.49,
-            -6.13
+            259.24,
+            -6.12
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14917,7 +15495,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            258.48,
+            259.24,
             -5.78
           ],
           "len_m": 1.216,
@@ -14925,7 +15503,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #09. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.77 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #09. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.63 of the building's own frontage along blk_south_water_franklin's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.77 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_north_stoop_recon_1835_blk_south_water_franklin_c2_10",
@@ -14941,16 +15519,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        252.53,
+        253.36,
         -6.29
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.641,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            252.53,
+            253.37,
             -6.86
           ],
           "len_m": 1.52,
@@ -14960,8 +15538,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            252.53,
-            -6.18
+            253.36,
+            -6.17
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -14970,15 +15548,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            252.53,
-            -5.84
+            253.36,
+            -5.83
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #10. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.77 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #10. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.64 of the building's own frontage along blk_south_water_franklin's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.77 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_north_stoop_recon_1835_blk_south_water_franklin_c4_01",
@@ -14994,16 +15572,16 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        312.09,
+        312.76,
         -5.75
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.573,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            312.09,
+            312.77,
             -6.32
           ],
           "len_m": 1.52,
@@ -15013,8 +15591,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            312.08,
-            -5.64
+            312.76,
+            -5.63
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -15023,15 +15601,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            312.08,
-            -5.3
+            312.76,
+            -5.29
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C4 wide two-story store or mixed block #01. WHY HERE is a rule and not a placement: the front's trade is `wide_two_story_store_or_mixed_block` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.76 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C4 wide two-story store or mixed block #01. WHY HERE is a rule and not a placement: the front's trade is `wide_two_story_store_or_mixed_block` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.57 of the building's own frontage along blk_south_water_franklin's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.76 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_north_wagon_apron_jh_kinzie_forwarding_store",
@@ -15154,7 +15732,7 @@
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at J. H. Kinzie's Store. WHY HERE is a rule and not a placement: the front's trade is `forwarding_and_commission_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the South Water Street track, on committed ground at +0.50 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at J. H. Kinzie's Store. WHY HERE is a rule and not a placement: the front's trade is `forwarding_and_commission_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's north face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the South Water Street track, on committed ground at +0.50 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_south_mounting_block_exchange_coffee_house",
@@ -15197,7 +15775,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A mounting block in the verge, between the inn's two posts, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_south_mounting_block_new_york_house",
@@ -15240,7 +15818,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at New York House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A mounting block in the verge, between the inn's two posts, at New York House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_franklin_south_stoop_exchange_coffee_house",
@@ -15256,16 +15834,16 @@
       "trade_confidence": "attested",
       "business_class": "inn",
       "at_local_enu_m": [
-        312.08,
+        312.12,
         -99.97
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.503,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            312.08,
+            312.12,
             -99.82
           ],
           "len_m": 1.52,
@@ -15275,7 +15853,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            312.08,
+            312.12,
             -100.12
           ],
           "len_m": 1.52,
@@ -15283,7 +15861,7 @@
           "top_m": 0.22
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — no record places a door, so the middle of the front stands in for one — its front wall stands 0.36 m back of the lot line at the door, so the stoop spans 0.61 m to the walk: a 0.31 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — at the door its front elevation states (T-1984) — its front wall stands 0.36 m back of the lot line at the door, so the stoop spans 0.61 m to the walk: a 0.31 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_north_stoop_chicago_democrat_office",
@@ -15299,16 +15877,16 @@
       "trade_confidence": "inferred",
       "business_class": "store",
       "at_local_enu_m": [
-        557.51,
+        557.54,
         -3.77
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.503,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            557.51,
+            557.54,
             -4.35
           ],
           "len_m": 1.52,
@@ -15318,7 +15896,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            557.51,
+            557.54,
             -3.67
           ],
           "len_m": 1.52,
@@ -15328,7 +15906,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            557.51,
+            557.54,
             -3.3
           ],
           "len_m": 1.216,
@@ -15336,7 +15914,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at The Chicago Democrat Office. WHY HERE is a rule and not a placement: the front's trade is `store` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_lasalle's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.55 m back of the lot line at the door, so the stoop spans 1.80 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.43 m of boards, on committed ground at +0.72 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at The Chicago Democrat Office. WHY HERE is a rule and not a placement: the front's trade is `store` (held `inferred`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.55 m back of the lot line at the door, so the stoop spans 1.80 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.43 m of boards, on committed ground at +0.72 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_north_stoop_recon_1835_blk_south_water_lasalle_c3_12",
@@ -15352,17 +15930,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        501.56,
-        -4.19
+        502.3,
+        -4.18
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.621,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            501.57,
-            -4.76
+            502.3,
+            -4.75
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -15371,7 +15949,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            501.56,
+            502.3,
             -4.07
           ],
           "len_m": 1.52,
@@ -15381,7 +15959,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            501.56,
+            502.29,
             -3.73
           ],
           "len_m": 1.216,
@@ -15389,7 +15967,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #12. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_lasalle's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.71 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #12. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.62 of the building's own frontage along blk_south_water_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.72 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_north_stoop_recon_1835_blk_south_water_lasalle_c3_13",
@@ -15405,17 +15983,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        507.49,
-        -4.14
+        508.37,
+        -4.13
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.653,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            507.5,
-            -4.71
+            508.38,
+            -4.7
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -15424,7 +16002,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            507.49,
+            508.37,
             -4.02
           ],
           "len_m": 1.52,
@@ -15434,7 +16012,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            507.49,
+            508.37,
             -3.68
           ],
           "len_m": 1.216,
@@ -15442,7 +16020,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #13. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_lasalle's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #13. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_south_water_lasalle's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_south_stoop_thomas_church_store",
@@ -15458,16 +16036,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        515.26,
+        515.29,
         -101.15
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.503,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            515.27,
+            515.3,
             -100.55
           ],
           "len_m": 1.52,
@@ -15477,7 +16055,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            515.26,
+            515.29,
             -101.24
           ],
           "len_m": 1.52,
@@ -15487,7 +16065,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            515.26,
+            515.29,
             -101.66
           ],
           "len_m": 1.216,
@@ -15495,7 +16073,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Thomas Church's Store. WHY HERE is a rule and not a placement: the front's trade is `store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_lasalle's south face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.66 m back of the lot line at the door, so the stoop spans 1.91 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.54 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Thomas Church's Store. WHY HERE is a rule and not a placement: the front's trade is `store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_lasalle's south face — at the door its front elevation states (T-1984) — its front wall stands 1.66 m back of the lot line at the door, so the stoop spans 1.91 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.54 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_wells_north_mounting_block_brown_boarding_house",
@@ -15538,7 +16116,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at Rufus Brown's Boarding House. WHY HERE is a rule and not a placement: the front's trade is `boarding_house` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A mounting block in the verge, between the inn's two posts, at Rufus Brown's Boarding House. WHY HERE is a rule and not a placement: the front's trade is `boarding_house` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_wells_north_stoop_carpenter_south_water_store",
@@ -15554,16 +16132,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        391.14,
+        391.94,
         -5.11
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.604,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            391.15,
+            391.95,
             -5.69
           ],
           "len_m": 1.52,
@@ -15573,7 +16151,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            391.14,
+            391.94,
             -5.0
           ],
           "len_m": 1.52,
@@ -15583,15 +16161,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            391.14,
-            -4.65
+            391.94,
+            -4.64
           ],
           "len_m": 1.216,
-          "depth_m": 0.411,
+          "depth_m": 0.417,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Philo Carpenter's South Water Street Store. WHY HERE is a rule and not a placement: the front's trade is `drug_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.53 m back of the lot line at the door, so the stoop spans 1.78 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.41 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Philo Carpenter's South Water Street Store. WHY HERE is a rule and not a placement: the front's trade is `drug_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.60 of the building's own frontage along blk_south_water_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.54 m back of the lot line at the door, so the stoop spans 1.79 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.42 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_wells_north_stoop_h_jones_store",
@@ -15607,16 +16185,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        353.43,
+        353.47,
         -5.44
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.503,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            353.44,
+            353.47,
             -6.02
           ],
           "len_m": 1.52,
@@ -15626,7 +16204,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            353.43,
+            353.47,
             -5.33
           ],
           "len_m": 1.52,
@@ -15636,7 +16214,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            353.43,
+            353.46,
             -4.97
           ],
           "len_m": 1.216,
@@ -15644,7 +16222,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Jones's Grocery and Provision Store. WHY HERE is a rule and not a placement: the front's trade is `grocery_and_provision_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.55 m back of the lot line at the door, so the stoop spans 1.80 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.43 m of boards, on committed ground at +0.74 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Jones's Grocery and Provision Store. WHY HERE is a rule and not a placement: the front's trade is `grocery_and_provision_store` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.55 m back of the lot line at the door, so the stoop spans 1.80 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.43 m of boards, on committed ground at +0.74 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_wells_north_stoop_peck_store",
@@ -15660,16 +16238,16 @@
       "trade_confidence": "attested",
       "business_class": "store",
       "at_local_enu_m": [
-        434.2,
+        434.24,
         -4.77
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.503,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            434.21,
+            434.24,
             -5.35
           ],
           "len_m": 1.52,
@@ -15679,7 +16257,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            434.2,
+            434.24,
             -4.67
           ],
           "len_m": 1.52,
@@ -15689,7 +16267,7 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            434.2,
+            434.23,
             -4.3
           ],
           "len_m": 1.216,
@@ -15697,7 +16275,7 @@
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at P. F. W. Peck's Store. WHY HERE is a rule and not a placement: the front's trade is `store_and_dwelling` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.55 m back of the lot line at the door, so the stoop spans 1.80 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.43 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at P. F. W. Peck's Store. WHY HERE is a rule and not a placement: the front's trade is `store_and_dwelling` (held `attested`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.55 m back of the lot line at the door, so the stoop spans 1.80 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.43 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_wells_north_stoop_recon_1835_blk_south_water_wells_c2_01",
@@ -15713,17 +16291,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        411.44,
-        -4.92
+        412.31,
+        -4.91
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.651,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            411.44,
-            -5.49
+            412.32,
+            -5.48
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -15732,8 +16310,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            411.44,
-            -4.81
+            412.31,
+            -4.8
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -15742,15 +16320,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            411.43,
-            -4.47
+            412.31,
+            -4.46
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #01. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_south_water_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_wells_north_stoop_recon_1835_blk_south_water_wells_c3_02",
@@ -15766,17 +16344,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "store",
       "at_local_enu_m": [
-        405.32,
-        -4.97
+        406.27,
+        -4.96
       ],
       "facade_bearing_deg": 359.5,
-      "along_frontage_frac": 0.5,
+      "along_frontage_frac": 0.648,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            405.32,
-            -5.54
+            406.28,
+            -5.53
           ],
           "len_m": 1.52,
           "depth_m": 1.07,
@@ -15785,8 +16363,8 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            405.32,
-            -4.86
+            406.27,
+            -4.85
           ],
           "len_m": 1.52,
           "depth_m": 0.3,
@@ -15795,15 +16373,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            405.31,
-            -4.52
+            406.27,
+            -4.51
           ],
           "len_m": 1.216,
           "depth_m": 0.38,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #02. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_wells's north face — no record places a door, so the middle of the front stands in for one — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C3 narrow two-story store #02. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_store` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.65 of the building's own frontage along blk_south_water_wells's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.73 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_west_lake_canal_east_wagon_apron_recon_1835_forks_freight_f2_001",
@@ -15926,7 +16504,7 @@
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #001. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_lake_canal's east face — no record places a door, so the middle of the front stands in for one — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 17.26 m to the West Water Street track, on committed ground at +1.02 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #001. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_lake_canal's east face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 17.26 m to the West Water Street track, on committed ground at +1.02 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
       "standing_chunk": "town_street_edge__fronts_only__standing"
     },
     {
@@ -15970,7 +16548,7 @@
           "top_m": 0.46
         }
       ],
-      "note": "A mounting block in the verge, between the inn's two posts, at Western Hotel. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_randolph_canal's north face — no record places a door, so the middle of the front stands in for one — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +1.12 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
+      "note": "A mounting block in the verge, between the inn's two posts, at Western Hotel. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_randolph_canal's north face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +1.12 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
       "standing_chunk": "town_street_edge__fronts_only__standing"
     }
   ],
@@ -16443,14 +17021,44 @@
       "why": "recon_1835_blk_washington_clark_h3_06 stands 1.54 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
-      "structure_id": "blk_washington_dearborn_north",
-      "wall": "blk_washington_dearborn north face",
-      "why": "no committed building stands anywhere on blk_washington_dearborn — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+      "structure_id": "blk_washington_dearborn_lot0",
+      "wall": "blk_washington_dearborn north face, lot 0",
+      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
     },
     {
-      "structure_id": "blk_washington_market_north",
-      "wall": "blk_washington_market north face",
-      "why": "no committed building stands anywhere on blk_washington_market — an unimproved block is open prairie and takes no plank walk, by the same clause the street fence and the hitching post are already refused under."
+      "structure_id": "blk_washington_dearborn_lot2",
+      "wall": "blk_washington_dearborn north face, lot 2",
+      "why": "recon_1835_blk_washington_dearborn_h3_01 stands 1.54 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+    },
+    {
+      "structure_id": "blk_washington_dearborn_lot4",
+      "wall": "blk_washington_dearborn north face, lot 4",
+      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
+    },
+    {
+      "structure_id": "blk_washington_dearborn_lot6",
+      "wall": "blk_washington_dearborn north face, lot 6",
+      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
+    },
+    {
+      "structure_id": "blk_washington_market_lot0",
+      "wall": "blk_washington_market north face, lot 0",
+      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
+    },
+    {
+      "structure_id": "blk_washington_market_lot2",
+      "wall": "blk_washington_market north face, lot 2",
+      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
+    },
+    {
+      "structure_id": "blk_washington_market_lot4",
+      "wall": "blk_washington_market north face, lot 4",
+      "why": "recon_1835_blk_washington_market_h3_01 stands 1.54 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+    },
+    {
+      "structure_id": "blk_washington_market_lot6",
+      "wall": "blk_washington_market north face, lot 6",
+      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
     },
     {
       "structure_id": "blk_west_lake_canal_north",
@@ -16485,12 +17093,12 @@
     {
       "structure_id": "harmon_loomis_store",
       "wall": "blk_south_water_clark north face, lot 0",
-      "why": "no stoop at harmon_loomis_store: no walk is laid at 6.0 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at harmon_loomis_store: no walk is laid at 5.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "inf_grocery_west",
       "wall": "blk_west_fulton_clinton north face, at its door",
-      "why": "no stoop at inf_grocery_west: no walk is laid at 91.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at inf_grocery_west: no walk is laid at 93.1 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "inf_harness_shop",
@@ -16550,12 +17158,12 @@
     {
       "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
       "wall": "blk_south_water_dearborn north face, lot 4",
-      "why": "no stoop at recon_1835_blk_south_water_dearborn_c3_01: no walk is laid at 74.2 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_blk_south_water_dearborn_c3_01: no walk is laid at 75.2 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
       "wall": "blk_south_water_dearborn north face, lot 4",
-      "why": "no stoop at recon_1835_blk_south_water_dearborn_c3_02: no walk is laid at 68.2 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_blk_south_water_dearborn_c3_02: no walk is laid at 69.1 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
@@ -16565,7 +17173,7 @@
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
       "wall": "blk_south_water_lasalle north face, lot 0",
-      "why": "no stoop at recon_1835_blk_south_water_lasalle_c1_08: no walk is laid at 12.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_blk_south_water_lasalle_c1_08: no walk is laid at 13.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
@@ -16575,7 +17183,7 @@
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
       "wall": "blk_south_water_lasalle north face, lot 2",
-      "why": "no stoop at recon_1835_blk_south_water_lasalle_c2_11: no walk is laid at 31.0 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+      "why": "no stoop at recon_1835_blk_south_water_lasalle_c2_11: no walk is laid at 31.9 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
@@ -16620,12 +17228,12 @@
     {
       "structure_id": "recon_1835_west_007",
       "wall": "blk_lake_clinton north face, at its door",
-      "why": "no stoop at recon_1835_west_007: the walk's inner edge is 0.27 m from the wall, under the 0.6 m a step needs — the walk is the stoop."
+      "why": "no stoop at recon_1835_west_007: the walk's inner edge is 0.26 m from the wall, under the 0.6 m a step needs — the walk is the stoop."
     },
     {
       "structure_id": "recon_1835_west_020",
       "wall": "blk_west_randolph_jefferson east face, at its door",
-      "why": "no stoop at recon_1835_west_020: the front wall stands 8.94 m back from the lot line, across a dooryard no street fence lines (a fronts-only face takes none, T-1823); the door is reached through the yard, not off the walk."
+      "why": "no stoop at recon_1835_west_020: the front wall stands 8.99 m back from the lot line, across a dooryard no street fence lines (a fronts-only face takes none, T-1823); the door is reached through the yard, not off the walk."
     },
     {
       "structure_id": "sauganash_hotel",

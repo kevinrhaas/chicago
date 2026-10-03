@@ -157,9 +157,9 @@
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the C3 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
     },
     "siding_exposure_m": {
-      "value": 0.127,
+      "value": 0.114,
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 4.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (4.5 in or 5 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
     },
     "function": {
       "value": "narrow_two_story_store",
@@ -168,6 +168,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the C3 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
+    },
+    "stated_use": {
+      "value": "the_printed_count_is_held",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE SOUTH DIVISION. This narrow two story store is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'), and there are 0. 18 more keeper(s) of a trade it serves live in the south division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
     }
   },
   "residents": [],
@@ -220,5 +228,14 @@
       "abuts": null,
       "why": "T-0077, the owner's ask of 2026-08-18 on the Tremont House street scene: \"there should be more and denser buildings. this is important.\" He sent the plate of this corner — a continuous two-storey storefront row, shoulder to shoulder on shared party lines — beside a screenshot of this same corner in the render, where the Tremont stands alone on open grass. Four of this row's anonymous roofs stood in the Clark-Dearborn block SEVENTEEN TO TWENTY-FOUR METRES behind the Lake Street frontage, each nudged off the line by its own jitter, which is the shape of a distribution and not of a street. They now stand ON the frontage: the line, its bearing and the corner they pack back from are read from the committed block boundary in data/traces/vectors/thompson_lots.json, and this file authors no coordinate for any of them. The 0.80 m setback is not a measurement — it is the line the two frontage buildings ALREADY standing on this face (inf_bakery_lake and inf_butcher_market) use, adopted so the street wall is one wall rather than three. No roof is added, moved out of its block, renamed or re-dimensioned: the parcel still deals 40 principal and 8 ancillary, and every id and band is the one it was."
     }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "merchant",
+    "age_state": "recent",
+    "weather_years": 1.5,
+    "weather_rate": 0.5,
+    "lay_m": 0.003,
+    "confidence": "reconstructed"
   }
 }

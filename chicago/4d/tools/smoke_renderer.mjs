@@ -666,15 +666,24 @@ const STANDS = [
  * paying once in the colour pass and once in the shadow pass, exactly as the
  * paragraph above predicts. The reach's headroom is 4 calls smaller and its
  * budget is 80.
+ *
+ * **3 -> 5 ON 2026-10-02 (T-1963), the same deliberate edit for the walls.**
+ * `wall-relief.js` binds one shared normal + packed ORL pair to every
+ * clapboarded wall and one to every laid-log wall, so the key splits off ONE
+ * clapboard batch (250 walls) and ONE log batch (105). Measured through
+ * `tools/wall_relief_shots.mjs` with `?walls=flat` against the default, published
+ * mirror: lake_market 189 -> 193 and south_water 173 -> 177 at 1280x800, 83 -> 87
+ * and 80 -> 84 at 390x780, and +4 at every close stand too — the two batches once
+ * in each pass, triangles unchanged to the triangle.
  */
-const STRUCTURE_BATCHES = 3;
+const STRUCTURE_BATCHES = 5;
 /**
  * …and of those three, exactly two are roof coverings — T-1488. The count above
  * would pass identically on a town that had split into three batches by LOSING
  * the merge, which is the failure R-W5a2 wrote it to catch; this says WHICH
  * three, so a regression that re-splits the walls cannot hide behind the raise.
  */
-const TEXTURED_STRUCTURE_BATCHES = 2;
+const TEXTURED_STRUCTURE_BATCHES = 4; // two roof coverings (T-1488) + clapboard and log walls (T-1963)
 /**
  * How many distinct roughness values the merged batch must still carry, and how
  * far the frame must move when they are flattened.
@@ -1669,8 +1678,14 @@ for (const [label, viewport, touch] of [
           for (let i = 0; i < pos.count; i += step) {
             const e = pos.getX(i);
             const n = -pos.getZ(i);
-            worstDrape = Math.max(worstDrape,
-              Math.abs(pos.getY(i) - a.terrain.surfaceHeight(e, n) - 0.022));
+            // A vertex stands on the field — or, on a panel laid on the ground's
+            // cells (streets.js, THE RIDGE DRAPE), on the cell's upper
+            // triangulation, which is never under the field and meets it on
+            // every lattice line. Outside that band is a drape fault either way.
+            const y = pos.getY(i) - 0.022;
+            const floor = a.terrain.surfaceHeight(e, n);
+            const ceil = a.streets.ridgeHeight?.(e, n) ?? floor;
+            worstDrape = Math.max(worstDrape, floor - y, y - ceil);
             if (a.terrain.isWater(e, n)) wetVertices++;
           }
         });
@@ -1856,6 +1871,14 @@ for (const [label, viewport, touch] of [
         // of the failure this gate exists to catch, with headroom over the
         // measured worst. Off-grid probes are skipped: no sample, no verdict.
         let worstSink = 0;
+        // The same probes against the GROUND THAT IS DRAWN, which is not the
+        // bilinear field: the bake triangulates each cell, and under a road the
+        // drawn ground stands up to a quarter of the cell's twist above the
+        // field — never above the cell's ridge (measured: 4 mm at worst over
+        // 1.14 M points under the roads). The owner's grass coming up through
+        // the dirt (2026-10-02) was this number at 0.61 m, and at 3 cm or more
+        // on 1,180 triangles; laid on the ridge it reads 0.017 m.
+        let worstRidgeSink = 0;
         a.streets.group.traverse((o) => {
           const pos = o.geometry?.getAttribute?.('position');
           const idx = o.geometry?.index;
@@ -1876,6 +1899,9 @@ for (const [label, viewport, touch] of [
               const y = pt[0][1] * wa + pt[1][1] * wb + pt[2][1] * wc;
               worstSink = Math.max(worstSink,
                 a.terrain.surfaceHeight(e, n) + 0.022 - y);
+              if (a.streets.ridgeHeight) {
+                worstRidgeSink = Math.max(worstRidgeSink, a.streets.ridgeHeight(e, n) + 0.022 - y);
+              }
             }
           }
         });
@@ -2005,7 +2031,9 @@ for (const [label, viewport, touch] of [
         }
 
         return {
-          worstSink, refinedPanels, approachGaps, jointGaps, jointStations,
+          worstSink, worstRidgeSink, refinedPanels, approachGaps, jointGaps, jointStations,
+          ridgePanels: a.streets.stats?.ridgePanels ?? null,
+          ridged: a.streets.ridged ?? null, roadDetail: a.detail,
           joints: a.streets.stats?.joints ?? null,
           squareJoints: a.streets.stats?.squareJoints ?? null,
           mitredJoints: a.streets.stats?.mitredJoints ?? null,
@@ -2458,6 +2486,11 @@ for (const [label, viewport, touch] of [
     // Whether a garden should follow the HOUSE instead of the household is a claim
     // about the town rather than a bug, and it is the owner's: T-0727 asks him. If he
     // rules that way this floor rises again, and it should.
+    //
+    // He did (T-0772, 2026-09-21: the garden follows the HOUSE), and T-1958 spent the
+    // ruling: forty-six plots on the day it landed. The floor rises to thirty — far
+    // enough under the rule's output to survive the town's lots being re-dealt, far
+    // enough over one to fail if clause 4 ever slides back to the household reading.
     const pickets = await page.evaluate(() => {
       const e = window.__chicago4d.enclosures;
       const rec = (e?.records ?? []).find((r) => r.id === 'town_dooryard_pickets');
@@ -2470,7 +2503,7 @@ for (const [label, viewport, touch] of [
       };
     });
     check(`${label}: the town's house lots carry generated picket gardens`,
-      pickets.found && pickets.runs >= 1 && pickets.type === 'picket'
+      pickets.found && pickets.runs >= 30 && pickets.type === 'picket'
       && pickets.ids.includes('blk_randolph_franklin_lot2'),
       `record ${pickets.found}, ${pickets.runs} plot(s) [${pickets.ids.join(', ')}], `
       + `fence type ${pickets.type}`);
@@ -3263,7 +3296,7 @@ for (const [label, viewport, touch] of [
       // record now carries, per flat sign, the door and window rectangles of the
       // wall it hangs on — derived from the same archetype set-out the MESH is
       // built from — and the one rectangle it is deliberately fixed to, which is
-      // only ever a door a board was shrunk onto. Anything else it covers is the
+      // only ever a fascia a name is lettered on (T-1984). Anything else it covers is the
       // fault coming back.
       let flatSigns = 0;
       const overOpening = [];
@@ -3274,7 +3307,8 @@ for (const [label, viewport, touch] of [
         const [ba, bc] = fit.board_span_local_m;
         // `arm_height_m` is the board's HEAD; a wall board carries a rain cap over
         // it, which signage.js stands 0.09 m proud of the same wall.
-        const top = sg.arm_height_m + (sg.mounting === 'wall_board' ? 0.09 : 0);
+        const top = sg.arm_height_m
+          + (sg.mounting === 'wall_board' && sg.geometry?.capped !== false ? 0.09 : 0);
         const bot = sg.arm_height_m - sg.board_h_m;
         const on = fit.fixed_to;
         for (const o of fit.openings || []) {
@@ -3283,6 +3317,11 @@ for (const [label, viewport, touch] of [
             && o.u1 === on.u1 && o.z0 === on.z0 && o.z1 === on.z1
             && ba >= on.u0 && bc <= on.u1 && bot >= on.z0 && top <= on.z1;
           if (!isFixture) overOpening.push(`${sg.structure_id} over ${o.kind}`);
+          // T-1984: the one rectangle a board may stand over is a FASCIA it is
+          // lettered on, never a door leaf or the glass.
+          else if (!['fascia', 'archetype_sign'].includes(on.kind)) {
+            overOpening.push(`${sg.structure_id} fixed to a ${on.kind}`);
+          }
         }
       }
       // The South Water row, which is the street the town actually reads as one:
@@ -3591,6 +3630,27 @@ for (const [label, viewport, touch] of [
       const wagons = y?.wagons ?? [];
       const benches = y?.benches ?? [];
       const sheds = y?.sheds ?? [];
+      // T-1960. The privies and stables in the house yards: measured by their OWN box,
+      // like the shed, so a 6 m stable is not read against a barrel's 0.75 m bar.
+      const outbuildings = (y?.outbuildings ?? []).map((ob) => ({
+        id: ob.id, kind: ob.kind, e: ob.at_local_enu_m[0], n: ob.at_local_enu_m[1],
+        b: ((ob.bearing_deg ?? 0) * Math.PI) / 180,
+        reachA: (ob.along_m ?? 0) / 2 + 0.45, reachO: (ob.depth_m ?? 0) / 2 + 0.45,
+        head: ob.head_m ?? 0 }));
+      const obAt = (e, n) => {
+        for (const ob of outbuildings) {
+          const de = e - ob.e;
+          const dn = n - ob.n;
+          if (Math.abs(de) > 6 || Math.abs(dn) > 6) continue;
+          const along = de * Math.cos(ob.b) - dn * Math.sin(ob.b);
+          const out = de * Math.sin(ob.b) + dn * Math.cos(ob.b);
+          if (Math.abs(along) <= ob.reachA && Math.abs(out) <= ob.reachO) return ob;
+        }
+        return null;
+      };
+      let obVerts = 0;
+      let obHigh = 0;           // tallest a vertex stands over its own building's base
+      const obTones = new Set();
       const items = [];
       for (const f of frontages) {
         for (const it of f.items ?? []) {
@@ -3723,6 +3783,16 @@ for (const [label, viewport, touch] of [
           // The shed's bay first: along the wall and out of it, in the shed's own
           // frame. The wagon's tongue reaches past the bay and is left to the
           // wagon bound below, which is exactly where it belongs.
+          const ob = obAt(e, n);
+          if (ob) {
+            obVerts++;
+            const c = geo.getAttribute('color');
+            if (c) obTones.add(`${c.getX(i).toFixed(4)},${c.getY(i).toFixed(4)},${c.getZ(i).toFixed(4)}`);
+            ob.minY = Math.min(ob.minY ?? Infinity, pos.getY(i));
+            ob.maxY = Math.max(ob.maxY ?? -Infinity, pos.getY(i));
+            obHigh = Math.max(obHigh, ob.maxY - ob.minY);
+            continue;
+          }
           let inBay = false;
           for (const sh of sheds) {
             const sb = ((sh.bearing_deg ?? 0) * Math.PI) / 180;
@@ -3846,6 +3916,22 @@ for (const [label, viewport, touch] of [
         bridgeRecord: bridgeRecord ? { counts: bridgeRecord.counts,
           confidence: bridgeRecord.existence?.confidence } : null,
         bridgePiles: piles.filter((pl) => pl.bridge),
+        // T-1961. The working trades' yards: what the record stands, and how much
+        // of it reached the screen as piles.
+        tradeYards: (() => {
+          const rec = y?.records?.find((r) => r.id === 'town_trade_yards');
+          if (!rec) return null;
+          const ids = new Set((rec.lots ?? []).map((l) => l.structure_id));
+          const drawn = piles.filter((pl) => ids.has(pl.structure_id));
+          const kinds = {};
+          for (const pl of drawn) kinds[pl.kind] = (kinds[pl.kind] ?? 0) + 1;
+          return { counts: rec.counts, confidence: rec.existence?.confidence,
+            lots: (rec.lots ?? []).length, drawn: drawn.length, kinds,
+            belongs: (rec.lots ?? []).every((l) => l.belongs_to === l.structure_id)
+              && (rec.wagons ?? []).every((w) => !!w.belongs_to),
+            wagonsDrawn: (y?.wagons ?? []).filter((w) => w.in_yard_of).length,
+            wagons: (rec.wagons ?? []).length };
+        })(),
         piles: piles.length,
         shedVerts,
         shedOut,
@@ -3853,6 +3939,11 @@ for (const [label, viewport, touch] of [
         shedSpan: Number.isFinite(shedLow) ? shedHigh - shedLow : null,
         shed: sheds[0] ?? null,
         sheds: sheds.length,
+        outbuildings: outbuildings.length,
+        obVerts,
+        obHigh,
+        obTones: obTones.size,
+        obUndrawn: outbuildings.filter((ob) => !(ob.maxY > ob.minY)).length,
         // One material and the tilt still reads as canvas: the colour is per
         // vertex, so the whole layer must carry exactly its OWN tones and no
         // more. It was two — timber and duck — until T-0057 put brick and stone
@@ -3863,7 +3954,10 @@ for (const [label, viewport, touch] of [
           for (const geo of geos) {
             const c = geo.getAttribute('color');
             if (!c) return 0;
+            const pos = geo.getAttribute('position');
             for (let i = 0; i < c.count; i++) {
+              // The yard outbuildings carry their own tones (T-1960), counted below.
+              if (obAt(pos.getX(i), -pos.getZ(i))) continue;
               seen.add(`${c.getX(i).toFixed(4)},${c.getY(i).toFixed(4)},`
                 + `${c.getZ(i).toFixed(4)}`);
             }
@@ -3915,8 +4009,16 @@ for (const [label, viewport, touch] of [
     // frame. It chunks now, the way `frontage.js` and `enclosures.js` do. What
     // must still hold, and is the whole reason chunking is cheap: ONE material
     // across every chunk, and every chunk carrying its own bounding sphere.
+    // THE CEILING WAS 64 AND IS 96 SINCE T-1960, a conscious re-budget and not a
+    // weakened assertion (AGENTS.md, the frame budget): the privies and stables put
+    // the layer on 122 more house lots, many in 110 m cells no barrel or wagon
+    // reached, and the layer went from 64 chunks to 71. 96 is that plus headroom for
+    // the yard pieces still to come (T-1961), and the town's draw calls stayed
+    // inside their own budget (142 of 215 at the boot stand) when it moved.
+    const YARD_CHUNK_CEILING = 96;
     check(`${label}: the yard layer chunks for culling on a single material`,
-      goods.meshes > 1 && goods.meshes <= 64 && goods.meshes === goods.census?.chunks
+      goods.meshes > 1 && goods.meshes <= YARD_CHUNK_CEILING
+        && goods.meshes === goods.census?.chunks
         && goods.materials === 1 && goods.bounded
         && goods.mergedNames.every((name) => name === 'yard-far-merge'),
       `${goods.meshes} chunk mesh(es) (census ${goods.census?.chunks}), `
@@ -4067,6 +4169,19 @@ for (const [label, viewport, touch] of [
     // turned its outward normal the wrong way on its first run and put every
     // one of the nine piles inside the building, which clause 5 caught then and
     // this catches now.
+    // T-1961: the goods in the working trades' yards are drawn through the same
+    // lots contract, so the pile bound below measures them too. What has to hold
+    // here is that every object the record stands reaches the screen, in every
+    // kind the trades deal, and that each one belongs to its business.
+    check(`${label}: the working trades' yards stand their goods by trade`,
+      goods.tradeYards?.confidence === 'reconstructed'
+        && goods.tradeYards.lots >= 20
+        && goods.tradeYards.drawn === goods.tradeYards.counts?.objects
+        && ['barrel', 'boards', 'hides', 'hay'].every((k) => goods.tradeYards.kinds[k] > 0)
+        && goods.tradeYards.wagons >= 2
+        && goods.tradeYards.wagonsDrawn === goods.tradeYards.wagons
+        && goods.tradeYards.belongs,
+      JSON.stringify(goods.tradeYards));
     check(`${label}: no pile of material stands inside the building it is for`,
       goods.pileStray > 0 && goods.pileStray <= 2.1 && goods.pileInLot === 0,
       `furthest vertex ${goods.pileStray?.toFixed(2)} m from its own pile's anchor, `
@@ -4076,9 +4191,28 @@ for (const [label, viewport, touch] of [
     // only possible because the colour moved onto the geometry — so the whole
     // layer, chunks and all, has to carry exactly two tones: timber and duck.
     check(`${label}: the tilt is drawn in canvas on the layer's one material`,
-      goods.tones === 4 && goods.materials === 1,
+      // Six since T-1961: timber, duck, brick, stone, and the hay and hides of
+      // the working trades' yards.
+      goods.tones === 6 && goods.materials === 1,
       `${goods.tones} vertex tone(s) across ${goods.meshes} chunk(s) on `
       + `${goods.materials} material(s)`);
+
+    // ---- T-1960: a privy behind every house, a stable for the horse-keepers ---- //
+    // Every record the layer loaded is drawn — a privy no taller than a man can
+    // reach the eaves of, a stable no taller than its ridge plus the sill run below
+    // grade — and they differ house to house, which is the point of dealing them by
+    // household: the boards weather with the house and a merchant's is whitewashed.
+    check(`${label}: a privy stands behind the town's houses and a stable for the horse-keepers`,
+      goods.outbuildings >= 100 && goods.census?.outbuildings === goods.outbuildings
+        && (goods.census?.byOutbuilding?.privy ?? 0) >= 100
+        && (goods.census?.byOutbuilding?.stable ?? 0) >= 10
+        && goods.obUndrawn === 0 && goods.obVerts > 0 && goods.obHigh <= 4.8,
+      `${goods.outbuildings} outbuilding(s) ${JSON.stringify(goods.census?.byOutbuilding ?? {})}, `
+      + `${goods.obVerts} vertices, ${goods.obUndrawn} with no geometry, tallest `
+      + `${goods.obHigh?.toFixed(2)} m sill to ridge`);
+    check(`${label}: the outbuildings differ house to house`,
+      goods.obTones >= 12,
+      `${goods.obTones} distinct tone(s) across the privies and stables`);
 
     // ---- T-0064: more wagons, all over a frontier town ---------------------- //
     //
@@ -4778,6 +4912,7 @@ for (const [label, viewport, touch] of [
         letterVerts: letters?.geometry?.getAttribute('position')?.count ?? 0,
         letterMap: !!letters?.material?.map,
         timberMap: !!mesh?.material?.map,
+        timberMapName: mesh?.material?.map?.name ?? null,
         lettering: f?.lettering ?? null,
         recordText: post?.text ?? null,
         textGrade: post?.text_confidence ?? null,
@@ -5292,15 +5427,25 @@ for (const [label, viewport, touch] of [
     // lettering claim from the record, and the wording is the one part of this
     // that no ticket may quietly drop — it is the plate's, not the renderer's,
     // and T-1547 needs it back the moment the post returns.
+    //
+    // T-1815 — THE TIMBER NOW CARRIES ITS GRAIN, AND STILL NO LETTERING. The street
+    // edge binds the clapboard board-face sheet onto the timber material, so its
+    // `map` is no longer empty: it is the grain's albedo ratio, named
+    // `frontage-grain:<sheet>` by frontage.js. What this line refuses is unchanged
+    // — painted text anywhere but the lettering mesh — so "carries no texture"
+    // becomes "carries no texture but the grain the census says it was bound".
+    const timberPlain = frontage.timberMap === false
+      || (frontage.census?.relief != null
+        && frontage.timberMapName === `frontage-grain:${frontage.census.relief}`);
     check(`${label}: the board carries the record's own name, painted, or none is drawn and the name is kept`,
       frontage.census?.lettered === 1
         ? frontage.letterVerts >= 6
-          && frontage.letterMap === true && frontage.timberMap === false
+          && frontage.letterMap === true && timberPlain
           && frontage.lettering === frontage.recordText
           && frontage.recordText === 'GREEN TREE'
           && frontage.textGrade === 'inferred'
         : frontage.census?.lettered === 0 && frontage.letterVerts === 0
-          && frontage.letterMesh === false && frontage.timberMap === false
+          && frontage.letterMesh === false && timberPlain
           && frontage.letteringValue === 'GREEN TREE'
           && frontage.letteringGrade === 'inferred',
       frontage.census?.lettered === 1
@@ -5308,7 +5453,8 @@ for (const [label, viewport, touch] of [
           + `"${frontage.recordText}" graded ${frontage.textGrade}`
         : `no board lettered (${frontage.letterVerts} lettering vertices, `
           + `lettering mesh ${frontage.letterMesh}); the record keeps its wording `
-          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}`);
+          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}; `
+          + `timber map ${frontage.timberMapName ?? 'none'}`);
 
     // AND IT READS FROM THE STREET, which is what a walk and a signboard are FOR.
     // Stand out on Lake Street where a traveller coming up to the inn stands and
@@ -6129,6 +6275,20 @@ for (const [label, viewport, touch] of [
           faceWet: [faceL, faceR].every((p) => terrain.isWater(p[0], p[1])),
           bankY: Math.max(...[heelL, heelR].map((p) => terrain.surfaceHeight(p[0], p[1]))),
           depth: Math.min(...[faceL, faceR].map((p) => -terrain.surfaceHeight(p[0], p[1]))),
+          // The bank's crest behind the heel (T-1771): the highest ground in the
+          // four metres landward of the deck's middle, which is what "low" is
+          // asked against — a deck should meet its bank, not stand over it.
+          crestY: (() => {
+            const mid = [(heelL[0] + heelR[0]) / 2, (heelL[1] + heelR[1]) / 2];
+            const span = Math.hypot(faceL[0] - heelL[0], faceL[1] - heelL[1]) || 1;
+            const le = -(faceL[0] - heelL[0]) / span;
+            const ln = -(faceL[1] - heelL[1]) / span;
+            let best = -Infinity;
+            for (let v = 0.5; v <= 4; v += 0.5) {
+              best = Math.max(best, terrain.surfaceHeight(mid[0] + le * v, mid[1] + ln * v));
+            }
+            return best;
+          })(),
         };
       });
       // What the layer PUBLISHES to the walker, as against what it drew: one
@@ -6141,7 +6301,9 @@ for (const [label, viewport, touch] of [
         .filter((d) => d.id.endsWith('__wharf'))
         .every((d) => d.y === deckY.get(d.id));
       const stairCeiling = w?.records?.[0]?.form?.boarding_stair_rise_m?.value ?? null;
+      const freeboard = w?.records?.[0]?.form?.freeboard_m?.value ?? null;
       return {
+        freeboard,
         census: w?.census ?? null,
         decks,
         publishedMatchesDrawn,
@@ -6216,13 +6378,27 @@ for (const [label, viewport, touch] of [
     // The deck is neither floating over the bank nor drowned in the river, and
     // its crib reaches the bed under it — T-0001's finding, asked of a layer
     // that has no walk surface to catch it a second time.
+    // The floor is READ off the record (T-1771 lowered it from 0.90 to 0.35 m on
+    // the owner's ask for low docks), and pinned between 0.25 and 0.9 m so a
+    // record edited to put the planks in the river, or back up on a stair, is
+    // still caught here rather than agreed with.
     check(`${label}: no deck floats and every crib reaches the bed`,
-      docks.stands.every((s) => s.deckTop >= 0.9 - 1e-6 && s.deckTop >= s.bankY - 1e-6
+      docks.freeboard !== null && docks.freeboard >= 0.25 && docks.freeboard <= 0.9
+      && docks.stands.every((s) => s.deckTop >= docks.freeboard - 1e-6 && s.deckTop >= s.bankY - 1e-6
         && s.deckTop <= s.bankY + 1.0 && s.depth > 0.5)
         && docks.lowest !== null && docks.lowest < -0.5,
       docks.stands.map((s) => `${s.id} deck ${s.deckTop?.toFixed(2)} m over a bank at `
         + `${s.bankY?.toFixed(2)} m, ${s.depth?.toFixed(2)} m of water at the face`).join('; ')
-      + `; lowest vertex ${docks.lowest?.toFixed(2)} m`);
+      + `; lowest vertex ${docks.lowest?.toFixed(2)} m, floor ${docks.freeboard} m`);
+    // LOW DOCKS (T-1771, the owner's ask). Until it, the 0.90 m floor stood all
+    // five South Water decks about half a metre proud of a bank whose crest is
+    // 0.32-0.39 m over the water, each on a boarding stair. A deck meets its bank
+    // now: none stands more than 0.15 m above the crest behind it.
+    check(`${label}: every deck is low — it meets the bank crest behind it`,
+      docks.stands.length === 7
+        && docks.stands.every((s) => Number.isFinite(s.crestY) && s.deckTop - s.crestY <= 0.15),
+      docks.stands.map((s) => `${s.id} deck ${s.deckTop?.toFixed(2)} m, crest `
+        + `${s.crestY?.toFixed(2)} m`).join('; '));
 
     // --- and a visitor can walk out along one (T-0058) ---------------------
     //
@@ -6235,18 +6411,20 @@ for (const [label, viewport, touch] of [
     //
     // That alone does not buy boarding, which is the half of this ticket that is
     // easy to declare done and is not. The deck top is the ground's, floored at
-    // the record's 0.90 m freeboard over the water, and this terrain puts the
-    // bank at these seven heels between 0.12 and 0.58 m — a 0.32 to 0.78 m riser
-    // against the walker's 0.35 m step-up rule, which refuses six of the seven.
-    // So the layer draws a boarding stair and the bar here is the WALK, not the
-    // publication: start on the ground behind each dock, push forward, and be
-    // standing on the planks over the water at the far end having been refused
-    // nothing on the way.
+    // the record's freeboard over the water. Under the old 0.90 m floor this
+    // terrain put the bank at the seven heels between 0.12 and 0.58 m, a 0.32 to
+    // 0.78 m riser against the walker's 0.35 m step-up rule, so the layer drew a
+    // boarding stair at every dock. Under T-1771's 0.35 m floor a deck meets its
+    // bank and the stair takes no tread anywhere the terrain does not ask for one
+    // — which is why this no longer counts stairs, and why the bar is still the
+    // WALK, not the publication: start on the ground behind each dock, push
+    // forward, and be standing on the planks over the water at the far end having
+    // been refused nothing on the way.
     check(`${label}: every plank a wharf drew is published to the walker at the height it drew it`,
       docks.decks.length === 7 + (docks.census?.treads ?? -1)
         && docks.publishedMatchesDrawn
         && docks.decks.every((d) => d.pts === 4)
-        && docks.census?.stairs === 7,
+        && docks.stands.every((s) => s.treads !== null),
       `${docks.decks.length} walk surface(s) for 7 deck(s) and `
       + `${docks.census?.treads} tread(s) on ${docks.census?.stairs} stair(s), `
       + `heights ${docks.publishedMatchesDrawn ? 'match' : 'DISAGREE WITH'} the drawn slabs`);
@@ -6428,6 +6606,100 @@ for (const [label, viewport, touch] of [
       floors.wharves.decks > 0 && floors.wharves.rootable === 0 && floors.wharves.speciesHits === 0,
       `${floors.wharves.decks} deck(s), ${floors.wharves.rootable} rootable, `
         + `${floors.wharves.speciesHits} of ${floors.wharves.speciesAsked} species stations granted`);
+
+    // --- the working bank (T-1771) ---------------------------------------
+    //
+    // South Water's river side as trodden earth, a haul apron behind every
+    // landing and the sward left to the unworn patches. Derived at load from
+    // the record, the street and the decks just checked, so it is asked here of
+    // the scene the browser built and not of the record: that it was laid, that
+    // it is one draw call and graded reconstructed at every vertex, that every
+    // dock got an apron and the five on South Water reach the street, that the
+    // planters are told to leave an apron bare, and that it stays off the bank
+    // across the river, which no landing works.
+    const bank = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const wb = a.workingBank;
+      const mesh = wb?.group?.children?.[0] ?? null;
+      const conf = mesh?.geometry?.getAttribute('_confidence') ?? null;
+      const road = mesh?.geometry?.getAttribute('aRoad') ?? null;
+      let onStreet = 0;
+      for (let i = 0; i < (road?.count ?? 0); i++) if (road.getX(i) < 0) onStreet++;
+      let notReconstructed = 0;
+      for (let i = 0; i < (conf?.count ?? 0); i++) if (conf.getX(i) !== 1) notReconstructed++;
+      const apronProbe = (wb?.aprons ?? []).map((ap) => {
+        // Two metres landward of the deck's heel on its centreline, or half way
+        // along an apron shorter than four (Newberry & Dole's meets the street
+        // 1.5 m from its deck).
+        const v = Math.min(2, ap.L / 2);
+        const e = ap.mid[0] + ap.le * v;
+        const n = ap.mid[1] + ap.ln * v;
+        return { id: ap.id, wear: wb.wearAt(e, n), sward: wb.blocksGrowth(e, n),
+          trees: wb.blocksTrees(e, n), toStreet: ap.toStreet };
+      });
+      return {
+        stats: wb?.stats ?? null,
+        meshes: wb?.group?.children?.length ?? 0,
+        hasConfidence: !!conf,
+        notReconstructed,
+        hasRoad: !!road,
+        onStreet,
+        vertices: road?.count ?? 0,
+        apronProbe,
+        // The North Division bank across the river from Jones's landing.
+        across: wb ? wb.wearAt(365, 116) : null,
+        acrossTrees: wb ? wb.blocksTrees(365, 116) : null,
+      };
+    });
+    check(`${label}: the working bank is laid along South Water and behind every landing`,
+      bank.stats?.drawn === true && bank.stats.triangles > 0 && bank.stats.reaches === 1
+        && bank.stats.columns > 600 && bank.stats.aprons === 7
+        && bank.apronProbe.filter((p) => p.toStreet).length === 5,
+      `${bank.stats?.triangles} triangle(s), ${bank.stats?.columns} bank column(s), `
+        + `${bank.stats?.aprons} apron(s), `
+        + `${bank.apronProbe.filter((p) => p.toStreet).length} running back to the street`);
+    check(`${label}: the working bank is one draw call, reconstructed at every vertex`,
+      bank.meshes === 1 && bank.hasConfidence && bank.notReconstructed === 0,
+      `${bank.meshes} mesh(es), attribute ${bank.hasConfidence ? 'present' : 'MISSING'}, `
+        + `${bank.notReconstructed} vertex/vertices claiming better than reconstructed`);
+    // T-1987. The band feathers in over South Water's worked edge on purpose, so
+    // some of its vertices stand on the street; the shader draws only earth
+    // there (working-bank.js), because an opaque grid 4 cm up drew square
+    // patches of grass over the street wherever it drew the prairie. This asks
+    // that the distance it decides on is carried, and that the overlap it
+    // governs exists — a band that stopped short would pass it vacuously.
+    check(`${label}: the working bank knows where the street is, and stands partly on it`,
+      bank.hasRoad && bank.onStreet > 0 && bank.onStreet < bank.vertices,
+      `${bank.onStreet} of ${bank.vertices} bank vertices on the street's worked width`);
+    check(`${label}: every landing's apron is bare earth with no tree, and the far bank is left alone`,
+      bank.apronProbe.length === 7
+        && bank.apronProbe.every((p) => p.wear >= 0.99 && p.trees === true)
+        && bank.across === 0 && bank.acrossTrees === false,
+      bank.apronProbe.map((p) => `${p.id} wear ${p.wear.toFixed(2)} trees `
+        + `${p.trees ? 'cleared' : 'STANDING'}`).join('; ')
+        + `; across the river wear ${bank.across}`);
+    // AND IT READS, from the street looking across the bank at Carpenter's
+    // landing, held clock, with and without the layer. T-1987: the stand sat
+    // at n 9, pitch -9, where most of what the layer changed was the band of
+    // prairie it painted over the street itself (the bug the owner reported,
+    // 2026-10-02); with that gone the view read worst 4.0, mean 0.21 at phone
+    // size. It stands at the worked edge now, looking down across the bank
+    // to the water (worst 13, mean 1.1 at 390x780; 15 / 2.6 at 1280x800), and
+    // the bar is unchanged.
+    await page.evaluate(() => { window.__chicago4d.setAnimationHold(false); });
+    await page.evaluate(() => window.__chicago4d.walker.teleport(
+      { local_e: 372, local_n: 13, yaw_deg: 8, pitch_deg: -12 }));
+    await page.waitForTimeout(350);
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
+    const bankWith = await page.evaluate(() => window.__chicago4d.capture());
+    await page.evaluate(() => { window.__chicago4d.workingBank.group.visible = false; });
+    const bankWithout = await page.evaluate(() => window.__chicago4d.capture());
+    await page.evaluate(() => { window.__chicago4d.workingBank.group.visible = true; });
+    await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    const dBank = signatureDistance(bankWith, bankWithout);
+    check(`${label}: the working bank changes what a visitor sees from South Water`,
+      dBank.worst >= 6 && dBank.mean >= 0.3,
+      `signature distance worst ${dBank.worst?.toFixed(1)}, mean ${dBank.mean?.toFixed(2)}`);
 
     // --- the boats on the river (T-0063) ---------------------------------
     //
@@ -8763,8 +9035,15 @@ for (const [label, viewport, touch] of [
     // reset from `DETAIL[level]`), so it reads 600,000 on a phone booting into
     // `light` and 1,000,000 on a desktop. The three tier ceilings have their own
     // check further down, which is where a re-budget of those would show.
+    //
+    // T-1975, 2026-10-02: 215 -> 240, moved here in the same commit as `BUDGET`
+    // in `main.js`, where the measurement is written (worst frame 222 calls at
+    // `full`, Lake Street at Canal, 1280x800, dev @ 652ca8ea; 215 carried 15
+    // over the 200 it was set against, and 222 + 15 rounds up to 240). A
+    // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
+    // below is untouched and still red at 102 until T-1976's trim.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 215,
+      stats.budget.drawCalls === 240,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -9101,6 +9380,8 @@ for (const [label, viewport, touch] of [
           ceiling: a.detailLevels[level].triangles,
           furnitureReachM: a.furnitureReach.reachM,
           furnitureMeshesReach: a.furnitureReach.meshes,
+          roadRidged: a.streets.ridged ?? null,
+          roadRidgePanels: a.streets.stats?.ridgePanels ?? null,
           bankedSpheres: a.furnitureReach.banked,
           atStands,
           worstTris: atStands.reduce((x, y) => (y.tris > x.tris ? y : x)),
@@ -9238,6 +9519,12 @@ for (const [label, viewport, touch] of [
       light.worstCalls.calls <= full.worstCalls.calls * 0.9,
       `${light.worstCalls.calls} calls at light against ${full.worstCalls.calls} at full, `
       + `worst stand ${light.worstCalls.label}`);
+    // THE RIDGE DRAPE follows the level: laid at full and balanced, not at light.
+    check(`${label}: the road is laid on the ridge at full and balanced and not at light`,
+      detail.seen.every((s) => s.roadRidged === (s.level !== 'light')
+        && (s.roadRidgePanels > 0) === (s.level !== 'light')),
+      detail.seen.map((s) => `${s.level} ${s.roadRidged ? 'ridged' : 'grids'} `
+        + `${s.roadRidgePanels}`).join(', '));
     check(`${label}: the level the visitor started on is restored`,
       detail.restored && !detail.flying && detail.restoredAt === STANDS[0].id,
       `${detail.restored ? 'level restored' : 'level NOT restored'}, `
@@ -9828,6 +10115,23 @@ for (const [label, viewport, touch] of [
       streetLayer.worstSink < 0.35 && streetLayer.refinedPanels > 0,
       `worst interior sink ${streetLayer.worstSink.toFixed(3)} m, `
       + `${streetLayer.refinedPanels} refined panels`);
+    // The owner's report of 2026-10-02 — grass growing over the dirt as he
+    // walked up to it — was this reading at 0.61 m. The 0.022 m lift less the
+    // drawn ground's 4 mm over the ridge leaves 18 mm a road can sag and still
+    // be on top; the module holds it to 15 (SAG_TOL_M) and reads 0.017 m.
+    // Read at full and balanced only: `light` keeps the refined grids and pays
+    // nothing for the cut (streets.js), and the detail sweep below asserts that
+    // the road changes tier with the rest of the scene in both directions.
+    if (streetLayer.ridged !== false) {
+      check(`${label}: the DRAWN ground never rises through a road (cell ridge, 18 mm)`,
+        streetLayer.worstRidgeSink < 0.018 && streetLayer.ridgePanels > 0,
+        `worst sink under the ridge ${streetLayer.worstRidgeSink.toFixed(3)} m `
+        + `(lift 0.022), ${streetLayer.ridgePanels} panels laid on the cells`);
+    } else {
+      check(`${label}: at ${streetLayer.roadDetail} the road keeps its refined grids (no ridge cost)`,
+        streetLayer.ridgePanels === 0,
+        `${streetLayer.ridgePanels} panels laid on the cells at ${streetLayer.roadDetail}`);
+    }
     check(`${label}: the worn track runs onto each bridge approach and meets the deck`,
       streetLayer.approachGaps.length === 0,
       streetLayer.approachGaps.length
@@ -9973,7 +10277,7 @@ for (const [label, viewport, touch] of [
         textured: bs.filter((b) => b.material?.normalMap).length,
       };
     });
-    check(`${label}: the town is its one untextured batch and its two roof coverings`,
+    check(`${label}: the town is its one untextured batch, its two roof coverings and its two wall substrates`,
       batchCensus.batches === STRUCTURE_BATCHES
         && batchCensus.textured === TEXTURED_STRUCTURE_BATCHES,
       `${batchCensus.batches} structure batch(es), want ${STRUCTURE_BATCHES}, of which `
@@ -10579,7 +10883,7 @@ for (const [label, viewport, touch] of [
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,
       `${drawnTown.streets.stray} of ${drawnTown.streets.verts} drawn vertices further than `
-      + `half a track from any of ${drawnTown.streets.records} centrelines across `
+      + `half the worked width from any of ${drawnTown.streets.records} centrelines across `
       + `${drawnTown.streets.meshes} meshes; worst ${drawnTown.streets.worst.toFixed(2)} m`
       + (drawnTown.streets.worstAt
         ? ` at E ${drawnTown.streets.worstAt.e} N ${drawnTown.streets.worstAt.n}` : '')
@@ -13341,6 +13645,13 @@ for (const [label, viewport, touch] of [
         oldMount: !!document.getElementById('gate-census'),
         fits: city.scrollWidth <= city.clientWidth + 1,
         scrollsInSheet: panelScroll?.id === 'panel-scroll',
+        done: {
+          figure: city.querySelector('.gc-done-n')?.textContent.trim() || '',
+          joins: [...city.querySelectorAll('.gc-joins li')].map((el) => ({
+            closed: el.classList.contains('is-closed'), text: el.textContent.replace(/\s+/g, ' ').trim() })),
+          segs: city.querySelectorAll('.gc-done-seg').length,
+          shares: city.querySelector('.gc-done-shares')?.textContent.trim() || '',
+        },
       };
       document.getElementById('panel-back').click();
       api.evidenceHub.showTopic('liberties');
@@ -13445,6 +13756,26 @@ for (const [label, viewport, touch] of [
       && hub.city.text.includes(`roughly ${grouped(cityScene.target)}`)
       && !hub.city.text.includes(`roughly ${grouped(hub.city.data?.people?.town_total)}`),
       hub.city.text);
+    // T-1967: the completion row reads the audit's four joins, and the tiers' shares of
+    // the households with a home — the committed file's figures, not the page's own.
+    let completionDoc = null;
+    try {
+      completionDoc = JSON.parse(fs.readFileSync(
+        path.join(ROOT, 'data', 'render', 'town_completion_1835.json'), 'utf8'));
+    } catch { completionDoc = null; }
+    const doneJoins = completionDoc?.joins || [];
+    const doneHomed = completionDoc?.tiers?.households?.housed || {};
+    const doneHomedAll = ['attested', 'inferred', 'reconstructed'].reduce((n, t) => n + Number(doneHomed[t] || 0), 0);
+    check(`${label}: City's completion row shows the audit's joins and the tiers' shares`,
+      doneJoins.length === 4
+      && hub.city.done.figure === `${doneJoins.filter((j) => j.open === 0).length} of ${doneJoins.length}`
+      && hub.city.done.joins.length === doneJoins.length
+      && doneJoins.every((j, i) => hub.city.done.joins[i].closed === (j.open === 0)
+        && hub.city.done.joins[i].text.startsWith(j.label)
+        && (j.open === 0 || hub.city.done.joins[i].text.includes(`${grouped(j.open)} ${j.what_keeps_it_open}`)))
+      && hub.city.done.segs === 3
+      && hub.city.done.shares.startsWith(`The ${grouped(doneHomedAll)} households with a home rest on `),
+      JSON.stringify({ shown: hub.city.done, joins: doneJoins }));
     check(`${label}: City drops the projected count and structures line`,
       !/projected/i.test(hub.city.text) && !/projected/i.test(hub.city.aria)
       && !/structures?\b/i.test(hub.city.text),
@@ -13524,7 +13855,12 @@ for (const [label, viewport, touch] of [
 
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const wn = await page.evaluate(() => {
       const host = document.getElementById('whatsnew');
       return {
@@ -13558,7 +13894,12 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => document.exitPointerLock?.());
     await clickChrome('#btn-help');
     await clickChrome('.panel-tab[data-tab="whatsnew"]');
-    await page.waitForTimeout(120);
+    // The tab imports the changelog when it opens (T-1973), so wait for the feed
+    // to paint and the marker to clear rather than a fixed beat; the checks below
+    // still judge what arrived.
+    await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      .catch(() => {});
     const ret = await page.evaluate(() => ({
       flagged: [...document.querySelectorAll('#whatsnew .wn-entry.is-new .wn-title')]
         .map((n) => n.textContent),

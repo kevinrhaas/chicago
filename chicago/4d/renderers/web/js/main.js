@@ -53,6 +53,7 @@ import { createYardGoods } from './yard.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
 import { createWharves } from './wharves.js';
+import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createWells } from './wells.js';
 import { createStreetGrid } from './street-grid.js';
@@ -134,7 +135,49 @@ const VERSION = '0.1.0';
  * "does the picture change when the fence goes" are different questions and only
  * the second one is the one being answered.
  */
-const FURNITURE_REACH_LIGHT_M = 350;
+/*
+ * T-1976, 2026-10-02 — 350 m BECOMES 250 m, AND THIS TIME THE AERIAL'S COST IS
+ * TAKEN ON PURPOSE. Light had grown back over its own 825,000 across the ~60
+ * owner-requested parcels of 2026-09-26..10-02 (944,550 at the forks on desktop,
+ * 102 calls at Lake and Market against the 90-call floor), and AGENTS.md says the
+ * floor is trimmed, not raised. Read on the published mirror of dev, desktop
+ * 1280x800, by driving the shipped cull (`setFurnitureReach`) at one page load
+ * with the 48² signature against 350 m, ground at its old 600 m:
+ *   reach   the forks        Lake at Canal    Lake and Market   the open aerial
+ *   350 m   947,294 /  75    945,213 /  79    818,341 / 102     932,220 / 86
+ *   300 m   885,388 /  66        —            802,281 /  92         —
+ *   250 m   878,840 /  63    833,657 /  62    754,381 /  80     878,218 / 67
+ * with the frame at 250 m reading 0.00 / 0 at the forks and Lake and Market,
+ * 0.01 / 4 down Lake Street and 0.05 / 9 from the air. Lake at Canal is the stand
+ * that decides it: its whole excess is frontage down the axis, so no other lever
+ * here reaches it (300 m leaves it at 847,663 even with the ground trimmed below).
+ * The aerial is still the one view where furniture leaving can be seen, and the
+ * trade is taken toward the tier's own purpose for the reason 350 was: the
+ * machine that needs the floor. 200 m was not tried; T-0150 already read the
+ * aerial running away below 250.
+ */
+const FURNITURE_REACH_LIGHT_M = 250;
+
+/**
+ * T-1976 — HOW FAR OUT THE DETAILED GROUND IS DRAWN AT `light`, IN METRES.
+ *
+ * Every tier drew the 2.5 m-sampled ground tiles out to terrain.js's
+ * GROUND_DETAIL_REACH_M (600 m), with the continuous 15 m base carrying it
+ * beyond. At `light` that is 222,772 triangles and 16 calls at the forks — the
+ * second-largest layer in the frame — so this rung now hands the ground to the
+ * base sooner. Nothing is un-built: the base is the same heightfield, already
+ * drawn under every tile. Read with `setGroundDetailReach`, published mirror,
+ * desktop, light, furniture at 250 m:
+ *   reach   the forks   the open aerial (frame vs 600 m + 350 m furniture)
+ *   600 m   878,840     878,218   0.05 / 9
+ *   240 m   820,079     804,574   0.13 / 9
+ *   120 m   805,315     754,282   0.37 / 44
+ * 240 m is one tile (`GROUND_TILE_TARGET_M`) and the knee: 120 m moves the aerial
+ * by a worst cell of 44 — the 15 m base showing through where the river banks
+ * fold — and 240 m leaves every ground stand at a worst cell of 0 or 1. `full`
+ * and `balanced` keep 600 m (null = terrain.js's own).
+ */
+const GROUND_DETAIL_REACH_LIGHT_M = 240;
 
 /**
  * THE MIDDLE RUNG GETS A REACH TOO — T-0241, 2026-08-27, and it is the tier
@@ -483,8 +526,104 @@ const DETAIL_DECLARED = {
   // cost above is a measured 2026-08-28 delta applied to today's dev, not a
   // reading of the merged tree. T-0672 re-measures the moment #432 is green, and
   // if the merged tree reads under these numbers they come DOWN to it.
-  full:     { triangles: 1460000, shadowReachM: 240, furnitureCastsShadow: true,
-              furnitureReachM: null,
+  //
+  // -- T-1975, 2026-10-02 -- THE SEVENTH RE-BASING: `full` AND `balanced` ARE
+  // SET TO THE TOWN THE OWNER ASKED FOR, AND `light` IS NOT --
+  //
+  // A CONSCIOUS RE-BUDGET, NOT A WEAKENED ASSERTION, and it is the owner's ask
+  // in as many words: T-1215 ("converge the reconstructed town … the budgets
+  // re-measured and set"), cut down through T-1969 and T-1974 to this piece.
+  // The parcels that filled the frame are the ones he asked for — about sixty
+  // merged 2026-09-26..10-02: every house finished by who lives in it, a privy
+  // and a stable behind it, the walks and street edge dealt by business, the
+  // boarding houses, the yards' goods. AGENTS.md's ruling of 2026-08-21 is the
+  // rule ("the scene needing it IS the justification") and its three
+  // constraints are the whole of what is done here.
+  //
+  // MEASURED FIRST. `tools/measure_detail_ceilings.mjs`, published mirror of
+  // dev @ 652ca8ea, T-0135's five stands, BOTH release viewports — the reading
+  // is committed as docs/measurements/t-1975-detail-ceilings-{desktop,mobile}.json:
+  //
+  //   tier      desktop 1280x800 worst          mobile 390x780 worst
+  //   full      1,705,768 at Lake at Canal       1,556,676 at Lake at Canal
+  //   balanced  1,472,889 at Lake at Canal       1,332,135 at Lake at Canal
+  //   light       944,550 at the forks             845,385 at Lake at Canal
+  //   calls       222 at Lake at Canal, `full`     215 at Lake at Canal, `full`
+  //
+  // NO ONE PARCEL TO BISECT, which is what T-1154 asked for in its day and
+  // cannot be answered now: `full` read 1,383,428 worst on 2026-09-26 (the
+  // `measured` line below) and the 322,340 since is spread over the sixty.
+  // Each parcel was the owner's; none of them is a regression to take back.
+  //
+  // WHERE THE NEW NUMBERS COME FROM — the rule of the sixth re-basing and of
+  // T-0672, unchanged, so the ladder keeps its shape and nothing is chosen to
+  // fit one record: the measured worst stand at either viewport plus the
+  // ABSOLUTE headroom T-0672 recorded for the tier, rounded up to 5,000.
+  //
+  //   full      1,705,768 + 18,059 = 1,723,827  ->  1,460,000 -> 1,725,000
+  //   balanced  1,472,889 + 16,806 = 1,489,695  ->  1,280,000 -> 1,490,000
+  //
+  // NO PRE-EMPTIVE ROOM. The headroom is T-0672's and no more, so the next
+  // parcel that reaches it (T-1959's woodpiles read +70,928 at Lake at Canal
+  // on PR #272) brings its own number and argues its own raise here.
+  //
+  // -- T-1959, 2026-10-02 -- THE WOODPILES' OWN NUMBER, AS PROMISED ABOVE --
+  //
+  // 298 woodpiles, one mesh for the whole town (yard.js says why: the call
+  // budget binds, and one mesh costs two calls everywhere), read with
+  // `tools/woodpile_shots.mjs --anchor lake_at_canal` as the same pose with
+  // the record refused at the network: +70,928 triangles and +2 calls at
+  // `full`, and the same at every stand because the frustum keeps the whole
+  // mesh. Then the sweep, published mirror of the branch on dev @ 768e0a57,
+  // committed as docs/measurements/t-1959-detail-ceilings-desktop.json:
+  //
+  //   full      1,778,094 at Lake at Canal (1,707,166 without the woodpiles)
+  //   balanced  1,545,215 at Lake at Canal (1,474,287 without)
+  //   calls     224 at Lake at Canal, `full` -- inside 240, which does not move
+  //
+  // The same rule, worst stand plus T-0672's absolute headroom, rounded up to
+  // 5,000; the desktop is the worst viewport (390x780 read 1,556,676 on dev
+  // and a mesh cannot add more than its own 70,928 there):
+  //
+  //   full      1,778,094 + 18,059 = 1,796,153  ->  1,725,000 -> 1,800,000
+  //   balanced  1,545,215 + 16,806 = 1,562,021  ->  1,490,000 -> 1,565,000
+  //
+  // `light` DOES NOT PAY FOR THEM: it does not draw them (`light.woodpiles`
+  // below), and it read 944,714 / 102 calls to the triangle with or without,
+  // before T-1976's trim brought it back inside 825,000.
+  //
+  // `light` DOES NOT MOVE, and it is OVER: 944,550 at the forks on desktop
+  // against 825,000, 845,385 on mobile, and 102 calls at Lake and Market against
+  // its 90-call floor. "`light` is the floor and stays the floor" — the tier a
+  // weak machine boots into is not spent by a re-budget. It is won back by a
+  // trim, and that is T-1976, which carries the layer-by-layer reading of the
+  // forks. T-0672 still owes the return of the 2026-09-03 raise of this rung.
+  //
+  // T-1987, 2026-10-02 — THE ROAD'S OWN RAISE, on top of the woodpiles'. The
+  // owner's grass growing over the dirt as he walked up to it was the ground
+  // rising through road panels that sagged under it; the cure lays those
+  // panels on the cells' ridge (streets.js, THE RIDGE DRAPE), and the street
+  // layer is drawn whole, so it costs the same at every stand. First read on
+  // dev @ 1da76db5 with `tools/measure_detail_ceilings.mjs --against`, desktop
+  // 1280x800 (docs/measurements/T-1987-road-ridge-cost.md): +43,634, worst
+  // 1,708,512 -> 1,752,146 at Lake at Canal. Read again on the street layer
+  // itself after T-1956's terrain rebake and with the shoulders' edge halved
+  // rather than laddered: 105,675 -> 154,303 triangles, +48,628, at every stand.
+  // On the woodpiles' readings above, by the same rule:
+  //
+  //   full      1,778,094 + 48,628 = 1,826,722 + 18,059 = 1,844,781 -> 1,845,000
+  //   balanced  1,545,215 + 48,628 = 1,593,843 + 16,806 = 1,610,649 -> 1,615,000
+  //
+  // Mobile reads lower at both tiers, so desktop sets it. `light` is NOT
+  // spent: there the road keeps its refined grids (105,579, 96 under before).
+  //
+  // WHAT IS NOT RE-DERIVED: the timber's per-level thinning ratio (trees.js,
+  // L121's refresh, 1 / 0.877 / 0.565) was read off these ceilings on
+  // 2026-09-15. Re-reading it against 1,725,000 / 1,490,000 / 825,000 would
+  // change the wood a visitor sees at `balanced` and `light`, which is not a
+  // budget's job; it stays as stated there.
+  full:     { triangles: 1845000, shadowReachM: 240, furnitureCastsShadow: true,
+              furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
               // protects is the next version of this ticket". The archaeology
@@ -492,14 +631,19 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '1,460,000 set 2026-09-03 (the sixth re-basing, on the '
-                + "owner's \u201craise all 3\u201d, to carry PR #432's heightfield). "
-                + 'Re-read on dev 2026-09-26, published mirror, desktop 1280x800, '
-                + "T-0135's five stands, after T-1595 gave the apron's 130 sliver "
-                + 'tiles one draw between them: worst 1,383,428 at the forks from '
-                + 'Wolf Point \u2014 76,572 clear, 5.2 %. The apron is 2,489 '
-                + 'triangles that the frustum used to be able to reject and now '
-                + 'cannot, and that is the whole of the rise' },
+              measured: '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
+                + "cells' ridge, +48,628 at every stand on 1,778,094 (the block above "
+                + "`full`), plus T-0672's 18,059 rounded up to 5,000. Before it: "
+                + '1,800,000 set 2026-10-02 (T-1959), the woodpiles\u2019 own '
+                + 'number by T-1975\u2019s rule: worst 1,778,094 at Lake Street at Canal '
+                + 'at 1280x800 with them, 70,928 of it theirs \u2014 21,906 clear, '
+                + "T-0672's 18,059 rounded up to 5,000. Before it: "
+                + '1,725,000 set 2026-10-02 (T-1975, the seventh re-basing, on '
+                + "the owner's T-1215 \u201cthe budgets re-measured and set\u201d), from "
+                + '1,460,000. Read on dev @ 652ca8ea, published mirror, T-0135\'s five '
+                + 'stands: worst 1,705,768 at Lake Street at Canal at 1280x800 and '
+                + '1,556,676 there at 390x780 \u2014 19,232 clear, 1.1 %, which is '
+                + "T-0672's recorded 18,059 rounded up to 5,000 and nothing more" },
   // RE-BUDGETED 2026-08-21, 800000 -> 900000, on the owner's ruling that a
   // ceiling is a number this project chose rather than a claim about 1835.
   // Four parcels landed the same day - the street edge, the lot-line fences,
@@ -585,15 +729,25 @@ const DETAIL_DECLARED = {
   // holds — this gives `balanced` about the 1 % headroom `full` carries, and buys
   // no room for the parcel after these; T-0149 and T-0147 still own the trim
   // that would win the rung back.
-  balanced: { triangles: 1280000, shadowReachM: 240, furnitureCastsShadow: true,
-              furnitureReachM: FURNITURE_REACH_BALANCED_M,
+  // T-1975, 2026-10-02: 1,280,000 -> 1,490,000 in the seventh re-basing — the
+  // reading and the rule are in the block above `full`.
+  // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
+  // same rule — the reading is in the block above `full`.
+  balanced: { triangles: 1615000, shadowReachM: 240, furnitureCastsShadow: true,
+              furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,280,000 set 2026-09-03 in the same re-basing and by the '
-                + 'same rule (keep at least the absolute headroom carried that day, '
-                + 'rounded up to 5,000). Re-read on dev 2026-09-26, published mirror, '
-                + 'desktop 1280x800, after T-1595: worst 1,233,768 at the forks '
-                + 'from Wolf Point \u2014 46,232 clear, 3.6 %' },
+              measured: '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
+                + "cells' ridge, +48,628 at every stand on 1,545,215, plus T-0672's "
+                + '16,806 rounded up to 5,000. Before it: '
+                + '1,565,000 set 2026-10-02 (T-1959) for the woodpiles by the '
+                + 'same rule: worst 1,545,215 at Lake Street at Canal at 1280x800 with '
+                + 'them, 70,928 of it theirs \u2014 19,785 clear. Before it: '
+                + '1,490,000 set 2026-10-02 (T-1975) in the same re-basing and '
+                + 'by the same rule. Read on dev @ 652ca8ea, published mirror: worst '
+                + '1,472,889 at Lake Street at Canal at 1280x800 and 1,332,135 there at '
+                + "390x780 \u2014 17,111 clear, 1.1 %, T-0672's recorded 16,806 rounded "
+                + 'up to 5,000' },
   // -- T-0147, 2026-08-27 -- AND THE FLOOR IS WON BACK: 1,050,000 -> 785,000 --
   //
   // The third and last piece of T-0149, whose whole complaint is the sentence
@@ -648,11 +802,29 @@ const DETAIL_DECLARED = {
   // that a trim worked.
   light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
+              groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
+              // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
+              // town (the call budget's choice, yard.js), so the reach cannot thin
+              // them and they would cost this rung their whole colour pass at every
+              // stand — about 35,000 triangles — on the rung T-1976 has just
+              // trimmed back inside 825,000, which is won back, never spent. `full`
+              // and `balanced` draw them, and `applyFurnitureReach` hides them here.
+              woodpiles: false,
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
               measured: '825,000 set 2026-09-03, the one raise of this rung ever '
-                + 'taken and taken only on a second explicit ruling. Re-read on dev '
+                + 'taken and taken only on a second explicit ruling. BACK INSIDE BY A '
+                + 'TRIM, T-1976, 2026-10-02: furniture reach 350 -> 250 m, detailed '
+                + 'ground 600 -> 240 m, tree keep 0.225 -> 0.191, all at this rung '
+                + 'only. Published mirror, desktop 1280x800: worst 803,067 at the '
+                + 'forks — 21,933 clear, 2.7 % — and worst calls 73 (Lake '
+                + 'and Market) against the 90-call floor. It was OVER on dev @ '
+                + '652ca8ea (T-1975, 2026-10-02): worst 944,550 at the forks at '
+                + '1280x800 and 845,385 at Lake Street at Canal at 390x780, 102 calls '
+                + 'at Lake and Market against the 90-call floor. NOT raised \u2014 this '
+                + 'rung is won back by a trim, T-1976. The reading before it, which '
+                + 'held: Re-read on dev '
                 + '2026-09-26, published mirror, after T-1595: worst 772,025 at the '
                 + 'open aerial \u2014 52,975 clear, 6.4 % \u2014 at 1280x800, and '
                 + '698,550 at the same stand at 390x780. Its DRAW-CALL floor is a '
@@ -697,7 +869,7 @@ const DETAIL_ORDER = ['full', 'balanced', 'light'];
  * than swallowed: the clamped rung carries `declared` and `clamped: true`,
  * `console.error` says so at boot, and `tools/smoke_renderer.mjs` gates BOTH —
  * that the declared numbers descend on their own, and that no rung is running
- * clamped. Today nothing clamps: 1,460,000 > 1,280,000 > 825,000, and the
+ * clamped. Today nothing clamps: 1,845,000 > 1,615,000 > 825,000, and the
  * running minimum is the identity. The seal costs nothing until the day it is
  * the only thing standing between a typo and a ladder that lies.
  *
@@ -807,7 +979,17 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // 140 -> 215 on the same ruling and the same measurement: the worst stand draws
 // 200 calls at `full` where the reference stand drew 121. Chunking is what
 // spends calls down a long street, and T-0149 is where that gets traded back.
-const BUDGET = { drawCalls: 215, triangles: DETAIL.full.triangles };
+//
+// T-1975, 2026-10-02: 215 -> 240, in the same re-basing and on the same ask as
+// `DETAIL` above (T-1215, "the budgets re-measured and set"). The town's worst
+// frame is now 222 calls at `full` down Lake Street from Canal at 1280x800
+// (215 at 390x780), published mirror of dev @ 652ca8ea. 215 was set against a
+// measured worst of 200, so it carried 15 calls; 222 + 15 = 237, rounded up to
+// 5. The same principle, no new room: the woodpiles of PR #272 add 2 calls at
+// that stand and fit, and the parcel after them argues its own. `light`'s own
+// 90-call floor in `tools/smoke_renderer.mjs` is a separate promise and does
+// NOT move — it reads 102 and is T-1976's to win back by a trim.
+const BUDGET = { drawCalls: 240, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
@@ -1138,6 +1320,7 @@ async function boot() {
   await yieldToPaint();
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     preserveMaterials: inspectionLod,
+    lowSpec: coarse,
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
   });
@@ -1207,6 +1390,7 @@ async function boot() {
     terrain,
     records: draws('streets') ? (loaded.index?.streets ?? []) : [],
     confidence,
+    ...detailOpts(),
   });
   scene3d.add(streets.group);
   if (groundProof) {
@@ -1278,6 +1462,7 @@ async function boot() {
   // measured from the same wall base `buildings.js` anchors them at.
   const signage = await createSignage({
     dataBase: layerBase('signage'), terrain, confidence, problems: layerProblems('signage'), hostMissing,
+    assetBase: bases.assetBase,
   });
   scene3d.add(signage.group);
   api.signage = signage;
@@ -1333,6 +1518,20 @@ async function boot() {
   });
   scene3d.add(wharves.group);
   api.wharves = wharves;
+
+  // T-1771 — the working bank: South Water's river side as trodden earth and
+  // mud, a haul apron behind every landing the wharf layer just drew, sward
+  // only in the unworn patches. Mounted after the wharves because the aprons
+  // lead off their decks, and before the planters, which it tells where not to
+  // grow (`workingBank.blocksGrowth` / `blocksTrees` below).
+  const workingBank = await createWorkingBank({
+    dataBase: layerBase('wharves'), terrain,
+    streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
+    wharves: wharves.wharves, confidence, problems: layerProblems('wharves'),
+    ...detailOpts(),
+  });
+  scene3d.add(workingBank.group);
+  api.workingBank = workingBank;
 
   // The boats on the river (T-0063) — the owner's ask, verbatim: "you can add
   // boats correct for the era! they would exist." Derived at load like the
@@ -1522,6 +1721,9 @@ async function boot() {
       group.updateWorldMatrix(true, true);
       group.traverse((o) => {
         if (!o.isMesh || !o.geometry) return;
+        // A woodpile mesh its tier does not draw (T-1959) is neither the reach's
+        // nor the far merge's to show again.
+        if (o.parent?.userData.woodpiles && !o.parent.visible) return;
         // The merged far batches (T-0146) are drawn FROM these chunks, not
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
@@ -1551,6 +1753,11 @@ async function boot() {
   });
   function applyFurnitureReach(level) {
     const want = DETAIL[level] ?? DETAIL.full;
+    // T-1959: the woodpiles' group is shown or hidden by the tier, BEFORE the
+    // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
+    scene3d.getObjectByName('yard')?.traverse((o) => {
+      if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+    });
     collectFurniture();
     farMerge.rebuild(furniture.spheres);
     furniture.reachM = typeof want.furnitureReachM === 'number'
@@ -1597,6 +1804,12 @@ async function boot() {
     farMerge.update();
   }
   applyFurnitureReach(detailLevel);
+  /** T-1976 — the ground's half of the tier: how far the detailed tiles reach
+   *  before the 15 m base carries the ground alone. Null is terrain.js's own. */
+  function applyGroundDetailReach(level) {
+    return terrain.setDetailReach((DETAIL[level] ?? DETAIL.full).groundDetailReachM);
+  }
+  applyGroundDetailReach(detailLevel);
 
   /**
    * WHERE THE SWARD MAY NOT GROW (T-0067), composed rather than replacing the
@@ -1614,7 +1827,11 @@ async function boot() {
    */
   const stripBlocks = api.groundStrip?.blocksGrowth ?? null;
   const swardBlocked = (e, n) => streets.blocksGrowth(e, n) || yards.suppressesSward(e, n)
-    || (stripBlocks !== null && stripBlocks(e, n));
+    || (stripBlocks !== null && stripBlocks(e, n)) || workingBank.blocksGrowth(e, n);
+  // The trees give way to the travelled track, as before, and since T-1771 to
+  // the worked river bank: no willow on a dock approach. The fences above still
+  // do not reach them, for the reason given there.
+  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
 
   let floraUnits = 0, floraDone = 0, treeDone = 0;
   const plantingProgress = (done, total) => {
@@ -1637,7 +1854,7 @@ async function boot() {
       bootController.progress('flora', floraDone, floraUnits);
     },
     dataBase: layerBase('flora'), terrain, footprints: planting,
-    growthBlocked: streets.blocksGrowth,
+    growthBlocked: treesBlocked,
     confidence, problems: layerProblems('flora'), pixelsPerRadian,
     streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
     // Which sward a point stands in, so the woody layer plants the lakeshore
@@ -1681,7 +1898,7 @@ async function boot() {
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
           Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
-            checkpoint: bootCheckpoint, preserveMaterials: true });
+            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
             throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
           }
@@ -1695,7 +1912,7 @@ async function boot() {
         });
         next.trees = await createTrees({
           dataBase: layerBase('flora'), terrain, footprints: planting,
-          growthBlocked: streets.blocksGrowth,
+          growthBlocked: treesBlocked,
           confidence, problems: layerProblems('flora'), pixelsPerRadian,
           streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
           zoneAt: (e, n) => next.flora.zoneAt(e, n), detail: level,
@@ -1736,8 +1953,10 @@ async function boot() {
       detailLevel = level;
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
+      streets.setDetail?.(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
+      applyGroundDetailReach(level);
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -1769,6 +1988,9 @@ async function boot() {
     // `applyShadowTier` below is what settles that, and settling it first would
     // settle it on meshes that are about to be thrown away.
     enclosures.setDetail?.(level);
+    // The road's: `light` keeps the refined grids, the two tiers above it lay
+    // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
+    streets.setDetail?.(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -1778,6 +2000,7 @@ async function boot() {
     // has just rebuilt its meshes, so the banked spheres are re-read here rather
     // than left pointing at geometry that has been disposed (T-0150).
     applyFurnitureReach(level);
+    applyGroundDetailReach(level);
     // Serialise: a visitor clicking through the options faster than the rebuild
     // would otherwise interleave two plantings into one scene.
     const run = (detailPending ?? Promise.resolve()).then(async () => {
@@ -1794,7 +2017,7 @@ async function boot() {
       trees.dispose?.();
       trees = await createTrees({
         dataBase: layerBase('flora'), terrain, footprints: planting,
-        growthBlocked: streets.blocksGrowth,
+        growthBlocked: treesBlocked,
         confidence, problems: layerProblems('flora'), pixelsPerRadian,
         streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
         zoneAt: (e, n) => flora.zoneAt(e, n),
@@ -2979,6 +3202,8 @@ async function boot() {
         geometries: info.memory.geometries,
         textures: info.memory.textures,
         batches: buildings.batches.length,
+        // T-1963: what the walls were bound with, or `{ off: true }` under ?walls=flat.
+        wallRelief: buildings.wallRelief,
         structures: loaded.registry.size,
         // T-1126 § 4: drawn against indexed. `structures` above counts what the
         // scene was TOLD to place; these two count what it managed to.
@@ -3021,6 +3246,14 @@ async function boot() {
       furniture.reachM = typeof m === 'number' && Number.isFinite(m) ? m : null;
       updateFurnitureReach();
       return furniture.reachM;
+    },
+    /** T-1976, HARNESS ONLY and never a visitor setting, for the reason
+     *  `setFurnitureReach` above is one: drive the detailed ground's reach
+     *  directly so a sweep can read candidate reaches at one page load. `null`
+     *  restores the tier's own. The live reading is `groundReach()`. */
+    setGroundDetailReach(m) {
+      return terrain.setDetailReach(typeof m === 'number'
+        ? m : (DETAIL[detailLevel] ?? DETAIL.full).groundDetailReachM);
     },
     /** T-0146, HARNESS ONLY and never a visitor setting, for the reason
      *  `setFurnitureReach` above is one: the merge's whole claim is that it

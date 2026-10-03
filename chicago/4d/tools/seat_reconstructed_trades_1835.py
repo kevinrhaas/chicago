@@ -69,7 +69,7 @@ is T-1434's: it mints the shortfall the model still says is missing, and a busin
 card that printed a reconstructed hand before the shortfall was minted would be a
 half-filled house reading as a full one.
 
-THE FIVE ANSWERS. Every person in scope gets exactly one, and each is a different
+THE SEVEN ANSWERS. Every person in scope gets exactly one, and each is a different
 statement about the evidence:
 
   `seated`                  the staffing model names a class of house that employed
@@ -79,12 +79,18 @@ statement about the evidence:
                             it.
   `class_held_no_house`     the model names the class and the layer holds no house of
                             it trading on 1 July 1835, or every one of them is full to
-                            the band's high end. The block names the class and the
-                            count.
+                            the band's high end, and the layer holds fewer houses
+                            of the class than the model counts. The block names the
+                            class and the count.
+  `class_full_none_owed`    the same full class, but the layer already holds every
+                            house of it the model counts at the scene date, and the
+                            trade keeps no house of its own. No house is owed: the
+                            person follows the trade with no room in it (T-1995).
   `keeps_their_own_house`   the premises ruling says this trade kept premises of its
-                            own and the model does not employ it in anybody else's.
-                            A seat would demote a principal to a hand. The house is
-                            owed, and the block says which ticket owes it.
+                            own and the model does not employ it in anybody else's —
+                            or does, and every house of it is full (T-1995). A seat
+                            would demote a principal to a hand. The house is owed,
+                            and the block says which ticket owes it.
   `no_employer_named`       the premises ruling says the trade kept no premises of its
                             own AND the model employs it nowhere — the soldier at the
                             post, the laundress over her own tub, the farmer on his own
@@ -93,6 +99,13 @@ statement about the evidence:
                             and `premises_rulings.json` has never ruled on it. Five
                             people stand here and the block says so rather than
                             guessing; T-1404 owns the ruling.
+  `roofs_kept_none_owed`    a keeper whose house is a ROOF the programme schedules — a
+                            boarding house — where every standing one is kept and
+                            the roofs still to be kept are owed to the keepers ahead
+                            of this one in a seeded draw. No house is owed: the
+                            programme schedules no more (T-1997). The keepers the
+                            draw reaches stay `keeps_their_own_house`, and their
+                            block says which roofs owe them the house.
 
 THE ORDER RULE, AND WHICH OF ITS TERMS ACTUALLY BITES TODAY. The ticket asks for the
 nearest house of the trade in the person's own division, seeded. That is three terms
@@ -140,6 +153,8 @@ PREMISES_RULINGS = ROOT / "data" / "businesses" / "rulings" / "premises_rulings.
 STAFFING_MODEL = ROOT / "data" / "reconstruction" / "1835_business_staffing_model.json"
 RESIDENT_INDEX = RESIDENTS / "index.json"
 JOIN_OUT = RESIDENTS / "reconstructed_seating.json"
+LODGING_MODEL = ROOT / "data" / "reconstruction" / "1835_lodging_model.json"
+ORDER_BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 
 SCENE_DATE = "1835-07-01"
 TICKET = "T-1433"
@@ -202,7 +217,8 @@ def _load_json(path: Path) -> dict:
 
 
 def load() -> dict:
-    for path in (PREMISES_RULINGS, STAFFING_MODEL, RESIDENT_INDEX):
+    for path in (PREMISES_RULINGS, STAFFING_MODEL, RESIDENT_INDEX, LODGING_MODEL,
+                 ORDER_BOOK):
         if not path.exists():
             raise Fault(f"{path.relative_to(ROOT)} is missing")
     records = []
@@ -223,6 +239,8 @@ def load() -> dict:
         "businesses": businesses,
         "rulings": {r["occupation"]: r for r in _load_json(PREMISES_RULINGS)["rulings"]},
         "model": _load_json(STAFFING_MODEL),
+        "lodging": _load_json(LODGING_MODEL),
+        "order_book": _load_json(ORDER_BOOK),
         # THE ROLE A SEAT CARRIES IS THE STAFFING MODEL'S OWN TERM, and the model
         # already states the rule it may be written onto a person under: its
         # `vocabulary_gaps` say a term "may not be written onto a person until
@@ -275,6 +293,8 @@ def employing_classes(model: dict) -> dict:
                 "role": role.get("role"),
                 "count_typical": int(role.get("count_typical") or 0),
                 "count_high": int(role.get("count_high") or 0),
+                "establishments_at_the_scene_date":
+                    klass.get("establishments_at_the_scene_date"),
                 "basis": role.get("basis"),
                 "note": role.get("note"),
             })
@@ -355,6 +375,151 @@ def in_scope(person: dict) -> bool:
     return not person.get("workplaces")
 
 
+#: Trades the count-met rule (T-1995) leaves to another ticket's answer, and which one.
+RULED_ELSEWHERE = {"domestic": "T-1993"}
+
+
+#: A TRADE WHOSE HOUSE IS A ROOF BEFORE IT IS A FIRM (T-1997), and the lodging class its
+#: house is. The order book cannot count a boarding house — the December 1835 census
+#: prints none — but the roof programme schedules them, the lodging model (T-1370) holds
+#: each as a place with beds, and the business band raises a firm on a STANDING one only
+#: by adopting the keeper who stands in it (tools/reconstruct_businesses_1835.py,
+#: ROOF_QUOTA). So a keeper this pass holds with no house is owed a roof, and the
+#: programme is what says how many roofs there are to be owed.
+ROOF_TRADES = {"boarding_house_keeper": "boarding_house"}
+
+
+def roof_draw(data: dict, people: list) -> dict:
+    """The roofs a ROOF_TRADES keeper can be owed, and who is owed one.
+
+    A keeper the lodging layer already stands in a house — the head the lodgers stage
+    drew for a lodging household, or the household a platted deal names as its keeper —
+    keeps that roof and is not in the draw. Everyone else of the trade is ranked by the
+    tool's own seeded key, and the first as many as the programme has roofs with nobody
+    keeping them are owed one; the rest are owed none. The ranking is a draw and every
+    block says so: nothing about a person decides it, because nothing in the layer
+    could."""
+    keepers, kept_places = set(), set()
+    for _path, record in data["records"]:
+        block = record.get("lodging_household") or {}
+        if not block.get("place"):
+            continue
+        kept = block.get("kept_by") or {}
+        keeper = kept.get("person") or record.get("head")
+        if keeper:
+            keepers.add(keeper)
+            kept_places.add(block["place"])
+    out: dict = {"people": {}, "classes": {}}
+    for trade, klass in sorted(ROOF_TRADES.items()):
+        row = next(c for c in data["lodging"]["classes"] if c["class"] == klass)
+        group = row["programme_group"]
+        standing = [p for p in data["lodging"]["places"] if p["class"] == klass]
+        # A standing place nobody keeps is a roof as free as an unbuilt one. A NAMED house
+        # is not free, though its keeper may be unknown: who kept it is the register's to
+        # say (T-1404), and a drawn keeper put in it would answer a research question.
+        free = sorted(p["id"] for p in standing
+                      if p["standing"] != "named" and p["id"] not in kept_places)
+        unbuilt = sorted(
+            (b["axes"]["division"], b["to_build"], b["owning_ticket"])
+            for family in data["order_book"]["bucket_families"]
+            for b in family.get("buckets") or []
+            if b["key"].startswith(f"structures/{group}/") and b.get("to_build"))
+        to_build = sum(n for _d, n, _t in unbuilt)
+        question = next((q for q in data["lodging"].get("open_questions") or []
+                         if group in q.get("question", "")), {})
+        slots = row["unbuilt_slots"] + len(free)
+        drawn = sorted((rank_key(pid, trade, klass), pid)
+                       for pid, _name, _record, person in people
+                       if (person.get("occupation") or {}).get("value") == trade
+                       and pid not in keepers)
+        for rank, (_key, pid) in enumerate(drawn, 1):
+            out["people"][pid] = {"rank": rank, "of": len(drawn), "owed": rank <= slots}
+        out["classes"][trade] = {
+            "class": klass, "group": group, "scheduled": row["scheduled_roofs"],
+            "standing": row["built_places"], "free": free, "slots": slots,
+            "unbuilt": unbuilt, "to_build": to_build,
+            "standing_as_dwellings": max(row["unbuilt_slots"] - to_build, 0),
+            "question_owned_by": list(question.get("owned_by") or []),
+        }
+    return out
+
+
+def _roof_words(facts: dict) -> str:
+    """Where the roofs still to be kept stand, in the programme's own figures."""
+    parts = []
+    if facts["free"]:
+        parts.append(f"{len(facts['free'])} stand with no keeper yet")
+    if facts["standing_as_dwellings"]:
+        owners = " and ".join(facts["question_owned_by"]) or "the lodging model"
+        parts.append(f"{facts['standing_as_dwellings']} stand as dwellings, the H1 and H2 "
+                     f"houses whose class is the lodging model's open question "
+                     f"({owners})")
+    if facts["to_build"]:
+        where = "; ".join(f"{n} in the {d.title()} Division, {t}"
+                          for d, n, t in facts["unbuilt"])
+        parts.append(f"{facts['to_build']} are unbuilt ({where})")
+    return "; ".join(parts)
+
+
+def roof_block(base: dict, ruling: dict, principal_of: list, draw: dict,
+               facts: dict) -> dict:
+    """The answer for a ROOF_TRADES keeper the lodging layer does not stand in a house:
+    a roof owed, or none (T-1997)."""
+    kept = facts["standing"] - len(facts["free"])
+    common = (f"The premises ruling: {_sentence(ruling.get('basis'))} A boarding house "
+              f"is a roof before it is a firm: the order book cannot count one, and the "
+              f"business band raises one only on a standing roof, by adopting the keeper "
+              f"who stands in it (T-1408). The lodging model schedules "
+              f"{facts['scheduled']} boarding houses under the roof programme's "
+              f"`{facts['group']}`; {facts['standing']} stand and {kept} of them are kept "
+              f"— by the keeper the lodgers stage drew, by the household a platted deal "
+              f"seated there, or, at a named house, by whoever a source names. That leaves "
+              f"{facts['slots']} roofs the programme schedules with nobody keeping them: "
+              f"{_roof_words(facts)}. This person is {draw['rank']} of the {draw['of']} "
+              f"keepers of the trade this pass holds with no house, in a seeded draw over "
+              f"person and trade, since nothing in the layer orders them.")
+    base["draw"] = {"rank": draw["rank"], "of": draw["of"], "roofs": facts["slots"]}
+    if draw["owed"]:
+        base.update({
+            "kind": "keeps_their_own_house",
+            "classes": principal_of,
+            "basis": {
+                "kind": "rule",
+                "id": "the_boarding_house_is_owed_a_roof_the_programme_schedules",
+                "note": common + " The draw reaches them, so one of those roofs is theirs "
+                        "to keep: the house is owed, and it waits on the roof.",
+            },
+            "replaceable_by": {
+                "kind": "business",
+                "match": "a boarding house raised for this person on one of those roofs, "
+                         "after which this block becomes a proprietorship",
+            },
+            "chosen_by": [],
+        })
+        return base
+    base.update({
+        "kind": "roofs_kept_none_owed",
+        "classes": principal_of,
+        "basis": {
+            "kind": "rule",
+            "id": "every_roof_the_programme_schedules_is_kept_or_owed_ahead",
+            "note": common + " Every one of those roofs is owed to a keeper ahead of them, "
+                    "so the programme holds no boarding house for this person to keep and "
+                    "none is owed: the trade-households stage drew more keepers from the "
+                    "1839 trade table than the programme schedules houses, and this one "
+                    "carries the trade with no house of their own.",
+        },
+        "replaceable_by": {
+            "kind": "business",
+            "match": "a source naming the boarding house this person kept, or a roof "
+                     "programme that schedules more boarding houses, after which this "
+                     "person is owed one",
+        },
+        "chosen_by": [],
+    })
+    return base
+
+
 def seat_one(person: dict, record: dict, trade: str, context: dict) -> dict:
     """The one block this person gets. Pure: it reads the context and the counters and
     returns the answer, so the self-test can fire it on a mutated copy."""
@@ -408,6 +573,10 @@ def seat_one(person: dict, record: dict, trade: str, context: dict) -> dict:
     # the register carries employed dressmakers — and the seat below is the honest
     # answer for her, because the layer holds those houses and it does not hold hers.
     if ruling.get("premises") == "own_premises" and not employers:
+        roofs = context.get("roofs") or {"people": {}, "classes": {}}
+        if pid in roofs["people"]:
+            return roof_block(base, ruling, principal_of, roofs["people"][pid],
+                              roofs["classes"][trade])
         base.update({
             "kind": "keeps_their_own_house",
             "classes": principal_of,
@@ -470,6 +639,77 @@ def seat_one(person: dict, record: dict, trade: str, context: dict) -> dict:
                 candidates.append((business, row))
     if not candidates:
         classes = sorted({row["class"] for row in employers})
+        # EVERY HOUSE THAT HIRES THE TRADE IS FULL, AND THE TRADE KEEPS ITS OWN (T-1995).
+        # The keeper branch above stands aside wherever the model hires the trade, so that
+        # a dressmaker is seated in a millinery house the layer holds rather than owed one
+        # it does not. Once every such house is full that reason is spent, and what is left
+        # is the premises ruling: the trade kept a house of its own. So the overflow is a
+        # tradesman on their own account whose house is owed — not a town owed another
+        # shop of somebody else's to stand in as a hand.
+        if ruling.get("premises") == "own_premises":
+            base.update({
+                "kind": "keeps_their_own_house",
+                "classes": principal_of,
+                "basis": {
+                    "kind": "rule",
+                    "id": "every_house_that_hires_this_trade_is_full_and_the_trade_"
+                          "keeps_its_own",
+                    "note": f"The staffing model hires this trade in "
+                            f"{', '.join(classes)}, and every house of that kind the "
+                            f"business layer holds trading on {SCENE_DATE} already has "
+                            f"the band's high end of hands. The premises ruling: "
+                            f"{_sentence(ruling.get('basis'))} So this person carried "
+                            f"the trade on their own account, as a keeper and not as "
+                            f"somebody's overflow hand. The house is owed, and T-1992 "
+                            f"owns the own-account houses the register does not hold.",
+                },
+                "replaceable_by": {
+                    "kind": "business",
+                    "match": "a house of this trade raised for this person, after which "
+                             "the seat is theirs and this block becomes a "
+                             "proprietorship",
+                },
+                "chosen_by": [],
+            })
+            return base
+        # THE COUNT IS MET, SO NO HOUSE IS OWED (T-1995). Where the trade keeps no house of
+        # its own and the layer already holds every house of the class the model counts at
+        # the scene date, the town is not short a house: the person follows the trade and
+        # there is no room in it to join them to. The domestics stand aside from it by
+        # name: their premises ruling puts the work in another HOUSEHOLD's house, not in a
+        # house of trade at all, and T-1993 gives that answer in its own words
+        # (tools/employment_coverage_1835.py, IN_ANOTHER_HOUSEHOLD).
+        held = {row["class"]: len({b["id"] for occupation in row["occupations_in_this_class"]
+                                   for b in context["houses"].get(occupation) or []})
+                for row in employers}
+        counted = {row["class"]: row["establishments_at_the_scene_date"]
+                   for row in employers}
+        if trade not in RULED_ELSEWHERE and all(
+                counted[k] is not None and held[k] >= counted[k] for k in classes):
+            met = "; ".join(f"{k}: {counted[k]} counted, {held[k]} held" for k in classes)
+            base.update({
+                "kind": "class_full_none_owed",
+                "classes": classes,
+                "basis": {
+                    "kind": "rule",
+                    "id": "the_class_s_count_is_met_and_every_house_is_full",
+                    "note": f"The staffing model hires this trade in {', '.join(classes)} "
+                            f"and counts the houses of it trading on {SCENE_DATE}; the "
+                            f"business layer holds every one of them ({met}), and each "
+                            f"already has the band's high end of this role. The count is "
+                            f"met, so no house is owed: the town is not short one, and "
+                            f"seating this person would put more hands in a house than "
+                            f"the model allows. The premises ruling: "
+                            f"{_sentence(ruling.get('basis'))}",
+                },
+                "replaceable_by": {
+                    "kind": "business",
+                    "match": "a source naming the house this person worked in, or a "
+                             "re-count of the class, after which this person seats at it",
+                },
+                "chosen_by": [],
+            })
+            return base
         base.update({
             "kind": "class_held_no_house",
             "classes": classes,
@@ -563,6 +803,7 @@ def derive(data: dict) -> dict:
             if in_scope(person):
                 people.append((person.get("id"), path.name, record, person))
     people.sort(key=lambda row: (row[0] or "", row[1]))
+    context["roofs"] = roof_draw(data, people)
     by_person: dict = {}
     for pid, _name, record, person in people:
         if not pid:
@@ -619,9 +860,10 @@ def employment_block(block: dict) -> dict:
 def card_seats(seating: dict) -> dict:
     """person_id -> the block their card should carry. ONLY the `seated` answer.
 
-    The other four kinds are statements about an ABSENCE — a class of house the town
-    does not hold, a trade that keeps its own premises, a ruling that employs it
-    nowhere, a trade never ruled on. None of them is a fact about this person's work,
+    The other six kinds are statements about an ABSENCE — a class of house the town
+    does not hold, a class whose count is already met, a trade that keeps its own
+    premises, a ruling that employs it
+    nowhere, a trade never ruled on, a roof programme with no roof left to owe. None of them is a fact about this person's work,
     and writing one onto a card would put a reason for having no seat where a reader
     looks for a seat. They stay in the join, where the question they answer is asked.
     """
@@ -731,7 +973,7 @@ def report(data: dict, seating: dict) -> dict:
                                  "the `seated` ones ALSO stand on the person's own card "
                                  "as `persons[].employment`, carrying the house, the "
                                  "role, the tier and the seed and leaving the reasoning "
-                                 "here. The other four kinds are statements about an "
+                                 "here. The other six kinds are statements about an "
                                  "absence and no card carries one. Two thirds of the "
                                  "people in scope stand on cards a reconstruction stage "
                                  "derives whole and compares byte for byte, which is why "
@@ -765,6 +1007,8 @@ def report(data: dict, seating: dict) -> dict:
             "data/businesses/*.json",
             "data/businesses/rulings/premises_rulings.json",
             "data/reconstruction/1835_business_staffing_model.json",
+            "data/reconstruction/1835_lodging_model.json",
+            "data/reconstruction/1835_reconstruction_order_book.json",
             "data/structures/*.json",
         ],
         "counts": {

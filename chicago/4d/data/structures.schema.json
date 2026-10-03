@@ -60,6 +60,10 @@
     "occupants": {
       "$ref": "#/$defs/attested"
     },
+    "part_of": {
+      "$ref": "#/$defs/attested",
+      "description": "The standing structure whose establishment this building is one building of, as a structure id — the fort's barn is part of the post, a tannery's bark shed is part of the tannery, a homestead's second house is part of the homestead. T-1980. It answers the completion audit's fourth question (is this roof occupied, or does it have a use that needs nobody of its own?) for a building whose keepers are the principal's: the people are seated on the principal and are NOT repeated here, so this claims a relation between two buildings and never a person. The value must name a structure the scene carries, and tools/audit_town_completion_1835.py refuses one that does not, or one whose principal is itself empty. The note says what ties the two — the same plate, the same yard, the same sentence of the same source — and `confidence` grades that tie, not the building."
+    },
     "present_status": {
       "$ref": "#/$defs/attested",
       "description": "Optional sourced present-day survival/status, separate from historical phase ranges. The note must state when it was checked; never extends a modeled phase."
@@ -592,6 +596,31 @@
         }
       }
     },
+    "stated_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "confidence", "note"],
+      "description": "Why nobody is seated under this roof, said on the record rather than left as a gap. T-1985. It answers the completion audit's fourth question (is this roof occupied, or does it have a use that needs nobody of its own?) for a standing building whose occupant on 1835-07-01 this project deliberately does not write. It is never a seat and never names a household. `value` is one of three reasons. `storage_operator_unrecorded`: a store or freight building whose goods and keeper no source names; it holds goods, not people. `occupant_named_seat_refused`: a source names who used the building, but that household's card refuses the seat and says why, so the roof states the refusal instead of contradicting it. `occupancy_unattested`: the building and its use are on the record, but no source places anybody in it on the scene date, and inventing an occupant would be a claim no evidence makes. The note says which, from the record's own evidence, and `confidence` grades the statement. tools/audit_town_completion_1835.py counts a roof carrying one as a stated use only while the roof is otherwise empty; once somebody is seated there the statement is stale, and the audit refuses it.",
+      "properties": {
+        "value": {
+          "enum": ["storage_operator_unrecorded", "occupant_named_seat_refused", "occupancy_unattested"]
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "source_id values that must resolve in data/sources/"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
     "research_note": {
       "type": "string",
       "description": "Free text. Source conflicts go here and in docs/RESEARCH/<id>.md."
@@ -760,6 +789,7 @@
             "hotel_stable",
             "hotel_under_construction",
             "jail",
+            "land_sale_camp",
             "large_boarding_house",
             "large_workshop",
             "larger_one_and_a_half_story_house",

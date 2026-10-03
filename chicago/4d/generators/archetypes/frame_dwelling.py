@@ -75,7 +75,8 @@ from common.mesh import (  # noqa: E402
     SHUTTER_RGBA, MeshBuilder, simple_material,
 )
 from archetypes.frame_dwelling_params import (  # noqa: E402
-    HALL_FRACTION, MUNTIN_M, SASH_MEETING_M, SASH_STILE_M, FrameDwellingParams,
+    CHIMNEY_HEADS, CROWN_M, DOOR_H_M, DOOR_SILL_M, DOOR_W_M, MUNTIN_M,
+    SASH_MEETING_M, SASH_STILE_M, TRIMS, FrameDwellingParams, facade_bays,
     glazing_lights, sash_rows,
 )
 
@@ -121,12 +122,8 @@ TRIM_RELIEF_M = 0.032       # boarded trim standing off the siding
 WIN_W_M, WIN_H_M = 0.78, 1.25
 # The gable-end window of a half storey. "A small attic window in the gable end."
 GABLE_WIN_W_M, GABLE_WIN_H_M = 0.62, 0.70
-DOOR_W_M, DOOR_H_M = 0.92, 2.02
-# The threshold stands on the sill rather than on the ground. Small, and load-bearing
-# for the GROUND_CONTACT claim: the boarded surround around an opening reaches 75 mm
-# past it on every side, so a door drawn from z = 0.02 puts trim below the base of the
-# walls and the archetype stops being flat on its own footprint.
-DOOR_SILL_M = 0.10
+# The door's size and sill live in `frame_dwelling_params` beside the front's set-out
+# (T-1984), so the signage and entrance readers read the same door this draws.
 
 # Longest clapboard a mill of this period shipped, roughly; it is what sets how many
 # butt joints a wall of a given length carries. Lumber came from St Joseph, Michigan, by
@@ -416,8 +413,8 @@ def _clapboard(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     make `assets/manifest.json`'s input hashes meaningless.
     """
     stud = p.stud_spacing_m
-    course = p.siding_exposure_m
-    n = int((z_hi - z_lo) / course)
+    lines = materials.course_lines(z_lo, z_hi, p.siding_exposure_m, p.siding_lay_m,
+                                   p.siding_seed)
     lip = CLAPBOARD_LIP_M
     faces_y = [(y, ny, sgn, nm) for y, ny, sgn, nm in
                ((y0, y0 - lip, -1.0, "front"), (y1, y1 + lip, 1.0, "back"))
@@ -425,10 +422,16 @@ def _clapboard(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     faces_x = [(x, nx, sgn, nm) for x, nx, sgn, nm in
                ((x0, x0 - lip, -1.0, "left"), (x1, x1 + lip, 1.0, "right"))
                if nm not in skip]
-    for i in range(1, n):
-        z = z_lo + i * course
+    # Since T-1962 a lap line may stand off its even height by the fabric rule's lay
+    # (FIN-L, `materials.course_lines`), so a course's board runs from the line below
+    # it. With no lay it still runs from `z - exposure`, so a wall the rule never
+    # reached is built to the bit as it was.
+    prev = z_lo
+    for i, z in enumerate(lines, start=1):
         if z > z_hi - 0.02:
             break
+        below = prev if p.siding_lay_m > 0.0 else z - p.siding_exposure_m
+        prev = z
         for y, ny, _sgn, _nm in faces_y:
             b.add_poly([(x0, y, z), (x1, y, z), (x1, ny, z - 0.02), (x0, ny, z - 0.02)],
                        conf, M_WALL)
@@ -440,12 +443,12 @@ def _clapboard(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
             for jx in _joint_positions(x0, x1, stud, i):
                 for y, _ny, sgn, _nm in faces_y:
                     _panel(b, "y", y + sgn * (lip + 0.006), jx - 0.015, jx + 0.015,
-                           z - course, z, int(sgn), conf, M_WALL)
+                           below, z, int(sgn), conf, M_WALL)
         else:
             for jy in _joint_positions(y0, y1, stud, i):
                 for x, _nx, sgn, _nm in faces_x:
                     _panel(b, "x", x + sgn * (lip + 0.006), jy - 0.015, jy + 0.015,
-                           z - course, z, int(sgn), conf, M_WALL)
+                           below, z, int(sgn), conf, M_WALL)
 
 
 def _joint_positions(u0: float, u1: float, stud: float, course: int) -> list:
@@ -485,10 +488,26 @@ def _wall_trim(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     keep water out of its corners and its sill, and a record's `cladding` attribute
     declares `geometry: simplified` over the whole of it.
     """
-    board = 0.19 if p.construction == "braced_frame" else 0.13
+    # T-1839: the household's trim widens or narrows the board and sets the frieze
+    # under the plate; `plain` is the 0.13 / 0.19 m board and 0.20 m frieze this
+    # archetype has always built.
+    extra, frieze, crown = TRIMS[p.trim]
+    board = (0.19 if p.construction == "braced_frame" else 0.13) + extra
     # water table at the sill and frieze under the plate
     _band(b, x0, y0, x1, y1, 0.0, 0.20, conf, M_TRIM)
-    _band(b, x0, y0, x1, y1, wall_z - 0.20, wall_z, conf, M_TRIM)
+    _band(b, x0, y0, x1, y1, wall_z - frieze, wall_z, conf, M_TRIM)
+    if crown > 0.0:
+        # The boxed house's crown: a board standing `crown` proud of the wall at the
+        # top of the frieze, a solid so its soffit catches the shadow that reads it.
+        # It runs the street eave and returns a short way round each gable, the
+        # cornice return; the back eave takes it only where no ell rises against it.
+        r, ret = crown, min(0.6, (y1 - y0) / 3.0)
+        runs = [(x0 - r, y0 - r, x1 + r, y0), (x0 - r, y0, x0, y0 + ret),
+                (x1, y0, x1 + r, y0 + ret)]
+        if not p.ell:
+            runs.append((x0 - r, y1, x1 + r, y1 + r))
+        for bx0, by0, bx1, by1 in runs:
+            b.add_box(bx0, by0, wall_z - CROWN_M, bx1, by1, wall_z, conf, M_TRIM)
     if p.construction == "braced_frame" and p.stories > 1.0:
         floor_z = (wall_z - p.knee_wall_m) if p.half_story else wall_z / 2.0
         _band(b, x0, y0, x1, y1, floor_z - 0.06, floor_z + 0.06, conf, M_TRIM)
@@ -498,9 +517,9 @@ def _wall_trim(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
             bx0, bx1 = sorted((x, x - sx * board))
             by0, by1 = sorted((y, y - sy * board))
             _panel(b, "y", y + sy * TRIM_RELIEF_M, bx0, bx1, 0.20,
-                   wall_z - 0.20, int(sy), conf, M_TRIM)
+                   wall_z - frieze, int(sy), conf, M_TRIM)
             _panel(b, "x", x + sx * TRIM_RELIEF_M, by0, by1, 0.20,
-                   wall_z - 0.20, int(sx), conf, M_TRIM)
+                   wall_z - frieze, int(sx), conf, M_TRIM)
 
 
 # ------------------------------------------------------------------------ roof
@@ -552,57 +571,10 @@ def _shed_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
 # ------------------------------------------------------------------- the front
 
 def _facade_openings(p: FrameDwellingParams) -> list:
-    """Where the openings go across the front, as `(centre_x, kind)`.
-
-    **This is the archetype's answer to docs/LIBERTIES.md L23** — one window
-    arrangement on every frame building. The front is not a fixed five bays: the count
-    comes from the frontage (or from the record) and the ARRANGEMENT comes from the
-    plan behind the wall, which is what actually decides where a door is.
-
-    - `hall_parlour`, the default and the commonest vernacular plan, divides the front
-      at the partition between the larger heated hall and the smaller parlour. The door
-      opens into the hall, near the middle of it, so it is well off the centre of the
-      building and the two rooms' windows are spaced differently from one another —
-      with a wider gap over the partition. That gap is the plan showing through the
-      wall, and it is what makes the front read as a house rather than as a facade.
-    - `centre_passage` is the symmetrical alternative, and it has to be asked for.
-    - `single_pen` is one room: a door and a window or two beside it.
-
-    Every centre is then snapped to a stud-bay centre, so an opening's jambs land
-    against studs. That is a real constraint on where a window can go in a framed wall,
-    and it is what makes the stud module something the facade obeys rather than
-    something the sidecar mentions.
-    """
-    w, n = p.width_m, p.bays
-    if p.plan == "centre_passage":
-        centres = [w * (i + 0.5) / n for i in range(n)]
-        door = n // 2
-        out = [(x, "door" if i == door else "window") for i, x in enumerate(centres)]
-        return [(_snap(x, p, w), k) for x, k in out]
-
-    hf = 0.5 if p.plan == "single_pen" else HALL_FRACTION
-    xp = w * hf
-    if p.plan == "single_pen":
-        n_hall = 1
-    else:
-        n_hall = 1 + min(max(int(round((n - 1) * hf)), 1), n - 2)
-    n_parlour = n - n_hall
-
-    out = []
-    door_i = n_hall // 2
-    for i in range(n_hall):
-        out.append((xp * (i + 0.5) / n_hall, "door" if i == door_i else "window"))
-    for j in range(n_parlour):
-        out.append((xp + (w - xp) * (j + 0.5) / n_parlour, "window"))
-    return [(_snap(x, p, w), k) for x, k in out]
-
-
-def _snap(x: float, p: FrameDwellingParams, w: float) -> float:
-    """Nearest stud-bay centre, kept clear of the corner boards."""
-    stud = p.stud_spacing_m
-    k = math.floor(x / stud)
-    u = (k + 0.5) * stud
-    return min(max(u, 0.72), w - 0.72)
+    """Where the openings go across the front, as `(centre_x, kind)` — the params
+    module's set-out (`frame_dwelling_params.facade_bays`, T-1984), which the
+    signage and entrance readers read too."""
+    return facade_bays(p)
 
 
 def _facade(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: float,
@@ -828,23 +800,35 @@ def _chimneys(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float, d: fl
         return
     yc = (y0 + d) / 2.0
     for cx in _stack_positions(p, w):
-        _stack(b, cx, yc, wall_z, ridge_z, conf, mat)
+        _stack(b, cx, yc, wall_z, ridge_z, conf, mat, p.chimney_head)
     if p.ell and p.chimneys >= 2 and ell_ridge_z is not None:
         ex0, ex1 = _ell_extent(p, w)
         # near the wing's own outer gable, and kept inside it however short it is
         cy = min(0.95, max(0.55, p.ell_depth_m * 0.3))
-        _stack(b, (ex0 + ex1) / 2.0, cy, p.ell_height_m, ell_ridge_z, conf, mat)
+        _stack(b, (ex0 + ex1) / 2.0, cy, p.ell_height_m, ell_ridge_z, conf, mat,
+               p.chimney_head)
 
 
 def _stack(b: MeshBuilder, cx: float, cy: float, base_z: float, ridge_z: float,
-           conf: float, mat: int) -> None:
-    """One stack, from inside the roof to a corbelled head above the ridge."""
+           conf: float, mat: int, head: str = "corbel") -> None:
+    """One stack, from inside the roof to its head above the ridge.
+
+    The head is the household's (T-1839, `CHIMNEY_HEADS`): `corbel` is the one course
+    every stack here has always carried, `double_corbel` lays a second, wider course
+    above it — so the stack only ever gains height over the by-law's line — and
+    `plain` carries the shaft straight up to the same top with no course at all.
+    """
     half = 0.42
+    courses = CHIMNEY_HEADS[head]
+    shaft_top = ridge_z + (0.62 if courses else 0.78)
     b.add_box(cx - half, cy - half, base_z - 0.4, cx + half, cy + half,
-              ridge_z + 0.62, conf, mat, skip=("bottom",))
-    b.add_box(cx - half - 0.07, cy - half - 0.07, ridge_z + 0.62,
-              cx + half + 0.07, cy + half + 0.07, ridge_z + 0.78, conf, mat,
-              skip=("bottom",))
+              shaft_top, conf, mat, skip=("bottom",))
+    for k in range(courses):
+        grow = 0.07 * (k + 1)
+        z0 = ridge_z + 0.62 + 0.16 * k
+        b.add_box(cx - half - grow, cy - half - grow, z0,
+                  cx + half + grow, cy + half + grow, z0 + 0.16, conf, mat,
+                  skip=("bottom",))
 
 
 def _stovepipes(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,

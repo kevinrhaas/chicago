@@ -28,6 +28,21 @@ for m in json.loads((P/'research/acquired-files.json').read_text()):
   if p.exists():require(hashlib.sha256(p.read_bytes()).hexdigest()==m['sha256'],f'hash mismatch {p}')
 for r in j.get('measurements',[]):require(r.get('source_id') in sources,'unresolved measurement source')
 require(j['meta']['target_year']==1904,'wrong target')
+# THE IMAGE COLLECTION'S BYTES LIVE IN kevinrhaas/chicago-images (owner, 2026-10-02: "you can go as
+# large as you need to, 500MB or 2GB"). That repository is its own GitHub Pages site, so its own
+# 1 GB publish limit is what binds — not this site's. research/images/STORE.json (written by
+# tools/sync_image_store.py) records every file there; at 950 MB the collection needs a second
+# store repository, so that is the budget, with a warning at 850.
+STORE_BUDGET_MB=950
+store=json.loads((P/'research/images/STORE.json').read_text()) if (P/'research/images/STORE.json').exists() else {'bytes':0,'files':{}}
+img_mb=store.get('bytes',0)/1048576
+require(img_mb<=STORE_BUDGET_MB,f'image store is {img_mb:.1f} MB, over {STORE_BUDGET_MB} MB — add a second store repository (research/images/files/README.md)')
+if img_mb>850:print(f'WARN image store at {img_mb:.1f} of {STORE_BUDGET_MB} MB — plan the second store repository')
+# The first store (research/images/files/) was emptied on 2026-10-02 once kevinrhaas/chicago-images was
+# serving: image files live only there now, so none may land here.
+stray=sorted(p.name for p in (P/'research/images/files').glob('*') if p.is_file() and p.name!='README.md') if (P/'research/images/files').exists() else []
+require(not stray,f'{len(stray)} file(s) in research/images/files/ (e.g. {stray[:3]}) — image files go to kevinrhaas/chicago-images via tools/fetch_image.py')
+IMAGE_BUDGET_MB=STORE_BUDGET_MB
 # The image & document index (research/images/README.md): every stream record checked and merged, both outputs current.
 import subprocess,sys
 r=subprocess.run([sys.executable,str(P/'tools/build_images.py'),'--check'],capture_output=True,text=True)
@@ -36,7 +51,7 @@ if (P/'data/images.json').exists():
  im=json.loads((P/'data/images.json').read_text())
  for rec in im['images']:
   for bid in rec['building_ids']:require(bid in {b['id'] for b in j['buildings']},f'image {rec["id"]} cites unknown building {bid}')
-  if rec.get('local'):require(rec['rights'] in ('public domain','no known restrictions') or rec['local'].get('display','').startswith('research/public/'),f'image {rec["id"]}: local copy of a {rec["rights"]} item')
-print(f'{len(j["buildings"])} buildings; {len(sources)} sources; {len(j["map_inventory"]["records"])} frontage readings; {len(j["occupancy_candidates"])} directory candidates')
+  if rec.get('local'):require(rec['rights'] in ('public domain','no known restrictions') or (rec['rights']=='pending — permission requested' and (P/str(rec.get('rights_request') or 'x')).is_file()) or rec['local'].get('display','').startswith('research/public/'),f'image {rec["id"]}: local copy of a {rec["rights"]} item')
+print(f'image store {img_mb:.1f} of {STORE_BUDGET_MB} MB ({len(store.get("files",{}))} files, kevinrhaas/chicago-images)');print(f'{len(j["buildings"])} buildings; {len(sources)} sources; {len(j["map_inventory"]["records"])} frontage readings; {len(j["occupancy_candidates"])} directory candidates')
 if errors:raise SystemExit('\n'.join(errors))
 print('PASS: identities, evidence dates, source links and acquired-file hashes')

@@ -11,9 +11,31 @@ window.PrairieImages = (() => {
   const svg = (tag, attrs = {}) => { const el = document.createElementNS(SVG, tag); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); return el; };
   // A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
   const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
-  function localURL(path) {
+  // The package's own copy of a file (research/public/ and other package paths).
+  function packageURL(path) {
     if (!path || typeof path !== 'string' || /^[a-z]+:/i.test(path) || path.startsWith('/') || path.split('/').includes('..')) return null;
     try { return new URL(packagePath(path), location.href).href; } catch { return null; }
+  }
+  // Where a local file is read from: the image store (kevinrhaas/chicago-images, owner 2026-10-02)
+  // for the logical research/images/files/ paths, the package for everything else.
+  function localURL(path) {
+    const st = imgs?.image_store;
+    if (st && typeof path === 'string' && path.startsWith(st.prefix) && !path.split('/').includes('..')) {
+      try { return new URL(path.slice(st.prefix.length), st.base_url).href; } catch { /* fall through */ }
+    }
+    return packageURL(path);
+  }
+  // Every place an image can come from, in order: the store, the package copy, the holder.
+  function candidates(r, which, size) {
+    const path = r.local && (which === 'thumb' ? (r.local.thumb || r.local.display) : (r.local.display || (!r.image_url && r.local.thumb)));
+    // A store path has no package copy any more (research/images/files/ was emptied on 2026-10-02).
+    const st = imgs?.image_store, inStore = st && path && path.startsWith(st.prefix);
+    return [...new Set([path && localURL(path), path && !inStore && packageURL(path), fallbackURL(r, size)].filter(Boolean))];
+  }
+  // Point an <img> at the first candidate and step to the next on error; onFail when all fail.
+  function loadChain(img, urls, onFail) {
+    let i = 0; img.src = urls[0];
+    img.addEventListener('error', () => { i += 1; if (i < urls.length) { if (i === urls.length - 1) img.referrerPolicy = 'no-referrer'; img.src = urls[i]; } else onFail?.(); });
   }
   function remoteURL(value) { try { const u = new URL(value); return /^https?:$/.test(u.protocol) ? u.href : null; } catch { return null; } }
   function extLink(text, url) { const href = remoteURL(url); if (!href) return null; const a = node('a', text); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a; }
@@ -22,7 +44,7 @@ window.PrairieImages = (() => {
   let lib = null, imgs = null, plan = null, byId = new Map(), buildingsById = new Map(), ready = false;
   let view = 'grid', current = [], openIndex = -1, selectedParcel = null;
   const PERIOD_LABEL = { 'in-period': 'In period · to 1911', 'near-period': 'Near period · 1912–1930', later: 'Later · 1931 on' };
-  const RIGHTS_LABEL = { 'public domain': 'Public domain', 'no known restrictions': 'No known restrictions', 'copyright — link only': 'In copyright · link only', 'unknown — link only': 'Rights unknown · link only' };
+  const RIGHTS_LABEL = { 'public domain': 'Public domain', 'no known restrictions': 'No known restrictions', 'pending — permission requested': 'Rights pending · permission requested from the holder', 'copyright — link only': 'In copyright · link only', 'unknown — link only': 'Rights unknown · link only' };
   // Street order: the library's building order, then the street and district views.
   const buildingName = id => { const b = buildingsById.get(id); return b ? (b.address || '').replace(/\s*S\.\s*Prairie Avenue/, ' Prairie') + ' · ' + (b.name || id) : id; };
   const shortAddr = id => { const b = buildingsById.get(id); return b ? (b.address || id).replace(/\s*S\.\s*Prairie Avenue/, ' Prairie').replace(/ Avenue| Street/, '') : id; };
@@ -92,10 +114,9 @@ window.PrairieImages = (() => {
   function thumbBox(r, cls = 'img-thumb') {
     const box = node('div', null, cls), src = thumbOf(r);
     if (src) {
-      const img = node('img'); img.src = src; img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async';
+      const img = node('img'); img.alt = r.title || ''; img.loading = 'lazy'; img.decoding = 'async';
       // The /4d/ dev-preview mirror ships without the local derivatives: fall back to the holder.
-      const fallback = fallbackURL(r, 480);
-      img.addEventListener('error', () => { if (fallback && img.src !== fallback) { img.referrerPolicy = 'no-referrer'; img.src = fallback; } else img.replaceWith(node('span', r.kind, 'img-ph')); });
+      loadChain(img, candidates(r, 'thumb', 480), () => img.replaceWith(node('span', r.kind, 'img-ph')));
       box.append(img);
     }
     else {
@@ -110,6 +131,7 @@ window.PrairieImages = (() => {
     const b = node('div', null, 'img-badges');
     b.append(node('span', PERIOD_LABEL[r.period] || r.period, 'badge period-' + r.period));
     if (!r.local) b.append(node('span', 'Link only', 'badge link-badge')); else if (!r.local.display) b.append(node('span', 'Thumbnail here', 'badge link-badge'));
+    if (r.rights === 'pending — permission requested') b.append(node('span', 'Rights pending', 'badge pending-badge'));
     return b;
   }
   function chipsFor(r, onPick) {
@@ -262,7 +284,7 @@ window.PrairieImages = (() => {
     const d = $('imageDialog'), body = $('imageDialogBody'); body.replaceChildren();
     const fig = node('figure', null, 'img-figure'), full = fullOf(r);
     const remote = !full && remoteFullOf(r);
-    if (full) { const a = node('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener'; const img = node('img'); img.src = full; img.alt = r.title || ''; const fb = fallbackURL(r, 1600); img.addEventListener('error', () => { if (fb && img.src !== fb) { img.referrerPolicy = 'no-referrer'; img.src = fb; a.href = fb; } }); a.append(img); fig.append(a); }
+    if (full) { const a = node('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener'; const img = node('img'); img.alt = r.title || ''; const urls = candidates(r, 'full', 1600); loadChain(img, urls); img.addEventListener('load', () => { a.href = img.currentSrc || img.src; }); a.append(img); fig.append(a); }
     else if (remote) {
       const a = node('a'); a.href = remoteURL(r.image_url) || remote; a.target = '_blank'; a.rel = 'noopener noreferrer'; const img = remoteImg(remote, r); img.loading = 'eager';
       img.addEventListener('error', () => a.replaceWith(thumbBox(Object.assign({}, r, { image_url: null }), 'img-thumb big')));

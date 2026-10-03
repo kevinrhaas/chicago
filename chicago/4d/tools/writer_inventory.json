@@ -7,6 +7,30 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "seat_trade_roofs_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "continuously",
+      "finding": "In the manifest immediately after house_the_present_1835.py and before compile_scene: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. With --build it writes data/reconstruction/1835_trade_roof_seats.json; a second run changes no byte."
+    },
+    "house_the_present_1835.py": {
+      "placement": "manifest",
+      "write_mode": null,
+      "measured": "continuously",
+      "finding": "In the manifest immediately before compile_scene: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. Run bare it writes data/reconstruction/1835_housing_seats.json; a second run changes no byte."
+    },
+    "audit_town_completion_1835.py": {
+      "placement": "manifest",
+      "write_mode": null,
+      "measured": "continuously",
+      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+    },
+    "check_terrain_e1830.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-02",
+      "finding": "Run bare it prints the --check verdict on the e1830_natural overlay, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: --resolve prints the effective 1812 table to stdout. A checker (T-2002)."
+    },
     "check_terrain_e1871.py": {
       "placement": "manifest",
       "write_mode": "--write",
@@ -192,6 +216,19 @@
       "write_mode": null,
       "measured": "2026-09-29",
       "finding": "Run bare on the working tree it prints the --check verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: data/street_surfaces/1904.json is authored. A checker (T-1728)."
+    },
+    "check_wall_relief.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-02",
+      "finding": "Run bare on the working tree it prints its verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: it runs renderers/web/js/wall-grain.js under node over the committed sidecars and compares it with generators/common/materials.py. A checker (T-1963)."
+    },
+    "web_textures.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: staged its 14 .webp derivatives, ran --write, and git status reported no byte moved (libwebp's lossless encoder is deterministic at method 6). Its --check holds each derivative pixel-identical to its PNG master, so even an encoder that changed bytes could not change a pixel (T-1973).",
+      "placed": "not yet — it reads only the committed PNG masters under assets/textures/chicago_1835_pbr/, which no manifest step writes (the library's generator is not in the manifest), so it has no ordering hazard; the manifest covers data/ derivations and joining it is its own measured pass"
     },
     "check_unique_ids.py": {
       "placement": "not_a_writer",
@@ -477,6 +514,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_entrances.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, rewrote data/enclosures/town_entrance_aprons.json byte for byte, changed no committed byte.",
+      "placed": "not yet placed: it reads data/sidecars/1835/ and data/streets/1835.json, and tools/generate_yard_goods.py reads its output (wagon stands on the trodden ground are refused), so its slot is after the sidecar and street writers and before generate_yard_goods.py — to be measured in its own ordering pass (T-1453), not appended blind (T-1984)"
+    },
     "generate_fort_apron.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -566,6 +610,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_trade_yards.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-02 — directly after generate_yard_goods.py, whose output it reads (T-1961)"
+    },
     "generate_west_infill.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -580,12 +631,26 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
       "placed": "by layer, 2026-10-01 \u2014 reasoned, not derived; beside generate_west_infill.py in the manifest"
     },
+    "generate_woodpiles.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
+      "placed": "not yet ordered (T-1959): it reads data/enclosures/town_dooryard_pickets.json, data/flora/plantings/*.json and data/yard/*.json, so its slot is after generate_dooryard_pickets, generate_dooryard_plantings and generate_yard_goods; the manifest's own ordering pass places it"
+    },
     "generate_yard_goods.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 22s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "generate_yard_outbuildings.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-02 — directly after tools/generate_yard_goods.py, whose wagons it reads; see the manifest step"
     },
     "lift_letter_list_1834_unread.py": {
       "placement": "not_a_writer",
@@ -668,6 +733,13 @@
       "measured": "2026-09-21",
       "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
       "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
+    },
+    "measure_shore_1812_harrison.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+      "placed": "after derive_shore_1812.py, whose output it measures (T-1286)"
     },
     "measure_west_farm_ground_1835.py": {
       "placement": "manifest",
@@ -1667,6 +1739,13 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: run bare on a clean tree in under a second, it rewrote data/structures/landing_camp_west.json and landing_camp_east.json and `git status --porcelain` was identical before and after \u2014 not one committed byte moved. T-1803. PENDING rather than manifest because it reads the committed street lines, the traced bank, the heightfield, the wharf decks, river walks, beached boats and every footprint, and writes two structure records the sidecar compile and the town census then read, so its slot in the re-derivation order is a question a measured pass of the manifest owns.",
       "placed": "not yet \u2014 measured to reproduce. T-1803: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
+    },
+    "place_camp_grounds_1835.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: run bare twice on a clean tree in under a second, it rewrote data/structures/land_sale_camp_shore.json and west_approach_wagon_camp.json with identical bytes. T-1804. PENDING rather than manifest for the reason place_landing_camps_1835.py is: it reads the committed street lines, fences, refused regions, the heightfield and every footprint, and writes two structure records the sidecar compile and the town census then read.",
+      "placed": "not yet \u2014 measured to reproduce. T-1804: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those; its slot is the manifest's own measured pass, as T-1803's is."
     }
   }
 }

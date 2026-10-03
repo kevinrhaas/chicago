@@ -150,6 +150,21 @@
       ]
     },
     {
+      "why": "A MEASUREMENT OF ONE COMMITTED LINE AGAINST ANOTHER (T-1286): how far the Harrison 1830 pre-cut reading (data/terrain/harrison_1830_pre_cut_reading.geojson, committed, re-traced only by hand because the tracer needs the network) sits from the 1812 shore derive_shore_1812.py writes. It reads that step's output, so it follows it. It changes no geometry, and the file it writes is nothing but the measurement, so the manifest owns it: a conflict there is settled by measuring again.",
+      "command": [
+        "python3",
+        "tools/measure_shore_1812_harrison.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/terrain/1812_harrison_cross_check.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/measure_shore_1812_harrison.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-1250): the four Prairie Avenue sheets' GCP files, fitted from picks written in the tool, the committed rasters under chicago/reference/ and data/traces/prairie_1904_control.json. It reads nothing another step writes, so it sits with the other readers at the head of the manifest; tools/trace_ic_edge_1904.py reads its output and follows it.",
       "command": [
         "python3",
@@ -1845,6 +1860,37 @@
       ]
     },
     {
+      "why": "T-1971: the housing deal seats every household present on the scene date that no card or overlay houses, on a standing dwelling, beside its card. It reads the residents layer, the address book, the placement policy, the lodgers' ledger and the scene's own structures through compile_scene's compile_residents with its own overlay switched off, so it never reads itself back; and compile_scene reads its ledger, so it runs immediately before the scene compiles.",
+      "command": [
+        "python3",
+        "tools/house_the_present_1835.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_housing_seats.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/house_the_present_1835.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-1989: the trade-roof deal offers the empty trade roofs to the keepers the employment ledger owes a house of their own, nearest to the roof the housing deal gave them. It reads the housing seats, so it runs after the housing deal; it reads the town through compile_residents with the housing overlays switched off, so it never reads itself back; and compile_scene reads its ledger, so it runs before the scene compiles.",
+      "command": [
+        "python3",
+        "tools/seat_trade_roofs_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_trade_roof_seats.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/seat_trade_roofs_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "The scene compiles from the residents layer, so it runs last but one.",
       "command": [
         "python3",
@@ -2447,6 +2493,32 @@
       ]
     },
     {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN, placed by layer like the yard goods and the building material. T-1961's trade yards sit right after the yard goods because they read town_trade_goods.json, lot_building_material.json, the hay limits and every fence run, and keep clear of all of them.",
+      "command": [
+        "python3",
+        "tools/generate_trade_yards.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_trade_yards.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN, the yard goods' own layer (T-1960): a privy in a rear corner of every dwelling lot and a stable for the horse-keeping households. PLACED BY LAYER, like the step before it, and directly after it because it reads that step's output — data/yard/town_trade_goods.json's wagons, which it keeps clear of — and the lot survey tools/generate_lot_line_fences.py reads from the committed sidecars. It writes one file nothing else reads back. Measured 2026-10-02: run bare on a clean tree it wrote its output and changed no committed byte. WRITES, BUT DOES NOT CLAIM, ITS OUTPUT, for the reason the yard goods step gives.",
+      "command": [
+        "python3",
+        "tools/generate_yard_outbuildings.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_yard_outbuildings.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1544's reading of what Wright's 1834 sheet says about the 288.3 m the corporate boundary's west leg extrapolates from Hubbard Street to Ohio Street. It runs AFTER the generators that place buildings, because one of the four things it measures is how close that extension comes to a DRAWN structure — run before them it would price the extrapolation against a stale town — and after tools/generate_plat_lots.py for the same reason the West Division's spacing measurement does. IT MOVES NOTHING: no centreline is edited, no leg re-graded, no record re-seated, and every figure it writes is read back out of committed files, which is why it may own its output outright. `resolves` names that one file: two runs re-derive the same bytes, so a conflict there is settled by rebuilding rather than by choosing a side.",
       "command": [
         "python3",
@@ -2474,6 +2546,21 @@
       "verify": [
         "python3",
         "tools/town_census.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-1964: how far the town is from complete — the four joins T-1215 names (housed, at work, roofed, occupied) counted by tier. It reads the residents layer, the employment ledger, the businesses and the scene's sidecars and writes nothing any of them read, so it runs after the town census and before anything downstream; two runs re-derive the same bytes, so a conflict on its output is settled by rebuilding rather than by choosing a side.",
+      "command": [
+        "python3",
+        "tools/audit_town_completion_1835.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/render/town_completion_1835.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/audit_town_completion_1835.py",
         "--check"
       ]
     },

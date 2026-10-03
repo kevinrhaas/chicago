@@ -90,6 +90,11 @@
     "confidence": "reconstructed",
     "note": "The closed vocabulary has no `bark shed`; `woodshed_or_storage_shed` is family A4's own name and a bark shed is a store. The specific use is in the record's NAME and in this note. The use comes from the tannery's own record, which says in as many words that 'a tannery is its yard - bark mill, lime pits, tan vats, drying sheds, and a water supply - and none of that is in this polygon or in the model'. This is the first of those. No occupant is claimed."
   },
+  "part_of": {
+    "value": "miller_tannery",
+    "confidence": "reconstructed",
+    "note": "This building was raised as the bark shed of John Miller's tannery, in the yard behind it, out of the tannery record's own sentence that 'a tannery is its yard'; it has no existence apart from that reading, so the tie is as reconstructed as the building (LIBERTIES.md L284, the works rule of T-1709). The tannery's keepers are seated on the tannery and are not repeated here."
+  },
   "research_note": "A RECONSTRUCTED YARD BUILDING AT THE SETTLEMENT'S FIRST FACTORY - T-1709, of T-1203. WHAT IS HELD: Andreas and DRLOIH for the tannery, its fabric, its year, its partner Benjamin Hall and its direction from Samuel Miller's tavern. WHAT IS INVENTED: this building and every attribute of it, including that it existed. WHAT IS STILL NOT MODELLED: the lime pits, the tan vats and the bark mill itself, which are pits and machinery rather than buildings - the tannery's record names them and this one does not discharge them. WHAT WOULD UPGRADE IT: any account of Miller and Hall's tanyard, or the Chicago Democrat's advertisements. Built under the owner's standing ruling of 2026-08-18. Links: T-1709 - T-1203 - T-1640 - docs/RESEARCH/branch_noxious_works.md - docs/LIBERTIES.md L284.",
   "review_required": false
 }
