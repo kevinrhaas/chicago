@@ -200,7 +200,13 @@
     "dossier_zone": 2,
     "confidence": "reconstructed",
     "sources": [],
-    "note": "No lake stage of 1812 is recorded, and the dossier grades even the 1835 one conjectural (zone 2, 580 +/- 1.5 ft ASL). The water stands at the 1835 plane so the two epochs' ground can be compared and so every carried bank keeps the freeboard its zone gives it; the historic range of 576-582 ft ASL (dossier section 1.2) is the bound, Z -4 to +2. A lower 1812 lake would widen every beach and lower the river against its banks; a higher one would drown the spit, whose chosen crest is +4. Replaced by any stage reconstruction for the 1810s (NOAA/GLERL Michigan-Huron series)."
+    "note": "No lake stage of 1812 is recorded, and the dossier grades even the 1835 one conjectural (zone 2, 580 +/- 1.5 ft ASL). The water stands at the 1835 plane so the two epochs' ground can be compared and so every carried bank keeps the freeboard its zone gives it; the historic range of 576-582 ft ASL (dossier section 1.2) is the bound, Z -4 to +2. A lower 1812 lake would widen every beach and lower the river against its banks; a higher one would drown the spit, whose chosen crest is +4. Replaced by any stage reconstruction for the 1810s (NOAA/GLERL Michigan-Huron series).",
+    "mesh": {
+      "surface_ft": "restated_in_code",
+      "range_ft": "record_only",
+      "dossier_zone": "record_only"
+    },
+    "mesh_note": "The 1812 water is the plane Z = 0, which generators/terrain_gen_e1830.py writes through terrain_gen.write_heightfield at a literal zero (heightfield.json water_surface_m) rather than reading surface_ft. range_ft is the zone's bound and dossier_zone a record label for the panel; neither is a build input."
   },
   "water_bodies_1812": {
     "carried": [
@@ -224,7 +230,8 @@
       "wright_1834",
       "quaife_1913_swearingen"
     ],
-    "note": "Every water polygon here is Wright's 1834 tracing, and four are carried untouched because no work touched the branches or the main stem above the fort before 1833. The mouth is the planform shore_1812_pre_cut already derived (T-1242) closed at the isthmus: inferred, because the closure is a deduction from the landform (a baymouth spit is the reason the river ran south at all) and the outlet is an eyewitness distance that an 1834 instrument reading agrees with to 9.2 m."
+    "note": "Every water polygon here is Wright's 1834 tracing, and four are carried untouched because no work touched the branches or the main stem above the fort before 1833. The mouth is the planform shore_1812_pre_cut already derived (T-1242) closed at the isthmus: inferred, because the closure is a deduction from the landform (a baymouth spit is the reason the river ran south at all) and the outlet is an eyewitness distance that an 1834 instrument reading agrees with to 9.2 m.",
+    "mesh_note": "carried is read: those four 1834 polygons are the field's water beside the mouth generators/terrain_gen_e1830.py writes into river.geojson."
   },
   "shore_runs_1812": {
     "carried": [
@@ -262,7 +269,11 @@
     "sources": [
       "wright_1834"
     ],
-    "note": "THE 1812 SHORE NORTH OF THE SPIT ROOT IS NOT READ ANYWHERE, AND A WATERLINE HAS TO BE SOMEWHERE. derive_shore_1812.py deliberately claims none of it: from index 30 to the pier head the 1834 line is the drafted pier, and from index 39 north it is a shore the 1834 epoch says is accreting against the pier (zone 28, a wedge 100-300 ft wide tapering north). Sand caught updrift of a pier was not there before the pier, so the 1812 shore lay WEST of the 1834 one near the root; that sets the direction, and nothing sets the amount. So the line is the least-land one the two committed points allow: a straight chord from the spit root to the first 1834 vertex past the pier head, then the 1834 line north. The chord cuts off the drafted pier and the sand inside it, up to 120.8 m (396 ft) east of the chord at index 34. That is more than zone 28's 300 ft because the drafted pier head and the pier's own width stand inside the triangle beside the sand it caught, and both are absent in 1812. North of index 39 the 1834 line is carried AS the 1812 shore, which overstates the land by whatever the wedge still held there. Both errors run one way, toward too much beach north of the root and never toward an invented headland. docs/LIBERTIES.md records it; a pre-1833 chart of the lake shore replaces it."
+    "note": "THE 1812 SHORE NORTH OF THE SPIT ROOT IS NOT READ ANYWHERE, AND A WATERLINE HAS TO BE SOMEWHERE. derive_shore_1812.py deliberately claims none of it: from index 30 to the pier head the 1834 line is the drafted pier, and from index 39 north it is a shore the 1834 epoch says is accreting against the pier (zone 28, a wedge 100-300 ft wide tapering north). Sand caught updrift of a pier was not there before the pier, so the 1812 shore lay WEST of the 1834 one near the root; that sets the direction, and nothing sets the amount. So the line is the least-land one the two committed points allow: a straight chord from the spit root to the first 1834 vertex past the pier head, then the 1834 line north. The chord cuts off the drafted pier and the sand inside it, up to 120.8 m (396 ft) east of the chord at index 34. That is more than zone 28's 300 ft because the drafted pier head and the pier's own width stand inside the triangle beside the sand it caught, and both are absent in 1812. North of index 39 the 1834 line is carried AS the 1812 shore, which overstates the land by whatever the wedge still held there. Both errors run one way, toward too much beach north of the root and never toward an invented headland. docs/LIBERTIES.md records it; a pre-1833 chart of the lake shore replaces it.",
+    "mesh": {
+      "dossier_zone": "record_only"
+    },
+    "mesh_note": "The run is built by generators/terrain_gen_e1830.py from the two committed points the run block names (1834 index 29 and the mouth readings' accretion_bound_first_index); dossier_zone is a record label."
   },
   "spit_1812": {
     "feature": "baymouth_bar_1812",
@@ -280,7 +291,13 @@
       "wikipedia_chicago_river"
     ],
     "material": "beach_and_dune_sand",
-    "note": "The 1834 bar's surface carried onto the 1812 spit, at the same +4 ft crest and 12 m face (1:9.8, zone 4's beach slope). Of the five reasons the 1834 spec gives for taking zone 7's LOW end, four hold for 1812 and one does not. Holding: the soldiers of Fort Dearborn trenched this bar with hand tools between 1816 and 1828, so it was low enough to dig through in the years after this scene; the 1839 Fort Dearborn Addition reading of the ground east of Michigan Avenue as 'at best ... a low sandbar'; the direction of the error, because an 8 ft ridge here would hide the river behind a dune it never was; and the dossier's own zone 3 ridge at +9 to +10, which the young end of the same littoral system cannot equal. Not holding: the mid-1830s high-water phase, which is an 1835 fact. The 1812 stage is unknown (lake_stage_1812), so it neither raises nor lowers the choice, and +4 stands on the other four. The planform is Wright's 1834 bar carried whole; over most of its length it is 108-164 m wide, wider than zone 7's 100-300 ft, and that is the trace's reading and is not narrowed here. The surface is emitted CONJECTURAL in the confidence channel: its shape is evidence, its height is not."
+    "note": "The 1834 bar's surface carried onto the 1812 spit, at the same +4 ft crest and 12 m face (1:9.8, zone 4's beach slope). Of the five reasons the 1834 spec gives for taking zone 7's LOW end, four hold for 1812 and one does not. Holding: the soldiers of Fort Dearborn trenched this bar with hand tools between 1816 and 1828, so it was low enough to dig through in the years after this scene; the 1839 Fort Dearborn Addition reading of the ground east of Michigan Avenue as 'at best ... a low sandbar'; the direction of the error, because an 8 ft ridge here would hide the river behind a dune it never was; and the dossier's own zone 3 ridge at +9 to +10, which the young end of the same littoral system cannot equal. Not holding: the mid-1830s high-water phase, which is an 1835 fact. The 1812 stage is unknown (lake_stage_1812), so it neither raises nor lowers the choice, and +4 stands on the other four. The planform is Wright's 1834 bar carried whole; over most of its length it is 108-164 m wide, wider than zone 7's 100-300 ft, and that is the trace's reading and is not narrowed here. The surface is emitted CONJECTURAL in the confidence channel: its shape is evidence, its height is not.",
+    "mesh": {
+      "range_ft": "record_only",
+      "dossier_zone": "record_only",
+      "material": "simplified"
+    },
+    "mesh_note": "feature, crest_ft and face_m are read: generators/terrain_gen_e1830.py lifts the spit and its neck to crest_ft across face_m. range_ft is zone 7's bound and dossier_zone a label. material is not drawn: the ground is one surface colour across the box, as the 1834 surface_materials rows declare, and L362 admits it."
   },
   "isthmus_1812": {
     "decision": "surfaced",
@@ -300,7 +317,14 @@
       "wright_1834",
       "quaife_1913_swearingen"
     ],
-    "note": "L240 left this as a stated hole: the attachment inferred, no ground asserted across it. It gets a SURFACE here, because an 1812 scene with a gap in the spit has the river running out through the place the cut was later dug - the 1834 mouth drawn into 1812, which is the error shore_1812_pre_cut exists to prevent - and because the ground is continuous by the same deduction that made the attachment inferred. What it is: a ribbon of sand 100 ft wide centred on the gap line, its south-west face the river's turn south and its north-east face the lake, at the spit's own +4 ft crest with the spit's own 12 m faces. Width: zone 7's LOW end. The ends of the line are fixed, so a wider neck has to go somewhere, and neither face has a reading; the narrowest neck zone 7 allows is the least land invented, and a neck soldiers cut through again and again with spades is not a broad one. The bar's own width a little south of it (108 m at N +205, the trace) is the upper alternative and is recorded, not adopted. Height: the spit's, because a neck LOWER than the spit is a breach - which is the 1834 storm's landform, not 1812's - and one higher is the zone 3 ridge, which it is not. A pre-1833 chart or sounding of the mouth replaces all of it. docs/LIBERTIES.md records it."
+    "note": "L240 left this as a stated hole: the attachment inferred, no ground asserted across it. It gets a SURFACE here, because an 1812 scene with a gap in the spit has the river running out through the place the cut was later dug - the 1834 mouth drawn into 1812, which is the error shore_1812_pre_cut exists to prevent - and because the ground is continuous by the same deduction that made the attachment inferred. What it is: a ribbon of sand 100 ft wide centred on the gap line, its south-west face the river's turn south and its north-east face the lake, at the spit's own +4 ft crest with the spit's own 12 m faces. Width: zone 7's LOW end. The ends of the line are fixed, so a wider neck has to go somewhere, and neither face has a reading; the narrowest neck zone 7 allows is the least land invented, and a neck soldiers cut through again and again with spades is not a broad one. The bar's own width a little south of it (108 m at N +205, the trace) is the upper alternative and is recorded, not adopted. Height: the spit's, because a neck LOWER than the spit is a breach - which is the 1834 storm's landform, not 1812's - and one higher is the zone 3 ridge, which it is not. A pre-1833 chart or sounding of the mouth replaces all of it. docs/LIBERTIES.md records it.",
+    "mesh": {
+      "centreline": "record_only",
+      "dossier_zone": "record_only",
+      "width_dossier_zone": "record_only",
+      "range_ft": "record_only"
+    },
+    "mesh_note": "decision, feature, width_ft, crest_ft and face_m are read: generators/terrain_gen_e1830.py lays the ribbon width_ft wide on the feature's own line. centreline restates that line in words and is not parsed; the zone fields are labels and bounds."
   },
   "outlet_channel_1812": {
     "anchor_e": 1290.0,
@@ -317,7 +341,12 @@
       "chicagology_prefire274",
       "chicago_architecture_history_115"
     ],
-    "note": "The channel behind the spit, from the fort south to the outlet. The 1834 spec's old_south_channel takes zone 26's middle, -2.5 ft, for a backwater silting into a lagoon after the cut took the river; in 1812 the whole river ran down it, so the DEEP end of zone 26's range is taken, -4 ft. It is not carried down to the main stem's -12 to -18 (zone 20): the bar 'admitted only boats' (dossier section 3.2), the schooner Tracy anchored half a mile out in 1803 for that reason, and Harrison's 1830 plat letters the old mouth 'very shallow'. So the channel is graded shallow and the error, if any, is too shallow for a live river - the direction that does not invent a navigable mouth the record says was not there. Same anchor and e-fold as the 1834 reach so the two epochs differ in depth only."
+    "note": "The channel behind the spit, from the fort south to the outlet. The 1834 spec's old_south_channel takes zone 26's middle, -2.5 ft, for a backwater silting into a lagoon after the cut took the river; in 1812 the whole river ran down it, so the DEEP end of zone 26's range is taken, -4 ft. It is not carried down to the main stem's -12 to -18 (zone 20): the bar 'admitted only boats' (dossier section 3.2), the schooner Tracy anchored half a mile out in 1803 for that reason, and Harrison's 1830 plat letters the old mouth 'very shallow'. So the channel is graded shallow and the error, if any, is too shallow for a live river - the direction that does not invent a navigable mouth the record says was not there. Same anchor and e-fold as the 1834 reach so the two epochs differ in depth only.",
+    "mesh": {
+      "range_ft": "record_only",
+      "dossier_zone": "record_only"
+    },
+    "mesh_note": "anchor_e, anchor_n, bed_ft and e_fold_m are read: generators/terrain_gen_e1830.py adds the channel to the field's reaches in the place the 1834 old_south_channel stood. range_ft and dossier_zone are the zone's bound and label."
   },
   "channel_west_bank_ruling": {
     "bank_run": "channel_west_bank_1812",
@@ -342,12 +371,17 @@
       -69.0
     ],
     "ground_confidence": "conjectural",
+    "west_band_m": 157.1,
     "confidence": "inferred",
     "sources": [
       "wright_1834",
       "quaife_1913_swearingen"
     ],
-    "note": "THE BANK STAYS ON WRIGHT AND THE GROUND BESIDE IT IS GRADED LOWEST. The owner's ruling of 2026-09-17 holds Wright 1834 as the line, and none of the three readings is decided by what is held, so this spec moves nothing and does the one thing T-1286 asked for when the question cannot be closed: every vertex of the channel, its west bank and the ground within Harrison's worst separation (157 m) west of it, between N -69 and the adopted outlet at N -426.75, is emitted CONJECTURAL rather than inferred. The mouth itself is not in doubt on this evidence (reading c, first half), so the outlet station is not moved either. What would decide it: the 1830 Thompson plat or any pre-1833 survey of the reservation's south line, or a second sheet that draws the channel and states a scale."
+    "note": "THE BANK STAYS ON WRIGHT AND THE GROUND BESIDE IT IS GRADED LOWEST. The owner's ruling of 2026-09-17 holds Wright 1834 as the line, and none of the three readings is decided by what is held, so this spec moves nothing and does the one thing T-1286 asked for when the question cannot be closed: every vertex of the channel, its west bank and the ground within Harrison's worst separation (157 m) west of it, between N -69 and the adopted outlet at N -426.75, is emitted CONJECTURAL rather than inferred. The mouth itself is not in doubt on this evidence (reading c, first half), so the outlet station is not moved either. What would decide it: the 1830 Thompson plat or any pre-1833 survey of the reservation's south line, or a second sheet that draws the channel and states a scale.",
+    "mesh": {
+      "disagreement": "record_only"
+    },
+    "mesh_note": "bank_run, verdict, ground_confidence, band_n_m and west_band_m are read: generators/terrain_gen_e1830.py emits every vertex from the bank west by west_band_m and east across the channel to the spit, between the two band northings, conjectural. disagreement summarises T-1286 for the panel."
   },
   "not_modelled_1812": {
     "absent_by_date": [
