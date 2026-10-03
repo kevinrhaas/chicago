@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1379, ts: '2026-10-03T19:16:47.298Z', date: 'Oct 3, 2026, 2:16 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
