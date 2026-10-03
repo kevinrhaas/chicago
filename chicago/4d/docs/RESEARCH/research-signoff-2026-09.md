@@ -238,7 +238,7 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 | `outside_chicago` | 119 |
 | `refused` | 8,735 |
 
-The same rule over the gate itself: of **180** tools carrying a `--check`, **173** are run by `tools/check.sh` and **7** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
+The same rule over the gate itself: of **182** tools carrying a `--check`, **174** are run by `tools/check.sh` and **8** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
 | Ungated check | Owner | States why |
 | --- | ---: | ---: |
@@ -248,6 +248,7 @@ The same rule over the gate itself: of **180** tools carrying a `--check`, **173
 | `tools/mint_letter_list_residents.py` | T-1222 | yes |
 | `tools/rename_household_ids.py` | — | yes |
 | `tools/trace_shoreline.py` | — | yes |
+| `tools/trace_shoreline_1830.py` | T-1243 | yes |
 | `tools/verify_fergus_1839_first_ward.py` | — | yes |
 
 Reproduce: `python3 tools/audit_check_gates.py --gate`.

@@ -1,10 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1335, ts: '2026-10-03T01:37:29.765Z', date: 'Oct 2, 2026, 8:37 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
+  { v: 1337, ts: '2026-10-03T02:27:04.988Z', date: 'Oct 2, 2026, 9:27 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Fort Dearborn Errand. You carry an imagined note round the fort\u2019s service buildings.',
       'Five stops: the stockade, the guard-house and store-house either side of the south gate, the sutler\u2019s store by the north gate, and the shop on the outer ground toward the lake.',
       'Choose candles or thread at the sutler\u2019s, tally the parcel outside the store-house, where the Army\u2019s 1834 notices had fresh beef delivered, and set it down at the shop.',
       'Finish the errand and Accounted for at the Fort goes in your daybook under Livelihood. The note and parcel are our reconstruction (liberty L-jaunt-fort-dearborn-errand); no soldier is shown.',
+    ] },
+  { v: 1336, ts: '2026-10-03T01:51:10.099Z', date: 'Oct 2, 2026, 8:51 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
+      'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
+      'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
+  { v: 1335, ts: '2026-10-03T01:32:51.629Z', date: 'Oct 2, 2026, 8:32 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Taverns of Chicago. It is an evening ride round four public houses at the forks: the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel. It takes about five minutes on horseback.',
+      'Choose a purse, hear some bar talk at Wolf Point, compare the Green Tree\u2019s welcome with the Sauganash\u2019s and pick the house where your evening ends. A glass is optional. Turning every glass down reaches an ending and the keepsake, A Sensible Evening, just as taking one does.',
+      'Each stop says what the sources say about the house, and how sure they are. The evening, the bar talk and the prices are our reconstruction (liberty L-jaunt-taverns), and the talk sticks to what the Chicago Democrat printed that June.',
     ] },
   { v: 1334, ts: '2026-10-03T01:15:33.917Z', date: 'Oct 2, 2026, 8:15 PM CT', title: 'A new jaunt: Shopping South Water Street', kind: 'feature',
     items: [
