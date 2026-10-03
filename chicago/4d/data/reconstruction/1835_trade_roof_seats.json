@@ -1,0 +1,100 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/seat_trade_roofs_1835.py --build; tools/check.sh re-derives it. Do not hand-edit.",
+  "id": "chicago_july_1835_trade_roof_seats",
+  "ticket": "T-1989",
+  "parent_ticket": "T-1986",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/seat_trade_roofs_1835.py",
+  "liberty": "L361",
+  "not_a_reading": "no page of any source is read here. Every seat is an adjudication over committed records — which keeper owed a house of their own keeps it under which standing trade roof — and the meeting is the invention. The keeper's card is not touched.",
+  "raises_no_roof": "every seat is a keeper put under a roof that already stands.",
+  "inputs": [
+    "data/residents/employment_coverage.json",
+    "data/residents/{households,reconstructed_trades,lodgers,underdocumented,readmitted,institutional}/*.json",
+    "data/businesses/rulings/premises_rulings.json",
+    "data/reconstruction/1835_housing_seats.json",
+    "data/reconstruction/1835_off_plat_seats.json",
+    "data/structures/*.json",
+    "data/sidecars/1835/index.json"
+  ],
+  "match": {
+    "W2": {
+      "occupations": [
+        "carpenter",
+        "joiner"
+      ],
+      "read_from": "data/reconstruction/1835_family_archetype_crosswalk.json W2 label 'Carpenter or joiner shop'"
+    },
+    "F2": {
+      "signage": [
+        "forwarding_and_commission_store"
+      ],
+      "read_from": "data/businesses/rulings/premises_rulings.json signage_function of forwarding_and_commission — a counting-room with a warehouse behind it"
+    },
+    "C3": {
+      "signage": [
+        "store",
+        "grocery_and_provision_store"
+      ],
+      "read_from": "data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'"
+    },
+    "W5": {
+      "signage": [
+        "tannery",
+        "packing_house",
+        "slaughterhouse_packing",
+        "soap_candle_manufactory"
+      ],
+      "read_from": "data/reconstruction/1835_placement_policy.json clause heavy_and_noxious_trades (the only clause admitting W5) and the premises rulings' signage for the four trades it names"
+    }
+  },
+  "counts": {
+    "roofs": 4,
+    "seated": 0,
+    "unseatable": 4,
+    "keepers_owed_a_house": 27
+  },
+  "seats": [],
+  "unseatable": [
+    {
+      "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
+      "family": "W2",
+      "division": "west",
+      "keepers_offered": 0,
+      "keepers_held_by_the_count": 3,
+      "adopted_by": null,
+      "value": "the_mechanics_shops_are_over_their_count",
+      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE WEST DIVISION. This carpenter or joiner shop is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/reconstruction/1835_family_archetype_crosswalk.json W2 label 'Carpenter or joiner shop'), and there are 0. 3 more keeper(s) of a trade it serves live in the west division with no workplace, and each is told no house is owed (T-2000): the town already holds more mechanics' shops than the one count of them (the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
+    },
+    {
+      "structure_id": "recon_1835_forks_freight_f2_001",
+      "family": "F2",
+      "division": "west",
+      "keepers_offered": 0,
+      "keepers_held_by_the_count": 1,
+      "adopted_by": null,
+      "value": "the_printed_count_is_held",
+      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE WEST DIVISION. This narrow two story warehouse is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function of forwarding_and_commission — a counting-room with a warehouse behind it), and there are 0. 1 more keeper(s) of a trade it serves live in the west division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/storage_and_forwarding: printed 4 establishments, target 4, held 7 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
+    },
+    {
+      "structure_id": "recon_1835_north_w5_040",
+      "family": "W5",
+      "division": "north",
+      "keepers_offered": 0,
+      "keepers_held_by_the_count": 0,
+      "adopted_by": "hh_miller_john",
+      "value": "no_keeper_of_its_trade",
+      "note": "NO KEEPER OF ITS TRADE IS LEFT IN THE NORTH DIVISION. This large workshop is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/reconstruction/1835_placement_policy.json clause heavy_and_noxious_trades (the only clause admitting W5) and the premises rulings' signage for the four trades it names), and there are 0. The off-plat deal (T-1614) adopted it for The Miller and Hall tannery household, but that household's own card puts its works at miller_tannery, 847 m away, so seating it here would give one firm a second works nobody records. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town gains takes it on the next build."
+    },
+    {
+      "structure_id": "recon_1835_south_c3_015",
+      "family": "C3",
+      "division": "south",
+      "keepers_offered": 0,
+      "keepers_held_by_the_count": 18,
+      "adopted_by": null,
+      "value": "the_printed_count_is_held",
+      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE SOUTH DIVISION. This narrow two story store is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'), and there are 0. 18 more keeper(s) of a trade it serves live in the south division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
+    }
+  ]
+}
