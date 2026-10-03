@@ -1,3 +1,24 @@
+## T-1286 — the 1812 shore measured against Harrison 1830, the one pre-cut sheet (2026-10-02)
+
+**Nothing in the scene changed, and no geometry moved.** The owner ruled on 2026-09-17 that
+Wright 1834 carries `shore_1812_pre_cut`; this measures how far the only pre-cut reading
+sits from it. The closed PR's tracer is kept as `tools/trace_shoreline_1830.py` (it
+re-traced byte for byte on 2026-10-02; stockade check 8.0 px) and writes a cross-check
+reading outside `epochs/`; `tools/measure_shore_1812_harrison.py` measures it every 2 m
+against the derived lines, and `check.sh` re-measures it and holds the 1812 file's
+`evidence_limit` to the sentence it produces.
+
+- **Agrees near the fort**: median 9 m, worst 31 m, within 100 m of the transform's anchor;
+  the main stem still within about 20 m at 200 m west.
+- **Strengthens L240**: Harrison's lake shore runs a median 7 m from the line the derived
+  state draws where the bar met the mainland.
+- **Disagrees down the old channel**: 40 m at 150 m from the fort, 71 m at 200 m, then a
+  median 120 m and worst 157 m; Harrison letters the old mouth 357 m north of the adopted
+  station (367 m north of Wright's bar tip), and his sheet stops 253 m short of it.
+- **Filed, not resolved** — the cause (single-anchor transform, memory additions, or a mouth
+  that moved between 1812, 1828 and 1830) is written onto T-1243, which lays the ground there.
+  `docs/RESEARCH/shore_1812_pre_cut.md` § 6 is the full reading.
+
 ## T-1263 — Shopping South Water Street, a Commerce jaunt on the riverfront (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Shopping South Water Street* (Commerce,

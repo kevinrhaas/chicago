@@ -304,6 +304,14 @@ selftest "…and shoreline-state assertions still fire when collapsed" \
 step "the 1812 pre-cut shore still re-derives from its readings (T-1242)" \
   python3 tools/derive_shore_1812.py --check
 
+# T-1286. The one pre-cut sheet held, Harrison 1830, read as a second line and
+# measured against the derived one. Wright carries the state by the owner's ruling;
+# this keeps the measurement of how far the only pre-cut reading disagrees with it
+# true to the lines it was taken from, and the sentence the 1812 file's
+# evidence_limit quotes from it true to the measurement.
+step "the Harrison 1830 cross-check still measures what the 1812 shore quotes (T-1286)" \
+  python3 tools/measure_shore_1812_harrison.py --check
+
 # T-1249. A scene date is a claim about WHEN this reconstruction stands, and until
 # now the 1880s one was the only claim in the terrain layer that nothing derived and
 # nothing checked: the step above carried a bare `date(1885, 7, 1)` that T-1152 wrote
