@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1387, ts: '2026-10-03T22:22:26.028Z', date: 'Oct 3, 2026, 5:22 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
+  { v: null, ts: '', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'Every build now walks the path a visitor takes, on a phone and on a desktop: the year counting down to 1835, the welcome, Starting At…, a jaunt with its place card and source, a change of travel mode, the Jaunts menu and Resume, End, a second jaunt, and Explore on my own.',
       'It found nothing broken. End returns to the menu in under a millisecond, and the Sources count matches the published catalog.',
+    ] },
+  { v: 1387, ts: '2026-10-03T22:08:33.624Z', date: 'Oct 3, 2026, 5:08 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
+    items: [
+      'The row of colour-swatch buttons is gone. A small dial at the top right now steps through the four appearances, with four dots marking which one is on; hover it to see the name.',
+      'The same dial sits on the arrival card and in the settings panel.',
+      'The appearances are now called Control Room, Precision Brass, Retro Future and Deep Space. Your saved choice carries over.',
     ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
