@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
+  { v: 1366, ts: '2026-10-03T14:38:02.225Z', date: 'Oct 3, 2026, 9:38 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Schoolday Errand, an outing of about six and a half minutes on horseback past the places Chicago\u2019s first classes met.',
       'Start at the Michigan Street house where John Watkins taught, see the north-bank school-house that was the North Side\u2019s public school in 1835, cross to Eliza Chappel\u2019s log house by State Street, and finish at the Democrat\u2019s corner with the School District No. 4 meeting notice from the paper dated that very day.',
       'The household, its question and the keepsake, A Schooling Note, are our reconstruction (liberty L-jaunt-schoolday-errand). Two of the schools had moved on by 1835, and the stops say so.',
+    ] },
+  { v: 1365, ts: '2026-10-03T13:40:43.663Z', date: 'Oct 3, 2026, 8:40 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
+    items: [
+      'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
+      'Shrubs gain leafy twig silhouettes in place of broad green rectangles. Higher detail adds curved leaves, grasses and finer branching.',
+      'The researched species, planting locations and July flowering rules stay in charge. Leaf and bark surfaces are procedural reconstructions.',
     ] },
   { v: 1364, ts: '2026-10-03T13:24:25.493Z', date: 'Oct 3, 2026, 8:24 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [

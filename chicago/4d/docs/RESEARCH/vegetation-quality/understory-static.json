@@ -1,0 +1,467 @@
+{
+  "checks": [
+    {
+      "name": "tuftGeometry",
+      "args": [
+        9,
+        2
+      ],
+      "triangles": 36,
+      "samePositions": true,
+      "kinds": {
+        "3": 54
+      },
+      "winding": {},
+      "pass": true
+    },
+    {
+      "name": "tuftGeometry",
+      "args": [
+        9,
+        4
+      ],
+      "triangles": 72,
+      "samePositions": true,
+      "kinds": {
+        "3": 90
+      },
+      "winding": {},
+      "pass": true
+    },
+    {
+      "name": "cardGeometry",
+      "args": [
+        7
+      ],
+      "triangles": 14,
+      "samePositions": true,
+      "kinds": {
+        "4": 28
+      },
+      "winding": {
+        "4": {
+          "min": 0.43921013947475473,
+          "max": 0.43921013947475485,
+          "faces": 14
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "cardGeometry",
+      "args": [
+        9
+      ],
+      "triangles": 18,
+      "samePositions": true,
+      "kinds": {
+        "4": 36
+      },
+      "winding": {
+        "4": {
+          "min": 0.43921013947475473,
+          "max": 0.43921013947475485,
+          "faces": 18
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "forbGeometry",
+      "args": [
+        1
+      ],
+      "triangles": 12,
+      "samePositions": true,
+      "kinds": {
+        "0": 8,
+        "1": 16
+      },
+      "winding": {
+        "0": {
+          "min": 0,
+          "max": 0,
+          "faces": 4
+        },
+        "1": {
+          "min": 0.992784794317714,
+          "max": 0.9969233539363629,
+          "faces": 8
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "forbGeometry",
+      "args": [
+        2
+      ],
+      "triangles": 68,
+      "samePositions": true,
+      "kinds": {
+        "0": 8,
+        "1": 72
+      },
+      "winding": {
+        "0": {
+          "min": 0,
+          "max": 0,
+          "faces": 4
+        },
+        "1": {
+          "min": 0.9793635977603826,
+          "max": 0.9997624618426054,
+          "faces": 64
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "forbGeometry",
+      "args": [
+        3
+      ],
+      "triangles": 100,
+      "samePositions": true,
+      "kinds": {
+        "0": 8,
+        "1": 96
+      },
+      "winding": {
+        "0": {
+          "min": 0,
+          "max": 0,
+          "faces": 4
+        },
+        "1": {
+          "min": 0.9825244207911359,
+          "max": 0.9997775751108625,
+          "faces": 96
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "rosetteGeometry",
+      "args": [
+        1
+      ],
+      "triangles": 14,
+      "samePositions": true,
+      "kinds": {
+        "0": 8,
+        "1": 20
+      },
+      "winding": {
+        "0": {
+          "min": -0.0333148275441797,
+          "max": -0.0333148275441797,
+          "faces": 4
+        },
+        "1": {
+          "min": 0.9968892511862699,
+          "max": 0.9983266510423476,
+          "faces": 10
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "rosetteGeometry",
+      "args": [
+        3
+      ],
+      "triangles": 64,
+      "samePositions": true,
+      "kinds": {
+        "0": 8,
+        "1": 60
+      },
+      "winding": {
+        "0": {
+          "min": -0.0333148275441797,
+          "max": -0.0333148275441797,
+          "faces": 4
+        },
+        "1": {
+          "min": 0.9880187075468915,
+          "max": 0.9996791363663935,
+          "faces": 60
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "shrubGeometry",
+      "args": [],
+      "triangles": 136,
+      "samePositions": true,
+      "kinds": {
+        "2": 256,
+        "-1": 16
+      },
+      "winding": {
+        "2": {
+          "min": 0.9795704228266797,
+          "max": 0.9999999607322302,
+          "faces": 128
+        },
+        "-1": {
+          "min": 0.59469903204022,
+          "max": 0.6912325626422747,
+          "faces": 8
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "shrubGeometry",
+      "args": [
+        null,
+        "flora-shrub",
+        1,
+        3
+      ],
+      "triangles": 520,
+      "samePositions": true,
+      "kinds": {
+        "2": 512,
+        "-1": 272
+      },
+      "winding": {
+        "2": {
+          "min": 0.996184871431251,
+          "max": 0.9999999995784525,
+          "faces": 384
+        },
+        "-1": {
+          "min": 0.59469903204022,
+          "max": 0.9999999999999997,
+          "faces": 136
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "spikeGeometry",
+      "args": [],
+      "triangles": 13,
+      "samePositions": true,
+      "kinds": {
+        "0": 15,
+        "-2": 8
+      },
+      "winding": {
+        "0": {
+          "min": -8.112627563853875e-10,
+          "max": 8.112627563853875e-10,
+          "faces": 9
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "spireGeometry",
+      "args": [],
+      "triangles": 34,
+      "samePositions": true,
+      "kinds": {
+        "0": 50,
+        "-2": 8
+      },
+      "winding": {
+        "0": {
+          "min": 0,
+          "max": 1.3725087895098151e-17,
+          "faces": 30
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "panicleGeometry",
+      "args": [],
+      "triangles": 11,
+      "samePositions": true,
+      "kinds": {
+        "0": 21,
+        "-2": 8
+      },
+      "winding": {
+        "0": {
+          "min": -0.058379943946761916,
+          "max": -0.05837959886079504,
+          "faces": 7
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "rayGeometry",
+      "args": [
+        false
+      ],
+      "triangles": 32,
+      "samePositions": true,
+      "kinds": {
+        "0": 29,
+        "-2": 8
+      },
+      "winding": {
+        "0": {
+          "min": -0.9519729330260245,
+          "max": 0.9856727003069964,
+          "faces": 28
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "rayGeometry",
+      "args": [
+        true
+      ],
+      "triangles": 32,
+      "samePositions": true,
+      "kinds": {
+        "0": 29,
+        "-2": 8
+      },
+      "winding": {
+        "0": {
+          "min": -0.885714522255333,
+          "max": 0.9972567668621649,
+          "faces": 28
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "pompomGeometry",
+      "args": [],
+      "triangles": 10,
+      "samePositions": true,
+      "kinds": {
+        "5": 12,
+        "-2": 8
+      },
+      "winding": {
+        "5": {
+          "min": 1,
+          "max": 1.0000000000000002,
+          "faces": 6
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "domeGeometry",
+      "args": [],
+      "triangles": 32,
+      "samePositions": true,
+      "kinds": {
+        "7": 21,
+        "-2": 8
+      },
+      "winding": {
+        "7": {
+          "min": 0.9523488940801924,
+          "max": 0.9978142091575573,
+          "faces": 21
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "corymbGeometry",
+      "args": [],
+      "triangles": 22,
+      "samePositions": true,
+      "kinds": {
+        "7": 11,
+        "-2": 8
+      },
+      "winding": {
+        "7": {
+          "min": -0.7134872745116935,
+          "max": 0.9987429839357361,
+          "faces": 18
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "compoundGeometry",
+      "args": [],
+      "triangles": 33,
+      "samePositions": true,
+      "kinds": {
+        "0": 15,
+        "7": 30,
+        "-2": 8
+      },
+      "winding": {
+        "0": {
+          "min": 0.886861915726911,
+          "max": 0.965234666723086,
+          "faces": 5
+        },
+        "7": {
+          "min": 0.9556839240742601,
+          "max": 0.9710608541074197,
+          "faces": 24
+        },
+        "-2": {
+          "min": 1,
+          "max": 1,
+          "faces": 4
+        }
+      },
+      "pass": true
+    }
+  ],
+  "confidenceOrder": true,
+  "stemAt": 10964,
+  "tintAt": 11364,
+  "pass": true
+}

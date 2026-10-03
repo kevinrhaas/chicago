@@ -1,0 +1,265 @@
+{
+  "root": "/workspace/scratch/7d0bc155435c/chicago/site/4d",
+  "viewport": {
+    "width": 1280,
+    "height": 800,
+    "hasTouch": false
+  },
+  "bootDetail": "light",
+  "errors": [],
+  "rows": [
+    {
+      "id": "prairie_west",
+      "base": {
+        "tris": 877317,
+        "calls": 67
+      },
+      "at": [
+        {
+          "ground": 240,
+          "furniture": 250,
+          "tris": 877317,
+          "calls": 67,
+          "deltaMean": 0,
+          "deltaWorst": 0,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 240,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 10,
+            "held": 212
+          },
+          "furnitureHidden": 189
+        },
+        {
+          "ground": 240,
+          "furniture": 225,
+          "tris": 876159,
+          "calls": 66,
+          "deltaMean": 0,
+          "deltaWorst": 0,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 240,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 10,
+            "held": 212
+          },
+          "furnitureHidden": 197
+        },
+        {
+          "ground": 240,
+          "furniture": 200,
+          "tris": 853415,
+          "calls": 63,
+          "deltaMean": 0.00043402777777777775,
+          "deltaWorst": 1,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 240,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 10,
+            "held": 212
+          },
+          "furnitureHidden": 206
+        },
+        {
+          "ground": 180,
+          "furniture": 250,
+          "tris": 855510,
+          "calls": 65,
+          "deltaMean": 0,
+          "deltaWorst": 0,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 180,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 8,
+            "held": 214
+          },
+          "furnitureHidden": 189
+        },
+        {
+          "ground": 180,
+          "furniture": 225,
+          "tris": 854352,
+          "calls": 64,
+          "deltaMean": 0,
+          "deltaWorst": 0,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 180,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 8,
+            "held": 214
+          },
+          "furnitureHidden": 197
+        },
+        {
+          "ground": 180,
+          "furniture": 200,
+          "tris": 831608,
+          "calls": 61,
+          "deltaMean": 0.00043402777777777775,
+          "deltaWorst": 1,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 180,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 8,
+            "held": 214
+          },
+          "furnitureHidden": 206
+        },
+        {
+          "ground": 120,
+          "furniture": 250,
+          "tris": 842299,
+          "calls": 64,
+          "deltaMean": 0.001736111111111111,
+          "deltaWorst": 1,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 120,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 5,
+            "held": 217
+          },
+          "furnitureHidden": 189
+        },
+        {
+          "ground": 120,
+          "furniture": 225,
+          "tris": 841141,
+          "calls": 63,
+          "deltaMean": 0.001736111111111111,
+          "deltaWorst": 1,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 120,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 5,
+            "held": 217
+          },
+          "furnitureHidden": 197
+        },
+        {
+          "ground": 120,
+          "furniture": 200,
+          "tris": 818397,
+          "calls": 60,
+          "deltaMean": 0.0013020833333333333,
+          "deltaWorst": 1,
+          "groundState": {
+            "reachM": 2644.931301498356,
+            "detailReachM": 120,
+            "baseTriangles": 105616,
+            "tiles": 222,
+            "drawn": 5,
+            "held": 217
+          },
+          "furnitureHidden": 206
+        }
+      ],
+      "layers": [
+        {
+          "name": "terrain",
+          "tris": 165580,
+          "calls": 9
+        },
+        {
+          "name": "structures",
+          "tris": 346213,
+          "calls": 10
+        },
+        {
+          "name": "streets",
+          "tris": 105579,
+          "calls": 3
+        },
+        {
+          "name": "street-grid",
+          "tris": 0,
+          "calls": 0
+        },
+        {
+          "name": "enclosures",
+          "tris": 6152,
+          "calls": 12
+        },
+        {
+          "name": "yard-ground",
+          "tris": 60701,
+          "calls": 4
+        },
+        {
+          "name": "signage",
+          "tris": 5952,
+          "calls": 2
+        },
+        {
+          "name": "yard",
+          "tris": 19426,
+          "calls": 5
+        },
+        {
+          "name": "frontage",
+          "tris": 27646,
+          "calls": 5
+        },
+        {
+          "name": "wharves",
+          "tris": 1380,
+          "calls": 1
+        },
+        {
+          "name": "working_bank",
+          "tris": 3708,
+          "calls": 1
+        },
+        {
+          "name": "boats",
+          "tris": 1600,
+          "calls": 1
+        },
+        {
+          "name": "wells",
+          "tris": 0,
+          "calls": 0
+        },
+        {
+          "name": "flora",
+          "tris": 29802,
+          "calls": 10
+        },
+        {
+          "name": "trees",
+          "tris": 103566,
+          "calls": 3
+        }
+      ],
+      "residual": {
+        "tris": 0,
+        "calls": 0,
+        "mean": 0,
+        "worst": 0
+      }
+    }
+  ],
+  "status": "partial",
+  "stop_reason": "Stopped the measurement browser after the completed prairie row, at the coordinator request, to release memory for the final release smoke; the forks row did not complete.",
+  "incomplete_stands": [
+    "the_forks"
+  ],
+  "render_changes_made": false,
+  "finding": "The most aggressive tested 120 m ground / 200 m furniture combination saves 58,920 triangles with 48x48 signature mean difference 0.001302 and worst cell 1, but broadens the visible scope beyond foliage. The direct-light baseline is 9,942 triangles below the authoritative full-to-light sweep. Applying the measured saving to that sweep would still leave 828,339 triangles, above the old 825,000 ceiling.",
+  "decision": "No light trim proposed; retain vegetation populations, geometry and existing ground/furniture reaches under the explicit owner authorization to revise measured budgets."
+}
