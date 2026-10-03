@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1366, ts: '2026-10-03T14:22:03.491Z', date: 'Oct 3, 2026, 9:22 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
+  { v: null, ts: '', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
     items: [
       'Two boarding houses on the block at Washington and Market streets have four new boarders between them: three at Louis Robillard\u2019s and one at Michel Laframboise\u2019s. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a tailor. Open a house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and these houses still had empty beds after this morning\u2019s youths took theirs. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'The two clerks work at John Dean Caton\u2019s and at his law office, and the tailor at George Holsman\u2019s, in places those houses still had open. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1366, ts: '2026-10-03T14:21:05.994Z', date: 'Oct 3, 2026, 9:21 AM CT', title: 'A new jaunt: Boots, Leather and the Road', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Boots, Leather and the Road, an outing of about seven and a half minutes on horseback.',
+      'Outfit a rider for tomorrow\u2019s road: boots or a hat at John Holbrook\u2019s on South Water Street, a look at John Miller\u2019s tannery at the forks, a bridle or a trunk at S. B. Cobb\u2019s saddlery, and the Green Tree to lay it all out. Ask the saddler for boots and his own card tells you why not.',
+      'The rider, the purchases and the keepsake, Equipped to Travel, are our reconstruction (liberty L-jaunt-boots-and-leather). What each shop sold comes from its own 1833 and 1835 newspaper cards.',
     ] },
   { v: 1365, ts: '2026-10-03T13:40:43.663Z', date: 'Oct 3, 2026, 8:40 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
     items: [
