@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "outfit-for-the-west",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Outfit for the West",
   "premise": "Leave town with a practical kit, sound equipment and enough money for the road.",
   "category": "Migration",
@@ -11,7 +11,7 @@
     "text": "You are leaving Chicago for the prairie road west, with an imagined purse of fifteen dollars. Five exterior stops sell what the trip needs. The errand, the purse and every price are reconstructed; the trades are documented.",
     "read_s": 16
   },
-  "default_mode": "wagon",
+  "default_mode": "horse",
   "allowed_modes": [
     "walk",
     "wagon",
@@ -59,114 +59,8 @@
         "continuity",
         "errand"
       ],
-      "next": "tools",
-      "narrative": "Over an imagined table, set a short list: something to carry the load, a few tools, food for the road and sound ironwork."
-    },
-    {
-      "id": "tools",
-      "destination": {
-        "kind": "structure",
-        "id": "peck_store"
-      },
-      "text": "Cross the river to Peck's store at South Water and LaSalle. His own advertisements, from December 1833 through 1834, list dry goods, hardware, groceries, crockery, boots, shoes and hats.",
-      "read_s": 24,
-      "action_s": 4,
-      "links": [
-        {
-          "kind": "structure",
-          "id": "peck_store",
-          "label": "About this place"
-        },
-        {
-          "kind": "person",
-          "id": "peck_philip",
-          "label": "Philip F. W. Peck"
-        }
-      ],
-      "evidence": [
-        "peck-stock",
-        "continuity",
-        "errand"
-      ],
-      "choices": [
-        {
-          "id": "tools",
-          "label": "An axe and a few tools — $4",
-          "consequence": "Hardware from the merchant's shelves, not the smith's forge.",
-          "when": {
-            "var": "money",
-            "op": ">=",
-            "value": 400
-          },
-          "effects": [
-            {
-              "op": "inc",
-              "var": "money",
-              "value": -400
-            },
-            {
-              "op": "inc",
-              "var": "readiness",
-              "value": 1
-            }
-          ]
-        }
-      ],
-      "next": "provisions",
-      "narrative": "Buy tools for the road, or trust what you already own."
-    },
-    {
-      "id": "provisions",
-      "destination": {
-        "kind": "structure",
-        "id": "h_jones_store"
-      },
-      "text": "A Jones grocery and provision store advertised in 1833, and Andreas adds forwarding and commission by 1834. Neither source says where it stood; this South Water position is reconstructed, and even Jones's initial is disputed.",
-      "read_s": 26,
-      "action_s": 4,
-      "links": [
-        {
-          "kind": "structure",
-          "id": "h_jones_store",
-          "label": "About this place"
-        },
-        {
-          "kind": "business",
-          "id": "biz_b_jones_grocery_and_provision_store",
-          "label": "The grocery's card"
-        }
-      ],
-      "evidence": [
-        "jones-trade",
-        "jones-place",
-        "errand"
-      ],
-      "choices": [
-        {
-          "id": "provisions",
-          "label": "Flour, pork and coffee — $5",
-          "consequence": "Enough food for the first days on the road.",
-          "when": {
-            "var": "money",
-            "op": ">=",
-            "value": 500
-          },
-          "effects": [
-            {
-              "op": "inc",
-              "var": "money",
-              "value": -500
-            },
-            {
-              "op": "inc",
-              "var": "readiness",
-              "value": 1
-            }
-          ]
-        }
-      ],
       "next": "carrying",
-      "narrative": "Stock up, or plan to buy along the way."
+      "narrative": "Over an imagined table, set a short list: something to carry the load, a few tools, food for the road and sound ironwork."
     },
     {
       "id": "carrying",
@@ -174,7 +68,7 @@
         "kind": "structure",
         "id": "goss_cobb_saddlery"
       },
-      "text": "Back over the river at Lake and Canal, Goss and Cobb advertised saddles, harness, bridles and trunks in 1833. The partners parted in February 1835; Cobb's card says he will continue the business.",
+      "text": "A block west along Lake Street, at Canal, Goss and Cobb advertised saddles, harness, bridles and trunks in 1833. The partners parted in February 1835; Cobb's card says he will continue the business.",
       "read_s": 26,
       "action_s": 4,
       "links": [
@@ -242,7 +136,7 @@
         }
       ],
       "next": "ironwork",
-      "narrative": "Now that you know the load, choose how it travels, or keep your money."
+      "narrative": "Settle first how the load will travel, or keep your money."
     },
     {
       "id": "ironwork",
@@ -294,8 +188,114 @@
           ]
         }
       ],
+      "next": "provisions",
+      "narrative": "Have the ironwork seen to before the long road, or trust it as it is."
+    },
+    {
+      "id": "provisions",
+      "destination": {
+        "kind": "structure",
+        "id": "h_jones_store"
+      },
+      "text": "Over the river on South Water, a Jones grocery and provision store advertised in 1833, and Andreas adds forwarding and commission by 1834. Neither source says where it stood; this position is reconstructed, and even Jones's initial is disputed.",
+      "read_s": 26,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "h_jones_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_b_jones_grocery_and_provision_store",
+          "label": "The grocery's card"
+        }
+      ],
+      "evidence": [
+        "jones-trade",
+        "jones-place",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "provisions",
+          "label": "Flour, pork and coffee — $5",
+          "consequence": "Enough food for the first days on the road.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 500
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -500
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "tools",
+      "narrative": "Stock up, or plan to buy along the way."
+    },
+    {
+      "id": "tools",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "A block east, Peck's store holds the corner of South Water and LaSalle. His own advertisements, from December 1833 through 1834, list dry goods, hardware, groceries, crockery, boots, shoes and hats.",
+      "read_s": 24,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "tools",
+          "label": "An axe and a few tools — $4",
+          "consequence": "Hardware from the merchant's shelves, not the smith's forge.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 400
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -400
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
       "next": "$end",
-      "narrative": "Repair before departure, or set out as you are."
+      "narrative": "Last on the list: tools for the road, or trust what you already own."
     }
   ],
   "endings": [
@@ -414,24 +414,12 @@
   "legs": [
     {
       "from": "the-list",
-      "to": "tools",
-      "note": "The long leg: east across the South Branch to the commercial block on South Water Street.",
-      "evidence": [
-        "peck-stock"
-      ],
-      "story": "Buy at a general merchant's first, so you know what you will be carrying.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
-    {
-      "from": "provisions",
       "to": "carrying",
-      "note": "Back west over the river to Lake and Canal, where the saddlery's corner is attested and its quadrant is not.",
+      "note": "A block west along Lake Street to the Canal Street crossing, where the saddlery's corner is attested and its quadrant is not.",
       "evidence": [
         "cobb-trade"
       ],
-      "story": "With the goods bought, decide how the load will travel.",
+      "story": "Before buying anything, decide how the load will travel.",
       "story_evidence": [
         "errand"
       ]
@@ -443,7 +431,20 @@
       "evidence": [
         "pierce-work"
       ],
-      "story": "One last stop before the road: decide whether the ironwork needs a smith.",
+      "story": "Harness and ironwork are seen to at the same corner.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "ironwork",
+      "to": "provisions",
+      "note": "The long leg, and the only crossing: east over the South Branch to the commercial block on South Water Street.",
+      "evidence": [
+        "jones-trade",
+        "jones-place"
+      ],
+      "story": "With the carrying settled, fill the load on the east bank.",
       "story_evidence": [
         "errand"
       ]

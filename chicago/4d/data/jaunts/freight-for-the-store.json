@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "id": "freight-for-the-store",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Freight for the Store",
   "premise": "Count an invented consignment off Newberry & Dole's wharf, load the wagon, deliver to two stores and carry the tally back to George Dole's warehouse with nothing lost.",
   "category": "River commerce",
   "scene": "1835",
   "opening": {
-    "text": "An invented bill lists three packages landed at Newberry & Dole's: two for Peck's store and one for Thomas Church's. Count them, load the wagon, deliver along South Water and Lake streets, and carry the tally to George Dole's warehouse. The shipment, the bill and the tally are invented; the firms and the stores are not.",
-    "read_s": 18
+    "text": "An invented bill lists three packages landed at Newberry & Dole's: two for Peck's store, one for Thomas Church's. Count them, load the wagon, deliver them and carry the tally to George Dole's warehouse. The shipment, bill and tally are invented; the firms and stores are not.",
+    "read_s": 16
   },
   "default_mode": "wagon",
   "allowed_modes": [
@@ -51,9 +51,9 @@
         "kind": "structure",
         "id": "newberry_dole_warehouse"
       },
-      "text": "Newberry & Dole have advertised as forwarding and commission merchants since November 1833, the trade that takes in goods off the lake for other men's stores. In June the American named them agents for freight on the steamboat Michigan. Which bank their house stood on is disputed.",
-      "narrative": "The bill says three packages. How will you load?",
-      "read_s": 30,
+      "text": "Newberry & Dole have advertised as forwarding and commission merchants since November 1833, taking in goods off the lake for other men's stores. In June the American named them freight agents for the steamboat Michigan. Which bank their house stood on is disputed.",
+      "narrative": "How will you load the three?",
+      "read_s": 27,
       "action_s": 15,
       "links": [
         {
@@ -143,9 +143,9 @@
         "kind": "structure",
         "id": "peck_store"
       },
-      "text": "Peck's store holds the corner of LaSalle and South Water. His own card, run from December 1833, lists dry goods, hardware, groceries and crockery, and an 1834 notice adds flannels, ginghams and calicoes. The two packages marked for him belong among those lines.",
+      "text": "Peck's store holds the corner of LaSalle and South Water. His own cards of 1833 and 1834 list dry goods, hardware, groceries, crockery, flannels and calicoes; his two packages belong among those lines.",
       "narrative": "Check his list, or unload straight away?",
-      "read_s": 28,
+      "read_s": 23,
       "action_s": 15,
       "links": [
         {
@@ -204,9 +204,9 @@
         "kind": "structure",
         "id": "thomas_church_store"
       },
-      "text": "Up to Lake Street. A modern note, the only one found, credits Thomas Church with the first store building on this street, a two-storey frame. It names no stock and no year, and where on Lake Street the store stood is reconstructed. The invented bill names it all the same.",
+      "text": "Up to Lake Street. The only note found, a modern one, credits Thomas Church with the street's first store building, a two-storey frame. It names no stock and no year, and the store's place on the street is reconstructed.",
       "narrative": "Is Church's package aboard?",
-      "read_s": 28,
+      "read_s": 23,
       "action_s": 10,
       "links": [
         {
@@ -268,9 +268,9 @@
         "kind": "structure",
         "id": "dole_warehouse_south"
       },
-      "text": "Andreas puts George W. Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole is the Dole of Newberry & Dole, and by 1834 the firm had a slaughter-house on the South Branch, so in July this yard is quiet. Bring the tally here to square the bill.",
+      "text": "Andreas puts George W. Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole is the Dole of Newberry & Dole, whose slaughter-house was on the South Branch by 1834, so this yard is likely quiet. Square the bill here.",
       "narrative": "Hand in the tally.",
-      "read_s": 28,
+      "read_s": 24,
       "action_s": 10,
       "links": [
         {

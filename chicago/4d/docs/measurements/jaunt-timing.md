@@ -11,20 +11,20 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 | news-before-breakfast | walk | 4 | 204 | 855 | 17.65 | 17.53 | about 17.5 | 4.47 | 3.40 | — | **over by 699 s** |
 | new-in-chicago | walk | 5 | 126 | 499 | 10.42 | 10.32 | about 10.5 | 2.90 | 2.10 | — | **over by 265 s** |
 | from-prairie-to-town | horse | 4 | 114 | 447 | 9.35 | 10.20 | about 10 | 3.85 | 1.90 | 9.33 | **over by 201 s** |
-| outfit-for-the-west | wagon | 5 | 156 | 383 | 8.98 | 8.92 | about 9 | 3.63 | 2.60 | — | **over by 179 s** |
 | boots-and-leather | horse | 4 | 171 | 293 | 7.73 | 7.63 | about 7.5 | 3.88 | 2.85 | — | **over by 104 s** |
 | soap-and-candles | horse | 4 | 168 | 260 | 7.13 | 7.08 | about 7 | 3.62 | 2.80 | — | **over by 68 s** |
 | sunday-circuit | horse | 4 | 120 | 273 | 6.55 | 6.58 | about 6.5 | 3.13 | 2.00 | — | **over by 33 s** |
 | schoolday-errand | horse | 4 | 179 | 202 | 6.35 | 6.37 | about 6.5 | 4.05 | 2.98 | — | **over by 21 s** |
 | work-on-waterfront | horse | 4 | 198 | 176 | 6.23 | 6.18 | about 6 | 4.22 | 3.30 | 6.05 | **over by 14 s** |
-| freight-for-the-store | wagon | 4 | 182 | 185 | 6.12 | 6.10 | about 6 | 3.77 | 3.03 | 5.83 | **over by 7 s** |
 | materials-for-a-roof | horse | 4 | 166 | 198 | 6.07 | 6.02 | about 6 | 3.77 | 2.77 | 6.10 | **over by 4 s** |
 | along-the-harbor | horse | 4 | 160 | 197 | 5.95 | 5.87 | about 6 | 3.68 | 2.67 | 5.38 | in band |
+| freight-for-the-store | wagon | 4 | 163 | 185 | 5.80 | 5.78 | about 6 | 3.45 | 2.72 | 5.52 | in band |
 | across-wolf-point | walk | 4 | 116 | 230 | 5.77 | 5.52 | about 5.5 | 2.35 | 1.93 | 5.42 | in band |
 | gossip-or-notice | horse | 4 | 172 | 168 | 5.67 | 5.55 | about 5.5 | 3.78 | 2.87 | — | in band |
 | bed-for-the-night | horse | 4 | 162 | 168 | 5.50 | 5.58 | about 5.5 | 3.68 | 2.70 | — | in band |
 | fort-dearborn-errand | walk | 4 | 100 | 229 | 5.48 | 5.73 | about 5.5 | 2.00 | 1.67 | — | in band |
 | taverns-of-chicago | horse | 4 | 202 | 94 | 4.93 | 4.95 | about 5 | 3.95 | 3.37 | — | in band |
+| outfit-for-the-west | horse | 5 | 156 | 138 | 4.90 | 4.93 | about 5 | 3.38 | 2.60 | 4.87 | in band |
 | household-provisions | walk | 4 | 136 | 153 | 4.82 | 4.97 | about 5 | 2.57 | 2.27 | — | in band |
 | over-the-draw | horse | 4 | 135 | 149 | 4.73 | 4.75 | about 5 | 3.02 | 2.25 | — | in band |
 | mend-the-harness | wagon | 4 | 180 | 101 | 4.68 | 4.83 | about 5 | 3.47 | 3.00 | — | in band |
@@ -35,17 +35,15 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 | shopping-south-water | wagon | 4 | 124 | 112 | 3.93 | 3.93 | about 4 | 2.55 | 2.07 | — | in band |
 | inspect-a-lot | horse | 4 | 137 | 62 | 3.32 | 3.35 | about 3.5 | 2.77 | 2.28 | — | in band |
 
-26 jaunts measured: 15 in band, 11 over, 0 under.
+26 jaunts measured: 17 in band, 9 over, 0 under.
 
 ## Findings
 
 - boots-and-leather: recommended horse measures 7.73 min, outside 3-6
-- freight-for-the-store: recommended wagon measures 6.12 min, outside 3-6
 - from-prairie-to-town: recommended horse measures 9.35 min, outside 3-6
 - materials-for-a-roof: recommended horse measures 6.07 min, outside 3-6
 - new-in-chicago: recommended walk measures 10.42 min, outside 3-6
 - news-before-breakfast: recommended walk measures 17.65 min, outside 3-6
-- outfit-for-the-west: recommended wagon measures 8.98 min, outside 3-6
 - schoolday-errand: recommended horse measures 6.35 min, outside 3-6
 - soap-and-candles: recommended horse measures 7.13 min, outside 3-6
 - sunday-circuit: recommended horse measures 6.55 min, outside 3-6
