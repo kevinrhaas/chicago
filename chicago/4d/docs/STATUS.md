@@ -1,3 +1,32 @@
+## T-2007 — Work on the Waterfront, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Work on the Waterfront* (Employment, Horse,
+4 stops, Livelihood). The visitor picks a skill (type and press, tin and copper, a strong back) and
+reads the two calls for hands printed before the scene date: the Democrat's apprentice notice of
+20 May 1835 and Jones, King & Co.'s coppersmith and tinner of 17 June. Then comes Dole's 1832 yard
+at Lake and Dearborn, idle in July because packing was winter work, and Newberry & Dole's
+forwarding house, agents for the steamboat Michigan. The visitor leaves with an invented chit, an
+invented promise or a plan. There are six endings, and the keepsake *A Day's Work in Prospect* goes
+to Livelihood. Content only: one JSON file, a liberty (`L-jaunt-work-waterfront`), the regenerated
+catalog and source-use edges, and brief 10's route note. There is no engine, compiler or CSS
+change.
+
+**The brief's caution holds by construction.** No firm offers work and no wage is named. The only
+vacancies quoted are the two dated, page-and-column-located notices. The chit and the packing
+promise are labelled invented in the choice that gives them. Newberry & Dole's house keeps its
+reconstructed position on a disputed bank, and the stop says the bank is disputed.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 36 paths, six endings, one keepsake. Card estimates
+on the published mirror were Walk 16 min (15.5 at 1280×800), Wagon 8.5 (8), Horse 6, Fly 4.5 and
+Instantly 3.5. The briefed order read 7 min at Horse because it doubled back across town, so the
+two warehouses swap places (brief 10's route note). A Playwright drive at 390×780 (tin and copper →
+remembered → chit → answer a notice) reached the `tin-and-copper` ending with zero page errors.
+The keepsake landed once under Livelihood.
+
+**Unverified.** The 1280×800 drive read the card's estimates and reached stop 3 of 4, but the
+580 s cap cut it off before the ending, so the full play is proved at 390×780 only. The stills are
+not committed.
+
 ## T-1264 — Across Wolf Point, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Across Wolf Point* (River and routes,

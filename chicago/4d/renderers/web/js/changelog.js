@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1339, ts: '2026-10-03T03:38:17.705Z', date: 'Oct 2, 2026, 10:38 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Work on the Waterfront. It is a morning ride looking for work, from the old Democrat corner to two Newberry & Dole warehouses and on to breakfast at the Exchange Coffee House. It takes about six minutes on horseback.',
+      'Choose your skill: type and press, tin and copper, or a strong back. Then read the two real calls for hands printed before 1 July 1835: the Democrat\u2019s for a printing apprentice, and Jones, King & Co.\u2019s for a coppersmith and a tin worker.',
+      'At Dole\u2019s yard, learn why nothing is packed in July. At the river, offer a day\u2019s carrying or just watch the wharf. Over breakfast, decide where to ask first tomorrow.',
+      'The search, the chit and the keepsake, A Day\u2019s Work in Prospect, are our reconstruction (liberty L-jaunt-work-waterfront). No firm offers you work or names a wage.',
+    ] },
   { v: 1338, ts: '2026-10-03T02:34:38.433Z', date: 'Oct 2, 2026, 9:34 PM CT', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick News Before Breakfast. It is a morning walk from the Sauganash to both of the town\u2019s newspapers and on to breakfast at the Exchange Coffee House. It takes about five minutes on foot.',
