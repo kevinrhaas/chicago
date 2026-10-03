@@ -61,7 +61,7 @@ const REPO = path.resolve(APP, '..', '..');           // the monorepo root
 const STATE = path.join(HERE, 'dev-smoke-state.json');
 
 /** Parts of the smoke body. Mirrors `PARTS` in tools/smoke_renderer.mjs. */
-const PARTS = 13;
+const PARTS = 14;
 
 const NOTE =
   'T-0216 — dev\'s standing smoke result, so a branch can answer "is this red mine, or did I '
