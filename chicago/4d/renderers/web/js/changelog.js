@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1387, ts: '2026-10-03T22:22:26.920Z', date: 'Oct 3, 2026, 5:22 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
+  { v: null, ts: '', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
     items: [
       'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',
       'New in Chicago also recommends riding now, and takes about four minutes instead of ten and a half. Its five stops are unchanged.',
       'You can still choose to walk either one. The ride and the Tremont breakfast are our reconstruction (liberties L-jaunt-news-breakfast and L-jaunt-new-in-chicago).',
+    ] },
+  { v: 1387, ts: '2026-10-03T22:08:33.624Z', date: 'Oct 3, 2026, 5:08 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
+    items: [
+      'The row of colour-swatch buttons is gone. A small dial at the top right now steps through the four appearances, with four dots marking which one is on; hover it to see the name.',
+      'The same dial sits on the arrival card and in the settings panel.',
+      'The appearances are now called Control Room, Precision Brass, Retro Future and Deep Space. Your saved choice carries over.',
     ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
