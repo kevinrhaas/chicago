@@ -20327,6 +20327,16 @@ dated pre1946 stable-door photograph would replace the proportional choices.
 `glessner_house.as_built_1887.form.eave_cornice`.
 **Recorded:** 2026-10-02.
 
+### L369 — Leaf-scale procedural vegetation
+
+**Decision:** The branch sprays, individual leaf silhouettes, leaf veins, bark fissures, twig forks, canopy shading and per-tree surface variation are code-authored visual reconstructions bounded by the existing species families and July appearance. They are not photographs of historical Chicago vegetation, measurements of individual trees, or new evidence for their placement. Existing `data/flora` records continue to own species, dimensions, communities, historical claims and flowering eligibility. Confidence values are retained on the new surfaces. Light detail uses fewer geometric sprays of the same cutout foliage rather than closing the crown into a faceted solid. See `docs/RESEARCH/procedural-vegetation-quality.md` for review and limitations.
+
+**Applies to:** `renderers/web/js/trees.js`, `tree-surface.js`, `flora.js`, `foliage-atlas.js`.
+
+**How to resolve:** Species-specific measured leaf, bark and branching references can replace the current family-level surface approximations without changing the evidence for tree placement.
+
+**Recorded:** 2026-10-03 (T-2015).
+
 ### L-jaunt-freight-store — Freight for the Store: an invented consignment and its tally
 
 **Decision:** Freight for the Store links four existing exterior destinations (Newberry & Dole's forwarding house, P. F. W. Peck's store, Thomas Church's store and George W. Dole's 1832 warehouse) in an invented delivery of three packages from wharf to shop. The consignment, the bill of lading, the packages and their marks, the counting, the wagon load and its three-package limit, the second trip, the delivery at each store, the tally carried to Dole's warehouse, the four endings and the Cargo Accounted For keepsake are reconstructed, and so are the reading and action seconds. What each firm did is sourced: Newberry & Dole's trade from their own November 1833 card and the American's June 1835 Michigan freight notice, Peck's stock from his own cards of 1833-34, Church's store from the one modern sentence that records it. No firm is claimed to have shipped, received or paid for these goods, and no bill, freight charge or price is named. No named person speaks or is met, no interior is opened and no front door is claimed. Newberry & Dole's house and Church's store stand at reconstructed positions and the stops say so. The tally ends at Dole's warehouse because Dole was the firm's partner and the warehouse sits a block from Church's store; that the firm squared its bills there is invented.

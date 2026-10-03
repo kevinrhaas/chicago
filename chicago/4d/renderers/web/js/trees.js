@@ -74,6 +74,7 @@
  */
 
 import * as THREE from 'three';
+import { createTreeAtlas, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 
 /**
  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
@@ -1181,6 +1182,7 @@ async function loadTimberZones(dataBase, problems = []) {
         const dark = rgbHex(sp.july?.foliage_rgb);
         shrubByZone[id] = shrubByZone[id] ?? {};
         shrubByZone[id][sp.id] = {
+          speciesId: sp.id,
           common: sp.common ?? sp.id,
           form: 'shrub',
           h: Array.isArray(sp.height_m) && sp.height_m.length === 2
@@ -1219,6 +1221,7 @@ async function loadTimberZones(dataBase, problems = []) {
       const light = rgbHex(sp.july?.foliage_rgb_alt);
       const spec = {
         ...base,
+        speciesId: sp.id,
         common: sp.common ?? base.common,
         form,
         h: Array.isArray(sp.height_m) && sp.height_m.length === 2 ? sp.height_m : base.h,
@@ -1338,26 +1341,6 @@ function segDist2(px, py, ax, ay, bx, by) {
   return dx * dx + dy * dy;
 }
 
-/** The 12 unit vertices and 20 faces of an icosahedron — one foliage puff. */
-const ICO_V = (() => {
-  const t = (1 + Math.sqrt(5)) / 2;
-  const raw = [
-    [-1, t, 0], [1, t, 0], [-1, -t, 0], [1, -t, 0],
-    [0, -1, t], [0, 1, t], [0, -1, -t], [0, 1, -t],
-    [t, 0, -1], [t, 0, 1], [-t, 0, -1], [-t, 0, 1],
-  ];
-  return raw.map(([x, y, z]) => {
-    const l = Math.hypot(x, y, z);
-    return [x / l, y / l, z / l];
-  });
-})();
-const ICO_F = [
-  [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
-  [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8],
-  [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9],
-  [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1],
-];
-
 /* -------------------------------------------------------------------------- */
 /* a growable mesh                                                             */
 /* -------------------------------------------------------------------------- */
@@ -1371,7 +1354,10 @@ const ICO_F = [
  * merging costs no more and buys real per-tree variation.
  */
 class MeshBuf {
-  constructor() {
+  constructor(detail = 'full') {
+    this.detail = detail;
+    this.leafFamily = 3;
+    this.sprays = 0;
     /** How many inflorescences landed in this chunk (ROADMAP K45(c)). Counted
      *  where they are built rather than estimated from the stem count, because
      *  the multiplicity is a function of each tree's own crown width. */
@@ -1381,17 +1367,21 @@ class MeshBuf {
     this.col = [];
     this.flex = [];
     this.conf = [];
+    this.uv = [];
+    this.leaf = [];
     this.idx = [];
   }
 
   get count() { return this.pos.length / 3; }
 
-  vert(x, y, z, nx, ny, nz, r, g, b, flex, conf) {
+  vert(x, y, z, nx, ny, nz, r, g, b, flex, conf, uv = treeAtlasUV(15, 0.5, 0.5), leaf = 0) {
     this.pos.push(x, y, z);
     this.nrm.push(nx, ny, nz);
     this.col.push(r, g, b);
     this.flex.push(flex);
     this.conf.push(conf);
+    this.uv.push(...uv);
+    this.leaf.push(leaf);
     return this.count - 1;
   }
 
@@ -1402,6 +1392,8 @@ class MeshBuf {
     g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(this.pos), 3));
     g.setAttribute('normal', new THREE.BufferAttribute(new Float32Array(this.nrm), 3));
     g.setAttribute('color', new THREE.BufferAttribute(new Float32Array(this.col), 3));
+    g.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(this.uv), 2));
+    g.setAttribute('aLeaf', new THREE.BufferAttribute(new Float32Array(this.leaf), 1));
     g.setAttribute('aFlex', new THREE.BufferAttribute(new Float32Array(this.flex), 1));
     g.setAttribute('_confidence',
       new THREE.BufferAttribute(new Float32Array(this.conf), 1));
@@ -1494,60 +1486,80 @@ function hazeDisplayLinear() {
  */
 const CANOPY_ALBEDO = 1.00;
 /**
- * A canopy is optically THICK. The sun reaches its upper outer shell and very
- * little else, so the visible surface of a crown runs from a bright sunlit top
- * to a deep interior shade — and that RANGE, not the average, is what makes a
- * tree read as a tree rather than as a green ball.
- *
- * Measured the same way on both, the bar photograph's tree mass carries a
- * standard deviation of 33 and round 1 drew 26, because the old ramp only ever
- * moved between two fairly close greens and modelled no self-shadowing at all.
- *
- * `_P` is how fast the shell falls into shade: above 1 it means most of the
- * crown surface is shaded and only the cap is fully lit, which is the right
- * shape for a dense July canopy.
- *
- * `_FLOOR` is what the deep interior keeps, and it is NOT a pure shadow term —
- * it must not be driven toward zero. A canopy UNDERSIDE, which is the whole of
- * what you see standing under a gallery tree on the river bank, is lit by
- * skylight and by sunlight transmitted THROUGH the leaves; that is why a summer
- * canopy glows from below rather than going black. At 0.028 the near trees in
- * the `river_bank` shot rendered as flat black plates, which is what set this.
+ * T-2015: the old closed crown's 0.060 occlusion floor was a stand-in for
+ * thousands of absent leaves. Applying it to real cutout sprays double-counts
+ * shade and makes each leaf almost black. Open sprays retain 44% indirect
+ * reflectance; the light rig and cutout shadow map supply the real occlusion.
+ * Bark is likewise a lit textured surface, not the old dark placeholder pole.
  */
-const CROWN_SHADE_FLOOR = 0.060;
-const CROWN_SHADE_P = 2.4;
-/** The same conversion for bark. See the bole comment in `addTree`. */
-const BARK_ALBEDO = 0.30;
+const CROWN_SHADE_FLOOR = 0.44;
+const BARK_ALBEDO = 0.90;
+function barkColour(hex) {
+  const rgb = linear(hex);
+  const luminance = rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722;
+  // The original flat bark swatches baked in crown shade. Grain and shadows
+  // now supply that shade, so recover a plausible 22% minimum diffuse value
+  // before applying them. Preserve each species' hue and its pale upper limbs.
+  const gain = Math.max(1, 0.22 / Math.max(0.001, luminance)) * BARK_ALBEDO;
+  return rgb.map(v => Math.min(0.78, v * gain));
+}
 
-/** Add one foliage puff: a jittered icosahedron with a light-from-above ramp. */
+/**
+ * An open volume of branch sprays, NEVER a closed foliage solid. Each two-face
+ * card has hundreds of leaf-scale alpha cutouts and bare twigs in a species
+ * atlas. Diverse orientations prevent a cross-billboard/star silhouette.
+ * Light keeps eight sprays (16 triangles vs the former 20-face solid), paying
+ * for the bent limbs below without raising the mobile floor. Upper tiers buy
+ * more overlapping branch layers, not larger leaves or a different tree mix.
+ */
 function addPuff(buf, cx, cy, cz, radius, squash, dark, light, shade, flexBase, rnd, conf) {
-  const base = buf.count;
-  for (let i = 0; i < 12; i++) {
-    const v = ICO_V[i];
-    // Radial jitter so the silhouette is ragged rather than spherical.
-    const k = radius * (0.62 + rnd() * 0.64);
-    const x = cx + v[0] * k;
-    const y = cy + v[1] * k * squash;
-    const z = cz + v[2] * k;
-    // Where this vertex sits between the underside of the mass and its cap,
-    // and how much of the crown stands above it — a puff low in the tree is
-    // shaded by everything over it, which `shade` carries.
-    const up = clamp01(v[1] * 0.5 + 0.5);
-    // Self-shadowing. Most of a crown's surface is interior and dark; the lit
-    // shell is thin. The jitter keeps two puffs from shading identically.
-    const lit = clamp01(Math.pow(up, CROWN_SHADE_P) * (0.35 + 0.65 * shade)
-      * (0.80 + rnd() * 0.40));
+  // The placement stream is shared with the next tree. The retired primitive
+  // used precisely 24 draws (jitter + light for each of 12 vertices). Consume
+  // that same reservation, then grow all surface detail on a private stream.
+  // Neither tier nor leaf count can re-deal a station or a species downstream.
+  let seed = 0;
+  for (let i = 0; i < 24; i++) seed = (Math.imul(seed, 31) ^ Math.floor(rnd() * 4294967296)) >>> 0;
+  rnd = mulberry32(seed);
+  const sprays = buf.detail === 'light' ? 8 : buf.detail === 'balanced' ? 14 : 20;
+  const phase = rnd() * Math.PI * 2;
+  for (let i = 0; i < sprays; i++) {
+    const a = phase + i * 2.3999632297;
+    const up = (i + 0.5) / sprays;
+    const yy = up * 2 - 1;
+    const rr = Math.sqrt(Math.max(0, 1 - yy * yy));
+    const k = radius * (0.38 + rnd() * 0.38);
+    const px = cx + Math.cos(a) * rr * k;
+    const py = cy + yy * k * squash;
+    const pz = cz + Math.sin(a) * rr * k;
+    const yaw = a + (rnd() - 0.5) * 1.8;
+    const tilt = -0.65 + rnd() * 1.55;
+    const ct = Math.cos(tilt), st = Math.sin(tilt);
+    const cu = Math.cos(yaw), su = Math.sin(yaw);
+    const roll = rnd() * Math.PI * 2, cr = Math.cos(roll), sr = Math.sin(roll);
+    const ux = cu * cr - su * st * sr, uy = ct * sr, uz = su * cr + cu * st * sr;
+    const vx = -cu * sr - su * st * cr, vy = ct * cr, vz = -su * sr + cu * st * cr;
+    const nx = -su * ct, ny = -st, nz = cu * ct;
+    const w = radius * (1.03 + rnd() * 0.34);
+    const h = radius * (1.38 + rnd() * 0.42) * squash;
+    const lit = clamp01(0.15 + shade * 0.47 + up * 0.38);
     const occ = CANOPY_ALBEDO * lerp(CROWN_SHADE_FLOOR, 1, lit);
-    // Hue follows the light: a shaded July leaf mass is a colder, deeper green
-    // than the same mass in the sun, so the two recorded greens are the ends of
-    // the shading ramp rather than a decorative tint.
-    const t = clamp01(0.10 + shade * 0.28 + up * 0.74);
-    const r = lerp(dark[0], light[0], t) * occ;
-    const g = lerp(dark[1], light[1], t) * occ;
-    const b = lerp(dark[2], light[2], t) * occ;
-    buf.vert(x, y, z, v[0], v[1], v[2], r, g, b, flexBase + up * 0.22, conf);
+    const tint = 0.83 + rnd() * 0.29;
+    const colour = dark.map((v, j) => lerp(v, light[j], 0.35 + lit * 0.65) * occ * tint);
+    const tile = buf.leafFamily + (rnd() < 0.5 ? 0 : 7);
+    const flip = rnd() < 0.5;
+    const base = buf.count;
+    for (const [u, v] of [[0, 0], [1, 0], [1, 1], [0, 1]]) {
+      const du = (u - 0.5) * w, dv = (v - 0.5) * h;
+      // Smooth botanical normals follow the spray volume, not a flat billboard.
+      const normal = new THREE.Vector3(nx + ux * (u - 0.5) * 0.7,
+        ny + 0.32 + (v - 0.5) * 0.4, nz + uz * (u - 0.5) * 0.7).normalize();
+      buf.vert(px + ux * du + vx * dv, py + uy * du + vy * dv, pz + uz * du + vz * dv,
+        normal.x, normal.y, normal.z, ...colour, flexBase + v * 0.20, conf,
+        treeAtlasUV(tile, flip ? 1 - u : u, v), 1);
+    }
+    buf.tri(base, base + 1, base + 2); buf.tri(base, base + 2, base + 3);
+    buf.sprays++;
   }
-  for (const f of ICO_F) buf.tri(base + f[0], base + f[1], base + f[2]);
 }
 
 /**
@@ -1556,8 +1568,8 @@ function addPuff(buf, cx, cy, cz, radius, squash, dark, light, shade, flexBase, 
  * The cheapest closed solid is a tetrahedron and it was rejected on its
  * silhouette rather than on its cost — edge-on a tetrahedron is a sliver, and a
  * flower cluster that disappears from a third of the bearings around the tree is
- * a worse artefact than the two extra vertices are a saving. Eight faces is
- * still an eighth of the twenty `addPuff` spends on a foliage mass, which is the
+ * a worse artefact than the two extra vertices are a saving. Eight faces
+ * remain cheaper than a spray volume, which is the
  * right ratio: at the ranges this file draws at a head is 3 px and a crown is
  * 580 (see `WOODY_HEAD_OF_SHAPE`), so the head is where the geometry budget must
  * NOT be spent.
@@ -1631,7 +1643,7 @@ function addStem(buf, x0, y0, z0, x1, y1, z1, r0, r1, colour, sides, flex0, flex
     const bz = ring ? z1 : z0;
     const rr = ring ? r1 : r0;
     const fl = ring ? flex1 : flex0;
-    for (let s = 0; s < sides; s++) {
+    for (let s = 0; s <= sides; s++) {
       const a = (s / sides) * Math.PI * 2;
       const ca = Math.cos(a);
       const sa = Math.sin(a);
@@ -1639,16 +1651,19 @@ function addStem(buf, x0, y0, z0, x1, y1, z1, r0, r1, colour, sides, flex0, flex
       const ny = py * ca + qy * sa;
       const nz = pz * ca + qz * sa;
       buf.vert(bx + nx * rr, by + ny * rr, bz + nz * rr, nx, ny, nz,
-        colour[0], colour[1], colour[2], fl, conf);
+        colour[0], colour[1], colour[2], fl, conf, treeAtlasUV(14, s / sides, ring));
     }
   }
   for (let s = 0; s < sides; s++) {
     const a = base + s;
-    const b = base + ((s + 1) % sides);
-    const c = a + sides;
-    const d = b + sides;
-    buf.tri(a, c, b);
-    buf.tri(b, c, d);
+    const b = base + s + 1;
+    const c = a + sides + 1;
+    const d = b + sides + 1;
+    // The ring frame is clockwise viewed down the stem. Outward winding must
+    // agree with the radial normals: DoubleSide otherwise flips them inward,
+    // turning even sunlit textured bark into a black silhouette.
+    buf.tri(a, b, c);
+    buf.tri(b, d, c);
   }
 }
 
@@ -1679,7 +1694,7 @@ function addThicket(buf, spec, x, groundY, z, rnd, scale = 1) {
 
   const dark = linear(spec.dark);
   const light = linear(spec.light);
-  const bark = linear(spec.bark).map((v) => v * BARK_ALBEDO);
+  const bark = barkColour(spec.bark);
   const tint = 0.90 + rnd() * 0.20;
   const d2 = dark.map((v) => v * tint);
   const l2 = light.map((v) => v * tint);
@@ -1737,7 +1752,7 @@ function addShrubClump(buf, spec, x, groundY, z, rnd, scale = 1) {
     ? lerp(spec.crownW[0], spec.crownW[1], rnd()) : h * 0.95) * scale;
   const dark = linear(spec.dark);
   const light = linear(spec.light);
-  const bark = linear(spec.bark).map((v) => v * BARK_ALBEDO);
+  const bark = barkColour(spec.bark);
   const tint = 0.90 + rnd() * 0.20;
   const d2 = dark.map((v) => v * tint);
   const l2 = light.map((v) => v * tint);
@@ -1773,6 +1788,7 @@ function addShrubClump(buf, spec, x, groundY, z, rnd, scale = 1) {
  * scarring on the lower bole because the surveyors kept noting burned trees.
  */
 function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
+  buf.leafFamily = leafFamily(spec);
   if (spec.form === 'thicket') return addThicket(buf, spec, x, groundY, z, rnd, scale);
   if (spec.form === 'shrub') return addShrubClump(buf, spec, x, groundY, z, rnd, scale);
   const conf = spec.conf ?? 0.5;
@@ -1794,7 +1810,7 @@ function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
   // CANOPY_ALBEDO), at its own value: a bole stands UNDER its own crown, so
   // almost none of it is ever in direct sun, but bark is a lighter material
   // than a shaded leaf mass and must not go to a silhouette.
-  const bark = linear(spec.bark).map((v) => v * BARK_ALBEDO);
+  const bark = barkColour(spec.bark);
   // A second bark tone, for the one species whose record singles its bark out:
   // the sycamore's upper limbs are the pale half of "white mottled bark
   // flashing on the upper limbs", and the trunk under them is not. The tree was
@@ -1803,7 +1819,7 @@ function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
   // does not declare one is unchanged: `barkUpper` falls back to `bark`.
   // docs/LIBERTIES.md L118 owns the invention; ROADMAP K47.
   const barkUpper = spec.barkUpper != null
-    ? linear(spec.barkUpper).map((v) => v * BARK_ALBEDO)
+    ? barkColour(spec.barkUpper)
     : bark;
   // Fire-scarred boles: blackened to 1–2 m on 20–40 % of trees in the savanna.
   const scarred = spec.fireScar && rnd() < 0.32;
@@ -1824,10 +1840,10 @@ function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
     const midY = groundY + boleH * 0.55;
     addStem(buf, x, groundY - 0.15, z,
       x + (topX - x) * 0.55, midY, z + (topZ - z) * 0.55,
-      r0, r0 * 0.66, bole, 5, 0, 0.10, conf);
+      r0, r0 * 0.66, bole, buf.detail === 'full' ? 8 : 5, 0, 0.10, conf);
     addStem(buf, x + (topX - x) * 0.55, midY, z + (topZ - z) * 0.55,
       topX, groundY + boleH, topZ,
-      r0 * 0.66, r0 * 0.46, barkUpper, 5, 0.10, 0.22, conf);
+      r0 * 0.66, r0 * 0.46, barkUpper, buf.detail === 'full' ? 8 : 5, 0.10, 0.22, conf);
   }
 
   // Where the foliage masses sit. `open` spreads them wide and low, `gallery`
@@ -1910,12 +1926,25 @@ function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
       const fy = groundY + boleH * fork;
       // Stop the limb INSIDE the puff, so no tip pokes out of the foliage.
       const tip = openForm ? 0.82 : 0.76;
-      addStem(buf, fx, fy, fz,
-        lerp(fx, c[0], tip),
-        lerp(fy, c[1], tip) - crownH * (openForm ? 0.12 : 0.04),
-        lerp(fz, c[2], tip),
-        r0 * (openForm ? 0.44 : 0.30), r0 * (openForm ? 0.20 : 0.11),
-        barkUpper, 4, 0.20, 0.42, conf);
+      const ex = lerp(fx, c[0], tip), ez = lerp(fz, c[2], tip);
+      const ey = lerp(fy, c[1], tip) - crownH * (openForm ? 0.12 : 0.04);
+      const mx = lerp(fx, ex, 0.52), mz = lerp(fz, ez, 0.52);
+      const my = lerp(fy, ey, openForm ? 0.27 : 0.43);
+      const rb = r0 * (openForm ? 0.44 : 0.30);
+      // Two tapered segments create the rising elbow of a living branch. The
+      // 3-sided tips are subpixel; broad boles retain smooth circular normals.
+      addStem(buf, fx, fy, fz, mx, my, mz, rb, rb * 0.60,
+        barkUpper, 3, 0.20, 0.31, conf);
+      addStem(buf, mx, my, mz, ex, ey, ez, rb * 0.60, rb * 0.19,
+        barkUpper, 3, 0.31, 0.48, conf);
+      if (buf.detail === 'full') {
+        const dx = c[0] - fx, dz = c[2] - fz;
+        for (const sign of [-1, 1]) {
+          addStem(buf, mx, my, mz, ex + dz * sign * 0.24,
+            ey + crownH * 0.11, ez - dx * sign * 0.24,
+            rb * 0.28, rb * 0.035, barkUpper, 3, 0.30, 0.64, conf);
+        }
+      }
     }
   }
 
@@ -1943,8 +1972,8 @@ function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
 
   // The flower, if the record carries one and July allows it. Drawn LAST so it
   // sits over the foliage it is carried on rather than being buried by a puff
-  // added after it — the crown is opaque and merged, and there is no depth sort
-  // inside one buffer to fix an ordering mistake here.
+  // added after it. Cutouts write depth normally; no transparent sorting is
+  // needed within the merged buffer.
   //
   // Placement is on the outer SHELL: the record's `height_frac` picks the band
   // up the crown and `band` gives it depth, then each head is thrown out to
@@ -2461,7 +2490,7 @@ export async function createTrees({
   const chunkOf = (e, n) => {
     const k = `${Math.floor(e / CHUNK_M)},${Math.floor(n / CHUNK_M)}`;
     let b = buffers.get(k);
-    if (!b) { b = new MeshBuf(); buffers.set(k, b); }
+    if (!b) { b = new MeshBuf(level); buffers.set(k, b); }
     return b;
   };
 
@@ -3031,38 +3060,27 @@ export async function createTrees({
   /* ---- 4. the material --------------------------------------------------- */
 
   const uWind = { value: 0 };
+  const surfaceAtlas = createTreeAtlas();
   const nearMat = new THREE.MeshStandardMaterial({
-    vertexColors: true, roughness: 0.94, metalness: 0,
+    vertexColors: true, map: surfaceAtlas, bumpMap: surfaceAtlas, bumpScale: 0.015,
+    roughness: 0.92, metalness: 0,
+    side: THREE.DoubleSide, alphaTest: TREE_ALPHA_CUTOFF,
   });
   nearMat.name = 'timber';
-  {
-    const prior = nearMat.onBeforeCompile;
-    nearMat.onBeforeCompile = (shader, renderer) => {
-      if (typeof prior === 'function') prior(shader, renderer);
-      shader.uniforms.uWind = uWind;
-      shader.vertexShader = `
-attribute float aFlex;
-uniform float uWind;
-` + shader.vertexShader.replace('#include <begin_vertex>', /* glsl */`
-#include <begin_vertex>
-  {
-    // Two crossing waves so a stand never sways in unison, keyed on world
-    // position rather than on object position — one merged object carries the
-    // whole lattice, so anything keyed on the object would move a hundred trees
-    // as one. Amplitude is a metre at most, on a 25 m crown: a 3 m/s breeze.
-    vec3 chiW = (modelMatrix * vec4(transformed, 1.0)).xyz;
-    float chiS = sin(uWind * 0.85 + chiW.x * 0.055 + chiW.z * 0.041) * 0.62
-               + sin(uWind * 1.63 + chiW.x * 0.113 - chiW.z * 0.087) * 0.28;
-    transformed.x += chiS * aFlex * 0.42;
-    transformed.z += chiS * aFlex * 0.26;
-  }
-`);
-    };
-    nearMat.needsUpdate = true;
-  }
+  patchTreeWind(nearMat, uWind, { surface: true });
   confidence?.patch(nearMat);
-
-  const disposables = [nearMat];
+  const depthMat = new THREE.MeshDepthMaterial({
+    map: surfaceAtlas, alphaTest: TREE_ALPHA_CUTOFF, side: THREE.DoubleSide,
+    depthPacking: THREE.RGBADepthPacking,
+  });
+  const distanceMat = new THREE.MeshDistanceMaterial({
+    map: surfaceAtlas, alphaTest: TREE_ALPHA_CUTOFF, side: THREE.DoubleSide,
+  });
+  patchTreeWind(depthMat, uWind);
+  patchTreeWind(distanceMat, uWind);
+  confidence?.patch(depthMat);
+  confidence?.patch(distanceMat);
+  const disposables = [nearMat, depthMat, distanceMat, surfaceAtlas];
   /**
    * ONE BATCH, CULLED PER CHUNK, IN BOTH PASSES — T-0223 step one.
    *
@@ -3102,6 +3120,8 @@ uniform float uWind;
       chunks.length, vertexTotal, indexTotal, nearMat,
     );
     batch.name = 'timber';
+    batch.customDepthMaterial = depthMat;
+    batch.customDistanceMaterial = distanceMat;
     // Timber that casts no shadow is pasted onto the ground rather than
     // standing on it, and a crown that receives none is lit from every side at
     // once — which is half of why round 1's crowns read as flat green balls.
@@ -3124,6 +3144,9 @@ uniform float uWind;
     stats.triangles += indexTotal / 3;
   }
   stats.timberChunks = chunks.length;
+  stats.foliageSprays = chunks.reduce((t, b) => t + b.sprays, 0);
+  stats.foliageRepresentation = 'species-alpha-sprays';
+  stats.surfaceAtlasSize = 2048;
   for (const b of chunks) stats.heads += b.heads;
 
   /* ---- 5. the horizon ---------------------------------------------------- */

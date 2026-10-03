@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 378,
+  "count": 379,
   "liberties": [
     {
       "id": "L1",
@@ -23027,6 +23027,33 @@
         {
           "label": "Recorded",
           "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L369",
+      "title": "Leaf-scale procedural vegetation",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The branch sprays, individual leaf silhouettes, leaf veins, bark fissures, twig forks, canopy shading and per-tree surface variation are code-authored visual reconstructions bounded by the existing species families and July appearance. They are not photographs of historical Chicago vegetation, measurements of individual trees, or new evidence for their placement. Existing `data/flora` records continue to own species, dimensions, communities, historical claims and flowering eligibility. Confidence values are retained on the new surfaces. Light detail uses fewer geometric sprays of the same cutout foliage rather than closing the crown into a faceted solid. See `docs/RESEARCH/procedural-vegetation-quality.md` for review and limitations."
+        },
+        {
+          "label": "Applies to",
+          "text": "`renderers/web/js/trees.js`, `tree-surface.js`, `flora.js`, `foliage-atlas.js`."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Species-specific measured leaf, bark and branching references can replace the current family-level surface approximations without changing the evidence for tree placement."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2015)."
         }
       ]
     },
