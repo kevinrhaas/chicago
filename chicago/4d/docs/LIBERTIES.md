@@ -20512,3 +20512,14 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/boots-and-leather.json`.
 
 **Recorded:** 2026-10-03 (T-2027).
+### L-jaunt-materials-for-a-roof — Materials for a Roof: an invented builder's list past four documented trades
+
+**Decision:** Materials for a Roof links four existing exterior destinations (Newberry & Dole's forwarding and commission warehouse, P. F. W. Peck's store at South Water and LaSalle, Tyler K. Blodgett's brickyard on the North Side, and the Lake House building site at Rush Street) in an invented errand: a builder putting up a small frame house sees what comes in by lake, chooses nails or nail rods for the roof, chooses brick for a chimney or none, and ends looking at the biggest building in hand. The builder, the house and its roof, the list, both choices, the route, the three endings and the A Builder's List keepsake are reconstructed, and so are the reading and action seconds. What each place did is sourced: Newberry & Dole's storage, forwarding and commission card from the Chicago Democrat of 1 July 1835; Peck's New York stock (2 July 1834) and his nails, nail rods, bar iron and steel (10 September 1834) from his own notices; the brickyard, its founder and its brickmaker from Andreas; the finished Lake House from Andreas and its 1835 groundbreaking from an uncredited modern paragraph, which the stop says. No order, price or sale is claimed at any of the four places; the stop does not say the Lake House's brick came from Blodgett's yard, because nothing does; the warehouse's bank and the Lake House's side of Rush Street are the scene's placements and the stops say so. No named person speaks or is met, no interior is opened and no front door is claimed.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat's 2 July 1834, 10 September 1834 and 1 July 1835 issues, Andreas vol. 1, the chicagology prefire112 page, and brief 17 of JAUNTS-INITIAL-LIBRARY.md. The errand, the choices and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record of who supplied the Lake House's brick, or of a builder's purchase at Peck's, would let the last two stops name a real transaction in place of the list.
+
+**Applies to:** `data/jaunts/materials-for-a-roof.json`.
+
+**Recorded:** 2026-10-03 (T-2026).

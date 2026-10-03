@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Materials for a Roof, about six minutes on horseback.',
+      'Start at Newberry \u0026 Dole\u2019s warehouse on the river, choose nails or nail rods at Peck\u2019s corner, decide on brick at the town\u2019s first brickyard, and end looking at the Lake House going up at Rush Street.',
+      'The builder, the list and the keepsake, A Builder\u2019s List, are our reconstruction (liberty L-jaunt-materials-for-a-roof). The goods come from the merchants\u2019 own notices; the Lake House shell is our reconstruction of a building site.',
+    ] },
   { v: 1366, ts: '2026-10-03T14:21:05.994Z', date: 'Oct 3, 2026, 9:21 AM CT', title: 'A new jaunt: Boots, Leather and the Road', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Boots, Leather and the Road, an outing of about seven and a half minutes on horseback.',
