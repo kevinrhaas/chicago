@@ -86,7 +86,9 @@ garden fence: upright ground bearing, bounded world height, and a rebuilt packag
 
 T-1356 and [the Unreal runbook](unreal/README.md) hold the programme. Follow the new
 QUEUE band after South Through Time and before Loop Improvements. Reuse T-0252 for
-shared layer exports. Keep local Unreal/GPU and deployment work blocked until both
+shared layer exports. Decided 2026-10-03 in `GLB-CONTRACT.md` § Layers drawn at load:
+the baked town carries none of them, and each is exported by the module that draws it.
+That also answers the legacy K5 "generator half" clauses and the withdrawn T-0059. Keep local Unreal/GPU and deployment work blocked until both
 dependencies and executor capability are evidenced; the remote web worker is ineligible.
 Source bundles, engine imports, cooked target builds and deployed streams are distinct.
 

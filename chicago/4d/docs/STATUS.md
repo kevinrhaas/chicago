@@ -1,3 +1,96 @@
+## T-2003 — the 1812 ground generated: mouth, heightfield, ground and water meshes (2026-10-03)
+
+**What a visitor sees: nothing yet.** No scene stands on `e1830_natural`. The 1812 Fort Dearborn
+scene that will is T-0469 to T-0472, and this is the ground they were waiting on. This run is the
+one invisible run the four-run cap allows; the three entries before it are visible.
+
+- **`generators/terrain_gen_e1830.py`** is the 1812 ground's one generator. It imports
+  `check_terrain_e1830.resolve()` (T-2002) for the effective table, writes
+  `e1830_natural/river.geojson`, translates the table into the keys `terrain_gen.build_field`
+  reads, and calls it. So the 1812 ground is the 1834 field's own arithmetic on the 1812
+  planform. `terrain_gen.py` is not edited, so neither the 1834 nor the 1904 ground goes stale.
+- **The mouth is spliced, not drawn.** The 1834 harbour ring keeps every vertex except the north
+  shore from where the neck leaves the bank to the pier head (index 39). Those vertices become
+  the neck's river face, the spit's ring the long way round, the neck's lake face, and the
+  chord. The two new vertices at each end are crossings of committed lines. The 1834 bar hole
+  is gone, because the bar is no longer an island.
+- **The spit and neck are lifted after the field.** `build_field` builds an island from its ring
+  as a waterline all round. Across a joined spit's root that notches the neck to the water,
+  which is the breach the isthmus decision forbids. So the spit and neck go in as land the lake
+  rules may not flood (a water polygon that is wholly its own island). They are lifted to
+  `spit_1812.crest_ft` across `face_m` and graded into the mainland across the neck's width.
+  Measured on the committed field: the neck runs at +4.0 ft from about 25 m out to the spit, and
+  rises to +5.9 ft at the root. Across its middle it falls to the water on both faces. No notch.
+- **Grades.** Zero documented vertices. Conjectural: everything south of Twelfth Street, the
+  spit and neck, and the `channel_west_bank_ruling` band. That band is the channel and the ground
+  within `west_band_m` west of its bank, between N −426.75 and −69. Together the conjectural
+  vertices are 48.2 % of the box.
+  `west_band_m` (157.1 m) is now a spec figure, and the check holds it to T-1286's measured worst
+  separation.
+- **What else moved, and why it is right.** Against the 1834 field, 257,821 cells differ. The
+  water beds shift by a median 12.5 cm far from the mouth, because the bed is an inverse-distance
+  blend of every reach and 1812 drops the cut and deepens the old channel to −4 ft. The 1835
+  street sections are dropped (there were no streets in 1812), so the roadway beds across the
+  town rise back to the plain. Gradient audit: plain max 0.468 ft per 300 ft, under the 0.5 rule.
+- **Wired.** Seven 1812 blocks are `compile_scene.GROUND_GROUPS` groups with
+  `terrain_inputs.CONSUMED` entries and `mesh:` declarations for every figure the generator does
+  not read. L362, L363 and L364 carry `Covers:` tokens for the five reconstructed ones. The old
+  refusal of a ground-group name in `check_terrain_e1830.py` is replaced by two rules: no authored
+  block may shadow a carried 1834 one, and every graded 1812 block must reach the panel with a
+  CONSUMED entry. Its self-tests go from 18 to 22.
+- **Hashed.** `terrain_inputs.OVERLAY_EPOCHS` hashes the 1812 spec and vectors, the 1834 spec and
+  all six vector files the field loads, the mouth readings, the generator, and the source of
+  `resolve()` alone (not the whole check module, so rewording a refusal costs no bake).
+- **Gates.** `measure_terrain_fit --epoch e1830_natural --gate`: master within 2.5 mm of the
+  field. `measure_terrain_horizontal --epoch e1830_natural --gate`: shipped vertices 0.0 mm from
+  the master in plan, drawn surface within 10.0 mm. Both are now check.sh steps. **Not in
+  check.sh:** the byte-for-byte re-derivation (`terrain_gen_e1830.py --check`). It is the 1834
+  field's arithmetic over 1.9 million cells and takes about 76 s, which the pool cannot spend
+  (rule 9). `validate.py --stale` holds the input hash instead.
+- **Banked, not repaired: two rights findings.** `spit_1812` and `outlet_channel_1812` cite
+  `chicagology_prefire274` and `chicago_architecture_history_115`, whose rights are unresolved,
+  and both blocks now reach a vertex. They are banked in `tools/rights_derivation_baseline.json`
+  on the same terms as the 1834 claims they are carried back from (`reaches.old_south_channel`
+  and `reaches.harbour_cut_1834` are already banked there). The heights themselves are dossier
+  zone figures, graded reconstructed. The fix is the rights check on those two sources, and it
+  is unchanged by this run.
+- **The masters are big.** `terrain__e1830_natural.glb` is 29.6 MB (1,136,722 triangles), on the
+  1834 grid at the 1834 decimation, beside the 1834 master's 30.3 MB. The web derivative is
+  2.9 MB.
+## T-0252 — the load-drawn layers leave the repository as exports, not bakes (2026-10-03)
+
+**Nothing you can see changed.** This is a contract and a gate. It is the decision T-1360
+(the first Unreal street corridor) and its successors were blocked on.
+
+**The decision**, in `docs/GLB-CONTRACT.md` § Layers drawn at load: the baked town carries
+**none** of the ten layers drawn at load (boats, enclosures, fauna, flora, frontage,
+residents, signage, wells, wharves, yard), nor the street network. Their portable form is
+an export made by the renderer module that already draws each one. Its `create*({ terrain })`
+factory runs headless against the scene's epoch heightfield, and the output is stamped with
+that heightfield's hash and the records' hashes. The export lives in the scene bundle
+(T-1357) and is never committed. The reasons, all measured before: a shared generator edit
+re-stales all 550 committed meshes; most of these layers read the heightfield at load, so a
+bake would freeze them against a ground that keeps moving (T-0001's fault); and six layers'
+records are re-derived byte for byte by `check.sh`, a gate that stays on the record. Cards
+(fauna, residents, businesses) export as JSON, and no human figure is exported for anyone.
+
+**The inventory** has one row per layer: what it draws, whether it reads the ground, where
+its variation is seeded, its portable form, instancing and collision intent, and what a glTF
+cannot carry yet. Most layers patch their shaders at compile time, and signage rasterises
+system fonts with no recorded licence. Both are written into their rows rather than left to
+the first exporter to find out.
+
+**The gate.** `tools/measure_generator_half.py --gate` keeps all of its readings.
+`layers_with_a_generator: 0` is now the rule rather than a debt. A new check requires a
+contract row naming the drawing module for every layer the tool names. Shown red twice on
+this branch (the boats row removed; the wells row naming the wrong module), then green.
+
+**Unverified.** Nothing has been exported. The contract describes the factories as they read
+today; the first corridor (T-1360) is expected to correct it where the code disagrees. The
+legacy K5 box is no longer in `docs/ROADMAP.md`. The Unreal programme paragraph there now
+points at the decision, and older "the generator half is still owed" lines in this file are
+history and were left as written.
+
 ## T-2034 — An Evening Stroll, the batch's quiet published jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *An Evening Stroll* (Leisure, Horse, 4
