@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1389, ts: '2026-10-03T23:03:35.041Z', date: 'Oct 3, 2026, 6:03 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
+    items: [
+      'Outfit for the West took about nine minutes by wagon. It now suggests riding on horseback and crosses the river only once: the list at the Green Tree, then the saddler and the smith at Lake and Canal, then over the river to the Jones grocery and Peck\'s store. It takes about five minutes. The five places, the purse and the prices are unchanged.',
+      'Freight for the Store took a few seconds over six minutes. Its opening and its four stops are a little shorter, so it now takes under six minutes by wagon. Nothing new is claimed. The tally stop now says Dole\'s yard is likely quiet in July, because the evidence for that is an inference.',
+    ] },
   { v: 1388, ts: '2026-10-03T22:49:02.145Z', date: 'Oct 3, 2026, 5:49 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
     items: [
       'Nothing you can see changes yet. The first Fort Dearborn, burned in August 1812, will be built from the plan its commandant drew in January 1808. That plan is now read and measured.',
