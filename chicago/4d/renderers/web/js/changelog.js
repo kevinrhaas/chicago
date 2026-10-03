@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1374, ts: '2026-10-03T17:31:24.023Z', date: 'Oct 3, 2026, 12:31 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
+  { v: null, ts: '', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
     items: [
       'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
       'Pick a machine at the top right: the 1960s Control Room (the standard), Precision Brass, World\u2019s Fair or Deep Space. The choice follows you into the town, and the arrival card and settings panel carry the same selector.',
       'If you had chosen an earlier skin, you keep it under its new name: Sci-fi is now the Control Room, Steampunk is Precision Brass and Space Age is World\u2019s Fair.',
       'The Confluence Laboratory and its aperture are framing fiction for the front door. They make no claim about the town; the evidence grades on every card are unchanged.',
+    ] },
+  { v: 1374, ts: '2026-10-03T17:24:17.483Z', date: 'Oct 3, 2026, 12:24 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',
+      'Follow freight from Newberry \u0026 Dole\u2019s warehouse past Norton\u2019s Dearborn Street drawbridge to the 1832 light at the river\u2019s mouth, and finish at the south pier looking across the cut at the north pier. Then mark the light or the end of the north pier on your route note.',
+      'The walk, the note and the keepsake, Knows the Harbor, are our reconstruction (liberty L-jaunt-along-the-harbor). Both piers were still being built that summer, so their lengths are our estimate, and the stop says so.',
     ] },
   { v: 1373, ts: '2026-10-03T17:05:20.078Z', date: 'Oct 3, 2026, 12:05 PM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
     items: [
