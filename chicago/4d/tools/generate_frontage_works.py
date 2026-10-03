@@ -400,7 +400,21 @@ EDGE_STREETS = ("south_water", "lake", "randolph", "washington")
 # Washington one rung earlier, and it is why T-0193 is blocked on T-0190 rather
 # than bought with a sixth ceiling raise — which T-0237's acceptance refuses in
 # as many words.
-EDGE_SKIP_BLOCKS = ("blk_lake_clinton",)   # across the South Branch — see above
+#
+# LAID AT LAST, 2026-10-03 (T-0193), ON THE BUDGET T-1975 RE-SET. T-0190 shipped and
+# the seventh re-basing set `balanced` to the town the owner asked for, so the block
+# is in and the table above is the reading that kept it out. It came in with ONE
+# change to how it is drawn and none to how it is laid: its standing timber (fences,
+# posts and fittings) rides a mesh of its own, `EDGE_WEST_BANK_STANDING`, rather than
+# Lake's and Randolph's. T-1823 measured what the other way costs — a post across the
+# river stretches a whole street's standing mesh 120-170 m west into the sun's shadow
+# box at `lake_at_canal`, +48,588 triangles at `balanced` for about 2,000 of timber,
+# which is most likely the bulk of the +27,932 the table above charged this block.
+# Re-read with it in, desktop, published mirror: -24 triangles at that stand at every
+# tier and +1 draw call (docs/measurements/t-0193-detail-ceilings-desktop*.json).
+EDGE_SKIP_BLOCKS = ()
+EDGE_OWN_STANDING_BLOCKS = ("blk_lake_clinton",)   # across the South Branch
+EDGE_WEST_BANK_STANDING = "town_street_edge__west_bank__standing"
 # AND THE WHOLE WEST DIVISION GRID WITH IT, SINCE T-1455. That ticket cuts the sheet's
 # own West Division blocks on their own tier lines, and nine of them arrived bounded
 # north and south by Lake, Randolph and Washington Streets — all three in `EDGE_STREETS`
@@ -408,9 +422,10 @@ EDGE_SKIP_BLOCKS = ("blk_lake_clinton",)   # across the South Branch — see abo
 # more corner crossings across the South Branch without anybody asking it to. That is the
 # very frontage the measurement above refuses: ONE block's ONE face costs +23,712
 # triangles at `lake_at_canal` and reads 13,890 OVER the `balanced` ceiling on its own.
-# Fifteen faces is not a bigger version of that question, it is the same one, and T-0193
-# stays blocked on T-0190 until the ceiling has room. Skipped by GRID rather than by id
-# so the next West Division cell cut does not quietly reopen it.
+# Fifteen faces is not a bigger version of that question, it is the same one. T-0193
+# laid blk_lake_clinton alone (2026-10-03, above) and measured it; the grid's fifteen
+# are a separate parcel with their own reading still to take. Skipped by GRID rather
+# than by id so the next West Division cell cut does not quietly reopen it.
 EDGE_SKIP_GRIDS = ("west_division",)
 # THE CROSS STREETS' OWN FRONTAGES (T-0192), AND THE TWO SEPARATE THINGS THAT
 # REFUSED THEM. The four streets above run east-west and bound a block on its
@@ -3137,11 +3152,16 @@ def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused, decked=
 def _face_meets(entry, buildings) -> list:
     """Every committed building standing on this face's own lots, met once, with
     the lot it was first met on — `_edge_hitching`'s T-0461 enumeration. A
-    fronts-only face (T-1823) meets its buildings by their DOORS instead."""
-    if entry.get("fronts_only"):
-        return _door_meets(entry, buildings)
+    fronts-only face (T-1823) meets its buildings by their DOORS instead, and so
+    does a covered face NO LOT FRONTS (T-0193): the West Division's lots front its
+    north-south streets, so blk_lake_clinton's Lake and Randolph faces are the ends
+    of lot rows, and asked by lot they would meet nobody — the store whose door opens
+    on Lake Street would lose the post it stood while that face was fronts-only."""
     block = entry["block"]
     face = entry["face"]
+    if entry.get("fronts_only") or not any(l.get("tier") == face
+                                           for l in block.get("lots", [])):
+        return _door_meets(entry, buildings)
     met: dict[str, tuple[dict, str]] = {}
     for index, lot in enumerate(block.get("lots", [])):
         if lot.get("tier") != face:
@@ -3972,6 +3992,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                                    streets, refused, decked):
             if entry.get("fronts_only"):
                 post["standing_chunk"] = EDGE_FRONT_STANDING
+            elif block["id"] in EDGE_OWN_STANDING_BLOCKS:
+                post["standing_chunk"] = EDGE_WEST_BANK_STANDING
             census["hitching"] += 1
             posts.append(post)
         # T-1813 — and the rest of what this front's business takes: the stoop, the
@@ -3980,6 +4002,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                                   refused, decked, bare_fronts):
             if entry.get("fronts_only"):
                 fit["standing_chunk"] = EDGE_FRONT_STANDING
+            elif block["id"] in EDGE_OWN_STANDING_BLOCKS:
+                fit["standing_chunk"] = EDGE_WEST_BANK_STANDING
             census["fittings"][fit["kind"]] = census["fittings"].get(fit["kind"], 0) + 1
             fittings.append(fit)
         if entry.get("fronts_only"):
@@ -4005,6 +4029,8 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                 "street": street,
                 "street_name": name,
                 "chunk": chunk,
+                **({"standing_chunk": EDGE_WEST_BANK_STANDING}
+                   if block["id"] in EDGE_OWN_STANDING_BLOCKS else {}),
                 "path_local_enu_m": [[_round(p0[0]), _round(p0[1])],
                                      [_round(p1[0]), _round(p1[1])]],
                 "height_m": EDGE_FENCE_H_M,
@@ -4258,41 +4284,6 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
             "rule; when the headroom is won back the covered tuple is one line."
         ),
       })
-    refused.append({
-        "structure_id": "blk_lake_clinton",
-        "wall": "Lake Street's West Division frontage, across the South Branch",
-        "why": (
-            "REFUSED ON A MEASURED FRAME BUDGET AT ONE STAND, AT ONE TIER, AT ONE "
-            "VIEWPORT (T-0193) — and it is a number now rather than the promise this "
-            "clause used to carry. This block stands in the WEST DIVISION, across the "
-            "South Branch from the town the owner's 'south of the river or near the "
-            "river' names, separated from every other face on this record by a river "
-            "with one bridge on it, and it is the last platted block this rule has "
-            "never looked at. THE SAME RULE DOES LAY THE SAME WALK THERE, and it was "
-            "run rather than assumed: both faces generate cleanly — the Lake face "
-            "T-0069 named, and the Randolph face that only became coverable when "
-            "T-0240 put Randolph in the covered streets the day before — for +2 block "
-            "faces, +192.2 m of walk in 2 unbroken runs, +1 board crossing over "
-            "Randolph and +3 street-lining fences, with the march refusing only what "
-            "it refuses everywhere else (a building standing ON the frontage line is "
-            "the street wall, an unimproved lot takes no fence, and a blacksmith's "
-            "yard gate takes no hitching post). Published and read at T-0135's five "
-            "stands at BOTH viewports: `full` and `light` pass everywhere and mobile "
-            "passes every tier, clearing `balanced` by 34,712. DESKTOP `balanced` does "
-            "not — 1,228,110 against a 1,210,000 ceiling, OVER BY 18,110 — and the "
-            "whole of that cost lands at the single stand `lake_at_canal`, which "
-            "stands at this block's own east end and looks east down the axis where "
-            "nothing culls: +27,932 triangles there against a flat +8,460 at the other "
-            "four. AND HALF OF IT DOES NOT FIT EITHER, which is what makes this a fact "
-            "about the budget rather than about the block: the Lake face ALONE, "
-            "exactly what T-0069 refused, still reads 1,223,890 and is over by 13,890. "
-            "`balanced` stood 1,201,344 of 1,210,000 before this was tried — 8,656 "
-            "triangles, 0.7 % of headroom — so no street frontage of any size fits "
-            "under that rung today. The unblock is T-0190's second street tier, not a "
-            "sixth raising of the ceiling, which T-0237's acceptance refuses in as "
-            "many words."
-        ),
-    })
     walks.sort(key=lambda w: w["id"])
     fences.sort(key=lambda f: f["id"])
     posts.sort(key=lambda q: q["id"])
