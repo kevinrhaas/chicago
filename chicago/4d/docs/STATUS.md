@@ -24,6 +24,38 @@ House at Lake and Wells. Fix half of T-2051's reading (piece 2 of 6 of T-2041).
 - **Liberties:** L-jaunt-news-breakfast and L-jaunt-new-in-chicago each gain a **Revised** line
   (append-only): the ride is invented like the rest of each outing.
 
+## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
+
+**One stop's wording changed; the rest is a gate.** `compile_jaunts.py` proves a jaunt is
+well-formed; nothing read what a jaunt SAYS. `tools/audit_jaunt_refusals.py` now reads every
+visitor-facing passage of all 27 jaunts (26 in 1835, one in 1904) for four refusals and runs
+in `check.sh` with an in-memory self-test that breaks each rule once:
+
+- **No reconstructed Indigenous encounter.** No stop may visit a Native or Métis home or
+  business (91 people, 2 places, 1 business, read from the records' `community` and
+  `touches_removal`). An Indigenous subject may not be named in the story's invented voice
+  (premise, opening, choices, endings, keepsake), and may be named in a told passage only
+  where an attested or inferred claim of that passage names it, no reconstructed claim of it
+  touches the subject, and the sentence does not put the visitor in it. The lexicon includes
+  the names of every Native and Métis person record. One name is exempt: "Sauganash" names the
+  tavern, and only in a jaunt that references `sauganash_hotel`.
+- **No figure.** No string outside the claims may carry an asset path or URL, and the schema
+  must stay closed at every object, so a field that could carry one is a visible schema change.
+- **No quotation in a named person's mouth.** Every quoted span must stand verbatim in an
+  attested claim the passage cites, and no named person "tells you" or "asks you" anything.
+- **Rights.** No `restricted` source may be cited. `check_required` sources are cited in text
+  only, which is rule 6's allowance.
+
+**What it found, and the fix.** One quotation. The stop at the American quoted the bank
+notice's "on the square, near the court house". The transcription reads "on the squa[re,
+near] the court house": the comma and "near" are the extraction's supplies, not print, and
+the attested claim gives the phrase unquoted. The stop now gives it in plain words, as the
+same jaunt already does with the land-sale figure it cannot read (content_version 2).
+
+**Unverified, and said so.** An invented sentence describing an unnamed person's appearance
+is not detected; no lexicon for it would spare "a wet street has told you enough". The
+library's shape (T-2039) and timing (T-2041) are other pieces of T-1271.
+
 ## T-2051 — every jaunt's primary path ridden and timed, measurement half of T-2041 (2026-10-03)
 
 **What a visitor sees: nothing.** This is the measurement half of a split (AGENTS.md's

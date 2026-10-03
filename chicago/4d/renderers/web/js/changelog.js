@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1386, ts: '2026-10-03T21:46:11.095Z', date: 'Oct 3, 2026, 4:46 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
+  { v: 1387, ts: '2026-10-03T22:22:26.920Z', date: 'Oct 3, 2026, 5:22 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
     items: [
       'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',
       'New in Chicago also recommends riding now, and takes about four minutes instead of ten and a half. Its five stops are unchanged.',
       'You can still choose to walk either one. The ride and the Tremont breakfast are our reconstruction (liberties L-jaunt-news-breakfast and L-jaunt-new-in-chicago).',
+    ] },
+  { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
+    items: [
+      'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
+      'Every jaunt is now read for four things it must never do: stage a meeting with Native people, show a figure of anyone, quote a named person without a source, or cite a source whose terms forbid it. All 27 pass.',
     ] },
   { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
     items: [
