@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1337, ts: '2026-10-03T02:27:04.988Z', date: 'Oct 2, 2026, 9:27 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
+  { v: 1338, ts: '2026-10-03T02:33:54.560Z', date: 'Oct 2, 2026, 9:33 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Fort Dearborn Errand. You carry an imagined note round the fort\u2019s service buildings.',
       'Five stops: the stockade, the guard-house and store-house either side of the south gate, the sutler\u2019s store by the north gate, and the shop on the outer ground toward the lake.',
       'Choose candles or thread at the sutler\u2019s, tally the parcel outside the store-house, where the Army\u2019s 1834 notices had fresh beef delivered, and set it down at the shop.',
       'Finish the errand and Accounted for at the Fort goes in your daybook under Livelihood. The note and parcel are our reconstruction (liberty L-jaunt-fort-dearborn-errand); no soldier is shown.',
+    ] },
+  { v: 1337, ts: '2026-10-03T02:08:05.503Z', date: 'Oct 2, 2026, 9:08 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Across Wolf Point. It is a short walk across the river, with nothing to buy, about five and a half minutes on foot.',
+      'Four stops: the Wolf Point Tavern at the forks, the Green Tree, the South Branch bridge and the Sauganash. The route keeps to the bridge and never crosses open water.',
+      'Two disputes are told, not hidden. Was the tavern still taking travellers in July 1835? Was the bridge a raft? The old settlers who used it describe a fixed bridge.',
+      'Finish to keep Knows the Crossing in your daybook under Wayfinding. The outing itself is our reconstruction (liberty L-jaunt-across-wolf-point).',
     ] },
   { v: 1336, ts: '2026-10-03T01:51:10.099Z', date: 'Oct 2, 2026, 8:51 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [

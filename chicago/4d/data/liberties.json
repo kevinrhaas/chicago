@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 361,
+  "count": 362,
   "liberties": [
     {
       "id": "L1",
@@ -22693,6 +22693,39 @@
         {
           "label": "Recorded",
           "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-across-wolf-point",
+      "title": "Across Wolf Point: an invented crossing and route note",
+      "section": "per_subject",
+      "subjects": [
+        "wolf_point_tavern"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Across Wolf Point links four existing exterior destinations — the Green Tree, the Wolf Point Tavern, the South Branch bridge and the Sauganash — in an invented outing from the west bank to the south side. The crossing itself, the route order (north to the forks, back south to the bridge, over and north to Lake and Market), the route note, the single ending and the Knows the Crossing memento are reconstructed. No journey, conversation or encounter is attested; no named person speaks; no interior is opened. The places, the tavern's sign and fabric, the bridge's construction and the Sauganash's 1831 look and June 1835 refit are each cited at their own tier, and the two disputes the records hold — whether the Wolf Point Tavern still kept travellers in July 1835, and whether the bridge was a raft — are stated in the stop text rather than resolved."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the four structure records and brief 05 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated account of anyone's route over the South Branch in 1835 would replace the invented order; the outing and its ending stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/across-wolf-point.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1264)."
         }
       ]
     },

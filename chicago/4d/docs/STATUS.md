@@ -31,6 +31,35 @@ menu → opening → mid-leg switch to Fly → detail card and back → Previous
 `accounted` → menu. It awarded the keepsake once under Livelihood, a replay added no second one,
 and there were 0 page errors at both viewports. End and Jaunts Menu were not pressed.
 
+## T-1264 — Across Wolf Point, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Across Wolf Point* (River and routes,
+Walk, 4 stops, Wayfinding). It is a quiet crossing with no purse and no branches: the Wolf Point
+Tavern at the forks, the Green Tree, the South Branch bridge and the Sauganash. The keepsake
+*Knows the Crossing* goes to Wayfinding. Content only: one JSON file, a liberty
+(`L-jaunt-across-wolf-point`), the regenerated catalog and source-use edges, and brief 05's route
+note. There is no engine, compiler or CSS change.
+
+**Two disputes are told in the stop text, not resolved.** Whether the Wolf Point Tavern still
+kept travellers on 1 July 1835 (Walters 1833–36 against "ceased … in 1834"), and whether the
+South Branch bridge was a raft (the retellings) or fixed on abutments and bents (the 1883
+settlers' statement, which the structure record adopts). Positions stay `inferred`, and the
+tavern's distance north of Lake Street is said to be unfixed.
+
+**Measured.** `play_jaunt.mjs --all-paths`: one path, one ending, one keepsake. The catalog
+card on the published mirror: Walk about 5.5 min, Wagon 3.5, Horse 3 (2.5 at 1280×800), Fly 2.5,
+Instantly 2. The brief's order read 6.5 min at Walk because it doubled back past the Green Tree,
+so the route was re-cut to start at the forks (brief 05's route note). Walk is still half a
+minute over the 3–5 min target: about two minutes of it is reading. A Playwright drive at
+390×780 took the stills in order (menu card, first stop, the detail card and back, a mid-leg
+switch to Wagon, Previous, Jaunts Menu → Resume, the ending) with zero page errors. The keepsake
+landed once under Wayfinding, a full replay left the daybook at one copy ("replays keep one
+copy"), and End Jaunt returned to the menu.
+
+**Unverified.** The 1280×800 drive reached the ending with zero page errors, but the replay
+and End steps were cut off by the 580 s cap; those two were proved at 390×780 only. The stills
+are not committed.
+
 ## T-1286 — the 1812 shore measured against Harrison 1830, the one pre-cut sheet (2026-10-02)
 
 **Nothing in the scene changed, and no geometry moved.** The owner ruled on 2026-09-17 that
