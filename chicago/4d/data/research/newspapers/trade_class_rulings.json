@@ -247,22 +247,6 @@
       "businesses_carrying_this_trade": 3
     },
     {
-      "trade": "auction and commission house",
-      "classes": [
-        "other"
-      ],
-      "basis": "a service the enumeration counts nowhere (B2)",
-      "businesses_carrying_this_trade": 1
-    },
-    {
-      "trade": "auction and commission house, selling merchandize and real estate",
-      "classes": [
-        "other"
-      ],
-      "basis": "a service the enumeration counts nowhere (B2)",
-      "businesses_carrying_this_trade": 1
-    },
-    {
       "trade": "auction and commission merchant",
       "classes": [
         "other"
@@ -1446,6 +1430,28 @@
         "business_eagle_tavern"
       ],
       "detail": "The register carries an 'Eagle Hotel' kept by P. B. F. Cable and J. Shrigley (1834-04-16 to 1834-10-08) and an 'Eagle Tavern' kept by Carli (1834-06-18 to 1834-09-10), and the two overlap in the same months: on 1834-07-02 the Eagle Hotel is 'taken' by Cable while a visiting dentist keeps his office 'at the Eagle Tavern'. One house under two names with a change of keeper, or two houses trading on the same bird, is exactly the question this project will not answer off a name — and NO IDENTITY RULING IS MADE HERE (T-1471). It bears on `town_records_in_town` only: the Eagle Hotel is already excluded from the scene date as contradicted before it, so the pair cannot move the scene-date tavern count either way. Reading the 1834-07-02 and 1834-10-08 pages against each other is what would settle it."
+    }
+  ],
+  "withdrawn": [
+    {
+      "trade": "auction and commission house",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1,
+      "reason": "No register business carries this printed trade any more: it was the trade of a heading T-0386 merged into 'W. Montgomery' (identity.json firm_merges), whose record keeps the earliest printing's trade, 'auction and commission'. The class it ruled — other, a service the enumeration counts nowhere (B2) — is the one that trade's own ruling already gives, so nothing is re-classed.",
+      "ticket": "T-0386"
+    },
+    {
+      "trade": "auction and commission house, selling merchandize and real estate",
+      "classes": [
+        "other"
+      ],
+      "basis": "a service the enumeration counts nowhere (B2)",
+      "businesses_carrying_this_trade": 1,
+      "reason": "No register business carries this printed trade any more: it was the trade of a heading T-0386 merged into 'W. Montgomery' (identity.json firm_merges), whose record keeps the earliest printing's trade, 'auction and commission'. The class it ruled — other, a service the enumeration counts nowhere (B2) — is the one that trade's own ruling already gives, so nothing is re-classed.",
+      "ticket": "T-0386"
     }
   ]
 }

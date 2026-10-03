@@ -151,12 +151,12 @@
    },
    "workplaces": [
     {
-     "business_id": "biz_a_new_auction_and_commission_room_south_water_street",
-     "business_name": "a new auction and commission room, South Water Street",
-     "role": "proprietor",
+     "business_id": "biz_w_montgomery",
+     "business_name": "W. Montgomery",
+     "role": "partner",
      "printed_as": "W. Montgomery",
-     "from": "1835-06-27",
-     "to": "1835-07-25",
+     "from": "1835-06-24",
+     "to": "1835-08-05",
      "tier": "attested",
      "basis": "The register matches the printed name to the town card montgomery_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
      "source_id": "chicago_newspapers_1833_1835",
@@ -165,39 +165,12 @@
       "chicago_american_1835_07_04#c012",
       "chicago_american_1835_07_11#c003",
       "chicago_american_1835_07_18#c003",
-      "chicago_american_1835_07_25#c003"
-     ],
-     "business_present_at_scene_date": true
-    },
-    {
-     "business_id": "biz_w_montgomery",
-     "business_name": "W. Montgomery",
-     "role": "proprietor",
-     "printed_as": "W. Montgomery",
-     "from": "1835-07-08",
-     "to": "1835-07-29",
-     "tier": "attested",
-     "basis": "The register matches the printed name to the town card montgomery_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
-     "source_id": "chicago_newspapers_1833_1835",
-     "claim_ids": [
+      "chicago_american_1835_07_25#c003",
+      "chicago_democrat_1835_06_24#c008",
       "chicago_democrat_1835_07_08#c001",
       "chicago_democrat_1835_07_15#c005",
       "chicago_democrat_1835_07_22#c011",
-      "chicago_democrat_1835_07_29#c013"
-     ],
-     "business_present_at_scene_date": true
-    },
-    {
-     "business_id": "biz_w_montgomery_auction_and_commission_house",
-     "business_name": "W. Montgomery, Auction and Commission House",
-     "role": "proprietor",
-     "printed_as": "Montgomery, W.",
-     "from": "1835-08-05",
-     "to": "1835-08-05",
-     "tier": "attested",
-     "basis": "The register matches the printed name to the town card montgomery_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
-     "source_id": "chicago_newspapers_1833_1835",
-     "claim_ids": [
+      "chicago_democrat_1835_07_29#c013",
       "chicago_democrat_1835_08_05#c009",
       "chicago_democrat_1835_08_05#c016"
      ],

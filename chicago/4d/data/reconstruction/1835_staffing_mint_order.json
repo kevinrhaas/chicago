@@ -26,14 +26,14 @@
     "slots_that_moved": 9,
     "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
     "the_sex_axis": "130 of the 137 are men. That is not a licence to cut the trade remainder male: the sources that print an occupation — notices, poll lists, the trade census, the directories — print PROPRIETORS and heads of household, and a record of who advertised is not a record of who worked. The town model's own occupations section says the same thing from the other side: the 1840 schedule's seven columns have no row for domestic service, 'which a port with this adult sex ratio certainly had', and the trade split understates household labour 'by an amount this model cannot bound'. Both arguments point one way and neither bounds a number, so the SEX of the trade remainder is NOT re-cut. The book keeps the population's own split, and the hands a shop wants that only a man can fill stand short with the reason said out loud.",
-    "and_the_mint_is_still_short": "After the re-cut, 4 of the 130 hands are payable and 126 are not. The re-cut opened the band the shop boys stand in — 4 slot(s) outstanding in it now — and refused the sex axis on the evidence. The sex bar is what the 126 stand behind, and re-cutting again cannot move it."
+    "and_the_mint_is_still_short": "After the re-cut, 4 of the 126 hands are payable and 122 are not. The re-cut opened the band the shop boys stand in — 4 slot(s) outstanding in it now — and refused the sex axis on the evidence. The sex bar is what the 122 stand behind, and re-cutting again cannot move it."
   },
   "the_question": {
     "for": "the owner, and T-1166 which owns the order book",
-    "asked": "The shops want 130 hands and the book has 4 outstanding trade slots, of which 0 are women's and cannot be spent on them. Spent greedily in the stated order the book pays for 4 and leaves 126 with nowhere to come from — and every payable slot belongs to another stage. Which gives way?",
+    "asked": "The shops want 126 hands and the book has 4 outstanding trade slots, of which 0 are women's and cannot be spent on them. Spent greedily in the stated order the book pays for 4 and leaves 122 with nowhere to come from — and every payable slot belongs to another stage. Which gives way?",
     "the_answers_as_this_project_sees_them": [
       "RE-CUT THE BOOK (T-1166) — RULED, RUN AND SPENT; see `what_the_re_cut_returned` above. It opened the band the shop boys stand in and it refused the sex axis on the evidence, so it did not make the mint payable to the typical band. This answer is no longer on the table, and the two below are.",
-      "COME DOWN OFF THE TYPICAL BAND. Staff every house to the model's own `count_low` instead and the demand falls from 130 hands to 47, of which the book pays for 4 and leaves 43 short. `count_low` and `short_by_at_the_low_band` are carried on every row below, so this answer prices house by house and not only in totals. A low-band town is inside the staffing model's own stated range.",
+      "COME DOWN OFF THE TYPICAL BAND. Staff every house to the model's own `count_low` instead and the demand falls from 126 hands to 46, of which the book pays for 4 and leaves 42 short. `count_low` and `short_by_at_the_low_band` are carried on every row below, so this answer prices house by house and not only in totals. A low-band town is inside the staffing model's own stated range.",
       "LET THE HOUSES STAND SHORT AND SAY SO. Mint nothing, and let the business card print the shortfall as the honest state of the evidence. It costs the layer nothing and it is the only answer that invents nobody."
     ],
     "answered": "ANSWERED on 2026-09-25 — the owner took the second answer, the model's LOW band. The three are kept below because the ruling is only readable against what it chose between. What the answer buys is `the_owner_s_ruling` above.",
@@ -41,17 +41,17 @@
   },
   "the_demand": {
     "what_it_is": "The hands the staffing model's TYPICAL band wants and no house has. `count_low` and `count_high` are carried on every row so a reader can price the other two answers.",
-    "hands_wanted": 130,
-    "houses_short": 88,
-    "houses_staffable": 170,
+    "hands_wanted": 126,
+    "houses_short": 85,
+    "houses_staffable": 167,
     "by_sex_rule": {
-      "male": 123,
+      "male": 119,
       "predominantly_male": 7
     },
     "by_age_band": {
-      "adult_18_45": 32,
+      "adult_18_45": 31,
       "adult_any": 7,
-      "young_adult_16_25": 67,
+      "young_adult_16_25": 64,
       "youth_12_18": 24
     },
     "by_role": [
@@ -69,7 +69,7 @@
           "male",
           "young_adult_16_25"
         ],
-        "hands": 44
+        "hands": 41
       },
       {
         "key": [
@@ -117,7 +117,7 @@
           "male",
           "adult_18_45"
         ],
-        "hands": 28
+        "hands": 27
       },
       {
         "key": [
@@ -216,14 +216,14 @@
   },
   "the_collision": {
     "on_the_count": {
-      "hands_wanted": 130,
+      "hands_wanted": 126,
       "slots_outstanding": 4,
-      "short_by": 126
+      "short_by": 122
     },
     "on_the_sex": {
       "hands_wanted_that_may_be_paid_from_a_woman_s_slot": 0,
       "women_s_slots_outstanding": 0,
-      "reads_as": "Every one of the 130 hands the shops want is a man or a role the model calls predominantly male — not one of them could be paid from a woman's slot. 0 of the book's 4 outstanding slots are women's, and they cannot be spent here at all."
+      "reads_as": "Every one of the 126 hands the shops want is a man or a role the model calls predominantly male — not one of them could be paid from a woman's slot. 0 of the book's 4 outstanding slots are women's, and they cannot be spent here at all."
     },
     "on_the_age": {
       "boys_wanted_12_to_18": 24,
@@ -231,17 +231,17 @@
       "slots_in_that_band_by_sex": {
         "male": 4
       },
-      "reads_as": "The apprentice and the shop boy are 24 of the 130 hands wanted, and the band that reaches them is NO LONGER DRAWN OUT: 4 slot(s) stand outstanding in it, 4 of them men's and so spendable on a boy, 0 of them women's and so not. The age bar this file was written against is paid for; the sex bar is not."
+      "reads_as": "The apprentice and the shop boy are 24 of the 126 hands wanted, and the band that reaches them is NO LONGER DRAWN OUT: 4 slot(s) stand outstanding in it, 4 of them men's and so spendable on a boy, 0 of them women's and so not. The age bar this file was written against is paid for; the sex bar is not."
     },
     "what_the_book_could_pay_for_today": 4,
-    "what_would_go_unpaid": 126,
+    "what_would_go_unpaid": 122,
     "slots_that_would_be_left": {},
     "at_the_model_s_low_band": {
       "what_it_is": "The same arithmetic against the second answer — every house staffed to `count_low` rather than to the typical band, paid from the same purse in the same order.",
-      "hands_wanted": 47,
-      "houses_short": 44,
+      "hands_wanted": 46,
+      "houses_short": 43,
       "what_the_book_could_pay_for": 4,
-      "what_would_go_unpaid": 43,
+      "what_would_go_unpaid": 42,
       "slots_that_would_be_left": {}
     }
   },
@@ -252,9 +252,9 @@
     "answer": "a",
     "what_it_ruled": "Mint to the model's LOW band: the hands the book can pay for minted out of the outstanding lodging/trade slots, the houses it cannot reach left short and saying so on the business card.",
     "why_that_one": "It is the band the staffing model itself states for this case, it leaves the smallest unexplained gap, and the houses it fills are chosen by a stated band rather than by the order the arithmetic happens to run in.",
-    "hands_the_ruling_wants": 47,
+    "hands_the_ruling_wants": 46,
     "hands_the_book_pays_for_in_slots": 4,
-    "houses_left_short": 43,
+    "houses_left_short": 42,
     "on_the_household_axis": {
       "what_it_is": "A slot is not only a sex and an age band; it is also a HOUSEHOLD TYPE, and `pay_the_demand` does not look at one. Every slot it can reach is a `lodging/trade` bucket — a person the book orders into a lodging household — and the staffing model's own `the_shop_household_rule` houses the on-premises share of these roles with their EMPLOYER instead.",
       "the_rule_it_reads": "`lives_on_premises` is the share of holders of a role who slept in the proprietor's house or over the shop, and `household_relationship` is the term their card carries in that household. A clerk at 0.5 means half the clerks of that class are household members of their employer and half keep their own lodging or board elsewhere.",
@@ -429,33 +429,6 @@
         }
       ],
       "paid_at_the_low_band": 1,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_a_new_auction_and_commission_room_south_water_street",
-      "business_name": "a new auction and commission room, South Water Street",
-      "establishment_class": "auction_and_commission_room",
-      "reads_as": "an auction and commission room",
-      "role": "clerk",
-      "role_row": 0,
-      "occupation_term": "clerk",
-      "household_relationship": "clerk",
-      "sex_rule": "male",
-      "age_band": "young_adult_16_25",
-      "lives_on_premises": 0.4,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "directory_1839",
-      "note": "A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
       "unpaid_at_the_low_band": 0
     },
     {
@@ -947,17 +920,17 @@
       "count_low": 1,
       "count_typical": 2,
       "count_high": 3,
-      "standing_today": 0,
-      "short_by": 2,
-      "short_by_at_the_low_band": 1,
+      "standing_today": 1,
+      "short_by": 1,
+      "short_by_at_the_low_band": 0,
       "basis": "period_convention",
       "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 2,
+      "unpaid": 1,
       "paid_from_at_the_low_band": [],
       "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 1
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_daniel_elston_co",
@@ -2661,33 +2634,6 @@
       "unpaid_at_the_low_band": 0
     },
     {
-      "business_id": "biz_the_boston_market",
-      "business_name": "The Boston Market",
-      "establishment_class": "grocery_and_provision_store",
-      "reads_as": "a grocery and provision store",
-      "role": "clerk",
-      "role_row": 0,
-      "occupation_term": "clerk",
-      "household_relationship": "clerk",
-      "sex_rule": "male",
-      "age_band": "young_adult_16_25",
-      "lives_on_premises": 0.5,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "directory_1839",
-      "note": "A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
       "business_id": "biz_the_chicago_american_newspaper_and_job_printing_office",
       "business_name": "the Chicago American, newspaper and job printing office",
       "establishment_class": "printing_office",
@@ -3419,33 +3365,6 @@
     {
       "business_id": "biz_w_montgomery",
       "business_name": "W. Montgomery",
-      "establishment_class": "auction_and_commission_room",
-      "reads_as": "an auction and commission room",
-      "role": "clerk",
-      "role_row": 0,
-      "occupation_term": "clerk",
-      "household_relationship": "clerk",
-      "sex_rule": "male",
-      "age_band": "young_adult_16_25",
-      "lives_on_premises": 0.4,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "directory_1839",
-      "note": "A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_w_montgomery_auction_and_commission_house",
-      "business_name": "W. Montgomery, Auction and Commission House",
       "establishment_class": "auction_and_commission_room",
       "reads_as": "an auction and commission room",
       "role": "clerk",
