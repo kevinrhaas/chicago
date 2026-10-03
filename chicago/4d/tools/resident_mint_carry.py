@@ -50,6 +50,7 @@ SEAT_CARRIERS = (
     "reconstruct_trade_households.py",
     "reconstruct_underdocumented.py",
     "reconstruct_women_children.py",
+    "seat_lodgers_1835.py",
 )
 MINTS = (
     "mint_civic_residents.py",

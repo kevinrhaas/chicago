@@ -1391,6 +1391,13 @@
       ]
     },
     {
+      "ticket": "T-1532",
+      "records": 4,
+      "buckets": [
+        "persons/male/10_19/south/lodging/trade"
+      ]
+    },
+    {
       "ticket": "T-1184",
       "records": 2,
       "buckets": [
@@ -1417,6 +1424,13 @@
       "records": 1,
       "buckets": [
         "households/institutional/south"
+      ]
+    },
+    {
+      "ticket": "T-1538",
+      "records": 1,
+      "buckets": [
+        "persons/male/20_29/north/lodging/none"
       ]
     }
   ],
@@ -1455,8 +1469,8 @@
     "roofs_standing": 541,
     "roofs_to_build": 145,
     "persons_standing": 2381,
-    "persons_still_owed": 240,
-    "persons_when_the_book_is_filled": 2621,
+    "persons_still_owed": 235,
+    "persons_when_the_book_is_filled": 2616,
     "persons_target_range": [
       2362,
       3265
@@ -1853,14 +1867,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2381,
-      "persons_still_owed": 240,
-      "converges_to": 2621,
+      "persons_still_owed": 235,
+      "converges_to": 2616,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 240 still owed is 2,621, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 78 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,381 standing plus 235 still owed is 2,616, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 73 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -3212,7 +3226,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 7,
-          "filled": 3,
+          "filled": 7,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 3,
@@ -3365,7 +3379,7 @@
           "known_attested": 3,
           "known_inferred": 8,
           "to_reconstruct": 13,
-          "filled": 12,
+          "filled": 13,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -6204,6 +6218,20 @@
       "ticket": "T-1533",
       "stage": "lodgers",
       "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/north/lodging/none",
+      "ticket": "T-1538",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/lodging/trade",
+      "ticket": "T-1532",
+      "stage": "lodgers",
+      "records": 4,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -9269,11 +9297,11 @@
       "buckets_refused": 45,
       "people_held": 386,
       "people_still_held": 386,
-      "open_headroom_in_person_buckets": 240,
+      "open_headroom_in_person_buckets": 235,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 240,
+      "still_owed_now": 235,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }

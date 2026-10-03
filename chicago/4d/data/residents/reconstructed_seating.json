@@ -21,18 +21,18 @@
     "data/structures/*.json"
   ],
   "counts": {
-    "people_in_scope": 531,
+    "people_in_scope": 535,
     "by_kind": {
       "class_full_none_owed": 2,
       "class_held_no_house": 61,
-      "keeps_their_own_house": 166,
+      "keeps_their_own_house": 167,
       "no_employer_named": 162,
       "no_ruling": 5,
       "roofs_kept_none_owed": 12,
-      "seated": 123
+      "seated": 126
     },
     "houses_taking_a_reconstructed_hand": 84,
-    "seats_carried_onto_a_card": 123,
+    "seats_carried_onto_a_card": 126,
     "seats_by_house_and_role": [
       {
         "business_id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
@@ -72,6 +72,11 @@
       {
         "business_id": "biz_a_new_tailoring_establishment_chicago_june_1835",
         "role": "tailor",
+        "seats": 1
+      },
+      {
+        "business_id": "biz_a_wholesale_wine_and_liquor_store_dearborn_street",
+        "role": "clerk",
         "seats": 1
       },
       {
@@ -177,6 +182,11 @@
       {
         "business_id": "biz_e_w_haddock",
         "role": "clerk",
+        "seats": 2
+      },
+      {
+        "business_id": "biz_e_w_haddock",
+        "role": "labourer",
         "seats": 1
       },
       {
@@ -524,7 +534,7 @@
   "which_term_of_the_order_rule_decided": {
     "what_this_is": "The ticket asks for the nearest house of the trade in the person's own division, seeded. Two of those three terms are inert against the layer as it stands, and this count is how a reader sees that rather than taking the rule's word for it.",
     "division_match": 0,
-    "nearest": 0,
+    "nearest": 3,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
     "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 193 business records name a structure this project holds, and 55 of 2209 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
@@ -606,9 +616,9 @@
       }
     },
     "carpenter": {
-      "people": 21,
+      "people": 22,
       "kinds": {
-        "keeps_their_own_house": 21
+        "keeps_their_own_house": 22
       }
     },
     "carriage_maker": {
@@ -618,9 +628,9 @@
       }
     },
     "clerk": {
-      "people": 24,
+      "people": 26,
       "kinds": {
-        "seated": 24
+        "seated": 26
       }
     },
     "confectioner": {
@@ -716,9 +726,9 @@
       }
     },
     "labourer": {
-      "people": 27,
+      "people": 28,
       "kinds": {
-        "seated": 27
+        "seated": 28
       }
     },
     "land_agent": {
@@ -7434,6 +7444,36 @@
       "chosen_by": []
     },
     {
+      "person_id": "rc_ingalls_calvin",
+      "person_name": "Calvin Ingalls",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "kind": "seated",
+      "trade": "clerk",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "south",
+      "business_id": "biz_e_w_haddock",
+      "business_name": "E. W. Haddock",
+      "role": "clerk",
+      "tier": "reconstructed",
+      "seed": "rc_ingalls_calvin:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "establishment_class": "dry_goods_store",
+      "basis": {
+        "kind": "model",
+        "id": "1835_business_staffing_model#dry_goods_store.clerk",
+        "note": "The staffing model puts 1 of this role in a dry-goods store at the typical band and 2 at the high end, on directory_1839. The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a source naming where this person worked, which retires the draw"
+      },
+      "chosen_by": [
+        "nearest"
+      ],
+      "candidates_considered": 79
+    },
+    {
       "person_id": "rc_ingalls_chauncey",
       "person_name": "Chauncey Ingalls",
       "household_id": "hh_rc_ingalls_chauncey",
@@ -7938,6 +7978,36 @@
         "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
       },
       "chosen_by": []
+    },
+    {
+      "person_id": "rc_kellogg_william",
+      "person_name": "William Kellogg",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "kind": "seated",
+      "trade": "labourer",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "south",
+      "business_id": "biz_e_w_haddock",
+      "business_name": "E. W. Haddock",
+      "role": "labourer",
+      "tier": "reconstructed",
+      "seed": "rc_kellogg_william:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "establishment_class": "dry_goods_store",
+      "basis": {
+        "kind": "model",
+        "id": "1835_business_staffing_model#dry_goods_store.labourer",
+        "note": "The staffing model puts 0 of this role in a dry-goods store at the typical band and 1 at the high end, on period_convention. A porter to shift goods, at the larger houses only. Analogue: the 1839 list's seven porters, counted under labourer, against 151 commerce principals. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a source naming where this person worked, which retires the draw"
+      },
+      "chosen_by": [
+        "nearest"
+      ],
+      "candidates_considered": 61
     },
     {
       "person_id": "rc_kelly_catherine",
@@ -8961,7 +9031,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 61
+      "candidates_considered": 60
     },
     {
       "person_id": "rc_lynch_catherine",
@@ -9101,7 +9171,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 60
+      "candidates_considered": 59
     },
     {
       "person_id": "rc_mahoney_catherine",
@@ -9264,7 +9334,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 60
+      "candidates_considered": 59
     },
     {
       "person_id": "rc_mahoney_terence",
@@ -10029,7 +10099,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 59
+      "candidates_considered": 58
     },
     {
       "person_id": "rc_murphy_hugh",
@@ -11154,6 +11224,36 @@
       "chosen_by": []
     },
     {
+      "person_id": "rc_parmelee_joseph",
+      "person_name": "Joseph Parmelee",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "kind": "seated",
+      "trade": "clerk",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "south",
+      "business_id": "biz_e_w_haddock",
+      "business_name": "E. W. Haddock",
+      "role": "clerk",
+      "tier": "reconstructed",
+      "seed": "rc_parmelee_joseph:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "establishment_class": "dry_goods_store",
+      "basis": {
+        "kind": "model",
+        "id": "1835_business_staffing_model#dry_goods_store.clerk",
+        "note": "The staffing model puts 1 of this role in a dry-goods store at the typical band and 2 at the high end, on directory_1839. The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a source naming where this person worked, which retires the draw"
+      },
+      "chosen_by": [
+        "nearest"
+      ],
+      "candidates_considered": 73
+    },
+    {
       "person_id": "rc_parmelee_maria",
       "person_name": "Maria Parmelee",
       "household_id": "hh_rc_parmelee_maria",
@@ -11269,7 +11369,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 73
+      "candidates_considered": 72
     },
     {
       "person_id": "rc_parmelee_silas",
@@ -11497,7 +11597,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 58
+      "candidates_considered": 57
     },
     {
       "person_id": "rc_pratt_ezra",
@@ -11641,6 +11741,33 @@
       "replaceable_by": {
         "kind": "business",
         "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
+      "person_id": "rc_pratt_otis",
+      "person_name": "Otis Pratt",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "kind": "keeps_their_own_house",
+      "trade": "carpenter",
+      "premises": "own_premises",
+      "division_of_the_person": "south",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_pratt_otis:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -11843,7 +11970,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 57
+      "candidates_considered": 56
     },
     {
       "person_id": "rc_quinn_johanna",
@@ -12103,7 +12230,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 72
+      "candidates_considered": 71
     },
     {
       "person_id": "rc_reilly_owen",
@@ -12133,7 +12260,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 56
+      "candidates_considered": 55
     },
     {
       "person_id": "rc_reilly_terence",
@@ -12189,7 +12316,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 71
+      "candidates_considered": 70
     },
     {
       "person_id": "rc_rice_levi",
@@ -12219,7 +12346,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 70
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_rice_luther",
@@ -12816,7 +12943,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 55
+      "candidates_considered": 54
     },
     {
       "person_id": "rc_shea_edward",
@@ -13005,7 +13132,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 70
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_sheldon_erastus",
@@ -13339,7 +13466,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 55
+      "candidates_considered": 54
     },
     {
       "person_id": "rc_stebbins_lemuel",
@@ -13795,7 +13922,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 69
+      "candidates_considered": 68
     },
     {
       "person_id": "rc_sullivan_ellen",
@@ -13857,7 +13984,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 69
+      "candidates_considered": 68
     },
     {
       "person_id": "rc_sullivan_johanna",
@@ -14766,18 +14893,18 @@
       "trade": "clerk",
       "premises": "no_fixed_premises",
       "division_of_the_person": "south",
-      "business_id": "biz_e_w_haddock",
-      "business_name": "E. W. Haddock",
+      "business_id": "biz_a_wholesale_wine_and_liquor_store_dearborn_street",
+      "business_name": "a wholesale wine and liquor store, Dearborn Street",
       "role": "clerk",
       "tier": "reconstructed",
       "seed": "rc_vieau_jean:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
-      "establishment_class": "dry_goods_store",
+      "establishment_class": "grocery_and_provision_store",
       "basis": {
         "kind": "model",
-        "id": "1835_business_staffing_model#dry_goods_store.clerk",
-        "note": "The staffing model puts 1 of this role in a dry-goods store at the typical band and 2 at the high end, on directory_1839. The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+        "id": "1835_business_staffing_model#grocery_and_provision_store.clerk",
+        "note": "The staffing model puts 1 of this role in a grocery and provision store at the typical band and 1 at the high end, on directory_1839. A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
       },
       "replaceable_by": {
         "kind": "person",
@@ -14786,7 +14913,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 68
+      "candidates_considered": 67
     },
     {
       "person_id": "rc_vieau_louis",
@@ -14929,7 +15056,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 54
+      "candidates_considered": 53
     },
     {
       "person_id": "rc_wadsworth_ezra",
@@ -15150,7 +15277,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 54
+      "candidates_considered": 53
     },
     {
       "person_id": "rc_walsh_edward",
