@@ -143,6 +143,15 @@ HOUSEHOLD_TYPES = (
     ("transient", "in the town on 1 July 1835 and not of it: the land-sale crowd, the immigrants waiting for lots, the works gang"),
 )
 
+# WHO OWES THE FAMILY ROWS (T-1171's split, 2026-10-03). T-1171 split into T-2019
+# (measure the re-housing), T-2020 (make the moves) and T-2021 (rule on the married
+# houses no woman in the town can be wife to). A bucket whose owning ticket is a SPLIT
+# parent names nobody who can act on it (T-1237), so the family rows follow the split
+# to T-2021, the piece that owns what is left once T-2020's moves are made — as
+# T-2021's own ticket records. The modelled-families stage keeps T-1171 as the ticket
+# on its own fills: that is who drew.
+FAMILY_OWNER = "T-2021"
+
 # Which ticket fills a person bucket. Read top-down; the first rule that matches
 # owns the cell. Written here rather than in prose so the book can be audited
 # against the queue.
@@ -207,7 +216,7 @@ PERSON_TICKET_RULES = (
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
     ("an adult at a trade", lambda a: a["trade"] == "trade", "T-1347"),
     ("a woman or a person under twenty", lambda a: a["sex"] == "female" or a["age_band"] in ("under_10", "10_19"), "T-1174"),
-    ("otherwise: a family drawn from the household model", lambda a: True, "T-1171"),
+    ("otherwise: a family drawn from the household model", lambda a: True, FAMILY_OWNER),
 )
 
 # The roster's classes, and the ticket each class is offered to. A roster class is
@@ -225,8 +234,8 @@ ROSTER_TICKETS = {
 # Household types against the roof groups that hold them, and the ticket that
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
-    ("family_dwelling", "ordinary_dwellings", "T-1171"),
-    ("store_residence", "stores_mixed_use", "T-1171"),
+    ("family_dwelling", "ordinary_dwellings", FAMILY_OWNER),
+    ("store_residence", "stores_mixed_use", FAMILY_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -3449,7 +3458,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, "T-1171"), owed(households, "T-1171")
+    # T-1171's leg is owed under FAMILY_OWNER since T-1171 split; the rows are the same.
+    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
