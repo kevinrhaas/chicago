@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1360, ts: '2026-10-03T11:38:26.113Z', date: 'Oct 3, 2026, 6:38 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
+    items: [
+      'Open William Jones\u2019s card in People. Fergus\u2019s 1839 directory calls him a justice of the peace, and that line used to appear twice: once under his 1835 trade and once on his timeline. It now appears once, on the timeline, dated 1839.',
+      'The same goes for Elijah Kent Hubbard, Tuthill King, James H. Mulford, Silas W. Sherman and William H. Taylor.',
+      'No trade, date or source was lost. Their 1835 trades are unchanged, and every 1839 entry still stands on its card.',
+    ] },
   { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
