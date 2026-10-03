@@ -1,9 +1,42 @@
 export const CHANGELOG = [ // newest first
-  { v: 1342, ts: '2026-10-03T04:07:29.459Z', date: 'Oct 2, 2026, 11:07 PM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+  { v: 1347, ts: '2026-10-03T05:34:27.897Z', date: 'Oct 3, 2026, 12:34 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
       'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
-      'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L365).',
+      'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
       'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
+    ] },
+  { v: 1346, ts: '2026-10-03T05:18:28.781Z', date: 'Oct 3, 2026, 12:18 AM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
+    items: [
+      'Stand on Lake Street in front of Matthias Mason\u2019s smithy and look at the worn path to his door. It now has the same grain and colour as the street it runs into, with no seam where the two meet.',
+      'The worn ground before every door in town was drawn in a darker, coarser dirt that looked blocky up close. It is now drawn from the road\u2019s own surface, and its edge fades softly into the grass.',
+    ] },
+  { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
+    items: [
+      'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
+      'The north windows sit beneath the eave. The entrance stonework, stable doors and loft surround follow the architectural references more closely.',
+      'Measured stone courses guide the north openings; the west elevation and unmeasured details remain declared reconstructions.'
+    ] },
+  { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Look Before You Buy a Lot. It is a four-stop land errand along South Water Street, about seven minutes on foot or four by wagon.',
+      'Start at John Bates Jr.\u2019s new auction room on Dearborn, where fifty Marseilles town lots were cried in June, and say what that sale really sold.',
+      'At the Democrat\u2019s old corner, follow one of two real land notices: E. K. Hubbard\u2019s town lots or J. W. Fell\u2019s land on the canal route.',
+      'Take your bearings at Peck\u2019s corner, then look at the wet ground by the La Salle slough. Inquire about one lot, or hold your money: caution is a good ending.',
+      'Finish to keep Read the Ground under News & Knowledge. The errand is our reconstruction (liberty L-jaunt-inspect-a-lot); no lot, owner or price is claimed.',
+    ] },
+  { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
+      'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
+      'At the Democrat\u2019s first corner, read the paper\u2019s list of letters nobody had called for. End at Hogan\u2019s, the former mail corner. The post office had moved a year earlier to an unplaced spot on South Water Street, so you leave with a plan for posting, not a receipt.',
+      'The keepsake is A Letter Ready to Send. The letter and the route are our reconstruction (liberty L-jaunt-letter-home).',
+    ] },
+  { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Work on the Waterfront. It is a morning ride looking for work, from the old Democrat corner to two Newberry & Dole warehouses and on to breakfast at the Exchange Coffee House. It takes about six minutes on horseback.',
+      'Choose your skill: type and press, tin and copper, or a strong back. Then read the two real calls for hands printed before 1 July 1835: the Democrat\u2019s for a printing apprentice, and Jones, King & Co.\u2019s for a coppersmith and a tin worker.',
+      'At Dole\u2019s yard, learn why nothing is packed in July. At the river, offer a day\u2019s carrying or just watch the wharf. Over breakfast, decide where to ask first tomorrow.',
+      'The search, the chit and the keepsake, A Day\u2019s Work in Prospect, are our reconstruction (liberty L-jaunt-work-waterfront). No firm offers you work or names a wage.',
     ] },
   { v: 1341, ts: '2026-10-03T03:48:19.416Z', date: 'Oct 2, 2026, 10:48 PM CT', title: 'A new jaunt: A Bed for the Night', kind: 'feature',
     items: [

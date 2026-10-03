@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 366,
+  "count": 370,
   "liberties": [
     {
       "id": "L1",
@@ -16758,7 +16758,7 @@
         },
         {
           "label": "Revised",
-          "text": "2026-10-03 (T-2012) — **the shed is withdrawn, because the ground it stood on was a gap in the street and not ground.** The owner ruled that South Water Street runs its last 22 m to State Street (**L365**), and the carried line puts the platted corridor across this footprint by 11.07 m. The street's reach is the plat's and this building had no source, so the building goes; there is no dry ground north of the corridor to re-seat it on, because the riverside walk and the bank are inside it. The owner chose the withdrawal over keeping the street short, the same day. `south_bank_shed_dearborn_e2` (**L281**), which stands clear of the corridor, keeps its seat."
+          "text": "2026-10-03 (T-2012) — **the shed is withdrawn, because the ground it stood on was a gap in the street and not ground.** The owner ruled that South Water Street runs its last 22 m to State Street (**L366**), and the carried line puts the platted corridor across this footprint by 11.07 m. The street's reach is the plat's and this building had no source, so the building goes; there is no dry ground north of the corridor to re-seat it on, because the riverside walk and the bank are inside it. The owner chose the withdrawal over keeping the street short, the same day. `south_bank_shed_dearborn_e2` (**L281**), which stands clear of the corridor, keeps its seat."
         },
         {
           "label": "Recorded",
@@ -17163,7 +17163,7 @@
         },
         {
           "label": "Revised",
-          "text": "2026-10-03 (T-2012) — **the first shed is withdrawn and this one stays.** South Water Street now runs on to State Street (**L365**) and its corridor took e1's footprint (**L274**). This shed stands clear of the corridor and is not moved. Its two eastings and its northing were read off e1's walls; those numbers stand where they were written, at the same `reconstructed` grade, and what is lost is the neighbour they can be checked against. Its door now opens toward the street rather than onto a yard behind another shed."
+          "text": "2026-10-03 (T-2012) — **the first shed is withdrawn and this one stays.** South Water Street now runs on to State Street (**L366**) and its corridor took e1's footprint (**L274**). This shed stands clear of the corridor and is not moved. Its two eastings and its northing were read off e1's walls; those numbers stand where they were written, at the same `reconstructed` grade, and what is lost is the neighbour they can be checked against. Its door now opens toward the street rather than onto a yard behind another shed."
         }
       ]
     },
@@ -19390,6 +19390,37 @@
       ]
     },
     {
+      "id": "L-jaunt-letter-home",
+      "title": "A Letter Home: an imagined letter, its purpose and a posting plan",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "A Letter Home links four existing exterior destinations (Brown's boarding house, Peck's store, the Chicago Democrat's first office and Hogan's store, the former mail corner) in an invented errand to write a letter. The letter, its three purposes (arrived safely, the town's prospects, news from home), the sheet of paper, the advice to have replies plainly addressed, the two posting plans, the three endings and the A Letter Ready to Send memento are reconstructed, and so are the reading and action seconds. No named person speaks, no letter, sale or posting is attested, no interior is opened and no front door is claimed. The paper is placed with the one shop whose own advertisement lists letter paper (Frederick Thomas, Chicago American, 20 June 1835), and nothing is bought at Peck's, whose cards name no stationery. The post office on the scene date is NOT drawn or placed: Andreas has it leave Hogan's log store about July 1834, and Hogan's card of 30 July 1834, still printed on 27 May 1835, puts his store in South Water Street \"one door below the Post Office\" — a street and a neighbour, not a lot. So the posting inquiry ends as a plan, never a mailed receipt. The list of letters read at the Democrat's corner is the 27 May 1835 printing; its names are real townspeople and none is used. The route reverses the brief's order (Brown's, Peck's, the Democrat, Hogan's) so the walk does not double back along South Water."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved July 1, 1835 scene, the four structure records, and brief 08 of JAUNTS-INITIAL-LIBRARY.md. The route, the letter and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. If dated evidence places the 1835 post office on a lot, the last stop should move to it."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/letter-home.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2005)."
+        }
+      ]
+    },
+    {
       "id": "L-jaunt-news-breakfast",
       "title": "News Before Breakfast: an imagined morning's reading of the two papers",
       "section": "per_subject",
@@ -19419,6 +19450,39 @@
         {
           "label": "Recorded",
           "text": "2026-10-03 (T-2004)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-work-waterfront",
+      "title": "Work on the Waterfront: an invented search for work",
+      "section": "per_subject",
+      "subjects": [
+        "exchange_coffee_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Work on the Waterfront links four existing exterior destinations (the former Chicago Democrat corner, Newberry & Dole's forwarding house, George W. Dole's 1832 warehouse and the Exchange Coffee House) in an invented morning spent looking for work. The visitor's search, the choice of skill, the asking at the two warehouses, the chit for a day's carrying, the request to be remembered for the winter packing, breakfast at the Exchange, the plan for tomorrow, the six endings and the A Day's Work in Prospect keepsake are reconstructed, and so are the reading and action seconds. The only vacancies the stops name are the two printed before the scene date, both dated and located to page and column: the Democrat's call for an apprentice to the printing business (20 May 1835) and Jones, King & Co.'s call for a coppersmith and a tin and sheet-iron worker (17 June 1835). No firm is claimed to have offered work or named a wage; the chit and the packing promise are labelled invented where the visitor receives them. No named person speaks or is met, no interior is opened and no front door is claimed. Newberry & Dole's house stands at a reconstructed position on a disputed bank, so the stop speaks of what the firm did, not of the spot."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved July 1, 1835 scene, the four structure records, the Democrat and American runs, Andreas's account of the firm and its packing, and brief 10 of JAUNTS-INITIAL-LIBRARY.md. The route, the skills, the chit and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated notice from Newberry & Dole asking for hands would let the warehouse stop name a real call instead of an invented chit; a scan read of either notice upgrades or corrects the quoted readings."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/work-on-waterfront.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2007)."
         }
       ]
     },
@@ -22734,6 +22798,37 @@
       ]
     },
     {
+      "id": "L-jaunt-inspect-a-lot",
+      "title": "Look Before You Buy a Lot: an invented land errand that ends in caution",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Look Before You Buy a Lot links four existing exterior destinations — the former Chicago Democrat corner, John Bates Jr.'s auction room, Peck's store and the La Salle slough crossing — in an invented errand to look at land before paying for it. The visitor's errand, the choice between two notices, the question about what the Marseilles sale sold, the route order, the decision to inquire or to hold, the three endings and the Read the Ground memento are reconstructed, and so are the reading and action seconds. The two land notices (E. K. Hubbard's lots, 27 May 1835; J. W. Fell's canal-route land, 17 June 1835) and the Marseilles lot sale (10 June 1835) are issue-dated, located to page and column and printed before the scene date; all are transcription-mediated readings. No lot is chosen, and no owner, price, title, bank or purchase is invented: both notices name no price, so the errand ends at an inquiry or at holding your money, and caution is a successful ending. No named person is met or speaks, no interior is opened and no front door is claimed. The slough crossing the last stop stands on is itself a reconstruction (L195), and the stop says so."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the four structure records, the Democrat run for May–June 1835, and brief 11 of JAUNTS-INITIAL-LIBRARY.md. The route, the choices and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A matched, in-window record of a particular lot (its number, block, owner and asking price) would allow a precise offer; until then the errand stays an inquiry. A scan read of the three notices upgrades or corrects the transcription-mediated readings."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/inspect-a-lot.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2008)."
+        }
+      ]
+    },
+    {
       "id": "L-jaunt-bed-for-the-night",
       "title": "A Bed for the Night: an invented search for lodging",
       "section": "per_subject",
@@ -22769,6 +22864,84 @@
     },
     {
       "id": "L365",
+      "title": "Glessner north and west elevations reconciled with the owner references",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.eave_cornice"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.opening_heights"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.openings_alley"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.openings_stable_doors"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.turret_stable"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`glessner_house`, T-1999, canonical detailed model and its light derivative."
+        },
+        {
+          "label": "Decision",
+          "text": "Rebuild the west front gable and lower rear gable roof to the owner's 2 October 2026 square-on reconstructed elevation, retaining the HABS footprint and measured north range. The west gable peak is at S18.4/z38.6 ft; its south foot at S35 joins the 16.5-ft rear alley eave. A 25.5-ft rear ridge continues to the solid south gable. Its courtyard shoulder remains high enough for the existing upper windows; the roof is asymmetric behind the west view. The stable turret aligns at S18.4/W141, with body top38.9 and apex 43.3 ft. This supersedes L339's raised rear roof and L331's south hip, not the surveyed building footprint. The west eight-light arrangement is explicitly reconstructed: two broad lower lights, two upper slits and four equal narrow rear lights at 5.5-ft centers. The low roof carries a broad dark hood opening, side supports without a center post, a square hipped tile cap and finial. Three downpipes follow the west corners and gable foot, connected to a half-round rear gutter. Pipe sections, leadwork, roof returns, joinery dimensions and surface relief are reconstructed. The printed HABS sheet 5 ashlar sequence is retained; carrying it across this west façade and into the gable is a reconstruction, not a block-by-block survey."
+        },
+        {
+          "label": "North correction",
+          "text": "sheet 5's printed course sums put the lower corridor apertures at 111–173.5in and upper apertures at 231–267in above north grade, leaving the 4 in cap. Those replace the incorrect raster-scaled upper head above the eave. Applying the measured pair along the rest of the north corridor is inferred. The 12-ft porch arch and 12.1-ft carriage opening are retained. The porch cheek has a deep rounded coping; stable leaves have vertical lower boards and a gridded upper glazed zone, with rough monolithic lintels, a segmental relieving arch and projecting hoist stone. Their unmeasured proportions and hardware are reconstructed from the supplied northwest view, whose capture date is not independently established."
+        },
+        {
+          "label": "Basis",
+          "text": "owner brief `owner_glessner_v4_reconstruction_brief_2026`, supplied images listed in `docs/RESEARCH/glessner-elevation-rebuild/work.md`, HABS IL-1015 sheets 2–5 and the existing source dossier. The owner elevation is a design target, not newly discovered historical testimony. No photographic pixels are used as textures."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured original west elevation or roof section and a dated pre1946 stable-door photograph would replace the proportional choices."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.openings_alley`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.openings_stable_doors`, `glessner_house.as_built_1887.form.eave_cornice`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L366",
       "title": "South Water Street's last 22 m to State Street are its own bearing carried to the corner",
       "section": "per_subject",
       "subjects": [],

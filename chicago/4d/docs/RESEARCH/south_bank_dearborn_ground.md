@@ -587,7 +587,7 @@ The liberty is **L281**; the record's own `position.note` carries the rule in fu
 ## The street reached State, and the first shed went, 2026-10-03 (T-2012)
 
 The owner ruled that South Water Street runs its last 22 m to State Street. The carried line
-(**L365**) puts the platted corridor across `south_bank_shed_dearborn_e1`'s footprint by 11.07 m,
+(**L366**) puts the platted corridor across `south_bank_shed_dearborn_e1`'s footprint by 11.07 m,
 so that shed is withdrawn on the owner's choice of the same day (**L274**, struck). The strip
 between South Water's old end and State Street's corridor, which this page has measured since
 T-1636, no longer exists: the two corridors now meet. `south_bank_shed_dearborn_e2` stands clear

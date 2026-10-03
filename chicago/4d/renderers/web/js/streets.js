@@ -332,7 +332,7 @@ const CORE_SHARE_FLOOR = 0.5;
  * `wet_prairie_muck`'s measured basecolor (L 47 of 255); the shoulder sod is
  * dirt carrying root and leaf. Reconstructed, all of it (L327).
  */
-const DIRT_TONES = {
+export const DIRT_TONES = {
   graded_earth: { lane: [146, 131, 107], rest: [117, 105, 84] },
   worn_earth: { lane: [142, 128, 104], rest: [113, 101, 81] },
   light_worn_earth: { lane: [137, 123, 100], rest: [108, 97, 78] },
@@ -1584,9 +1584,11 @@ function hash(x, y) {
  * T-1811. The one grit tile every street shares — T-1797's `gritTilePixels`,
  * 256 px over 1.6 m: R is height read as grain, G/B the OpenGL normal. It
  * replaces `roadTexture`'s per-surface canvas and its two painted ruts. Built
- * once per createStreets() and disposed with it.
+ * once per createStreets() and disposed with it. Exported, with the tones, for
+ * `yards.js`'s `road_earth` (T-2013): the worn ground at the town's doors is
+ * drawn from this same tile so a path that meets the road is the road's dirt.
  */
-function roadGrit() {
+export function roadGrit() {
   const data = gritTilePixels();
   const canvas = document.createElement('canvas');
   canvas.width = GRIT_TILE_PX;
@@ -1605,7 +1607,7 @@ function roadGrit() {
   return { texture, mean: sum / (data.length / 4) / 255 };
 }
 
-function linearTone(rgb) {
+export function linearTone(rgb) {
   return new THREE.Color().setRGB(...rgb.map((v) => v / 255), THREE.SRGBColorSpace);
 }
 
