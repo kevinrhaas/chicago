@@ -1,53 +1,53 @@
 export const CHANGELOG = [ // newest first
-  { v: 1385, ts: '2026-10-03T21:19:39.048Z', date: 'Oct 3, 2026, 4:19 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
+  { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
     items: [
       'Nothing you can see changed. All 26 jaunts were ridden end to end, at the pace each one suggests, by air and instantly, and the time each took was written down.',
       'Twelve take three to six minutes. Fourteen take longer at their suggested pace, the longest being News Before Breakfast at about seventeen and a half minutes on foot. Each of the fourteen now has a fix queued to bring it inside six minutes.',
       'On a phone, the time the Jaunts menu shows matched the ride to within a quarter of a minute on every jaunt but From Prairie to Town, where it reads almost a minute long. Flying and Instantly were faster than the suggested pace on all 26.',
     ] },
-  { v: 1384, ts: '2026-10-03T21:19:39.048Z', date: 'Oct 3, 2026, 4:19 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
+  { v: 1384, ts: '2026-10-03T21:05:07.845Z', date: 'Oct 3, 2026, 4:05 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Over the Draw to the North Side, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
       'Start at the foot of the Dearborn Street drawbridge, cross to the North Side and look at Blodgett\u2019s brickyard, the first house built for a school, and the Lake House going up at Rush Street. Then choose to end there or go back over the draw.',
       'It is the library\u2019s 26th jaunt, and the first added after the original 25. It was added as one data file, with no change to the page\u2019s code.',
       'The outing, the crossing and the keepsake, North of the River, are our reconstruction (liberty L-jaunt-over-the-draw). Every fact about the four places is one already cited in another jaunt.',
     ] },
-  { v: 1383, ts: '2026-10-03T21:19:39.048Z', date: 'Oct 3, 2026, 4:19 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1383, ts: '2026-10-03T20:41:08.977Z', date: 'Oct 3, 2026, 3:41 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
     ] },
-  { v: 1382, ts: '2026-10-03T21:19:39.048Z', date: 'Oct 3, 2026, 4:19 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
+  { v: 1382, ts: '2026-10-03T20:16:55.784Z', date: 'Oct 3, 2026, 3:16 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
     items: [
       'Walk south from the fort\u2019s south gate. The road no longer runs through two log houses: Col. Jean Baptiste Beaubien\u2019s homestead is one house with two outbuildings behind it.',
       'His small trading post is now a low log store with a single-slope roof, standing west of the house, away from the road. His barn, behind the house, now has a hay-loft door.',
       'Andreas mentions a \u201cnew residence\u201d as well. We read it as the same house, so it is no longer drawn twice. Where the store and barn stand, and what they look like, are our reconstruction (liberty L283).',
     ] },
-  { v: 1381, ts: '2026-10-03T21:19:39.048Z', date: 'Oct 3, 2026, 4:19 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
+  { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
     items: [
       'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',
       'Nothing else on the menu changed. Behind it, the build now checks the whole library of 25 jaunts: each of the 25 named outings is available, every ending can be reached, and there are at least five quiet outings. Each keepsake family has three keepsakes or more, so the top daybook rank can be reached in 15 different outings without repeating one.',
     ] },
-  { v: 1380, ts: '2026-10-03T21:19:39.048Z', date: 'Oct 3, 2026, 4:19 PM CT', title: 'Abandoned work no longer hides at the top of the to-do list', kind: 'chore',
-    items: [
-      'Nothing in the town changed. Behind the scenes, a ticket whose worker stopped answering more than three hours ago now reads as free to take on the project\u2019s to-do list, so the next worker picks it up instead of walking past it for days.',
-    ] },
-  { v: 1379, ts: '2026-10-03T19:20:27.484Z', date: 'Oct 3, 2026, 2:20 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
+  { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [
       'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
       'In 1812 the river turns south behind the sand spit and runs out to the lake near present Madison Street. There is no cut, no pier and no bridge, and no streets yet.',
       'The spit is joined to the north shore by a narrow sand neck at its own 4 ft crest. The neck, the spit\u2019s height and the lake shore north of it are our reconstruction (liberties L362\u2013L364).',
       'Everything south of Twelfth Street, the spit, and the old channel\u2019s west bank, where the 1830 plat and Wright\u2019s 1834 survey disagree, are marked conjectural. No point of this ground is documented.',
     ] },
-  { v: 1378, ts: '2026-10-03T18:54:29.680Z', date: 'Oct 3, 2026, 1:54 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
+  { v: 1379, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'Abandoned work no longer hides at the top of the to-do list', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind the scenes, a ticket whose worker stopped answering more than three hours ago now reads as free to take on the project\u2019s to-do list, so the next worker picks it up instead of walking past it for days.',
+    ] },
+  { v: 1378, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
     items: [
       'Nothing you can see in the town changed.',
       'Fences, plank walks, docks, signs, boats, yard goods, wells, plants and streets are drawn by the web page from our records. They are not part of the baked buildings, and now they never will be: each will be exported by the same code that draws it.',
       'Each export is stamped with the ground it was laid on, so a moved shoreline or street rebuilds it rather than leaving it floating.',
       'People and animals stay on their cards. No figure of anyone is exported.',
     ] },
-  { v: 1377, ts: '2026-10-03T18:36:59.827Z', date: 'Oct 3, 2026, 1:36 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+  { v: 1377, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
       'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
