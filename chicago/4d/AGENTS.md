@@ -297,6 +297,12 @@ is the contract. The short form:
 - **Pick**: take the topmost ticket in `tickets/QUEUE.md` you can actually run (skip
   `needs_bake` on the improve runner, with the skip stated in the PR). `node
   tools/ticket.mjs list --workable` prints the same order.
+- **Skip a LIVE claim, not a dead one** (T-1612). `list --workable` prints each claim's
+  age — `claimed 40m` — and a claim older than the three-hour run window as
+  `TAKEABLE dead claim 10h`: a run that died. That row is workable in its queue place
+  and `claim` steals it without `--force`; the verdict on the line and the one `claim`
+  enforces are the same function. T-1444 sat at the top of its band for 131.8 hours
+  reading `claimed` because nothing on the line said so.
 - **Check it is not ALREADY DONE**: `node tools/ticket.mjs landed` names every workable
   ticket that a MERGED PR names, with the number, the merge instant and the `done`
   command. Git cannot answer this — everything squash-merges, so a merged branch never
