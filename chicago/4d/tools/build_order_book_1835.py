@@ -1321,6 +1321,14 @@ def person_buckets(model: dict, composition: dict, inventory: dict, known: dict,
 REMAINDER_STABLE_STAGES = {
     "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in "
               "data/reconstruction/1835_lodgers_seated.json (T-1503)",
+    "T-1538": "tools/seat_lodgers_1835.py — the top-up, dealt against the committed "
+              "`quota_basis.top_up` in the same file, read once and carried. It was "
+              "missing from this list only because its fill row had dropped out of the "
+              "committed book, which T-1532 found and `seat_lodgers_1835.py --check` "
+              "now refuses",
+    "T-1532": "tools/seat_lodgers_1835.py — the working lodgers, dealt against the "
+              "committed `quota_basis.working_lodgers` in the same file, read once and "
+              "carried, so a re-cut re-deals nobody they seat",
 }
 
 

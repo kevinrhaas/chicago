@@ -2721,6 +2721,9 @@ def check() -> int:
                                    k: int(v) for k, v in
                                    (ledger["household_fills"]["by_cell"] or {}).items()}),
                                (CHILD_TICKET, ledger.get("child_fills") or {}),
+                               # T-1538's row had dropped out of the committed book with
+                               # nothing here to notice; T-1532 found it.
+                               (TOP_UP_TICKET, ledger.get("top_up_fills") or {}),
                                (WORKING_TICKET, ledger.get("working_fills") or {})):
         ours = {f["bucket"]: int(f["records"]) for f in book.get("fills", [])
                 if f.get("ticket") == ticket}

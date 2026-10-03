@@ -1141,7 +1141,9 @@
     ],
     "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
     "remainder_stable_stages": {
-      "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)"
+      "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)",
+      "T-1532": "tools/seat_lodgers_1835.py — the working lodgers, dealt against the committed `quota_basis.working_lodgers` in the same file, read once and carried, so a re-cut re-deals nobody they seat",
+      "T-1538": "tools/seat_lodgers_1835.py — the top-up, dealt against the committed `quota_basis.top_up` in the same file, read once and carried. It was missing from this list only because its fill row had dropped out of the committed book, which T-1532 found and `seat_lodgers_1835.py --check` now refuses"
     },
     "held_by_an_unaudited_stage": {
       "persons/female/10_19/north/family/none": [
