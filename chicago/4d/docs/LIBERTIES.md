@@ -20051,3 +20051,73 @@ next build with no edit to the deal.
 **Related:** **L271** (the off-plat deal), **L310** (stated uses), **L354** (the housing
 deal), **T-1461**, **T-1982**, **T-1985**, **T-1986**, **T-1989**, **T-1996**, **T-2000**.
 **Recorded:** 2026-10-02.
+
+### L362 — The 1812 spit's isthmus is given a surface: 100 ft of sand at the spit's own +4 ft
+
+**Decision:** `e1830_natural/terrain_spec.json` → `isthmus_1812` (T-2002) surfaces the hole **L240**
+left in the 1812 spit. On `spit_attachment_gap_1812`, the 129.1 m line from the spit root to the
+bar's north-west corner, it lays a ribbon of sand **100 ft wide** with its crest at **+4 ft**, the
+same crest and the same 12 m faces as the spit (`spit_1812`, dossier zone 7). The river's turn south
+is its south-west face and the lake its north-east face. The width, the height and the faces are
+invented. That the ground is continuous is not: it is the deduction L240 already graded `inferred`.
+
+**Why:** a gap in the spit gives an 1812 scene a river mouth where the 1833–34 cut was later dug,
+which is the 1834 harbour drawn back into 1812. That is the error `shore_1812_pre_cut` exists to
+prevent. The width is zone 7's **low** end because both ends of the line are fixed and neither face
+has a reading, so the narrowest neck zone 7 allows invents the least land. A neck that soldiers
+cut through with spades again and again between 1816 and 1828 was not a broad one either. The
+height is the spit's because a lower neck is a breach, which is the landform the February 1834
+storm made and not 1812's. A higher one would be the zone 3 ridge, and this is not that ridge.
+
+**Which way it is wrong if it is wrong:** probably too narrow. The bar's own trace is 108 m wide at
+N +205, just south of the neck, and that is the recorded upper alternative.
+
+**How to resolve:** a pre-1833 chart or sounding of the mouth, or any written width of the bar where
+the soldiers cut it.
+
+**Related:** **L240** (the hole this fills), **T-2002**, **T-1243**, **T-2003** (which generates it).
+**Recorded:** 2026-10-02.
+
+### L363 — The 1812 lake shore north of the spit root is a chord, then the 1834 line
+
+**Decision:** `e1830_natural/terrain_spec.json` → `north_lake_shore_1812` (T-2002) takes the 1812
+lake shore north of the spit root to be a straight chord. The chord runs from the root (1834
+`north_shore_harbor_reach` index 29) to the first 1834 vertex past the pier head (index 39). From
+there the 1834 line is carried north to the box wall.
+
+**Why:** a waterline has to be somewhere, and nothing reads this one. `tools/derive_shore_1812.py`
+claims none of it on purpose: index 30 to the pier head is the drafted pier, and the shore north of
+it is sand the pier caught (dossier zone 28). Sand caught against a pier was not there before the
+pier, so the 1812 shore lay **west** of the 1834 line. The chord is the least-land line the two
+committed points allow. It removes up to **120.8 m** of the drafted pier and the sand inside it.
+
+**Which way it is wrong if it is wrong:** toward too much beach north of index 39, where the 1834
+line is taken as the 1812 one and whatever accretion it still held there is counted as 1812 ground.
+It is never wrong toward a headland invented in the lake.
+
+**How to resolve:** a pre-1833 chart of the lake shore north of the river.
+
+**Related:** **L240**, **L362**; the tickets **T-2002**, **T-1242**, **T-2003**.
+**Recorded:** 2026-10-02.
+
+### L364 — The 1812 lake stands at the 1835 plane, and the river ran out over a 4 ft channel
+
+**Decision:** `e1830_natural/terrain_spec.json` (T-2002) puts the 1812 water surface at Z = 0
+(`lake_stage_1812`), which is the summer-1835 plane, bounded by the historic 576–582 ft ASL. It
+gives the channel behind the spit a bed of **−4 ft** (`outlet_channel_1812`), the deep end of
+dossier zone 26. The 1834 backwater it became was **−2.5 ft**.
+
+**Why:** no stage of 1812 is recorded, and holding the 1835 plane keeps the two epochs comparable
+and every carried bank at its zone's freeboard. The channel carried the whole river in 1812, so it
+takes zone 26's deep end. It is not carried down to the main stem's −12 to −18 ft, because the bar
+"admitted only boats", the *Tracy* anchored half a mile out in 1803, and Harrison's 1830 plat
+letters the old mouth "very shallow".
+
+**Which way it is wrong if it is wrong:** probably too shallow for a live river. That is the
+direction that does not invent a navigable mouth the record says was not there.
+
+**How to resolve:** a Michigan–Huron stage reconstruction for the 1810s (NOAA/GLERL), or any
+sounding of the pre-cut channel.
+
+**Related:** **L362**, **L363**; the tickets **T-2002**, **T-2003**.
+**Recorded:** 2026-10-02.

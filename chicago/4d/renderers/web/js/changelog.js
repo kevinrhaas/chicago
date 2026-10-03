@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A new jaunt: Shopping South Water Street', kind: 'feature',
+  { v: 1334, ts: '2026-10-03T01:15:33.917Z', date: 'Oct 2, 2026, 8:15 PM CT', title: 'A new jaunt: Shopping South Water Street', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Shopping South Water Street. You have an imagined three dollars and a short household list: something for a cough, a staple and tea.',
       'Four stops, about 350 m on foot: Carpenter\u2019s drug store, Peck\u2019s store, Harmon, Loomis and Company at Clark, and Thomas Church\u2019s store on Lake Street. Each good comes from the store whose own advertisement lists it.',
       'Run short at the tea counter and a cheaper Souchong stands in. Nothing is sold at Church\u2019s, because no source says what he stocked; that stop is where you tally up.',
       'Fill the list or go home short. Either way The Household List goes in your daybook under Provisions. The list, purse and prices are our reconstruction (liberty L-jaunt-shopping-south-water).',
+    ] },
+  { v: 1333, ts: '2026-10-03T00:59:27.495Z', date: 'Oct 2, 2026, 7:59 PM CT', title: 'The ground of 1812 is written down, ready to be built', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. This is the plan for the ground the 1812 Fort Dearborn landscape will stand on, written before any of it is built.',
+      'It starts from the 1835 ground and takes out what did not exist yet: the harbour cut, the bridges and the streets. Everything else is kept, with a reason for each.',
+      'The sand spit that turned the river south now joins the mainland. It is a neck of sand 100 feet wide at the spit\u2019s own height of 4 feet, and it is recorded as our reconstruction.',
+      'Where an 1830 map and the 1834 survey disagree about the old channel\u2019s west bank, we keep the survey and mark that stretch of ground as the least certain in the scene.',
     ] },
   { v: 1332, ts: '2026-10-03T00:26:46.380Z', date: 'Oct 2, 2026, 7:26 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
     items: [
