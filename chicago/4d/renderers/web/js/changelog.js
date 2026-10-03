@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1338, ts: '2026-10-03T02:33:54.560Z', date: 'Oct 2, 2026, 9:33 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
+  { v: 1339, ts: '2026-10-03T02:50:02.553Z', date: 'Oct 2, 2026, 9:50 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Fort Dearborn Errand. You carry an imagined note round the fort\u2019s service buildings.',
       'Five stops: the stockade, the guard-house and store-house either side of the south gate, the sutler\u2019s store by the north gate, and the shop on the outer ground toward the lake.',
       'Choose candles or thread at the sutler\u2019s, tally the parcel outside the store-house, where the Army\u2019s 1834 notices had fresh beef delivered, and set it down at the shop.',
       'Finish the errand and Accounted for at the Fort goes in your daybook under Livelihood. The note and parcel are our reconstruction (liberty L-jaunt-fort-dearborn-errand); no soldier is shown.',
+    ] },
+  { v: 1338, ts: '2026-10-03T02:34:38.433Z', date: 'Oct 2, 2026, 9:34 PM CT', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick News Before Breakfast. It is a morning walk from the Sauganash to both of the town\u2019s newspapers and on to breakfast at the Exchange Coffee House. It takes about five minutes on foot.',
+      'Ask whether the cholera is near, or what is new today. Then read one real item from each paper and decide whether it is reporting or an advertisement. The Democrat of 24 June weighs the rumours from other towns. The American of 27 June sells a cholera elixir.',
+      'At breakfast, keep one clipping: the report, the elixir notice, or an auction whose first sale is today. Every item was printed before 1 July 1835 and is cited to its page and column. The morning and the keepsake, A Useful Clipping, are our reconstruction (liberty L-jaunt-news-breakfast).',
     ] },
   { v: 1337, ts: '2026-10-03T02:08:05.503Z', date: 'Oct 2, 2026, 9:08 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
     items: [

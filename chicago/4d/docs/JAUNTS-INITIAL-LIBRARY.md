@@ -223,6 +223,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Only issue-dated, page-and-column-located material eligible on the scene date; do not treat later news as current.
 
+**Route note (T-2004, as built):** the four stops are kept as briefed. The printed items are the Democrat of 24 June 1835 (p. 2 col. 5, the cholera paragraph; p. 3 col. 3, an auction house whose first sale is 1 July) and the American of 27 June 1835 (p. 3 col. 5, Frederick Thomas's Cholera Elixir), all transcription-mediated. The Democrat's corner is visited as its FORMER office (over Jones & King's hardware by 20 May 1835). **Timing is an outlier at Walk and is stated, not hidden:** the stops lie about 1.2 km apart on the routed streets (Sauganash → Clark 525 m, → Dearborn 166 m, → Lake and Wells 530 m), so the card reads about 17.5 min on foot, 9 at Wagon, 6.5 on Horse and 4.5 at Fly. Walk stays the recommendation because the brief names it; whether to re-cut the route or change the recommended mode belongs to T-1271's library-wide timing pass.
+
 ## 08. A Letter Home
 
 **ID:** `letter-home` · **Owner ticket:** [T-1266](../tickets/T-1266-publish-news-mail-lodging-and-work-jaunts.md)
