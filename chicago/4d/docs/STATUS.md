@@ -1,3 +1,41 @@
+## T-2028 — A Schoolday Errand, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Schoolday Errand* (Education, Horse, 4
+stops, News & Knowledge). A newly arrived household's question (where could a child of five, or
+of ten, learn?) is carried past the places the town's first classes met. It starts at Richard J.
+Hamilton's house on Michigan Street, where John Watkins taught. Next is the North Side school-house
+on the river bank just east of Clark, which Andreas has as the North Side's public school in 1835.
+Then it crosses to the log house by State Street where Eliza Chappel's infant school met in
+1833–34. It finishes at the Democrat's former corner with the School District No. 4 meeting
+notice from the paper dated 1 July 1835. Five endings; the keepsake *A Schooling Note* goes to
+News & Knowledge. Content only: one JSON file, a liberty (`L-jaunt-schoolday-errand`), the
+regenerated catalog and source-use edges, and brief 19's route note. No engine, compiler or CSS
+change. First of the four pieces T-1269 was split into (T-2028..T-2031).
+
+**The brief's caution holds by construction.** Two of the three school sites are marked "use on the
+scene date unattested" in their records, and both are narrated as history. The Michigan Street house
+is a dwelling with no 1835 class recorded. Chappel's school had moved into the Presbyterian church in
+1834, and her site is an open three-way conflict, which the stop says. The third is narrated only by
+its year ("The year is attested; this July is not"). Nobody is met and nobody speaks. The notice is
+the scene date's own: Democrat, 1 July 1835, p. 3 col. 5 (first printed 17 June).
+
+**The route was re-cut.** The briefed order (Chappel → Watkins's house → north-bank school →
+Democrat) crosses the river twice. Routed on the published mirror it is 808 + 607 + 330 m, and it
+read Horse 449 s (card 7.5 min) and Walk 23 min. Starting north of the river crosses once, and it
+also reads the schools in date order.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 8 paths, five endings, one keepsake. Card estimates on
+the published mirror, the same at 390×780 and 1280×800: Walk 18 min, Wagon 9, Horse 6.5, Fly 4,
+Instantly 3. The primary path (scholar → write it down → copy the notice → two-answers) measured
+381 s at Horse against the card's 382 s, and 242 s at Fly against 251 s (378 s and 242 s at 1280×800).
+**Horse is about 20 s over the 4–6 min band.** 179 s of it is the declared reading budget, and the
+one river crossing is about 94 s. A Playwright drive at 390×780 went card → Start → first stop →
+the house's card and back to the same stop → `two-answers` → End, and returned to the menu. Both
+viewports had zero page errors. Stills and the receipt are in
+`docs/performance/jaunt-schoolday-errand/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
 ## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Materials for a Roof* (Building trades,
