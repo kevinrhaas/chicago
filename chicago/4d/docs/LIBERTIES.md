@@ -17648,6 +17648,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-2004).
 
+### L-jaunt-work-waterfront — Work on the Waterfront: an invented search for work
+
+**Decision:** Work on the Waterfront links four existing exterior destinations (the former Chicago Democrat corner, Newberry & Dole's forwarding house, George W. Dole's 1832 warehouse and the Exchange Coffee House) in an invented morning spent looking for work. The visitor's search, the choice of skill, the asking at the two warehouses, the chit for a day's carrying, the request to be remembered for the winter packing, breakfast at the Exchange, the plan for tomorrow, the six endings and the A Day's Work in Prospect keepsake are reconstructed, and so are the reading and action seconds. The only vacancies the stops name are the two printed before the scene date, both dated and located to page and column: the Democrat's call for an apprentice to the printing business (20 May 1835) and Jones, King & Co.'s call for a coppersmith and a tin and sheet-iron worker (17 June 1835). No firm is claimed to have offered work or named a wage; the chit and the packing promise are labelled invented where the visitor receives them. No named person speaks or is met, no interior is opened and no front door is claimed. Newberry & Dole's house stands at a reconstructed position on a disputed bank, so the stop speaks of what the firm did, not of the spot.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, the Democrat and American runs, Andreas's account of the firm and its packing, and brief 10 of JAUNTS-INITIAL-LIBRARY.md. The route, the skills, the chit and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated notice from Newberry & Dole asking for hands would let the warehouse stop name a real call instead of an invented chit; a scan read of either notice upgrades or corrects the quoted readings.
+
+**Applies to:** `data/jaunts/work-on-waterfront.json`.
+
+**Recorded:** 2026-10-03 (T-2007).
+
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
 **Decision:** At the owner's request, v4 uses the default's measured envelope and

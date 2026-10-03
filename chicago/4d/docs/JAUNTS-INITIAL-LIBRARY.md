@@ -288,6 +288,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Do not claim an actual named vacancy, wage or employer offer without a dated source.
 
+**Route note (T-2007, as built):** the two warehouses are visited in the reverse of the briefed order — Democrat corner → Dole's 1832 warehouse at Lake and Dearborn → Newberry & Dole's forwarding house → Exchange — because the briefed order doubled back across town (west 351 m, east 525 m, west 397 m) and read about 7 min at Horse; the re-cut reads about 6. The only vacancies named are the two printed before the scene date: the Democrat's apprentice notice (20 May 1835, p. 3 col. 2) and Jones, King & Co.'s coppersmith and tinner (17 June 1835, p. 3 col. 3), both transcription-mediated. Newberry & Dole's role comes from the firm's own 1833 card and the American's 20 June 1835 steamboat Michigan notice; the chit and the packing promise are labelled invented where they are received. Newberry & Dole's house stands at a reconstructed position on a disputed bank and the stop says so. Card estimates on the published mirror: Walk about 16 min (15.5 at 1280×800), Wagon 8.5 (8), Horse 6, Fly 4.5, Instantly 3.5. Horse stays the recommendation as briefed; Walk is an outlier left to T-1271's library-wide timing pass.
+
 ## 11. Look Before You Buy a Lot
 
 **ID:** `inspect-a-lot` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)
