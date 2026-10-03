@@ -29,17 +29,14 @@
       "min": 0,
       "max": 2,
       "initial": 0,
-      "unit": "count"
+      "unit": "preference"
+    },
+    "clipping": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "preference"
     }
-  },
-  "inventory": {
-    "items": [
-      "report-clipping",
-      "elixir-clipping",
-      "auction-clipping"
-    ],
-    "initial": [],
-    "capacity": 1
   },
   "stops": [
     {
@@ -138,7 +135,7 @@
         {
           "id": "report",
           "label": "Call it reporting",
-          "consequence": "Right: it names the papers it read and sells nothing.",
+          "consequence": "You file it with the news.",
           "effects": [
             {
               "op": "inc",
@@ -151,7 +148,7 @@
         {
           "id": "advert",
           "label": "Call it an advertisement",
-          "consequence": "Look again: it weighs other papers' news and sells nothing.",
+          "consequence": "You file it with the notices for sale.",
           "next": "american"
         }
       ]
@@ -188,13 +185,13 @@
         {
           "id": "report",
           "label": "Call it reporting",
-          "consequence": "Look again: a druggist signs it, dates it and sells it.",
+          "consequence": "You file it with the news.",
           "next": "exchange"
         },
         {
           "id": "advert",
           "label": "Call it an advertisement",
-          "consequence": "Right: a seller's promise, signed and dated by the seller.",
+          "consequence": "You file it with the notices for sale.",
           "effects": [
             {
               "op": "inc",
@@ -238,11 +235,11 @@
         {
           "id": "clip-report",
           "label": "Clip the Democrat's cholera paragraph",
-          "consequence": "A report, with the papers it rests on named.",
+          "consequence": "The Democrat's paragraph goes in your pocket.",
           "effects": [
             {
-              "op": "add",
-              "item": "report-clipping",
+              "op": "set",
+              "var": "clipping",
               "value": 1
             }
           ],
@@ -251,12 +248,12 @@
         {
           "id": "clip-elixir",
           "label": "Clip the Cholera Elixir notice",
-          "consequence": "A seller's promise, kept as a curiosity.",
+          "consequence": "The elixir notice goes in your pocket.",
           "effects": [
             {
-              "op": "add",
-              "item": "elixir-clipping",
-              "value": 1
+              "op": "set",
+              "var": "clipping",
+              "value": 2
             }
           ],
           "next": "$end"
@@ -264,12 +261,12 @@
         {
           "id": "clip-auction",
           "label": "Clip the auction notice",
-          "consequence": "A sale set for today, on South Water Street.",
+          "consequence": "The auction notice goes in your pocket.",
           "effects": [
             {
-              "op": "add",
-              "item": "auction-clipping",
-              "value": 1
+              "op": "set",
+              "var": "clipping",
+              "value": 3
             }
           ],
           "next": "$end"
@@ -323,7 +320,9 @@
             "value": 1
           },
           {
-            "has": "report-clipping"
+            "var": "clipping",
+            "op": "==",
+            "value": 1
           },
           {
             "var": "sorted",
@@ -346,9 +345,27 @@
             "value": 2
           },
           {
-            "has": "auction-clipping"
+            "var": "clipping",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "var": "sorted",
+            "op": "==",
+            "value": 2
           }
         ]
+      }
+    },
+    {
+      "id": "one-fooled-you",
+      "text": "One of the two notices fooled you, which is worth knowing too. The Democrat named the papers its cholera news came from; the elixir was signed, dated and sold by the druggist. Read them again over breakfast.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "var": "sorted",
+        "op": "<",
+        "value": 2
       }
     },
     {
@@ -357,7 +374,9 @@
       "read_s": 12,
       "completion_eligible": true,
       "when": {
-        "has": "elixir-clipping"
+        "var": "clipping",
+        "op": "==",
+        "value": 2
       }
     },
     {
