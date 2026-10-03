@@ -858,7 +858,18 @@ def corroborator_ruling(sources: list[str], person: dict | None) -> str:
 
 
 def _key(row: dict) -> tuple:
-    """Two rows are the SAME assertion when one source dates one role to one bound."""
+    """Two rows are the SAME assertion when one source dates one role to one bound.
+
+    RULED (T-1524): a row carrying a printing's controlled word and a row carrying the
+    same printing with no controlled word, from one source over one bound, are ONE
+    assertion — the printing read by two routes, not a second opinion. This key cannot
+    see that pair, because it keys on the controlled word where there is one and on
+    `as_printed` where there is not; `fold_unadjudicated` is the half of the fold that
+    does, and the row it keeps is the one that names its `claim` (T-1539). The key stays
+    as it is so that two DIFFERENT wordings one source folds onto one word (Hubbard's
+    `fire insurance agent` and `insurance agent`) still fold here, which `as_printed`
+    in the key would split.
+    """
     return (tuple(row.get("sources") or ()), row.get("role") or "",
             row.get("as_printed") if not row.get("role") else "",
             row.get("from") or "", row.get("to") or "")

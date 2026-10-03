@@ -145,12 +145,6 @@ def residents():
                 "grade": p.get("grade"),
                 "occupation": ((p.get("occupation") or {}).get("value")),
                 "occupation_confidence": ((p.get("occupation") or {}).get("confidence")),
-                # T-1299. Whether this trade was PROMOTED out of the card's own
-                # `roles[]` rather than read from a source that states it for 1835.
-                # `derive_resident_roles.py` writes the marker beside the value it
-                # promotes; the carry rule below is the only place it is read here.
-                "occupation_promoted": isinstance(
-                    (p.get("occupation") or {}).get("promoted_from_roles"), dict),
                 "lives_at": ((doc.get("lives_at") or {}).get("value")),
             })
     return out
@@ -359,7 +353,6 @@ def main():
         extra=lambda r: {"person_id": r["person_id"], "household_id": r["household_id"],
                          "grade_1835": r["grade"], "occupation_1835": r["occupation"],
                          "occupation_1835_confidence": r["occupation_confidence"],
-                         "occupation_1835_promoted": r["occupation_promoted"],
                          "lives_at_1835": r["lives_at"]})
     # What a match COULD carry, if the pass that spends it decides to. The residents
     # layer writes `none_recorded` where it holds no trade, and 738 of its 849 people
@@ -368,55 +361,21 @@ def main():
         carries = []
         # This file had the predicate right from the start and two of its four
         # siblings did not, so it is stated once now and imported (T-0867).
-        # TWO QUESTIONS, AND THE PREDICATE USED TO ANSWER ONLY ONE (T-1299).
-        # `trade_recorded.absent` asks "does this card still need a trade?" — the
-        # right question for supplying one. It is NOT the question of whether the
-        # 1839 printing is evidence worth carrying, and the two came apart the
-        # moment a pass began FILLING the 1835 field out of the card's own roles.
-        #
-        # Six cards lost a trade Fergus printed against their names — Hubbard,
-        # Jones, King, Mulford, Sherman, Taylor — not because the 1839 reading was
-        # refused but because promoting their 1835 field closed the gap this test
-        # was watching. The printing did not stop existing; it stopped being
-        # POINTED AT, and `derive_resident_roles.later_role()` reads that pointer
-        # and nothing else, so the row left `roles[]` altogether.
-        #
-        # A promoted trade is the card reading ITS OWN evidence. It says nothing
-        # about what a directory printed four years later, so it cannot be what
-        # withdraws it. The carry is offered here and `spend_directories` still
-        # decides whether to take it; what is carried is still carried as 1839
-        # evidence with `describes_date` 1839, never as an 1835 fact, and no
-        # grade moves — the rule stated below is unchanged.
-        #
-        # This is deliberately the NARROW repair: it restores exactly the cards
-        # this pass took the pointer from, and offers nothing new anywhere else.
-        # Reading Fergus 1839 the way `crosswalk_fergus_1843` and
-        # `crosswalk_norris_1844` are read — as dated roles straight from the
-        # crosswalk, with the pointer a convenience rather than the sole origin
-        # of a role row — is the larger change, and it is T-1515.
-        #
-        # T-1515 HAS LANDED, AND THIS CLAUSE STAYS — with its reason, because the
-        # ticket asked for one or the other. `derive_resident_roles.py` now reads
-        # this file's own `residents.matches` and carries every printed trade as an
-        # 1839 role whatever the 1835 field holds, so the ROLE ROW no longer depends
-        # on the pointer at all. That makes the clause inert for six of the seven
-        # people it keeps: take the pointer off Elijah Kent Hubbard, Henry G.
-        # Hubbard, James H. Mulford, Silas W. Sherman, Tuthill King or William H.
-        # Taylor now and their cards do not change, because the crosswalk row folds
-        # with the pointer row and the crosswalk row is the one kept.
-        #
-        # THE SEVENTH IS WILLIAM JONES AND HE IS WHY IT IS NOT DEAD. Fergus prints
-        # him `justice of the peace`, which the fold table rules onto a controlled
-        # word; the crosswalk row therefore carries `role: justice_of_the_peace` and
-        # the pointer row carries `role: null` with the same wording, the same
-        # volume and the same year, and `derive_resident_roles._key` reads those as
-        # two assertions rather than one. Dropping this clause would take a row off
-        # his card, and T-1515's own acceptance forbids that. Whether a row with the
-        # controlled word and a row without it are the same assertion is a question
-        # about that `_key`, not about this predicate, and it is filed as its own
-        # ticket rather than answered in passing here.
-        if (trade_recorded.absent(m["occupation_1835"])
-                or m["occupation_1835_promoted"]) and any(
+        # T-1299's NARROW CLAUSE IS RETIRED (T-1524). It also offered the 1839 trade
+        # to a card whose 1835 field had been PROMOTED out of its own `roles[]`,
+        # because the pointer that offer became was then the only route by which
+        # `derive_resident_roles.later_role()` put the 1839 printing on the card.
+        # T-1515 made the crosswalk itself that route, and T-1539 folded the
+        # pointer's row into the crosswalk's row even where the crosswalk had ruled
+        # the wording onto a controlled word — William Jones's `justice of the
+        # peace`, the last of the seven the clause kept. Measured with the clause
+        # off: all seven still carry their 1839 role row, word for word; what goes
+        # is the `later_occupation` pointer beside a trade the card already holds
+        # for 1835, which is the second answer `qualify_later_trades` rule 2 exists
+        # to refuse. So the test is back to the one question this predicate
+        # answers — does this card still need a trade? — and the printing reaches
+        # the card's timeline by the crosswalk whatever the answer.
+        if trade_recorded.absent(m["occupation_1835"]) and any(
                 x["occupation_1839"] for x in m["entries_1839"]):
             carries.append("occupation")
         if any(x["streets_1839"] for x in m["entries_1839"]):
