@@ -108,5 +108,5 @@ decide it.
 * **The 1812 blocks are deliberately not named like `compile_scene.GROUND_GROUPS`.** A block in
   one of those groups goes on the Evidence panel and is held to the generator's `CONSUMED` map,
   and wiring that map is the generator's job. The gate refuses the collision until then.
-* **Liberties:** L361 (the isthmus), L362 (the shore north of the root) and L363 (the stage and
+* **Liberties:** L362 (the isthmus), L363 (the shore north of the root) and L364 (the stage and
   the outlet bed).

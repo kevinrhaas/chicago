@@ -1860,6 +1860,22 @@
       ]
     },
     {
+      "why": "T-1989: the trade-roof deal offers the empty trade roofs to the keepers the employment ledger owes a house of their own, nearest to the roof the housing deal gave them. It reads the housing seats, so it runs after the housing deal; it reads the town through compile_residents with the housing overlays switched off, so it never reads itself back; and compile_scene reads its ledger, so it runs before the scene compiles.",
+      "command": [
+        "python3",
+        "tools/seat_trade_roofs_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_trade_roof_seats.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/seat_trade_roofs_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "The scene compiles from the residents layer, so it runs last but one.",
       "command": [
         "python3",

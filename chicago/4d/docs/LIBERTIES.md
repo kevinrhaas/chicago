@@ -14398,11 +14398,11 @@ documentary brick size from the yards that supplied the town.
 
 ### L265 — Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it
 
-**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 12 roofs, re-derived from
+**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 13 roofs, re-derived from
 `data/reconstruction/1835_phase2_west_wolf_point_approaches.json` into
 `recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022` (T-1451),
-`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781), and `recon_1835_west_046`
-(T-1827) — see the amendments below.
+`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781), `recon_1835_west_046`
+(T-1827) and `recon_1835_west_013` (T-1989) — see the amendments below.
 The first six are six of the
 twenty anonymous West Division roofs **L90** raised; nothing here adds, removes or moves
 a roof, and none of the thirty-five slots **L90** holds back for want of ground is
@@ -14488,6 +14488,14 @@ boarding-house class, so no keeper or boarder is invented into a house the deal 
 to a household, and not one of the boarders standing in the nineteen lodging places moves. The
 generator refuses the reading the moment the deal stops seating a merchant household there.
 `_013` and `_020` are still left standing, for the tickets that own them.
+**Amended 2026-10-02 (T-1989): `_013`, the utility shed on Lake west of Canal, becomes a D2
+dwelling.** Its verdict is T-1445's own (a principal street, which
+`ancillary_behind_its_own_roof` avoids), carried out with `--apply --only`. Like `_011` it is
+raised from 8 × 10 ft to the 12 × 16 ft floor of the D2 band, the smallest rough-plank dwelling
+that family allows. T-1988 had drafted a stated use for it and withdrew it, because a stated
+use would keep a roof from a household waiting on one. The off-plat deal (L271) now adopts it
+for a West labourer household of five, and the housing deal (L354) seats them there.
+
 **Recorded:** 2026-09-20.
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
@@ -15279,7 +15287,7 @@ families has only the lot the schedule keeps open. Nobody standing under a roof 
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
-**Scope:** `off_plat_seats.seats[dealt]` — 72 households given a parcel of the committed
+**Scope:** `off_plat_seats.seats[dealt]` — 73 households given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
 `data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
@@ -15353,6 +15361,10 @@ a figure), tickets **T-1614** (this entry), **T-1199** (the parent ask), **T-161
 predecessor), **T-1615** (the successor these 1,302 are handed to), **T-1214** (the camp
 grounds carried here by name), **T-1457** and **T-1466** (the two tiers), **T-0516** (the
 anonymous-stock statement it refuses to overturn).
+**Amended 2026-10-02 (T-1989): 73.** `recon_1835_west_013` became a D2 dwelling (L265), and
+the deal adopts it for one more West household under `labourer_dwellings` — Ellen Doyle's,
+five people, which the housing deal (L354) then seats there on its `dealt` rung. The counts
+in the paragraphs above are the ones as written; this is the one seat added since.
 **Recorded:** 2026-09-26.
 
 **The farmstead rule (T-1794, 2026-10-01).** By the policy's clause order alone every D1
@@ -19677,6 +19689,13 @@ already houses it.
 **Related:** **L167** (houses to let), **L270** (the platted deal), **L271** (the off-plat
 deal), **L276** (the card says so), **T-1199**, **T-1215**, **T-1964**, **T-1965**,
 **T-1971**.
+**Amended 2026-10-02 (T-1989):** `recon_1835_west_013` was refamilied to a D2 dwelling
+(L265), so the scene stands 295 dwellings and the census's ceiling admits 371 ruled-in
+households instead of 362: 1,374 are seated, 2,420 people under 295 dwellings (8.203 a
+roof), and 514 households (516 people) wait on a roof. A new roof in the pool is the
+roomiest roof in its division and the off-plat deal hands it a household of five, so the
+deal's room rule re-picks: 537 seats change roof. 32 of them change division, every one a
+household whose card has no division and is offered the whole town.
 **Recorded:** 2026-10-02.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
@@ -19969,7 +19988,59 @@ withdrawn with its head (`tools/substitute_reconstruction.py --dry-run` prints t
 **L259**; the tickets **T-2001**, **T-1998** (the parent), **T-1996**, **T-1419**, **T-1529**.
 **Recorded:** 2026-10-02.
 
-### L361 — The 1812 spit's isthmus is given a surface: 100 ft of sand at the spit's own +4 ft
+### L361 — The empty trade roofs offered to the keepers owed a house of their trade, and why none is kept
+
+**Applies to:** `data/reconstruction/1835_trade_roof_seats.json` (written by
+`tools/seat_trade_roofs_1835.py`), the `residents[]` row `tools/compile_scene.py`
+(`overlay_trade_roofs`) puts on each seated roof's card, and the `stated_use` it carries to
+the card of a roof nobody can take.
+
+**Decision:** four anonymous trade roofs of the 668-roof programme stood empty after every
+other programme had passed — the W2 joiner's shop on Randolph at Des Plaines, the F2
+warehouse at the forks, the W5 riverside work shop on Wolcott and the C3 store on Lake
+(T-1989, piece 2 of T-1986). The roof redeal keeps all four, so none could be given a stated
+use (L310's rule (b)). Each is offered to the keepers the employment ledger owes a house of
+their own (`keeps_their_own_house`) whose card names no workplace, in the roof's own
+division, of a trade the roof's family serves: carpenters and joiners for the W2 (the
+crosswalk's label), the forwarding store for the F2 and the store and grocery signage for
+the C3 (the premises rulings), the tannery, packing, slaughter and soap-and-candle signage
+for the W5 (the only placement clause that admits it). The keeper whose own roof stands
+nearest takes it, ties by seeded hash. **No source places any keeper at any of these roofs**:
+the keepers are the residents layer's, reconstructed, with their own grades on their own cards,
+which a seat does not touch; what a seat would invent is which keeper meets which roof.
+
+**On 1 July 1835 as now derived, none is kept, and the W2, F2 and C3 say why.** When this
+deal was first drawn three were kept: Otis Bacon (carpenter) at the W2, Louis Bertrand
+(forwarding and commission) at the F2 and Silas Bacon (grocer) at the C3. Two rulings that
+landed while it was in review then told those keepers no house is owed, because their trade's
+shops are already held to their count: T-1996 (`the_printed_count_is_held`) where the State
+census of December 1835 prints the class — 44 stores against 65 held, 4 storage-and-forwarding
+houses against 7 — and T-2000 (`the_mechanics_shops_are_over_their_count`) where the only count
+is the Chicago American's "twenty-five mechanics' shops of all kinds" against 45 the register
+prints trading. A keeper seated in any of the three roofs would be one shop more than that
+count, so the deal offers none of them to such keepers, and each card counts them instead
+(`stated_use`: 3 carpenters and joiners in the West Division at the W2, 1 forwarder in the West
+at the F2, 18 storekeepers and grocers in the South at the C3). The first keeper of its trade
+the town owes a house takes the roof on the next build, with no edit to the deal.
+
+**The W5 stays empty too:** no keeper of a heavy trade is left without a house in the
+North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The
+off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery household, whose
+own card puts its works at the documented tannery 847 m away at the forks; seating them here
+would give one firm a second works no source records, and the deal declines it in words.
+
+**Not done, and why:** with no keeper seated, the town audit's at-work count does not move
+here; a seat the deal makes later is joined into the employment ledger by T-1982.
+
+**How to resolve:** a source naming the shop, store or counting-room of any keeper here
+replaces the seat; a keeper of a heavy trade added to the North Division takes the W5 on the
+next build with no edit to the deal.
+
+**Related:** **L271** (the off-plat deal), **L310** (stated uses), **L354** (the housing
+deal), **T-1461**, **T-1982**, **T-1985**, **T-1986**, **T-1989**, **T-1996**, **T-2000**.
+**Recorded:** 2026-10-02.
+
+### L362 — The 1812 spit's isthmus is given a surface: 100 ft of sand at the spit's own +4 ft
 
 **Decision:** `e1830_natural/terrain_spec.json` → `isthmus_1812` (T-2002) surfaces the hole **L240**
 left in the 1812 spit. On `spit_attachment_gap_1812`, the 129.1 m line from the spit root to the
@@ -19995,7 +20066,7 @@ the soldiers cut it.
 **Related:** **L240** (the hole this fills), **T-2002**, **T-1243**, **T-2003** (which generates it).
 **Recorded:** 2026-10-02.
 
-### L362 — The 1812 lake shore north of the spit root is a chord, then the 1834 line
+### L363 — The 1812 lake shore north of the spit root is a chord, then the 1834 line
 
 **Decision:** `e1830_natural/terrain_spec.json` → `north_lake_shore_1812` (T-2002) takes the 1812
 lake shore north of the spit root to be a straight chord. The chord runs from the root (1834
@@ -20014,10 +20085,10 @@ It is never wrong toward a headland invented in the lake.
 
 **How to resolve:** a pre-1833 chart of the lake shore north of the river.
 
-**Related:** **L240**, **L361**; the tickets **T-2002**, **T-1242**, **T-2003**.
+**Related:** **L240**, **L362**; the tickets **T-2002**, **T-1242**, **T-2003**.
 **Recorded:** 2026-10-02.
 
-### L363 — The 1812 lake stands at the 1835 plane, and the river ran out over a 4 ft channel
+### L364 — The 1812 lake stands at the 1835 plane, and the river ran out over a 4 ft channel
 
 **Decision:** `e1830_natural/terrain_spec.json` (T-2002) puts the 1812 water surface at Z = 0
 (`lake_stage_1812`), which is the summer-1835 plane, bounded by the historic 576–582 ft ASL. It
@@ -20036,5 +20107,5 @@ direction that does not invent a navigable mouth the record says was not there.
 **How to resolve:** a Michigan–Huron stage reconstruction for the 1810s (NOAA/GLERL), or any
 sounding of the pre-cut channel.
 
-**Related:** **L361**, **L362**; the tickets **T-2002**, **T-2003**.
+**Related:** **L362**, **L363**; the tickets **T-2002**, **T-2003**.
 **Recorded:** 2026-10-02.
