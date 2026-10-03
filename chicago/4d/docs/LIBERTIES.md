@@ -12773,14 +12773,31 @@ their cell. **Moving those women would not meet it either**, because a move puts
 town. What a move would change is who keeps house with whom, and T-2019 measured how far that
 goes before anybody is moved: 91 of the 368 houses could take the wife and children of one of
 T-1174's woman-headed houses by this stage's own spacing rule and child cap, and 277 can take no
-woman the town holds. T-2020 makes those moves; T-2021 rules on the rest. The measurement is
-printed against the model in `data/reconstruction/1835_modelled_families.json` (`re_housing`) and
-says so rather than reading as a target reached.
+woman the town holds. T-2021 rules on the rest. The measurement is printed against the model in
+`data/reconstruction/1835_modelled_families.json` (`re_housing`) and says so rather than reading
+as a target reached.
+
+**THE MARRIAGES, made 2026-10-03 (T-2020).** The 91 moves are made, exactly the pairs T-2019
+measured and no others. Each woman-headed house folds into the married house it was paired with:
+she is his wife, and every member of her house comes with her — 398 people in all, women among
+them. **What is invented, stated plainly: the marriage.** No source says any of these 91 men
+married anybody, and none names his wife; she was already an invention (L247), and putting her in
+his house is a second one, made at the same `reconstructed` tier. **What is not changed.** Nobody
+is drawn or retired, and no name, id, sex, age band or seed moves: she keeps the surname T-1174
+dealt her and so do her children, because renaming an invented person would be a third invention
+that buys nothing. The children are hers. Whether he fathered them is not claimed: the rules
+only require that none is older than his own band allows. Her people stay counted in the order
+book's cells they were dealt in. What the town loses is a household for every pair: the
+female-headed share of present households falls from 200 of 1,510 to 109 of 1,419, which is the
+figure T-2019 printed, and the stage's `--check` refuses any other. Her card's household keys
+are kept in `data/reconstruction/1835_folded_houses.json` so the fold re-derives. Each moved
+person carries `folded_in`, naming the house they were dealt in. The household card prints both.
 
 Related: tickets **T-1171**, from **T-1167**; **T-1161**'s town model and **T-1166**'s order book
 are the two files it draws against. **Recorded:** 2026-09-18.
 **Restated:** 2026-09-21 (T-1369), when the evidence-only refusal was added and the counts,
-the refusal tallies and the sex-ratio reading were brought back to the ledger.
+the refusal tallies and the sex-ratio reading were brought back to the ledger; 2026-10-03
+(T-2020), when the 91 marriages were made.
 
 ### L245 — "Some hundreds more" is read as a band of 200 to 900, and the transient crowd of 1 July 1835 is bounded by it
 
@@ -12984,6 +13001,11 @@ it against: the committed 1840 extract tallies a household's members by sex and 
 sex for its head, so this project holds no measured share for this town in this decade. Every one
 of these numbers is printed in the stage's own ledger and says what it is rather than reading as a
 target reached; T-1179 converges the layer and re-runs the profile.
+
+**Since 2026-10-03 (T-2020), 91 of the 124 no longer keep their own house.** Each is wife in a
+married house the order book had refused a wife, and her children went with her (L244's
+marriages). The stage still deals all 124, and the people are the same people in the same cells.
+What changed is the 91 houses, which are no longer dwellings the book counts.
 
 Related: tickets **T-1174**, from **T-1167**; **L244** is the stage before it, **T-1161**'s town
 model and **T-1166**'s order book are the two files it draws against. **Recorded:** 2026-09-19.
@@ -20547,3 +20569,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/materials-for-a-roof.json`.
 
 **Recorded:** 2026-10-03 (T-2026).
+
+### L-jaunt-sunday-circuit — A Sunday Circuit: an invented call, by way of the town's places of worship
+
+**Decision:** A Sunday Circuit links four existing exterior destinations — St. Mary's Catholic Church, the First Presbyterian Church, the Walker meeting house and the Sauganash — in an invented outing to pay a call. The neighbour, the call, the route order (west along Lake Street from State to Clark, over the South Branch bridge to Wolf Point and back to Lake and Market), the looking from the road, the single ending and the A Morning Among Neighbors memento are reconstructed, and so are the reading seconds. The title names a kind of outing, not a date: no service, sermon, minister, congregation, schedule or day of the week is claimed for 1 July 1835, which was a Wednesday. The building facts are cited at their own tiers — St. Mary's from the Andreas transcription on chicagology, the Presbyterian dedication from the Baptist transcription of Andreas, the School District No. 4 notice from the Democrat and the American of June 1835 (a meeting called for 7 July, after the scene date, and not narrated as held), the Walker building from Wau-Bun and a pioneer account. The Walker meeting house's position is conjectural and the stop calls its marker a placeholder. St. Mary's later tower and bell are left out. No named person is met or speaks, no interior is opened, and no Native presence is narrated. This is the batch's quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat and American notices of June 1835, and brief 20 of JAUNTS-INITIAL-LIBRARY.md. The route, the call and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A source settling which bank the 1835 Methodist meeting house stood on would let the third stop name its place instead of a placeholder.
+
+**Applies to:** `data/jaunts/sunday-circuit.json`.
+
+**Recorded:** 2026-10-03 (T-2029).

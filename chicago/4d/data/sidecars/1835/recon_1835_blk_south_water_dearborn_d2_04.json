@@ -211,23 +211,23 @@
     "fronts": "lake",
     "sequence": 4,
     "finish_key": "mixed_patch",
-    "roof_condition": "patched",
+    "roof_condition": "darkened",
     "age_state": "older_frontier",
     "fabric_basis": {
-      "rule": "F-L",
-      "class": "labourer",
-      "by": "keeper",
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "keeper_trade",
       "household": "hh_clark_john_k",
-      "words": "patched boards under a patched roof — The Clark household's, in Chicago since 1817 (rule F-L)"
+      "words": "patched boards under a weather-darkened roof — The Clark household's, a milliner, in Chicago since 1817 (rule F-T)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
-    "class": "labourer",
+    "class": "tradesman",
     "age_state": "older_frontier",
     "weather_years": 5.0,
     "weather_rate": 1.0,
-    "lay_m": 0.008,
+    "lay_m": 0.006,
     "confidence": "reconstructed"
   }
 }
