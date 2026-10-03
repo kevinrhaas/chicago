@@ -76,6 +76,24 @@ export const SHRUB_GRAIN = {
 };
 
 /**
+ * THE FAR SHRUB'S GRAIN — T-2014. The same bush, drawn with fewer and larger
+ * leaf masses, for the distance where one mass is a few pixels across.
+ *
+ * Past the forb ring a shrub is 20-60 px tall on the gate's viewports, and the
+ * sixty-four sprays K59 bought for arm's length are mostly sub-pixel there. So
+ * the far archetype keeps the stems and the three bands and spends the
+ * triangles the other way: three stems, fifteen fill sprays, plates 1.4x as
+ * long and wide, which is 48 triangles against 136. `flora.js` rescales its
+ * horizontal reach to the near archetype's own, so the bigger plates make the
+ * shell denser and NOT wider than the record's half-width.
+ */
+export const FAR_SHRUB_GRAIN = {
+  stems: 3,
+  fill: 15,
+  plate: 1.40,
+};
+
+/**
  * Three bands, and the LOWEST one arches DOWN (K56). Nothing in the first cut
  * hung below its own attachment, so the shell stayed open exactly where the four
  * stems are most exposed — and a stem is written dark enough to be a black stick
