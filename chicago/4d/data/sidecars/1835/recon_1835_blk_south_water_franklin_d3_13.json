@@ -85,12 +85,12 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "construction": {
-      "value": "balloon_frame",
+      "value": "braced_frame",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "plan": {
       "value": "single_pen",
@@ -305,14 +305,14 @@
     "fronts": "south_water",
     "sequence": 13,
     "finish_key": "ochre",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "roof_condition": "darkened",
+    "age_state": "established",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
       "by": "keeper",
       "household": "hh_blanshard_f_g",
-      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Blanshard household's, in Chicago since 1834 (rule F-T)"
+      "words": "ochre-washed clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weather-darkened roof — The Blanshard household's, in Chicago since 1833 (rule F-T)"
     },
     "frontage": {
       "block": "blk_south_water_franklin",
@@ -325,8 +325,8 @@
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "tradesman",
-    "age_state": "recent",
-    "weather_years": 1.5,
+    "age_state": "established",
+    "weather_years": 2.5,
     "weather_rate": 1.0,
     "lay_m": 0.006,
     "confidence": "reconstructed"

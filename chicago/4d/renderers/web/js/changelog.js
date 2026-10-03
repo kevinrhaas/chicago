@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+  { v: 1368, ts: '2026-10-03T15:08:30.859Z', date: 'Oct 3, 2026, 10:08 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
       'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
       'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
       '277 men are still owed a wife that no woman in the town can be.',
+    ] },
+  { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Materials for a Roof, about six minutes on horseback.',
+      'Start at Newberry \u0026 Dole\u2019s warehouse on the river, choose nails or nail rods at Peck\u2019s corner, decide on brick at the town\u2019s first brickyard, and end looking at the Lake House going up at Rush Street.',
+      'The builder, the list and the keepsake, A Builder\u2019s List, are our reconstruction (liberty L-jaunt-materials-for-a-roof). The goods come from the merchants\u2019 own notices; the Lake House shell is our reconstruction of a building site.',
     ] },
   { v: 1366, ts: '2026-10-03T14:21:05.994Z', date: 'Oct 3, 2026, 9:21 AM CT', title: 'A new jaunt: Boots, Leather and the Road', kind: 'feature',
     items: [
