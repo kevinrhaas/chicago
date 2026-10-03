@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1369, ts: '2026-10-03T16:00:31.126Z', date: 'Oct 3, 2026, 11:00 AM CT', title: 'A new jaunt: Gossip or Printed Notice?', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Gossip or Printed Notice?, about five and a half minutes on horseback from the Wolf Point Tavern to the town\u2019s two printing offices.',
+      'Two rumors from the forks meet what the papers actually printed: the Democrat of 1 July would only guess at the land sale\u2019s take, and the American of 27 June says the Chicago branch bank has no officers yet. The brick bank on the square is Springfield\u2019s.',
+      'Decide what to carry back: what was printed, that nothing is settled, or nothing. The rumors and the keepsake, A Careful Reader, are our reconstruction (liberty L-jaunt-gossip-or-notice).',
+    ] },
   { v: 1368, ts: '2026-10-03T15:10:12.029Z', date: 'Oct 3, 2026, 10:10 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Schoolday Errand, an outing of about six and a half minutes on horseback past the places Chicago\u2019s first classes met.',

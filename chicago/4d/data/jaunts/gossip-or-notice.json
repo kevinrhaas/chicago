@@ -3,14 +3,14 @@
   "id": "gossip-or-notice",
   "content_version": 1,
   "title": "Gossip or Printed Notice?",
-  "premise": "Two rumors are going round the tavern at the forks. Walk them to the town's two printing offices, read what the papers actually said, and decide what you will pass along.",
+  "premise": "Two rumors are going round the forks. Carry them past the Exchange to the town's two printing offices, read what the papers actually said, and decide what you will carry back.",
   "category": "News and social life",
   "scene": "1835",
   "opening": {
     "text": "The talk at the forks this morning has two rumors in it: the land sale took in a million dollars, and a bank is opening in a brick house on the square. Both rumors are invented for this outing. The papers are real. Walk to the two printing offices and read what they printed before you repeat a word.",
     "read_s": 20
   },
-  "default_mode": "walk",
+  "default_mode": "horse",
   "allowed_modes": [
     "walk",
     "wagon",
@@ -25,7 +25,7 @@
       "initial": 0,
       "unit": "preference"
     },
-    "bank": {
+    "promised": {
       "min": 0,
       "max": 1,
       "initial": 0,
@@ -65,8 +65,56 @@
         "wolf-dispute",
         "gossip"
       ],
-      "next": "the-democrat",
+      "next": "the-exchange",
       "narrative": "Hear the rumors, and believe neither yet."
+    },
+    {
+      "id": "the-exchange",
+      "destination": {
+        "kind": "structure",
+        "id": "exchange_coffee_house"
+      },
+      "text": "Over the river to the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. The rumors are here before you, and someone asks whether they are true: our invention, like the rumors.",
+      "read_s": 28,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "exchange-house",
+        "gossip"
+      ],
+      "choices": [
+        {
+          "id": "promise",
+          "label": "Promise to find out",
+          "consequence": "An answer is owed when you are done.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "promised",
+              "value": 1
+            }
+          ],
+          "next": "the-democrat"
+        },
+        {
+          "id": "just-listen",
+          "label": "Just listen",
+          "consequence": "Nobody is owed anything.",
+          "next": "the-democrat"
+        }
+      ],
+      "narrative": "Hear the rumors again, one river later."
     },
     {
       "id": "the-democrat",
@@ -153,71 +201,9 @@
       ],
       "choices": [
         {
-          "id": "note-the-square",
-          "label": "Note the branch, and whose square it is",
-          "consequence": "A branch decided, with no officers named and no house here yet.",
-          "effects": [
-            {
-              "op": "set",
-              "var": "bank",
-              "value": 1
-            }
-          ],
-          "next": "the-exchange"
-        },
-        {
-          "id": "skip-the-bank",
-          "label": "Leave the bank to the talkers",
-          "consequence": "Nothing noted here.",
-          "next": "the-exchange"
-        }
-      ],
-      "narrative": "Find whose town the second rumor describes."
-    },
-    {
-      "id": "the-exchange",
-      "destination": {
-        "kind": "structure",
-        "id": "exchange_coffee_house"
-      },
-      "text": "End at the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. Someone here will ask what you heard. What you pass along is the story's choice: what was printed, that nothing is settled, or nothing at all.",
-      "read_s": 30,
-      "action_s": 10,
-      "links": [
-        {
-          "kind": "structure",
-          "id": "exchange_coffee_house",
-          "label": "About this place"
-        },
-        {
-          "kind": "source",
-          "id": "andreas_1884_v1",
-          "label": "Read the Andreas source"
-        }
-      ],
-      "evidence": [
-        "exchange-house",
-        "gossip"
-      ],
-      "choices": [
-        {
-          "id": "pass-the-print",
-          "label": "Pass along what was printed, doubts and all",
-          "consequence": "Only what you read, with the paper's own hedges.",
-          "when": {
-            "any": [
-              {
-                "var": "land",
-                "op": "==",
-                "value": 1
-              },
-              {
-                "var": "bank",
-                "op": "==",
-                "value": 1
-              }
-            ]
-          },
+          "id": "carry-the-print",
+          "label": "Carry back what was printed, doubts and all",
+          "consequence": "Only what you read, with the papers' own hedges.",
           "effects": [
             {
               "op": "set",
@@ -229,7 +215,7 @@
         },
         {
           "id": "not-settled",
-          "label": "Say that nothing is settled yet",
+          "label": "Carry back that nothing is settled",
           "consequence": "Uncertainty, said out loud.",
           "effects": [
             {
@@ -242,24 +228,37 @@
         },
         {
           "id": "say-nothing",
-          "label": "Say nothing for now",
+          "label": "Carry back nothing for now",
           "consequence": "The rumors travel without you.",
           "next": "$end"
         }
       ],
-      "narrative": "Decide what is actually supported."
+      "narrative": "Decide what you will carry back."
     }
   ],
   "legs": [
     {
       "from": "the-forks",
-      "to": "the-democrat",
-      "note": "East from the forks to the corner of South Water and Clark; no particular crossing is claimed, and the tavern's placement is the weakest in the town.",
+      "to": "the-exchange",
+      "note": "East over the river to Lake and Wells; no particular crossing is claimed, and the tavern's placement is the weakest in the town.",
       "evidence": [
         "wolf-dispute",
+        "exchange-house"
+      ],
+      "story": "Two rumors, walking faster than you.",
+      "story_evidence": [
+        "gossip"
+      ]
+    },
+    {
+      "from": "the-exchange",
+      "to": "the-democrat",
+      "note": "North to South Water Street and east to the corner of Clark.",
+      "evidence": [
+        "exchange-house",
         "democrat-corner"
       ],
-      "story": "Two rumors, and a paper to read each against.",
+      "story": "A paper to read each rumor against.",
       "story_evidence": [
         "gossip"
       ]
@@ -272,25 +271,12 @@
         "democrat-corner",
         "american-office"
       ]
-    },
-    {
-      "from": "the-american",
-      "to": "the-exchange",
-      "note": "Back west and one block south to Lake and Wells.",
-      "evidence": [
-        "american-office",
-        "exchange-house"
-      ],
-      "story": "Someone at the Exchange will want the news.",
-      "story_evidence": [
-        "gossip"
-      ]
     }
   ],
   "endings": [
     {
       "id": "true-to-the-page",
-      "text": "You pass along both items as printed: a land-sale take the Democrat would only guess at, and a branch bank decided with no officers named and no house in Chicago yet. Less than the tavern said, and true to the page. The careful note is the story's.",
+      "text": "You carry back both items as printed: a land-sale take the Democrat would only guess at, and a branch bank decided with no officers named and no house in Chicago yet. Less than the forks said, and true to the page. The careful note is the story's.",
       "read_s": 12,
       "completion_eligible": true,
       "when": {
@@ -304,18 +290,13 @@
             "var": "land",
             "op": "==",
             "value": 1
-          },
-          {
-            "var": "bank",
-            "op": "==",
-            "value": 1
           }
         ]
       }
     },
     {
       "id": "one-checked",
-      "text": "You pass along the one item you read, with its doubt, and leave the other rumor alone because you did not check it. Half a correction, honestly made. The careful note is the story's.",
+      "text": "You carry back the bank item as printed and leave the land sale alone, because you did not note it. Half a correction, honestly made. The careful note is the story's.",
       "read_s": 10,
       "completion_eligible": true,
       "when": {
@@ -326,13 +307,24 @@
     },
     {
       "id": "not-yet-known",
-      "text": "You tell the room it is not settled: the papers could not say either thing for certain, and no paper has settled it since. Uncertainty is an answer too. The careful note is the story's.",
+      "text": "You carry back that it is not settled: one paper would only guess, and the other names no officer and no house. Uncertainty is an answer too. The careful note is the story's.",
       "read_s": 10,
       "completion_eligible": true,
       "when": {
         "var": "told",
         "op": "==",
         "value": 2
+      }
+    },
+    {
+      "id": "owed-an-answer",
+      "text": "You promised an answer at the Exchange and carry none back. The rumors will be repeated there without you, until Saturday's American or next week's Democrat prints more. The careful note is the story's.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "promised",
+        "op": "==",
+        "value": 1
       }
     },
     {
@@ -447,7 +439,7 @@
     },
     {
       "id": "gossip",
-      "text": "The tavern talk, both rumors and their figures (a million dollars, a bank opening on the square within weeks), the visitor's walk, what is noted or passed along, the person who asks at the Exchange, the endings, the timing inputs and the A Careful Reader keepsake are invented connective narrative. No real person is made to say either rumor, and no one named is met.",
+      "text": "The tavern talk, both rumors and their figures (a million dollars, a bank opening on the square within weeks), the rumors reaching the Exchange, the person who asks there and the promise, the visitor's walk, what is noted or carried back, the endings, the timing inputs and the A Careful Reader keepsake are invented connective narrative. No real person is made to say either rumor, and no one named is met.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-gossip-or-notice"
