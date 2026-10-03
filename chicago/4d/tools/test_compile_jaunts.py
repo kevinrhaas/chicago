@@ -29,6 +29,7 @@ class JauntTests(unittest.TestCase):
         row = next(r for r in json.loads(a['catalog.json'])['jaunts'] if r['id'] == 'new-in-chicago')
         self.assertEqual((row['id'], row['availability'], row['stop_count']), ('new-in-chicago', 'available', 5))
         self.assertEqual(row['destinations'][1]['id'], 'hogan_store')
+        self.assertEqual(row['featured'], json.loads((ROOT / 'data/jaunts/new-in-chicago.json').read_text()).get('featured', False))
         content = json.loads(a['new-in-chicago.json'])
         self.assertTrue(all(c['citation'] and 'note' not in c for c in content['citations']))
 
@@ -47,6 +48,7 @@ class JauntTests(unittest.TestCase):
     def test_fixtures_add_without_code_and_malformed_isolated(self):
         with tempfile.TemporaryDirectory() as tmp:
             for source in self.fixtures.iterdir():
+                if source.name.startswith('catalog-'): continue  # Browser manifests, not story documents.
                 name = source.name.removesuffix('.invalid')
                 (Path(tmp) / name).write_bytes(source.read_bytes())
             files, errors = self.compiler.compile(tmp)

@@ -1,0 +1,89 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 22 min",
+      "wagon": "about 10.5 min",
+      "horse": "about 7 min",
+      "fly": "about 3.5 min",
+      "instantly": "about 3 min"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 425.23055034369247,
+        "reading": 168,
+        "legs": [
+          194.09999999999155,
+          43.23333333333344,
+          22.700000000000287
+        ],
+        "seconds": 428.0333333333253,
+        "phase": "outcome",
+        "outcome": "candle-lit"
+      },
+      "fly": {
+        "estimate": 223.7043296020936,
+        "reading": 168,
+        "legs": [
+          23.533333333333662,
+          15.666666666666622,
+          9.466666666666644
+        ],
+        "seconds": 216.6666666666669,
+        "phase": "outcome",
+        "outcome": "candle-lit"
+      }
+    },
+    "ui_drive": {
+      "ending": "candle-lit",
+      "detail_card_returned_to_same_stop": true,
+      "after_end_phase": "menu",
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 21.5 min",
+      "wagon": "about 10.5 min",
+      "horse": "about 7 min",
+      "fly": "about 3.5 min",
+      "instantly": "about 3 min"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 420.148248751762,
+        "reading": 168,
+        "legs": [
+          192.73333333332496,
+          41.16666666666689,
+          21.066666666666872
+        ],
+        "seconds": 422.96666666665874,
+        "phase": "outcome",
+        "outcome": "candle-lit"
+      },
+      "fly": {
+        "estimate": 222.6110148286804,
+        "reading": 168,
+        "legs": [
+          23.700000000000337,
+          14.799999999999958,
+          9.166666666666645
+        ],
+        "seconds": 215.66666666666694,
+        "phase": "outcome",
+        "outcome": "candle-lit"
+      }
+    },
+    "page_errors": 0
+  },
+  "ticket": "T-2025",
+  "jaunt": "soap-and-candles",
+  "tree": "published mirror (tools/publish.sh) of branch steward/t2025-soap-and-candles",
+  "primary_path": "the-works:light-first > the-list:candles > lake-street > home => candle-lit"
+}

@@ -1,10 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1361, ts: '2026-10-03T12:41:22.885Z', date: 'Oct 3, 2026, 7:41 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+  { v: 1363, ts: '2026-10-03T13:04:19.726Z', date: 'Oct 3, 2026, 8:04 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
       'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
       'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
       '277 men are still owed a wife that no woman in the town can be.',
+    ] },
+  { v: 1362, ts: '2026-10-03T12:26:25.726Z', date: 'Oct 3, 2026, 7:26 AM CT', title: 'A new jaunt: Soap and Candles', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Soap and Candles, a quiet outing of about seven minutes on horseback.',
+      'Start at Daniel Elston & Co.\u2019s soap and candle works on the North Branch, make your list at Jones\u2019s grocery on South Water Street, and carry candles, soap or both home to the boarding house behind Peck\u2019s store.',
+      'The errand, the bundle and the keepsake, Light for the Evening, are our reconstruction (liberty L-jaunt-soap-and-candles). The works\u2019 goods come from its own 1833 notice; where it stood is our placement.',
+    ] },
+  { v: 1361, ts: '2026-10-03T12:09:06.934Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+    items: [
+      'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
+      'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
+      'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
     ] },
   { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
