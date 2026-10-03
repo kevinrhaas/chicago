@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1348, ts: '2026-10-03T06:02:20.681Z', date: 'Oct 3, 2026, 1:02 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+  { v: 1349, ts: '2026-10-03T06:18:38.263Z', date: 'Oct 3, 2026, 1:18 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
       'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
       'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
       'Finish to keep A Cupboard Begun in your daybook under Provisions.',
+    ] },
+  { v: 1348, ts: '2026-10-03T05:54:09.388Z', date: 'Oct 3, 2026, 12:54 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Freight for the Store. Drive a wagon from Newberry & Dole\u2019s wharf to two stores and on to George Dole\u2019s warehouse. It takes about six minutes.',
+      'Count three packages against the bill, take only two, or load them on trust. Check Peck\u2019s own advertised lines, leave a package at Thomas Church\u2019s store on Lake Street, and hand in the tally.',
+      'The shipment, the bill and the keepsake, Cargo Accounted For, are our reconstruction (liberty L-jaunt-freight-store). The firms and what they sold come from their own notices.',
     ] },
   { v: 1347, ts: '2026-10-03T05:37:25.027Z', date: 'Oct 3, 2026, 12:37 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
     items: [
