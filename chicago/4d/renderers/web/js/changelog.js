@@ -1,9 +1,35 @@
 export const CHANGELOG = [ // newest first
-  { v: 1351, ts: '2026-10-03T07:59:27.416Z', date: 'Oct 3, 2026, 2:59 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+  { v: 1355, ts: '2026-10-03T08:56:50.145Z', date: 'Oct 3, 2026, 3:56 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
       'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
       'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
       'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L366). The warehouse the north side is also owed waits for the North Water bank.',
+    ] },
+  { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed, and nobody moved house.',
+      'The model wants 368 of the town\u2019s lone men married, but the town has no unmarried woman left to draw for them. We counted how many could marry a woman already keeping her own house here, keeping each pair\u2019s ages plausible: 91 can. The other 277 cannot marry anyone the town holds.',
+      'The Liberties note on reconstructed families now says so. Moving those women would not even out the town\u2019s men and women either: a move adds nobody.',
+    ] },
+  { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
+    items: [
+      'Walk South Water Street to the store lettered W. MONTGOMERY, Auction & Commission House. He opened there in the last week of June 1835 and held his first sale on 1 July, the day the town is set.',
+      'The two Chicago papers ran his notice under four different headings, and the town held them as four businesses, so none of them could hang a board. They are one house now. His card gathers every printing, and his own words place him in David Carver\u2019s old store, a few doors west of J. Wright\u2019s.',
+      'Neither paper gives a door number, so which store on the street is his is our allocation. A few other South Water merchants moved one roof along to make room.',
+    ] },
+  { v: 1352, ts: '2026-10-03T07:12:28.066Z', date: 'Oct 3, 2026, 2:12 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
+    items: [
+      'Cross the Lake Street bridge to the block between Clinton and Canal. A plank walk now runs the whole Lake Street front, not just the stretch outside its one shop.',
+      'Its Randolph Street side has a walk of its own now, about 97 m of planks, with a board crossing over Randolph at the corner.',
+      'The shop keeps its hitching post. No fences: this block\u2019s lots open onto Clinton and Canal, so these fronts are the ends of the lot rows.',
+      'The walks are our reconstruction, like every walk in the town (liberty L160).',
+    ] },
+  { v: 1351, ts: '2026-10-03T06:48:49.856Z', date: 'Oct 3, 2026, 1:48 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
+      'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
+      'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
+      'Finish to keep A Cupboard Begun in your daybook under Provisions.',
     ] },
   { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
     items: [

@@ -12015,7 +12015,7 @@ house and the shop, the same plate and the same grade) · **L1** (no figure is d
 **Covers:** `fort_dearborn_us_factors_house.us_factors_house_1818.form.roof_type`, `fort_dearborn_us_factors_house.us_factors_house_1818.form.roof_pitch_deg`, `fort_dearborn_us_factors_house.us_factors_house_1818.form.wall_height_m`, `fort_dearborn_us_factors_house.us_factors_house_1818.form.chimneys`.
 **Recorded:** 2026-09-11 (T-1036).
 
-### L232 — 26 documented businesses stand on 1 July 1835 because the only paper that names them was printed afterwards
+### L232 — 24 documented businesses stand on 1 July 1835 because the only paper that names them was printed afterwards
 **Decision:** every business the newspaper register flags `backdating_liberty_required` is
 treated as standing at the scene date. Its existence is documented — a dated advertisement or
 notice in the *Chicago Democrat* or the *Chicago American* — but the earliest surviving
@@ -12038,17 +12038,17 @@ year and a day before the scene date. The proxy had excluded from the July town 
 demonstrably stood in it. What is left after that reading is made everywhere it can be made
 is this class: documented houses whose standing on 1 July 1835 rests on ruling 3 — a
 documented business is built at the scene date unless contradicted — and on nothing else.
-**Scope:** `register_1835.businesses[backdating_liberty_required]` — 26 businesses, enumerated
+**Scope:** `register_1835.businesses[backdating_liberty_required]` — 24 businesses, enumerated
 by `tools/compile_register.py` from the gazetteer and the committed town, and re-counted by
 `tools/compile_liberties.py` on every compile. The number cannot drift from the register
 without `check.sh` saying so, which is the point of writing it down. **It is a measurement and
 not the figure this entry's ticket quoted:** T-0404 was filed at *33* on 2026-08-29, before the
 flag it names was computed; the register's own summary has read 30 (T-0356, which minted it),
-then 28 (T-0402), 27 (T-0340) and 26 (T-0413). Every one of those movements is an identity
+then 28 (T-0402), 27 (T-0340), 26 (T-0413) and 24 (T-0386, where the four headings of W. Montgomery's auction house became one house whose first printing, 1835-06-24, is before the scene date). Every one of those movements is an identity
 pass judging two printed styles to be one house — not one business leaving Chicago.
-**How the class is bounded, and how it is cleared.** 27 businesses stand in the July town whose
+**How the class is bounded, and how it is cleared.** 25 businesses stand in the July town whose
 first surviving issue postdates the scene date. **One** of them owes no liberty, and the
-mechanism is the one that makes the other 26 honest: an opening notice dated on or before
+mechanism is the one that makes the other 24 honest: an opening notice dated on or before
 1835-07-01 is positive evidence the house stood, so `compile_register.py` clears the flag —
 Taylor's `effected` dateline of 8 July 1834 is that notice. (John Holbrook's *"is now
 opening"* of 10 June 1835 is the same kind of reading, and he never needed it: his own first
@@ -12765,13 +12765,17 @@ documented heads the order book had been refusing, which is why the head count r
 people count fell. A source saying one of these five men kept a house retires the container, not
 the refusal.
 
-**What it does not fix.** The layer's adult sex ratio moves from 583.7 men per 100 women to 412.9
-and the model's range is 120.9 to 150.0. It is not met and this stage cannot meet it: T-1174 and
-T-1347 drew the women and children the pyramid was short, but as records of their own rather than
-into these houses, and 310 married houses this stage drew stand with no woman left in their cell.
-Re-housing them is T-1179's convergence. The measurement is printed against the model in
-`data/reconstruction/1835_modelled_families.json` and says so rather than reading as a target
-reached.
+**What it does not fix.** The layer's adult sex ratio moves from 614.7 men per 100 women to 435.4
+(2026-10-03) and the model's range is 120.9 to 150.0. It is not met and this stage cannot meet it:
+T-1174 and T-1347 drew the women and children the pyramid was short, but as records of their own
+rather than into these houses, and 368 married houses this stage drew stand with no woman left in
+their cell. **Moving those women would not meet it either**, because a move puts nobody new in the
+town. What a move would change is who keeps house with whom, and T-2019 measured how far that
+goes before anybody is moved: 91 of the 368 houses could take the wife and children of one of
+T-1174's woman-headed houses by this stage's own spacing rule and child cap, and 277 can take no
+woman the town holds. T-2020 makes those moves; T-2021 rules on the rest. The measurement is
+printed against the model in `data/reconstruction/1835_modelled_families.json` (`re_housing`) and
+says so rather than reading as a target reached.
 
 Related: tickets **T-1171**, from **T-1167**; **T-1161**'s town model and **T-1166**'s order book
 are the two files it draws against. **Recorded:** 2026-09-18.
@@ -13484,7 +13488,7 @@ the river in 1835 retires the house that stands in its slot — each record says
 `replaceable_by`, and the retirement runs through `--build`, never by hand. A re-cut of the
 order book that no longer orders the bucket retires both.
 
-Related: **L248** (the trade heads these houses adopt), **L232** (the 26 businesses that
+Related: **L248** (the trade heads these houses adopt), **L232** (the 24 businesses that
 stand on the scene date because the only paper naming them was printed later), tickets
 **T-1184**, **T-1173**, the order book **T-1166**, the successors **T-1185** … **T-1189**.
 **Recorded:** 2026-09-19.
@@ -17659,6 +17663,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/work-on-waterfront.json`.
 
 **Recorded:** 2026-10-03 (T-2007).
+
+### L-jaunt-household-provisions — Stock the Household: an invented room, list, purse and prices
+
+**Decision:** Stock the Household links four existing exterior destinations on one block of South Water Street (Mrs Rufus Brown's boarding house, Jones's grocery and provision store, Philo Carpenter's drug store and P. F. W. Peck's store) in an invented errand to begin a cupboard. The visitor's share of a room at Brown's, the two-dollar purse, the choice of a list for the table or for the room, every price, the basket, the four endings and the A Cupboard Begun keepsake are reconstructed, and so are the reading and action seconds. Each good is offered only at a store whose own advertisement lists it: coffee, sugar and tea at Jones's (26 November 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's (December 1833 and December 1834). The position of Jones's store at the Wells end of the block is the structure record's reconstruction, and the stop says so.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, the Democrat's first issue and its 1833-35 run, the American's June 1835 issues, Andreas's boarding-house and 1834-advertiser passages, and brief 13 of JAUNTS-INITIAL-LIBRARY.md. The room, the lists, the prices and the keepsake are present-day interpretive choices; no vacancy at Brown's, sale or price is claimed.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated 1835 price current for tea, coffee or flannel at Chicago would let the prices cite it; an 1834-35 Jones advertisement with an address would place the grocery stop.
+
+**Applies to:** `data/jaunts/household-provisions.json`.
+
+**Recorded:** 2026-10-03 (T-2010).
 
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 

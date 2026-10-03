@@ -96,7 +96,7 @@
     "note": "NO ROLE ROW. `roles[]` is the canonical record of a trade and its generator reads the research mints' directory, which this one is deliberately outside of; the convergence stage (T-1179) is where these cards join that tree. Nothing about this trade is dated."
    },
    "employment": {
-    "business_id": "biz_w_montgomery_auction_and_commission_house",
+    "business_id": "biz_d_carver_co",
     "role": "labourer",
     "tier": "reconstructed",
     "seed": "rc_hubbard_joseph:employment",

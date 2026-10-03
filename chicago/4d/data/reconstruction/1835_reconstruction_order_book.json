@@ -3331,7 +3331,7 @@
           "known_inferred": 22,
           "to_reconstruct": 27,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3404,7 +3404,7 @@
           "known_inferred": 56,
           "to_reconstruct": 61,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3479,7 +3479,7 @@
           "known_inferred": 19,
           "to_reconstruct": 25,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3554,7 +3554,7 @@
           "known_inferred": 13,
           "to_reconstruct": 16,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3629,7 +3629,7 @@
           "known_inferred": 33,
           "to_reconstruct": 36,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3704,7 +3704,7 @@
           "known_inferred": 11,
           "to_reconstruct": 14,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3779,7 +3779,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3854,7 +3854,7 @@
           "known_inferred": 9,
           "to_reconstruct": 11,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3927,7 +3927,7 @@
           "known_inferred": 4,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4001,7 +4001,7 @@
           "known_inferred": 2,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4076,7 +4076,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4149,7 +4149,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4408,7 +4408,7 @@
           "known": 12,
           "to_reconstruct": 111,
           "filled": 26,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
         {
@@ -4421,7 +4421,7 @@
           "known": 41,
           "to_reconstruct": 217,
           "filled": 65,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
@@ -4434,7 +4434,7 @@
           "known": 7,
           "to_reconstruct": 103,
           "filled": 33,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
         {
@@ -4499,7 +4499,7 @@
           "known": 0,
           "to_reconstruct": 6,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the north division"
         },
         {
@@ -4512,7 +4512,7 @@
           "known": 10,
           "to_reconstruct": 51,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the south division"
         },
         {
@@ -4525,7 +4525,7 @@
           "known": 0,
           "to_reconstruct": 9,
           "filled": 0,
-          "owning_ticket": "T-1171",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the west division"
         },
         {
@@ -4548,10 +4548,10 @@
       "title": "Businesses",
       "lead": "The December 1835 State census set against the register the town already holds.",
       "summary": {
-        "register_total": 196,
-        "at_scene_date": 208,
+        "register_total": 193,
+        "at_scene_date": 205,
         "census_enumerated_total": 118,
-        "register_businesses_read": 196,
+        "register_businesses_read": 193,
         "division_note": "EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY, and that is a reading rather than a hole: the register carries a street where the paper printed one and no division at all, and assigning premises to a division is T-1182's audit and T-1198's seating. The key carries the axis so those tickets fill it rather than re-cut the book.",
         "staffing_note": "The STAFF each business implies is T-1183's model and is not guessed at here; T-1189 staffs them from it."
       },

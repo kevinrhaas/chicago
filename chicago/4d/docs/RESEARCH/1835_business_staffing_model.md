@@ -20,7 +20,7 @@ That denominator includes tavern and livery keepers, who kept no counting house.
 
 | establishment | at the scene date | staff low–typical–high | roles |
 |---|---:|---|---|
-| an auction and commission room | 10 | 0–1–2 | clerk (clerk, young_adult_16_25), labourer (household_member, adult_18_45) |
+| an auction and commission room | 7 | 0–1–2 | clerk (clerk, young_adult_16_25), labourer (household_member, adult_18_45) |
 | a bakery | 3 | 0–1–2 | baker (journeyman, young_adult_16_25), labourer (household_member, youth_12_18) |
 | a book store | 1 | 0–1–1 | clerk (clerk, young_adult_16_25) |
 | a brewery | 1 | 1–2–3 | labourer (household_member, adult_18_45) |
@@ -57,7 +57,7 @@ That denominator includes tavern and livery keepers, who kept no counting house.
 
 ## Every role, with its basis
 
-### an auction and commission room — 10 at the scene date
+### an auction and commission room — 7 at the scene date
 
 - **clerk** as *clerk* — 0–1–1, male, young_adult_16_25, lives in 40% · `directory_1839`  
   A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.
@@ -269,12 +269,12 @@ A share is not a bed. The lodging model (T-1370) owns capacity and T-1371 owns w
 
 ## The dry run over the layer as it stands
 
-179 businesses standing on 1835-07-01, 165 proprietors and partners already on their records.
+176 businesses standing on 1835-07-01, 163 proprietors and partners already on their records.
 
 | role | as | sex | age | low | typical | high |
 |---|---|---|---|---:|---:|---:|
-| clerk | clerk | male | young_adult_16_25 | 31 | 58 | 116 |
-| labourer | household_member | male | adult_18_45 | 14 | 36 | 99 |
+| clerk | clerk | male | young_adult_16_25 | 31 | 55 | 113 |
+| labourer | household_member | male | adult_18_45 | 14 | 36 | 96 |
 | joiner | apprentice | male | youth_12_18 | 0 | 8 | 8 |
 | joiner | journeyman | male | young_adult_16_25 | 0 | 8 | 16 |
 | shoemaker | journeyman | male | young_adult_16_25 | 0 | 8 | 8 |
@@ -308,15 +308,15 @@ A share is not a bed. The lodging model (T-1370) owns capacity and T-1371 owns w
 | shoemaker | apprentice | male | youth_12_18 | 0 | 0 | 8 |
 | tailor | apprentice | male | youth_12_18 | 0 | 0 | 7 |
 
-**Staff implied:** 65–202–417, of whom 87.5 live on the premises at the typical figure.
+**Staff implied:** 65–199–411, of whom 86.3 live on the premises at the typical figure.
 
-**Working persons implied** (principals + staff): 230–367–582.
+**Working persons implied** (principals + staff): 228–362–574.
 
 ## Reconciliation
 
-- **Against the 1839 clerk ratio, like for like.** 86 principals stand in the layer's clerk-employing classes; × 0.68778 that predicts 59.1 clerks, and the per-house rules put 59 there — a delta of -0.1 against a tolerance of 14.8. They agree.
-- **And on the wide ratio.** Divide the same 1839 clerks by every commerce principal, tavern and livery keepers included, and the ratio falls to 0.48718, predicting 41.9 — a delta of 17.1. The wide ratio divides the same clerks by tavern, livery and boarding-house keepers as well, and on it the model looks over-clerked. Printed rather than buried: it is the reading a sceptic would take.
-- **Against the town model's employment.** 367 working persons implied, against 425–588 employed persons. Below the low end, which is expected: The town model's employed persons counts EVERY working person — the labourers of the harbour works, the garrison, the farmers outside the limits, the domestic service the 1840 columns have no row for. The businesses of this layer are a PART of that figure, so falling below the low end is expected and falling above it is a refusal.
+- **Against the 1839 clerk ratio, like for like.** 84 principals stand in the layer's clerk-employing classes; × 0.68778 that predicts 57.8 clerks, and the per-house rules put 56 there — a delta of -1.8 against a tolerance of 14.4. They agree.
+- **And on the wide ratio.** Divide the same 1839 clerks by every commerce principal, tavern and livery keepers included, and the ratio falls to 0.48718, predicting 40.9 — a delta of 15.1. The wide ratio divides the same clerks by tavern, livery and boarding-house keepers as well, and on it the model looks over-clerked. Printed rather than buried: it is the reading a sceptic would take.
+- **Against the town model's employment.** 362 working persons implied, against 425–588 employed persons. Below the low end, which is expected: The town model's employed persons counts EVERY working person — the labourers of the harbour works, the garrison, the farmers outside the limits, the domestic service the 1840 columns have no row for. The businesses of this layer are a PART of that figure, so falling below the low end is expected and falling above it is a refusal.
 
 ## Terms the residents vocabulary does not hold
 
@@ -349,4 +349,4 @@ No `occupation` on the record, so no establishment kind, so no staff. T-1182's a
 
 - **Is the 1839 clerk ratio a prior for 1835 at all?** It is the only staffing figure the project holds, and 1839 is a town with a bank, a canal and four more years of growth. The model uses it to CHECK its rules and not to set them, which is the most weight it will bear. (T-1183, T-1189)
 - **What does the town do about the service labour no source counts?** The 1840 industry columns have no row for domestic service and the 1839 directory prints five domestics. The town model already says its trade split understates household labour by an amount it cannot bound; this model reconstructs that labour for businesses and cannot bound it either. (T-1183, T-1163, T-1189)
-- **The records the layer gives no trade to.** 9 of the 179 houses standing at the scene date carry no `occupation`, so they are staffed by nobody here. T-1182's audit is what fixes that, and until it runs this model understates the town. (T-1182)
+- **The records the layer gives no trade to.** 9 of the 176 houses standing at the scene date carry no `occupation`, so they are staffed by nobody here. T-1182's audit is what fixes that, and until it runs this model understates the town. (T-1182)

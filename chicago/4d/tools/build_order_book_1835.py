@@ -143,6 +143,16 @@ HOUSEHOLD_TYPES = (
     ("transient", "in the town on 1 July 1835 and not of it: the land-sale crowd, the immigrants waiting for lots, the works gang"),
 )
 
+# THE FAMILY ROWS' OWNER, swept off T-1171 on 2026-10-03 (T-2019). T-1171 split into
+# T-2019 (measure the re-housing the town's own women allow), T-2020 (make those moves)
+# and T-2021 (rule on the married houses no woman in the town can be wife to). A bucket
+# naming a SPLIT ticket orders work nobody can claim (T-1237), so the rows T-1171 owned
+# move to the piece that owns what is left of its order once the moves are made: T-2021
+# decides whether the book orders more women or the heads stand alone, and the men and
+# houses still owed here are the same question. The modelled-families STAGE keeps its
+# own ticket, T-1171, on its fills; that is who drew, not who is owed.
+FAMILY_OWNER = "T-2021"
+
 # Which ticket fills a person bucket. Read top-down; the first rule that matches
 # owns the cell. Written here rather than in prose so the book can be audited
 # against the queue.
@@ -207,7 +217,7 @@ PERSON_TICKET_RULES = (
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
     ("an adult at a trade", lambda a: a["trade"] == "trade", "T-1347"),
     ("a woman or a person under twenty", lambda a: a["sex"] == "female" or a["age_band"] in ("under_10", "10_19"), "T-1174"),
-    ("otherwise: a family drawn from the household model", lambda a: True, "T-1171"),
+    ("otherwise: a family drawn from the household model", lambda a: True, FAMILY_OWNER),
 )
 
 # The roster's classes, and the ticket each class is offered to. A roster class is
@@ -225,8 +235,8 @@ ROSTER_TICKETS = {
 # Household types against the roof groups that hold them, and the ticket that
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
-    ("family_dwelling", "ordinary_dwellings", "T-1171"),
-    ("store_residence", "stores_mixed_use", "T-1171"),
+    ("family_dwelling", "ordinary_dwellings", FAMILY_OWNER),
+    ("store_residence", "stores_mixed_use", FAMILY_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -3453,7 +3463,7 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, "T-1171"), owed(households, "T-1171")
+    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
@@ -4346,12 +4356,15 @@ def cmd_self_test() -> int:
           lambda: business_buckets(mixed["crosswalk"], mixed["register"],
                                    mixed["trade_spend"], mixed["model"]))
 
-    # EVERY BUCKET NAMES A TICKET, and every ticket named is in the reconstruction bands.
+    # EVERY BUCKET NAMES A TICKET. This read `startswith("T-1")` — the reconstruction
+    # bands were all T-1xxx when it was written — until T-1171's split put its rows on
+    # T-2021 (T-2019) and the queue's numbering passed the prefix. Whether the ticket is
+    # still claimable is `every_work_order_names_a_live_ticket`'s question, not this one's.
     for family in doc["bucket_families"]:
         for b in family["buckets"]:
             owners = [b["owning_ticket"]] if b.get("owning_ticket") else b.get("owning_tickets", [])
             for owner in owners:
-                assert owner.startswith("T-1"), (b["key"], owner)
+                assert re.fullmatch(r"T-\d{4}", owner), (b["key"], owner)
 
     # THE PERSON TOTALS CLOSE ON THE MODEL'S OWN NUMBER.
     persons = doc["bucket_families"][0]["buckets"]

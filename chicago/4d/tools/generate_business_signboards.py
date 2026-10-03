@@ -1179,6 +1179,8 @@ ADOPTED_WORDING = {
     "biz_the_new_store_at_the_corner_of_water_and_clark_streets": (
         "NEW STORE", "Dry Goods, Crockery & Hardware", "Dry Goods", "New Store"),
     "biz_w_g_blanchard": ("W. G. BLANCHARD", "House & Land Agent", None, "Blanchard"),
+    "biz_w_montgomery": ("W. MONTGOMERY", "Auction & Commission House", "Auction & Commission",
+                         "Montgomery"),
     "biz_william_clay": ("WILLIAM CLAY", "Hat Manufacturing & Dealing", "Hats", "Clay"),
 }
 
@@ -1190,10 +1192,6 @@ ADOPTED_REFUSED = {
         "houses Jones, King & Co. in a different roof from this one. A board here would "
         "put the paper somewhere its own colophon says it was not; it waits on the "
         "adoption seating the office over its landlord's store."),
-    "biz_a_new_auction_and_commission_room_south_water_street": (
-        "the paper names this house by a description — 'a new auction and commission "
-        "room' — and not by a firm. Its proprietor is on the record and not in its name, "
-        "so a board lettered with him would read differently from the card it opens."),
 }
 
 
