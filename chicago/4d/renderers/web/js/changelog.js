@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1382, ts: '2026-10-03T20:52:47.452Z', date: 'Oct 3, 2026, 3:52 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Every build now walks the path a visitor takes, on a phone and on a desktop: the year counting down to 1835, the welcome, Starting At…, a jaunt with its place card and source, a change of travel mode, the Jaunts menu and Resume, End, a second jaunt, and Explore on my own.',
+      'It found nothing broken. End returns to the menu in under a millisecond, and the Sources count matches the published catalog.',
+    ] },
   { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
     items: [
       'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',

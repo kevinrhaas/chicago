@@ -116,7 +116,7 @@ The map in `tools/smoke_budget.mjs` can only ever ADD parts:
   boot, the page-error check and the vendor checks are taken in **every**
   invocation whichever stage is asked for;
 - `--self-test` fails if a mapped path has vanished from the tree, if any part
-  1..13 is covered by no row, if `PARTS` in `smoke_renderer.mjs` has moved out
+  1..14 is covered by no row, if `PARTS` in `smoke_renderer.mjs` has moved out
   from under the map, if the renumbering arithmetic breaks, or if an unmapped
   path ever stops meaning the whole gate. `check.sh` runs it.
 
@@ -157,6 +157,7 @@ The map's rows are justified by the parts' own section headings in
 | 11 | the sward's ragged boundary and its fringe, each community's recorded ground cover, the street readouts, the navigation guide, the Settings units |
 | 12 | eye height, typing is not driving, the Go-to tab, What's-new |
 | 13 | the Evidence panel — liberties, people, wildlife, what grows, what is not here, researched-and-open, what the ground claims — free-fly, and inspecting from the air |
+| 14 | the arrival-to-jaunt path on a fresh context (T-2044) — the year before ready, the welcome, Starting At…, a jaunt with its card and source, a change of mode, Menu and Resume, End, a second jaunt, Explore on my own |
 
 ## The zero-byte log, which is why a green run got killed
 
