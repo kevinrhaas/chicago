@@ -5,7 +5,7 @@
     "the small trading post at the Beaubien homestead",
     "one of the buildings on lots 6-10 of Block 5"
   ],
-  "archetype": "log_dwelling",
+  "archetype": "outbuilding",
   "phases": [
     {
       "id": "log_1822",
@@ -20,16 +20,16 @@
         "note": "THE BUILDING IS ATTESTED AND ITS DATES ARE NOT, SO BOTH BOUNDS ARE HOUSEKEEPING BOUNDS AND THE RECORD SAYS SO. Andreas, scan p. 185, lists what the Beaubien homestead held; `docs/RESEARCH/jb_beaubien_homestead.md` § 1 reads it as the American Fur Company factory building, a new residence, a small trading post and a cabin converted to a barn. The list gives no year to any of the three that are not the factory building. THE OPENING BOUND IS THE SAME FLOOR THE PARENT RECORD USES AND FOR THE SAME REASON: Andreas has Beaubien in the Dean house at the lake shore from 1817 'for several years' and at the factory building from 1822 (scan pp. 191, 205), and Wentworth finds the residence at this corner 'after he moved from what was before known as the John-Dean house', so 1822-01-01 is the earliest date the sources leave open and not a construction date. THE CLOSING BOUND IS THE END OF THE SCENE YEAR, not a demolition date: what carries the survival is Wentworth's own account of the sale of June 1839, where James H. Collins bids $1,049 for lots 10, 9, 8, 7 and 6 'where Beaubien's house, out-buildings, and garden were' — four years after 1835-07-01, and evidence that the group was still standing, not that this building was one of the things named. THE 13-YEAR SPAN WILL RAISE THIS PROJECT'S WIDE-RANGE WARNING and is left standing rather than trimmed to silence it, exactly as both siblings do: the warning is correct that nothing documents the middle years."
       },
       "position": {
-        "utm_e": 448217.7,
-        "utm_n": 4637554.3,
+        "utm_e": 448189.7,
+        "utm_n": 4637574.8,
         "rotation_deg": 0.0,
-        "symbolic_location": "On the Fort Dearborn reservation, in the Beaubien homestead group at what Andreas and Wentworth call the north-east corner of South Water Street and Michigan Avenue — modelled on the yard line behind the house, about 12 m east of the barn.",
+        "symbolic_location": "On the Fort Dearborn reservation, in the Beaubien homestead group at what Andreas and Wentworth call the north-east corner of South Water Street and Michigan Avenue — modelled WEST of the house, 4.0 m clear of its west wall, on the side away from the fort road.",
         "confidence": "reconstructed",
         "sources": [
           "andreas_1884_v1",
           "wentworth_1881_fort_dearborn"
         ],
-        "note": "PLACED BY EYE INSIDE A GROUP, WHICH IS THE HONEST DESCRIPTION OF IT, and it is the same method and the same admission `beaubien_barn` carries. NOTHING LOCATES THIS BUILDING. Andreas records it in a list of what the homestead held and gives it no bearing, no distance and no neighbour. METHOD: the group's two committed records stand on one easting 16.3 m apart — `jb_beaubien_homestead` on the frontage line and `beaubien_barn` on the yard line behind it — and this record takes an easting 17.9 m east of that pair, which puts it 5.7 m clear of the house's east wall on the SAME line as the building of the group it belongs beside. THE DIRECTION AND THE DISTANCE ARE BOTH INVENTED. East was chosen rather than west because Wentworth's own lot list runs the homestead ground north from the corner along lots 6 to 10, so the group's room is away from the corner and not back across the avenue, and because the fort's stockade stands 9 m north of this line and there is no room that way.\n\nTHE CAVEAT THAT TRAVELS WITH THE PARENT, UNCHANGED: neither South Water Street nor Michigan Avenue existed on the reservation in 1835 — it was unplatted and no street crossed it — so the corner both books locate this group by is a grid that arrived with the 1839 plat. WORKING UNCERTAINTY: about 20 m from the georeference, plus the parent's own unmeasured northward offset (lots 6-10 lie north of corner lot 11, so the group's true position is at the corner or north of it), plus an unquantified allowance for placing an undescribed building beside a building located by a retrospective address. Facade bearing 0, north toward the river, inherited from the parent record and attested nowhere.",
+        "note": "PLACED BY EYE INSIDE A GROUP, WHICH IS THE HONEST DESCRIPTION OF IT, and it is the same method and the same admission `beaubien_barn` carries. NOTHING LOCATES THIS BUILDING. Andreas records it in a list of what the homestead held and gives it no bearing, no distance and no neighbour.\n\nMOVED 2026-10-03 UNDER T-1743, AND THE OLD PLACE WAS A FAULT, NOT A READING. T-1712 put this record 17.9 m east of the house on the yard line, and that easting is the centreline of `fort_road` (data/streets/1835.json), which runs north to the fort's south gate at about E 1146–1148: the building stood IN the road, 0.0 m from its centreline, and nothing asked. The owner ruled on the ticket (answer b) that the group is the house plus two small outbuildings sited behind — west of — the frontage on that road. METHOD NOW: west of `jb_beaubien_homestead`, this record's east wall 4.0 m clear of the house's west wall and its front 4.2 m north of the house's frontage line (local origin 1117.0, 179.0). The frontage line itself was tried first and refused by the ground, not by taste: the house stands on a low rise that falls away west, and a 6.1 m store on that line would stand 0.39 m into the slope at its uphill corner, past the walker's 0.35 m step; 4.2 m north the same store lands within 0.27 m. THE DIRECTION AND THE DISTANCE ARE BOTH STILL INVENTED. West rather than south because the barn already holds the yard line behind the house, and because west is the one side of the house with open ground: the fort road is east, the stockade north, and the garrison garden's nearest corner is about 40 m south-west. `tools/check_structure_corridors.py --gate` now refuses any footprint standing in a street corridor, so the old place could not be drawn again.\n\nTHE CAVEAT THAT TRAVELS WITH THE PARENT, UNCHANGED: neither South Water Street nor Michigan Avenue existed on the reservation in 1835 — it was unplatted and no street crossed it — so the corner both books locate this group by is a grid that arrived with the 1839 plat. WORKING UNCERTAINTY: about 20 m from the georeference, plus the parent's own unmeasured northward offset (lots 6-10 lie north of corner lot 11, so the group's true position is at the corner or north of it), plus an unquantified allowance for placing an undescribed building beside a building located by a retrospective address. Facade bearing 0, north toward the river, inherited from the parent record and attested nowhere.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No source gives this building a lot, a corner or a distance. The coordinate is an offset from a sibling record that is itself placed by a retrospective street intersection, so no line in this dataset can check it; position.note states the offset, its direction and what each of them is worth."
@@ -55,7 +55,7 @@
           ]
         ],
         "confidence": "reconstructed",
-        "note": "INVENTED, AND DRAWN TO THE ONE WORD THE SOURCE GIVES IT. 6.1 x 4.88 m is 20 x 16 ft, the same single-pen figure `beaubien_barn` carries: 20 ft borrowed from Hogan's store, the one documented log dimension here, and 16 ft the shallower of the two common single-pen depths. 'A small trading post' is the whole of the evidence for the size and it is a comparison, not a measurement — so this is drawn as the smallest building in the group, which is what the word can carry and no more. Every number is invented and this polygon cites no sources."
+        "note": "INVENTED, AND DRAWN TO THE ONE WORD THE SOURCE GIVES IT. 6.1 x 4.88 m is 20 x 16 ft, the same single-pen figure `beaubien_barn` carries: 20 ft borrowed from Hogan's store, the one documented log dimension here, and 16 ft the shallower of the two common single-pen depths. 'A small trading post' is the whole of the evidence for the size and it is a comparison, not a measurement — so this is drawn as the smallest building in the group, which is what the word can carry and no more. Every number is invented and this polygon cites no sources. Unchanged by T-1743, which moved the building and changed its form, not its size."
       },
       "form": {
         "construction": {
@@ -64,32 +64,32 @@
           "sources": [
             "andreas_1884_v1"
           ],
-          "note": "NOT STATED BY ANY SOURCE REACHED, and it is the same reading `jb_beaubien_homestead` and `beaubien_barn` both carry: log, from date and place. Nothing reached dates this building, so the earliest it can have gone up is 1822 and the latest is the scene date; this project's dossier records the settlement's stock as log until frame arrived with the town, and excludes brick on the south side before 1837. If it was in fact frame this record has the right massing on the wrong archetype and should move to a frame archetype rather than being repainted."
+          "note": "NOT STATED BY ANY SOURCE REACHED, and it is the same reading `jb_beaubien_homestead` and `beaubien_barn` both carry: log, from date and place. Nothing reached dates this building, so the earliest it can have gone up is 1822 and the latest is the scene date; this project's dossier records the settlement's stock as log until frame arrived with the town, and excludes brick on the south side before 1837. If it was in fact frame, `construction` on this record should read `light_frame` or `plank`; the outbuilding archetype draws all three."
         },
         "wall_height_m": {
           "value": 2.5,
           "confidence": "inferred",
-          "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill — the same reading and the same number this project gives Hogan's store, `beaubien_barn` and this record's parent."
+          "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill — the same reading and the same number this project gives Hogan's store and `beaubien_barn`. Kept at the eave when T-1743 moved the record onto the outbuilding archetype, so the store reads as low as the barn and lower than the house."
         },
         "roof_type": {
-          "value": "gable",
-          "confidence": "inferred",
-          "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region, and it is what both committed buildings of this group carry."
+          "value": "shed",
+          "confidence": "reconstructed",
+          "note": "INVENTED, AND CHOSEN TO SAY WHAT THE BUILDING IS NOT. No source describes this roof. Until T-1743 it was a gable at 35 degrees on the log_dwelling archetype, with a chimney and a dwelling's windows, and the owner read the group as three identical log houses — which is what three records on one archetype, one pitch and one wall height draw. A single slope is the cheapest roof there is, it is the outbuilding archetype's own default for a building under 5 m deep, and it is the form a store room or shed most often carried; a gable would assert the house's form just as freely. Either is ours."
         },
         "roof_pitch_deg": {
-          "value": 35.0,
+          "value": 18.0,
           "confidence": "inferred",
-          "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes, and is the figure the other two buildings of this group carry. Inferred from construction practice, not measured."
+          "note": "No pitch is attested. 18 degrees is the outbuilding archetype's figure for a shed roof — about the shallowest a riven-shake roof sheds water at — and is inferred from that covering rather than measured."
         },
-        "stories": {
-          "value": 1,
+        "door": {
+          "value": "man",
           "confidence": "reconstructed",
-          "note": "INVENTED. No source gives this building a storey. One is the smaller claim, the archetype's default, and the only reading 'small' leaves room for."
+          "note": "INVENTED. Nothing describes an opening. A trading post is a room goods and people went in and out of on foot, and `man` is the archetype's door for one person and an armful of goods; a wider door would claim wagon trade at this building, which nothing records."
         },
-        "chimneys": {
-          "value": 1,
+        "door_side": {
+          "value": "front",
           "confidence": "reconstructed",
-          "note": "INVENTED, and it is a weaker claim than the residence's. Nothing says this building was heated. One stack is the archetype's default and is what a trade room worked in through a Chicago winter would have had; a count of nought would assert an unheated store just as freely, and neither is on any page."
+          "note": "INVENTED. On the north elevation, the frontage line the house faces along, so the post's door and the house's face the same way."
         }
       }
     }
@@ -110,7 +110,7 @@
     ],
     "note": "Andreas lists it among what the homestead held: 'He afterwards built a new residence and a small trading post' (scan p. 185). This ties the building to the homestead; what the post traded, and who kept it on the scene date, are not claimed."
   },
-  "research_note": "THE THIRD OF THE FOUR BUILDINGS ANDREAS RECORDS AT THIS HOMESTEAD, AND THE SMALLEST. WHY THIS IS BUILT NOW, WHEN THE DOSSIER SAID IT WOULD NOT BE. `docs/RESEARCH/jb_beaubien_homestead.md` § 4 read 'the homestead was four buildings and one is modelled' and refused the other three on the ground that they 'would be three invented boxes placed by eye around a fourth'. That sentence is now two releases out of date on its own count — `beaubien_barn` was built on 2026-08-11 in exactly the way § 4 forbids, by eye, 16.3 m behind the house, with the direction and the distance recorded as invented — so the refusal had already been overturned for one of the three and was still written down for all three. T-1712 takes the owner's own ask for this ground (T-1203, 'the documented country seats with their reconstructed neighbours') and applies the barn's disposition to the two buildings left: the PRESENCE is attested, the POSITION and the SIZE are invented and graded `reconstructed`, and § 4 is rewritten to the count it now has. WHAT IS NOT DONE: nothing is upgraded on any committed record, the household is not moved onto either new building, and the garden the 1839 sale names with the out-buildings is still unbuilt — it is ground cover and a fence line, not a structure, and no source gives it an extent. REVIEW IS FLAGGED on this record for the reason both of its siblings carry it: the Fort Dearborn reservation, the Beaubien family's place in the Indian trade at Chicago and the Potawatomi removal of August 1835 all meet on this ground, and AGENTS.md's standing constraint asks for consultation rather than for a reconstruction that settles the question by building something. ONE THING IS WORTH SEPARATING OUT: this is a trading post at a private homestead on the reservation, and it is NOT `fort_dearborn_us_factors_house`, the government factory the 1830 Harrison plan letters 140 m south of here — `docs/RESEARCH/jb_beaubien_homestead.md` § 6a measured that separation and refused the identity, and the two records must not be read as one building counted twice.",
+  "research_note": "THE THIRD OF THE FOUR BUILDINGS ANDREAS RECORDS AT THIS HOMESTEAD, AND THE SMALLEST. WHY THIS IS BUILT NOW, WHEN THE DOSSIER SAID IT WOULD NOT BE. `docs/RESEARCH/jb_beaubien_homestead.md` § 4 read 'the homestead was four buildings and one is modelled' and refused the other three on the ground that they 'would be three invented boxes placed by eye around a fourth'. That sentence is now two releases out of date on its own count — `beaubien_barn` was built on 2026-08-11 in exactly the way § 4 forbids, by eye, 16.3 m behind the house, with the direction and the distance recorded as invented — so the refusal had already been overturned for one of the three and was still written down for all three. T-1712 takes the owner's own ask for this ground (T-1203, 'the documented country seats with their reconstructed neighbours') and applies the barn's disposition to the two buildings left: the PRESENCE is attested, the POSITION and the SIZE are invented and graded `reconstructed`, and § 4 is rewritten to the count it now has. WHAT IS NOT DONE: nothing is upgraded on any committed record, the household is not moved onto either new building, and the garden the 1839 sale names with the out-buildings is still unbuilt — it is ground cover and a fence line, not a structure, and no source gives it an extent. REVIEW IS FLAGGED on this record for the reason both of its siblings carry it: the Fort Dearborn reservation, the Beaubien family's place in the Indian trade at Chicago and the Potawatomi removal of August 1835 all meet on this ground, and AGENTS.md's standing constraint asks for consultation rather than for a reconstruction that settles the question by building something. ONE THING IS WORTH SEPARATING OUT: this is a trading post at a private homestead on the reservation, and it is NOT `fort_dearborn_us_factors_house`, the government factory the 1830 Harrison plan letters 140 m south of here — `docs/RESEARCH/jb_beaubien_homestead.md` § 6a measured that separation and refused the identity, and the two records must not be read as one building counted twice. T-1743, 2026-10-03: MOVED OFF THE FORT ROAD AND REDRAWN AS AN OUTBUILDING. The owner reported the group as three identical log houses by the fort, two of them on the fort road, and ruled (answer b) for one dwelling plus two small outbuildings. This record left the `log_dwelling` archetype for `outbuilding` — a low log store with a shed roof, a single door and no chimney — and moved from the road's centreline to the frontage line west of the house. Its presence and use are still Andreas's; everything about its form and place is still ours, and L283 says so.",
   "review_required": true,
   "land_owner": {
     "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
@@ -118,14 +118,14 @@
     "sources": [
       "isa_public_domain_land_tract_sales"
     ],
-    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 99 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS 72 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
     "tract": "the south-west fractional quarter of section 10",
     "entries": [
       "ls0057"
     ],
     "date_purchased": "1835-05-28",
     "type_of_sale": "federal land sale (cash entry)",
-    "margin_m": 99.3,
+    "margin_m": 71.8,
     "generated_by": "tools/resolve_land_tracts.py --build"
   }
 }

@@ -30,6 +30,30 @@ same jaunt already does with the land-sale figure it cannot read (content_versio
 is not detected; no lexicon for it would spare "a wet street has told you enough". The
 library's shape (T-2039) and timing (T-2041) are other pieces of T-1271.
 
+## T-1743 — Col. Beaubien's homestead is one house and two outbuildings, off the fort road (2026-10-03)
+
+**Owner-reported**, so the visible-progress rule's first exemption would apply; it is visible anyway.
+The owner saw three identical log houses by the fort, two of them on the fort road, and ruled (answer
+b on the ticket) for one dwelling and two outbuildings.
+
+- **Measured before the fix:** `beaubien_new_residence` and `beaubien_trading_post`, placed by eye on
+  T-1712, stood astride the `fort_road` centreline (0.0 m from it, 6.0 m deep in its 12 m corridor).
+  The house clears it by 8.2 m and the barn by 13.8 m.
+- **Fold:** `beaubien_new_residence` is withdrawn (record, sidecar, master and web GLB, manifest rows)
+  and folded into `jb_beaubien_homestead` on § 6a's reading; dossier § 4 says so.
+- **Re-site and redraw:** the trading post moves onto the outbuilding archetype (log, shed roof, man
+  door, no chimney) 4.0 m west of the house, where the ground lands it (the frontage line itself
+  stood it 0.39 m into the slope). The barn keeps its place and gains
+  a loft door. L283 is revised and struck; L219, L263 and L266 restate their counts.
+- **Gate:** `tools/check_structure_corridors.py --gate` measures every street in
+  `data/streets/1835.json` at its own width against every phase standing on its date — 48 laps across
+  41 records are banked as a ratchet (most on `north_water`, from sourced positions, and not moved);
+  a new, deeper or cleared-but-banked lap is refused. The self-test puts the trading post back on the
+  fort road and watches it go red.
+- **Not done here:** the trading post's and barn's meshes need the pinned-Blender bake, which this
+  container cannot run; the bake is dispatched on the branch. The garden Wentworth names is still
+  unbuilt.
+
 ## T-2003 — the 1812 ground generated: mouth, heightfield, ground and water meshes (2026-10-03)
 
 **What a visitor sees: nothing yet.** No scene stands on `e1830_natural`. The 1812 Fort Dearborn
@@ -324,6 +348,22 @@ viewports had zero page errors. Stills and the receipt are in
 `docs/performance/jaunt-schoolday-errand/`.
 
 **Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-2016 — Glessner connected roof plan (2026-10-03)
+
+The north ridge is straight to the west wall, and the full-height stable ridge
+continues to a south gable with a courtyard-facing roof. The courtyard north
+slope is planar. The west dormer joins the host with a decorated ridge; two tiled
+returns meet the dining bay copper roof, and copper fills the northeast court
+corner. Earlier north and west aperture corrections remain. The owner aerial
+is the geometric target; roof joins and two service stacks are reconstructed.
+Historical review did not establish that the stacks were absent in 1904.
+See `docs/RESEARCH/glessner-connected-roof-plan/work.md` and liberty
+`L-glessner-connected-roof-2016`. The full and light exports, 1,800 roof samples, 186 opening rays and published
+desktop/mobile detail switching pass. Integration with dev 1b56a552 passes all
+750 source checks and preflight. Official published stage 13 passes at both
+viewports with zero page errors; logs and scope are in the research folder.
+No production promotion is included.
 
 ## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
 

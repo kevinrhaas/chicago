@@ -412,6 +412,10 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 544 -> 550 and 540 -> 546 on 2026-10-03 (T-1205): six trade roofs on the north face of
 # Kinzie Street from the North Division recipe, the same `generate_north_infill` meshes as
 # its sixty; terrain reach still 4 and pier_crib still 2.
+# 550 -> 549 and 546 -> 545 on 2026-10-03 (T-1743): `beaubien_new_residence` is withdrawn
+# and folded into `jb_beaubien_homestead` on the owner's ruling that Col. Beaubien's group
+# shows one dwelling. One structure asset fewer; terrain reach still 4 and pier_crib still 2.
+# 552 -> 551 with T-2003's two meshes below, merged.
 #
 # 550 -> 552 on 2026-10-03 (T-2003): the 1812 ground and water meshes,
 # `terrain__e1830_natural.glb` and `water__e1830_natural.glb`. Both are built through
@@ -419,12 +423,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # common reach with it; emit.py builds no terrain, so 546 stands, and pier_crib still 2.
 #
 STATED = {
-    "assets": 552,
+    "assets": 551,
     "restales": {
-        "generators/common/*.py": 552,
+        "generators/common/*.py": 551,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 546,
+        "generators/emit.py": 545,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

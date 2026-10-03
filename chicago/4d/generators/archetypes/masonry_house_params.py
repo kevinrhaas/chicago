@@ -91,7 +91,7 @@ CONSUMED = frozenset({
     "bay_dining", "bay_dining_elevation",
     "dormers", "dormer_depth",
     "turret_stable",
-    "chimneys", "chimney_plans", "chimney_dining_room",
+    "chimneys", "chimney_plans", "chimney_dining_room", "chimney_service_east", "chimney_service_west",
     "openings_prairie", "openings_18th", "openings_18th_stable", "openings_18th_photo",
     "openings_stable_doors", "openings_alley", "openings_court", "openings_court_north",
     "opening_heights",
@@ -677,9 +677,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "hip_y": fr.y(rework["south_hip_S"]),
                 "front_hip_y": fr.y(rework["front_hip_S"]),
                 "north_range": dict(north)}
+            west["stable_roof"]["connected_roof_plan"] = rework.get("connected_roof_plan", False)
             west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
             west["stable_roof"]["lower_rear_gable"] = rework.get("lower_rear_gable", False)
-            if west["stable_roof"]["continuous_south_gable"] or west["stable_roof"]["lower_rear_gable"]:
+            if any(west["stable_roof"].get(k) for k in ("connected_roof_plan", "continuous_south_gable", "lower_rear_gable")):
                 # The owner's reconstructed section now drives both the roof
                 # and the masonry silhouette; retain that tier in both meshes.
                 west["conf_roof"] = max(west["conf_roof"], cf("v4_detail"))
@@ -687,6 +688,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             west["stable_roof"]["cross_foot_eave"] = fr.zval(rework.get("cross_foot_eave",rework["rear_eave_west"]))
             dormer = p.detail.get("west_dormer")
             if dormer:
+                dormer["connected_ridge"] = wd.get("connected_ridge", False)
                 dormer["style"] = wd.get("style")
                 dormer["crest_x"] = fr.x(wd["crest_W"])
                 dormer["hood_front"] = fr.x(wd["hood_front_W"])
@@ -766,6 +768,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "window_count": bt["window_count"], "window_z": [fr.z(v) for v in bt["window_z"]],
                 "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
                 "stair_steps": int(bt.get("stair_steps", 9))}
+        p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
+        p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")
         if service_stair:

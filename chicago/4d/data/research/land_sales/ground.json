@@ -35,10 +35,10 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 548,
-    "structures_reached": 104,
+    "structures_placed": 547,
+    "structures_reached": 103,
     "structures_reached_by_grade": {
-      "inferred": 26,
+      "inferred": 25,
       "reconstructed": 78
     },
     "structures_unreached_by_section": {
@@ -2521,12 +2521,8 @@
           "margin_m": 94.6
         },
         {
-          "id": "beaubien_new_residence",
-          "margin_m": 84.9
-        },
-        {
           "id": "beaubien_trading_post",
-          "margin_m": 99.3
+          "margin_m": 71.8
         },
         {
           "id": "chicago_lighthouse_1832",
