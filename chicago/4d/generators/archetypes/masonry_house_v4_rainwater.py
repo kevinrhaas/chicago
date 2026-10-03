@@ -104,6 +104,7 @@ def _downpipe(b,x,y,top,inlet=None):
 
 def add_courtyard_rainwater(b,params):
     """Follow the photographed courtyard eaves and their two clear pipe joints."""
+    add_west_rainwater(b,params)
     ranges={r['name']:r for r in params.ranges}
     north,east=ranges.get('north_range'),ranges.get('east_wing')
     if not north or not east:return
@@ -165,3 +166,24 @@ def add_courtyard_rainwater(b,params):
         runs=[(a,min(c,lo)) for a,c in runs if a<lo]+[(max(a,hi),c) for a,c in runs if c>hi]
     for a,c in runs:
         if c>a+.02:_gutter(b,[(ex,a,ez),(ex,c,ez)],[(-1,0,0)]*2)
+
+
+def add_west_rainwater(b,params):
+    """Three alley pipes and a low rear gutter in the owner's west reference.
+
+    Geometry follows the rebuilt eaves; pipe sections are reconstructed using
+    the same historical fitting vocabulary as the courtyard. Present only on
+    the T-1999 lower rear roof, so older registered versions are unchanged.
+    """
+    r=next((r for r in params.ranges if r.get('stable_roof',{}).get('lower_rear_gable')),None)
+    if not r:return
+    from archetypes.masonry_house_v4_west_roof import height
+    g=r['stable_roof'];x=r['x0'];south=r['y0'];north=r['y1'];join=g['south_foot_y']
+    # The rear gutter has a crisp rolled edge and visibly terminates at the
+    # collector at either end rather than continuing across the gable face.
+    gx=x-.17;gz=height(r,x, south)-.025
+    _gutter(b,[(gx,south,gz),(gx,join,gz)],[(-1,0,0)]*2)
+    for y,top in ((north,g['north_eave']),(join,g['rear_west_eave']),(south,g['rear_west_eave'])):
+        _downpipe(b,x-.12,y,top,(gx,y))
+        # Collared shoe carries the water down and away from the foundation.
+        _tube(b,[(x-.12,y,.22),(x-.12,y,.10),(x-.27,y,.07)],.044,12)

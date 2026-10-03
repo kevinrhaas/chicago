@@ -40,6 +40,15 @@ menu) with zero page errors; the keepsake landed under News & Knowledge.
 **Unverified.** The 1280×800 drive read the card's figures and opened the detail card with zero
 page errors, but the ride to the ending was cut off by the 580 s cap; the ending was proved at
 390×780 only. The stills are not committed.
+## T-1999 — Glessner north and west elevation repair (2026-10-02)
+
+The owner references drive a new west silhouette, regularized rear openings,
+clear dormer joinery and west rainwater fittings. North window heads are
+reconciled to HABS printed stone courses; north entrance widths remain measured.
+Roof and façade detail changes are reconstructed where unmeasured (L365).
+Full/light spatial checks, the 745-step source gate, preflight and bounded
+published desktop/mobile review pass. Receipts are in
+`docs/RESEARCH/glessner-elevation-rebuild/work.md`.
 
 ## T-2007 — Work on the Waterfront, a published 1835 jaunt (2026-10-03)
 
