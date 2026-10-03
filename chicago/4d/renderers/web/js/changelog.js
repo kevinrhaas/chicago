@@ -1,9 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1358, ts: '2026-10-03T10:49:19.761Z', date: 'Oct 3, 2026, 5:49 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+  { v: 1360, ts: '2026-10-03T11:55:13.852Z', date: 'Oct 3, 2026, 6:55 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [
       'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, and four each at the two boarding houses on the Dearborn and Market blocks of Washington Street. Open a house\u2019s card to see them among its boarders.',
       'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
       'Nine children under ten are still owed in South and West Division lodging houses. A child is only ever placed with a keeper\u2019s family, so they will arrive with the keepers of boarding houses not yet raised.',
+    ] },
+  { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
+      'Take the leather to S. B. Cobb\u2019s saddlery and the iron to Asahel Pierce\u2019s smithy at Lake and Canal, then decide at the Green Tree whether to take the long road or keep the trip short.',
+      'The crack, the repairs and the keepsake, Sound Tack, are our reconstruction (liberty L-jaunt-mend-harness). The stable, the shops and their trades come from the sources.',
+    ] },
+  { v: 1358, ts: '2026-10-03T10:31:34.336Z', date: 'Oct 3, 2026, 5:31 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+    items: [
+      'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
+      'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
+      'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
+      'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
     ] },
   { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [
