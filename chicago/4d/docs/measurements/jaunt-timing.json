@@ -607,125 +607,6 @@
       "estimate_s": 164
     },
     {
-      "id": "boots-and-leather",
-      "title": "Boots, Leather and the Road",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "visited": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "done": true,
-      "estimate": 458.052239776459,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 155
-      },
-      "legs": [
-        {
-          "from": "ready-made",
-          "seconds": 143.4,
-          "metres": 911
-        },
-        {
-          "from": "tannery",
-          "seconds": 127.4,
-          "metres": 809
-        },
-        {
-          "from": "saddler",
-          "seconds": 22.2,
-          "metres": 141
-        }
-      ],
-      "travel_s": 293,
-      "measured_s": 464,
-      "estimate_s": 458
-    },
-    {
-      "id": "boots-and-leather",
-      "title": "Boots, Leather and the Road",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "visited": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "done": true,
-      "estimate": 239.1444698790929,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 155
-      },
-      "legs": [
-        {
-          "from": "ready-made",
-          "seconds": 35.8,
-          "metres": 736
-        },
-        {
-          "from": "tannery",
-          "seconds": 15.2,
-          "metres": 216
-        },
-        {
-          "from": "saddler",
-          "seconds": 10.7,
-          "metres": 132
-        }
-      ],
-      "travel_s": 62,
-      "measured_s": 233,
-      "estimate_s": 239
-    },
-    {
-      "id": "boots-and-leather",
-      "title": "Boots, Leather and the Road",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "visited": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "done": true,
-      "estimate": 172.5,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 155
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 171,
-      "estimate_s": 173
-    },
-    {
       "id": "calling-on-neighbors",
       "title": "Calling on Neighbors",
       "mode": "horse",
@@ -1097,125 +978,6 @@
       "travel_s": 0,
       "measured_s": 182,
       "estimate_s": 184
-    },
-    {
-      "id": "from-prairie-to-town",
-      "title": "From Prairie to Town",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "open-shore",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "visited": [
-        "open-shore",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "done": true,
-      "estimate": 611.9540255275215,
-      "approx": false,
-      "content": {
-        "opening": 18,
-        "stops": 96
-      },
-      "legs": [
-        {
-          "from": "open-shore",
-          "seconds": 300.5,
-          "metres": 1945
-        },
-        {
-          "from": "the-stockade",
-          "seconds": 85.2,
-          "metres": 539
-        },
-        {
-          "from": "the-store",
-          "seconds": 60.8,
-          "metres": 387
-        }
-      ],
-      "travel_s": 447,
-      "measured_s": 561,
-      "estimate_s": 612
-    },
-    {
-      "id": "from-prairie-to-town",
-      "title": "From Prairie to Town",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "open-shore",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "visited": [
-        "open-shore",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "done": true,
-      "estimate": 238.50287077707983,
-      "approx": false,
-      "content": {
-        "opening": 18,
-        "stops": 96
-      },
-      "legs": [
-        {
-          "from": "open-shore",
-          "seconds": 58.4,
-          "metres": 1331
-        },
-        {
-          "from": "the-stockade",
-          "seconds": 37.7,
-          "metres": 775
-        },
-        {
-          "from": "the-store",
-          "seconds": 20.6,
-          "metres": 335
-        }
-      ],
-      "travel_s": 117,
-      "measured_s": 231,
-      "estimate_s": 239
-    },
-    {
-      "id": "from-prairie-to-town",
-      "title": "From Prairie to Town",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "open-shore",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "visited": [
-        "open-shore",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "done": true,
-      "estimate": 115.5,
-      "approx": false,
-      "content": {
-        "opening": 18,
-        "stops": 96
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 114,
-      "estimate_s": 116
     },
     {
       "id": "gossip-or-notice",
@@ -2559,125 +2321,6 @@
       "estimate_s": 126
     },
     {
-      "id": "soap-and-candles",
-      "title": "Soap and Candles",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "visited": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "done": true,
-      "estimate": 425.23055034369247,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 148
-      },
-      "legs": [
-        {
-          "from": "the-works",
-          "seconds": 194.1,
-          "metres": 1246
-        },
-        {
-          "from": "the-list",
-          "seconds": 43.2,
-          "metres": 276
-        },
-        {
-          "from": "lake-street",
-          "seconds": 22.7,
-          "metres": 144
-        }
-      ],
-      "travel_s": 260,
-      "measured_s": 428,
-      "estimate_s": 425
-    },
-    {
-      "id": "soap-and-candles",
-      "title": "Soap and Candles",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "visited": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "done": true,
-      "estimate": 223.7043296020936,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 148
-      },
-      "legs": [
-        {
-          "from": "the-works",
-          "seconds": 23.5,
-          "metres": 406
-        },
-        {
-          "from": "the-list",
-          "seconds": 15.7,
-          "metres": 226
-        },
-        {
-          "from": "lake-street",
-          "seconds": 9.5,
-          "metres": 112
-        }
-      ],
-      "travel_s": 49,
-      "measured_s": 217,
-      "estimate_s": 224
-    },
-    {
-      "id": "soap-and-candles",
-      "title": "Soap and Candles",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "visited": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "done": true,
-      "estimate": 169.5,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 148
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 168,
-      "estimate_s": 170
-    },
-    {
       "id": "sunday-circuit",
       "title": "A Sunday Circuit",
       "mode": "horse",
@@ -3152,14 +2795,369 @@
       "travel_s": 0,
       "measured_s": 135,
       "estimate_s": 137
+    },
+    {
+      "id": "boots-and-leather",
+      "title": "Boots, Leather and the Road",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "visited": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "done": true,
+      "estimate": 351.62800033870457,
+      "approx": false,
+      "content": {
+        "opening": 13,
+        "stops": 142
+      },
+      "legs": [
+        {
+          "from": "ready-made",
+          "seconds": 161.1,
+          "metres": 1040
+        },
+        {
+          "from": "tannery",
+          "seconds": 13.5,
+          "metres": 80
+        },
+        {
+          "from": "saddler",
+          "seconds": 21.9,
+          "metres": 139
+        }
+      ],
+      "travel_s": 197,
+      "measured_s": 352,
+      "estimate_s": 352
+    },
+    {
+      "id": "boots-and-leather",
+      "title": "Boots, Leather and the Road",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "visited": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "done": true,
+      "estimate": 218.71945176285683,
+      "approx": false,
+      "content": {
+        "opening": 13,
+        "stops": 142
+      },
+      "legs": [
+        {
+          "from": "ready-made",
+          "seconds": 39.6,
+          "metres": 830
+        },
+        {
+          "from": "tannery",
+          "seconds": 7.8,
+          "metres": 85
+        },
+        {
+          "from": "saddler",
+          "seconds": 10.7,
+          "metres": 132
+        }
+      ],
+      "travel_s": 58,
+      "measured_s": 213,
+      "estimate_s": 219
+    },
+    {
+      "id": "boots-and-leather",
+      "title": "Boots, Leather and the Road",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "visited": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "done": true,
+      "estimate": 156.5,
+      "approx": false,
+      "content": {
+        "opening": 13,
+        "stops": 142
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 155,
+      "estimate_s": 157
+    },
+    {
+      "id": "from-prairie-to-town",
+      "title": "From Prairie to Town",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "factors-house",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
+      ],
+      "visited": [
+        "factors-house",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
+      ],
+      "done": true,
+      "estimate": 318.35171941466757,
+      "approx": false,
+      "content": {
+        "opening": 15,
+        "stops": 96
+      },
+      "legs": [
+        {
+          "from": "factors-house",
+          "seconds": 22.6,
+          "metres": 135
+        },
+        {
+          "from": "the-stockade",
+          "seconds": 132.2,
+          "metres": 854
+        },
+        {
+          "from": "the-store",
+          "seconds": 60.7,
+          "metres": 386
+        }
+      ],
+      "travel_s": 216,
+      "measured_s": 327,
+      "estimate_s": 318
+    },
+    {
+      "id": "from-prairie-to-town",
+      "title": "From Prairie to Town",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "factors-house",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
+      ],
+      "visited": [
+        "factors-house",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
+      ],
+      "done": true,
+      "estimate": 179.63245324467357,
+      "approx": false,
+      "content": {
+        "opening": 15,
+        "stops": 96
+      },
+      "legs": [
+        {
+          "from": "factors-house",
+          "seconds": 9.8,
+          "metres": 119
+        },
+        {
+          "from": "the-stockade",
+          "seconds": 34,
+          "metres": 687
+        },
+        {
+          "from": "the-store",
+          "seconds": 20.6,
+          "metres": 335
+        }
+      ],
+      "travel_s": 64,
+      "measured_s": 175,
+      "estimate_s": 180
+    },
+    {
+      "id": "from-prairie-to-town",
+      "title": "From Prairie to Town",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "factors-house",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
+      ],
+      "visited": [
+        "factors-house",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
+      ],
+      "done": true,
+      "estimate": 112.5,
+      "approx": false,
+      "content": {
+        "opening": 15,
+        "stops": 96
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 111,
+      "estimate_s": 113
+    },
+    {
+      "id": "soap-and-candles",
+      "title": "Soap and Candles",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
+      ],
+      "visited": [
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
+      ],
+      "done": true,
+      "estimate": 343.52070969166545,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 151
+      },
+      "legs": [
+        {
+          "from": "the-works",
+          "seconds": 106.5,
+          "metres": 684
+        },
+        {
+          "from": "the-list",
+          "seconds": 43.2,
+          "metres": 276
+        },
+        {
+          "from": "lake-street",
+          "seconds": 22.7,
+          "metres": 144
+        }
+      ],
+      "travel_s": 172,
+      "measured_s": 343,
+      "estimate_s": 344
+    },
+    {
+      "id": "soap-and-candles",
+      "title": "Soap and Candles",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
+      ],
+      "visited": [
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
+      ],
+      "done": true,
+      "estimate": 228.55849077605592,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 151
+      },
+      "legs": [
+        {
+          "from": "the-works",
+          "seconds": 25.3,
+          "metres": 455
+        },
+        {
+          "from": "the-list",
+          "seconds": 15.6,
+          "metres": 225
+        },
+        {
+          "from": "lake-street",
+          "seconds": 9.5,
+          "metres": 112
+        }
+      ],
+      "travel_s": 50,
+      "measured_s": 221,
+      "estimate_s": 229
+    },
+    {
+      "id": "soap-and-candles",
+      "title": "Soap and Candles",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
+      ],
+      "visited": [
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
+      ],
+      "done": true,
+      "estimate": 172.5,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 151
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 171,
+      "estimate_s": 173
     }
   ],
   "runFailures": [],
   "failures": [
-    "boots-and-leather: recommended horse measures 7.73 min, outside 3-6",
     "fort-dearborn-errand: recommended walk measures 6.37 min, outside 3-6",
     "freight-for-the-store: recommended wagon measures 6.12 min, outside 3-6",
-    "from-prairie-to-town: recommended horse measures 9.35 min, outside 3-6",
     "inspect-a-lot: recommended walk measures 6.78 min, outside 3-6",
     "materials-for-a-roof: recommended horse measures 6.07 min, outside 3-6",
     "new-in-chicago: recommended walk measures 10.42 min, outside 3-6",
@@ -3167,7 +3165,6 @@
     "outfit-for-the-west: recommended wagon measures 8.98 min, outside 3-6",
     "schoolday-errand: recommended horse measures 6.35 min, outside 3-6",
     "shopping-south-water: recommended walk measures 6.60 min, outside 3-6",
-    "soap-and-candles: recommended horse measures 7.13 min, outside 3-6",
     "sunday-circuit: recommended horse measures 6.55 min, outside 3-6",
     "work-on-waterfront: recommended horse measures 6.23 min, outside 3-6"
   ],

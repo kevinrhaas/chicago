@@ -3,11 +3,11 @@
   "id": "soap-and-candles",
   "content_version": 1,
   "title": "Soap and Candles",
-  "premise": "See from the road what Daniel Elston & Co.'s works made, make a short list on South Water Street, choose what to carry, and bring it home to a boarding house behind Peck's store.",
+  "premise": "See from Wolf Point what Daniel Elston & Co.'s works up the North Branch made, make a short list on South Water Street, choose what to carry, and bring it home to a boarding house behind Peck's store.",
   "category": "Household and trades",
   "scene": "1835",
   "opening": {
-    "text": "You board in the log house behind Peck's store, and the evenings are long. See from the road what a soap and candle works on the North Branch made, make a short list at a grocer's on South Water Street, choose what to carry and bring it home by Lake Street. A quiet outing: the errand is invented; the trades are documented.",
+    "text": "You board in the log house behind Peck's store, and the evenings are long. See from across the water what a soap and candle works on the North Branch made, make a short list at a grocer's on South Water Street, choose what to carry and bring it home by Lake Street. A quiet outing: the errand is invented; the trades are documented.",
     "read_s": 20
   },
   "default_mode": "horse",
@@ -36,11 +36,11 @@
     {
       "id": "the-works",
       "destination": {
-        "kind": "structure",
-        "id": "elston_soap_candle_manufactory"
+        "kind": "anchor",
+        "id": "forks"
       },
-      "text": "Start on the North Branch, where we place Daniel Elston & Co.'s works; no source gives the site. Their notice, printed 1833–34, offered hard and soft soap, wax and other candles, and paid cash for tallow and house ashes. No counter is recorded: look from the road.",
-      "read_s": 30,
+      "text": "Start at Wolf Point and look up the North Branch to its east bank, where we place Daniel Elston & Co.'s works; no source gives the site. Their notice, printed 1833–34, offered hard and soft soap, wax and other candles, and paid cash for tallow and house ashes. No counter is recorded.",
+      "read_s": 33,
       "action_s": 10,
       "links": [
         {
@@ -65,6 +65,7 @@
         }
       ],
       "evidence": [
+        "wolf-point-view",
         "elston-ad",
         "elston-place",
         "elston-trade",
@@ -249,8 +250,9 @@
     {
       "from": "the-works",
       "to": "the-list",
-      "note": "Back over the river by a bridge to South Water Street; no particular path is claimed, and the works' site is our placement.",
+      "note": "Over the South Branch by a bridge and east to South Water Street; no particular path is claimed, and the works' site is our placement.",
       "evidence": [
+        "wolf-point-view",
         "elston-place",
         "jones-place"
       ],
@@ -392,6 +394,15 @@
         "andreas_1884_v1"
       ],
       "reasoning": "The structure record's position is a conjectural proposal that cites no source for the site; the stop therefore says the place is ours and stays an exterior observation from the road. Nothing records a shop counter at the works."
+    },
+    {
+      "id": "wolf-point-view",
+      "text": "The first stop is the scene's typed viewpoint 'The forks, from Wolf Point', on the west bank where the North and South Branches meet; the works as the scene places it stands about 230 m up the North Branch, on the far bank. The viewpoint is a camera position, not a claimed path or a place anyone stood.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point"
+      ],
+      "reasoning": "DRLOIH puts Wolf Point on the west bank at the forks. The anchor stands at local E -100, N -28 in data/scenes/1835.json and elston_soap_candle_manufactory's placement at E -13, N +184, so the works is looked at across the water, as the stop says, and its site stays the scene's conjecture (elston-place)."
     },
     {
       "id": "elston-trade",
