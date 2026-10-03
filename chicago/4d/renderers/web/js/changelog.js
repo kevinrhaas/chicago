@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1386, ts: '2026-10-03T21:59:08.227Z', date: 'Oct 3, 2026, 4:59 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
+  { v: null, ts: '', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
     items: [
       'The row of colour-swatch buttons is gone. A small dial at the top right now steps through the four appearances, with four dots marking which one is on; hover it to see the name.',
       'The same dial sits on the arrival card and in the settings panel.',
       'The appearances are now called Control Room, Precision Brass, Retro Future and Deep Space. Your saved choice carries over.',
+    ] },
+  { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
+    items: [
+      'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
+      'Every jaunt is now read for four things it must never do: stage a meeting with Native people, show a figure of anyone, quote a named person without a source, or cite a source whose terms forbid it. All 27 pass.',
     ] },
   { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
     items: [
