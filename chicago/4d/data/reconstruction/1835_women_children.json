@@ -58,9 +58,9 @@
   "the west child buckets are full": 6
  },
  "fills": {
-  "households/family_dwelling/north": 26,
-  "households/family_dwelling/south": 65,
-  "households/family_dwelling/west": 33,
+  "households/family_dwelling/north": 8,
+  "households/family_dwelling/south": 15,
+  "households/family_dwelling/west": 10,
   "persons/female/10_19/north/family/none": 23,
   "persons/female/10_19/south/family/none": 54,
   "persons/female/10_19/west/family/none": 24,
@@ -99,6 +99,17 @@
   "west -> west": 8
  },
  "buckets_left_short": {},
+ "folded_into_married_houses": {
+  "ticket": "T-2020",
+  "households": 91,
+  "by_division": {
+   "north": 18,
+   "south": 50,
+   "west": 23
+  },
+  "people": 398,
+  "note": "Dealt here and then folded into a married house the order book refused a wife (data/reconstruction/1835_folded_houses.json). The counters above are the deal; `fills` no longer counts these houses as dwellings."
+ },
  "measurement": {
   "the_town_the_book_counts": "present households only",
   "people_before_this_stage": 880,

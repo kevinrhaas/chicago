@@ -135,8 +135,8 @@
     "privies": 122,
     "stables": 16,
     "privy_standing": 34,
-    "stable_standing": 16,
-    "horse_households": 32,
+    "stable_standing": 15,
+    "horse_households": 31,
     "refused": 8,
     "dwellings_off_plat": 110
   },
@@ -204,7 +204,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -536,21 +536,21 @@
       "lot": "blk_south_water_clark_lot5",
       "belongs_to": "recon_1835_blk_south_water_clark_d3_03",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        638.41,
-        -57.55
+        638.34,
+        -57.47
       ],
       "bearing_deg": -179.64,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "grey",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_south_water_clark_lot6",
@@ -666,21 +666,21 @@
       "lot": "blk_south_water_dearborn_lot3",
       "belongs_to": "recon_1835_blk_south_water_dearborn_d2_04",
       "households": [],
-      "household_class": "labourer",
+      "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        737.92,
-        -58.93
+        737.99,
+        -59.0
       ],
       "bearing_deg": -179.64,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
       "roof": "shed",
       "weather": "grey",
       "confidence": "reconstructed",
-      "finish": "slab"
+      "finish": "board"
     },
     {
       "id": "privy_blk_south_water_dearborn_lot5",
@@ -1676,7 +1676,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1752,21 +1752,21 @@
       "lot": "blk_randolph_market_lot2",
       "belongs_to": "recon_1835_blk_randolph_market_d6_02",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        122.61,
-        -317.02
+        122.53,
+        -317.1
       ],
       "bearing_deg": 0.34,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
       "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_randolph_market_lot3",
@@ -1786,7 +1786,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -2000,21 +2000,21 @@
       "lot": "blk_randolph_wells_lot0",
       "belongs_to": "recon_1835_blk_randolph_wells_h2_01",
       "households": [],
-      "household_class": "merchant",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        342.28,
-        -318.81
+        342.05,
+        -318.89
       ],
       "bearing_deg": 0.34,
-      "along_m": 1.52,
-      "depth_m": 1.22,
-      "eave_m": 2.0,
-      "head_m": 2.3,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
       "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "whitewash"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_randolph_wells_lot1",
@@ -2314,21 +2314,21 @@
       "lot": "blk_randolph_dearborn_lot0",
       "belongs_to": "recon_1835_blk_randolph_dearborn_d3_01",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        710.44,
-        -321.8
+        710.36,
+        -321.88
       ],
       "bearing_deg": 0.36,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
       "weather": "fresh",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_randolph_dearborn_lot1",

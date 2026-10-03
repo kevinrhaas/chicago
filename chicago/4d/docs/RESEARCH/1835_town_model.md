@@ -40,9 +40,9 @@ It is an adjudication over committed derived files — no page of any source is 
 
 ### known by presence
 
-- **present** — 2825
-- **absent** — 73
-- **uncertain** — 154
+- **present** — 2654
+- **absent** — 106
+- **uncertain** — 292
 
 **Open questions.** These are recorded here and do not become tickets.
 
@@ -113,7 +113,7 @@ It is an adjudication over committed derived files — no page of any source is 
 | `people_per_dwelling_november_1835` | **8.204** | 3,265 people in 398 dwellings. Against a 1840 mean HOUSEHOLD of 5.015, the gap is the finding: in 1835 a dwelling held more than one household, and a roof programme that seats one family per roof undercounts the town. |
 | `households_on_1_july_1835` | **471 – 816** | This model's July population divided by household size: the low end takes the low population at the 1840 MEAN of 5.015, the high end the high population at the 1840 MEDIAN of 4.0. The distribution is long-tailed — one 1840 household in a hundred holds twenty-one people or more — so mean and median bracket it better than either alone. |
 | `household_size` | **4 – 5.015** | Median 4.0, mean 5.015 in the 1840 city; p75 is 6 and p99 is 21. Half the town lives in households of four or fewer and the tail is boarding houses, hotels and crews. |
-| `household_records_the_layer_carries` | **2,060** | 2,060 household records for 1,404 people — 0.68 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families. |
+| `household_records_the_layer_carries` | **1,969** | 1,969 household records for 1,404 people — 0.71 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families. |
 | `dwellings_the_programme_schedules` | **335 – 377** | The authored programme schedules 335 ordinary dwellings and 42 larger boarding houses. The November census counted 398 dwellings, so the programme's dwelling half sits below the recorded count and its boarding houses make up the difference. |
 
 **Not claiming.** This section supplies no member to any household and names nobody; it states the distribution a reconstructed family must be drawn from and nothing about which family.
@@ -225,9 +225,9 @@ It is an adjudication over committed derived files — no page of any source is 
 | 1830 | 5 | 0.0021 |
 | 1831 | 22 | 0.0091 |
 | 1832 | 41 | 0.0169 |
-| 1833 | 264 | 0.109 |
-| 1834 | 685 | 0.2828 |
-| 1835 | 1383 | 0.571 |
+| 1833 | 357 | 0.1474 |
+| 1834 | 834 | 0.3443 |
+| 1835 | 1141 | 0.4711 |
 - **not the figures denominator** — The FIGURES above divide by the named layer alone; this table does not, and the two are different populations on purpose (T-1364).
 - **rows total** — 2422
 - **unit** — people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,422 who record one at all

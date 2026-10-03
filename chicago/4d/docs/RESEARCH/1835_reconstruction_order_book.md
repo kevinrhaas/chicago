@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 464. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -35,7 +35,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 ### households are counted in two different units
 
-*The model wants 643 households and the layer holds 1,510 records. Are those the same thing?*
+*The model wants 643 households and the layer holds 1,419 records. Are those the same thing?*
 
 Of the 1,375 records the layer holds present, 82 carry a reading about a dwelling and 1,293 do not. The quota is taken against the 82, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
@@ -345,7 +345,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 | ticket | persons drawn | buckets |
 |---|---:|---:|
-| T-1174 | 680 | 27 |
+| T-1174 | 589 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 295 | 19 |
 | T-1371 | 131 | 33 |
@@ -369,16 +369,16 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 ## Real names before invented ones
 
-The roster offers 1,787 names the corpus printed and this project withheld. Each class is a licence, not a quota:
+The roster offers 1,779 names the corpus printed and this project withheld. Each class is a licence, not a quota:
 
 | class | offered | ticket |
 |---|---:|---|
-| `R1_in_window_uncertain` | 902 | T-1172 |
+| `R1_in_window_uncertain` | 894 | T-1172 |
 | `R2_in_window_single_source` | 207 | T-1172 |
 | `R3_1834_return_or_muster` | 28 | T-1172 |
-| `R4_surname_only_census` | 436 | T-1170 |
+| `R4_surname_only_census` | 428 | T-1170 |
 | `R5_later_only_backprojectable` | 53 | T-1172 |
-| `R6_native_metis_black` | 161 | T-1177 |
+| `R6_native_metis_black` | 169 | T-1177 |
 
 ## Where the ordered households are standing
 
@@ -588,9 +588,9 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 1 | 11 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 7 | 34 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 1 | 8 | 2 | T-2023 |
-| `households/family_dwelling/north` | 123 | 12 | 111 | 26 | T-2021 |
-| `households/family_dwelling/south` | 258 | 41 | 217 | 65 | T-2021 |
-| `households/family_dwelling/west` | 110 | 7 | 103 | 33 | T-2021 |
+| `households/family_dwelling/north` | 123 | 12 | 111 | 8 | T-2021 |
+| `households/family_dwelling/south` | 258 | 41 | 217 | 15 | T-2021 |
+| `households/family_dwelling/west` | 110 | 7 | 103 | 10 | T-2021 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 1 | 6 | 6 | T-2023 |
 | `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-2023 |

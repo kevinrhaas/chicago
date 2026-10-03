@@ -256,13 +256,18 @@ def book() -> dict:
 
 
 def cards() -> dict:
-    """Every household record that can hold a reconstructed person, by id."""
+    """Every household record that can hold a reconstructed person, by id.
+
+    READ AS DEALT (T-2020). A woman-headed house folded into a married one stands on the
+    host's card, but its people were drawn against ITS cells; the layer is read as the
+    families stage's own `unfold` restores it, as a C1 move is read off the division dealt."""
     out = {}
     for folder in (HOUSEHOLDS, TRADES, LODGING_CARDS):
         for path in sorted(folder.glob("*.json")):
             doc = json.loads(path.read_text(encoding="utf-8"))
             out[doc["id"]] = doc
-    return out
+    modelled_families_division("", {"division": "south"}, "")  # loads the stage module
+    return modelled_families_division._module.unfold(out)[0]
 
 
 def value_of(field):

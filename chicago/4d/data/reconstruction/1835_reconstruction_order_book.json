@@ -28,12 +28,12 @@
     "real_names_first": "The roster (T-1159) offers every name the corpus printed and withheld. It is a licence on WHICH name a filler uses and never a quota, so it is counted against its ticket rather than smeared across cells that cannot hold it."
   },
   "known_layer": {
-    "households_total": 1512,
+    "households_total": 1421,
     "households_present": 1375,
     "households_uncertain": 936,
     "households_ruled_present": 936,
     "households_evidenced_absent": 2,
-    "households_reconstructed": 135,
+    "households_reconstructed": 44,
     "persons_total": 2383,
     "persons_standing": 2381,
     "persons_ruled_present": 942,
@@ -78,17 +78,17 @@
     "source": "data/reconstruction/1835_presence_rulings.json",
     "summed_into_known": true,
     "summed_by": "T-1463",
-    "persons_ruled_present": 945,
+    "persons_ruled_present": 1343,
     "households_ruled_present": 936,
     "by_presence_tier": {
-      "reconstructed": 797,
-      "inferred": 87,
-      "attested": 61
+      "reconstructed": 1125,
+      "inferred": 119,
+      "attested": 99
     },
     "by_residence_grade": {
       "inferred": 664,
       "attested": 278,
-      "reconstructed": 3
+      "reconstructed": 401
     },
     "what_known_takes": "the 826 attested and inferred; the 1 reconstructed is a fill",
     "persons_known_before_the_rulings": 460,
@@ -1254,7 +1254,7 @@
   "spent_by": [
     {
       "ticket": "T-1174",
-      "records": 680,
+      "records": 589,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1428,14 +1428,14 @@
     }
   ],
   "roster_offered": {
-    "total": 1787,
+    "total": 1779,
     "by_class": {
-      "R1_in_window_uncertain": 902,
+      "R1_in_window_uncertain": 894,
       "R2_in_window_single_source": 207,
       "R3_1834_return_or_muster": 28,
-      "R4_surname_only_census": 436,
+      "R4_surname_only_census": 428,
       "R5_later_only_backprojectable": 53,
-      "R6_native_metis_black": 161
+      "R6_native_metis_black": 169
     },
     "tickets": {
       "R1_in_window_uncertain": "T-1172",
@@ -1468,8 +1468,8 @@
       2362,
       3265
     ],
-    "households_standing": 217,
-    "households_still_owed": 417
+    "households_standing": 126,
+    "households_still_owed": 508
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1850,10 +1850,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 373,
+      "household_leg_now": 464,
       "person_leg_before": 374,
       "person_leg_now": 208,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 464. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -1871,9 +1871,9 @@
     },
     {
       "id": "households_are_counted_in_two_different_units",
-      "asks": "The model wants 643 households and the layer holds 1,510 records. Are those the same thing?",
+      "asks": "The model wants 643 households and the layer holds 1,419 records. Are those the same thing?",
       "the_answer_is": "NO — RULED BY THE OWNER, 2026-09-21, and carried here (T-1476).",
-      "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,510 against 643 is a BACKLOG, not a contradiction.",
+      "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,419 against 643 is a BACKLOG, not a contradiction.",
       "households_known_before_the_rulings": 439,
       "records_known_now": 1375,
       "houses_known_now": 82,
@@ -4414,7 +4414,7 @@
           "target": 123,
           "known": 12,
           "to_reconstruct": 111,
-          "filled": 26,
+          "filled": 8,
           "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
@@ -4427,7 +4427,7 @@
           "target": 258,
           "known": 41,
           "to_reconstruct": 217,
-          "filled": 65,
+          "filled": 15,
           "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
@@ -4440,7 +4440,7 @@
           "target": 110,
           "known": 7,
           "to_reconstruct": 103,
-          "filled": 33,
+          "filled": 10,
           "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
@@ -6334,21 +6334,21 @@
       "bucket": "households/family_dwelling/north",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 26,
+      "records": 8,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
       "bucket": "households/family_dwelling/south",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 65,
+      "records": 15,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
       "bucket": "households/family_dwelling/west",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 33,
+      "records": 10,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
