@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## T-1262 — New in Chicago, finished as the first-day Orientation jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts → *New in Chicago* now recommends **Walk**, not
@@ -26,6 +27,35 @@ menu. The keepsake landed once under Wayfinding, and there were no page errors.
 before the ending still on this software-rendered runner. `tools/test_jaunt_travel.mjs` fails
 at 390×780 when the detail popup is open (the jaunt controls measure 0×0). It fails the same
 way on a clean `dev`, so it predates this change and is not caused by it.
+=======
+## T-1989 — the four empty trade roofs: none can be kept, and each card says why (2026-10-02)
+
+Piece 2 of T-1986 (of T-1966 → T-1215). Four anonymous trade roofs stood empty after every
+other programme: the W2 joiner's shop on Randolph at Des Plaines, the F2 warehouse at the forks,
+the W5 riverside work shop on Wolcott and the C3 store on Lake. `tools/seat_trade_roofs_1835.py`
+offers each to the keepers the employment ledger owes a house of their own, in its own division,
+of a trade the roof serves (L361). The W5 has no keeper of a heavy trade left in the North
+Division, and the off-plat deal's tannery household already has its works at the forks.
+
+**Three seats were withdrawn on the merges with T-1996 and T-2000.** The first build seated Otis
+Bacon (carpenter) at the W2, Louis Bertrand (forwarder) at the F2 and Silas Bacon (grocer) at the
+C3. Those two tickets then told the keepers no house is owed, because their trade's shops are
+already held to their count: 65 stores against the census's 44, 7 forwarding houses against 4,
+and 45 mechanics' shops against the Chicago American's twenty-five. A seat in any of the three
+would be one shop more than that count. So the deal no longer offers those roofs to them, and
+each card says so with the count (`stated_use`: 3 carpenters and joiners at the W2, 1 forwarder at
+the F2, 18 storekeepers and grocers at the C3) rather than reading as though the town had nobody
+of the trade. A guard refuses an unseatable roof that misstates that count, and with no seat
+committed, the self-test re-owes one held keeper in a copy of the inputs so every seat guard still
+fires on a real seat.
+
+The small D2 shed on Lake west of Canal (`recon_1835_west_013`) is re-familied as a rough plank
+dwelling; the housing deal moves Ellen Doyle's household there from `recon_1835_west_011` and the
+room that frees seats nine more households that had no roof (523 → 514 unroofed). The roof join stays **closed**; owed a workplace stays
+at dev's **28**.
+
+**Unverified:** no source places any keeper at any of these roofs; the seat is the invention.
+>>>>>>> origin/dev
 
 ## T-1260 — Outfit for the West, the second published 1835 jaunt (2026-10-02)
 

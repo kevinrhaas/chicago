@@ -51,7 +51,7 @@
   },
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 137,
+  "principal_roofs_standing": 138,
   "ground_m2": 7314847.5
  },
  "what_the_roof_programme_does_not_carry": {
@@ -7134,7 +7134,7 @@
     "recon_1835_west_010": "D3",
     "recon_1835_west_011": "D2",
     "recon_1835_west_012": "A4",
-    "recon_1835_west_013": "A5",
+    "recon_1835_west_013": "D2",
     "recon_1835_west_017": "D4",
     "recon_1835_west_020": "C2",
     "recon_1835_west_022": "A1",
@@ -7158,7 +7158,7 @@
     "wolf_point_tavern": "T1",
     "wolf_point_tavern_stable": "A1"
    },
-   "principal_roofs_standing": 51
+   "principal_roofs_standing": 52
   },
   {
    "parcel_id": "wabansia",
