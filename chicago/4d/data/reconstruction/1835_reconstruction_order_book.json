@@ -1138,6 +1138,7 @@
     "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
     "remainder_stable_stages": {
       "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)",
+      "T-1532": "tools/seat_lodgers_1835.py — the working lodgers, dealt against the committed `quota_basis.working_lodgers` in the same file, read once and carried, so a re-cut re-deals nobody they seat",
       "T-1536": "tools/seat_lodgers_1835.py — the youths' top-up, dealt against the committed `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json",
       "T-1538": "tools/seat_lodgers_1835.py — the top-up room, read live once and carried in `quota_basis.top_up` of the same file, so a re-cut moves nobody it seats (T-1538; named here on 2026-10-03 when T-1205's re-cut first touched a cell it had drawn in)"
     },
@@ -1394,6 +1395,13 @@
       ]
     },
     {
+      "ticket": "T-1532",
+      "records": 4,
+      "buckets": [
+        "persons/male/10_19/south/lodging/trade"
+      ]
+    },
+    {
       "ticket": "T-1184",
       "records": 2,
       "buckets": [
@@ -1472,8 +1480,8 @@
     "roofs_standing": 546,
     "roofs_to_build": 140,
     "persons_standing": 2381,
-    "persons_still_owed": 228,
-    "persons_when_the_book_is_filled": 2609,
+    "persons_still_owed": 224,
+    "persons_when_the_book_is_filled": 2605,
     "persons_target_range": [
       2362,
       3265
@@ -1870,14 +1878,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2381,
-      "persons_still_owed": 228,
-      "converges_to": 2609,
+      "persons_still_owed": 224,
+      "converges_to": 2605,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 228 still owed is 2,609, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 66 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,381 standing plus 224 still owed is 2,605, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 62 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -3229,7 +3237,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 7,
-          "filled": 3,
+          "filled": 7,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 3,
@@ -6205,6 +6213,13 @@
       "ticket": "T-1536",
       "stage": "lodgers",
       "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/lodging/trade",
+      "ticket": "T-1532",
+      "stage": "lodgers",
+      "records": 4,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -9277,11 +9292,11 @@
       "buckets_refused": 45,
       "people_held": 386,
       "people_still_held": 386,
-      "open_headroom_in_person_buckets": 228,
+      "open_headroom_in_person_buckets": 224,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 228,
+      "still_owed_now": 224,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }
