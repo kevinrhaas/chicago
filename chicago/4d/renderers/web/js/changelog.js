@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1341, ts: '2026-10-03T03:48:19.416Z', date: 'Oct 2, 2026, 10:48 PM CT', title: 'A new jaunt: A Bed for the Night', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick A Bed for the Night. Compare four houses that took in strangers in the full town of 1835, about five and a half minutes on horseback.',
+      'Four stops from the west side to Lake Street: the Western Hotel, the Sauganash, Mrs Rufus Brown\u2019s boarding house and the Mansion House. Say first whether cost or convenience matters more, then choose where to ask.',
+      'The crowding is told in the June 1835 papers\u2019 own words: strangers in every room, some sleeping on the floor. No price or vacancy is claimed.',
+      'Finish to keep A Place to Lay Your Head in your daybook under Neighbors. The search itself is our reconstruction (liberty L-jaunt-bed-for-the-night).',
+    ] },
   { v: 1340, ts: '2026-10-03T03:19:23.807Z', date: 'Oct 2, 2026, 10:19 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Fort Dearborn Errand. You carry an imagined note round the fort\u2019s service buildings.',
