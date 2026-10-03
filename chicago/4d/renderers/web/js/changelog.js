@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1346, ts: '2026-10-03T05:18:28.781Z', date: 'Oct 3, 2026, 12:18 AM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
+    items: [
+      'Stand on Lake Street in front of Matthias Mason\u2019s smithy and look at the worn path to his door. It now has the same grain and colour as the street it runs into, with no seam where the two meet.',
+      'The worn ground before every door in town was drawn in a darker, coarser dirt that looked blocky up close. It is now drawn from the road\u2019s own surface, and its edge fades softly into the grass.',
+    ] },
   { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
     items: [
       'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
