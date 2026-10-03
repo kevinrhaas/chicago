@@ -17600,6 +17600,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-1261).
 
+### L-jaunt-letter-home — A Letter Home: an imagined letter, its purpose and a posting plan
+
+**Decision:** A Letter Home links four existing exterior destinations (Brown's boarding house, Peck's store, the Chicago Democrat's first office and Hogan's store, the former mail corner) in an invented errand to write a letter. The letter, its three purposes (arrived safely, the town's prospects, news from home), the sheet of paper, the advice to have replies plainly addressed, the two posting plans, the three endings and the A Letter Ready to Send memento are reconstructed, and so are the reading and action seconds. No named person speaks, no letter, sale or posting is attested, no interior is opened and no front door is claimed. The paper is placed with the one shop whose own advertisement lists letter paper (Frederick Thomas, Chicago American, 20 June 1835), and nothing is bought at Peck's, whose cards name no stationery. The post office on the scene date is NOT drawn or placed: Andreas has it leave Hogan's log store about July 1834, and Hogan's card of 30 July 1834, still printed on 27 May 1835, puts his store in South Water Street "one door below the Post Office" — a street and a neighbour, not a lot. So the posting inquiry ends as a plan, never a mailed receipt. The list of letters read at the Democrat's corner is the 27 May 1835 printing; its names are real townspeople and none is used. The route reverses the brief's order (Brown's, Peck's, the Democrat, Hogan's) so the walk does not double back along South Water.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, and brief 08 of JAUNTS-INITIAL-LIBRARY.md. The route, the letter and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. If dated evidence places the 1835 post office on a lot, the last stop should move to it.
+
+**Applies to:** `data/jaunts/letter-home.json`.
+
+**Recorded:** 2026-10-03 (T-2005).
+
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
 **Decision:** At the owner's request, v4 uses the default's measured envelope and
