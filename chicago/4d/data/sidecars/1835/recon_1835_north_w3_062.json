@@ -131,6 +131,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the W3 family to satisfy the aggregate North Division mix; no occupant or individual use is known."
+    },
+    "stated_use": {
+      "value": "no_keeper_of_its_trade",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "NO KEEPER OF ITS TRADE IS LEFT IN THE NORTH DIVISION. This cooper wagon or wheelwright shop is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/reconstruction/1835_family_archetype_crosswalk.json W3 label 'Cooper, wagon, or wheelwright shop'), and there are 0. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town gains takes it on the next build."
     }
   },
   "residents": [],

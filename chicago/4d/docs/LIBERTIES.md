@@ -20143,6 +20143,13 @@ off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery hous
 own card puts its works at the documented tannery 847 m away at the forks; seating them here
 would give one firm a second works no source records, and the deal declines it in words.
 
+**Five more, T-1205 (2026-10-03).** The trade roofs **L368** raises on the north face of Kinzie
+Street join the deal: the W3 shop, the two C3 stores, the W2 joiner's shop and the C4 store
+(the T1 tavern is a lodging house and its lodgers fill it). The C4 is offered to the C3's store
+and grocery keepers; the W3 to coopers and wheelwrights, the two trades its crosswalk label
+names. None is kept: 6 storekeepers and 5 carpenters and joiners of the North Division are held
+by their count, and no cooper or wheelwright there is owed a house, so each card says which.
+
 **Not done, and why:** with no keeper seated, the town audit's at-work count does not move
 here; a seat the deal makes later is joined into the employment ledger by T-1982.
 

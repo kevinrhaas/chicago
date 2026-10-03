@@ -184,6 +184,14 @@
         "isa_public_domain_land_tract_sales"
       ],
       "note": "THE ROOF IS AN INVENTION AND THIS CANNOT OUTRANK IT. The footprint stands 7 m inside the tract's nearest boundary, which on a documented building would carry the middle tier, but this building was dealt to its lot by a recipe and is not there. The tract is real and the register's words about it are read; what is graded here is the claim that THIS roof stands on it, and that claim is the recipe's. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    },
+    "stated_use": {
+      "value": "the_printed_count_is_held",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE NORTH DIVISION. This wide two story store or mixed block is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store', the C3 line's, for the crosswalk's 'Wide two-story store or mixed block'), and there are 0. 6 more keeper(s) of a trade it serves live in the north division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
     }
   },
   "residents": [],

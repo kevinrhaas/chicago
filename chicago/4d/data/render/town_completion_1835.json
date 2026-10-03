@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 5,
+    "structures_empty_owing_somebody": 0,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -128,27 +128,19 @@
     "use_stated": {
       "camp_ground": 3,
       "civic_or_works": 18,
-      "no_keeper_of_its_trade": 1,
+      "no_keeper_of_its_trade": 2,
       "occupancy_unattested": 2,
       "occupant_named_seat_refused": 2,
       "outbuilding_of_a_yard": 96,
       "part_of_an_establishment": 15,
       "stated_use_of_an_anonymous_roof": 13,
       "storage_operator_unrecorded": 5,
-      "the_mechanics_shops_are_over_their_count": 1,
-      "the_printed_count_is_held": 2,
+      "the_mechanics_shops_are_over_their_count": 2,
+      "the_printed_count_is_held": 5,
       "vacant_to_let": 1
     },
-    "empty_owing_somebody": {
-      "house_of_trade": 5
-    },
-    "empty": [
-      "recon_1835_north_c3_064",
-      "recon_1835_north_c3_066",
-      "recon_1835_north_c4_067",
-      "recon_1835_north_w2_065",
-      "recon_1835_north_w3_062"
-    ]
+    "empty_owing_somebody": {},
+    "empty": []
   },
   "tiers": {
     "persons": {
@@ -226,12 +218,12 @@
       "use_stated": {
         "attested": 26,
         "inferred": 6,
-        "reconstructed": 127
+        "reconstructed": 132
       },
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 5
+        "reconstructed": 0
       }
     },
     "streets": {
@@ -270,7 +262,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 5,
+      "open": 0,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]
