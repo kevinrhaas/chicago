@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Look Before You Buy a Lot. It is a four-stop land errand along South Water Street, about seven minutes on foot or four by wagon.',
+      'Start at John Bates Jr.\u2019s new auction room on Dearborn, where fifty Marseilles town lots were cried in June, and say what that sale really sold.',
+      'At the Democrat\u2019s old corner, follow one of two real land notices: E. K. Hubbard\u2019s town lots or J. W. Fell\u2019s land on the canal route.',
+      'Take your bearings at Peck\u2019s corner, then look at the wet ground by the La Salle slough. Inquire about one lot, or hold your money: caution is a good ending.',
+      'Finish to keep Read the Ground under News & Knowledge. The errand is our reconstruction (liberty L-jaunt-inspect-a-lot); no lot, owner or price is claimed.',
+    ] },
   { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
