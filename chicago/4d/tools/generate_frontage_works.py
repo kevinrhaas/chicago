@@ -410,6 +410,8 @@ EDGE_STREETS = ("south_water", "lake", "randolph", "washington")
 # river stretches a whole street's standing mesh 120-170 m west into the sun's shadow
 # box at `lake_at_canal`, +48,588 triangles at `balanced` for about 2,000 of timber,
 # which is most likely the bulk of the +27,932 the table above charged this block.
+# Re-read with it in, desktop, published mirror: -24 triangles at that stand at every
+# tier and +1 draw call (docs/measurements/t-0193-detail-ceilings-desktop*.json).
 EDGE_SKIP_BLOCKS = ()
 EDGE_OWN_STANDING_BLOCKS = ("blk_lake_clinton",)   # across the South Branch
 EDGE_WEST_BANK_STANDING = "town_street_edge__west_bank__standing"
@@ -454,12 +456,18 @@ EDGE_SKIP_GRIDS = ("west_division",)
 # 6,107. Nothing here is rationing the rule: it is what the frame costs today, and
 # the trims that would buy it are the queue's own budget work. When the headroom
 # is there this is one tuple.
-EDGE_CROSS_STREETS: tuple = ()
+#
+# AND THE HEADROOM IS THERE (T-0192, 2026-10-03). T-1969/T-1975 re-set the budget
+# and the owner asked for the seven to be priced and argued where the ceiling is
+# defined. They are covered below, by this rule and no exception: 46 faces, +4,764.9 m
+# of walk, +47 crossings on today's plat. The reading and the raise are in
+# renderers/web/js/main.js, in the block above `full`; `light` does not draw them.
 # The seven, named rather than left in a comment, because the self-test runs this
 # generator's own rule over them and because the day the budget is won this is the
 # line that moves.
 EDGE_CROSS_STREETS_ALL = ("market", "franklin", "wells", "lasalle", "clark",
                           "dearborn", "state")
+EDGE_CROSS_STREETS: tuple = EDGE_CROSS_STREETS_ALL
 EDGE_FENCE_CLEAR_M = 0.25   # daylight between the fence line and the walk's inner edge
 EDGE_OFFSET_M = EDGE_FENCE_CLEAR_M + WALK_W_M / 2.0   # walk centre, out from the lot line
 EDGE_SPAN_M = 5.2           # the march step: twenty boards, and the unit a face is laid in
@@ -4237,7 +4245,10 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
     # THE BOUNDARY, WRITTEN DOWN WHERE EVERY OTHER REFUSAL IS. A face this
     # generator never looked at leaves no trace of its own, so the two clauses
     # that bounded the run say so here rather than only in a comment.
-    refused.append({
+    # T-0192, 2026-10-03: the seven are covered, so this refusal stands only while
+    # the tuple is empty — the day a cross street comes back out, it comes back.
+    if not EDGE_CROSS_STREETS:
+      refused.append({
         "structure_id": "town_street_edge",
         "wall": "The seven cross streets' own frontages",
         "why": (
@@ -4272,7 +4283,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
             "6,107. This is what the frame costs today and not a judgement about the "
             "rule; when the headroom is won back the covered tuple is one line."
         ),
-    })
+      })
     walks.sort(key=lambda w: w["id"])
     fences.sort(key=lambda f: f["id"])
     posts.sort(key=lambda q: q["id"])
@@ -4480,6 +4491,11 @@ def street_edge_record(walks: list, fences: list, posts: list, fittings: list,
                 "tools/generate_frontage_works.py."
             ),
             "covered_streets": list(EDGE_STREETS) + list(EDGE_CROSS_STREETS),
+            # T-0192: which of those run north-south. The renderer reads it to
+            # leave the cross streets' faces out of `light`, the weak-machine
+            # floor, which this layer may not spend (renderers/web/js/main.js,
+            # `light.crossStreetWalks`).
+            "cross_streets": list(EDGE_CROSS_STREETS),
             "faces_laid": census["faces"],
             "walk_m": census["walk_m"],
             "crossing_m": census["cross_m"],

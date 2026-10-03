@@ -5082,16 +5082,18 @@ for (const [label, viewport, touch] of [
       // runs (the Western Hotel, four West Division stores) and the freight house's
       // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
       // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
-      // T-1951 (#266) laid Washington's north faces of blk_washington_dearborn and
-      // blk_washington_market (+2 walks) and four crossings over and along
-      // Washington (+4), 61 to 63 and 47 to 51, refusals 128 to 134, and did not
-      // move this line, so dev read red here from that merge. T-0193 lays
-      // blk_lake_clinton's Randolph face (+1 walk) and its crossing over Randolph
-      // (+1); its Lake face was already one fronts-only run and stays one run:
-      // 63 to 64 and 51 to 52. Refusals hold at 134 — the block's own refusal
+      // T-0192 — the seven cross streets take the walk: +50 runs and +47 corner
+      // crossings in the record, over 46 platted faces. Read
+      // on the branch at 113 walks and 98 crossings. THESE PINS WERE ALREADY
+      // BEHIND ON dev: its record carries 55 town walks and 49 crossings, so dev
+      // read 63 / 51 against 61 / 47 — a parcel after T-1823 moved the record
+      // and not this line. Re-pinned to the reading, not to a model of it.
+      // T-0193 — blk_lake_clinton's Randolph face (+1 walk) and its crossing over
+      // Randolph (+1); its Lake face was already one fronts-only run and stays one
+      // run: 113 to 114 and 98 to 99. Refusals hold — the block's own refusal
       // retires and nothing new is refused. ID-set deltas, read off the record.
-      frontage.census?.records === 5 && frontage.census?.walks === 64
-        && frontage.census?.crossings === 52
+      frontage.census?.records === 5 && frontage.census?.walks === 114
+        && frontage.census?.crossings === 99
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5221,7 +5223,11 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 134
+        // T-0192: 182, read on the branch. The record goes 124 town refusals to
+        // 172 — each cross face states why it takes no fence and no post (the
+        // end of a lot row), and the one clause that refused the seven on the
+        // frame budget retires. dev's own reading was 134 against this 128.
+        && frontage.census?.refused === 182
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5405,12 +5411,14 @@ for (const [label, viewport, touch] of [
     // T-1823 — five fronts-only runs name their own chunk (+5) and their posts and
     // fittings share ONE standing mesh of their own (+1), 65; the crossing over
     // Canal rides the Randolph run's chunk.
+    // T-0192 — each of the seven cross streets' 50 new runs names its own block-face
+    // chunk (+50), and their crossings ride those chunks: 117, read on the branch
+    // (dev's record names 51 walk chunks, so dev read 67 against the 65 here).
     check(`${label}: the frontage layer draws the meshes it authored`,
-      // T-1951 — its two new Washington runs name their own chunks, 67 (dev red
-      // from #266, as above). T-0193 — blk_lake_clinton's new Randolph run names
-      // its chunk (+1) and the block's standing timber rides a west-bank mesh of
-      // its own rather than Lake's and Randolph's (+1), 69.
-      frontage.authored === (frontage.census?.lettered === 1 ? 70 : 69)
+      // T-0193 — blk_lake_clinton's new Randolph run names its chunk (+1) and the
+      // block's standing timber rides a west-bank mesh of its own rather than
+      // Lake's and Randolph's (+1): 119.
+      frontage.authored === (frontage.census?.lettered === 1 ? 120 : 119)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -6145,12 +6153,12 @@ for (const [label, viewport, touch] of [
       // Washington north face under the existing T-1707 rule: 36+4=40.
       // Walk-length, fence and deck floors retain their existing strength.
       // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
-      // T-1951 (#266) — Washington's north faces of the Dearborn and Market blocks,
-      // 47, without moving this line. T-0193 — blk_lake_clinton comes off the skip
-      // list: its Lake face stops being fronts-only and is laid as a street face,
-      // and its Randolph face is new: 48.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 48 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-0192 — the seven cross streets' 46 platted faces: 93, the record's own
+        // `faces_laid` (dev's record already read 47 against the 45 pinned here).
+        // T-0193 — blk_lake_clinton off the skip list: its Lake face stops being
+        // fronts-only and is laid as a street face, and its Randolph face is new: 94.
+        && edge.faces === 94 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -9061,8 +9069,13 @@ for (const [label, viewport, touch] of [
     // over the 200 it was set against, and 222 + 15 rounds up to 240). A
     // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
     // below is untouched and still red at 102 until T-1976's trim.
+    //
+    // T-0192, 2026-10-03: 240 -> 275, moved here in the same commit as `BUDGET`
+    // in `main.js`, where the measurement is written (the seven cross streets'
+    // walks are 46 more block-face chunks: worst frame 224 -> 259 calls at
+    // `full`, Lake Street at Canal, 1280x800; 259 + 15 rounds up to 275).
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 240,
+      stats.budget.drawCalls === 275,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,

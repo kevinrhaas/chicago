@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1349, ts: '2026-10-03T06:27:10.973Z', date: 'Oct 3, 2026, 1:27 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
+  { v: 1350, ts: '2026-10-03T06:43:05.987Z', date: 'Oct 3, 2026, 1:43 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
     items: [
       'Cross the Lake Street bridge to the block between Clinton and Canal. A plank walk now runs the whole Lake Street front, not just the stretch outside its one shop.',
       'Its Randolph Street side has a walk of its own now, about 97 m of planks, with a board crossing over Randolph at the corner.',
       'The shop keeps its hitching post. No fences: this block\u2019s lots open onto Clinton and Canal, so these fronts are the ends of the lot rows.',
       'The walks are our reconstruction, like every walk in the town (liberty L160).',
+    ] },
+  { v: 1349, ts: '2026-10-03T06:24:10.266Z', date: 'Oct 3, 2026, 1:24 AM CT', title: 'Plank walks down the cross streets', kind: 'feature',
+    items: [
+      'Market, Franklin, Wells, La Salle, Clark, Dearborn and State Streets now have the same plank sidewalks as Lake, South Water, Randolph and Washington. That is nearly five more kilometres of boards on 46 block fronts.',
+      'Board crossings join them at the corners, so you can walk the town\u2019s grid on planks and turn any corner without stepping into the mud.',
+      'Like the walks on the other streets, these are our reconstruction from the plat, drawn by the same rule.',
+      'On the Light setting, the one a phone starts on, the cross-street walks are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
     ] },
   { v: 1348, ts: '2026-10-03T05:54:09.388Z', date: 'Oct 3, 2026, 12:54 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
     items: [
