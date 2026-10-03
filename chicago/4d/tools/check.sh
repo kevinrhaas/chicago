@@ -403,6 +403,18 @@ step "the e1871_postfire zone table re-derives from its readings (T-1251)" \
 selftest "…and a hand-edited crown, a constant fill or an inherited limit still fails it" \
   python3 tools/check_terrain_e1871.py --self-test
 
+# T-2002. The 1812 ground's zone table, written as an OVERLAY on the 1834 one: every
+# 1834 block is carried, excepted, replaced or dropped with a reason, so a block added
+# to 1834 later cannot reach the 1812 ground by default. The blocks it authors (the
+# lake stage, the spit, the isthmus L240 left open, the live outlet channel, the shore
+# north of the spit root, the west-bank ruling T-1286 asked for) cite dossier zones and
+# stay inside their ranges, and the effective table resolve() builds carries no work.
+step "the e1830_natural zone table accounts for every 1834 block (T-2002)" \
+  python3 tools/check_terrain_e1830.py --check
+
+selftest "…and an undecided block, a harbour work carried back or a breached isthmus still fails it" \
+  python3 tools/check_terrain_e1830.py --self-test
+
 # T-1738. …and the heightfield that zone table and the scene line generate. The
 # field is numpy arithmetic and re-derives byte for byte; the meshes are Blender's
 # and are held by their input hash (validate.py --stale) and the fit gates below.
@@ -6108,6 +6120,21 @@ step "every household present on the scene date sleeps under a standing roof" \
 
 selftest "…and its guards still fire when broken" \
   python3 tools/house_the_present_1835.py --self-test
+
+# T-1989, piece 2 of T-1986. THE EMPTY TRADE ROOFS. Four anonymous trade roofs (a joiner's
+# shop, a warehouse, a riverside work shop, a store) stood empty while the employment
+# ledger owed 188 keepers a house of their own. `seat_trade_roofs_1835.py` offers each
+# roof to the keepers of a trade its family serves in its own division, nearest first, and
+# compile_scene's `overlay_trade_roofs` carries the seat to the card; a roof no keeper can
+# take states why. Refused: a roof outside the deal's scope or answered twice or not at
+# all, a keeper given two roofs, a keeper the ledger owes no house, a keeper of the wrong
+# trade or division, and a roof called unseatable while keepers of its trade wait.
+# docs/LIBERTIES.md L361.
+step "every empty trade roof is kept by a keeper of its trade, or says why none is left" \
+  python3 tools/seat_trade_roofs_1835.py --check
+
+selftest "…and its guards still fire when broken" \
+  python3 tools/seat_trade_roofs_1835.py --self-test
 
 # T-1352, piece 1 of T-1178. THE ROW THE ORDER BOOK CANNOT APPORTION. `persons/transient/
 # town` sits in the book above with no target and no quota, because the town model bounds

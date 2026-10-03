@@ -1,3 +1,93 @@
+## T-2002 — the 1812 ground's zone table, written as what 1834 had that 1812 did not (2026-10-02)
+
+Piece 1 of 2 of T-1243 (of T-0468, the owner's e1812 battle landscape). T-1243 asked for the
+spec, the heightfield and the meshes in one run. The 1871 epoch took two runs for the same
+shape (#170 the spec, #173 the generation), so it was split: the spec here, and **T-2003**
+generates and bakes from it.
+
+**What changed. Nothing you can see in the 1835 town.** The 1812 epoch has no scene yet, and
+no ground is generated from this.
+- **`data/terrain/epochs/e1830_natural/terrain_spec.json`** is an overlay on the 1834 zone
+  table, not a copy. All 37 1834 blocks are accounted for: 22 carry, 3 carry_except,
+  5 replace, 3 drop (the bridge approaches and the street sections) and 4 own. Five 1812
+  blocks each cite a dossier zone: the lake stage (2), the spit (7), the **isthmus** (7), the
+  live outlet channel (26) and the lake shore north of the spit root (28). All are
+  `reconstructed`. Reasoning: `docs/RESEARCH/terrain_e1830_natural.md`.
+- **L240's hole is decided: surfaced.** It is 100 ft of sand at the spit's own +4 ft on
+  `spit_attachment_gap_1812`. Liberties **L362** (isthmus), **L363** (the shore north of the
+  root, a chord to 1834 index 39) and **L364** (stage at the 1835 plane; outlet bed −4 ft).
+- **T-1286's west-bank question is answered: undecided.** Reading (a) is weighed against, (b)
+  stays open, and (c) splits: the mouth did not move, and the bank is open. So the bank and
+  the outlet stay on Wright. The channel and the ground within 157 m west of it, from N −69 to
+  N −426.75, are graded **conjectural**.
+- **`tools/check_terrain_e1830.py`** is in check.sh with 18 self-tests. It refuses an 1834
+  block that is not decided for 1812, a harbour work carried back, an 1812 height not
+  `reconstructed` or citing a zone the dossier lacks, a breached or over-wide isthmus, an
+  outlet as deep as the main stem, and an undecided bank left at `inferred`. Its `resolve()`
+  is the effective table T-2003's generator reads.
+
+**Unverified / open.**
+- **Generation (T-2003)** is not done: the river polygon, heightfield and meshes don't exist.
+- **The battle corridor south of Twelfth Street is conjectural ground.** The carried
+  evidence limit says so, and nothing here changes it.
+- **The 1812 blocks avoid `compile_scene.GROUND_GROUPS` names on purpose** until the
+  generator's `CONSUMED` map is wired.
+
+**Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff` names;
+see the PR.
+
+## T-1989 — the four empty trade roofs: none can be kept, and each card says why (2026-10-02)
+
+Piece 2 of T-1986 (of T-1966 → T-1215). Four anonymous trade roofs stood empty after every
+other programme: the W2 joiner's shop on Randolph at Des Plaines, the F2 warehouse at the forks,
+the W5 riverside work shop on Wolcott and the C3 store on Lake. `tools/seat_trade_roofs_1835.py`
+offers each to the keepers the employment ledger owes a house of their own, in its own division,
+of a trade the roof serves (L361). The W5 has no keeper of a heavy trade left in the North
+Division, and the off-plat deal's tannery household already has its works at the forks.
+
+**Three seats were withdrawn on the merges with T-1996 and T-2000.** The first build seated Otis
+Bacon (carpenter) at the W2, Louis Bertrand (forwarder) at the F2 and Silas Bacon (grocer) at the
+C3. Those two tickets then told the keepers no house is owed, because their trade's shops are
+already held to their count: 65 stores against the census's 44, 7 forwarding houses against 4,
+and 45 mechanics' shops against the Chicago American's twenty-five. A seat in any of the three
+would be one shop more than that count. So the deal no longer offers those roofs to them, and
+each card says so with the count (`stated_use`: 3 carpenters and joiners at the W2, 1 forwarder at
+the F2, 18 storekeepers and grocers at the C3) rather than reading as though the town had nobody
+of the trade. A guard refuses an unseatable roof that misstates that count, and with no seat
+committed, the self-test re-owes one held keeper in a copy of the inputs so every seat guard still
+fires on a real seat.
+
+The small D2 shed on Lake west of Canal (`recon_1835_west_013`) is re-familied as a rough plank
+dwelling; the housing deal moves Ellen Doyle's household there from `recon_1835_west_011` and the
+room that frees seats nine more households that had no roof (523 → 514 unroofed). The roof join stays **closed**; owed a workplace stays
+at dev's **28**.
+
+**Unverified:** no source places any keeper at any of these roofs; the seat is the invention.
+
+## T-1260 — Outfit for the West, the second published 1835 jaunt (2026-10-02)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Outfit for the West* (Migration,
+Wagon) beside *New in Chicago*. It has five exterior stops: the Green Tree, Peck's store, the
+Jones grocery, Cobb's saddlery and Pierce's smithy. The visitor has an imagined $15 purse and a
+readiness count. Four optional purchases each go to the trade its own source names. The ending
+is *prepared* at readiness 3 or more and *light* otherwise. The keepsake *Ready for the Road*
+goes to Provisions. Content only: one JSON file, a liberty (`L-jaunt-outfit-west`), the
+regenerated catalog and source-use edges. There is no engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 23 paths to both endings, with one keepsake.
+The harness path cannot also afford the repair, which is deliberate. The catalog card's
+estimate was read on the published mirror at 390×780, with the real router and no "approximate
+route" suffix: Wagon about 9 min, Horse 6, Fly 4, Instantly 2.5, Walk 18. There were no page
+errors. **Wagon is over the brief's 4–6 min.** The five owner-named stops straddle the South
+Branch, so no order of them comes under about 7 min at the 3.6 m/s wagon pace. The route was
+re-ordered to cut 240 m, and the reasoning is in brief 01's route note.
+
+**Unverified.** The full acceptance sequence of stills was not taken: opening, a mid-leg mode
+switch, a detail card, the ending and back to the menu. Stills were taken of the catalog card
+and the route preview at 390×780 only. The desktop pass of that measuring script timed out on
+the Jaunts button, but smoke part 3 passed at both viewports, 102/0 each. Jones's initial
+(B. or H.) stays open, and the stop says it is disputed.
+
 ## T-1997 — the 38 boarding-house keepers on their own account with no house (2026-10-02)
 
 Piece 2 of 3 of T-1992 (T-1982 → T-1966 → T-1215). The trade-households stage (T-1347) drew 38

@@ -1,9 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1331, ts: '2026-10-03T00:16:15.797Z', date: 'Oct 2, 2026, 7:16 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
+  { v: 1334, ts: '2026-10-03T01:30:49.554Z', date: 'Oct 2, 2026, 8:30 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Taverns of Chicago. It is an evening ride round four public houses at the forks: the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel. It takes about five minutes on horseback.',
       'Choose a purse, hear some bar talk at Wolf Point, compare the Green Tree\u2019s welcome with the Sauganash\u2019s and pick the house where your evening ends. A glass is optional. Turning every glass down reaches an ending and the keepsake, A Sensible Evening, just as taking one does.',
       'Each stop says what the sources say about the house, and how sure they are. The evening, the bar talk and the prices are our reconstruction (liberty L-jaunt-taverns), and the talk sticks to what the Chicago Democrat printed that June.',
+    ] },
+  { v: 1333, ts: '2026-10-03T00:59:27.495Z', date: 'Oct 2, 2026, 7:59 PM CT', title: 'The ground of 1812 is written down, ready to be built', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. This is the plan for the ground the 1812 Fort Dearborn landscape will stand on, written before any of it is built.',
+      'It starts from the 1835 ground and takes out what did not exist yet: the harbour cut, the bridges and the streets. Everything else is kept, with a reason for each.',
+      'The sand spit that turned the river south now joins the mainland. It is a neck of sand 100 feet wide at the spit\u2019s own height of 4 feet, and it is recorded as our reconstruction.',
+      'Where an 1830 map and the 1834 survey disagree about the old channel\u2019s west bank, we keep the survey and mark that stretch of ground as the least certain in the scene.',
+    ] },
+  { v: 1332, ts: '2026-10-03T00:26:46.380Z', date: 'Oct 2, 2026, 7:26 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
+    items: [
+      'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five moves in, and nine more households that were waiting now have a roof.',
+      'The joiner\u2019s shop on Randolph at Des Plaines, the narrow warehouse at the forks and the two-storey store on Lake stay empty, and their cards now say why. The town already has more mechanics\u2019 shops, stores and forwarding houses than were counted in 1835, so a carpenter, grocer or forwarder there would be one too many.',
+      'The big riverside work shop on Wolcott stays empty too, and its card says why. Nobody in the North Division is left in a trade it serves. The Miller and Hall tannery already has its own works at the forks.',
+    ] },
+  { v: 1331, ts: '2026-10-03T00:20:58.425Z', date: 'Oct 2, 2026, 7:20 PM CT', title: 'A new jaunt: Outfit for the West', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Outfit for the West. You have an imagined fifteen dollars to get ready for the road west.',
+      'Five stops: the Green Tree, Peck\u2019s store, the Jones grocery, Cobb\u2019s saddlery and Pierce\u2019s smithy. Each sells what its own advertisement or history says it sold: hardware from the merchant, provisions from the grocer, harness from the saddler, ironwork from the smith.',
+      'Your purchases decide the ending: you leave prepared, or you set out light. Either way the keepsake Ready for the Road goes in your daybook under Provisions.',
+      'The errand, the purse and every price are our reconstruction (liberty L-jaunt-outfit-west). The trades and their dates come from the 1833\u201335 newspapers and Andreas.',
     ] },
   { v: 1330, ts: '2026-10-02T23:49:18.714Z', date: 'Oct 2, 2026, 6:49 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [

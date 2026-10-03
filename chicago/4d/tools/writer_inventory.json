@@ -7,6 +7,12 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "seat_trade_roofs_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "continuously",
+      "finding": "In the manifest immediately after house_the_present_1835.py and before compile_scene: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. With --build it writes data/reconstruction/1835_trade_roof_seats.json; a second run changes no byte."
+    },
     "house_the_present_1835.py": {
       "placement": "manifest",
       "write_mode": null,
@@ -18,6 +24,12 @@
       "write_mode": null,
       "measured": "continuously",
       "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+    },
+    "check_terrain_e1830.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-02",
+      "finding": "Run bare it prints the --check verdict on the e1830_natural overlay, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: --resolve prints the effective 1812 table to stdout. A checker (T-2002)."
     },
     "check_terrain_e1871.py": {
       "placement": "manifest",
