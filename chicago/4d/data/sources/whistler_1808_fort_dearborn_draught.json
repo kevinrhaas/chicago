@@ -1,0 +1,29 @@
+{
+  "id": "whistler_1808_fort_dearborn_draught",
+  "type": "map",
+  "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+  "author": "Captain John Whistler, commandant of Fort Dearborn",
+  "date": "1808-01-25",
+  "describes_date": "1808",
+  "repository": "reproduction consulted in the Project Gutenberg edition of Quaife 1913 (ebook 69274), the plate's larger image; the War Department original was not consulted",
+  "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+  "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+  "locator": "Quaife 1913, plate facing p. 164 (Gutenberg image fpage164_lg.png, 1600 x 2290 px, sha256 4568caacfde738aa5273411ac27a61a2a350dc78b715ea75ee8eab66af72bfb1); the index in note 413, pp. 164-165",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "geometry",
+  "verified": true,
+  "note": "THE ONLY PLAN OF THE FIRST FORT DEARBORN, DRAWN BY THE MAN WHO BUILT IT, AND THE ONLY SHEET IN THIS DATASET THAT STATES ITS OWN SCALE. Captain Whistler built the fort in 1803 and drew it in January 1808. His note says 'The measurement of the Garrison including the Block Houses And Barrick are laid down at twenty feet to the Inch'. The Indian Department's dwelling houses are at forty feet to the inch, 'the oather houses without any Regular rule', and the red-ink distances are 'accurately measured, but not laid down by a scale'. So ONLY THE GARRISON IS TO SCALE, and nothing outside the stockade may be measured off this sheet; the reading in data/traces/whistler_1808_fort_dearborn.json keeps that line. WHY TIER 1: the commandant drew it, in the period, of the post he commanded. What is readable is Quaife's 1913 reproduction, and its reduction from the original is not stated, so the inch on the sheet cannot be found from the page. The scale is measured instead from the drafter's own '75 feete' on the flagstaff, which is drawn laid down from its foot at the centre of the parade (tools/read_whistler_1808.py). THE SHEET MIXES PLAN AND ELEVATION: each barracks is drawn in plan with its elevation folded outward over the curtain, and the magazine is drawn in elevation only. The folded elevations do NOT agree with one another on height, so no height is taken from them. NEVER EVIDENCE FOR THE SECOND FORT: this is the fort burned on 16 August 1812, and data/exclusions.json (fort_dearborn_first_1803) guards against its features being borrowed for the 1816 rebuild. Quaife's other Fort Dearborn plate (facing p. 100) is a photograph of a MODEL made 'after Captain Whistler's drawing'. That is a tier-5 retrospective and is not this source.",
+  "access_notes": "Fetched 2026-10-03 from Project Gutenberg. Large rasters are not committed (data/traces/README.md); the working copy is pinned by URL and sha256, and `python3 tools/read_whistler_1808.py --remeasure` re-fetches it, verifies the hash and re-measures the scale.",
+  "what_it_supplies": [
+    "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+    "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+    "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+  ],
+  "what_it_does_not_supply": [
+    "any building height: the folded elevations disagree with each other",
+    "the fort's bearing to true north: no north arrow was found on the reproduction",
+    "the covered way to the river and the gutters, which the index itself says are omitted",
+    "anything about the second fort of 1816"
+  ]
+}
