@@ -1,0 +1,459 @@
+{
+  "schema_version": 1,
+  "id": "along-the-harbor",
+  "content_version": 1,
+  "title": "Along the Working Harbor",
+  "premise": "Follow freight back to the lake: a forwarding house on the river, the Dearborn Street draw, the light at the mouth, and the two piers still being pushed into the lake. Leave with a route note.",
+  "category": "River transportation",
+  "scene": "1835",
+  "opening": {
+    "text": "The lake reaches this town through a cut in a sand bar, past a light and under a drawbridge. Start where freight lands at a forwarding house, pass the Dearborn draw, walk out to the light at the river's mouth, and finish at the piers, both still being built. Your walk and your route note are invented; the harbour is documented.",
+    "read_s": 20
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "mark": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-forwarding-house",
+      "destination": {
+        "kind": "structure",
+        "id": "newberry_dole_warehouse"
+      },
+      "text": "Start at Newberry & Dole's warehouse on the river. In the Democrat of 1 July 1835 they advertise storage, forwarding and commission, agents for the Merchants' Line: goods off the lake pass through houses like theirs. Follow the freight back the way it came. Which bank the warehouse stood on is disputed.",
+      "read_s": 26,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "newberry_dole_warehouse",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_newberry_dole",
+          "label": "Newberry & Dole's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "nd-notice",
+        "by-lake",
+        "nd-bank",
+        "errand"
+      ],
+      "next": "the-draw",
+      "narrative": "What the town cannot make, the lake brings."
+    },
+    {
+      "id": "the-draw",
+      "destination": {
+        "kind": "structure",
+        "id": "dearborn_street_drawbridge"
+      },
+      "text": "East to Dearborn Street and the town's first drawbridge, built in 1834 by the ship-carpenter Nelson R. Norton. Andreas: about three hundred feet long, a sixty-foot opening for craft, and gallows frames at either end of the draw. It was struck and patched more than once. Stay on the south bank.",
+      "read_s": 28,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "dearborn_street_drawbridge",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "norton_nelson_r",
+          "label": "Nelson R. Norton"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_dearborn_st_bridges",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "draw-built",
+        "draw-size",
+        "draw-repairs",
+        "draw-place",
+        "errand"
+      ],
+      "next": "the-light",
+      "narrative": "Where the river is crossed, and passed."
+    },
+    {
+      "id": "the-light",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_lighthouse_1832"
+      },
+      "text": "On along the south bank to the light at the river's mouth, the first on Lake Michigan. Andreas: another tower, forty feet high, finished by Mr. Jackson in 1832 after the first fell. A lantern topped it; its shape here is our reconstruction, and this summer's keeper is not recorded. Look from outside.",
+      "read_s": 28,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_lighthouse_1832",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        },
+        {
+          "kind": "source",
+          "id": "lighthousefriends_chicago",
+          "label": "Read the light's history"
+        }
+      ],
+      "evidence": [
+        "lh-tower",
+        "lh-first",
+        "lh-role",
+        "lh-form",
+        "lh-keeper",
+        "errand"
+      ],
+      "next": "the-piers",
+      "narrative": "A mark for vessels making the river."
+    },
+    {
+      "id": "the-piers",
+      "destination": {
+        "kind": "structure",
+        "id": "south_pier"
+      },
+      "text": "Out to the south pier's root. Across the cut stands the north pier, the weather pier that keeps the sand out. The Democrat printed the federal report: 180 vessels discharged here in 1834, and $32,800 more voted in 1835. Both piers grow all summer; their lengths are our estimate. Choose your note's mark.",
+      "read_s": 28,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "south_pier",
+          "label": "About this place"
+        },
+        {
+          "kind": "structure",
+          "id": "north_pier",
+          "label": "About the north pier"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "sp-role",
+        "pier-role",
+        "pier-arrivals",
+        "pier-money",
+        "pier-length",
+        "sp-place",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "mark-the-light",
+          "label": "Mark the light",
+          "consequence": "The light goes on your note: it will stand where you saw it.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "mark",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "mark-the-pier-end",
+          "label": "Mark the end of the north pier",
+          "consequence": "The north pier's end goes on your note: it will be further out by autumn.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "mark",
+              "value": 2
+            }
+          ],
+          "next": "$end"
+        }
+      ],
+      "narrative": "Where the harbour meets the lake."
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-forwarding-house",
+      "to": "the-draw",
+      "note": "East along the south bank to the foot of Dearborn Street; the warehouse's bank is our placement.",
+      "evidence": [
+        "nd-bank",
+        "draw-place"
+      ],
+      "story": "Follow the freight back toward the lake.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "the-draw",
+      "to": "the-light",
+      "note": "On east along the south bank toward the fort; the light's ring is read off Wright's 1834 map and no particular path is claimed.",
+      "evidence": [
+        "lh-place"
+      ]
+    },
+    {
+      "from": "the-light",
+      "to": "the-piers",
+      "note": "A short way east to the root of the south pier on the reservation shore; the north pier is seen across the cut, not walked to.",
+      "evidence": [
+        "sp-place"
+      ],
+      "story": "Out to where the cut meets the lake.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "a-note-to-redraw",
+      "text": "Your note reads: in by the end of the north pier, past the light, up under the Dearborn draw. By the season's end Andreas has that pier 1,260 feet into the lake, so your mark will want redrawing. The walk and the note are the story's.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "var": "mark",
+        "op": "==",
+        "value": 2
+      }
+    },
+    {
+      "id": "a-note-that-keeps",
+      "text": "Your note reads: in between the piers, past the light at the mouth, up under the Dearborn draw, to the forwarding houses. Of everything on it the light is the mark that stays put this summer. The walk and the note are the story's.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Wayfinding",
+    "id": "knows-the-harbor",
+    "title": "Knows the Harbor",
+    "text": "A fictional route note from a July 1835 walk: the forwarding house, the Dearborn draw, the light and the two piers. No vessel, cargo, keeper or bridge-tender is named on it."
+  },
+  "evidence": [
+    {
+      "id": "nd-notice",
+      "text": "In the Chicago Democrat of 1 July 1835, Newberry & Dole advertise as storage, forwarding and commission merchants and agents for the Merchants' Line, and also as wholesale and retail dealers in dry goods, groceries and provisions.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "1 July 1835, p. 4, col. 4, the card headed 'NEWBERRY & [DOLE,] Storage, Forwarding and C[ommission] MERCHAN[TS]' (extracted claim chicago_democrat_1835_07_01#c015). Transcription-mediated reading; the brackets are the transcription's."
+    },
+    {
+      "id": "by-lake",
+      "text": "A forwarding and commission house received goods landed from lake vessels and sent them on to, or sold them for, other traders; a walk from such a house to the harbour follows that freight back the way it came.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "The trade style and the Merchants' Line agency are the firm's own words on 1 July 1835; that their goods came by lake is read from the agency and from the 1834 season's 180 arrivals reported in the same paper. No particular consignment is claimed."
+    },
+    {
+      "id": "nd-bank",
+      "text": "Where Newberry & Dole's warehouse stood is disputed: one dossier reads the south bank on South Water Street, Andreas puts the firm's warehouse on the north bank east of the later Rush Street bridge. The scene places it on the south bank as a reconstruction, so the stop claims the firm, not the spot.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record newberry_dole_warehouse, whose position is reconstructed and whose note carries both readings without settling them. The stop says the bank is disputed and claims no front door."
+    },
+    {
+      "id": "lh-tower",
+      "text": "Andreas: the first lighthouse tower fell on 30 October 1831, before it was fairly completed; another tower, forty feet high, was begun and completed by Mr. Jackson in 1832, and it boasted of a fourteen-inch reflector.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, the lighthouse paragraph containing 'Before it was fairly completed, however, on October 30, of that year, the structure fell' and 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.'"
+    },
+    {
+      "id": "lh-first",
+      "text": "Lighthousefriends: the 1832 tower was the first light established on Lake Michigan, forty feet high, with four fourteen-inch reflectors in its bird-cage lantern room.",
+      "confidence": "attested",
+      "sources": [
+        "lighthousefriends_chicago"
+      ],
+      "locator": "Lighthousefriends, Chicago Harbor lighthouse page (light ID 234), the history paragraphs on the 1832 tower: 'This lighthouse stood forty feet high and employed four, fourteen-inch reflectors in its bird-cage lantern room.'"
+    },
+    {
+      "id": "lh-role",
+      "text": "A light at the river's mouth gave vessels on the lake a mark for the harbour entrance after dark.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "lighthousefriends_chicago"
+      ],
+      "reasoning": "The structure record grades the function harbour_light attested on both sources; what a harbour light is for is read from the kind of thing it is. The stop claims no keeper, no lighting schedule and no vessel that steered by it."
+    },
+    {
+      "id": "lh-place",
+      "text": "The tower is placed on the Fort Dearborn Reservation west of the fort, at the inside of the bend where the river had turned south, from the ring lettered 'L. House' on Wright's 1834 map.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834",
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record chicago_lighthouse_1832, which reads the coordinate off Wright's sheet through the project's fitted affine and grades it inferred."
+    },
+    {
+      "id": "lh-form",
+      "text": "Only the tower's height and its lantern are documented. Its taper, cap, finish and diameter as drawn are the scene's reconstruction, and its stone is an inference from the fallen first tower's three-foot walls by the same contractor.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "lighthousefriends_chicago"
+      ],
+      "reasoning": "Follows the structure record and docs/RESEARCH/chicago_lighthouse_1832.md, which trace 'conical' and 'masonry' to neither source and leave the shape to a liberty. The stop calls the shape our reconstruction."
+    },
+    {
+      "id": "lh-keeper",
+      "text": "Samuel Lasby was the first keeper; who kept the light on 1 July 1835 was not established by any source reached.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "lighthousefriends_chicago"
+      ],
+      "reasoning": "Follows the structure record's function note, which records the gap rather than filling it. The stop names no keeper for the scene date and meets no one."
+    },
+    {
+      "id": "draw-built",
+      "text": "Nelson R. Norton, a ship-carpenter, writes in a letter Andreas prints that he cut the lumber for a drawbridge over the winter of 1833-34 and began building it in March 1834; Andreas notes the Democrat has it formally accepted by the Trustees in August. It was the first drawbridge across the river.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "locator": "Andreas vol. 1, the bridges section, Norton's letter beginning 'I came to Chicago November 16, 1833' and Andreas's correction 'Mr. Norton is evidently in error as to the time of the completion of the bridge'; with 'The first drawbridge thrown across the river was at Dearborn Street'. Read in the chicagology Dearborn Street bridges transcription."
+    },
+    {
+      "id": "draw-size",
+      "text": "Andreas: 'From various sources it is learned that it was about three hundred feet long, and the opening for the passage of craft about sixty feet.' It was of the 'gallows pattern', with frames one at either end of the draw.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "locator": "Andreas vol. 1, scan p. 415 (per docs/research/04-structures-south.md section 4), the paragraph on the Dearborn Street drawbridge, read verbatim in the chicagology Dearborn Street bridges transcription."
+    },
+    {
+      "id": "draw-repairs",
+      "text": "The bridge was paid for repairs in September 1834 and repaired again in 1835 and 1837; vessels passing the draw struck it.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record's change note, which reads the repairs from Andreas and says no source dates or describes them closely enough to model; the stop says only that it was struck and patched more than once."
+    },
+    {
+      "id": "draw-place",
+      "text": "The bridge crosses the main stem in line with Dearborn Street, its south abutment at the foot of Dearborn on South Water Street.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "wright_1834",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Follows the structure record dearborn_street_drawbridge, which places the crossing on the street it is named for and grades the position inferred. The jaunt stops at the south end and does not cross."
+    },
+    {
+      "id": "pier-role",
+      "text": "The north pier is the weather pier of the federal harbour works, the northern of two piers holding open the 1834 cut through the sand bar at the river's mouth.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "wikipedia_chicago_river"
+      ],
+      "locator": "Andreas vol. 1, the harbour section (scan pp. 487 and 489 per docs/research/04-structures-south.md section 3), 'the north (weather) pier'; Wikipedia, Chicago River, the harbour improvement paragraphs."
+    },
+    {
+      "id": "sp-role",
+      "text": "The south pier is the southern of the two piers holding open the 1834 cut; Andreas has the harbour work begun on the south side of the river in June 1833 under Major George Bender, commandant of Fort Dearborn.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, the harbour section (scan pp. 261 and 487 per docs/research/04-structures-south.md section 3), on the work begun under Major Bender in 1833."
+    },
+    {
+      "id": "pier-arrivals",
+      "text": "The Democrat printed from the federal Public Documents that one hundred and eighty vessels arrived and discharged their cargoes at Chicago between the opening of navigation and 30 November 1834, and that the harbour should be perfected as rapidly as circumstances permit.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "21 Jan 1835, p. 3, col. 2, 'Chicago Harbor, Illinois.—The operations of constructing an artificial harbor at this place' (extracted claim chicago_democrat_1835_01_21#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "pier-money",
+      "text": "The Democrat learns from a friend at Washington that $32,800 has been appropriated by Congress towards the completion of the harbour.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "25 Mar 1835, p. 3, col. 3, 'Chicago Harbor.—We learn from a friend at Washington' (extracted claim chicago_democrat_1835_03_25#c002). Transcription-mediated reading; the paper reports it second-hand and says so."
+    },
+    {
+      "id": "pier-length",
+      "text": "No source gives either pier's length on 1 July 1835. The north pier was about 700 feet at the end of 1834 and had been extended to 1,260 feet into the lake by the end of the 1835 season; Andreas has the south pier extended 500 feet in 1835, to 700 in all. The scene draws interpolations, about 900 and 400 feet.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "wikipedia_chicago_river"
+      ],
+      "reasoning": "Follows the structure records north_pier and south_pier, whose lengths are interpolated between year-end figures (Andreas vol. 1, scan pp. 487 and 489 per docs/research/04-structures-south.md section 3, and Wikipedia's harbour summary) and graded inferred. The stop calls the lengths our estimate and says both piers were growing."
+    },
+    {
+      "id": "sp-place",
+      "text": "Both piers' lines are read off Wright's 1834 map, the two red lines with HARBOR lettered between them; the south pier's root is on the reservation shore at the river's mouth, and the north pier stands across the channel from it.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834"
+      ],
+      "reasoning": "Follows the position notes of the structure records south_pier and north_pier, which measure both lines through the project's fitted affine and grade them inferred. Neither deck has a modelled approach, so the stop is a look from the shore and claims no walk along either pier."
+    },
+    {
+      "id": "errand",
+      "text": "The walk, its order, the route note and its two marks, the endings, the timing inputs and the Knows the Harbor keepsake are invented connective narrative. No vessel, cargo, keeper, bridge-tender or customer is documented here, and no named person is met.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-along-the-harbor"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-along-the-harbor"
+  ]
+}
