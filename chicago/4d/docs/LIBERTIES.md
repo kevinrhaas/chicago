@@ -20594,3 +20594,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/from-prairie-to-town.json`.
 
 **Recorded:** 2026-10-03 (T-2033).
+
+### L-jaunt-an-evening-stroll — An Evening Stroll: an invented evening walk past four places
+
+**Decision:** An Evening Stroll links four existing exterior destinations — the Sauganash, P. F. W. Peck's store, the Chicago Democrat's first office and the Exchange Coffee House — in an invented evening walk. The evening, the stroll, the route order (from Lake and Market north to the river and east along South Water Street to LaSalle and Clark, then south to Lake and west to Wells), the looking from the street, the choice of where to end, both endings and the A Pleasant Circuit memento are reconstructed, and so are the reading seconds. The evening is a premise and nothing more: the scene's lighting is not changed, and no entertainment, meeting, purchase or dated event is claimed for it. The building facts are cited at their own tiers and reuse evidence already published in other jaunts — the Sauganash from Wau-Bun and the Democrat of 10 June 1835, Peck's stock from his card in the Democrat, the Democrat's first corner and its May 1835 move from its own imprint and colophon, the Exchange from Andreas and the DRLOIH hotel chronology. One claim is new and inferred: that the Democrat came out weekly, on Wednesdays, read off the volume and issue numbers of the dated numbers this project already cites; no masthead statement of its terms was read for it. No named person is met or speaks, no interior is opened, and no Native presence is narrated. This is the batch's quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat numbers of May to July 1835, and brief 25 of JAUNTS-INITIAL-LIBRARY.md. The route, the evening and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A reading of the Democrat's masthead terms would let the third stop cite its day of issue directly instead of inferring it.
+
+**Applies to:** `data/jaunts/an-evening-stroll.json`.
+
+**Recorded:** 2026-10-03 (T-2034).
