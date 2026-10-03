@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and Materials for a Roof now each take about five and a half to six minutes on horseback, down from just over six.',
+      'Each stop reads shorter. The places, the route, the choices and the endings are unchanged.',
+      'Every stop still says what is invented and where a place is uncertain.',
+    ] },
   { v: 1392, ts: '2026-10-04T00:09:05.510Z', date: 'Oct 3, 2026, 7:09 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
     items: [
       'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',

@@ -1,3 +1,34 @@
+## T-2056 — four horse jaunts just over six minutes brought inside it (2026-10-03)
+
+**What a visitor sees:** A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and
+Materials for a Roof each read shorter at every stop and now fit inside six minutes on
+horseback. Piece 6 of 6 of T-2041.
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only sunday-circuit,schoolday-errand,work-on-waterfront,materials-for-a-roof`:**
+  sunday-circuit 6.55 → **5.78 min** (Fly 2.37, Instantly 1.23); schoolday-errand 6.35 →
+  **5.65** (Fly 3.35, Instantly 2.28); work-on-waterfront 6.23 → **5.70** (Fly 3.68, Instantly
+  2.77); materials-for-a-roof 6.07 → **5.65** (Fly 3.35, Instantly 2.35). At 1280×800,
+  recommended mode only: 5.73, 5.60, 5.52, 5.68. Zero page errors. `docs/measurements/jaunt-timing.*`
+  carry the new rows merged into the committed library reading (`--merge`; the 1280×800 column
+  kept from the committed table, with these four taken fresh); the other 22 rows were not
+  re-ridden. 3 jaunts remain over the band, all owned by T-2055.
+- **Why this lever.** All four already recommend Horse, the fastest ground pace, so a change
+  of mode can only slow them. The cost was reading: 120–198 s of each path. The opening and
+  every stop text are re-cut (each stop stays inside the 25–60 word rule), and every `read_s`
+  is scaled by its own passage's authored rate — `round(old × new words / old words)` — so no
+  reading speed was raised to buy time. `action_s`, the stops, routes, choices and endings
+  are unchanged. A Sunday Circuit, the tightest (393 s, 273 of them riding across the South
+  Branch and back to the Walker meeting house), takes the deepest cut: 120 s of reading to 74.
+- **What the texts still say:** every invention named as invented (the neighbour and the
+  visit; the household and its question; the errand and the chit; the house and its list),
+  every placement and dispute (the Walker placeholder, the disputed Newberry & Dole bank,
+  the uncredited 1835 groundbreaking, Chappel's contested site), and the 7 July meeting as
+  called rather than held. Detail dropped from the narration — the schooner Illinois at the
+  wharf, St. Mary's lumber by scow, Hamilton's nineteen years in his house — keeps its claim
+  in each jaunt's evidence. `content_version` is bumped on all four, so a saved session is
+  discarded with the runtime's usual note.
+- **Liberties:** unchanged. No invention was added or widened; the re-cut only removes words.
+
 ## T-2052 — News Before Breakfast and New in Chicago brought inside six minutes (2026-10-03)
 
 **What a visitor sees:** both jaunts now recommend a ride on horseback, and News Before
