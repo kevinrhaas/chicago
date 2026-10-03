@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1357, ts: '2026-10-03T10:18:34.307Z', date: 'Oct 3, 2026, 5:18 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
+  { v: 1358, ts: '2026-10-03T10:46:26.295Z', date: 'Oct 3, 2026, 5:46 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
     items: [
       'Edward McCarthy\u2019s boarding house, on the block at Washington and Dearborn streets, has four new boarders. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a labourer. Open the house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and this house had empty beds. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'Three of them work at E. W. Haddock\u2019s. One reconstructed clerk who worked there before now works at a wine and liquor store on Dearborn Street. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+    items: [
+      'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
+      'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
+      'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
     ] },
   { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
     items: [

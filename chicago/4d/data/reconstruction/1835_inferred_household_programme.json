@@ -1968,7 +1968,12 @@
       "anchor_shift_steps": 0,
       "function": "dwelling",
       "occupation": "labourer",
-      "role": "A second labourer's shanty on the same fringe."
+      "role": "A second labourer's shanty on the same fringe.",
+      "corridor_clearance": {
+        "street": "carroll",
+        "clear_m": 0.5,
+        "why": "T-1414 put the West Division's east-west tiers into the platted corridor layer on 2026-10-03 (data/traces/street_control.json § west_bank), and Carroll Street's corridor came 2.22 m onto this footprint. The building's own placement is a band assignment with no evidence in it, so it has nothing to encroach with and the corridor wins. 0.5 m is T-0827's margin, kept, as the cooperage above keeps it. The centre above is still the band assignment; the generator moves the least distance that clears the kerb, so re-seating Carroll moves this building again instead of leaving it to disagree with the street in silence."
+      }
     },
     {
       "id": "inf_laundry_north",

@@ -728,9 +728,19 @@ BUSINESS_TICKETS = {
 # street control ROADMAP has recorded as owed, and the Michigan Street tract's four
 # north rows wait on T-1080, the tract's own unsettled name and platter. Filing an
 # owner for either would be inventing one; naming a closed ticket was worse.
+# T-1414 CLOSES, AND THE WEST ROW EMPTIES ON THE SAME READING (2026-10-03). What it
+# owed is committed: the West Division's tiers (Carroll, Fulton, Des Plaines) and
+# Wabansia's seven corridors are in the platted corridor layer (street_control.json §
+# west_bank), on top of the lots and alleys T-1455 cut. The two streets it held out are
+# a refusal (West Water, cut from the waterline) and a question (Jefferson north of
+# Kinzie, filed as T-2018) — and neither is ground the west row's roofs wait on:
+# south of Kinzie Jefferson's own corridor is already measured by
+# generate_west_infill.py, and north of it the ground is Wabansia's, whose corridors have
+# arrived. Ground that has arrived is not a wait, and the rest of the row's
+# `waiting_on` prose still has no live owner, so by the rule above it names none.
 GROUND_TICKETS = {
     "south": [],
-    "west": ["T-1414"],
+    "west": [],
     "north": [],
     "fort": [],
 }
