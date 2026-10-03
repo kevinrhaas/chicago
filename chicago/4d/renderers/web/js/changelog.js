@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1338, ts: '2026-10-03T02:43:18.018Z', date: 'Oct 2, 2026, 9:43 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
+  { v: 1339, ts: '2026-10-03T02:58:42.777Z', date: 'Oct 2, 2026, 9:58 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick New in Chicago. It now recommends walking, and every leg between its five stops has a route note.',
       'At the Democrat\u2019s old corner, read a real notice: Kinzie and Forsyth\u2019s lithographed town maps, still advertised in June 1835.',
       'Peck\u2019s store is now your supply shop, read from his own advertisements. At Brown\u2019s boarding house, choose board by the week or a bed close to the stores. Each choice has its own ending.',
       'The errand and the boarding choice are our reconstruction (liberty L-jaunt-new-in-chicago); no room, rate or sale is claimed.',
+    ] },
+  { v: 1338, ts: '2026-10-03T02:34:38.433Z', date: 'Oct 2, 2026, 9:34 PM CT', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick News Before Breakfast. It is a morning walk from the Sauganash to both of the town\u2019s newspapers and on to breakfast at the Exchange Coffee House. It takes about five minutes on foot.',
+      'Ask whether the cholera is near, or what is new today. Then read one real item from each paper and decide whether it is reporting or an advertisement. The Democrat of 24 June weighs the rumours from other towns. The American of 27 June sells a cholera elixir.',
+      'At breakfast, keep one clipping: the report, the elixir notice, or an auction whose first sale is today. Every item was printed before 1 July 1835 and is cited to its page and column. The morning and the keepsake, A Useful Clipping, are our reconstruction (liberty L-jaunt-news-breakfast).',
     ] },
   { v: 1337, ts: '2026-10-03T02:08:05.503Z', date: 'Oct 2, 2026, 9:08 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
     items: [
