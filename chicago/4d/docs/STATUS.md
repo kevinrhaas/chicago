@@ -24,6 +24,48 @@ ending. The keepsake landed once under Livelihood.
 
 **Unverified.** The drive ran at 390×780 only. The stills are not committed.
 
+## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Decent Coat* (Shopping, Horse, 4 stops,
+Provisions). John Holbrook's clothing store → Harmon, Loomis & Co.'s store → Brown's boarding
+house → the Sauganash, one way west along South Water Street. Holbrook's card (Democrat, 10 June
+1835, p. 3 col. 2; American, 13 June, p. 3 col. 6) sells made clothing, hats, boots and shoes as
+agent for the manufacturers; Harmon, Loomis & Co.'s fall notice (Democrat, 5 Nov 1834, p. 3 col. 2)
+lists broadcloth, cassimere, satinet, flannel, Russia duck and canvas, carried to the scene by
+their June 1835 card. At the Sauganash the visitor goes in a ready-made coat or the old one
+brushed; two endings, both completion-eligible, one keepsake (*Fit for the Occasion*). Content
+only: one JSON file, a liberty (`L-jaunt-a-decent-coat`), the regenerated catalog and source-use
+edges, and brief 14's route note. No engine, compiler or CSS change.
+
+**What it refuses to claim.** No purchase, price, size, fitting, tailor or maker: Holbrook's card
+names no tailoring and the stop says so. It is the batch's quiet outing (T-1267 acceptance 4):
+no variable, no inventory, no strip. The person record `holbrook_john` is a shoemaker left
+unplaced, so the stop links Holbrook's business card rather than identify the two.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, endings `ready-tonight` and `brushed`, one
+keepsake each. On the published mirror's router the brief's order (Brown's first, doubling back
+from Dearborn) read 13.5 min at Walk, so the route was re-cut to run one way west. Even so the
+Sauganash is at the street's far end and Walk reads 10.5 min, so the recommended mode is Horse:
+the card reads, at 390×780 and 1280×800 alike, Walk about 10.5, Wagon 5.5, **Horse 4**, Fly 3,
+Instantly 2. A Playwright drive at 390×780 took stills in order (card, first stop, the detail card
+and back to the same stop, the ending, the menu) with zero page errors; the keepsake landed under
+Provisions.
+
+**Unverified.** At 1280×800 the drive reached the `brushed` ending with its keepsake, but the
+return to the menu was cut off by the 560 s cap; menu return is proved at 390×780 only. The stills
+are not committed.
+
+## T-2013 — the worn ground at the doors drawn with the road's own surface (2026-10-03)
+
+The owner, on dev at Matthias Mason & Co. on Lake Street: the door ground T-1984 laid "is not nearly as
+nice as the road texture ... make those areas with dirt the same as where the road is the same texture
+color so it does not look pixely and jagged". The aprons were drawn as `trodden_earth`, the estray pen's
+128 px canvas of 2 px hash blocks over 3.1 m. They are now `road_earth`, a fourth `yards.js` treatment
+with no canvas: `streets.js`'s grit tile (256 px over 1.6 m, now exported with its worn-earth tones),
+sampled in world east/north so the grain runs straight on across the join, the same lane/between-lane
+tones and 35 m broad tone, and the grit as the normal. Its edge fades over 0.6 m into the grass. The
+smoke's fenced-ground check now expects four treatments. No new liberty: L359 already covers the ground.
+
 ## T-2008 — Look Before You Buy a Lot, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Look Before You Buy a Lot* (Land, Walk,
@@ -512,7 +554,6 @@ Bates Jr.), a miller, a brickmaker, a soap and candle maker: trades with neither
 nor a count of shops, plus the physician whose bucket T-1529 is blocked on), T-1997 (38
 boarding-house keepers).
 
-
 ## T-1996 — the printed count already held: 37 drawn heads told no house is owed (2026-10-02)
 
 Piece 1 of 3 of T-1992 (of T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After
@@ -587,7 +628,6 @@ T-1992: the own-account houses the register does not hold.
 
 **Found, not fixed:** Arnold's and Galaher's cards carry an `associated_with` civic seat at the
 Chicago post office corner; on this reading they kept other offices, so that row is likely wrong.
-
 
 ## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
 
@@ -1472,7 +1512,6 @@ re-run: the four meshes have not moved since the lap that baked them, and what t
 laps changed is derived data, docs and the order-book owner table — none of which the
 renderer draws.
 
-
 ## T-1730 — the Glessner House, version v2: a second, independent build for the owner's comparison (2026-09-29)
 
 `data/structures/versions/glessner_house/v2.json` (T-1727's mechanism, same archetype
@@ -1796,7 +1835,6 @@ Residents, Businesses, Wildlife, Plants, Population, the order book, the jaunts 
 index, all authored for 1835 (filed as T-1740). The house (T-1729) and the street
 surfaces (T-1728) are their own tickets.
 
-
 ## T-1738 — the 1904 ground generated and baked (2026-09-28)
 
 Nothing a visitor sees changed yet: no scene selects this ground until T-1739 writes the 1904
@@ -1836,7 +1874,6 @@ live test. The only committed version is the smoke's TEST FIXTURE
 equals the committed bake, so its mesh was adopted rather than baked; the pinned
 derivative command reproduces the adopted derivative byte for byte.
 
-
 ## T-1251 — the 1904 ground's zone table (2026-09-28)
 
 Nothing a visitor sees changed; this is the spec T-1252 generates the 1904 heightfield from.
@@ -1852,7 +1889,6 @@ the elevation model agree to 0.00 ft. The fill over the conjectural 1835 surface
 so the two epochs are not offsets of one another, and `tools/check_terrain_e1871.py` fails if it
 ever comes out constant; the evidence limit (grade N −3659.9, shore N −3365.2) is derived here.
 Not verified: any 1904 level directly — no survey of the period has been found.
-
 
 ## T-1250 — the Prairie Avenue sheets georeferenced, and the 1904 lake edge (2026-09-28)
 
@@ -1871,7 +1907,6 @@ reconstructed on the eastern bound (L287), with its six segments saying what sta
 1911 sheet draws the edge. The 1852-trestle sentence is ruled against a CPL source. What is not
 verified: the stretch south of 19th Street (no sheet held draws it), and any height — T-1251/T-1252.
 Detail: `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7.
-
 
 ## T-1280 — session travel modes and route estimates (2026-09-27)
 
@@ -1895,7 +1930,6 @@ and 1.2% differences). Its formerly recommended walk estimates 9.5–10.5 minute
 Full preflight passes all 681 steps; scoped shared smoke remains pending. Receipts and the
 measurement definition are in `performance/jaunt-travel/`. This work depends on
 T-1279; PR #137 remains owned by its other session.
-
 
 ## T-1279 — playable jaunt and persistent navigation (2026-09-27)
 
@@ -3225,7 +3259,6 @@ children are blocked-tech and excluded from the general loop, with visible HOLD
 references. [Runbook](unreal/README.md) records the local prototype and its limits;
 streaming corruption, full walking, parity and remote delivery are NOT verified.
 
-
 ## T-0437 — sparse smoke checkout, 2026-09-17
 
 The bake smoke checkout selects only tools and `docs/SITE-BUDGET.md`, at the
@@ -3276,7 +3309,6 @@ The scheduled nightly adopts this workflow definition on the normal owner-contro
 promotion to `main`; this PR targets `dev` and does not promote production.
 Nothing in the scene changes; no release-note entry is needed for this CI wiring.
 
-
 ## Shipped 2026-09-16 — T-0537, T-0968, T-0232, T-0234, T-0727: the loop's gates, worked as one
 
 Owner-directed batch of the five band-7 gate tickets; nothing in the scene changes. The
@@ -3306,7 +3338,6 @@ worktree to push this branch). The tail was reconstructed from the last clean re
 everything below the seam is restored verbatim from that revision. If T-1143 also edited the
 lost tail, that edit is unrecoverable from the record — this reconstruction restores what the
 repository can prove.
-
 
 ## Shipped 2026-09-15 — T-1143: every research reading has an accountable outcome
 
@@ -3616,7 +3647,6 @@ gain the row.
 The ordinance is 35 days after the scene date. Carried as evidence ABOUT 1835; nothing is
 placed, moved or dated because of it, and `date_standing` in the file says so.
 
-
 ## T-0385 — the New York Clothing Store stands against the Tremont House
 
 Tuthill King's card — American 1835-06-08 c014, 1835-06-20 c007, 1835-07-04 c003,
@@ -3735,7 +3765,6 @@ continuations read line by line and eleven images still inventoried only.
 T-0978 split in place: T-0979 owns this leaf, T-0980 retains ten filled leaves
 and blank BH. PR #1042 carries this completion.
 
-
 ## T-0977 — continuation 9SQ: thirty entries, four unresolved totals
 
 Image 52 is read in `pages/33SQ-GYYJ-9SQ.json`: 30 occupied TOTAL entries,
@@ -3757,7 +3786,6 @@ instrument's truncated-body limitation are recorded on the page.
 Group 3 now has three continuations read line by line and twelve inventoried-only
 images. T-0975 was split in place: T-0977 owns this leaf; T-0978 retains eleven
 filled leaves and blank BH, one leaf per run. PR #1041 carries this completion.
-
 
 ## T-0976 — seven open PRs reconciled
 
@@ -3788,7 +3816,6 @@ T-0973 was split under the queue's one-leaf-per-run rule. T-0974 owns this readi
 T-0975 preserves the remaining twelve filled continuations and the blank leaf in
 the parent's queue position. The continuation coverage count includes inspected
 lines with unresolved cells; it is not a claim that every glyph was deciphered.
-
 
 ## Shipped 2026-09-11 — T-0432: blk_south_water_dearborn's second deal, and the last block with room in it
 
@@ -4780,7 +4807,6 @@ its unit by id — `data/research/civic/town_election_1835_crosswalk.json` — a
 them is a refusal to carry, because T-0542 was forbidden to mint or regrade and says so. civic
 is back to 13 unspent, 499 read against 486 ruled on. **Nobody was added to the town, nobody
 was removed, and no grade moved.**
-
 
 ## Shipped 2026-09-03 — T-0423: the corpus's one lot-and-block address is seated, and stops carding as vacant
 
@@ -19979,7 +20005,6 @@ Arrival, welcome, loading cards and jaunt catalogs are scoped to the selected sc
 
 T-1767 verification: selected-year controller/content tests and 27 compiler tests pass. Published 1835 and 1904 browser flows pass at 390x780 and 1280x800: welcome, correct catalogs, start, per-scene saved-session restore, no horizontal overflow, zero page errors. Additional 1904 year-door/loading checks and 1812 unavailable-scene error checks pass at both widths. The full 13-part renderer suite was not rerun; stage 6 covers the existing gate and welcome chrome. The inherited order-book failure referenced split T-1763: its two store/workshop owner rows now point to the explicit successor T-1766; no quotas or residents changed.
 
-
 ### T-1730 v4 glazing and version-contract refinement
 
 The v4 comparison now has clear dielectric glazing and enclosed dark recesses,
@@ -20006,7 +20031,6 @@ its re-derivation check passes. Household seats and meshes do not change in
 this repair. The integrated tree has 177 platted seats and 72 off-plat seats.
 Full gate and published browser verification receipts are recorded on PR #199.
 
-
 ## T-1765 — recovered bridge-head furniture
 
 Four reconstructed timber piles complete this bridge-approach parcel. Recovery
@@ -20014,7 +20038,6 @@ corrects the deck-corner/centerline confusion and retains ferry operation as an
 open historical question. New ground and corner checks validate the placement.
 No roof or baked mesh changes. The project gate passed all 714 steps. The recovery checkpoint passed published mobile part 2 (90 checks). The PR
 validation record carries the subsequent full mobile and desktop results.
-
 
 ## T-1766: Canal approach trade roofs
 
@@ -20034,7 +20057,6 @@ The final evidence commit also integrates dev `773e956` (T-1793). Its new farm-g
 ## T-1768 — Temporal observatory
 
 The root front door is a lightweight three-period menu. SVG orbital graphics and bounded CSS acquisition/departure animations introduce the year links. Shared skin tokens persist across menu and renderer panels; the gate has an appearance selector and All periods link. Explicit root query deep links route to the matching year without losing parameters. 1812 remains explicitly unbuilt. The decorative line drawings are interface illustrations, not reconstruction evidence. Published browser checks passed at 1280x800 and 390x844: all skins, persistent preferences, transfer to 1835, return to menu, dev-prefixed 1904 links, root query/fragment preservation, no horizontal overflow, and no JavaScript errors. All period links remain usable with JavaScript disabled. Published renderer part 1 passed 80/0 at both desktop (10m48s) and mobile (7m46s), with zero page errors. Initial desktop attempts timed out during startup under concurrent local validation; the solo retry passed. The standalone menu checks also cover the final Space Age light/dark synchronization. Full repository CI is pending; local full-gate attempts were interrupted without a complete verdict. Renderer parts 2–13 were not rerun for this interface change; the part-1 ledger deliberately carries no exact final-tree hash because tone synchronization was finalized during the smoke sequence.
-
 
 ## T-1805 — Glessner west roof repair (2026-10-01)
 

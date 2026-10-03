@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1346, ts: '2026-10-03T05:32:16.278Z', date: 'Oct 3, 2026, 12:32 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
+  { v: 1348, ts: '2026-10-03T05:54:09.388Z', date: 'Oct 3, 2026, 12:54 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Freight for the Store. Drive a wagon from Newberry & Dole\u2019s wharf to two stores and on to George Dole\u2019s warehouse. It takes about six minutes.',
       'Count three packages against the bill, take only two, or load them on trust. Check Peck\u2019s own advertised lines, leave a package at Thomas Church\u2019s store on Lake Street, and hand in the tally.',
       'The shipment, the bill and the keepsake, Cargo Accounted For, are our reconstruction (liberty L-jaunt-freight-store). The firms and what they sold come from their own notices.',
+    ] },
+  { v: 1347, ts: '2026-10-03T05:37:25.027Z', date: 'Oct 3, 2026, 12:37 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Decent Coat. It is a short, quiet ride west along South Water Street to a call at the Sauganash, about four minutes on horseback, with nothing to count or carry.',
+      'Start at John Holbrook\u2019s, which opened in June 1835 selling made clothing, boots and shoes as agent for the manufacturers. A block on, Harmon, Loomis & Co.\u2019s card lists broadcloth, cassimere and flannel by the piece.',
+      'At Brown\u2019s boarding house, weigh tonight\u2019s call against tomorrow\u2019s work. At the Sauganash, go in a ready-made coat or your old one brushed.',
+      'Finish to keep Fit for the Occasion under Provisions. The errand is our reconstruction (liberty L-jaunt-a-decent-coat). No price, fitting or tailor is claimed.',
+    ] },
+  { v: 1346, ts: '2026-10-03T05:18:28.781Z', date: 'Oct 3, 2026, 12:18 AM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
+    items: [
+      'Stand on Lake Street in front of Matthias Mason\u2019s smithy and look at the worn path to his door. It now has the same grain and colour as the street it runs into, with no seam where the two meet.',
+      'The worn ground before every door in town was drawn in a darker, coarser dirt that looked blocky up close. It is now drawn from the road\u2019s own surface, and its edge fades softly into the grass.',
     ] },
   { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
     items: [
