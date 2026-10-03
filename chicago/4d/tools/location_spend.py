@@ -85,8 +85,10 @@ INSIDE on 2026-09-21; B4's third kind was withdrawn rather than re-worded and th
 surveys came onto a new B6. That expired the retention's guard, and this build refused
 until the retention was re-stated as the RULING it became. It reads `resolved` now, and
 its guard measures the ruling: put either survey back on B4 and the build fails again.
-Three of the four are still retained — two `blocked-owner`, one `blocked-tech` behind
-T-0414 and T-0009 — and none of those three is the loop's to resolve.
+T-0386 was the `blocked-tech` one, behind T-0414 and T-0009; once both had landed it
+was the loop's, and it reads `resolved` now (2026-10-03, `resolved_on` rather than
+`ruled_on`, because nobody ruled): the auction house's four headings are one house, and
+its guard measures that.
 
 NOTHING HERE IS AUTHORED. Every placement row is derived from the committed rows, the
 register's action, the adoption ledger and the structure ids the dataset holds; every
@@ -218,6 +220,9 @@ def retentions(known) -> list[dict]:
         if "montgomery" in b["id"] and b.get("action") == "street_only"
         and b.get("action_target") == "south_water")
     carver = sorted(s for s in known if "carver" in s)
+    montgomery_seated = sorted(
+        a["business_id"] for a in read_json(ADOPTIONS)["adoptions"]
+        if a["business_id"] == "business_w_montgomery" and a.get("structure_id") in known)
 
     out = [
         {
@@ -289,24 +294,39 @@ def retentions(known) -> list[dict]:
         },
         {
             "ticket": "T-0386",
-            "state": "blocked-tech",
-            "owner": "T-0414, which waits on T-0009",
+            "state": "resolved",
+            "owner": "the loop — T-0414 and T-0009 landed, and the rest was a reading",
             "question": "W. Montgomery's auction room takes David Carver's old stand on "
                         "South Water Street — and both of the paper's anchors are "
                         "exhausted.",
-            "what_it_costs_today": "The Montgomery entries stay street_only on South "
-                                   "Water Street; no storefront stands.",
-            "what_would_resolve_it": "T-0414's identity fix to the street-face adoption, "
-                                     "which needs T-0009's roofs because South Water "
-                                     "Street is out of supply — or a source that gives "
-                                     "Carver's stand an address.",
+            "what_it_costs_today": "Nothing the papers can pay. The auction house was "
+                                   "four register headings — the American's description "
+                                   "and three Democrat styles of one card — and the "
+                                   "adoption could seat only one of them; they are one "
+                                   "house now, 'W. Montgomery', keyed by the signature "
+                                   "both papers set, and the street-face adoption seats "
+                                   "it under its own board. Carver's stand is still no "
+                                   "address: the American of 1835-07-04 c012 puts it "
+                                   "'[…] doors west of J. Wright's', and Wright's two "
+                                   "positions are invented, so the house stays "
+                                   "street_only and its roof stays an allocation.",
+            "what_would_resolve_it": "Resolved on 2026-10-03 by firm_merges in "
+                                     "data/research/newspapers/identity.json. The guard "
+                                     "below holds the RESOLUTION: split the house again, "
+                                     "unseat it, or commit a Carver building — the one "
+                                     "thing that would let the anchor resolve — and this "
+                                     "build fails.",
             "guard": {
-                "reads": "data/research/newspapers/register_1835.json and data/structures/",
-                "expects": "every Montgomery entry is still street_only on south_water, "
-                           "and the town still holds no Carver building",
+                "reads": "data/research/newspapers/register_1835.json, "
+                         "data/research/newspapers/street_face_adoptions.json and "
+                         "data/structures/",
+                "expects": "two Montgomery entries — the bootmaker and the auctioneer — "
+                           "both street_only on south_water, the auctioneer seated on a "
+                           "South Water roof, and still no Carver building",
                 "measured": {
                     "montgomery_entries": montgomery,
                     "still_street_only_on_south_water": montgomery_street_only,
+                    "auctioneer_seated": montgomery_seated,
                     "carver_structures": carver,
                 },
             },
@@ -348,9 +368,12 @@ def retentions(known) -> list[dict]:
         if not item["holds"]:
             item["disposition"] = "expired"
         else:
-            item["disposition"] = "resolved" if item["ticket"] in RULED else "retained"
+            item["disposition"] = ("resolved" if item["ticket"] in RULED
+                                   or item["ticket"] in RESOLVED else "retained")
         if item["ticket"] in RULED:
             item["ruled_on"] = RULED[item["ticket"]]
+        if item["ticket"] in RESOLVED:
+            item["resolved_on"] = RESOLVED[item["ticket"]]
     return out
 
 
@@ -360,14 +383,11 @@ EXPECTED_GUARDS = {
                "church_reconciled_onto_the_committed_line": True},
     "T-0305": {"saddlery_on_the_watch_list": True},
     "T-0386": {"montgomery_entries": ["business_l_w_montgomery_boot_and_shoe_maker",
-                                      "business_montgomery_auction_and_commission_house",
-                                      "business_w_montgomery",
-                                      "business_w_montgomery_auction_and_commission_house"],
+                                      "business_w_montgomery"],
                "still_street_only_on_south_water":
                    ["business_l_w_montgomery_boot_and_shoe_maker",
-                    "business_montgomery_auction_and_commission_house",
-                    "business_w_montgomery",
-                    "business_w_montgomery_auction_and_commission_house"],
+                    "business_w_montgomery"],
+               "auctioneer_seated": ["business_w_montgomery"],
                "carver_structures": []},
     "T-1087": {"wabansia": ["inside", "B6"],
                "kinzies_addition": ["inside", "B6"],
@@ -380,6 +400,11 @@ EXPECTED_GUARDS = {
 # day the ruling landed unrecorded. `resolved` is not a way out of the gate; it is a
 # different thing for the gate to hold.
 RULED = {"T-0251": "2026-09-21", "T-1087": "2026-09-21"}
+# A question the LOOP closed, by work rather than by a ruling (T-0386: the auction
+# house's four headings merged once T-0414 and T-0009 had landed). It is `resolved`
+# under the same discipline — the guard measures the resolution — and it carries
+# `resolved_on`, not `ruled_on`, because nobody ruled.
+RESOLVED = {"T-0386": "2026-10-03"}
 
 
 def _guard_holds(item: dict) -> bool:

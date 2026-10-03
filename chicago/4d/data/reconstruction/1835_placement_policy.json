@@ -53,7 +53,7 @@
     },
     {
       "name": "frontage_reach_m",
-      "value": 67.72,
+      "value": 75.58,
       "unit": "m",
       "read_by": [
         {
@@ -61,7 +61,7 @@
           "name": "FRONTAGE_REACH_M"
         }
       ],
-      "derivation": "how far back a footprint may stand and still be FRONTING the corridor it is nearest, from the empty band in the town's own distribution of nearest-corridor distances, at its midpoint — re-derive with measure_frontage_fabric.py --setbacks. Below 60.79 m (miller_tannery, on the Market Street corridor) that distribution is continuous: 373 buildings and no gap wider than 2.91 m. The next building anywhere stands 74.65 m back (recon_1835_west_052), a band of 13.86 m with nothing in it — 4.76 times the widest gap in the body. Beyond this a building is reported with NO street rather than with a distant one; the reservation and the river mouth hold roofs that front none."
+      "derivation": "how far back a footprint may stand and still be FRONTING the corridor it is nearest, from the empty band in the town's own distribution of nearest-corridor distances, at its midpoint — re-derive with measure_frontage_fabric.py --setbacks. Below 66.06 m (recon_1835_west_050) that distribution is continuous: 499 buildings and no gap wider than 4.18 m. The next building anywhere stands 85.10 m back (recon_1835_west_054), a band of 19.04 m with nothing in it — 4.56 times the widest gap in the body. RE-STATED BY T-1414 (2026-10-03), not relaxed: it was 67.72 m (body to 60.79 m, band 60.79-74.65 m) until the West Division's tiers and Wabansia entered the corridor layer, which gave the west ground's roofs nearer streets to be measured against and moved both edges of the band. Beyond this a building is reported with NO street rather than with a distant one; the reservation and the river mouth hold roofs that front none."
     },
     {
       "name": "party_line_unit_m",
@@ -1177,13 +1177,13 @@
         "standing_with_a_street": 3,
         "by_street_class": {
           "principal": 0,
-          "ordinary": 2,
-          "light": 1
+          "ordinary": 1,
+          "light": 2
         },
         "fronting_no_street": 0,
         "on_the_street_line": 1,
         "setback_m_min": -1.98,
-        "setback_m_max": 59.84
+        "setback_m_max": 24.18
       }
     },
     {
@@ -1264,13 +1264,13 @@
         "standing_with_a_street": 4,
         "by_street_class": {
           "principal": 0,
-          "ordinary": 2,
-          "light": 0
+          "ordinary": 1,
+          "light": 1
         },
         "fronting_no_street": 2,
         "on_the_street_line": 0,
         "setback_m_min": 11.32,
-        "setback_m_max": 360.15
+        "setback_m_max": 352.11
       }
     },
     {
@@ -1307,11 +1307,11 @@
         "standing_with_a_street": 9,
         "by_street_class": {
           "principal": 0,
-          "ordinary": 5,
-          "light": 3
+          "ordinary": 4,
+          "light": 4
         },
         "fronting_no_street": 1,
-        "on_the_street_line": 5,
+        "on_the_street_line": 6,
         "setback_m_min": -8.4,
         "setback_m_max": 317.96
       }
@@ -1421,15 +1421,15 @@
         },
         "fronting_no_street": 4,
         "on_the_street_line": 0,
-        "setback_m_min": 373.89,
-        "setback_m_max": 405.45
+        "setback_m_min": 359.15,
+        "setback_m_max": 397.44
       }
     }
   ],
   "coverage": {
-    "documented_roofs_with_a_family": 102,
-    "conforming": 76,
-    "outliers": 26,
+    "documented_roofs_with_a_family": 101,
+    "conforming": 77,
+    "outliers": 24,
     "by_family": {
       "A1": [
         "ancillary_behind_its_own_roof"
@@ -1764,29 +1764,6 @@
         "stands 20.47 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
       ],
       "reason": "north division. Until T-1191 State was simply the nearest line, 203 m off across the river; the hotel is now read against Kinzie at 20.47 m, which is a real north-bank line and still a setback no lodging clause allows."
-    },
-    {
-      "id": "wabansia_doctors_house",
-      "family": "D6",
-      "street": null,
-      "class": null,
-      "setback_m": 98.86,
-      "measured": [
-        "fronts no street (its nearest corridor is 98.86 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one",
-        "fronts no street (its nearest corridor is 98.86 m away, beyond the frontage reach), and tradesman_dwellings seats it by a `typology` setback, which is measured from one"
-      ],
-      "reason": "a house the Chicago Democrat of 16 July 1834 puts 'in Wabansia' and nowhere more exactly, and the only roof in that survey. It does front a street: its facade stands 6.1 m behind the corridor edge of `kinzie_west`, Wright's line of Kinzie Street across Wabansia in data/streets/1835.json, which is inside the frontage reach. The census cannot see that, because tools/plat_corridors.py carries no corridor for any Wabansia street — the nearest it holds is Kinzie's Thompson reach, which ends at local east -320, 98.86 m away — so the policy reads the house as fronting nothing. Its position is invented under docs/LIBERTIES.md L316; the reason goes when Wabansia's streets enter the corridor layer."
-    },
-    {
-      "id": "walker_meeting_house",
-      "family": "I1",
-      "street": "canal",
-      "class": "ordinary",
-      "setback_m": 48.04,
-      "measured": [
-        "stands 48.04 m off the street line (2.71 m), and institutions_stand_where_named puts it on the line"
-      ],
-      "reason": "on the west ground 48 m off the Canal line, at the edge of what was platted."
     },
     {
       "id": "wolf_point_tavern",

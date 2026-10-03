@@ -314,12 +314,12 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 325,
-  "outside": 216,
+  "inside": 327,
+  "outside": 219,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 29,
-   "north_of_the_limit": 45,
+   "north_of_the_limit": 48,
    "west_of_canal_street": 83,
    "south_of_washington_street": 58,
    "east_of_the_limit_in_the_water": 1,
@@ -385,6 +385,7 @@
     "recon_1835_blk_indiana_north_wolcott_d3_06",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
+    "recon_1835_north_c4_067",
     "recon_1835_north_d1_013",
     "recon_1835_north_d1_023",
     "recon_1835_north_d1_053",
@@ -401,6 +402,8 @@
     "recon_1835_north_d5_057",
     "recon_1835_north_d6_058",
     "recon_1835_north_h2_030",
+    "recon_1835_north_t1_061",
+    "recon_1835_north_w3_062",
     "wabansia_doctors_barn",
     "wabansia_doctors_house"
    ],
@@ -608,7 +611,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 12,
+    "roofs_scheduled": 6,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -900,7 +903,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 12,
+    "roofs_scheduled": 6,
     "centre_local_enu_m": [
      997.2,
      524.49

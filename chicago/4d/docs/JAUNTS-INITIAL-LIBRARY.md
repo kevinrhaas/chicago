@@ -309,6 +309,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Use only a matched in-window lot for a precise offer; do not invent parcel ownership, price or a functioning 1835 bank. Caution can be a successful ending.
 
+**Route note (published, T-2008):** The shipped story order is Bates's auction room → the former Democrat corner → Peck's store → the La Salle slough crossing. The order proposed above starts at the Democrat corner, walks a block east to Dearborn and then doubles back west past Clark to LaSalle; on the published mirror that read about 9.5 min at Walk. Starting at the sale room removes the backtrack and still tells auction context before the particular notice. The catalog card on the published mirror gives these routed figures at 390×780: Walk about 7 min, Wagon 4, Horse 3.5, Fly 3, Instantly 2.5 (Walk 6.5 and Horse 3 at 1280×800). Walk stays a minute over the 4–6 min target because the auction room stands mid-block on Dearborn, a block east of the other three stops, and two and a half minutes of it is reading; Wagon is the faster mode. The two notices it reads are E. K. Hubbard's town lots (Democrat, 27 May 1835) and J. W. Fell's canal-route land (17 June 1835); neither names a lot price, so the errand ends at an inquiry or at holding your money.
+
 ## 12. Freight for the Store
 
 **ID:** `freight-for-the-store` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)
@@ -327,6 +329,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Cargo Accounted For (Livelihood); fictional narrative memento.
 
 **Evidence and route cautions:** Warehouse roles may be sourced; this shipment and its bill are fictional. Use safe street paths and no imaginary unloading simulation.
+
+**Route note (T-2009, as built):** the tally comes last — Newberry & Dole's forwarding house → Peck's store → Thomas Church's store → George W. Dole's 1832 warehouse — because the briefed order ran east 529 m to Dole's, west 310 m to Peck's and east again 122 m (961 m straight-line) and read past 7 min at Wagon; delivering first and carrying the tally a block east from Church's to Dole's is 546 m straight-line. That the tally is handed in at Dole's warehouse is invented, and the stop says Dole was the firm's partner rather than that the firm kept its books there. The wagon holds the whole three-package consignment (a `count` variable shown as *Packages*, max 3); the visitor may count it, take only Peck's two and leave Church's for a second trip, or load it on the bill's word, and the four endings follow those choices. Peck's stock is his own 1833–34 cards; Church's store has no stock on record, so his package is never said to hold anything. Card estimates on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. Wagon stays the recommendation as briefed.
 
 ## 13. Stock the Household
 
@@ -347,6 +351,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Keep items tied to supported trades and bound reconstructed quantities/prices; no compulsory health score.
 
+**Route note (T-2010, as built):** the briefed order stands and the whole outing keeps to one block face of South Water Street between Wells and LaSalle: Brown's, behind Peck's, west to Jones's at the Wells end, back east to Carpenter's mid-block, and on to Peck's corner beside where it began (about 210 m). It reads about 5 min at Walk (4.5 at 1280×800), 3–3.5 at Wagon and 3 at Horse. Each good is offered only where that store's own advertisement lists it: coffee, sugar and tea at Jones's (26 Nov 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's. Carpenter's June 1835 window-glass consignment is left out because its signature is cut and not proved to be his. Prices and the purse are `L-jaunt-household-provisions`.
+
 ## 14. A Decent Coat
 
 **ID:** `a-decent-coat` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)
@@ -366,6 +372,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Do not invent a fitting service or named tailor at a shop whose record only supports retail.
 
+**Route note (published, T-2011):** The shipped story order is Holbrook's store → Harmon & Loomis's store → Brown's boarding house → the Sauganash, one way west along South Water Street. The order proposed above starts at Brown's on LaSalle, walks two blocks east to Dearborn and doubles back west past Clark and LaSalle to Market; computed on the published mirror's own router it reads 13.5 min at Walk, 6.7 at Wagon and 4.7 at Horse. Starting at the clothing store removes the backtrack and keeps the story's sense: made goods, then cloth, then the lodging where the two occasions are weighed, then the call. The catalog card on the published mirror gives these routed figures at both 390×780 and 1280×800: Walk about 10.5 min, Wagon 5.5, Horse 4, Fly 3, Instantly 2. The recommended mode is Horse, as for A Letter Home on the same street: the Sauganash stands at the street's far west end by the South Branch, so on foot the outing is mostly walking and runs well past the quiet outing's 3–4 min, while on horseback it is 4. Fly is the faster mode. This is the batch's quiet outing: it declares no variable or inventory and shows no strip. Holbrook's June 1835 card offers made goods as agent for the manufacturers and names no tailoring; Harmon, Loomis & Co.'s cloth list is their November 1834 notice, carried by their June 1835 card. No maker, fitting or price is claimed.
+
 ## 15. Mend the Harness
 
 **ID:** `mend-the-harness` · **Owner ticket:** [T-1268](../tickets/T-1268-publish-harness-candles-building-materials-and-l.md)
@@ -384,6 +392,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Sound Tack (Livelihood); fictional narrative memento.
 
 **Evidence and route cautions:** The repair story is invented; distinguish leather work from iron work using the actual firm records.
+
+**Route note (published, T-2024):** The briefed order is kept: the Western Hotel's stable → S. B. Cobb's saddlery → Asahel Pierce's smithy → the Green Tree, a block north up Canal Street from Randolph to Lake and then east along Lake to West Water, with no backtrack. The repair is an invented cracked trace and, if the visitor looks the harness over in the yard, a worn whiffletree hook. Leather goes to the saddler and iron to the smith, and that division is read from the two firms' own records: Goss & Cobb's 1833 advertisement lists harness, bridles and trunks and promises repairs 'immediately attended to when brought to their shop', Cobb's June 1835 card continues the business, and Andreas's Pierce paragraph is ironing a stage line and making ploughs. The saddler is never made a smith, and neither shop is said to have done this repair. At the Green Tree the visitor calls the outfit ready (only if the trace was restitched) or keeps tomorrow's trip short, and the four endings follow those choices. The Wagon recommendation stands as briefed: the route is short and the brief's subject is a wagon outfit. Card estimates on the published mirror: Walk 7.5 min, Wagon 5, Horse 4, Fly 3.5, Instantly 3 at 390×780 (Walk 7, Wagon 4.5 at 1280×800). The primary path measured 281 s at Wagon and 207 s at Fly against estimates of 290 s and 215 s. Flags only, no shown variable or inventory: there is nothing to count. Receipt: `docs/performance/jaunt-mend-the-harness/`.
 
 ## 16. Soap and Candles
 

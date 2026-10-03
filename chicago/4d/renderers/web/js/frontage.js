@@ -1317,11 +1317,16 @@ export async function createFrontage({
         },
       });
     }
+    // T-0192 — the cross streets' own faces. A chunk is one block face, so a
+    // face on a north-south street is one mesh, and it carries the flag that
+    // lets `light` leave it out (main.js, `light.crossStreetWalks`).
+    const crossStreets = new Set(record.rule?.cross_streets ?? []);
     for (const walk of record.walks ?? []) {
       const level = LEVEL[walk.confidence] ?? 1;
       const line = walk.centreline_local_enu_m ?? [];
       const crossing = walk.kind === 'board_crossing';
       const named0 = bufFor(walk.chunk, walk.belongs_to);
+      if (named0 && crossStreets.has(walk.street)) named0.crossStreet = true;
       const chunked = !named0 && !crossing && Array.isArray(line) && line.length > 2;
       let ok;
       if (named0) {
@@ -1511,7 +1516,8 @@ export async function createFrontage({
   // one bounding sphere each (T-0069).
   for (const [id, hit] of named) {
     if (hit.buf.pos.length) {
-      chunks.push({ buf: hit.buf, pickId: hit.pickId, id, standing: hit.standing });
+      chunks.push({ buf: hit.buf, pickId: hit.pickId, id, standing: hit.standing,
+        crossStreet: !!hit.crossStreet });
     }
   }
   if (!buf.pos.length && !chunks.length) {
@@ -1635,6 +1641,7 @@ export async function createFrontage({
     cmesh.castShadow = !!chunk.standing;
     cmesh.receiveShadow = true;
     cmesh.userData.pickId = chunk.pickId;
+    if (chunk.crossStreet) cmesh.userData.crossStreet = true;
     group.add(cmesh);
     chunkMeshes.push(cmesh);
   }

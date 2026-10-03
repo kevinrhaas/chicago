@@ -1582,6 +1582,146 @@ def _house_card(place: dict, persons: list, seated: list) -> dict:
     }
 
 
+# ------------------------------------------------------------------ the top-up --
+#
+# T-1538. THE FROZEN ROOM IS SPENT AND THE BOOK STILL ORDERS. The deal above is dealt
+# against the basis T-1503 froze, and by 2026-10-03 every cell of that basis was drawn to
+# its figure — while the book, re-cut since, still ordered eight adults into `lodging/none`
+# cells nobody had drawn, and thirty ordinary-night beds stood empty under seven roofs the
+# loop refused "no order left, no mint". The bound was the frozen room, not the book.
+#
+# THE ANSWER IS NOT A RE-FREEZE. Re-freezing the basis would re-deal the proportional
+# split, and the people in it are adopted by name elsewhere (T-1503's whole argument). So
+# the top-up is a SECOND, SEPARATE room, dealt AFTER everything the stage already draws —
+# the boarders, the keepers and the keepers' children — so every existing seed sees exactly
+# the room and the names it saw before and not one card moves. And it is frozen for the
+# same reason the basis is: read live once, on the build that first records it, and
+# carried in `quota_basis.top_up` on every build after, so a later re-cut cannot re-deal
+# the people it seats either.
+#
+# WHAT IT READS, live, on that first build: a cell's live order, less the heads the
+# re-family ledger has landed in it, less everything this stage drew out of it on the same
+# build. Only the adult bands (20 and over): the `10_19` cells are T-1536's, and a child is
+# never a boarder (refusal 3). Only `none`: dealing a trade is still T-1173's (refusal 2).
+
+TOP_UP_TICKET = "T-1538"
+TOP_UP_BANDS = ("20_29", "30_39", "40_49", "50_plus")
+
+
+def committed_top_up() -> list | None:
+    """The top-up room as committed, or None before a build has recorded one."""
+    if not LEDGER.exists():
+        return None
+    block = (load(LEDGER).get("quota_basis") or {}).get("top_up")
+    if not block:
+        return None
+    return [dict(row) for row in block.get("buckets") or []]
+
+
+def top_up(houses: list, house_order: list, cards: dict, seated_by_house: dict,
+           drawn: Counter, live_room: dict, arrivals: dict, pool: dict,
+           taken_names: set, taken_ids: set, household_fills: Counter,
+           refusals: list) -> tuple:
+    """(top-up fills, the committed block). Mutates `houses`, `cards`, `household_fills`
+    and `refusals`, and only ever by ADDING: a bed it fills was empty after every other
+    draw this stage makes."""
+    rows = committed_top_up()
+    if rows is None:
+        rows = [{"bucket": key, "division": div, "sex": sex, "age_band": band,
+                 "to_top_up": max(0, int(n) - int(arrivals.get(key, 0)) - int(drawn[key]))}
+                for (div, sex, band, axis), (key, n) in sorted(live_room.items())
+                if axis == "none" and band in TOP_UP_BANDS]
+    left = {row["bucket"]: int(row["to_top_up"]) for row in rows}
+    by_id = {house["id"]: house for house in houses}
+    fills: Counter = Counter()
+    seated = []
+    for house_id in house_order:
+        house = by_id[house_id]
+        short = house["beds_ordinary"] - house["occupancy"]
+        if short <= 0 or house["division"] not in DIVISIONS:
+            continue
+        cells = [row for row in rows
+                 if row["division"] == house["division"] and left[row["bucket"]] > 0]
+        if not cells:
+            continue
+        weights = [((row["sex"], row["age_band"]), left[row["bucket"]]) for row in cells]
+        key_of = {(row["sex"], row["age_band"]): row["bucket"] for row in cells}
+        deal, _ = allocate_within(short, weights, {cell: left[key_of[cell]]
+                                                   for cell, _ in weights})
+        persons = []
+        # NOT A SURNAME ALREADY UNDER THIS ROOF. Unrelated boarders sharing a name with
+        # somebody on the house's card read as kin, and this stage claims no kinship
+        # between lodgers; the frozen draws above are untouched by it.
+        under_roof = {p["name"].lower() for p in
+                      (cards.get(f"hh_lodging_{house['id']}") or {}).get("persons", [])}
+        for (sex, band), count in sorted(deal.items()):
+            key = key_of[(sex, band)]
+            for index in range(1, count + 1):
+                slot_id = f"{STAGE}:top_up:{house['id']}:{sex}:{band}:{index:03d}"
+                person = person_card(slot_id, sex, band, key, house,
+                                     RELATION[house["class"]], pool,
+                                     taken_names, taken_ids,
+                                     avoid_surnames=frozenset(under_roof))
+                under_roof.add(person["name"].lower())
+                person["dealt_by"] = {
+                    "ticket": TOP_UP_TICKET,
+                    "note": "Dealt by the top-up, after every other draw this stage "
+                            "makes, out of the book's order as it stood when the top-up "
+                            "was recorded — see `quota_basis.top_up` in "
+                            "data/reconstruction/1835_lodgers_seated.json.",
+                }
+                persons.append(person)
+                fills[key] += 1
+            left[key] -= count
+        if not persons:
+            continue
+        card_id = f"hh_lodging_{house['id']}"
+        if card_id in cards:
+            cards[card_id]["persons"].extend(persons)
+            cards[card_id]["lodging_household"]["minted_here"] = len(cards[card_id]["persons"])
+        else:
+            cards[card_id] = house_card(house, persons, seated_by_house.get(house["id"], []))
+            household_fills[(house["class"], house["division"])] += 1
+        house["minted_lodgers"] = int(house.get("minted_lodgers") or 0) + len(persons)
+        house["occupancy"] += len(persons)
+        house["topped_up"] = len(persons)
+        seated.append({"place": house["id"], "division": house["division"],
+                       "persons": [p["id"] for p in persons]})
+        for refusal in refusals:
+            if refusal.get("place") == house["id"] and "beds_left_empty" in refusal:
+                refusal["beds_left_empty"] -= len(persons)
+                refusal["topped_up_by"] = {"ticket": TOP_UP_TICKET, "seated": len(persons)}
+    refusals[:] = [r for r in refusals if r.get("beds_left_empty", 1) > 0]
+
+    empty = Counter()
+    for house in houses:
+        if house["division"] in DIVISIONS:
+            empty[house["division"]] += max(0, house["beds_ordinary"] - house["occupancy"])
+    owed = Counter()
+    for row in rows:
+        owed[row["division"]] += left[row["bucket"]]
+    block = {
+        "$note": "DERIVED and CARRIED (T-1538). A second room, dealt after every other "
+                 "draw of this stage, so the people the frozen basis seats keep their "
+                 "seeds, their names and their beds. Read live on the build that first "
+                 "recorded it — the book's order less the re-family arrivals less what "
+                 "this stage had drawn — and carried on every build after, so a re-cut "
+                 "moves nobody it seats.",
+        "owning_ticket": TOP_UP_TICKET,
+        "buckets": rows,
+        "seated": seated,
+        "what_is_left": {
+            "statement": "Where the order and the roofs do not meet, after the top-up. "
+                         "An order with no empty bed in its division waits on a roof "
+                         "(T-1209 raises them); an empty bed with no order in its "
+                         "division waits on the book, and nobody is minted into it.",
+            "ordered_with_no_bed": {div: owed[div] for div in DIVISIONS},
+            "beds_with_no_order": {div: empty[div] for div in DIVISIONS},
+        },
+    }
+    return dict(sorted(fills.items())), block
+
+
 # -------------------------------------------------------------------- the fill --
 
 def fill() -> tuple:
@@ -1832,6 +1972,13 @@ def fill() -> tuple:
                                             {key: n - fills[key]
                                              for key, n in live_by_key.items()})
 
+    # THE TOP-UP, LAST OF ALL (T-1538) — after the children, so it reads names and room
+    # nobody before it will read again, and the only thing it can change is an empty bed.
+    top_up_fills, top_up_block = top_up(houses, house_order, cards, seated_by_house,
+                                        fills + Counter(child_fills), live_room, arrivals,
+                                        pool, taken_names, taken_ids, household_fills,
+                                        refusals)
+
     ledger = {
         "$schema_note": "DERIVED. Written by tools/seat_lodgers_1835.py --build; "
                         "re-derived by --check in tools/check.sh. Do not hand-edit.",
@@ -1844,7 +1991,8 @@ def fill() -> tuple:
         "not_a_reading": "This file reads no source. It spends a capacity the lodging "
                          "model already apportioned and an order the book already made, "
                          "and it names nobody the sources name.",
-        "quota_basis": basis_block(room_as_dealt, house_order, ceiling),
+        "quota_basis": basis_block(room_as_dealt, house_order, ceiling)
+                       | {"top_up": top_up_block},
         "inputs": [
             "data/reconstruction/1835_lodging_model.json",
             "data/reconstruction/1835_reconstruction_order_book.json",
@@ -1881,6 +2029,7 @@ def fill() -> tuple:
                           for cid, card in cards.items()), key=lambda r: r["id"]),
         "fills": dict(sorted(fills.items())),
         "child_fills": child_fills,
+        "top_up_fills": top_up_fills,
         "household_fills": household_fills_block(household_fills),
         "keeper_families": {
             "ticket": CHILD_TICKET,
@@ -2198,7 +2347,7 @@ def write_fills(ledger: dict) -> None:
     `--build` refuses an overfilled bucket, so the quota is enforced twice."""
     import build_order_book_1835 as ob
     book = load(BOOK)
-    ours = (TICKET, CHILD_TICKET)
+    ours = (TICKET, CHILD_TICKET, TOP_UP_TICKET)
     rows = [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted(ledger["fills"].items())]
@@ -2207,6 +2356,10 @@ def write_fills(ledger: dict) -> None:
     rows += [{"bucket": key, "ticket": CHILD_TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted((ledger.get("child_fills") or {}).items())]
+    # The top-up (T-1538) is counted against its own ticket for the same reason.
+    rows += [{"bucket": key, "ticket": TOP_UP_TICKET, "stage": STAGE, "records": n,
+              "by": "tools/seat_lodgers_1835.py --build"}
+             for key, n in sorted((ledger.get("top_up_fills") or {}).items())]
     # AND THE HOUSES, against this stage's OWN ticket (T-1537): the lodging household
     # record is what THIS stage writes, one per lodging place, and the children above are
     # a later piece's people inside it. `records` means records of the bucket's own unit,
@@ -2262,6 +2415,7 @@ def refuse(cards: dict, ledger: dict) -> None:
     live = {key: n for key, n in book_lodging_room().values()}
     both = Counter({k: int(v) for k, v in (ledger.get("fills") or {}).items()})
     both.update({k: int(v) for k, v in (ledger.get("child_fills") or {}).items()})
+    both.update({k: int(v) for k, v in (ledger.get("top_up_fills") or {}).items()})
     refuse_a_recut_under_the_draw(dict(both), live)
     refuse_a_household_fill_outside_the_order(
         {tuple(k.split("/")[1:]): int(v) for k, v in

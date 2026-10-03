@@ -98,6 +98,14 @@ GROUPS = {
     "uncounted_trades": {
         "ticket": "T-2001",
         "title": "the trades no census line and no count of shops reaches"},
+    # T-1529, A SEVENTH GROUP FOR ONE BOOK ROW. T-1525's re-cut (2026-09-24) raised
+    # `businesses/physician` to two and moved the row off T-1418, whose tree had closed,
+    # onto T-1529 — and a group spends the rows of ONE ticket, so the row stood with no
+    # group to spend it and the one drawn physician lost the office he kept. This group is
+    # that row's spender and nothing else; the heads it adopts are the resident band's, and
+    # the second of them is drawn there by the business order's own floor (T-1529, in
+    # tools/reconstruct_trade_households.py `business_floors`).
+    "physicians": {"ticket": "T-1529", "title": "the physicians the re-cut ordered"},
 }
 
 
@@ -822,11 +830,10 @@ SERVICES = {
         "why": ("THE COUNT IS PRINTED, SO THE COUNT ORDERS. The census counts fourteen "
                 "physicians, the same rule as the lawyers, for the same reason. T-1418 "
                 "filled the bucket; then T-1525's re-cut (2026-09-24) raised its order to "
-                "two and moved the row to T-1529, and the office the one drawn head kept "
-                "went with it, because no group spends a T-1529 row. The book now orders "
-                "2 and the resident band has drawn 1 head at the trade, and this tool "
-                "half-fills no count (`build_group`), so the head waits on T-1529 by name "
-                "(T-2001)."),
+                "two and moved the row to T-1529. T-1529 spends it: the `physicians` "
+                "group builds the two offices the book orders, and the resident band "
+                "draws the second head the order needs by the business order's floor, "
+                "out of one labourer's slot, so neither head is left over."),
     },
     "surveyor": {
         "kind": "employment",

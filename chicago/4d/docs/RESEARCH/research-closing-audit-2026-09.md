@@ -75,13 +75,13 @@ The business layer today is the newspaper-derived register; T-1180 authors the r
 
 | Measure | Count |
 | --- | ---: |
-| Register records | 196 |
-| Present at the scene date | 179 |
-| Naming a proprietor | 151 |
-| Naming a partner | 139 |
-| Naming a street | 94 |
+| Register records | 193 |
+| Present at the scene date | 176 |
+| Naming a proprietor | 148 |
+| Naming a partner | 136 |
+| Naming a street | 91 |
 | Requiring a survival liberty | 95 |
-| Requiring a backdating liberty | 26 |
+| Requiring a backdating liberty | 24 |
 
 The location limit of every firm present at the scene date — how far its evidence places it:
 
@@ -89,7 +89,7 @@ The location limit of every firm present at the scene date — how far its evide
 | --- | ---: |
 | enrich_existing | 31 |
 | new_building | 27 |
-| street_only | 59 |
+| street_only | 56 |
 | unplaceable | 62 |
 
 Reproduce: `python3 tools/compile_register.py --check`.
@@ -98,7 +98,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 
 | Measure | Count |
 | --- | ---: |
-| Structure records | 543 |
+| Structure records | 548 |
 | Carrying occupants | 180 |
 | Flagged `review_required` | 14 |
 
@@ -106,7 +106,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 | --- | ---: |
 | `attested` | 18 |
 | `inferred` | 187 |
-| `reconstructed` | 1,427 |
+| `reconstructed` | 1,442 |
 
 Reproduce: `python3 tools/audit_confidence.py --strict`.
 
@@ -137,10 +137,10 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 ## 7. The gaps, stated
 
 1. **Every layer is reached at unit level.** 812 asserted units land on residents and households, 542 on businesses and 40 on structures.
-2. **28 of the 179 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
-3. **62 firms are unplaceable and 59 reach a street and no further.** Those 121 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
+2. **28 of the 176 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
+3. **62 firms are unplaceable and 56 reach a street and no further.** Those 118 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,479 of 1,512 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
-5. **1,427 structure attributes are `reconstructed` against 18 attested and 187 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
+5. **1,442 structure attributes are `reconstructed` against 18 attested and 187 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 
 ## 8. Closing
 

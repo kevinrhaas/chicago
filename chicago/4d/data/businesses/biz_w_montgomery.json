@@ -6,32 +6,76 @@
   "type": [
     "other"
   ],
-  "trade": "auction and commission house",
+  "trade": "auction and commission",
   "occupation": "auctioneer",
-  "goods": [],
+  "goods": [
+    "Crockery",
+    "Dry Goods",
+    "Groceries",
+    "Hardware",
+    "goods on commission",
+    "merchandize at auction",
+    "real estate at auction"
+  ],
   "firm_styles": [],
   "notice": null,
-  "proprietors": [
+  "proprietors": [],
+  "partners": [
     {
       "name": "W. Montgomery",
       "person_id": "montgomery_w",
       "register_person_id": "person_w_montgomery",
-      "role": "proprietor",
-      "from": "1835-07-08",
-      "to": "1835-07-29",
+      "role": "partner",
+      "from": "1835-06-24",
+      "to": "1835-08-05",
       "tier": "attested",
       "basis": "The register matches the printed name to the town card montgomery_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
       "source_id": "chicago_newspapers_1833_1835",
       "claim_ids": [
+        "chicago_american_1835_06_27#c008",
+        "chicago_american_1835_07_04#c012",
+        "chicago_american_1835_07_11#c003",
+        "chicago_american_1835_07_18#c003",
+        "chicago_american_1835_07_25#c003",
+        "chicago_democrat_1835_06_24#c008",
         "chicago_democrat_1835_07_08#c001",
         "chicago_democrat_1835_07_15#c005",
         "chicago_democrat_1835_07_22#c011",
-        "chicago_democrat_1835_07_29#c013"
+        "chicago_democrat_1835_07_29#c013",
+        "chicago_democrat_1835_08_05#c009",
+        "chicago_democrat_1835_08_05#c016"
+      ],
+      "also_printed_as": [
+        "Montgomery, W."
+      ]
+    },
+    {
+      "name": "Montgomery",
+      "person_id": null,
+      "register_person_id": "person_montgomery",
+      "role": "partner",
+      "from": "1835-06-24",
+      "to": "1835-08-05",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_montgomery with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_27#c008",
+        "chicago_american_1835_07_04#c012",
+        "chicago_american_1835_07_11#c003",
+        "chicago_american_1835_07_18#c003",
+        "chicago_american_1835_07_25#c003",
+        "chicago_democrat_1835_06_24#c008",
+        "chicago_democrat_1835_07_08#c001",
+        "chicago_democrat_1835_07_15#c005",
+        "chicago_democrat_1835_07_22#c011",
+        "chicago_democrat_1835_07_29#c013",
+        "chicago_democrat_1835_08_05#c009",
+        "chicago_democrat_1835_08_05#c016"
       ],
       "also_printed_as": []
     }
   ],
-  "partners": [],
   "staff": [
     {
       "name": "Dennis Walsh",
@@ -114,11 +158,11 @@
       "street_id": "south_water",
       "face": null,
       "primary": true,
-      "from": "1835-07-08",
+      "from": "1835-06-24",
       "to": null,
       "tier": "inferred",
       "basis": "The paper names a street and no house on it.",
-      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"David Carver's Old Stand\" names nothing the committed town holds."
+      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"J. Wright's\" names nothing the committed town holds."
     }
   ],
   "dates": {
@@ -126,13 +170,17 @@
     "closed": null,
     "precision": "exact",
     "tier": "attested",
-    "basis": "The paper announces the opening: chicago_democrat_1835_07_08#c001 (1835-07-06)."
+    "basis": "The paper announces the opening: chicago_democrat_1835_07_08#c001 (1835-07-06); chicago_democrat_1835_08_05#c009 (1835-07-06)."
   },
   "evidence": {
-    "first_issue": "1835-07-08",
-    "last_issue": "1835-07-29",
+    "first_issue": "1835-06-24",
+    "last_issue": "1835-08-05",
     "copy_dates": [
-      "1835-07-06"
+      "1835-06-24",
+      "1835-06-27",
+      "1835-07-06",
+      "1835-07-17",
+      "1835-07-18"
     ]
   },
   "present_at_scene_date": true,
@@ -147,7 +195,7 @@
       {
         "person_id": "montgomery_w",
         "name": "W. Montgomery",
-        "role": "proprietor",
+        "role": "partner",
         "community": "yankee",
         "tier": "reconstructed"
       }
@@ -158,14 +206,22 @@
     "chicago_newspapers_1833_1835"
   ],
   "claim_ids": [
+    "chicago_american_1835_06_27#c008",
+    "chicago_american_1835_07_04#c012",
+    "chicago_american_1835_07_11#c003",
+    "chicago_american_1835_07_18#c003",
+    "chicago_american_1835_07_25#c003",
+    "chicago_democrat_1835_06_24#c008",
     "chicago_democrat_1835_07_08#c001",
     "chicago_democrat_1835_07_15#c005",
     "chicago_democrat_1835_07_22#c011",
-    "chicago_democrat_1835_07_29#c013"
+    "chicago_democrat_1835_07_29#c013",
+    "chicago_democrat_1835_08_05#c009",
+    "chicago_democrat_1835_08_05#c016"
   ],
   "liberties": {
     "survival_required": false,
-    "backdating_required": true
+    "backdating_required": false
   },
   "review_required": false,
   "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
