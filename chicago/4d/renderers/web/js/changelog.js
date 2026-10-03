@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1376, ts: '2026-10-03T18:18:44.499Z', date: 'Oct 3, 2026, 1:18 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+  { v: 1377, ts: '2026-10-03T18:36:59.827Z', date: 'Oct 3, 2026, 1:36 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
       'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
       'The evening, the route and the keepsake, A Pleasant Circuit, are our reconstruction (liberty L-jaunt-an-evening-stroll). No entertainment or dated event is claimed, and the light does not change.',
+    ] },
+  { v: 1376, ts: '2026-10-03T18:14:03.459Z', date: 'Oct 3, 2026, 1:14 PM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Calling on Neighbors, about four minutes on horseback.',
+      'Present a letter of introduction from Mrs Brown\u2019s boarding house, read the Peck household on its card, find the town\u2019s meeting place at the Exchange Coffee House, and leave a calling card.',
+      'The newcomer, the letters, the calls and the keepsake, An Introduction Made, are our reconstruction (liberty L-jaunt-calling-on-neighbors). The meetings and the 1834 notice asking for addresses at the Exchange come from the Chicago Democrat.',
     ] },
   { v: 1375, ts: '2026-10-03T17:42:34.011Z', date: 'Oct 3, 2026, 12:42 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
     items: [

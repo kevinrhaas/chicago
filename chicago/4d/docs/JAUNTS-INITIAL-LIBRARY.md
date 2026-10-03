@@ -519,6 +519,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Named resident information stays on sourced cards. No invented real-person quotations or encounter claims.
 
+**Route note (published, T-2030):** The shipped story order is the briefed one: Brown's boarding house → Peck's store → the Exchange Coffee House → the Sauganash. The two choices are the letter of introduction presented (a merchant's or a minister's) at Brown's and where the calling card is left (the Exchange, where J. A. Marshall's November 1834 notice asked addresses to be left, or the Sauganash) at the Exchange; Peck's stop sends the visitor to the household's card rather than to a door. The Exchange is the public meeting place on the Democrat's own reports of Democratic meetings held there in April and June 1835. **Recommended mode is Horse, not the brief's Walk:** the primary path measures about 8.7 min at Walk on the published mirror, past the 4–6 min band, and 4.1 min at Horse; Walk stays allowed.
+
 ## 22. Gossip or Printed Notice?
 
 **ID:** `gossip-or-notice` · **Owner ticket:** [T-1269](../tickets/T-1269-publish-schooling-social-visits-and-careful-news.md)
