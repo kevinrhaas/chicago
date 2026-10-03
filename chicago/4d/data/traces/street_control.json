@@ -127,11 +127,80 @@
     "wolcott_is_read_twice_and_the_wider_reading_stands": "Wolcott Street is the line the two tiers meet on — the Thompson plat's east boundary, lettered Due North / True Meridian, and Kinzie's Addition's west edge — and the two sheets do not give it the same corridor. Thompson letters 80 ft on the tier it closes; Wright's Addition reading takes it at 68.8 ft raw, 67.2 ft scaled. NOTHING HERE SETTLES THAT. The record keeps the module, which is both the figure the sheet WRITES and the wider of the two, so no body is cleared out of a corridor on the strength of the narrower reading. The disagreement is 4 m on a line carried through a 20 m placement envelope and it is recorded rather than averaged away.",
     "not_in_the_corridor_layer": {
       "north_water": "The one north-bank street whose line is DERIVED FROM THE RIVER BANK rather than from a platted rule: tools/derive_north_water.py cuts it from the committed bank because the line it replaced ran 477.4 m of its 843.3 m inside the water mask (T-0226). It bends through 26 vertices, and T-0447 records that the plat does not give it the ground it runs on. Offsetting that polyline by half a module would invent a rectangle no sheet draws. The north-bank frontage rule stays tools/measure_north_bank_frontage.py, unchanged, which is what T-1191's acceptance asks for.",
-      "wabansia_and_the_west_division": "hubbard, owen, hight, sailors, trade, free, kinzie_west and the West Division and School Section tiers are T-1192's ground and are left to it.",
+      "wabansia_and_the_west_division": "hubbard, owen, hight, sailors, trade, free, kinzie_west and the West Division were T-1192's ground; since T-1414 they stand in `west_bank` below, with the two streets held out of the layer and why. The School Section tiers are still outside it.",
       "michigan_st_tract": "michigan_north_tract, market_north_tract and the two tract alleys carry their own corridor widths from tools/seat_michigan_st_tract.py and sit in the 239.4 m Wright leaves BLANK between the tract and Kinzie's Addition. They are north of the river but they are not in either tier this block reads, so they are not asserted here."
     },
     "alleys": "WHAT WAS READ, AND WHAT WAS NOT — because absent is only an answer when the sheet was read for it. The Thompson reading's column scan returns FIVE vertical strokes per North Division block, 34 over the seven blocks (block 6's middle stroke is lost under the slough the plat draws across it). Five is two block faces and three lot lines for the four lots to a face the tier is drawn with, and there is no sixth: THE SHEET DRAWS NO NORTH-SOUTH ALLEY IN THE NORTH DIVISION, and that is a reading, not a silence. THE EAST-WEST ALLEY IS NOT ANSWERED. The tier is two rows of lots back to back, which is where the Original Town puts its 18 ft alleys, but the scan that found the strokes above is a scan for VERTICAL ink and could not have seen a horizontal rule. No record here is given `alleys: false` on the strength of a scan that was not looking, which is why the North Division records carry no `alleys` key at all rather than a false one. Reading the tier's east-west axis is its own unit of work: it needs the 7 MB sheet, Pillow and a second fit, and T-0451 declined the same axis for the same reason ('one anchor is not a fit').",
     "what_this_did_not_do": "It did not lay a block grid north of the river — `EW_STREETS`/`NS_STREETS` in tools/generate_plat_lots.py are untouched and T-1194 owns that — and it did not re-measure either sheet. A corridor needs ONE street read; a block needs two lines fixed and the ground between them. Separating those two questions is the whole of what T-1191 changed."
+  },
+  "west_bank": {
+    "_doc": "THE CORRIDOR CONTROL WEST AND NORTH-WEST OF THE RIVER (T-1414, piece 2 of T-1192, 2026-10-03). The sibling of `north_bank`, and built the same way: NOTHING IS MEASURED HERE. Every line below was seated and every width read by an earlier ticket and is committed with its own derivation; what was missing is the place that says which street stands on which reading, so `tools/generate_plat_lots.py` can read the corridor layer out of this file instead of out of a list. Until this block existed the West Division's east-west tiers (Carroll, Fulton), its two western north-south streets and the whole Wabansia grid were outside `plat_corridors.corridors()`: a generator asked whether a point stood in a platted roadway got 'no' there by omission. Lake, Randolph, Washington, Canal and Clinton were already in the layer through the Original Town's block lists and are not repeated here.",
+    "ticket": "T-1414",
+    "read_on": "the readings, 2026-09-03 (T-0689, the West Division block), 2026-09-04 (T-0446, the tiers), T-0790 (Wabansia's corridors) and T-1430/T-1490 (Jefferson and Des Plaines); wired here 2026-10-03",
+    "horizontal_uncertainty_m": 20,
+    "horizontal_uncertainty_note": "The same envelope `north_bank` states and for the same reason: the datum's 17.5 m RMS (data/datum.json derivation.residual_m) rounded up for the extra step each line here is carried through — the West Division's tiers are fitted to surviving OpenStreetMap junctions (Fulton's four) or interpolated between them (Carroll, whose own half-bracket is 6.536 m), and Wabansia's grid is seated off the committed Kinzie line by the module the sheet measures (data/traces/wabansia_seating.json). It is an envelope on WHERE a corridor stands, not on how wide it is.",
+    "tiers": {
+      "west_division": {
+        "sheet": "thompson_plat_1830",
+        "reading": "data/traces/thompson_west_division_lots.json",
+        "research": "docs/RESEARCH/west_division_streets.md",
+        "corridor_ft": 80.0,
+        "corridor_m": 24.384,
+        "confidence": "inferred",
+        "how": "THE MODULE, AND THE SHEET CLOSES ON IT. The West Division block is read as 180 + 18 + 180 = 378 ft east-west and 5 x 75 3/5 = 378 ft north-south (data/traces/thompson_west_division_lots.json § the_west_division_block), and the north-south street pitch that block implies is 378 + 80 = 458 ft = 139.598 m, the figure docs/RESEARCH/west_division_module.md derived independently. The 80 is the platted module this file already applies (`platted_street`, whose eleven measured corridors all fall at 75.7-92.8 ft and include the West Division's); `jefferson` and `des_plaines` already declare it as `corridor_width_m` on their records. Carroll and Fulton declare no width of their own and take the same module through `platted_street.half_width_m`, the fallback `generate_plat_lots.corridor_rings` uses.",
+        "streets": [
+          "carroll",
+          "fulton",
+          "des_plaines"
+        ],
+        "axis": {
+          "ew": [
+            "carroll",
+            "fulton"
+          ],
+          "ns": [
+            "des_plaines"
+          ]
+        }
+      },
+      "wabansia": {
+        "sheet": "wright_1834_nara_hup",
+        "reading": "data/traces/wabansia_streets.json",
+        "seating": "data/traces/wabansia_seating.json",
+        "corridor_ft": 78.8,
+        "corridor_m": 24.02,
+        "confidence": "inferred",
+        "how": "MEASURED OFF WRIGHT'S 1834 SURVEY BY T-0790: seven east-west corridors at a 34.1 px mean (sd 3.16), 80.7 ft raw and 78.8 ft once scaled against the Original Town's corridors on the same sheet (wabansia_streets.json § module). The six Wabansia streets already declare that as `corridor_width_m: 24.02` on their records (written when T-1070/T-1086 seated them) and the layer reads the per-record figure. The seventh corridor the sheet rules is Kinzie Street, Wabansia's south line; west of the North Branch that line is `kinzie_west`, whose record keeps the 80 ft module — the wider of the two, so no body is cleared out of a corridor on the narrower reading, the rule `north_bank` applies to Wolcott.",
+        "streets": [
+          "kinzie_west",
+          "hubbard",
+          "owen",
+          "hight",
+          "sailors",
+          "trade",
+          "free"
+        ],
+        "axis": {
+          "ew": [
+            "kinzie_west",
+            "hubbard",
+            "owen",
+            "hight",
+            "sailors",
+            "trade",
+            "free"
+          ],
+          "ns": []
+        }
+      }
+    },
+    "not_in_the_corridor_layer": {
+      "west_water": "THE SAME REASON `north_bank` GIVES FOR NORTH WATER. West Water's line is the committed 1834 west bank of the South Branch offset one half-corridor west (T-0445, its record's note): it is cut from the waterline, not from a platted rule, so a corridor offset from it would claim the river's own edge as roadway. Measured 2026-10-03 for this block: taken into the layer, its corridor laps one body, `south_branch_raft_bridge` (0.43 m), which is street furniture and not an intrusion — the refusal is about the line's derivation, not about what it would touch.",
+      "jefferson": "HELD ON ITS MEASURED CONSEQUENCE, AND THE CONSEQUENCE IS A QUESTION ABOUT THE LINE. Jefferson's committed line runs from local north -400 to +381.887 (T-1490 carried it north on two surviving junctions, Kinzie and Hubbard). North of Kinzie that reach crosses Wabansia, whose Wright 1834 survey draws block 59 (blk_wabansia_c_t7) WHOLE across the ground where modern Jefferson runs and rules Wabansia's grid east-west only (wabansia_streets.json reads no north-south corridor). Taken into the layer on 2026-10-03, Jefferson's corridor puts both reconstructed Wabansia bodies on block 59 into a platted roadway: `wabansia_doctors_barn` 12.11 m deep and `wabansia_doctors_house` 1.38 m. Adopting it would assert that an 1835 street ran through a block the 1834 survey draws whole, so it is held until somebody rules whether Jefferson's 1835 line stops at Kinzie — T-2018. South of Kinzie nothing changes: the West Division generator already measures every roof against Jefferson's own declared corridor (tools/generate_west_infill.py `omitted_street_corridors`), and T-1545/T-1570 cleared the four that stood in it."
+    },
+    "alleys": "READ, AND ALREADY CUT. The West Division block draws an 18 ft NORTH-SOUTH alley between its two columns of 180 ft lots (thompson_west_division_lots.json § the_west_division_block, T-0689), and `generate_plat_lots.subdivide_west` cuts it with the lots (T-1455). It is a block feature and not a corridor in this layer, as the Original Town's east-west alleys are not. Wabansia's sheet rules no alley: the seating's block polygons are lot-to-street, and the reconstructed bodies on block 59 stand with the block's Hubbard Street edge where an alley would (the doctor's house's own position note). Neither tier is given an alley corridor here.",
+    "lots": "THE SMALL LOTS ARE ON THE BLOCK RECORDS ALREADY, which is what T-1192 asked of this piece. The West Division's 22 blocks carry `lot_frontage_ft`/`lot_depth_ft` where the sheet prints them (6 depths, 4 frontages, 203 lots counted) and a written refusal where it does not (thompson_west_division_lots.json § blocks, § counts); the legend lot is 75 3/5 x 180 ft, NARROWER than the 80 ft module, and the reading carries it as printed (`lot_frontage_as_printed`). Wabansia's module is four lots to a block at 78.2 ft deep raw (wabansia_streets.json § module). Nothing here re-reads either.",
+    "what_this_did_not_do": "It moved no street line and re-read no sheet. It did not cut Jefferson's line at Kinzie (that is the held question above) and it did not put a north-south Wabansia street into the layer, because the sheet reading names none."
   },
   "streets": {
     "lake": {
