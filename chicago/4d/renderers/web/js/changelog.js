@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1364, ts: '2026-10-03T13:54:17.657Z', date: 'Oct 3, 2026, 8:54 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Materials for a Roof, about six minutes on horseback.',
+      'Start at Newberry \u0026 Dole\u2019s warehouse on the river, choose nails or nail rods at Peck\u2019s corner, decide on brick at the town\u2019s first brickyard, and end looking at the Lake House going up at Rush Street.',
+      'The builder, the list and the keepsake, A Builder\u2019s List, are our reconstruction (liberty L-jaunt-materials-for-a-roof). The goods come from the merchants\u2019 own notices; the Lake House shell is our reconstruction of a building site.',
+    ] },
   { v: 1363, ts: '2026-10-03T13:05:29.979Z', date: 'Oct 3, 2026, 8:05 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
     items: [
       'Open William Jones\u2019s card in People. Fergus\u2019s 1839 directory calls him a justice of the peace, and that line used to appear twice: once under his 1835 trade and once on his timeline. It now appears once, on the timeline, dated 1839.',
