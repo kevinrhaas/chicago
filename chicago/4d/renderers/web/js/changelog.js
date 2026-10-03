@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1346, ts: '2026-10-03T05:28:45.102Z', date: 'Oct 3, 2026, 12:28 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
+    items: [
+      'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
+      'Shrubs gain leafy twig silhouettes in place of broad green rectangles. Higher detail adds curved leaves, grasses and finer branching.',
+      'The researched species, planting locations and July flowering rules stay in charge. Leaf and bark surfaces are procedural reconstructions.',
+    ] },
   { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
     items: [
       'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',

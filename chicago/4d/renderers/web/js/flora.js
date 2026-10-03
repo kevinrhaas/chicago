@@ -52,6 +52,7 @@ import * as THREE from 'three';
 // without a second copy of the corner arithmetic. See K57.
 import { SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 import { softExtentWeight, ditherHash } from './lakeshore.js';
+import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
 const LEVEL = { attested: 0.0, inferred: 0.5, reconstructed: 1.0 };
@@ -985,7 +986,9 @@ export async function createFlora({
 
   // `lowSpec` is the device guess and still means the lightest tune; an
   // explicit visitor choice arrives as `detail` and outranks it.
-  const tune = mergeTune(lowSpec && detail === 'full' ? 'light' : detail);
+  const quality = lowSpec && detail === 'full' ? 'light' : detail;
+  const tune = mergeTune(quality);
+  const botanicalSegments = quality === 'light' ? 1 : quality === 'balanced' ? 2 : 3;
   const zones = compileZones(dataset, terrain, problems, stats);
   if (!zones.length) {
     problems.push('flora: the manifest named no usable zone — nothing is planted');
@@ -1124,6 +1127,11 @@ export async function createFlora({
   /** Resolved once, from the scene graph, at the first update. */
   let sunFound = false;
 
+  // One procedural atlas for every understory family; no network texture or
+  // extra draw call. Alpha is clipped before lighting and still writes depth.
+  const foliage = foliageAtlas();
+  uniforms.uChiFoliage = { value: foliage };
+  disposables.push(foliage);
   const bladeMat = plantMaterial({ uniforms, billboard: false });
   const cardMat = plantMaterial({ uniforms, billboard: true, membrane: 0.30 });
   // Heads share the blade program deliberately. Under the software rasteriser
@@ -1137,15 +1145,15 @@ export async function createFlora({
 
   // ---- the layers -------------------------------------------------------- //
 
-  const nearSet = instSet('flora-near', tuftGeometry(9, 2), bladeMat, tune.cap.near);
+  const nearSet = instSet('flora-near', tuftGeometry(9, quality === 'light' ? 2 : 4), bladeMat, tune.cap.near);
   const midSet = instSet('flora-mid', cardGeometry(7), cardMat, tune.cap.mid);
-  const forbSet = instSet('flora-forb', forbGeometry(), bladeMat, tune.cap.forb);
+  const forbSet = instSet('flora-forb', forbGeometry(botanicalSegments), bladeMat, tune.cap.forb);
   // A basal-scape plant is not a stem with leaves up it. Prairie dock and
   // compass plant are a 40 cm ROSETTE of huge paddle leaves at the ground with
   // a nearly naked flowering scape two or three metres over it — the dossier
   // names the rosette explicitly and it is the plant's whole diagnosis. Drawn
   // with the generic forb it became a leafy giant that filled the foreground.
-  const rosetteSet = instSet('flora-rosette', rosetteGeometry(), bladeMat,
+  const rosetteSet = instSet('flora-rosette', rosetteGeometry(botanicalSegments), bladeMat,
     Math.max(48, Math.round(tune.cap.forb * 0.45)));
   // ...and a shrub is not a stem with leaves up it either (K53). Twenty-one
   // records across eight zones carry `form: 'shrub_low'` — hazel, elder,
@@ -1154,7 +1162,7 @@ export async function createFlora({
   // four leaves however wide the record says the clump is. The wet woods' own
   // dossier calls hazel the most common shrub-layer plant there was and says
   // under-rendering it is the specific mistake to avoid; it was a wand.
-  const shrubSet = instSet('flora-shrub', shrubGeometry(), bladeMat, tune.cap.forb);
+  const shrubSet = instSet('flora-shrub', shrubGeometry(SHRUB_GRAIN, 'flora-shrub', 1, botanicalSegments), bladeMat, tune.cap.forb);
   // One instanced set per ARCHETYPE, so the geometry a species gets is the
   // shape its record names. The flat horizontal plate is gone; nothing draws
   // one, because at 1.68 m eye height a corymb at 0.7 m is seen 11 degrees off
@@ -3642,6 +3650,9 @@ function instSet(name, geometry, material, max) {
   const riseAttr = new THREE.InstancedBufferAttribute(new Float32Array(max), 1);
   riseAttr.setUsage(THREE.DynamicDrawUsage);
   geometry.setAttribute('aChiRise', riseAttr);
+  const familyAttr = new THREE.InstancedBufferAttribute(new Float32Array(max), 1);
+  familyAttr.setUsage(THREE.DynamicDrawUsage);
+  geometry.setAttribute('aChiFamily', familyAttr);
   /** Never fades: overwritten before the first push of every pass. */
   let ringNow = [1e9, 1e-4, 0, 0];
 
@@ -3688,7 +3699,7 @@ function instSet(name, geometry, material, max) {
      *   base of its plant. The shader lowers it by `rise * (1 - fade)`.
      * @returns {boolean} false when the cap is reached — the caller stops.
      */
-    push(e, y, n2, yaw, height, spread, arch, r, g, b, conf2, tilt = 0, tiltAz = 0, rise = 0) {
+    push(e, y, n2, yaw, height, spread, arch, r, g, b, conf2, tilt = 0, tiltAz = 0, rise = 0, family = 0) {
       want++;
       if (n >= max) return false;
       if (tilt !== 0) {
@@ -3713,6 +3724,7 @@ function instSet(name, geometry, material, max) {
       conf.setX(n, conf2);
       ringAttr.setXYZW(n, ringNow[0], ringNow[1], ringNow[2], ringNow[3]);
       riseAttr.setX(n, rise);
+      familyAttr.setX(n, family);
       n++;
       return true;
     },
@@ -3724,6 +3736,7 @@ function instSet(name, geometry, material, max) {
       conf.needsUpdate = true;
       ringAttr.needsUpdate = true;
       riseAttr.needsUpdate = true;
+      familyAttr.needsUpdate = true;
     },
   };
 }
@@ -3870,7 +3883,7 @@ function placeForb(set, sp, e, y, n, rng) {
     : THREE.MathUtils.clamp(sp.width ? mid(sp.width) * 0.45 : h * 0.26, 0.07, 0.40);
   const c = tint(sp, rng() * 0.6, rng()).map((x) => x * patchOf(e, n));
   return set.push(e, y, n, rng() * Math.PI * 2, h, spread, 0.1 + rng() * 0.2,
-    c[0], c[1], c[2], sp.conf) ? h : 0;
+    c[0], c[1], c[2], sp.conf, 0, 0, 0, foliageFamily(sp.id)) ? h : 0;
 }
 
 /**
@@ -3901,7 +3914,7 @@ function placeShrub(set, sp, e, y, n, rng) {
     sp.width ? mid(sp.width) * 0.5 : h * 0.45, 0.30, 1.75);
   const c = tint(sp, rng() * 0.6, rng()).map((x) => x * patchOf(e, n));
   return set.push(e, y, n, rng() * Math.PI * 2, h, spread, 0.04 + rng() * 0.08,
-    c[0], c[1], c[2], sp.conf) ? h : 0;
+    c[0], c[1], c[2], sp.conf, 0, 0, 0, foliageFamily(sp.id)) ? h : 0;
 }
 
 /**
@@ -3994,7 +4007,7 @@ function maybeHead(heads, sp, e, y, n, rng, plantH, ring) {
  * shader arches each blade outward along it, so a tuft opens into a fountain.
  */
 function emptyGeo() {
-  return { pos: [], nor: [], col: [], dir: [], side: [], idx: [], n: 0 };
+  return { pos: [], nor: [], col: [], dir: [], side: [], botany: [], idx: [], n: 0 };
 }
 function finishGeo(g, name) {
   const geo = new THREE.BufferGeometry();
@@ -4002,8 +4015,9 @@ function finishGeo(g, name) {
   geo.setAttribute('position', new THREE.Float32BufferAttribute(g.pos, 3));
   geo.setAttribute('normal', new THREE.Float32BufferAttribute(g.nor, 3));
   geo.setAttribute('color', new THREE.Float32BufferAttribute(g.col, 3));
-  geo.setAttribute('aDir', new THREE.Float32BufferAttribute(g.dir, 2));
-  geo.setAttribute('aSide', new THREE.Float32BufferAttribute(g.side, 3));
+  geo.setAttribute('aDir', new THREE.Float32BufferAttribute(g.dir, 4));
+  geo.setAttribute('aSide', new THREE.Float32BufferAttribute(g.side, 4));
+  geo.setAttribute('aBotany', new THREE.Float32BufferAttribute(g.botany, 3));
   geo.setIndex(g.idx);
   return geo;
 }
@@ -4011,7 +4025,7 @@ function vert(g, x, y, z, nx, ny, nz, r, gg, b, dx, dz, sx = 0, sy = 0, sz = 0) 
   g.pos.push(x, y, z);
   g.nor.push(nx, ny, nz);
   g.col.push(r, gg, b);
-  g.dir.push(dx, dz);
+  g.dir.push(dx, dz, 0, 0);
   // aSide is the offset from the archetype's own axis, in REAL metres, added
   // AFTER the height and spread scales — otherwise a wide clump gets wide
   // leaves, and cordgrass (0.5-0.9 m across, blades a centimetre or two wide)
@@ -4019,8 +4033,70 @@ function vert(g, x, y, z, nx, ny, nz, r, gg, b, dx, dz, sx = 0, sy = 0, sz = 0) 
   // because a grass blade TWISTS as it rises, so its width vector leaves the
   // horizontal plane, and because a basal rosette's leaves are a real size in
   // metres and must not scale with a three-metre flowering scape.
-  g.side.push(sx, sy, sz);
+  g.side.push(sx, sy, sz, 0);
+  g.botany.push(0, 0, 0);
   return g.n++;
+}
+
+/** Tapered twig, with its root and tip attached to the shrub scaffold. */
+function branchlet(g, from, to, width, dx, dz) {
+  const row = [];
+  for (const [point, scale] of [[from, 1], [to, 0.38]]) {
+    for (const side of [-1, 1]) {
+      const v = vert(g, point[0] - dz * width * scale * side, point[1],
+        point[2] + dx * width * scale * side, dx, 0.35, dz,
+        0.48, 0.48, 0.48, dx, dz);
+      botany(g, v, 0, 0, -1);
+      row.push(v);
+    }
+  }
+  g.idx.push(row[0], row[1], row[2], row[1], row[3], row[2]);
+}
+
+/** Per-vertex botanical UVs, without changing the wind/support attributes. */
+function botany(g, vertex, u, v, kind) {
+  g.botany[vertex * 3] = u;
+  g.botany[vertex * 3 + 1] = v;
+  g.botany[vertex * 3 + 2] = kind;
+  // Pack shader data into the existing direction/offset slots. With three's
+  // instance matrix and confidence patch the material reaches the guaranteed
+  // sixteen-attribute WebGL floor; separate botanical attributes exceed it.
+  g.dir[vertex * 4 + 2] = u;
+  g.dir[vertex * 4 + 3] = v;
+  g.side[vertex * 4 + 3] = kind;
+}
+
+/** A leaf surface with a raised midrib, curved tip and real leaf-local UVs.
+ * The single-segment light form remains two triangles, as the old paddle did.
+ * Higher tiers split the blade along its length and across the midrib. */
+function curvedLeaf(g, { base, dx, dz, len, wide, rise, curl, segments, k0, k1 }) {
+  let previous = null;
+  for (let j = 0; j <= segments; j++) {
+    const t = j / segments;
+    const arch = Math.sin(t * Math.PI) * curl;
+    const k = k0 + (k1 - k0) * (0.3 + 0.7 * Math.sin(t * Math.PI * 0.8));
+    const row = [];
+    // The texture carries the pointed edge. A curved rectangle is only the
+    // support: every pixel outside the botanical outline is discarded.
+    for (let side = 0; side < (segments > 1 ? 3 : 2); side++) {
+      const u = side / (segments > 1 ? 2 : 1);
+      const lateral = (u * 2 - 1) * wide;
+      const fold = segments > 1 && side === 1 ? wide * 0.09 * Math.sin(t * Math.PI) : 0;
+      const slope = rise + Math.cos(t * Math.PI) * Math.PI * curl;
+      const n = new THREE.Vector3(-dx * slope - dz * (u - 0.5) * wide * 0.2,
+        len, -dz * slope + dx * (u - 0.5) * wide * 0.2).normalize();
+      const v = vert(g, base[0] + dx * len * t - dz * lateral,
+        base[1] + rise * t + arch + fold, base[2] + dz * len * t + dx * lateral,
+        n.x, n.y, n.z, k, k, k, dx, dz);
+      botany(g, v, u, t, 1);
+      row.push(v);
+    }
+    if (previous) for (let c = 0; c < row.length - 1; c++) {
+      g.idx.push(previous[c], row[c], previous[c + 1],
+        previous[c + 1], row[c], row[c + 1]);
+    }
+    previous = row;
+  }
 }
 
 /**
@@ -4152,6 +4228,7 @@ function tuftGeometry(blades = 12, segments = 2) {
       const k = shade(Math.min(1, y / 0.92), fleck) * tone;
       const a = vert(g, cx, y, cz, nx2, ny2, nz2, k, k, k, dx, dz, -px, -py, -pz);
       const c = vert(g, cx, y, cz, nx2, ny2, nz2, k, k, k, dx, dz, px, py, pz);
+      botany(g, a, 0, t, 3); botany(g, c, 1, t, 3);
       if (prev) g.idx.push(prev[0], prev[1], a, prev[1], c, a);
       prev = [a, c];
     }
@@ -4190,7 +4267,7 @@ function cardGeometry(columns = 7) {
 }
 
 /** A forb: one stem, four leaves. The flower is a separate archetype. */
-function forbGeometry() {
+function forbGeometry(segments = 1) {
   const g = emptyGeo();
   const rng = rngFrom(0x7c0ffee1);
   const w = 0.012;
@@ -4208,23 +4285,19 @@ function forbGeometry() {
   for (let i = 0; i < 4; i++) {
     const y = 0.22 + i * 0.17;
     const phi = i * 1.9 + rng();
-    const dx = Math.sin(phi);
-    const dz = Math.cos(phi);
-    // Broad leaves: a mid-July near field is as much milkweed and bergamot
-    // foliage as grass, and a forb drawn as a wire with four slivers on it
-    // vanishes into the sward instead of breaking it up.
     const len = 0.42 - i * 0.055;
-    const half = 0.150 - i * 0.020;
-    const k0 = shade(y * 0.8);
-    const k1 = shade(Math.min(1, y + 0.2));
-    const a = vert(g, -dz * half, y, dx * half, dx * 0.3, 0.9, dz * 0.3, k0, k0, k0, dx, dz);
-    const b = vert(g, dz * half, y, -dx * half, dx * 0.3, 0.9, dz * 0.3, k0, k0, k0, dx, dz);
-    const c = vert(g, dx * len, y + len * 0.30, dz * len,
-      dx * 0.3, 0.9, dz * 0.3, k1, k1, k1, dx, dz);
-    g.idx.push(a, b, c);
-    const d = vert(g, -dx * len * 0.55, y + len * 0.22, -dz * len * 0.55,
-      -dx * 0.3, 0.9, -dz * 0.3, k1, k1, k1, -dx, -dz);
-    g.idx.push(b, a, d);
+    const wide = 0.150 - i * 0.020;
+    // Opposite/alternating leaves remain on the old stem stations. Their
+    // pointed outlines and veins are resolved by the atlas even on light.
+    for (const side of (segments === 1 ? [i % 2 ? -1 : 1] : [1, -1])) {
+      const angle = phi + (side < 0 ? Math.PI : 0);
+      const dx = Math.sin(angle), dz = Math.cos(angle);
+      const reach = len * (side < 0 ? 0.65 : 1);
+      const rise = reach * 0.26;
+      curvedLeaf(g, { base: [0, y, 0], dx, dz, len: reach, wide,
+        rise, curl: reach * 0.10, segments,
+        k0: shade(y * 0.8), k1: shade(Math.min(1, y + 0.2)) });
+    }
   }
   return finishGeo(g, 'flora-forb');
 }
@@ -4553,7 +4626,7 @@ function compoundGeometry() {
  * the record's own `width_m`, so the leaves are the recorded size of the
  * rosette and do not grow with the flowering scape above them.
  */
-function rosetteGeometry() {
+function rosetteGeometry(segments = 1) {
   const g = emptyGeo();
   const rng = rngFrom(0x51190010);
   // The scape: bare, thin, and the full height of the plant.
@@ -4580,18 +4653,9 @@ function rosetteGeometry() {
     const len = 0.80 + rng() * 0.20;
     const wide = 0.30 + rng() * 0.12;
     const rise = 0.050 + rng() * 0.026;
-    const k0 = shade(0.14);
-    const k1 = shade(0.34 + rng() * 0.12);
-    const k2 = shade(0.22);
-    const nx = -dx * 0.30;
-    const nz = -dz * 0.30;
-    const a = vert(g, dx * 0.06, 0.004, dz * 0.06, nx, 0.95, nz, k0, k0, k0, 0, 0);
-    const b = vert(g, dx * len * 0.45 - dz * wide, rise, dz * len * 0.45 + dx * wide,
-      nx, 0.95, nz, k1, k1, k1, 0, 0);
-    const c = vert(g, dx * len * 0.45 + dz * wide, rise, dz * len * 0.45 - dx * wide,
-      nx, 0.95, nz, k1, k1, k1, 0, 0);
-    const d = vert(g, dx * len, rise * 0.42, dz * len, nx, 0.95, nz, k2, k2, k2, 0, 0);
-    g.idx.push(a, b, c, b, d, c);
+    curvedLeaf(g, { base: [dx * 0.06, 0.004, dz * 0.06], dx, dz,
+      len: len - 0.06, wide, rise: rise * 0.42, curl: rise * 0.8,
+      segments, k0: shade(0.14), k1: shade(0.34 + rng() * 0.12) });
   }
   return finishGeo(g, 'flora-rosette');
 }
@@ -4619,14 +4683,13 @@ function rosetteGeometry() {
  * arrangement inside it is invented. Nothing here reads a figure the record
  * does not carry.
  *
- * Cost: 104 triangles against the forb's 12 and the near tuft's 27 — 40 until
- * K56 raised the spray count to 32 and K57 to 48, each +32. It is drawn from the
- * forb lattice, so it takes slots the forb archetype used to take rather than
- * adding any, and the 167 of them the census counts in the wet woods' ring is
- * 17,368 triangles there, 1.7 % of the scene's million. The layout and the grain are `shrub-grain.js`;
- * what they cost and what they buy is `tools/measure_spray_grain.mjs --gate`.
+ * T-2015 cost: 136 triangles at light (the original floor), 392 balanced,
+ * 520 full, with unchanged instance counts. The extra triangles curve the
+ * leafy shoots and attach them to the main stems. `shrub-grain.js` still owns
+ * the envelope; `measure_spray_grain.mjs` measures its uncut support area,
+ * not the leaf coverage left after the botanical alpha mask.
  */
-function shrubGeometry() {
+function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, segments = 1) {
   const g = emptyGeo();
   const rng = rngFrom(0x5c123b00);
   // The stems, the bands, the spray plan and every corner are `shrub-grain.js`,
@@ -4634,20 +4697,27 @@ function shrubGeometry() {
   // browser, and the measurement reads the SAME arithmetic the scene draws. The
   // seed and the generator stay here, because a measurement that re-seeds is
   // measuring a different bush.
-  const { stems, sprays } = shrubLayout(rng, SHRUB_GRAIN);
+  const { stems, sprays } = shrubLayout(rng, grain);
+  const fit = (p) => [p[0] * reach, p[1], p[2] * reach];
   for (const s of stems) {
     // Woody, but not a silhouette: `color.g` is this module's only occlusion
     // term, so a stem written at 0.05 is a black stick where the foliage does
     // not cover it, and a shrub's stems are exposed for the lower half of it.
     const k0 = shade(0.16);
     const k1 = shade(0.42);
-    const [p0, p1, p2, p3] = s.corners;
+    const [p0, p1, p2, p3] = s.corners.map((p, i) => {
+      const centre = i < 2 ? [0, 0] : [s.dx * s.lean, s.dz * s.lean];
+      const narrow = i < 2 ? 0.45 : 0.20;
+      return [centre[0] + (p[0] - centre[0]) * narrow, p[1],
+        centre[1] + (p[2] - centre[1]) * narrow];
+    }).map(fit);
     const a = vert(g, p0[0], p0[1], p0[2], s.dx, 0.35, s.dz, k0, k0, k0, 0, 0);
     const b = vert(g, p1[0], p1[1], p1[2], s.dx, 0.35, s.dz, k0, k0, k0, 0, 0);
     const c = vert(g, p2[0], p2[1], p2[2], s.dx, 0.35, s.dz,
       k1, k1, k1, s.dx, s.dz);
     const d = vert(g, p3[0], p3[1], p3[2], s.dx, 0.35, s.dz,
       k1, k1, k1, s.dx, s.dz);
+    for (const v of [a, b, c, d]) botany(g, v, 0, 0, -1);
     g.idx.push(a, b, c, b, d, c);
   }
   // The COUNT is what K56 moved and the GRAIN is what K57 set: sixteen plates
@@ -4657,20 +4727,57 @@ function shrubGeometry() {
   // by preference. `SHRUB_GRAIN` in `shrub-grain.js` carries the answer and the
   // reasoning; the shading is all that is left here.
   for (const p of sprays) {
+    if (segments > 1) {
+      // Attach every sampled shoot to its nearest main stem. The old spray
+      // envelope contained disconnected green plates; removing those plates
+      // must reveal actual woody structure, not leaves suspended in space.
+      const rootH = p.top * 0.62;
+      let closest = stems[0], distance = Infinity;
+      for (const stem of stems) {
+        const t = Math.min(1, rootH / stem.top);
+        const d = Math.hypot(stem.dx * stem.lean * t - p.dx * p.lean,
+          stem.dz * stem.lean * t - p.dz * p.lean);
+        if (d < distance) { distance = d; closest = stem; }
+      }
+      const t = Math.min(1, rootH / closest.top);
+      const from = [closest.dx * closest.lean * t, rootH,
+        closest.dz * closest.lean * t];
+      const to = [p.dx * p.lean, p.top, p.dz * p.lean];
+      branchlet(g, fit(from), fit(to), 0.0042 * reach, p.dx, p.dz);
+    }
     const k0 = shade(0.24 + p.top * 0.30);
     const k1 = shade(Math.min(1, 0.58 + p.top * 0.40));
-    const [p0, p1, p2, p3] = p.corners;
-    const a = vert(g, p0[0], p0[1], p0[2],
-      p.dx * 0.3, 0.9, p.dz * 0.3, k0, k0, k0, p.dx, p.dz);
-    const b = vert(g, p1[0], p1[1], p1[2],
-      p.dx * 0.3, 0.9, p.dz * 0.3, k0, k0, k0, p.dx, p.dz);
-    const c = vert(g, p2[0], p2[1], p2[2],
-      p.dx * 0.3, 0.9, p.dz * 0.3, k1, k1, k1, p.dx, p.dz);
-    const d = vert(g, p3[0], p3[1], p3[2],
-      p.dx * 0.3, 0.9, p.dz * 0.3, k1, k1, k1, p.dx, p.dz);
-    g.idx.push(a, b, c, b, d, c);
+    const [p0, p1, p2, p3] = p.corners.map(fit);
+    let previous = null;
+    // The original 64-spray scaffold still sets each shrub's size. The
+    // surface between its corners now curls, and an alpha-tested twig with
+    // individual leaves replaces the old solid trapezoid. Light keeps the
+    // original two triangles per spray; higher tiers spend four/six.
+    const bend = (rng() - 0.5) * 0.070;
+    for (let j = 0; j <= segments; j++) {
+      const t = j / segments;
+      const bulge = Math.sin(t * Math.PI) * bend;
+      const k = (k0 + (k1 - k0) * t) * (0.88 + rng() * 0.14);
+      const row = [];
+      for (let side = 0; side < 2; side++) {
+        const start = side ? p1 : p0, end = side ? p3 : p2;
+        const x = start[0] + (end[0] - start[0]) * t;
+        const y = start[1] + (end[1] - start[1]) * t + bulge;
+        const z = start[2] + (end[2] - start[2]) * t;
+        const slope = bend * Math.PI * Math.cos(t * Math.PI);
+        const n = new THREE.Vector3(-p.dx * (p.rise + slope), p.len,
+          -p.dz * (p.rise + slope)).normalize();
+        const v = vert(g, x, y, z, n.x, n.y, n.z,
+          k * 0.98, k, k * 0.96, p.dx, p.dz);
+        botany(g, v, side, t, 2);
+        row.push(v);
+      }
+      if (previous) g.idx.push(previous[0], row[0], previous[1],
+        previous[1], row[0], row[1]);
+      previous = row;
+    }
   }
-  return finishGeo(g, 'flora-shrub');
+  return finishGeo(g, name);
 }
 
 /** Smooth value noise, 0..1. No texture, no table. */
@@ -4718,14 +4825,16 @@ function plantMaterial({ uniforms, billboard = false, membrane = 1.0 }) {
       uChiSun: uniforms.uChiSun,
       uChiSunCol: uniforms.uChiSunCol,
       uChiSky: uniforms.uChiSky,
+      uChiFoliage: uniforms.uChiFoliage,
     });
     shader.vertexShader = `
-attribute vec2 aDir;
-attribute vec3 aSide;       // offset from the archetype's axis, in real metres
+attribute vec4 aDir;        // xy blade azimuth, zw local botanical UV
+attribute float aChiFamily; // atlas row selected from the species id
+varying vec3 vChiBotany;
+varying float vChiFamily;
+attribute vec4 aSide;       // xyz offset in metres, w botanical surface kind
 attribute vec4 aFlora;      // height, spread, arch, yaw
 attribute vec4 aChiRing;    // fade ring: outer, band, inner, innerBand
-attribute float aChiRise;   // metres this origin stands over its plant's base
-                            // — read by the gates, no longer by this program
 uniform float uChiTime;
 uniform vec2  uChiWind;
 uniform float uChiSway;
@@ -4739,6 +4848,10 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
       .replace('#include <beginnormal_vertex>', /* glsl */`
 #include <beginnormal_vertex>
 {
+  // Broad-leaf normals follow the nonuniform species scale.
+  if (aSide.w > 0.5 && aSide.w < 2.5) {
+    objectNormal /= max(vec3(aFlora.y, aFlora.x, aFlora.y), vec3(0.001));
+  }
   float cy = cos(aFlora.w), sy = sin(aFlora.w);
   objectNormal.xz = vec2(objectNormal.x * cy + objectNormal.z * sy,
                         -objectNormal.x * sy + objectNormal.z * cy);
@@ -4747,6 +4860,8 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
       .replace('#include <begin_vertex>', /* glsl */`
 #include <begin_vertex>
 {
+  vChiBotany = vec3(aDir.zw, aSide.w);
+  vChiFamily = aChiFamily;
   vec3 chiInst = vec3(instanceMatrix[3][0], instanceMatrix[3][1], instanceMatrix[3][2]);
   float chiT = clamp(transformed.y, 0.0, 1.0);
   // The ring ramp, measured from where the camera IS this frame. It used to be
@@ -4789,11 +4904,11 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
   // phase) is still uniform on [0,1), so the expected coverage is unchanged.
   vChiDither = fract(sin(dot(floor(chiInst.xz * 64.0), vec2(12.9898, 78.233))) * 43758.5453);
   // Arch each blade outward along its own azimuth, in nominal space.
-  transformed.xz += aDir * (aFlora.z * chiT * chiT);
+  transformed.xz += aDir.xy * (aFlora.z * chiT * chiT);
   // Scale: height from the record, spread from the archetype's own proportions.
   transformed.y *= aFlora.x;
   transformed.xz *= aFlora.y;
-  transformed += aSide;
+  transformed += aSide.xyz;
   // ...and nothing scales it by the ramp. See \`vChiFade\` above: a plant is
   // drawn at its own height or it is not drawn.
   transformed *= step(1e-4, chiFade);
@@ -4864,6 +4979,9 @@ gl_Position = projectionMatrix * mvPosition;
 uniform vec3 uChiSun;
 uniform vec3 uChiSunCol;
 uniform vec3 uChiSky;
+uniform sampler2D uChiFoliage;
+varying vec3 vChiBotany;
+varying float vChiFamily;
 varying vec3 vChiNW;
 varying vec3 vChiPW;
 varying float vChiLit;
@@ -4911,6 +5029,35 @@ float chiBayer4(vec2 fragXY) {
 // wholly inside its ring reaches the shader that existed before this: the
 // branch is what the confidence view's own comment warns about paying for.
 if (vChiFade < 1.0 && fract(chiBayer4(gl_FragCoord.xy) + vChiDither) >= vChiFade) discard;
+// A spray is a collection of leaves, never an opaque rectangular surface.
+// Atlas tiles are padded and use ordinary mipmaps; alpha clipping keeps leaf
+// gaps and depth ordering without sorting thousands of transparent plants.
+vec3 chiLeafSurface = vec3(1.0);
+if (vChiBotany.z > 0.5 && vChiBotany.z < 2.5) {
+  float chiColumn = step(1.5, vChiBotany.z);
+  vec2 chiUV = (clamp(vChiBotany.xy, 0.001, 0.999) + vec2(chiColumn,
+    7.0 - clamp(vChiFamily, 0.0, 7.0))) / vec2(2.0, 8.0);
+  vec4 chiTexel = texture2D(uChiFoliage, chiUV);
+  // Once a whole shoot is only a few pixels, preserve its filtered
+  // coverage instead of erasing thin leaves from distant LOD shrubs.
+  float chiFootprint = max(length(dFdx(vChiBotany.xy)), length(dFdy(vChiBotany.xy)));
+  float chiClip = mix(abs(vChiFamily - 5.0) < 0.1 ? 0.15 : 0.35,
+    0.08, smoothstep(0.04, 0.25, chiFootprint));
+  if (chiTexel.a < chiClip) discard;
+  chiLeafSurface = chiTexel.rgb;
+} else if (vChiBotany.z > 2.5) {
+  // Longitudinal ridges at leaf scale, faded when smaller than a pixel.
+  float chiRidges = sin(vChiBotany.x * 94.248);
+  float chiResolvable = 1.0 - smoothstep(0.012, 0.05, fwidth(vChiBotany.x));
+  chiLeafSurface *= 0.94 + 0.055 * chiRidges * chiResolvable;
+}
+
+`).replace('#include <color_fragment>', /* glsl */`
+#include <color_fragment>
+if (vChiBotany.z < -0.5) {
+  // Wood keeps its own subdued brown rather than inheriting leaf chlorophyll.
+  diffuseColor.rgb = vec3(0.19, 0.135, 0.075) * (0.48 + vChiLit);
+}
 `).replace('#include <opaque_fragment>', /* glsl */`
 {
   // The face we can see, whichever side of the sheet it is.
@@ -4959,11 +5106,17 @@ if (vChiFade < 1.0 && fract(chiBayer4(gl_FragCoord.xy) + vChiDither) >= vChiFade
   chiExtra += uChiSunCol
     * (chiSpec * chiF * ${f(LEAF.specular)} * step(0.0, chiNL) * chiOpen);
 
-  outgoingLight += chiExtra;
+  // Broad leaves have a waxy surface, but never the unfiltered lime glow
+  // previously spread across whole forty-centimetre plates. Grass retains
+  // its independently measured July transmission.
+  float chiBroad = step(0.5, vChiBotany.z) * (1.0 - step(2.5, vChiBotany.z));
+  outgoingLight = outgoingLight * chiLeafSurface
+    + chiExtra * step(-0.5, vChiBotany.z) * mix(1.0, 0.68, chiBroad) * chiLeafSurface;
 }
 #include <opaque_fragment>
 `);
   };
+  mat.customProgramCacheKey = () => `flora-botanical-2-${billboard}-${membrane}`;
   mat.needsUpdate = true;
   return mat;
 }

@@ -1,5 +1,5 @@
 /**
- * THE THREE SCENE-DETAIL CEILINGS, READ AT T-0135's FIVE STANDS, ON ITS OWN.
+ * THE THREE SCENE-DETAIL CEILINGS, READ AT THE GATE'S SIX STANDS, ON ITS OWN.
  *
  *   PW_EXECUTABLE=/opt/pw-browsers/chromium-1194/chrome-linux/chrome \
  *     node tools/measure_detail_ceilings.mjs [--source] [--only desktop|mobile]
@@ -13,7 +13,7 @@
  * put a ceiling failure on a PR that did not cause it (T-0089, and T-0126 below),
  * and both times the first job was to find out WHOSE triangles they were.
  *
- * So: the same five stands, the same three levels, the same `__chicago4d.stats()`
+ * So: the same stand set, the same three levels, the same `__chicago4d.stats()`
  * the gate reads, in one command against any tree you can point it at. Verified
  * against the instrument it copies — on `steward/t-0126-openings-glazing` at
  * `69eb7175` it reproduces bake run 32761900576's desktop numbers exactly, to the
@@ -149,6 +149,12 @@ const DOWNTOWN = [
     label: 'the open aerial' },
   { id: 'lake_and_market', kind: 'anchor', target: 'lake_market',
     label: 'Lake and Market' },
+  // T-2015: the fixed flora-review view already exceeded the five-town-stand
+  // budget BEFORE the richer vegetation: 1,949,552 triangles / 243 calls at
+  // full, 1280x800. Keep its exact pitch as well as its ground and bearing.
+  { id: 'prairie_west', kind: 'pose',
+    label: 'West prairie, east across the sward toward town',
+    pose: { local_e: -250, local_n: -150, yaw_deg: 90, pitch_deg: -8 } },
 ];
 
 // T-1148. The southern field, at the four poses `tools/measure_ground_tiling.mjs`
@@ -342,7 +348,7 @@ async function sweep(browser, root, entry, port, treeLabel) {
     // The scene boots on a software renderer here; the gate allows the same.
     await page.waitForFunction(() => window.__chicago4d?.ready === true,
       null, { timeout: 300_000 });
-    const seen = await page.evaluate(async ({ stands, price }) => {
+    const seen = await page.evaluate(async ({ stands, price, budgetStandIds }) => {
       const a = window.__chicago4d;
       const settle = () => new Promise((r) => requestAnimationFrame(
         () => requestAnimationFrame(r)));
@@ -378,14 +384,15 @@ async function sweep(browser, root, entry, port, treeLabel) {
         // only the renderer knows what it actually drew. The ratio of the two is the
         // multiplier a roof costs at this stand at this tier.
         //
-        // TAKEN AT THE WORST DOWNTOWN STAND OF THIS TIER AND NOWHERE ELSE. It is the
+        // TAKEN AT THE WORST BUDGET STAND OF THIS TIER AND NOWHERE ELSE. It is the
         // only stand the pricing uses — the headroom is that stand's — and three
         // extra settled reads at all five cost this sweep more than its own 600 s
         // foreground ceiling when it was written that way, which is a measurement
         // nobody can afford to take.
         if (price) {
-          const downtown = atStands.filter((x) => stands
-            .some((d) => d.id === x.id && d.kind !== 'pose'));
+          // T-2015's prairie is a pose AND a permanent budget stand. Exclude
+          // the optional southern sweep by membership, not by camera kind.
+          const downtown = atStands.filter((x) => budgetStandIds.includes(x.id));
           const worst = downtown.reduce((x, y) => (y.tris > x.tris ? y : x), downtown[0]);
           const st = order.find((o) => o.id === worst?.id);
           const g = a.scene3d.getObjectByName('structures');
@@ -424,7 +431,7 @@ async function sweep(browser, root, entry, port, treeLabel) {
       }
       await a.setDetail(started);
       return rows;
-    }, { stands: STANDS, price: wantPrice });
+    }, { stands: STANDS, price: wantPrice, budgetStandIds: DOWNTOWN.map((s) => s.id) });
     passes.push({ viewport: vp.label, seen, errors });
     await page.close();
   }

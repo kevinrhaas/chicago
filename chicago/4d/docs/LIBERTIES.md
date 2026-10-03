@@ -20277,3 +20277,13 @@ dated pre1946 stable-door photograph would replace the proportional choices.
 `glessner_house.as_built_1887.form.openings_stable_doors`,
 `glessner_house.as_built_1887.form.eave_cornice`.
 **Recorded:** 2026-10-02.
+
+### L366 — Leaf-scale procedural vegetation
+
+**Decision:** The branch sprays, individual leaf silhouettes, leaf veins, bark fissures, twig forks, canopy shading and per-tree surface variation are code-authored visual reconstructions bounded by the existing species families and July appearance. They are not photographs of historical Chicago vegetation, measurements of individual trees, or new evidence for their placement. Existing `data/flora` records continue to own species, dimensions, communities, historical claims and flowering eligibility. Confidence values are retained on the new surfaces. Light detail uses fewer geometric sprays of the same cutout foliage rather than closing the crown into a faceted solid. See `docs/RESEARCH/procedural-vegetation-quality.md` for review and limitations.
+
+**Applies to:** `renderers/web/js/trees.js`, `tree-surface.js`, `flora.js`, `foliage-atlas.js`.
+
+**How to resolve:** Species-specific measured leaf, bark and branching references can replace the current family-level surface approximations without changing the evidence for tree placement.
+
+**Recorded:** 2026-10-03 (T-2015).

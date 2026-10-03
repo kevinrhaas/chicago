@@ -1,3 +1,9 @@
+## T-2015 — Realistic procedural vegetation (2026-10-03)
+
+**In implementation.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
+
+**Verification pending.** Desktop/mobile fixed-view comparison, tier budgets, published vegetation smoke and the project gate must be recorded before merge. The detailed implementation/recovery record is `docs/RESEARCH/procedural-vegetation-quality.md`.
+
 ## T-2008 — Look Before You Buy a Lot, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Look Before You Buy a Lot* (Land, Walk,
