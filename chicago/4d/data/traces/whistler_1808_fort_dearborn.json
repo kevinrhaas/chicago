@@ -1,0 +1,754 @@
+{
+ "$schema_note": "AUTHORED, and it is a READING of a raster. It carries what Captain Whistler's draught of 25 January 1808 draws of the FIRST Fort Dearborn, the one burned on 16 August 1812. Boxes are hand-read in sheet pixels off the Gutenberg working copy (1600 x 2290 px, +x right, +y down) to about +/-5 px. Feet are COMPUTED from them by tools/read_whistler_1808.py, never typed, and `--check` refuses a feet figure the pixels do not give. It authors NO fabric: T-2049 builds from it and T-2050 seats it.",
+ "id": "whistler_1808_fort_dearborn",
+ "source_id": "whistler_1808_fort_dearborn_draught",
+ "ticket": "T-2048",
+ "parent_ticket": "T-0469",
+ "sheet": {
+  "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+  "sha256": "4568caacfde738aa5273411ac27a61a2a350dc78b715ea75ee8eab66af72bfb1",
+  "size_px": [
+   1600,
+   2290
+  ],
+  "orientation": "As printed. Lake Michigan is lettered down the right-hand margin and the river runs round the top, so the sheet's right is taken as EAST. That is INFERRED: no north arrow was found on the reproduction, so the fort's bearing to true north is NOT read here and is T-2050's question."
+ },
+ "scale": {
+  "stated": "'The measurement of the Garrison including the Block Houses And Barrick are laid down at twenty feet to the Inch' (the index's note). The inch is not recoverable from a reproduction whose reduction is not stated.",
+  "measured_from": "the flagstaff, lettered '75 feete' along its length. It is drawn LAID DOWN, from its foot at the centre of the parade northward through the north range, so its drawn length is its height at the garrison scale.",
+  "staff_px": {
+   "top": [
+    1001,
+    556
+   ],
+   "foot": [
+    1000,
+    894
+   ],
+   "length": 339
+  },
+  "staff_ft": 75,
+  "px_per_ft": 4.52,
+  "confidence": "inferred",
+  "note": "One anchor, and the drafter's own. tools/read_whistler_1808.py --remeasure finds the staff's ends on the fetched sheet: a near-continuous dark run in columns 994-1007, which tolerates gaps of up to 12 px where the faint line crosses the north range's ink. It reproduces these numbers. Every feet figure below inherits this scale's error; read to +/-5 px, a box edge is good to about +/-1.1 ft."
+ },
+ "frame": "Fort feet, with the ORIGIN AT THE STAFF'S FOOT: e_ft is positive to the sheet's right (inferred east) and n_ft positive to the sheet's top. Only the garrison is in this frame. The sheet's other houses are drawn 'without any Regular rule' and carry sheet pixels only.",
+ "parade": {
+  "sheet_px": [
+   883,
+   768,
+   1113,
+   1012
+  ],
+  "fort_ft": {
+   "e_ft": [
+    -25.9,
+    25.0
+   ],
+   "n_ft": [
+    -26.1,
+    27.9
+   ],
+   "size_ft": [
+    50.9,
+    54.0
+   ]
+  },
+  "note": "The thin rectangle the barracks face. Quaife: 'in the center of which stood a lofty flagstaff'."
+ },
+ "index": [
+  {
+   "no": 1,
+   "name": "Block Houses",
+   "status": "located",
+   "parts": [
+    {
+     "label": "north-west blockhouse",
+     "sheet_px": [
+      748,
+      626,
+      826,
+      712
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       -55.8,
+       -38.5
+      ],
+      "n_ft": [
+       40.3,
+       59.3
+      ],
+      "size_ft": [
+       17.3,
+       19.0
+      ]
+     },
+     "note": "The plan with its crenellated outline, numeral '1' inside. A gabled elevation is folded out to the west (x 692-748), and is not part of the box. It straddles the angle of BOTH picket rows (5 and 6 below), which is what Quaife describes: 'the blockhouses commanded not only the space without the four walls, but also that inclosed between the two rows of palisades'."
+    },
+    {
+     "label": "south-east blockhouse",
+     "sheet_px": [
+      1183,
+      1077,
+      1270,
+      1160
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       40.5,
+       59.7
+      ],
+      "n_ft": [
+       -58.8,
+       -40.5
+      ],
+      "size_ft": [
+       19.2,
+       18.4
+      ]
+     },
+     "note": "The same drawing at the opposite angle, numeral '1' inside, with its elevation folded out to the east (x 1270-1312). Within two feet of the north-west one on both sides."
+    }
+   ]
+  },
+  {
+   "no": 2,
+   "name": "Port Holes for Cannon",
+   "status": "not_located",
+   "why": "No numeral '2' was read on the reproduction. The blockhouse plans carry a notched outline, but at this resolution it cannot be told whether the notches are cannon ports (2), loopholes (3) or the ends of the upper storey's logs. Quaife: one blockhouse held two small cannon, the other one."
+  },
+  {
+   "no": 3,
+   "name": "Loop Holes for small arms",
+   "status": "not_located",
+   "why": "As 2."
+  },
+  {
+   "no": 4,
+   "name": "Magazine",
+   "status": "located",
+   "parts": [
+    {
+     "label": "magazine",
+     "sheet_px": [
+      893,
+      698,
+      960,
+      752
+     ],
+     "drawn": "elevation",
+     "fort_ft": {
+      "e_ft": [
+       -23.7,
+       -8.8
+      ],
+      "n_ft": [
+       31.4,
+       43.4
+      ],
+      "size_ft": [
+       14.8,
+       11.9
+      ]
+     },
+     "note": "Drawn in ELEVATION ONLY: an arched front between two piers, numeral '4' beneath it, with its base line at y 752. So the box is its width and its place, NOT a footprint, and the depth is not on the sheet. Quaife: 'a small structure made of brick', between the north range and the north-west blockhouse. That is where it stands here."
+    }
+   ]
+  },
+  {
+   "no": 5,
+   "name": "Inward Row of pickets",
+   "status": "located",
+   "lines": {
+    "north": {
+     "y_px": 688,
+     "x_px": [
+      [
+       826,
+       1000
+      ],
+      [
+       1112,
+       1190
+      ]
+     ]
+    },
+    "west": {
+     "x_px": 800,
+     "y_px": [
+      [
+       712,
+       805
+      ],
+      [
+       1003,
+       1100
+      ]
+     ]
+    },
+    "east": {
+     "x_px": 1205,
+     "y_px": [
+      [
+       690,
+       800
+      ],
+      [
+       945,
+       1077
+      ]
+     ]
+    },
+    "south": {
+     "y_px": 1100,
+     "x_px": [
+      [
+       800,
+       850
+      ],
+      [
+       1083,
+       1183
+      ]
+     ]
+    }
+   },
+   "note": "Each curtain is drawn as a hatched band between the buildings, and this reading takes the band's PARADE-SIDE edge as the inward row. Every range's back wall stands on that same line (north range y 688, west x 800, east x 1205, south y 1100), so the barracks are set into the inner row rather than standing free of it. The inner row encloses x 800-1205, y 688-1100."
+  },
+  {
+   "no": 6,
+   "name": "Outward Row of pickets",
+   "status": "located",
+   "lines": {
+    "north": {
+     "y_px": 642
+    },
+    "west": {
+     "x_px": 762
+    },
+    "east": {
+     "x_px": 1250
+    },
+    "south": {
+     "y_px": 1145
+    }
+   },
+   "note": "The band's OUTER edge. The band is 38-46 px wide (8.4-10.2 ft), and on the west curtain it is visibly two hatched columns of about 18 px each, divided by a line at x 780. So an alternative reading is that each column is one row of pickets drawn laid down, with no gap between them. The register takes the band's edges as the two rows because that is the arrangement Quaife describes: an enemy scaling the first row 'would only find himself within a narrow inclosure between that and the second'. T-2049 inherits the choice and must say which it builds."
+  },
+  {
+   "no": 7,
+   "name": "Main Gate",
+   "status": "located",
+   "parts": [
+    {
+     "label": "main gate passage",
+     "sheet_px": [
+      950,
+      1100,
+      978,
+      1150
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       -11.1,
+       -4.9
+      ],
+      "n_ft": [
+       -56.6,
+       -45.6
+      ],
+      "size_ft": [
+       6.2,
+       11.1
+      ]
+     },
+     "note": "The gap in the middle of the south range, numeral '7' at its head, between the two halves of the soldiers' barracks. A gate elevation is folded out to the south to y 1215 and is not in the box. Quaife: 'The main gateway of the stockade was at the middle of the south side and was flanked on either side by the main barracks for the common soldiers'."
+    }
+   ]
+  },
+  {
+   "no": 8,
+   "name": "Wicket Gate",
+   "status": "not_located",
+   "why": "No numeral '8' was read. Quaife puts it 'near the northwestern blockhouse', and the west curtain beside that blockhouse carries marks that are illegible at this resolution. They are not read as the gate."
+  },
+  {
+   "no": 9,
+   "name": "Guard House",
+   "status": "not_located",
+   "why": "No numeral '9' was read anywhere on the reproduction, and Quaife's account of the plan does not place it. The two small houses inside the stockade are both lettered '16'."
+  },
+  {
+   "no": 10,
+   "name": "Comm'g Officers Barracks",
+   "status": "located",
+   "parts": [
+    {
+     "label": "east range",
+     "sheet_px": [
+      1145,
+      800,
+      1205,
+      935
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       32.1,
+       45.4
+      ],
+      "n_ft": [
+       -9.1,
+       20.8
+      ],
+      "size_ft": [
+       13.3,
+       29.9
+      ]
+     },
+     "note": "Plan, numeral '10' (written upside-down, so it reads '01'). Its two-storey elevation is folded out east over the curtain (x 1205-1290). Quaife: 'The commanding officer's quarters stood on the east side'."
+    }
+   ]
+  },
+  {
+   "no": 11,
+   "name": "Officers Barracks",
+   "status": "located",
+   "parts": [
+    {
+     "label": "west range",
+     "sheet_px": [
+      800,
+      805,
+      855,
+      1003
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       -44.2,
+       -32.1
+      ],
+      "n_ft": [
+       -24.1,
+       19.7
+      ],
+      "size_ft": [
+       12.2,
+       43.8
+      ]
+     },
+     "note": "Plan, numeral '11' twice, elevation folded out west (x 740-800), roof beyond it to x 712. Quaife: 'directly opposite were those for the subordinate officers'."
+    }
+   ]
+  },
+  {
+   "no": 12,
+   "name": "Soldiers Barracks",
+   "status": "located",
+   "parts": [
+    {
+     "label": "south range, west of the gate",
+     "sheet_px": [
+      850,
+      1040,
+      950,
+      1100
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       -33.2,
+       -11.1
+      ],
+      "n_ft": [
+       -45.6,
+       -32.3
+      ],
+      "size_ft": [
+       22.1,
+       13.3
+      ]
+     },
+     "note": "Plan, numeral '12', elevation folded out south (y 1100-1150)."
+    },
+    {
+     "label": "south range, east of the gate",
+     "sheet_px": [
+      978,
+      1040,
+      1083,
+      1100
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       -4.9,
+       18.4
+      ],
+      "n_ft": [
+       -45.6,
+       -32.3
+      ],
+      "size_ft": [
+       23.2,
+       13.3
+      ]
+     },
+     "note": "Plan, numeral '12'."
+    },
+    {
+     "label": "north range, east room",
+     "sheet_px": [
+      1053,
+      688,
+      1112,
+      742
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       11.7,
+       24.8
+      ],
+      "n_ft": [
+       33.6,
+       45.6
+      ],
+      "size_ft": [
+       13.1,
+       11.9
+      ]
+     },
+     "note": "Plan, numeral '12'. Quaife: the north building 'was in part devoted to barracks for the soldiers and in part to housing the contractor's store'."
+    }
+   ]
+  },
+  {
+   "no": 13,
+   "name": "Contractors Store",
+   "status": "located",
+   "parts": [
+    {
+     "label": "north range, west room",
+     "sheet_px": [
+      1000,
+      688,
+      1053,
+      742
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       0.0,
+       11.7
+      ],
+      "n_ft": [
+       33.6,
+       45.6
+      ],
+      "size_ft": [
+       11.7,
+       11.9
+      ]
+     },
+     "note": "Plan, numeral '13'. The north range's elevation is folded out north over the curtain (y 618-688), with its roof and a chimney above."
+    }
+   ]
+  },
+  {
+   "no": 14,
+   "name": "Hospital Store",
+   "status": "not_located",
+   "why": "No numeral '14' read; Quaife does not place it."
+  },
+  {
+   "no": 15,
+   "name": "Asst. Military Agt. Store",
+   "status": "not_located",
+   "why": "No numeral '15' read; Quaife does not place it."
+  },
+  {
+   "no": 16,
+   "name": "Small Houses in the garrison",
+   "status": "located",
+   "parts": [
+    {
+     "label": "small house, north-east",
+     "sheet_px": [
+      1150,
+      708,
+      1205,
+      735
+     ],
+     "drawn": "elevation",
+     "fort_ft": {
+      "e_ft": [
+       33.2,
+       45.4
+      ],
+      "n_ft": [
+       35.2,
+       41.2
+      ],
+      "size_ft": [
+       12.2,
+       6.0
+      ]
+     },
+     "note": "Drawn as an elevation, numeral '16' below it. Its plan depth is not on the sheet."
+    },
+    {
+     "label": "small house, south-west",
+     "sheet_px": [
+      818,
+      1045,
+      843,
+      1080
+     ],
+     "drawn": "plan",
+     "fort_ft": {
+      "e_ft": [
+       -40.3,
+       -34.7
+      ],
+      "n_ft": [
+       -41.2,
+       -33.4
+      ],
+      "size_ft": [
+       5.5,
+       7.7
+      ]
+     },
+     "note": "Plan, numeral '16' written upside-down. Quaife: 'Two small houses, one near the northeast corner of the inclosure and the other in the corner diagonally opposite'."
+    }
+   ]
+  },
+  {
+   "no": 17,
+   "name": "Agents House",
+   "status": "sheet_only",
+   "sheet_px_centre": [
+    590,
+    1320
+   ],
+   "why": "Inside a paled yard south-west of the fort. The Indian Department's dwellings are drawn at forty feet to the inch and their distances are 'not laid down by a scale', so only the arrangement is read. The drafter's distance line from it reads 'Distance to Main Gate Eighteen Perches' (297 ft). The sheet puts it about 91 ft from the gate at the garrison scale, so the line is not to scale, as he says."
+  },
+  {
+   "no": 18,
+   "name": "Factors House",
+   "status": "not_located",
+   "why": "No numeral '18' read. A second paled house stands north of 17, at about (590, 1095), with no legible numeral. Quaife says the factor's and the agent's 'two log houses' stood 'a short distance to the southwest', so it is the CANDIDATE. It is not asserted."
+  },
+  {
+   "no": 19,
+   "name": "Interpreters House",
+   "status": "sheet_only",
+   "sheet_px_centre": [
+    450,
+    1245
+   ],
+   "why": "Numeral '19' beside it, west-south-west of the fort. Its distance line reads 'Distance to the Main Gate is fortyeight Perches' (792 ft), against about 116 ft on the sheet at the garrison scale, a ratio of 6.8 where 17's is 3.3. The two ratios disagree, which confirms the red-ink distances are not drawn to scale."
+  },
+  {
+   "no": 20,
+   "name": "Armerers Shop",
+   "status": "not_located",
+   "why": "No numeral '20' read."
+  },
+  {
+   "no": 21,
+   "name": "Merchants Shop",
+   "status": "not_located",
+   "why": "No numeral '21' read with confidence; the small house east-south-east of the garden at about (1317, 1458) carries a mark that is not legible."
+  },
+  {
+   "no": 22,
+   "name": "Bake House",
+   "status": "not_located",
+   "why": "No numeral '22' read."
+  },
+  {
+   "no": 23,
+   "name": "House in Factors Dept.",
+   "status": "not_located",
+   "why": "No numeral '23' read with confidence among the small buildings at x about 560."
+  },
+  {
+   "no": 24,
+   "name": "Stables",
+   "status": "sheet_only",
+   "sheet_px_centre": [
+    560,
+    1490
+   ],
+   "why": "The numeral '24' is read beside the column of three small buildings at x about 560, y 1420-1560, south-west of the fort. Which of the three it covers is not read."
+  },
+  {
+   "no": 25,
+   "name": "River Cheykago",
+   "status": "sheet_only",
+   "why": "Drawn as the double line arcing round the fort's north and east. The note says 'The River is not regularly surveyed', so its course is not read for position. The 1812 shore is data/terrain's business (T-1242), not this sheet's."
+  },
+  {
+   "no": 26,
+   "name": "Banks of said River",
+   "status": "sheet_only",
+   "why": "Drawn with 25; not read for position, for the same reason."
+  },
+  {
+   "no": 27,
+   "name": "Wharf of said River",
+   "status": "not_located",
+   "why": "No numeral '27' read."
+  },
+  {
+   "no": 28,
+   "name": "Low ground between said bank & River",
+   "status": "not_located",
+   "why": "No numeral '28' read with confidence."
+  },
+  {
+   "no": 29,
+   "name": "Beach between Sd. River and Lake",
+   "status": "sheet_only",
+   "sheet_px_centre": [
+    1465,
+    1630
+   ],
+   "why": "Numeral '29' on the strip between the river and 'Lake Michigan', which is lettered on the right of the sheet."
+  },
+  {
+   "no": 30,
+   "name": "John Kinzie Esq. House on the opisite side River",
+   "status": "sheet_only",
+   "sheet_px_centre": [
+    1345,
+    508
+   ],
+   "why": "Numeral '30' under the long house across the river, north-north-east of the fort, inside a fenced yard lettered as Mr Kinzie's kitchen garden."
+  },
+  {
+   "no": 31,
+   "name": "Oather Dwelling Houses on opisite side River",
+   "status": "sheet_only",
+   "sheet_px_centre": [
+    [
+     708,
+     530
+    ],
+    [
+     1033,
+     458
+    ],
+    [
+     1133,
+     458
+    ]
+   ],
+   "why": "Three houses across the river, each with a '31'. Quaife: 'Whistler's diagram represents three houses to the westward of Kinzie's establishment, but omits the names of their owners'."
+  },
+  {
+   "no": 32,
+   "name": "Old Grist Mill Worked by Horses",
+   "status": "not_located",
+   "why": "No numeral '32' read with confidence among the buildings near Kinzie's."
+  },
+  {
+   "no": 33,
+   "name": "Covered Way to procure Water",
+   "status": "omitted_by_drafter",
+   "why": "The index: '{ N. 33 Covered Way to procure Water } Omited in their places'. It is not on the sheet. Quaife (text only): 'From the northeast corner of the stockade a covered way led to the river'. That is where T-2049/T-2050 may place it, as INFERRED from text and never as traced."
+  },
+  {
+   "no": 34,
+   "name": "Gutters to carry off the Water",
+   "status": "omitted_by_drafter",
+   "why": "Omitted, as 33. Quaife: 'The parade ground was surrounded by gutters for carrying off the water'."
+  }
+ ],
+ "unnumbered": [
+  {
+   "label": "flagstaff",
+   "sheet_px": [
+    1000,
+    894
+   ],
+   "note": "The scale anchor above. Its foot is the frame's origin."
+  },
+  {
+   "label": "'wells'",
+   "sheet_px_centre": [
+    1250,
+    597
+   ],
+   "note": "Lettered outside the north-east angle, between the stockade and the river. It carries no index number. No well is asserted from a word without a mark."
+  },
+  {
+   "label": "Comm'g Officers Garden",
+   "sheet_px": [
+    750,
+    1500,
+    1170,
+    1760
+   ],
+   "note": "Eight beds in two rows south of the fort, lettered with its own scale. That scale is not read here, and the garden is placed by arrangement only. Quaife: melons and other small fruit and vegetables."
+  },
+  {
+   "label": "a Sutlers garden",
+   "sheet_px": [
+    1317,
+    1500,
+    1400,
+    1683
+   ],
+   "note": "Small fenced plot east of the officers' garden, toward the beach. Arrangement only. Quaife mentions 'a smaller garden and an Indian graveyard' between the fort and the river mouth. No graveyard is read from this sheet, and none is to be modelled from it: the depiction of Indigenous burial is the owner's question (AGENTS.md), not a reading's."
+  },
+  {
+   "label": "'122 feet to River'",
+   "sheet_px_centre": [
+    692,
+    746
+   ],
+   "note": "A red-ink distance from the west side near the north-west blockhouse. On the sheet the river is about 93 px off, which is about 21 ft at the garrison scale. The figure is measured, not drawn, as the note says. Wilson/Cooper's '80 feet' from the north-west corner (Quaife p. 164) is the same kind of figure. Neither is a scale check."
+  }
+ ],
+ "cross_checks": [
+  {
+   "check": "the staff's foot is the parade's centre",
+   "result": "holds",
+   "detail": "foot (1000, 894) against the parade box's centre (998, 890): 2 px and 4 px, under one foot. The laid-down reading of the staff is what puts its foot there."
+  },
+  {
+   "check": "the two blockhouses agree",
+   "result": "holds",
+   "detail": "north-west 17.3 x 19.0 ft, south-east 19.2 x 18.4 ft: the same work drawn twice, within 2 ft on both sides."
+  },
+  {
+   "check": "the inner row encloses a square",
+   "result": "holds",
+   "detail": "x 800-1205, y 688-1100: 89.6 x 91.2 ft, square within 2 percent. Quaife: 'a quadrangle'. The outer row (x 762-1250, y 642-1145) is 108.0 x 111.3 ft."
+  },
+  {
+   "check": "the folded elevations agree on a two-storey height",
+   "result": "FAILS",
+   "detail": "Each range's elevation is folded out over the curtain, and their depths disagree: south 50 px (11.1 ft), west 60 px (13.3 ft), north 70 px (15.5 ft), east 85 px (18.8 ft). Four buildings the note calls equally 'two storeys high' differ by 70 percent, so the elevations are NOT drawn at the plan scale and no height is read from them. Heights for T-2049 are a separate question, and an inferred one."
+  },
+  {
+   "check": "the implied original sheet",
+   "result": "neutral",
+   "detail": "At twenty feet to the inch, 4.52 px/ft is 90.4 px to the original inch, so the 1600 x 2290 px reproduction stands for a sheet about 17.7 x 25.3 in. That is a plausible size for a manuscript draught, but no source reached states the original's size, so this is not a check."
+  },
+  {
+   "check": "the first fort is not the second",
+   "result": "holds",
+   "detail": "The 1816 stockade is derived at about 174 ft square (data/structures/fort_dearborn_palisade.json, off Harrison 1830); this one's outer row is about 108 x 111 ft. Both blockhouses here are at the north-west and south-east angles, where the second fort had one at the south-west. Nothing of either is to be borrowed for the other (data/exclusions.json, fort_dearborn_first_1803)."
+  }
+ ],
+ "for_t2049": "What may be BUILT from this, and at what grade: the inner and outer picket lines, the two blockhouse footprints, the four ranges' footprints and their rooms, the main gate's place, the two small houses, the parade and the staff's place and height. All are INFERRED (a measured reading of a tier-1 sheet whose scale rests on one anchor), never documented. NOT on the sheet: heights (the elevations disagree), the wicket gate, the guard house, the stores 14 and 15, the covered way and the gutters, and the bearing to true north."
+}

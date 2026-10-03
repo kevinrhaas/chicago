@@ -1,3 +1,35 @@
+## T-2048 — Whistler's 1808 draught of the first fort, read into a register (2026-10-03)
+
+**What a visitor sees: nothing.** This is piece 1 of 3 of T-0469 (the first Fort Dearborn as it
+stood in August 1812), split because the parent needed more than one demonstration. This piece
+is the measurement half, so it is exemption 2 of the visible-progress rule. T-2049 builds the fort
+from it and T-2050 seats it in the 1812 scene, which does not exist yet.
+
+- **The sheet.** Quaife (1913) prints, facing p. 164, Captain Whistler's own draught of the fort
+  he built, dated in the parade 25 January 1808. It is now a source record,
+  `whistler_1808_fort_dearborn_draught`: tier 1, public domain, geometry permitted. The working
+  copy is pinned by URL and sha256 and is not committed. Quaife's other "first fort" plate,
+  facing p. 100, is a photograph of a later model and is not this source.
+- **The scale is measured, not assumed.** The note says the garrison is "laid down at twenty feet
+  to the Inch", but a reproduction loses the inch. The flagstaff is lettered "75 feete" and is
+  drawn laid down from its foot. That foot lands on the parade's centre to under a foot, so its
+  339 px give **4.52 px/ft**. `--remeasure` finds the same two ends on the fetched sheet.
+- **What it reads** (`data/traces/whistler_1808_fort_dearborn.json`). Two picket rows: the inner
+  encloses **89.6 x 91.2 ft**, the outer **108 x 111 ft**. Two blockhouses at the north-west and
+  south-east angles (17.3 x 19.0 and 19.2 x 18.4 ft), each straddling both rows. Commanding
+  officer's range east, officers' west, soldiers' south either side of the main gate, contractor's
+  store and soldiers north. The brick magazine, in elevation only, between the north range and
+  the north-west blockhouse. Two small houses at diagonally opposite corners.
+- **All 34 index numbers are accounted for:** 10 located, 8 drawn but not to scale (sheet
+  position only), 14 not located with the reason, and 2 that the drafter says he omitted (the
+  covered way, the gutters).
+- **What it refuses.** No height: the four ranges' folded elevations, all "two storeys high",
+  read 11.1 to 18.8 ft. No bearing to true north: no arrow was found. No positions outside the
+  stockade: the note says those houses are "without any Regular rule" and the red-ink distances
+  are "not laid down by a scale". Two of them disagree by a factor of two, which bears that out.
+  No guard house, wicket gate or stores 14 and 15: their numerals are not legible.
+- **Gated.** `tools/read_whistler_1808.py --check` in `check.sh`. It holds the scale's arithmetic,
+  every foot against its pixel box, the 34-number index, and the cross-checks the file says hold.
 ## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
 
 **One stop's wording changed; the rest is a gate.** `compile_jaunts.py` proves a jaunt is

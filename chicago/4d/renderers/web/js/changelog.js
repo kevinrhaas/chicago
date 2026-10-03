@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1387, ts: '2026-10-03T22:14:27.756Z', date: 'Oct 3, 2026, 5:14 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The first Fort Dearborn, burned in August 1812, will be built from the plan its commandant drew in January 1808. That plan is now read and measured.',
+      'His drawing shows a double row of pickets about 110 feet square, blockhouses at the north-west and south-east corners, barracks on all four sides and a brick magazine. The 75-foot flagstaff he drew laid flat gives the scale.',
+      'It gives no building heights and no compass bearing, and it says itself that the houses outside the walls are not to scale. Those questions stay open.',
+    ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
       'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
