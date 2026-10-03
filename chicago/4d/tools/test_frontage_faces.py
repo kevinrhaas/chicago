@@ -26,6 +26,10 @@ alive: it drives the generator's own rule over all seven cross streets on every
 commit and asserts the answers the plat gives, in about a hundredth of a second
 and without building a single board.
 
+**The budget was won back (T-1969/T-1975, 2026-10-02) and T-0192 covered the
+seven on 2026-10-03**, so the path is live in the build now and this test is the
+plat's arithmetic under it rather than its only exercise.
+
     python3 tools/test_frontage_faces.py
     python3 tools/test_frontage_faces.py --self-test   # the assertions must fire
 """
@@ -77,9 +81,9 @@ def main(break_it: bool = False) -> int:
         seven = ()
 
     shipped = faces_with(G.EDGE_CROSS_STREETS, lots)
-    check("the shipped tuple lays only east-west faces",
-          {f["face"] for f in shipped} <= {"north", "south"} if G.EDGE_CROSS_STREETS == ()
-          else True)
+    check("the shipped tuple covers all seven cross streets (T-0192)",
+          tuple(G.EDGE_CROSS_STREETS) == tuple(G.EDGE_CROSS_STREETS_ALL),
+          f"shipped {G.EDGE_CROSS_STREETS}")
 
     got = faces_with(seven, lots)
     cross = [f for f in got if f["axis"] == 1]
@@ -169,19 +173,41 @@ def main(break_it: bool = False) -> int:
         check(f"{block['id']} lots all front a face the block is bounded by",
               not astray, f"tier(s) {astray} name no bound of {sorted(bounds)}")
     # Measured on the SHIPPED enumeration and not on `got`: `got` covers all seven
-    # cross streets so that the axis checks above have faces to walk, while
-    # `EDGE_CROSS_STREETS` is empty in the build. Asking `got` what the layer
-    # reaches would answer for a layer nobody ships.
+    # cross streets so that the axis checks above have faces to walk, and the
+    # build's own tuple is what decides what the layer reaches.
+    #
+    # PER BLOCK, SINCE T-0192 COVERED THE SEVEN (2026-10-03). Until then nothing
+    # laid a north-south face anywhere, so "is this lot's tier among the faces
+    # laid?" could be asked of the town as a whole. With the seven covered,
+    # `east` and `west` faces ARE laid — on the South Division's blocks — and the
+    # town-wide question would call `blk_randolph_clinton` reached while Canal and
+    # Clinton, the streets its lots actually front, are in no tuple at all. So the
+    # question is asked of each block's own laid faces, which is what reaching a
+    # lot means.
     laid = {f["face"] for f in shipped}
+    laid_on = {}
+    for f in shipped:
+        laid_on.setdefault(f["block"]["id"], set()).add(f["face"])
     reach = [(f["block"]["id"], lot.get("tier"))
              for f in shipped for lot in f["block"].get("lots", [])]
-    out_of_reach = sorted({bid for bid, tier in reach if tier not in laid})
+    out_of_reach = sorted({bid for bid, tier in reach
+                           if tier not in laid_on.get(bid, set())})
+    # And the per-block question found SIX MORE that the town-wide one had hidden
+    # since T-1707: the plat's last tier, the blocks Washington bounds on the north
+    # and Madison on the south, deal half their lots onto MADISON — four of eight
+    # on each — and Madison is in no tuple. Their Washington lots are reached; their
+    # Madison lots take no fence and no post. That is a street nobody has asked this
+    # layer to cover, not a fault in the deal, so it is named here rather than
+    # fixed in passing: the cross streets were T-0192's ask, Madison was not.
+    UNREACHED = ["blk_randolph_clinton"] + [
+        f"blk_washington_{c}" for c in
+        ("clark", "dearborn", "franklin", "lasalle", "market", "wells")]
     check("every lot this layer cannot reach is named, not silently dropped",
-          out_of_reach == ["blk_randolph_clinton"],
+          out_of_reach == UNREACHED,
           f"blocks whose lots front a face nothing lays: {out_of_reach}. Faces laid: "
           f"{sorted(laid)}. A block arriving here has been transposed onto the West "
-          f"Division's module and its lots now front a north-south street; add it and "
-          f"say so, or cover the street.")
+          f"Division's module and its lots now front a north-south street nothing "
+          f"covers; add it and say so, or cover the street.")
 
     print()
     if FAILED:

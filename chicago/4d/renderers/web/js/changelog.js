@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Plank walks down the cross streets', kind: 'feature',
+    items: [
+      'Market, Franklin, Wells, La Salle, Clark, Dearborn and State Streets now have the same plank sidewalks as Lake, South Water, Randolph and Washington. That is nearly five more kilometres of boards on 46 block fronts.',
+      'Board crossings join them at the corners, so you can walk the town\u2019s grid on planks and turn any corner without stepping into the mud.',
+      'Like the walks on the other streets, these are our reconstruction from the plat, drawn by the same rule.',
+      'On the Light setting, the one a phone starts on, the cross-street walks are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
+    ] },
   { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Look Before You Buy a Lot. It is a four-stop land errand along South Water Street, about seven minutes on foot or four by wagon.',

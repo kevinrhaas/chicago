@@ -1,3 +1,39 @@
+## T-0192 — the seven cross streets take the plank walk (2026-10-03)
+
+**What a visitor sees.** Market, Franklin, Wells, La Salle, Clark, Dearborn and State carry the plank
+walk the four east-west streets carry, laid by the same rule (`EDGE_CROSS_STREETS` =
+`EDGE_CROSS_STREETS_ALL` in `tools/generate_frontage_works.py`): 46 platted faces, +4,764.9 m of walk
+and +47 board crossings, so the record goes 47 faces / 3,865.7 m to 93 / 8,630.6 m. No fence or
+hitching post on a cross face — both rules are per-lot and those faces are the ends of lot rows,
+which the record already says. Five wagon stands that would now sit on the boards are refused
+(73 → 68 wagons), and the dooryard plantings re-derive around the new strips.
+
+**Priced and argued where the ceiling is defined.** Owner's queue note of 2026-10-03: a measured
+raise is allowed and `light` is the floor. `tools/measure_detail_ceilings.mjs`, published mirrors of
+dev @ d8b7748d and of this branch, desktop 1280x800, same run:
+
+| tier | dev worst | with the seven | ceiling was | ceiling now |
+| --- | --- | --- | --- | --- |
+| `full` | 1,857,267 (Lake at Canal) | 2,120,153 | 1,845,000 | **2,140,000** |
+| `balanced` | 1,626,744 (Lake at Canal) | 1,801,124 | 1,615,000 | **1,820,000** |
+| `light` | 851,431 (the forks) | 856,275 | 825,000 | 825,000 — not moved |
+| calls | 224 (`full`) | 259 | 240 | **275** |
+
+The rule is T-1975's and T-1987's: worst stand plus T-0672's 18,059 / 16,806, rounded up to 5,000;
+calls + 15. dev was already over `full`/`balanced` (by 12,267 / 11,744) before this branch.
+
+**`light` does not draw them** (`light.crossStreetWalks: false`, the woodpiles' mechanism): Lake and
+Market 798,916 → 738,536 and the open aerial 838,167 → 822,297, back inside. Left at `light`: +4,844 at
+the forks and +9,204 at the aerial over dev. Not boards — those are hidden — but the walks still keep
+the sward and planting off their strips at every tier; that attribution is inferred, not read layer
+by layer on dev. The forks were over on dev already and stay T-1976's to trim.
+
+**The reach test is now per block.** `tools/test_frontage_faces.py` asked whether a lot's face was laid
+*anywhere*; with east/west faces laid on the South Division that would call `blk_randolph_clinton`
+reached while Canal and Clinton are in no tuple. Asked per block, it also names the six
+Washington–Madison blocks whose Madison lots no tuple covers (hidden since T-1707). Named, not fixed:
+Madison was not this ticket's ask.
+
 ## T-2008 — Look Before You Buy a Lot, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Look Before You Buy a Lot* (Land, Walk,

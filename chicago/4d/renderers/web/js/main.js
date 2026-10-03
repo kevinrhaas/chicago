@@ -622,7 +622,42 @@ const DETAIL_DECLARED = {
   // 2026-09-15. Re-reading it against 1,725,000 / 1,490,000 / 825,000 would
   // change the wood a visitor sees at `balanced` and `light`, which is not a
   // budget's job; it stays as stated there.
-  full:     { triangles: 1845000, shadowReachM: 240, furnitureCastsShadow: true,
+  //
+  // T-0192, 2026-10-03 — THE CROSS STREETS' OWN RAISE. The seven north-south
+  // streets (Market to State) take the plank walk the four east-west streets
+  // carry, by the same rule: 46 platted faces, +4,764.9 m of walk and +47 board
+  // crossings, the record going 47 faces / 3,865.7 m to 93 / 8,630.6 m. It was
+  // refused on 2026-08-29 for want of headroom; T-1969/T-1975 re-set the
+  // budget, and the owner's queue note of 2026-10-03 asked for the seven to be
+  // priced and argued HERE, with `light` the floor. Read with
+  // `tools/measure_detail_ceilings.mjs`, published mirrors of dev @ d8b7748d
+  // and of this branch, T-0135's five stands, desktop 1280x800, same run:
+  //
+  //   tier      dev worst                 with the seven            delta there
+  //   full      1,857,267 Lake at Canal   2,120,153 Lake at Canal   +262,886
+  //   balanced  1,626,744 Lake at Canal   1,801,124 Lake at Canal   +174,380
+  //   light       851,431 the forks         856,275 the forks          +4,844
+  //   calls       224 at `full`             259 at `full`                 +35
+  //
+  // dev was ALREADY over `full` and `balanced` (by 12,267 and 11,744) before a
+  // board was laid — parcels merged since T-1987 — so the rule below carries
+  // that too; it is the rule of T-1975 and T-1987, unchanged: worst stand plus
+  // T-0672's recorded headroom, rounded up to 5,000.
+  //
+  //   full      2,120,153 + 18,059 = 2,138,212 -> 2,140,000
+  //   balanced  1,801,124 + 16,806 = 1,817,930 -> 1,820,000
+  //   calls     259 + 15 = 274 -> 275 (`BUDGET` below)
+  //
+  // Mobile reads lower at every tier, so desktop sets it. `light` IS NOT
+  // SPENT: it does not draw the cross streets' walks (`light.crossStreetWalks`),
+  // which takes Lake and Market from 798,916 back to 738,536 and the open aerial
+  // from 838,167 to 822,297 — inside 825,000. What is left at `light` (+4,844 at
+  // the forks, +9,204 at the aerial) is not the boards, which are hidden there;
+  // the walks still keep the sward and the planting off their own strips at
+  // every tier, and that redistribution is the inferred remainder — it was not
+  // attributed layer by layer on dev. The forks were over on dev already;
+  // that rung is T-1976's to win back by a trim, not this ticket's to spend.
+  full:     { triangles: 2140000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -631,7 +666,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '2,140,000 set 2026-10-03 (T-0192) for the seven cross '
+                + "streets' plank walks: worst 2,120,153 at Lake Street at Canal at "
+                + '1280x800 with them, +262,886 there on dev @ d8b7748d, plus '
+                + "T-0672's 18,059 rounded up to 5,000. Before it: "
+                + '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,778,094 (the block above "
                 + "`full`), plus T-0672's 18,059 rounded up to 5,000. Before it: "
                 + '1,800,000 set 2026-10-02 (T-1959), the woodpiles\u2019 own '
@@ -733,11 +772,17 @@ const DETAIL_DECLARED = {
   // reading and the rule are in the block above `full`.
   // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
   // same rule — the reading is in the block above `full`.
-  balanced: { triangles: 1615000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-0192, 2026-10-03: 1,615,000 -> 1,820,000 for the cross streets' walks, by
+  // the same rule — the reading is in the block above `full`.
+  balanced: { triangles: 1820000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '1,820,000 set 2026-10-03 (T-0192) for the seven cross '
+                + "streets' plank walks: worst 1,801,124 at Lake Street at Canal at "
+                + "1280x800 with them, +174,380 there, plus T-0672's 16,806 rounded "
+                + 'up to 5,000. Before it: '
+                + '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,545,215, plus T-0672's "
                 + '16,806 rounded up to 5,000. Before it: '
                 + '1,565,000 set 2026-10-02 (T-1959) for the woodpiles by the '
@@ -810,6 +855,13 @@ const DETAIL_DECLARED = {
               // trimmed back inside 825,000, which is won back, never spent. `full`
               // and `balanced` draw them, and `applyFurnitureReach` hides them here.
               woodpiles: false,
+              // T-0192: NO CROSS-STREET WALKS AT `light` either. The seven
+              // north-south streets' plank walks (4,765 m, 46 faces) cost this
+              // rung +25,074 at the open aerial and +56,584 at Lake and Market,
+              // desktop 1280x800 (the reading is in the block above `full`), on
+              // a rung that is already over at the forks on dev. The floor is
+              // won back, never spent: `full` and `balanced` draw them.
+              crossStreetWalks: false,
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
@@ -989,7 +1041,13 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // that stand and fit, and the parcel after them argues its own. `light`'s own
 // 90-call floor in `tools/smoke_renderer.mjs` is a separate promise and does
 // NOT move — it reads 102 and is T-1976's to win back by a trim.
-const BUDGET = { drawCalls: 240, triangles: DETAIL.full.triangles };
+//
+// T-0192, 2026-10-03: 240 -> 275 for the cross streets' walks. A chunk is one
+// block face and the seven add 46 of them, so the worst frame went 224 -> 259
+// calls at `full` down Lake Street from Canal at 1280x800 (dev @ d8b7748d and
+// this branch, same run); 259 + 15 = 274, rounded up to 5. `light` draws none
+// of them and its 90-call floor does not move (72 at Lake and Market).
+const BUDGET = { drawCalls: 275, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
@@ -1724,6 +1782,9 @@ async function boot() {
         // A woodpile mesh its tier does not draw (T-1959) is neither the reach's
         // nor the far merge's to show again.
         if (o.parent?.userData.woodpiles && !o.parent.visible) return;
+        // …and the same for a cross street's walk at a tier that leaves the
+        // cross streets out (T-0192, `light.crossStreetWalks`).
+        if (o.userData.crossStreet && !o.visible) return;
         // The merged far batches (T-0146) are drawn FROM these chunks, not
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
@@ -1757,6 +1818,12 @@ async function boot() {
     // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
     scene3d.getObjectByName('yard')?.traverse((o) => {
       if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+    });
+    // T-0192: the cross streets' plank walks, by the same mechanism and for the
+    // same reason — hidden BEFORE the furniture is banked, so the reach and the
+    // far merge never show one again.
+    scene3d.getObjectByName('frontage')?.traverse((o) => {
+      if (o.userData.crossStreet) o.visible = want.crossStreetWalks !== false;
     });
     collectFurniture();
     farMerge.rebuild(furniture.spheres);
