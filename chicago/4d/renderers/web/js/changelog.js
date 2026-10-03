@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1365, ts: '2026-10-03T13:57:19.293Z', date: 'Oct 3, 2026, 8:57 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
+  { v: null, ts: '', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
     items: [
       'Two boarding houses on the block at Washington and Market streets have four new boarders between them: three at Louis Robillard\u2019s and one at Michel Laframboise\u2019s. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a tailor. Open a house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and these houses still had empty beds after this morning\u2019s youths took theirs. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'The two clerks work at John Dean Caton\u2019s and at his law office, and the tailor at George Holsman\u2019s, in places those houses still had open. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1365, ts: '2026-10-03T13:40:43.663Z', date: 'Oct 3, 2026, 8:40 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
+    items: [
+      'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
+      'Shrubs gain leafy twig silhouettes in place of broad green rectangles. Higher detail adds curved leaves, grasses and finer branching.',
+      'The researched species, planting locations and July flowering rules stay in charge. Leaf and bark surfaces are procedural reconstructions.',
     ] },
   { v: 1364, ts: '2026-10-03T13:24:25.493Z', date: 'Oct 3, 2026, 8:24 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [

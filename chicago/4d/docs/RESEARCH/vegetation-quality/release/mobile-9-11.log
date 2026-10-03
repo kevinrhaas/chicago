@@ -1,0 +1,81 @@
+serving /workspace/scratch/728bcee376d6/chicago/site/4d on 4291 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "mobile"
+
+NOT THE FULL GATE — stages filtered to "9-11" of 13
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: the town wears more than one face
+  pass  mobile 390x780: no two neighbouring buildings are drawn the same colour
+  pass  mobile 390x780: a documented paint is never modulated
+  pass  mobile 390x780: the facade tones reach the render
+  pass  mobile 390x780: restoring the facade tones restores the frame
+        facades: 545 tones · 0/530 neighbour pairs identical · winding off moves worst cell 10, mean 0.18; restored worst 0
+  pass  mobile 390x780: the sun's shadow reaches 120 m at the documented texel (scene detail 'light')
+  pass  mobile 390x780: the shadow reach reaches the render
+  pass  mobile 390x780: restoring the shadow reach restores the frame
+        shadow reach: ±120 m at 23.4 cm/texel · winding back to ±60 m moves worst cell 6; restored residual worst 0
+  pass  mobile 390x780: the shadow box holds still under a sub-texel step
+  pass  mobile 390x780: the snap reaches the box — without it the same step moves it
+  pass  mobile 390x780: the box moves in texels of its own map, and only in those
+        shadow snap: 1 mm moves the box 0.00 µm snapped, 0.994 mm loose; a 1 m walk moves it 5 time(s), worst 1.000 texels
+  pass  mobile 390x780: the brightness aid is off unless a visitor moves it
+  pass  mobile 390x780: raising the brightness aid reaches the render
+  pass  mobile 390x780: dropping the brightness aid restores the calibrated frame
+        brightness aid: +1 stop delta mean 46.53 / worst 51 at 12²; restored residual mean 0.00 / worst 0
+  pass  mobile 390x780: detailed flora roots share the terrain and water surfaces
+  pass  mobile 390x780: emergent flora stays within eight metres of a riverbank
+  pass  mobile 390x780: woody vegetation never occupies the river mask
+  pass  mobile 390x780: no tree stands below the waterline
+  pass  mobile 390x780: every tree drawn stands at its own station
+  pass  mobile 390x780: no timber is drawn out in the channel
+  pass  mobile 390x780: every building is drawn around the anchor its record gives it — 0 of 545 structures whose own anchor falls outside their drawn footprint — unioned from 2640 instances in 5 batches, 1170315 vertices read back; worst 9.82 m (land_sale_camp_shore, span 55.5 m); 0 nearer to the MIRROR of their anchor; 0 instances with no readable placement; 0 wrong vertex transforms (worst 0.000055 m, 0.001 m bar), 4 sparse camp plots
+  pass  mobile 390x780: every panel of road is drawn on a street the data records
+  pass  mobile 390x780: the horizon band refuses to draw timber over water
+  pass  mobile 390x780: the horizon band and the fogged ground converge on one colour
+  pass  mobile 390x780: the crown modulation never deletes a resolvable silhouette
+  pass  mobile 390x780: the band is solved against this viewport, not a default one
+  pass  mobile 390x780: every species the stand owes a stem to stands in it
+  pass  mobile 390x780: the American sycamore stands on the riverbank
+  pass  mobile 390x780: every slot the sward deals is counted against a species
+  note  mobile 390x780: sward abundance — 6 of 27 lists mix an area with a count (z03_sedge_meadow.matrix 33.4% of slots dealt off counts; z03_sedge_meadow.forb 1.0% of slots dealt off counts; z08_lakeshore.matrix 2.1% of slots dealt off counts; z09_sand_prairie.matrix 0.0% of slots dealt off counts; z06_dense_forest.forb 89.8% of slots dealt off counts; z06_dense_forest.shrub 31.0% of slots dealt off counts)
+  note  mobile 390x780: 0 record(s) give cover with no width_m, so no count can be derived without inventing a footprint
+  note  mobile 390x780: sward tail — 0 species owed a whole slot and drawn nowhere, over 84 slots in z10_settled_town.matrix=78 z10_settled_town.forb=6
+  pass  mobile 390x780: no sward species its own list owes a plant to is drawn nowhere, in ANY community
+  note  mobile 390x780: sward census by detail — full 12174 slots, 0 drawn nowhere  ·  balanced 6778 slots, 0 drawn nowhere  ·  light 4339 slots, 3 drawn nowhere (z02_mesic_prairie.forb.asclepias_tuberosa owed 1.05 at z02_mesic_prairie; z10_settled_town.forb.xanthium_strumarium owed 1.04 at z10_settled_town; z10_settled_town.forb.verbena_urticifolia owed 1.75 at z10_settled_town)
+  pass  mobile 390x780: no floating-leaved aquatic is planted on dry ground
+  pass  mobile 390x780: the marsh's emergents still stand on both sides of its waterline
+  pass  mobile 390x780: the marsh community is split by the substrate its records state
+  pass  mobile 390x780: every flora fade ring is inset inside its own lattice
+  pass  mobile 390x780: a plant in front of the walker never arrives already visible
+  pass  mobile 390x780: a plant is drawn at its own height, faint, never short
+  pass  mobile 390x780: every drawn flower head has a plant under its own stalk
+  pass  mobile 390x780: an open station exists to measure the sward's boundary from
+  pass  mobile 390x780: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N -300, boundary rows spread 20.11 px (1170px buffer, 94.0deg field, 1.68m eye), reach 10.32-13.27 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 20.1 px, reach 10.32-13.27 m)
+  pass  mobile 390x780: the boundary's variation is the fringe, not a hole in the field — reach 10.32-13.27 m, mean 12.02 m at 6.25% coverage against a nominal 12.40 +/- 1.60 m (bars: min >= 9.50, mean >= 11.50, both carrying the 0.10 m the 6.25% threshold insets a 1.60 m ramp by); at the old 2%: 10.32-13.27 m, mean 12.03 m
+  pass  mobile 390x780: the flower layer's boundary is fringed too, not only the grass — forb rings span 10.82-13.74 m about a nominal 12.40 +/- 1.60 m
+  pass  mobile 390x780: the ragged boundary is anchored to the ground, not to the camera
+  pass  mobile 390x780: every community's recorded ground cover reaches the renderer
+  pass  mobile 390x780: the sward is planted at each community's own recorded cover
+  pass  mobile 390x780: every structure, including Exchange Coffee House, shares the terrain surface
+  pass  mobile 390x780: street clearing removes travel-track plants but preserves the block
+  pass  mobile 390x780: the readout shows both 1835 and current names at an intersection
+  pass  mobile 390x780: the street readout announces the next cross street ahead
+  pass  mobile 390x780: Settings can reopen the dismissed navigation guide
+  pass  mobile 390x780: Settings switches every navigation measurement as one unit system
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+60 passed, 0 failed
+50 staged-section check(s) (stage 9-11 of 13), 10 always-on check(s)
+8 m 48 s for stage 9-11 at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

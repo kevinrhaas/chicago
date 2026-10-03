@@ -1,0 +1,44 @@
+serving /workspace/scratch/728bcee376d6/chicago/site/4d on 4291 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "mobile"
+
+NOT THE FULL GATE — stages filtered to "5" of 13
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: scene detail 'full' stays inside its own ceiling at the WORST stand
+  pass  mobile 390x780: scene detail 'balanced' stays inside its own ceiling at the WORST stand
+  pass  mobile 390x780: scene detail 'light' stays inside its own ceiling at the WORST stand
+  pass  mobile 390x780: draw calls under budget at the town's WORST frame
+  pass  mobile 390x780: turning scene detail down actually draws less, at every stand
+  pass  mobile 390x780: the light tier draws inside its 90-call floor at the worst stand
+  pass  mobile 390x780: the light tier stays materially cheaper than full at the worst stand
+  pass  mobile 390x780: the road is laid on the ridge at full and balanced and not at light
+  pass  mobile 390x780: the level the visitor started on is restored
+  pass  mobile 390x780: the light tier draws no furniture into the shadow map, and only the ground-hugging timber is exempt above it
+  pass  mobile 390x780: the furniture reach is a ladder — full holds nothing back, and each rung below reaches less far
+  pass  mobile 390x780: the far merge gives back draw calls down the axial street and moves no triangle doing it
+  pass  mobile 390x780: the light tier holds furniture back down the axial street
+  pass  mobile 390x780: the furniture reach is what makes the light tier cheaper down that street
+  pass  mobile 390x780: the balanced tier holds furniture back down the axial street
+  pass  mobile 390x780: the furniture reach is what makes the balanced tier cheaper down that street
+  pass  mobile 390x780: the light tier's shorter shadow reach costs no texel
+        detail  full 1640358/2475000 (152 calls, ±240 m, 197/309 furniture casting)  ·  balanced 1344195/1880000 (150 calls, ±240 m, 197/309 furniture casting)  ·  light 657002/910000 (63 calls, ±120 m, 0/309 furniture casting)
+        full      worst   2,214,017 tris of 2,475,000 at West prairie, east across the sward toward town  ·  worst  280 calls at West prairie, east across the sward toward town
+        balanced  worst   1,704,657 tris of 1,880,000 at West prairie, east across the sward toward town  ·  worst  237 calls at Lake Street at Canal, east down the axis
+        light     worst     791,054 tris of 910,000 at West prairie, east across the sward toward town  ·  worst   72 calls at Lake and Market, the corner itself
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+27 passed, 0 failed
+17 staged-section check(s) (stage 5 of 13), 10 always-on check(s)
+7 m 47 s for stage 5 at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

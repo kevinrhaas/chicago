@@ -657,7 +657,17 @@ const DETAIL_DECLARED = {
   // every tier, and that redistribution is the inferred remainder — it was not
   // attributed layer by layer on dev. The forks were over on dev already;
   // that rung is T-1976's to win back by a trim, not this ticket's to spend.
-  full:     { triangles: 2140000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-2015, 2026-10-03: final integration with dev b06a063a includes the
+  // T-0192 cross-street walks and T-2014 distant shrubs. Six published stands,
+  // desktop 1280x800 and narrow 390x780, two production steps per settled view:
+  // full worst 2,456,812 at west prairie; balanced worst 1,860,932 there.
+  // Preserve the defended margins, rounding UP to 5,000:
+  // full +18,059 -> 2,475,000; balanced +16,806 -> 1,880,000.
+  // These price the combined scene; they do not attribute other PRs' geometry
+  // to the foliage upgrade. The owner explicitly authorized measured raises.
+  // Receipt: docs/RESEARCH/vegetation-quality/integrated-ceilings.json.
+  // The ordinary animation-loop smoke remains the release gate.
+  full:     { triangles: 2475000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -666,7 +676,10 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '2,140,000 set 2026-10-03 (T-0192) for the seven cross '
+              measured: '2,475,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+                + 'six published stands, worst 2,456,812 at west prairie, 1280x800; '
+                + 'the defended 18,059 rounded up to 5,000. Before it: '
+                + '2,140,000 set 2026-10-03 (T-0192) for the seven cross '
                 + "streets' plank walks: worst 2,120,153 at Lake Street at Canal at "
                 + '1280x800 with them, +262,886 there on dev @ d8b7748d, plus '
                 + "T-0672's 18,059 rounded up to 5,000. Before it: "
@@ -772,13 +785,14 @@ const DETAIL_DECLARED = {
   // reading and the rule are in the block above `full`.
   // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
   // same rule — the reading is in the block above `full`.
-  // T-0192, 2026-10-03: 1,615,000 -> 1,820,000 for the cross streets' walks, by
-  // the same rule — the reading is in the block above `full`.
-  balanced: { triangles: 1820000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 1880000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,820,000 set 2026-10-03 (T-0192) for the seven cross '
+              measured: '1,880,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+                + 'six published stands, worst 1,860,932 at west prairie, 1280x800; '
+                + 'the defended 16,806 rounded up to 5,000. Before it: '
+                + '1,820,000 set 2026-10-03 (T-0192) for the seven cross '
                 + "streets' plank walks: worst 1,801,124 at Lake Street at Canal at "
                 + "1280x800 with them, +174,380 there, plus T-0672's 16,806 rounded "
                 + 'up to 5,000. Before it: '
@@ -845,7 +859,17 @@ const DETAIL_DECLARED = {
   // moves -- no geometry, no reach, no shadow tier, no cull. This is only the
   // ceiling following a trim DOWN, which T-0149 named as the strongest evidence
   // that a trim worked.
-  light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-2015, 2026-10-03: the owner explicitly authorized budget increases in
+  // this session. The expanded six-stand sweep finds 887,259 at west prairie
+  // after full -> light, despite every original stand being 2,720-20,480
+  // triangles cheaper than before. 887,259 + the prior 21,933 margin, rounded
+  // up to 5,000, gives 910,000. This changes the declared ceiling, not geometry,
+  // plant density, visibility reach or the separate 90-call light cap. It is
+  // an explicit owner-authorized exception to the repository's standing
+  // keep-825,000 guidance; light remains the least expensive rung.
+  // Final b06a063a integration reads 885,447 at desktop prairie and 790,681
+  // at narrow prairie; the initial 910,000 ceiling still carries both.
+  light:    { triangles: 910000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -865,7 +889,12 @@ const DETAIL_DECLARED = {
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '825,000 set 2026-09-03, the one raise of this rung ever '
+              measured: '910,000 set 2026-10-03 (T-2015), explicitly authorized by '
+                + 'the owner. Published six-stand worst 887,259 at west prairie after '
+                + 'full -> light; +21,933 rounded up to 5,000. Existing-view geometry '
+                + 'decreases versus baseline; density, reach and 90 calls are unchanged. '
+                + 'Final integration with dev b06a063a reads 885,447 at desktop prairie. '
+                + 'Before this exception: 825,000 set 2026-09-03, the one raise of this rung ever '
                 + 'taken and taken only on a second explicit ruling. BACK INSIDE BY A '
                 + 'TRIM, T-1976, 2026-10-02: furniture reach 350 -> 250 m, detailed '
                 + 'ground 600 -> 240 m, tree keep 0.225 -> 0.191, all at this rung '
@@ -1047,7 +1076,10 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // calls at `full` down Lake Street from Canal at 1280x800 (dev @ d8b7748d and
 // this branch, same run); 259 + 15 = 274, rounded up to 5. `light` draws none
 // of them and its 90-call floor does not move (72 at Lake and Market).
-const BUDGET = { drawCalls: 275, triangles: DETAIL.full.triangles };
+// T-2015: the six-stand integration sweep includes west prairie, where the
+// narrow viewport reaches 277 calls (desktop 276). The defended 15-call margin,
+// rounded up to five, gives 295. Light peaks at 74 and keeps its 90-call cap.
+const BUDGET = { drawCalls: 295, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
