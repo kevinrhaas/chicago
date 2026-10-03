@@ -1418,13 +1418,6 @@
       "buckets": [
         "households/institutional/south"
       ]
-    },
-    {
-      "ticket": "T-1538",
-      "records": 1,
-      "buckets": [
-        "persons/male/20_29/north/lodging/none"
-      ]
     }
   ],
   "roster_offered": {
@@ -1462,8 +1455,8 @@
     "roofs_standing": 542,
     "roofs_to_build": 144,
     "persons_standing": 2381,
-    "persons_still_owed": 239,
-    "persons_when_the_book_is_filled": 2620,
+    "persons_still_owed": 240,
+    "persons_when_the_book_is_filled": 2621,
     "persons_target_range": [
       2362,
       3265
@@ -1850,24 +1843,24 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 0,
+      "household_leg_now": 373,
       "person_leg_before": 374,
-      "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 0. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "person_leg_now": 208,
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 373. The person leg is PART artifact: 374 before, 208 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2381,
-      "persons_still_owed": 239,
-      "converges_to": 2620,
+      "persons_still_owed": 240,
+      "converges_to": 2621,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 239 still owed is 2,620, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 77 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,381 standing plus 240 still owed is 2,621, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 78 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -2147,7 +2140,7 @@
           "known_inferred": 5,
           "to_reconstruct": 5,
           "filled": 5,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 3,
           "refamilied_in": 2
@@ -2227,7 +2220,7 @@
           "known_inferred": 11,
           "to_reconstruct": 13,
           "filled": 13,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 8,
           "refamilied_in": 5
@@ -2307,7 +2300,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 5,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 3,
           "refamilied_in": 2
@@ -2385,7 +2378,7 @@
           "known_inferred": 1,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 1,
           "refamilied_in": 2
@@ -2461,7 +2454,7 @@
           "known_inferred": 5,
           "to_reconstruct": 9,
           "filled": 9,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 5,
           "refamilied_in": 4
@@ -2539,7 +2532,7 @@
           "known_inferred": 1,
           "to_reconstruct": 4,
           "filled": 4,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 1,
           "refamilied_in": 3
@@ -2617,7 +2610,7 @@
           "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 0,
           "refamilied_in": 1
@@ -2695,7 +2688,7 @@
           "known_inferred": 1,
           "to_reconstruct": 4,
           "filled": 4,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 1,
           "refamilied_in": 3
@@ -2774,7 +2767,7 @@
           "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2849,7 +2842,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 0,
           "refamilied_in": 1
@@ -2928,7 +2921,7 @@
           "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 0,
           "refamilied_in": 1
@@ -3005,7 +2998,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household",
           "drawn_here": 0,
           "refamilied_in": 1
@@ -3338,7 +3331,7 @@
           "known_inferred": 22,
           "to_reconstruct": 27,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3372,8 +3365,8 @@
           "known_attested": 3,
           "known_inferred": 8,
           "to_reconstruct": 13,
-          "filled": 13,
-          "owning_ticket": "T-2023",
+          "filled": 12,
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3411,7 +3404,7 @@
           "known_inferred": 56,
           "to_reconstruct": 61,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3448,7 +3441,7 @@
           "known_inferred": 19,
           "to_reconstruct": 22,
           "filled": 22,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3486,7 +3479,7 @@
           "known_inferred": 19,
           "to_reconstruct": 25,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3523,7 +3516,7 @@
           "known_inferred": 7,
           "to_reconstruct": 8,
           "filled": 6,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3561,7 +3554,7 @@
           "known_inferred": 13,
           "to_reconstruct": 16,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3598,7 +3591,7 @@
           "known_inferred": 4,
           "to_reconstruct": 6,
           "filled": 6,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3636,7 +3629,7 @@
           "known_inferred": 33,
           "to_reconstruct": 36,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3673,7 +3666,7 @@
           "known_inferred": 11,
           "to_reconstruct": 13,
           "filled": 13,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3711,7 +3704,7 @@
           "known_inferred": 11,
           "to_reconstruct": 14,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3748,7 +3741,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 3,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3786,7 +3779,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3823,7 +3816,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 2,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3861,7 +3854,7 @@
           "known_inferred": 9,
           "to_reconstruct": 11,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3898,7 +3891,7 @@
           "known_inferred": 4,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3934,7 +3927,7 @@
           "known_inferred": 4,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3971,7 +3964,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 1,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -4008,7 +4001,7 @@
           "known_inferred": 2,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4045,7 +4038,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -4083,7 +4076,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4120,7 +4113,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 2,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -4156,7 +4149,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4193,7 +4186,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -4376,7 +4369,7 @@
           "known": 1,
           "to_reconstruct": 11,
           "filled": 6,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the north division"
         },
         {
@@ -4389,7 +4382,7 @@
           "known": 7,
           "to_reconstruct": 34,
           "filled": 7,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the south division"
         },
         {
@@ -4402,7 +4395,7 @@
           "known": 1,
           "to_reconstruct": 8,
           "filled": 2,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the west division"
         },
         {
@@ -4415,7 +4408,7 @@
           "known": 12,
           "to_reconstruct": 111,
           "filled": 26,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
         {
@@ -4428,7 +4421,7 @@
           "known": 41,
           "to_reconstruct": 217,
           "filled": 65,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
@@ -4441,7 +4434,7 @@
           "known": 7,
           "to_reconstruct": 103,
           "filled": 33,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
         {
@@ -4454,7 +4447,7 @@
           "known": 0,
           "to_reconstruct": 3,
           "filled": 0,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the north division"
         },
         {
@@ -4467,7 +4460,7 @@
           "known": 1,
           "to_reconstruct": 6,
           "filled": 6,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the south division"
         },
         {
@@ -4480,7 +4473,7 @@
           "known": 0,
           "to_reconstruct": 4,
           "filled": 1,
-          "owning_ticket": "T-2023",
+          "owning_ticket": "T-1538",
           "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the west division"
         },
         {
@@ -4506,7 +4499,7 @@
           "known": 0,
           "to_reconstruct": 6,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the north division"
         },
         {
@@ -4519,7 +4512,7 @@
           "known": 10,
           "to_reconstruct": 51,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the south division"
         },
         {
@@ -4532,7 +4525,7 @@
           "known": 0,
           "to_reconstruct": 9,
           "filled": 0,
-          "owning_ticket": "T-2020",
+          "owning_ticket": "T-2021",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the west division"
         },
         {
@@ -6212,13 +6205,6 @@
       "ticket": "T-1533",
       "stage": "lodgers",
       "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/north/lodging/none",
-      "ticket": "T-1538",
-      "stage": "lodgers",
-      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -9284,11 +9270,11 @@
       "buckets_refused": 45,
       "people_held": 386,
       "people_still_held": 386,
-      "open_headroom_in_person_buckets": 239,
+      "open_headroom_in_person_buckets": 240,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 239,
+      "still_owed_now": 240,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }

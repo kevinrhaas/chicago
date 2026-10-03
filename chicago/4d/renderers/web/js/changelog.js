@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1354, ts: '2026-10-03T08:42:54.670Z', date: 'Oct 3, 2026, 3:42 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
+  { v: null, ts: '', date: '', title: 'One more boarder in a North Division boarding house', kind: 'change',
     items: [
       'A North Division boarding house had one bed empty that the town was still owed a lodger for. Henry Metcalf, a man in his twenties, now sleeps there. Open the house\u2019s card to see him among its boarders.',
       'Nobody already in the town moved to make room. He is our reconstruction, like every boarder no source names (liberty L252).',
       'Seven more lodgers are owed in the West Division, where every bed is taken. They will move in as new boarding houses are raised.',
+    ] },
+  { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed, and nobody moved house.',
+      'The model wants 368 of the town\u2019s lone men married, but the town has no unmarried woman left to draw for them. We counted how many could marry a woman already keeping her own house here, keeping each pair\u2019s ages plausible: 91 can. The other 277 cannot marry anyone the town holds.',
+      'The Liberties note on reconstructed families now says so. Moving those women would not even out the town\u2019s men and women either: a move adds nobody.',
     ] },
   { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
     items: [
