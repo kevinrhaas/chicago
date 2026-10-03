@@ -1703,7 +1703,7 @@ for (const [label, viewport, touch] of [
         let waterPlants = 0;
         let deepWaterPlants = 0;
         for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
-          'flora-shrub']) {
+          'flora-shrub', 'flora-shrub-far']) {
           const mesh = a.flora.group.getObjectByName(name);
           const matrix = mesh?.instanceMatrix?.array;
           if (!matrix) continue;

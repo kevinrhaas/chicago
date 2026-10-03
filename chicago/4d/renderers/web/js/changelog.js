@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1350, ts: '2026-10-03T06:43:05.987Z', date: 'Oct 3, 2026, 1:43 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
+  { v: 1351, ts: '2026-10-03T06:57:33.600Z', date: 'Oct 3, 2026, 1:57 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
     items: [
       'Cross the Lake Street bridge to the block between Clinton and Canal. A plank walk now runs the whole Lake Street front, not just the stretch outside its one shop.',
       'Its Randolph Street side has a walk of its own now, about 97 m of planks, with a board crossing over Randolph at the corner.',
       'The shop keeps its hitching post. No fences: this block\u2019s lots open onto Clinton and Canal, so these fronts are the ends of the lot rows.',
       'The walks are our reconstruction, like every walk in the town (liberty L160).',
+    ] },
+  { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
+    items: [
+      'Walk any road through the prairie or the woods and the hazel, elder, dogwood and other bushes now stand far into the distance, out to about 140 metres. Before, they ended 26 metres away and each one appeared out of empty ground through a speckled fade as you walked.',
+      'A distant bush is a simpler version of the same bush, at the same spot, size and colour. As you close on it, it sharpens into the full bush, so nothing pops in.',
+      'Balanced detail carries them to about 105 metres and Light detail to about 70.',
     ] },
   { v: 1349, ts: '2026-10-03T06:24:10.266Z', date: 'Oct 3, 2026, 1:24 AM CT', title: 'Plank walks down the cross streets', kind: 'feature',
     items: [
