@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1387, ts: '2026-10-03T22:35:06.005Z', date: 'Oct 3, 2026, 5:35 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
+    items: [
+      'Outfit for the West took about nine minutes by wagon. It now suggests riding on horseback and crosses the river only once: the list at the Green Tree, then the saddler and the smith at Lake and Canal, then over the river to the Jones grocery and Peck\'s store. It takes about five minutes. The five places, the purse and the prices are unchanged.',
+      'Freight for the Store took a few seconds over six minutes. Its opening and its four stops are a little shorter, so it now takes under six minutes by wagon. Nothing new is claimed. The tally stop now says Dole\'s yard is likely quiet in July, because the evidence for that is an inference.',
+    ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
       'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',

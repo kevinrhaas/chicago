@@ -1,3 +1,32 @@
+## T-2054 — Outfit for the West and Freight for the Store brought inside six minutes (2026-10-03)
+
+**What a visitor sees:** Outfit for the West now recommends horseback, and its stops run Green Tree →
+Cobb → Pierce → Jones → Peck, so the river is crossed once. Freight for the Store has a shorter
+opening and shorter stop texts. This is piece 4 of 6 of T-2041, fixing two of the jaunts T-2051 timed over the band.
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only outfit-for-the-west,freight-for-the-store`:**
+  outfit-for-the-west 8.98 min by wagon → **4.90 min on horseback** (Fly 3.38, Instantly 2.60; 4.86
+  at 1280×800). freight-for-the-store 6.12 → **5.80 min by wagon** (Fly 3.45, Instantly 2.72; 5.52 at
+  1280×800). There were zero page errors. `docs/measurements/jaunt-timing.*` has the new rows merged into the
+  library reading (`--merge`, with the 1280×800 column carried through `--also`). The other 24 rows
+  were not ridden again.
+- **Outfit: why both a mode change and a new order.** T-1260's route note already found that no
+  order of the five trades fits six minutes at a wagon's 3.6 m/s, because the South Branch crossing alone is about 500 m.
+  It also ruled that the overrun is not a reason to substitute a stop. On horseback the shipped order still
+  read about 6.1 min, because it crosses the river twice. The one-crossing order is 721 m in straight lines against 1,045.
+  The prose allows the horse, because the visitor hires a wagon only through the harness choice. Stop texts changed only where they named the old
+  crossings, and no `read_s` or `action_s` was lowered.
+- **Freight: why text only.** Loading the wagon is the errand, and every position on the route is
+  attested or the structure record's own reconstruction. So the opening and four stop texts lose
+  about 45 words, and their reading seconds drop with them at no faster a reading rate than before
+  (22 s of reading in all). No fact is added, and the tally stop now says the yard is *likely* quiet,
+  matching its inferred evidence.
+- **Margin:** freight is 12 s inside the band at 390×780. A longer stop text there would need re-timing.
+- **Not touched:** the estimate formula and any other jaunt. `content_version` is bumped on both,
+  so a saved session from the old version is discarded with the runtime's usual note.
+- **Liberties:** L-jaunt-outfit-west and L-jaunt-freight-store each gain a **Revised** line
+  (append-only).
+
 ## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
 
 **One stop's wording changed; the rest is a gate.** `compile_jaunts.py` proves a jaunt is
