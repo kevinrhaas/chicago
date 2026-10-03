@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1381, ts: '2026-10-03T19:56:24.136Z', date: 'Oct 3, 2026, 2:56 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1382, ts: '2026-10-03T20:15:44.856Z', date: 'Oct 3, 2026, 3:15 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
+  { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
+    items: [
+      'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',
+      'Nothing else on the menu changed. Behind it, the build now checks the whole library of 25 jaunts: each of the 25 named outings is available, every ending can be reached, and there are at least five quiet outings. Each keepsake family has three keepsakes or more, so the top daybook rank can be reached in 15 different outings without repeating one.',
     ] },
   { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [
