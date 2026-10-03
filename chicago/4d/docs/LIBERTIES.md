@@ -20317,7 +20317,7 @@ IL-1015 photo 5 (circa 1923) for the dining copper cap and tiled return; sheets
 **How to resolve:** A measured original roof plan or section, dated chimney
 photographs or restoration records would replace these proportional choices.
 **Applies to:** `glessner_house`, canonical detailed model and its light derivative.
-**Covers:** `glessner_house.as_built_1887.form.roof_north`,
+**Covers:** `glessner_house.as_built_1887.form.ridge_north_range`,
 `glessner_house.as_built_1887.form.v4_detail`,
 `glessner_house.as_built_1887.form.turret_stable`,
 `glessner_house.as_built_1887.form.chimney_service_east`,

@@ -1,0 +1,103 @@
+{
+  "model": {
+    "assets/gltf/glessner_house__as_built_1887.glb": {
+      "bytes": 125028268,
+      "sha256": "b2e6b557c726613af3f30664a3865eeaf9a2488103674fe66ebff91258e2af3c"
+    },
+    "assets/web/glessner_house__as_built_1887.glb": {
+      "bytes": 47910928,
+      "sha256": "23c7283346f208f443456e0fe4a40534fba87e31aef5a9783090c05f17b6b4ee"
+    },
+    "assets/web/glessner_house__as_built_1887.light.glb": {
+      "bytes": 25165408,
+      "sha256": "92118ddbd25cd67379b876c2e4d100c55b7faaa3b20f59996ec742504bea1273"
+    }
+  },
+  "method": "Actual published /1904/ app. Normal boot; pause continuous animation after readiness, use existing step() at each review camera. Unmodified geometry, materials, lighting and shadows. Two detail levels, 1280x800 desktop/full and 390x780 mobile/light.",
+  "observations": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "initialDetail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "gateState": {
+        "gateHidden": true,
+        "helpHidden": true
+      },
+      "errors": [],
+      "failedRequests": [],
+      "glessnerGlbs": [
+        {
+          "url": "http://127.0.0.1:46855/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:46855/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "afterSwitch": "light",
+      "stands": [
+        {
+          "name": "west",
+          "assetDetail": "full",
+          "problems": []
+        },
+        {
+          "name": "courtyard",
+          "assetDetail": "full",
+          "problems": []
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "initialDetail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "gateState": {
+        "gateHidden": true,
+        "helpHidden": true
+      },
+      "errors": [],
+      "failedRequests": [],
+      "glessnerGlbs": [
+        {
+          "url": "http://127.0.0.1:34083/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:34083/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "afterSwitch": "full",
+      "stands": [
+        {
+          "name": "west",
+          "assetDetail": "light",
+          "problems": []
+        },
+        {
+          "name": "courtyard",
+          "assetDetail": "light",
+          "problems": []
+        }
+      ]
+    }
+  ]
+}

@@ -23055,7 +23055,7 @@
           "domain": "structure",
           "structure": "glessner_house",
           "phase": "as_built_1887",
-          "aspect": "form.roof_north"
+          "aspect": "form.ridge_north_range"
         },
         {
           "domain": "structure",
@@ -23091,7 +23091,7 @@
         },
         {
           "label": "Covers",
-          "text": "`glessner_house.as_built_1887.form.roof_north`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.chimney_service_east`, `glessner_house.as_built_1887.form.chimney_service_west`."
+          "text": "`glessner_house.as_built_1887.form.ridge_north_range`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.chimney_service_east`, `glessner_house.as_built_1887.form.chimney_service_west`."
         },
         {
           "label": "Recorded",

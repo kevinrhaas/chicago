@@ -56,3 +56,29 @@ continuous upper surface. Added controls pin both straight ridge axes, the
 full-height south gable and dormer penetration. Actual exported-GLB close views
 cover the overhead plan, west elevation, south gable, dining bay and copper
 corner. Final gate and browser receipts will be recorded below.
+
+
+### Measured review
+
+The exported full model passes six first-hit material rays in each of 31 north
+and west windows (186 samples); none hit roof, stone or missing geometry inside
+the aperture. The independent envelope test passes its 1,800 samples. Full
+master: 125,028,268 bytes; compressed full: 47,910,928 bytes; light: 25,165,408
+bytes and 193,679 triangles, below the 200,000-triangle limit. Historical pre-v4,
+v2 and v3 builds were re-emitted with their original UV bake setting: their GLBs
+are byte-identical to the base; only recipe-freshness hashes change.
+
+Desktop/full and mobile/light both boot the published 1904 app, fetch full and
+light assets with HTTP 200, switch detail levels and show west/courtyard views
+with zero page errors, failed requests or loader problems. The animation loop
+was paused after normal readiness to keep software-rendered capture bounded;
+each view uses the app's existing step() with unchanged rendering settings.
+See `browser-validation.json`. Source preflight and official stage 13 are still
+being completed; this receipt does not claim all thirteen town stages ran.
+
+![Exported overhead roof plan](overhead.png)
+![Exported west elevation](west.png)
+![Dining copper roof and tiled returns](bay.png)
+![Continuous corner copper](corner.png)
+![Published desktop courtyard](desktop-courtyard.png)
+![Published mobile light courtyard](mobile-courtyard.png)

@@ -8,8 +8,9 @@ corner. Earlier north and west aperture corrections remain. The owner aerial
 is the geometric target; roof joins and two service stacks are reconstructed.
 Historical review did not establish that the stacks were absent in 1904.
 See `docs/RESEARCH/glessner-connected-roof-plan/work.md` and liberty
-`L-glessner-connected-roof-2016`. Export, source gate and browser validation are
-in progress; no production promotion is included.
+`L-glessner-connected-roof-2016`. The full and light exports, 1,800 roof samples, 186 opening rays and published
+desktop/mobile detail switching pass. Final source preflight and official
+stage 13 remain in progress; no production promotion is included.
 
 ## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
 
