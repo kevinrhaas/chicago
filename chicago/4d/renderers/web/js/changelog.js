@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1355, ts: '2026-10-03T09:27:38.305Z', date: 'Oct 3, 2026, 4:27 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
+  { v: null, ts: '', title: 'A new jaunt: Mend the Harness', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
       'Take the leather to S. B. Cobb\u2019s saddlery and the iron to Asahel Pierce\u2019s smithy at Lake and Canal, then decide at the Green Tree whether to take the long road or keep the trip short.',
       'The crack, the repairs and the keepsake, Sound Tack, are our reconstruction (liberty L-jaunt-mend-harness). The stable, the shops and their trades come from the sources.',
+    ] },
+  { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+    items: [
+      'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
+      'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
+      'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
     ] },
   { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
     items: [
