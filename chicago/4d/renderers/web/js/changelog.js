@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
+  { v: 1390, ts: '2026-10-03T23:22:01.064Z', date: 'Oct 3, 2026, 6:22 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'Every build now walks the path a visitor takes, on a phone and on a desktop: the year counting down to 1835, the welcome, Starting At…, a jaunt with its place card and source, a change of travel mode, the Jaunts menu and Resume, End, a second jaunt, and Explore on my own.',
