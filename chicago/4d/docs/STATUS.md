@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-1262 — New in Chicago, finished as the first-day Orientation jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts → *New in Chicago* now recommends **Walk**, not
@@ -27,7 +26,7 @@ menu. The keepsake landed once under Wayfinding, and there were no page errors.
 before the ending still on this software-rendered runner. `tools/test_jaunt_travel.mjs` fails
 at 390×780 when the detail popup is open (the jaunt controls measure 0×0). It fails the same
 way on a clean `dev`, so it predates this change and is not caused by it.
-=======
+
 ## T-1989 — the four empty trade roofs: none can be kept, and each card says why (2026-10-02)
 
 Piece 2 of T-1986 (of T-1966 → T-1215). Four anonymous trade roofs stood empty after every
@@ -55,7 +54,6 @@ room that frees seats nine more households that had no roof (523 → 514 unroofe
 at dev's **28**.
 
 **Unverified:** no source places any keeper at any of these roofs; the seat is the invention.
->>>>>>> origin/dev
 
 ## T-1260 — Outfit for the West, the second published 1835 jaunt (2026-10-02)
 
