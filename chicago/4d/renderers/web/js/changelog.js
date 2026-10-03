@@ -1,9 +1,28 @@
 export const CHANGELOG = [ // newest first
-  { v: 1368, ts: '2026-10-03T15:45:41.755Z', date: 'Oct 3, 2026, 10:45 AM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
+  { v: 1371, ts: '2026-10-03T16:35:09.600Z', date: 'Oct 3, 2026, 11:35 AM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Calling on Neighbors, about four minutes on horseback.',
       'Present a letter of introduction from Mrs Brown\u2019s boarding house, read the Peck household on its card, find the town\u2019s meeting place at the Exchange Coffee House, and leave a calling card.',
       'The newcomer, the letters, the calls and the keepsake, An Introduction Made, are our reconstruction (liberty L-jaunt-calling-on-neighbors). The meetings and the 1834 notice asking for addresses at the Exchange come from the Chicago Democrat.',
+    ] },
+  { v: 1370, ts: '2026-10-03T15:42:04.279Z', date: 'Oct 3, 2026, 10:42 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+    items: [
+      'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
+      'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
+      'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
+      '277 men are still owed a wife that no woman in the town can be.',
+    ] },
+  { v: 1369, ts: '2026-10-03T15:38:36.981Z', date: 'Oct 3, 2026, 10:38 AM CT', title: 'A new jaunt: A Sunday Circuit', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Sunday Circuit, a quiet outing of about six and a half minutes on horseback, with nothing to count or carry.',
+      'Pass St. Mary\u2019s on Lake Street, the Presbyterian church at Clark, where a school district had been called to meet, and the log meeting house at Wolf Point. Then finish with a call at the Sauganash.',
+      'The call, the route and the keepsake, A Morning Among Neighbors, are our reconstruction (liberty L-jaunt-sunday-circuit). No service or day is claimed, and where the meeting house stood is still disputed.',
+    ] },
+  { v: 1368, ts: '2026-10-03T15:10:12.029Z', date: 'Oct 3, 2026, 10:10 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Schoolday Errand, an outing of about six and a half minutes on horseback past the places Chicago\u2019s first classes met.',
+      'Start at the Michigan Street house where John Watkins taught, see the north-bank school-house that was the North Side\u2019s public school in 1835, cross to Eliza Chappel\u2019s log house by State Street, and finish at the Democrat\u2019s corner with the School District No. 4 meeting notice from the paper dated that very day.',
+      'The household, its question and the keepsake, A Schooling Note, are our reconstruction (liberty L-jaunt-schoolday-errand). Two of the schools had moved on by 1835, and the stops say so.',
     ] },
   { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
     items: [

@@ -11,16 +11,16 @@ Read the three verdicts apart. **reaches** — at least one row on the axis reac
 | Axis | reaches 1 Jul 1835 | limited | no claim |
 | --- | ---: | ---: | ---: |
 | `roles[]` — trades, professions, offices | 138 | 190 | 2,055 |
-| home (`lives_at`) | 183 | 674 | 1,526 |
-| work (`works_at`) | 131 | 0 | 2,252 |
-| other places — later addresses, business premises | 128 | 315 | 1,940 |
+| home (`lives_at`) | 183 | 283 | 1,917 |
+| work (`works_at`) | 138 | 0 | 2,245 |
+| other places — later addresses, business premises | 128 | 363 | 1,892 |
 
-Of 2,383 people in 1,512 households.
+Of 2,383 people in 1,421 households.
 
 | Axes reaching the scene date | People |
 | --- | ---: |
-| 0 | 1,970 |
-| 1 | 287 |
+| 0 | 1,963 |
+| 1 | 294 |
 | 2 | 88 |
 | 3 | 35 |
 | 4 | 3 |
@@ -29,7 +29,7 @@ Of 2,383 people in 1,512 households.
 
 **Roles.** 738 dated role rows across the layer; 160 reach 1 July 1835. By kind: `employment` 1, `office` 52, `profession` 84, `trade` 601.
 
-**Places.** 3,161 location rows reach a person; 465 of them reach the scene date. By claim kind: `business_location` 151, `home` 2,383, `later_home_address` 127, `later_workplace_address` 369, `workplace` 131.
+**Places.** 3,244 location rows reach a person; 472 of them reach the scene date. By claim kind: `business_location` 151, `home` 2,383, `later_home_address` 153, `later_workplace_address` 419, `workplace` 138.
 
 A person inherits his household's `home` and `workplace` rows — the claim is made about the roof, not about the man — and inherits a `business_location` row from every firm that names him as proprietor, partner or staff. That is why the location row count above is larger than the reconciliation's own: the same roof is carried to each of the people living under it.
 
@@ -38,8 +38,8 @@ A person inherits his household's `home` and `workplace` rows — the claim is m
 | Household presence on the scene date | People |
 | --- | ---: |
 | `absent` | 2 |
-| `present` | 1,436 |
-| `uncertain` | 945 |
+| `present` | 1,038 |
+| `uncertain` | 1,343 |
 
 Presence is not a fifth axis. It is the household's verdict (T-1144 acceptance 9, with the last dated sighting under it) and it is carried here only so a row can be read without a second file open. A man whose household is `uncertain` may still hold a role that reaches the day: the role is bounded by its own source, and the two bounds are different questions.
 

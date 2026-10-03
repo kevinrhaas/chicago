@@ -140,7 +140,7 @@ def _employment_slot(person: dict) -> str:
                 EMPLOYMENT_AFTER[-1])
 
 
-def carry_seats(cards: dict, directory: pathlib.Path) -> int:
+def carry_seats(cards: dict, directory: pathlib.Path, priors: dict | None = None) -> int:
     """Carry `persons[].employment` through a WHOLE directory's re-derivation (T-1489).
 
     ``carry_resident_mint`` above is the four ``households/`` mints' route, and it takes
@@ -158,13 +158,20 @@ def carry_seats(cards: dict, directory: pathlib.Path) -> int:
     layer and the staffing model and asserts it both ways, a fossil and a silence alike.
     This function keeps the field alive across a rebuild; that gate decides what it may
     contain.
+
+    `priors` names a card whose prior is NOT its file (T-2020): a woman-headed house folded
+    into a married one has no file of its own, and its people — seats included — stand on
+    the host's card. The stage hands in the house as `unfold` restores it.
     """
     carried = 0
     for hid, card in cards.items():
         path = directory / f"{hid}.json"
-        if not path.exists():
+        if priors and hid in priors:
+            prior = priors[hid]
+        elif not path.exists():
             continue
-        prior = json.loads(path.read_text(encoding="utf-8"))
+        else:
+            prior = json.loads(path.read_text(encoding="utf-8"))
         by_id = {person.get("id"): person for person in prior.get("persons") or []}
         for person in card.get("persons") or []:
             if "employment" in person:
