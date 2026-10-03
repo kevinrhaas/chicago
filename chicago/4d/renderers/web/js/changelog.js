@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
+    items: [
+      'A North Division boarding house had one bed empty that the town was still owed a lodger for. Henry Metcalf, a man in his twenties, now sleeps there. Open the house\u2019s card to see him among its boarders.',
+      'Nobody already in the town moved to make room. He is our reconstruction, like every boarder no source names (liberty L252).',
+      'Seven more lodgers are owed in the West Division, where every bed is taken. They will move in as new boarding houses are raised.',
+    ] },
   { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
       'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
