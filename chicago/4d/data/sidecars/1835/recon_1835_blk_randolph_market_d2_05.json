@@ -244,22 +244,22 @@
     "stands_on": "alley",
     "fronts": "randolph",
     "sequence": 5,
-    "finish_key": "weathered_timber",
+    "finish_key": "mixed_patch",
     "roof_condition": "patched",
-    "age_state": "established",
+    "age_state": "older_frontier",
     "fabric_basis": {
       "rule": "F-L",
       "class": "labourer",
       "by": "keeper",
       "household": "hh_guisin_byran",
-      "words": "silvered boards under a patched roof — The Guisin household's, in Chicago since 1833 (rule F-L)"
+      "words": "patched boards under a patched roof — The Guisin household's, in Chicago since 1831 (rule F-L)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "labourer",
-    "age_state": "established",
-    "weather_years": 2.5,
+    "age_state": "older_frontier",
+    "weather_years": 5.0,
     "weather_rate": 1.0,
     "lay_m": 0.008,
     "confidence": "reconstructed"
