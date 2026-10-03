@@ -603,6 +603,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** An evening premise does not require changing the lighting engine or claiming an actual dated event; do not invent advertised entertainment.
 
+**Route note (published, T-2034):** The shipped order is the brief's: Sauganash → Peck's → the Democrat's first corner → the Exchange, about 0.71 km in straight lines (→ Peck's 347 m, → the Democrat 123 m, → the Exchange 245 m). The last stop asks where the evening ends — at the Exchange, or back west along Lake Street to the Sauganash — and each choice leads to its own ending with the same keepsake, so the circuit the brief names is the walker's to close. On the published mirror the card reads Horse 4.5 min at both 390×780 and 1280×800, and the primary path measures 268 s at 390 (257 s at 1280); Fly reads 3 min and measures 173 s. **The default is Horse, not the Walk this brief names:** Walk reads 12.5 min (765 s measured), well past the 4–6 min band, and Walk stays offered. The evening is a premise only: the scene's light is not changed, and no entertainment, meeting or dated event is claimed. The one new claim — that the Democrat came out weekly, on Wednesdays — is inferred from the dated issue numbers already cited, not from a masthead (L-jaunt-an-evening-stroll).
+
 ## Initial research anchors
 
 Use the source records already attached to the chosen claims, rather than treating
