@@ -396,15 +396,20 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # Kinzie Street from the North Division recipe, the same `generate_north_infill` meshes as
 # its sixty; terrain reach still 4 and pier_crib still 2.
 #
+# 550 -> 552 on 2026-10-03 (T-2003): the 1812 ground and water meshes,
+# `terrain__e1830_natural.glb` and `water__e1830_natural.glb`. Both are built through
+# terrain_gen.py's mesher and the common modules, so terrain reach goes 4 -> 6 and the
+# common reach with it; emit.py builds no terrain, so 546 stands, and pier_crib still 2.
+#
 STATED = {
-    "assets": 550,
+    "assets": 552,
     "restales": {
-        "generators/common/*.py": 550,
+        "generators/common/*.py": 552,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
         "generators/emit.py": 546,
         "generators/build.py": 0,
-        "generators/terrain_gen.py": 4,
+        "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
     },
     "layers_drawn_at_load": 10,

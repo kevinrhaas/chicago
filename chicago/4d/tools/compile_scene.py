@@ -446,6 +446,16 @@ GROUND_GROUPS = [
     ("lake_shelf", "the lake bed"),
     ("original_surface", "where the 1835 ground still shows"),
     ("surface_texture", "the surface texture"),
+    # The 1812 ground (e1830_natural, T-2003): an overlay on the 1834 table, so only the
+    # blocks it authors are its own. Named with their year so no 1835 block is held to
+    # them; generators/terrain_gen_e1830.py is what reads them.
+    ("lake_stage_1812", "the 1812 lake stage"),
+    ("water_bodies_1812", "the 1812 river"),
+    ("outlet_channel_1812", "the channel behind the spit"),
+    ("channel_west_bank_ruling", "the channel's west bank"),
+    ("spit_1812", "the baymouth spit"),
+    ("isthmus_1812", "the spit's neck"),
+    ("north_lake_shore_1812", "the lake shore north of the spit"),
 ]
 
 

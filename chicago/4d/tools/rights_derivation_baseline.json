@@ -591,6 +591,24 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "terrain/e1830_natural/outlet_channel_1812": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicago_architecture_history_115",
+        "chicagology_prefire274"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "terrain/e1830_natural/spit_1812": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicago_architecture_history_115",
+        "chicagology_prefire274"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "terrain/e1834_harbor_cut/divisions.north_division": {
       "kind": "ground",
       "blocked_sources": [

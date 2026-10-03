@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1375, ts: '2026-10-03T18:20:44.160Z', date: 'Oct 3, 2026, 1:20 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
+      'In 1812 the river turns south behind the sand spit and runs out to the lake near present Madison Street. There is no cut, no pier and no bridge, and no streets yet.',
+      'The spit is joined to the north shore by a narrow sand neck at its own 4 ft crest. The neck, the spit\u2019s height and the lake shore north of it are our reconstruction (liberties L362\u2013L364).',
+      'Everything south of Twelfth Street, the spit, and the old channel\u2019s west bank, where the 1830 plat and Wright\u2019s 1834 survey disagree, are marked conjectural. No point of this ground is documented.',
+    ] },
   { v: 1374, ts: '2026-10-03T17:24:17.483Z', date: 'Oct 3, 2026, 12:24 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',
