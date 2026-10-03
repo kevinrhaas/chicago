@@ -1,3 +1,34 @@
+## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Decent Coat* (Shopping, Horse, 4 stops,
+Provisions). John Holbrook's clothing store → Harmon, Loomis & Co.'s store → Brown's boarding
+house → the Sauganash, one way west along South Water Street. Holbrook's card (Democrat, 10 June
+1835, p. 3 col. 2; American, 13 June, p. 3 col. 6) sells made clothing, hats, boots and shoes as
+agent for the manufacturers; Harmon, Loomis & Co.'s fall notice (Democrat, 5 Nov 1834, p. 3 col. 2)
+lists broadcloth, cassimere, satinet, flannel, Russia duck and canvas, carried to the scene by
+their June 1835 card. At the Sauganash the visitor goes in a ready-made coat or the old one
+brushed; two endings, both completion-eligible, one keepsake (*Fit for the Occasion*). Content
+only: one JSON file, a liberty (`L-jaunt-a-decent-coat`), the regenerated catalog and source-use
+edges, and brief 14's route note. No engine, compiler or CSS change.
+
+**What it refuses to claim.** No purchase, price, size, fitting, tailor or maker: Holbrook's card
+names no tailoring and the stop says so. It is the batch's quiet outing (T-1267 acceptance 4):
+no variable, no inventory, no strip. The person record `holbrook_john` is a shoemaker left
+unplaced, so the stop links Holbrook's business card rather than identify the two.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, endings `ready-tonight` and `brushed`, one
+keepsake each. On the published mirror's router the brief's order (Brown's first, doubling back
+from Dearborn) read 13.5 min at Walk, so the route was re-cut to run one way west. Even so the
+Sauganash is at the street's far end and Walk reads 10.5 min, so the recommended mode is Horse:
+the card reads, at 390×780 and 1280×800 alike, Walk about 10.5, Wagon 5.5, **Horse 4**, Fly 3,
+Instantly 2. A Playwright drive at 390×780 took stills in order (card, first stop, the detail card
+and back to the same stop, the ending, the menu) with zero page errors; the keepsake landed under
+Provisions.
+
+**Unverified.** At 1280×800 the drive reached the `brushed` ending with its keepsake, but the
+return to the menu was cut off by the 560 s cap; menu return is proved at 390×780 only. The stills
+are not committed.
+
 ## T-2013 — the worn ground at the doors drawn with the road's own surface (2026-10-03)
 
 The owner, on dev at Matthias Mason & Co. on Lake Street: the door ground T-1984 laid "is not nearly as
