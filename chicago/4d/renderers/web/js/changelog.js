@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1381, ts: '2026-10-03T20:00:29.780Z', date: 'Oct 3, 2026, 3:00 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
       'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
       'Every jaunt is now read for four things it must never do: stage a meeting with Native people, show a figure of anyone, quote a named person without a source, or cite a source whose terms forbid it. All 26 pass.',
+    ] },
+  { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
+    items: [
+      'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',
+      'Nothing else on the menu changed. Behind it, the build now checks the whole library of 25 jaunts: each of the 25 named outings is available, every ending can be reached, and there are at least five quiet outings. Each keepsake family has three keepsakes or more, so the top daybook rank can be reached in 15 different outings without repeating one.',
     ] },
   { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [
