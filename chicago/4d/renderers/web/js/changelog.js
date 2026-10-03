@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1357, ts: '2026-10-03T10:07:37.252Z', date: 'Oct 3, 2026, 5:07 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
     items: [
       'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
       'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
       'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
       'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
+    ] },
+  { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+    items: [
+      'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
+      'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
+      'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
     ] },
   { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
     items: [

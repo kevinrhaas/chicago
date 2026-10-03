@@ -5053,9 +5053,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1983",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 20; the 668-roof programme leaves 6 of them to build"
         },
         {
@@ -5130,9 +5128,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1762",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 3; the 668-roof programme leaves 0 of them to build"
         },
         {
@@ -5177,9 +5173,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1785",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 1; the 668-roof programme leaves 0 of them to build"
         },
         {
@@ -5224,9 +5218,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1953",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 3 of them to build"
         },
         {
@@ -5271,9 +5263,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1829",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 15 of them to build"
         },
         {
@@ -5318,9 +5308,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1983",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 14; the 668-roof programme leaves 9 of them to build"
         },
         {
@@ -5380,9 +5368,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1829",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 0 of them to build"
         },
         {
@@ -5468,9 +5454,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1829",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 1 of them to build"
         },
         {
@@ -5515,9 +5499,7 @@
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1829",
-          "ground_waits_on": [
-            "T-1414"
-          ],
+          "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 8; the 668-roof programme leaves 0 of them to build"
         },
         {
@@ -5568,10 +5550,8 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5580,10 +5560,8 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5592,10 +5570,8 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5604,10 +5580,8 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5616,10 +5590,8 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5628,10 +5600,8 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5681,9 +5651,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5693,9 +5661,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5705,9 +5671,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5717,9 +5681,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5729,9 +5691,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5741,9 +5701,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5753,9 +5711,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5765,9 +5721,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5777,9 +5731,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5789,9 +5741,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5801,9 +5751,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5813,9 +5761,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5825,9 +5771,7 @@
           },
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         },
         {
@@ -5847,9 +5791,7 @@
           },
           "roofs_gated": 31,
           "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
-          "owning_tickets": [
-            "T-1414"
-          ],
+          "owning_tickets": [],
           "filled": 0
         }
       ]
