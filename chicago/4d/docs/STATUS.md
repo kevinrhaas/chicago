@@ -1,3 +1,37 @@
+## T-2030 — Calling on Neighbors, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Calling on Neighbors* (Social life, Horse,
+4 stops, Neighbors). A newcomer lodging at Mrs Rufus Brown's log boarding house behind Peck's store
+chooses which letter of introduction to present (a merchant's or a minister's); reads the Peck
+household on its card at the corner of South Water and LaSalle rather than at its door; finds at
+the Exchange Coffee House a public meeting place — the Democrat reports Democratic meetings held
+there in April and June 1835, and J. A. Marshall's November 1834 dancing-school notice asked
+would-be pupils to leave their address there — and leaves a calling card there or at the
+Sauganash. Three endings; the keepsake *An Introduction Made* goes to Neighbors. Content only: one
+JSON file, a liberty (`L-jaunt-calling-on-neighbors`), the regenerated catalog and source-use
+edges, and brief 21's route note. No engine, compiler or CSS change. Third of the four pieces
+T-1269 was split into.
+
+**The brief's cautions hold by construction.** No named person is met, quoted or said to be at
+home; Peck's household is read on its card, which marks what is inferred. The two new attested
+claims are the Democrat's own meeting reports (20 May 1835 p. 1 col. 3; 10 June 1835 p. 2 col. 5)
+and the dancing-school card (19 Nov 1834 p. 3 col. 2). The April meeting's printed day and weekday
+do not agree in the transcription, so the stop gives the month only.
+
+**Recommended mode moved from Walk to Horse.** The primary path (merchant's letter → card left at
+the Exchange) measured 522 s at Walk against the card's 533 s at 390×780 — past the 4–6 min band —
+so the card recommends Horse: 244 s against 244 s at 390×780 and 237 s against 235 s at 1280×800.
+Fly: 193 s against 200 s and 192 s against 198 s. Wagon: 309 s and 297 s. Walk stays allowed.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 4 paths, three endings, one keepsake. Card estimates
+at 390×780: Walk 9 min, Wagon 5, Horse 4, Fly 3.5, Instantly 2.5. A Playwright drive at 390×780
+(card, Start Jaunt, the first stop, About this place and back to the same stop, the ending; a
+second Start then End Jaunt back to the menu) reached `merchant-at-the-exchange`; zero page errors
+at either viewport. Stills and the receipt are in `docs/performance/jaunt-calling-on-neighbors/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API,
+and the desktop card's mode estimates were not read (the card's selector did not appear inside
+30 s in the headless desktop page).
 ## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Materials for a Roof* (Building trades,
