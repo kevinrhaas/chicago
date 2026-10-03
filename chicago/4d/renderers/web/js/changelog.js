@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1363, ts: '2026-10-03T13:12:09.080Z', date: 'Oct 3, 2026, 8:12 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
+  { v: null, ts: '', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
     items: [
       'Edward McCarthy\u2019s boarding house, on the block at Washington and Dearborn streets, has four new boarders. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a labourer. Open the house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and this house had empty beds. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'Three of them work at E. W. Haddock\u2019s. One reconstructed clerk who worked there before now works at a wine and liquor store on Dearborn Street. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1363, ts: '2026-10-03T13:05:29.979Z', date: 'Oct 3, 2026, 8:05 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
+    items: [
+      'Open William Jones\u2019s card in People. Fergus\u2019s 1839 directory calls him a justice of the peace, and that line used to appear twice: once under his 1835 trade and once on his timeline. It now appears once, on the timeline, dated 1839.',
+      'The same goes for Elijah Kent Hubbard, Tuthill King, James H. Mulford, Silas W. Sherman and William H. Taylor.',
+      'No trade, date or source was lost. Their 1835 trades are unchanged, and every 1839 entry still stands on its card.',
     ] },
   { v: 1362, ts: '2026-10-03T12:26:25.726Z', date: 'Oct 3, 2026, 7:26 AM CT', title: 'A new jaunt: Soap and Candles', kind: 'feature',
     items: [
