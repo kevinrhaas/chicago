@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1379, ts: '2026-10-03T19:16:41.386Z', date: 'Oct 3, 2026, 2:16 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
+    items: [
+      'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
+      'Every jaunt is now read for four things it must never do: stage a meeting with Native people, show a figure of anyone, quote a named person without a source, or cite a source whose terms forbid it. All 26 pass.',
+    ] },
   { v: 1378, ts: '2026-10-03T18:54:29.680Z', date: 'Oct 3, 2026, 1:54 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
     items: [
       'Nothing you can see in the town changed.',
