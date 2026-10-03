@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A new jaunt: Shopping South Water Street', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Shopping South Water Street. You have an imagined three dollars and a short household list: something for a cough, a staple and tea.',
+      'Four stops, about 350 m on foot: Carpenter\u2019s drug store, Peck\u2019s store, Harmon, Loomis and Company at Clark, and Thomas Church\u2019s store on Lake Street. Each good comes from the store whose own advertisement lists it.',
+      'Run short at the tea counter and a cheaper Souchong stands in. Nothing is sold at Church\u2019s, because no source says what he stocked; that stop is where you tally up.',
+      'Fill the list or go home short. Either way The Household List goes in your daybook under Provisions. The list, purse and prices are our reconstruction (liberty L-jaunt-shopping-south-water).',
+    ] },
   { v: 1332, ts: '2026-10-03T00:26:46.380Z', date: 'Oct 2, 2026, 7:26 PM CT', title: 'A shed becomes a home, and four empty shops say why', kind: 'change',
     items: [
       'The small shed on Lake west of Canal is now a rough plank house, because a shed has no business on a main street. Ellen Doyle\u2019s family of five moves in, and nine more households that were waiting now have a roof.',
