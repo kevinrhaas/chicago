@@ -143,13 +143,14 @@ HOUSEHOLD_TYPES = (
     ("transient", "in the town on 1 July 1835 and not of it: the land-sale crowd, the immigrants waiting for lots, the works gang"),
 )
 
-# WHO OWES THE FAMILY ROWS (T-1171's split, 2026-10-03). T-1171 split into T-2019
-# (measure the re-housing), T-2020 (make the moves) and T-2021 (rule on the married
-# houses no woman in the town can be wife to). A bucket whose owning ticket is a SPLIT
-# parent names nobody who can act on it (T-1237), so the family rows follow the split
-# to T-2021, the piece that owns what is left once T-2020's moves are made — as
-# T-2021's own ticket records. The modelled-families stage keeps T-1171 as the ticket
-# on its own fills: that is who drew.
+# THE FAMILY ROWS' OWNER, swept off T-1171 on 2026-10-03 (T-2019). T-1171 split into
+# T-2019 (measure the re-housing the town's own women allow), T-2020 (make those moves)
+# and T-2021 (rule on the married houses no woman in the town can be wife to). A bucket
+# naming a SPLIT ticket orders work nobody can claim (T-1237), so the rows T-1171 owned
+# move to the piece that owns what is left of its order once the moves are made: T-2021
+# decides whether the book orders more women or the heads stand alone, and the men and
+# houses still owed here are the same question. The modelled-families STAGE keeps its
+# own ticket, T-1171, on its fills; that is who drew, not who is owed.
 FAMILY_OWNER = "T-2021"
 
 # Which ticket fills a person bucket. Read top-down; the first rule that matches
@@ -3458,7 +3459,6 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    # T-1171's leg is owed under FAMILY_OWNER since T-1171 split; the rows are the same.
     p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
@@ -4352,14 +4352,15 @@ def cmd_self_test() -> int:
           lambda: business_buckets(mixed["crosswalk"], mixed["register"],
                                    mixed["trade_spend"], mixed["model"]))
 
-    # EVERY BUCKET NAMES A TICKET. This read `startswith("T-1")` while every reconstruction
-    # ticket was numbered T-1xxx; T-1171's successors are T-2019..T-2021 (2026-10-03), so it
-    # now asks for a ticket id. Whether the ticket is LIVE is `every_work_order_names_a_live_ticket`.
+    # EVERY BUCKET NAMES A TICKET. This read `startswith("T-1")` — the reconstruction
+    # bands were all T-1xxx when it was written — until T-1171's split put its rows on
+    # T-2021 (T-2019) and the queue's numbering passed the prefix. Whether the ticket is
+    # still claimable is `every_work_order_names_a_live_ticket`'s question, not this one's.
     for family in doc["bucket_families"]:
         for b in family["buckets"]:
             owners = [b["owning_ticket"]] if b.get("owning_ticket") else b.get("owning_tickets", [])
             for owner in owners:
-                assert re.fullmatch(r"T-\d{4,}", owner), (b["key"], owner)
+                assert re.fullmatch(r"T-\d{4}", owner), (b["key"], owner)
 
     # THE PERSON TOTALS CLOSE ON THE MODEL'S OWN NUMBER.
     persons = doc["bucket_families"][0]["buckets"]

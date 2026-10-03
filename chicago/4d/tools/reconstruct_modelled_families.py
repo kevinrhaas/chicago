@@ -64,10 +64,14 @@ admits one. Seven refusals, each with a reason a reader can check:
   6. A married house the order book has no woman left for is not half-drawn — it is
      refused whole, and the cell that refused it is named. Seating the children of a
      marriage the book would not seat would put a cottage of infants with no mother on
-     the ground and would read as evidence of a family nobody drew. 310 houses stand
-     refused this way today, 147 of them in `persons/female/20_29/south/family/none`:
+     the ground and would read as evidence of a family nobody drew. The ledger lists every
+     house refused this way (`houses_the_book_refused_by_household`, 368 on 2026-10-03).
      T-1174 and T-1347 drew the women the pyramid was short as their OWN records rather
-     than into these houses, and re-housing them is T-1179's convergence.
+     than into these houses. `re_housing` (T-2019) measures how many of T-1174's
+     woman-headed houses could be the wife and children of one of them, by this stage's
+     own spacing rule and child cap; it moves nobody. T-2020 makes the moves and T-2021
+     rules on the houses no woman in the town fits. A move cannot close the sex ratio
+     printed below — it puts nobody new in the town — and the measurement says so.
 
   And one bound that is not a refusal: NOBODY BUT KIN IS DRAWN. The household types carry
   servants, apprentices and journeymen, and the size the 1840 histogram draws is of the
@@ -538,6 +542,7 @@ def fill(base: dict) -> tuple:
     kin_size = Counter()
     fills = Counter()
     per_card = {}
+    refused_houses = {}
 
     # THE ORDER THE QUOTA IS SPENT IN, AND WHY IT IS NOT PLAIN hid ORDER. A household
     # the card itself rules present was drawn for before T-1386's rulings were honoured
@@ -604,6 +609,8 @@ def fill(base: dict) -> tuple:
                 refusals["the order book has no woman left in this house's cell"] += 1
                 counts["houses_the_book_refused"] += 1
                 refused_size[size] += 1
+                refused_houses[hid] = {"wife_cell": bucket, "head_band_low": head_low,
+                                       "size_drawn": size}
                 continue
             else:
                 left[bucket] -= 1
@@ -722,8 +729,189 @@ def fill(base: dict) -> tuple:
         "drawn_into_bands": dict(sorted(drawn_band.items())),
         "fills": dict(sorted(fills.items())),
         "by_household": {k: per_card[k] for k in sorted(per_card)},
+        "houses_the_book_refused_by_household": {k: refused_houses[k]
+                                                  for k in sorted(refused_houses)},
     }
+    ledger["re_housing"] = re_housing(base, refused_houses)
     return out, ledger
+
+
+# ------------------------------------------------------------- the re-housing --
+#
+# T-2019, piece 1 of 3 of the last bullet of T-1171. The bullet says the married houses the
+# book refuses a wife are seated by MOVING women the town already holds — "no new woman is
+# drawn for them; the ones already in the town are moved". Before anybody moves, this
+# measures how many can be: which of T-1174's woman-headed houses could be the wife and
+# children of which refused house, by the same rules this stage draws a wife by. It MOVES
+# NOBODY and writes no card; T-2020 carries the pairs onto the cards and is held to these
+# numbers, so the move cannot redefine its own success. T-2021 owns what is left over.
+
+#: The stage whose houses are the pool. The bullet names T-1347's women too; they are not
+#: in it, and the reason is written into `re_housing` rather than left to a reader.
+WOMEN_PASS = "reconstructed_women_children"
+WOMEN_TYPE = "female_headed"
+
+
+def match(heads: list, women: list) -> list:
+    """[(head household, woman's household)] — the most pairs the rules allow. Pure.
+
+    `heads` is [(division, head band low, household id)]; `women` is [(division, the
+    lowest head band she may marry, household id)]. A woman may be wife to a head of her
+    own division whose band is at least her floor. That is a THRESHOLD, so the greedy
+    order is the optimal one: serve the most constrained head first (lowest band), and
+    give him the woman nobody younger could take (highest floor at or under his band).
+    Ties break on the id, so the pairing is a function of the committed files."""
+    pairs = []
+    used = set()
+    for division, low, hid in sorted(heads, key=lambda h: (h[0], h[1], h[2])):
+        fits = [w for w in women
+                if w[2] not in used and w[0] == division and w[1] <= low]
+        if not fits:
+            continue
+        best = max(fits, key=lambda w: (w[1], w[2]))
+        used.add(best[2])
+        pairs.append((hid, best[2]))
+    return pairs
+
+
+def wife_floor(card: dict):
+    """(the lowest head band this woman may marry into, why not) for one T-1174 house.
+
+    The two rules are this stage's own, read from the other end: THE SPACING RULE puts a
+    wife never above her husband's band, so he is at least her band; THE CHILD CAP puts no
+    child older than his band's low minus twenty, so he is at least her eldest plus
+    twenty. A house that would pass the kin range of eight once he joins it is held back,
+    and so is one T-1564 has already re-familied (its card carries a move recorded on both
+    ends, and a second move is T-2020's decision, not this measurement's)."""
+    persons = card.get("persons") or []
+    head = next((p for p in persons if p.get("id") == card.get("head")), None)
+    band = (head or {}).get("age_band")
+    if not isinstance(band, dict) or band.get("low") is None:
+        return None, "the head carries no age band"
+    if card.get("review_required") or card.get("touches_removal"):
+        return None, "under a standing review"
+    if 1 + len(persons) > KIN_MAX:
+        return None, "past the kin range of %d once a husband joins it" % KIN_MAX
+    if card.get("refamilied"):
+        return None, "already re-familied by T-1564"
+    floor = int(band["low"])
+    for person in persons:
+        child = person.get("age_band")
+        if person is head or not isinstance(child, dict) or child.get("low") is None:
+            continue
+        floor = max(floor, int(child["low"]) + 20)
+    return floor, None
+
+
+def female_headed_share(households: list):
+    heads = Counter()
+    for card in households:
+        head = next((p for p in card.get("persons") or []
+                     if p.get("id") == card.get("head")), None)
+        if head is not None:
+            heads[value_of(head.get("sex_basis")) or head.get("sex")] += 1
+    total = sum(heads.values())
+    return heads["female"], total
+
+
+TRADES = ROOT / "data" / "residents" / "reconstructed_trades"
+
+
+def trade_women() -> str:
+    """Why T-1347's women are not in the pool, with the counts read off their cards."""
+    trades = Counter()
+    for path in sorted(TRADES.glob("hh_*.json")):
+        card = json.loads(path.read_text(encoding="utf-8"))
+        head = next((p for p in card.get("persons") or []
+                     if p.get("id") == card.get("head")), None)
+        if head is not None and head.get("sex") == "female":
+            trades[(card.get("trade_household") or {}).get("trade")] += 1
+    return ("T-1347's women, whom the bullet also names: %d of them, in "
+            "`data/residents/reconstructed_trades/`, which the seating, staffing, business "
+            "and lodging stages all read as heads of a trade. %d are dealt `domestic`, a "
+            "live-in servant and the last person this model should marry, and %d "
+            "`boarding_house_keeper`, the lodging stage's keepers. Moving them is a re-deal "
+            "of those stages, not a re-housing." % (
+                sum(trades.values()), trades["domestic"], trades["boarding_house_keeper"]))
+
+
+def re_housing(base: dict, refused: dict) -> dict:
+    """How many of the refused married houses the town's own women could be wife to."""
+    ruled = ruled_present()
+    heads = [(houses["wife_cell"].split("/")[3], houses["head_band_low"], hid)
+             for hid, houses in refused.items()]
+    women, held, held_back_ids = [], Counter(), set()
+    pool = [card for card in base.values()
+            if card.get("source_pass") == WOMEN_PASS
+            and (card.get("women_children") or {}).get("household_type") == WOMEN_TYPE
+            and settled_present(card, ruled)]
+    for card in pool:
+        floor, why = wife_floor(card)
+        if floor is None:
+            held[why] += 1
+            if why == "already re-familied by T-1564":
+                held_back_ids.add(card["id"])
+            continue
+        women.append((card.get("division"), floor, card["id"]))
+    pairs = match(heads, women)
+    widened = list(women)
+    for card in pool:
+        if card["id"] in held_back_ids:
+            plain = dict(card)
+            plain.pop("refamilied", None)
+            floor, why = wife_floor(plain)
+            if floor is not None:
+                widened.append((card.get("division"), floor, card["id"]))
+    widened_pairs = match(heads, widened)
+
+    taken = {w for _, w in pairs}
+    married = {h for h, _ in pairs}
+    left_cells = Counter(refused[h]["wife_cell"] for h in refused if h not in married)
+    households = [card for card in base.values() if settled_present(card, ruled)]
+    women_heads, total = female_headed_share(households)
+    moved = len(pairs)
+    return {
+        "ticket": "T-2019",
+        "of": "T-1171",
+        "moves_nobody": "A measurement. No card changes and nobody is moved here: T-2020 "
+                        "carries these pairs onto the cards and is held to these numbers, "
+                        "and T-2021 rules on the houses no woman in the town can be wife to.",
+        "the_pool": "T-1174's woman-headed houses (`%s`, household type `%s`), present on "
+                    "the scene date. They stand in `data/residents/households/`, the same "
+                    "directory as the heads this stage draws for." % (WOMEN_PASS, WOMEN_TYPE),
+        "not_in_the_pool": trade_women(),
+        "the_rules": [
+            "the division of the refused wife's cell — the stage's own ledger allocation "
+            "for a head whose card says `unplaced` — is the woman's card's division",
+            "the spacing rule: a wife is never above her husband's band",
+            "the child cap: no child of the house is older than his band's low minus 20",
+            "the kin range: the joined house holds at most %d" % KIN_MAX,
+        ],
+        "houses_refused_a_wife": len(refused),
+        "houses_refused_by_division": dict(sorted(Counter(h[0] for h in heads).items())),
+        "woman_headed_houses": len(pool),
+        "woman_headed_houses_by_division": dict(sorted(
+            Counter(card.get("division") for card in pool).items())),
+        "held_back": dict(sorted(held.items())),
+        "matched": moved,
+        "matched_by_division": dict(sorted(Counter(
+            refused[h]["wife_cell"].split("/")[3] for h, _ in pairs).items())),
+        "matched_if_the_re_familied_moved_too": len(widened_pairs),
+        "houses_no_woman_in_the_town_fits": len(refused) - moved,
+        "houses_no_woman_fits_by_wife_cell": dict(sorted(left_cells.items())),
+        "women_left_heading_their_own_house": len(pool) - len(taken),
+        "female_headed_households": {
+            "before": [women_heads, total],
+            "after": [women_heads - moved, total - moved],
+            "share_before": round(women_heads / float(total), 4) if total else None,
+            "share_after": (round((women_heads - moved) / float(total - moved), 4)
+                            if total - moved else None),
+            "note": "Present households, as the order book counts the town. A move folds "
+                    "one house into another, so the town loses a household for every pair "
+                    "and the female-headed share falls on both ends of the fraction.",
+        },
+        "pairs": [{"house": h, "wife_and_children_from": w} for h, w in pairs],
+    }
 
 
 # ------------------------------------------------------------------ the tables --
@@ -764,6 +952,26 @@ def model_range() -> list:
     return None
 
 
+def what_closes_it(ledger: dict) -> str:
+    """The sentence the measurement ends on, with its counts read off the ledger.
+
+    It said for a week that re-housing T-1174's and T-1347's women "is what closes this
+    ratio", with 310 typed into it while the ledger beside it counted 368. Both were
+    wrong, and T-2019 is where that was measured: a move puts nobody new in the town, so
+    it cannot move a count of men against women at all."""
+    rh = ledger.get("re_housing") or {}
+    return ("NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE. %d married "
+            "houses stand refused because the book has no woman left in their cell. "
+            "Re-housing the town's own women into them moves nobody between the sexes, so "
+            "it leaves this ratio where it is; what it changes is who keeps house with "
+            "whom. Of the %d, %d can take the wife and children of one of T-1174's "
+            "woman-headed houses (`re_housing`, T-2019; T-2020 moves them) and %d cannot "
+            "take any woman the town holds. Those are T-2021's: a re-cut of the order book "
+            "that orders more women, or heads that stand alone." % (
+                ledger["houses_the_book_refused"], ledger["houses_the_book_refused"],
+                rh.get("matched", 0), rh.get("houses_no_woman_in_the_town_fits", 0)))
+
+
 def measurement(base: dict, live: dict, ledger: dict) -> dict:
     """The acceptance's printed tables: the layer, against the model it was drawn from.
 
@@ -802,12 +1010,7 @@ def measurement(base: dict, live: dict, ledger: dict) -> dict:
         "the_model_s_range": wanted,
         "inside_the_model_s_range": (after is not None and wanted is not None
                                      and wanted[0] <= after <= wanted[1]),
-        "what_closes_it": "T-1174 (done, 856/856) and T-1347 (done, 308/308) drew the "
-                          "women and children the pyramid was short, but they were drawn "
-                          "as their own records and not into these houses: 310 married "
-                          "houses this stage drew stand with no woman left in their cell. "
-                          "Re-housing them is T-1179's convergence, and it is what closes "
-                          "this ratio; nothing this stage may draw does.",
+        "what_closes_it": what_closes_it(ledger),
         "age_pyramid_after": dict(sorted(pyramid.items())),
         "household_size_1840_share": shape,
         "household_size_drawn_share": drawn,
@@ -907,6 +1110,26 @@ def report() -> int:
           % (stats["inside_the_model_s_range"], stats["what_closes_it"]))
     for band, n in sorted(stats["age_pyramid_after"].items()):
         print("   %-9s %5d" % (band, n))
+    rh = ledger["re_housing"]
+    fh = rh["female_headed_households"]
+    print("THE RE-HOUSING THE TOWN'S OWN WOMEN ALLOW — measured, nobody moved (T-2019)")
+    print("   %5d  houses refused a wife   %s"
+          % (rh["houses_refused_a_wife"], rh["houses_refused_by_division"]))
+    print("   %5d  woman-headed houses     %s"
+          % (rh["woman_headed_houses"], rh["woman_headed_houses_by_division"]))
+    for why, n in rh["held_back"].items():
+        print("   %5d    held back: %s" % (n, why))
+    print("   %5d  pairs the rules allow   %s   (%d if the re-familied moved too)"
+          % (rh["matched"], rh["matched_by_division"],
+             rh["matched_if_the_re_familied_moved_too"]))
+    print("   %5d  houses no woman in the town fits" % rh["houses_no_woman_in_the_town_fits"])
+    for cell, n in rh["houses_no_woman_fits_by_wife_cell"].items():
+        print("   %5d    %s" % (n, cell))
+    print("   %5d  women left heading their own house"
+          % rh["women_left_heading_their_own_house"])
+    print("   female-headed households %d of %d (%s) -> %d of %d (%s)"
+          % (fh["before"][0], fh["before"][1], fh["share_before"],
+             fh["after"][0], fh["after"][1], fh["share_after"]))
     if ledger["refused_by_the_order_book"]:
         print("REFUSED BY THE ORDER BOOK — the quota doing its job")
         for bucket, n in sorted(ledger["refused_by_the_order_book"].items()):
@@ -1005,6 +1228,34 @@ def self_test() -> int:
           surname_of("[?] G. Abbot") == "Abbot")
     fires("a drawn person names the stage that wrote them",
           ours({"reconstruction": {"stage": STAGE}}) and not ours({"grade": "attested"}))
+
+    # T-2019, the re-housing measurement.
+    fires("a woman marries only into her own division",
+          match([("south", 30, "hh_h")], [("west", 20, "hh_w")]) == [])
+    fires("a woman is never wife to a head below her floor",
+          match([("south", 20, "hh_h")], [("south", 30, "hh_w")]) == [])
+    fires("the lowest head is served first and takes the highest floor he fits",
+          match([("south", 40, "hh_b"), ("south", 20, "hh_a")],
+                [("south", 20, "hh_x"), ("south", 40, "hh_y")])
+          == [("hh_a", "hh_x"), ("hh_b", "hh_y")])
+    fires("no woman is wife to two heads",
+          len(match([("south", 30, "hh_a"), ("south", 30, "hh_b")],
+                    [("south", 20, "hh_x")])) == 1)
+    woman = {"id": "hh_w", "head": "w", "persons": [
+        {"id": "w", "sex": "female", "age_band": {"low": 20}},
+        {"id": "c", "sex": "male", "age_band": {"low": 15}}]}
+    fires("the child cap lifts a woman's floor to her eldest plus twenty",
+          wife_floor(woman)[0] == 35)
+    fires("a house past the kin range is held back",
+          wife_floor(dict(woman, persons=woman["persons"] + [
+              {"id": "k%d" % i, "age_band": {"low": 0}} for i in range(KIN_MAX - 2)]))[0]
+          is None)
+    fires("a house T-1564 already re-familied is held back",
+          wife_floor(dict(woman, refamilied={"rule": "C1"}))[0] is None)
+    ledger = fill({h: without_this_pass(c) for h, c in cards().items()})[1]
+    fires("the measurement moves nobody: every pair names a refused house",
+          all(p_["house"] in ledger["houses_the_book_refused_by_household"]
+              for p_ in ledger["re_housing"]["pairs"]))
 
     print("   %d rule(s) checked, %d failed" % (len(checked), len(failures)))
     return 1 if failures else 0

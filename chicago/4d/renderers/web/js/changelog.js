@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1354, ts: '2026-10-03T07:56:46.172Z', date: 'Oct 3, 2026, 2:56 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+  { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
       'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
       'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
       'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
+    ] },
+  { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed, and nobody moved house.',
+      'The model wants 368 of the town\u2019s lone men married, but the town has no unmarried woman left to draw for them. We counted how many could marry a woman already keeping her own house here, keeping each pair\u2019s ages plausible: 91 can. The other 277 cannot marry anyone the town holds.',
+      'The Liberties note on reconstructed families now says so. Moving those women would not even out the town\u2019s men and women either: a move adds nobody.',
     ] },
   { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
     items: [
