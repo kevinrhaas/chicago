@@ -13418,9 +13418,11 @@ letter-list name is worth), tickets **T-1386**, **T-1172**, **T-1144**, the re-c
 **Recorded:** 2026-09-19.
 
 ### L254 — Two apothecaries' shops stand in the town because a census counted four and the newspapers name two
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, fourteen are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards, fifteen are **L262**'s services, and four are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, fourteen are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards, fifteen are **L262**'s services, and four are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**, to 39 with T-1809's second Washington-tier boarding house in **L257**, to 40 with T-1952's North Division boarding house in **L257**, to 41 with T-1950's third Washington-tier house in **L257**, and to 44 with T-1951's three South houses on the Market and Dearborn blocks in **L257**. The historical decisions below are retained; this entry does not claim those eight additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1184) writes reconstructed business
 records into `data/businesses/authored/`, one for every house the reconstruction order book
@@ -13692,7 +13694,7 @@ adoption there claims a STREET FACE, and a roof off the alley has none.
 
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which FOURTEEN are this
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which FOURTEEN are this
 entry's. **T-1951 added the twelfth, thirteenth and fourteenth on 2026-10-02 the same way:** the South's three H3 boarding houses on `blk_washington_market` and `blk_washington_dearborn` (`recon_1835_blk_washington_market_h3_01`, `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**) got beds and drawn keepers, and *Louis Robillard's*, *Laframboise's* and *Edward McCarthy's boarding house* follow the roofs. **T-1950 added the eleventh on 2026-10-02 the same way:** the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**) got beds and a drawn keeper, and *Trottier's boarding house* follows the roof. **T-1952 added the tenth on 2026-10-02 the same way:** the North Division's one H3 boarding house the plan offers (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**) got beds and a drawn keeper, and *Chapin's boarding house* follows the roof. **T-1809 added the ninth on 2026-10-01 the same way:** the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**) got beds and a drawn keeper, and *Stebbins's boarding house* follows the roof. **T-1778 added the eighth on 2026-10-01 the same way:** it raised the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**), the lodging model gave it beds, the lodgers stage gave it a keeper, and *Lynch's boarding house* follows the roof. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
 yards, **L262**'s services and **L307**'s four Canal approach firms; the
@@ -13700,6 +13702,8 @@ selector reads the whole reconstructed layer, so the count is restated here rath
 narrowed, and each entry says which of the thirty-eight are its own.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1408) writes a reconstructed
 business record for each of the six standing reconstructed boarding houses —
@@ -13777,7 +13781,7 @@ the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
 ### L258 — A brewery and a jeweller's shop stand for a census count, and the brewery carries on its own card the newspaper that argues against it
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade. TWO are this entry's, the
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade. TWO are this entry's, the
 mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, fourteen
 **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and
 lumber yards, fifteen **L262**'s services and four **L307**'s Canal approach firms. The
@@ -13785,6 +13789,8 @@ selector reads the whole layer, so the count is restated here rather than narrow
 register keeps saying how many reconstructed houses of trade the town carries in total
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group mechanics_shops` (T-1185) writes
 **two** houses, the second group of the business reconstruction: *M. Quinn, brewery* on the
@@ -13844,7 +13850,7 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **Recorded:** 2026-09-19.
 
 ### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which ONE is this
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which ONE is this
 entry's: a single law office. The physician's room went the same way as the second law
 office, and the block below says how. The other forty-three are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
@@ -13853,6 +13859,8 @@ this entry's own group, and the half no census line reaches — and **L307**'s f
 reconstructed layer, so the count is restated here rather than narrowed.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1418, of T-1186) writes **two** reconstructed records: *B. Robillard, attorney and counsellor at
@@ -13966,7 +13974,7 @@ nowhere), **T-1404** (a premises for every in-window trade) and **T-1189** (thei
 
 ### L260 — Two livery stables and two lumber yards stand because the men who kept them were already drawn, and nothing else in this town could buy them
 
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which FOUR are this
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which FOUR are this
 entry's. The other forty are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
 **L262**'s services, which take this entry's own fourth form into four more trades, and
@@ -13975,6 +13983,8 @@ selector reads the whole reconstructed layer, so the count is restated here rath
 narrowed, and each entry says which of the thirty-eight are its own.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1424, of T-1409 and T-1187) writes a
 reconstructed business record for each of the four reconstructed trade heads the resident
@@ -14127,7 +14137,7 @@ which takes the West Division streets off the old E −320 clip. **Recorded:** 2
 
 ### L262 — Fifteen service houses stand because the women and men who kept them were already drawn, and the December census has no line that could ever have counted them
 
-**Scope:** `businesses.records[reconstructed]` — 44 houses of trade, of which FIFTEEN are
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which FIFTEEN are
 this entry's: nine millineries, four land offices, one dress making shop and one barber's
 shop. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
@@ -14135,6 +14145,8 @@ shop. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned 
 the count is restated here rather than narrowed, and each entry says which of the thirty-eight are its own.
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**. The historical decisions below are retained; this entry does not claim those five additions.
+
+**Scope revision, 2026-10-02 (T-2001):** The live whole-layer count rises from 44 to 51 with the seven houses of trade no census line and no count of shops reaches, in **L360**. This entry does not claim them.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
 (T-1419, of T-1186) writes fifteen reconstructed business records on **L260**'s fourth form,
@@ -14386,11 +14398,11 @@ documentary brick size from the yards that supplied the town.
 
 ### L265 — Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it
 
-**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 12 roofs, re-derived from
+**Scope:** `phase2_west_wolf_point_approaches.placements[redealt]` — 13 roofs, re-derived from
 `data/reconstruction/1835_phase2_west_wolf_point_approaches.json` into
 `recon_1835_west_008`, `_009`, `_010`, `_011`, `_021` and `_022` (T-1451),
-`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781), and `recon_1835_west_046`
-(T-1827) — see the amendments below.
+`recon_1835_west_050`, `_051`, `_052`, `_053` and `_054` (T-1781), `recon_1835_west_046`
+(T-1827) and `recon_1835_west_013` (T-1989) — see the amendments below.
 The first six are six of the
 twenty anonymous West Division roofs **L90** raised; nothing here adds, removes or moves
 a roof, and none of the thirty-five slots **L90** holds back for want of ground is
@@ -14476,6 +14488,14 @@ boarding-house class, so no keeper or boarder is invented into a house the deal 
 to a household, and not one of the boarders standing in the nineteen lodging places moves. The
 generator refuses the reading the moment the deal stops seating a merchant household there.
 `_013` and `_020` are still left standing, for the tickets that own them.
+**Amended 2026-10-02 (T-1989): `_013`, the utility shed on Lake west of Canal, becomes a D2
+dwelling.** Its verdict is T-1445's own (a principal street, which
+`ancillary_behind_its_own_roof` avoids), carried out with `--apply --only`. Like `_011` it is
+raised from 8 × 10 ft to the 12 × 16 ft floor of the D2 band, the smallest rough-plank dwelling
+that family allows. T-1988 had drafted a stated use for it and withdrew it, because a stated
+use would keep a roof from a household waiting on one. The off-plat deal (L271) now adopts it
+for a West labourer household of five, and the housing deal (L354) seats them there.
+
 **Recorded:** 2026-09-20.
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
@@ -15267,7 +15287,7 @@ families has only the lot the schedule keeps open. Nobody standing under a roof 
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
-**Scope:** `off_plat_seats.seats[dealt]` — 72 households given a parcel of the committed
+**Scope:** `off_plat_seats.seats[dealt]` — 73 households given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
 `data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
@@ -15341,6 +15361,10 @@ a figure), tickets **T-1614** (this entry), **T-1199** (the parent ask), **T-161
 predecessor), **T-1615** (the successor these 1,302 are handed to), **T-1214** (the camp
 grounds carried here by name), **T-1457** and **T-1466** (the two tiers), **T-0516** (the
 anonymous-stock statement it refuses to overturn).
+**Amended 2026-10-02 (T-1989): 73.** `recon_1835_west_013` became a D2 dwelling (L265), and
+the deal adopts it for one more West household under `labourer_dwellings` — Ellen Doyle's,
+five people, which the housing deal (L354) then seats there on its `dealt` rung. The counts
+in the paragraphs above are the ones as written; this is the one seat added since.
 **Recorded:** 2026-09-26.
 
 **The farmstead rule (T-1794, 2026-10-01).** By the policy's clause order alone every D1
@@ -16373,6 +16397,18 @@ row whose idiom it borrows), **L10** (the yard that is still a fence nobody mode
 **Applies to:** `data/jaunts/new-in-chicago.json` and test-only `data/jaunts/_fixtures/`.
 
 **Recorded:** 2026-09-27 (T-1253).
+
+### L-jaunt-new-in-chicago — New in Chicago: an invented first day, its map errand and a bed by cost or convenience
+
+**Decision:** The finished New in Chicago keeps L-jaunt-pilot's five exterior stops and adds three inventions to them. At the Democrat's old office the visitor reads Kinzie and Forsyth's town-map notice; the notice is attested, but the reading, and any wish to buy a map, are not. At Brown's the visitor chooses a boarding arrangement — board by the week (cost) or a bed close to the stores (convenience). That choice, the two endings it leads to and the route note are reconstructed. No room, rate, vacancy, sale or conversation is attested; Mrs Brown and the map sellers say nothing; no interior is opened; no price is given.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records, brief 03 of JAUNTS-INITIAL-LIBRARY.md, and the notice's own printing window (dated 18 June 1834, still running on 10 June 1835). Brown's position stays reconstructed and the stop says so.
+
+**How to resolve:** A dated 1835 boarding rate for Brown's house, or any record of a lodger's terms there, would replace the invented arrangement as its own cited claim; the errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/new-in-chicago.json`.
+
+**Recorded:** 2026-10-03 (T-1262).
 
 ### L285 — The agency's ring of log buildings: four sentences that name the occupants and never describe a house
 
@@ -17539,6 +17575,78 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/prairie-avenue-orientation.json`.
 
 **Recorded:** 2026-09-29 (T-1767).
+
+### L-jaunt-outfit-west — Outfit for the West: an invented errand, purse and prices
+
+**Decision:** Outfit for the West links five existing exterior destinations — the Green Tree, Cobb's saddlery, Peck's store, the Jones grocery and Pierce's smithy — in an invented errand to leave town for the road west. The fifteen-dollar purse, every price in the choices ($2–$6), the readiness count, the light and prepared endings and the Ready for the Road memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought from the trade its own source names — harness from the saddler, hardware from the general merchant, provisions from the grocer, ironwork from the smith — and that pairing is the only part of the errand the evidence bounds. The Jones store's South Water position is the structure record's own reconstruction, and the stop says so.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records and brief 01 of JAUNTS-INITIAL-LIBRARY.md. Prices are kept in single dollars so no figure reads as a quoted 1835 price.
+
+**How to resolve:** A dated 1835 price list from any of these trades would replace the matching invented price, cited as its own claim; the errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/outfit-for-the-west.json`.
+
+**Recorded:** 2026-10-02 (T-1260).
+
+### L-jaunt-shopping-south-water — Shopping South Water Street: an invented list, purse and prices
+
+**Decision:** Shopping South Water Street links four existing exterior destinations — Peck's store, Carpenter's drug store, the Harmon and Loomis store and Thomas Church's store — in an invented errand to fill a household list. The three-dollar purse, every price in the choices (25¢–$2), the basket, the substitution of a cheaper tea when the purse is short, the two endings and The Household List memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought only from a store whose own advertisement lists it — flour and calico from Peck, liquorice ball from Carpenter, tea, loaf sugar and crockery from Harmon, Loomis & Co. — and that pairing is the only part of the errand the evidence bounds. Nothing is bought at Thomas Church's store, because the one note that records it names no stock; the stop is the tally, and its place on Lake Street is the structure record's own reconstruction.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the business register's dated advertisements and brief 04 of JAUNTS-INITIAL-LIBRARY.md. Prices are kept in round cents and dollars so no figure reads as a quoted 1835 price.
+
+**How to resolve:** A dated 1835 price current from any of these stores would replace the matching invented price, cited as its own claim; a source naming Church's stock would let the last stop sell something. The errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/shopping-south-water.json`.
+
+**Recorded:** 2026-10-03 (T-1263).
+
+### L-jaunt-fort-dearborn-errand — Fort Dearborn Errand: an invented note, parcel and delivery
+
+**Decision:** Fort Dearborn Errand links five existing exterior destinations — the stockade, the guard-house, the sutler's store, the store-house and the shop on the outer ground — in an invented errand: choose a small supply at the sutler's, check the parcel against a note outside the store-house, and set it down at the shop. The note, the parcel, the choice of candles or thread, the tally, the delivery, the readiness count, the two endings and the Accounted for at the Fort memento are reconstructed. No sutler's stock list for Fort Dearborn was found, so the two supplies are commonplace goods chosen for the story, not a claim about what this store sold. No soldier, sentry, sutler or commissary is shown or named, no garrison procedure is staged, no reply is invented, no interior is opened and the gates are not described as passed. What the evidence bounds is the setting: the buildings' functions and places (Hubbard 1827, the 1830 plan, the 1855 key, the 1834 beef notices) and the post being garrisoned on the scene date.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records, docs/RESEARCH/fort_dearborn.md and brief 06 of JAUNTS-INITIAL-LIBRARY.md. The shop is called a workshop only, because the plate says 'Shop' and names no trade. The August 1835 gathering is not staged and no Indigenous person is depicted or given dialogue.
+
+**How to resolve:** A sutler's account or advertisement for 1834–35 would replace the invented supplies with goods it lists, cited as its own claim; a post return naming the shop's trade would let the last stop say what was made there. The errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/fort-dearborn-errand.json`.
+
+**Recorded:** 2026-10-03 (T-1265).
+
+### L-jaunt-taverns — Taverns of Chicago: an imagined evening round of four public houses
+
+**Decision:** Taverns of Chicago links four existing exterior destinations (the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel) in an invented evening. The purse (none, 25 or 50 cents), the six-cent glass, the bar talk at Wolf Point, the comparison of welcomes, the finishing house, the four endings and the A Sensible Evening calling card are reconstructed, and so are the sobriety count and the reading and action seconds. No named person speaks or serves, no price, room or transaction is attested, no interior is opened and no front door is claimed. The bar talk is kept to what the Chicago Democrat printed on 10 June 1835 (a Lake House building in Kinzie's Addition) and quotes nobody. Declining every glass reaches an ending and the keepsake just as accepting does. Each house's presence and keeper keep their own grades. The Wolf Point Tavern's 1835 trade is disputed and its position is the weakest in the dataset. The Western Hotel's date is Stow's own. The Sauganash's 1835 proprietor is only a lead, so the stop names none.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, and brief 02 of JAUNTS-INITIAL-LIBRARY.md. The route, the drinks and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation.
+
+**Applies to:** `data/jaunts/taverns-of-chicago.json`.
+
+**Recorded:** 2026-10-03 (T-1261).
+
+### L-jaunt-news-breakfast — News Before Breakfast: an imagined morning's reading of the two papers
+
+**Decision:** News Before Breakfast links four existing exterior destinations (the Sauganash, the former Chicago Democrat corner, the Chicago American office and the Exchange Coffee House) in an invented morning. The visitor's lodging at the Sauganash, the two questions, the walk, the report-or-advertisement sorting and its count, breakfast at the Exchange, the choice among three clippings, the five endings (one of which tells you a notice fooled you) and the A Useful Clipping keepsake are reconstructed, and so are the reading and action seconds. Every printed item the stops describe is issue-dated and located to page and column, and every one was printed before the scene date: the Democrat of 24 June 1835 (the cholera paragraph and the auction notice) and the American of 27 June 1835 (the Cholera Elixir advertisement). Both are transcription-mediated readings. No named person speaks, no editor, druggist or keeper is met, no interior is opened and no front door is claimed. The Democrat's corner is a former office on the scene date, so the stop speaks of where the paper was printed and where it went, not of a press at work. Every question and every clipping reaches an ending and the keepsake.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, the two newspaper runs, and brief 07 of JAUNTS-INITIAL-LIBRARY.md. The route, the sorting game and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A scan read of either column upgrades or corrects the quoted readings.
+
+**Applies to:** `data/jaunts/news-before-breakfast.json`.
+
+**Recorded:** 2026-10-03 (T-2004).
+
+### L-jaunt-work-waterfront — Work on the Waterfront: an invented search for work
+
+**Decision:** Work on the Waterfront links four existing exterior destinations (the former Chicago Democrat corner, Newberry & Dole's forwarding house, George W. Dole's 1832 warehouse and the Exchange Coffee House) in an invented morning spent looking for work. The visitor's search, the choice of skill, the asking at the two warehouses, the chit for a day's carrying, the request to be remembered for the winter packing, breakfast at the Exchange, the plan for tomorrow, the six endings and the A Day's Work in Prospect keepsake are reconstructed, and so are the reading and action seconds. The only vacancies the stops name are the two printed before the scene date, both dated and located to page and column: the Democrat's call for an apprentice to the printing business (20 May 1835) and Jones, King & Co.'s call for a coppersmith and a tin and sheet-iron worker (17 June 1835). No firm is claimed to have offered work or named a wage; the chit and the packing promise are labelled invented where the visitor receives them. No named person speaks or is met, no interior is opened and no front door is claimed. Newberry & Dole's house stands at a reconstructed position on a disputed bank, so the stop speaks of what the firm did, not of the spot.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, the Democrat and American runs, Andreas's account of the firm and its packing, and brief 10 of JAUNTS-INITIAL-LIBRARY.md. The route, the skills, the chit and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated notice from Newberry & Dole asking for hands would let the warehouse stop name a real call instead of an invented chit; a scan read of either notice upgrades or corrects the quoted readings.
+
+**Applies to:** `data/jaunts/work-on-waterfront.json`.
+
+**Recorded:** 2026-10-03 (T-2007).
 
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
@@ -19653,6 +19761,13 @@ already houses it.
 **Related:** **L167** (houses to let), **L270** (the platted deal), **L271** (the off-plat
 deal), **L276** (the card says so), **T-1199**, **T-1215**, **T-1964**, **T-1965**,
 **T-1971**.
+**Amended 2026-10-02 (T-1989):** `recon_1835_west_013` was refamilied to a D2 dwelling
+(L265), so the scene stands 295 dwellings and the census's ceiling admits 371 ruled-in
+households instead of 362: 1,374 are seated, 2,420 people under 295 dwellings (8.203 a
+roof), and 514 households (516 people) wait on a roof. A new roof in the pool is the
+roomiest roof in its division and the off-plat deal hands it a household of five, so the
+deal's room rule re-picks: 537 seats change roof. 32 of them change division, every one a
+household whose card has no division and is offered the whole town.
 **Recorded:** 2026-10-02.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
@@ -19892,7 +20007,207 @@ ground), **T-1984** (this entry).
 **Recorded:** 2026-10-02.
 
 
-### L360 — Glessner north and west elevations reconciled with the owner references
+### L360 — Seven houses of trade stand because their keepers were already drawn at trades no census line and no count of shops reaches
+
+**Scope:** `businesses.records[reconstructed]` — 51 houses of trade, of which SEVEN are this
+entry's: three refectories, one auction room, one mill, one brickyard and one soap and candle
+manufactory. The other forty-four are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions,
+**L260**'s liveries and lumber yards, **L262**'s services and **L307**'s four Canal approach
+firms; the selector reads the whole reconstructed layer, so the count is restated here rather
+than narrowed.
+
+**Decision:** `tools/reconstruct_businesses_1835.py --group uncounted_trades` (T-2001, piece 2
+of 2 of T-1998) writes seven reconstructed business records on **L260**'s fourth form, the
+**trade head** — *Hannah Barnes, refectory* on South Water, *Hannah Pratt, refectory* on
+Dearborn, *H. Ingalls, refectory* on Kinzie, *J. Nichols, auction and commission* on
+Dearborn, *T. Vieau, miller* on West Water, *Thomas Nolan, brickmaker* on Market and *J.
+Kellogg, soap and candle manufactory* on West Water. Each adopts its head as sole
+proprietor, takes a `street_only` face off a stated rule, is typed `other`, and is withdrawn
+with the head. What is invented is that each of these seven kept a house of the trade, the
+style it signed, and the street it stood on.
+
+**Why the head and not a count.** The premises rulings send all five trades to premises of the
+keeper's own with census class `other`: the December 1835 State census has no line for a
+refectory, an auction room, a grist mill, a brickyard or a chandlery, and the Chicago
+American's twenty-five mechanics' shops (T-2000's count) do not reach them either. So no
+shortfall can be counted and T-1996's answer — the printed count is already held — has no
+count to hold. What is committed is the person: `trade_households` drew these seven out of the
+1839 trade table, and a drawn keeper of a trade that names its house, with no house, is a
+card that says she keeps a refectory while nothing in the town holds one. And each trade is a
+house the town's own record already holds one of — *the Refectory, kept by J. A. Collett*
+(Chicago Democrat, 9 July 1834), six auction rooms in the register, Blodgett's brickyard,
+Elston's manufactory — which is what confines the forms and the goods lines dealt. The mill is
+the exception, said so in its style: the register's two mills are steam saw mills, and the
+mill takes the naming guide's form 1 with the trade word the head was drawn at.
+
+**Which way it is wrong if it is wrong.** Toward too MANY houses only if two of these heads
+in fact worked in one house, or in a house the register already holds; toward too few
+everywhere else, because only heads already drawn buy houses.
+
+**The physician is not here.** His class is counted (fourteen physicians), the order book
+holds the bucket, and since T-1525 it orders two against one drawn head; the business band
+half-fills no count, so Dr. John McGuire stays owed a house by name under **T-1529**.
+**John Bates Jr.**, the one documented keeper among T-2001's ten, is not here either: his own
+*J. Bates jr., Auction Store* stands in the register, and `attested_trade_houses.json` joins
+him to it at `inferred`. Nothing is invented for him.
+
+**Would replace:** A register, directory or deed naming a real refectory, auction room, mill,
+brickyard or chandlery of 1835 in the same division takes that slot, and the record is
+withdrawn with its head (`tools/substitute_reconstruction.py --dry-run` prints the plan).
+
+**Related:** **L260** (the fourth form itself), **L262** (the same form for the services),
+**L259**; the tickets **T-2001**, **T-1998** (the parent), **T-1996**, **T-1419**, **T-1529**.
+**Recorded:** 2026-10-02.
+
+### L361 — The empty trade roofs offered to the keepers owed a house of their trade, and why none is kept
+
+**Applies to:** `data/reconstruction/1835_trade_roof_seats.json` (written by
+`tools/seat_trade_roofs_1835.py`), the `residents[]` row `tools/compile_scene.py`
+(`overlay_trade_roofs`) puts on each seated roof's card, and the `stated_use` it carries to
+the card of a roof nobody can take.
+
+**Decision:** four anonymous trade roofs of the 668-roof programme stood empty after every
+other programme had passed — the W2 joiner's shop on Randolph at Des Plaines, the F2
+warehouse at the forks, the W5 riverside work shop on Wolcott and the C3 store on Lake
+(T-1989, piece 2 of T-1986). The roof redeal keeps all four, so none could be given a stated
+use (L310's rule (b)). Each is offered to the keepers the employment ledger owes a house of
+their own (`keeps_their_own_house`) whose card names no workplace, in the roof's own
+division, of a trade the roof's family serves: carpenters and joiners for the W2 (the
+crosswalk's label), the forwarding store for the F2 and the store and grocery signage for
+the C3 (the premises rulings), the tannery, packing, slaughter and soap-and-candle signage
+for the W5 (the only placement clause that admits it). The keeper whose own roof stands
+nearest takes it, ties by seeded hash. **No source places any keeper at any of these roofs**:
+the keepers are the residents layer's, reconstructed, with their own grades on their own cards,
+which a seat does not touch; what a seat would invent is which keeper meets which roof.
+
+**On 1 July 1835 as now derived, none is kept, and the W2, F2 and C3 say why.** When this
+deal was first drawn three were kept: Otis Bacon (carpenter) at the W2, Louis Bertrand
+(forwarding and commission) at the F2 and Silas Bacon (grocer) at the C3. Two rulings that
+landed while it was in review then told those keepers no house is owed, because their trade's
+shops are already held to their count: T-1996 (`the_printed_count_is_held`) where the State
+census of December 1835 prints the class — 44 stores against 65 held, 4 storage-and-forwarding
+houses against 7 — and T-2000 (`the_mechanics_shops_are_over_their_count`) where the only count
+is the Chicago American's "twenty-five mechanics' shops of all kinds" against 45 the register
+prints trading. A keeper seated in any of the three roofs would be one shop more than that
+count, so the deal offers none of them to such keepers, and each card counts them instead
+(`stated_use`: 3 carpenters and joiners in the West Division at the W2, 1 forwarder in the West
+at the F2, 18 storekeepers and grocers in the South at the C3). The first keeper of its trade
+the town owes a house takes the roof on the next build, with no edit to the deal.
+
+**The W5 stays empty too:** no keeper of a heavy trade is left without a house in the
+North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The
+off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery household, whose
+own card puts its works at the documented tannery 847 m away at the forks; seating them here
+would give one firm a second works no source records, and the deal declines it in words.
+
+**Not done, and why:** with no keeper seated, the town audit's at-work count does not move
+here; a seat the deal makes later is joined into the employment ledger by T-1982.
+
+**How to resolve:** a source naming the shop, store or counting-room of any keeper here
+replaces the seat; a keeper of a heavy trade added to the North Division takes the W5 on the
+next build with no edit to the deal.
+
+**Related:** **L271** (the off-plat deal), **L310** (stated uses), **L354** (the housing
+deal), **T-1461**, **T-1982**, **T-1985**, **T-1986**, **T-1989**, **T-1996**, **T-2000**.
+**Recorded:** 2026-10-02.
+
+### L362 — The 1812 spit's isthmus is given a surface: 100 ft of sand at the spit's own +4 ft
+
+**Decision:** `e1830_natural/terrain_spec.json` → `isthmus_1812` (T-2002) surfaces the hole **L240**
+left in the 1812 spit. On `spit_attachment_gap_1812`, the 129.1 m line from the spit root to the
+bar's north-west corner, it lays a ribbon of sand **100 ft wide** with its crest at **+4 ft**, the
+same crest and the same 12 m faces as the spit (`spit_1812`, dossier zone 7). The river's turn south
+is its south-west face and the lake its north-east face. The width, the height and the faces are
+invented. That the ground is continuous is not: it is the deduction L240 already graded `inferred`.
+
+**Why:** a gap in the spit gives an 1812 scene a river mouth where the 1833–34 cut was later dug,
+which is the 1834 harbour drawn back into 1812. That is the error `shore_1812_pre_cut` exists to
+prevent. The width is zone 7's **low** end because both ends of the line are fixed and neither face
+has a reading, so the narrowest neck zone 7 allows invents the least land. A neck that soldiers
+cut through with spades again and again between 1816 and 1828 was not a broad one either. The
+height is the spit's because a lower neck is a breach, which is the landform the February 1834
+storm made and not 1812's. A higher one would be the zone 3 ridge, and this is not that ridge.
+
+**Which way it is wrong if it is wrong:** probably too narrow. The bar's own trace is 108 m wide at
+N +205, just south of the neck, and that is the recorded upper alternative.
+
+**How to resolve:** a pre-1833 chart or sounding of the mouth, or any written width of the bar where
+the soldiers cut it.
+
+**Related:** **L240** (the hole this fills), **T-2002**, **T-1243**, **T-2003** (which generates it).
+**Recorded:** 2026-10-02.
+
+### L363 — The 1812 lake shore north of the spit root is a chord, then the 1834 line
+
+**Decision:** `e1830_natural/terrain_spec.json` → `north_lake_shore_1812` (T-2002) takes the 1812
+lake shore north of the spit root to be a straight chord. The chord runs from the root (1834
+`north_shore_harbor_reach` index 29) to the first 1834 vertex past the pier head (index 39). From
+there the 1834 line is carried north to the box wall.
+
+**Why:** a waterline has to be somewhere, and nothing reads this one. `tools/derive_shore_1812.py`
+claims none of it on purpose: index 30 to the pier head is the drafted pier, and the shore north of
+it is sand the pier caught (dossier zone 28). Sand caught against a pier was not there before the
+pier, so the 1812 shore lay **west** of the 1834 line. The chord is the least-land line the two
+committed points allow. It removes up to **120.8 m** of the drafted pier and the sand inside it.
+
+**Which way it is wrong if it is wrong:** toward too much beach north of index 39, where the 1834
+line is taken as the 1812 one and whatever accretion it still held there is counted as 1812 ground.
+It is never wrong toward a headland invented in the lake.
+
+**How to resolve:** a pre-1833 chart of the lake shore north of the river.
+
+**Related:** **L240**, **L362**; the tickets **T-2002**, **T-1242**, **T-2003**.
+**Recorded:** 2026-10-02.
+
+### L364 — The 1812 lake stands at the 1835 plane, and the river ran out over a 4 ft channel
+
+**Decision:** `e1830_natural/terrain_spec.json` (T-2002) puts the 1812 water surface at Z = 0
+(`lake_stage_1812`), which is the summer-1835 plane, bounded by the historic 576–582 ft ASL. It
+gives the channel behind the spit a bed of **−4 ft** (`outlet_channel_1812`), the deep end of
+dossier zone 26. The 1834 backwater it became was **−2.5 ft**.
+
+**Why:** no stage of 1812 is recorded, and holding the 1835 plane keeps the two epochs comparable
+and every carried bank at its zone's freeboard. The channel carried the whole river in 1812, so it
+takes zone 26's deep end. It is not carried down to the main stem's −12 to −18 ft, because the bar
+"admitted only boats", the *Tracy* anchored half a mile out in 1803, and Harrison's 1830 plat
+letters the old mouth "very shallow".
+
+**Which way it is wrong if it is wrong:** probably too shallow for a live river. That is the
+direction that does not invent a navigable mouth the record says was not there.
+
+**How to resolve:** a Michigan–Huron stage reconstruction for the 1810s (NOAA/GLERL), or any
+sounding of the pre-cut channel.
+
+**Related:** **L362**, **L363**; the tickets **T-2002**, **T-2003**.
+**Recorded:** 2026-10-02.
+
+### L-jaunt-across-wolf-point — Across Wolf Point: an invented crossing and route note
+
+**Decision:** Across Wolf Point links four existing exterior destinations — the Green Tree, the Wolf Point Tavern, the South Branch bridge and the Sauganash — in an invented outing from the west bank to the south side. The crossing itself, the route order (north to the forks, back south to the bridge, over and north to Lake and Market), the route note, the single ending and the Knows the Crossing memento are reconstructed. No journey, conversation or encounter is attested; no named person speaks; no interior is opened. The places, the tavern's sign and fabric, the bridge's construction and the Sauganash's 1831 look and June 1835 refit are each cited at their own tier, and the two disputes the records hold — whether the Wolf Point Tavern still kept travellers in July 1835, and whether the bridge was a raft — are stated in the stop text rather than resolved.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records and brief 05 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water.
+
+**How to resolve:** A dated account of anyone's route over the South Branch in 1835 would replace the invented order; the outing and its ending stay interpretation.
+
+**Applies to:** `data/jaunts/across-wolf-point.json`.
+
+**Recorded:** 2026-10-03 (T-1264).
+
+### L-jaunt-bed-for-the-night — A Bed for the Night: an invented search for lodging
+
+**Decision:** A Bed for the Night links four existing exterior destinations — the Western Hotel, the Sauganash, Mrs Rufus Brown's boarding house and the Mansion House — in an invented search for a bed by a visitor with a modest purse. The search itself, the cost-or-convenience preference, the route order (west side, over the South Branch bridge, east along Lake Street), the relative cost of the four houses, the choice of where to ask first, the three endings and the A Place to Lay Your Head memento are reconstructed. No price, vacancy, booking, conversation or encounter is attested; no named person speaks; no interior is opened. The houses, their keepers and their fabric are each cited at their own tier, and the crowding of June 1835 is told in the two papers' own words. The Mansion House's keeper on the scene date (Haddock or Markle) is stated as open rather than chosen, and Brown's exact spot is called a placement.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records and brief 09 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water.
+
+**How to resolve:** A dated 1835 tariff or advertisement giving a board or night's rate at any of the four houses would replace the invented relative cost; the search and its endings stay interpretation.
+
+**Applies to:** `data/jaunts/bed-for-the-night.json`.
+
+**Recorded:** 2026-10-03 (T-2006).
+
+
+### L365 — Glessner north and west elevations reconciled with the owner references
 
 **Applies to:** `glessner_house`, T-1999, canonical detailed model and its light derivative.
 **Decision:** Rebuild the west front gable and lower rear gable roof to the owner's

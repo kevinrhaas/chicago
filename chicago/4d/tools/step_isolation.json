@@ -2551,6 +2551,9 @@
     "tools/check_street_surfaces.py": {
       "wrote": []
     },
+    "tools/check_terrain_e1830.py": {
+      "wrote": []
+    },
     "tools/check_terrain_e1871.py": {
       "wrote": []
     },
@@ -2981,6 +2984,9 @@
       "wrote": []
     },
     "tools/measure_sauganash_plate.py": {
+      "wrote": []
+    },
+    "tools/measure_shore_1812_harrison.py": {
       "wrote": []
     },
     "tools/measure_slough_crossing.py": {
@@ -3821,6 +3827,9 @@
       "wrote": []
     },
     "tools/seat_reconstructed_trades_1835.py": {
+      "wrote": []
+    },
+    "tools/seat_trade_roofs_1835.py": {
       "wrote": []
     },
     "tools/seat_wabansia_streets.py": {

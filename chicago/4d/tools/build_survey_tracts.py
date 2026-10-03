@@ -324,6 +324,41 @@ def faithful_round(stored, raw) -> bool:
         and abs(stored - raw) <= CUT_TOLERANCE_M
 
 
+def keep_committed_rounding(doc: dict, committed: dict) -> int:
+    """--build keeps a committed rounding the gate would accept, and rewrites only a
+    rounding it would refuse (T-1968, the fixed point).
+
+    The gate above accepts either neighbour of a half-way derivation, and that is right;
+    but a --build that rounds afresh is then not a fixed point of itself. On the steward
+    runner `rederive.mjs --run` rewrote 825.04 → 825.05 in the cut and in four ring
+    vertices of a tree that had not changed, CI's build rounds the other way, and every
+    lap carried a two-line diff about nothing — the step "every generator re-derives
+    drift-zero" could not be shown on either machine. So the derivation is still the
+    authority and nothing it MOVES is kept: a stored value survives only while
+    `faithful_round` holds against what the derivation gives now, which is exactly the
+    question the gate asks. Returns how many stored values were kept over a fresh round.
+    """
+    polys, cuts = build_polygons()
+    kept = 0
+    for k, v in cuts.items():
+        for a, raw in v.items():
+            was = (committed.get("cuts") or {}).get(k, {}).get(a)
+            if faithful_round(was, raw) and doc["cuts"][k][a] != was:
+                doc["cuts"][k][a] = was
+                kept += 1
+    stored = {t["id"]: t.get("polygon_local_enu_m") for t in committed.get("tracts", [])}
+    for t in doc["tracts"]:
+        ring, was = polys.get(t["id"]), stored.get(t["id"])
+        if not t.get("placed") or ring is None or not was or len(was) != len(ring):
+            continue
+        for fresh, old, raw in zip(t["polygon_local_enu_m"], was, ring):
+            for i in range(2):
+                if faithful_round(old[i], raw[i]) and fresh[i] != old[i]:
+                    fresh[i] = old[i]
+                    kept += 1
+    return kept
+
+
 # ---------------------------------------------------------------- the adjudication
 
 CHIP_TRACT = {1: "us_military_reservation", 2: "canal_commissioners_1830",
@@ -1031,6 +1066,8 @@ def build() -> int:
     extent = {k: [{"cells": b["cells"], "box_px": b["box_px"]} for b in v[:1]]
               for k, v in raw.items()}
     doc = assemble(rows, classes, extent)
+    if RECORD.exists():
+        keep_committed_rounding(doc, load(RECORD))
     RECORD.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     s = doc["summary"]
     print(f"wrote {RECORD.relative_to(ROOT)}: {s['placed']} of {s['chips']} chips placed, "
@@ -1248,6 +1285,25 @@ def self_test() -> int:
         print(f"  {'holds ' if got == ok else 'WRONG '} a cut stored {stored} against a "
               f"derivation of {raw}: "
               f"{'accepted' if got else 'refused'}, {'accepted' if ok else 'refused'} wanted")
+
+    # T-1968. And --build keeps a committed rounding the gate accepts, so a re-derivation
+    # on the other machine is a fixed point — but never one the gate would refuse.
+    print("\n…and --build keeps a faithful committed rounding, and only a faithful one")
+    import copy                                                   # noqa: PLC0415
+    base = load(RECORD)
+    raw_east = build_polygons()[1]["original_town_bounds_local_m"]["east_e"]
+    for committed_east, keep in ((round(raw_east, CUT_DP), True),
+                                 (round(raw_east + 0.02, CUT_DP), False)):
+        fresh, committed = copy.deepcopy(base), copy.deepcopy(base)
+        fresh["cuts"]["original_town_bounds_local_m"]["east_e"] = 123.45
+        committed["cuts"]["original_town_bounds_local_m"]["east_e"] = committed_east
+        keep_committed_rounding(fresh, committed)
+        got = fresh["cuts"]["original_town_bounds_local_m"]["east_e"] == committed_east
+        if got != keep:
+            wrong.append(f"--build {'dropped' if keep else 'kept'} a committed {committed_east}")
+        print(f"  {'holds ' if got == keep else 'WRONG '} a committed east_e of "
+              f"{committed_east} against a derivation of {raw_east:.4f}: "
+              f"{'kept' if got else 'rewritten'}, {'kept' if keep else 'rewritten'} wanted")
 
     silent = [l for l, ok in fired if not ok]
     if silent or wrong:

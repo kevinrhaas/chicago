@@ -1471,13 +1471,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1478,
-    "seated": 251,
-    "still_owed": 1227,
-    "roofs_adopted": 222,
+    "seated": 252,
+    "still_owed": 1226,
+    "roofs_adopted": 223,
     "slots_requested": 29,
     "roofs_standing": 542,
-    "roofs_standing_unseated": 320,
-    "share_of_standing_roofs_seated": 0.4096,
+    "roofs_standing_unseated": 319,
+    "share_of_standing_roofs_seated": 0.4114,
     "passes": [
       {
         "key": "platted",
@@ -1513,22 +1513,22 @@
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
         "rows_offered": 1299,
-        "seated": 72,
-        "handed_on": 1227,
-        "roofs_adopted": 72,
+        "seated": 73,
+        "handed_on": 1226,
+        "roofs_adopted": 73,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 72,
+        "roofs_offered_for_adoption": 73,
         "roofs_held_back": 19,
         "ground_taken": 14,
         "ground_taken_unit": "parcels",
         "by_district": {
           "north": 44,
-          "west": 28
+          "west": 29
         },
         "by_clause": {
           "farms_and_country_seats": 2,
           "heavy_and_noxious_trades": 1,
-          "labourer_dwellings": 23,
+          "labourer_dwellings": 24,
           "merchant_and_professional_dwellings": 8,
           "tradesman_dwellings": 38
         }
@@ -1835,7 +1835,7 @@
       "blk_west_lake_canal"
     ],
     "what_the_slots_wait_on": "29 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,227 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,226 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5259,15 +5259,15 @@
             "division": "west"
           },
           "target": 75,
-          "standing": 59,
-          "to_build": 16,
+          "standing": 60,
+          "to_build": 15,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1829",
           "ground_waits_on": [
             "T-1414"
           ],
-          "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 16 of them to build"
+          "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 15 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/north",
@@ -5306,15 +5306,15 @@
             "division": "west"
           },
           "target": 14,
-          "standing": 6,
-          "to_build": 8,
+          "standing": 5,
+          "to_build": 9,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1983",
           "ground_waits_on": [
             "T-1414"
           ],
-          "basis": "the inventory's district/group matrix sets 14; the 668-roof programme leaves 8 of them to build"
+          "basis": "the inventory's district/group matrix sets 14; the 668-roof programme leaves 9 of them to build"
         },
         {
           "key": "structures/small_outbuildings/north",
@@ -6572,6 +6572,13 @@
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
+      "bucket": "businesses/lawyer",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
       "bucket": "persons/female/20_29/north/family/trade",
       "ticket": "T-1347",
       "stage": "trade_households",
@@ -6738,13 +6745,6 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "businesses/lawyer",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
     }
   ],
   "re_family_ledger": {

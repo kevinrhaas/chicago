@@ -3808,6 +3808,32 @@ def report_text(doc: dict) -> str:
 
 # ------------------------------------------------------------------ commands --
 
+def splice_fills(fills: list, tickets, rows: list) -> list:
+    """A filler's rows go back WHERE ITS ROWS STOOD, never to the end (T-1968).
+
+    Every filler used to drop its own rows and append the new ones, so the ledger's order
+    recorded which tool ran LAST rather than anything about the town. A PR that re-ran
+    `reconstruct_businesses_1835.py --build` alone left its lawyer row at the foot of the
+    ledger; the next `rederive.mjs --run` re-ran three household stages past it and moved
+    56 rows above it; the next lone business build moved it back. A fourteen-line diff
+    about nothing, on every lap, and `--run` was never a fixed point of a committed tree.
+
+    Still never re-sorted — the ledger keeps the order the stages first filled it in, and a
+    writer's own rows keep the order it emits them in. A writer whose tickets hold no row
+    yet appends, as before; one that built nothing clears its rows, as before.
+    """
+    tickets = set(tickets)
+    out, placed = [], False
+    for fill in fills:
+        if fill.get("ticket") in tickets:
+            if not placed:
+                out += rows
+                placed = True
+            continue
+        out.append(fill)
+    return out if placed else out + list(rows)
+
+
 def _fills_on_disk() -> list:
     if not BOOK.exists():
         return []
@@ -4749,8 +4775,11 @@ def cmd_self_test() -> int:
     # blk_washington_market#04/#05 and blk_washington_dearborn#02, all three lots a slot
     # request had asked for; hh_bently_wm_t, hh_benton_datas_e and hh_clarke_h_b are owed
     # to T-1614 (182 -> 179 platted seats, L270, L349).
+    # 251 -> 252 on 2026-10-02 (T-1989): `recon_1835_west_013`, re-dealt from a utility shed
+    # to a D2 on Lake west of Canal, is a standing roof `labourer_dwellings` admits off the
+    # plat, so the off-plat pass adopts it for hh_rc_doyle_ellen (72 -> 73, L271, L265).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 251
+        data["inventory"], data["programme"], occ))["seated"] == 252
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -4772,6 +4801,19 @@ def cmd_self_test() -> int:
     fires("a seats file with no counts at all",
           lambda: seats_against_roofs(dropped, structure_buckets(
               dropped["inventory"], dropped["programme"], occ)))
+
+    # T-1968: a filler's rows go back where they stood, whoever ran last.
+    ledger = [{"ticket": "T-A", "bucket": "a"}, {"ticket": "T-B", "bucket": "b"},
+              {"ticket": "T-C", "bucket": "c"}]
+    new_b = [{"ticket": "T-B", "bucket": "b2"}, {"ticket": "T-B", "bucket": "b3"}]
+    assert [f["bucket"] for f in splice_fills(ledger, {"T-B"}, new_b)] == \
+        ["a", "b2", "b3", "c"], "a filler's rows moved off their place in the ledger"
+    assert [f["bucket"] for f in splice_fills(ledger, {"T-D"}, [{"ticket": "T-D",
+            "bucket": "d"}])] == ["a", "b", "c", "d"], "a first fill did not append"
+    assert [f["bucket"] for f in splice_fills(ledger, {"T-B"}, [])] == ["a", "c"], \
+        "a filler that built nothing kept its rows"
+    once = splice_fills(ledger, {"T-B"}, new_b)
+    assert splice_fills(once, {"T-B"}, new_b) == once, "splicing is not a fixed point"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

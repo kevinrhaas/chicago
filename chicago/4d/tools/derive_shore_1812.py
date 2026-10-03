@@ -315,7 +315,14 @@ def derive() -> dict:
             "No survey of the 1812 mouth exists and this file does not pretend one does. Every "
             "line here is Wright's 1834 instrument reading of the same landform, taken twenty-two "
             "years late, with the cut and the piers removed and the mouth set by a distance an "
-            "eyewitness stated in 1803. Nothing here is graded better than inferred."),
+            "eyewitness stated in 1803. Nothing here is graded better than inferred. "
+            "The one pre-cut sheet held, Harrison's of February 1830 (unscaled, re-engraved "
+            "in 1884), was measured against these lines (T-1286, "
+            "data/terrain/1812_harrison_cross_check.json): within 100 m of the fort its "
+            "banks sit a median 9 m and at most 31 m from them, but down the old southward "
+            "channel, 200 m and more from the fort, they sit 120 m away at the median and up "
+            "to 157 m, and it letters the old mouth 357 m north of the adopted station. That "
+            "disagreement is filed, not resolved."),
         "features": features,
     }
 

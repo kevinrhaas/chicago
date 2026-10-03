@@ -14,10 +14,10 @@ The order is read out of `tools/derived_manifest.json`, which holds the whole de
 
 | # | member | rebuilt by | manifest step | files the lap may rebuild |
 |---|---|---|---|---|
-| 1 | `data/residents/index.json` and its `merged` redirect table | `tools/rebuild_resident_index.py` | 79 | 1 |
-| 2 | the 1835 sidecars, `data/sidecars/1835/` | `tools/compile_scene.py` | 131 | 1 |
-| 3 | the town census, `data/town_census.json` | `tools/town_census.py` | 157 | 1 |
-| 4 | the final resident audit, `chicago/reference/resident-research/final/audit/` | `tools/export_resident_audit.py` | 160 | 3 |
+| 1 | `data/residents/index.json` and its `merged` redirect table | `tools/rebuild_resident_index.py` | 80 | 1 |
+| 2 | the 1835 sidecars, `data/sidecars/1835/` | `tools/compile_scene.py` | 133 | 1 |
+| 3 | the town census, `data/town_census.json` | `tools/town_census.py` | 159 | 1 |
+| 4 | the final resident audit, `chicago/reference/resident-research/final/audit/` | `tools/export_resident_audit.py` | 162 | 3 |
 | 5 | the published residents, `site/4d/data/residents/` | `tools/publish.sh` | **none** — see §2 | 0 |
 
 ## 2. What the manifest does not own

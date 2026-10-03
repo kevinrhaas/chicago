@@ -31,7 +31,7 @@ hipped tile cap and a finial. Three alley downpipes and the low rear gutter foll
 the roof. The turret shifts from S8 to S18.4 to align with the west gable peak.
 North stable doors, loft lintel/relieving arch and hoist stone, and the rounded
 porch cheek are rebuilt from the references. All unmeasured choices remain
-reconstructed under L360.
+reconstructed under L365.
 
 ## Verification
 

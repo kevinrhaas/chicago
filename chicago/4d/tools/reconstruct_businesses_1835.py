@@ -89,6 +89,15 @@ GROUPS = {
         "ticket": "T-1187", "title": "lodging, the river and transport"},
     "civic_church_school_and_press": {
         "ticket": "T-1188", "title": "the civic, church, school and press establishments"},
+    # T-2001, A SIXTH GROUP THAT SPENDS NO BUCKET. Its trades are the ones the December
+    # census never counted AND that no count of shops reaches either (the Chicago
+    # American's twenty-five mechanics' shops are T-2000's, and do not reach a refectory,
+    # an auction room, a mill, a brickyard or a chandlery). The order book therefore holds
+    # no row with this ticket and `order_book_buckets` hands the group nothing; everything
+    # it builds is bought by the head, out of TRADE_QUOTA below, on T-1419's rule.
+    "uncounted_trades": {
+        "ticket": "T-2001",
+        "title": "the trades no census line and no count of shops reaches"},
 }
 
 
@@ -273,6 +282,70 @@ TRADE_QUOTA = {
             },
         },
     },
+    # THE TRADES NO COUNT REACHES (T-2001, piece 2 of 2 of T-1998). The resident band drew
+    # seven heads at five trades whose premises ruling is `own_premises` with census class
+    # `other`: the December 1835 State census has no line for any of them, and no count of
+    # shops reaches them either. T-1996 could tell a head at a COUNTED class that the count
+    # was already held; here there is no count to be held, so the head is the only thing
+    # that can order a house, and the rule is T-1419's — the trade names the house, one
+    # house per head, withdrawn with the head. Every one of the five is a trade the town's
+    # own record already holds a house of, which is the argument that a head at it kept one.
+    "uncounted_trades": {
+        "ticket": "T-2001",
+        "trades": {
+            "refectory_keeper": {
+                "house": "refectory",
+                "type": "other",
+                "trade": "refectory",
+                "occupation": "refectory_keeper",
+                "basis": ("a refectory keeper keeps a refectory, and the town's papers print "
+                          "one by that word — 'the Refectory, kept by J. A. Collett', offered "
+                          "at auction in the Chicago Democrat of 9 July 1834 — against a "
+                          "census with no line for an eating house"),
+            },
+            "auctioneer": {
+                "house": "auction_room",
+                "label": "auction room",
+                "type": "other",
+                "trade": "auction room",
+                "occupation": "auctioneer",
+                "basis": ("an auctioneer keeps a sale room, and the register prints six "
+                          "houses of the trade at the scene date — A. Garrett's two, W. "
+                          "Montgomery's, the Dearborn Street rooms, the new room on South "
+                          "Water Street and J. Bates jr.'s Auction Store — against a census "
+                          "that enumerates no auction room at all"),
+            },
+            "miller": {
+                "house": "mill",
+                "type": "other",
+                "trade": "mill",
+                "occupation": "miller",
+                "basis": ("a mill is premises (the premises rulings' own words), and the "
+                          "census's one steam saw-mill is a sawyer's works and not a "
+                          "miller's, so no count reaches the trade"),
+            },
+            "brickmaker": {
+                "house": "brickyard",
+                "type": "other",
+                "trade": "brickyard",
+                "occupation": "brickmaker",
+                "basis": ("a brickmaker works a yard, and the town has stood one since the "
+                          "spring of 1833 — Blodgett's on the North Side "
+                          "(brickyard_north_side) — against a census with no line for a "
+                          "brickyard"),
+            },
+            "soap_and_candle_maker": {
+                "house": "soap_and_candle_manufactory",
+                "label": "soap and candle manufactory",
+                "type": "other",
+                "trade": "soap and candle manufactory",
+                "occupation": "soap_and_candle_maker",
+                "basis": ("a soap and candle maker works a manufactory, and the register "
+                          "prints one — Daniel Elston & [Co.], the Chicago Soap and Candle "
+                          "Manufactory — against a census with no line for the trade"),
+            },
+        },
+    },
 }
 
 # THE FORMS, each drawn from the register's own printings of these two trades, as STYLES is
@@ -388,6 +461,85 @@ TRADE_STYLES = {
              "guide refuses a goods line composed for a class rather than taken from it"),
         ],
     },
+    # AND THE FIVE HOUSES NO COUNT REACHES (T-2001), on the same footing again: a form or a
+    # goods line is a printing of THAT TRADE in this town's record where one exists, and
+    # where none does — the mill — the naming guide's own form 1 with the one trade word
+    # the head was drawn at, exactly as the barber's shop takes it. Nothing is composed.
+    "refectory": {
+        "forms": [
+            ("{initial}. {surname}, {goods}",
+             "form 1 of the naming guide, and the form the town's one held refectory "
+             "keeper is carried in — 'J. A. Collett'"),
+            ("{given} {surname}, {goods}",
+             "the same signature with the forename in full, the attested minority form "
+             "('Frederick Thomas, drugs and paints')"),
+        ],
+        "goods": [
+            ("refectory",
+             "the papers' own word for the house: 'the Refectory, kept by J. A. Collett' "
+             "(Chicago Democrat, 9 July 1834)"),
+        ],
+    },
+    "auction_room": {
+        "forms": [
+            ("{initial}. {surname}, {goods}",
+             "the form the register prints this trade in — 'A. Garrett, auctioneer', "
+             "'J. Bates jr., Auction Store', 'W. Montgomery, Auction and Commission "
+             "House' — which is also form 1 of the naming guide"),
+            ("{given} {surname}, {goods}",
+             "the same signature with the forename in full, as 'John Bates, Jr.' prints "
+             "over the same trade"),
+        ],
+        "goods": [
+            ("auctioneer", "the trade line the register prints under A. Garrett"),
+            ("auction and commission",
+             "the trade line the register prints under A. Garrett on South Water Street "
+             "and over the new auction and commission room in the same street"),
+        ],
+    },
+    "mill": {
+        "forms": [
+            ("{initial}. {surname}, {goods}",
+             "THE TRADE HAS NO PRINTING IN THIS CORPUS — the register's two mills are steam "
+             "saw mills, a sawyer's works — and no form is composed for it: this is form 1 "
+             "of the naming guide, the corpus's commonest signature"),
+        ],
+        "goods": [
+            ("miller",
+             "the one trade word the resident band drew the head at, and no second line "
+             "is dealt: the naming guide refuses a goods line composed for a class rather "
+             "than taken from it"),
+        ],
+    },
+    "brickyard": {
+        "forms": [
+            ("{given} {surname}, {goods}",
+             "the form the town's one held brickyard is carried in — 'Tyler K. Blodgett' "
+             "— which is form 1 with the forename in full"),
+            ("{initial}. {surname}, {goods}",
+             "form 1 of the naming guide, the corpus's commonest signature"),
+        ],
+        "goods": [
+            ("brickmaker",
+             "the trade line the town's one held brickyard carries, 'Tyler K. Blodgett, "
+             "Henry S. Lampman, brickmaker'"),
+        ],
+    },
+    "soap_and_candle_manufactory": {
+        "forms": [
+            ("{initial}. {surname}, {goods}",
+             "form 1 of the naming guide, the corpus's commonest signature, which is the "
+             "sole maker's form of 'Daniel Elston & [Co.]' once the firm is cut to the one "
+             "keeper it is"),
+            ("{given} {surname}, {goods}",
+             "the same with the forename in full, as 'Daniel Elston' prints it"),
+        ],
+        "goods": [
+            ("soap and candle manufactory",
+             "the trade line the register prints under Daniel Elston & [Co.] and the "
+             "Chicago Soap and Candle Manufactory"),
+        ],
+    },
 }
 
 # AND THE FACES, on the same footing as FACES above: a rule stated from where the register
@@ -445,6 +597,45 @@ TRADE_FACES = {
         "south": ["lake", "dearborn"],
         "north": ["kinzie"],
         "west": ["canal"],
+    },
+    # T-2001'S FIVE. A REFECTORY TAKES ITS CUSTOM FROM THE ROAD (the premises ruling's own
+    # words), so it stands where the road and the landing bring strangers: the river front
+    # and the hotel streets in the south, the North Water bank and Kinzie in the north, the
+    # Canal Street approach and West Water in the west — the livery's rule, near enough,
+    # without the yard. Collett's refectory is unplaced, so nothing narrower is claimed.
+    "refectory": {
+        "south": ["south_water", "lake", "dearborn"],
+        "north": ["north_water", "kinzie"],
+        "west": ["canal", "west_water"],
+    },
+    # AN AUCTION ROOM STANDS WHERE THE REGISTER PUTS THEM: every one it places is on SOUTH
+    # WATER or DEARBORN — Garrett on both, Montgomery and the new room on South Water,
+    # Bates's room on Dearborn near Water. North and west of the river the rule follows
+    # the same reading onto the working bank and the store street.
+    "auction_room": {
+        "south": ["south_water", "dearborn"],
+        "north": ["north_water", "kinzie"],
+        "west": ["west_water", "canal"],
+    },
+    # A MILL, A BRICKYARD AND A CHANDLERY ARE NOT SHOP FRONTS. They want water, clay or
+    # room for a yard and a kettle, and the town's own works of the kind stand off the
+    # retail streets — Blodgett's brickyard and Elston's manufactory both on the North
+    # Side. So they take the brewery's rule: the working banks and the Market Street branch
+    # face, never a retail street.
+    "mill": {
+        "south": ["south_water", "market"],
+        "north": ["north_water"],
+        "west": ["west_water"],
+    },
+    "brickyard": {
+        "south": ["market"],
+        "north": ["north_water", "kinzie"],
+        "west": ["west_water", "canal"],
+    },
+    "soap_and_candle_manufactory": {
+        "south": ["south_water", "market"],
+        "north": ["north_water", "kinzie"],
+        "west": ["west_water", "canal"],
     },
 }
 
@@ -629,8 +820,13 @@ SERVICES = {
     "physician": {
         "kind": "census_bucket",
         "why": ("THE COUNT IS PRINTED, SO THE COUNT ORDERS. The census counts fourteen "
-                "physicians and T-1418 filled that bucket against the register's standing "
-                "rooms; the same rule as the lawyers, for the same reason."),
+                "physicians, the same rule as the lawyers, for the same reason. T-1418 "
+                "filled the bucket; then T-1525's re-cut (2026-09-24) raised its order to "
+                "two and moved the row to T-1529, and the office the one drawn head kept "
+                "went with it, because no group spends a T-1529 row. The book now orders "
+                "2 and the resident band has drawn 1 head at the trade, and this tool "
+                "half-fills no count (`build_group`), so the head waits on T-1529 by name "
+                "(T-2001)."),
     },
     "surveyor": {
         "kind": "employment",
@@ -691,6 +887,18 @@ SERVICES = {
 }
 
 
+# EVERY HEAD AT A TRADE NO COUNT REACHES, AND WHAT BECOMES OF IT (T-2001). Five trades,
+# each a house of trade; the table exists for the same reason the other two do — so that a
+# head at one of these trades with no house is RED in --check rather than a number in a
+# ledger nobody reads. The physician is not here: his class IS counted, the book holds its
+# bucket, and SERVICES says what stands in his way.
+UNCOUNTED = {
+    trade: {"kind": "house_of_trade",
+            "why": "the trade names the house; this programme builds one per head."}
+    for trade in ("auctioneer", "brickmaker", "miller", "refectory_keeper",
+                  "soap_and_candle_maker")
+}
+
 # WHICH TABLE ADJUDICATES WHICH GROUP. Each trade quota above must be covered by a table
 # here, and `trade_buckets` refuses a quota row the table does not call a `house_of_trade` —
 # the table is the ruling and the quota follows it, never the reverse.
@@ -709,6 +917,13 @@ TRADE_ADJUDICATION = {
         "rulings": SERVICES,
         "of": "professional or service",
         "ledger_key": "services",
+    },
+    "uncounted_trades": {
+        "ticket": "T-2001",
+        "ticket_text": "T-2001",
+        "rulings": UNCOUNTED,
+        "of": "never-counted",
+        "ledger_key": "uncounted_trades",
     },
 }
 
@@ -2050,15 +2265,17 @@ def write_fills(built):
     book = load_json(ORDER_BOOK)
     mine = fills_for(built)
     tickets = {GROUPS[g]["ticket"] for g in built}
-    kept = [f for f in book.get("fills", []) if f.get("ticket") not in tickets]
+    rows = []
     for ticket, buckets in sorted(mine.items()):
         group = next(g for g, spec in GROUPS.items() if spec["ticket"] == ticket)
-        kept += [{"bucket": key, "ticket": ticket, "stage": group, "records": n,
+        rows += [{"bucket": key, "ticket": ticket, "stage": group, "records": n,
                   "by": "tools/reconstruct_businesses_1835.py --build"}
                  for key, n in sorted(buckets.items())]
-    # APPENDED, NEVER RE-SORTED. The ledger is in the order the stages filled it and two
-    # runs rewriting it whole would collide on every line of a file neither of them changed.
-    book["fills"] = kept
+    # NEVER RE-SORTED, AND SPLICED IN PLACE (T-1968). The ledger is in the order the stages
+    # filled it and two runs rewriting it whole would collide on every line of a file
+    # neither of them changed — and appending moved these rows to the foot on every lone
+    # build, which `rederive.mjs --run` then undid. splice_fills says why.
+    book["fills"] = order_book.splice_fills(book.get("fills", []), tickets, rows)
     with open(ORDER_BOOK, "w", encoding="utf-8") as handle:
         json.dump(book, handle, indent=2, ensure_ascii=False)
         handle.write("\n")

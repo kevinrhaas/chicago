@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "id": "bed-for-the-night",
+  "content_version": 1,
+  "title": "A Bed for the Night",
+  "premise": "Compare four of the town's lodging houses from the street and choose where a modest purse should ask first.",
+  "category": "Lodging",
+  "scene": "1835",
+  "opening": {
+    "text": "The town is full in the summer of 1835. Ride from the west side to Lake Street past four houses that took in strangers, decide whether cost or convenience matters more, and choose where to ask first. Exterior stops only; the search is reconstructed, the houses are documented.",
+    "read_s": 35
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "preference": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "lodging": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "west-side",
+      "destination": {
+        "kind": "structure",
+        "id": "western_hotel"
+      },
+      "text": "Start on the west side at the Western Hotel, Randolph and Canal: by W. H. Stow's own account a 40 ft front, a 60 ft wing and a wagon yard, the stopping place for teamsters from the west. He says 1834; a chronology, 1835.",
+      "read_s": 32,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "western_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_prefire278",
+          "label": "Stow's account"
+        }
+      ],
+      "evidence": [
+        "western",
+        "western-date",
+        "outing"
+      ],
+      "choices": [
+        {
+          "id": "cost",
+          "label": "Cost comes first",
+          "consequence": "You will ask after the plainer, cheaper bed.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "preference",
+              "value": 1
+            }
+          ],
+          "next": "the-sauganash"
+        },
+        {
+          "id": "convenience",
+          "label": "Convenience comes first",
+          "consequence": "You will ask after a bed close to the business of the town.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "preference",
+              "value": 2
+            }
+          ],
+          "next": "the-sauganash"
+        }
+      ],
+      "narrative": "The town is full. Decide what matters more before you ask: cost or convenience."
+    },
+    {
+      "id": "the-sauganash",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Over the South Branch to Lake and Market: the Sauganash, which the Democrat of 10 June 1835 reported repaired and newly fitted up. A week later the same paper found strangers crowding every room of the public houses, some sleeping on the floor.",
+      "read_s": 31,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "sauganash-refit",
+        "sauganash-place",
+        "crowded",
+        "outing"
+      ],
+      "next": "the-boarding-house",
+      "narrative": "A newly fitted house, and a warning: a room may mean a floor."
+    },
+    {
+      "id": "the-boarding-house",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "East to LaSalle, behind Peck's store. Andreas names Mrs Rufus Brown as keeper of one of the first-class boarding houses, a log house in the store's rear; its exact spot is our placement. On 13 June the American found strangers filling the public houses.",
+      "read_s": 32,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "brown_boarding_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        }
+      ],
+      "evidence": [
+        "brown",
+        "brown-place",
+        "landed",
+        "outing"
+      ],
+      "next": "lake-street",
+      "narrative": "A bed and a table by the week: note it as the plainer choice."
+    },
+    {
+      "id": "lake-street",
+      "destination": {
+        "kind": "structure",
+        "id": "mansion_house"
+      },
+      "text": "On along Lake to Dearborn: the Mansion House, Dexter Graves's log tavern of 1831, given a frame front to the street line two years later. Haddock kept it until 1835, then Abram Markle; no source gives the month, so either may keep it today.",
+      "read_s": 32,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "mansion_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        }
+      ],
+      "evidence": [
+        "mansion",
+        "mansion-keeper",
+        "mansion-place",
+        "outing"
+      ],
+      "choices": [
+        {
+          "id": "ask-browns",
+          "label": "Ask first at Brown's",
+          "consequence": "A boarding-house place behind Peck's, if one is free.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "lodging",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "ask-here",
+          "label": "Ask first here on Lake Street",
+          "consequence": "A tavern bed at the Mansion House, if one is free.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "lodging",
+              "value": 2
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "ask-sauganash",
+          "label": "Ask first at the Sauganash",
+          "consequence": "A bed in the newly fitted house, if one is free.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "lodging",
+              "value": 3
+            }
+          ],
+          "next": "$end"
+        }
+      ],
+      "narrative": "Choose where to ask first. No house promises a vacant room."
+    }
+  ],
+  "endings": [
+    {
+      "id": "thrift",
+      "text": "Cost first, and you ask first at Brown's boarding table. Whether a place is free the outing does not say: in June 1835 the papers found the houses full.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "preference",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "lodging",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "close-at-hand",
+      "text": "Convenience first, and you ask first on Lake Street. Whether a bed is free the outing does not say: in June 1835 the papers found strangers sleeping on floors.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "preference",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "lodging",
+            "op": ">=",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "second-thoughts",
+      "text": "You set out wanting one thing and chose by another, which a full town makes easy. The June papers suggest a floor is as likely as a bed.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "a-place-to-lay-your-head",
+    "title": "A Place to Lay Your Head",
+    "text": "A fictional note of where you meant to ask for a bed in July 1835. It is not a receipt for a room."
+  },
+  "evidence": [
+    {
+      "id": "western",
+      "text": "W. H. Stow built the Western Hotel at the south-east corner of Randolph and Canal: a 40 ft front with a 60 ft wing, a large stable and a yard the wagon trains drove into, the stopping place for farmers and teamsters from the west.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "locator": "chicagology pre-fire page 278, Town of Chicago: W. H. Stow's account of the Western Hotel."
+    },
+    {
+      "id": "western-date",
+      "text": "Stow dates his hotel to 1834; the hotel chronology says it opened in 1835.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire278",
+        "drloih_hotels"
+      ],
+      "reasoning": "The structure record adopts the builder's own 1834 date over an undated chronology line, so the stop gives both dates and claims nothing about the house being open on a particular night."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "crowded",
+      "text": "The Chicago Democrat of 17 June 1835 wrote of 'the immense congregation of strangers crowding every room of our public houses, and every room in which they can obtain accommodations, even to the extent of sleeping on the floor'.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "17 June 1835 (Vol. II No. 9), p. 2, col. 4, the editor's paragraph on the state of the streets (claim chicago_democrat_1835_06_17#c001). Transcription-mediated reading; the issue's interior editorial block prints 10 June."
+    },
+    {
+      "id": "landed",
+      "text": "The Chicago American of 13 June 1835 reported that strangers, some hundreds more than the town's estimated 2,500 to 3,000, filled its public houses and streets, and that store houses had been thrown open to the unsheltered emigrants.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "13 June 1835 (Vol. I No. 2), p. 2, col. 1, the paragraph on the town's population (claim chicago_american_1835_06_13#c001). Transcription-mediated reading of a poor OCR line."
+    },
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as keeper of one of the first-class boarding houses, and places Brown's log house as the first building in the rear of Peck's store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "brown-place",
+      "text": "The boarding house is placed directly behind Peck's store at the south-west corner of South Water and LaSalle; its distance behind the store is not documented.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives the position only relative to Peck's store. The structure record sets the house directly south of the store's footprint on the same lot line and grades the coordinate reconstructed, so the stop calls the exact spot our placement."
+    },
+    {
+      "id": "mansion",
+      "text": "The Mansion House was built in 1831 by Dexter Graves on Lake near Dearborn, set back from the street; two years later he built a frame addition in front that came out to the street line.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 635, the Mansion House paragraph of the hotels chapter."
+    },
+    {
+      "id": "mansion-keeper",
+      "text": "Graves sold the house to Haddock, his son-in-law, who kept it until 1835, when it passed to Abram A. Markle; no source gives the month of the handover.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Andreas, printed p. 635, gives the succession by year only. The structure record finds the Democrat naming the house Haddock's by June 1834 but nothing dating the passage to Markle inside 1835, so it declines to choose a keeper for 1 July 1835, and the stop does the same."
+    },
+    {
+      "id": "mansion-place",
+      "text": "The Mansion House stood on the north side of Lake Street just east of Dearborn, almost opposite the first Tremont House.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas puts it on Lake near Dearborn, almost opposite the old Tremont House, and Caton recalls it just north of where the Tremont stood; the side of the street follows from those two statements, and the position along the block is the structure record's choice."
+    },
+    {
+      "id": "outing",
+      "text": "The visitor's search for a bed, the cost-or-convenience preference, the route order, the relative cost of the four houses, the choice of where to ask, the endings and the keepsake are invented connective narrative. No price, vacancy or booking is documented.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-bed-for-the-night"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-bed-for-the-night"
+  ],
+  "legs": [
+    {
+      "from": "west-side",
+      "to": "the-sauganash",
+      "note": "East to the river and over the South Branch bridge between Lake and Randolph, then north to the Lake Street corner. The route keeps to the bridge.",
+      "evidence": [
+        "western",
+        "sauganash-place"
+      ],
+      "story": "Cross from the wagon trade to the river corner.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "the-sauganash",
+      "to": "the-boarding-house",
+      "note": "East along Lake Street to LaSalle; Brown's stands behind Peck's corner store.",
+      "evidence": [
+        "brown-place"
+      ],
+      "story": "From a hotel to a boarding house: a different kind of bed.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "the-boarding-house",
+      "to": "lake-street",
+      "note": "On east along Lake Street to Dearborn.",
+      "evidence": [
+        "mansion-place"
+      ],
+      "story": "The last house, then your choice.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ]
+}
