@@ -48,6 +48,7 @@
  * THE NUMBERING CHANGED THREE TIMES ON 2026-08-30, and this tool holds every
  * epoch. T-0346 made old part 4 into 4 + 5 + 6 and old 5-9 into 7-11; T-0173
  * halved part 7 (8-11 -> 9-12); T-0170 halved part 10 (11-12 -> 12-13).
+ * T-2044 APPENDED part 14, which renumbers nothing.
  * Readings filed before any of those are labelled in the numbering of their day,
  * and this tool RENUMBERS them rather than discarding them, pushing each reading
  * through every cut it predates — the content of old part 5 is the content of
@@ -70,7 +71,9 @@ const SMOKE = path.join(HERE, 'smoke_renderer.mjs');
 
 /** Parts of the smoke body. Mirrors `PARTS` in tools/smoke_renderer.mjs, and
  *  `--self-test` fails if the two ever disagree. */
-const PARTS = 13;
+// T-2044 APPENDED part 14 (the arrival-to-jaunt path). An append renumbers no
+// reading, so no epoch is added below.
+const PARTS = 14;
 
 /** A steward run's single foreground command is capped at 600 s (ROADMAP § THE
  *  RUN BUDGET). Recipes are packed to a lower figure so a part that has grown
@@ -344,6 +347,23 @@ const COVERAGE = [
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_surfaces/', [13], 'the 1904 street surfaces: materials, tiers and sources'],
   ['assets/textures/prairie_1904_pbr/', [13], 'the 1904 street-surface texture library'],
+
+  // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
+  // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and
+  // no part before 14 opens it: until this part they were unmapped, so a one-line
+  // change to a jaunt priced at the whole gate while no part of that gate read it.
+  // The boot modules the path also crosses (arrival.js, welcome.js, main.js) stay
+  // whole-gate, because every part boots through them.
+  ['renderers/web/js/jaunts.js', [14], 'the outing itself: its stops, its controls, End'],
+  ['renderers/web/js/jaunt-panel.js', [14], 'the panel an outing is driven from'],
+  ['renderers/web/js/jaunt-menu.js', [14], 'the Jaunts menu and its Start buttons'],
+  ['renderers/web/js/jaunt-preview.js', [14], 'the menu\u2019s previews, Resume and the daybook'],
+  ['renderers/web/js/jaunt-cards.js', [14], 'the card and the source a stop links to'],
+  ['renderers/web/js/jaunt-context.js', [14], 'the road notes a ride carries'],
+  ['renderers/web/js/jaunt-journal.js', [14], 'the outing\u2019s saved journal'],
+  ['renderers/web/js/travel-estimate.js', [14], 'the estimate a change of mode moves'],
+  ['data/jaunts/', [14], 'the authored jaunts'],
+  ['data/sidecars/1835/jaunts/', [14], 'the compiled jaunts and their catalog'],
 ];
 
 // ---------------------------------------------------------------------------
