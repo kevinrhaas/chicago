@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1351, ts: '2026-10-03T07:59:27.416Z', date: 'Oct 3, 2026, 2:59 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+    items: [
+      'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
+      'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
+      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L366). The warehouse the north side is also owed waits for the North Water bank.',
+    ] },
   { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
     items: [
       'Walk any road through the prairie or the woods and the hazel, elder, dogwood and other bushes now stand far into the distance, out to about 140 metres. Before, they ended 26 metres away and each one appeared out of empty ground through a speckled fade as you walked.',
