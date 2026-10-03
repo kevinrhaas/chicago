@@ -20500,3 +20500,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/soap-and-candles.json`.
 
 **Recorded:** 2026-10-03 (T-2025).
+
+### L-jaunt-boots-and-leather — Boots, Leather and the Road: an invented rider's outfit from two trades
+
+**Decision:** Boots, Leather and the Road links four existing exterior destinations (John Holbrook's clothing store one door east of Dearborn on South Water Street, John Miller's tannery at the forks, S. B. Cobb's saddle, harness and trunk shop at Lake and Canal, and the Green Tree at Lake and West Water) in an invented outfitting: a rider who leaves tomorrow chooses boots or a hat at the clothier, looks at the tannery from the road, chooses a bridle or a trunk at the saddler (or asks him for boots, which his card does not offer), and decides at the Green Tree whether to ride or wait a day. The rider, the lodging, the journey, the four items, where each was bought, the question about boots, the decision, the four endings and the Equipped to Travel keepsake are reconstructed, and so are the reading and action seconds. What each place did is sourced: Holbrook's hats, clothing, boots and shoes from his card in the Chicago Democrat of 10 June 1835 and the Chicago American of 13 June 1835; the tannery from DRLOIH and Andreas vol. 1's 1833 list; Goss & Cobb's saddles, harness, bridles, martingales, trunks and repairing from the Democrat's first number (26 November 1833) and Cobb's continuation card in the American of 13 June 1835; the Green Tree from chicagology's pre-fire page and the DRLOIH hotel chronology. No sale, price, clerk, tanner or saddler at work is claimed, and the saddler is not made a bootmaker.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the two newspapers' 1833 and 1835 issues named above, Andreas vol. 1, DRLOIH, and brief 18 of JAUNTS-INITIAL-LIBRARY.md. The outfitting, the choices and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record that the tannery was still working in 1835, or of where the town's saddlers and shoemakers bought leather, would let the second stop say more than that leather once began here.
+
+**Applies to:** `data/jaunts/boots-and-leather.json`.
+
+**Recorded:** 2026-10-03 (T-2027).

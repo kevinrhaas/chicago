@@ -454,6 +454,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Do not turn the saddler into a bootmaker; substitute a verified shoemaker business only if its dated location resolves.
 
+**Route note (published, T-2027):** The shipped story order is Holbrook's store → Miller's tannery → Cobb's saddlery → the Green Tree. The order proposed above starts at the forks, goes west to Lake and Canal, east across the South Branch to South Water Street and back west again: about 1,871 m in straight lines, crossing the South Branch twice. Starting at Holbrook's goes one way, east to west (Holbrook → tannery 718 m, → Cobb 250 m, → Green Tree 122 m, about 1,090 m), and the story still reads: made goods shipped in, then where the town's own leather began, then the leather trade that is not the clothier's. **No shoemaker was substituted** — the boots come from Holbrook's card, which names boots and shoes; the saddler's card names none, and a choice at his stop says so. The tannery stop claims no work on the scene date: its source trail ends in 1832.
+
 ## 19. A Schoolday Errand
 
 **ID:** `schoolday-errand` · **Owner ticket:** [T-1269](../tickets/T-1269-publish-schooling-social-visits-and-careful-news.md)
