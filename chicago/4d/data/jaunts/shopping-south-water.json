@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "id": "shopping-south-water",
+  "content_version": 1,
+  "title": "Shopping South Water Street",
+  "premise": "Fill a small household list along the working riverfront without buying everything you see.",
+  "category": "Commerce",
+  "scene": "1835",
+  "featured": true,
+  "opening": {
+    "text": "You have an imagined three dollars and a short household list: something for a cough, a staple and tea. Three South Water Street stores sell them; a fourth, on Lake Street, is where you tally up. The list, purse and prices are reconstructed.",
+    "read_s": 16
+  },
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "money": {
+      "min": 0,
+      "max": 300,
+      "initial": 300,
+      "unit": "cents"
+    }
+  },
+  "inventory": {
+    "items": [
+      "flour",
+      "calico",
+      "liquorice",
+      "tea",
+      "bowl"
+    ],
+    "initial": [],
+    "capacity": 3
+  },
+  "stops": [
+    {
+      "id": "remedy",
+      "destination": {
+        "kind": "structure",
+        "id": "carpenter_south_water_store"
+      },
+      "text": "Start at Philo Carpenter's, the druggist at the Sign of the Golden Mortar. His June 1835 notice lists aloes, ipecac, liquorice ball and tooth powder. Andreas puts his small store on this block toward Wells; which lot is not recorded.",
+      "read_s": 24,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "carpenter_south_water_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "carpenter_philo",
+          "label": "Philo Carpenter"
+        },
+        {
+          "kind": "business",
+          "id": "biz_philo_carpenter",
+          "label": "The druggist's card"
+        }
+      ],
+      "evidence": [
+        "carpenter-trade",
+        "carpenter-place",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "liquorice",
+          "label": "Liquorice ball for a cough — 25¢",
+          "consequence": "A small paper of it goes in the basket.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 25
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -25
+            },
+            {
+              "op": "add",
+              "item": "liquorice",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "staples",
+      "narrative": "Buy the remedy, or hope the cough passes on its own."
+    },
+    {
+      "id": "staples",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "A short way east, Peck's store holds the corner of LaSalle and South Water. His 1833 card lists dry goods, hardware, groceries and crockery, with fifty barrels of superfine flour on hand; an 1834 notice adds flannels, ginghams and calicoes.",
+      "read_s": 24,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
+        },
+        {
+          "kind": "business",
+          "id": "biz_p_f_peck",
+          "label": "The store's card"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "flour",
+          "label": "Flour for the bin — $2",
+          "consequence": "The staple the house cannot do without, and most of the purse.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 200
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -200
+            },
+            {
+              "op": "add",
+              "item": "flour",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "calico",
+          "label": "A length of calico — $1.25",
+          "consequence": "Cloth for mending; the bread can wait for the next trip.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 125
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -125
+            },
+            {
+              "op": "add",
+              "item": "calico",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "compare",
+      "narrative": "Choose the one staple the household needs most, or keep the purse for later."
+    },
+    {
+      "id": "compare",
+      "destination": {
+        "kind": "structure",
+        "id": "harmon_loomis_store"
+      },
+      "text": "On east at Clark Street stands Harmon, Loomis and Company. Their June 1835 notice offers Young Hyson and Souchong tea, loaf sugar, crockery and glassware. Andreas gives the corner of Clark and South Water, not which corner.",
+      "read_s": 22,
+      "action_s": 6,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "harmon_loomis_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_harmon_loomis_co",
+          "label": "The firm's card"
+        }
+      ],
+      "evidence": [
+        "harmon-stock",
+        "harmon-place",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "hyson",
+          "label": "Young Hyson tea and loaf sugar — $1",
+          "consequence": "The last item on the list, with sugar to go with it.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 100
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -100
+            },
+            {
+              "op": "add",
+              "item": "tea",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "souchong",
+          "label": "A smaller paper of Souchong — 40¢",
+          "consequence": "The purse is short, so a cheaper tea stands in for the Hyson.",
+          "when": {
+            "all": [
+              {
+                "var": "money",
+                "op": "<",
+                "value": 100
+              },
+              {
+                "var": "money",
+                "op": ">=",
+                "value": 40
+              }
+            ]
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -40
+            },
+            {
+              "op": "add",
+              "item": "tea",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "bowl",
+          "label": "A crockery bowl instead — 50¢",
+          "consequence": "Not on the list, but the old one is cracked. The tea waits.",
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 50
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -50
+            },
+            {
+              "op": "add",
+              "item": "bowl",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "receipt",
+      "narrative": "Compare what is on the shelf with what is left in the purse, and choose."
+    },
+    {
+      "id": "receipt",
+      "destination": {
+        "kind": "structure",
+        "id": "thomas_church_store"
+      },
+      "text": "Walk up to Lake Street. A modern note, the only one found, credits Thomas Church with the first store building on this street, a two-storey frame. It names no stock, so nothing is bought here. Where on Lake Street it stood is reconstructed. Tally your basket.",
+      "read_s": 24,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "thomas_church_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "church_thomas",
+          "label": "Thomas Church"
+        }
+      ],
+      "evidence": [
+        "church-store",
+        "church-place",
+        "errand"
+      ],
+      "next": "$end",
+      "narrative": "Add up what the basket holds and what the purse has left."
+    }
+  ],
+  "endings": [
+    {
+      "id": "list-filled",
+      "text": "A staple, a remedy and tea: the list is crossed off, and a few coins remain. In this imagined errand the household is provided for this week.",
+      "read_s": 12,
+      "when": {
+        "all": [
+          {
+            "any": [
+              {
+                "has": "flour"
+              },
+              {
+                "has": "calico"
+              }
+            ]
+          },
+          {
+            "has": "liquorice"
+          },
+          {
+            "has": "tea"
+          }
+        ]
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "list-short",
+      "text": "Some of the list waits for another day. In this imagined errand you go home with what the purse allowed, and South Water Street will still be there.",
+      "read_s": 12,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Provisions",
+    "id": "the-household-list",
+    "title": "The Household List",
+    "text": "A fictional household list and receipt from three South Water Street stores, tallied on Lake Street."
+  },
+  "evidence": [
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes and hats, with fifty barrels of superfine flour on hand; a later notice lists flannels, sattinetts, merino cloths, muslins, ginghams and calicoes.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck's card: stock and '50 bbls. Superfine FLOUR'); 10 Dec 1834, p. 4, col. 4 ('New Goods!!', the dry-goods summary ending in calicoes). Transcription-mediated reading."
+    },
+    {
+      "id": "carpenter-trade",
+      "text": "Philo Carpenter advertised as a wholesale and retail druggist at the Sign of the Golden Mortar on South Water Street; in June 1835 his notice listed aloes, ipecac, liquorice ball, tooth powder and paste, perfumery, surgical instruments and trusses among his drugs and dye-stuffs.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "locator": "Chicago Democrat, 25 June 1834, p. 3, col. 2 (Carpenter's card, 'at the Sign of the Golden Mortar, South Water Street'); Chicago American, 27 June 1835, p. 3, col. 6 (the drug list, claim c013). Transcription-mediated reading."
+    },
+    {
+      "id": "carpenter-place",
+      "text": "Andreas has Carpenter buy a lot on South Water Street between LaSalle and Wells and erect a small store there in summer 1833; the lot within that block face is not recorded, and the marker stands at its middle.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The block face is Andreas's; the mid-block point is the structure record's convention, not evidence. That this South Water store is the one the 1834-35 advertisements were written from is the record's continuity argument: the advertisements name the street and no lot."
+    },
+    {
+      "id": "harmon-stock",
+      "text": "Harmon, Loomis & Co. advertised wholesale and retail from their store in South Water Street: dry goods, hardware and cutlery, crockery and glass ware, Young Hyson, Hyson skin and Souchong teas, loaf and lump sugars and molasses.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "Chicago American, 20 June 1835, p. 1, col. 2 ('At Wholesale and Retail', claim c006); Chicago Democrat, 3 Sept 1834, p. 3, col. 5 ('New Goods—Again', loaf sugar and Hyson tea among the groceries). Transcription-mediated reading."
+    },
+    {
+      "id": "harmon-place",
+      "text": "Andreas puts the Harmon and Loomis store at the corner of Clark and South Water and never says which corner; the marker's south-east corner is the structure record's choice.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The north side of South Water was the river frontage and Andreas gives the south-west corner to the Chicago Democrat's office, so the record takes the south-east. The advertisements name South Water Street only."
+    },
+    {
+      "id": "church-store",
+      "text": "An uncredited modern note says the first store building on Lake Street, a two-storey frame structure, was built by Thomas Church. It gives no year, no stock and no address, and this project grades the note as its weakest kind of source.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire275"
+      ],
+      "locator": "Chicagology, early street maps gallery, the editorial addendum at the foot of the page: the Thomas Church sentence (accessed 2026-08-11)."
+    },
+    {
+      "id": "church-place",
+      "text": "The source names Lake Street and nothing narrower; the store's place on the north side between LaSalle and Clark is a reconstruction.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-shopping-south-water"
+    },
+    {
+      "id": "continuity",
+      "text": "Each store's stock is carried to 1 July 1835 from advertisements printed before it; none records a sale, a price or a customer on that day.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "reasoning": "Harmon, Loomis & Co. and Carpenter were both advertising in June 1835, days before the scene date. Peck's last card in the run is December 1834; he is attested keeping and living in this store across 1833-35, so his stock is carried forward from it."
+    },
+    {
+      "id": "errand",
+      "text": "The household list, the three-dollar purse, every price, the basket, the two endings and The Household List keepsake are invented connective narrative, not historical events or prices. Each good is bought only from a store whose own advertisement lists it.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-shopping-south-water"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-shopping-south-water"
+  ],
+  "legs": [
+    {
+      "from": "remedy",
+      "to": "staples",
+      "note": "A short walk east along the south side of South Water Street to Peck's corner at LaSalle.",
+      "evidence": [
+        "carpenter-place"
+      ],
+      "story": "With the cough seen to, choose the staple the house needs most.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "staples",
+      "to": "compare",
+      "note": "The long leg: on east along South Water Street to Clark.",
+      "evidence": [
+        "harmon-place"
+      ],
+      "story": "Tea is the last thing on the list, and the purse is lighter now.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "compare",
+      "to": "receipt",
+      "note": "South up Clark Street, away from the river, to Lake Street.",
+      "evidence": [
+        "church-place"
+      ],
+      "story": "Nothing left to buy: find a quiet spot and add up the basket.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ]
+}
