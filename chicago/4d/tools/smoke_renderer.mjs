@@ -5082,8 +5082,14 @@ for (const [label, viewport, touch] of [
       // runs (the Western Hotel, four West Division stores) and the freight house's
       // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
       // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
-      frontage.census?.records === 5 && frontage.census?.walks === 61
-        && frontage.census?.crossings === 47
+      // T-0192 — the seven cross streets take the walk: +50 runs and +47 corner
+      // crossings in the record, over 46 platted faces. Read
+      // on the branch at 113 walks and 98 crossings. THESE PINS WERE ALREADY
+      // BEHIND ON dev: its record carries 55 town walks and 49 crossings, so dev
+      // read 63 / 51 against 61 / 47 — a parcel after T-1823 moved the record
+      // and not this line. Re-pinned to the reading, not to a model of it.
+      frontage.census?.records === 5 && frontage.census?.walks === 113
+        && frontage.census?.crossings === 98
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5213,7 +5219,11 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 128
+        // T-0192: 182, read on the branch. The record goes 124 town refusals to
+        // 172 — each cross face states why it takes no fence and no post (the
+        // end of a lot row), and the one clause that refused the seven on the
+        // frame budget retires. dev's own reading was 134 against this 128.
+        && frontage.census?.refused === 182
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5397,8 +5407,11 @@ for (const [label, viewport, touch] of [
     // T-1823 — five fronts-only runs name their own chunk (+5) and their posts and
     // fittings share ONE standing mesh of their own (+1), 65; the crossing over
     // Canal rides the Randolph run's chunk.
+    // T-0192 — each of the seven cross streets' 50 new runs names its own block-face
+    // chunk (+50), and their crossings ride those chunks: 117, read on the branch
+    // (dev's record names 51 walk chunks, so dev read 67 against the 65 here).
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 66 : 65)
+      frontage.authored === (frontage.census?.lettered === 1 ? 118 : 117)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -6134,7 +6147,9 @@ for (const [label, viewport, touch] of [
       // Walk-length, fence and deck floors retain their existing strength.
       // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 45 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-0192 — the seven cross streets' 46 platted faces: 93, the record's own
+        // `faces_laid` (dev's record already read 47 against the 45 pinned here).
+        && edge.faces === 93 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
