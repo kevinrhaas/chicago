@@ -45,6 +45,10 @@ THE FOUR RULES, which `--self-test` holds over the derivation.
      cards T-1299 promoted would have deleted seven printings off seven timelines to keep
      a rule whose reason — no second answer beside an asserted one — a generated view does
      not engage. A HAND-PROMOTED value still gets no pointer, and `--self-test` holds that.
+     THAT REASON IS SPENT (T-1524): `roles[]` now takes the 1839 row from the crosswalk
+     itself (T-1515) and folds the pointer's copy into it (T-1539), so Fergus 1839 no
+     longer offers a promoted card its trade at all and no card reaches this clause
+     today. It stays as the rule for any volume that does.
 
   3. THE 1835 CLAIM DOES NOT MOVE. `value`, `confidence` and the note the mint tools own
      are passed through untouched; the pointer is a new key beside them. `--check`
