@@ -131,7 +131,7 @@ for (const [vp, size] of Object.entries(VIEWPORTS)) {
           a.step();
           const gl=a.renderer.getContext();gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(4));
           return {pose:t,enabled,materials,stats:a.stats(),reach:a.furnitureReach,
-            merge:a.farMergeStats,problems:a.problems};
+            merge:a.farMerge,farWalkTops:a.farWalkTops,problems:a.problems};
         },{t,enabled});
         if(reading.materials!==1)errors.push(`${vp}/${name}: expected shared filter material, got ${reading.materials}`);
         shots.push({frame,...reading});

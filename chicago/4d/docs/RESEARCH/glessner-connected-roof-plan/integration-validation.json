@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-03",
+  "validated_checkpoint": "920fa007c53f73f9feca11c9ca688537ffc399ce",
+  "integrated_dev": "1b56a5528a0afd991ce9bcfccd52e85b82ad7222",
+  "source_preflight": {
+    "passed": true,
+    "checks": 750,
+    "self_tests": 311
+  },
+  "roof_envelope_samples": 1800,
+  "browser_stages": {
+    "mobile": {
+      "passed": 124,
+      "failed": 0,
+      "stage": 13,
+      "elapsed": "9 m 03 s",
+      "published": true,
+      "zero_page_errors": true
+    },
+    "desktop": {
+      "passed": 124,
+      "failed": 0,
+      "stage": 13,
+      "elapsed": "14 m 49 s",
+      "published": true,
+      "zero_page_errors": true
+    }
+  },
+  "scope": "Stage 13 and its always-on checks at both viewports; not all 13 town stages.",
+  "rendering": "Unmodified official smoke, published compressed assets, normal animation, Chromium SwiftShader.",
+  "subsequent_dev_integration": "519ccf6b6b5f560574d9010837b9a46fd08e5c57",
+  "subsequent_integration_scope": "T-2028/T-2029 jaunt data and shared documentation; Glessner assets and generator/runtime code unchanged."
+}

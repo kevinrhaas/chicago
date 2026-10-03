@@ -6,6 +6,7 @@
   "premise": "Visit three taverns, collect local talk and decide where to finish the evening.",
   "category": "Taverns",
   "scene": "1835",
+  "featured": true,
   "opening": {
     "text": "Four public houses stand within a short ride of the forks. Choose a purse, hear some invented bar talk, compare two welcomes and pick where to end the evening. A glass is optional, and declining is as good an evening as accepting. Nothing said or bought here is history.",
     "read_s": 20

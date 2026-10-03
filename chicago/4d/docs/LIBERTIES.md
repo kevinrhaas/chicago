@@ -10908,7 +10908,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 104 structures (99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 103 structures (104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -14267,7 +14267,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 517 phases (518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 516 phases (517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14539,8 +14539,9 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 83 phases: 68 log dwellings and
-15 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
+**Scope:** `structures.phases[log_or_fort_archetype]` — 81 phases: 66 log dwellings and
+15 fort structures. It was 83 until T-1743, 2026-10-03, folded `beaubien_new_residence` into the
+Beaubien homestead and moved `beaubien_trading_post` onto the outbuilding archetype. It was 75 until T-1648 re-familied the La Salle block's South Water
 frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
 documented dry-goods house in it, became a C1 shop and left this liberty's population for
 the framed one. T-1681 took the sixtieth the same way and for the same reason, one street
@@ -14563,7 +14564,7 @@ coverings this project can argue each of those roofs is drawn on.
 
 **Decision:** `generators/common/materials.py`'s `roof_substrate()` deals the `shingle`
 substrate to every roofed building that is not an outbuilding. For the 180 framed roofs
-that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 83
+that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 81
 it is a claim, and this is the claim.
 
 **What §2.2 actually grades, and where it stops.** It grades a shingled covering
@@ -16331,8 +16332,17 @@ claiming for.
 stands where its archetype puts it), `docs/RESEARCH/jb_beaubien_homestead.md` §§ 1, 4 and 6a, and
 **T-1203**.
 
-**Covers:** `beaubien_new_residence.log_1822.position`, `beaubien_new_residence.log_1822.footprint`, `beaubien_new_residence.log_1822.form.stories`, `beaubien_trading_post.log_1822.position`, `beaubien_trading_post.log_1822.footprint`, `beaubien_trading_post.log_1822.form.stories`, `beaubien_trading_post.log_1822.form.chimneys`.
-**Recorded:** 2026-09-28 (T-1712).
+**Revised:** 2026-10-03 (T-1743) — **the group is one house and two outbuildings, and two of the buildings this entry placed were standing on the fort road.** The owner read the scene as three identical log houses by the fort, two of them on the road, and both halves were true: the residence and the trading post were drawn on the `log_dwelling` archetype at the house's own wall, pitch and chimney, and the easting this entry chose for them, 17.9 m east of the house, is the centreline of `fort_road` — the road `data/streets/1835.json` already drew north to the fort's south gate. The method paragraph above never looked for it, and no gate asked of an unplatted road. The owner ruled (answer b):
+
+- **`beaubien_new_residence` is withdrawn and folded into `jb_beaubien_homestead`.** § 6a of the dossier already read Wentworth's 'traditional residence' at the corner as most likely the new residence, so the two records were very probably one house drawn twice. The fold is a reading, not a finding; the house's `aka` and the dossier § 4 carry Andreas's 'new residence' so it is not lost.
+- **`beaubien_trading_post` is an outbuilding**, a low log store with a single-slope roof, one door and no chimney, and it stands west of the house, 4.0 m clear of its west wall — the side away from the road, a few metres north of the house's frontage line where the ground lands it. Its shed roof, its door and its new place are all invented, and are covered here.
+- **`beaubien_barn` keeps its place** (13.8 m from the road's centreline, outside the corridor) and gains a hay-loft door in the gable, invented, so it reads as the barn the source calls it rather than as a fourth cabin.
+- **`tools/check_structure_corridors.py --gate`** now refuses any building newly drawn inside any street corridor, at the street's own width.
+
+A visitor walking the fort road south from the gate now passes one house on the right, with a store behind it to the west and a barn behind it to the south, and nothing in the road.
+
+**Covers:** `beaubien_trading_post.log_1822.position`, `beaubien_trading_post.log_1822.footprint`, `beaubien_trading_post.log_1822.form.roof_type`, `beaubien_trading_post.log_1822.form.door`, `beaubien_trading_post.log_1822.form.door_side`, `beaubien_barn.converted_1817.form.loft`.
+**Recorded:** 2026-09-28 (T-1712). **Revised:** 2026-10-03 (T-1743). **Struck:** 2026-10-03 (T-1743) — the three `beaubien_new_residence.*` tokens, because the record they name is withdrawn, and the trading post's `form.stories` and `form.chimneys`, because the outbuilding archetype reads neither and the record no longer states them. The prose above the revision is otherwise verbatim.
 
 
 ### L284 — The works the four documented noxious trades imply: six buildings on the branch frontage, and not one of them attested
@@ -20363,6 +20373,40 @@ dated pre1946 stable-door photograph would replace the proportional choices.
 `glessner_house.as_built_1887.form.eave_cornice`.
 **Recorded:** 2026-10-02.
 
+
+### L-glessner-connected-roof-2016 — Connected north, stable and courtyard roofs
+
+**Decision:** T-2016 supersedes L365's S18.4 cross-gable and 25.5-ft lower rear
+ridge. Continue the north ridge straight at S14.6/z34.1 ft, with a planar court
+slope, and the stable ridge at W141/z38.6 ft to the full south gable. Move the
+stable turret onto their plan intersection. Retain the corrected apertures and
+stonework. Extend the west dormer into its host with ridge decoration; join two
+triangular tile returns to the dining bay copper cap and continue copper across
+the north/east courtyard corner. These joins, the changed west profile and
+unmeasured details are owner-directed reconstructions. The planar north slope
+supersedes the earlier HABS sheet 4 kick interpretation; it is not claimed as
+a newly measured historical fact.
+
+Two courtyard service stacks shown by the modern aerial are carried into 1904
+as reconstructed. The archive review did not establish either pre-1904 presence
+or post-1904 installation. The owner allowed omission if absence was reasonably
+established; that condition was not met. Approximate positions, heights, flues
+and cap details remain inventions, not HABS attestations.
+
+**Basis:** Owner's 3 October 2026 aerial/model references and followups; HABS
+IL-1015 photo 5 (circa 1923) for the dining copper cap and tiled return; sheets
+2–4, photo 1 and data pages for context. See
+`docs/RESEARCH/glessner-connected-roof-plan/work.md` for disagreements and limits.
+**How to resolve:** A measured original roof plan or section, dated chimney
+photographs or restoration records would replace these proportional choices.
+**Applies to:** `glessner_house`, canonical detailed model and its light derivative.
+**Covers:** `glessner_house.as_built_1887.form.ridge_north_range`,
+`glessner_house.as_built_1887.form.v4_detail`,
+`glessner_house.as_built_1887.form.turret_stable`,
+`glessner_house.as_built_1887.form.chimney_service_east`,
+`glessner_house.as_built_1887.form.chimney_service_west`.
+**Recorded:** 2026-10-03.
+
 ### L369 — Leaf-scale procedural vegetation
 
 **Decision:** The branch sprays, individual leaf silhouettes, leaf veins, bark fissures, twig forks, canopy shading and per-tree surface variation are code-authored visual reconstructions bounded by the existing species families and July appearance. They are not photographs of historical Chicago vegetation, measurements of individual trees, or new evidence for their placement. Existing `data/flora` records continue to own species, dimensions, communities, historical claims and flowering eligibility. Confidence values are retained on the new surfaces. Light detail uses fewer geometric sprays of the same cutout foliage rather than closing the crown into a faceted solid. See `docs/RESEARCH/procedural-vegetation-quality.md` for review and limitations.
@@ -20678,5 +20722,29 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **How to resolve:** Keep validating actual deck/ground intersections as the heightfield or frontage records change; improve the representation without inventing a higher deck or biased depth.
 
 **Applies to:** `renderers/web/js/terrain-base.js`, `renderers/web/js/terrain.js`, `renderers/web/js/frontage.js`.
+
+**Recorded:** 2026-10-03 (T-2037).
+
+### L-jaunt-over-the-draw — Over the Draw to the North Side: an invented crossing to three places on the far bank
+
+**Decision:** Over the Draw to the North Side is the library's 26th jaunt and the demonstration that the library grows by data alone (T-2042): it was added as one JSON file and compiled by `tools/compile_jaunts.py`, with no change to the renderer's code or styles. It links four existing exterior destinations — the Dearborn Street drawbridge, Blodgett's brickyard, the North Side school-house and the Lake House site — in an invented outing. The outing, the crossing, the route order (from the foot of Dearborn on South Water Street over the draw, west along the north bank toward Clark, then east along the bank to Rush), the looking from the street, the choice of where to end, both endings and the North of the River memento are reconstructed, and so are the reading seconds. No passage over the draw on a given day is claimed. The building facts are cited at their own tiers and reuse evidence already published in other jaunts, word for word: the draw from Norton's letter and Andreas (Along the Working Harbor), the brickyard and the Lake House from Andreas and the chicagology compilation (Materials for a Roof), the school-house from Andreas's schools chapter (A Schoolday Errand). No claim is new. No named person is met or speaks, no interior is opened, and no Native presence is narrated. It is a quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene and the four structure records. The route, the crossing and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A source fixing which bank Newberry & Dole stood on would let the outing take in the North Side warehouse Andreas describes.
+
+**Applies to:** `data/jaunts/over-the-draw.json`.
+
+**Recorded:** 2026-10-03 (T-2042).
+
+### L-plankwalk-far-top-retention — retaining existing footways beyond furniture reach
+
+**Decision:** When the selected detail tier hides a distant timber chunk, its emitted walk, crossing and decked-walk top triangles remain in one shared-material batch. Only visible-frustum, tier-eligible, reach-culled chunks contribute. Returning inside the reach removes the replacement before the detailed chunk draws. This is a rendering handover, not another frontage record.
+
+**Bounds:** The replacement copies actual vertex positions and all material attributes. It cannot add a walk, fill an intentional gap, lift a board, bypass normal depth testing, or restore cross-street walks excluded by the selected tier. Board-gap filtering remains shared with the detailed geometry. The batch adds at most one draw call; its actual triangle cost is subject to the existing tier budgets.
+
+**How to resolve:** Compare walking and overhead views at every detail tier, including transitions across the furniture reach, and retain exact deck/ground clearance checks.
+
+**Applies to:** `renderers/web/js/frontage.js`, `renderers/web/js/main.js`.
 
 **Recorded:** 2026-10-03 (T-2037).

@@ -730,6 +730,12 @@ const CONE_YAW_STEP = 0.20;
  * an exact continuously changing angle instead would re-deal on every frame. */
 function placementCone(camera, forward) {
   const fl = Math.hypot(forward.x, forward.z);
+  // Census/export callers may supply a position-and-direction camera without
+  // a projection. Preserve their established horizontal census window.
+  if (!Number.isFinite(camera.fov) || !Number.isFinite(camera.aspect)) {
+    return { fe: fl > 1e-6 ? forward.x / fl : 0,
+      fn: fl > 1e-6 ? -forward.z / fl : 1, cos: CONE_COS };
+  }
   const vertical = Math.tan(camera.fov * Math.PI / 360);
   const projected = fl * fl - forward.y * forward.y * vertical * vertical;
   const half = projected <= 0 ? Math.PI : Math.min(Math.PI,
@@ -769,7 +775,10 @@ const LOW = {
   // fringe, and that is a fair statement of what is left: the sward's edge
   // thins over no more ground than it is ragged by.
   mid: { inner: 3.0, radius: 13.0, fringe: 1.6, band: 1.6 },
-  forb: { radius: 13.0, fringe: 1.6, band: 1.6 },
+  // T-2035: keep the light forb transition below 0.45 coverage per 0.75 m
+  // flight sample, while its nearest possible partial coverage stays beyond
+  // the solid nine-metre verge (13 - 0.6 - 1.6 - 1.75 = 9.05 m).
+  forb: { radius: 13.0, fringe: 1.6, band: 1.75 },
   // ...and the far band is where the phone gains most, because thirteen metres
   // is where its detailed rings stop. It is also where it can least afford
   // geometry, so the band is shallower, coarser and smaller-carded than the
@@ -1369,10 +1378,10 @@ export async function createFlora({
   // the movement/turn margin. Walking keeps its established census window.
   const maxPlantHeight = Math.max(...zones.flatMap(z => [...z.byId.values()]
     .map(sp => sp.height[1]))) * 1.25;
-  function viewCone(camera, direction) {
+  function viewCone(camera, direction, eye) {
     const cone = placementCone(camera, direction);
-    const baseY = terrain.surfaceHeight(camera.position.x, -camera.position.z);
-    if (camera.position.y - baseY > 5) {
+    const baseY = terrain.surfaceHeight(eye.x, -eye.z);
+    if (camera.isPerspectiveCamera && eye.y - baseY > 5) {
       camera.updateMatrixWorld();
       const matrix = new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,
         camera.matrixWorldInverse);
@@ -1380,7 +1389,7 @@ export async function createFlora({
       cone.surface = (e, n) => Math.max(waterY, terrain.surfaceHeight(e, n));
       cone.halfHeight = maxPlantHeight / 2;
       cone.bodyRadius = Math.hypot(cone.halfHeight, 3);
-      cone.eyeY = camera.position.y;
+      cone.eyeY = eye.y;
     }
     return cone;
   }
@@ -2084,7 +2093,7 @@ export async function createFlora({
       const e = tmpV.x, n = -tmpV.z;
       const fl = Math.hypot(tmpF.x, tmpF.z) || 1;
       const fe = tmpF.x / fl, fn = -tmpF.z / fl;
-      const cone = viewCone(camera, tmpF);
+      const cone = viewCone(camera, tmpF, tmpV);
       centres.coneCos = cone.cos;
       for (const row of rebuildFarShrubs(e, n, cone)) {
         const pause = checkpoint(); if (pause) await pause;
@@ -2114,7 +2123,7 @@ export async function createFlora({
       const fe = tmpF.x / fl;
       const fn = -tmpF.z / fl;
       const yaw = Math.atan2(fe, fn);
-      const cone = viewCone(camera, tmpF);
+      const cone = viewCone(camera, tmpF, tmpV);
       const coneCos = cone.cos;
       const pitch = Math.asin(tmpF.y);
       const coneChanged = centres.coneCos !== coneCos
@@ -4486,7 +4495,13 @@ function tuftGeometry(blades = 12, segments = 2) {
       const a = vert(g, cx, y, cz, nx2, ny2, nz2, k, k, k, dx, dz, -px, -py, -pz);
       const c = vert(g, cx, y, cz, nx2, ny2, nz2, k, k, k, dx, dz, px, py, pz);
       botany(g, a, 0, t, 3); botany(g, c, 1, t, 3);
-      if (prev) g.idx.push(prev[0], prev[1], a, prev[1], c, a);
+      if (prev) {
+        g.idx.push(prev[0], prev[1], a);
+        // At t=1 the two tip vertices coincide: half-width is exactly zero.
+        // Their second triangle has no area under any instance transform or
+        // wind phase. Keep every vertex/attribute and omit only that empty draw.
+        if (s < segments) g.idx.push(prev[1], c, a);
+      }
       prev = [a, c];
     }
   }

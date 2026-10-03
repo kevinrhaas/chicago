@@ -1,9 +1,33 @@
 export const CHANGELOG = [ // newest first
-  { v: 1381, ts: '2026-10-03T20:02:56.410Z', date: 'Oct 3, 2026, 3:02 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+  { v: 1385, ts: '2026-10-03T21:37:26.263Z', date: 'Oct 3, 2026, 4:37 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
       'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
-      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings also stay above the distant ground.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
+    ] },
+  { v: 1384, ts: '2026-10-03T21:05:07.845Z', date: 'Oct 3, 2026, 4:05 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Over the Draw to the North Side, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Start at the foot of the Dearborn Street drawbridge, cross to the North Side and look at Blodgett\u2019s brickyard, the first house built for a school, and the Lake House going up at Rush Street. Then choose to end there or go back over the draw.',
+      'It is the library\u2019s 26th jaunt, and the first added after the original 25. It was added as one data file, with no change to the page\u2019s code.',
+      'The outing, the crossing and the keepsake, North of the River, are our reconstruction (liberty L-jaunt-over-the-draw). Every fact about the four places is one already cited in another jaunt.',
+    ] },
+  { v: 1383, ts: '2026-10-03T20:41:08.977Z', date: 'Oct 3, 2026, 3:41 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+    items: [
+      'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
+      'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
+      'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
+  { v: 1382, ts: '2026-10-03T20:16:55.784Z', date: 'Oct 3, 2026, 3:16 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
+    items: [
+      'Walk south from the fort\u2019s south gate. The road no longer runs through two log houses: Col. Jean Baptiste Beaubien\u2019s homestead is one house with two outbuildings behind it.',
+      'His small trading post is now a low log store with a single-slope roof, standing west of the house, away from the road. His barn, behind the house, now has a hay-loft door.',
+      'Andreas mentions a \u201cnew residence\u201d as well. We read it as the same house, so it is no longer drawn twice. Where the store and barn stand, and what they look like, are our reconstruction (liberty L283).',
+    ] },
+  { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
+    items: [
+      'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',
+      'Nothing else on the menu changed. Behind it, the build now checks the whole library of 25 jaunts: each of the 25 named outings is available, every ending can be reached, and there are at least five quiet outings. Each keepsake family has three keepsakes or more, so the top daybook rank can be reached in 15 different outings without repeating one.',
     ] },
   { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [

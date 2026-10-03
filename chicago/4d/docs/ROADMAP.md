@@ -8,6 +8,13 @@ quarter-cell planting positions. Diagnose South Water deck gaps independently.
 Motion, both viewports, all tiers and measured costs are required; STATUS records
 what has actually been verified.
 
+## T-2016 — Glessner connected roof plan
+
+Owner-directed roof continuity repair follows T-1999 while retaining its façade
+openings and stonework. The research note records the aerial interpretation and
+unresolved dating of two service stacks. Final validation and integration are
+tracked in STATUS and ticket T-2016.
+
 ## T-2015 — Leaf-scale vegetation quality
 
 Replace closed tree crowns and shrub plates with species-shaped foliage, bark relief and connected twigs. Preserve researched placement and July appearance. T-2014 owns the distant shrub band; the shared geometry interface remains compatible. Validation and measured budgets are recorded in `RESEARCH/procedural-vegetation-quality.md`; ticket closure follows the dev merge.

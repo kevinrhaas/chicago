@@ -3,7 +3,8 @@
   "name": "Col. Jean Baptiste Beaubien's Homestead",
   "aka": [
     "the Beaubien house on the reservation",
-    "the house James H. Collins bought at the land sale of June 1839"
+    "the house James H. Collins bought at the land sale of June 1839",
+    "the new residence Andreas says Beaubien built, folded into this record on T-1743"
   ],
   "archetype": "log_dwelling",
   "phases": [
@@ -57,7 +58,7 @@
           ]
         ],
         "confidence": "reconstructed",
-        "note": "INVENTED. No source reached gives the factory building a dimension. 12.192 x 6.096 m is 40 x 20 ft, and both numbers are borrowed from attested buildings in this dataset rather than freshly guessed: 20 ft is the depth of Hogan's store, the one log footprint here that is documented, and 40 ft is the frontage attested for the Green Tree Tavern. A fur company's factory building is a trade house — a store room and a counter — so a long shallow rectangle of that order is the right kind of shape for the type. THIS POLYGON IS ONE BUILDING AND THE HOMESTEAD WAS FOUR. Andreas describes the factory building, a new residence Beaubien built, a small trading post, and an earlier cabin he converted to a barn. ALL FOUR NOW STAND — the barn as `beaubien_barn` since 2026-08-11, and the residence and the trading post as `beaubien_new_residence` and `beaubien_trading_post` on T-1712, 2026-09-28. This polygon is still only the first of them, and it is the only one of the four whose neighbours did not have to be placed by eye; docs/RESEARCH/jb_beaubien_homestead.md § 4 and docs/LIBERTIES.md L283 carry what the other three cost."
+        "note": "INVENTED. No source reached gives the factory building a dimension. 12.192 x 6.096 m is 40 x 20 ft, and both numbers are borrowed from attested buildings in this dataset rather than freshly guessed: 20 ft is the depth of Hogan's store, the one log footprint here that is documented, and 40 ft is the frontage attested for the Green Tree Tavern. A fur company's factory building is a trade house — a store room and a counter — so a long shallow rectangle of that order is the right kind of shape for the type. THIS POLYGON IS ONE BUILDING AND THE HOMESTEAD WAS FOUR. Andreas describes the factory building, a new residence Beaubien built, a small trading post, and an earlier cabin he converted to a barn. THREE BUILDINGS STAND FOR THE FOUR, ON THE OWNER'S RULING OF T-1743 (2026-09-28, answer b) — this house, `beaubien_barn` since 2026-08-11 and `beaubien_trading_post` since T-1712. T-1712 had also stood the residence as its own record, `beaubien_new_residence`, a third identical log house placed by eye on the fort road; T-1743 withdrew it and FOLDS it into this record, because docs/RESEARCH/jb_beaubien_homestead.md § 6a already reads Wentworth's 'traditional residence' at the corner as most likely the new residence, so two records were very probably drawing one house twice. The fold is a reading, not a finding: nothing reached says which of Andreas's two houses this is, and the scene now shows one dwelling for Col. Beaubien rather than asserting which. This polygon is still only the first of them, and it is the only one of the four whose neighbours did not have to be placed by eye; docs/RESEARCH/jb_beaubien_homestead.md § 4 and docs/LIBERTIES.md L283 carry what the other three cost."
       },
       "form": {
         "construction": {
@@ -115,7 +116,7 @@
     "sources": [
       "andreas_1884_v1"
     ],
-    "note": "Beaubien is documented as the owner from 1817 and as the reservation's claimant in 1835. WHICH BUILDING OF THE HOMESTEAD GROUP HE ACTUALLY SLEPT IN ON THE SCENE DATE IS NOT ATTESTED — Andreas says he built a new residence, which is a different building from this one; it stands as `beaubien_new_residence` since T-1712 and is deliberately given NO occupants, because a record named a residence is not evidence about where a man slept. Nothing further about the household is stated here; see review_required and the research note."
+    "note": "Beaubien is documented as the owner from 1817 and as the reservation's claimant in 1835. WHICH BUILDING OF THE HOMESTEAD GROUP HE ACTUALLY SLEPT IN ON THE SCENE DATE IS NOT ATTESTED — Andreas says he built a new residence. T-1712 stood it as a separate record with NO occupants; T-1743 folded it into this one (§ 4 of the dossier), so this is the group's one dwelling, and the household stays here because it is the only house the scene draws for them — not because any source says which of Andreas's two houses they slept in. Nothing further about the household is stated here; see review_required and the research note."
   },
   "land_owner": {
     "value": "The ground was entered by John Baptist Baubian, 28 May 1835",

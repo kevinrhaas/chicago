@@ -2413,6 +2413,9 @@
     "tools/audit_confidence.py": {
       "wrote": []
     },
+    "tools/audit_jaunts.py": {
+      "wrote": []
+    },
     "tools/audit_manifest_coverage.mjs": {
       "wrote": []
     },
@@ -2509,6 +2512,9 @@
     "tools/check_exact_sums.py": {
       "wrote": []
     },
+    "tools/check_far_plank_tops.mjs": {
+      "wrote": []
+    },
     "tools/check_gate_readers.py": {
       "wrote": []
     },
@@ -2555,6 +2561,9 @@
       "wrote": []
     },
     "tools/check_street_surfaces.py": {
+      "wrote": []
+    },
+    "tools/check_structure_corridors.py": {
       "wrote": []
     },
     "tools/check_terrain_e1830.py": {

@@ -78,6 +78,7 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 | 23 | **Along the Working Harbor** — Take a short outing from a warehouse toward the river mouth. | River transportation | 4 | Horse | Wayfinding |
 | 24 | **From Prairie to Town** — Arrive from the open ground south of town and choose a useful first stop. | Migration and routes | 4 | Horse | Wayfinding |
 | 25 | **An Evening Stroll** — Take a calm circuit of the familiar streets and choose a place to end your outing. | Leisure | 4 | Walk | Neighbors |
+| 26 | **Over the Draw to the North Side** — Cross the town's first drawbridge and see a brickyard, a school-house and a hotel going up on the far bank. | Town growth | 4 | Horse | Wayfinding |
 
 ## 01. Outfit for the West
 
@@ -604,6 +605,27 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Evidence and route cautions:** An evening premise does not require changing the lighting engine or claiming an actual dated event; do not invent advertised entertainment.
 
 **Route note (published, T-2034):** The shipped order is the brief's: Sauganash → Peck's → the Democrat's first corner → the Exchange, about 0.71 km in straight lines (→ Peck's 347 m, → the Democrat 123 m, → the Exchange 245 m). The last stop asks where the evening ends — at the Exchange, or back west along Lake Street to the Sauganash — and each choice leads to its own ending with the same keepsake, so the circuit the brief names is the walker's to close. On the published mirror the card reads Horse 4.5 min at both 390×780 and 1280×800, and the primary path measures 268 s at 390 (257 s at 1280); Fly reads 3 min and measures 173 s. **The default is Horse, not the Walk this brief names:** Walk reads 12.5 min (765 s measured), well past the 4–6 min band, and Walk stays offered. The evening is a premise only: the scene's light is not changed, and no entertainment, meeting or dated event is claimed. The one new claim — that the Democrat came out weekly, on Wednesdays — is inferred from the dated issue numbers already cited, not from a masthead (L-jaunt-an-evening-stroll).
+
+## 26. Over the Draw to the North Side — the growth path (beyond the initial 25)
+
+**ID:** `over-the-draw` · **Owner ticket:** [T-2042](../tickets/T-2000-2249/T-2042-prove-the-growth-path-with-a-26th-jaunt-added-by.md) (piece 4 of T-1271)
+
+**Setup/goal:** Cross the Dearborn Street draw into the North Side and look at what stood on the far bank. The 25 above are the owner's initial library; this one is the first jaunt added after it, and it was added the way every later one should be: one JSON file in `data/jaunts/`, compiled by `tools/compile_jaunts.py`, and no change to the renderer's code or styles. It is kept as a real jaunt, not a fixture removed after the demonstration.
+
+**Stops, in story order:**
+
+- [`dearborn_street_drawbridge`](../data/structures/dearborn_street_drawbridge.json) — Dearborn Street Drawbridge.
+- [`brickyard_north_side`](../data/structures/brickyard_north_side.json) — Blodgett's Brickyard.
+- [`north_side_school_1833`](../data/structures/north_side_school_1833.json) — North Side School House.
+- [`lake_house_construction`](../data/structures/lake_house_construction.json) — Lake House (under construction).
+
+**Primary interactions:** Look from the street; at the last stop choose whether to end on the North Side or go back over the draw. No resource, no strip: a quiet outing.
+
+**Keepsake/outcome:** North of the River (Wayfinding); fictional narrative memento. Wayfinding had the fewest jaunts of the five families (4), so this one goes to it.
+
+**Evidence and route cautions:** Every building claim is reused word for word from a published jaunt (Along the Working Harbor, Materials for a Roof, A Schoolday Errand); no claim is new. No passage over the draw on a given day is claimed, and the Lake House shell is the scene's reconstruction of a site Andreas only describes finished in 1836 (L-jaunt-over-the-draw).
+
+**Route note (published, T-2042):** The draw's south end to the brickyard is about 0.12 km over the river, the school-house is about 20 m on, and the Lake House site about 0.5 km east along the bank: about 0.65 km in straight lines. The measured card estimates are in [the acceptance report](measurements/jaunts_acceptance_2026-10.md).
 
 ## Initial research anchors
 

@@ -180,18 +180,23 @@ const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
 
 /** An empty timber buffer: positions, normals, confidence and colour. */
 const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], uv: [], seam: [],
-  tone: TIMBER_LINEAR, vary: false });
+  walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
 
 /**
  * Lay `build` into `buf` in `walk`'s tone, board by board, and hand the buffer
  * back in the fences' and posts' `TIMBER` afterwards.
  */
 function inWalkTone(buf, walk, build) {
+  const from = buf.pos.length / 3;
   buf.tone = walkTone(walk);
   buf.vary = true;
   try {
     return build();
   } finally {
+    if ((walk.kind === 'plank_walk' || walk.kind === 'board_crossing' || walk.kind === 'decked_walk')
+        && buf.pos.length / 3 > from) {
+      buf.walkTopRanges.push({ from, to: buf.pos.length / 3 });
+    }
     buf.tone = TIMBER_LINEAR;
     buf.vary = false;
   }
@@ -1215,6 +1220,110 @@ function makeLettering(boards) {
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
 
+/** T-2037: the furniture reach may hide board detail, but not the footway.
+ * Copy only emitted walk/crossing top faces, preserving every source attribute.
+ * A changing index submits eligible, reach-culled chunks in one shared-material
+ * draw. The source and its replacement never draw together; farMerge hiding a
+ * source is not a reason to replace it. No heights, gaps or support are inferred.
+ */
+function createFarWalkTops(group, sources, material) {
+  const entries = [];
+  let vertices = 0;
+  for (const { mesh, ranges } of sources) {
+    const normal = mesh.geometry.getAttribute('normal');
+    const selected = [];
+    for (const { from, to } of ranges) {
+      for (let i = from; i < to; i += 3) {
+        if (normal.getY(i) < 0.99) continue;
+        selected.push(i, i + 1, i + 2);
+      }
+    }
+    if (!selected.length) continue;
+    if (!mesh.geometry.boundingSphere) mesh.geometry.computeBoundingSphere();
+    entries.push({ source: mesh, selected, from: vertices,
+      count: selected.length, active: false,
+      sphere: mesh.geometry.boundingSphere.clone() });
+    vertices += selected.length;
+  }
+  const geometry = new THREE.BufferGeometry();
+  if (entries.length) {
+    for (const [name, attribute] of Object.entries(entries[0].source.geometry.attributes)) {
+      const size = attribute.itemSize;
+      const packed = new attribute.array.constructor(vertices * size);
+      let offset = 0;
+      for (const entry of entries) {
+        const original = entry.source.geometry.getAttribute(name).array;
+        for (const vertex of entry.selected) {
+          for (let k = 0; k < size; k++) packed[offset++] = original[vertex * size + k];
+        }
+      }
+      geometry.setAttribute(name, new THREE.BufferAttribute(packed, size, attribute.normalized));
+    }
+    geometry.computeBoundingSphere();
+  }
+  const index = new THREE.BufferAttribute(new Uint32Array(vertices), 1);
+  index.setUsage(THREE.DynamicDrawUsage);
+  geometry.setIndex(index);
+  geometry.setDrawRange(0, 0);
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.name = 'frontage-far-walk-tops';
+  mesh.userData.farWalkTops = true;
+  mesh.userData.groundHugging = true;
+  mesh.renderOrder = 1;
+  mesh.castShadow = false;
+  mesh.receiveShadow = true;
+  mesh.visible = false;
+  group.add(mesh);
+  group.updateWorldMatrix(true, true);
+  for (const entry of entries) {
+    entry.sphere.applyMatrix4(entry.source.matrixWorld);
+    // Indices are copied only when the selected chunk set changes.
+    entry.indices = Uint32Array.from({ length: entry.count }, (_, i) => entry.from + i);
+    delete entry.selected;
+  }
+  const frustum = new THREE.Frustum();
+  const viewProjection = new THREE.Matrix4();
+  const state = { candidateChunks: entries.length, candidateTriangles: vertices / 3,
+    eligibleChunks: 0, eligibleTriangles: 0, activeChunks: 0, triangles: 0,
+    drawCalls: 0, indexUpdates: 0 };
+  function update(camera, crossStreetWalks = true) {
+    camera.updateMatrixWorld();
+    viewProjection.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+    frustum.setFromProjectionMatrix(viewProjection);
+    let changed = false, activeChunks = 0, triangles = 0;
+    let eligibleChunks = 0, eligibleTriangles = 0;
+    for (const entry of entries) {
+      const source = entry.source;
+      const eligible = crossStreetWalks || !source.userData.crossStreet;
+      if (eligible) { eligibleChunks++; eligibleTriangles += entry.count / 3; }
+      const active = eligible && source.userData.reachCulled === true
+        && !source.visible && frustum.intersectsSphere(entry.sphere);
+      if (active !== entry.active) changed = true;
+      entry.active = active;
+      if (active) { activeChunks++; triangles += entry.count / 3; }
+    }
+    if (changed) {
+      let offset = 0;
+      for (const entry of entries) {
+        if (!entry.active) continue;
+        index.array.set(entry.indices, offset);
+        offset += entry.count;
+      }
+      index.clearUpdateRanges();
+      if (offset) index.addUpdateRange(0, offset);
+      index.needsUpdate = true;
+      geometry.setDrawRange(0, offset);
+      state.indexUpdates++;
+    }
+    mesh.visible = activeChunks > 0;
+    Object.assign(state, { eligibleChunks, eligibleTriangles, activeChunks,
+      triangles, drawCalls: activeChunks > 0 ? 1 : 0 });
+    return state;
+  }
+  return { mesh, state, update, dispose: () => geometry.dispose() };
+}
+
+
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
@@ -1722,6 +1831,7 @@ export async function createFrontage({
   // pick carries the owner on the mesh itself — a chunk is one walk's timber
   // and nothing else, so it needs no face-span arithmetic.
   const chunkMeshes = [];
+  const walkTopSources = [{ mesh, ranges: buf.walkTopRanges }];
   for (const chunk of chunks) {
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
@@ -1746,6 +1856,7 @@ export async function createFrontage({
     if (chunk.crossStreet) cmesh.userData.crossStreet = true;
     group.add(cmesh);
     chunkMeshes.push(cmesh);
+    walkTopSources.push({ mesh: cmesh, ranges: chunk.buf.walkTopRanges });
   }
   out.census.meshes = group.children.length;
   out.census.kerb = edgeStats.kerb;
@@ -1783,6 +1894,11 @@ export async function createFrontage({
     out.lettering = letters.text;
   }
   group.userData.census = out.census;
+  // A replacement draw, not another frontage item: keep it outside the census
+  // and picker just as the furniture's far-merge batches are counted separately.
+  const farWalkTops = createFarWalkTops(group, walkTopSources, mat);
+  out.updateFarWalks = farWalkTops.update;
+  out.farWalkTops = farWalkTops.state;
 
   const raycaster = new THREE.Raycaster();
   /**
@@ -1813,6 +1929,7 @@ export async function createFrontage({
   out.dispose = () => {
     geo.dispose();
     for (const c of chunkMeshes) c.geometry.dispose();
+    farWalkTops.dispose();
     mat.dispose();
     grain.dispose?.();
     if (letters) { letters.geo.dispose(); letters.texture.dispose(); }

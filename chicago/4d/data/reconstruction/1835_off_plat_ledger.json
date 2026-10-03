@@ -51,7 +51,7 @@
   },
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 143,
+  "principal_roofs_standing": 142,
   "ground_m2": 7314847.5
  },
  "what_the_roof_programme_does_not_carry": {
@@ -6922,7 +6922,6 @@
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
     "beaubien_barn",
-    "beaubien_new_residence",
     "beaubien_trading_post",
     "chicago_lighthouse_1832",
     "chicago_lighthouse_keepers_quarters",
@@ -6953,7 +6952,6 @@
    ],
    "standing_families": {
     "beaubien_barn": "A2",
-    "beaubien_new_residence": "D1",
     "beaubien_trading_post": "C1",
     "chicago_lighthouse_1832": "I3",
     "chicago_lighthouse_keepers_quarters": "D1",
@@ -6982,7 +6980,7 @@
     "jb_beaubien_homestead": "D1",
     "land_sale_camp_shore": null
    },
-   "principal_roofs_standing": 18
+   "principal_roofs_standing": 17
   },
   {
    "parcel_id": "canal_commissioners_1830",

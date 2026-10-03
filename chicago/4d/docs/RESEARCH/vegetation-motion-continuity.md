@@ -117,3 +117,58 @@ persists each finished route and samples every production placement tick; its
 optional sparse-render mode draws saved frames only. Renderer budget gates still
 perform their normal complete renders. Final all-tier/mobile results and release
 gates remain pending.
+
+
+## Integrated flight and reach repair, 21:40 UTC
+
+The 42-combination movement sweep covers seven routes, three tiers and both
+viewports: 960 placement samples. It found no identity errors or instance-cap
+shortfalls. Forty combinations passed the coverage-step limit; the two light
+flight passes exposed a too-short rosette fade. Widening that fade from 1.6 to
+1.75 m leaves the close nine-metre verge solid. Repeating those two routes adds
+48 passing samples with zero jumps, identity errors or shortfalls. Both the
+original result (including its two failures) and the corrected repeat are saved.
+The mobile census smoke also exposed a minimal-camera compatibility assumption;
+the renderer again supports its existing camera-like probe interface, and the
+repeat passed 46 checks with zero failures.
+
+The light-tier overhead control identified a third plankwalk problem: the
+250 m furniture reach removed complete distant sidewalk chunks. A new batch
+retains only their actual emitted top triangles, using the same material and
+all original attributes. It excludes tier-disabled crossings, visible detailed
+chunks, frustum-excluded chunks and chunks hidden only by the far-merge system.
+It adds at most one call and exposes live cost statistics for review. Nine new
+source checks cover exact geometry, material, handover and eligibility contracts.
+
+The initial six-stand light diagnostic, before the far-top batch, measured
+1,013,329 triangles at the prairie stand against the previous 910,000 ceiling.
+The owner authorized increasing the limit if needed at 16:35 CDT. The repair
+first removes zero-area grass-tip triangles without changing any visible plant
+surface; final integrated measurements will determine whether a higher budget
+is needed. No change in a test limit is treated as evidence of acceptable visual
+behavior or consumer frame rate.
+
+Current dev a9c98af7 is integrated, including its unrelated scene and research
+updates. Earlier fetches had updated FETCH_HEAD but not origin/dev because this
+clone tracked only the task branch; that tracking configuration is corrected.
+The PR's conflict was therefore real, not a reason to bypass integration gates.
+Final published costs, plank pairs, complete smoke and the dev merge remain pending.
+
+
+## Measured budget update
+
+The owner authorized increasing the rendering limit if needed, repeated at
+16:42 CDT. With current dev and exact distant walk tops, the six desktop stands
+measure Full 2,820,988 triangles / 282 calls, Balanced 2,127,277 / 248, and
+Light 1,015,035 / 77 (triangle maxima at west prairie; Light calls at Lake/Market).
+Light's narrow-viewport maximum is 920,708 / 75. The declared limits become
+2,840,000 / 2,145,000 / 1,040,000, preserving the existing defended margins
+18,059 / 16,806 / 21,933 and rounding upward to 5,000. The 295-call overall and
+90-call Light caps remain unchanged. This knowingly increases the triangle
+budget, including on weaker devices; SwiftShader diagnostics establish geometry
+cost and continuity, not consumer frame rate. Ordinary published smoke is still
+the release assertion. The concise cost receipts retain their original exceeded
+ceilings rather than rewriting historical readings to pass.
+
+The integrated source gate passed 759 steps, including 313 self-tests, before
+this table update. Full preflight is now repeating against the updated limits.
