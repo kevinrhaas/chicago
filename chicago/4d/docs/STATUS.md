@@ -57,6 +57,71 @@ one invisible run the four-run cap allows; the three entries before it are visib
 - **The masters are big.** `terrain__e1830_natural.glb` is 29.6 MB (1,136,722 triangles), on the
   1834 grid at the 1834 decimation, beside the 1834 master's 30.3 MB. The web derivative is
   2.9 MB.
+## T-0252 — the load-drawn layers leave the repository as exports, not bakes (2026-10-03)
+
+**Nothing you can see changed.** This is a contract and a gate. It is the decision T-1360
+(the first Unreal street corridor) and its successors were blocked on.
+
+**The decision**, in `docs/GLB-CONTRACT.md` § Layers drawn at load: the baked town carries
+**none** of the ten layers drawn at load (boats, enclosures, fauna, flora, frontage,
+residents, signage, wells, wharves, yard), nor the street network. Their portable form is
+an export made by the renderer module that already draws each one. Its `create*({ terrain })`
+factory runs headless against the scene's epoch heightfield, and the output is stamped with
+that heightfield's hash and the records' hashes. The export lives in the scene bundle
+(T-1357) and is never committed. The reasons, all measured before: a shared generator edit
+re-stales all 550 committed meshes; most of these layers read the heightfield at load, so a
+bake would freeze them against a ground that keeps moving (T-0001's fault); and six layers'
+records are re-derived byte for byte by `check.sh`, a gate that stays on the record. Cards
+(fauna, residents, businesses) export as JSON, and no human figure is exported for anyone.
+
+**The inventory** has one row per layer: what it draws, whether it reads the ground, where
+its variation is seeded, its portable form, instancing and collision intent, and what a glTF
+cannot carry yet. Most layers patch their shaders at compile time, and signage rasterises
+system fonts with no recorded licence. Both are written into their rows rather than left to
+the first exporter to find out.
+
+**The gate.** `tools/measure_generator_half.py --gate` keeps all of its readings.
+`layers_with_a_generator: 0` is now the rule rather than a debt. A new check requires a
+contract row naming the drawing module for every layer the tool names. Shown red twice on
+this branch (the boats row removed; the wells row naming the wrong module), then green.
+
+**Unverified.** Nothing has been exported. The contract describes the factories as they read
+today; the first corridor (T-1360) is expected to correct it where the code disagrees. The
+legacy K5 box is no longer in `docs/ROADMAP.md`. The Unreal programme paragraph there now
+points at the decision, and older "the generator half is still owed" lines in this file are
+history and were left as written.
+
+## T-2034 — An Evening Stroll, the batch's quiet published jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *An Evening Stroll* (Leisure, Horse, 4
+stops, Neighbors). It begins at the Sauganash's corner of Lake and Market, passes P. F. W.
+Peck's store at South Water and LaSalle (his card's stock), stops at South Water and Clark where
+the Democrat was first printed (by 20 May its office was over Jones & King's hardware), and
+reaches the Exchange Coffee House at Lake and Wells. There the walker chooses where the evening
+ends: at the Exchange, or back along Lake Street to the Sauganash. Two endings, one keepsake,
+*A Pleasant Circuit*, to Neighbors. Content only: one JSON file, a liberty
+(`L-jaunt-an-evening-stroll`), the regenerated catalog and source-use edges, and brief 25's
+route note. No engine, compiler or CSS change. Piece 3 of the three T-1270 was split into, so
+the batch's three jaunts are now all published.
+
+**This is the batch's quiet outing.** It declares no variable and no inventory, and the drive
+counted zero items in the resource strip. The evening is a premise only: no lighting change, no
+entertainment, no meeting and no dated event. Every place-fact reuses evidence already published
+in other jaunts, word for word. The one new claim is inferred: the Democrat came out weekly, on
+Wednesdays, read off the volume and issue numbers of the dated numbers already cited (Vol. II
+No. 5 on 20 May to No. 11 on 1 July). No masthead statement was read for it, and the liberty
+says so.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, 2 endings, 1 keepsake. Card estimates on
+the published mirror at 390×780: Walk 12.5 min, Wagon 6.5, Horse 4.5, Fly 3, Instantly 2. At
+1280×800 Walk and Wagon read 12 and 6. The primary path measured 268 s at Horse against the
+card's 265 s (258 s against 256 s at 1280), 173 s at Fly and 765 s at Walk. Horse sits inside
+the 4–6 min band. Walk, which the brief named, does not, so the default is Horse and Walk stays
+offered. A Playwright drive at 390×780 went from the card through Start, the first stop, the
+Sauganash's card and back to the same stop, the choice at the Exchange, the ending
+(`where-you-began`, keepsake shown), and a second Start with End back to the menu. Zero page
+errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-an-evening-stroll/`.
 ## T-2030 — Calling on Neighbors, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Calling on Neighbors* (Social life, Horse,

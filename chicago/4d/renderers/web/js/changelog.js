@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1377, ts: '2026-10-03T18:38:23.017Z', date: 'Oct 3, 2026, 1:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
+  { v: null, ts: '', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [
       'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
       'In 1812 the river turns south behind the sand spit and runs out to the lake near present Madison Street. There is no cut, no pier and no bridge, and no streets yet.',
       'The spit is joined to the north shore by a narrow sand neck at its own 4 ft crest. The neck, the spit\u2019s height and the lake shore north of it are our reconstruction (liberties L362\u2013L364).',
       'Everything south of Twelfth Street, the spit, and the old channel\u2019s west bank, where the 1830 plat and Wright\u2019s 1834 survey disagree, are marked conjectural. No point of this ground is documented.',
+    ] },
+  { v: 1378, ts: '2026-10-03T18:54:29.680Z', date: 'Oct 3, 2026, 1:54 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed.',
+      'Fences, plank walks, docks, signs, boats, yard goods, wells, plants and streets are drawn by the web page from our records. They are not part of the baked buildings, and now they never will be: each will be exported by the same code that draws it.',
+      'Each export is stamped with the ground it was laid on, so a moved shoreline or street rebuilds it rather than leaving it floating.',
+      'People and animals stay on their cards. No figure of anyone is exported.',
+    ] },
+  { v: 1377, ts: '2026-10-03T18:36:59.827Z', date: 'Oct 3, 2026, 1:36 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
+      'The evening, the route and the keepsake, A Pleasant Circuit, are our reconstruction (liberty L-jaunt-an-evening-stroll). No entertainment or dated event is claimed, and the light does not change.',
     ] },
   { v: 1376, ts: '2026-10-03T18:14:03.459Z', date: 'Oct 3, 2026, 1:14 PM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
     items: [

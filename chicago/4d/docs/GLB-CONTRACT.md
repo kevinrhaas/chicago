@@ -399,6 +399,105 @@ The renderer reads the index, never a directory listing.
 (`site/4d/data/`). In the source tree the same files sit at `assets/web/` and
 `data/sidecars/`, so a dev server needs a base override — the renderer accepts `?assets=`.
 
+## Layers drawn at load: none is baked, each is exported by the code that draws it (PROPOSED 2026-10-03, T-0252)
+
+Ten directories under `data/` are drawn by the web renderer from committed JSON when the
+page loads, and the street network is drawn the same way from the compiled scene index. None
+of them has ever had a GLB. `tools/measure_generator_half.py` reads the count. The question
+"should a baked town carry them?" came up one layer at a time: T-0059 for the wharves, then
+the legacy ROADMAP K5 clauses for yards, signboards and goods. The owner then named the
+reader that was missing: the Unreal standalone (18 Sep 2026, `docs/unreal/README.md`). This
+section answers for all of them at once, so T-1360 and its successors implement one rule
+instead of re-arguing it per layer.
+
+### The decision
+
+1. **The baked town carries NONE of them.** `assets/` stays what `generators/` builds:
+   structures, ground and water. No load-drawn layer gets a Blender archetype or a mode of
+   an existing one. `measure_generator_half.py --gate` holds `layers_with_a_generator` at
+   **0**. That figure used to be a debt. It is now this rule, and a layer that grows a
+   generator half makes the gate red until this section is changed first.
+2. **Their portable form is an EXPORT, made by the module that draws them.** Each geometric
+   layer's `create*({ terrain, … })` factory in `renderers/web/js/` already takes the scene's
+   terrain and returns the objects it draws. An exporter runs those factories headless, in
+   the Playwright Chromium the smoke already drives, against the scene's own epoch
+   heightfield. It writes the result as GLB: one file per layer per scene, with per-record
+   nodes named by record id, so a pick still resolves to a card. Each placement rule (which
+   frontage gets a wharf, where a sign hangs, which cell gets which species) then exists
+   **once**, in the code a visitor already sees. A second implementation in Blender or in an
+   engine would drift from it silently.
+3. **An export is a bundle product, never a source.** It goes into the versioned scene bundle
+   (T-1357). It is not committed under `assets/`, not listed in `assets/manifest.json`, and
+   not hash-checked by `validate.py --stale`, which keeps guarding the Blender assets only.
+   Each layer file carries a stamp in its root `extras`:
+   `{ layer, scene, terrain_epoch, heightfield_sha256, records_sha256, source_commit,
+   exporter_version, detail }`. If the heightfield or any record moves, the stamp no longer
+   matches and the bundle step re-exports. Nothing is rebaked. This is what keeps T-0001's
+   fault (geometry frozen against a ground that has since moved) out of the bundle by
+   construction.
+4. **The rules keep their gates.** Six of these layers have records that `check.sh`
+   re-derives byte for byte from a generator rule: enclosures (`generate_dooryard_pickets`,
+   `generate_lot_line_fences`, `generate_fort_apron`), flora (`generate_dooryard_plantings`,
+   `generate_planted_rows`, `generate_fort_trees`), frontage (`generate_frontage_works`),
+   signage (`generate_business_signboards`), wharves (`generate_river_wharves`) and yard
+   (`generate_yard_goods`, `generate_woodpiles`). An export does not
+   replace that: the gate stays on the RECORD, and the export is downstream of it. A GLB hash
+   is evidence that a file has not changed. It is not evidence that a rule was followed.
+5. **Cards are not geometry.** `fauna`, `residents`, `businesses` and the plant-community
+   cards draw nothing in the 3-D scene. They leave the repository as the JSON they already
+   are, and no exporter may turn any of them into a figure. **No human figure is exported,
+   for anyone** (AGENTS.md, L1). `review_required` and `touches_removal` travel with every
+   record that carries them.
+6. **What a glTF cannot carry is named, not approximated quietly.** Most of these layers patch
+   their shaders at compile time (`onBeforeCompile`): street wear, plank grain, sward wind.
+   glTF has no slot for that code. An export either bakes the patch's output into vertex
+   colour or a texture and says so in the stamp (`baked_from_shader: [...]`), or lists the
+   effect under the layer's `unsupported` in the stamp. It never drops the effect silently.
+   Where the browser deals a layer **around the viewer** (the flora sward), the export deals
+   a stated extent with the same cell function and records that extent in the stamp. The
+   function is keyed on the lattice cell (`hash3(c, r, salt)`), not on the viewer.
+
+### The inventory, by layer
+
+`data/<dir>/` · module is what draws it today. *Ground* says whether the layer's geometry
+reads the scene heightfield at load. If it does, an export is only valid for one
+`heightfield_sha256`. *Seed* says where its variation comes from.
+
+<!-- T-0252 layer export table: measure_generator_half.py --gate requires one row per data layer it names -->
+| layer | draws | ground / water | seed | portable form | instancing · LOD · collision | not carried yet |
+|---|---|---|---|---|---|---|
+| `data/streets/` · streets.js | earth travelways draped on the ground | reads heightfield (`ridgeHeight`) | `wear_seed` from record id | GLB per scene, one node per street | merged per street · `detail` tier is a stamp field · collision is the ground's; street mesh is visual | wear and grit live in a shader patch |
+| `data/frontage/` · frontage.js | plank walks, crossings, hitching posts, posted boards | reads heightfield; river walk rides a bridge deck | board offset seeded on position | GLB, node per record | chunked for culling · walker decks (`walkableDecks`) export as collision intent | plank tile shading in a shader patch |
+| `data/wharves/` · wharves.js | river docks and landings | deck height, bents and stair treads from heightfield and water | none (rule-placed) | GLB, node per wharf | merged per wharf · collision intent: deck walkable | crib detail patch |
+| `data/enclosures/` · enclosures.js | fence lines from a perimeter | posts set on heightfield | none | GLB, node per enclosure | posts candidates for instancing | rail shading patch |
+| `data/enclosures/` · yards.js | ground inside a fence | drapes heightfield | none | GLB, node per enclosure | merged | ground blend lives in 3 shader patches |
+| `data/wells/` · wells.js | well heads from a point | sits on heightfield | none | GLB, node per well | merged | — |
+| `data/yard/` · yard.js | goods left on the ground: woodpiles, a water cart, stacked goods | sits on heightfield | end-grain canvas seeded per piece | GLB + embedded canvas textures | candidates for instancing | wood shading patch |
+| `data/signage/` · signage.js | signboards and their wording | hung off or painted on walls | from `structure_id` | GLB + embedded lettering textures | merged per board | **lettering is rasterised from system fonts (Georgia, Times, Helvetica). An export must name a font with a recorded licence before it embeds a glyph** |
+| `data/boats/` · boats.js | era watercraft on the river | reads the heightfield under the hull (`surfaceHeight`) | none (each boat authored) | GLB, node per boat | merged per hull | — |
+| `data/flora/` · flora.js + trees.js | sward, shrubs, trees | sits on heightfield | per lattice cell (`hash3`), per tree | instance manifest (species, position, scale, yaw) + one prototype GLB per species form | browser instances (`InstancedMesh`) · export carries instances, not baked copies | sward dealt around the viewer (export deals a stated extent); wind and leaf shading are shader patches |
+| `data/fauna/` · fauna.js | **cards only**, nothing in the 3-D scene | — | — | JSON as committed | — | no animal geometry exists or is proposed here |
+| `data/residents/` · residents.js | **cards only** | — | — | JSON as committed, review flags intact | — | **no human figure, ever (L1)** |
+| `data/businesses/` · (none) | not drawn; read by research tools | — | — | JSON as committed | — | — |
+<!-- end T-0252 layer export table -->
+
+**Outside this table, and already settled elsewhere:** structures, ground and water are
+baked GLBs (this document, above). Confidence is the `_CONFIDENCE` channel and its material
+patch. Cards and citations are the sidecars. Lighting is `data/scenes/<id>.json`
+`lighting`. A scene date is a scene file plus its `terrain_epoch`: an export is made per
+scene and never merges two dates into one level (T-1360 acceptance 5).
+
+**Licence.** Every row above is generated from this repository's own records, with no
+third-party asset. The one exception waiting to happen is signage's fonts, named in its row.
+Calibration photographs cited in `trees.js` comments are read by people, not loaded, and
+nothing derived from them ships.
+
+**Parity receipts: none yet.** Nothing in this table has been exported. The first receipt is
+T-1360's single street corridor, then one layer per successor under T-1356, as
+`docs/unreal/PARITY.md` lays out. This section is the contract those slices implement, and
+the first of them is expected to correct it where the code says otherwise. Change it by
+proposal, like the rest of this document.
+
 ## What the renderer must implement
 
 1. **Confidence view** — a toggle reading `_CONFIDENCE` through one shared material patch:
