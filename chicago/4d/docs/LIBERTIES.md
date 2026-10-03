@@ -20547,3 +20547,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/sunday-circuit.json`.
 
 **Recorded:** 2026-10-03 (T-2029).
+
+### L-jaunt-along-the-harbor — Along the Working Harbor: an invented route note from a forwarding house to the north pier
+
+**Decision:** Along the Working Harbor links four existing exterior destinations, all on the south bank (Newberry & Dole's forwarding and commission warehouse, the Dearborn Street drawbridge seen from its south end, the 1832 lighthouse tower at the river's mouth, and the root of the south pier of the federal harbour works, from which the north pier is seen across the cut), in an invented walk. Freight is followed from a forwarding house back toward the lake, and the walker writes one mark — the light or the end of the north pier — on a route note. The south pier stands in for the briefed north-pier destination because the north pier's stand-off is reachable only over the Dearborn draw, and the briefed order measured 9.5 min at Horse; brief 23's route note records it. The walk, its order, the route note and its two marks, the two endings, the Knows the Harbor keepsake, and the reading and action seconds are reconstructed. What each place was is sourced: Newberry & Dole's card from the Chicago Democrat of 1 July 1835; the second lighthouse tower, its forty feet and its builder from Andreas, and its lantern and place as the first light on Lake Michigan from lighthousefriends; Norton's drawbridge, its length, its sixty-foot draw and its gallows frames from Andreas; the harbour's 1834 arrivals (21 January 1835) and the 1835 appropriation (25 March 1835) from the Democrat, and the piers' year-end lengths and the south pier's 1833 beginning from Andreas and the Wikipedia summary. No vessel, cargo, keeper, bridge-tender or customer is claimed; the lighthouse's keeper on the scene date is not named because no source reached names one; the piers' lengths on the scene date are the structure records' interpolations and the stop calls them our estimate; the warehouse's bank, the tower's shape and the piers' widths are the scene's placements and reconstructions and the stops say so. No named person speaks or is met, no tower or vessel is entered, the drawbridge is not crossed, and no walk along either pier is claimed.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat's 21 January, 25 March and 1 July 1835 issues, Andreas vol. 1, the lighthousefriends and chicagology Dearborn Street bridges pages, Wikipedia's Chicago River summary, and brief 23 of JAUNTS-INITIAL-LIBRARY.md. The walk, the route note and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated length for either pier inside the 1835 season, or the name of the keeper in July 1835, would let the last two stops say more than they do.
+
+**Applies to:** `data/jaunts/along-the-harbor.json`.
+
+**Recorded:** 2026-10-03 (T-2032).

@@ -1,3 +1,37 @@
+## T-2032 — Along the Working Harbor, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Along the Working Harbor* (River
+transportation, Horse, 4 stops, Wayfinding). It starts at Newberry & Dole's warehouse, whose
+card in the Democrat of 1 July 1835 offers storage, forwarding and commission for the Merchants'
+Line. It passes Norton's 1834 drawbridge at Dearborn Street (about 300 ft, a sixty-foot draw,
+gallows frames), then the forty-foot 1832 light at the river's mouth. It ends at the south pier,
+looking across the cut at the north pier: 180 vessels discharged there in 1834, and $32,800 more
+was voted in 1835. One choice decides what goes on the route note, the light or the end of the
+north pier. Two endings; the keepsake *Knows the Harbor* goes to Wayfinding. Content only: one
+JSON file, a liberty (`L-jaunt-along-the-harbor`), the regenerated catalog and source-use edges,
+and brief 23's route note. No engine, compiler or CSS change. First of the three pieces T-1270
+was split into.
+
+**The route was re-cut, on a measurement.** In the briefed order the card read Horse 9.5 min.
+The north pier's stand-off is on the north bank, 949 m from the Dearborn draw, and every order
+of the four briefed stops routes at 2.6 km or more. The south pier's stand-off is 147 m from the
+light and about 93 m from the north pier's, across the channel. So the jaunt stops there and
+looks across; the north pier remains the subject of the stop and of the choice. Both piers'
+lengths are interpolations, and the stop calls them our estimate.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, two endings, one keepsake. Card estimates on
+the published mirror, identical at 390×780 and 1280×800: Walk 17 min, Wagon 8.5, Horse 6, Fly 4,
+Instantly 2.5. The primary path (mark the end of the north pier) measured 355 s at Horse and
+221 s at Fly against the card's 350 s and 227 s at 390×780. At 1280×800 it measured 320 s and
+221 s against 354 s and 228 s. A Playwright drive at 390×780 (card, Start, the first stop, About
+this place and back to the same stop, the choice, the ending, End back to the menu) reached
+`a-note-to-redraw`. Zero page errors at either viewport. Stills and the receipt are in
+`docs/performance/jaunt-along-the-harbor/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+At 1280×800 the first leg rode in 40 s against 81 s at 390×780, and this run did not find out
+why. Both viewports sit inside the 4–6 min band.
+
 ## T-2028 — A Schoolday Errand, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *A Schoolday Errand* (Education, Horse, 4

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',
+      'Follow freight from Newberry \u0026 Dole\u2019s warehouse past Norton\u2019s Dearborn Street drawbridge to the 1832 light at the river\u2019s mouth, and finish at the south pier looking across the cut at the north pier. Then mark the light or the end of the north pier on your route note.',
+      'The walk, the note and the keepsake, Knows the Harbor, are our reconstruction (liberty L-jaunt-along-the-harbor). Both piers were still being built that summer, so their lengths are our estimate, and the stop says so.',
+    ] },
   { v: 1369, ts: '2026-10-03T15:38:36.981Z', date: 'Oct 3, 2026, 10:38 AM CT', title: 'A new jaunt: A Sunday Circuit', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Sunday Circuit, a quiet outing of about six and a half minutes on horseback, with nothing to count or carry.',

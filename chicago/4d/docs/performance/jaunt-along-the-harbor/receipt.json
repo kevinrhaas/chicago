@@ -1,0 +1,128 @@
+{
+  "390": {
+    "card_text": "Along the Working Harbor Follow freight back to the lake: a forwarding house on the river, the Dearborn Street draw, the light at the mouth, and the two piers still being pushed into the lake. Leave with a route note. River transportation · 4 stops · Wayfinding Walk Wagon Horse Fly Instantly about 6 min at Horse Recommended: Horse. Fly is a viewing convenience, not historical transport. Start JauntPreview the route",
+    "card_estimates": {
+      "walk": "about 17 min at Walk",
+      "wagon": "about 8.5 min at Wagon",
+      "horse": "about 6 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 2.5 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 349.930890200278,
+        "reading": 160,
+        "legs": [
+          80.59999999999799,
+          93.89999999999723,
+          20.233333333333498
+        ],
+        "seconds": 354.7333333333287,
+        "phase": "outcome",
+        "outcome": "a-note-to-redraw",
+        "trace": [
+          "atStop:the-forwarding-house",
+          "atStop:the-draw",
+          "atStop:the-light",
+          "atStop:the-piers"
+        ]
+      },
+      "fly": {
+        "estimate": 226.86394707390167,
+        "reading": 160,
+        "legs": [
+          27.566666666667196,
+          23.766666666667007,
+          9.666666666666643
+        ],
+        "seconds": 221.00000000000085,
+        "phase": "outcome",
+        "outcome": "a-note-to-redraw",
+        "trace": [
+          "atStop:the-forwarding-house",
+          "atStop:the-draw",
+          "atStop:the-light",
+          "atStop:the-piers"
+        ]
+      }
+    },
+    "ending_card": "Outing complete\n\nYour note reads: in by the end of the north pier, past the light, up under the Dearborn draw. By the season's end Andreas has that pier 1,260 feet into the lake, so your mark will want redrawing. The walk and the note are the story's.\n\nAlready in your daybook — replays keep one copy\n\nRoute note · Directions, in pencil\n\nKnows the Harbor\n\nA fictional route note from a July 1835 walk: the forwarding house, the Dearborn draw, the light and the two piers. No vessel, cargo, keeper or bridge-tender is named on it.\n\nWayfinding\n\n0\nProvisions\n0\nLivelihood\n1\nWayfinding\n0\nNews & Knowledge\n0\nNeighbors\nOpen your daybookRestart Jaunt",
+    "ui_drive": {
+      "stop_index_before_detail": 0,
+      "stop_index_after_detail": 0,
+      "detail_card_returned_to_same_stop": true,
+      "ending": {
+        "phase": "outcome",
+        "outcome": "a-note-to-redraw"
+      },
+      "after_end": {
+        "jaunt": null,
+        "phase": "menu",
+        "welcome": "welcome"
+      },
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png",
+        "390-menu.png"
+      ]
+    },
+    "page_errors": 0,
+    "page_error_messages": []
+  },
+  "1280": {
+    "card_text": "Along the Working Harbor Follow freight back to the lake: a forwarding house on the river, the Dearborn Street draw, the light at the mouth, and the two piers still being pushed into the lake. Leave with a route note. River transportation · 4 stops · Wayfinding Walk Wagon Horse Fly Instantly about 6 min at Horse Recommended: Horse. Fly is a viewing convenience, not historical transport. Start JauntPreview the route",
+    "card_estimates": {
+      "walk": "about 17 min at Walk",
+      "wagon": "about 8.5 min at Wagon",
+      "horse": "about 6 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 2.5 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 354.3593088756905,
+        "reading": 160,
+        "legs": [
+          40.333333333333606,
+          94.86666666666385,
+          24.433333333333707
+        ],
+        "seconds": 319.63333333333117,
+        "phase": "outcome",
+        "outcome": "a-note-to-redraw",
+        "trace": [
+          "atStop:the-forwarding-house",
+          "atStop:the-draw",
+          "atStop:the-light",
+          "atStop:the-piers"
+        ]
+      },
+      "fly": {
+        "estimate": 228.1161423442632,
+        "reading": 160,
+        "legs": [
+          26.86666666666716,
+          23.466666666666992,
+          11.033333333333305
+        ],
+        "seconds": 221.36666666666747,
+        "phase": "outcome",
+        "outcome": "a-note-to-redraw",
+        "trace": [
+          "atStop:the-forwarding-house",
+          "atStop:the-draw",
+          "atStop:the-light",
+          "atStop:the-piers"
+        ]
+      }
+    },
+    "page_errors": 0,
+    "page_error_messages": []
+  },
+  "ticket": "T-2032",
+  "jaunt": "along-the-harbor",
+  "tree": "published mirror (tools/publish.sh) of branch steward/t2032-along-the-harbor",
+  "primary_path": "the-forwarding-house > the-draw > the-light > the-piers:mark-the-pier-end => a-note-to-redraw"
+}
