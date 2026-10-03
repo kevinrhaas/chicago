@@ -1,7 +1,7 @@
 /* Shared interface skins: four time machines (T-2036, the Temporal Observatory design).
    One stylesheet for the portal (/4d/), the pending door and the renderer. skin.js sets
-   <html data-skin> before paint; each machine has a native tone (World's Fair is the light
-   one) and the renderer's light/dark switch still works — the [data-theme] blocks below give
+   <html data-skin> before paint; each machine has a native tone (Retro Future, id worlds-fair, is
+   the light one) and the renderer's light/dark switch still works — the [data-theme] blocks below give
    every machine its other tone so the switch never strands dark ink on a dark panel.
    Evidence grades (--doc/--inf/--con) are deliberately NOT touched here: walk.css owns them.
    Webfonts are self-hosted latin subsets (fonts/LICENSE.md, SIL OFL 1.1); a face downloads
@@ -32,7 +32,7 @@ html[data-skin] {
   --inset-bezel:inset 0 0 0 1px rgba(0,0,0,.35),inset 0 2px 8px rgba(0,0,0,.45);
   --ease-machine:cubic-bezier(.4,0,.2,1);--ease-detent:cubic-bezier(.2,.9,.25,1.2);
 }
-/* 1960s Control Room — the standard machine: console blue, ivory enamel, signal red, phosphor green. */
+/* Control Room — the 1960s standard machine: console blue, ivory enamel, signal red, phosphor green. */
 html[data-skin="control-room"] { color-scheme:dark;
   --page:#0A1426;--panel:rgba(16,32,58,.94);--panel-solid:#12233F;--panel-raised:#1A3052;
   --ink:#ECE6D8;--ink-dim:#A7B4C8;--ink-faint:#6C7C96;--edge:#2A3F63;--edge-strong:#3E5A86;
@@ -66,7 +66,7 @@ html[data-skin="brass"][data-theme="light"] { color-scheme:light;
   --ink:#382819;--ink-dim:#6D5035;--ink-faint:#94785A;--edge:#AD8B57;--edge-strong:#8E6A33;
   --accent:#805213;--accent-ink:#FFF5E4;--brass:#8E6A33;--skin-glow:rgba(128,82,19,.12);
 }
-/* World's Fair — ivory, turquoise, orange, graphite; geometric sans; pill controls. */
+/* Retro Future (id worlds-fair) — ivory, turquoise, orange, graphite; geometric sans; pill controls. */
 html[data-skin="worlds-fair"] { color-scheme:light;
   --page:#EFE9DC;--panel:rgba(248,244,234,.97);--panel-solid:#F8F4EA;--panel-raised:#FFFFFF;
   --ink:#1E3A3D;--ink-dim:#4F6767;--ink-faint:#7F8E8B;--edge:#B9C2B8;--edge-strong:#8EA19A;
@@ -143,23 +143,26 @@ html[data-skin="deep-space"] .gate-card { clip-path:polygon(var(--chamfer) 0,100
 html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn { background:color-mix(in srgb,var(--signal) 10%,transparent);color:var(--signal);border-color:var(--signal);box-shadow:inset 0 0 18px color-mix(in srgb,var(--signal) 25%,transparent);letter-spacing:.24em; }
 html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn:not(:disabled):hover { background:var(--signal);color:var(--signal-ink); }
 
-/* The machine selector — the portal masthead, the arrival card and the settings panel. */
-.machines { display:flex;gap:4px;flex-wrap:wrap; }
-.machine { display:grid;gap:5px;min-width:0;padding:6px 9px;border:1px solid var(--edge);border-radius:var(--r-control);background:var(--panel);color:var(--ink);cursor:pointer;font:inherit;text-align:left;transition:border-color .12s,background .12s; }
-.machine:hover { border-color:var(--edge-strong);background:var(--panel-raised); }
-.machine[aria-pressed="true"] { border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent); }
-.machine:focus-visible { outline:2px solid var(--accent);outline-offset:2px; }
-.machine-swatch { display:flex;height:6px;border-radius:2px;overflow:hidden; }
-.machine-swatch span { flex:1; }
-.machine-name { font:500 11px/1.2 var(--font-body);white-space:nowrap; }
-html[data-skin="deep-space"] .machine { clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px); }
-.skin-tools { display:grid;gap:8px;justify-items:center;margin:14px 0 0;font:11px/1.4 var(--font-label,ui-sans-serif);letter-spacing:var(--label-tracking,.12em);text-transform:uppercase;color:var(--ink-dim); }
-.skin-tools .machines { justify-content:center; }
-.skin-tools a { color:var(--accent); }
-.settings-group.skin-tools { justify-items:start;text-transform:none;letter-spacing:0; }
-.settings-group.skin-tools .machines { justify-content:flex-start; }
+/* The appearance dial (T-2057) — the portal masthead, the arrival card and the settings
+   panel. One quiet button: a small dial whose hand turns a quarter per machine, four dots
+   marking which is on, and the machine's name only on hover or focus. */
+.machine-dial { --turn:0deg;position:relative;display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:0 6px;border:0;border-radius:var(--r-control);background:none;color:var(--ink-dim);opacity:.65;cursor:pointer;font:400 9px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;transition:opacity .12s,color .12s; }
+.machine-dial:hover,.machine-dial:focus-visible { opacity:1;color:var(--ink); }
+.machine-dial:focus-visible { outline:2px solid var(--accent);outline-offset:2px; }
+.machine-dial svg { flex:none;display:block; }
+.machine-dial-hand { transform:rotate(var(--turn));transform-origin:8px 8px;transition:transform .4s var(--ease-detent); }
+.machine-dots { display:inline-flex;gap:3px; }
+.machine-dots i { width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.35;transition:opacity .2s,background .2s; }
+.machine-dots i.on { opacity:1;background:var(--accent); }
+.machine-dial-name { position:absolute;right:6px;top:calc(100% + 2px);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s; }
+.machine-dial:hover .machine-dial-name,.machine-dial:focus-visible .machine-dial-name { opacity:1; }
+.settings-group .machine-dial { opacity:1;padding-left:0; }
+.settings-group .machine-dial-name { position:static;opacity:1;color:var(--ink); }
+.skin-tools { display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 0 0;font:11px/1.4 var(--font-label,ui-sans-serif);letter-spacing:var(--label-tracking,.12em);text-transform:uppercase;color:var(--ink-dim); }
+.skin-tools a { color:var(--ink-dim);text-decoration:none; }
+.skin-tools a:hover { color:var(--accent); }
+.settings-group.skin-tools { justify-content:flex-start;gap:12px;text-transform:none;letter-spacing:0; }
 .skin-tools-label { margin:0;font-size:10px; }
 html[data-transfer] .gate-card { animation:skin-arrival .7s ease-out both; }
 @keyframes skin-arrival { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
-@media (max-width:480px) { .skin-tools .machines { display:grid;grid-template-columns:1fr 1fr;width:100%; } }
-@media (prefers-reduced-motion:reduce) { html[data-transfer] .gate-card{animation:none} .machine,.gate-btn{transition:none!important} }
+@media (prefers-reduced-motion:reduce) { html[data-transfer] .gate-card{animation:none} .machine-dial,.machine-dial *,.gate-btn{transition:none!important} }

@@ -23,14 +23,18 @@ try {
   assert.equal(await page.locator('.era').count(),3);
   assert(await page.locator('[data-year="1812"]').innerText().then(t=>t.includes('SURVEY IN PROGRESS')));
   assert.equal(await page.locator('html').getAttribute('data-skin'),'control-room','the standard machine is the default');
-  for(const skin of ['control-room','brass','deep-space','worlds-fair']){
-   await page.locator(`.masthead .machine[data-machine="${skin}"]`).click();
-   assert.equal(await page.locator(`.masthead .machine[data-machine="${skin}"]`).getAttribute('aria-pressed'),'true');
+  const dial=page.locator('.masthead .machine-dial');
+  assert.equal(await page.locator('.masthead .machine-dial').count(),1,'one quiet dial, not a row of buttons');
+  for(const [skin,name] of [['brass','Precision Brass'],['worlds-fair','Retro Future'],['deep-space','Deep Space'],['control-room','Control Room']]){
+   await dial.click();
    assert.equal(await page.locator('html').getAttribute('data-skin'),skin);
+   assert.equal(await dial.getAttribute('aria-label'),`Appearance: ${name}. Change appearance`);
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'horizontal overflow');
    await page.screenshot({path:`${out}/${skin}-${width}.png`,fullPage:true});
   }
-  assert.equal(await page.locator('html').getAttribute('data-theme'),'light','World\u2019s Fair is the light machine');
+  await dial.click();await dial.click();
+  assert.equal(await page.locator('html').getAttribute('data-skin'),'worlds-fair');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'light','Retro Future is the light machine');
   const light = await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--panel-solid'));
   await page.evaluate(()=>{document.documentElement.dataset.theme='dark';});
   assert.notEqual(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--panel-solid')),light,'the renderer light/dark switch still reskins a machine');
@@ -38,10 +42,11 @@ try {
   // Persist, then navigate without waiting for the entire town's heavy data.
   await page.reload();assert.equal(await page.locator('html').getAttribute('data-skin'),'worlds-fair');
   await page.locator('[data-year="1835"]').click();await page.waitForURL('**/4d/1835/');
-  await page.locator('.gate-card .skin-tools .machine').first().waitFor();assert.equal(await page.locator('html').getAttribute('data-skin'),'worlds-fair');
+  await page.locator('.gate-card .skin-tools .machine-dial').waitFor();assert.equal(await page.locator('html').getAttribute('data-skin'),'worlds-fair');
   assert.equal(await page.locator('.gate-card .skin-tools a').getAttribute('href'),origin+'/4d/');
-  await page.locator('.gate-card .skin-tools .machine[data-machine="brass"]').click();
-  await page.locator('.gate-card .skin-tools a').click();await page.waitForURL('**/4d/');assert.equal(await page.locator('.masthead .machine[data-machine="brass"]').getAttribute('aria-pressed'),'true');
+  await page.locator('.gate-card .skin-tools .machine-dial').click();
+  await page.locator('.gate-card .skin-tools a').click();await page.waitForURL('**/4d/');assert.equal(await page.locator('html').getAttribute('data-skin'),'deep-space');
+  assert.equal(await page.locator('.masthead .machine-dial').getAttribute('title'),'Appearance: Deep Space');
   // A visitor who chose an earlier skin keeps it, under its new machine name.
   await page.evaluate(()=>localStorage.setItem('chicago4d.skin','steampunk'));await page.reload();assert.equal(await page.locator('html').getAttribute('data-skin'),'brass');
   // Dev preview remains within its own prefix.
