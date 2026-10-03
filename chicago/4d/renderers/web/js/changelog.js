@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
+    items: [
+      'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',
+      'Nothing else on the menu changed. Behind it, the build now checks the whole library of 25 jaunts: each of the 25 named outings is available, every ending can be reached, and there are at least five quiet outings. Each keepsake family has three keepsakes or more, so the top daybook rank can be reached in 15 different outings without repeating one.',
+    ] },
   { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [
       'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
