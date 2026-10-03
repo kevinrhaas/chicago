@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1355, ts: '2026-10-03T08:53:41.932Z', date: 'Oct 3, 2026, 3:53 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+  { v: 1356, ts: '2026-10-03T09:25:47.511Z', date: 'Oct 3, 2026, 4:25 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
     items: [
       'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
       'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
       'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
       'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
+    ] },
+  { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+    items: [
+      'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
+      'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
+      'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
     ] },
   { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
     items: [

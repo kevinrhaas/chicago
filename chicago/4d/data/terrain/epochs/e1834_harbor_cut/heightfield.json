@@ -76,7 +76,7 @@
     "cell_max": 158.047
    },
    "approach_slough_east": {
-    "cells": 14,
+    "cells": 11,
     "cell_max": 99.226
    },
    "approach_slough_west": {
@@ -124,7 +124,7 @@
     "cell_max": 213.175
    },
    "street_section": {
-    "cells": 21097,
+    "cells": 21135,
     "cell_max": 186.376
    },
    "swales": {
@@ -144,5 +144,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "0305d106c2221fb6395aa1ae589983a30758ae869a564256b658583e045ef96e"
+ "inputs_sha256": "a8b534a42f0bc30e37c4e70773ec4882c7f5ada5273593d777bd56f4bd5865e0"
 }

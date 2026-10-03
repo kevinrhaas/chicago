@@ -14244,7 +14244,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 512 phases (497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 511 phases (512 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -15540,8 +15540,6 @@ reach that survives), the ruling **T-1628**, the mouth **T-0129**, the meander a
 
 ### L274 — One freight shed on the south bank at the Dearborn reach, on ground a filled channel gave back
 
-**Covers:** `south_bank_shed_dearborn_e1.function`, `south_bank_shed_dearborn_e1.shed_1835.documented_range`, `south_bank_shed_dearborn_e1.shed_1835.footprint`, `south_bank_shed_dearborn_e1.shed_1835.form.construction`, `south_bank_shed_dearborn_e1.shed_1835.form.door`, `south_bank_shed_dearborn_e1.shed_1835.form.door_side`, `south_bank_shed_dearborn_e1.shed_1835.form.paint`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_pitch_deg`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_type`, `south_bank_shed_dearborn_e1.shed_1835.form.wall_height_m`, `south_bank_shed_dearborn_e1.shed_1835.position`.
-
 **Decision:** the south bank of the main stem below the Dearborn drawbridge carries **one low
 freight shed** where it carried nothing — on the last town ground east of South Water Street's
 platted corridor and west of State Street's, standing back from the riverside plank walk on the
@@ -15693,7 +15691,8 @@ that licenses a shed here draws them on the water.
 whose validation read the red) · **L153** (the riverside walk) ·
 `data/frontage/river_walk_frontage.json` ·
 `docs/RESEARCH/south_bank_dearborn_ground.md` § The shed stood on the river walk.
-**Recorded:** 2026-09-26.
+**Revised:** 2026-10-03 (T-2012) — **the shed is withdrawn, because the ground it stood on was a gap in the street and not ground.** The owner ruled that South Water Street runs its last 22 m to State Street (**L366**), and the carried line puts the platted corridor across this footprint by 11.07 m. The street's reach is the plat's and this building had no source, so the building goes; there is no dry ground north of the corridor to re-seat it on, because the riverside walk and the bank are inside it. The owner chose the withdrawal over keeping the street short, the same day. `south_bank_shed_dearborn_e2` (**L281**), which stands clear of the corridor, keeps its seat.
+**Recorded:** 2026-09-26. **Struck:** 2026-10-03 (T-2012) — all eleven `Covers:` tokens, `south_bank_shed_dearborn_e1.*`, are removed because the record they name is withdrawn, and a token pointing at nothing admits to nothing a visitor reads. The prose above is otherwise verbatim.
 
 ### L275 — Terrain: the south bank below the bend is Wright's line moved south onto Hathaway's, on a ruling
 **Decision:** between local **E +228.91** (the committed bend vertex below the forks) and **E +467.17**
@@ -16157,6 +16156,7 @@ bank would move this one rather than adding a third.
 wagon figures this setback is built from), the parent ask **T-1200**, this ticket **T-1640**, the
 re-seating that put e1 square to the walk **T-1643**, `docs/RESEARCH/south_bank_dearborn_ground.md`.
 **Recorded:** 2026-09-27.
+**Revised:** 2026-10-03 (T-2012) — **the first shed is withdrawn and this one stays.** South Water Street now runs on to State Street (**L366**) and its corridor took e1's footprint (**L274**). This shed stands clear of the corridor and is not moved. Its two eastings and its northing were read off e1's walls; those numbers stand where they were written, at the same `reconstructed` grade, and what is lost is the neighbour they can be checked against. Its door now opens toward the street rather than onto a yard behind another shed.
 
 ### L282 — The blacksmith's forge stack: three brick blocks against an end wall, and no source describes any of it
 
@@ -20331,6 +20331,34 @@ dated pre1946 stable-door photograph would replace the proportional choices.
 **Applies to:** `data/jaunts/freight-for-the-store.json`.
 
 **Recorded:** 2026-10-03 (T-2009).
+
+### L366 — South Water Street's last 22 m to State Street are its own bearing carried to the corner
+
+**Decision:** `south_water` in `data/streets/1835.json` (T-2012) gains one vertex, local
+**(826.993, 3.378)**. It is the street's own last bearing, (699, 7) to (805, 4), carried to its
+intersection with `state`'s committed centreline, (824.4, −400) to (827.1, 20). That adds
+**22.002 m** of line on the same straight run. The old end at (805, 4) is kept as a vertex, so
+nothing west of it moves.
+
+**Why:** the line stopped 22 m short of State Street, so a visitor walking east along the river
+found the street running out on prairie one step before the corner. The street's own note says it
+stops at the United States Reservation. `docs/research/04-structures-south.md` (sections F and G)
+has State Street as the town's eastern edge on this side until February 1835, with the reservation
+and no platted street east of it. So the extent is the plat's, and only the last 22 m of alignment
+is this project's construction. The owner ruled for the carry on 2026-10-03.
+
+**Consequence:** the carried corridor took the footprint of `south_bank_shed_dearborn_e1`, the freight shed **L274** placed in the 22 m gap, so that shed is withdrawn, on the owner's choice of 2026-10-03. The ground is regraded under the new stretch the way it is under every opened street, so the 1835 terrain is rebaked with this change.
+
+**Which way it is wrong if it is wrong:** sideways by the street's own drawn uncertainty, not in
+length. If South Water bent before State, the corner moves by metres along State's line; the
+street does not stop short of it.
+
+**How to resolve:** a traced east end of South Water from Wright 1834 or the Thompson plat sheet
+would replace the carried bearing outright.
+
+**Related:** **L190** (street lines carried past their drawn ends) · **L108** (the reservation's
+boundary); the tickets **T-1637** (which left the gap open), **T-2012**.
+**Recorded:** 2026-10-03.
 
 ### L367 — Two physicians' offices stand for the census line the re-cut ordered, and the second physician was drawn for the office
 

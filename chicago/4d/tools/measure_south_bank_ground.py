@@ -949,20 +949,24 @@ def self_test() -> int:
             if in_a_track(e, n + 30.0, tracks):
                 problems.append("a point 30 m off the centreline is inside the track")
 
-    # 6. What already stands is found on this reach, and the shed the released ground
-    #    carries is one of them (T-1642). Without this the reading counts one building's
-    #    own footprint as free ground, once per lattice offset and bearing.
+    # 6. What already stands is found on this reach (T-1642). Without this the reading
+    #    counts a placed footprint as free ground, once per lattice offset and bearing.
+    #    Until T-2012 the footprint asserted here was the freight shed e1, on the strip
+    #    South Water Street's old end left; that shed was withdrawn when the street was
+    #    carried to State Street through it, and the drawbridge's south landing is what
+    #    now stands inside the box. The rectangle tests below use e2, the shed that
+    #    stands just south of the box, because they need a shed-sized ring.
     standing = standing_footprints(west, east)
     on_reach = [s["structure"] for s in standing
                 if min(n for _, n in s["ring"]) <= BOX_N_M
                 and max(n for _, n in s["ring"]) >= BOX_S_M]
-    if "south_bank_shed_dearborn_e1" not in on_reach:
-        problems.append("the freight shed standing on the released strip is not masked, "
+    if "dearborn_street_drawbridge" not in on_reach:
+        problems.append("the drawbridge's landing standing on this reach is not masked, "
                         "so its own footprint would be reported as free ground")
 
     # 7. The mask is not vacuous, and it refuses the right thing: a rectangle laid down
     #    ON a standing footprint is flagged, and the same rectangle 40 m north is not.
-    shed = [s for s in standing if s["structure"] == "south_bank_shed_dearborn_e1"]
+    shed = [s for s in standing if s["structure"] == "south_bank_shed_dearborn_e2"]
     if shed:
         ring = shed[0]["ring"]
         if not overlaps(ring, ring):
