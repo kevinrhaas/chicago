@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1343, ts: '2026-10-03T04:29:55.436Z', date: 'Oct 2, 2026, 11:29 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
+  { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Look Before You Buy a Lot. It is a four-stop land errand along South Water Street, about seven minutes on foot or four by wagon.',
       'Start at John Bates Jr.\u2019s new auction room on Dearborn, where fifty Marseilles town lots were cried in June, and say what that sale really sold.',
       'At the Democrat\u2019s old corner, follow one of two real land notices: E. K. Hubbard\u2019s town lots or J. W. Fell\u2019s land on the canal route.',
       'Take your bearings at Peck\u2019s corner, then look at the wet ground by the La Salle slough. Inquire about one lot, or hold your money: caution is a good ending.',
       'Finish to keep Read the Ground under News & Knowledge. The errand is our reconstruction (liberty L-jaunt-inspect-a-lot); no lot, owner or price is claimed.',
+    ] },
+  { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
+      'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
+      'At the Democrat\u2019s first corner, read the paper\u2019s list of letters nobody had called for. End at Hogan\u2019s, the former mail corner. The post office had moved a year earlier to an unplaced spot on South Water Street, so you leave with a plan for posting, not a receipt.',
+      'The keepsake is A Letter Ready to Send. The letter and the route are our reconstruction (liberty L-jaunt-letter-home).',
     ] },
   { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [
