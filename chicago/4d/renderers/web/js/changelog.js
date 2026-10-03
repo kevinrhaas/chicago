@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1390, ts: '2026-10-03T23:22:01.064Z', date: 'Oct 3, 2026, 6:22 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
+  { v: 1391, ts: '2026-10-03T23:41:06.651Z', date: 'Oct 3, 2026, 6:41 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'Every build now walks the path a visitor takes, on a phone and on a desktop: the year counting down to 1835, the welcome, Starting At…, a jaunt with its place card and source, a change of travel mode, the Jaunts menu and Resume, End, a second jaunt, and Explore on my own.',
       'It found nothing broken. End returns to the menu in under a millisecond, and the Sources count matches the published catalog.',
+    ] },
+  { v: 1390, ts: '2026-10-03T23:24:44.264Z', date: 'Oct 3, 2026, 6:24 PM CT', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'Open Jaunts and pick Look Before You Buy a Lot: it now recommends riding, and takes about three and a half minutes instead of seven on foot.',
+      'Shopping South Water Street now recommends a light wagon for the household list, and takes about four minutes instead of six and a half.',
+      'Fort Dearborn Errand now starts at the fort\'s south gate, where one stop tells you about the stockade and the guard-house together. It takes about five and a half minutes on foot.',
+      'You can still walk any of them. The ride, the wagon and the shorter fort errand are our reconstruction, noted in the liberties for each jaunt.',
     ] },
   { v: 1389, ts: '2026-10-03T23:03:35.041Z', date: 'Oct 3, 2026, 6:03 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
     items: [

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "fort-dearborn-errand",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Fort Dearborn Errand",
   "premise": "Carry a small supply request round the fort's everyday service buildings and out to its shop.",
   "category": "Fort Dearborn",
@@ -38,14 +38,19 @@
   },
   "stops": [
     {
-      "id": "stockade",
+      "id": "errand",
       "destination": {
-        "kind": "anchor",
-        "id": "fort_dearborn"
+        "kind": "structure",
+        "id": "fort_dearborn_guard_house"
       },
-      "text": "South-west of Fort Dearborn's stockade. Juliette Kinzie, who lived inside it in 1831, wrote of high pickets and large gates north and south. Troops had held the post since June 1832, so today it is a working garrison. The gates are shown shut.",
-      "read_s": 18,
+      "text": "The fort's south gate, held by troops since June 1832. Juliette Kinzie, living inside in 1831, wrote of high pickets and large gates north and south. Hubbard put the guard-house and store-house either side of this gate in 1827 without saying which; this model puts the guard-house west. State your errand.",
+      "read_s": 22,
       "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_guard_house",
+          "label": "About this place"
+        },
         {
           "kind": "structure",
           "id": "fort_dearborn_palisade",
@@ -55,33 +60,12 @@
       "evidence": [
         "pickets-gates",
         "garrisoned",
-        "errand"
-      ],
-      "next": "errand",
-      "narrative": "Find the south gate and the buildings beside it."
-    },
-    {
-      "id": "errand",
-      "destination": {
-        "kind": "structure",
-        "id": "fort_dearborn_guard_house"
-      },
-      "text": "In 1827 Hubbard put the guard-house and store-house either side of the south gate, without saying which was which; this model puts the guard-house west. State your errand here. Nobody answers: no reply is invented.",
-      "read_s": 16,
-      "links": [
-        {
-          "kind": "structure",
-          "id": "fort_dearborn_guard_house",
-          "label": "About this place"
-        }
-      ],
-      "evidence": [
         "hubbard-plan",
         "which-side",
         "errand"
       ],
       "next": "supply",
-      "narrative": "State the errand and go on to the sutler's."
+      "narrative": "Nobody replies; go on to the sutler's."
     },
     {
       "id": "supply",
@@ -380,18 +364,6 @@
     "L-jaunt-fort-dearborn-errand"
   ],
   "legs": [
-    {
-      "from": "stockade",
-      "to": "errand",
-      "note": "North-east along the outside of the south wall to the south gate.",
-      "evidence": [
-        "pickets-gates"
-      ],
-      "story": "The note is in your pocket. Say what you have come for.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
     {
       "from": "errand",
       "to": "supply",
