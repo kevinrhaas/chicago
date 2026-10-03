@@ -100,3 +100,20 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-keepsake-card { border: 1px solid currentColor; border-radius: 10px; text-align: center; }
 .jaunt-award { margin: 8px 0; }
 [data-action="daybook-reset"] { margin-top: 12px; }
+.jaunt-filters { display: grid; gap: 8px; margin: 12px 0; }
+.jaunt-filters input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px;
+  padding: 10px; font: inherit; font-size: 16px; border: 1px solid var(--edge); border-radius: 8px;
+  color: var(--ink); background: var(--panel-solid); }
+.jaunt-categories { display: flex; flex-wrap: wrap; gap: 6px; }
+.jaunt-categories [aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.jaunt-featured { border-left: 2px solid var(--brass); padding-left: 10px; }
+.jaunt-featured[hidden], .jaunt-window-nav [hidden] { display: none; }
+.jaunt-window-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.jaunt-card button { margin: 4px 4px 0 0; }
+.jaunt-card select { width: 100%; }
+.gate.welcome-compact[data-region="jaunts"] .gate-eyebrow,
+.gate.welcome-compact[data-region="jaunts"] h1,
+.gate.welcome-compact[data-region="jaunts"] .welcome-actions { display: none; }
+.gate.welcome-compact[data-region="jaunts"] .welcome-region { margin-top: 0; }
+/* First entry must not shrink the menu on return and hide its restored focus. */
+.gate[data-region="jaunts"] #welcome-close[hidden] { display: block; visibility: hidden; }

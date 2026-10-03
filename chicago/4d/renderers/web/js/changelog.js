@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1361, ts: '2026-10-03T12:09:06.934Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+    items: [
+      'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
+      'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
+      'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
+    ] },
   { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
       'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',

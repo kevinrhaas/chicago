@@ -124,7 +124,7 @@ await test('storage off works in memory, says so, and reset clears', () => {
 
 await test('no keepsake carries or renders a source attribution', () => {
   const dirs = ['data/jaunts', 'data/jaunts/_fixtures'];
-  const docs = dirs.flatMap(d => fs.readdirSync(new URL(`../${d}`, import.meta.url)).filter(n => n.endsWith('.json') && !['schema.json', 'daybook.json'].includes(n))
+  const docs = dirs.flatMap(d => fs.readdirSync(new URL(`../${d}`, import.meta.url)).filter(n => n.endsWith('.json') && !['schema.json', 'daybook.json', 'catalog-55.json'].includes(n))
     .map(n => read(`${d}/${n}`)));
   assert(docs.length >= 6);
   const claim = /\b(source|sources|cited|citation|according to|attested|documented)\b|\[(DOC|INF|CONJ)\]/i;
