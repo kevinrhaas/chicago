@@ -576,6 +576,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Do not stage the August removal, an 1812 encounter or invented Indigenous presence. Route and terrain limitations remain visible; measure the long leg.
 
+**Route note (published, T-2033):** The shipped order is the brief's: shore viewpoint → stockade → Peck's → Sauganash, about 2.28 km in straight lines (→ stockade 1,218 m, → Peck's 726 m, → Sauganash 333 m). The first stop is the scene anchor and says it is a viewpoint, not a place; what it says of the ground is cited (Wright 1834's Fractional Section 15, no land-office entry before 31 May 1836, platted 13 June 1836). **The long leg, measured as the brief asks:** on the published mirror the shore → stockade leg takes 300 s at Horse and 58 s at Fly at both 390×780 and 1280×800. The whole primary path measures 560 s at Horse against the card's "about 10 min", and 231 s at Fly against "about 4 min". **Horse is three and a half minutes over the 4–6 min band, and that is kept on purpose:** the length is the subject — the town begins three-quarters of a mile from where the outing starts — and Fly and Instantly stay offered at every stop. The tents passed on the reservation are the model's conjecture and the leg note says so (L355, L358). Nothing of 1812 is staged (L-jaunt-from-prairie-to-town).
+
 ## 25. An Evening Stroll
 
 **ID:** `an-evening-stroll` · **Owner ticket:** [T-1270](../tickets/T-1270-publish-harbor-prairie-arrival-and-a-quiet-strol.md)

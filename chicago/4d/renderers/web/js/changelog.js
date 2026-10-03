@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1371, ts: '2026-10-03T16:39:42.309Z', date: 'Oct 3, 2026, 11:39 AM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick From Prairie to Town. You arrive from open ground by the lake south of the fort and ride into town. It takes about ten minutes on horseback, or four if you fly.',
+      'Ride north past Fort Dearborn\u2019s stockade and west along the river to Peck\u2019s store. Finish at the door of the Sauganash.',
+      'The traveller, the ride and the keepsake, Into Town, are our reconstruction (liberty L-jaunt-from-prairie-to-town). The first stop is a viewpoint, not a named place, and nothing of 1812 is staged on that shore.',
+    ] },
   { v: 1370, ts: '2026-10-03T15:42:04.279Z', date: 'Oct 3, 2026, 10:42 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
