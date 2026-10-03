@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2048 — Whistler's 1808 draught of the first fort, read into a register (2026-10-03)
 
 **What a visitor sees: nothing.** This is piece 1 of 3 of T-0469 (the first Fort Dearborn as it
@@ -31,7 +30,7 @@ from it and T-2050 seats it in the 1812 scene, which does not exist yet.
   No guard house, wicket gate or stores 14 and 15: their numerals are not legible.
 - **Gated.** `tools/read_whistler_1808.py --check` in `check.sh`. It holds the scale's arithmetic,
   every foot against its pixel box, the 34-number index, and the cross-checks the file says hold.
-=======
+
 ## T-1743 — Col. Beaubien's homestead is one house and two outbuildings, off the fort road (2026-10-03)
 
 **Owner-reported**, so the visible-progress rule's first exemption would apply; it is visible anyway.
@@ -55,7 +54,6 @@ b on the ticket) for one dwelling and two outbuildings.
 - **Not done here:** the trading post's and barn's meshes need the pinned-Blender bake, which this
   container cannot run; the bake is dispatched on the branch. The garden Wentworth names is still
   unbuilt.
->>>>>>> origin/dev
 
 ## T-2003 — the 1812 ground generated: mouth, heightfield, ground and water meshes (2026-10-03)
 
