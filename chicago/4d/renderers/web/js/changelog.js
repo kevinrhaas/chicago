@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1376, ts: '2026-10-03T18:26:01.491Z', date: 'Oct 3, 2026, 1:26 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed.',
+      'Fences, plank walks, docks, signs, boats, yard goods, wells, plants and streets are drawn by the web page from our records. They are not part of the baked buildings, and now they never will be: each will be exported by the same code that draws it.',
+      'Each export is stamped with the ground it was laid on, so a moved shoreline or street rebuilds it rather than leaving it floating.',
+      'People and animals stay on their cards. No figure of anyone is exported.',
+    ] },
   { v: 1375, ts: '2026-10-03T17:42:34.011Z', date: 'Oct 3, 2026, 12:42 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
     items: [
       'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
