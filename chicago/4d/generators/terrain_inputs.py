@@ -165,6 +165,16 @@ CONSUMED = {
     "lake_shelf": frozenset({"bed_ft", "e_fold_m"}),
     "original_surface": frozenset(),
     "surface_texture": frozenset({"amplitude_ft", "wavelengths_m", "seed"}),
+    # The 1812 ground, read by generators/terrain_gen_e1830.py (T-2003). Its carried
+    # blocks are the 1834 ones above and are read by terrain_gen.build_field as such.
+    "lake_stage_1812": frozenset(),
+    "water_bodies_1812": frozenset({"carried"}),
+    "outlet_channel_1812": frozenset({"anchor_e", "anchor_n", "bed_ft", "e_fold_m"}),
+    "channel_west_bank_ruling": frozenset({"bank_run", "verdict", "ground_confidence",
+                                           "band_n_m", "west_band_m"}),
+    "spit_1812": frozenset({"feature", "crest_ft", "face_m"}),
+    "isthmus_1812": frozenset({"decision", "feature", "width_ft", "crest_ft", "face_m"}),
+    "north_lake_shore_1812": frozenset(),
 }
 
 
@@ -214,6 +224,10 @@ CONSUMED = {
 # why re-declaring a figure `restated_in_code` is free and adding a `restates:`
 # beside it would not have been.
 RESTATES = {
+    "lake_stage_1812": {
+        # The 1812 generator writes the water at the same literal zero (T-2003).
+        "surface_ft": ("artifact", "heightfield.json:water_surface_m", 0.3048),
+    },
     "lake_surface": {
         # The graded generator writes the water plane at a literal zero, as the 1835
         # one does, and heightfield.json records it.
@@ -282,6 +296,17 @@ def _sha_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
+def _sha_function(p: Path, name: str) -> str:
+    """The bytes of one top-level function's source, read from the syntax tree."""
+    import ast  # noqa: PLC0415
+    src = p.read_text()
+    for node in ast.parse(src).body:
+        if isinstance(node, ast.FunctionDef) and node.name == name:
+            return hashlib.sha256(ast.get_source_segment(src, node).encode()).hexdigest()
+    raise TerrainInputsError(f"{p.relative_to(ROOT)} no longer defines {name}(), which the "
+                             f"ground is built through")
+
+
 # THE GRADED GROUND (T-1738). An epoch built from a zone table of street crowns
 # and one traced waterline, by `generators/terrain_gen_graded.py`, rather than out
 # of a natural waterline and three river-defined divisions. It hashes the one
@@ -292,6 +317,30 @@ GRADED_EPOCHS = {
     "e1871_postfire": {"generator": "terrain_gen_graded.py", "vectors": ("shoreline.geojson",)},
 }
 VECTORS_1835 = ("river.geojson", "hydrology.geojson", "shoreline.geojson", "branches.geojson")
+
+# THE OVERLAY GROUND (T-2003). An epoch whose spec is an overlay on another's zone
+# table (e1830_natural on e1834_harbor_cut, T-2002) is built by its own generator out of
+# THREE things, and every one of them is hashed: its own spec and vectors (the 1812
+# shoreline and the river.geojson the generator writes and then reads), the BASE epoch's
+# spec and every vector file the base field loads (`resolve()` carries 1834 blocks and
+# the field reads 1834 polygons and runs), and the two files outside `generators/` the
+# overlay reads (`resolve()` itself, and the mouth readings that fix the chord). Change
+# any of them and the 1812 ground is stale. Adding this changes no committed hash: the
+# 1835 and 1904 documents are built exactly as before.
+OVERLAY_EPOCHS = {
+    "e1830_natural": {
+        "generator": "terrain_gen_e1830.py",
+        "vectors": ("shoreline.geojson", "river.geojson"),
+        "base": "e1834_harbor_cut",
+        "base_vectors": ("river.geojson", "hydrology.geojson", "shoreline.geojson",
+                         "branches.geojson", "south_branch_below_twelfth.geojson",
+                         "lake_shore_below_twelfth.geojson"),
+        # Not the whole gate module: only the functions the generator runs. The rest of it
+        # is refusals and their messages, and rewording one must not cost a Blender bake.
+        "code_outside": {"tools/check_terrain_e1830.py": ("resolve", "item_id")},
+        "data_outside": ("data/terrain/1812_mouth_readings.json",),
+    },
+}
 
 
 def _code_shas(extra: tuple[str, ...] = ()) -> dict[str, str]:
@@ -331,7 +380,7 @@ def street_section_inputs(ep_dir: Path):
             for s in doc.get("streets", [])]
 
 
-def terrain_inputs_doc(ep_dir: Path) -> dict:
+def terrain_inputs_doc(ep_dir: Path, epoch: str | None = None) -> dict:
     """Everything the hash is taken over, as a readable document.
 
     Exposed separately from the hash for the reason `structure_inputs_doc` is: a
@@ -340,6 +389,25 @@ def terrain_inputs_doc(ep_dir: Path) -> dict:
     these.
     """
     ep_dir = Path(ep_dir)
+    overlay = OVERLAY_EPOCHS.get(epoch or ep_dir.name)
+    if overlay:
+        base_dir = ROOT / "data" / "terrain" / "epochs" / overlay["base"]
+        return {
+            "scheme": SCHEME,
+            "epoch": epoch or ep_dir.name,
+            "spec": strip_prose(_load(ep_dir / "terrain_spec.json")),
+            "vectors": {name: strip_prose(_load(ep_dir / name)) for name in overlay["vectors"]},
+            "base": overlay["base"],
+            "base_spec": strip_prose(_load(base_dir / "terrain_spec.json")),
+            "base_vectors": {name: strip_prose(_load(base_dir / name))
+                             for name in overlay["base_vectors"]},
+            "data_outside": {name: strip_prose(_load(ROOT / name)) for name in overlay["data_outside"]},
+            "datum": strip_prose(_load(ROOT / "data" / "datum.json")),
+            "code": _code_shas((overlay["generator"],)),
+            "code_outside": {f"{name}:{fn}": _sha_function(ROOT / name, fn)
+                             for name, fns in overlay["code_outside"].items() for fn in fns},
+            "blender_pin": (ROOT / "generators" / "blender.pin").read_text().strip(),
+        }
     graded = GRADED_EPOCHS.get(ep_dir.name)
     vectors = graded["vectors"] if graded else VECTORS_1835
     doc = {
@@ -362,7 +430,7 @@ def terrain_inputs_doc(ep_dir: Path) -> dict:
     return doc
 
 
-def terrain_inputs_sha(ep_dir: Path) -> str:
+def terrain_inputs_sha(ep_dir: Path, epoch: str | None = None) -> str:
     """The input hash for one epoch's ground and water GLBs.
 
     One definition, two callers: the bake writes it into `assets/manifest.json`
@@ -401,7 +469,7 @@ def terrain_inputs_sha(ep_dir: Path) -> str:
     or not today's spec happens to name a feature in it — the alternative is this
     exact failure, waiting on the next id the spec learns to resolve.
     """
-    doc = terrain_inputs_doc(ep_dir)
+    doc = terrain_inputs_doc(ep_dir, epoch)
     return hashlib.sha256(json.dumps(doc, sort_keys=True).encode()).hexdigest()
 
 
