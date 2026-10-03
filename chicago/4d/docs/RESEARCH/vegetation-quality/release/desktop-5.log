@@ -1,0 +1,44 @@
+serving /workspace/scratch/728bcee376d6/chicago/site/4d on 4291 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "desktop"
+
+NOT THE FULL GATE — stages filtered to "5" of 13
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: scene detail 'full' stays inside its own ceiling at the WORST stand
+  pass  desktop 1280x800: scene detail 'balanced' stays inside its own ceiling at the WORST stand
+  pass  desktop 1280x800: scene detail 'light' stays inside its own ceiling at the WORST stand
+  pass  desktop 1280x800: draw calls under budget at the town's WORST frame
+  pass  desktop 1280x800: turning scene detail down actually draws less, at every stand
+  pass  desktop 1280x800: the light tier draws inside its 90-call floor at the worst stand
+  pass  desktop 1280x800: the light tier stays materially cheaper than full at the worst stand
+  pass  desktop 1280x800: the road is laid on the ridge at full and balanced and not at light
+  pass  desktop 1280x800: the level the visitor started on is restored
+  pass  desktop 1280x800: the light tier draws no furniture into the shadow map, and only the ground-hugging timber is exempt above it
+  pass  desktop 1280x800: the furniture reach is a ladder — full holds nothing back, and each rung below reaches less far
+  pass  desktop 1280x800: the far merge gives back draw calls down the axial street and moves no triangle doing it
+  pass  desktop 1280x800: the light tier holds furniture back down the axial street
+  pass  desktop 1280x800: the furniture reach is what makes the light tier cheaper down that street
+  pass  desktop 1280x800: the balanced tier holds furniture back down the axial street
+  pass  desktop 1280x800: the furniture reach is what makes the balanced tier cheaper down that street
+  pass  desktop 1280x800: the light tier's shorter shadow reach costs no texel
+        detail  full 1717245/2475000 (169 calls, ±240 m, 197/309 furniture casting)  ·  balanced 1422411/1880000 (169 calls, ±240 m, 197/309 furniture casting)  ·  light 692009/910000 (69 calls, ±120 m, 0/309 furniture casting)
+        full      worst   2,431,572 tris of 2,475,000 at West prairie, east across the sward toward town  ·  worst  279 calls at West prairie, east across the sward toward town
+        balanced  worst   1,871,378 tris of 1,880,000 at West prairie, east across the sward toward town  ·  worst  245 calls at West prairie, east across the sward toward town
+        light     worst     895,323 tris of 910,000 at West prairie, east across the sward toward town  ·  worst   74 calls at Lake and Market, the corner itself
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+27 passed, 0 failed
+17 staged-section check(s) (stage 5 of 13), 10 always-on check(s)
+11 m 31 s for stage 5 at desktop — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

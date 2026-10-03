@@ -160,10 +160,11 @@ STREET_LINE_M = constant("street_line_m")
 
 # How far back a footprint may stand and still be FRONTING the corridor it is nearest.
 # The same method as STREET_LINE_M, one band further out: the empty gap in the town's own
-# distribution of nearest-corridor distances, at its midpoint. Below 60.79 m that
-# distribution is CONTINUOUS — 373 buildings, no gap wider than 2.91 m — and the next
-# building anywhere stands 74.65 m back, a band of 13.86 m with nothing in it. Run
-# --setbacks to re-derive both numbers.
+# distribution of nearest-corridor distances, at its midpoint. Below 66.06 m that
+# distribution is CONTINUOUS — 499 buildings, no gap wider than 4.18 m — and the next
+# building anywhere stands 85.10 m back, a band of 19.04 m with nothing in it (60.79 m
+# and 74.65 m until T-1414 put the West Division's tiers and Wabansia into the corridor
+# layer). Run --setbacks to re-derive both numbers.
 #
 # Beyond this there is no frontage to report. Before T-1511 there was no bound at all and
 # the reservation's roofs, 270-420 m from Lake Street across ground that holds no street,
@@ -760,7 +761,11 @@ def _synthetic(material: str) -> list[dict]:
     """
     lanes = corridors()
     points = lanes["south_water"]["points"]
-    (ax, ay), (bx, by) = points[len(points) // 2], points[len(points) // 2 + 1]
+    # The first leg of the straight run east of Franklin (100 m or longer), where both
+    # buildings stand clear of any cross street. This was the middle leg until T-2012
+    # added a vertex at State Street and moved the middle one block east, onto Wells.
+    (ax, ay), (bx, by) = next((a, b) for a, b in zip(points, points[1:])
+                              if math.dist(a, b) >= 100.0)
     length = math.dist((ax, ay), (bx, by))
     along = ((bx - ax) / length, (by - ay) / length)
     normal = (-along[1], along[0])
@@ -905,9 +910,15 @@ def self_test() -> int:
     # reported here rather than dropped.
     # 43 -> 44 on 2026-10-02 (T-1979): `emigrant_camp_shore`, the emigrants' tents moved off
     # the South Water wharves to the same reservation shore, which carried no street either.
+    # 44 -> 37 on 2026-10-03 (T-1414): the West Division's tiers and Wabansia entered the
+    # corridor layer, as the T-1785 note above said they would. `wabansia_doctors_house` and
+    # `wabansia_doctors_barn` now front `kinzie_west`, and five West Division roofs on the
+    # ground beyond Jefferson now front a street inside the re-stated FRONTAGE_REACH_M:
+    # recon_1835_west_039, _048, _050 and _052 Des Plaines, recon_1835_west_038 Fulton.
+    # Nobody joined.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 44 and all(
+                   "leaving it out", len(absent) == 37 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))

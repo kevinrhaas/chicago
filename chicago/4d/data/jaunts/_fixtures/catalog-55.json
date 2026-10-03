@@ -1,0 +1,3911 @@
+{
+  "jaunts": [
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-00",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 00 \u2014 A tavern visit",
+      "featured": true
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-01",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 01 \u2014 Around the town",
+      "featured": true
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-02",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 02 \u2014 Around the town",
+      "featured": true
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-03",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 03 \u2014 Around the town",
+      "featured": true
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-04",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 04 \u2014 Around the town",
+      "featured": true
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-05",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 05 \u2014 A tavern visit",
+      "featured": true
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-06",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 06 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-07",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 07 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-08",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 08 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-09",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 09 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-10",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 10 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-11",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 11 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-12",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 12 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-13",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 13 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-14",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 14 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-15",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 15 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-16",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 16 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-17",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 17 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-18",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 18 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-19",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 19 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-20",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 20 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-21",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 21 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-22",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 22 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-23",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 23 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-24",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 24 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-25",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 25 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-26",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 26 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-27",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 27 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-28",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 28 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-29",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 29 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-30",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 30 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-31",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 31 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-32",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 32 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-33",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 33 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-34",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 34 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-35",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 35 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-36",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 36 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-37",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 37 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-38",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 38 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-39",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 39 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-40",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 40 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-41",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 41 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-42",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 42 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-43",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 43 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-44",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 44 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-45",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 45 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-46",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 46 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-47",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 47 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-48",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 48 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-49",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 49 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Taverns",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-50",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 50 \u2014 A tavern visit",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Orientation",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-51",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 51 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "River and routes",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-52",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 52 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "available",
+      "category": "Shopping",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-53",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": null,
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 53 \u2014 Around the town",
+      "featured": false
+    },
+    {
+      "allowed_modes": [
+        "walk",
+        "wagon",
+        "horse",
+        "fly",
+        "instantly"
+      ],
+      "availability": "unavailable",
+      "category": "Work",
+      "content_version": 3,
+      "default_mode": "horse",
+      "destinations": [
+        {
+          "id": "sauganash_hotel",
+          "kind": "structure"
+        },
+        {
+          "id": "hogan_store",
+          "kind": "structure"
+        },
+        {
+          "id": "peck_store",
+          "kind": "structure"
+        },
+        {
+          "id": "chicago_democrat_office",
+          "kind": "structure"
+        },
+        {
+          "id": "brown_boarding_house",
+          "kind": "structure"
+        }
+      ],
+      "id": "fixture-menu-54",
+      "premise": "A sample outing for browsing and travel estimates.",
+      "primary_family": "Wayfinding",
+      "reason": "Consultation required.",
+      "secondary_family": null,
+      "stop_count": 5,
+      "timing": {
+        "endings_read_s": [
+          12
+        ],
+        "opening_read_s": 15,
+        "stops": [
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          },
+          {
+            "action_s": 0,
+            "read_s": 22
+          }
+        ]
+      },
+      "title": "Outing 54 \u2014 Around the town",
+      "featured": false
+    }
+  ],
+  "scene": "1835",
+  "schema_version": 1
+}

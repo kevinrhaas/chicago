@@ -3,36 +3,34 @@
   "readings": [
     {
       "viewport": "desktop",
-      "stage": "7-13",
+      "stage": "5",
       "parts": [
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13
+        5
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 290,
+      "passed": 27,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 2956,
-      "takenAt": "2026-10-01T22:28:09Z",
-      "ref": "steward/t-1830-glessner-west-wing-alcove",
-      "commit": "a8fac67bf785a0849133c117ae245db1681cb959",
-      "devCommit": "6b3ef7a79bda6114507bf7987d3b8ceb072e056e",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
+      "wallSeconds": 691,
+      "takenAt": "2026-10-03T12:28:12.692Z",
+      "ref": "steward/photographic-flora",
+      "commit": "000b693e6c20",
+      "devCommit": "39132f0e7e6b",
+      "treeHash": "sha256:4ddd7cfb7f4fc211",
+      "treeDirty": true,
+      "changelogHash": "sha256:88e7e56984e63ca0",
       "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          8.8,
+          8.6,
+          5.3
+        ]
       },
-      "source": "gh-run:36935238477 https://github.com/kevinrhaas/chicago/actions/runs/36935238477"
+      "source": "/tmp/t2015-latest-desktop-5.log"
     },
     {
       "viewport": "mobile",
@@ -87,6 +85,39 @@
         "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
       },
       "source": "gh-run:36938812739 https://github.com/kevinrhaas/chicago/actions/runs/36938812739"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7-13",
+      "parts": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 290,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 2956,
+      "takenAt": "2026-10-01T22:28:09Z",
+      "ref": "steward/t-1830-glessner-west-wing-alcove",
+      "commit": "a8fac67bf785a0849133c117ae245db1681cb959",
+      "devCommit": "6b3ef7a79bda6114507bf7987d3b8ceb072e056e",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
+      },
+      "source": "gh-run:36935238477 https://github.com/kevinrhaas/chicago/actions/runs/36935238477"
     },
     {
       "viewport": "desktop",
@@ -187,6 +218,37 @@
     },
     {
       "viewport": "desktop",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 500,
+      "takenAt": "2026-10-01T21:23:18.665Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "4f0416f294ec",
+      "devCommit": "1376b55eb952",
+      "treeHash": "sha256:646fb735706b618b",
+      "treeDirty": false,
+      "changelogHash": "sha256:f31c56477dc79b4e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke-d7b.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "5,10-11",
       "parts": [
         5,
@@ -240,6 +302,37 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable after the execution workspace restarted."
       },
       "source": "gh-run:36904172019 https://github.com/kevinrhaas/chicago/actions/runs/36904172019"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 455,
+      "takenAt": "2026-10-01T17:36:52.799Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "86eabdcdcda7",
+      "devCommit": "21acac92f184",
+      "treeHash": "sha256:d40ad49c21dc8116",
+      "treeDirty": false,
+      "changelogHash": "sha256:23aa70e2efbb60f3",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.4,
+          4.4
+        ]
+      },
+      "source": "/tmp/t1811/smoke-d7b.log"
     },
     {
       "viewport": "mobile",
@@ -298,6 +391,37 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36899248098 https://github.com/kevinrhaas/chicago/actions/runs/36899248098"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 18,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 218,
+      "takenAt": "2026-10-01T17:03:35.705Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.2,
+          4.2
+        ]
+      },
+      "source": "/tmp/t1811/smoke-m8.log"
     },
     {
       "viewport": "desktop",
@@ -418,6 +542,37 @@
     },
     {
       "viewport": "mobile",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 291,
+      "takenAt": "2026-10-01T16:59:56.852Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.3,
+          4.2
+        ]
+      },
+      "source": "/tmp/t1811/smoke-m7.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "5",
       "parts": [
         5
@@ -499,6 +654,68 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36895681173 https://github.com/kevinrhaas/chicago/actions/runs/36895681173"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 18,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 352,
+      "takenAt": "2026-10-01T16:55:01.900Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1811/smoke-d8.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 454,
+      "takenAt": "2026-10-01T16:42:50.945Z",
+      "ref": "steward/t1811-worked-roadway-surface",
+      "commit": "806cf765670f",
+      "devCommit": "f9aacb4d77e8",
+      "treeHash": "sha256:45782dfe73715536",
+      "treeDirty": true,
+      "changelogHash": "sha256:697317fa947af335",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.4,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1811/smoke-d7.log"
     },
     {
       "viewport": "mobile",
@@ -1695,6 +1912,70 @@
       "source": "/tmp/smoke_m1.log"
     },
     {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 441,
+      "takenAt": "2026-10-03T04:12:34.146Z",
+      "ref": "steward/t-1259-jaunts-menu-recovered",
+      "commit": "cae2d6c233b99",
+      "devCommit": "604daa63711d",
+      "treeHash": null,
+      "treeDirty": true,
+      "changelogHash": null,
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          3.4,
+          1.8,
+          0.8
+        ]
+      },
+      "source": "T-1259 validation receipts: docs/performance/jaunt-menu/validation.json",
+      "note": "Filed retrospectively after dev integration. Smoke ran before cae2d6c was committed, against dev 604daa6; exact original smoke fingerprint was not recorded, so these readings cannot establish a match to the current tree. Host load was sampled when filed."
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 631,
+      "takenAt": "2026-10-03T04:12:10.960Z",
+      "ref": "steward/t-1259-jaunts-menu-recovered",
+      "commit": "cae2d6c233b99",
+      "devCommit": "604daa63711d",
+      "treeHash": null,
+      "treeDirty": true,
+      "changelogHash": null,
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          2.9,
+          1.6,
+          0.7
+        ]
+      },
+      "source": "T-1259 validation receipts: docs/performance/jaunt-menu/validation.json",
+      "note": "Filed retrospectively after dev integration. Smoke ran before cae2d6c was committed, against dev 604daa6; exact original smoke fingerprint was not recorded, so these readings cannot establish a match to the current tree. Host load was sampled when filed."
+    },
+    {
       "viewport": "desktop",
       "stage": "1",
       "parts": [
@@ -1912,190 +2193,139 @@
       "source": "/tmp/smoke-desktop-1.log"
     },
     {
-      "viewport": "desktop",
-      "stage": "7",
+      "viewport": "mobile",
+      "stage": "9-11",
       "parts": [
-        7
+        9,
+        10,
+        11
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 33,
+      "passed": 60,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 500,
-      "takenAt": "2026-10-01T21:23:18.665Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "4f0416f294ec",
-      "devCommit": "1376b55eb952",
-      "treeHash": "sha256:646fb735706b618b",
-      "treeDirty": false,
-      "changelogHash": "sha256:f31c56477dc79b4e",
+      "wallSeconds": 528,
+      "takenAt": "2026-10-03T13:16:28.229Z",
+      "ref": "steward/photographic-flora",
+      "commit": "04ddd3939cb3",
+      "devCommit": "39132f0e7e6b",
+      "treeHash": "sha256:4ddd7cfb7f4fc211",
+      "treeDirty": true,
+      "changelogHash": "sha256:88e7e56984e63ca0",
       "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
         "loadavg": [
-          4.2,
-          4.2,
-          4.1
+          5.1,
+          6.3,
+          6.3
         ]
       },
-      "source": "/tmp/smoke-d7b.log"
+      "source": "docs/RESEARCH/vegetation-quality/release/mobile-9-11.log"
     },
     {
       "viewport": "desktop",
-      "stage": "7",
+      "stage": "11",
       "parts": [
-        7
+        11
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 33,
+      "passed": 23,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 455,
-      "takenAt": "2026-10-01T17:36:52.799Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "86eabdcdcda7",
-      "devCommit": "21acac92f184",
-      "treeHash": "sha256:d40ad49c21dc8116",
-      "treeDirty": false,
-      "changelogHash": "sha256:23aa70e2efbb60f3",
+      "wallSeconds": 395,
+      "takenAt": "2026-10-03T13:07:20.173Z",
+      "ref": "steward/photographic-flora",
+      "commit": "04ddd3939cb3",
+      "devCommit": "39132f0e7e6b",
+      "treeHash": "sha256:4ddd7cfb7f4fc211",
+      "treeDirty": true,
+      "changelogHash": "sha256:88e7e56984e63ca0",
       "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
         "loadavg": [
-          4.1,
-          4.4,
-          4.4
+          3.5,
+          5.6,
+          6.1
         ]
       },
-      "source": "/tmp/t1811/smoke-d7b.log"
+      "source": "/tmp/t2015-latest-desktop-11.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "9-11",
+      "parts": [
+        9,
+        10,
+        11
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 57,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — TimeoutError: page.click: Timeout 90000ms exceeded."
+      ],
+      "wallSeconds": 1277,
+      "takenAt": "2026-10-03T13:00:02.255Z",
+      "ref": "steward/photographic-flora",
+      "commit": "04ddd3939cb3",
+      "devCommit": "39132f0e7e6b",
+      "treeHash": "sha256:4ddd7cfb7f4fc211",
+      "treeDirty": true,
+      "changelogHash": "sha256:88e7e56984e63ca0",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          0.7,
+          4.5,
+          5.9
+        ],
+        "frameCostMs": [
+          67,
+          3363,
+          3564
+        ]
+      },
+      "source": "/tmp/t2015-latest-desktop-9-11.log"
     },
     {
       "viewport": "mobile",
-      "stage": "8",
+      "stage": "5",
       "parts": [
-        8
+        5
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 18,
+      "passed": 27,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 218,
-      "takenAt": "2026-10-01T17:03:35.705Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "806cf765670f",
-      "devCommit": "f9aacb4d77e8",
-      "treeHash": "sha256:45782dfe73715536",
-      "treeDirty": true,
-      "changelogHash": "sha256:697317fa947af335",
+      "wallSeconds": 467,
+      "takenAt": "2026-10-03T12:36:30.934Z",
+      "ref": "steward/photographic-flora",
+      "commit": "04ddd3939cb3",
+      "devCommit": "39132f0e7e6b",
+      "treeHash": "sha256:4ddd7cfb7f4fc211",
+      "treeDirty": false,
+      "changelogHash": "sha256:88e7e56984e63ca0",
       "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
         "loadavg": [
-          4,
-          4.2,
-          4.2
+          2.8,
+          6.8,
+          6.1
         ]
       },
-      "source": "/tmp/t1811/smoke-m8.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 291,
-      "takenAt": "2026-10-01T16:59:56.852Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "806cf765670f",
-      "devCommit": "f9aacb4d77e8",
-      "treeHash": "sha256:45782dfe73715536",
-      "treeDirty": true,
-      "changelogHash": "sha256:697317fa947af335",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.9,
-          4.3,
-          4.2
-        ]
-      },
-      "source": "/tmp/t1811/smoke-m7.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 18,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 352,
-      "takenAt": "2026-10-01T16:55:01.900Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "806cf765670f",
-      "devCommit": "f9aacb4d77e8",
-      "treeHash": "sha256:45782dfe73715536",
-      "treeDirty": true,
-      "changelogHash": "sha256:697317fa947af335",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.2,
-          4.2,
-          4.1
-        ]
-      },
-      "source": "/tmp/t1811/smoke-d8.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 454,
-      "takenAt": "2026-10-01T16:42:50.945Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "806cf765670f",
-      "devCommit": "f9aacb4d77e8",
-      "treeHash": "sha256:45782dfe73715536",
-      "treeDirty": true,
-      "changelogHash": "sha256:697317fa947af335",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.4,
-          4.3,
-          4.1
-        ]
-      },
-      "source": "/tmp/t1811/smoke-d7.log"
+      "source": "/tmp/t2015-latest-mobile-5.log"
     }
   ]
 }

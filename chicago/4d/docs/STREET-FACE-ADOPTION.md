@@ -292,8 +292,11 @@ That is refusal 4 doing its job, and **T-0375** is where more Dearborn frontage 
    It reaches **five** surname groups in the register today — Curtiss, Kinzie, Montgomery,
    Mulford and Taylor — and every other surname is still keyed on the surname alone. And
    two headings of the **same** trade inside a ruled group still collide and one is still
-   refused: whether the three surplus Montgomery auction headings are one house is the
-   gazetteer's question, and this pass still does not answer it.
+   refused: whether two such headings are one house is the gazetteer's question, and
+   this pass still does not answer it. The gazetteer has since answered it for the case
+   this was written on: the three surplus Montgomery auction headings were merged into
+   'W. Montgomery' in `identity.json` (T-0386), so the auctioneer is one house and takes
+   one roof under his own board.
 4. **`every roof on the face is spoken for`** — the supply ran out. This is a count, not a
    failure, and it is the number this policy exists to produce.
 5. **the roof is a household's dwelling — under EITHER layer** — a refusal of a ROOF

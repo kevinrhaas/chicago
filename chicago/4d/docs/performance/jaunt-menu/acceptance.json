@@ -1,0 +1,72 @@
+[
+  {
+    "viewport": {
+      "width": 390,
+      "height": 780
+    },
+    "bootJauntRequests": 0,
+    "maxCards": 26,
+    "beforeScroll": 4434,
+    "returned": {
+      "scroll": 4434,
+      "focus": "<button class=\"welcome-link\" type=\"button\" data-action=\"start\">Start Jaunt</button>",
+      "rect": {
+        "x": 44,
+        "y": 561.0625,
+        "width": 105.921875,
+        "height": 44,
+        "top": 561.0625,
+        "right": 149.921875,
+        "bottom": 605.0625,
+        "left": 44
+      },
+      "region": {
+        "x": 31,
+        "y": 240.75,
+        "width": 328,
+        "height": 364.75,
+        "top": 240.75,
+        "right": 359,
+        "bottom": 605.5,
+        "left": 31
+      },
+      "card": "fixture-menu-25"
+    },
+    "pageErrors": []
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "bootJauntRequests": 0,
+    "maxCards": 26,
+    "beforeScroll": 4246,
+    "returned": {
+      "scroll": 4246,
+      "focus": "<button class=\"welcome-link\" type=\"button\" data-action=\"start\">Start Jaunt</button>",
+      "rect": {
+        "x": 448,
+        "y": 577.25,
+        "width": 105.921875,
+        "height": 44,
+        "top": 577.25,
+        "right": 553.921875,
+        "bottom": 621.25,
+        "left": 448
+      },
+      "region": {
+        "x": 435,
+        "y": 246.6875,
+        "width": 410,
+        "height": 374.8125,
+        "top": 246.6875,
+        "right": 845,
+        "bottom": 621.5,
+        "left": 435
+      },
+      "card": "fixture-menu-25"
+    },
+    "pageErrors": []
+  }
+]

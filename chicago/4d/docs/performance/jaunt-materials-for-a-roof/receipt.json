@@ -1,0 +1,89 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 17.5 min at Walk",
+      "wagon": "about 8.5 min at Wagon",
+      "horse": "about 6 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 3 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 361.1208398562776,
+        "reading": 166,
+        "legs": [
+          36.33333333333383,
+          61.5333333333324,
+          99.83333333333023
+        ],
+        "seconds": 363.69999999999646,
+        "phase": "outcome",
+        "outcome": "nails-and-brick"
+      },
+      "fly": {
+        "estimate": 231.72401350022756,
+        "reading": 166,
+        "legs": [
+          15.266666666666623,
+          16.466666666666644,
+          27.966666666667216
+        ],
+        "seconds": 225.7000000000005,
+        "phase": "outcome",
+        "outcome": "nails-and-brick"
+      }
+    },
+    "ui_drive": {
+      "ending": "nails-and-brick",
+      "detail_card_returned_to_same_stop": true,
+      "after_end_phase": "menu",
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 17.5 min at Walk",
+      "wagon": "about 8.5 min at Wagon",
+      "horse": "about 6 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 3 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 363.8952212808438,
+        "reading": 166,
+        "legs": [
+          33.9666666666673,
+          63.966666666665596,
+          101.53333333333013
+        ],
+        "seconds": 365.46666666666306,
+        "phase": "outcome",
+        "outcome": "nails-and-brick"
+      },
+      "fly": {
+        "estimate": 231.61421744213985,
+        "reading": 166,
+        "legs": [
+          15.03333333333329,
+          15.633333333333288,
+          27.93333333333388
+        ],
+        "seconds": 224.60000000000048,
+        "phase": "outcome",
+        "outcome": "nails-and-brick"
+      }
+    },
+    "page_errors": 0
+  },
+  "ticket": "T-2026",
+  "jaunt": "materials-for-a-roof",
+  "tree": "published mirror (tools/publish.sh) of branch steward/t2026-materials-for-a-roof",
+  "primary_path": "the-wharf > the-ironwork:cut-nails > the-brickyard:brick-chimney > the-lake-house => nails-and-brick"
+}

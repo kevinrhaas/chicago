@@ -567,10 +567,15 @@ const shadowRigFor = (level, touch) => {
  * software renderer, which is why the margin is what this sweep is judged on
  * and why `SMOKE_TIMING=1` exists to re-take it.
  *
+ * T-2015 adds the West prairie flora-review pose: the original renderer already
+ * read 1,949,552 triangles / 243 calls there at full, 1280x800, above the
+ * 1,845,000 / 240 ceilings before the new foliage. This view sees a broad sward
+ * and the built town together, a cost shape the five town stands did not cover.
+ *
  * `kind` is how the harness gets there: `frame` stands a distance off a
  * structure, `anchor` teleports to one of `data/scenes/1835.json`'s authored
- * viewpoints — the same viewpoints the Go-to menu offers a visitor, which is
- * the point. Nothing here is a camera invented for the test.
+ * viewpoints, and `pose` uses a committed review view. A pose fixes its pitch
+ * as well as position and bearing so a later reading sees the same ground.
  */
 const STANDS = [
   {
@@ -636,6 +641,12 @@ const STANDS = [
     // geometry at full detail, the tier the flora and fence LODs are least able
     // to help with.
     why: 'the densest built corner, stood in rather than looked at',
+  },
+  {
+    id: 'prairie_west', kind: 'pose',
+    label: 'West prairie, east across the sward toward town',
+    pose: { local_e: -250, local_n: -150, yaw_deg: 90, pitch_deg: -8 },
+    why: 'a wide foreground of sward and the whole town share the frame',
   },
 ];
 /**
@@ -1703,7 +1714,7 @@ for (const [label, viewport, touch] of [
         let waterPlants = 0;
         let deepWaterPlants = 0;
         for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
-          'flora-shrub']) {
+          'flora-shrub', 'flora-shrub-far']) {
           const mesh = a.flora.group.getObjectByName(name);
           const matrix = mesh?.instanceMatrix?.array;
           if (!matrix) continue;
@@ -5082,8 +5093,18 @@ for (const [label, viewport, touch] of [
       // runs (the Western Hotel, four West Division stores) and the freight house's
       // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
       // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
-      frontage.census?.records === 5 && frontage.census?.walks === 61
-        && frontage.census?.crossings === 47
+      // T-0192 — the seven cross streets take the walk: +50 runs and +47 corner
+      // crossings in the record, over 46 platted faces. Read
+      // on the branch at 113 walks and 98 crossings. THESE PINS WERE ALREADY
+      // BEHIND ON dev: its record carries 55 town walks and 49 crossings, so dev
+      // read 63 / 51 against 61 / 47 — a parcel after T-1823 moved the record
+      // and not this line. Re-pinned to the reading, not to a model of it.
+      // T-0193 — blk_lake_clinton's Randolph face (+1 walk) and its crossing over
+      // Randolph (+1); its Lake face was already one fronts-only run and stays one
+      // run: 113 to 114 and 98 to 99. Refusals hold — the block's own refusal
+      // retires and nothing new is refused. ID-set deltas, read off the record.
+      frontage.census?.records === 5 && frontage.census?.walks === 114
+        && frontage.census?.crossings === 99
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5213,7 +5234,11 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 128
+        // T-0192: 182, read on the branch. The record goes 124 town refusals to
+        // 172 — each cross face states why it takes no fence and no post (the
+        // end of a lot row), and the one clause that refused the seven on the
+        // frame budget retires. dev's own reading was 134 against this 128.
+        && frontage.census?.refused === 182
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5397,8 +5422,14 @@ for (const [label, viewport, touch] of [
     // T-1823 — five fronts-only runs name their own chunk (+5) and their posts and
     // fittings share ONE standing mesh of their own (+1), 65; the crossing over
     // Canal rides the Randolph run's chunk.
+    // T-0192 — each of the seven cross streets' 50 new runs names its own block-face
+    // chunk (+50), and their crossings ride those chunks: 117, read on the branch
+    // (dev's record names 51 walk chunks, so dev read 67 against the 65 here).
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 66 : 65)
+      // T-0193 — blk_lake_clinton's new Randolph run names its chunk (+1) and the
+      // block's standing timber rides a west-bank mesh of its own rather than
+      // Lake's and Randolph's (+1): 119.
+      frontage.authored === (frontage.census?.lettered === 1 ? 120 : 119)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -6134,7 +6165,11 @@ for (const [label, viewport, touch] of [
       // Walk-length, fence and deck floors retain their existing strength.
       // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 45 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-0192 — the seven cross streets' 46 platted faces: 93, the record's own
+        // `faces_laid` (dev's record already read 47 against the 45 pinned here).
+        // T-0193 — blk_lake_clinton off the skip list: its Lake face stops being
+        // fronts-only and is laid as a street face, and its Randolph face is new: 94.
+        && edge.faces === 94 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6163,8 +6198,10 @@ for (const [label, viewport, touch] of [
     // streets a face is laid fronts-only; each of its five runs is drawn and the
     // boot is on planks in the middle of it.
     check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
-      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
-        && edge.byBusiness.frontsOn === 5,
+      // T-0193 — four: blk_lake_clinton's Lake face is a covered face now, its
+      // walk the whole face rather than the store's front.
+      edge.byBusiness.frontsRecs === 4 && edge.byBusiness.frontsDrawn === 4
+        && edge.byBusiness.frontsOn === 4,
       `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
       + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
@@ -9043,8 +9080,15 @@ for (const [label, viewport, touch] of [
     // over the 200 it was set against, and 222 + 15 rounds up to 240). A
     // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
     // below is untouched and still red at 102 until T-1976's trim.
+    //
+    // T-0192, 2026-10-03: 240 -> 275, moved here in the same commit as `BUDGET`
+    // in `main.js`, where the measurement is written (the seven cross streets'
+    // walks are 46 more block-face chunks: worst frame 224 -> 259 calls at
+    // `full`, Lake Street at Canal, 1280x800; 259 + 15 rounds up to 275).
+    // T-2015: combined six-stand maximum 277 at narrow prairie, +15 -> 295.
+    // The measured argument is beside BUDGET in main.js; light stays at 90.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 240,
+      stats.budget.drawCalls === 295,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -9322,6 +9366,10 @@ for (const [label, viewport, touch] of [
           // `goTo` on the aerial anchor turns flight ON; every `frame` stand
           // turns it off again, which is why one has to be last.
           if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
+          else if (st.kind === 'pose') {
+            a.setFly(typeof st.pose.altitude_m === 'number');
+            a.walker.teleport(st.pose);
+          }
           else a.goTo(st.target);
           await settle();
           const r = a.stats();
@@ -12058,12 +12106,17 @@ for (const [label, viewport, touch] of [
 
     // --- the navigation guide, and the units the whole HUD reads in --------
 
+    // T-2015: desktop 9-11 reached this chrome after every scene assertion
+    // passed, then its native click timed out at 90 s (3.36/3.56 s frames).
+    // Use the same visibility, disabled, box and occlusion checks as part 12;
+    // these controls do not require a frame-bound trusted mouse event.
+    // The guide and unit-system assertions below remain unchanged.
     // The menu is built from the two runtime collections, not from a sampled
     // shortlist.  With an empty query every loaded structure and every compiled
     // control junction must have a button; a real search must narrow both kinds.
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
-    await page.click('#s-show-control-help');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
+    await clickChrome('#s-show-control-help');
     const reopenedGuide = await page.evaluate(() => ({
       shown: !document.getElementById('control-help').hasAttribute('hidden'),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
@@ -12071,9 +12124,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: Settings can reopen the dismissed navigation guide`,
       reopenedGuide.shown && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await page.click('#control-help-close');
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
+    await clickChrome('#control-help-close');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const select = document.getElementById('s-units');

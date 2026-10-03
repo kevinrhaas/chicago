@@ -1,0 +1,36 @@
+serving /workspace/scratch/728bcee376d6/chicago/site/4d on 4291 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "desktop"
+
+NOT THE FULL GATE — stages filtered to "11" of 13
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: an open station exists to measure the sward's boundary from
+  pass  desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 6.25 px (800px buffer, 55.0deg field, 1.68m eye), reach 25.13-28.80 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 8.0 px, reach 25.18-30.03 m)
+  pass  desktop 1280x800: the boundary's variation is the fringe, not a hole in the field — reach 25.13-28.80 m, mean 27.03 m at 6.25% coverage against a nominal 26.40 +/- 4.00 m (bars: min >= 20.76, mean >= 23.96, both carrying the 0.44 m the 6.25% threshold insets a 7.00 m ramp by); at the old 2%: 25.18-30.03 m, mean 27.65 m
+  pass  desktop 1280x800: the flower layer's boundary is fringed too, not only the grass — forb rings span 22.79-28.20 m about a nominal 25.40 +/- 3.00 m
+  pass  desktop 1280x800: the ragged boundary is anchored to the ground, not to the camera
+  pass  desktop 1280x800: every community's recorded ground cover reaches the renderer
+  pass  desktop 1280x800: the sward is planted at each community's own recorded cover
+  pass  desktop 1280x800: every structure, including Exchange Coffee House, shares the terrain surface
+  pass  desktop 1280x800: street clearing removes travel-track plants but preserves the block
+  pass  desktop 1280x800: the readout shows both 1835 and current names at an intersection
+  pass  desktop 1280x800: the street readout announces the next cross street ahead
+  pass  desktop 1280x800: Settings can reopen the dismissed navigation guide
+  pass  desktop 1280x800: Settings switches every navigation measurement as one unit system
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+23 passed, 0 failed
+13 staged-section check(s) (stage 11 of 13), 10 always-on check(s)
+6 m 35 s for stage 11 at desktop — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

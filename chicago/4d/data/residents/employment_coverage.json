@@ -111,13 +111,13 @@
     "at_work_is_not_placed": "`at_a_trade_with_no_house_to_join` is in neither set and that is the point of it. Those people follow a trade; what is missing is a house in the business layer to join them to. Counting them as unemployed would be false and counting them as placed would be an invention."
   },
   "counts": {
-    "people": 3357,
+    "people": 3369,
     "by_status": {
       "at_a_named_house": 127,
-      "at_a_seat_this_project_drew": 123,
+      "at_a_seat_this_project_drew": 122,
       "at_a_trade_with_no_house_to_join": 343,
-      "no_trade_recorded": 2639,
-      "on_their_own_account": 125
+      "no_trade_recorded": 2651,
+      "on_their_own_account": 126
     },
     "by_reason": {
       "a_civic_seat_and_not_a_house": 5,
@@ -125,31 +125,31 @@
       "held_on_an_identity_question": 1,
       "in_service_in_another_household": 61,
       "joined_by_the_attested_trade_ruling": 6,
-      "keeps_a_house_the_register_holds": 86,
-      "keeps_their_own_house": 27,
+      "keeps_a_house_the_register_holds": 88,
+      "keeps_their_own_house": 26,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
-      "no_trade_recorded": 2639,
+      "no_trade_recorded": 2651,
       "not_held_by_the_establishment_on_the_scene_date": 8,
       "on_the_staff_of_a_house": 9,
       "roofs_kept_none_owed": 12,
-      "seated_by_the_staffing_model": 123,
+      "seated_by_the_staffing_model": 122,
       "serves_an_establishment_outside_the_register": 4,
       "the_mechanics_shops_are_over_their_count": 57,
       "the_printed_count_is_held": 37,
       "works_on_other_people_s_ground": 3
     },
     "by_age_scope": {
-      "age_is_not_settled": 544,
+      "age_is_not_settled": 555,
       "below_working_age": 541,
-      "working_age": 2272
+      "working_age": 2273
     },
     "by_age_scope_and_status": {
       "age_is_not_settled": {
         "at_a_seat_this_project_drew": 2,
         "at_a_trade_with_no_house_to_join": 18,
-        "no_trade_recorded": 515,
+        "no_trade_recorded": 526,
         "on_their_own_account": 9
       },
       "below_working_age": {
@@ -157,17 +157,17 @@
       },
       "working_age": {
         "at_a_named_house": 127,
-        "at_a_seat_this_project_drew": 121,
+        "at_a_seat_this_project_drew": 120,
         "at_a_trade_with_no_house_to_join": 325,
-        "no_trade_recorded": 1583,
-        "on_their_own_account": 116
+        "no_trade_recorded": 1584,
+        "on_their_own_account": 117
       }
     },
     "placed_at_work": 375,
     "carry_a_trade": 668,
-    "working_age": 2272,
+    "working_age": 2273,
     "working_age_placed_at_work": 364,
-    "working_age_with_no_trade_recorded": 1583
+    "working_age_with_no_trade_recorded": 1584
   },
   "mechanics_shops": {
     "printed_count": 25,
@@ -246,7 +246,7 @@
   },
   "what_this_does_not_do": {
     "the_business_side_is_T-1462s": "Nothing is written onto a business record here. `staff[]` stays as the register left it, and the order book's employment buckets stay unfilled until T-1459's re-cut lets the mint run.",
-    "it_supplies_no_trade": "2639 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
+    "it_supplies_no_trade": "2651 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
     "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating, the business register's own proprietors, partners and staff (T-1990), the by-name rulings on the attested trades (T-1994), the order book's printed counts (T-1996) and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
   },
   "rows": [
@@ -14128,9 +14128,7 @@
       "reason": "named_by_a_source",
       "decided_by": "the card's own workplaces[], written by T-1432",
       "houses": [
-        "biz_a_new_auction_and_commission_room_south_water_street",
-        "biz_w_montgomery",
-        "biz_w_montgomery_auction_and_commission_house"
+        "biz_w_montgomery"
       ]
     },
     {
@@ -18658,6 +18656,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_cardinal_catherine",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_cardinal_jean",
       "household_id": "hh_lodging_recon_1835_north_h2_045",
       "record_folder": "lodgers",
@@ -18681,6 +18692,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "the_mechanics_shops_are_over_their_count",
       "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-2000",
+      "houses": []
+    },
+    {
+      "person_id": "rc_carroll_bryan",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -19682,7 +19706,7 @@
       "reason": "seated_by_the_staffing_model",
       "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
       "houses": [
-        "biz_montgomery_auction_and_commission_house"
+        "biz_the_boston_market"
       ]
     },
     {
@@ -20271,19 +20295,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_corrigan_alice",
-      "household_id": "hh_lodging_western_hotel",
-      "record_folder": "lodgers",
-      "age_band": "40-49",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_corrigan_bridget",
       "household_id": "hh_rc_corrigan_bridget",
       "record_folder": "transients",
@@ -20656,6 +20667,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "the_printed_count_is_held",
       "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
+      "houses": []
+    },
+    {
+      "person_id": "rc_crandall_joseph",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -21662,19 +21686,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_donnelly_johanna",
-      "household_id": "hh_lodging_western_hotel",
-      "record_folder": "lodgers",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_donnelly_john",
       "household_id": "hh_rc_donnelly_john",
       "record_folder": "transients",
@@ -22416,6 +22427,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_eastman_joseph",
+      "household_id": "hh_lodging_western_hotel",
+      "record_folder": "lodgers",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_eastman_levi",
       "household_id": "hh_rc_eastman_levi",
       "record_folder": "reconstructed_trades",
@@ -22656,6 +22680,19 @@
       "household_id": "hh_elston_daniel",
       "record_folder": "households",
       "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_fairbanks_alanson",
+      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
+      "record_folder": "lodgers",
+      "age_band": "40-49",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -23556,6 +23593,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "no_employer_named",
       "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_fisk_levi",
+      "household_id": "hh_lodging_new_york_house",
+      "record_folder": "lodgers",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -24984,19 +25034,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_gilbert_polly",
-      "household_id": "hh_lodging_sauganash_hotel",
-      "record_folder": "lodgers",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_gilbert_rufus",
       "household_id": "hh_rc_gilbert_william",
       "record_folder": "transients",
@@ -25487,6 +25524,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_hale_ezra",
+      "household_id": "hh_lodging_steamboat_hotel",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_hale_george",
       "household_id": "hh_rc_hale_phebe",
       "record_folder": "transients",
@@ -25915,6 +25965,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "no_employer_named",
       "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_hastings_polly",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -26616,7 +26679,7 @@
       "reason": "seated_by_the_staffing_model",
       "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
       "houses": [
-        "biz_w_montgomery_auction_and_commission_house"
+        "biz_d_carver_co"
       ]
     },
     {
@@ -26651,6 +26714,19 @@
       "record_folder": "lodgers",
       "age_band": "20-29",
       "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_hubbard_ruth",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -27173,26 +27249,24 @@
       "houses": []
     },
     {
-      "person_id": "rc_keegan_bryan",
-      "household_id": "hh_rc_keegan_bryan",
-      "record_folder": "reconstructed_trades",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "labourer",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_seat_this_project_drew",
-      "reason": "seated_by_the_staffing_model",
-      "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
-      "houses": [
-        "biz_j_wright_merchant"
-      ]
-    },
-    {
       "person_id": "rc_keegan_catherine",
       "household_id": "hh_lodging_mansion_house",
       "record_folder": "lodgers",
       "age_band": "20-29",
       "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_keegan_cornelius",
+      "household_id": "hh_lodging_sauganash_hotel",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -27512,6 +27586,19 @@
       "record_folder": "transients",
       "age_band": "20-29",
       "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_kellogg_esther",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -28790,19 +28877,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_leland_abner",
-      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
-      "record_folder": "lodgers",
-      "age_band": "10-19",
-      "age_scope": "age_is_not_settled",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_leland_almira",
       "household_id": "hh_rc_leland_almira",
       "record_folder": "households",
@@ -29358,6 +29432,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_lyman_asa",
+      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
+      "record_folder": "lodgers",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_lyman_calvin",
       "household_id": "hh_rc_lyman_calvin",
       "record_folder": "reconstructed_trades",
@@ -29449,19 +29536,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_lyman_elisha",
-      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
-      "record_folder": "lodgers",
-      "age_band": "50+",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_lyman_emily",
       "household_id": "hh_rc_lyman_otis",
       "record_folder": "transients",
@@ -29491,9 +29565,9 @@
     },
     {
       "person_id": "rc_lyman_harvey",
-      "household_id": "hh_lodging_new_york_house",
+      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
       "record_folder": "lodgers",
-      "age_band": "20-29",
+      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -29562,6 +29636,19 @@
       "record_folder": "transients",
       "age_band": "30-39",
       "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_lyman_mary",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -29806,7 +29893,7 @@
       "reason": "seated_by_the_staffing_model",
       "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
       "houses": [
-        "biz_montgomery_auction_and_commission_house"
+        "biz_a_leather_stock_chicago_june_1835"
       ]
     },
     {
@@ -30512,9 +30599,14 @@
       "trade": "physician",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_mcguire_physician#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_mcguire_physician"
+      ],
+      "house_names": [
+        "Dr. J. McGuire, physician"
+      ]
     },
     {
       "person_id": "rc_mcguire_margaret",
@@ -30595,6 +30687,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_metcalf_charles",
+      "household_id": "hh_lodging_steamboat_hotel",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_metcalf_chauncey",
       "household_id": "hh_rc_metcalf_jared",
       "record_folder": "transients",
@@ -30659,6 +30764,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "no_employer_named",
       "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_metcalf_henry",
+      "household_id": "hh_lodging_recon_1835_north_h2_045",
+      "record_folder": "lodgers",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -33321,19 +33439,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_pratt_calvin",
-      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
-      "record_folder": "lodgers",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_pratt_eliza",
       "household_id": "hh_rc_pratt_horace",
       "record_folder": "transients",
@@ -33471,6 +33576,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_pratt_otis",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "50+",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_pratt_seth",
       "household_id": "hh_rc_pratt_seth",
       "record_folder": "reconstructed_trades",
@@ -33520,19 +33638,6 @@
       "record_folder": "transients",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_pratt_warren",
-      "household_id": "hh_lodging_new_york_house",
-      "record_folder": "lodgers",
-      "age_band": "30-39",
-      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -34226,19 +34331,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_rice_silas",
-      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
-      "record_folder": "lodgers",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_rider_eli_a_child_1",
       "household_id": "hh_rider_eli_a",
       "record_folder": "households",
@@ -34751,6 +34843,19 @@
       "household_id": "hh_rc_sawyer_esther",
       "record_folder": "transients",
       "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_sawyer_rhoda",
+      "household_id": "hh_lodging_new_york_house",
+      "record_folder": "lodgers",
+      "age_band": "40-49",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -35911,6 +36016,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_stiles_eliza",
+      "household_id": "hh_lodging_steamboat_hotel",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_stiles_esther",
       "household_id": "hh_rc_stiles_esther",
       "record_folder": "households",
@@ -36563,6 +36681,19 @@
       "household_id": "hh_taylor_william_h",
       "record_folder": "households",
       "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_thayer_abigail",
+      "household_id": "hh_lodging_western_hotel",
+      "record_folder": "lodgers",
+      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -37322,19 +37453,6 @@
       ]
     },
     {
-      "person_id": "rc_trottier_joseph",
-      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
-      "record_folder": "lodgers",
-      "age_band": "40-49",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_trottier_madeleine",
       "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
       "record_folder": "lodgers",
@@ -37554,6 +37672,24 @@
       "reason": "keeps_their_own_house",
       "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
+    },
+    {
+      "person_id": "rc_tuttle_john",
+      "household_id": "hh_rc_tuttle_john",
+      "record_folder": "reconstructed_trades",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "physician",
+      "trade_confidence": "reconstructed",
+      "status": "on_their_own_account",
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_tuttle_physician#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_tuttle_physician"
+      ],
+      "house_names": [
+        "Dr. J. Tuttle"
+      ]
     },
     {
       "person_id": "rc_tuttle_joseph",
@@ -38590,6 +38726,19 @@
       ]
     },
     {
+      "person_id": "rc_wilcox_betsey",
+      "household_id": "hh_lodging_western_hotel",
+      "record_folder": "lodgers",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_wilcox_charles",
       "household_id": "hh_rc_wilcox_david",
       "record_folder": "transients",
@@ -39398,6 +39547,19 @@
       "person_id": "rc_woodruff_lucy_5",
       "household_id": "hh_rc_woodruff_lucy",
       "record_folder": "households",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_woodruff_lydia",
+      "household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
+      "record_folder": "lodgers",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
       "trade": null,

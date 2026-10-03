@@ -622,7 +622,52 @@ const DETAIL_DECLARED = {
   // 2026-09-15. Re-reading it against 1,725,000 / 1,490,000 / 825,000 would
   // change the wood a visitor sees at `balanced` and `light`, which is not a
   // budget's job; it stays as stated there.
-  full:     { triangles: 1845000, shadowReachM: 240, furnitureCastsShadow: true,
+  //
+  // T-0192, 2026-10-03 — THE CROSS STREETS' OWN RAISE. The seven north-south
+  // streets (Market to State) take the plank walk the four east-west streets
+  // carry, by the same rule: 46 platted faces, +4,764.9 m of walk and +47 board
+  // crossings, the record going 47 faces / 3,865.7 m to 93 / 8,630.6 m. It was
+  // refused on 2026-08-29 for want of headroom; T-1969/T-1975 re-set the
+  // budget, and the owner's queue note of 2026-10-03 asked for the seven to be
+  // priced and argued HERE, with `light` the floor. Read with
+  // `tools/measure_detail_ceilings.mjs`, published mirrors of dev @ d8b7748d
+  // and of this branch, T-0135's five stands, desktop 1280x800, same run:
+  //
+  //   tier      dev worst                 with the seven            delta there
+  //   full      1,857,267 Lake at Canal   2,120,153 Lake at Canal   +262,886
+  //   balanced  1,626,744 Lake at Canal   1,801,124 Lake at Canal   +174,380
+  //   light       851,431 the forks         856,275 the forks          +4,844
+  //   calls       224 at `full`             259 at `full`                 +35
+  //
+  // dev was ALREADY over `full` and `balanced` (by 12,267 and 11,744) before a
+  // board was laid — parcels merged since T-1987 — so the rule below carries
+  // that too; it is the rule of T-1975 and T-1987, unchanged: worst stand plus
+  // T-0672's recorded headroom, rounded up to 5,000.
+  //
+  //   full      2,120,153 + 18,059 = 2,138,212 -> 2,140,000
+  //   balanced  1,801,124 + 16,806 = 1,817,930 -> 1,820,000
+  //   calls     259 + 15 = 274 -> 275 (`BUDGET` below)
+  //
+  // Mobile reads lower at every tier, so desktop sets it. `light` IS NOT
+  // SPENT: it does not draw the cross streets' walks (`light.crossStreetWalks`),
+  // which takes Lake and Market from 798,916 back to 738,536 and the open aerial
+  // from 838,167 to 822,297 — inside 825,000. What is left at `light` (+4,844 at
+  // the forks, +9,204 at the aerial) is not the boards, which are hidden there;
+  // the walks still keep the sward and the planting off their own strips at
+  // every tier, and that redistribution is the inferred remainder — it was not
+  // attributed layer by layer on dev. The forks were over on dev already;
+  // that rung is T-1976's to win back by a trim, not this ticket's to spend.
+  // T-2015, 2026-10-03: final integration with dev b06a063a includes the
+  // T-0192 cross-street walks and T-2014 distant shrubs. Six published stands,
+  // desktop 1280x800 and narrow 390x780, two production steps per settled view:
+  // full worst 2,456,812 at west prairie; balanced worst 1,860,932 there.
+  // Preserve the defended margins, rounding UP to 5,000:
+  // full +18,059 -> 2,475,000; balanced +16,806 -> 1,880,000.
+  // These price the combined scene; they do not attribute other PRs' geometry
+  // to the foliage upgrade. The owner explicitly authorized measured raises.
+  // Receipt: docs/RESEARCH/vegetation-quality/integrated-ceilings.json.
+  // The ordinary animation-loop smoke remains the release gate.
+  full:     { triangles: 2475000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -631,7 +676,14 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '2,475,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+                + 'six published stands, worst 2,456,812 at west prairie, 1280x800; '
+                + 'the defended 18,059 rounded up to 5,000. Before it: '
+                + '2,140,000 set 2026-10-03 (T-0192) for the seven cross '
+                + "streets' plank walks: worst 2,120,153 at Lake Street at Canal at "
+                + '1280x800 with them, +262,886 there on dev @ d8b7748d, plus '
+                + "T-0672's 18,059 rounded up to 5,000. Before it: "
+                + '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,778,094 (the block above "
                 + "`full`), plus T-0672's 18,059 rounded up to 5,000. Before it: "
                 + '1,800,000 set 2026-10-02 (T-1959), the woodpiles\u2019 own '
@@ -733,11 +785,18 @@ const DETAIL_DECLARED = {
   // reading and the rule are in the block above `full`.
   // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
   // same rule — the reading is in the block above `full`.
-  balanced: { triangles: 1615000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 1880000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '1,880,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+                + 'six published stands, worst 1,860,932 at west prairie, 1280x800; '
+                + 'the defended 16,806 rounded up to 5,000. Before it: '
+                + '1,820,000 set 2026-10-03 (T-0192) for the seven cross '
+                + "streets' plank walks: worst 1,801,124 at Lake Street at Canal at "
+                + "1280x800 with them, +174,380 there, plus T-0672's 16,806 rounded "
+                + 'up to 5,000. Before it: '
+                + '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,545,215, plus T-0672's "
                 + '16,806 rounded up to 5,000. Before it: '
                 + '1,565,000 set 2026-10-02 (T-1959) for the woodpiles by the '
@@ -800,7 +859,17 @@ const DETAIL_DECLARED = {
   // moves -- no geometry, no reach, no shadow tier, no cull. This is only the
   // ceiling following a trim DOWN, which T-0149 named as the strongest evidence
   // that a trim worked.
-  light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-2015, 2026-10-03: the owner explicitly authorized budget increases in
+  // this session. The expanded six-stand sweep finds 887,259 at west prairie
+  // after full -> light, despite every original stand being 2,720-20,480
+  // triangles cheaper than before. 887,259 + the prior 21,933 margin, rounded
+  // up to 5,000, gives 910,000. This changes the declared ceiling, not geometry,
+  // plant density, visibility reach or the separate 90-call light cap. It is
+  // an explicit owner-authorized exception to the repository's standing
+  // keep-825,000 guidance; light remains the least expensive rung.
+  // Final b06a063a integration reads 885,447 at desktop prairie and 790,681
+  // at narrow prairie; the initial 910,000 ceiling still carries both.
+  light:    { triangles: 910000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -810,10 +879,22 @@ const DETAIL_DECLARED = {
               // trimmed back inside 825,000, which is won back, never spent. `full`
               // and `balanced` draw them, and `applyFurnitureReach` hides them here.
               woodpiles: false,
+              // T-0192: NO CROSS-STREET WALKS AT `light` either. The seven
+              // north-south streets' plank walks (4,765 m, 46 faces) cost this
+              // rung +25,074 at the open aerial and +56,584 at Lake and Market,
+              // desktop 1280x800 (the reading is in the block above `full`), on
+              // a rung that is already over at the forks on dev. The floor is
+              // won back, never spent: `full` and `balanced` draw them.
+              crossStreetWalks: false,
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '825,000 set 2026-09-03, the one raise of this rung ever '
+              measured: '910,000 set 2026-10-03 (T-2015), explicitly authorized by '
+                + 'the owner. Published six-stand worst 887,259 at west prairie after '
+                + 'full -> light; +21,933 rounded up to 5,000. Existing-view geometry '
+                + 'decreases versus baseline; density, reach and 90 calls are unchanged. '
+                + 'Final integration with dev b06a063a reads 885,447 at desktop prairie. '
+                + 'Before this exception: 825,000 set 2026-09-03, the one raise of this rung ever '
                 + 'taken and taken only on a second explicit ruling. BACK INSIDE BY A '
                 + 'TRIM, T-1976, 2026-10-02: furniture reach 350 -> 250 m, detailed '
                 + 'ground 600 -> 240 m, tree keep 0.225 -> 0.191, all at this rung '
@@ -989,7 +1070,16 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // that stand and fit, and the parcel after them argues its own. `light`'s own
 // 90-call floor in `tools/smoke_renderer.mjs` is a separate promise and does
 // NOT move — it reads 102 and is T-1976's to win back by a trim.
-const BUDGET = { drawCalls: 240, triangles: DETAIL.full.triangles };
+//
+// T-0192, 2026-10-03: 240 -> 275 for the cross streets' walks. A chunk is one
+// block face and the seven add 46 of them, so the worst frame went 224 -> 259
+// calls at `full` down Lake Street from Canal at 1280x800 (dev @ d8b7748d and
+// this branch, same run); 259 + 15 = 274, rounded up to 5. `light` draws none
+// of them and its 90-call floor does not move (72 at Lake and Market).
+// T-2015: the six-stand integration sweep includes west prairie, where the
+// narrow viewport reaches 277 calls (desktop 276). The defended 15-call margin,
+// rounded up to five, gives 295. Light peaks at 74 and keeps its 90-call cap.
+const BUDGET = { drawCalls: 295, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
@@ -1724,6 +1814,9 @@ async function boot() {
         // A woodpile mesh its tier does not draw (T-1959) is neither the reach's
         // nor the far merge's to show again.
         if (o.parent?.userData.woodpiles && !o.parent.visible) return;
+        // …and the same for a cross street's walk at a tier that leaves the
+        // cross streets out (T-0192, `light.crossStreetWalks`).
+        if (o.userData.crossStreet && !o.visible) return;
         // The merged far batches (T-0146) are drawn FROM these chunks, not
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
@@ -1757,6 +1850,12 @@ async function boot() {
     // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
     scene3d.getObjectByName('yard')?.traverse((o) => {
       if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+    });
+    // T-0192: the cross streets' plank walks, by the same mechanism and for the
+    // same reason — hidden BEFORE the furniture is banked, so the reach and the
+    // far merge never show one again.
+    scene3d.getObjectByName('frontage')?.traverse((o) => {
+      if (o.userData.crossStreet) o.visible = want.crossStreetWalks !== false;
     });
     collectFurniture();
     farMerge.rebuild(furniture.spheres);
@@ -2922,6 +3021,20 @@ async function boot() {
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    onSources: () => {
+      // Browse the existing Evidence hub without entering or cancelling a paused outing.
+      const hudWasHidden = hudRoot.hidden;
+      gate.hidden = true; hudRoot.hidden = false; hudRoot.inert = false;
+      hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showHub();
+      const panel = document.getElementById('panel');
+      document.getElementById('panel-close').focus();
+      const back = new MutationObserver(() => {
+        if (!panel.hidden) return;
+        back.disconnect(); gate.hidden = false; hudRoot.hidden = hudWasHidden; hudRoot.inert = true;
+        document.getElementById('welcome-sources').focus();
+      });
+      back.observe(panel, { attributes: true, attributeFilter: ['hidden'] });
+    },
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
       const root = document.getElementById('welcome-jaunts-content');

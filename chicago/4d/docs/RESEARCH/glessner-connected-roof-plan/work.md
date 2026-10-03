@@ -73,8 +73,10 @@ light assets with HTTP 200, switch detail levels and show west/courtyard views
 with zero page errors, failed requests or loader problems. The animation loop
 was paused after normal readiness to keep software-rendered capture bounded;
 each view uses the app's existing step() with unchanged rendering settings.
-See `browser-validation.json`. Source preflight and official stage 13 are still
-being completed; this receipt does not claim all thirteen town stages ran.
+See `browser-validation.json`. The recovered branch was integrated with dev `1b56a552` on 3 October 2026.
+All 750 source checks and the three-part preflight pass on that integration.
+Official published stage 13 is being completed at both viewports; this receipt
+does not claim all thirteen town stages ran.
 
 ![Exported overhead roof plan](overhead.png)
 ![Exported west elevation](west.png)

@@ -1,0 +1,52 @@
+{
+  "ticket": "T-1259",
+  "tested_dev_base": "604daa63711de90e2b6c566bfa5c541b45076181",
+  "recovery_commit": "4ddb2267644072a4eb6edcec0c2770465c727bd1",
+  "preflight": "PASS",
+  "menu": {
+    "viewports": [
+      "390x780",
+      "1280x800"
+    ],
+    "result": "PASS",
+    "catalog_rows": 55,
+    "max_mounted_cards": 26,
+    "boot_jaunt_requests": 0,
+    "page_errors": 0,
+    "details": "acceptance.json",
+    "tested_dev_base": "de920bf80dae3bb445545d62ef0d8a1c830a5d7b",
+    "note": "Rerun after integrating all eight current 1835 jaunts; screenshots and acceptance.json refreshed."
+  },
+  "smoke": {
+    "stage": 1,
+    "mobile": {
+      "passed": 80,
+      "failed": 0,
+      "seconds": 441
+    },
+    "desktop": {
+      "passed": 80,
+      "failed": 0,
+      "seconds": 631
+    }
+  },
+  "boot_payload": {
+    "result": "PASS",
+    "megabytes": 12.911,
+    "budget_megabytes": 13,
+    "initial_attempt": "Readiness timeout under concurrent validation; standalone rerun passed without test changes"
+  },
+  "coverage_note": "Smoke parts 2-13 were not rerun; published menu acceptance plus scaffold smoke cover the interface change.",
+  "final_preflight": {
+    "result": "PASS",
+    "tested_dev_base": "2d04e400c2d9cbeb884d9526ba1e9e75304c3aaa",
+    "steps": 750,
+    "note": "Resolved catalog, status, and changelog conflicts after Work on the Waterfront landed. All nine current 1835 jaunts retained; menu code unchanged."
+  },
+  "prior_preflight": {
+    "result": "PASS",
+    "tested_dev_base": "de920bf80dae3bb445545d62ef0d8a1c830a5d7b",
+    "steps": 750,
+    "note": "Ticket queue initially failed while the connector-published review update was not synchronized locally; after ticket checkout sync, both direct rerun and the gate quiet retry passed. All eight current 1835 jaunts retained."
+  }
+}

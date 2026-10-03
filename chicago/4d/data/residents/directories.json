@@ -50,10 +50,10 @@
  "counts": {
   "people_shown": 238,
   "people_met_by_more_than_one_volume": 147,
-  "carrying_an_occupation": 134,
+  "carrying_an_occupation": 128,
   "carrying_an_address": 165,
   "line_held_but_parse_refused": 0,
-  "split_refused_trades": 13,
+  "split_refused_trades": 12,
   "split_refused_addresses": 5,
   "grades_1835_changed": 0,
   "by_volume": {
@@ -62,7 +62,7 @@
     "single_entry": 164,
     "ambiguous": 11,
     "contested": 6,
-    "split_refused_fields": 1
+    "split_refused_fields": 0
    },
    "fergus_1843": {
     "people": 156,
@@ -9256,8 +9256,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -9265,19 +9264,7 @@
      ]
     }
    ],
-   "occupation_later": {
-    "value": "banker, 47-",
-    "confidence": "attested",
-    "describes_date": 1839,
-    "sources": [
-     "fergus_chicago_directory_1839"
-    ],
-    "claim_id": "f1839_e0745",
-    "as_printed": "Hubbard, Elijah K., banker, 47-51 Dearborn st",
-    "printed_fields": "f1839_e0745 | Hubbard, Elijah K., banker, 47-51 Dearborn st | banker, 47- | 51 Dearborn st",
-    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
-    "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Hubbard, Elijah K., banker, 47-51 Dearborn st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
-   },
+   "occupation_later": null,
    "address_later": {
     "value": "Dearborn st",
     "confidence": "attested",
@@ -9424,12 +9411,8 @@
        "as_printed": "Hubbard, Henry G., at G. S. Hubbard & Co.’s warehouse"
       }
      ],
-     "holds": [
-      "occupation"
-     ],
-     "split_refused": {
-      "occupation": "premises_where_a_trade_is"
-     },
+     "holds": [],
+     "split_refused": {},
      "sources": [
       "fergus_chicago_directory_1839"
      ]
@@ -10599,8 +10582,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -10676,19 +10658,7 @@
      ]
     }
    ],
-   "occupation_later": {
-    "value": "justice of the peace",
-    "confidence": "attested",
-    "describes_date": 1839,
-    "sources": [
-     "fergus_chicago_directory_1839"
-    ],
-    "claim_id": "f1839_e0814",
-    "as_printed": "Jones, Wm., justice of the peace, Dearborn st, cor. Randolph",
-    "printed_fields": "f1839_e0814 | Jones, Wm., justice of the peace, Dearborn st, cor. Randolph | justice of the peace | Dearborn st, cor. Randolph",
-    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
-    "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Jones, Wm., justice of the peace, Dearborn st, cor. Randolph'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
-   },
+   "occupation_later": null,
    "address_later": {
     "value": "Dearborn st, cor. Randolph",
     "confidence": "attested",
@@ -11384,8 +11354,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -11439,19 +11408,7 @@
      ]
     }
    ],
-   "occupation_later": {
-    "value": "New York clothing store",
-    "confidence": "attested",
-    "describes_date": 1839,
-    "sources": [
-     "fergus_chicago_directory_1839"
-    ],
-    "claim_id": "f1839_e0858",
-    "as_printed": "King, Tuthill, New York clothing store, 115 Lake st",
-    "printed_fields": "f1839_e0858 | King, Tuthill, New York clothing store, 115 Lake st | New York clothing store | 115 Lake st",
-    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
-    "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'King, Tuthill, New York clothing store, 115 Lake st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
-   },
+   "occupation_later": null,
    "address_later": {
     "value": "115 Lake st",
     "confidence": "attested",
@@ -13461,8 +13418,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -13470,19 +13426,7 @@
      ]
     }
    ],
-   "occupation_later": {
-    "value": "& Edward",
-    "confidence": "attested",
-    "describes_date": 1839,
-    "sources": [
-     "fergus_chicago_directory_1839"
-    ],
-    "claim_id": "f1839_e1075",
-    "as_printed": "Mulford, James H. & Edward H. jr. , jewelers, etc., Dearborn st",
-    "printed_fields": "f1839_e1075 | Mulford, James H. & Edward H. jr. , jewelers, etc., Dearborn st | & Edward | H. jr. , jewelers, etc., Dearborn st",
-    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
-    "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Mulford, James H. & Edward H. jr. , jewelers, etc., Dearborn st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
-   },
+   "occupation_later": null,
    "address_later": {
     "value": "H. jr. , jewelers, etc., Dearborn st",
     "confidence": "attested",
@@ -16184,8 +16128,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -16214,19 +16157,7 @@
      ]
     }
    ],
-   "occupation_later": {
-    "value": "ex-sheriff",
-    "confidence": "attested",
-    "describes_date": 1839,
-    "sources": [
-     "fergus_chicago_directory_1839"
-    ],
-    "claim_id": "f1839_e1335",
-    "as_printed": "Sherman, Silas W., ex-sheriff, 48 Clark street",
-    "printed_fields": "f1839_e1335 | Sherman, Silas W., ex-sheriff, 48 Clark street | ex-sheriff | 48 Clark street",
-    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
-    "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Sherman, Silas W., ex-sheriff, 48 Clark street'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
-   },
+   "occupation_later": null,
    "address_later": {
     "value": "Clark street",
     "confidence": "attested",
@@ -18184,9 +18115,7 @@
        "as_printed": "Taylor, William H., (Dan. Taylor)"
       }
      ],
-     "holds": [
-      "occupation"
-     ],
+     "holds": [],
      "split_refused": {},
      "sources": [
       "fergus_chicago_directory_1839"
@@ -18235,19 +18164,7 @@
      ]
     }
    ],
-   "occupation_later": {
-    "value": "(Dan. Taylor)",
-    "confidence": "attested",
-    "describes_date": 1839,
-    "sources": [
-     "fergus_chicago_directory_1839"
-    ],
-    "claim_id": "f1839_e1479",
-    "as_printed": "Taylor, William H., (Dan. Taylor)",
-    "printed_fields": "f1839_e1479 | Taylor, William H., (Dan. Taylor) | (Dan. Taylor)",
-    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
-    "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Taylor, William H., (Dan. Taylor)'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
-   },
+   "occupation_later": null,
    "address_later": null,
    "holds_a_line_whose_parse_does_not_cross": false,
    "sources": [

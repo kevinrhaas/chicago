@@ -35,6 +35,9 @@ trade the roof's family serves:
   * F2 "Narrow two-story warehouse" — the premises ruling's `forwarding_and_commission_store`.
   * C3 "Narrow two-story store" — the premises rulings' `store` and
     `grocery_and_provision_store` signage.
+  * C4 "Wide two-story store or mixed block" — the same two signage terms as C3.
+  * W3 "Cooper, wagon, or wheelwright shop" — the crosswalk's label names cooper and
+    wheelwright; no card's trade is "wagon" alone, so nothing is read in for it.
   * W5 "Sawmill, boat-repair, or riverside shop" — the placement policy admits it only under
     `heavy_and_noxious_trades` ("packing, tanning, slaughtering and soap-boiling"), so the
     premises rulings' tannery, packing-house, slaughterhouse and soap-and-candle signage.
@@ -100,6 +103,13 @@ SCOPE = (
     "recon_1835_forks_freight_f2_001",
     "recon_1835_north_w5_040",
     "recon_1835_south_c3_015",
+    # T-1205: five of the six trade roofs raised on the north face of Kinzie Street (L368).
+    # The sixth, the T1 tavern recon_1835_north_t1_061, is a lodging house the lodgers fill.
+    "recon_1835_north_w3_062",
+    "recon_1835_north_c3_064",
+    "recon_1835_north_w2_065",
+    "recon_1835_north_c3_066",
+    "recon_1835_north_c4_067",
 )
 
 # Which keepers a family serves, and the committed line each term is read from.
@@ -113,6 +123,13 @@ MATCH = {
     "C3": {"signage": ["store", "grocery_and_provision_store"],
            "read_from": "data/businesses/rulings/premises_rulings.json signage_function "
                         "'store' and 'grocery_and_provision_store'"},
+    "C4": {"signage": ["store", "grocery_and_provision_store"],
+           "read_from": "data/businesses/rulings/premises_rulings.json signage_function "
+                        "'store' and 'grocery_and_provision_store', the C3 line's, for the "
+                        "crosswalk's 'Wide two-story store or mixed block'"},
+    "W3": {"occupations": ["cooper", "wheelwright"],
+           "read_from": "data/reconstruction/1835_family_archetype_crosswalk.json W3 label "
+                        "'Cooper, wagon, or wheelwright shop'"},
     "W5": {"signage": ["tannery", "packing_house", "slaughterhouse_packing",
                        "soap_candle_manufactory"],
            "read_from": "data/reconstruction/1835_placement_policy.json clause "

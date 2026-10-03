@@ -330,6 +330,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Warehouse roles may be sourced; this shipment and its bill are fictional. Use safe street paths and no imaginary unloading simulation.
 
+**Route note (T-2009, as built):** the tally comes last — Newberry & Dole's forwarding house → Peck's store → Thomas Church's store → George W. Dole's 1832 warehouse — because the briefed order ran east 529 m to Dole's, west 310 m to Peck's and east again 122 m (961 m straight-line) and read past 7 min at Wagon; delivering first and carrying the tally a block east from Church's to Dole's is 546 m straight-line. That the tally is handed in at Dole's warehouse is invented, and the stop says Dole was the firm's partner rather than that the firm kept its books there. The wagon holds the whole three-package consignment (a `count` variable shown as *Packages*, max 3); the visitor may count it, take only Peck's two and leave Church's for a second trip, or load it on the bill's word, and the four endings follow those choices. Peck's stock is his own 1833–34 cards; Church's store has no stock on record, so his package is never said to hold anything. Card estimates on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. Wagon stays the recommendation as briefed.
+
 ## 13. Stock the Household
 
 **ID:** `household-provisions` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)
@@ -348,6 +350,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** A Cupboard Begun (Provisions); fictional narrative memento.
 
 **Evidence and route cautions:** Keep items tied to supported trades and bound reconstructed quantities/prices; no compulsory health score.
+
+**Route note (T-2010, as built):** the briefed order stands and the whole outing keeps to one block face of South Water Street between Wells and LaSalle: Brown's, behind Peck's, west to Jones's at the Wells end, back east to Carpenter's mid-block, and on to Peck's corner beside where it began (about 210 m). It reads about 5 min at Walk (4.5 at 1280×800), 3–3.5 at Wagon and 3 at Horse. Each good is offered only where that store's own advertisement lists it: coffee, sugar and tea at Jones's (26 Nov 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's. Carpenter's June 1835 window-glass consignment is left out because its signature is cut and not proved to be his. Prices and the purse are `L-jaunt-household-provisions`.
 
 ## 14. A Decent Coat
 
@@ -389,6 +393,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** The repair story is invented; distinguish leather work from iron work using the actual firm records.
 
+**Route note (published, T-2024):** The briefed order is kept: the Western Hotel's stable → S. B. Cobb's saddlery → Asahel Pierce's smithy → the Green Tree, a block north up Canal Street from Randolph to Lake and then east along Lake to West Water, with no backtrack. The repair is an invented cracked trace and, if the visitor looks the harness over in the yard, a worn whiffletree hook. Leather goes to the saddler and iron to the smith, and that division is read from the two firms' own records: Goss & Cobb's 1833 advertisement lists harness, bridles and trunks and promises repairs 'immediately attended to when brought to their shop', Cobb's June 1835 card continues the business, and Andreas's Pierce paragraph is ironing a stage line and making ploughs. The saddler is never made a smith, and neither shop is said to have done this repair. At the Green Tree the visitor calls the outfit ready (only if the trace was restitched) or keeps tomorrow's trip short, and the four endings follow those choices. The Wagon recommendation stands as briefed: the route is short and the brief's subject is a wagon outfit. Card estimates on the published mirror: Walk 7.5 min, Wagon 5, Horse 4, Fly 3.5, Instantly 3 at 390×780 (Walk 7, Wagon 4.5 at 1280×800). The primary path measured 281 s at Wagon and 207 s at Fly against estimates of 290 s and 215 s. Flags only, no shown variable or inventory: there is nothing to count. Receipt: `docs/performance/jaunt-mend-the-harness/`.
+
 ## 16. Soap and Candles
 
 **ID:** `soap-and-candles` · **Owner ticket:** [T-1268](../tickets/T-1268-publish-harness-candles-building-materials-and-l.md)
@@ -407,6 +413,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Light for the Evening (Provisions); fictional narrative memento.
 
 **Evidence and route cautions:** Do not promise a documented retail counter at the works; an exterior observation can carry the stop.
+
+**Route note (published, T-2025):** The shipped story order is Elston & Co.'s works → Jones's grocery → Church's store → Brown's boarding house. The order proposed above goes out from South Water Street to the works and back again, so it crosses the river twice: about 1,125 m in straight lines, and on the published mirror the card read Walk 31.5 min and Horse 9. Starting at the works crosses once (works → Jones 411 m, → Church 191 m, → Brown 112 m, about 714 m) and still reads the trade before the list: the works stop settles whether soap or light matters most, the list and what to carry are settled at Jones's, and nothing is bought at Church's store, whose one undated source names no stock. **No counter at the works is claimed**: the stop is an exterior observation of a site no source gives (the scene's placement on the North Branch is conjectural), and where the story's bundle came from is left unrecorded. Elston & Co.'s goods — hard and soft soap, wax and other candles, cash paid for tallow and house ashes — are their own notice in the Democrat's first number (26 November 1833, p. 3, col. 6), still printed on 2 July 1834. **Timing is an outlier at Horse and is stated, not hidden:** the card reads Horse about 7 min, Walk 22 (21.5 at 1280×800), Wagon 10.5, Fly 3.5 and Instantly 3 at 390×780, and about three of the seven minutes are the one ride from the works' placement to the first bridge and back to South Water Street. Every order of these four stops pays that ride at least once, and the works is the brief's subject, so the recommendation stays Horse with Fly as the quick version. The primary path measured 428 s at Horse and 217 s at Fly against estimates of 425 s and 224 s. This is the batch's quiet outing: two hidden preferences (what matters most, what is carried) choose among four endings, and no purse, basket or resource strip is shown. Receipt: `docs/performance/jaunt-soap-and-candles/`.
 
 ## 17. Materials for a Roof
 
@@ -427,6 +435,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Lake House is under construction, not open lodging; material costs and the customer’s order are reconstructed.
 
+**Route note (published, T-2026):** The shipped story order is Newberry & Dole's warehouse → Peck's store → Blodgett's brickyard → the Lake House. The order proposed above goes north to the brickyard and the Lake House and then back over the river to Peck's, so it crosses twice: about 1,660 m in straight lines (435 + 498 + 726). Taking Peck's second crosses once (228 + 228 + 498, about 954 m) and lets the jaunt end at its biggest sight, the brick shell going up at Rush Street. The bounded order is two choices and no prices: **nails or nail rods** at Peck's (both are lines of his own notice, 10 September 1834, p. 3 col. 1) and **brick for a chimney or none** at the yard; three endings. **No order, price or sale is claimed anywhere**, and the Lake House stop does not say its brick came from Blodgett's yard, because no source says so; the structure record's research note leans that way and the jaunt does not follow it. The Lake House is a building site, not lodging: Andreas describes the finished hotel (brick, three storeys and a basement, opened autumn 1836), the 1835 groundbreaking is an uncredited modern paragraph and the stop says so, and the one-storey roofless shell is called our reconstruction. Newberry & Dole's card is the Democrat of the scene date itself (1 July 1835, p. 4 col. 4: storage, forwarding and commission, agents for the Merchants' Line). **Timing sits inside the band:** the card reads Horse about 6 min, Walk 17.5, Wagon 8.5, Fly 4 and Instantly 3 at both 390×780 and 1280×800. The primary path (cut nails, brick chimney) measured 364 s at Horse and 226 s at Fly against estimates of 361 s and 232 s at 390×780 (365 s and 225 s against 364 s and 232 s at 1280×800). Receipt: `docs/performance/jaunt-materials-for-a-roof/`.
+
 ## 18. Boots, Leather and the Road
 
 **ID:** `boots-and-leather` · **Owner ticket:** [T-1268](../tickets/T-1268-publish-harness-candles-building-materials-and-l.md)
@@ -445,6 +455,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Equipped to Travel (Livelihood); fictional narrative memento.
 
 **Evidence and route cautions:** Do not turn the saddler into a bootmaker; substitute a verified shoemaker business only if its dated location resolves.
+
+**Route note (published, T-2027):** The shipped story order is Holbrook's store → Miller's tannery → Cobb's saddlery → the Green Tree. The order proposed above starts at the forks, goes west to Lake and Canal, east across the South Branch to South Water Street and back west again: about 1,871 m in straight lines, crossing the South Branch twice. Starting at Holbrook's goes one way, east to west (Holbrook → tannery 718 m, → Cobb 250 m, → Green Tree 122 m, about 1,090 m), and the story still reads: made goods shipped in, then where the town's own leather began, then the leather trade that is not the clothier's. **No shoemaker was substituted** — the boots come from Holbrook's card, which names boots and shoes; the saddler's card names none, and a choice at his stop says so. The tannery stop claims no work on the scene date: its source trail ends in 1832.
 
 ## 19. A Schoolday Errand
 

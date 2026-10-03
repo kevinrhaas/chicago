@@ -9,8 +9,266 @@ is the geometric target; roof joins and two service stacks are reconstructed.
 Historical review did not establish that the stacks were absent in 1904.
 See `docs/RESEARCH/glessner-connected-roof-plan/work.md` and liberty
 `L-glessner-connected-roof-2016`. The full and light exports, 1,800 roof samples, 186 opening rays and published
-desktop/mobile detail switching pass. Final source preflight and official
-stage 13 remain in progress; no production promotion is included.
+desktop/mobile detail switching pass. Integration with dev 1b56a552 passes all
+750 source checks and preflight. Official stage 13 remains in progress at both
+viewports; no production promotion is included.
+
+## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Materials for a Roof* (Building trades,
+Horse, 4 stops, Livelihood). A builder with a small frame house to roof starts at Newberry &
+Dole's warehouse on the river, whose card in the Democrat of 1 July 1835 offers storage,
+forwarding and commission; chooses nails or nail rods at Peck's corner, from his September 1834
+notice of nails, nail rods, bar iron and steel; chooses brick for a chimney or none at Blodgett's
+brickyard on the North Side; and ends at the Lake House site at Rush Street, seen from the
+street. Three endings; the keepsake *A Builder's List* goes to Livelihood. Content only: one JSON
+file, a liberty (`L-jaunt-materials-for-a-roof`), the regenerated catalog and source-use edges,
+and brief 17's route note. No engine, compiler or CSS change. Third of the four pieces T-1268 was
+split into.
+
+**The brief's cautions hold by construction.** The Lake House is a building site: Andreas's
+finished hotel is dated autumn 1836, the 1835 groundbreaking is an uncredited modern paragraph
+and the stop says so, and the shell is called our reconstruction. No price, order or sale is
+claimed anywhere. The brickyard's structure record says Andreas traces the Lake House's brick to
+this yard; he does not, so the jaunt says nothing of whose brick it was.
+
+**The route was re-cut.** The briefed order (warehouse → brickyard → Lake House → Peck's) crosses
+the river twice, about 1,660 m in straight lines; taking Peck's second crosses once, about 954 m.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 4 paths, three endings, one keepsake. Card estimates
+on the published mirror, identical at 390×780 and 1280×800: Walk 17.5 min, Wagon 8.5, Horse 6, Fly
+4, Instantly 3. The primary path (cut nails → brick chimney → nails-and-brick) measured 364 s at
+Horse and 226 s at Fly against the card's 361 s and 232 s at 390×780, and 365 s and 225 s against
+364 s and 232 s at 1280×800, inside the 4–6 min band. A Playwright drive at 390×780 (card, Start,
+the first stop, About this place and back to the same stop, the ending, End back to the menu)
+reached `nails-and-brick`; zero page errors at either viewport. Stills and the receipt are in
+`docs/performance/jaunt-materials-for-a-roof/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+## T-2027 — Boots, Leather and the Road, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Boots, Leather and the Road* (Trades,
+Horse, 4 stops, Livelihood). A rider who leaves tomorrow chooses boots or a hat at John
+Holbrook's clothing store one door east of Dearborn; looks from the road at John Miller's
+tannery at the forks, recorded as the town's first factory; chooses a bridle or a trunk at S. B.
+Cobb's saddle, harness and trunk shop at Lake and Canal, or asks him for boots and is told by his
+own card why not; and lays the outfit out at the Green Tree. Four endings; the keepsake *Equipped
+to Travel* goes to Livelihood. The kit is a two-item inventory (the engine shows it as a
+"Basket 1/2" strip); no purse, price or sale is claimed. Content only: one JSON file, a liberty
+(`L-jaunt-boots-and-leather`), the regenerated catalog and source-use edges, and brief 18's
+route note. No engine, compiler or CSS change. Last of the four pieces T-1268 was split into.
+
+**The brief's cautions hold by construction.** The saddler is not made a bootmaker: his card
+(Democrat, 26 November 1833; Cobb's continuation card, American, 13 June 1835) lists saddles,
+harness, bridles, martingales, trunks and repairing, and the boots are Holbrook's (Democrat, 10
+June 1835; American, 13 June 1835), so no shoemaker was substituted. The tannery stop says its
+source trail ends in 1832 and claims no work on the scene date. Nobody is met.
+
+**The route was re-cut.** The briefed order (tannery → Cobb → Holbrook → Green Tree) runs about
+1,871 m in straight lines and crosses the South Branch twice; starting at Holbrook's runs about
+1,090 m one way, east to west.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 24 min, Wagon 11.5, Horse 7.5, Fly 4, Instantly 3
+(Walk 23.5 at 1280×800, the rest the same). The primary path (boots → bridle → ride →
+`equipped`) measured 464 s at Horse and 233 s at Fly against the card's 458 s and 239 s (455 s
+and 233 s at 1280×800). **Horse is 1.5 minutes over the 4–6 min band**: 143 s of it is the one
+ride from South Water Street over the river to the forks, which any order that includes both
+Holbrook's and the tannery pays; Fly is the quick version. Zero page errors at both viewports;
+End returns to the menu. Stills and the receipt are in `docs/performance/jaunt-boots-and-leather/`.
+
+**Unverified.** The detail-card round trip was proven on a first pass (card opened from the
+tannery stop and returned to it) but not on the final pass that produced the stills; T-2025's
+stills remain the batch's full card → detail → ending sequence.
+
+## T-2015 — Realistic procedural vegetation (2026-10-03)
+
+**Implemented and validated.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
+
+**Verification.** Source preflight passed all 750 checks through checkpoint 04ddd3939. Published normal-loop part 5 passes 27 checks each at desktop 1280×800 and touch mobile 390×780/DPR 2. Mobile parts 9–11 pass 60 checks. Desktop parts 9/10 passed within a combined run that later hit a native-click timeout; the repaired part 11 rerun passes 23 checks, with the original red receipt preserved. All these runs report zero page errors. Full/balanced/light ceilings remain 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. The final integration includes dev 7ab5019 and vegetation disclosure L369; the refreshed focused review passes 58 checks (29 each), with zero page, console or resource errors. Final source gate and preflight pass all 750 steps on the 7ab5019 integration. PR #333. Details and exact scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
+
+## T-2025 — Soap and Candles, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Soap and Candles* (Household and trades,
+Horse, 4 stops, Provisions). A boarder in the log house behind Peck's store starts on the North
+Branch at Daniel Elston & Co.'s soap and candle works, seen from the road, and settles whether
+light or soap matters most; makes the list at Jones's grocery on South Water Street and chooses
+what to carry; passes the Lake Street store Thomas Church built, where nothing is bought; and
+comes home to Mrs Rufus Brown's boarding house. Four endings; the keepsake *Light for the
+Evening* goes to Provisions. Content only: one JSON file, a liberty
+(`L-jaunt-soap-and-candles`), the regenerated catalog and source-use edges, and brief 16's route
+note. No engine, compiler or CSS change. Second of the four pieces T-1268 was split into.
+
+**The brief's caution holds by construction.** No counter at the works is claimed and no sale
+anywhere is: the works stop is an exterior observation, its site is the scene's conjectural
+placement and the stop says no source gives it, and the bundle's origin is left unrecorded. The
+goods are Elston & Co.'s own notice (Democrat, 26 November 1833, p. 3 col. 6; still printed 2 July
+1834). Church's store names no stock, so it sells nothing. Nobody is met.
+
+**The route was re-cut.** The briefed order (Jones → works → Church → Brown) crosses the river
+twice and read Horse 9 min, Walk 31.5 on the published mirror. Starting at the works crosses once.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780: Walk 22 min, Wagon 10.5, Horse 7, Fly 3.5, Instantly 3 (Walk 21.5
+at 1280×800, the rest the same). The primary path (light → candles → candle-lit) measured 428 s at
+Horse and 217 s at Fly against the card's 425 s and 224 s. **Horse is a minute over the 4–6 min
+band**: about three minutes of it is the one ride from the works to South Water Street, which
+every order pays; the route note says so. A Playwright drive at 390×780 — card, Start, the first
+stop, Elston & Co.'s card and back to the same stop, the ending, End back to the menu — reached
+`candle-lit` with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-soap-and-candles/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-1259 — browse the Jaunts menu (2026-10-02)
+
+The lazy menu now carries title, premise, category, stops, travel mode and an
+instant duration estimate. Featured comes from the authored flag through the
+compiler. Search and catalog-derived categories filter the title-sorted list;
+explicit Earlier/More controls window it at twenty cards, with at most six
+featured copies. This avoids removing a focused control during scrolling.
+The selected mode stays synchronized between the featured and main card.
+
+End, preview-back and menu/resume preserve the browsing window, filters and
+scroll position. Explore Myself uses the shared destination picker and clears
+paused sessions. Sources & City opens the existing Evidence hub before entry,
+returning to the welcome on close without entering the world.
+
+Validation passed on the recovered implementation integrated with dev `604daa6`:
+preflight (including the full check.sh gate); the published-menu acceptance at
+390×780 and 1280×800; and scaffold smoke stage 1 at both viewports (80 passed,
+zero failed each). The 55-row harness mounts at most 26 cards, loads no jaunt
+code/catalog at boot, and restores the exact scroll and focused Start control.
+The standalone first-load measurement passed at 12.911 MB of the 13 MB budget.
+The first payload attempt timed out under concurrent validation; the standalone
+retry passed without changing the test. Desktop smoke took 10m31s on this host.
+Receipts and reviewed screenshots are under `docs/performance/jaunt-menu/`;
+`validation.json` records the tested integration base and command coverage.
+The full preflight passed again after integrating dev `de920bf` (750 steps).
+The catalog retains all eight current 1835 jaunts. Published menu acceptance
+passed again at both viewports on that integration; screenshots were refreshed.
+A transient ticket-checkout synchronization failure passed on the gate quiet retry.
+This ticket authors no new stories. Full scene smoke parts 2–13 were not rerun;
+the targeted menu test and scaffold smoke cover this interface change.
+
+## T-2024 — Mend the Harness, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Mend the Harness* (Trades and repairs,
+Wagon, 4 stops, Livelihood). While harnessing in the yard behind W. H. Stow's Western Hotel the
+visitor finds a cracked trace and may look the whole harness over, which turns up a worn
+whiffletree hook. The trace goes to S. B. Cobb's saddlery at Lake and Canal, to be restitched or
+bound with twine; the hook, if it was found, goes to Asahel Pierce's smithy on the same crossing;
+and at the Green Tree the visitor calls the outfit ready or keeps tomorrow's trip short. Four
+endings; the keepsake *Sound Tack* goes to Livelihood. Content only: one JSON file, a liberty
+(`L-jaunt-mend-harness`), the regenerated catalog and source-use edges, and brief 15's route
+note. No engine, compiler or CSS change. First of the four pieces T-1268 was split into
+(T-2024..T-2027), the same cut T-1267 took.
+
+**The brief's caution holds by construction.** The damage and the repairs are invented and the
+opening says so. Leather and iron are told apart by the firms' own records — Goss & Cobb's 1833
+advertisement (harness, bridles, trunks, repairing) and Cobb's June 1835 continuation card;
+Andreas's Pierce paragraph (stage-line ironing, ploughs). Neither shop is said to have mended
+this harness, and nobody is met. The corner each shop held is not attested and both stops say
+"this corner" / "the same crossing".
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 7.5 min, Wagon 5, Horse 4, Fly 3.5, Instantly 3 (at
+1280×800 Walk 7, Wagon 4.5, the rest the same). The primary path (look over → restitch → hook →
+ready) measured 281 s at Wagon and 207 s at Fly against the card's 290 s and 215 s, inside the
+quick-play 4–6 min band at the recommended mode. A Playwright drive at 390×780 through the panel
+— card, opening, a detail card and back to the same stop, the ending — reached `sound-tack`
+with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-mend-the-harness/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-2010 — Stock the Household, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Stock the Household* (Household, Walk,
+4 stops, Provisions). With an imagined two dollars and a share of a room at Mrs Rufus Brown's,
+the visitor picks a list for the table or for the room. Then comes Jones's grocery for coffee and
+sugar or tea, Carpenter's drug store for cream of tartar or tooth powder, and Peck's corner for a
+crockery cup and plate or a length of flannel. Every good is offered only where that store's own
+advertisement lists it. There are four endings, and the keepsake *A Cupboard Begun* goes to
+Provisions. Content only: one JSON file, a liberty (`L-jaunt-household-provisions`), the
+regenerated catalog and source-use edges, and brief 13's route note. There is no engine, compiler
+or CSS change.
+
+**The brief's cautions hold by construction.** Quantities and prices are bounded and labelled
+reconstructed, and there is no health score. Jones's stop says that no source places the store and
+that his initial is disputed. Carpenter's cut window-glass notice is not used, because its own
+extract warns it is not proved to be his.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 54 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780 were Walk 5 min, Wagon 3.5, Horse 3, Fly 2.5 and Instantly 2.5; at
+1280×800, Walk 4.5 and Wagon 3. A Playwright drive at both viewports (table → coffee → cream of
+tartar → crockery) reached the `table-laid` ending once, with the keepsake under Receipt and zero
+page errors.
+
+**Unverified.** The stills were taken (card, opening, outcome) but are not committed, and no detail
+card was opened during the drive.
+
+## T-0192 — the seven cross streets take the plank walk (2026-10-03)
+
+**What a visitor sees.** Market, Franklin, Wells, La Salle, Clark, Dearborn and State carry the plank
+walk the four east-west streets carry, laid by the same rule (`EDGE_CROSS_STREETS` =
+`EDGE_CROSS_STREETS_ALL` in `tools/generate_frontage_works.py`): 46 platted faces, +4,764.9 m of walk
+and +47 board crossings, so the record goes 47 faces / 3,865.7 m to 93 / 8,630.6 m. No fence or
+hitching post on a cross face — both rules are per-lot and those faces are the ends of lot rows,
+which the record already says. Five wagon stands that would now sit on the boards are refused
+(73 → 68 wagons), and the dooryard plantings re-derive around the new strips.
+
+**Priced and argued where the ceiling is defined.** Owner's queue note of 2026-10-03: a measured
+raise is allowed and `light` is the floor. `tools/measure_detail_ceilings.mjs`, published mirrors of
+dev @ d8b7748d and of this branch, desktop 1280x800, same run:
+
+| tier | dev worst | with the seven | ceiling was | ceiling now |
+| --- | --- | --- | --- | --- |
+| `full` | 1,857,267 (Lake at Canal) | 2,120,153 | 1,845,000 | **2,140,000** |
+| `balanced` | 1,626,744 (Lake at Canal) | 1,801,124 | 1,615,000 | **1,820,000** |
+| `light` | 851,431 (the forks) | 856,275 | 825,000 | 825,000 — not moved |
+| calls | 224 (`full`) | 259 | 240 | **275** |
+
+The rule is T-1975's and T-1987's: worst stand plus T-0672's 18,059 / 16,806, rounded up to 5,000;
+calls + 15. dev was already over `full`/`balanced` (by 12,267 / 11,744) before this branch.
+
+**`light` does not draw them** (`light.crossStreetWalks: false`, the woodpiles' mechanism): Lake and
+Market 798,916 → 738,536 and the open aerial 838,167 → 822,297, back inside. Left at `light`: +4,844 at
+the forks and +9,204 at the aerial over dev. Not boards — those are hidden — but the walks still keep
+the sward and planting off their strips at every tier; that attribution is inferred, not read layer
+by layer on dev. The forks were over on dev already and stay T-1976's to trim.
+
+**The reach test is now per block.** `tools/test_frontage_faces.py` asked whether a lot's face was laid
+*anywhere*; with east/west faces laid on the South Division that would call `blk_randolph_clinton`
+reached while Canal and Clinton are in no tuple. Asked per block, it also names the six
+Washington–Madison blocks whose Madison lots no tuple covers (hidden since T-1707). Named, not fixed:
+Madison was not this ticket's ask.
+
+## T-2009 — Freight for the Store, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Freight for the Store* (River commerce,
+Wagon, 4 stops, Livelihood). An invented bill lists three packages landed at Newberry & Dole's.
+The visitor counts them and loads the wagon (a *Packages* chip tracks the load), or takes only
+Peck's two, or loads all three on trust. Then come Peck's store, with the lines his own cards
+advertised, Thomas Church's store on Lake Street, and the tally handed in at George W. Dole's
+1832 warehouse. There are four endings, and the keepsake *Cargo Accounted For* goes to Livelihood.
+Content only: one JSON file, a liberty (`L-jaunt-freight-store`), the regenerated catalog and
+source-use edges, and brief 12's route note. There is no engine, compiler or CSS change.
+
+**The brief's caution holds by construction.** The shipment, the bill and the tally are invented
+and the opening says so. No firm ships, receives or pays for anything, and no price is named.
+Church's store has no stock on record, so his package is never said to hold anything. Newberry &
+Dole's house and Church's store keep their reconstructed positions, and both stops say so.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. The
+briefed order doubled back across town (961 m straight-line against 546 m), so the tally stop
+moves to the end (brief 12's route note). A Playwright drive at 390×780 (count all three → check
+the marks → leave Church's package → hand in the tally) reached `checked-and-counted` with zero
+page errors. It covered the card, the opening, a detail card and back to the same stop, and the
+ending. The keepsake landed once under Livelihood.
+
+**Unverified.** The drive ran at 390×780 only. The stills are not committed.
 
 ## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
 
