@@ -20,9 +20,9 @@
   "known": 2779,
   "unknown": 137,
   "by_community": {
-   "yankee": 1278,
+   "yankee": 1279,
    "new_york": 543,
-   "irish": 399,
+   "irish": 398,
    "french_canadian": 146,
    "unknown": 137,
    "other": 132,
@@ -47,9 +47,9 @@
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 733,
+   "yankee": 734,
    "new_york": 542,
-   "irish": 163,
+   "irish": 162,
    "other": 132,
    "unknown": 124,
    "british": 109,
@@ -9141,11 +9141,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_keegan_bryan": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_keegan_daniel": {
    "value": "irish",
    "tier": "reconstructed",
@@ -12042,6 +12037,11 @@
    "rule": "reconstruction_community"
   },
   "rc_tuttle_clarissa": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_tuttle_john": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -23995,13 +23995,6 @@
    "head": "rc_ingalls_nancy",
    "file": "reconstructed_trades/hh_rc_ingalls_nancy.json"
   },
-  "hh_rc_keegan_bryan": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community",
-   "head": "rc_keegan_bryan",
-   "file": "reconstructed_trades/hh_rc_keegan_bryan.json"
-  },
   "hh_rc_keegan_daniel": {
    "value": "irish",
    "tier": "reconstructed",
@@ -25443,6 +25436,13 @@
    "rule": "reconstruction_community",
    "head": "rc_tuttle_clarissa",
    "file": "reconstructed_trades/hh_rc_tuttle_clarissa.json"
+  },
+  "hh_rc_tuttle_john": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_tuttle_john",
+   "file": "reconstructed_trades/hh_rc_tuttle_john.json"
   },
   "hh_rc_tuttle_joseph": {
    "value": "yankee",

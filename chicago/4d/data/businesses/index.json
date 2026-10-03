@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 287,
+    "records": 289,
     "compiled_from_register": 196,
-    "authored": 91,
-    "present_at_scene_date": 270,
+    "authored": 93,
+    "present_at_scene_date": 272,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -17,7 +17,7 @@
       "lawyer": 19,
       "not_stated": 5,
       "other": 135,
-      "physician": 8,
+      "physician": 10,
       "printing_office": 3,
       "school": 7,
       "silversmith_jeweller": 2,
@@ -30,31 +30,31 @@
     "by_location_kind": {
       "anchored": 28,
       "premises": 65,
-      "street_only": 93,
+      "street_only": 95,
       "unplaceable": 106
     },
-    "named_people": 421,
-    "named_people_linked_to_a_town_card": 367,
+    "named_people": 422,
+    "named_people_linked_to_a_town_card": 368,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
       "inferred": 70,
-      "reconstructed": 51
+      "reconstructed": 53
     },
     "by_where_kind": {
       "anchored": 28,
       "premises": 64,
-      "street_only": 93,
+      "street_only": 95,
       "unplaceable": 102
     },
     "by_street": {
       "Canal Street": 10,
-      "Dearborn Street": 31,
+      "Dearborn Street": 32,
       "Franklin Street": 1,
       "Kinzie Street": 5,
       "La Salle Street": 4,
-      "Lake Street": 19,
+      "Lake Street": 20,
       "Market Street": 2,
       "Monroe Street": 1,
       "North Water Street": 5,
@@ -66,13 +66,13 @@
       "british": 11,
       "free_black": 2,
       "french_canadian": 6,
-      "irish": 11,
+      "irish": 12,
       "metis": 1,
       "new_york": 50,
       "other": 11,
       "southern": 9,
       "unknown": 106,
-      "yankee": 80
+      "yankee": 81
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -116,7 +116,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 80
+        "count": 81
       },
       {
         "value": "new_york",
@@ -126,7 +126,7 @@
       {
         "value": "irish",
         "label": "Irish",
-        "count": 11
+        "count": 12
       },
       {
         "value": "german",
@@ -6888,15 +6888,6 @@
           "tier": "attested",
           "from": "1835-07-11",
           "to": "1835-07-11",
-          "also_printed_as": []
-        },
-        {
-          "name": "Bryan Keegan",
-          "person_id": "rc_keegan_bryan",
-          "role": "household_member",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
           "also_printed_as": []
         }
       ],
@@ -15657,6 +15648,54 @@
       "liberties": []
     },
     {
+      "id": "rcb_mcguire_physician",
+      "file": "rcb_mcguire_physician.json",
+      "name": "Dr. J. McGuire, physician",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "physician"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "physician",
+      "occupation": "physician",
+      "goods": [
+        "physician"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "John McGuire",
+          "person_id": "rc_mcguire_john",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "dearborn",
+        "street": "Dearborn Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "irish",
+      "proprietor_community_tier": "reconstructed",
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_metcalf_druggist",
       "file": "rcb_metcalf_druggist.json",
       "name": "Nathaniel Metcalf, drugs, medicines and dye stuffs",
@@ -16459,6 +16498,54 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_tuttle_physician",
+      "file": "rcb_tuttle_physician.json",
+      "name": "Dr. J. Tuttle",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "physician"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "physician",
+      "occupation": "physician",
+      "goods": [
+        "physician"
+      ],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "John Tuttle",
+          "person_id": "rc_tuttle_john",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "street_only",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": "lake",
+        "street": "Lake Street",
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": []
     },

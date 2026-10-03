@@ -25,14 +25,14 @@
     "by_kind": {
       "class_full_none_owed": 2,
       "class_held_no_house": 61,
-      "keeps_their_own_house": 166,
+      "keeps_their_own_house": 167,
       "no_employer_named": 162,
       "no_ruling": 5,
       "roofs_kept_none_owed": 12,
-      "seated": 123
+      "seated": 122
     },
-    "houses_taking_a_reconstructed_hand": 84,
-    "seats_carried_onto_a_card": 123,
+    "houses_taking_a_reconstructed_hand": 83,
+    "seats_carried_onto_a_card": 122,
     "seats_by_house_and_role": [
       {
         "business_id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
@@ -257,11 +257,6 @@
       {
         "business_id": "biz_j_s_c_hogan",
         "role": "clerk",
-        "seats": 1
-      },
-      {
-        "business_id": "biz_j_wright_merchant",
-        "role": "labourer",
         "seats": 1
       },
       {
@@ -525,7 +520,7 @@
     "what_this_is": "The ticket asks for the nearest house of the trade in the person's own division, seeded. Two of those three terms are inert against the layer as it stands, and this count is how a reader sees that rather than taking the rule's word for it.",
     "division_match": 0,
     "nearest": 0,
-    "seeded_draw": 123,
+    "seeded_draw": 122,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
     "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 196 business records name a structure this project holds, and 55 of 2209 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
@@ -716,9 +711,9 @@
       }
     },
     "labourer": {
-      "people": 27,
+      "people": 26,
       "kinds": {
-        "seated": 27
+        "seated": 26
       }
     },
     "land_agent": {
@@ -801,9 +796,9 @@
       }
     },
     "physician": {
-      "people": 1,
+      "people": 2,
       "kinds": {
-        "keeps_their_own_house": 1
+        "keeps_their_own_house": 2
       }
     },
     "plasterer": {
@@ -7573,36 +7568,6 @@
         "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
       },
       "chosen_by": []
-    },
-    {
-      "person_id": "rc_keegan_bryan",
-      "person_name": "Bryan Keegan",
-      "household_id": "hh_rc_keegan_bryan",
-      "kind": "seated",
-      "trade": "labourer",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
-      "business_id": "biz_j_wright_merchant",
-      "business_name": "J. Wright, merchant",
-      "role": "labourer",
-      "tier": "reconstructed",
-      "seed": "rc_keegan_bryan:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "establishment_class": "lumber_yard",
-      "basis": {
-        "kind": "model",
-        "id": "1835_business_staffing_model#lumber_yard.labourer",
-        "note": "The staffing model puts 2 of this role in a lumber yard at the typical band and 3 at the high end, on period_convention. A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
-      },
-      "replaceable_by": {
-        "kind": "person",
-        "match": "a source naming where this person worked, which retires the draw"
-      },
-      "chosen_by": [
-        "seeded_draw"
-      ],
-      "candidates_considered": 63
     },
     {
       "person_id": "rc_keegan_daniel",
@@ -14611,6 +14576,35 @@
       "replaceable_by": {
         "kind": "business",
         "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
+      "person_id": "rc_tuttle_john",
+      "person_name": "John Tuttle",
+      "household_id": "hh_rc_tuttle_john",
+      "kind": "keeps_their_own_house",
+      "trade": "physician",
+      "premises": "own_premises",
+      "division_of_the_person": "south",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_tuttle_john:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [
+        "physician_practice"
+      ],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: a consulting room a stranger has to be able to find — PUBLIC_TRADES `physicians_office`; the December census counts fourteen physicians. The staffing model keeps physician_practice at this trade and employs it in no class. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
