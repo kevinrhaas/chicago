@@ -1500,10 +1500,10 @@
           "west": 28
         },
         "by_clause": {
-          "labourer_dwellings": 35,
+          "labourer_dwellings": 36,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 33,
-          "tradesman_dwellings": 109
+          "tradesman_dwellings": 108
         }
       },
       {
@@ -1517,7 +1517,7 @@
         "handed_on": 1226,
         "roofs_adopted": 73,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 73,
+        "roofs_offered_for_adoption": 79,
         "roofs_held_back": 19,
         "ground_taken": 14,
         "ground_taken_unit": "parcels",
@@ -1550,8 +1550,8 @@
         "name": "The Albee household — a name from the post office's letter lists",
         "district": "north",
         "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_indiana_north_cass",
-        "lot_id": "blk_indiana_north_cass#10",
+        "block_id": "blk_indiana_north_wolcott",
+        "lot_id": "blk_indiana_north_wolcott#11",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1561,7 +1561,7 @@
         "district": "north",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_indiana_north_wolcott",
-        "lot_id": "blk_indiana_north_wolcott#11",
+        "lot_id": "blk_indiana_north_wolcott#10",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1642,8 +1642,8 @@
         "clause": "tradesman_dwellings",
         "block_id": "blk_indiana_north_cass",
         "lot_id": "blk_indiana_north_cass#03",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_beach_william_h",
@@ -1652,8 +1652,8 @@
         "clause": "tradesman_dwellings",
         "block_id": "blk_indiana_north_cass",
         "lot_id": "blk_indiana_north_cass#02",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D6",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_beaubien_john_s",
@@ -1698,16 +1698,6 @@
       {
         "household_id": "hh_blaisdell_b",
         "name": "The Blaisdell household — a name the town's own records carry",
-        "district": "north",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_indiana_north_wolcott",
-        "lot_id": "blk_indiana_north_wolcott#10",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_blodgett_tyler_k",
-        "name": "The brickyard household",
         "district": "north",
         "clause": "tradesman_dwellings",
         "block_id": "blk_indiana_north_wolcott",
@@ -1814,6 +1804,16 @@
         "lot_id": "blk_washington_market#07",
         "family": "D4",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_barre_john_s",
+        "name": "The Barre household — a name from the post office's letter lists",
+        "district": "north",
+        "clause": "labourer_dwellings",
+        "block_id": "blk_indiana_north_cass",
+        "lot_id": "blk_indiana_north_cass#10",
+        "family": "D2",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_bruno_anne_franoise_apolline",

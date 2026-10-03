@@ -398,8 +398,8 @@ Two committed passes have offered every banded household ground: the plat first,
 | household | block | lot | family | clause |
 |---|---|---|---|---|
 | `hh_adams_elizabeth` | `blk_indiana_north_cass` | `blk_indiana_north_cass#11` | D7 | `merchant_and_professional_dwellings` |
-| `hh_albee_clark_b` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D7 | `merchant_and_professional_dwellings` |
-| `hh_allen_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#11` | D7 | `merchant_and_professional_dwellings` |
+| `hh_albee_clark_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#11` | D7 | `merchant_and_professional_dwellings` |
+| `hh_allen_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#10` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beaubien_monique` | `blk_washington_dearborn` | `blk_washington_dearborn#06` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beddlecome_ash` | `blk_washington_dearborn` | `blk_washington_dearborn#00` | D7 | `merchant_and_professional_dwellings` |
 | `hh_beech_reuben` | `blk_washington_dearborn` | `blk_washington_dearborn#04` | H2 | `merchant_and_professional_dwellings` |
@@ -407,14 +407,13 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_bennet_lyman` | `blk_washington_market` | `blk_washington_market#00` | H1 | `merchant_and_professional_dwellings` |
 | `hh_baily_john` | `blk_indiana_north_cass` | `blk_indiana_north_cass#07` | D3 | `tradesman_dwellings` |
 | `hh_barber_beta_l` | `blk_indiana_north_cass` | `blk_indiana_north_cass#06` | D4 | `tradesman_dwellings` |
-| `hh_barnard_j_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D4 | `tradesman_dwellings` |
-| `hh_beach_william_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D4 | `tradesman_dwellings` |
+| `hh_barnard_j_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D5 | `tradesman_dwellings` |
+| `hh_beach_william_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D6 | `tradesman_dwellings` |
 | `hh_beaubien_john_s` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#07` | D3 | `tradesman_dwellings` |
 | `hh_beaubien_susan` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#06` | D3 | `tradesman_dwellings` |
 | `hh_bennett_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
 | `hh_bigelow_david` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#02` | D4 | `tradesman_dwellings` |
-| `hh_blaisdell_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#10` | D4 | `tradesman_dwellings` |
-| `hh_blodgett_tyler_k` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
+| `hh_blaisdell_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
 | `hh_borum_richard` | `blk_west_lake_canal` | `blk_west_lake_canal#03` | D4 | `tradesman_dwellings` |
 | `hh_bourassa_jean_baptiste` | `blk_west_lake_canal` | `blk_west_lake_canal#02` | D5 | `tradesman_dwellings` |
 | `hh_casy_honora` | `blk_washington_clark` | `blk_washington_clark#03` | D3 | `tradesman_dwellings` |
@@ -425,6 +424,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_chattin_clark` | `blk_washington_market` | `blk_washington_market#03` | D3 | `tradesman_dwellings` |
 | `hh_chevalier_joseph` | `blk_washington_market` | `blk_washington_market#02` | D4 | `tradesman_dwellings` |
 | `hh_chiney_ralph` | `blk_washington_market` | `blk_washington_market#07` | D4 | `tradesman_dwellings` |
+| `hh_barre_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D2 | `labourer_dwellings` |
 | `hh_bruno_anne_franoise_apolline` | `blk_west_lake_canal` | `blk_west_lake_canal#08` | D2 | `labourer_dwellings` |
 
 1,226 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.

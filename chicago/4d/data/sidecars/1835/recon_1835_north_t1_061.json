@@ -198,5 +198,17 @@
     "weather_rate": 0.75,
     "lay_m": 0.004,
     "confidence": "reconstructed"
+  },
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 9,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 211.53,
+    "confidence": "reconstructed",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 212 m² of enclosed floor (106 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": null
   }
 }
