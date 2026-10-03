@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 360,
+  "count": 361,
   "liberties": [
     {
       "id": "L1",
@@ -19384,6 +19384,39 @@
         {
           "label": "Recorded",
           "text": "2026-10-03 (T-1261)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-news-breakfast",
+      "title": "News Before Breakfast: an imagined morning's reading of the two papers",
+      "section": "per_subject",
+      "subjects": [
+        "exchange_coffee_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "News Before Breakfast links four existing exterior destinations (the Sauganash, the former Chicago Democrat corner, the Chicago American office and the Exchange Coffee House) in an invented morning. The visitor's lodging at the Sauganash, the two questions, the walk, the report-or-advertisement sorting and its count, breakfast at the Exchange, the choice among three clippings, the four endings and the A Useful Clipping keepsake are reconstructed, and so are the reading and action seconds. Every printed item the stops describe is issue-dated and located to page and column, and every one was printed before the scene date: the Democrat of 24 June 1835 (the cholera paragraph and the auction notice) and the American of 27 June 1835 (the Cholera Elixir advertisement). Both are transcription-mediated readings. No named person speaks, no editor, druggist or keeper is met, no interior is opened and no front door is claimed. The Democrat's corner is a former office on the scene date, so the stop speaks of where the paper was printed and where it went, not of a press at work. Every question and every clipping reaches an ending and the keepsake."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved July 1, 1835 scene, the four structure records, the two newspaper runs, and brief 07 of JAUNTS-INITIAL-LIBRARY.md. The route, the sorting game and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A scan read of either column upgrades or corrects the quoted readings."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/news-before-breakfast.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2004)."
         }
       ]
     },

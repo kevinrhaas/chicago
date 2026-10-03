@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick News Before Breakfast. It is a morning walk from the Sauganash to both of the town\u2019s newspapers and on to breakfast at the Exchange Coffee House. It takes about five minutes on foot.',
+      'Ask whether the cholera is near, or what is new today. Then read one real item from each paper and decide whether it is reporting or an advertisement. The Democrat of 24 June weighs the rumours from other towns. The American of 27 June sells a cholera elixir.',
+      'At breakfast, keep one clipping: the report, the elixir notice, or an auction whose first sale is today. Every item was printed before 1 July 1835 and is cited to its page and column. The morning and the keepsake, A Useful Clipping, are our reconstruction (liberty L-jaunt-news-breakfast).',
+    ] },
   { v: 1335, ts: '2026-10-03T01:32:51.629Z', date: 'Oct 2, 2026, 8:32 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Taverns of Chicago. It is an evening ride round four public houses at the forks: the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel. It takes about five minutes on horseback.',
