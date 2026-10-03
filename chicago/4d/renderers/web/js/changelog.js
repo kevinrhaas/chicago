@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1343, ts: '2026-10-03T04:36:39.096Z', date: 'Oct 2, 2026, 11:36 PM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
+    items: [
+      'Stand on Lake Street in front of Matthias Mason\u2019s smithy and look at the worn path to his door. It now has the same grain and colour as the street it runs into, with no seam where the two meet.',
+      'The worn ground before every door in town was drawn in a darker, coarser dirt that looked blocky up close. It is now drawn from the road\u2019s own surface, and its edge fades softly into the grass.',
+    ] },
   { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Work on the Waterfront. It is a morning ride looking for work, from the old Democrat corner to two Newberry & Dole warehouses and on to breakfast at the Exchange Coffee House. It takes about six minutes on horseback.',

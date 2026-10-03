@@ -1,3 +1,14 @@
+## T-2013 — the worn ground at the doors drawn with the road's own surface (2026-10-03)
+
+The owner, on dev at Matthias Mason & Co. on Lake Street: the door ground T-1984 laid "is not nearly as
+nice as the road texture ... make those areas with dirt the same as where the road is the same texture
+color so it does not look pixely and jagged". The aprons were drawn as `trodden_earth`, the estray pen's
+128 px canvas of 2 px hash blocks over 3.1 m. They are now `road_earth`, a fourth `yards.js` treatment
+with no canvas: `streets.js`'s grit tile (256 px over 1.6 m, now exported with its worn-earth tones),
+sampled in world east/north so the grain runs straight on across the join, the same lane/between-lane
+tones and 35 m broad tone, and the grit as the normal. Its edge fades over 0.6 m into the grass. The
+smoke's fenced-ground check now expects four treatments. No new liberty: L359 already covers the ground.
+
 ## T-2007 — Work on the Waterfront, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Work on the Waterfront* (Employment, Horse,
