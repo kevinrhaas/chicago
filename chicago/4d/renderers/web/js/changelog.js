@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1355, ts: '2026-10-03T08:56:50.145Z', date: 'Oct 3, 2026, 3:56 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
       'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
       'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
-      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L366). The warehouse the north side is also owed waits for the North Water bank.',
+      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
+    ] },
+  { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
+    items: [
+      'A North Division boarding house had one bed empty that the town was still owed a lodger for. Henry Metcalf, a man in his twenties, now sleeps there. Open the house\u2019s card to see him among its boarders.',
+      'Nobody already in the town moved to make room. He is our reconstruction, like every boarder no source names (liberty L252).',
+      'Seven more lodgers are owed in the West Division, where every bed is taken. They will move in as new boarding houses are raised.',
+    ] },
+  { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+    items: [
+      'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
+      'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
+      'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
     ] },
   { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
     items: [

@@ -211,7 +211,7 @@ to east of Wolcott. That is the Wolcott–Kinzie core this memo names as the str
 cluster. So recipe rows 61–66 of `1835_north_division_initial_parcel.json` stand there, on the
 street line with open ground between every pair: a T1 tavern nearest the Dearborn drawbridge
 approach, a W3 wagon or cooper's shop, a C4 and a C3 on the two Kinzie corners of Wolcott, a W2
-joiner's shop and a second C3. All six are reconstructed (L366).
+joiner's shop and a second C3. All six are reconstructed (L368).
 
 **The warehouse is still owed.** The F3 belongs on the North Water bank, the one north street
 graded `light`, and no committed clause seats a warehouse on a light street. Seating it needs a

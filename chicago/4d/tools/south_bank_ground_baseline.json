@@ -11,11 +11,11 @@
   "family": "F1"
  },
  "widest_free_strip": {
-  "e": 813.2,
-  "n_from": 0.0,
-  "n_to": 26.0,
-  "width_m": 26.5,
-  "relief_m": 1.3
+  "e": 840.2,
+  "n_from": 1.0,
+  "n_to": 22.0,
+  "width_m": 21.5,
+  "relief_m": 1.56
  },
  "free_stations": 126,
  "stations": 143,
@@ -23,21 +23,21 @@
   "0.30": 0,
   "0.35": 0,
   "1.00": 44,
-  "none": 126
+  "none": 118
  },
- "platted_end_m": 805.0,
+ "platted_end_m": 826.99,
  "widest_free_strip_beside_the_street": {
-  "e": 804.2,
-  "n_from": 16.5,
-  "n_to": 24.0,
-  "width_m": 8.0,
-  "relief_m": 1.05
+  "e": 813.2,
+  "n_from": 16.0,
+  "n_to": 26.0,
+  "width_m": 10.5,
+  "relief_m": 1.26
  },
  "fits_beside_the_street": {
   "0.30": 0,
   "0.35": 0,
-  "1.00": 21,
-  "none": 40
+  "1.00": 44,
+  "none": 102
  },
  "unplatted_tracks_masked": [
   {
@@ -96,10 +96,10 @@
   }
  ],
  "fits_on_a_committed_walk": {
-  "0.30": 18,
-  "0.35": 90,
-  "1.00": 200,
-  "none": 261
+  "0.30": 0,
+  "0.35": 0,
+  "1.00": 0,
+  "none": 0
  },
  "standing_footprints_masked": [
   {
@@ -199,14 +199,6 @@
    "n_to": -4.36
   },
   {
-   "structure": "south_bank_shed_dearborn_e1",
-   "phase": "shed_1835",
-   "e_from": 805.5,
-   "e_to": 810.99,
-   "n_from": 1.53,
-   "n_to": 11.29
-  },
-  {
    "structure": "south_bank_shed_dearborn_e2",
    "phase": "shed_1835",
    "e_from": 805.5,
@@ -216,10 +208,10 @@
   }
  ],
  "fits_on_what_stands": {
-  "0.30": 3,
-  "0.35": 81,
-  "1.00": 145,
-  "none": 145
+  "0.30": 0,
+  "0.35": 0,
+  "1.00": 0,
+  "none": 0
  },
  "takes_more": {
   "0.30": 0,
@@ -259,9 +251,9 @@
    },
    {
     "e": 804.2,
-    "n": 23.0,
+    "n": 24.0,
     "bearing_deg": 255.0,
-    "relief_m": 1.072
+    "relief_m": 1.232
    },
    {
     "e": 814.2,
@@ -270,10 +262,10 @@
     "relief_m": 1.17
    },
    {
-    "e": 824.2,
-    "n": 26.0,
-    "bearing_deg": 270.0,
-    "relief_m": 1.175
+    "e": 826.2,
+    "n": 28.0,
+    "bearing_deg": 255.0,
+    "relief_m": 1.043
    }
   ]
  },
