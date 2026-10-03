@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1375, ts: '2026-10-03T18:02:51.839Z', date: 'Oct 3, 2026, 1:02 PM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
+  { v: null, ts: '', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Calling on Neighbors, about four minutes on horseback.',
       'Present a letter of introduction from Mrs Brown\u2019s boarding house, read the Peck household on its card, find the town\u2019s meeting place at the Exchange Coffee House, and leave a calling card.',
       'The newcomer, the letters, the calls and the keepsake, An Introduction Made, are our reconstruction (liberty L-jaunt-calling-on-neighbors). The meetings and the 1834 notice asking for addresses at the Exchange come from the Chicago Democrat.',
+    ] },
+  { v: 1375, ts: '2026-10-03T17:42:34.011Z', date: 'Oct 3, 2026, 12:42 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
+    items: [
+      'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
+      'Pick a machine at the top right: the 1960s Control Room (the standard), Precision Brass, World\u2019s Fair or Deep Space. The choice follows you into the town, and the arrival card and settings panel carry the same selector.',
+      'If you had chosen an earlier skin, you keep it under its new name: Sci-fi is now the Control Room, Steampunk is Precision Brass and Space Age is World\u2019s Fair.',
+      'The Confluence Laboratory and its aperture are framing fiction for the front door. They make no claim about the town; the evidence grades on every card are unchanged.',
     ] },
   { v: 1374, ts: '2026-10-03T17:24:17.483Z', date: 'Oct 3, 2026, 12:24 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
     items: [
