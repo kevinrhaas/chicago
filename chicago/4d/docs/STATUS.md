@@ -9,16 +9,18 @@ goes to Provisions. Content only: one JSON file, a liberty (`L-jaunt-outfit-west
 regenerated catalog and source-use edges. There is no engine, compiler or CSS change.
 
 **Measured.** `play_jaunt.mjs --all-paths` walks 23 paths to both endings, with one keepsake.
-The harness path cannot also afford the repair, which is deliberate. The estimator's
-primary-path figures use the unrouted straight line × 1.3: Wagon about 9 min, Horse 6.5, Fly
-4, Instantly 3. **Wagon is over the brief's 4–6 min.** The five owner-named stops straddle the
-South Branch, so no order of them comes under about 7 min at the 3.6 m/s wagon pace. The
-route was re-ordered to cut 240 m, and the reasoning is in brief 01's route note.
+The harness path cannot also afford the repair, which is deliberate. The catalog card's
+estimate was read on the published mirror at 390×780, with the real router and no "approximate
+route" suffix: Wagon about 9 min, Horse 6, Fly 4, Instantly 2.5, Walk 18. There were no page
+errors. **Wagon is over the brief's 4–6 min.** The five owner-named stops straddle the South
+Branch, so no order of them comes under about 7 min at the 3.6 m/s wagon pace. The route was
+re-ordered to cut 240 m, and the reasoning is in brief 01's route note.
 
-**Unverified.** The published mirror's routed figure was not taken, and neither were the
-acceptance stills at 390×780 and 1280×800. The routed bridge detour may lengthen the two
-river legs beyond the × 1.3 fallback. Jones's initial (B. or H.) stays open, and the stop says
-it is disputed.
+**Unverified.** The full acceptance sequence of stills was not taken: opening, a mid-leg mode
+switch, a detail card, the ending and back to the menu. Stills were taken of the catalog card
+and the route preview at 390×780 only. The desktop pass of that measuring script timed out on
+the Jaunts button, but smoke part 3 passed at both viewports, 102/0 each. Jones's initial
+(B. or H.) stays open, and the stop says it is disputed.
 
 ## T-1970 — the visible walk, fort to Wolf Point, and the card that says whether the town is finished (2026-10-02)
 
