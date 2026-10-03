@@ -1,10 +1,28 @@
 export const CHANGELOG = [ // newest first
-  { v: 1364, ts: '2026-10-03T13:37:13.805Z', date: 'Oct 3, 2026, 8:37 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
       'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
       'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
       '277 men are still owed a wife that no woman in the town can be.',
+    ] },
+  { v: 1366, ts: '2026-10-03T14:21:05.994Z', date: 'Oct 3, 2026, 9:21 AM CT', title: 'A new jaunt: Boots, Leather and the Road', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Boots, Leather and the Road, an outing of about seven and a half minutes on horseback.',
+      'Outfit a rider for tomorrow\u2019s road: boots or a hat at John Holbrook\u2019s on South Water Street, a look at John Miller\u2019s tannery at the forks, a bridle or a trunk at S. B. Cobb\u2019s saddlery, and the Green Tree to lay it all out. Ask the saddler for boots and his own card tells you why not.',
+      'The rider, the purchases and the keepsake, Equipped to Travel, are our reconstruction (liberty L-jaunt-boots-and-leather). What each shop sold comes from its own 1833 and 1835 newspaper cards.',
+    ] },
+  { v: 1365, ts: '2026-10-03T13:40:43.663Z', date: 'Oct 3, 2026, 8:40 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
+    items: [
+      'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
+      'Shrubs gain leafy twig silhouettes in place of broad green rectangles. Higher detail adds curved leaves, grasses and finer branching.',
+      'The researched species, planting locations and July flowering rules stay in charge. Leaf and bark surfaces are procedural reconstructions.',
+    ] },
+  { v: 1364, ts: '2026-10-03T13:24:25.493Z', date: 'Oct 3, 2026, 8:24 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+    items: [
+      'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, five at the boarding house on the Dearborn block of Washington Street and three at the one on the Market block. Open a house\u2019s card to see them among its boarders.',
+      'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
+      'Nine children under ten are still owed in South and West Division lodging houses. A child is only ever placed with a keeper\u2019s family, so they will arrive with the keepers of boarding houses not yet raised.',
     ] },
   { v: 1363, ts: '2026-10-03T13:05:29.979Z', date: 'Oct 3, 2026, 8:05 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
     items: [

@@ -567,10 +567,15 @@ const shadowRigFor = (level, touch) => {
  * software renderer, which is why the margin is what this sweep is judged on
  * and why `SMOKE_TIMING=1` exists to re-take it.
  *
+ * T-2015 adds the West prairie flora-review pose: the original renderer already
+ * read 1,949,552 triangles / 243 calls there at full, 1280x800, above the
+ * 1,845,000 / 240 ceilings before the new foliage. This view sees a broad sward
+ * and the built town together, a cost shape the five town stands did not cover.
+ *
  * `kind` is how the harness gets there: `frame` stands a distance off a
  * structure, `anchor` teleports to one of `data/scenes/1835.json`'s authored
- * viewpoints — the same viewpoints the Go-to menu offers a visitor, which is
- * the point. Nothing here is a camera invented for the test.
+ * viewpoints, and `pose` uses a committed review view. A pose fixes its pitch
+ * as well as position and bearing so a later reading sees the same ground.
  */
 const STANDS = [
   {
@@ -636,6 +641,12 @@ const STANDS = [
     // geometry at full detail, the tier the flora and fence LODs are least able
     // to help with.
     why: 'the densest built corner, stood in rather than looked at',
+  },
+  {
+    id: 'prairie_west', kind: 'pose',
+    label: 'West prairie, east across the sward toward town',
+    pose: { local_e: -250, local_n: -150, yaw_deg: 90, pitch_deg: -8 },
+    why: 'a wide foreground of sward and the whole town share the frame',
   },
 ];
 /**
@@ -9074,8 +9085,10 @@ for (const [label, viewport, touch] of [
     // in `main.js`, where the measurement is written (the seven cross streets'
     // walks are 46 more block-face chunks: worst frame 224 -> 259 calls at
     // `full`, Lake Street at Canal, 1280x800; 259 + 15 rounds up to 275).
+    // T-2015: combined six-stand maximum 277 at narrow prairie, +15 -> 295.
+    // The measured argument is beside BUDGET in main.js; light stays at 90.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 275,
+      stats.budget.drawCalls === 295,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -9353,6 +9366,10 @@ for (const [label, viewport, touch] of [
           // `goTo` on the aerial anchor turns flight ON; every `frame` stand
           // turns it off again, which is why one has to be last.
           if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
+          else if (st.kind === 'pose') {
+            a.setFly(typeof st.pose.altitude_m === 'number');
+            a.walker.teleport(st.pose);
+          }
           else a.goTo(st.target);
           await settle();
           const r = a.stats();
@@ -12089,12 +12106,17 @@ for (const [label, viewport, touch] of [
 
     // --- the navigation guide, and the units the whole HUD reads in --------
 
+    // T-2015: desktop 9-11 reached this chrome after every scene assertion
+    // passed, then its native click timed out at 90 s (3.36/3.56 s frames).
+    // Use the same visibility, disabled, box and occlusion checks as part 12;
+    // these controls do not require a frame-bound trusted mouse event.
+    // The guide and unit-system assertions below remain unchanged.
     // The menu is built from the two runtime collections, not from a sampled
     // shortlist.  With an empty query every loaded structure and every compiled
     // control junction must have a button; a real search must narrow both kinds.
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
-    await page.click('#s-show-control-help');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
+    await clickChrome('#s-show-control-help');
     const reopenedGuide = await page.evaluate(() => ({
       shown: !document.getElementById('control-help').hasAttribute('hidden'),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
@@ -12102,9 +12124,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: Settings can reopen the dismissed navigation guide`,
       reopenedGuide.shown && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await page.click('#control-help-close');
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
+    await clickChrome('#control-help-close');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const select = document.getElementById('s-units');
