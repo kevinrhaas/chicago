@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+    items: [
+      'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
+      'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
+      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
+    ] },
   { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',

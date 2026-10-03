@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "98c17de21fcb0cf2db3389105d5e2913bce9068f654fbc0fcc8621fbf68b19d8",
+    "fingerprint": "673c6be9683a3a4945ecbeebda399b422fbd10f1c06fef104a53da5b96b5ab0d",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1404,
-      "structures": 541,
+      "structures": 547,
       "voters": 345
     }
   },
@@ -2898,6 +2898,11 @@
           "id": "recon_1835_canal_trade_c4_002",
           "name": "Reconstructed Canal Street wide two-story store or mixed block",
           "rule": "exact surname"
+        },
+        {
+          "id": "recon_1835_north_c4_067",
+          "name": "Reconstructed C4 wide two-story store or mixed block #067",
+          "rule": "exact surname"
         }
       ],
       "entries": [
@@ -3150,6 +3155,11 @@
         {
           "id": "recon_1835_canal_trade_c4_002",
           "name": "Reconstructed Canal Street wide two-story store or mixed block",
+          "rule": "OCR variant (0.89 similarity to 'block')"
+        },
+        {
+          "id": "recon_1835_north_c4_067",
+          "name": "Reconstructed C4 wide two-story store or mixed block #067",
           "rule": "OCR variant (0.89 similarity to 'block')"
         }
       ],
@@ -25365,6 +25375,16 @@
         {
           "id": "recon_1835_canal_trade_w2_004",
           "name": "Reconstructed Canal Street carpenter or joiner shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_north_w2_065",
+          "name": "Reconstructed W2 carpenter or joiner shop #065",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_north_w3_062",
+          "name": "Reconstructed W3 cooper, wagon, or wheelwright shop #062",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         }
       ],
