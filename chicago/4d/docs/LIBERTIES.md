@@ -10908,7 +10908,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 104 structures (99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 103 structures (104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -14266,7 +14266,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 517 phases (518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 516 phases (517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14538,8 +14538,9 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 83 phases: 68 log dwellings and
-15 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
+**Scope:** `structures.phases[log_or_fort_archetype]` — 81 phases: 66 log dwellings and
+15 fort structures. It was 83 until T-1743, 2026-10-03, folded `beaubien_new_residence` into the
+Beaubien homestead and moved `beaubien_trading_post` onto the outbuilding archetype. It was 75 until T-1648 re-familied the La Salle block's South Water
 frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
 documented dry-goods house in it, became a C1 shop and left this liberty's population for
 the framed one. T-1681 took the sixtieth the same way and for the same reason, one street
@@ -14562,7 +14563,7 @@ coverings this project can argue each of those roofs is drawn on.
 
 **Decision:** `generators/common/materials.py`'s `roof_substrate()` deals the `shingle`
 substrate to every roofed building that is not an outbuilding. For the 180 framed roofs
-that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 83
+that is `docs/RESEARCH/materials.md` §2.2's own grading and takes no liberty. For these 81
 it is a claim, and this is the claim.
 
 **What §2.2 actually grades, and where it stops.** It grades a shingled covering
@@ -16330,8 +16331,17 @@ claiming for.
 stands where its archetype puts it), `docs/RESEARCH/jb_beaubien_homestead.md` §§ 1, 4 and 6a, and
 **T-1203**.
 
-**Covers:** `beaubien_new_residence.log_1822.position`, `beaubien_new_residence.log_1822.footprint`, `beaubien_new_residence.log_1822.form.stories`, `beaubien_trading_post.log_1822.position`, `beaubien_trading_post.log_1822.footprint`, `beaubien_trading_post.log_1822.form.stories`, `beaubien_trading_post.log_1822.form.chimneys`.
-**Recorded:** 2026-09-28 (T-1712).
+**Revised:** 2026-10-03 (T-1743) — **the group is one house and two outbuildings, and two of the buildings this entry placed were standing on the fort road.** The owner read the scene as three identical log houses by the fort, two of them on the road, and both halves were true: the residence and the trading post were drawn on the `log_dwelling` archetype at the house's own wall, pitch and chimney, and the easting this entry chose for them, 17.9 m east of the house, is the centreline of `fort_road` — the road `data/streets/1835.json` already drew north to the fort's south gate. The method paragraph above never looked for it, and no gate asked of an unplatted road. The owner ruled (answer b):
+
+- **`beaubien_new_residence` is withdrawn and folded into `jb_beaubien_homestead`.** § 6a of the dossier already read Wentworth's 'traditional residence' at the corner as most likely the new residence, so the two records were very probably one house drawn twice. The fold is a reading, not a finding; the house's `aka` and the dossier § 4 carry Andreas's 'new residence' so it is not lost.
+- **`beaubien_trading_post` is an outbuilding**, a low log store with a single-slope roof, one door and no chimney, and it stands west of the house, 4.0 m clear of its west wall — the side away from the road, a few metres north of the house's frontage line where the ground lands it. Its shed roof, its door and its new place are all invented, and are covered here.
+- **`beaubien_barn` keeps its place** (13.8 m from the road's centreline, outside the corridor) and gains a hay-loft door in the gable, invented, so it reads as the barn the source calls it rather than as a fourth cabin.
+- **`tools/check_structure_corridors.py --gate`** now refuses any building newly drawn inside any street corridor, at the street's own width.
+
+A visitor walking the fort road south from the gate now passes one house on the right, with a store behind it to the west and a barn behind it to the south, and nothing in the road.
+
+**Covers:** `beaubien_trading_post.log_1822.position`, `beaubien_trading_post.log_1822.footprint`, `beaubien_trading_post.log_1822.form.roof_type`, `beaubien_trading_post.log_1822.form.door`, `beaubien_trading_post.log_1822.form.door_side`, `beaubien_barn.converted_1817.form.loft`.
+**Recorded:** 2026-09-28 (T-1712). **Revised:** 2026-10-03 (T-1743). **Struck:** 2026-10-03 (T-1743) — the three `beaubien_new_residence.*` tokens, because the record they name is withdrawn, and the trading post's `form.stories` and `form.chimneys`, because the outbuilding archetype reads neither and the record no longer states them. The prose above the revision is otherwise verbatim.
 
 
 ### L284 — The works the four documented noxious trades imply: six buildings on the branch frontage, and not one of them attested

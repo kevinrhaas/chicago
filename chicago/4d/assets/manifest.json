@@ -27,15 +27,6 @@
       "phase_id": "converted_1817",
       "structure_id": "beaubien_barn"
     },
-    "beaubien_new_residence__log_1822.glb": {
-      "archetype": "log_dwelling",
-      "baked_ao": false,
-      "bytes": 32360,
-      "inputs_sha256": "a2a4a003d3160c62b4e018636449cf300ef7bdb8d7143d220c1a412034397215",
-      "kind": "generated",
-      "phase_id": "log_1822",
-      "structure_id": "beaubien_new_residence"
-    },
     "beaubien_trading_post__log_1822.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1371, ts: '2026-10-03T16:23:16.964Z', date: 'Oct 3, 2026, 11:23 AM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
+    items: [
+      'Walk south from the fort\u2019s south gate. The road no longer runs through two log houses: Col. Jean Baptiste Beaubien\u2019s homestead is one house with two outbuildings behind it.',
+      'His small trading post is now a low log store with a single-slope roof, standing west of the house, away from the road. His barn, behind the house, now has a hay-loft door.',
+      'Andreas mentions a \u201cnew residence\u201d as well. We read it as the same house, so it is no longer drawn twice. Where the store and barn stand, and what they look like, are our reconstruction (liberty L283).',
+    ] },
   { v: 1370, ts: '2026-10-03T15:42:04.279Z', date: 'Oct 3, 2026, 10:42 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
