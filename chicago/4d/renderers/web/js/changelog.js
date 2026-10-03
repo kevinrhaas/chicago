@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+    items: [
+      'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
+      'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
+      'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
+    ] },
   { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
     items: [
       'Nothing you can see in the town changed, and nobody moved house.',

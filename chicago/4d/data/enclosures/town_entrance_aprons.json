@@ -502,7 +502,6 @@
   "robinson_caldwell_cabins",
   "sauganash_hotel",
   "sauganash_hotel_stable",
-  "south_bank_shed_dearborn_e1",
   "south_bank_shed_dearborn_e2",
   "st_marys_church",
   "steamboat_hotel",
@@ -7280,30 +7279,16 @@
     [116.32, -179.0]
    ],
    [
-    [811.39, 1.53],
-    [805.1, 1.53],
-    [805.1, 0.13],
-    [805.59, 0.13],
-    [806.09, -1.52],
-    [806.2, -1.76],
-    [806.44, -1.87],
-    [810.04, -1.87],
-    [810.29, -1.76],
-    [810.39, -1.52],
-    [810.89, 0.13],
-    [811.39, 0.13]
-   ],
-   [
     [805.1, -3.67],
     [811.39, -3.67],
     [811.39, -2.27],
     [810.89, -2.27],
-    [810.39, -0.07],
-    [810.29, 0.18],
-    [810.04, 0.28],
-    [806.44, 0.28],
-    [806.2, 0.18],
-    [806.09, -0.07],
+    [810.39, -0.32],
+    [810.29, -0.07],
+    [810.04, 0.03],
+    [806.44, 0.03],
+    [806.2, -0.07],
+    [806.09, -0.32],
     [805.59, -2.27],
     [805.1, -2.27]
    ],
@@ -12452,16 +12437,6 @@
    "at_local_enu_m": [111.96, -177.6],
    "bearing_deg": 180.0,
    "width_m": 1.35
-  },
-  {
-   "id": "south_bank_shed_dearborn_e1__door_1",
-   "structure_id": "south_bank_shed_dearborn_e1",
-   "archetype": "outbuilding",
-   "kind": "door",
-   "read_by": "facade_openings.outbuilding",
-   "at_local_enu_m": [808.24, 1.53],
-   "bearing_deg": 180.0,
-   "width_m": 2.9
   },
   {
    "id": "south_bank_shed_dearborn_e2__door_1",

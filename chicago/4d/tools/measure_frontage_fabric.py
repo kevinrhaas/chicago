@@ -760,7 +760,11 @@ def _synthetic(material: str) -> list[dict]:
     """
     lanes = corridors()
     points = lanes["south_water"]["points"]
-    (ax, ay), (bx, by) = points[len(points) // 2], points[len(points) // 2 + 1]
+    # The first leg of the straight run east of Franklin (100 m or longer), where both
+    # buildings stand clear of any cross street. This was the middle leg until T-2012
+    # added a vertex at State Street and moved the middle one block east, onto Wells.
+    (ax, ay), (bx, by) = next((a, b) for a, b in zip(points, points[1:])
+                              if math.dist(a, b) >= 100.0)
     length = math.dist((ax, ay), (bx, by))
     along = ((bx - ax) / length, (by - ay) / length)
     normal = (-along[1], along[0])
