@@ -566,7 +566,8 @@
    "recon_1835_blk_washington_clark_h3_11",
    "recon_1835_blk_washington_dearborn_h3_01",
    "recon_1835_blk_washington_market_h3_01",
-   "recon_1835_blk_washington_market_h3_04"
+   "recon_1835_blk_washington_market_h3_04",
+   "recon_1835_north_t1_061"
   ],
   "open_orders_the_deal_was_capped_at": {
    "persons/female/10_19/north/lodging/none": 2,
@@ -943,8 +944,8 @@
      "west": 7
     },
     "beds_with_no_order": {
-     "south": 16,
-     "north": 13,
+     "south": 17,
+     "north": 21,
      "west": 0
     }
    }
@@ -1112,7 +1113,7 @@
    "keeper_by": null,
    "keeper_head": null,
    "seated": [
-    "rc_gilbert_samuel"
+    "rc_lyman_george"
    ],
    "minted_keeper": null,
    "minted_lodgers": 7,
@@ -1277,9 +1278,9 @@
     "vaughan_dow_w"
    ],
    "minted_keeper": "rc_mccarthy_edward",
-   "minted_lodgers": 2,
+   "minted_lodgers": 1,
    "minted_children": 2,
-   "occupancy_after": 8,
+   "occupancy_after": 7,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": false
   },
@@ -1473,6 +1474,32 @@
    "at_its_ordinary_night_figure": true
   },
   {
+   "id": "recon_1835_north_t1_061",
+   "name": "Reconstructed T1 small inn or tavern #061",
+   "function": "small_inn_or_tavern",
+   "class": "inn_tavern",
+   "standing": "reconstructed",
+   "division": "north",
+   "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
+   "beds_ordinary": 9,
+   "beds_crowded": 35,
+   "occupied_before": 0,
+   "keeper_household": null,
+   "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
+   "seated": [
+    "rc_dufresne_hyacinthe"
+   ],
+   "minted_keeper": null,
+   "minted_lodgers": 0,
+   "minted_children": 0,
+   "occupancy_after": 1,
+   "inside_its_band": true,
+   "at_its_ordinary_night_figure": false
+  },
+  {
    "id": "recon_1835_west_006",
    "name": "Reconstructed H1 small boarding house #005",
    "function": "small_boarding_house",
@@ -1624,11 +1651,10 @@
    "seated": [
     "brown_lemuel",
     "handy_major",
-    "rc_dufresne_hyacinthe",
-    "rc_lyman_george"
+    "rc_gilbert_samuel"
    ],
    "minted_keeper": null,
-   "minted_lodgers": 7,
+   "minted_lodgers": 8,
    "minted_children": 0,
    "occupancy_after": 15,
    "inside_its_band": true,
@@ -2637,8 +2663,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "boatman",
    "group": "mechanic",
-   "place": "western_hotel",
-   "place_name": "Western Hotel",
+   "place": "recon_1835_north_t1_061",
+   "place_name": "Reconstructed T1 small inn or tavern #061",
    "relationship": "lodger",
    "basis": {
     "kind": "rule",
@@ -2703,8 +2729,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "baker",
    "group": "mechanic",
-   "place": "new_york_house",
-   "place_name": "New York House",
+   "place": "western_hotel",
+   "place_name": "Western Hotel",
    "relationship": "lodger",
    "basis": {
     "kind": "rule",
@@ -2747,8 +2773,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "painter",
    "group": "mechanic",
-   "place": "western_hotel",
-   "place_name": "Western Hotel",
+   "place": "new_york_house",
+   "place_name": "New York House",
    "relationship": "lodger",
    "basis": {
     "kind": "rule",
@@ -2946,7 +2972,7 @@
    "id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_dearborn_h3_01.json",
    "place": "recon_1835_blk_washington_dearborn_h3_01",
-   "persons": 5
+   "persons": 4
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
@@ -3018,7 +3044,7 @@
    "id": "hh_lodging_western_hotel",
    "file": "lodgers/hh_lodging_western_hotel.json",
    "place": "western_hotel",
-   "persons": 7
+   "persons": 8
   },
   {
    "id": "hh_lodging_wolf_point_tavern",
@@ -3447,6 +3473,13 @@
    "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
+   "place": "recon_1835_north_t1_061",
+   "name": "Reconstructed T1 small inn or tavern #061",
+   "keeper": null,
+   "persons_on_the_keeper_s_card": 0,
+   "owed_by": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."
+  },
+  {
    "place": "recon_1835_west_006",
    "name": "Reconstructed H1 small boarding house #005",
    "keeper": "rc_fitzgerald_martin",
@@ -3524,7 +3557,7 @@
   {
    "place": "recon_1835_blk_washington_dearborn_h3_01",
    "refusal": "no order left, no mint",
-   "beds_left_empty": 4,
+   "beds_left_empty": 5,
    "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
   },
   {
@@ -3538,6 +3571,17 @@
    "refusal": "no order left, no mint",
    "beds_left_empty": 6,
    "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
+  },
+  {
+   "place": "recon_1835_north_t1_061",
+   "refusal": "no order left, no keeper",
+   "note": "Every adult `lodging/trade` cell of the north division is filled to what the book orders there, so this house's keeper is not minted (T-1782). The beds are still dealt below, under their own ceiling."
+  },
+  {
+   "place": "recon_1835_north_t1_061",
+   "refusal": "no order left, no mint",
+   "beds_left_empty": 8,
+   "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
   },
   {
    "place": "steamboat_hotel",
@@ -3554,9 +3598,9 @@
   "the_children": "PART OF IT NOW IS. The book orders people under ten into lodging households and they are keepers' families rather than boarders, which is why refusal 3 would not deal them a bed. T-1533 draws the ones this stage can reach: the children of the keepers this stage itself minted, on the houses it minted them onto, out of the `under_10/*/lodging/none` cells for those houses' divisions. The rest are not reachable from here and are not moved: a child of a DOCUMENTED keeper is T-1171's draw or T-1179's convergence, and the south division's cells order children into the 37 boarding houses the lodging model schedules and nobody has built (T-1187 raises them), where there is no keeper to be kin to. `keeper_families` counts both halves."
  },
  "measurement": {
-  "built_lodging_places": 25,
-  "ordinary_night_beds": 225,
-  "crowded_beds": 651,
+  "built_lodging_places": 26,
+  "ordinary_night_beds": 234,
+  "crowded_beds": 686,
   "occupied_before_this_stage": 30,
   "seated_from_the_layer": 56,
   "minted_here": 110,
@@ -3566,7 +3610,7 @@
   "keeper_children_refused": 6,
   "people_on_the_cards": 135,
   "occupied_after_this_stage": 196,
-  "ordinary_night_beds_still_empty": 29,
+  "ordinary_night_beds_still_empty": 38,
   "houses_at_their_ordinary_night_figure": 19,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
@@ -3575,11 +3619,11 @@
   "lodging_households_built": 22,
   "the_two_counts_reconciled": {
    "lodging_roofs_the_model_schedules": 52,
-   "lodging_places_built": 25,
-   "lodging_places_unbuilt": 27,
+   "lodging_places_built": 26,
+   "lodging_places_unbuilt": 26,
    "built_places_holding_a_household": 22,
-   "built_places_holding_no_household": 3,
-   "ordinary_night_beds": 225,
+   "built_places_holding_no_household": 4,
+   "ordinary_night_beds": 234,
    "ordinary_night_beds_slept_in": 196,
    "households_the_book_orders_in_these_two_classes": 66,
    "houses_this_stage_has_filled": 22,

@@ -392,13 +392,17 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # One structure asset fewer, so one mesh fewer the shared generator modules or emit.py would
 # re-stale; terrain reach still 4 and pier_crib still 2.
 #
+# 544 -> 550 and 540 -> 546 on 2026-10-03 (T-1205): six trade roofs on the north face of
+# Kinzie Street from the North Division recipe, the same `generate_north_infill` meshes as
+# its sixty; terrain reach still 4 and pier_crib still 2.
+#
 STATED = {
-    "assets": 544,
+    "assets": 550,
     "restales": {
-        "generators/common/*.py": 544,
+        "generators/common/*.py": 550,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 540,
+        "generators/emit.py": 546,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 4,
         "generators/archetypes/pier_crib.py": 2,

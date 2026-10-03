@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1360, ts: '2026-10-03T11:38:26.113Z', date: 'Oct 3, 2026, 6:38 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
+  { v: 1362, ts: '2026-10-03T12:26:51.293Z', date: 'Oct 3, 2026, 7:26 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
     items: [
       'Open William Jones\u2019s card in People. Fergus\u2019s 1839 directory calls him a justice of the peace, and that line used to appear twice: once under his 1835 trade and once on his timeline. It now appears once, on the timeline, dated 1839.',
       'The same goes for Elijah Kent Hubbard, Tuthill King, James H. Mulford, Silas W. Sherman and William H. Taylor.',
       'No trade, date or source was lost. Their 1835 trades are unchanged, and every 1839 entry still stands on its card.',
+    ] },
+  { v: 1361, ts: '2026-10-03T12:09:06.934Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+    items: [
+      'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
+      'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
+      'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
+    ] },
+  { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+    items: [
+      'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
+      'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
+      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
     ] },
   { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
     items: [

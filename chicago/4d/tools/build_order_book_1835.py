@@ -598,7 +598,11 @@ STRUCTURE_TICKETS = {
     ("north", "larger_boarding_houses"): "T-1952",
     ("north", "inns_taverns"): "T-1205",
     ("north", "workshops"): "T-1205",
-    ("north", "warehouses_freight"): "T-1205",
+    # T-1205 built the North's three stores, its tavern and its two workshops on the north
+    # face of Kinzie Street (L368) and closes with ONE warehouse owed: it belongs on the North
+    # Water bank, the one north street graded `light`, and no committed clause seats a
+    # warehouse there. T-2022 is filed for exactly that cell.
+    ("north", "warehouses_freight"): "T-2022",
     ("north", "institutional_public"): "T-1205",
     ("north", "barns_stables"): "T-1983",  # moved with the South's, above
     ("north", "small_outbuildings"): "T-1983",  # moved with the South's, above
@@ -1321,6 +1325,10 @@ def person_buckets(model: dict, composition: dict, inventory: dict, known: dict,
 REMAINDER_STABLE_STAGES = {
     "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in "
               "data/reconstruction/1835_lodgers_seated.json (T-1503)",
+    "T-1538": "tools/seat_lodgers_1835.py — the top-up room, read live once and carried in "
+              "`quota_basis.top_up` of the same file, so a re-cut moves nobody it seats "
+              "(T-1538; named here on 2026-10-03 when T-1205's re-cut first touched a cell "
+              "it had drawn in)",
 }
 
 
