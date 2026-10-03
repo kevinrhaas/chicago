@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1343, ts: '2026-10-03T04:37:26.139Z', date: 'Oct 2, 2026, 11:37 PM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
+  { v: 1344, ts: '2026-10-03T04:47:40.149Z', date: 'Oct 2, 2026, 11:47 PM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Freight for the Store. Drive a wagon from Newberry & Dole\u2019s wharf to two stores and on to George Dole\u2019s warehouse. It takes about six minutes.',
       'Count three packages against the bill, take only two, or load them on trust. Check Peck\u2019s own advertised lines, leave a package at Thomas Church\u2019s store on Lake Street, and hand in the tally.',
       'The shipment, the bill and the keepsake, Cargo Accounted For, are our reconstruction (liberty L-jaunt-freight-store). The firms and what they sold come from their own notices.',
+    ] },
+  { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
+      'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
+      'At the Democrat\u2019s first corner, read the paper\u2019s list of letters nobody had called for. End at Hogan\u2019s, the former mail corner. The post office had moved a year earlier to an unplaced spot on South Water Street, so you leave with a plan for posting, not a receipt.',
+      'The keepsake is A Letter Ready to Send. The letter and the route are our reconstruction (liberty L-jaunt-letter-home).',
     ] },
   { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [

@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "id": "letter-home",
+  "content_version": 1,
+  "title": "A Letter Home",
+  "premise": "Write an imagined letter home, read the paper's list of uncalled letters and work out where to post it.",
+  "category": "Mail",
+  "scene": "1835",
+  "opening": {
+    "text": "You have been in town a few days and owe the people you left behind a letter. Decide what it is for, find a sheet to write on, read how the town handles its mail and plan where to post it. The letter and everyone in it are imagined.",
+    "read_s": 18
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "purpose": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "purpose",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "Begin at the reconstructed position of Brown's boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places her log house behind Peck's store, so where exactly it stood is worked out from that one line.",
+      "narrative": "Sit down to an imagined letter to the people you left behind, and decide first what it is for.",
+      "read_s": 28,
+      "action_s": 12,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "brown_boarding_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "brown",
+        "continuity",
+        "letter"
+      ],
+      "choices": [
+        {
+          "id": "safe",
+          "label": "Tell them you arrived safely",
+          "consequence": "A short letter: the journey, the town and that you are well.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "purpose",
+              "value": 1
+            }
+          ],
+          "next": "paper"
+        },
+        {
+          "id": "prospects",
+          "label": "Describe the town's prospects",
+          "consequence": "A longer letter, for anyone at home thinking of following.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "purpose",
+              "value": 2
+            }
+          ],
+          "next": "paper"
+        },
+        {
+          "id": "news",
+          "label": "Ask for news from home",
+          "consequence": "A letter of questions, which will need an answer to find you.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "purpose",
+              "value": 3
+            }
+          ],
+          "next": "paper"
+        }
+      ]
+    },
+    {
+      "id": "paper",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "In front stands Peck's store; his printed cards name dry goods, hardware, groceries and crockery. For paper, the Chicago American of 20 June 1835 points elsewhere: Frederick Thomas's new drug store on Water Street advertised letter paper, wafers, wax and ink.",
+      "narrative": "Your imagined sheet is the druggist's; nothing is bought at Peck's.",
+      "read_s": 28,
+      "action_s": 0,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_frederick_thomas_drugs_and_paints",
+          "label": "The druggist's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_american_1835",
+          "label": "Read the American source"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "thomas-paper",
+        "continuity",
+        "letter"
+      ],
+      "next": "notice"
+    },
+    {
+      "id": "notice",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "At the corner where the Democrat began, read its notices; by May its office had moved over Jones and King's hardware store. On 27 May 1835 it printed a List of Letters remaining in the Chicago post office on 31 March: names nobody had called for.",
+      "narrative": "Ask your family to address their reply plainly.",
+      "read_s": 30,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "democrat",
+        "letter-list",
+        "continuity",
+        "letter"
+      ],
+      "next": "mail-corner"
+    },
+    {
+      "id": "mail-corner",
+      "destination": {
+        "kind": "structure",
+        "id": "hogan_store"
+      },
+      "text": "End at the former mail corner. Andreas has the post office here from 1831 until about July 1834. This spring Hogan's card offers goods at his store in South Water Street, one door below the Post Office, and the Democrat still calls him Postmaster.",
+      "narrative": "No counter is drawn there, so posting stays a plan.",
+      "read_s": 30,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "hogan_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "mail",
+        "hogan-ad",
+        "hogan-postmaster",
+        "continuity",
+        "letter"
+      ],
+      "choices": [
+        {
+          "id": "south-water",
+          "label": "Look for it beside Hogan's store",
+          "consequence": "You will ask along South Water Street; no door is drawn for it here.",
+          "next": "$end"
+        },
+        {
+          "id": "keep",
+          "label": "Keep the letter until someone shows you",
+          "consequence": "You fold the draft away until a neighbour can point out the counter.",
+          "next": "$end"
+        }
+      ]
+    }
+  ],
+  "legs": [
+    {
+      "from": "purpose",
+      "to": "paper",
+      "note": "Brown's house is placed directly behind Peck's store, so this leg is a few steps.",
+      "evidence": [
+        "brown",
+        "continuity"
+      ],
+      "story": "Take your purpose round to the street side.",
+      "story_evidence": [
+        "letter"
+      ]
+    },
+    {
+      "from": "paper",
+      "to": "notice",
+      "note": "One block east along South Water Street, from LaSalle to Clark.",
+      "evidence": [
+        "continuity"
+      ]
+    },
+    {
+      "from": "notice",
+      "to": "mail-corner",
+      "note": "West along South Water to its meeting with Lake Street, near the forks; the route claims no particular path.",
+      "evidence": [
+        "continuity"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "safe-and-well",
+      "text": "Your letter says you arrived safely and are well. It is folded, unposted and ready for the counter on South Water Street.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "purpose",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "come-west",
+      "text": "Your letter describes a busy, muddy town and its prospects. It is ready to post once you find the counter, and to be read aloud at home.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "purpose",
+        "op": "==",
+        "value": 2
+      }
+    },
+    {
+      "id": "write-back",
+      "text": "Your letter asks for news from home, and now you know what happens to a letter nobody calls for. It is ready to send.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "letter-ready-to-send",
+    "title": "A Letter Ready to Send",
+    "text": "A fictional folded letter, written in town and not yet posted."
+  },
+  "evidence": [
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as a boarding-house keeper in his account of 1833, and places Brown’s log house behind Peck’s store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries and crockery, boots and shoes and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck's card); 10 Dec 1834, p. 4, col. 4 ('New Goods!!'). Transcription-mediated reading."
+    },
+    {
+      "id": "thomas-paper",
+      "text": "Frederick Thomas advertised a new drug, medicine and paint store on Water Street, a little west of the bridge, listing among his goods wafers and wax, letter paper and black and red ink.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "Chicago American, 20 June 1835 (Vol. I No. 3), p. 1, col. 2, 'New Drug, Medicine and Paint Store' (claim chicago_american_1835_06_20#c009). Transcription-mediated reading."
+    },
+    {
+      "id": "democrat",
+      "text": "The Democrat’s first issue places its office at South Water and Clark; by 20 May 1835 its colophon places it over Jones and King’s hardware store.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "26 Nov 1833, imprint; 20 May 1835, p. 4, col. 6, colophon (transcription lines 4177–4180)."
+    },
+    {
+      "id": "letter-list",
+      "text": "The Democrat of 27 May 1835 printed a 'List of Letters remaining in the Post Office, at Chicago, Cook Co., Illinois, on the 31st of March', the names set alphabetically.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "27 May 1835 (Vol. II No. 6), p. 4, col. 4, 'List of Letters' (source PDF page 16, column 4). Transcription-mediated reading; the transcriber marks the column's small type uncertain, and the heading's date is read through that damage."
+    },
+    {
+      "id": "mail",
+      "text": "Andreas has the post office opened in Hogan’s log store in March 1831, and removed to Franklin and South Water about July 1834.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed pp. 139–140, Postal Affairs: Bailey’s appointment of 31 March 1831 on p. 139; removal paragraph on p. 140."
+    },
+    {
+      "id": "hogan-ad",
+      "text": "J. S. C. Hogan's advertisement, dated 30 July 1834 and still printed on 27 May 1835, offers dry goods, groceries, hardware, crockery and glass ware at his store in South Water Street, one door below the Post Office.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "27 May 1835 (Vol. II No. 6), p. 3, col. 5, Hogan's card. Transcription-mediated reading; the same card runs in the issues of 20 May to 1 July 1835."
+    },
+    {
+      "id": "hogan-postmaster",
+      "text": "A notice in the Democrat of 27 May 1835 names J. S. C. Hogan, Esq., as Postmaster, Chicago.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "27 May 1835 (Vol. II No. 6), p. 3, col. 3, the marriage notices (claim chicago_democrat_1835_05_27#c003). Transcription-mediated reading."
+    },
+    {
+      "id": "continuity",
+      "text": "The four buildings are exterior stops in the July 1835 scene. None is the post office on that day, and the office's own building on South Water Street is not placed in the scene.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "Andreas's removal date and Hogan's 'one door below the Post Office' agree that the counter had left the Lake Street corner by the scene date, but neither gives a lot, so no front door is claimed for it. Stop labels are building identities, not continuing tenancies: Hogan's and the Democrat's corners are former uses. Brown's absolute placement is reconstructed; the other three positions are inferred."
+    },
+    {
+      "id": "letter",
+      "text": "The visitor's letter, its purpose, the sheet of paper, the advice to have replies plainly addressed, the posting plan, the endings, timing inputs and A Letter Ready to Send keepsake are invented connective narrative, not historical events.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-letter-home"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-letter-home"
+  ]
+}
