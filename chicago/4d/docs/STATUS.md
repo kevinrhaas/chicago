@@ -1,3 +1,36 @@
+## T-2025 — Soap and Candles, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Soap and Candles* (Household and trades,
+Horse, 4 stops, Provisions). A boarder in the log house behind Peck's store starts on the North
+Branch at Daniel Elston & Co.'s soap and candle works, seen from the road, and settles whether
+light or soap matters most; makes the list at Jones's grocery on South Water Street and chooses
+what to carry; passes the Lake Street store Thomas Church built, where nothing is bought; and
+comes home to Mrs Rufus Brown's boarding house. Four endings; the keepsake *Light for the
+Evening* goes to Provisions. Content only: one JSON file, a liberty
+(`L-jaunt-soap-and-candles`), the regenerated catalog and source-use edges, and brief 16's route
+note. No engine, compiler or CSS change. Second of the four pieces T-1268 was split into.
+
+**The brief's caution holds by construction.** No counter at the works is claimed and no sale
+anywhere is: the works stop is an exterior observation, its site is the scene's conjectural
+placement and the stop says no source gives it, and the bundle's origin is left unrecorded. The
+goods are Elston & Co.'s own notice (Democrat, 26 November 1833, p. 3 col. 6; still printed 2 July
+1834). Church's store names no stock, so it sells nothing. Nobody is met.
+
+**The route was re-cut.** The briefed order (Jones → works → Church → Brown) crosses the river
+twice and read Horse 9 min, Walk 31.5 on the published mirror. Starting at the works crosses once.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780: Walk 22 min, Wagon 10.5, Horse 7, Fly 3.5, Instantly 3 (Walk 21.5
+at 1280×800, the rest the same). The primary path (light → candles → candle-lit) measured 428 s at
+Horse and 217 s at Fly against the card's 425 s and 224 s. **Horse is a minute over the 4–6 min
+band**: about three minutes of it is the one ride from the works to South Water Street, which
+every order pays; the route note says so. A Playwright drive at 390×780 — card, Start, the first
+stop, Elston & Co.'s card and back to the same stop, the ending, End back to the menu — reached
+`candle-lit` with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-soap-and-candles/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
 ## T-1259 — browse the Jaunts menu (2026-10-02)
 
 The lazy menu now carries title, premise, category, stops, travel mode and an
