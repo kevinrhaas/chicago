@@ -566,8 +566,8 @@
       "census_line": "(not an enumerated class)",
       "census_count": null,
       "compared": true,
-      "town_records_in_town": 92,
-      "town_records_at_scene_date": 86,
+      "town_records_in_town": 89,
+      "town_records_at_scene_date": 83,
       "town_records_outside_town": 1,
       "records_opening_after_scene_date": 0,
       "business_ids_opening_after_scene_date": [],
@@ -590,7 +590,6 @@
         "business_a_filer_co",
         "business_a_garrett",
         "business_a_garrett_auctioneer",
-        "business_a_new_auction_and_commission_room_south_water_street",
         "business_a_new_tailoring_establishment_chicago_june_1835",
         "business_a_travelling_dentist_at_the_new_york_house",
         "business_andrews_eells",
@@ -625,7 +624,6 @@
         "business_lathrop_johnson_co_livery",
         "business_marsh_simons",
         "business_matthias_mason_co",
-        "business_montgomery_auction_and_commission_house",
         "business_mrs_h_sherman",
         "business_mrs_herman",
         "business_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
@@ -657,7 +655,6 @@
         "business_unnamed_house_and_land_agent",
         "business_w_g_blanchard",
         "business_w_montgomery",
-        "business_w_montgomery_auction_and_commission_house",
         "business_w_reed",
         "business_whitehead_co",
         "business_william_clay",
@@ -697,14 +694,14 @@
     }
   ],
   "totals": {
-    "businesses_in_register": 196,
+    "businesses_in_register": 193,
     "authored_records_counted": 36,
-    "businesses_counted": 232,
-    "in_town": 229,
+    "businesses_counted": 229,
+    "in_town": 226,
     "outside_town": 3,
-    "at_scene_date": 208,
+    "at_scene_date": 205,
     "folded_into_another_house": 5,
-    "carrying_no_enumerated_class": 87,
+    "carrying_no_enumerated_class": 84,
     "not_stated": 5,
     "census_enumerated_total": 118,
     "town_enumerated_total_at_scene_date": 128
@@ -1408,22 +1405,6 @@
       "scope": "in_town",
       "ruled_by": "trade",
       "basis": "a stock of leather offered for sale (B1)",
-      "present_at_scene_date": true,
-      "scene_date_exclusion": null,
-      "opened_after_scene_date": false,
-      "folded_into": null,
-      "folded_in_classes": []
-    },
-    {
-      "business_id": "business_a_new_auction_and_commission_room_south_water_street",
-      "name": "a new auction and commission room, South Water Street",
-      "trade": "auction and commission",
-      "classes": [
-        "other"
-      ],
-      "scope": "in_town",
-      "ruled_by": "trade",
-      "basis": "auction and commission business is a service the enumeration counts nowhere (B2)",
       "present_at_scene_date": true,
       "scene_date_exclusion": null,
       "opened_after_scene_date": false,
@@ -3174,22 +3155,6 @@
       "folded_in_classes": []
     },
     {
-      "business_id": "business_montgomery_auction_and_commission_house",
-      "name": "Montgomery, auction and commission house",
-      "trade": "auction and commission house, selling merchandize and real estate",
-      "classes": [
-        "other"
-      ],
-      "scope": "in_town",
-      "ruled_by": "trade",
-      "basis": "a service the enumeration counts nowhere (B2)",
-      "present_at_scene_date": true,
-      "scene_date_exclusion": null,
-      "opened_after_scene_date": false,
-      "folded_into": null,
-      "folded_in_classes": []
-    },
-    {
       "business_id": "business_mrs_h_sherman",
       "name": "Mrs. H. Sherman",
       "trade": "millinery and dress making",
@@ -4291,22 +4256,6 @@
     {
       "business_id": "business_w_montgomery",
       "name": "W. Montgomery",
-      "trade": "auction and commission house",
-      "classes": [
-        "other"
-      ],
-      "scope": "in_town",
-      "ruled_by": "trade",
-      "basis": "a service the enumeration counts nowhere (B2)",
-      "present_at_scene_date": true,
-      "scene_date_exclusion": null,
-      "opened_after_scene_date": false,
-      "folded_into": null,
-      "folded_in_classes": []
-    },
-    {
-      "business_id": "business_w_montgomery_auction_and_commission_house",
-      "name": "W. Montgomery, Auction and Commission House",
       "trade": "auction and commission",
       "classes": [
         "other"
