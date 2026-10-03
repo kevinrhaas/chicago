@@ -1,0 +1,29 @@
+BOOT PAYLOAD — first visit stands in the 1835 street
+  12.911 MB across 1291 request(s) (gzip on the wire, fresh context, ready + 3s settle)
+
+BY TYPE
+  5.142 MB  .json
+  3.439 MB  .glb
+  2.649 MB  .webp
+  1.196 MB  .js
+  0.434 MB  .bin
+  0.040 MB  .css
+  0.012 MB  .(none)
+
+THE 15 LARGEST
+  1.255 MB  /data/gltf/terrain__e1834_harbor_cut.glb
+  0.564 MB  /data/liberties.json
+  0.434 MB  /data/terrain/epochs/e1834_harbor_cut/heightfield.bin
+  0.394 MB  /data/textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.webp
+  0.282 MB  /data/textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orm.webp
+  0.273 MB  /data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.webp
+  0.272 MB  /walk/vendor/three-0.185.1/three.core.js
+  0.246 MB  /data/textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_basecolor.webp
+  0.238 MB  /data/sidecars/1835/people.json
+  0.208 MB  /data/textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_basecolor.webp
+  0.199 MB  /data/textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.webp
+  0.188 MB  /data/textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.webp
+  0.161 MB  /data/reconstruction/1835_address_book.json
+  0.157 MB  /data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.webp
+  0.148 MB  /data/textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_basecolor.webp
+within budget: 12.911 MB of 13.000 MB

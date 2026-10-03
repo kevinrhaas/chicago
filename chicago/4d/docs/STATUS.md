@@ -1,8 +1,72 @@
 ## T-2015 — Realistic procedural vegetation (2026-10-03)
 
-**Implemented, final verification in progress.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
+**Implemented and validated.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
 
-**Verification.** Checkpoints c328395c and 000b693e pass all 750 source checks and preflight. On the b06a063a integration, the focused published review passed 58 checks across desktop and touch mobile with zero page, console or resource errors. Its 36-view cost sweep sets full/balanced/light ceilings at 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. The current integration now includes dev 39132f0e and renumbers the vegetation disclosure to L369. Its 750-step source preflight and normal-loop desktop detail check pass (27 checks, zero page errors); touch-mobile detail, lighting/vegetation smoke and the refreshed focused review remain in progress. PR #333 is a draft. Details and scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
+**Verification.** Source preflight passed all 750 checks through checkpoint 04ddd3939. Published normal-loop part 5 passes 27 checks each at desktop 1280×800 and touch mobile 390×780/DPR 2. Mobile parts 9–11 pass 60 checks. Desktop parts 9/10 passed within a combined run that later hit a native-click timeout; the repaired part 11 rerun passes 23 checks, with the original red receipt preserved. All these runs report zero page errors. Full/balanced/light ceilings remain 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. The final integration includes dev 940cadf and vegetation disclosure L369; the refreshed focused review passes 58 checks (29 each), with zero page, console or resource errors. Final source gate and preflight pass all 750 steps on the 940cadf integration. PR #333. Details and exact scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
+
+## T-2025 — Soap and Candles, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Soap and Candles* (Household and trades,
+Horse, 4 stops, Provisions). A boarder in the log house behind Peck's store starts on the North
+Branch at Daniel Elston & Co.'s soap and candle works, seen from the road, and settles whether
+light or soap matters most; makes the list at Jones's grocery on South Water Street and chooses
+what to carry; passes the Lake Street store Thomas Church built, where nothing is bought; and
+comes home to Mrs Rufus Brown's boarding house. Four endings; the keepsake *Light for the
+Evening* goes to Provisions. Content only: one JSON file, a liberty
+(`L-jaunt-soap-and-candles`), the regenerated catalog and source-use edges, and brief 16's route
+note. No engine, compiler or CSS change. Second of the four pieces T-1268 was split into.
+
+**The brief's caution holds by construction.** No counter at the works is claimed and no sale
+anywhere is: the works stop is an exterior observation, its site is the scene's conjectural
+placement and the stop says no source gives it, and the bundle's origin is left unrecorded. The
+goods are Elston & Co.'s own notice (Democrat, 26 November 1833, p. 3 col. 6; still printed 2 July
+1834). Church's store names no stock, so it sells nothing. Nobody is met.
+
+**The route was re-cut.** The briefed order (Jones → works → Church → Brown) crosses the river
+twice and read Horse 9 min, Walk 31.5 on the published mirror. Starting at the works crosses once.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780: Walk 22 min, Wagon 10.5, Horse 7, Fly 3.5, Instantly 3 (Walk 21.5
+at 1280×800, the rest the same). The primary path (light → candles → candle-lit) measured 428 s at
+Horse and 217 s at Fly against the card's 425 s and 224 s. **Horse is a minute over the 4–6 min
+band**: about three minutes of it is the one ride from the works to South Water Street, which
+every order pays; the route note says so. A Playwright drive at 390×780 — card, Start, the first
+stop, Elston & Co.'s card and back to the same stop, the ending, End back to the menu — reached
+`candle-lit` with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-soap-and-candles/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-1259 — browse the Jaunts menu (2026-10-02)
+
+The lazy menu now carries title, premise, category, stops, travel mode and an
+instant duration estimate. Featured comes from the authored flag through the
+compiler. Search and catalog-derived categories filter the title-sorted list;
+explicit Earlier/More controls window it at twenty cards, with at most six
+featured copies. This avoids removing a focused control during scrolling.
+The selected mode stays synchronized between the featured and main card.
+
+End, preview-back and menu/resume preserve the browsing window, filters and
+scroll position. Explore Myself uses the shared destination picker and clears
+paused sessions. Sources & City opens the existing Evidence hub before entry,
+returning to the welcome on close without entering the world.
+
+Validation passed on the recovered implementation integrated with dev `604daa6`:
+preflight (including the full check.sh gate); the published-menu acceptance at
+390×780 and 1280×800; and scaffold smoke stage 1 at both viewports (80 passed,
+zero failed each). The 55-row harness mounts at most 26 cards, loads no jaunt
+code/catalog at boot, and restores the exact scroll and focused Start control.
+The standalone first-load measurement passed at 12.911 MB of the 13 MB budget.
+The first payload attempt timed out under concurrent validation; the standalone
+retry passed without changing the test. Desktop smoke took 10m31s on this host.
+Receipts and reviewed screenshots are under `docs/performance/jaunt-menu/`;
+`validation.json` records the tested integration base and command coverage.
+The full preflight passed again after integrating dev `de920bf` (750 steps).
+The catalog retains all eight current 1835 jaunts. Published menu acceptance
+passed again at both viewports on that integration; screenshots were refreshed.
+A transient ticket-checkout synchronization failure passed on the gate quiet retry.
+This ticket authors no new stories. Full scene smoke parts 2–13 were not rerun;
+the targeted menu test and scaffold smoke cover this interface change.
 
 ## T-2024 — Mend the Harness, a published 1835 jaunt (2026-10-03)
 

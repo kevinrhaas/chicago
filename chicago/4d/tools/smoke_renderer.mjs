@@ -12106,12 +12106,17 @@ for (const [label, viewport, touch] of [
 
     // --- the navigation guide, and the units the whole HUD reads in --------
 
+    // T-2015: desktop 9-11 reached this chrome after every scene assertion
+    // passed, then its native click timed out at 90 s (3.36/3.56 s frames).
+    // Use the same visibility, disabled, box and occlusion checks as part 12;
+    // these controls do not require a frame-bound trusted mouse event.
+    // The guide and unit-system assertions below remain unchanged.
     // The menu is built from the two runtime collections, not from a sampled
     // shortlist.  With an empty query every loaded structure and every compiled
     // control junction must have a button; a real search must narrow both kinds.
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
-    await page.click('#s-show-control-help');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
+    await clickChrome('#s-show-control-help');
     const reopenedGuide = await page.evaluate(() => ({
       shown: !document.getElementById('control-help').hasAttribute('hidden'),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
@@ -12119,9 +12124,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: Settings can reopen the dismissed navigation guide`,
       reopenedGuide.shown && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await page.click('#control-help-close');
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
+    await clickChrome('#control-help-close');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const select = document.getElementById('s-units');

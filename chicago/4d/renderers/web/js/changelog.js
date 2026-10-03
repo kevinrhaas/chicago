@@ -1,9 +1,27 @@
 export const CHANGELOG = [ // newest first
-  { v: 1361, ts: '2026-10-03T12:09:22.562Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
+  { v: 1364, ts: '2026-10-03T13:30:22.370Z', date: 'Oct 3, 2026, 8:30 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
     items: [
       'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
       'Shrubs gain leafy twig silhouettes in place of broad green rectangles. Higher detail adds curved leaves, grasses and finer branching.',
       'The researched species, planting locations and July flowering rules stay in charge. Leaf and bark surfaces are procedural reconstructions.',
+    ] },
+  { v: 1363, ts: '2026-10-03T13:05:29.979Z', date: 'Oct 3, 2026, 8:05 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
+    items: [
+      'Open William Jones\u2019s card in People. Fergus\u2019s 1839 directory calls him a justice of the peace, and that line used to appear twice: once under his 1835 trade and once on his timeline. It now appears once, on the timeline, dated 1839.',
+      'The same goes for Elijah Kent Hubbard, Tuthill King, James H. Mulford, Silas W. Sherman and William H. Taylor.',
+      'No trade, date or source was lost. Their 1835 trades are unchanged, and every 1839 entry still stands on its card.',
+    ] },
+  { v: 1362, ts: '2026-10-03T12:26:25.726Z', date: 'Oct 3, 2026, 7:26 AM CT', title: 'A new jaunt: Soap and Candles', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Soap and Candles, a quiet outing of about seven minutes on horseback.',
+      'Start at Daniel Elston & Co.\u2019s soap and candle works on the North Branch, make your list at Jones\u2019s grocery on South Water Street, and carry candles, soap or both home to the boarding house behind Peck\u2019s store.',
+      'The errand, the bundle and the keepsake, Light for the Evening, are our reconstruction (liberty L-jaunt-soap-and-candles). The works\u2019 goods come from its own 1833 notice; where it stood is our placement.',
+    ] },
+  { v: 1361, ts: '2026-10-03T12:09:06.934Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+    items: [
+      'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
+      'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
+      'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
     ] },
   { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [

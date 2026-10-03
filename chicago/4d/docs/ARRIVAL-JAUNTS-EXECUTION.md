@@ -77,6 +77,11 @@ Five agents can start today: T-1246, T-1292, T-1248, T-1277 and T-1253.
 | [T-1258](../tickets/T-1258-collect-era-themed-keepsakes-in-a-five-family-ch.md) | `daybook.json` five families + ranks; `jaunt-journal.js`; outcome card; reset | T-1256, T-1257 |
 | [T-1259](../tickets/T-1259-finish-the-scalable-jaunts-menu-and-integrated-s.md) | `jaunt-menu.js`: six-field cards, featured row, search/pills, windowing, resume strip | T-1279, T-1280, T-1258, T-1278 |
 
+T-1259 implements the catalog browser in `jaunt-menu.js`: featured rows, search,
+catalog categories and accessible twenty-card windows. The fixture catalog is
+browser-only; content authors still add ordinary story JSON with `featured: true`
+for priority outings. Validation receipts are linked in STATUS.
+
 ## 5H. Priority jaunts — six short stories, fully authored and playable (6 tickets, parallel)
 
 All need T-1259, T-1256, T-1257, T-1258. Each ticket carries its stops, mechanics, cautions and

@@ -11,7 +11,7 @@
  "rule": "Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry.",
  "counts": {
   "rulings": 492,
-  "carried": 214,
+  "carried": 213,
   "matched": 436,
   "refused": 56,
   "distinct_people": 238,
@@ -5416,7 +5416,6 @@
    "match_status": "single_entry",
    "rule": "Surname 'Hubbard' folds to the same string as the 1839 entry's, and the given name of both begins E.",
    "carried": [
-    "occupation",
     "address"
    ],
    "refused_to_carry": [],
@@ -5506,12 +5505,8 @@
    "match_status": "single_entry",
    "rule": "Surname 'Hubbard' folds to the same string as the 1839 entry's, and the given name of both begins H.",
    "carried": [],
-   "refused_to_carry": [
-    "occupation"
-   ],
-   "why_refused": {
-    "occupation": "THE LINE NAMES A PREMISES WHERE THE TRADE WOULD GO, so the split yields no trade at all. \"at United States Hotel\", \"at clerk's office\", \"at G. S. Hubbard & Co.'s warehouse\": the book is saying where this man was to be found, which is evidence and is not an occupation. It is the same ground T-0569 refused a partnership on — a value containing no trade rather than a trade with something extra on it — and a trade that merely ENDS at a premises (\"clerk, at T. King's\", \"book-keeper at G. S. Hubbard's\") is not refused by it. The line is carried whole and quoted."
-   }
+   "refused_to_carry": [],
+   "why_refused": null
   },
   {
    "outcome": "matched",
@@ -6146,7 +6141,6 @@
    "match_status": "single_entry",
    "rule": "Surname 'Jones' folds to the same string as the 1839 entry's, and the given name of both begins W.",
    "carried": [
-    "occupation",
     "address"
    ],
    "refused_to_carry": [],
@@ -6579,7 +6573,6 @@
    "match_status": "single_entry",
    "rule": "Surname 'King' folds to the same string as the 1839 entry's, and the given name of both begins T.",
    "carried": [
-    "occupation",
     "address"
    ],
    "refused_to_carry": [],
@@ -7763,7 +7756,6 @@
    "match_status": "single_entry",
    "rule": "Surname 'Mulford' folds to the same string as the 1839 entry's, and the given name of both begins J.",
    "carried": [
-    "occupation",
     "address"
    ],
    "refused_to_carry": [],
@@ -9333,7 +9325,6 @@
    "match_status": "single_entry",
    "rule": "Surname 'Sherman' folds to the same string as the 1839 entry's, and the given name of both begins S.",
    "carried": [
-    "occupation",
     "address"
    ],
    "refused_to_carry": [],
@@ -10510,9 +10501,7 @@
    ],
    "match_status": "single_entry",
    "rule": "Surname 'Taylor' folds to the same string as the 1839 entry's, and the given name of both begins W.",
-   "carried": [
-    "occupation"
-   ],
+   "carried": [],
    "refused_to_carry": [],
    "why_refused": null
   },
