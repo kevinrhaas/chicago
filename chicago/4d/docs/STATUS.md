@@ -4,6 +4,43 @@
 
 **Verification.** Source preflight passed all 750 checks through checkpoint 04ddd3939. Published normal-loop part 5 passes 27 checks each at desktop 1280×800 and touch mobile 390×780/DPR 2. Mobile parts 9–11 pass 60 checks. Desktop parts 9/10 passed within a combined run that later hit a native-click timeout; the repaired part 11 rerun passes 23 checks, with the original red receipt preserved. All these runs report zero page errors. Full/balanced/light ceilings remain 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. The final integration includes dev 7ab5019 and vegetation disclosure L369; the refreshed focused review passes 58 checks (29 each), with zero page, console or resource errors. Final source gate and preflight pass all 750 steps on the 7ab5019 integration. PR #333. Details and exact scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
 
+## T-2029 — A Sunday Circuit, the batch's quiet 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Sunday Circuit* (Social life, Horse,
+4 stops, Neighbors). Going to a call at the Sauganash, the visitor passes St. Mary's on Lake
+Street (built 1833 for about $400, unplastered, unpainted, no steeple or tower), then the
+Presbyterian church at Lake and Clark, dedicated 4 January 1834. The papers that June had called
+School District No. 4 to meet there on 7 July. Next comes the log meeting house at Wolf Point,
+which Wau-Bun remembered as a school-house used for worship whenever a travelling minister came.
+The walk ends at the Sauganash's door. One ending; the keepsake *A Morning Among Neighbors* goes to
+Neighbors. Content only: one JSON file, a liberty (`L-jaunt-sunday-circuit`), the regenerated
+catalog and source-use edges, and brief 20's route note. No engine, compiler or CSS change.
+Second of the four pieces T-1269 was split into.
+
+**The brief's caution holds by construction.** No service, sermon, minister, congregation or day
+of the week is claimed. 1 July 1835 was a Wednesday, and the title names a kind of outing, not a
+date. The school-district meeting is printed before the scene date and falls after it, so it is
+a notice, never an event. St. Mary's later tower and bell are left out. The Walker meeting house's
+bank is disputed and its position conjectural, and the stop calls the marker a placeholder.
+Nobody is met. The outing declares no variable or inventory, so it shows no strip.
+
+**The route was re-cut.** The briefed order (Presbyterian → St. Mary's → Walker → Sauganash) goes
+east and then back west across the river, about 1,420 m in straight lines. Starting at St. Mary's
+walks one way, about 1,169 m.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 1 path, one ending, one keepsake. Card estimates on
+the published mirror at 390×780: Walk 22.5 min, Wagon 10, Horse 6.5, Fly 3.5, Instantly 2 (Walk 22
+at 1280×800, the rest the same). The primary path measured 393 s at Horse and 188 s at Fly against
+the card's 395 s and 197 s (390 s and 187 s at 1280×800, against 387 s and 195 s). **Horse is half
+a minute over the 4–6 min band**: the Walker meeting house stands across the South Branch from the
+other three, so every order that keeps it and ends at the Sauganash crosses the river twice. The
+route note says so. Walk measures 22 min, which is why the default is Horse, not the brief's Walk.
+A Playwright drive at 390×780 went from the card through Start, the first stop, St. Mary's card and
+back to the same stop, the ending (`among-neighbors`), and End back to the menu, with zero page
+errors. Stills and the receipt are in `docs/performance/jaunt-sunday-circuit/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
 ## T-2025 — Soap and Candles, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Soap and Candles* (Household and trades,

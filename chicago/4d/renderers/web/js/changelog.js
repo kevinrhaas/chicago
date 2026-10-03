@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A new jaunt: A Sunday Circuit', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Sunday Circuit, a quiet outing of about six and a half minutes on horseback, with nothing to count or carry.',
+      'Pass St. Mary\u2019s on Lake Street, the Presbyterian church at Clark, where a school district had been called to meet, and the log meeting house at Wolf Point. Then finish with a call at the Sauganash.',
+      'The call, the route and the keepsake, A Morning Among Neighbors, are our reconstruction (liberty L-jaunt-sunday-circuit). No service or day is claimed, and where the meeting house stood is still disputed.',
+    ] },
   { v: 1365, ts: '2026-10-03T13:40:43.663Z', date: 'Oct 3, 2026, 8:40 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
     items: [
       'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
