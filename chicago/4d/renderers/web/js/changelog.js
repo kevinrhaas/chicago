@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1348, ts: '2026-10-03T05:54:09.388Z', date: 'Oct 3, 2026, 12:54 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Freight for the Store. Drive a wagon from Newberry & Dole\u2019s wharf to two stores and on to George Dole\u2019s warehouse. It takes about six minutes.',
+      'Count three packages against the bill, take only two, or load them on trust. Check Peck\u2019s own advertised lines, leave a package at Thomas Church\u2019s store on Lake Street, and hand in the tally.',
+      'The shipment, the bill and the keepsake, Cargo Accounted For, are our reconstruction (liberty L-jaunt-freight-store). The firms and what they sold come from their own notices.',
+    ] },
   { v: 1347, ts: '2026-10-03T05:37:25.027Z', date: 'Oct 3, 2026, 12:37 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Decent Coat. It is a short, quiet ride west along South Water Street to a call at the Sauganash, about four minutes on horseback, with nothing to count or carry.',
