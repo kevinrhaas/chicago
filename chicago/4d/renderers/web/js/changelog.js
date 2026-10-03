@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1368, ts: '2026-10-03T15:19:55.750Z', date: 'Oct 3, 2026, 10:19 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
+  { v: null, ts: '', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
     items: [
       'Two boarding houses on the block at Washington and Market streets have four new boarders between them: three at Louis Robillard\u2019s and one at Michel Laframboise\u2019s. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a tailor. Open a house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and these houses still had empty beds after this morning\u2019s youths took theirs. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'The two clerks work at John Dean Caton\u2019s and at his law office, and the tailor at George Holsman\u2019s, in places those houses still had open. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1368, ts: '2026-10-03T15:10:12.029Z', date: 'Oct 3, 2026, 10:10 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Schoolday Errand, an outing of about six and a half minutes on horseback past the places Chicago\u2019s first classes met.',
+      'Start at the Michigan Street house where John Watkins taught, see the north-bank school-house that was the North Side\u2019s public school in 1835, cross to Eliza Chappel\u2019s log house by State Street, and finish at the Democrat\u2019s corner with the School District No. 4 meeting notice from the paper dated that very day.',
+      'The household, its question and the keepsake, A Schooling Note, are our reconstruction (liberty L-jaunt-schoolday-errand). Two of the schools had moved on by 1835, and the stops say so.',
     ] },
   { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
     items: [
