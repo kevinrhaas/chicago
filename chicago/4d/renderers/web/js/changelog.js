@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1335, ts: '2026-10-03T01:37:29.765Z', date: 'Oct 2, 2026, 8:37 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Fort Dearborn Errand. You carry an imagined note round the fort\u2019s service buildings.',
+      'Five stops: the stockade, the guard-house and store-house either side of the south gate, the sutler\u2019s store by the north gate, and the shop on the outer ground toward the lake.',
+      'Choose candles or thread at the sutler\u2019s, tally the parcel outside the store-house, where the Army\u2019s 1834 notices had fresh beef delivered, and set it down at the shop.',
+      'Finish the errand and Accounted for at the Fort goes in your daybook under Livelihood. The note and parcel are our reconstruction (liberty L-jaunt-fort-dearborn-errand); no soldier is shown.',
+    ] },
   { v: 1334, ts: '2026-10-03T01:15:33.917Z', date: 'Oct 2, 2026, 8:15 PM CT', title: 'A new jaunt: Shopping South Water Street', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Shopping South Water Street. You have an imagined three dollars and a short household list: something for a cough, a staple and tea.',

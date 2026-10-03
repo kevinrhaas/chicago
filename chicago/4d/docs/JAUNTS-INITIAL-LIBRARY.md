@@ -200,6 +200,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Harrison plan and record dates support locations with stated limits; shop is not automatically a documented blacksmith. Do not invent access to closed interiors or military procedures, figures or Indigenous dialogue; use exterior stops when the route requires.
 
+**Route note (published, T-1265):** The shipped story order is the brief's: stockade → guard-house → sutler's store → store-house → shop. It crosses the parade twice, south gate to north-east range and back, because the errand reads in that order (state it, choose, account, deliver) and the whole fort is about 55 m across. The guard-house/store-house sides are the structure records' inference from Hubbard's magazine sentence, and the stops say the model chose them. **The sutler's supplies are invented**: no stock list for this store was found, so candles and thread are commonplace goods labelled as the story's. The store-house stop is the one with a dated document behind its use: the Army's fresh-beef proposals of 28 May and 4 June 1834. The shop is a workshop only; the plate names no trade. No soldier, sentry or garrison routine is staged.
+
 ## 07. News Before Breakfast
 
 **ID:** `news-before-breakfast` · **Owner ticket:** [T-1266](../tickets/T-1266-publish-news-mail-lodging-and-work-jaunts.md)

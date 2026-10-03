@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "id": "fort-dearborn-errand",
+  "content_version": 1,
+  "title": "Fort Dearborn Errand",
+  "premise": "Carry a small supply request round the fort's everyday service buildings and out to its shop.",
+  "category": "Fort Dearborn",
+  "scene": "1835",
+  "featured": true,
+  "opening": {
+    "text": "You carry an imagined note: choose a small supply, check the parcel against the note, and take it out to the fort's shop. The note, the parcel and every choice are reconstructed. No soldier is shown and no garrison routine is staged.",
+    "read_s": 15
+  },
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "readiness": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "count"
+    }
+  },
+  "inventory": {
+    "items": [
+      "candles",
+      "thread",
+      "tally"
+    ],
+    "initial": [],
+    "capacity": 2
+  },
+  "stops": [
+    {
+      "id": "stockade",
+      "destination": {
+        "kind": "structure",
+        "id": "fort_dearborn_palisade"
+      },
+      "text": "Start outside the stockade of Fort Dearborn. Juliette Kinzie, who lived inside it in 1831, wrote of high pickets and large gates opening north and south. Troops had held the post since June 1832, so on this July day it is a working garrison. The gates are shown shut.",
+      "read_s": 22,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_palisade",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "pickets-gates",
+        "garrisoned",
+        "errand"
+      ],
+      "next": "errand",
+      "narrative": "Find the south gate and the buildings beside it."
+    },
+    {
+      "id": "errand",
+      "destination": {
+        "kind": "structure",
+        "id": "fort_dearborn_guard_house"
+      },
+      "text": "In 1827 Gurdon Hubbard put the guard-house and the store-house either side of the south gate. He did not say which was which; this model puts the guard-house on the west. Here your errand is stated. Nobody answers, because no reply is invented.",
+      "read_s": 20,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_guard_house",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "hubbard-plan",
+        "which-side",
+        "errand"
+      ],
+      "next": "supply",
+      "narrative": "State the errand and go on to the sutler's."
+    },
+    {
+      "id": "supply",
+      "destination": {
+        "kind": "structure",
+        "id": "fort_dearborn_sutlers_store"
+      },
+      "text": "East of the north gate stands the sutler's store, the post trader's shop, where a garrison bought what its ration did not supply. Hubbard placed it here in 1827, and the key to an 1855 photograph still letters it the Sutler's. Who kept it in 1835 is not known.",
+      "read_s": 22,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_sutlers_store",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "hubbard-plan",
+        "sutler-named",
+        "sutler-keeper",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "candles",
+          "label": "A bundle of candles",
+          "consequence": "Light for short evenings at a workbench.",
+          "effects": [
+            {
+              "op": "add",
+              "item": "candles",
+              "value": 1
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "thread",
+          "label": "Thread and a paper of needles",
+          "consequence": "Small, light, and always short somewhere.",
+          "effects": [
+            {
+              "op": "add",
+              "item": "thread",
+              "value": 1
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "account",
+      "narrative": "Choose one supply, or go on without it."
+    },
+    {
+      "id": "account",
+      "destination": {
+        "kind": "structure",
+        "id": "fort_dearborn_store_house"
+      },
+      "text": "East of the south gate is the store-house. The Army's beef notices of 1834 call it the subsistence store house of Fort Dearborn: fresh beef was delivered there in quarters, up to three times a week, probably 400 pounds weekly. Outside it, check your parcel against the note.",
+      "read_s": 22,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_store_house",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "beef-notices",
+        "beef-continuity",
+        "which-side",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "tally",
+          "label": "Tally the parcel against the note",
+          "consequence": "What the note asked for is in the parcel, and you write it down.",
+          "when": {
+            "any": [
+              {
+                "has": "candles"
+              },
+              {
+                "has": "thread"
+              }
+            ]
+          },
+          "effects": [
+            {
+              "op": "add",
+              "item": "tally",
+              "value": 1
+            },
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "deliver",
+      "narrative": "Account for the parcel before it leaves the pickets."
+    },
+    {
+      "id": "deliver",
+      "destination": {
+        "kind": "structure",
+        "id": "fort_dearborn_shop"
+      },
+      "text": "Outside the pickets, south-east toward the lake, the 1830 plan draws a building and letters it Shop. That word is all anyone has: no trade is named, so this is a workshop, not a smithy. Hubbard, describing the fort three years before the plan, never mentions it.",
+      "read_s": 22,
+      "action_s": 4,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_shop",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "harrison_1830_river_mouth",
+          "label": "The 1830 plan"
+        }
+      ],
+      "evidence": [
+        "shop-plan",
+        "shop-continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "hand-over",
+          "label": "Set the tallied parcel down at the shop",
+          "consequence": "The errand is done, and the note goes back folded in your pocket.",
+          "when": {
+            "has": "tally"
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "readiness",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "next": "$end",
+      "narrative": "Deliver what the note asked for, or carry back what is missing."
+    }
+  ],
+  "endings": [
+    {
+      "id": "accounted",
+      "text": "Supply chosen, parcel tallied and set down at the shop. In this imagined errand the fort is a working neighbour across the river, with stores to keep and work to do.",
+      "read_s": 12,
+      "when": {
+        "var": "readiness",
+        "op": ">=",
+        "value": 3
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "unfinished",
+      "text": "Part of the note goes back with you. In this imagined errand the fort's service buildings will be here tomorrow, and so will the rest of the list.",
+      "read_s": 12,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Livelihood",
+    "id": "accounted-for-at-the-fort",
+    "title": "Accounted for at the Fort",
+    "text": "A fictional supply note, tallied outside Fort Dearborn's store-house and carried to the shop on the outer ground."
+  },
+  "evidence": [
+    {
+      "id": "pickets-gates",
+      "text": "Fort Dearborn was enclosed by high pickets with large gates to the north and south; Andreas likewise gives the rebuilt fort two gates, one on the north side and one on the south.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "andreas_1884_v1"
+      ],
+      "locator": "Kinzie, Wau-Bun, ch. XVII ('The fort was inclosed by high pickets … Large gates opened to the north and south'), describing 1831; Andreas vol. 1, p. 84 ('It had two gates, one on the north and the other on the south side')."
+    },
+    {
+      "id": "garrisoned",
+      "text": "The fort was re-garrisoned in June 1832 and the troops were permanently withdrawn on 29 December 1836, so on 1 July 1835 the post was held.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas vol. 1, p. 84 gives the two ends of the occupation and no gap between them; the scene date falls inside it. No strength figure for mid-1835 was found, so the stop names none. The gates are shown shut because the stockade record builds its leaves shut; no source states the hour or the state of the gates on the day."
+    },
+    {
+      "id": "hubbard-plan",
+      "text": "Gurdon Hubbard, describing the fort in July 1827, wrote that the store-house and guard-house were on either side of the southern gate, and the sutler's store was east of the north gate and north of the soldiers' barracks.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, p. 264, quoting Hubbard from Fergus' Historical Series No. 10 ('The store-house and guard-house were on either side of the southern gate; the sutler's store was east of the north gate, and north of the soldiers' barracks')."
+    },
+    {
+      "id": "which-side",
+      "text": "The guard-house is placed west of the south gate and the store-house east of it.",
+      "confidence": "inferred",
+      "sources": [
+        "harrison_1830_river_mouth",
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Hubbard names the pair without saying which is which, and the 1830 plan draws two small buildings at the gate without naming them. Hubbard puts the magazine 'about half way between the west end of the guard and block-houses', which only describes a real gap if the guard-house is the western building; that is the structure records' reasoning, set out in docs/RESEARCH/fort_dearborn.md."
+    },
+    {
+      "id": "sutler-named",
+      "text": "The north-east range was the sutler's store: Hubbard names it there in 1827, and the key to Hesler's 1855 photograph letters it 'D is the Sutler's'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "wentworth_1881_fort_dearborn"
+      ],
+      "locator": "Andreas vol. 1, p. 264 (Hubbard, 1827); Wentworth, Fort Dearborn (Fergus' Historical Series No. 16, 1881), the key to the 1855 Hesler photograph ('D is the Sutler's')."
+    },
+    {
+      "id": "sutler-keeper",
+      "text": "A sutler was a post's licensed trader, selling what the soldiers' ration did not supply. Who held the sutlership at Chicago on 1 July 1835 is not established, and no stock list for this store was found.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The first sentence is what the word means, not a record of this store's trade. Andreas has a sutler employed at the fort about 1830, five years early, so no keeper is named for the scene date; the structure record says the same."
+    },
+    {
+      "id": "beef-notices",
+      "text": "The Army's proposals for fresh beef for the Fort Dearborn garrison required it delivered in quarters at the store house of Fort Dearborn, which the second printing calls the subsistance store house, not more than three times a week nor less than once, amounting probably to 400 pounds per week.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "Chicago Democrat, 28 May 1834, p. 3, col. 4 (claim c006: 'at the [st]ore house of Fort Dearborn', 'amounting probably to 400 pounds per week'); 4 June 1834, p. 3, col. 4 (claim c013: 'the subsistance store house of Fort Dearborn'), both signed L. T. Jamison, Ass't Com. Sub., 26 May 1834. Transcription-mediated reading."
+    },
+    {
+      "id": "beef-continuity",
+      "text": "The notices are thirteen months older than the scene date; the store-house is carried to 1 July 1835 as the garrison's provision store.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The post was held continuously from June 1832 to December 1836 (Andreas vol. 1, p. 84), and nothing records the store-house changing use. The notices do not say which door, so the stop stands outside and claims no entrance."
+    },
+    {
+      "id": "shop-plan",
+      "text": "The 1830 plan draws a building south-east of the stockade, on the fort's outer ground, and letters it 'Shop'. It names no trade. Hubbard's 1827 account, which names the barn, the wash-houses and the other buildings around it, does not mention it.",
+      "confidence": "attested",
+      "sources": [
+        "harrison_1830_river_mouth",
+        "andreas_1884_v1"
+      ],
+      "locator": "F. Harrison Jr., Map of the Mouth of Chicago River, approved 24 February 1830, as reproduced in Andreas vol. 1, p. 113: the building lettered 'Shop' south-east of the pickets; Hubbard's account at Andreas vol. 1, p. 264."
+    },
+    {
+      "id": "shop-continuity",
+      "text": "The shop is carried from the 1830 plan to the 1835 scene; whether it was a smithy, a carpenter's shop or something else is not known.",
+      "confidence": "inferred",
+      "sources": [
+        "harrison_1830_river_mouth"
+      ],
+      "reasoning": "The plan is the shop's only witness and is five years before the scene date; the structure record carries it to 1836 on the garrison's continuity. A post of this size usually kept a smith, but the plate says only 'Shop', so no trade is written."
+    },
+    {
+      "id": "errand",
+      "text": "The supply note, the parcel, the choice of candles or thread, the tally, the delivery to the shop, the readiness count, the two endings and the Accounted for at the Fort keepsake are invented connective narrative, not historical events. No sutler's stock, garrison procedure, soldier, sentry or conversation is attested or shown.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-fort-dearborn-errand"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-fort-dearborn-errand"
+  ],
+  "legs": [
+    {
+      "from": "stockade",
+      "to": "errand",
+      "note": "A few steps along the south wall to the south gate.",
+      "evidence": [
+        "pickets-gates"
+      ],
+      "story": "The note is in your pocket. Say what you have come for.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "errand",
+      "to": "supply",
+      "note": "Across the fort to the north-east range, east of the north gate.",
+      "evidence": [
+        "hubbard-plan"
+      ],
+      "story": "The first line of the note: one small supply from the sutler's.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "supply",
+      "to": "account",
+      "note": "Back to the south gate, to the building on its east side.",
+      "evidence": [
+        "which-side"
+      ],
+      "story": "Before the parcel leaves the fort, check it against the note.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "account",
+      "to": "deliver",
+      "note": "The longest leg: out past the south-east corner of the pickets toward the lake shore.",
+      "evidence": [
+        "shop-plan"
+      ],
+      "story": "The last line of the note: carry the parcel out to the shop.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ]
+}
