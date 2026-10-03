@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1389, ts: '2026-10-03T23:03:26.529Z', date: 'Oct 3, 2026, 6:03 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
+  { v: 1390, ts: '2026-10-03T23:19:32.503Z', date: 'Oct 3, 2026, 6:19 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
       'Boots, Leather and the Road now views Miller\u2019s tannery across the North Branch from Wolf Point, without riding over the river to it. Its stops read a little shorter, and the ride takes just under six minutes, down from almost eight.',
       'Soap and Candles now starts at Wolf Point, looking up the North Branch to where we place Elston & Co.\u2019s works, so you cross the river once instead of twice. The ride takes under six minutes, down from seven.',
       'Each was timed by riding it on the published site. Flying and Instantly are still faster on all three. What the stops say about each place is unchanged, and new claims are cited in the stop\u2019s sources.',
+    ] },
+  { v: 1389, ts: '2026-10-03T23:03:35.041Z', date: 'Oct 3, 2026, 6:03 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
+    items: [
+      'Outfit for the West took about nine minutes by wagon. It now suggests riding on horseback and crosses the river only once: the list at the Green Tree, then the saddler and the smith at Lake and Canal, then over the river to the Jones grocery and Peck\'s store. It takes about five minutes. The five places, the purse and the prices are unchanged.',
+      'Freight for the Store took a few seconds over six minutes. Its opening and its four stops are a little shorter, so it now takes under six minutes by wagon. Nothing new is claimed. The tally stop now says Dole\'s yard is likely quiet in July, because the evidence for that is an inference.',
     ] },
   { v: 1388, ts: '2026-10-03T22:49:02.145Z', date: 'Oct 3, 2026, 5:49 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
     items: [
