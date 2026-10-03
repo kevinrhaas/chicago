@@ -135,6 +135,7 @@ LIBERTY_OF_TICKET = {
     "T-1419": "L262",   # the fifteen service houses
     "T-1766": "L307",   # four Canal approach firms on non-lodging trade roofs
     "T-2001": "L360",   # seven houses of trade no census line reaches
+    "T-1529": "L367",   # the two physicians' offices the re-cut ordered
 }
 
 # The number-words the liberty prose states a share in. A closed list on purpose: a parser

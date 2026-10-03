@@ -12387,40 +12387,6 @@
       }
     },
     {
-      "person": "rc_keegan_bryan",
-      "household": "hh_rc_keegan_bryan",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/male/20_29/south/family/trade",
-      "rung": "R_adopted",
-      "adoptions": [
-        {
-          "layer": "employment",
-          "seat": "at_a_seat_this_project_drew",
-          "houses": [
-            "biz_j_wright_merchant"
-          ]
-        },
-        {
-          "layer": "business",
-          "business": "biz_j_wright_merchant"
-        },
-        {
-          "layer": "business",
-          "business": "index"
-        }
-      ],
-      "deal_key": "trade_households:persons/male/20_29/south/family/trade:labourer:044",
-      "axes": {
-        "sex": "male",
-        "age_band": "20_29",
-        "division": "south",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
       "person": "rc_keegan_daniel",
       "household": "hh_rc_keegan_daniel",
       "relationship": "head",
@@ -14650,7 +14616,13 @@
         {
           "layer": "employment",
           "seat": "on_their_own_account",
-          "houses": []
+          "houses": [
+            "rcb_mcguire_physician"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "trade_households:persons/male/30_39/south/family/trade:physician:032",
@@ -20389,6 +20361,36 @@
         "sex": "female",
         "age_band": "20_29",
         "division": "north",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
+      "person": "rc_tuttle_john",
+      "household": "hh_rc_tuttle_john",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/male/20_29/south/family/trade",
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": [
+            "rcb_tuttle_physician"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
+        }
+      ],
+      "deal_key": "trade_households:persons/male/20_29/south/family/trade:physician:044",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
         "household": "family",
         "trade": "trade"
       }

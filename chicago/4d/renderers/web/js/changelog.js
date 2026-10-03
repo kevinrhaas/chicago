@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1358, ts: '2026-10-03T10:57:57.482Z', date: 'Oct 3, 2026, 5:57 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
       'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
       'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
       'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
+  { v: 1358, ts: '2026-10-03T10:31:34.336Z', date: 'Oct 3, 2026, 5:31 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+    items: [
+      'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
+      'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
+      'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
+      'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
     ] },
   { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [

@@ -352,6 +352,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1533 | 25 | 5 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
+| T-1529 | 2 | 1 |
 | T-1418 | 1 | 1 |
 | T-1531 | 1 | 1 |
 | T-1538 | 1 | 1 |
@@ -622,7 +623,7 @@ The December 1835 State census set against the register the town already holds.
 | `businesses/lawyer` | 15 | 14 | 1 | 1 | T-1418 |
 | `businesses/lottery_office` | 0 | 0 | 0 | 0 | T-1182 |
 | `businesses/lyceum_and_reading_room` | 0 | 0 | 0 | 0 | T-1182 |
-| `businesses/physician` | 10 | 8 | 2 | 0 | T-1529 |
+| `businesses/physician` | 10 | 8 | 2 | 2 | T-1529 |
 | `businesses/printing_office` | 2 | 2 | 0 | 0 | T-1215 |
 | `businesses/school` | 7 | 5 | 0 | 0 | T-1215 |
 | `businesses/silversmith_jeweller` | 2 | 1 | 1 | 1 | T-1185 |

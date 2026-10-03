@@ -114,10 +114,10 @@
     "people": 3358,
     "by_status": {
       "at_a_named_house": 127,
-      "at_a_seat_this_project_drew": 123,
+      "at_a_seat_this_project_drew": 122,
       "at_a_trade_with_no_house_to_join": 343,
       "no_trade_recorded": 2640,
-      "on_their_own_account": 125
+      "on_their_own_account": 126
     },
     "by_reason": {
       "a_civic_seat_and_not_a_house": 5,
@@ -125,8 +125,8 @@
       "held_on_an_identity_question": 1,
       "in_service_in_another_household": 61,
       "joined_by_the_attested_trade_ruling": 6,
-      "keeps_a_house_the_register_holds": 86,
-      "keeps_their_own_house": 27,
+      "keeps_a_house_the_register_holds": 88,
+      "keeps_their_own_house": 26,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
@@ -134,7 +134,7 @@
       "not_held_by_the_establishment_on_the_scene_date": 8,
       "on_the_staff_of_a_house": 9,
       "roofs_kept_none_owed": 12,
-      "seated_by_the_staffing_model": 123,
+      "seated_by_the_staffing_model": 122,
       "serves_an_establishment_outside_the_register": 4,
       "the_mechanics_shops_are_over_their_count": 57,
       "the_printed_count_is_held": 37,
@@ -157,10 +157,10 @@
       },
       "working_age": {
         "at_a_named_house": 127,
-        "at_a_seat_this_project_drew": 121,
+        "at_a_seat_this_project_drew": 120,
         "at_a_trade_with_no_house_to_join": 325,
         "no_trade_recorded": 1584,
-        "on_their_own_account": 116
+        "on_their_own_account": 117
       }
     },
     "placed_at_work": 375,
@@ -27171,21 +27171,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_keegan_bryan",
-      "household_id": "hh_rc_keegan_bryan",
-      "record_folder": "reconstructed_trades",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "labourer",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_seat_this_project_drew",
-      "reason": "seated_by_the_staffing_model",
-      "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
-      "houses": [
-        "biz_j_wright_merchant"
-      ]
-    },
-    {
       "person_id": "rc_keegan_catherine",
       "household_id": "hh_lodging_mansion_house",
       "record_folder": "lodgers",
@@ -30510,9 +30495,14 @@
       "trade": "physician",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_mcguire_physician#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_mcguire_physician"
+      ],
+      "house_names": [
+        "Dr. J. McGuire, physician"
+      ]
     },
     {
       "person_id": "rc_mcguire_margaret",
@@ -37552,6 +37542,24 @@
       "reason": "keeps_their_own_house",
       "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
       "houses": []
+    },
+    {
+      "person_id": "rc_tuttle_john",
+      "household_id": "hh_rc_tuttle_john",
+      "record_folder": "reconstructed_trades",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "physician",
+      "trade_confidence": "reconstructed",
+      "status": "on_their_own_account",
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_tuttle_physician#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_tuttle_physician"
+      ],
+      "house_names": [
+        "Dr. J. Tuttle"
+      ]
     },
     {
       "person_id": "rc_tuttle_joseph",
