@@ -1,3 +1,10 @@
+## T-2016 — Glessner connected roof plan
+
+Owner-directed roof continuity repair follows T-1999 while retaining its façade
+openings and stonework. The research note records the aerial interpretation and
+unresolved dating of two service stacks. Final validation and integration are
+tracked in STATUS and ticket T-2016.
+
 ## T-1460 — west-prairie swales retired
 
 Owner answer (a) is implemented on the recovery branch. The dossier keeps zone 18’s swales while the terrain no longer invents their alignments; the eight roofs stay fixed. Recovered terrain assets and regenerated ground readings accompany the change. Validation and integration status are recorded in STATUS; ticket settlement follows the dev PR.

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 370,
+  "count": 371,
   "liberties": [
     {
       "id": "L1",
@@ -23028,6 +23028,74 @@
         {
           "label": "Recorded",
           "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-connected-roof-2016",
+      "title": "Connected north, stable and courtyard roofs",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.chimney_service_east"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.chimney_service_west"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.roof_north"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.turret_stable"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "T-2016 supersedes L365's S18.4 cross-gable and 25.5-ft lower rear ridge. Continue the north ridge straight at S14.6/z34.1 ft, with a planar court slope, and the stable ridge at W141/z38.6 ft to the full south gable. Move the stable turret onto their plan intersection. Retain the corrected apertures and stonework. Extend the west dormer into its host with ridge decoration; join two triangular tile returns to the dining bay copper cap and continue copper across the north/east courtyard corner. These joins, the changed west profile and unmeasured details are owner-directed reconstructions. The planar north slope supersedes the earlier HABS sheet 4 kick interpretation; it is not claimed as a newly measured historical fact. Two courtyard service stacks shown by the modern aerial are carried into 1904 as reconstructed. The archive review did not establish either pre-1904 presence or post-1904 installation. The owner allowed omission if absence was reasonably established; that condition was not met. Approximate positions, heights, flues and cap details remain inventions, not HABS attestations."
+        },
+        {
+          "label": "Basis",
+          "text": "Owner's 3 October 2026 aerial/model references and followups; HABS IL-1015 photo 5 (circa 1923) for the dining copper cap and tiled return; sheets 2–4, photo 1 and data pages for context. See `docs/RESEARCH/glessner-connected-roof-plan/work.md` for disagreements and limits."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A measured original roof plan or section, dated chimney photographs or restoration records would replace these proportional choices."
+        },
+        {
+          "label": "Applies to",
+          "text": "`glessner_house`, canonical detailed model and its light derivative."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.roof_north`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.chimney_service_east`, `glessner_house.as_built_1887.form.chimney_service_west`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03."
         }
       ]
     },

@@ -1,3 +1,16 @@
+## T-2016 — Glessner connected roof plan (2026-10-03)
+
+The north ridge is straight to the west wall, and the full-height stable ridge
+continues to a south gable with a courtyard-facing roof. The courtyard north
+slope is planar. The west dormer joins the host with a decorated ridge; two tiled
+returns meet the dining bay copper roof, and copper fills the northeast court
+corner. Earlier north and west aperture corrections remain. The owner aerial
+is the geometric target; roof joins and two service stacks are reconstructed.
+Historical review did not establish that the stacks were absent in 1904.
+See `docs/RESEARCH/glessner-connected-roof-plan/work.md` and liberty
+`L-glessner-connected-roof-2016`. Export, source gate and browser validation are
+in progress; no production promotion is included.
+
 ## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *A Decent Coat* (Shopping, Horse, 4 stops,

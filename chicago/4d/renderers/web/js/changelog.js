@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1348, ts: '2026-10-03T06:38:16.821Z', date: 'Oct 3, 2026, 1:38 AM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+    items: [
+      'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
+      'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
+      'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
   { v: 1347, ts: '2026-10-03T05:37:25.027Z', date: 'Oct 3, 2026, 12:37 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Decent Coat. It is a short, quiet ride west along South Water Street to a call at the Sauganash, about four minutes on horseback, with nothing to count or carry.',
