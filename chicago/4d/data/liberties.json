@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 356,
+  "count": 357,
   "liberties": [
     {
       "id": "L1",
@@ -19286,6 +19286,37 @@
         {
           "label": "Recorded",
           "text": "2026-09-29 (T-1767)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-outfit-west",
+      "title": "Outfit for the West: an invented errand, purse and prices",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Outfit for the West links five existing exterior destinations — the Green Tree, Cobb's saddlery, Peck's store, the Jones grocery and Pierce's smithy — in an invented errand to leave town for the road west. The fifteen-dollar purse, every price in the choices ($2–$6), the readiness count, the light and prepared endings and the Ready for the Road memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought from the trade its own source names — harness from the saddler, hardware from the general merchant, provisions from the grocer, ironwork from the smith — and that pairing is the only part of the errand the evidence bounds. The Jones store's South Water position is the structure record's own reconstruction, and the stop says so."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the five structure records and brief 01 of JAUNTS-INITIAL-LIBRARY.md. Prices are kept in single dollars so no figure reads as a quoted 1835 price."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated 1835 price list from any of these trades would replace the matching invented price, cited as its own claim; the errand and endings stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/outfit-for-the-west.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02 (T-1260)."
         }
       ]
     },

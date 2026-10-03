@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1331, ts: '2026-10-03T00:10:04.612Z', date: 'Oct 2, 2026, 7:10 PM CT', title: 'The ground of 1812 is written down, ready to be built', kind: 'change',
+  { v: 1332, ts: '2026-10-03T00:28:38.245Z', date: 'Oct 2, 2026, 7:28 PM CT', title: 'The ground of 1812 is written down, ready to be built', kind: 'change',
     items: [
       'Nothing you can see changes in the 1835 town. This is the plan for the ground the 1812 Fort Dearborn landscape will stand on, written before any of it is built.',
       'It starts from the 1835 ground and takes out what did not exist yet: the harbour cut, the bridges and the streets. Everything else is kept, with a reason for each.',
       'The sand spit that turned the river south now joins the mainland. It is a neck of sand 100 feet wide at the spit\u2019s own height of 4 feet, and it is recorded as our reconstruction.',
       'Where an 1830 map and the 1834 survey disagree about the old channel\u2019s west bank, we keep the survey and mark that stretch of ground as the least certain in the scene.',
+    ] },
+  { v: 1331, ts: '2026-10-03T00:20:58.425Z', date: 'Oct 2, 2026, 7:20 PM CT', title: 'A new jaunt: Outfit for the West', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Outfit for the West. You have an imagined fifteen dollars to get ready for the road west.',
+      'Five stops: the Green Tree, Peck\u2019s store, the Jones grocery, Cobb\u2019s saddlery and Pierce\u2019s smithy. Each sells what its own advertisement or history says it sold: hardware from the merchant, provisions from the grocer, harness from the saddler, ironwork from the smith.',
+      'Your purchases decide the ending: you leave prepared, or you set out light. Either way the keepsake Ready for the Road goes in your daybook under Provisions.',
+      'The errand, the purse and every price are our reconstruction (liberty L-jaunt-outfit-west). The trades and their dates come from the 1833\u201335 newspapers and Andreas.',
     ] },
   { v: 1330, ts: '2026-10-02T23:49:18.714Z', date: 'Oct 2, 2026, 6:49 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
