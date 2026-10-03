@@ -69,9 +69,11 @@ admits one. Seven refusals, each with a reason a reader can check:
      T-1174 and T-1347 drew the women the pyramid was short as their OWN records rather
      than into these houses. `re_housing` (T-2019) measures how many of T-1174's
      woman-headed houses could be the wife and children of one of them, by this stage's
-     own spacing rule and child cap; it moves nobody. T-2020 makes the moves and T-2021
-     rules on the houses no woman in the town fits. A move cannot close the sex ratio
-     printed below — it puts nobody new in the town — and the measurement says so.
+     own spacing rule and child cap, and T-2020 MAKES THOSE MOVES: each pair's woman-headed
+     card folds into the refused house, she as his wife and her children with her (see
+     `marry`). T-2021 rules on the houses no woman in the town fits. A move cannot close
+     the sex ratio printed below — it puts nobody new in the town — and the measurement
+     says so.
 
   And one bound that is not a refusal: NOBODY BUT KIN IS DRAWN. The household types carry
   servants, apprentices and journeymen, and the size the 1840 histogram draws is of the
@@ -111,6 +113,7 @@ POOLS = ROOT / "data" / "reconstruction" / "1835_invented_name_pools.json"
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 LEDGER = ROOT / "data" / "reconstruction" / "1835_modelled_families.json"
 RULINGS = ROOT / "data" / "reconstruction" / "1835_presence_rulings.json"
+FOLDS = ROOT / "data" / "reconstruction" / "1835_folded_houses.json"
 
 STAGE = "modelled_families"
 TICKET = "T-1171"
@@ -733,7 +736,46 @@ def fill(base: dict) -> tuple:
                                                   for k in sorted(refused_houses)},
     }
     ledger["re_housing"] = re_housing(base, refused_houses)
-    return out, ledger
+
+    # T-2020: THE PAIRS ARE CARRIED ONTO THE CARDS. Only after the draw and the
+    # measurement, both of which read `base` and neither of which a fold may disturb: the
+    # move is held to the numbers T-2019 measured, so it is made from them, never beside
+    # them. Each host was refused whole above, so he still stands alone in `out`.
+    folds = {}
+    married = Counter()
+    married_kin = Counter()
+    for pair in ledger["re_housing"]["pairs"]:
+        hid, her_hid = pair["house"], pair["wife_and_children_from"]
+        size = refused_houses[hid]["size_drawn"]
+        out[hid], folds[her_hid] = marry(out[hid], out.pop(her_hid), size,
+                                         seed_for(hid, "household_size"))
+        block = out[hid]["modelled_family"]
+        per_card[hid] = {"size_drawn": size, "kin_seated": block["kin_seated"],
+                         "household_type": block["household_type"],
+                         "married_from": her_hid}
+        married["houses"] += 1
+        married["people"] += block["kin_seated"] - 1
+        married[refused_houses[hid]["wife_cell"].split("/")[3]] += 1
+        married_kin[block["kin_seated"]] += 1
+    ledger["by_household"] = {k: per_card[k] for k in sorted(per_card)}
+    ledger["married_from_the_town"] = {
+        "ticket": FOLD_TICKET,
+        "of": TICKET,
+        "houses": married["houses"],
+        "people_moved": married["people"],
+        "by_division": {d: married[d] for d in CIVIL if married[d]},
+        "kin_seated_histogram": {str(k): v for k, v in sorted(married_kin.items())},
+        "houses_still_refused": len(refused_houses) - married["houses"],
+        "what_moved": "Each pair of `re_housing` carried onto the cards: the woman-headed "
+                      "house T-1174 dealt folds into the married house the order book "
+                      "refused a wife, she as his wife and every member of her house with "
+                      "her. Nobody is drawn, nobody is retired, no name, id, sex, age band "
+                      "or seed changes, and the order book's person cells are untouched — "
+                      "she is still counted where T-1174 dealt her. What the town loses is "
+                      "a household for every pair; `%s` keeps each folded card's own keys "
+                      "so the fold re-derives." % FOLDS.relative_to(ROOT),
+    }
+    return out, ledger, folds
 
 
 # ------------------------------------------------------------- the re-housing --
@@ -873,8 +915,9 @@ def re_housing(base: dict, refused: dict) -> dict:
     return {
         "ticket": "T-2019",
         "of": "T-1171",
-        "moves_nobody": "A measurement. No card changes and nobody is moved here: T-2020 "
-                        "carries these pairs onto the cards and is held to these numbers, "
+        "moves_nobody": "A measurement, taken on the layer as T-1174 dealt it (the fold is "
+                        "undone first), so the move cannot redefine its own success. T-2020 "
+                        "carries exactly these pairs onto the cards (`married_from_the_town`), "
                         "and T-2021 rules on the houses no woman in the town can be wife to.",
         "the_pool": "T-1174's woman-headed houses (`%s`, household type `%s`), present on "
                     "the scene date. They stand in `data/residents/households/`, the same "
@@ -912,6 +955,170 @@ def re_housing(base: dict, refused: dict) -> dict:
         },
         "pairs": [{"house": h, "wife_and_children_from": w} for h, w in pairs],
     }
+
+
+# --------------------------------------------------------------------- the fold --
+#
+# T-2020, piece 2 of 3 of T-1171's last bullet. The pairs above are carried onto the cards:
+# her card folds into his, she as his wife and her children with her. THE FOLD IS EXACT
+# AND IT IS UNDONE BEFORE EVERY DERIVATION. Every stage here derives from the layer as it
+# stood before it ran, and T-1174's derives her house from seeds keyed on that house — so
+# both stages first `unfold` the committed layer back into the woman-headed houses T-1174
+# dealt, draw from that, and fold again. What makes the fold exact is that it changes one
+# word on one person (her `relationship`, `head` to `wife`), says so on her, and keeps the
+# rest of her card in `FOLDS`, a derived file, rather than on his card: her arrival, her
+# origin and the research note that says how her house was drawn are T-1174's statements
+# about a house, and printed on his card they would read as his.
+
+FOLD_TICKET = "T-2020"
+#: On every person a fold moved: the house they were dealt in and what they were in it.
+FOLD_KEY = "folded_in"
+#: Inside the host's `modelled_family`: whose house was folded in, and why.
+MARRIED_KEY = "married"
+KIN_NOTE = ("The kin core only. A servant, an apprentice or a journeyman this house may "
+            "have held is priced by T-1183 and seated by T-1173; a boarder is seated by "
+            "T-1175. The drawn size is a floor on the house.")
+
+
+def load_folds() -> dict:
+    if not FOLDS.exists():
+        return {}
+    return json.loads(FOLDS.read_text(encoding="utf-8")).get("houses") or {}
+
+
+def folds_doc(folds: dict) -> dict:
+    return {
+        "_doc": "DERIVED — regenerate with tools/reconstruct_modelled_families.py --build. "
+                "Do not hand-edit.",
+        "id": "1835_folded_houses",
+        "ticket": FOLD_TICKET,
+        "of": TICKET,
+        "generated_by": "tools/reconstruct_modelled_families.py --build",
+        "what_this_is": "The woman-headed houses T-1174 dealt that T-2020 folded into a "
+                        "married house the order book had refused a wife. Each is the "
+                        "folded card as it stood, its `persons` cut to the ids that now "
+                        "stand on the host's card. It is how the fold is undone before "
+                        "every derivation (`unfold`), so both stages draw from the layer "
+                        "T-1174 dealt and `--check` re-derives the fold byte for byte. It "
+                        "is not a record of a household the town holds: these houses are "
+                        "gone from it, and their people keep house with the men named in "
+                        "`folded_into`.",
+        "houses": {k: folds[k] for k in sorted(folds)},
+    }
+
+
+def marry(host: dict, her: dict, size: int, seed: str) -> tuple:
+    """(his card with her house folded in, the folded card's sidecar row). Pure.
+
+    `host` is a card this stage drew a married house for and the order book refused a
+    wife: one head, no block of this stage's on it. `her` is a T-1174 woman-headed house
+    as that stage dealt it."""
+    moved = []
+    for person in her.get("persons") or []:
+        record = json.loads(json.dumps(person))
+        dealt_as = record.get("relationship")
+        if record.get("id") == her.get("head"):
+            record["relationship"] = "wife"
+        record[FOLD_KEY] = {
+            "ticket": FOLD_TICKET,
+            "from_household": her["id"],
+            "relationship_as_dealt": dealt_as,
+        }
+        moved.append(record)
+    wife = next(p for p in moved if p.get("id") == her.get("head"))
+    head_name = str((head_of(host) or {}).get("name") or "")
+    block = {
+        "stage": STAGE,
+        "ticket": TICKET,
+        "household_type": "married_couple" if len(moved) == 1 else "family_with_children",
+        "size_drawn": size,
+        "kin_seated": 1 + len(moved),
+        "seed": seed,
+        "note": KIN_NOTE,
+        MARRIED_KEY: {
+            "ticket": FOLD_TICKET,
+            "wife": wife["id"],
+            "from_household": her["id"],
+            "what_happened": (
+                "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this "
+                "house married and the order book had no woman left in its wife's cell, so "
+                "no wife was drawn. %s headed a house of her own, dealt by T-1174 to fill "
+                "the women and children the age pyramid lacked; she fits this house by its "
+                "own rules — her division, a band never above his, no child older than his "
+                "band allows — and T-2020 folds her house into his: she is his wife here and "
+                "the %d of her house come with her. Every name, age band and seed is the "
+                "one T-1174 drew; the children keep the surname they were dealt with. Both "
+                "people are the town's invention at the `reconstructed` tier, and the "
+                "marriage is too: no source says %s married anybody."
+                % (wife.get("name"), len(moved) - 1, head_name or "this head")),
+        },
+    }
+    out = {}
+    for key, value in host.items():
+        out[key] = value
+        if key == "present_on_scene_date":
+            out["modelled_family"] = block
+    if "modelled_family" not in out:
+        out["modelled_family"] = block
+    out["persons"] = list(host.get("persons") or []) + moved
+    card = json.loads(json.dumps(her))
+    card["persons"] = [p["id"] for p in her.get("persons") or []]
+    return out, {"folded_into": host["id"], "card": card}
+
+
+def unfold(live: dict, folds: dict | None = None) -> tuple:
+    """(the layer as T-1174 dealt it, {folded house: host}). The inverse of `marry`.
+
+    Every folded house is restored from `FOLDS` with its own people taken back off the
+    host, and every host is stripped of what the fold put there. A folded person no row
+    accounts for, or a row whose people are not all on its host, is refused by name: the
+    fold is undone exactly or not at all."""
+    folds = load_folds() if folds is None else folds
+    out = dict(live)
+    hosts = {}
+    for her_hid, row in sorted(folds.items()):
+        host = live.get(row.get("folded_into"))
+        if host is None:
+            raise SystemExit("FAIL %s is folded into %s, which the layer does not hold"
+                             % (her_hid, row.get("folded_into")))
+        if her_hid in live:
+            raise SystemExit("FAIL %s stands as a card AND as a house folded into %s"
+                             % (her_hid, host["id"]))
+        moved = {p["id"]: p for p in host.get("persons") or []
+                 if (p.get(FOLD_KEY) or {}).get("from_household") == her_hid}
+        card = json.loads(json.dumps(row["card"]))
+        if set(card["persons"]) != set(moved):
+            raise SystemExit("FAIL the people of %s on %s are not the folded house's"
+                             % (her_hid, host["id"]))
+        restored = []
+        for pid in card["persons"]:
+            person = json.loads(json.dumps(moved[pid]))
+            person["relationship"] = person.pop(FOLD_KEY)["relationship_as_dealt"]
+            restored.append(person)
+        card["persons"] = restored
+        out[her_hid] = card
+        hosts[her_hid] = host["id"]
+    for hid, card in live.items():
+        stray = [p.get("id") for p in card.get("persons") or []
+                 if FOLD_KEY in p and p[FOLD_KEY].get("from_household") not in hosts]
+        if stray:
+            raise SystemExit("FAIL %s carries folded people no fold accounts for: %s"
+                             % (hid, ", ".join(stray[:4])))
+        if hid not in hosts.values():
+            continue
+        stripped = json.loads(json.dumps(card))
+        stripped["persons"] = [p for p in stripped["persons"] if FOLD_KEY not in p]
+        block = stripped.get("modelled_family")
+        if isinstance(block, dict):
+            block.pop(MARRIED_KEY, None)
+        out[hid] = stripped
+    return out, hosts
+
+
+def female_headed_now(live: dict):
+    """[female-headed, households] over the present households of the layer as it stands."""
+    ruled = ruled_present()
+    return list(female_headed_share([c for c in live.values() if settled_present(c, ruled)]))
 
 
 # ------------------------------------------------------------------ the tables --
@@ -964,8 +1171,8 @@ def what_closes_it(ledger: dict) -> str:
             "houses stand refused because the book has no woman left in their cell. "
             "Re-housing the town's own women into them moves nobody between the sexes, so "
             "it leaves this ratio where it is; what it changes is who keeps house with "
-            "whom. Of the %d, %d can take the wife and children of one of T-1174's "
-            "woman-headed houses (`re_housing`, T-2019; T-2020 moves them) and %d cannot "
+            "whom. Of the %d, %d took the wife and children of one of T-1174's "
+            "woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and %d cannot "
             "take any woman the town holds. Those are T-2021's: a re-cut of the order book "
             "that orders more women, or heads that stand alone." % (
                 ledger["houses_the_book_refused"], ledger["houses_the_book_refused"],
@@ -1011,6 +1218,7 @@ def measurement(base: dict, live: dict, ledger: dict) -> dict:
         "inside_the_model_s_range": (after is not None and wanted is not None
                                      and wanted[0] <= after <= wanted[1]),
         "what_closes_it": what_closes_it(ledger),
+        "female_headed_households_after_the_moves": female_headed_now(live),
         "age_pyramid_after": dict(sorted(pyramid.items())),
         "household_size_1840_share": shape,
         "household_size_drawn_share": drawn,
@@ -1021,16 +1229,27 @@ def measurement(base: dict, live: dict, ledger: dict) -> dict:
 
 # --------------------------------------------------------------------- modes --
 
+def base_layer(live: dict) -> dict:
+    """The layer as it stood before this stage ran: unfolded, then this pass stripped."""
+    return {hid: without_this_pass(card) for hid, card in unfold(live)[0].items()}
+
+
 def build() -> int:
-    base = {hid: without_this_pass(card) for hid, card in cards().items()}
-    filled, ledger = fill(base)
+    base = base_layer(cards())
+    filled, ledger, folds = fill(base)
     written = 0
     for hid, card in filled.items():
         path = HOUSEHOLDS / f"{hid}.json"
         text = dumps(card)
-        if path.read_text(encoding="utf-8") != text:
+        if not path.exists() or path.read_text(encoding="utf-8") != text:
             path.write_text(text, encoding="utf-8")
             written += 1
+    for hid in sorted(folds):
+        path = HOUSEHOLDS / f"{hid}.json"
+        if path.exists():
+            path.unlink()
+            written += 1
+    FOLDS.write_text(dumps(folds_doc(folds)), encoding="utf-8")
     ledger["measurement"] = measurement(base, filled, ledger)
     LEDGER.write_text(dumps(ledger), encoding="utf-8")
     write_fills(ledger)
@@ -1056,16 +1275,33 @@ def write_fills(ledger: dict) -> None:
 
 def check() -> int:
     live = cards()
-    base = {hid: without_this_pass(card) for hid, card in live.items()}
-    filled, ledger = fill(base)
+    base = base_layer(live)
+    filled, ledger, folds = fill(base)
+    if set(live) != set(filled):
+        print("  FAIL the layer's cards are not the set this stage leaves (%d standing, "
+              "%d derived; folded but standing %s; missing %s)"
+              % (len(live), len(filled), sorted(set(live) - set(filled))[:4],
+                 sorted(set(filled) - set(live))[:4]))
+        return 1
     bad = [hid for hid in sorted(live) if dumps(live[hid]) != dumps(filled[hid])]
     if bad:
         print("  FAIL %d card(s) are not what this stage derives: %s"
               % (len(bad), ", ".join(bad[:6])))
         return 1
+    if not FOLDS.exists() or FOLDS.read_text(encoding="utf-8") != dumps(folds_doc(folds)):
+        print("  FAIL %s is not what --build writes" % FOLDS.relative_to(ROOT))
+        return 1
     ledger["measurement"] = measurement(base, filled, ledger)
     if not LEDGER.exists() or LEDGER.read_text(encoding="utf-8") != dumps(ledger):
         print("  FAIL %s is not what --build writes" % LEDGER.relative_to(ROOT))
+        return 1
+    # THE MOVE IS HELD TO THE MEASUREMENT. T-2019 printed what the female-headed share
+    # would become if its pairs were made; the layer that now stands must read exactly that.
+    promised = ledger["re_housing"]["female_headed_households"]["after"]
+    stands = ledger["measurement"]["female_headed_households_after_the_moves"]
+    if promised != stands:
+        print("  FAIL the moves leave %s female-headed households of %s; T-2019 measured %s"
+              % (stands[0], stands[1], promised))
         return 1
     book = json.loads(BOOK.read_text(encoding="utf-8"))
     ours_fills = {f["bucket"]: int(f.get("records") or 0)
@@ -1075,14 +1311,16 @@ def check() -> int:
         return 1
     print("  ok    %d head(s) carry a drawn family; %d people re-derive from their seeds"
           % (ledger["heads_drawn_for"], ledger["people_drawn"]))
+    print("  ok    %d woman-headed house(s) fold into a refused married house, exactly the "
+          "pairs T-2019 measured" % ledger["married_from_the_town"]["houses"])
     print("  ok    the order book carries %d fill(s) for %s and no bucket is overfilled"
           % (len(ours_fills), TICKET))
     return 0
 
 
 def report() -> int:
-    base = {hid: without_this_pass(card) for hid, card in cards().items()}
-    filled, ledger = fill(base)
+    base = base_layer(cards())
+    filled, ledger, _ = fill(base)
     stats = measurement(base, filled, ledger)
     print("HEADS THE SOURCES LEAVE ALONE, AND WHAT WAS DRAWN")
     print("   heads drawn for %5d   wives %5d   children %5d"
@@ -1112,7 +1350,7 @@ def report() -> int:
         print("   %-9s %5d" % (band, n))
     rh = ledger["re_housing"]
     fh = rh["female_headed_households"]
-    print("THE RE-HOUSING THE TOWN'S OWN WOMEN ALLOW — measured, nobody moved (T-2019)")
+    print("THE RE-HOUSING THE TOWN'S OWN WOMEN ALLOW — measured on the layer as dealt (T-2019)")
     print("   %5d  houses refused a wife   %s"
           % (rh["houses_refused_a_wife"], rh["houses_refused_by_division"]))
     print("   %5d  woman-headed houses     %s"
@@ -1130,6 +1368,15 @@ def report() -> int:
     print("   female-headed households %d of %d (%s) -> %d of %d (%s)"
           % (fh["before"][0], fh["before"][1], fh["share_before"],
              fh["after"][0], fh["after"][1], fh["share_after"]))
+    mt = ledger["married_from_the_town"]
+    print("THE MOVES MADE (T-2020)")
+    print("   %5d  woman-headed houses folded into a married house   %s"
+          % (mt["houses"], mt["by_division"]))
+    print("   %5d  people moved, the women among them   kin seated %s"
+          % (mt["people_moved"], mt["kin_seated_histogram"]))
+    print("   %5d  married houses still refused a wife (T-2021)" % mt["houses_still_refused"])
+    print("   female-headed households now %s"
+          % (stats["female_headed_households_after_the_moves"],))
     if ledger["refused_by_the_order_book"]:
         print("REFUSED BY THE ORDER BOOK — the quota doing its job")
         for bucket, n in sorted(ledger["refused_by_the_order_book"].items()):
@@ -1252,10 +1499,46 @@ def self_test() -> int:
           is None)
     fires("a house T-1564 already re-familied is held back",
           wife_floor(dict(woman, refamilied={"rule": "C1"}))[0] is None)
-    ledger = fill({h: without_this_pass(c) for h, c in cards().items()})[1]
-    fires("the measurement moves nobody: every pair names a refused house",
+    live = cards()
+    filled, ledger, folds = fill(base_layer(live))
+    fires("every pair names a refused house",
           all(p_["house"] in ledger["houses_the_book_refused_by_household"]
               for p_ in ledger["re_housing"]["pairs"]))
+
+    # T-2020, the fold.
+    head = {"id": "hh_h", "head": "h", "present_on_scene_date": {"value": "present"},
+            "persons": [{"id": "h", "name": "John Smith", "relationship": "head"}]}
+    hers = {"id": "hh_w", "head": "w", "division": "south", "women_children": {},
+            "persons": [{"id": "w", "name": "Mary Brown", "relationship": "head"},
+                        {"id": "c", "name": "Ann Brown", "relationship": "daughter"}]}
+    host, row = marry(head, hers, 4, "hh_h:household_size")
+    fires("she is his wife and her children come with her",
+          [(p_["id"], p_["relationship"]) for p_ in host["persons"]]
+          == [("h", "head"), ("w", "wife"), ("c", "daughter")])
+    fires("the block sits after the presence, as a drawn family's does",
+          list(host)[list(host).index("present_on_scene_date") + 1] == "modelled_family")
+    fires("nobody is renamed by the fold",
+          [p_["name"] for p_ in host["persons"][1:]] == ["Mary Brown", "Ann Brown"])
+    back, hosts = unfold({"hh_h": host}, {"hh_w": row})
+    fires("unfold restores her card exactly", dumps(back["hh_w"]) == dumps(hers))
+    fires("unfold strips the host back to his lone head",
+          [p_["id"] for p_ in back["hh_h"]["persons"]] == ["h"]
+          and MARRIED_KEY not in back["hh_h"]["modelled_family"] and hosts == {"hh_w": "hh_h"})
+    stray = json.loads(json.dumps(host))
+    try:
+        unfold({"hh_h": stray}, {})
+        fires("a folded person no fold accounts for is refused", False)
+    except SystemExit:
+        fires("a folded person no fold accounts for is refused", True)
+    try:
+        unfold({"hh_h": host, "hh_w": hers}, {"hh_w": row})
+        fires("a house both standing and folded is refused", False)
+    except SystemExit:
+        fires("a house both standing and folded is refused", True)
+    fires("the fold carries exactly the measured pairs",
+          sorted(folds) == sorted(p_["wife_and_children_from"]
+                                  for p_ in ledger["re_housing"]["pairs"]))
+    fires("no folded house stands in the layer", not set(folds) & set(filled))
 
     print("   %d rule(s) checked, %d failed" % (len(checked), len(failures)))
     return 1 if failures else 0
