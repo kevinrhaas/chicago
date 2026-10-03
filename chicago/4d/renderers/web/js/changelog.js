@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+  { v: 1361, ts: '2026-10-03T12:41:22.885Z', date: 'Oct 3, 2026, 7:41 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
       'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',

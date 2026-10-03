@@ -1485,9 +1485,9 @@
       "tools/seat_platted_ground_1835.py --build",
       "tools/seat_off_plat_ground_1835.py --build"
     ],
-    "rows_offered": 1478,
+    "rows_offered": 1387,
     "seated": 252,
-    "still_owed": 1226,
+    "still_owed": 1135,
     "roofs_adopted": 223,
     "slots_requested": 29,
     "roofs_standing": 547,
@@ -1500,9 +1500,9 @@
         "title": "The committed plat",
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
-        "rows_offered": 1478,
+        "rows_offered": 1387,
         "seated": 179,
-        "handed_on": 1299,
+        "handed_on": 1208,
         "roofs_adopted": 150,
         "slots_requested": 29,
         "roofs_offered_for_adoption": 158,
@@ -1527,9 +1527,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1299,
+        "rows_offered": 1208,
         "seated": 73,
-        "handed_on": 1226,
+        "handed_on": 1135,
         "roofs_adopted": 73,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 79,
@@ -1850,7 +1850,7 @@
       "blk_west_lake_canal"
     ],
     "what_the_slots_wait_on": "29 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,226 of the 1,478 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,135 of the 1,387 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
