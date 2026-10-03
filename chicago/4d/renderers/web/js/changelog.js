@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'One more boarder in a North Division boarding house', kind: 'change',
+  { v: 1355, ts: '2026-10-03T09:29:19.228Z', date: 'Oct 3, 2026, 4:29 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
     items: [
       'A North Division boarding house had one bed empty that the town was still owed a lodger for. Henry Metcalf, a man in his twenties, now sleeps there. Open the house\u2019s card to see him among its boarders.',
       'Nobody already in the town moved to make room. He is our reconstruction, like every boarder no source names (liberty L252).',
