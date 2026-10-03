@@ -10,7 +10,7 @@ closing a slice, because the web app continues to change.
 | Capability | Current native evidence / gap | Owner and next acceptance |
 |---|---|---|
 | Fresh Mac build and downloadable preview | T-1464 packaged terrain/structures; first GitHub prerelease published; manual rebuild works | T-1472: latest validated snapshot, on-demand build/test/release, failure retention |
-| Scheduled source assets and incremental imports | Fresh checkout build exists; versioned bundle and incremental retirement contract unfinished | T-1357 / T-1358, shared export policy T-0252 |
+| Scheduled source assets and incremental imports | Fresh checkout build exists; versioned bundle and incremental retirement contract unfinished | T-1357 / T-1358; shared export policy decided in [GLB-CONTRACT § Layers drawn at load](../GLB-CONTRACT.md) (T-0252) |
 | Structure placement and terrain contact | Garden yaw corrected; owner reports sinking buildings; lowest-footprint anchor is not proof of correct floor/door fit | T-1473: measured systemic fix, before/after views and normal walking |
 | Roads, alleys, frontage/plank walks, bridge and wharf approaches | Web procedural layers absent; core GLB structures alone do not supply the network | Existing T-1360: first complete corridor, then a bounded remaining-network successor |
 | Trees, shrubs, grasses/reeds and other current flora | Web procedural flora absent | T-1474: shared deterministic instances, grounded placement, materials/LOD/performance on a corridor, then remaining coverage |

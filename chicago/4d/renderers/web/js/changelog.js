@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1378, ts: '2026-10-03T18:56:52.384Z', date: 'Oct 3, 2026, 1:56 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: null, ts: '', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
+  { v: 1378, ts: '2026-10-03T18:54:29.680Z', date: 'Oct 3, 2026, 1:54 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed.',
+      'Fences, plank walks, docks, signs, boats, yard goods, wells, plants and streets are drawn by the web page from our records. They are not part of the baked buildings, and now they never will be: each will be exported by the same code that draws it.',
+      'Each export is stamped with the ground it was laid on, so a moved shoreline or street rebuilds it rather than leaving it floating.',
+      'People and animals stay on their cards. No figure of anyone is exported.',
     ] },
   { v: 1377, ts: '2026-10-03T18:36:59.827Z', date: 'Oct 3, 2026, 1:36 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
     items: [

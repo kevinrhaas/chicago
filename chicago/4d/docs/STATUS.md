@@ -1,3 +1,37 @@
+## T-0252 — the load-drawn layers leave the repository as exports, not bakes (2026-10-03)
+
+**Nothing you can see changed.** This is a contract and a gate. It is the decision T-1360
+(the first Unreal street corridor) and its successors were blocked on.
+
+**The decision**, in `docs/GLB-CONTRACT.md` § Layers drawn at load: the baked town carries
+**none** of the ten layers drawn at load (boats, enclosures, fauna, flora, frontage,
+residents, signage, wells, wharves, yard), nor the street network. Their portable form is
+an export made by the renderer module that already draws each one. Its `create*({ terrain })`
+factory runs headless against the scene's epoch heightfield, and the output is stamped with
+that heightfield's hash and the records' hashes. The export lives in the scene bundle
+(T-1357) and is never committed. The reasons, all measured before: a shared generator edit
+re-stales all 550 committed meshes; most of these layers read the heightfield at load, so a
+bake would freeze them against a ground that keeps moving (T-0001's fault); and six layers'
+records are re-derived byte for byte by `check.sh`, a gate that stays on the record. Cards
+(fauna, residents, businesses) export as JSON, and no human figure is exported for anyone.
+
+**The inventory** has one row per layer: what it draws, whether it reads the ground, where
+its variation is seeded, its portable form, instancing and collision intent, and what a glTF
+cannot carry yet. Most layers patch their shaders at compile time, and signage rasterises
+system fonts with no recorded licence. Both are written into their rows rather than left to
+the first exporter to find out.
+
+**The gate.** `tools/measure_generator_half.py --gate` keeps all of its readings.
+`layers_with_a_generator: 0` is now the rule rather than a debt. A new check requires a
+contract row naming the drawing module for every layer the tool names. Shown red twice on
+this branch (the boats row removed; the wells row naming the wrong module), then green.
+
+**Unverified.** Nothing has been exported. The contract describes the factories as they read
+today; the first corridor (T-1360) is expected to correct it where the code disagrees. The
+legacy K5 box is no longer in `docs/ROADMAP.md`. The Unreal programme paragraph there now
+points at the decision, and older "the generator half is still owed" lines in this file are
+history and were left as written.
+
 ## T-2034 — An Evening Stroll, the batch's quiet published jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *An Evening Stroll* (Leisure, Horse, 4
