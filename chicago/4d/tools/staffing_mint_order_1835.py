@@ -737,8 +737,9 @@ def order(data: dict) -> dict:
                 "T-1209 — raise the lodging roofs the model schedules; the beds are "
                 "there and nowhere else",
                 "T-1538 — seat the houses once they stand",
-                "T-1532 — the working lodgers, blocked on the same bound, whose "
-                "lodging/trade buckets this purse is",
+                "T-1532 dealt the working lodgers on 2026-10-03 — the lodging/trade "
+                "buckets this purse is — into the beds that stood, so what is left of "
+                "the purse waits on the roofs above",
             ],
             "and_the_division_axis_is_not_priced_either": {
                 "what_it_is": "A third axis the payment does not look at: a slot names "
