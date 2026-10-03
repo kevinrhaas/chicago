@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', title: 'Bushes seen far down the road, not popping up', kind: 'change',
+    items: [
+      'Walk any road through the prairie or the woods and the hazel, elder, dogwood and other bushes now stand far into the distance, out to about 140 metres. Before, they ended 26 metres away and each one appeared out of empty ground through a speckled fade as you walked.',
+      'A distant bush is a simpler version of the same bush, at the same spot, size and colour. As you close on it, it sharpens into the full bush, so nothing pops in.',
+      'Balanced detail carries them to about 105 metres and Light detail to about 70.',
+    ] },
   { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
