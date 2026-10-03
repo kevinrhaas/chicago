@@ -498,6 +498,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Do not assert an actual service schedule/day for July 1; this is an era-themed outing, not a dated recreation of a particular Sunday.
 
+**Route note (published, T-2029):** The shipped story order is St. Mary's → Presbyterian → Walker meeting house → Sauganash. The order proposed above goes east from Clark to State and then all the way back west across the South Branch, about 1,420 m in straight lines (Presbyterian → St. Mary's 255 m, → Walker 922 m, → Sauganash 243 m). Starting at St. Mary's walks one way along Lake Street, about 1,169 m (→ Presbyterian 255 m, → Walker 671 m, → Sauganash 243 m), and still ends at the call. On the published mirror the card reads Horse 6.5 min and Walk 22.5, so the default mode is Horse, not the Walk this brief names. **Horse is half a minute over the 4–6 min band.** The cost is the Walker meeting house: it stands across the South Branch from the other three, so every order that keeps it and ends at the Sauganash crosses the river twice. Its bank is disputed and the stop calls its marker a placeholder. The Presbyterian church carries the scene-year notice calling School District No. 4 to meet there on 7 July 1835; the meeting is after the scene date and is not narrated as held. No service, day or minister is asserted (L-jaunt-sunday-circuit).
+
 ## 21. Calling on Neighbors
 
 **ID:** `calling-on-neighbors` · **Owner ticket:** [T-1269](../tickets/T-1269-publish-schooling-social-visits-and-careful-news.md)
