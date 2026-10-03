@@ -78,7 +78,8 @@
       "on_their_own_account": {
         "reasons": [
           "keeps_their_own_house",
-          "keeps_a_house_the_register_holds"
+          "keeps_a_house_the_register_holds",
+          "roofs_kept_none_owed"
         ],
         "places_them_at_work": true
       }
@@ -99,6 +100,7 @@
       "no_trade_recorded": "No source records a trade for this person and no reconstruction stage has given them one. This is a statement about the evidence and not about the person: a trade is not read in from the household, and none is supplied here.",
       "not_held_by_the_establishment_on_the_scene_date": "The establishment this trade served does not hold this person on 1 July 1835: its own record names somebody else in the seat, the source dates the work out of the window, or a ruling already refused them. No house is owed; the ruling below says which (T-1994).",
       "on_the_staff_of_a_house": "A record in the business register names this person on its own staff: the office, church or agency they served, at a source the record cites. They did not keep the house; they worked in it.",
+      "roofs_kept_none_owed": "The trade's house is a roof the programme schedules, a boarding house, and the order book cannot count one. Every standing boarding house is kept, and the roofs the programme still schedules are owed to the keepers ahead of this one in a seeded draw, so none is owed: the town is not short a boarding house this person would keep. They are still their own employer, and carry the trade on their own account with no house of their own (T-1997).",
       "seated_by_the_staffing_model": "No source names a house for this person. The staffing model names a class of house that employed their trade, the layer held one with room in its band, and this project seated them there — a draw, shown above with the seed that redraws it.",
       "serves_an_establishment_outside_the_register": "The establishment this trade served is held by a committed file that is not the business register — the garrison at the fort, an agency held for a company in another town — and that file places this person in it. They are at work, and no house of trade is owed (T-1994).",
       "the_mechanics_shops_are_over_their_count": "This trade kept a shop of its own, and the December 1835 State census has no line for it, so no count of its class was ever printed to be short of. What WAS printed is a count of shops: the Chicago American of 15 August 1835 numbers the town's \"twenty-five mechanics' shops of all kinds\", and the register's own printed houses of those trades trading on 1 July 1835 are more than that already (the figures are below). A shop raised for this person would push the town further past the one count there is. Most mechanics were hands in a master's shop, or carpenters and masons who worked where the wall was going up; which shop or which wall is not drawn, and no house is owed (T-2000).",
@@ -124,13 +126,14 @@
       "in_service_in_another_household": 61,
       "joined_by_the_attested_trade_ruling": 6,
       "keeps_a_house_the_register_holds": 86,
-      "keeps_their_own_house": 39,
+      "keeps_their_own_house": 27,
       "named_by_a_source": 112,
       "no_employer_named": 161,
       "no_ruling_on_the_trade": 4,
       "no_trade_recorded": 2639,
       "not_held_by_the_establishment_on_the_scene_date": 8,
       "on_the_staff_of_a_house": 9,
+      "roofs_kept_none_owed": 12,
       "seated_by_the_staffing_model": 123,
       "serves_an_establishment_outside_the_register": 4,
       "the_mechanics_shops_are_over_their_count": 57,
@@ -22046,8 +22049,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -22369,8 +22372,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -23605,8 +23608,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -25188,8 +25191,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -25843,8 +25846,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -27206,8 +27209,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -30353,8 +30356,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -30737,8 +30740,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -32559,8 +32562,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -32927,8 +32930,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -33766,8 +33769,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
@@ -36284,8 +36287,8 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "reason": "roofs_kept_none_owed",
+      "decided_by": "reconstructed_seating.json#roofs_kept_none_owed, drawn by T-1433",
       "houses": []
     },
     {
