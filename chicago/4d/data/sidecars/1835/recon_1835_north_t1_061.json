@@ -138,7 +138,27 @@
       "note": "THE ROOF IS AN INVENTION AND THIS CANNOT OUTRANK IT. The footprint stands 3 m inside the tract's nearest boundary, which on a documented building would carry the middle tier, but this building was dealt to its lot by a recipe and is not there. The tract is real and the register's words about it are read; what is graded here is the claim that THIS roof stands on it, and that claim is the recipe's. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_rc_dufresne_hyacinthe",
+      "name": "Hyacinthe Dufresne",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at boatman in the mechanic group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Hyacinthe Dufresne",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "boatman",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    }
+  ],
   "citations": [
     {
       "source_id": "isa_public_domain_land_tract_sales",
@@ -209,6 +229,14 @@
     "confidence": "reconstructed",
     "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 212 m² of enclosed floor (106 m² × 2 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
-    "occupancy": null
+    "occupancy": {
+      "people": 1,
+      "beds_ordinary": 9,
+      "empty": 8,
+      "statement": "1 on this card against an ordinary night's 9 beds: 1 seated here from elsewhere in the layer, where no source gives them a roof.",
+      "empty_note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
+      "keeper_persons": 0,
+      "keeper_owed": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."
+    }
   }
 }

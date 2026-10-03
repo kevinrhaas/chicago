@@ -213,8 +213,8 @@
   },
   "lodging": {
     "_doc": "BEDS AGAINST KEEPERS. Every place data/reconstruction/1835_lodging_model.json stands, and the house of trade behind it. `kept_by` is null where there is none, and `why_not` says which kind of absence it is.",
-    "places": 25,
-    "reconstructed_roofs_this_programme_owes_a_firm": 0,
+    "places": 26,
+    "reconstructed_roofs_this_programme_owes_a_firm": 1,
     "rows": [
       {
         "place": "brown_boarding_house",
@@ -486,6 +486,19 @@
         ],
         "kept_by": "the register",
         "why_not": null
+      },
+      {
+        "place": "recon_1835_north_t1_061",
+        "name": "Reconstructed T1 small inn or tavern #061",
+        "class": "inn_tavern",
+        "standing": "reconstructed",
+        "beds_ordinary": 9,
+        "beds_crowded": 35,
+        "keeper_person": null,
+        "firm": null,
+        "businesses_in_the_register_at_this_roof": [],
+        "kept_by": null,
+        "why_not": "NO FIRM. The lodgers stage named no keeper for this roof, so there is nobody to adopt and this programme mints none."
       },
       {
         "place": "sauganash_hotel",

@@ -5,8 +5,8 @@ DERIVED — regenerate with `tools/measure_roof_id_migration.py --build`. T-1483
 T-1445 returned 32 refamily verdicts; T-1451 carried out the 6 whose record id does not encode its family. These are the other 26. Each becomes a new id the moment its family moves, and the id is named across the tree. NOTHING IS MOVED HERE: this is the measurement the three carry-out tickets (T-1481 south, T-1482 the platted blocks, T-1484 north) each stand on.
 
 - roofs whose id moves: **6**
-- files that name one: **24**
-- of those, **0** hold a reference a rename would falsify, **0** rename, **23** are re-derived by their own tool, **1** are frozen records of a past run
+- files that name one: **29**
+- of those, **1** hold a reference a rename would falsify, **0** rename, **27** are re-derived by their own tool, **1** are frozen records of a past run
 
 ## The rows that cost judgement
 
@@ -14,8 +14,9 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 
 | file | where | roof | group | becomes | why it is not a rename |
 | --- | --- | --- | --- | --- | --- |
+| `data/sidecars/1835/people.json` | `.people[909].lives_at` | `recon_1835_north_t1_061` | inns_taverns | barns_stables | `lives_at` needs a dwelling and barns_stables is not one |
 
-**0** reference(s), across 0 file(s).
+**1** reference(s), across 1 file(s).
 
 ## Every moving roof, and what names it
 
@@ -23,10 +24,10 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 | --- | --- | ---: | ---: | ---: | ---: |
 | `recon_1835_north_c3_064` | `recon_1835_north_a2_064` | 0 | 14 | 1 | 0 |
 | `recon_1835_north_c3_066` | `recon_1835_north_a2_066` | 0 | 14 | 1 | 0 |
-| `recon_1835_north_c4_067` | `recon_1835_north_a2_067` | 0 | 15 | 1 | 0 |
-| `recon_1835_north_t1_061` | `recon_1835_north_a2_061` | 0 | 16 | 1 | 0 |
-| `recon_1835_north_w2_065` | `recon_1835_north_d6_065` | 0 | 15 | 1 | 0 |
-| `recon_1835_north_w3_062` | `recon_1835_north_d6_062` | 0 | 14 | 1 | 0 |
+| `recon_1835_north_c4_067` | `recon_1835_north_a2_067` | 0 | 17 | 1 | 0 |
+| `recon_1835_north_t1_061` | `recon_1835_north_a2_061` | 0 | 17 | 1 | 1 |
+| `recon_1835_north_w2_065` | `recon_1835_north_d6_065` | 0 | 17 | 1 | 0 |
+| `recon_1835_north_w3_062` | `recon_1835_north_d6_062` | 0 | 16 | 1 | 0 |
 
 ## Renamed — 0 file(s)
 
@@ -35,7 +36,7 @@ A plain pointer at the record. The migration rewrites the string and nothing els
 | file | roofs | why |
 | --- | ---: | --- |
 
-## Re-derived — 23 file(s)
+## Re-derived — 27 file(s)
 
 Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit these; it re-runs the tool and commits what comes out.
 
@@ -43,14 +44,18 @@ Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit th
 | --- | ---: | --- |
 | `data/enclosures/town_entrance_aprons.json` | 6 | generated_by tools/generate_entrances.py |
 | `data/liberties.json` | 6 | compiled from docs/LIBERTIES.md by tools/compile_liberties.py |
+| `data/reconstruction/1835_business_reconstruction.json` | 1 | DERIVED from the reconstruction order book and the resident band's trade heads by tools/reconstruct_businesses_1835 |
 | `data/reconstruction/1835_hay_limits.json` | 3 | Derived |
 | `data/reconstruction/1835_lodgers_seated.json` | 1 | DERIVED |
 | `data/reconstruction/1835_lodging_model.json` | 1 | DERIVED |
 | `data/reconstruction/1835_off_plat_ledger.json` | 6 | DERIVED — regenerate with tools/seat_off_plat_ground_1835 |
 | `data/reconstruction/1835_off_plat_seats.json` | 6 | DERIVED — regenerate with tools/seat_off_plat_ground_1835 |
+| `data/reconstruction/1835_refamily_rule.json` | 1 | No schema |
 | `data/reconstruction/1835_roof_redeal.json` | 6 | DERIVED — regenerate with tools/redeal_anonymous_roofs |
-| `data/render/town_completion_1835.json` | 6 | DERIVED — regenerate with tools/audit_town_completion_1835 |
+| `data/render/town_completion_1835.json` | 5 | DERIVED — regenerate with tools/audit_town_completion_1835 |
 | `data/research/land_sales/ground.json` | 6 | generated_by tools/resolve_land_tracts.py --build |
+| `data/research/newberry_index/lead_crosswalk.json` | 3 | GENERATED |
+| `data/research/newberry_index/leads.json` | 3 | GENERATED |
 | `data/sidecars/1835/index.json` | 6 | compiled from the structure records by tools/compile_scene.py --all |
 | `data/sidecars/1835/recon_1835_north_c3_064.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
 | `data/sidecars/1835/recon_1835_north_c3_066.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
@@ -73,10 +78,11 @@ A record of something that already happened. The id it names was the id at the t
 | --- | ---: | --- |
 | `docs/LIBERTIES.md` | 6 | append-only by its own rule; a liberty already taken is not rewritten, and the migration appends a new entry instead |
 
-## Adjudicated — 0 file(s)
+## Adjudicated — 1 file(s)
 
 Listed above with the reference that has to be resolved.
 
 | file | roofs | why |
 | --- | ---: | --- |
+| `data/sidecars/1835/people.json` | 1 | a reference here asserts what the roof is, and the verdict moves it out of that |
 

@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 28,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 6,
+    "structures_empty_owing_somebody": 5,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -118,7 +118,7 @@
     "occupied": {
       "attested": 50,
       "inferred": 9,
-      "reconstructed": 252
+      "reconstructed": 253
     },
     "occupants_in_prose_only": {
       "attested": 9,
@@ -140,14 +140,12 @@
       "vacant_to_let": 1
     },
     "empty_owing_somebody": {
-      "dwelling": 1,
       "house_of_trade": 5
     },
     "empty": [
       "recon_1835_north_c3_064",
       "recon_1835_north_c3_066",
       "recon_1835_north_c4_067",
-      "recon_1835_north_t1_061",
       "recon_1835_north_w2_065",
       "recon_1835_north_w3_062"
     ]
@@ -218,7 +216,7 @@
       "occupied": {
         "attested": 50,
         "inferred": 9,
-        "reconstructed": 252
+        "reconstructed": 253
       },
       "occupants_in_prose_only": {
         "attested": 9,
@@ -233,7 +231,7 @@
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 6
+        "reconstructed": 5
       }
     },
     "streets": {
@@ -272,7 +270,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 6,
+      "open": 5,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]
