@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1336, ts: '2026-10-03T01:53:56.804Z', date: 'Oct 2, 2026, 8:53 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
+  { v: 1338, ts: '2026-10-03T02:43:18.018Z', date: 'Oct 2, 2026, 9:43 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick New in Chicago. It now recommends walking, and every leg between its five stops has a route note.',
       'At the Democrat\u2019s old corner, read a real notice: Kinzie and Forsyth\u2019s lithographed town maps, still advertised in June 1835.',
       'Peck\u2019s store is now your supply shop, read from his own advertisements. At Brown\u2019s boarding house, choose board by the week or a bed close to the stores. Each choice has its own ending.',
       'The errand and the boarding choice are our reconstruction (liberty L-jaunt-new-in-chicago); no room, rate or sale is claimed.',
+    ] },
+  { v: 1337, ts: '2026-10-03T02:08:05.503Z', date: 'Oct 2, 2026, 9:08 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Across Wolf Point. It is a short walk across the river, with nothing to buy, about five and a half minutes on foot.',
+      'Four stops: the Wolf Point Tavern at the forks, the Green Tree, the South Branch bridge and the Sauganash. The route keeps to the bridge and never crosses open water.',
+      'Two disputes are told, not hidden. Was the tavern still taking travellers in July 1835? Was the bridge a raft? The old settlers who used it describe a fixed bridge.',
+      'Finish to keep Knows the Crossing in your daybook under Wayfinding. The outing itself is our reconstruction (liberty L-jaunt-across-wolf-point).',
+    ] },
+  { v: 1336, ts: '2026-10-03T01:51:10.099Z', date: 'Oct 2, 2026, 8:51 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
+      'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
+      'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
     ] },
   { v: 1335, ts: '2026-10-03T01:32:51.629Z', date: 'Oct 2, 2026, 8:32 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
     items: [
