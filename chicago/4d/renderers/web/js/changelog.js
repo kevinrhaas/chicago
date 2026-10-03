@@ -1,9 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
+  { v: 1338, ts: '2026-10-03T02:34:38.433Z', date: 'Oct 2, 2026, 9:34 PM CT', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick News Before Breakfast. It is a morning walk from the Sauganash to both of the town\u2019s newspapers and on to breakfast at the Exchange Coffee House. It takes about five minutes on foot.',
       'Ask whether the cholera is near, or what is new today. Then read one real item from each paper and decide whether it is reporting or an advertisement. The Democrat of 24 June weighs the rumours from other towns. The American of 27 June sells a cholera elixir.',
       'At breakfast, keep one clipping: the report, the elixir notice, or an auction whose first sale is today. Every item was printed before 1 July 1835 and is cited to its page and column. The morning and the keepsake, A Useful Clipping, are our reconstruction (liberty L-jaunt-news-breakfast).',
+    ] },
+  { v: 1337, ts: '2026-10-03T02:08:05.503Z', date: 'Oct 2, 2026, 9:08 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Across Wolf Point. It is a short walk across the river, with nothing to buy, about five and a half minutes on foot.',
+      'Four stops: the Wolf Point Tavern at the forks, the Green Tree, the South Branch bridge and the Sauganash. The route keeps to the bridge and never crosses open water.',
+      'Two disputes are told, not hidden. Was the tavern still taking travellers in July 1835? Was the bridge a raft? The old settlers who used it describe a fixed bridge.',
+      'Finish to keep Knows the Crossing in your daybook under Wayfinding. The outing itself is our reconstruction (liberty L-jaunt-across-wolf-point).',
+    ] },
+  { v: 1336, ts: '2026-10-03T01:51:10.099Z', date: 'Oct 2, 2026, 8:51 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
+      'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
+      'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
     ] },
   { v: 1335, ts: '2026-10-03T01:32:51.629Z', date: 'Oct 2, 2026, 8:32 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
     items: [
