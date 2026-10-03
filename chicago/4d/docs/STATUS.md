@@ -30,6 +30,38 @@ to the same stop, the ending (`in-town`, keepsake kept), and a second Start with
 menu. Zero page errors at both viewports. Stills and the receipt are in
 `docs/performance/jaunt-from-prairie-to-town/`.
 
+## T-2031 — Gossip or Printed Notice?, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Gossip or Printed Notice?* (News and social
+life, Horse, 4 stops, News & Knowledge). Two invented rumors heard at the Wolf Point Tavern — a
+million dollars at the land sale, a bank opening on the square within weeks — are carried past
+the Exchange Coffee House, where someone asks if they are true, to the town's two printing
+offices. The Democrat of 1 July 1835 would only guess at the land office's take; the American of
+27 June reprints the Sangamon Journal: a Chicago branch decided, no officers named, and the brick
+building on the square is Springfield's. At the American the visitor chooses what to carry back.
+Five endings; the keepsake *A Careful Reader* goes to News & Knowledge. Content only: one JSON
+file, a liberty (`L-jaunt-gossip-or-notice`), the regenerated catalog and source-use edges, and
+brief 22's route note. No engine, compiler or CSS change. Last of the four pieces T-1269 was
+split into (T-2028..T-2031).
+
+**The brief's cautions hold by construction.** Neither rumor is said by a real person, and no
+named person is met. The Democrat's estimate is quoted with its own hedge, and its second figure,
+which the transcription loses, is not supplied: the extraction's "[Six Hund]red" is an editor's
+fill, so the stop says the figure is lost. "Not settled" and "say nothing" are full endings.
+
+**The route was re-cut.** The briefed order (tavern → Democrat → American → Exchange) doubles back
+from Dearborn to Wells: Walk 1,233 s and Horse 402 s on the published mirror. Taking the Exchange
+second never doubles back. No order makes a 4–6 min walk, because the forks are across the river
+from both papers, so the default mode is Horse (as for A Schoolday Errand).
+
+**Measured.** `play_jaunt.mjs --all-paths`: 12 paths, five endings, one keepsake. Card estimates
+on the published mirror: Walk 15 min (14.5 at 1280×800), Wagon 7.5, Horse 5.5, Fly 4, Instantly 3.
+The primary path (promise → note the guess → carry the print → true-to-the-page) measured 340 s
+at Horse against the card's 333 s, and 227 s at Fly against 233 s (331 s and 226 s at 1280×800);
+Walk 821 s against 889 s. A Playwright drive at 390×780 went card → Start → first stop → the
+tavern's card and back to the same stop → ending → menu, zero page errors at both viewports.
+Stills and receipt: `docs/performance/jaunt-gossip-or-notice/`.
+
 ## T-2028 — A Schoolday Errand, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *A Schoolday Errand* (Education, Horse, 4

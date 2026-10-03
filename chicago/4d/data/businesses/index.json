@@ -33,8 +33,8 @@
       "street_only": 92,
       "unplaceable": 106
     },
-    "named_people": 420,
-    "named_people_linked_to_a_town_card": 366,
+    "named_people": 423,
+    "named_people_linked_to_a_town_card": 369,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
@@ -4785,6 +4785,15 @@
           "from": null,
           "to": null,
           "also_printed_as": []
+        },
+        {
+          "name": "Alvah Nichols",
+          "person_id": "rc_nichols_alvah",
+          "role": "journeyman",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
         }
       ],
       "where": {
@@ -6229,6 +6238,15 @@
           "from": "1833-12-17",
           "to": "1833-12-17",
           "also_printed_as": []
+        },
+        {
+          "name": "Jared Parmelee",
+          "person_id": "rc_parmelee_jared",
+          "role": "clerk",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
         }
       ],
       "where": {
@@ -7068,6 +7086,15 @@
           "tier": "attested",
           "from": "1835-07-22",
           "to": "1835-07-29",
+          "also_printed_as": []
+        },
+        {
+          "name": "John Barnes",
+          "person_id": "rc_barnes_john",
+          "role": "clerk",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
           "also_printed_as": []
         }
       ],
