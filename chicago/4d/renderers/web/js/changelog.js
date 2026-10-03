@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Bushes seen far down the road, not popping up', kind: 'change',
+  { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
     items: [
       'Walk any road through the prairie or the woods and the hazel, elder, dogwood and other bushes now stand far into the distance, out to about 140 metres. Before, they ended 26 metres away and each one appeared out of empty ground through a speckled fade as you walked.',
       'A distant bush is a simpler version of the same bush, at the same spot, size and colour. As you close on it, it sharpens into the full bush, so nothing pops in.',
