@@ -21,17 +21,17 @@
     "beaubien_barn__converted_1817.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
-      "bytes": 66332,
-      "inputs_sha256": "70741fe0a55ca3ed220235a9d06af418b4879c838a0f22a4c300338176fed136",
+      "bytes": 70712,
+      "inputs_sha256": "3b80fdd6a6142882f920c77a9b92e27d3c97a1dabffc2d81346b8c9476375758",
       "kind": "generated",
       "phase_id": "converted_1817",
       "structure_id": "beaubien_barn"
     },
     "beaubien_trading_post__log_1822.glb": {
-      "archetype": "log_dwelling",
+      "archetype": "outbuilding",
       "baked_ao": false,
-      "bytes": 32388,
-      "inputs_sha256": "ae668b9839fa2ea75fc21f7ed0061aaf8577844fe2dfa7e372dd3cc91dd09d22",
+      "bytes": 52376,
+      "inputs_sha256": "ffdd199af38155c6f4dce43ea5b7ed0c5b540711129eb7a6d09f38d8cbc4c22e",
       "kind": "generated",
       "phase_id": "log_1822",
       "structure_id": "beaubien_trading_post"
@@ -444,7 +444,7 @@
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
           "master_sha256": "aecf5e9407fb7aafd34b585b27b9f126c1b569670c31cb67ca5891a0025c8ef9",
-          "output_sha256": "fd5c851a8a05dcf8aa28a6bf3f9abf2c5ccf2651728890c2f80f6e064baf3bb2",
+          "output_sha256": "15aa2584bc2d2f4ccc0f8071982aca60a724e46356dba071ee3adf4975eb4f88",
           "recipe_sha256": "999c74656c596092de520c8f18d3b5d408072ddd770696a2932437ed2620a43c",
           "triangles": 192117
         }
