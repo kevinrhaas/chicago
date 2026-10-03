@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1368, ts: '2026-10-03T15:06:16.475Z', date: 'Oct 3, 2026, 10:06 AM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1370, ts: '2026-10-03T15:41:46.746Z', date: 'Oct 3, 2026, 10:41 AM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
+  { v: 1369, ts: '2026-10-03T15:38:36.981Z', date: 'Oct 3, 2026, 10:38 AM CT', title: 'A new jaunt: A Sunday Circuit', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Sunday Circuit, a quiet outing of about six and a half minutes on horseback, with nothing to count or carry.',
+      'Pass St. Mary\u2019s on Lake Street, the Presbyterian church at Clark, where a school district had been called to meet, and the log meeting house at Wolf Point. Then finish with a call at the Sauganash.',
+      'The call, the route and the keepsake, A Morning Among Neighbors, are our reconstruction (liberty L-jaunt-sunday-circuit). No service or day is claimed, and where the meeting house stood is still disputed.',
+    ] },
+  { v: 1368, ts: '2026-10-03T15:10:12.029Z', date: 'Oct 3, 2026, 10:10 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Schoolday Errand, an outing of about six and a half minutes on horseback past the places Chicago\u2019s first classes met.',
+      'Start at the Michigan Street house where John Watkins taught, see the north-bank school-house that was the North Side\u2019s public school in 1835, cross to Eliza Chappel\u2019s log house by State Street, and finish at the Democrat\u2019s corner with the School District No. 4 meeting notice from the paper dated that very day.',
+      'The household, its question and the keepsake, A Schooling Note, are our reconstruction (liberty L-jaunt-schoolday-errand). Two of the schools had moved on by 1835, and the stops say so.',
     ] },
   { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
     items: [

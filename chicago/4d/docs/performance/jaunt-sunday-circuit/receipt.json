@@ -1,0 +1,121 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 22.5 min at Walk",
+      "wagon": "about 10 min at Wagon",
+      "horse": "about 6.5 min at Horse",
+      "fly": "about 3.5 min at Fly",
+      "instantly": "about 2 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 394.8182821511329,
+        "reading": 120,
+        "legs": [
+          43.63333333333342,
+          147.5999999999942,
+          81.69999999999793
+        ],
+        "seconds": 392.93333333332555,
+        "phase": "outcome"
+      },
+      "fly": {
+        "estimate": 196.6070163990624,
+        "reading": 120,
+        "legs": [
+          17.666666666666703,
+          33.566666666667324,
+          16.9
+        ],
+        "seconds": 188.13333333333404,
+        "phase": "outcome"
+      },
+      "walk": {
+        "estimate": 1346.7198855050788,
+        "reading": 120,
+        "legs": [
+          190.63333333332508,
+          653.7666666667294,
+          357.5000000000688
+        ],
+        "seconds": 1321.9000000001233,
+        "phase": "outcome"
+      }
+    },
+    "ui_drive": {
+      "ending": {
+        "phase": "outcome",
+        "outcome": "among-neighbors"
+      },
+      "detail_card_returned_to_same_stop": true,
+      "stop0": "0",
+      "back": "0",
+      "trail": [
+        "atStop",
+        "atStop",
+        "atStop",
+        "atStop",
+        "outcome"
+      ],
+      "after_end_phase": "menu",
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png",
+        "390-menu.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 22 min at Walk",
+      "wagon": "about 10 min at Wagon",
+      "horse": "about 6.5 min at Horse",
+      "fly": "about 3.5 min at Fly",
+      "instantly": "about 2 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 387.1336003153717,
+        "reading": 120,
+        "legs": [
+          43.03333333333345,
+          147.1666666666609,
+          79.59999999999805
+        ],
+        "seconds": 389.7999999999924,
+        "phase": "outcome"
+      },
+      "fly": {
+        "estimate": 195.23225917548942,
+        "reading": 120,
+        "legs": [
+          17.76666666666671,
+          33.50000000000066,
+          16.133333333333294
+        ],
+        "seconds": 187.40000000000066,
+        "phase": "outcome"
+      },
+      "walk": {
+        "estimate": 1312.2713117585631,
+        "reading": 120,
+        "legs": [
+          189.93333333332512,
+          651.7000000000646,
+          342.73333333339036
+        ],
+        "seconds": 1304.36666666678,
+        "phase": "outcome"
+      }
+    },
+    "page_errors": 0
+  },
+  "ticket": "T-2029",
+  "jaunt": "sunday-circuit",
+  "tree": "published mirror (tools/publish.sh) of branch steward/t2029-sunday-circuit",
+  "primary_path": "st-marys > presbyterian > walker > the-call => among-neighbors",
+  "note": "390 and 1280 were driven in two runs of the same script on the same published tree; the 390 run did the UI drive and its page-error count is from that run."
+}

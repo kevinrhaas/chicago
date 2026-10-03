@@ -20535,6 +20535,18 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 
 **Recorded:** 2026-10-03 (T-2025).
 
+### L-jaunt-schoolday-errand — A Schoolday Errand: an invented household's question carried past schools that had moved on
+
+**Decision:** A Schoolday Errand links four existing exterior destinations (the log house by State Street where Eliza Chappel's infant school met in 1833–34, Richard J. Hamilton's house on Michigan Street where John Watkins taught, the North Side school-house on the river bank just east of Clark Street, and the Chicago Democrat's former office at South Water and Clark) in an invented errand: a newly arrived household asks where a child of five or ten could learn, sees where the town's first classes met, may write down the north-bank school, and may copy out the School District No. 4 meeting notice. The household, the child's age, the question, the route, what is written down or copied, the five endings and the A Schooling Note keepsake are reconstructed, and so are the reading and action seconds. What each place was is sourced: Chappel's school and its log house from Andreas vol. 1 and its 1834 move into the Presbyterian church from an unfootnoted online history; Watkins's teaching on Michigan Street from Andreas and Hamilton's house there from Moses and Kirkland vol. 2; the north-bank school-house and its 1835 public school from Andreas, with his own doubt printed beside it; the Democrat's first office from its 26 November 1833 imprint and its move from the 20 May 1835 colophon; and the meeting notice from the Democrat of 1 July 1835. Two of the schools are narrated as history because their use on the scene date is unattested, and the third is narrated by its year.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, Andreas vol. 1, Moses and Kirkland vol. 2, the Digital Research Library of Illinois History page on Eliza Chappell, the Democrat's 26 November 1833, 20 May 1835, 17 June 1835 and 1 July 1835 issues, and brief 19 of JAUNTS-INITIAL-LIBRARY.md. The errand, the choices and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record of who taught where in the summer of 1835, or of what the District No. 4 meeting decided, would let the endings say more than that a question was asked.
+
+**Applies to:** `data/jaunts/schoolday-errand.json`.
+
+**Recorded:** 2026-10-03 (T-2028).
+
 ### L-jaunt-boots-and-leather — Boots, Leather and the Road: an invented rider's outfit from two trades
 
 **Decision:** Boots, Leather and the Road links four existing exterior destinations (John Holbrook's clothing store one door east of Dearborn on South Water Street, John Miller's tannery at the forks, S. B. Cobb's saddle, harness and trunk shop at Lake and Canal, and the Green Tree at Lake and West Water) in an invented outfitting: a rider who leaves tomorrow chooses boots or a hat at the clothier, looks at the tannery from the road, chooses a bridle or a trunk at the saddler (or asks him for boots, which his card does not offer), and decides at the Green Tree whether to ride or wait a day. The rider, the lodging, the journey, the four items, where each was bought, the question about boots, the decision, the four endings and the Equipped to Travel keepsake are reconstructed, and so are the reading and action seconds. What each place did is sourced: Holbrook's hats, clothing, boots and shoes from his card in the Chicago Democrat of 10 June 1835 and the Chicago American of 13 June 1835; the tannery from DRLOIH and Andreas vol. 1's 1833 list; Goss & Cobb's saddles, harness, bridles, martingales, trunks and repairing from the Democrat's first number (26 November 1833) and Cobb's continuation card in the American of 13 June 1835; the Green Tree from chicagology's pre-fire page and the DRLOIH hotel chronology. No sale, price, clerk, tanner or saddler at work is claimed, and the saddler is not made a bootmaker.
@@ -20557,3 +20569,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/materials-for-a-roof.json`.
 
 **Recorded:** 2026-10-03 (T-2026).
+
+### L-jaunt-sunday-circuit — A Sunday Circuit: an invented call, by way of the town's places of worship
+
+**Decision:** A Sunday Circuit links four existing exterior destinations — St. Mary's Catholic Church, the First Presbyterian Church, the Walker meeting house and the Sauganash — in an invented outing to pay a call. The neighbour, the call, the route order (west along Lake Street from State to Clark, over the South Branch bridge to Wolf Point and back to Lake and Market), the looking from the road, the single ending and the A Morning Among Neighbors memento are reconstructed, and so are the reading seconds. The title names a kind of outing, not a date: no service, sermon, minister, congregation, schedule or day of the week is claimed for 1 July 1835, which was a Wednesday. The building facts are cited at their own tiers — St. Mary's from the Andreas transcription on chicagology, the Presbyterian dedication from the Baptist transcription of Andreas, the School District No. 4 notice from the Democrat and the American of June 1835 (a meeting called for 7 July, after the scene date, and not narrated as held), the Walker building from Wau-Bun and a pioneer account. The Walker meeting house's position is conjectural and the stop calls its marker a placeholder. St. Mary's later tower and bell are left out. No named person is met or speaks, no interior is opened, and no Native presence is narrated. This is the batch's quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat and American notices of June 1835, and brief 20 of JAUNTS-INITIAL-LIBRARY.md. The route, the call and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A source settling which bank the 1835 Methodist meeting house stood on would let the third stop name its place instead of a placeholder.
+
+**Applies to:** `data/jaunts/sunday-circuit.json`.
+
+**Recorded:** 2026-10-03 (T-2029).

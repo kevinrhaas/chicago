@@ -1,3 +1,41 @@
+## T-2028 — A Schoolday Errand, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Schoolday Errand* (Education, Horse, 4
+stops, News & Knowledge). A newly arrived household's question (where could a child of five, or
+of ten, learn?) is carried past the places the town's first classes met. It starts at Richard J.
+Hamilton's house on Michigan Street, where John Watkins taught. Next is the North Side school-house
+on the river bank just east of Clark, which Andreas has as the North Side's public school in 1835.
+Then it crosses to the log house by State Street where Eliza Chappel's infant school met in
+1833–34. It finishes at the Democrat's former corner with the School District No. 4 meeting
+notice from the paper dated 1 July 1835. Five endings; the keepsake *A Schooling Note* goes to
+News & Knowledge. Content only: one JSON file, a liberty (`L-jaunt-schoolday-errand`), the
+regenerated catalog and source-use edges, and brief 19's route note. No engine, compiler or CSS
+change. First of the four pieces T-1269 was split into (T-2028..T-2031).
+
+**The brief's caution holds by construction.** Two of the three school sites are marked "use on the
+scene date unattested" in their records, and both are narrated as history. The Michigan Street house
+is a dwelling with no 1835 class recorded. Chappel's school had moved into the Presbyterian church in
+1834, and her site is an open three-way conflict, which the stop says. The third is narrated only by
+its year ("The year is attested; this July is not"). Nobody is met and nobody speaks. The notice is
+the scene date's own: Democrat, 1 July 1835, p. 3 col. 5 (first printed 17 June).
+
+**The route was re-cut.** The briefed order (Chappel → Watkins's house → north-bank school →
+Democrat) crosses the river twice. Routed on the published mirror it is 808 + 607 + 330 m, and it
+read Horse 449 s (card 7.5 min) and Walk 23 min. Starting north of the river crosses once, and it
+also reads the schools in date order.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 8 paths, five endings, one keepsake. Card estimates on
+the published mirror, the same at 390×780 and 1280×800: Walk 18 min, Wagon 9, Horse 6.5, Fly 4,
+Instantly 3. The primary path (scholar → write it down → copy the notice → two-answers) measured
+381 s at Horse against the card's 382 s, and 242 s at Fly against 251 s (378 s and 242 s at 1280×800).
+**Horse is about 20 s over the 4–6 min band.** 179 s of it is the declared reading budget, and the
+one river crossing is about 94 s. A Playwright drive at 390×780 went card → Start → first stop →
+the house's card and back to the same stop → `two-answers` → End, and returned to the menu. Both
+viewports had zero page errors. Stills and the receipt are in
+`docs/performance/jaunt-schoolday-errand/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
 ## T-2016 — Glessner connected roof plan (2026-10-03)
 
 The north ridge is straight to the west wall, and the full-height stable ridge
@@ -10,8 +48,9 @@ Historical review did not establish that the stacks were absent in 1904.
 See `docs/RESEARCH/glessner-connected-roof-plan/work.md` and liberty
 `L-glessner-connected-roof-2016`. The full and light exports, 1,800 roof samples, 186 opening rays and published
 desktop/mobile detail switching pass. Integration with dev 1b56a552 passes all
-750 source checks and preflight. Official stage 13 remains in progress at both
-viewports; no production promotion is included.
+750 source checks and preflight. Official published stage 13 passes at both
+viewports with zero page errors; logs and scope are in the research folder.
+No production promotion is included.
 
 ## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
 
@@ -86,6 +125,43 @@ stills remain the batch's full card → detail → ending sequence.
 **Implemented and validated.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
 
 **Verification.** Source preflight passed all 750 checks through checkpoint 04ddd3939. Published normal-loop part 5 passes 27 checks each at desktop 1280×800 and touch mobile 390×780/DPR 2. Mobile parts 9–11 pass 60 checks. Desktop parts 9/10 passed within a combined run that later hit a native-click timeout; the repaired part 11 rerun passes 23 checks, with the original red receipt preserved. All these runs report zero page errors. Full/balanced/light ceilings remain 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. The final integration includes dev 7ab5019 and vegetation disclosure L369; the refreshed focused review passes 58 checks (29 each), with zero page, console or resource errors. Final source gate and preflight pass all 750 steps on the 7ab5019 integration. PR #333. Details and exact scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
+
+## T-2029 — A Sunday Circuit, the batch's quiet 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Sunday Circuit* (Social life, Horse,
+4 stops, Neighbors). Going to a call at the Sauganash, the visitor passes St. Mary's on Lake
+Street (built 1833 for about $400, unplastered, unpainted, no steeple or tower), then the
+Presbyterian church at Lake and Clark, dedicated 4 January 1834. The papers that June had called
+School District No. 4 to meet there on 7 July. Next comes the log meeting house at Wolf Point,
+which Wau-Bun remembered as a school-house used for worship whenever a travelling minister came.
+The walk ends at the Sauganash's door. One ending; the keepsake *A Morning Among Neighbors* goes to
+Neighbors. Content only: one JSON file, a liberty (`L-jaunt-sunday-circuit`), the regenerated
+catalog and source-use edges, and brief 20's route note. No engine, compiler or CSS change.
+Second of the four pieces T-1269 was split into.
+
+**The brief's caution holds by construction.** No service, sermon, minister, congregation or day
+of the week is claimed. 1 July 1835 was a Wednesday, and the title names a kind of outing, not a
+date. The school-district meeting is printed before the scene date and falls after it, so it is
+a notice, never an event. St. Mary's later tower and bell are left out. The Walker meeting house's
+bank is disputed and its position conjectural, and the stop calls the marker a placeholder.
+Nobody is met. The outing declares no variable or inventory, so it shows no strip.
+
+**The route was re-cut.** The briefed order (Presbyterian → St. Mary's → Walker → Sauganash) goes
+east and then back west across the river, about 1,420 m in straight lines. Starting at St. Mary's
+walks one way, about 1,169 m.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 1 path, one ending, one keepsake. Card estimates on
+the published mirror at 390×780: Walk 22.5 min, Wagon 10, Horse 6.5, Fly 3.5, Instantly 2 (Walk 22
+at 1280×800, the rest the same). The primary path measured 393 s at Horse and 188 s at Fly against
+the card's 395 s and 197 s (390 s and 187 s at 1280×800, against 387 s and 195 s). **Horse is half
+a minute over the 4–6 min band**: the Walker meeting house stands across the South Branch from the
+other three, so every order that keeps it and ends at the Sauganash crosses the river twice. The
+route note says so. Walk measures 22 min, which is why the default is Horse, not the brief's Walk.
+A Playwright drive at 390×780 went from the card through Start, the first stop, St. Mary's card and
+back to the same stop, the ending (`among-neighbors`), and End back to the menu, with zero page
+errors. Stills and the receipt are in `docs/performance/jaunt-sunday-circuit/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
 
 ## T-2025 — Soap and Candles, a published 1835 jaunt (2026-10-03)
 

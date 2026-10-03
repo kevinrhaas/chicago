@@ -75,8 +75,10 @@ was paused after normal readiness to keep software-rendered capture bounded;
 each view uses the app's existing step() with unchanged rendering settings.
 See `browser-validation.json`. The recovered branch was integrated with dev `1b56a552` on 3 October 2026.
 All 750 source checks and the three-part preflight pass on that integration.
-Official published stage 13 is being completed at both viewports; this receipt
-does not claim all thirteen town stages ran.
+Official published stage 13 passes at both viewports, with zero page errors.
+The normal animation loop and unchanged official smoke were used. This receipt
+does not claim all thirteen town stages ran. See `integration-validation.json`,
+`mobile-stage13.log` and `desktop-stage13.log` for the exact scope and results.
 
 ![Exported overhead roof plan](overhead.png)
 ![Exported west elevation](west.png)
@@ -84,3 +86,16 @@ does not claim all thirteen town stages ran.
 ![Continuous corner copper](corner.png)
 ![Published desktop courtyard](desktop-courtyard.png)
 ![Published mobile light courtyard](mobile-courtyard.png)
+
+### Recovery integration, 3 October 2026
+
+The PR was resumed from its saved branch, integrated with the current dev, and
+its three conflicting generated indexes rebuilt from source. Both authored
+histories were retained. The 1,800 roof-envelope checks and exact packaged
+asset hashes pass. Published official stage 13 results: mobile 124 passed / 0 failed (9 m 03 s); desktop 124 passed / 0 failed (14 m 49 s). Both include the 1904 boot, Glessner picking, street materials, draw budget,
+and zero-page-error checks. These results supplement the earlier close views
+and full/light detail-switching receipt. Target remains dev.
+
+The later dev integration also carries T-2028 and T-2029. Those updates change
+1835 jaunt data and shared notes, with no changes to Glessner assets or
+generator/runtime code; the browser receipts remain the Glessner validation.

@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "id": "sunday-circuit",
+  "content_version": 1,
+  "title": "A Sunday Circuit",
+  "premise": "A quiet outing past the town's two churches and its log meeting house, ending with a call at the Sauganash.",
+  "category": "Social life",
+  "scene": "1835",
+  "opening": {
+    "text": "A neighbour has asked you to call at the Sauganash, and the way there can pass every place the town gathered to worship. Look at each from the road. No service, sermon or day of the week is claimed: the outing is the summer of 1835, not a dated Sunday. Nothing to count or carry.",
+    "read_s": 17
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "stops": [
+    {
+      "id": "st-marys",
+      "destination": {
+        "kind": "structure",
+        "id": "st_marys_church"
+      },
+      "text": "Begin on Lake Street just west of State, at St. Mary's. Augustine D. Taylor built it in 1833, twenty-five by thirty-five feet, for about $400, of lumber brought by scow from St. Joseph. Andreas says it was unplastered and unpainted, with neither steeple nor tower. The lot is our placement.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "st_marys_church",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_prefire216",
+          "label": "St. Mary's, from Andreas"
+        }
+      ],
+      "evidence": [
+        "stmarys-build",
+        "stmarys-plain",
+        "stmarys-place",
+        "outing"
+      ],
+      "next": "presbyterian",
+      "narrative": "The plainest church in town."
+    },
+    {
+      "id": "presbyterian",
+      "destination": {
+        "kind": "structure",
+        "id": "first_presbyterian_church"
+      },
+      "text": "Two blocks west, at the south-west corner of Lake and Clark, the Presbyterian church was dedicated on 4 January 1834. It was a meeting room as well: June's papers called School District No. 4 to meet here at six on the evening of 7 July, to consider building a school house.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "first_presbyterian_church",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "presbyterian-dedicated",
+        "presbyterian-notice",
+        "presbyterian-place",
+        "outing"
+      ],
+      "next": "walker",
+      "narrative": "Church and meeting room."
+    },
+    {
+      "id": "walker",
+      "destination": {
+        "kind": "structure",
+        "id": "walker_meeting_house"
+      },
+      "text": "Across the South Branch to Wolf Point. Wau-Bun remembered a small square log building west of the forks in 1831, a school-house used for worship whenever a travelling minister came. Whether the 1835 meeting house is that cabin, or one raised north of the river in 1834, is unsettled; our marker is a placeholder.",
+      "read_s": 27,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "walker_meeting_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Wau-Bun"
+        }
+      ],
+      "evidence": [
+        "walker-waubun",
+        "walker-builder",
+        "walker-bank",
+        "outing"
+      ],
+      "next": "the-call",
+      "narrative": "One log room, wherever it stood."
+    },
+    {
+      "id": "the-call",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Last, back over the South Branch to Lake and Market and the Sauganash. Wau-Bun recalled it in 1831 as white and two-story, with bright-blue shutters; on 10 June 1835 the Democrat reported it repaired and newly fitted up. The neighbour expecting you is invented, and so is the visit.",
+      "read_s": 24,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "sauganash-look",
+        "sauganash-refit",
+        "sauganash-place",
+        "outing"
+      ],
+      "next": "$end",
+      "narrative": "Arrive where the call is expected."
+    }
+  ],
+  "endings": [
+    {
+      "id": "among-neighbors",
+      "text": "You reach the Sauganash's door with four gathering places in mind: two churches, a log room that served for school and worship, and the public house where your call is expected. The call is the outing's invention; the places are the town's.",
+      "read_s": 13,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "a-morning-among-neighbors",
+    "title": "A Morning Among Neighbors",
+    "text": "A fictional note of a quiet walk past the town's places of worship, ending with a call at the Sauganash."
+  },
+  "evidence": [
+    {
+      "id": "stmarys-build",
+      "text": "The church was twenty-five by thirty-five feet, its lumber brought in a scow across the lake from St. Joseph, Michigan, at $12 per thousand; Augustine D. Taylor was architect and builder, the frame was raised in August 1833, the cost was about $400, and it was ready for occupancy and dedication in October 1833.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "locator": "Section headed \"History of Chicago, A. T. Andreas, 1884\", the long paragraph beginning \"From the date of this appointment, Catholics consider...\" (the building, the scow, the builder, the cost and the October occupancy) and the Deacon John Wright sentence (\"had, in August, assisted in raising the frame\"). A web transcription of Andreas; tier 4 grades the page, not the text it reprints."
+    },
+    {
+      "id": "stmarys-plain",
+      "text": "The church was not plastered, had rough benches for pews, was not painted outside, and had neither steeple nor tower; the low open tower and bell the same page mentions came 'some time afterwards' and are not part of the 1835 building.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire216"
+      ],
+      "locator": "Same Andreas transcription, the sentences beginning \"The church itself was not plastered\" and \"The outside of the building was not painted and it had neither steeple nor tower\"."
+    },
+    {
+      "id": "stmarys-place",
+      "text": "St. Mary's stood on a canal lot on the south side of Lake Street, near the south-west corner of Lake and State; the corner lot itself is not attested and the scene's coordinate is derived.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire216",
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The transcription says 'near the southwest corner of Lake and State streets, near the military reservation' and the page's summary 'on the south side of Lake Street, west of State Street'. Both describe the quadrant, not a lot, so the structure record derives the coordinate from the modern intersection and grades it inferred; the stop says the lot is our placement."
+    },
+    {
+      "id": "presbyterian-dedicated",
+      "text": "The Presbyterian church was dedicated on 4 January 1834; until then the Methodists, Presbyterians and Baptists had shared the Temple Building.",
+      "confidence": "attested",
+      "sources": [
+        "baptisthistoryhomepage"
+      ],
+      "locator": "Section \"The First Baptist Church\", first paragraph (Andreas vol. 1, p. 315, in the transcription's own page markers): 'until the Presbyterian church was dedicated January 4. 1834'."
+    },
+    {
+      "id": "presbyterian-notice",
+      "text": "A notice signed by Byram King, clerk, called the inhabitants of School District No. 4 to meet on Tuesday 7 July at 6 o'clock P.M. in the Presbyterian Church, to consider measures for building a school house and to elect a trustee. It was printed before the scene date; the meeting itself falls after it and is not narrated as having happened.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "locator": "Chicago Democrat, 17 June 1835, p. 3, col. 3 (claim chicago_democrat_1835_06_17#c006, copy line 'Chicago, June 17, 1835'); reprinted in the Democrat of 1 July 1835, p. 3, col. 5 (claim chicago_democrat_1835_07_01#c012) and in the Chicago American of 20 June 1835, p. 3, col. 6 (claim chicago_american_1835_06_20#c016). Transcription-mediated readings."
+    },
+    {
+      "id": "presbyterian-place",
+      "text": "The church stood at the south-west corner of Lake and Clark Streets, fronting north onto Lake; the corner is documented and the coordinate is derived from the surviving street lines.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Lake and Clark survive on their 1830 plat lines; the structure record sets the footprint off the modern intersection centre read from OpenStreetMap, the same method as the Sauganash and Peck's store, and grades the result by its weaker half."
+    },
+    {
+      "id": "walker-waubun",
+      "text": "Wau-Bun, describing the west side of the forks in 1831, recalls 'a small square log building, originally designed for a school-house, but occasionally used as a place of worship whenever any itinerant minister presented himself'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the houses 'facing down the river from the west', the sentence beginning 'A little remote from these residences'."
+    },
+    {
+      "id": "walker-builder",
+      "text": "A pioneer account names Father Jesse Walker, a Methodist Episcopal missionary, as having erected the building at Wolf Point for a place of worship and a school house.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "locator": "The paragraph on Wentworth's tavern at Wolf Point, the sentence beginning 'North of this tavern was an oblong building which had been erected by Father Walker'."
+    },
+    {
+      "id": "walker-bank",
+      "text": "Which building stood on 1 July 1835, and on which bank, is unresolved: the scene's marker on the west bank of the forks is conjectural.",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "chicagology_prefire273",
+        "chicago_temple_history"
+      ],
+      "reasoning": "Wau-Bun and the chicagology account place the log building on the west side in 1831; the successor congregation's own history says that in 1834 it built a log cabin north of the Chicago River. They may describe two buildings. The structure record keeps the west-bank coordinate because it is the only one a source places, and grades it conjectural; the stop calls it a placeholder."
+    },
+    {
+      "id": "sauganash-look",
+      "text": "Wau-Bun describes the Sauganash in 1831 as 'a pretentious white two-story building, with bright-blue wooden shutters'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the Wolf Point houses, Mark Beaubien's house just completed."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "bridge-place",
+      "text": "The bridge crossed the South Branch between Lake and Randolph Streets, its west landing on West Water Street; the exact station along that reach is placed at the midpoint because the accounts pull opposite ways.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026"
+      ],
+      "reasoning": "The structure record places the deck at the midpoint of the 69 m reach between Lake and Randolph, between the traced 1834 waterlines; its documented range runs from 1833 to an attestation of 18 August 1835, so it stands on the scene date."
+    },
+    {
+      "id": "outing",
+      "text": "The neighbour, the call at the Sauganash, the route order, the looking from the road, the ending and the A Morning Among Neighbors keepsake are invented connective narrative. No service, sermon, minister, congregation, schedule or day of the week is claimed for the outing, and no one is met.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-sunday-circuit"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-sunday-circuit"
+  ],
+  "legs": [
+    {
+      "from": "st-marys",
+      "to": "presbyterian",
+      "note": "Two blocks west along Lake Street, from State past Dearborn to Clark.",
+      "evidence": [
+        "stmarys-place",
+        "presbyterian-place"
+      ],
+      "story": "From the plainest church in town to the one built by subscription.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "presbyterian",
+      "to": "walker",
+      "note": "West on Lake Street to the South Branch, over the bridge between Lake and Randolph, and north up the west bank to the forks; the meeting house's spot is unfixed.",
+      "evidence": [
+        "bridge-place",
+        "walker-bank"
+      ],
+      "story": "Leave the town's frame churches for its oldest place of worship.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "walker",
+      "to": "the-call",
+      "note": "Back down the west bank and over the same bridge to Lake Street, where the Sauganash keeps the Market Street corner.",
+      "evidence": [
+        "bridge-place",
+        "sauganash-place"
+      ],
+      "story": "Cross once more, to the call you set out for.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ]
+}
