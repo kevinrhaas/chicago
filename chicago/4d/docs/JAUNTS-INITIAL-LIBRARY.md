@@ -309,6 +309,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Use only a matched in-window lot for a precise offer; do not invent parcel ownership, price or a functioning 1835 bank. Caution can be a successful ending.
 
+**Route note (published, T-2008):** The shipped story order is Bates's auction room → the former Democrat corner → Peck's store → the La Salle slough crossing. The order proposed above starts at the Democrat corner, walks a block east to Dearborn and then doubles back west past Clark to LaSalle; on the published mirror that read about 9.5 min at Walk. Starting at the sale room removes the backtrack and still tells auction context before the particular notice. The catalog card on the published mirror gives these routed figures at 390×780: Walk about 7 min, Wagon 4, Horse 3.5, Fly 3, Instantly 2.5 (Walk 6.5 and Horse 3 at 1280×800). Walk stays a minute over the 4–6 min target because the auction room stands mid-block on Dearborn, a block east of the other three stops, and two and a half minutes of it is reading; Wagon is the faster mode. The two notices it reads are E. K. Hubbard's town lots (Democrat, 27 May 1835) and J. W. Fell's canal-route land (17 June 1835); neither names a lot price, so the errand ends at an inquiry or at holding your money.
+
 ## 12. Freight for the Store
 
 **ID:** `freight-for-the-store` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)

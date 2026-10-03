@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A new jaunt: A Decent Coat', kind: 'feature',
+  { v: 1346, ts: '2026-10-03T05:20:28.474Z', date: 'Oct 3, 2026, 12:20 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Decent Coat. It is a short, quiet ride west along South Water Street to a call at the Sauganash, about four minutes on horseback, with nothing to count or carry.',
       'Start at John Holbrook\u2019s, which opened in June 1835 selling made clothing, boots and shoes as agent for the manufacturers. A block on, Harmon, Loomis & Co.\u2019s card lists broadcloth, cassimere and flannel by the piece.',
       'At Brown\u2019s boarding house, weigh tonight\u2019s call against tomorrow\u2019s work. At the Sauganash, go in a ready-made coat or your old one brushed.',
       'Finish to keep Fit for the Occasion under Provisions. The errand is our reconstruction (liberty L-jaunt-a-decent-coat). No price, fitting or tailor is claimed.',
+  { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
+    items: [
+      'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
+      'The north windows sit beneath the eave. The entrance stonework, stable doors and loft surround follow the architectural references more closely.',
+      'Measured stone courses guide the north openings; the west elevation and unmeasured details remain declared reconstructions.'
+    ] },
+  { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Look Before You Buy a Lot. It is a four-stop land errand along South Water Street, about seven minutes on foot or four by wagon.',
+      'Start at John Bates Jr.\u2019s new auction room on Dearborn, where fifty Marseilles town lots were cried in June, and say what that sale really sold.',
+      'At the Democrat\u2019s old corner, follow one of two real land notices: E. K. Hubbard\u2019s town lots or J. W. Fell\u2019s land on the canal route.',
+      'Take your bearings at Peck\u2019s corner, then look at the wet ground by the La Salle slough. Inquire about one lot, or hold your money: caution is a good ending.',
+      'Finish to keep Read the Ground under News & Knowledge. The errand is our reconstruction (liberty L-jaunt-inspect-a-lot); no lot, owner or price is claimed.',
     ] },
   { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
     items: [
