@@ -17588,6 +17588,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-1263).
 
+### L-jaunt-taverns — Taverns of Chicago: an imagined evening round of four public houses
+
+**Decision:** Taverns of Chicago links four existing exterior destinations (the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel) in an invented evening. The purse (none, 25 or 50 cents), the six-cent glass, the bar talk at Wolf Point, the comparison of welcomes, the finishing house, the four endings and the A Sensible Evening calling card are reconstructed, and so are the sobriety count and the reading and action seconds. No named person speaks or serves, no price, room or transaction is attested, no interior is opened and no front door is claimed. The bar talk is kept to what the Chicago Democrat printed on 10 June 1835 (a Lake House building in Kinzie's Addition) and quotes nobody. Declining every glass reaches an ending and the keepsake just as accepting does. Each house's presence and keeper keep their own grades. The Wolf Point Tavern's 1835 trade is disputed and its position is the weakest in the dataset. The Western Hotel's date is Stow's own. The Sauganash's 1835 proprietor is only a lead, so the stop names none.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, and brief 02 of JAUNTS-INITIAL-LIBRARY.md. The route, the drinks and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation.
+
+**Applies to:** `data/jaunts/taverns-of-chicago.json`.
+
+**Recorded:** 2026-10-03 (T-1261).
+
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
 **Decision:** At the owner's request, v4 uses the default's measured envelope and

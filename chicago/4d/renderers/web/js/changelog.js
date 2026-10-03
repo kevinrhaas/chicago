@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1335, ts: '2026-10-03T01:32:51.629Z', date: 'Oct 2, 2026, 8:32 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Taverns of Chicago. It is an evening ride round four public houses at the forks: the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel. It takes about five minutes on horseback.',
+      'Choose a purse, hear some bar talk at Wolf Point, compare the Green Tree\u2019s welcome with the Sauganash\u2019s and pick the house where your evening ends. A glass is optional. Turning every glass down reaches an ending and the keepsake, A Sensible Evening, just as taking one does.',
+      'Each stop says what the sources say about the house, and how sure they are. The evening, the bar talk and the prices are our reconstruction (liberty L-jaunt-taverns), and the talk sticks to what the Chicago Democrat printed that June.',
+    ] },
   { v: 1334, ts: '2026-10-03T01:15:33.917Z', date: 'Oct 2, 2026, 8:15 PM CT', title: 'A new jaunt: Shopping South Water Street', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Shopping South Water Street. You have an imagined three dollars and a short household list: something for a cough, a staple and tea.',
