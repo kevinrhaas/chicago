@@ -519,6 +519,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Named resident information stays on sourced cards. No invented real-person quotations or encounter claims.
 
+**Route note (published, T-2030):** The shipped story order is the briefed one: Brown's boarding house → Peck's store → the Exchange Coffee House → the Sauganash. The two choices are the letter of introduction presented (a merchant's or a minister's) at Brown's and where the calling card is left (the Exchange, where J. A. Marshall's November 1834 notice asked addresses to be left, or the Sauganash) at the Exchange; Peck's stop sends the visitor to the household's card rather than to a door. The Exchange is the public meeting place on the Democrat's own reports of Democratic meetings held there in April and June 1835. **Recommended mode is Horse, not the brief's Walk:** the primary path measures about 8.7 min at Walk on the published mirror, past the 4–6 min band, and 4.1 min at Horse; Walk stays allowed.
+
 ## 22. Gossip or Printed Notice?
 
 **ID:** `gossip-or-notice` · **Owner ticket:** [T-1269](../tickets/T-1269-publish-schooling-social-visits-and-careful-news.md)
@@ -559,6 +561,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** No boarding inaccessible ships or entering the tower; use safe stand-offs and cite construction-stage limits.
 
+**Route note (published, T-2032):** The shipped story order is Newberry & Dole's warehouse → the Dearborn Street drawbridge → the 1832 lighthouse → **the south pier** (`south_pier`), which stands in for the north pier as the destination. The north pier is still the stop's subject: the walker looks at it across the cut, and the choice is whether to mark it or the light. **The reason is the route, measured.** The north pier's stand-off is on the north bank at the mouth, so the router reaches it only over the Dearborn draw, 949 m from the bridge. Every order of the four briefed stops routes at 2.6 km or more (warehouse → light → draw → north pier: 1,096 + 598 + 949 m). That card read **Horse about 9.5 min, Walk 33 min**, well outside the 4–6 min band. The south pier's stand-off is 147 m from the light and about 93 m from the north pier's, across the channel, so the walk stays on the south bank: 502 + 598 + 147 m, about 1,250 m. The drawbridge is inspected from its south end and not crossed. **Construction-stage limits are cited on the stop.** Both piers grew all season, and no source gives either length on 1 July 1835. The north pier ran from about 700 ft at the end of 1834 to 1,260 ft by the end of 1835. Andreas has the south pier extended 500 ft in 1835, to 700 ft in all. The scene's 900 and 400 ft are interpolations, and the stop calls them our estimate. The light is seen from outside, and its keeper on the scene date is not named because no source reached names one. No vessel is boarded, no cargo is named, and no walk along either pier is claimed. **Timing sits inside the band:** the card reads Horse about 6 min, Walk 17, Wagon 8.5, Fly 4 and Instantly 2.5 at both 390×780 and 1280×800. The primary path (mark the end of the north pier) measured 355 s at Horse and 221 s at Fly against estimates of 350 s and 227 s at 390×780 (320 s and 221 s against 354 s and 228 s at 1280×800). Receipt: `docs/performance/jaunt-along-the-harbor/`.
+
 ## 24. From Prairie to Town
 
 **ID:** `from-prairie-to-town` · **Owner ticket:** [T-1270](../tickets/T-1270-publish-harbor-prairie-arrival-and-a-quiet-strol.md)
@@ -598,6 +602,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** A Pleasant Circuit (Neighbors); fictional narrative memento.
 
 **Evidence and route cautions:** An evening premise does not require changing the lighting engine or claiming an actual dated event; do not invent advertised entertainment.
+
+**Route note (published, T-2034):** The shipped order is the brief's: Sauganash → Peck's → the Democrat's first corner → the Exchange, about 0.71 km in straight lines (→ Peck's 347 m, → the Democrat 123 m, → the Exchange 245 m). The last stop asks where the evening ends — at the Exchange, or back west along Lake Street to the Sauganash — and each choice leads to its own ending with the same keepsake, so the circuit the brief names is the walker's to close. On the published mirror the card reads Horse 4.5 min at both 390×780 and 1280×800, and the primary path measures 268 s at 390 (257 s at 1280); Fly reads 3 min and measures 173 s. **The default is Horse, not the Walk this brief names:** Walk reads 12.5 min (765 s measured), well past the 4–6 min band, and Walk stays offered. The evening is a premise only: the scene's light is not changed, and no entertainment, meeting or dated event is claimed. The one new claim — that the Democrat came out weekly, on Wednesdays — is inferred from the dated issue numbers already cited, not from a masthead (L-jaunt-an-evening-stroll).
 
 ## Initial research anchors
 

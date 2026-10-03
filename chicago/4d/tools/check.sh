@@ -2808,6 +2808,14 @@ step "the ground mesh still meets the heightfield the walker samples" \
 step "the 1904 ground mesh meets its heightfield too (T-1738)" \
   node tools/measure_terrain_fit.mjs --epoch e1871_postfire --gate
 
+# …and the 1812 ground's (T-2003), which terrain_gen_e1830.py bakes through the same mesher
+# on the 1834 grid. Its heightfield is NOT re-derived here: the field is the 1834 one's
+# arithmetic over a 2.4-million-cell box and takes about 76 s, which this pool cannot spend
+# (rule 9). `validate.py --stale` holds its input hash instead, and
+# `python3 generators/terrain_gen_e1830.py --check` is the byte-for-byte re-derivation.
+step "the 1812 ground mesh meets its heightfield (T-2003)" \
+  node tools/measure_terrain_fit.mjs --epoch e1830_natural --gate
+
 # The OTHER two axes, which conformGroundToField() cannot repair — it reads a
 # height back off the field at a vertex's shipped (E, N), so a vertex the
 # quantiser moved in plan holds the right height for the wrong place, and on the
@@ -2821,6 +2829,9 @@ step "the shipped ground stands where the master does, and inside the road lift"
 
 step "the shipped 1904 ground stands where its master does (T-1738)" \
   node tools/measure_terrain_horizontal.mjs --epoch e1871_postfire --gate
+
+step "the shipped 1812 ground stands where its master does (T-2003)" \
+  node tools/measure_terrain_horizontal.mjs --epoch e1830_natural --gate
 
 # T-1067. The two gates above measure the ground against the mesh drawn FROM it,
 # which cannot see the town standing where there is no ground at all. The box

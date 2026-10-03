@@ -1,9 +1,48 @@
 export const CHANGELOG = [ // newest first
-  { v: 1374, ts: '2026-10-03T17:23:51.887Z', date: 'Oct 3, 2026, 12:23 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
+  { v: 1380, ts: '2026-10-03T19:38:26.180Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
     items: [
       'Walk south from the fort\u2019s south gate. The road no longer runs through two log houses: Col. Jean Baptiste Beaubien\u2019s homestead is one house with two outbuildings behind it.',
       'His small trading post is now a low log store with a single-slope roof, standing west of the house, away from the road. His barn, behind the house, now has a hay-loft door.',
       'Andreas mentions a \u201cnew residence\u201d as well. We read it as the same house, so it is no longer drawn twice. Where the store and barn stand, and what they look like, are our reconstruction (liberty L283).',
+    ] },
+  { v: 1379, ts: '2026-10-03T19:20:27.484Z', date: 'Oct 3, 2026, 2:20 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
+      'In 1812 the river turns south behind the sand spit and runs out to the lake near present Madison Street. There is no cut, no pier and no bridge, and no streets yet.',
+      'The spit is joined to the north shore by a narrow sand neck at its own 4 ft crest. The neck, the spit\u2019s height and the lake shore north of it are our reconstruction (liberties L362\u2013L364).',
+      'Everything south of Twelfth Street, the spit, and the old channel\u2019s west bank, where the 1830 plat and Wright\u2019s 1834 survey disagree, are marked conjectural. No point of this ground is documented.',
+    ] },
+  { v: 1378, ts: '2026-10-03T18:54:29.680Z', date: 'Oct 3, 2026, 1:54 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed.',
+      'Fences, plank walks, docks, signs, boats, yard goods, wells, plants and streets are drawn by the web page from our records. They are not part of the baked buildings, and now they never will be: each will be exported by the same code that draws it.',
+      'Each export is stamped with the ground it was laid on, so a moved shoreline or street rebuilds it rather than leaving it floating.',
+      'People and animals stay on their cards. No figure of anyone is exported.',
+    ] },
+  { v: 1377, ts: '2026-10-03T18:36:59.827Z', date: 'Oct 3, 2026, 1:36 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
+      'The evening, the route and the keepsake, A Pleasant Circuit, are our reconstruction (liberty L-jaunt-an-evening-stroll). No entertainment or dated event is claimed, and the light does not change.',
+    ] },
+  { v: 1376, ts: '2026-10-03T18:14:03.459Z', date: 'Oct 3, 2026, 1:14 PM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Calling on Neighbors, about four minutes on horseback.',
+      'Present a letter of introduction from Mrs Brown\u2019s boarding house, read the Peck household on its card, find the town\u2019s meeting place at the Exchange Coffee House, and leave a calling card.',
+      'The newcomer, the letters, the calls and the keepsake, An Introduction Made, are our reconstruction (liberty L-jaunt-calling-on-neighbors). The meetings and the 1834 notice asking for addresses at the Exchange come from the Chicago Democrat.',
+    ] },
+  { v: 1375, ts: '2026-10-03T17:42:34.011Z', date: 'Oct 3, 2026, 12:42 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
+    items: [
+      'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
+      'Pick a machine at the top right: the 1960s Control Room (the standard), Precision Brass, World\u2019s Fair or Deep Space. The choice follows you into the town, and the arrival card and settings panel carry the same selector.',
+      'If you had chosen an earlier skin, you keep it under its new name: Sci-fi is now the Control Room, Steampunk is Precision Brass and Space Age is World\u2019s Fair.',
+      'The Confluence Laboratory and its aperture are framing fiction for the front door. They make no claim about the town; the evidence grades on every card are unchanged.',
+    ] },
+  { v: 1374, ts: '2026-10-03T17:24:17.483Z', date: 'Oct 3, 2026, 12:24 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',
+      'Follow freight from Newberry \u0026 Dole\u2019s warehouse past Norton\u2019s Dearborn Street drawbridge to the 1832 light at the river\u2019s mouth, and finish at the south pier looking across the cut at the north pier. Then mark the light or the end of the north pier on your route note.',
+      'The walk, the note and the keepsake, Knows the Harbor, are our reconstruction (liberty L-jaunt-along-the-harbor). Both piers were still being built that summer, so their lengths are our estimate, and the stop says so.',
     ] },
   { v: 1373, ts: '2026-10-03T17:05:20.078Z', date: 'Oct 3, 2026, 12:05 PM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
     items: [

@@ -20217,6 +20217,15 @@ N +205, just south of the neck, and that is the recorded upper alternative.
 **How to resolve:** a pre-1833 chart or sounding of the mouth, or any written width of the bar where
 the soldiers cut it.
 
+**Generated (T-2003):** `generators/terrain_gen_e1830.py` lays the ribbon on the gap line and
+carries its faces back to the north bank and the chord and on to the spit's ring, so the neck meets
+both bodies of land exactly. Where it meets the mainland it grades into the ground already there
+across its own width: the root stands at about +5.9 ft and the crest is +4.0 ft from about 25 m out.
+That grading is invented too. The spit's `material` (beach and dune sand) is not drawn, because the
+ground is one surface colour across the whole box.
+
+**Covers:** `terrain.e1830_natural.isthmus_1812`, `terrain.e1830_natural.spit_1812`
+
 **Related:** **L240** (the hole this fills), **T-2002**, **T-1243**, **T-2003** (which generates it).
 **Recorded:** 2026-10-02.
 
@@ -20239,6 +20248,8 @@ It is never wrong toward a headland invented in the lake.
 
 **How to resolve:** a pre-1833 chart of the lake shore north of the river.
 
+**Covers:** `terrain.e1830_natural.north_lake_shore_1812`
+
 **Related:** **L240**, **L362**; the tickets **T-2002**, **T-1242**, **T-2003**.
 **Recorded:** 2026-10-02.
 
@@ -20260,6 +20271,8 @@ direction that does not invent a navigable mouth the record says was not there.
 
 **How to resolve:** a Michigan–Huron stage reconstruction for the 1810s (NOAA/GLERL), or any
 sounding of the pre-cut channel.
+
+**Covers:** `terrain.e1830_natural.lake_stage_1812`, `terrain.e1830_natural.outlet_channel_1812`
 
 **Related:** **L362**, **L363**; the tickets **T-2002**, **T-2003**.
 **Recorded:** 2026-10-02.
@@ -20580,6 +20593,17 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/materials-for-a-roof.json`.
 
 **Recorded:** 2026-10-03 (T-2026).
+### L-jaunt-calling-on-neighbors — Calling on Neighbors: invented calls and a calling card past four documented houses
+
+**Decision:** Calling on Neighbors links four existing exterior destinations (Mrs Rufus Brown's log boarding house behind Peck's store, P. F. W. Peck's store at South Water and LaSalle, the Exchange Coffee House at Lake and Wells, and the Sauganash at Lake and Market) in an invented round of calls: a newcomer lodging at Brown's chooses which of two letters of introduction to present, reads the Peck household on its card rather than at its door, finds at the Exchange a public house where the Democrat reports meetings held and an 1834 notice asked addresses to be left, and leaves a calling card there or at the Sauganash. The newcomer, the room, both letters, the calls, the choice of where the card is left, the route, the three endings and the An Introduction Made keepsake are invented; no introduction, caller, reply or encounter with any named person is claimed.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Peck household record, Andreas vol. 1, the DRLOIH hotel chronology, the Democrat's 19 November 1834, 20 May 1835, 10 June 1835 and 17 June 1835 issues, and brief 21 of JAUNTS-INITIAL-LIBRARY.md. The letters, the calls and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record of a newcomer's letter of introduction to a Chicago household in 1835, or of cards left at the Exchange, would let the calls name a real practice in place of the invented one.
+
+**Applies to:** `data/jaunts/calling-on-neighbors.json`.
+
+**Recorded:** 2026-10-03 (T-2030).
 
 ### L-jaunt-sunday-circuit — A Sunday Circuit: an invented call, by way of the town's places of worship
 
@@ -20593,6 +20617,18 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 
 **Recorded:** 2026-10-03 (T-2029).
 
+### L-jaunt-along-the-harbor — Along the Working Harbor: an invented route note from a forwarding house to the north pier
+
+**Decision:** Along the Working Harbor links four existing exterior destinations, all on the south bank (Newberry & Dole's forwarding and commission warehouse, the Dearborn Street drawbridge seen from its south end, the 1832 lighthouse tower at the river's mouth, and the root of the south pier of the federal harbour works, from which the north pier is seen across the cut), in an invented walk. Freight is followed from a forwarding house back toward the lake, and the walker writes one mark — the light or the end of the north pier — on a route note. The south pier stands in for the briefed north-pier destination because the north pier's stand-off is reachable only over the Dearborn draw, and the briefed order measured 9.5 min at Horse; brief 23's route note records it. The walk, its order, the route note and its two marks, the two endings, the Knows the Harbor keepsake, and the reading and action seconds are reconstructed. What each place was is sourced: Newberry & Dole's card from the Chicago Democrat of 1 July 1835; the second lighthouse tower, its forty feet and its builder from Andreas, and its lantern and place as the first light on Lake Michigan from lighthousefriends; Norton's drawbridge, its length, its sixty-foot draw and its gallows frames from Andreas; the harbour's 1834 arrivals (21 January 1835) and the 1835 appropriation (25 March 1835) from the Democrat, and the piers' year-end lengths and the south pier's 1833 beginning from Andreas and the Wikipedia summary. No vessel, cargo, keeper, bridge-tender or customer is claimed; the lighthouse's keeper on the scene date is not named because no source reached names one; the piers' lengths on the scene date are the structure records' interpolations and the stop calls them our estimate; the warehouse's bank, the tower's shape and the piers' widths are the scene's placements and reconstructions and the stops say so. No named person speaks or is met, no tower or vessel is entered, the drawbridge is not crossed, and no walk along either pier is claimed.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat's 21 January, 25 March and 1 July 1835 issues, Andreas vol. 1, the lighthousefriends and chicagology Dearborn Street bridges pages, Wikipedia's Chicago River summary, and brief 23 of JAUNTS-INITIAL-LIBRARY.md. The walk, the route note and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated length for either pier inside the 1835 season, or the name of the keeper in July 1835, would let the last two stops say more than they do.
+
+**Applies to:** `data/jaunts/along-the-harbor.json`.
+
+**Recorded:** 2026-10-03 (T-2032).
+
 ### L-jaunt-from-prairie-to-town — From Prairie to Town: an invented ride in from the open shore south of the fort
 
 **Decision:** From Prairie to Town links one typed viewpoint and three existing exterior destinations — the scene anchor `lake_shore_south`, Fort Dearborn's stockade, P. F. W. Peck's store and the Sauganash — in an invented arrival. The traveller, the coming up from the south, the ride, the route order (north over the unplatted shore and the United States Reservation to the river mouth, west along the south bank to South Water and LaSalle, on to Lake and Market), the looking from outside, the single ending and the Into Town memento are reconstructed, and so are the reading seconds. The first stop is a camera position and the stop says so: it is not a named place, an establishment or a landing. What the stop says of the ground is cited — Wright 1834 names it Fractional Section 15, the state register has no entry on it before 31 May 1836, and Moses & Kirkland date its platting to 13 June 1836 — and its "no street, lot or house" is the model's, which raises none within 600 m. The tents the first leg passes on the reservation are conjectural and the leg note says so (L355, L358). No one is met or speaks, no bed or purchase is claimed, no interior is opened, and nothing of August 1812 — the removal, the battle, or any Native presence — is staged on this shore.
@@ -20604,3 +20640,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/from-prairie-to-town.json`.
 
 **Recorded:** 2026-10-03 (T-2033).
+
+### L-jaunt-an-evening-stroll — An Evening Stroll: an invented evening walk past four places
+
+**Decision:** An Evening Stroll links four existing exterior destinations — the Sauganash, P. F. W. Peck's store, the Chicago Democrat's first office and the Exchange Coffee House — in an invented evening walk. The evening, the stroll, the route order (from Lake and Market north to the river and east along South Water Street to LaSalle and Clark, then south to Lake and west to Wells), the looking from the street, the choice of where to end, both endings and the A Pleasant Circuit memento are reconstructed, and so are the reading seconds. The evening is a premise and nothing more: the scene's lighting is not changed, and no entertainment, meeting, purchase or dated event is claimed for it. The building facts are cited at their own tiers and reuse evidence already published in other jaunts — the Sauganash from Wau-Bun and the Democrat of 10 June 1835, Peck's stock from his card in the Democrat, the Democrat's first corner and its May 1835 move from its own imprint and colophon, the Exchange from Andreas and the DRLOIH hotel chronology. One claim is new and inferred: that the Democrat came out weekly, on Wednesdays, read off the volume and issue numbers of the dated numbers this project already cites; no masthead statement of its terms was read for it. No named person is met or speaks, no interior is opened, and no Native presence is narrated. This is the batch's quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat numbers of May to July 1835, and brief 25 of JAUNTS-INITIAL-LIBRARY.md. The route, the evening and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A reading of the Democrat's masthead terms would let the third stop cite its day of issue directly instead of inferring it.
+
+**Applies to:** `data/jaunts/an-evening-stroll.json`.
+
+**Recorded:** 2026-10-03 (T-2034).

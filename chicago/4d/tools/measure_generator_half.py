@@ -43,6 +43,20 @@ somebody adds; naming alone would silently miss it. Held against each other, a n
 layer fails this gate and gets read by a person, which is the only outcome worth
 having.
 
+THE DECISION, 2026-10-03 (T-0252). The three readings above were taken to put one
+question in front of the owner, and it has been answered: `docs/GLB-CONTRACT.md` §
+"Layers drawn at load" decides that the baked town carries NONE of these layers, and that
+their portable form is an export made by the renderer module that draws them. So the
+reading is kept as the gate, and two of its figures changed meaning without changing value:
+
+  * `layers_with_a_generator: 0` is no longer a debt being counted. It is the rule. A
+    layer that grows an archetype turns this red, and the fix is to change the contract
+    first, not the number.
+  * every layer this file names must have a row in the contract's layer table (between its
+    `T-0252 layer export table` markers). A new layer therefore cannot arrive without
+    somebody saying how it leaves the repository, which is how the nine-at-once question
+    started.
+
 NO BLENDER, NO NETWORK. It reads `assets/manifest.json`, the generator modules' own
 hashing recipes and the committed layer manifests, all of which are in the tree —
 the same standing this tool's neighbours in `tools/measure_*.py` have.
@@ -61,6 +75,9 @@ DATA = ROOT / "data"
 MANIFEST = ROOT / "assets" / "manifest.json"
 RENDERERS = ROOT / "renderers"
 RENDERER_JS = RENDERERS / "web" / "js"
+CONTRACT = ROOT / "docs" / "GLB-CONTRACT.md"
+TABLE_OPEN = "<!-- T-0252 layer export table"
+TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 
 # The reading this file was written against, re-taken on 2026-08-27 on `dev`
 # @ a638614c (T-0059). `--gate` holds the live measurement to it. Moving a figure
@@ -398,19 +415,28 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # 550 -> 549 and 546 -> 545 on 2026-10-03 (T-1743): `beaubien_new_residence` is withdrawn
 # and folded into `jb_beaubien_homestead` on the owner's ruling that Col. Beaubien's group
 # shows one dwelling. One structure asset fewer; terrain reach still 4 and pier_crib still 2.
+# 552 -> 551 with T-2003's two meshes below, merged.
+#
+# 550 -> 552 on 2026-10-03 (T-2003): the 1812 ground and water meshes,
+# `terrain__e1830_natural.glb` and `water__e1830_natural.glb`. Both are built through
+# terrain_gen.py's mesher and the common modules, so terrain reach goes 4 -> 6 and the
+# common reach with it; emit.py builds no terrain, so 546 stands, and pier_crib still 2.
 #
 STATED = {
-    "assets": 549,
+    "assets": 551,
     "restales": {
-        "generators/common/*.py": 549,
+        "generators/common/*.py": 551,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
         "generators/emit.py": 545,
         "generators/build.py": 0,
-        "generators/terrain_gen.py": 4,
+        "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
     },
     "layers_drawn_at_load": 10,
+    # T-0252 (2026-10-03): this zero is the decision in docs/GLB-CONTRACT.md § "Layers
+    # drawn at load", not a count of debt. None is baked; each is exported by the module
+    # that draws it. Raise it only after the contract says so.
     "layers_with_a_generator": 0,
     # T-1464 (2026-09-20): the owner-requested standalone Unreal adapter now
     # consumes the committed GLBs. The missing-layer debt has a second reader;
@@ -581,6 +607,41 @@ def layer_debt() -> tuple[list, list]:
     return rows, problems
 
 
+def contract_rows() -> tuple[list, list]:
+    """The rows of the contract's layer table, as lists of cells (T-0252)."""
+    if not CONTRACT.exists():
+        return [], [f"{CONTRACT.relative_to(ROOT)} is missing, so no layer's export is decided"]
+    text = CONTRACT.read_text(encoding="utf-8")
+    start, end = text.find(TABLE_OPEN), text.find(TABLE_CLOSE)
+    if start < 0 or end < start:
+        return [], [f"{CONTRACT.relative_to(ROOT)} has no T-0252 layer export table "
+                    f"between its markers, so no layer's export is decided"]
+    rows = []
+    for line in text[start:end].splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if line.lstrip().startswith("|") and cells and cells[0].startswith("`data/"):
+            rows.append(cells)
+    return rows, []
+
+
+def contract_coverage() -> list:
+    """Every layer this file names has a row in the contract's table, naming its module."""
+    rows, problems = contract_rows()
+    if problems:
+        return problems
+    for layer in sorted(set(DRAWN_AT_LOAD) | set(NOT_DRAWN_AT_LOAD)):
+        mine = [r for r in rows if r[0].startswith(f"`data/{layer}/`")]
+        if not mine:
+            problems.append(f"data/{layer}/ has no row in docs/GLB-CONTRACT.md's layer "
+                            f"export table: say how it leaves the repository (T-0252)")
+            continue
+        module = DRAWN_AT_LOAD.get(layer)
+        if module and not any(module in r[0] for r in mine):
+            problems.append(f"data/{layer}/'s row in docs/GLB-CONTRACT.md does not name "
+                            f"{module}, the module that draws it")
+    return problems
+
+
 def renderers() -> list:
     """The things that could read a GLB. One directory under `renderers/` each."""
     return sorted(p.name for p in RENDERERS.iterdir()
@@ -598,6 +659,7 @@ def main() -> int:
     reach, total, problems = restale_reach()
     rows, more = layer_debt()
     problems += more
+    problems += contract_coverage()
     rend = renderers()
     drawn = len(rows)
     owed = sum(1 for r in rows if not r["generator"])
@@ -613,7 +675,8 @@ def main() -> int:
                      else "the meshes of that archetype alone")
             print(f"{site:<42} {n:>9}   {share}")
         print(f"\nLAYERS DRAWN AT LOAD FROM COMMITTED JSON: {drawn}, "
-              f"{drawn - owed} with a generator, {owed} without\n")
+              f"{drawn - owed} with a generator, {owed} without — and none is owed one: "
+              f"docs/GLB-CONTRACT.md (T-0252) exports them instead\n")
         print(f"{'layer':<12} {'renderer module':<18} {'record files':>13}  "
               f"generator")
         for r in rows:
@@ -632,7 +695,9 @@ def main() -> int:
                         f"{STATED['layers_drawn_at_load']}")
     if drawn - owed != STATED["layers_with_a_generator"]:
         problems.append(f"{drawn - owed} drawn layer(s) have a generator; this file "
-                        f"states {STATED['layers_with_a_generator']}")
+                        f"states {STATED['layers_with_a_generator']}, which is the rule in "
+                        f"docs/GLB-CONTRACT.md § Layers drawn at load (T-0252): change "
+                        f"the contract before the number")
     if len(rend) != STATED["renderers"]:
         problems.append(f"{len(rend)} renderer(s) under renderers/; this file states "
                         f"{STATED['renderers']}. A second one is exactly the reader "
@@ -643,8 +708,9 @@ def main() -> int:
     if problems:
         return 1
     if args.gate:
-        print(f"generator half: {owed} of {drawn} drawn layers owe one, for "
-              f"{len(rend)} renderer; the cheapest route into the bake re-stales "
+        print(f"generator half: none of {drawn} drawn layers is baked, as "
+              f"docs/GLB-CONTRACT.md decides (T-0252), and each has a row there; "
+              f"{len(rend)} renderers; the cheapest route into the bake re-stales "
               f"{min(reach.values()) if reach else 0} committed mesh(es), the shared "
               f"ones {max(reach.values()) if reach else 0}")
     return 0

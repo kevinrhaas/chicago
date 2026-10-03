@@ -1,0 +1,122 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 12.5 min at Walk",
+      "wagon": "about 6.5 min at Wagon",
+      "horse": "about 4.5 min at Horse",
+      "fly": "about 3 min at Fly",
+      "instantly": "about 2 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 264.82219119317824,
+        "reading": 121,
+        "legs": [
+          63.99999999999893,
+          24.500000000000377,
+          58.76666666666589
+        ],
+        "seconds": 268.2666666666652,
+        "phase": "outcome",
+        "ending": "where-you-began"
+      },
+      "fly": {
+        "estimate": 179.50499589751374,
+        "reading": 121,
+        "legs": [
+          21.433333333333557,
+          11.39999999999997,
+          19.333333333333453
+        ],
+        "seconds": 173.16666666666697,
+        "phase": "outcome",
+        "ending": "where-you-began"
+      },
+      "walk": {
+        "estimate": 760.4960294866611,
+        "reading": 121,
+        "legs": [
+          277.73333333333863,
+          107.79999999999644,
+          258.5999999999901
+        ],
+        "seconds": 765.1333333333251,
+        "phase": "outcome",
+        "ending": "where-you-began"
+      }
+    },
+    "ui_drive": {
+      "ending": {
+        "phase": "outcome",
+        "outcome": "where-you-began"
+      },
+      "keepsake_shown": 1,
+      "resource_strip_items": 0,
+      "detail_card_returned_to_same_stop": true,
+      "trail": [
+        "atStop",
+        "atStop",
+        "atStop",
+        "atStop",
+        "outcome"
+      ],
+      "after_end_phase": "menu",
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png",
+        "390-menu.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 12 min at Walk",
+      "wagon": "about 6 min at Wagon",
+      "horse": "about 4.5 min at Horse",
+      "fly": "about 3 min at Fly",
+      "instantly": "about 2 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 255.7345807772632,
+        "reading": 121,
+        "legs": [
+          61.833333333332384,
+          20.300000000000168,
+          54.466666666666136
+        ],
+        "seconds": 257.59999999999866,
+        "phase": "outcome",
+        "ending": "where-you-began"
+      },
+      "fly": {
+        "estimate": 177.58246814607259,
+        "reading": 121,
+        "legs": [
+          21.200000000000212,
+          10.299999999999974,
+          18.03333333333339
+        ],
+        "seconds": 170.5333333333336,
+        "phase": "outcome",
+        "ending": "where-you-began"
+      },
+      "walk": {
+        "estimate": 719.7584655532489,
+        "reading": 121,
+        "legs": [
+          268.0666666666643,
+          89.16666666666417,
+          239.76666666665562
+        ],
+        "seconds": 717.9999999999841,
+        "phase": "outcome",
+        "ending": "where-you-began"
+      }
+    },
+    "page_errors": 0
+  }
+}

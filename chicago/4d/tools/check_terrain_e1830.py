@@ -25,11 +25,16 @@ What this refuses:
   is a breach, which is the 1834 storm's landform);
 * the west-bank ruling left `undecided` without grading the band conjectural, or with a
   band that does not run from Harrison's old mouth to the adopted outlet station;
-* an authored block named like one of `compile_scene.GROUND_GROUPS` -- those go on the
-  Evidence panel and are held to the generator's CONSUMED map, which is T-2003's to wire;
+* an authored block that shadows an 1834 block the overlay carries (resolve() would
+  quietly keep the 1834 one), or a graded authored block that does not reach the Evidence
+  panel -- since T-2003 every one is a `compile_scene.GROUND_GROUPS` group with an entry in
+  `terrain_inputs.CONSUMED`, the generator's own statement of what it reads;
+* a west-bank band whose width is not T-1286's measured worst separation for that bank
+  (`data/terrain/1812_harrison_cross_check.json`);
 * an effective table (`resolve()`) that still carries a harbour work.
 
-`resolve()` is the function T-2003's generator is meant to import. Standard library only.
+`resolve()` is the function `generators/terrain_gen_e1830.py` (T-2003) imports. Standard
+library only; `generators/terrain_inputs.py` is read for CONSUMED, and it is too.
 """
 from __future__ import annotations
 
@@ -47,6 +52,7 @@ SHORE_PATH = EPOCHS / "e1830_natural" / "shoreline.geojson"
 EPOCHS_JSON = ROOT / "data" / "terrain" / "epochs.json"
 DOSSIER = ROOT / "docs" / "research" / "01-terrain-hydrology.md"
 COMPILE_SCENE = ROOT / "tools" / "compile_scene.py"
+CROSS_CHECK = ROOT / "data" / "terrain" / "1812_harrison_cross_check.json"
 SOURCES = ROOT / "data" / "sources"
 
 TAKES = ("carry", "carry_except", "replace", "drop", "own")
@@ -80,7 +86,14 @@ def ground_groups() -> set[str]:
     """The block names compile_scene puts on the Evidence panel, read from its source."""
     src = COMPILE_SCENE.read_text(encoding="utf-8")
     m = re.search(r"^GROUND_GROUPS = \[(.*?)^\]", src, re.S | re.M)
-    return set(re.findall(r'^\s*\("([a-z_]+)",', m.group(1), re.M)) if m else set()
+    return set(re.findall(r'^\s*\("([a-z0-9_]+)",', m.group(1), re.M)) if m else set()
+
+
+def consumed_groups() -> set[str]:
+    """The groups `generators/terrain_inputs.CONSUMED` declares reads for."""
+    sys.path.insert(0, str(ROOT / "generators"))
+    import terrain_inputs  # noqa: PLC0415
+    return set(terrain_inputs.CONSUMED)
 
 
 def item_id(x: dict):
@@ -136,7 +149,8 @@ def elevations(block: dict):
             yield k, float(v)
 
 
-def validate(spec: dict, base: dict, shore: dict, epochs: dict) -> list[str]:
+def validate(spec: dict, base: dict, shore: dict, epochs: dict,
+             groups: set[str] | None = None, consumed: set[str] | None = None) -> list[str]:
     bad: list[str] = []
     zones = dossier_zones()
     sources = {p.stem for p in SOURCES.glob("*.json")}
@@ -193,12 +207,24 @@ def validate(spec: dict, base: dict, shore: dict, epochs: dict) -> list[str]:
             bad.append(f"shore_runs_1812 names '{r}' as authored, and this spec does not author it")
 
     # 3. The authored blocks: zones, grades, reasons, sources.
-    groups = ground_groups()
+    groups = ground_groups() if groups is None else groups
+    consumed = consumed_groups() if consumed is None else consumed
     if not groups:
         bad.append("cannot read GROUND_GROUPS from tools/compile_scene.py")
-    for key in sorted(set(spec) & groups):
-        bad.append(f"'{key}' is a ground-claim group name; until T-2003 wires the generator, an 1812 "
-                   f"block there would reach the Evidence panel with no CONSUMED entry behind it")
+    for key in sorted(set(spec) & set(base)):
+        if blocks.get(key, {}).get("take") not in ("own", "replace", "drop"):
+            bad.append(f"'{key}' is authored here and is also the 1834 block the overlay takes as "
+                       f"{blocks.get(key, {}).get('take')!r}; resolve() keeps the 1834 one, so the 1812 "
+                       f"one would be silently ignored")
+    for key, block in authored_blocks(spec):
+        if "confidence" not in block:
+            continue
+        if key not in groups:
+            bad.append(f"'{key}' grades itself and is not a compile_scene.GROUND_GROUPS group, so the "
+                       f"Evidence panel never shows it (T-2003 wired every one)")
+        elif key not in consumed:
+            bad.append(f"'{key}' reaches the Evidence panel with no terrain_inputs.CONSUMED entry, so "
+                       f"nothing says which of its figures the 1812 ground is built from")
     for key, block in authored_blocks(spec):
         conf = block.get("confidence")
         if conf in ("attested", "documented"):
@@ -253,6 +279,12 @@ def validate(spec: dict, base: dict, shore: dict, epochs: dict) -> list[str]:
         bad.append("channel_west_bank_ruling must name the 1812 bank it rules on")
     if set((rule.get("readings") or {})) != {"a", "b", "c"}:
         bad.append("channel_west_bank_ruling must weigh all three readings T-1286 named")
+    worst = (((load(CROSS_CHECK).get("by_nearest_derived_feature") or {})
+              .get(rule.get("bank_run")) or {}).get("max_m"))
+    if worst is None or abs(float(rule.get("west_band_m", -1)) - float(worst)) > 0.05:
+        bad.append(f"channel_west_bank_ruling west_band_m {rule.get('west_band_m')} is not T-1286's "
+                   f"worst separation for {rule.get('bank_run')} ({worst} m, "
+                   f"1812_harrison_cross_check.json)")
     if verdict == "undecided":
         if rule.get("ground_confidence") != "conjectural":
             bad.append("an undecided west bank leaves its ground at the grade T-1286 asked for: conjectural")
@@ -331,8 +363,15 @@ def self_test(spec, base, shore, epochs) -> int:
            lambda s: s["channel_west_bank_ruling"]["readings"].pop("c"))
     breaks("a run renamed onto nothing fails",
            lambda s: s["inherits"]["rename_runs"]["south_shore_harbor_reach"].append("ghost_run"))
-    breaks("an 1812 block under a ground-claim group name fails",
+    breaks("an 1812 block that shadows a carried 1834 block fails",
            lambda s: s.__setitem__("reaches", s["outlet_channel_1812"]))
+    groups = ground_groups()
+    cases.append(("a graded 1812 block the Evidence panel does not list fails",
+                  bool(validate(spec, base, shore, epochs, groups=groups - {"spit_1812"}))))
+    cases.append(("a graded 1812 block with no CONSUMED entry fails",
+                  bool(validate(spec, base, shore, epochs, consumed=consumed_groups() - {"isthmus_1812"}))))
+    breaks("a west band narrower than Harrison's worst separation fails",
+           lambda s: s["channel_west_bank_ruling"].__setitem__("west_band_m", 100.0))
     breaks("keeping the 1835 boarding house's keep-clear fails",
            lambda s: s["inherits"]["blocks"]["dunes"].__setitem__("drop_keys", {}))
     for label, ok in cases:
