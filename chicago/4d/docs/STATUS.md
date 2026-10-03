@@ -31,6 +31,37 @@ stop, Elston & Co.'s card and back to the same stop, the ending, End back to the
 
 **Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
 
+## T-1259 — browse the Jaunts menu (2026-10-02)
+
+The lazy menu now carries title, premise, category, stops, travel mode and an
+instant duration estimate. Featured comes from the authored flag through the
+compiler. Search and catalog-derived categories filter the title-sorted list;
+explicit Earlier/More controls window it at twenty cards, with at most six
+featured copies. This avoids removing a focused control during scrolling.
+The selected mode stays synchronized between the featured and main card.
+
+End, preview-back and menu/resume preserve the browsing window, filters and
+scroll position. Explore Myself uses the shared destination picker and clears
+paused sessions. Sources & City opens the existing Evidence hub before entry,
+returning to the welcome on close without entering the world.
+
+Validation passed on the recovered implementation integrated with dev `604daa6`:
+preflight (including the full check.sh gate); the published-menu acceptance at
+390×780 and 1280×800; and scaffold smoke stage 1 at both viewports (80 passed,
+zero failed each). The 55-row harness mounts at most 26 cards, loads no jaunt
+code/catalog at boot, and restores the exact scroll and focused Start control.
+The standalone first-load measurement passed at 12.911 MB of the 13 MB budget.
+The first payload attempt timed out under concurrent validation; the standalone
+retry passed without changing the test. Desktop smoke took 10m31s on this host.
+Receipts and reviewed screenshots are under `docs/performance/jaunt-menu/`;
+`validation.json` records the tested integration base and command coverage.
+The full preflight passed again after integrating dev `de920bf` (750 steps).
+The catalog retains all eight current 1835 jaunts. Published menu acceptance
+passed again at both viewports on that integration; screenshots were refreshed.
+A transient ticket-checkout synchronization failure passed on the gate quiet retry.
+This ticket authors no new stories. Full scene smoke parts 2–13 were not rerun;
+the targeted menu test and scaffold smoke cover this interface change.
+
 ## T-2024 — Mend the Harness, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Mend the Harness* (Trades and repairs,
