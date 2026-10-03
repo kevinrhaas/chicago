@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1363, ts: '2026-10-03T13:04:19.726Z', date: 'Oct 3, 2026, 8:04 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+  { v: 1364, ts: '2026-10-03T13:37:13.805Z', date: 'Oct 3, 2026, 8:37 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
       'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
       'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
       '277 men are still owed a wife that no woman in the town can be.',
+    ] },
+  { v: 1363, ts: '2026-10-03T13:05:29.979Z', date: 'Oct 3, 2026, 8:05 AM CT', title: 'Six people\u2019s 1839 trades now show once on their cards', kind: 'fix',
+    items: [
+      'Open William Jones\u2019s card in People. Fergus\u2019s 1839 directory calls him a justice of the peace, and that line used to appear twice: once under his 1835 trade and once on his timeline. It now appears once, on the timeline, dated 1839.',
+      'The same goes for Elijah Kent Hubbard, Tuthill King, James H. Mulford, Silas W. Sherman and William H. Taylor.',
+      'No trade, date or source was lost. Their 1835 trades are unchanged, and every 1839 entry still stands on its card.',
     ] },
   { v: 1362, ts: '2026-10-03T12:26:25.726Z', date: 'Oct 3, 2026, 7:26 AM CT', title: 'A new jaunt: Soap and Candles', kind: 'feature',
     items: [
