@@ -3,11 +3,11 @@
   "id": "soap-and-candles",
   "content_version": 1,
   "title": "Soap and Candles",
-  "premise": "Make a short list on South Water Street, see from the road what Daniel Elston & Co.'s works made, choose what to carry, and bring it home to a boarding house behind Peck's store.",
+  "premise": "See from the road what Daniel Elston & Co.'s works made, make a short list on South Water Street, choose what to carry, and bring it home to a boarding house behind Peck's store.",
   "category": "Household and trades",
   "scene": "1835",
   "opening": {
-    "text": "You board in the log house behind Peck's store, and the evenings are long. Make a short list at a grocer's on South Water Street, see from the road what a soap and candle works made, choose what to carry and bring it home by Lake Street. A quiet outing: the errand is invented; the trades are documented.",
+    "text": "You board in the log house behind Peck's store, and the evenings are long. See from the road what a soap and candle works on the North Branch made, make a short list at a grocer's on South Water Street, choose what to carry and bring it home by Lake Street. A quiet outing: the errand is invented; the trades are documented.",
     "read_s": 20
   },
   "default_mode": "horse",
@@ -34,73 +34,12 @@
   },
   "stops": [
     {
-      "id": "the-list",
-      "destination": {
-        "kind": "structure",
-        "id": "h_jones_store"
-      },
-      "text": "Start at Jones's grocery on South Water Street. His November 1833 notice offered sugar and most kinds of provisions at the lowest prices; whether he kept soap or candles it does not say. Only the street is evidence; the block is our placement.",
-      "read_s": 30,
-      "action_s": 10,
-      "links": [
-        {
-          "kind": "structure",
-          "id": "h_jones_store",
-          "label": "About this place"
-        },
-        {
-          "kind": "business",
-          "id": "biz_b_jones_grocery_and_provision_store",
-          "label": "Jones's card"
-        },
-        {
-          "kind": "source",
-          "id": "chicago_democrat_1833_11_26",
-          "label": "Read the source"
-        }
-      ],
-      "evidence": [
-        "jones-ad",
-        "jones-place",
-        "errand"
-      ],
-      "choices": [
-        {
-          "id": "light-first",
-          "label": "Put candles at the top of the list",
-          "consequence": "The evenings are the point of the errand.",
-          "effects": [
-            {
-              "op": "set",
-              "var": "want",
-              "value": 2
-            }
-          ],
-          "next": "the-works"
-        },
-        {
-          "id": "soap-first",
-          "label": "Put soap at the top of the list",
-          "consequence": "Washing day comes before the evenings.",
-          "effects": [
-            {
-              "op": "set",
-              "var": "want",
-              "value": 1
-            }
-          ],
-          "next": "the-works"
-        }
-      ],
-      "narrative": "Make a short list. What goes at the top?"
-    },
-    {
       "id": "the-works",
       "destination": {
         "kind": "structure",
         "id": "elston_soap_candle_manufactory"
       },
-      "text": "Over the river to where we place Daniel Elston & Co.'s works on the North Branch; no source gives the site. Their notice, printed 1833–34, offered hard and soft soap, wax and other candles, and paid cash for tallow and house ashes. No counter is recorded: look from the road.",
+      "text": "Start on the North Branch, where we place Daniel Elston & Co.'s works; no source gives the site. Their notice, printed 1833–34, offered hard and soft soap, wax and other candles, and paid cash for tallow and house ashes. No counter is recorded: look from the road.",
       "read_s": 30,
       "action_s": 10,
       "links": [
@@ -134,6 +73,67 @@
       ],
       "choices": [
         {
+          "id": "light-first",
+          "label": "Light for the evenings matters most",
+          "consequence": "Candles go at the top of the list.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "want",
+              "value": 2
+            }
+          ],
+          "next": "the-list"
+        },
+        {
+          "id": "soap-first",
+          "label": "Soap for washing day matters most",
+          "consequence": "Soap goes at the top of the list.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "want",
+              "value": 1
+            }
+          ],
+          "next": "the-list"
+        }
+      ],
+      "narrative": "Tallow and ashes in, soap and light out."
+    },
+    {
+      "id": "the-list",
+      "destination": {
+        "kind": "structure",
+        "id": "h_jones_store"
+      },
+      "text": "Over the river to Jones's grocery on South Water Street. His November 1833 notice offered sugar and most kinds of provisions at the lowest prices; whether he kept soap or candles it does not say. Only the street is evidence; the block is our placement.",
+      "read_s": 30,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "h_jones_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_b_jones_grocery_and_provision_store",
+          "label": "Jones's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_11_26",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "jones-ad",
+        "jones-place",
+        "errand"
+      ],
+      "choices": [
+        {
           "id": "candles",
           "label": "Carry candles home",
           "consequence": "A bundle of candles. Where the story's bundle came from is not recorded.",
@@ -149,7 +149,7 @@
         {
           "id": "soap",
           "label": "Carry a cake of hard soap",
-          "consequence": "One cake of soap. No sale at the works is recorded.",
+          "consequence": "One cake of soap. No sale of it anywhere is recorded.",
           "effects": [
             {
               "op": "set",
@@ -173,7 +173,7 @@
           "next": "lake-street"
         }
       ],
-      "narrative": "Tallow and ashes in, soap and light out."
+      "narrative": "Make the list, and settle what to carry."
     },
     {
       "id": "lake-street",
@@ -181,7 +181,7 @@
         "kind": "structure",
         "id": "thomas_church_store"
       },
-      "text": "Back over the river to Lake Street and the two-storey frame store Thomas Church built, said to be the first store building on the street. One undated sentence is all the evidence, and it names no stock, so nothing is bought here.",
+      "text": "Up to Lake Street and the two-storey frame store Thomas Church built, said to be the first store building on the street. One undated sentence is all the evidence, and it names no stock, so nothing is bought here.",
       "read_s": 28,
       "action_s": 5,
       "links": [
@@ -247,21 +247,22 @@
   ],
   "legs": [
     {
-      "from": "the-list",
-      "to": "the-works",
-      "note": "Over the main river by a bridge and on to the east bank of the North Branch; no particular path is claimed, and the works' site is our placement.",
+      "from": "the-works",
+      "to": "the-list",
+      "note": "Back over the river by a bridge to South Water Street; no particular path is claimed, and the works' site is our placement.",
       "evidence": [
-        "elston-place"
+        "elston-place",
+        "jones-place"
       ],
-      "story": "The list in your pocket, the river ahead.",
+      "story": "Soap or light settled, the list comes next.",
       "story_evidence": [
         "errand"
       ]
     },
     {
-      "from": "the-works",
+      "from": "the-list",
       "to": "lake-street",
-      "note": "Back over the river by a bridge to Lake Street; Church's block is not attested.",
+      "note": "A block south to Lake Street; Church's block is not attested.",
       "evidence": [
         "church-place"
       ]
@@ -269,7 +270,7 @@
     {
       "from": "lake-street",
       "to": "home",
-      "note": "A block west and round to the rear of Peck's corner at South Water and LaSalle.",
+      "note": "Back toward the rear of Peck's corner at South Water and LaSalle.",
       "evidence": [
         "brown-place"
       ],

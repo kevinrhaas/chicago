@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A new jaunt: Soap and Candles', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Soap and Candles, a quiet outing of about seven minutes on horseback.',
+      'Start at Daniel Elston & Co.\u2019s soap and candle works on the North Branch, make your list at Jones\u2019s grocery on South Water Street, and carry candles, soap or both home to the boarding house behind Peck\u2019s store.',
+      'The errand, the bundle and the keepsake, Light for the Evening, are our reconstruction (liberty L-jaunt-soap-and-candles). The works\u2019 goods come from its own 1833 notice; where it stood is our placement.',
+    ] },
   { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
       'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
