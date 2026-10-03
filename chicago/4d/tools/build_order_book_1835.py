@@ -4352,12 +4352,14 @@ def cmd_self_test() -> int:
           lambda: business_buckets(mixed["crosswalk"], mixed["register"],
                                    mixed["trade_spend"], mixed["model"]))
 
-    # EVERY BUCKET NAMES A TICKET, and every ticket named is in the reconstruction bands.
+    # EVERY BUCKET NAMES A TICKET. This read `startswith("T-1")` while every reconstruction
+    # ticket was numbered T-1xxx; T-1171's successors are T-2019..T-2021 (2026-10-03), so it
+    # now asks for a ticket id. Whether the ticket is LIVE is `every_work_order_names_a_live_ticket`.
     for family in doc["bucket_families"]:
         for b in family["buckets"]:
             owners = [b["owning_ticket"]] if b.get("owning_ticket") else b.get("owning_tickets", [])
             for owner in owners:
-                assert owner.startswith("T-1"), (b["key"], owner)
+                assert re.fullmatch(r"T-\d{4,}", owner), (b["key"], owner)
 
     # THE PERSON TOTALS CLOSE ON THE MODEL'S OWN NUMBER.
     persons = doc["bucket_families"][0]["buckets"]
