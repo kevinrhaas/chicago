@@ -8,8 +8,8 @@
   "scene": "1835",
   "featured": true,
   "opening": {
-    "text": "You carry an imagined note: choose a small supply, check the parcel against the note, and take it out to the fort's shop. The note, the parcel and every choice are reconstructed. No soldier is shown and no garrison routine is staged.",
-    "read_s": 15
+    "text": "You carry an imagined note: choose a small supply, check the parcel against it, and take it out to the fort's shop. The note, parcel and choices are reconstructed; no soldier or garrison routine is shown.",
+    "read_s": 13
   },
   "default_mode": "walk",
   "allowed_modes": [
@@ -40,11 +40,11 @@
     {
       "id": "stockade",
       "destination": {
-        "kind": "structure",
-        "id": "fort_dearborn_palisade"
+        "kind": "anchor",
+        "id": "fort_dearborn"
       },
-      "text": "Start outside the stockade of Fort Dearborn. Juliette Kinzie, who lived inside it in 1831, wrote of high pickets and large gates opening north and south. Troops had held the post since June 1832, so on this July day it is a working garrison. The gates are shown shut.",
-      "read_s": 22,
+      "text": "South-west of Fort Dearborn's stockade. Juliette Kinzie, who lived inside it in 1831, wrote of high pickets and large gates north and south. Troops had held the post since June 1832, so today it is a working garrison. The gates are shown shut.",
+      "read_s": 18,
       "links": [
         {
           "kind": "structure",
@@ -66,8 +66,8 @@
         "kind": "structure",
         "id": "fort_dearborn_guard_house"
       },
-      "text": "In 1827 Gurdon Hubbard put the guard-house and the store-house either side of the south gate. He did not say which was which; this model puts the guard-house on the west. Here your errand is stated. Nobody answers, because no reply is invented.",
-      "read_s": 20,
+      "text": "In 1827 Hubbard put the guard-house and store-house either side of the south gate, without saying which was which; this model puts the guard-house west. State your errand here. Nobody answers: no reply is invented.",
+      "read_s": 16,
       "links": [
         {
           "kind": "structure",
@@ -89,8 +89,8 @@
         "kind": "structure",
         "id": "fort_dearborn_sutlers_store"
       },
-      "text": "East of the north gate stands the sutler's store, the post trader's shop, where a garrison bought what its ration did not supply. Hubbard placed it here in 1827, and the key to an 1855 photograph still letters it the Sutler's. Who kept it in 1835 is not known.",
-      "read_s": 22,
+      "text": "East of the north gate stands the sutler's store, the post trader's shop, selling what the ration did not supply. Hubbard placed it here in 1827; an 1855 photograph key still letters it the Sutler's. Its 1835 keeper is not known.",
+      "read_s": 18,
       "action_s": 4,
       "links": [
         {
@@ -150,8 +150,8 @@
         "kind": "structure",
         "id": "fort_dearborn_store_house"
       },
-      "text": "East of the south gate is the store-house. The Army's beef notices of 1834 call it the subsistence store house of Fort Dearborn: fresh beef was delivered there in quarters, up to three times a week, probably 400 pounds weekly. Outside it, check your parcel against the note.",
-      "read_s": 22,
+      "text": "East of the south gate is the store-house. The Army's 1834 beef notices call it the subsistence store house: fresh beef came in quarters, up to three times a week, probably 400 pounds weekly. Check your parcel against the note.",
+      "read_s": 18,
       "action_s": 4,
       "links": [
         {
@@ -204,8 +204,8 @@
         "kind": "structure",
         "id": "fort_dearborn_shop"
       },
-      "text": "Outside the pickets, south-east toward the lake, the 1830 plan draws a building and letters it Shop. That word is all anyone has: no trade is named, so this is a workshop, not a smithy. Hubbard, describing the fort three years before the plan, never mentions it.",
-      "read_s": 22,
+      "text": "Outside the pickets toward the lake, the 1830 plan draws a building lettered Shop. No trade is named, so this is a workshop, not a smithy. Hubbard, describing the fort in 1827, never mentions it. Set the parcel down.",
+      "read_s": 17,
       "action_s": 4,
       "links": [
         {
@@ -248,7 +248,7 @@
   "endings": [
     {
       "id": "accounted",
-      "text": "Supply chosen, parcel tallied and set down at the shop. In this imagined errand the fort is a working neighbour across the river, with stores to keep and work to do.",
+      "text": "Supply chosen, parcel tallied and set down at the shop. In this imagined errand the fort is a working neighbour at the river mouth, with stores to keep and work to do.",
       "read_s": 12,
       "when": {
         "var": "readiness",
@@ -383,7 +383,7 @@
     {
       "from": "stockade",
       "to": "errand",
-      "note": "A few steps along the south wall to the south gate.",
+      "note": "North-east along the outside of the south wall to the south gate.",
       "evidence": [
         "pickets-gates"
       ],
