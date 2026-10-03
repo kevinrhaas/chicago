@@ -1,9 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1349, ts: '2026-10-03T07:13:16.522Z', date: 'Oct 3, 2026, 2:13 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+  { v: null, ts: '', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [
       'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
       'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
       'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
+    ] },
+  { v: 1351, ts: '2026-10-03T06:48:49.856Z', date: 'Oct 3, 2026, 1:48 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
+      'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
+      'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
+      'Finish to keep A Cupboard Begun in your daybook under Provisions.',
+    ] },
+  { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
+    items: [
+      'Walk any road through the prairie or the woods and the hazel, elder, dogwood and other bushes now stand far into the distance, out to about 140 metres. Before, they ended 26 metres away and each one appeared out of empty ground through a speckled fade as you walked.',
+      'A distant bush is a simpler version of the same bush, at the same spot, size and colour. As you close on it, it sharpens into the full bush, so nothing pops in.',
+      'Balanced detail carries them to about 105 metres and Light detail to about 70.',
+    ] },
+  { v: 1349, ts: '2026-10-03T06:24:10.266Z', date: 'Oct 3, 2026, 1:24 AM CT', title: 'Plank walks down the cross streets', kind: 'feature',
+    items: [
+      'Market, Franklin, Wells, La Salle, Clark, Dearborn and State Streets now have the same plank sidewalks as Lake, South Water, Randolph and Washington. That is nearly five more kilometres of boards on 46 block fronts.',
+      'Board crossings join them at the corners, so you can walk the town\u2019s grid on planks and turn any corner without stepping into the mud.',
+      'Like the walks on the other streets, these are our reconstruction from the plat, drawn by the same rule.',
+      'On the Light setting, the one a phone starts on, the cross-street walks are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
     ] },
   { v: 1348, ts: '2026-10-03T05:54:09.388Z', date: 'Oct 3, 2026, 12:54 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
     items: [
