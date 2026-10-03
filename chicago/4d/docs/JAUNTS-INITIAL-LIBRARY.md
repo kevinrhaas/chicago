@@ -330,6 +330,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Warehouse roles may be sourced; this shipment and its bill are fictional. Use safe street paths and no imaginary unloading simulation.
 
+**Route note (T-2009, as built):** the tally comes last — Newberry & Dole's forwarding house → Peck's store → Thomas Church's store → George W. Dole's 1832 warehouse — because the briefed order ran east 529 m to Dole's, west 310 m to Peck's and east again 122 m (961 m straight-line) and read past 7 min at Wagon; delivering first and carrying the tally a block east from Church's to Dole's is 546 m straight-line. That the tally is handed in at Dole's warehouse is invented, and the stop says Dole was the firm's partner rather than that the firm kept its books there. The wagon holds the whole three-package consignment (a `count` variable shown as *Packages*, max 3); the visitor may count it, take only Peck's two and leave Church's for a second trip, or load it on the bill's word, and the four endings follow those choices. Peck's stock is his own 1833–34 cards; Church's store has no stock on record, so his package is never said to hold anything. Card estimates on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. Wagon stays the recommendation as briefed.
+
 ## 13. Stock the Household
 
 **ID:** `household-provisions` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)
