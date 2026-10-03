@@ -1,3 +1,29 @@
+## T-2009 — Freight for the Store, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Freight for the Store* (River commerce,
+Wagon, 4 stops, Livelihood). An invented bill lists three packages landed at Newberry & Dole's.
+The visitor counts them and loads the wagon (a *Packages* chip tracks the load), or takes only
+Peck's two, or loads all three on trust. Then come Peck's store, with the lines his own cards
+advertised, Thomas Church's store on Lake Street, and the tally handed in at George W. Dole's
+1832 warehouse. There are four endings, and the keepsake *Cargo Accounted For* goes to Livelihood.
+Content only: one JSON file, a liberty (`L-jaunt-freight-store`), the regenerated catalog and
+source-use edges, and brief 12's route note. There is no engine, compiler or CSS change.
+
+**The brief's caution holds by construction.** The shipment, the bill and the tally are invented
+and the opening says so. No firm ships, receives or pays for anything, and no price is named.
+Church's store has no stock on record, so his package is never said to hold anything. Newberry &
+Dole's house and Church's store keep their reconstructed positions, and both stops say so.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. The
+briefed order doubled back across town (961 m straight-line against 546 m), so the tally stop
+moves to the end (brief 12's route note). A Playwright drive at 390×780 (count all three → check
+the marks → leave Church's package → hand in the tally) reached `checked-and-counted` with zero
+page errors. It covered the card, the opening, a detail card and back to the same stop, and the
+ending. The keepsake landed once under Livelihood.
+
+**Unverified.** The drive ran at 390×780 only. The stills are not committed.
+
 ## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *A Decent Coat* (Shopping, Horse, 4 stops,
