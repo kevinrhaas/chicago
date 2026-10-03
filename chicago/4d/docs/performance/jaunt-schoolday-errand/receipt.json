@@ -1,0 +1,108 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 18 min at Walk",
+      "wagon": "about 9 min at Wagon",
+      "horse": "about 6.5 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 3 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "start_phase_waited": true,
+        "estimate": 381.8304732017881,
+        "reading": 179,
+        "legs": [
+          96.09999999999711,
+          58.633333333332565,
+          46.99999999999989
+        ],
+        "seconds": 380.7333333333296,
+        "phase": "outcome",
+        "outcome": "two-answers"
+      },
+      "fly": {
+        "start_phase_waited": true,
+        "estimate": 251.073677188648,
+        "reading": 179,
+        "legs": [
+          27.20000000000051,
+          18.766666666666758,
+          17.50000000000003
+        ],
+        "seconds": 242.4666666666673,
+        "phase": "outcome",
+        "outcome": "two-answers"
+      }
+    },
+    "ui_drive": {
+      "stop_reached": 0,
+      "detail_card_returned_to_same_stop": true,
+      "phase_after_detail": "atStop",
+      "ending": "two-answers",
+      "ending_phase": "outcome",
+      "after_end_phase": "menu",
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 18 min at Walk",
+      "wagon": "about 9 min at Wagon",
+      "horse": "about 6.5 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 3 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "start_phase_waited": true,
+        "estimate": 378.3211569366321,
+        "reading": 179,
+        "legs": [
+          93.99999999999723,
+          56.16666666666604,
+          49.2333333333331
+        ],
+        "seconds": 378.39999999999634,
+        "phase": "outcome",
+        "outcome": "two-answers"
+      },
+      "fly": {
+        "start_phase_waited": true,
+        "estimate": 250.0707555852172,
+        "reading": 179,
+        "legs": [
+          26.900000000000496,
+          18.066666666666723,
+          17.800000000000043
+        ],
+        "seconds": 241.76666666666728,
+        "phase": "outcome",
+        "outcome": "two-answers"
+      }
+    },
+    "page_errors": 0
+  },
+  "ticket": "T-2028",
+  "jaunt": "schoolday-errand",
+  "tree": "published mirror (tools/publish.sh) of branch steward/t2028-schoolday-errand",
+  "primary_path": "michigan-street:scholar > north-bank:write-it-down > the-log-house > the-notice:copy-notice => two-answers",
+  "briefed_order_measured_1280": {
+    "order": "chappel_infant_school > watkins_school_house > north_side_school_1833 > chicago_democrat_office",
+    "horse_seconds": 449.3,
+    "fly_seconds": 240.9,
+    "card_horse": "about 7.5 min",
+    "card_walk": "about 23 min",
+    "routed_legs_m": [
+      808,
+      607,
+      330
+    ]
+  }
+}

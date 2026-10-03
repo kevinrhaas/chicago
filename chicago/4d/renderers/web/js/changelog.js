@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1368, ts: '2026-10-03T15:10:12.029Z', date: 'Oct 3, 2026, 10:10 AM CT', title: 'A new jaunt: A Schoolday Errand', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Schoolday Errand, an outing of about six and a half minutes on horseback past the places Chicago\u2019s first classes met.',
+      'Start at the Michigan Street house where John Watkins taught, see the north-bank school-house that was the North Side\u2019s public school in 1835, cross to Eliza Chappel\u2019s log house by State Street, and finish at the Democrat\u2019s corner with the School District No. 4 meeting notice from the paper dated that very day.',
+      'The household, its question and the keepsake, A Schooling Note, are our reconstruction (liberty L-jaunt-schoolday-errand). Two of the schools had moved on by 1835, and the stops say so.',
+    ] },
   { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Materials for a Roof, about six minutes on horseback.',
