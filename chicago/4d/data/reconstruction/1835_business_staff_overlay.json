@@ -17,12 +17,12 @@
   ],
   "counts": {
     "houses_taking_a_reconstructed_hand": 84,
-    "reconstructed_staff_rows_written": 123,
+    "reconstructed_staff_rows_written": 126,
     "ruling_rows_carried_forward": 0,
     "houses_over_a_t1422_ruling": 5,
-    "houses_at_their_typical_band": 55,
-    "houses_still_short": 29,
-    "hands_still_wanted_at_the_typical_band": 49
+    "houses_at_their_typical_band": 56,
+    "houses_still_short": 28,
+    "hands_still_wanted_at_the_typical_band": 48
   },
   "what_this_does_not_do": {
     "it_mints_nobody": "the shortfall above is stated and not filled; T-1448's order is the count of what a mint would be allowed to draw",
@@ -552,6 +552,16 @@
           "basis": "The staffing model puts 0 of this role in a grocery and provision store at the typical band and 1 at the high end, on period_convention. A hand for barrels and the drayage. Analogue: as above. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#grocery_and_provision_store.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
           "seed": "rc_murphy_dennis:employment",
           "replaceable_by": "a source naming where this person worked, which retires the draw"
+        },
+        {
+          "name": "Jean Vieau",
+          "person_id": "rc_vieau_jean",
+          "role": "clerk",
+          "occupation": "clerk",
+          "tier": "reconstructed",
+          "basis": "The staffing model puts 1 of this role in a grocery and provision store at the typical band and 1 at the high end, on directory_1839. A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#grocery_and_provision_store.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+          "seed": "rc_vieau_jean:employment",
+          "replaceable_by": "a source naming where this person worked, which retires the draw"
         }
       ],
       "staffing": {
@@ -567,10 +577,9 @@
             "count_low": 0,
             "count_typical": 1,
             "count_high": 1,
-            "seats_drawn": 0,
-            "drawn": false,
-            "basis": "directory_1839",
-            "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+            "seats_drawn": 1,
+            "drawn": true,
+            "basis": "directory_1839"
           },
           {
             "role": "household_member",
@@ -589,9 +598,9 @@
         "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
         "shortfall": {
           "typical_wanted": 1,
-          "seats_taken": 1,
-          "seats_against_the_band": 0,
-          "short_by": 1,
+          "seats_taken": 2,
+          "seats_against_the_band": 1,
+          "short_by": 0,
           "by_role": [
             {
               "occupation": "clerk",
@@ -599,8 +608,8 @@
               "count_low": 0,
               "count_typical": 1,
               "count_high": 1,
-              "seats_drawn": 0,
-              "short_by": 1
+              "seats_drawn": 1,
+              "short_by": 0
             },
             {
               "occupation": "labourer",
@@ -612,7 +621,7 @@
               "short_by": 0
             }
           ],
-          "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band. This house carries 1, 0 of them in a role that still wanted one, so it stands 1 short — short rather than quietly filled, and short in the roles named below rather than in the total.",
+          "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 2. It is at its band.",
           "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
           "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
         }
@@ -1839,13 +1848,33 @@
       "over_ruling": false,
       "staff": [
         {
-          "name": "Jean Vieau",
-          "person_id": "rc_vieau_jean",
+          "name": "Calvin Ingalls",
+          "person_id": "rc_ingalls_calvin",
           "role": "clerk",
           "occupation": "clerk",
           "tier": "reconstructed",
           "basis": "The staffing model puts 1 of this role in a dry-goods store at the typical band and 2 at the high end, on directory_1839. The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#dry_goods_store.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
-          "seed": "rc_vieau_jean:employment",
+          "seed": "rc_ingalls_calvin:employment",
+          "replaceable_by": "a source naming where this person worked, which retires the draw"
+        },
+        {
+          "name": "William Kellogg",
+          "person_id": "rc_kellogg_william",
+          "role": "household_member",
+          "occupation": "labourer",
+          "tier": "reconstructed",
+          "basis": "The staffing model puts 0 of this role in a dry-goods store at the typical band and 1 at the high end, on period_convention. A porter to shift goods, at the larger houses only. Analogue: the 1839 list's seven porters, counted under labourer, against 151 commerce principals. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#dry_goods_store.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+          "seed": "rc_kellogg_william:employment",
+          "replaceable_by": "a source naming where this person worked, which retires the draw"
+        },
+        {
+          "name": "Joseph Parmelee",
+          "person_id": "rc_parmelee_joseph",
+          "role": "clerk",
+          "occupation": "clerk",
+          "tier": "reconstructed",
+          "basis": "The staffing model puts 1 of this role in a dry-goods store at the typical band and 2 at the high end, on directory_1839. The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#dry_goods_store.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+          "seed": "rc_parmelee_joseph:employment",
           "replaceable_by": "a source naming where this person worked, which retires the draw"
         }
       ],
@@ -1862,7 +1891,7 @@
             "count_low": 1,
             "count_typical": 1,
             "count_high": 2,
-            "seats_drawn": 1,
+            "seats_drawn": 2,
             "drawn": true,
             "basis": "directory_1839"
           },
@@ -1873,10 +1902,9 @@
             "count_low": 0,
             "count_typical": 0,
             "count_high": 1,
-            "seats_drawn": 0,
-            "drawn": false,
-            "basis": "period_convention",
-            "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+            "seats_drawn": 1,
+            "drawn": true,
+            "basis": "period_convention"
           }
         ],
         "writes_no_person": true,
@@ -1884,7 +1912,7 @@
         "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
         "shortfall": {
           "typical_wanted": 1,
-          "seats_taken": 1,
+          "seats_taken": 3,
           "seats_against_the_band": 1,
           "short_by": 0,
           "by_role": [
@@ -1894,7 +1922,7 @@
               "count_low": 1,
               "count_typical": 1,
               "count_high": 2,
-              "seats_drawn": 1,
+              "seats_drawn": 2,
               "short_by": 0
             },
             {
@@ -1903,11 +1931,11 @@
               "count_low": 0,
               "count_typical": 0,
               "count_high": 1,
-              "seats_drawn": 0,
+              "seats_drawn": 1,
               "short_by": 0
             }
           ],
-          "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+          "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 3. It is at its band.",
           "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
           "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
         }
