@@ -1,3 +1,35 @@
+## T-2008 — Look Before You Buy a Lot, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Look Before You Buy a Lot* (Land, Walk,
+4 stops, News & Knowledge). Bates's new auction room on Dearborn → the former Democrat corner →
+Peck's store → the La Salle slough crossing. Two small choices: what the Marseilles lot sale at
+Bates's actually sold (another town's lots, cried in a Chicago room), and which of two real land
+notices to follow — E. K. Hubbard's town lots (Democrat, 27 May 1835, p. 3 col. 4) or J. W.
+Fell's canal-route land (17 June 1835, p. 3 col. 3). At the slough the visitor inquires about one
+lot or holds their money; three endings, all completion-eligible, one keepsake (*Read the Ground*).
+Content only: one JSON file, a liberty (`L-jaunt-inspect-a-lot`), the regenerated catalog and
+source-use edges, and brief 11's route note. No engine, compiler or CSS change.
+
+**What it refuses to claim.** Neither notice names a price, and no matched in-window record of a
+particular lot was found, so no lot, owner, price, title, bank or purchase appears; the errand ends
+at an inquiry, which the brief allows. The last stop's crossing is itself reconstructed (L195) and
+the stop text says so; the drain and the marshy South Division are cited at their own tiers.
+T-1267 was split into four one-jaunt tickets (T-2008..T-2011) on the T-1266 precedent: each
+jaunt is one run's demonstration.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 8 paths, endings `inquire-town`, `inquire-canal`,
+`held`, one keepsake each. The brief's order read 9.5 min at Walk on the published mirror because
+it doubled back from Dearborn to LaSalle, so the route was re-cut to start at the sale room. The
+catalog card now reads, at 390×780: Walk about 7, Wagon 4, Horse 3.5, Fly 3, Instantly 2.5
+(Walk 6.5, Horse 3 at 1280×800). Walk stays a minute over the 4–6 min target: the auction room is
+a block east of the other three stops and 2.5 min is reading. A Playwright drive at 390×780 took
+stills in order (card, first stop, the detail card and back to the same stop, the ending, the
+menu) with zero page errors; the keepsake landed under News & Knowledge.
+
+**Unverified.** The 1280×800 drive read the card's figures and opened the detail card with zero
+page errors, but the ride to the ending was cut off by the 580 s cap; the ending was proved at
+390×780 only. The stills are not committed.
+
 ## T-1262 — New in Chicago, finished as the first-day Orientation jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts → *New in Chicago* now recommends **Walk**, not
