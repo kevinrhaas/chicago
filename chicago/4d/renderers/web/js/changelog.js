@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+  { v: 1354, ts: '2026-10-03T08:26:22.962Z', date: 'Oct 3, 2026, 3:26 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [
       'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
       'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
