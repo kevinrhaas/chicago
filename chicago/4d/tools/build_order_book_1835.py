@@ -207,7 +207,13 @@ PERSON_TICKET_RULES = (
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
     ("an adult at a trade", lambda a: a["trade"] == "trade", "T-1347"),
     ("a woman or a person under twenty", lambda a: a["sex"] == "female" or a["age_band"] in ("under_10", "10_19"), "T-1174"),
-    ("otherwise: a family drawn from the household model", lambda a: True, "T-1171"),
+    # T-1171 WAS SPLIT on 2026-10-03 (T-2019 measure, T-2020 move, T-2021 rule) and its
+    # rows follow the split: a row naming a split ticket orders work nobody can claim, and
+    # the gate went red on every open branch within the hour. T-2020 is the child that
+    # changes what stands in these cells — it marries the town's own women into the
+    # refused married houses and moves the book's household count with them — so the
+    # remainder names it. What no move can fill is T-2021's ruling to make, not an order.
+    ("otherwise: a family drawn from the household model", lambda a: True, "T-2020"),
 )
 
 # The roster's classes, and the ticket each class is offered to. A roster class is
@@ -225,8 +231,9 @@ ROSTER_TICKETS = {
 # Household types against the roof groups that hold them, and the ticket that
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
-    ("family_dwelling", "ordinary_dwellings", "T-1171"),
-    ("store_residence", "stores_mixed_use", "T-1171"),
+    # T-1171 split on 2026-10-03; its households follow the person rule above to T-2020.
+    ("family_dwelling", "ordinary_dwellings", "T-2020"),
+    ("store_residence", "stores_mixed_use", "T-2020"),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
