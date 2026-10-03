@@ -3,6 +3,23 @@
  "tool": "tools/measure_corridor_strip.py",
  "reading": {
   "streets": {
+   "fulton": {
+    "offset_m": 0.35,
+    "bands": {
+     "abandoned": {
+      "area_m2": 149.3,
+      "dry_pct": 100.0,
+      "lots": 0,
+      "structures": []
+     },
+     "claimed": {
+      "area_m2": 149.3,
+      "dry_pct": 100.0,
+      "lots": 0,
+      "structures": []
+     }
+    }
+   },
    "kinzie": {
     "offset_m": 2.91,
     "bands": {

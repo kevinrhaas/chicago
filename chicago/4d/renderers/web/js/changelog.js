@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+    items: [
+      'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
+      'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
+      'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
+    ] },
   { v: 1348, ts: '2026-10-03T05:54:09.388Z', date: 'Oct 3, 2026, 12:54 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Freight for the Store. Drive a wagon from Newberry & Dole\u2019s wharf to two stores and on to George Dole\u2019s warehouse. It takes about six minutes.',
