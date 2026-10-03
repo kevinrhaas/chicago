@@ -17600,6 +17600,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-1263).
 
+### L-jaunt-fort-dearborn-errand — Fort Dearborn Errand: an invented note, parcel and delivery
+
+**Decision:** Fort Dearborn Errand links five existing exterior destinations — the stockade, the guard-house, the sutler's store, the store-house and the shop on the outer ground — in an invented errand: choose a small supply at the sutler's, check the parcel against a note outside the store-house, and set it down at the shop. The note, the parcel, the choice of candles or thread, the tally, the delivery, the readiness count, the two endings and the Accounted for at the Fort memento are reconstructed. No sutler's stock list for Fort Dearborn was found, so the two supplies are commonplace goods chosen for the story, not a claim about what this store sold. No soldier, sentry, sutler or commissary is shown or named, no garrison procedure is staged, no reply is invented, no interior is opened and the gates are not described as passed. What the evidence bounds is the setting: the buildings' functions and places (Hubbard 1827, the 1830 plan, the 1855 key, the 1834 beef notices) and the post being garrisoned on the scene date.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records, docs/RESEARCH/fort_dearborn.md and brief 06 of JAUNTS-INITIAL-LIBRARY.md. The shop is called a workshop only, because the plate says 'Shop' and names no trade. The August 1835 gathering is not staged and no Indigenous person is depicted or given dialogue.
+
+**How to resolve:** A sutler's account or advertisement for 1834–35 would replace the invented supplies with goods it lists, cited as its own claim; a post return naming the shop's trade would let the last stop say what was made there. The errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/fort-dearborn-errand.json`.
+
+**Recorded:** 2026-10-03 (T-1265).
+
 ### L-jaunt-taverns — Taverns of Chicago: an imagined evening round of four public houses
 
 **Decision:** Taverns of Chicago links four existing exterior destinations (the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel) in an invented evening. The purse (none, 25 or 50 cents), the six-cent glass, the bar talk at Wolf Point, the comparison of welcomes, the finishing house, the four endings and the A Sensible Evening calling card are reconstructed, and so are the sobriety count and the reading and action seconds. No named person speaks or serves, no price, room or transaction is attested, no interior is opened and no front door is claimed. The bar talk is kept to what the Chicago Democrat printed on 10 June 1835 (a Lake House building in Kinzie's Addition) and quotes nobody. Declining every glass reaches an ending and the keepsake just as accepting does. Each house's presence and keeper keep their own grades. The Wolf Point Tavern's 1835 trade is disputed and its position is the weakest in the dataset. The Western Hotel's date is Stow's own. The Sauganash's 1835 proprietor is only a lead, so the stop names none.
