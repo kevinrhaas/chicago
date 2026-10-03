@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1343, ts: '2026-10-03T04:30:34.318Z', date: 'Oct 2, 2026, 11:30 PM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+  { v: 1344, ts: '2026-10-03T04:44:52.837Z', date: 'Oct 2, 2026, 11:44 PM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
     items: [
       'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
       'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
       'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
+    ] },
+  { v: 1343, ts: '2026-10-03T04:26:26.766Z', date: 'Oct 2, 2026, 11:26 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
+      'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
+      'At the Democrat\u2019s first corner, read the paper\u2019s list of letters nobody had called for. End at Hogan\u2019s, the former mail corner. The post office had moved a year earlier to an unplaced spot on South Water Street, so you leave with a plan for posting, not a receipt.',
+      'The keepsake is A Letter Ready to Send. The letter and the route are our reconstruction (liberty L-jaunt-letter-home).',
     ] },
   { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [
