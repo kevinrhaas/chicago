@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1337, ts: '2026-10-03T02:08:05.503Z', date: 'Oct 2, 2026, 9:08 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Across Wolf Point. It is a short walk across the river, with nothing to buy, about five and a half minutes on foot.',
+      'Four stops: the Wolf Point Tavern at the forks, the Green Tree, the South Branch bridge and the Sauganash. The route keeps to the bridge and never crosses open water.',
+      'Two disputes are told, not hidden. Was the tavern still taking travellers in July 1835? Was the bridge a raft? The old settlers who used it describe a fixed bridge.',
+      'Finish to keep Knows the Crossing in your daybook under Wayfinding. The outing itself is our reconstruction (liberty L-jaunt-across-wolf-point).',
+    ] },
   { v: 1336, ts: '2026-10-03T01:51:10.099Z', date: 'Oct 2, 2026, 8:51 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [
       'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
