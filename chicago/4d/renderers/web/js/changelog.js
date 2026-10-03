@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
+  { v: 1374, ts: '2026-10-03T17:31:24.023Z', date: 'Oct 3, 2026, 12:31 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
     items: [
       'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
       'Pick a machine at the top right: the 1960s Control Room (the standard), Precision Brass, World\u2019s Fair or Deep Space. The choice follows you into the town, and the arrival card and settings panel carry the same selector.',
