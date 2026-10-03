@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1371, ts: '2026-10-03T16:14:36.599Z', date: 'Oct 3, 2026, 11:14 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
+    items: [
+      'Two boarding houses on the block at Washington and Market streets have four new boarders between them: three at Louis Robillard\u2019s and one at Michel Laframboise\u2019s. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a tailor. Open a house\u2019s card to see them.',
+      'The town was still owed four working lodgers in the South Division, and these houses still had empty beds after this morning\u2019s youths took theirs. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
+      'The two clerks work at John Dean Caton\u2019s and at his law office, and the tailor at George Holsman\u2019s, in places those houses still had open. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
   { v: 1370, ts: '2026-10-03T15:42:04.279Z', date: 'Oct 3, 2026, 10:42 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
     items: [
       'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',

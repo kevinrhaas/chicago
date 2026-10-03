@@ -1041,6 +1041,232 @@
      "west": 0
     }
    }
+  },
+  "working_lodgers": {
+   "$note": "DERIVED and CARRIED (T-1532). The book's `lodging/trade` order, dealt after the top-up as working lodgers with a trade drawn off the 1839 table. Read live on the build that first recorded it — the order less the re-family arrivals less what this stage had drawn — and carried on every build after, so a re-cut moves nobody it seats.",
+   "owning_ticket": "T-1532",
+   "trades_from": "data/research/directories/fergus_1839_trade_table.json, through tools/reconstruct_trade_households.py's own reader, less the keepers' trades and the census-counted ones",
+   "buckets": [
+    {
+     "bucket": "persons/female/10_19/north/lodging/trade",
+     "division": "north",
+     "sex": "female",
+     "age_band": "10_19",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/20_29/north/lodging/trade",
+     "division": "north",
+     "sex": "female",
+     "age_band": "20_29",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/30_39/north/lodging/trade",
+     "division": "north",
+     "sex": "female",
+     "age_band": "30_39",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/40_49/north/lodging/trade",
+     "division": "north",
+     "sex": "female",
+     "age_band": "40_49",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/50_plus/north/lodging/trade",
+     "division": "north",
+     "sex": "female",
+     "age_band": "50_plus",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/10_19/north/lodging/trade",
+     "division": "north",
+     "sex": "male",
+     "age_band": "10_19",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/20_29/north/lodging/trade",
+     "division": "north",
+     "sex": "male",
+     "age_band": "20_29",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/30_39/north/lodging/trade",
+     "division": "north",
+     "sex": "male",
+     "age_band": "30_39",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/40_49/north/lodging/trade",
+     "division": "north",
+     "sex": "male",
+     "age_band": "40_49",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/50_plus/north/lodging/trade",
+     "division": "north",
+     "sex": "male",
+     "age_band": "50_plus",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/20_29/south/lodging/trade",
+     "division": "south",
+     "sex": "female",
+     "age_band": "20_29",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/30_39/south/lodging/trade",
+     "division": "south",
+     "sex": "female",
+     "age_band": "30_39",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/40_49/south/lodging/trade",
+     "division": "south",
+     "sex": "female",
+     "age_band": "40_49",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/50_plus/south/lodging/trade",
+     "division": "south",
+     "sex": "female",
+     "age_band": "50_plus",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/10_19/south/lodging/trade",
+     "division": "south",
+     "sex": "male",
+     "age_band": "10_19",
+     "to_deal": 4
+    },
+    {
+     "bucket": "persons/male/20_29/south/lodging/trade",
+     "division": "south",
+     "sex": "male",
+     "age_band": "20_29",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/30_39/south/lodging/trade",
+     "division": "south",
+     "sex": "male",
+     "age_band": "30_39",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/40_49/south/lodging/trade",
+     "division": "south",
+     "sex": "male",
+     "age_band": "40_49",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/50_plus/south/lodging/trade",
+     "division": "south",
+     "sex": "male",
+     "age_band": "50_plus",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/20_29/west/lodging/trade",
+     "division": "west",
+     "sex": "female",
+     "age_band": "20_29",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/30_39/west/lodging/trade",
+     "division": "west",
+     "sex": "female",
+     "age_band": "30_39",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/40_49/west/lodging/trade",
+     "division": "west",
+     "sex": "female",
+     "age_band": "40_49",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/female/50_plus/west/lodging/trade",
+     "division": "west",
+     "sex": "female",
+     "age_band": "50_plus",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/10_19/west/lodging/trade",
+     "division": "west",
+     "sex": "male",
+     "age_band": "10_19",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/20_29/west/lodging/trade",
+     "division": "west",
+     "sex": "male",
+     "age_band": "20_29",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/30_39/west/lodging/trade",
+     "division": "west",
+     "sex": "male",
+     "age_band": "30_39",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/40_49/west/lodging/trade",
+     "division": "west",
+     "sex": "male",
+     "age_band": "40_49",
+     "to_deal": 0
+    },
+    {
+     "bucket": "persons/male/50_plus/west/lodging/trade",
+     "division": "west",
+     "sex": "male",
+     "age_band": "50_plus",
+     "to_deal": 0
+    }
+   ],
+   "seated": [
+    {
+     "place": "recon_1835_blk_washington_market_h3_01",
+     "division": "south",
+     "persons": [
+      "rc_barnes_john",
+      "rc_laframboise_alexis",
+      "rc_parmelee_jared"
+     ]
+    },
+    {
+     "place": "recon_1835_blk_washington_market_h3_04",
+     "division": "south",
+     "persons": [
+      "rc_nichols_alvah"
+     ]
+    }
+   ],
+   "ordered_with_no_bed": {
+    "south": 0,
+    "north": 0,
+    "west": 0
+   }
   }
  },
  "inputs": [
@@ -1399,12 +1625,13 @@
     "whistler_john_harrison"
    ],
    "minted_keeper": "rc_robillard_louis",
-   "minted_lodgers": 3,
+   "minted_lodgers": 6,
    "minted_children": 1,
    "youths_topped_up": 3,
-   "occupancy_after": 7,
+   "working_lodgers": 3,
+   "occupancy_after": 10,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": true
   },
   {
    "id": "recon_1835_blk_washington_market_h3_04",
@@ -1430,9 +1657,10 @@
     "wright_robert_c"
    ],
    "minted_keeper": "rc_laframboise_michel",
-   "minted_lodgers": 0,
+   "minted_lodgers": 1,
    "minted_children": 2,
-   "occupancy_after": 6,
+   "working_lodgers": 1,
+   "occupancy_after": 7,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": false
   },
@@ -3073,13 +3301,13 @@
    "id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_market_h3_01.json",
    "place": "recon_1835_blk_washington_market_h3_01",
-   "persons": 5
+   "persons": 8
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_market_h3_04",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_market_h3_04.json",
    "place": "recon_1835_blk_washington_market_h3_04",
-   "persons": 3
+   "persons": 4
   },
   {
    "id": "hh_lodging_recon_1835_north_h1_007",
@@ -3199,6 +3427,9 @@
   "persons/female/10_19/south/lodging/none": 6,
   "persons/male/10_19/north/lodging/none": 2,
   "persons/male/10_19/south/lodging/none": 2
+ },
+ "working_fills": {
+  "persons/male/10_19/south/lodging/trade": 4
  },
  "household_fills": {
   "statement": "One fill per lodging household record this stage writes, keyed on the order book's own household cell. A card written is a house filled.",
@@ -3663,20 +3894,14 @@
    "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
   },
   {
-   "place": "recon_1835_blk_washington_market_h3_01",
-   "refusal": "no order left, no mint",
-   "beds_left_empty": 3,
-   "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
-   "youths_seated_by": {
-    "ticket": "T-1536",
-    "seated": 3
-   }
-  },
-  {
    "place": "recon_1835_blk_washington_market_h3_04",
    "refusal": "no order left, no mint",
-   "beds_left_empty": 6,
-   "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
+   "beds_left_empty": 5,
+   "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
+   "working_lodgers_by": {
+    "ticket": "T-1532",
+    "seated": 1
+   }
   },
   {
    "place": "recon_1835_north_t1_061",
@@ -3694,7 +3919,7 @@
   "the_crews_and_the_works_gang": "T-1372, piece 3 of this parent: the vessels in port and the hands at the pier works, and the card that prints who lived in a house.",
   "the_unbuilt_boarding_houses": "The lodging model schedules 42 boarding houses and 5 of them stand. The other 37 are 333 ordinary beds with no roof over them, and a bed cannot be slept in before it is built: T-1196 re-derives the roof programme and T-1187 raises the houses.",
   "the_staff": "T-1183 models how a business was staffed. The bar-keeper, the hostler, the cook and the chambermaid under every keeper here are that ticket's, as T-1370 already said.",
-  "the_trade_of_a_lodger": "The book's `lodging/trade` buckets are left open. Dealing a trade is T-1173's machinery.",
+  "the_trade_of_a_lodger": "NOW DEALT, AFTER EVERYTHING ELSE (T-1532): `quota_basis.working_lodgers` carries the order and the beds it went into. The boarders above still carry no trade — they were ordered out of the `none` cells.",
   "the_children": "PART OF IT NOW IS. The book orders people under ten into lodging households and they are keepers' families rather than boarders, which is why refusal 3 would not deal them a bed. T-1533 draws the ones this stage can reach: the children of the keepers this stage itself minted, on the houses it minted them onto, out of the `under_10/*/lodging/none` cells for those houses' divisions. The rest are not reachable from here and are not moved: a child of a DOCUMENTED keeper is T-1171's draw or T-1179's convergence, and the south division's cells order children into the 37 boarding houses the lodging model schedules and nobody has built (T-1187 raises them), where there is no keeper to be kin to. `keeper_families` counts both halves."
  },
  "measurement": {
@@ -3703,15 +3928,15 @@
   "crowded_beds": 686,
   "occupied_before_this_stage": 30,
   "seated_from_the_layer": 56,
-  "minted_here": 121,
+  "minted_here": 125,
   "minted_keepers": 12,
   "keeper_children_minted": 25,
   "keeper_children_the_model_wanted": 31,
   "keeper_children_refused": 6,
-  "people_on_the_cards": 146,
-  "occupied_after_this_stage": 207,
-  "ordinary_night_beds_still_empty": 27,
-  "houses_at_their_ordinary_night_figure": 21,
+  "people_on_the_cards": 150,
+  "occupied_after_this_stage": 211,
+  "ordinary_night_beds_still_empty": 23,
+  "houses_at_their_ordinary_night_figure": 22,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
   "buckets_filled": 28,
@@ -3724,7 +3949,7 @@
    "built_places_holding_a_household": 23,
    "built_places_holding_no_household": 3,
    "ordinary_night_beds": 234,
-   "ordinary_night_beds_slept_in": 207,
+   "ordinary_night_beds_slept_in": 211,
    "households_the_book_orders_in_these_two_classes": 66,
    "houses_this_stage_has_filled": 23,
    "houses_still_ordered_after_this_stage_s_counter": 43,
@@ -3749,7 +3974,8 @@
    "may_anything_more_be_minted_here": "Yes — see the two counts above for which unit has the room."
   },
   "child_buckets_filled": 5,
+  "working_lodgers_minted": 4,
   "every_child_is_kin_of_a_named_keeper": true,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 121 of them into beds and 25 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children of houses this stage does not keep."
+  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 125 of them into beds and 25 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), and the children of houses this stage does not keep."
  }
 }
