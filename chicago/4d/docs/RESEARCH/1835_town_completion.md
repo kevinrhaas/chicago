@@ -8,7 +8,7 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 
 | join | state | what keeps it open |
 |---|---|---|
-| Every household housed | open | 515 households without a roof yet |
+| Every household housed | open | 526 households without a roof yet |
 | Every working person at a workplace | open | 28 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
 | Every standing roof occupied or its use stated | closed | — |
@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **2,506** people housed in a standing building: **11.4 % attested** (286), **24.0 % inferred** (602), **64.6 % reconstructed** (1,618).
+Of the **2,506** people housed in a standing building: **11.4 % attested** (285), **23.6 % inferred** (592), **65.0 % reconstructed** (1,629).
 
 ## Every table by tier
 
@@ -25,22 +25,22 @@ Of the **2,506** people housed in a standing building: **11.4 % attested** (286)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 286 | 602 | 1,618 | 2,506 |
-| counted apart — waiting on a roof | 126 | 389 | 2 | 517 |
+| housed | 285 | 592 | 1,629 | 2,506 |
+| counted apart — waiting on a roof | 127 | 399 | 2 | 528 |
 | counted apart — absent on the scene date | 0 | 1 | 28 | 29 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **412** | **992** | **1,648** | **3,052** |
-| share | 13.5 % | 32.5 % | 54.0 % | |
+| **all** | **412** | **992** | **1,659** | **3,063** |
+| share | 13.5 % | 32.4 % | 54.2 % | |
 
 ### Households (by the head's grade)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 274 | 587 | 655 | 1,516 |
-| counted apart — waiting on a roof | 126 | 389 | 0 | 515 |
+| housed | 273 | 577 | 656 | 1,506 |
+| counted apart — waiting on a roof | 127 | 399 | 0 | 526 |
 | counted apart — absent on the scene date | 0 | 1 | 28 | 29 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **400** | **977** | **683** | **2,060** |
+| **all** | **400** | **977** | **684** | **2,061** |
 | share | 19.4 % | 47.4 % | 33.2 % | |
 
 ### Working-age persons

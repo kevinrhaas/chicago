@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1358, ts: '2026-10-03T10:49:19.761Z', date: 'Oct 3, 2026, 5:49 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+    items: [
+      'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, and four each at the two boarding houses on the Dearborn and Market blocks of Washington Street. Open a house\u2019s card to see them among its boarders.',
+      'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
+      'Nine children under ten are still owed in South and West Division lodging houses. A child is only ever placed with a keeper\u2019s family, so they will arrive with the keepers of boarding houses not yet raised.',
+    ] },
   { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [
       'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',

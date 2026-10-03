@@ -176,7 +176,8 @@ PERSON_TICKET_RULES = (
     #
     #   refusal 2, NO TRADE IS DEALT      -> T-1532, the working lodgers
     #   refusal 3, NO CHILDREN            -> T-1533, the minted keepers' own families
-    #                                        (shipped; its remainder is T-1536)
+    #                                        (shipped; its remainder was T-1536, now
+    #                                        shipped too, and is T-2023's)
     #   the 37 unbuilt boarding houses    -> T-1534, the boarders proper, bed-bound
     #
     # On the book as T-1500 read it, the 278 still owed divide 61 / 86 / 131 across the
@@ -197,9 +198,14 @@ PERSON_TICKET_RULES = (
     # the children of the 37 boarding houses the lodging model schedules and nobody has
     # built, where there is no keeper to be kin to. A bucket must name who does what is
     # LEFT, so it names the successor rather than the ticket whose fills stand in it.
+    # T-1536 CLOSED on 2026-10-03: its youths' top-up (seat_lodgers_1835.py) boarded the
+    # eleven `10_19` the book still ordered, which leaves the band at its order. What is
+    # left is nine under-tens in the South and the West, and a child is drawn as a keeper's
+    # kin or not at all — so they come with the keepers of the lodging roofs not yet
+    # raised, through T-1533's draw, which is T-2023's roof-by-roof remainder.
     ("a child of the house, a bed rather than a household",
      lambda a: a["household_type"] == "lodging" and a["age_band"] in ("under_10", "10_19"),
-     "T-1536"),
+     "T-2023"),
     # T-1534 split into T-1537 and T-1538 on 2026-09-24 and the cells follow the split,
     # not the parent: a bucket whose owning ticket is a SPLIT parent names nobody who can
     # act on it (T-1237), and this gate is what says so. T-1538 is the beds — "fill the
@@ -1321,6 +1327,14 @@ def person_buckets(model: dict, composition: dict, inventory: dict, known: dict,
 REMAINDER_STABLE_STAGES = {
     "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in "
               "data/reconstruction/1835_lodgers_seated.json (T-1503)",
+    # T-1536 deals the `10_19` lodging youths — the very cells this re-cut pays the
+    # working youths out of — against a room read live ONCE and then carried, so a
+    # re-cut of the cell's order re-deals nobody it seated. Left off this list, its first
+    # fill closed those cells' remainder to the re-cut and the adult cells were shaved
+    # under the boarders already standing in them.
+    "T-1536": "tools/seat_lodgers_1835.py — the youths' top-up, dealt against the "
+              "committed `quota_basis.youth_top_up` in "
+              "data/reconstruction/1835_lodgers_seated.json",
 }
 
 
