@@ -21,26 +21,17 @@
     "beaubien_barn__converted_1817.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
-      "bytes": 66332,
-      "inputs_sha256": "70741fe0a55ca3ed220235a9d06af418b4879c838a0f22a4c300338176fed136",
+      "bytes": 70712,
+      "inputs_sha256": "3b80fdd6a6142882f920c77a9b92e27d3c97a1dabffc2d81346b8c9476375758",
       "kind": "generated",
       "phase_id": "converted_1817",
       "structure_id": "beaubien_barn"
     },
-    "beaubien_new_residence__log_1822.glb": {
-      "archetype": "log_dwelling",
-      "baked_ao": false,
-      "bytes": 32360,
-      "inputs_sha256": "a2a4a003d3160c62b4e018636449cf300ef7bdb8d7143d220c1a412034397215",
-      "kind": "generated",
-      "phase_id": "log_1822",
-      "structure_id": "beaubien_new_residence"
-    },
     "beaubien_trading_post__log_1822.glb": {
-      "archetype": "log_dwelling",
+      "archetype": "outbuilding",
       "baked_ao": false,
-      "bytes": 32388,
-      "inputs_sha256": "ae668b9839fa2ea75fc21f7ed0061aaf8577844fe2dfa7e372dd3cc91dd09d22",
+      "bytes": 52376,
+      "inputs_sha256": "ffdd199af38155c6f4dce43ea5b7ed0c5b540711129eb7a6d09f38d8cbc4c22e",
       "kind": "generated",
       "phase_id": "log_1822",
       "structure_id": "beaubien_trading_post"

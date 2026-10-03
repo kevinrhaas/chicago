@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1382, ts: '2026-10-03T20:15:44.856Z', date: 'Oct 3, 2026, 3:15 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
+  { v: 1383, ts: '2026-10-03T20:41:08.977Z', date: 'Oct 3, 2026, 3:41 PM CT', title: 'Glessner’s connected roofs and courtyard copper', kind: 'fix',
     items: [
       'The north roof ridge runs straight to the west wall. The west wing has a full-height south gable and a complete roof toward the courtyard.',
       'The west dormer joins the main roof with a decorated ridge. Triangular tiled returns meet the dining bay’s copper cap, and copper continues into the northeast courtyard corner.',
       'The roof joins and two service-wing chimneys are declared reconstructions; the latter are not securely dated to 1904.'
+    ] },
+  { v: 1382, ts: '2026-10-03T20:16:55.784Z', date: 'Oct 3, 2026, 3:16 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
+    items: [
+      'Walk south from the fort\u2019s south gate. The road no longer runs through two log houses: Col. Jean Baptiste Beaubien\u2019s homestead is one house with two outbuildings behind it.',
+      'His small trading post is now a low log store with a single-slope roof, standing west of the house, away from the road. His barn, behind the house, now has a hay-loft door.',
+      'Andreas mentions a \u201cnew residence\u201d as well. We read it as the same house, so it is no longer drawn twice. Where the store and barn stand, and what they look like, are our reconstruction (liberty L283).',
     ] },
   { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
     items: [
