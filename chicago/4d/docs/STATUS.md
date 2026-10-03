@@ -22,6 +22,38 @@ b on the ticket) for one dwelling and two outbuildings.
   container cannot run; the bake is dispatched on the branch. The garden Wentworth names is still
   unbuilt.
 
+## T-2033 — From Prairie to Town, a published 1835 arrival jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *From Prairie to Town* (Migration and
+routes, Horse, 4 stops, Wayfinding). It starts on open ground by the lake three-quarters of a
+mile south of the fort, the scene anchor `lake_shore_south`, and the stop calls itself a
+viewpoint, not a place. What it says of the ground is cited: Wright's 1834 map names it
+Fractional Section 15, the state register has no entry on it before 31 May 1836, and Moses &
+Kirkland date its platting to 13 June 1836. Next comes Fort Dearborn's stockade (Kinzie's high
+pickets and two gates; garrisoned since June 1832), then Peck's store at South Water and LaSalle
+(his card's stock; Porter's night in the unfinished loft), and finally the door of the
+Sauganash. One ending; the keepsake *Into Town* goes to Wayfinding. Content only: one JSON file,
+a liberty (`L-jaunt-from-prairie-to-town`), the regenerated catalog and source-use edges, and
+brief 24's route note. No engine, compiler or CSS change. Piece 2 of the three T-1270 was split
+into.
+
+**The brief's cautions hold by construction.** Nothing of August 1812 is staged on this shore:
+no removal, no battle and no Native presence. The first leg passes the conjectural camps on the
+reservation, and its note says any tents there are our conjecture (L355, L358). Nobody is met,
+and no bed or purchase is claimed.
+
+**Measured: the long leg, as the brief asked.** `play_jaunt.mjs --all-paths`: 1 path, one
+ending, one keepsake. Card estimates on the published mirror, the same at 390×780 and 1280×800:
+Walk 39 min, Wagon 17, Horse 10, Fly 4, Instantly 2. The shore → stockade leg alone is 300 s at
+Horse and 58 s at Fly. The primary path measured 560 s at Horse against the card's 612 s (610 s
+at 1280), and 231 s at Fly against 239 s. **Horse is three and a half minutes over the 4–6 min
+band, and that is kept on purpose:** the outing is about arriving from outside the town, the
+anchor is the brief's, and Fly (4 min) and Instantly stay offered at every stop. A Playwright
+drive at 390×780 went from the card through Start, the first stop, the stockade's card and back
+to the same stop, the ending (`in-town`, keepsake kept), and a second Start with End back to the
+menu. Zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-from-prairie-to-town/`.
+
 ## T-2031 — Gossip or Printed Notice?, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Gossip or Printed Notice?* (News and social

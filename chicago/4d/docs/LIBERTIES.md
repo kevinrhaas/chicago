@@ -20592,3 +20592,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/sunday-circuit.json`.
 
 **Recorded:** 2026-10-03 (T-2029).
+
+### L-jaunt-from-prairie-to-town — From Prairie to Town: an invented ride in from the open shore south of the fort
+
+**Decision:** From Prairie to Town links one typed viewpoint and three existing exterior destinations — the scene anchor `lake_shore_south`, Fort Dearborn's stockade, P. F. W. Peck's store and the Sauganash — in an invented arrival. The traveller, the coming up from the south, the ride, the route order (north over the unplatted shore and the United States Reservation to the river mouth, west along the south bank to South Water and LaSalle, on to Lake and Market), the looking from outside, the single ending and the Into Town memento are reconstructed, and so are the reading seconds. The first stop is a camera position and the stop says so: it is not a named place, an establishment or a landing. What the stop says of the ground is cited — Wright 1834 names it Fractional Section 15, the state register has no entry on it before 31 May 1836, and Moses & Kirkland date its platting to 13 June 1836 — and its "no street, lot or house" is the model's, which raises none within 600 m. The tents the first leg passes on the reservation are conjectural and the leg note says so (L355, L358). No one is met or speaks, no bed or purchase is claimed, no interior is opened, and nothing of August 1812 — the removal, the battle, or any Native presence — is staged on this shore.
+
+**Bounds:** The approved 1 July 1835 scene, the anchor in `data/scenes/1835.json`, the three structure records, the survey-tract and no-build files' committed readings, and brief 24 of JAUNTS-INITIAL-LIBRARY.md. The route, the traveller and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A source describing the road travellers actually took into town from the south in 1835 would let the first leg name it instead of reading as a ride over open ground.
+
+**Applies to:** `data/jaunts/from-prairie-to-town.json`.
+
+**Recorded:** 2026-10-03 (T-2033).
