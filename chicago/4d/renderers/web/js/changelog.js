@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1339, ts: '2026-10-03T03:07:04.538Z', date: 'Oct 2, 2026, 10:07 PM CT', title: 'A new jaunt: A Bed for the Night', kind: 'feature',
+  { v: 1340, ts: '2026-10-03T03:34:20.834Z', date: 'Oct 2, 2026, 10:34 PM CT', title: 'A new jaunt: A Bed for the Night', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick A Bed for the Night. Compare four houses that took in strangers in the full town of 1835, about five and a half minutes on horseback.',
       'Four stops from the west side to Lake Street: the Western Hotel, the Sauganash, Mrs Rufus Brown\u2019s boarding house and the Mansion House. Say first whether cost or convenience matters more, then choose where to ask.',
       'The crowding is told in the June 1835 papers\u2019 own words: strangers in every room, some sleeping on the floor. No price or vacancy is claimed.',
       'Finish to keep A Place to Lay Your Head in your daybook under Neighbors. The search itself is our reconstruction (liberty L-jaunt-bed-for-the-night).',
+    ] },
+  { v: 1339, ts: '2026-10-03T02:58:42.777Z', date: 'Oct 2, 2026, 9:58 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick New in Chicago. It now recommends walking, and every leg between its five stops has a route note.',
+      'At the Democrat\u2019s old corner, read a real notice: Kinzie and Forsyth\u2019s lithographed town maps, still advertised in June 1835.',
+      'Peck\u2019s store is now your supply shop, read from his own advertisements. At Brown\u2019s boarding house, choose board by the week or a bed close to the stores. Each choice has its own ending.',
+      'The errand and the boarding choice are our reconstruction (liberty L-jaunt-new-in-chicago); no room, rate or sale is claimed.',
     ] },
   { v: 1338, ts: '2026-10-03T02:34:38.433Z', date: 'Oct 2, 2026, 9:34 PM CT', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
     items: [
