@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1372, ts: '2026-10-03T17:07:13.746Z', date: 'Oct 3, 2026, 12:07 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
+  { v: null, ts: '', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
     items: [
       'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
       'Pick a machine at the top right: the 1960s Control Room (the standard), Precision Brass, World\u2019s Fair or Deep Space. The choice follows you into the town, and the arrival card and settings panel carry the same selector.',
       'If you had chosen an earlier skin, you keep it under its new name: Sci-fi is now the Control Room, Steampunk is Precision Brass and Space Age is World\u2019s Fair.',
       'The Confluence Laboratory and its aperture are framing fiction for the front door. They make no claim about the town; the evidence grades on every card are unchanged.',
+    ] },
+  { v: 1372, ts: '2026-10-03T16:54:14.525Z', date: 'Oct 3, 2026, 11:54 AM CT', title: 'A new jaunt: Gossip or Printed Notice?', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Gossip or Printed Notice?, about five and a half minutes on horseback from the Wolf Point Tavern to the town\u2019s two printing offices.',
+      'Two rumors from the forks meet what the papers actually printed: the Democrat of 1 July would only guess at the land sale\u2019s take, and the American of 27 June says the Chicago branch bank has no officers yet. The brick bank on the square is Springfield\u2019s.',
+      'Decide what to carry back: what was printed, that nothing is settled, or nothing. The rumors and the keepsake, A Careful Reader, are our reconstruction (liberty L-jaunt-gossip-or-notice).',
     ] },
   { v: 1371, ts: '2026-10-03T16:14:36.599Z', date: 'Oct 3, 2026, 11:14 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
     items: [
