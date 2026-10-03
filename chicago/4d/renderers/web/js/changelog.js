@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1386, ts: '2026-10-03T21:51:35.909Z', date: 'Oct 3, 2026, 4:51 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
+  { v: null, ts: '', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'Every build now walks the path a visitor takes, on a phone and on a desktop: the year counting down to 1835, the welcome, Starting At…, a jaunt with its place card and source, a change of travel mode, the Jaunts menu and Resume, End, a second jaunt, and Explore on my own.',
       'It found nothing broken. End returns to the menu in under a millisecond, and the Sources count matches the published catalog.',
+    ] },
+  { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
+    items: [
+      'In Gossip or Printed Notice?, the stop at the American no longer puts quotation marks round the bank notice\'s words. Part of that phrase is our reading of a damaged line, not the paper\'s print, so the stop now gives it in plain words.',
+      'Every jaunt is now read for four things it must never do: stage a meeting with Native people, show a figure of anyone, quote a named person without a source, or cite a source whose terms forbid it. All 27 pass.',
     ] },
   { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
     items: [
