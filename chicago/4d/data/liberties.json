@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 371,
+  "count": 372,
   "liberties": [
     {
       "id": "L1",
@@ -19543,6 +19543,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-03 (T-2007)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-household-provisions",
+      "title": "Stock the Household: an invented room, list, purse and prices",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Stock the Household links four existing exterior destinations on one block of South Water Street (Mrs Rufus Brown's boarding house, Jones's grocery and provision store, Philo Carpenter's drug store and P. F. W. Peck's store) in an invented errand to begin a cupboard. The visitor's share of a room at Brown's, the two-dollar purse, the choice of a list for the table or for the room, every price, the basket, the four endings and the A Cupboard Begun keepsake are reconstructed, and so are the reading and action seconds. Each good is offered only at a store whose own advertisement lists it: coffee, sugar and tea at Jones's (26 November 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's (December 1833 and December 1834). The position of Jones's store at the Wells end of the block is the structure record's reconstruction, and the stop says so."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved July 1, 1835 scene, the four structure records, the Democrat's first issue and its 1833-35 run, the American's June 1835 issues, Andreas's boarding-house and 1834-advertiser passages, and brief 13 of JAUNTS-INITIAL-LIBRARY.md. The room, the lists, the prices and the keepsake are present-day interpretive choices; no vacancy at Brown's, sale or price is claimed."
+        },
+        {
+          "label": "How to resolve",
+          "text": "These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated 1835 price current for tea, coffee or flannel at Chicago would let the prices cite it; an 1834-35 Jones advertisement with an address would place the grocery stop."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/household-provisions.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2010)."
         }
       ]
     },

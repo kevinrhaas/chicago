@@ -17660,6 +17660,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-2007).
 
+### L-jaunt-household-provisions — Stock the Household: an invented room, list, purse and prices
+
+**Decision:** Stock the Household links four existing exterior destinations on one block of South Water Street (Mrs Rufus Brown's boarding house, Jones's grocery and provision store, Philo Carpenter's drug store and P. F. W. Peck's store) in an invented errand to begin a cupboard. The visitor's share of a room at Brown's, the two-dollar purse, the choice of a list for the table or for the room, every price, the basket, the four endings and the A Cupboard Begun keepsake are reconstructed, and so are the reading and action seconds. Each good is offered only at a store whose own advertisement lists it: coffee, sugar and tea at Jones's (26 November 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's (December 1833 and December 1834). The position of Jones's store at the Wells end of the block is the structure record's reconstruction, and the stop says so.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, the Democrat's first issue and its 1833-35 run, the American's June 1835 issues, Andreas's boarding-house and 1834-advertiser passages, and brief 13 of JAUNTS-INITIAL-LIBRARY.md. The room, the lists, the prices and the keepsake are present-day interpretive choices; no vacancy at Brown's, sale or price is claimed.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated 1835 price current for tea, coffee or flannel at Chicago would let the prices cite it; an 1834-35 Jones advertisement with an address would place the grocery stop.
+
+**Applies to:** `data/jaunts/household-provisions.json`.
+
+**Recorded:** 2026-10-03 (T-2010).
+
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
 **Decision:** At the owner's request, v4 uses the default's measured envelope and

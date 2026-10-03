@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1351, ts: '2026-10-03T06:57:27.534Z', date: 'Oct 3, 2026, 1:57 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
+  { v: 1352, ts: '2026-10-03T07:12:52.287Z', date: 'Oct 3, 2026, 2:12 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
     items: [
       'Walk South Water Street to the store lettered W. MONTGOMERY, Auction & Commission House. He opened there in the last week of June 1835 and held his first sale on 1 July, the day the town is set.',
       'The two Chicago papers ran his notice under four different headings, and the town held them as four businesses, so none of them could hang a board. They are one house now. His card gathers every printing, and his own words place him in David Carver\u2019s old store, a few doors west of J. Wright\u2019s.',
       'Neither paper gives a door number, so which store on the street is his is our allocation. A few other South Water merchants moved one roof along to make room.',
+    ] },
+  { v: 1351, ts: '2026-10-03T06:48:49.856Z', date: 'Oct 3, 2026, 1:48 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
+      'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
+      'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
+      'Finish to keep A Cupboard Begun in your daybook under Provisions.',
     ] },
   { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
     items: [
