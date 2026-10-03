@@ -20642,3 +20642,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/an-evening-stroll.json`.
 
 **Recorded:** 2026-10-03 (T-2034).
+
+### L-jaunt-over-the-draw — Over the Draw to the North Side: an invented crossing to three places on the far bank
+
+**Decision:** Over the Draw to the North Side is the library's 26th jaunt and the demonstration that the library grows by data alone (T-2042): it was added as one JSON file and compiled by `tools/compile_jaunts.py`, with no change to the renderer's code or styles. It links four existing exterior destinations — the Dearborn Street drawbridge, Blodgett's brickyard, the North Side school-house and the Lake House site — in an invented outing. The outing, the crossing, the route order (from the foot of Dearborn on South Water Street over the draw, west along the north bank toward Clark, then east along the bank to Rush), the looking from the street, the choice of where to end, both endings and the North of the River memento are reconstructed, and so are the reading seconds. No passage over the draw on a given day is claimed. The building facts are cited at their own tiers and reuse evidence already published in other jaunts, word for word: the draw from Norton's letter and Andreas (Along the Working Harbor), the brickyard and the Lake House from Andreas and the chicagology compilation (Materials for a Roof), the school-house from Andreas's schools chapter (A Schoolday Errand). No claim is new. No named person is met or speaks, no interior is opened, and no Native presence is narrated. It is a quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene and the four structure records. The route, the crossing and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A source fixing which bank Newberry & Dole stood on would let the outing take in the North Side warehouse Andreas describes.
+
+**Applies to:** `data/jaunts/over-the-draw.json`.
+
+**Recorded:** 2026-10-03 (T-2042).

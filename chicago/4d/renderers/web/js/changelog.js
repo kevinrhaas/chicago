@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1381, ts: '2026-10-03T20:22:45.653Z', date: 'Oct 3, 2026, 3:22 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Over the Draw to the North Side, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Start at the foot of the Dearborn Street drawbridge, cross to the North Side and look at Blodgett\u2019s brickyard, the first house built for a school, and the Lake House going up at Rush Street. Then choose to end there or go back over the draw.',
+      'It is the library\u2019s 26th jaunt, and the first added after the original 25. It was added as one data file, with no change to the page\u2019s code.',
+      'The outing, the crossing and the keepsake, North of the River, are our reconstruction (liberty L-jaunt-over-the-draw). Every fact about the four places is one already cited in another jaunt.',
+    ] },
   { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [
       'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
