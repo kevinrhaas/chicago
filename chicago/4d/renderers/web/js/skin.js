@@ -3,10 +3,10 @@
    spaceage → worlds-fair, steampunk → brass. */
 (() => {
   const MACHINES = [
-    { id: 'control-room', name: '1960s Control Room', swatch: ['#ECE6D8', '#1E3A66', '#D6352B', '#8CF5A8'], tone: 'dark' },
-    { id: 'brass', name: 'Precision Brass', swatch: ['#F4E6CD', '#D4A85A', '#3A2416', '#3F8F7F'], tone: 'dark' },
-    { id: 'worlds-fair', name: 'World’s Fair', swatch: ['#EFE9DC', '#138A92', '#EC6A1E', '#363A3B'], tone: 'light' },
-    { id: 'deep-space', name: 'Deep Space', swatch: ['#E4E2DC', '#7AD7F6', '#F5A742', '#07090C'], tone: 'dark' },
+    { id: 'control-room', name: 'Control Room', tone: 'dark' },
+    { id: 'brass', name: 'Precision Brass', tone: 'dark' },
+    { id: 'worlds-fair', name: 'Retro Future', tone: 'light' },
+    { id: 'deep-space', name: 'Deep Space', tone: 'dark' },
   ];
   const LEGACY = { scifi: 'control-room', spaceage: 'worlds-fair', steampunk: 'brass' };
   const keys = MACHINES.map(m => m.id);
@@ -22,8 +22,18 @@
   try { root.dataset.theme = localStorage.getItem('chicago4d.theme') || toneOf(skin); } catch { root.dataset.theme = toneOf(skin); }
   try { if (Number(sessionStorage.getItem('chicago4d.transfer')) > Date.now() - 15000) root.dataset.transfer = 'true'; } catch {}
 
+  // The appearance dial: one small button that steps to the next machine, its hand
+  // turning a quarter each step and a row of dots marking which of the four is on.
+  // Deliberately quiet (T-2057): it should not draw the eye from the page it sits on.
   function sync() {
-    document.querySelectorAll('.machine[data-machine]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.machine === skin)));
+    const i = keys.indexOf(skin), name = MACHINES[i].name;
+    document.querySelectorAll('.machine-dial').forEach(d => {
+      d.style.setProperty('--turn', `${i * 90}deg`);
+      d.setAttribute('aria-label', `Appearance: ${name}. Change appearance`);
+      d.title = `Appearance: ${name}`;
+      d.querySelectorAll('.machine-dots i').forEach((dot, j) => dot.classList.toggle('on', j === i));
+      const label = d.querySelector('.machine-dial-name'); if (label) label.textContent = name;
+    });
   }
   function apply(value) {
     if (!keys.includes(value)) return;
@@ -33,37 +43,30 @@
     try { localStorage.setItem('chicago4d.theme', toneOf(value)); localStorage.setItem('chicago4d.skin', value); } catch {}
     sync();
   }
-  // A machine selector: one pressed button per machine. Pages may ship the markup
-  // (the portal does, so it shows without JavaScript); otherwise it is built here.
-  function selector() {
-    const group = document.createElement('div');
-    group.className = 'machines'; group.setAttribute('role', 'group'); group.setAttribute('aria-label', 'Machine');
-    for (const m of MACHINES) {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'machine'; b.dataset.machine = m.id; b.title = m.name; b.setAttribute('aria-label', m.name);
-      const sw = document.createElement('span'); sw.className = 'machine-swatch'; sw.setAttribute('aria-hidden', 'true');
-      for (const c of m.swatch) { const s = document.createElement('span'); s.style.background = c; sw.append(s); }
-      const name = document.createElement('span'); name.className = 'machine-name'; name.textContent = m.name;
-      b.append(sw, name); group.append(b);
-    }
-    return group;
+  // Pages may ship the dial's markup (the portal does); otherwise it is built here.
+  function dial() {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'machine-dial';
+    b.innerHTML = '<svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor"/><path class="machine-dial-hand" d="M8 8V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>'
+      + '<span class="machine-dots" aria-hidden="true">' + MACHINES.map(() => '<i></i>').join('') + '</span><span class="machine-dial-name"></span>';
+    return b;
   }
   document.addEventListener('click', event => {
-    const b = event.target.closest && event.target.closest('.machine[data-machine]');
-    if (b) apply(b.dataset.machine);
+    const d = event.target.closest && event.target.closest('.machine-dial');
+    if (d) apply(keys[(keys.indexOf(skin) + 1) % keys.length]);
   });
   document.addEventListener('DOMContentLoaded', () => {
     const card = document.querySelector('.gate-card');
     if (card && !card.querySelector('.skin-tools')) {
       const tools = document.createElement('div'); tools.className = 'skin-tools';
       const home = document.createElement('a'); home.href = new URL('../', document.baseURI).href; home.textContent = '← All coordinates';
-      tools.append(selector(), home); card.append(tools);
+      tools.append(home, dial()); card.append(tools);
     }
     const settings = document.querySelector('[data-panel="settings"]');
     if (settings) {
       const group = document.createElement('div'); group.className = 'settings-group skin-tools';
-      const label = document.createElement('p'); label.className = 'skin-tools-label'; label.textContent = 'Machine';
-      group.append(label, selector()); settings.prepend(group);
+      const label = document.createElement('p'); label.className = 'skin-tools-label'; label.textContent = 'Appearance';
+      group.append(label, dial()); settings.prepend(group);
     }
     sync();
   });

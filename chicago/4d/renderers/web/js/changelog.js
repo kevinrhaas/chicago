@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1387, ts: '2026-10-03T22:10:35.884Z', date: 'Oct 3, 2026, 5:10 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+  { v: 1388, ts: '2026-10-03T22:36:06.968Z', date: 'Oct 3, 2026, 5:36 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
       'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
       'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
+    ] },
+  { v: 1387, ts: '2026-10-03T22:08:33.624Z', date: 'Oct 3, 2026, 5:08 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
+    items: [
+      'The row of colour-swatch buttons is gone. A small dial at the top right now steps through the four appearances, with four dots marking which one is on; hover it to see the name.',
+      'The same dial sits on the arrival card and in the settings panel.',
+      'The appearances are now called Control Room, Precision Brass, Retro Future and Deep Space. Your saved choice carries over.',
     ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [

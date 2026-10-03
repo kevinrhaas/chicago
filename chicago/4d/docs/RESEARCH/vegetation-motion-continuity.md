@@ -208,3 +208,19 @@ initial failure; the canonical smoke ledger uses its unchanged parser. CI
 source hashes are left null because the untracked published page from those
 runners is not available for an exact digest. Commit provenance is retained,
 and no older test is represented as a test of a newer tree.
+
+
+## Final dev integration, 22:42 UTC
+
+Checkpoint six (`21db432f`) saves the corrected instruments and 761-step green
+preflight. Its repeated mobile part 1 passes all 82 checks. All other mobile
+sections except the census repeat have passed; desktop parts 7–9 pass. The
+complete original run manifest and precise source commits remain in the receipt.
+
+Dev `8fa8ca4d` adds a small appearance dial and renames its four choices. Those
+seven files are integrated without changing this parcel's scene geometry.
+Preflight passes 761 steps on that merge, including the dial's browser tests.
+The changelog is stamped v1388. Part 12 is repeating at both viewports to cover
+the integrated settings and release notes; remaining desktop CI and the
+corrected part 2 census must finish before merge. All three tickets are now
+`review` on the tickets repository, linked to PR #364; only a merged PR closes them.

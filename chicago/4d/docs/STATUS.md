@@ -1,6 +1,6 @@
 ## T-2035 / T-2037 / T-2038 — vegetation and plankwalk continuity (release checks)
 
-Draft PR #364 preserves five checkpoints through `ac669392`. Seven motion routes
+Draft PR #364 preserves six checkpoints through `21db432f`. Seven motion routes
 across three tiers and both viewports pass after the final Light flight fade fix:
 zero abrupt coverage changes, plant identity errors or instance-cap shortfalls.
 The evidence retains the initial two Light flight failures and their passing repeat.
@@ -13,12 +13,12 @@ are clear. All 144 paired views plus two reach controls pass; intentional gaps r
 
 The owner's October 3 authorization supports the measured triangle limits of
 2,840,000 Full / 2,145,000 Balanced / 1,040,000 Light after removing zero-area
-grass tips. Draw-call caps are unchanged. Current dev `3c22369f` is integrated.
+grass tips. Draw-call caps are unchanged. Current dev `8fa8ca4d` is integrated, including its appearance dial.
 Preflight passes 761 steps and mobile release-notes part 12 passes 97 checks.
 Initial mobile parts 1–2 found a derived-mesh census error and coarse fence
 measurement cancellation; both instruments are corrected with their original
-thresholds retained and additional assertions. Affected browser sections are
-being repeated; remaining release CI and the dev merge are pending. See the
+thresholds retained and additional assertions. The repeated mobile part 1 passes 82 checks. The corrected census repeats,
+remaining desktop release CI, final release-notes checks and dev merge are pending. See the
 vegetation continuity research note for the original failures and exact scope.
 
 ## T-2040 — the jaunt library is read for what it must never say (2026-10-03)

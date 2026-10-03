@@ -65,6 +65,65 @@
     },
     {
       "viewport": "mobile",
+      "stage": "10-13",
+      "parts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 247,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1551,
+      "takenAt": "2026-10-03T22:05:11Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "ac66939285d9",
+      "devCommit": "98ece8ad1996",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": "sha256:3b108f29a6f45897",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
+      },
+      "source": "gh-run:37157228565 https://github.com/kevinrhaas/chicago/actions/runs/37157228565"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7-9",
+      "parts": [
+        7,
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 56,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1649,
+      "takenAt": "2026-10-03T22:02:40Z",
+      "ref": "steward/t2035-vegetation-continuity",
+      "commit": "db49ce6adfeb",
+      "devCommit": "a9c98af7a1f5",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": "sha256:abee9f43dc2687ae",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
+      },
+      "source": "gh-run:37157088665 https://github.com/kevinrhaas/chicago/actions/runs/37157088665"
+    },
+    {
+      "viewport": "mobile",
       "stage": "7-9",
       "parts": [
         7,
@@ -1852,68 +1911,6 @@
       },
       "source": "docs/RESEARCH/glessner-v4-qa/mobile-checkpoint4.log",
       "treeHashNote": "Filed after v4 geometry/materials changed. This is the checkpoint4 published full-mobile reading (569 pass, 3 inherited T-1752 failures), not an exact-tree reading of the later v4 model. Keep this hash unavailable rather than stamp the post-run tree as tested."
-    },
-    {
-      "viewport": "mobile",
-      "stage": "6",
-      "parts": [
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 14,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-09-29T20:13:37.365Z",
-      "ref": "steward/selected-year-arrival",
-      "commit": "590ad4c39e0b",
-      "devCommit": "590ad4c39e0b",
-      "treeHash": "sha256:60542e50462864a2",
-      "treeDirty": true,
-      "changelogHash": "sha256:a69fb0dbe750b25c",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          6.4,
-          8.6,
-          5.2
-        ]
-      },
-      "source": "/tmp/t1767-smoke.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "6",
-      "parts": [
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 16,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-09-29T20:13:37.365Z",
-      "ref": "steward/selected-year-arrival",
-      "commit": "590ad4c39e0b",
-      "devCommit": "590ad4c39e0b",
-      "treeHash": "sha256:60542e50462864a2",
-      "treeDirty": true,
-      "changelogHash": "sha256:a69fb0dbe750b25c",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          6.4,
-          8.6,
-          5.2
-        ]
-      },
-      "source": "/tmp/t1767-smoke.log"
     }
   ]
 }
