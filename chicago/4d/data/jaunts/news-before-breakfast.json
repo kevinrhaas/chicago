@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "id": "news-before-breakfast",
-  "content_version": 1,
+  "content_version": 2,
   "title": "News Before Breakfast",
   "premise": "Read both of the town's papers before breakfast, tell a report from an advertisement and keep one useful clipping.",
   "category": "Newspapers",
   "scene": "1835",
   "opening": {
-    "text": "Chicago prints two weekly papers this summer, and one of them is three weeks old. Choose a question, walk from your lodging to both offices, decide which columns report and which ones sell, and carry one clipping to breakfast. The morning, the walk and the clipping are invented; the printed words are not.",
+    "text": "Chicago prints two weekly papers this summer, and one of them is three weeks old. Choose a question, ride from your lodging to both offices, decide which columns report and which ones sell, and carry one clipping to breakfast. The morning, the ride and the clipping are invented; the printed words are not.",
     "read_s": 20
   },
-  "default_mode": "walk",
+  "default_mode": "horse",
   "allowed_modes": [
     "walk",
     "wagon",
@@ -45,7 +45,7 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Start at the Sauganash, the white two-storey house with bright-blue shutters that Juliette Kinzie remembered. The Chicago Democrat of 10 June 1835 reported it repaired, fitted up and furnished with neatness. Both of the town's weekly papers print a short walk east along the river.",
+      "text": "Start at the Sauganash, the white two-storey house with bright-blue shutters that Juliette Kinzie remembered. The Chicago Democrat of 10 June 1835 reported it repaired, fitted up and furnished with neatness. Both of the town's weekly papers print a short ride east along the river.",
       "narrative": "Choose the question the papers should answer.",
       "read_s": 30,
       "action_s": 15,
@@ -186,7 +186,7 @@
           "id": "report",
           "label": "Call it reporting",
           "consequence": "You file it with the news.",
-          "next": "exchange"
+          "next": "tremont"
         },
         {
           "id": "advert",
@@ -199,24 +199,24 @@
               "value": 1
             }
           ],
-          "next": "exchange"
+          "next": "tremont"
         }
       ]
     },
     {
-      "id": "exchange",
+      "id": "tremont",
       "destination": {
         "kind": "structure",
-        "id": "exchange_coffee_house"
+        "id": "tremont_house_1"
       },
-      "text": "Breakfast at the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. The Democrat's third page also announces a new auction house on South Water Street, its first public sale set for the 1st of July: today.",
+      "text": "Breakfast at the Tremont House, built in 1833 by Alanson Sweet at Lake and Dearborn and kept since 1834 by Ira Couch. The Democrat's third page also announces a new auction house on South Water Street, its first public sale set for the 1st of July: today.",
       "narrative": "Choose one clipping to carry back.",
       "read_s": 30,
       "action_s": 15,
       "links": [
         {
           "kind": "structure",
-          "id": "exchange_coffee_house",
+          "id": "tremont_house_1",
           "label": "About this place"
         },
         {
@@ -226,7 +226,7 @@
         }
       ],
       "evidence": [
-        "exchange-house",
+        "tremont-house",
         "auction-today",
         "continuity",
         "morning"
@@ -282,7 +282,7 @@
       "evidence": [
         "continuity"
       ],
-      "story": "Walk east with your question in mind.",
+      "story": "Ride east with your question in mind.",
       "story_evidence": [
         "morning"
       ]
@@ -298,10 +298,10 @@
     },
     {
       "from": "american",
-      "to": "exchange",
-      "note": "Back west and a block south to Lake Street at Wells.",
+      "to": "tremont",
+      "note": "From near the drawbridge, a block south to the corner of Lake and Dearborn.",
       "evidence": [
-        "exchange-house",
+        "tremont-house",
         "continuity"
       ]
     }
@@ -469,14 +469,14 @@
       "locator": "27 June 1835 (Vol. I No. 4), p. 3, col. 5 (transcription lines 362–365; extracted claim chicago_american_1835_06_27#c011). Transcription-mediated reading: the signature prints ‘FREDERICK THO[…]’, completed from the same druggist’s 20 June notice; the column is crowded and partly illegible."
     },
     {
-      "id": "exchange-house",
-      "text": "Mark Beaubien built a new house on the north-west corner of Wells and Lake streets; in August 1834 Mr. and Mrs. Murphy took charge of it as a hotel, christened it the Exchange Coffee House, and remained until 1836.",
+      "id": "tremont-house",
+      "text": "Alanson Sweet built the first Tremont House, a frame building, in 1833 on the north-west corner of Lake and Dearborn streets. Ira Couch took the house in 1834, and Andreas names the Couch brothers among its keepers before it burned on 27 October 1839.",
       "confidence": "attested",
       "sources": [
         "andreas_1884_v1",
-        "drloih_hotels"
+        "chicagology_prefire021"
       ],
-      "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
+      "locator": "Andreas vol. 1, printed p. 635, the hotel chapter (builder, corner, proprietors, the 1839 fire); the Chicago Tribune letter of 2 February 1874 transcribed on chicagology_prefire021, for Ira Couch taking the house in 1834. The structure record tremont_house_1 carries both readings."
     },
     {
       "id": "auction-today",
@@ -500,7 +500,7 @@
     },
     {
       "id": "morning",
-      "text": "The visitor’s morning, lodging at the Sauganash, the question, the walk, the sorting of report from advertisement, breakfast at the Exchange, the choice of clipping, the endings, the timing inputs and the A Useful Clipping keepsake are invented connective narrative, not historical events.",
+      "text": "The visitor’s morning, lodging at the Sauganash, the question, the ride on horseback (the recommended mode), the sorting of report from advertisement, breakfast at the Tremont, the choice of clipping, the endings, the timing inputs and the A Useful Clipping keepsake are invented connective narrative, not historical events.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-news-breakfast"
