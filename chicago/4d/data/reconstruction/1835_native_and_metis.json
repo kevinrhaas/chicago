@@ -82,8 +82,8 @@
   "tier": "reconstructed"
  },
  "counts": {
-  "r6_rows_offered": 154,
-  "already_on_a_card": 34,
+  "r6_rows_offered": 162,
+  "already_on_a_card": 42,
   "cards_minted": 87,
   "minted_present": 70,
   "minted_absent": 17,
@@ -2232,9 +2232,23 @@
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
   {
+   "row_id": "card:hh_beaubien_b",
+   "name_as_read": "B Beaubien",
+   "household_id": "hh_beaubien_b",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
    "row_id": "card:hh_bertrand_b_h",
    "name_as_read": "B. H. Bertrand",
    "household_id": "hh_bertrand_b_h",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_blake_edio_l",
+   "name_as_read": "Edio L Blake",
+   "household_id": "hh_blake_edio_l",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
@@ -2274,6 +2288,13 @@
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
   {
+   "row_id": "card:hh_braxton_lewis",
+   "name_as_read": "Lewis Braxton",
+   "household_id": "hh_braxton_lewis",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
    "row_id": "card:hh_burke_james",
    "name_as_read": "James Burke",
    "household_id": "hh_burke_james",
@@ -2309,9 +2330,37 @@
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
   {
+   "row_id": "card:hh_dell_frank",
+   "name_as_read": "Frank Dell",
+   "household_id": "hh_dell_frank",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_field_secretary",
+   "name_as_read": "Secretary Field",
+   "household_id": "hh_field_secretary",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_finley_clement_a",
+   "name_as_read": "Clement A Finley",
+   "household_id": "hh_finley_clement_a",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
    "row_id": "card:hh_fitzgerald_thos",
    "name_as_read": "Thos. Fitzgerald",
    "household_id": "hh_fitzgerald_thos",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_foot_s",
+   "name_as_read": "S. Foot",
+   "household_id": "hh_foot_s",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
@@ -2452,6 +2501,13 @@
    "row_id": "card:hh_vieau_paul",
    "name_as_read": "Paul Vieau",
    "household_id": "hh_vieau_paul",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_witkins_thomas",
+   "name_as_read": "Thomas Witkins",
+   "household_id": "hh_witkins_thomas",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },

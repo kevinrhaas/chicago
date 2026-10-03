@@ -665,8 +665,9 @@ def owned_view(card: dict) -> dict:
     return {k: card[k] for k in OWNED_KEYS if k in card}
 
 
-def fill(base: dict) -> tuple:
-    """(the cards this stage writes, the ledger). Pure over `base`."""
+def fill(base: dict, priors: dict | None = None) -> tuple:
+    """(the cards this stage writes, the ledger). Pure over `base` (and `priors`, the
+    folded houses as `unfold` restores them, read only for the seats they carry)."""
     pool = pools()
     trades = trade_rows()
     trade_why = {r["trade"]: r["why"] for r in recipe()["female_trades"]["rows"]}
@@ -868,7 +869,7 @@ def fill(base: dict) -> tuple:
     # and be deleted by the next --build. Same fixed-slot carry the four mints of this
     # directory already use for `workplaces`; what the block may CONTAIN is that pass's
     # --check to decide, never this one's.
-    carry_seats(made, HOUSEHOLDS)
+    carry_seats(made, HOUSEHOLDS, priors)
     return made, ledger
 
 
@@ -1084,34 +1085,99 @@ def female_headed_1840():
 
 # ----------------------------------------------------------------------- modes --
 
+def unfolded() -> tuple:
+    """(the layer with T-2020's folds undone, {folded house: host}).
+
+    A woman-headed house this stage dealt may since have been FOLDED into a married house
+    the order book refused a wife (T-2020, `reconstruct_modelled_families.marry`): her card
+    is gone from `households/` and its people stand on the host's. This stage still deals
+    that house — the fold moves it, it does not un-draw it — so it reads the layer as it
+    dealt it, and the host's card comes back to it without the people the fold put there."""
+    import reconstruct_modelled_families as mf
+    return mf.unfold(cards())
+
+
 def base_layer() -> dict:
-    return {hid: card for hid, card in cards().items() if not ours(card)}
+    return {hid: card for hid, card in unfolded()[0].items() if not ours(card)}
+
+
+def account_folds(ledger: dict, made: dict, hosts: dict) -> None:
+    """What the fold changed in this stage's accounts: the HOUSES, and nothing else.
+
+    Her people are still counted in the cells they were dealt in — a wife and her children
+    are the same women and children the age pyramid lacked — so the person fills stand. Her
+    house is not a household the town holds any more, so it no longer fills a
+    `households/family_dwelling` order, and the book re-derives the dwellings it still owes."""
+    gone = sorted(hid for hid in hosts if hid not in made)
+    if gone:
+        raise SystemExit("FAIL %d folded house(s) are no longer dealt by this stage (%s): "
+                         "rebuild tools/reconstruct_modelled_families.py, which re-pairs "
+                         "the refused houses with the houses that stand" % (len(gone), gone[:4]))
+    folded = Counter(made[hid]["division"] for hid in hosts)
+    for division, n in folded.items():
+        key = f"households/family_dwelling/{division}"
+        ledger["fills"][key] -= n
+        if ledger["fills"][key] <= 0:
+            del ledger["fills"][key]
+    ledger["folded_into_married_houses"] = {
+        "ticket": "T-2020",
+        "households": sum(folded.values()),
+        "by_division": dict(sorted(folded.items())),
+        "people": sum(len(made[hid]["persons"]) for hid in hosts),
+        "note": "Dealt here and then folded into a married house the order book refused a "
+                "wife (data/reconstruction/1835_folded_houses.json). The counters above are "
+                "the deal; `fills` no longer counts these houses as dwellings.",
+    }
 
 
 def build() -> int:
-    base = base_layer()
-    made, ledger = fill(base)
+    import reconstruct_modelled_families as mf
+    live_layer, hosts = unfolded()
+    base = {hid: card for hid, card in live_layer.items() if not ours(card)}
+    made, ledger = fill(base, {hid: live_layer[hid] for hid in hosts})
     written = 0
+    folds = mf.load_folds()
     for hid, card in made.items():
         path = HOUSEHOLDS / f"{hid}.json"
-        if not path.exists():
+        live = live_layer.get(hid)
+        if live is None:
             path.write_text(dumps(card), encoding="utf-8")
             written += 1
             continue
-        live = json.loads(path.read_text(encoding="utf-8"))
         merged = OrderedDict()
         for key, value in card.items():
             merged[key] = live[key] if key not in OWNED_KEYS and key in live else value
         for key, value in live.items():
             if key not in merged:
                 merged[key] = value
+        if hid in hosts:
+            # A FOLDED HOUSE IS REFRESHED WHERE IT STANDS: on its host, through the same
+            # `marry` the fold was made with, so the host never carries a house this stage
+            # no longer deals. Unchanged, it rewrites nothing.
+            if dumps(merged) == dumps(live):
+                continue
+            host_hid = hosts[hid]
+            host_path = HOUSEHOLDS / f"{host_hid}.json"
+            host = json.loads(host_path.read_text(encoding="utf-8"))
+            block = host["modelled_family"]
+            alone, _ = mf.unfold({host_hid: host}, {hid: folds[hid]})
+            alone = alone[host_hid]
+            alone.pop("modelled_family", None)
+            # other folds on the same host cannot exist: a host takes one wife
+            host, folds[hid] = mf.marry(alone, merged, block["size_drawn"], block["seed"])
+            host_path.write_text(dumps(host), encoding="utf-8")
+            written += 1
+            continue
         if path.read_text(encoding="utf-8") != dumps(merged):
             path.write_text(dumps(merged), encoding="utf-8")
             written += 1
+    if hosts:
+        mf.FOLDS.write_text(dumps(mf.folds_doc(folds)), encoding="utf-8")
     for path in sorted(HOUSEHOLDS.glob("hh_*.json")):
         if path.stem not in made and ours(json.loads(path.read_text(encoding="utf-8"))):
             path.unlink()
             written += 1
+    account_folds(ledger, made, hosts)
     ledger["measurement"] = measurement(base, made, ledger)
     LEDGER.write_text(dumps(ledger), encoding="utf-8")
     write_fills(ledger)
@@ -1135,9 +1201,9 @@ def write_fills(ledger: dict) -> None:
 
 
 def check() -> int:
-    live = cards()
+    live, hosts = unfolded()
     base = {hid: card for hid, card in live.items() if not ours(card)}
-    made, ledger = fill(base)
+    made, ledger = fill(base, {hid: live[hid] for hid in hosts})
 
     committed = {hid for hid, card in live.items() if ours(card)}
     if committed != set(made):
@@ -1153,6 +1219,7 @@ def check() -> int:
         print("  FAIL %d card(s) are not what this stage derives: %s"
               % (len(bad), ", ".join(bad[:6])))
         return 1
+    account_folds(ledger, made, hosts)
     ledger["measurement"] = measurement(base, made, ledger)
     if not LEDGER.exists() or LEDGER.read_text(encoding="utf-8") != dumps(ledger):
         print("  FAIL %s is not what --build writes" % LEDGER.relative_to(ROOT))
