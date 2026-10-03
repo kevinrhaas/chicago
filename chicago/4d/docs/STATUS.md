@@ -26,6 +26,96 @@ The keepsake landed once under Livelihood.
 **Unverified.** The 1280×800 drive read the card's estimates and reached stop 3 of 4, but the
 580 s cap cut it off before the ending, so the full play is proved at 390×780 only. The stills are
 not committed.
+## T-2006 — A Bed for the Night, a published 1835 lodging jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Bed for the Night* (Lodging, Horse,
+4 stops, Neighbors). Four houses that took in strangers, seen from the street: the Western Hotel
+on the west side, the Sauganash, Mrs Rufus Brown's boarding house behind Peck's store, and the
+Mansion House on Lake Street. At the first stop the visitor says whether cost or convenience comes
+first; at the last, where to ask first. Three endings follow from the pair, and the keepsake *A
+Place to Lay Your Head* goes to Neighbors. Content only: one JSON file, a liberty
+(`L-jaunt-bed-for-the-night`), the regenerated catalog and source-use edges, and brief 09's route
+note. There is no engine, compiler or CSS change.
+
+**What is told, not invented.** The town's crowding is given in the two papers' own words, three
+weeks before the scene: the Democrat of 17 June 1835 (strangers "crowding every room of our public
+houses … even to the extent of sleeping on the floor") and the American of 13 June. No price, no
+vacancy and no booking is claimed; every ending says the outing does not know whether a bed was
+free. The Western's 1834-or-1835 date is given both ways, Brown's spot is called a placement, and
+the Mansion House's keeper on 1 July 1835 (Haddock or Markle) is left open, as its record leaves it.
+
+**Measured.** `play_jaunt.mjs --all-paths`: six paths, three endings, one keepsake, no dead end.
+The catalog card on the published mirror, 390×780 and 1280×800 alike: Horse about 5.5 min, Wagon
+8, Walk 15.5, Fly 4, Instantly 2.5. Walk is far outside the target because the four documented
+houses span about 0.9 km from Canal Street to Dearborn; the brief's order also crossed the river
+twice, so it was re-cut west to east, and the recommended pace is Horse. A Playwright drive at
+390×780 took the stills in order (menu card, first stop, the detail card and back to the same
+stop, the ending with its keepsake, the menu) with zero page errors, and Start then End returned
+to the menu.
+
+**Unverified.** The 1280×800 drive read the card's figures but was cut off by the 560 s cap
+before the ending; the walk-through is proved at 390×780 only. The stills are not committed.
+## T-1265 — Fort Dearborn Errand, a five-stop jaunt round the fort's service buildings (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Fort Dearborn Errand* (Fort Dearborn, Walk).
+It has five exterior stops: the stockade from the south-west, the guard-house and the store-house
+on either side of the south gate, the sutler's store east of the north gate, and the shop on the
+outer ground toward the lake. The visitor carries an imagined note. They choose candles or thread
+at the sutler's, tally the parcel outside the store-house and set it down at the shop. The ending
+is *accounted* when all three are done (readiness 3), otherwise *unfinished*. The keepsake
+*Accounted for at the Fort* goes to Livelihood. The store-house stop has the only dated document
+of use behind it: the Army's fresh-beef proposals of 28 May and 4 June 1834. The sutler's goods
+are invented, because no stock list was found. The shop is a workshop and not a smithy, because
+the 1830 plan letters it "Shop" and names no trade. No soldier, sentry or garrison routine is
+staged. Content only: one JSON file, a liberty (`L-jaunt-fort-dearborn-errand`), the regenerated
+catalog and source-use edges. There is no engine, compiler or CSS change.
+
+**A substitution, and why.** The brief's first stop was `fort_dearborn_palisade`. Its stand-off
+resolves to the river's NORTH bank, so the real router walked leg 1 for 1,191 m round by a bridge
+against a 128 m line, and the card read **Walk about 19.5 min**. Stop 1 is now the scene anchor
+`fort_dearborn` ("Fort Dearborn, from the south-west"), 48 m from the guard-house. It keeps the
+stockade's card link. This is an engine finding for whoever owns stand-offs: a structure on a
+riverbank can be framed from the far bank.
+
+**Measured** on the published mirror with the real router: mobile 380 s (the card shows about
+6.5 min), desktop 347 s (about 6 min, with "approximate route" on desktop only). Wagon 4, Horse
+3–3.5, Fly 3, Instantly 2.5. Mobile is over the 3–6 min band because the router takes the
+sutler's → store-house leg 163 m round inside the stockade against a 69 m line. Second engine
+finding: on desktop `router.plan(sutler stand → store-house stand)` returns null while the reverse
+plans 117 m, so that leg is priced at a straight line × 1.3. `play_jaunt.mjs --all-paths`: 7
+paths, both endings, one keepsake. A scripted browser play-through at 390×780 and 1280×800 went
+menu → opening → mid-leg switch to Fly → detail card and back → Previous → choices → ending
+`accounted` → menu. It awarded the keepsake once under Livelihood, a replay added no second one,
+and there were 0 page errors at both viewports. End and Jaunts Menu were not pressed.
+
+## T-1262 — New in Chicago, finished as the first-day Orientation jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts → *New in Chicago* now recommends **Walk**, not
+Horse. It still has the pilot's five exterior stops: the Sauganash, Hogan's old mail corner,
+Peck's store, the Democrat's first office and Brown's boarding house. Three stops changed.
+Peck's is now a supply shop, read from his own 1833–34 card. At the Democrat's old corner
+the visitor reads a real notice: Kinzie and Forsyth's lithographed town maps, dated
+18 June 1834 and still running on 10 June 1835 (`chicago_democrat_1833_1835`, 20 May 1835
+p. 3 col. 6; 10 June 1835 p. 4 col. 3). The stop says the paper had moved over Jones and
+King's by then. At Brown's the visitor chooses board by the week (cost) or a bed close to
+the stores (convenience); each leads to its own ending. All four legs now carry route notes.
+The keepsake is still *Finding Your Feet* (Wayfinding). Content only: the one JSON file, a
+new liberty (`L-jaunt-new-in-chicago`), the regenerated catalog and source-use edges. There
+is no engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 3 paths to 3 endings, with one keepsake.
+The catalog card on the published mirror, real router: **Walk about 10.5 min** at 390×780
+(9.5 at 1280×800), Wagon 5.5, Horse 4, Fly 3, Instantly 2. **Walk is over the brief's 4–6
+min**: the five owner-named stops lie about 613 m apart in straight lines (Sauganash → Hogan
+43 m, → Peck 318 m, → Democrat 123 m, → Brown 129 m), and no order that ends at the bed is
+shorter. Brief 03's route note says so. Stills at 390×780 covered the menu card, the opening, a
+mid-leg switch to Fly, a detail card and back, Previous, the choice, the ending, End and the
+menu. The keepsake landed once under Wayfinding, and there were no page errors.
+
+**Unverified.** At 1280×800 the stills stop at the choice: the run reached the 500 s cap
+before the ending still on this software-rendered runner. `tools/test_jaunt_travel.mjs` fails
+at 390×780 when the detail popup is open (the jaunt controls measure 0×0). It fails the same
+way on a clean `dev`, so it predates this change and is not caused by it.
 
 ## T-1264 — Across Wolf Point, a published 1835 jaunt (2026-10-03)
 

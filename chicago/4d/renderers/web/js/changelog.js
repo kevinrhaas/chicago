@@ -1,10 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1339, ts: '2026-10-03T03:38:17.705Z', date: 'Oct 2, 2026, 10:38 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
+  { v: 1342, ts: '2026-10-03T04:10:54.956Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: Work on the Waterfront', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Work on the Waterfront. It is a morning ride looking for work, from the old Democrat corner to two Newberry & Dole warehouses and on to breakfast at the Exchange Coffee House. It takes about six minutes on horseback.',
       'Choose your skill: type and press, tin and copper, or a strong back. Then read the two real calls for hands printed before 1 July 1835: the Democrat\u2019s for a printing apprentice, and Jones, King & Co.\u2019s for a coppersmith and a tin worker.',
       'At Dole\u2019s yard, learn why nothing is packed in July. At the river, offer a day\u2019s carrying or just watch the wharf. Over breakfast, decide where to ask first tomorrow.',
       'The search, the chit and the keepsake, A Day\u2019s Work in Prospect, are our reconstruction (liberty L-jaunt-work-waterfront). No firm offers you work or names a wage.',
+    ] },
+  { v: 1341, ts: '2026-10-03T03:48:19.416Z', date: 'Oct 2, 2026, 10:48 PM CT', title: 'A new jaunt: A Bed for the Night', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick A Bed for the Night. Compare four houses that took in strangers in the full town of 1835, about five and a half minutes on horseback.',
+      'Four stops from the west side to Lake Street: the Western Hotel, the Sauganash, Mrs Rufus Brown\u2019s boarding house and the Mansion House. Say first whether cost or convenience matters more, then choose where to ask.',
+      'The crowding is told in the June 1835 papers\u2019 own words: strangers in every room, some sleeping on the floor. No price or vacancy is claimed.',
+      'Finish to keep A Place to Lay Your Head in your daybook under Neighbors. The search itself is our reconstruction (liberty L-jaunt-bed-for-the-night).',
+    ] },
+  { v: 1340, ts: '2026-10-03T03:19:23.807Z', date: 'Oct 2, 2026, 10:19 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Fort Dearborn Errand. You carry an imagined note round the fort\u2019s service buildings.',
+      'Five stops: the stockade, the guard-house and store-house either side of the south gate, the sutler\u2019s store by the north gate, and the shop on the outer ground toward the lake.',
+      'Choose candles or thread at the sutler\u2019s, tally the parcel outside the store-house, where the Army\u2019s 1834 notices had fresh beef delivered, and set it down at the shop.',
+      'Finish the errand and Accounted for at the Fort goes in your daybook under Livelihood. The note and parcel are our reconstruction (liberty L-jaunt-fort-dearborn-errand); no soldier is shown.',
+    ] },
+  { v: 1339, ts: '2026-10-03T02:58:42.777Z', date: 'Oct 2, 2026, 9:58 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick New in Chicago. It now recommends walking, and every leg between its five stops has a route note.',
+      'At the Democrat\u2019s old corner, read a real notice: Kinzie and Forsyth\u2019s lithographed town maps, still advertised in June 1835.',
+      'Peck\u2019s store is now your supply shop, read from his own advertisements. At Brown\u2019s boarding house, choose board by the week or a bed close to the stores. Each choice has its own ending.',
+      'The errand and the boarding choice are our reconstruction (liberty L-jaunt-new-in-chicago); no room, rate or sale is claimed.',
     ] },
   { v: 1338, ts: '2026-10-03T02:34:38.433Z', date: 'Oct 2, 2026, 9:34 PM CT', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
     items: [

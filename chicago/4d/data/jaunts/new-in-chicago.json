@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
   "id": "new-in-chicago",
-  "content_version": 3,
+  "content_version": 4,
   "title": "New in Chicago",
   "premise": "Find your bearings, a bed and a practical next step on an imagined first day in town.",
   "category": "Orientation",
   "scene": "1835",
   "featured": true,
   "opening": {
-    "text": "A few familiar corners can make a new town feel smaller. Preview five exterior stops and the evidence behind them. This first-day outing is a narrative reconstruction; no conversation, booking or purchase is claimed as history.",
-    "read_s": 15
+    "text": "It is your first day in town. Five exterior stops, from the forks to South Water Street, give you bearings, a supply shop, a town map notice and a bed to ask about. This outing is a narrative reconstruction; no conversation, booking or purchase is claimed as history.",
+    "read_s": 16
   },
-  "default_mode": "horse",
+  "default_mode": "walk",
   "allowed_modes": [
     "walk",
     "wagon",
@@ -90,22 +90,28 @@
         "kind": "structure",
         "id": "peck_store"
       },
-      "text": "At Peck’s store, think about how a building could serve more than one purpose. Andreas records Jeremiah Porter lodging in its unfinished loft in May 1833. That earlier account does not tell us the loft’s condition today.",
+      "text": "At Peck’s store, on South Water at LaSalle, note a supply shop. His own advertisements, run from December 1833 through 1834, list dry goods, hardware, groceries, crockery, boots, shoes and hats.",
       "read_s": 22,
       "links": [
         {
           "kind": "structure",
           "id": "peck_store",
           "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
         }
       ],
       "evidence": [
+        "peck-stock",
         "peck",
         "continuity",
         "outing"
       ],
       "next": "newspaper",
-      "narrative": "For your imagined outing, simply note this useful landmark."
+      "narrative": "Remember where the everyday things are sold. Andreas also has the minister Jeremiah Porter lodging in this store’s unfinished loft in May 1833."
     },
     {
       "id": "newspaper",
@@ -113,22 +119,33 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "The building’s name remembers the Democrat’s earlier office. Its first issue gives this corner, but by May 1835 the paper’s colophon places it over Jones and King’s hardware store.",
+      "text": "This building keeps the Democrat’s first address; by May 1835 the paper printed over Jones and King’s hardware store. That spring it still ran Kinzie and Forsyth’s notice of lithographed town maps, also to be had at the paper’s office.",
       "read_s": 22,
       "links": [
         {
           "kind": "structure",
           "id": "chicago_democrat_office",
           "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_kinzie_forsyth",
+          "label": "Kinzie & Forsyth"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
         }
       ],
       "evidence": [
         "democrat",
+        "maps-notice",
         "continuity",
         "outing"
       ],
       "next": "lodging",
-      "narrative": "Pause over that change of address: a familiar name can preserve a past use, rather than a present one."
+      "narrative": "A town map is a practical next step. Read the notice; no purchase is claimed."
     },
     {
       "id": "lodging",
@@ -136,7 +153,7 @@
         "kind": "structure",
         "id": "brown_boarding_house"
       },
-      "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places the house behind Peck’s store.",
+      "text": "Finish at the reconstructed position of Brown’s boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places her log house behind Peck’s store, which you passed a block ago.",
       "read_s": 22,
       "links": [
         {
@@ -153,9 +170,9 @@
       "next": "$end",
       "choices": [
         {
-          "id": "rest",
-          "label": "A quiet rest",
-          "consequence": "Your route note leaves the next step open for rest.",
+          "id": "by-the-week",
+          "label": "Board by the week",
+          "consequence": "Your route note favours cost: one arrangement for the whole stay.",
           "effects": [
             {
               "op": "set",
@@ -165,9 +182,9 @@
           ]
         },
         {
-          "id": "explore",
-          "label": "Keep exploring",
-          "consequence": "Your route note leaves the next step open for exploring.",
+          "id": "near-the-stores",
+          "label": "A bed close to the stores",
+          "consequence": "Your route note favours convenience: Peck’s is just in front.",
           "effects": [
             {
               "op": "set",
@@ -177,10 +194,32 @@
           ]
         }
       ],
-      "narrative": "Your imagined lodging inquiry promises no vacant room. Keep a route note, and choose whether rest or further exploring sounds better next."
+      "narrative": "Your imagined inquiry promises no vacant room and quotes no rate. Choose what matters more on a first day: cost or convenience."
     }
   ],
   "endings": [
+    {
+      "id": "settled-by-cost",
+      "text": "Your route note ends with weekly board behind Peck’s. In this imagined first day, cost decided; no room or rate is claimed.",
+      "read_s": 10,
+      "when": {
+        "var": "preference",
+        "op": "==",
+        "value": 1
+      },
+      "completion_eligible": true
+    },
+    {
+      "id": "settled-by-convenience",
+      "text": "Your route note ends with a bed a few steps from the stores. In this imagined first day, convenience decided; no room is claimed.",
+      "read_s": 10,
+      "when": {
+        "var": "preference",
+        "op": "==",
+        "value": 2
+      },
+      "completion_eligible": true
+    },
     {
       "id": "finding-your-feet",
       "text": "You have a few names and corners to connect. Your imagined route note is a beginning, not a record of a historical journey.",
@@ -193,7 +232,7 @@
     "family": "Wayfinding",
     "id": "finding-your-feet",
     "title": "Finding Your Feet",
-    "text": "A fictional route note linking five first-day landmarks."
+    "text": "A fictional route note linking five first-day landmarks, a town map notice and a place to sleep."
   },
   "evidence": [
     {
@@ -224,6 +263,15 @@
       "locator": "Vol. 1, printed p. 303, Jeremiah Porter biography; May 1833 arrival and temporary lodging."
     },
     {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes, and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck’s standing card, run to 10 Dec 1834); 2 July 1834, p. 4, col. 4 (‘a full stock of fresh GOODS’). Transcription-mediated reading."
+    },
+    {
       "id": "democrat",
       "text": "The Democrat’s first issue places its office at South Water and Clark; by 20 May 1835 its colophon places it over Jones and King’s hardware store.",
       "confidence": "attested",
@@ -232,6 +280,15 @@
         "chicago_democrat_1833_1835"
       ],
       "locator": "26 Nov 1833, imprint; 20 May 1835, p. 4, col. 6, colophon (transcription lines 4177–4180)."
+    },
+    {
+      "id": "maps-notice",
+      "text": "Kinzie & Forsyth advertised lithographic maps of the town of Chicago, including the School Section, Kinzie’s Addition and Wabansia, adding that they could also be found at the office of the Chicago Democrat. The notice, dated 18 June 1834, was still running in June 1835.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "‘Town Maps’ notice dated 18 June 1834: 20 May 1835, p. 3, col. 6 (transcription lines 2918–2928); 10 June 1835, p. 4, col. 3 (lines 3496–3504). Transcription-mediated reading."
     },
     {
       "id": "brown",
@@ -248,31 +305,69 @@
       "confidence": "inferred",
       "sources": [
         "andreas_1884_v1",
-        "kinzie_waubun_1856"
+        "kinzie_waubun_1856",
+        "chicago_democrat_1833_1835"
       ],
-      "reasoning": "Uses the existing scene-date structure phases and their continuity arguments. Stop labels are building identities, not proof of continuing tenancies. Brown’s absolute placement is reconstructed; the other four positions are inferred."
+      "reasoning": "Uses the existing scene-date structure phases and their continuity arguments. Stop labels are building identities, not proof of continuing tenancies; Peck’s card and the map notice date their trades, not 1 July 1835. Brown’s absolute placement is reconstructed; the other four positions are inferred."
     },
     {
       "id": "outing",
-      "text": "The visitor’s first-day errand, optional preference, route note, timing inputs and Finding Your Feet keepsake are invented connective narrative, not historical events.",
+      "text": "The visitor’s first-day errand, the reading of the map notice, the boarding choice, the cost-or-convenience preference, the endings, the route note, timing inputs and the Finding Your Feet keepsake are invented connective narrative, not historical events.",
       "confidence": "reconstructed",
       "sources": [],
-      "liberty": "L-jaunt-pilot"
+      "liberty": "L-jaunt-new-in-chicago"
     }
   ],
   "review_required": false,
   "liberties": [
-    "L-jaunt-pilot"
+    "L-jaunt-pilot",
+    "L-jaunt-new-in-chicago"
   ],
   "legs": [
     {
       "from": "arrival",
       "to": "mail-corner",
-      "note": "The early lodging and store sites are orientation stops; earlier accounts do not prove a transaction in July 1835.",
+      "note": "A short step: the Sauganash and Hogan’s old log store both stand by the forks.",
       "evidence": [
         "continuity"
       ],
       "story": "Follow the route toward the former mail corner; your imagined first day is still taking shape.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "mail-corner",
+      "to": "store",
+      "note": "The long leg: east along South Water Street, about three hundred metres, to the stores at LaSalle.",
+      "evidence": [
+        "continuity"
+      ],
+      "story": "Walk the river street toward the stores and find where everyday things are sold.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "store",
+      "to": "newspaper",
+      "note": "One block on along South Water, to the Democrat’s first corner at Clark.",
+      "evidence": [
+        "democrat"
+      ],
+      "story": "Look for news, and for something to find your way by.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "newspaper",
+      "to": "lodging",
+      "note": "Back a block, to the house Andreas places behind Peck’s store; its exact position is reconstructed.",
+      "evidence": [
+        "brown"
+      ],
+      "story": "With a map in mind, think about where to sleep tonight.",
       "story_evidence": [
         "outing"
       ]

@@ -16398,6 +16398,18 @@ row whose idiom it borrows), **L10** (the yard that is still a fence nobody mode
 
 **Recorded:** 2026-09-27 (T-1253).
 
+### L-jaunt-new-in-chicago — New in Chicago: an invented first day, its map errand and a bed by cost or convenience
+
+**Decision:** The finished New in Chicago keeps L-jaunt-pilot's five exterior stops and adds three inventions to them. At the Democrat's old office the visitor reads Kinzie and Forsyth's town-map notice; the notice is attested, but the reading, and any wish to buy a map, are not. At Brown's the visitor chooses a boarding arrangement — board by the week (cost) or a bed close to the stores (convenience). That choice, the two endings it leads to and the route note are reconstructed. No room, rate, vacancy, sale or conversation is attested; Mrs Brown and the map sellers say nothing; no interior is opened; no price is given.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records, brief 03 of JAUNTS-INITIAL-LIBRARY.md, and the notice's own printing window (dated 18 June 1834, still running on 10 June 1835). Brown's position stays reconstructed and the stop says so.
+
+**How to resolve:** A dated 1835 boarding rate for Brown's house, or any record of a lodger's terms there, would replace the invented arrangement as its own cited claim; the errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/new-in-chicago.json`.
+
+**Recorded:** 2026-10-03 (T-1262).
+
 ### L285 — The agency's ring of log buildings: four sentences that name the occupants and never describe a house
 
 **Decision:** three `log_dwelling` records — `mckee_log_house`, `caldwell_agency_log_house` and
@@ -17587,6 +17599,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/shopping-south-water.json`.
 
 **Recorded:** 2026-10-03 (T-1263).
+
+### L-jaunt-fort-dearborn-errand — Fort Dearborn Errand: an invented note, parcel and delivery
+
+**Decision:** Fort Dearborn Errand links five existing exterior destinations — the stockade, the guard-house, the sutler's store, the store-house and the shop on the outer ground — in an invented errand: choose a small supply at the sutler's, check the parcel against a note outside the store-house, and set it down at the shop. The note, the parcel, the choice of candles or thread, the tally, the delivery, the readiness count, the two endings and the Accounted for at the Fort memento are reconstructed. No sutler's stock list for Fort Dearborn was found, so the two supplies are commonplace goods chosen for the story, not a claim about what this store sold. No soldier, sentry, sutler or commissary is shown or named, no garrison procedure is staged, no reply is invented, no interior is opened and the gates are not described as passed. What the evidence bounds is the setting: the buildings' functions and places (Hubbard 1827, the 1830 plan, the 1855 key, the 1834 beef notices) and the post being garrisoned on the scene date.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records, docs/RESEARCH/fort_dearborn.md and brief 06 of JAUNTS-INITIAL-LIBRARY.md. The shop is called a workshop only, because the plate says 'Shop' and names no trade. The August 1835 gathering is not staged and no Indigenous person is depicted or given dialogue.
+
+**How to resolve:** A sutler's account or advertisement for 1834–35 would replace the invented supplies with goods it lists, cited as its own claim; a post return naming the shop's trade would let the last stop say what was made there. The errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/fort-dearborn-errand.json`.
+
+**Recorded:** 2026-10-03 (T-1265).
 
 ### L-jaunt-taverns — Taverns of Chicago: an imagined evening round of four public houses
 
@@ -20169,3 +20193,15 @@ sounding of the pre-cut channel.
 **Applies to:** `data/jaunts/across-wolf-point.json`.
 
 **Recorded:** 2026-10-03 (T-1264).
+
+### L-jaunt-bed-for-the-night — A Bed for the Night: an invented search for lodging
+
+**Decision:** A Bed for the Night links four existing exterior destinations — the Western Hotel, the Sauganash, Mrs Rufus Brown's boarding house and the Mansion House — in an invented search for a bed by a visitor with a modest purse. The search itself, the cost-or-convenience preference, the route order (west side, over the South Branch bridge, east along Lake Street), the relative cost of the four houses, the choice of where to ask first, the three endings and the A Place to Lay Your Head memento are reconstructed. No price, vacancy, booking, conversation or encounter is attested; no named person speaks; no interior is opened. The houses, their keepers and their fabric are each cited at their own tier, and the crowding of June 1835 is told in the two papers' own words. The Mansion House's keeper on the scene date (Haddock or Markle) is stated as open rather than chosen, and Brown's exact spot is called a placement.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records and brief 09 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water.
+
+**How to resolve:** A dated 1835 tariff or advertisement giving a board or night's rate at any of the four houses would replace the invented relative cost; the search and its endings stay interpretation.
+
+**Applies to:** `data/jaunts/bed-for-the-night.json`.
+
+**Recorded:** 2026-10-03 (T-2006).
