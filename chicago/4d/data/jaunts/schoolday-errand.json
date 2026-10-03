@@ -7,7 +7,7 @@
   "category": "Education",
   "scene": "1835",
   "opening": {
-    "text": "You have newly taken rooms in town, and the household has one question: where could a child learn? Ride past the places Chicago's first classes met, from a log house by State Street to the north bank, and finish where the Democrat was first printed. The household and its question are invented; the schools are documented.",
+    "text": "You have newly taken rooms in town, and the household has one question: where could a child learn? Ride past the places Chicago's first classes met, from a house north of the river to a log house by State Street, and finish where the Democrat was first printed. The household and its question are invented; the schools are documented.",
     "read_s": 20
   },
   "default_mode": "horse",
@@ -40,75 +40,12 @@
   },
   "stops": [
     {
-      "id": "the-log-house",
-      "destination": {
-        "kind": "structure",
-        "id": "chappel_infant_school"
-      },
-      "text": "Start by State Street, just outside the old military reservation. Andreas puts Eliza Chappel's infant school of 1833–34 in a log house here, part school-room and part lodging; other accounts put her first room elsewhere. In 1834 the school moved into the Presbyterian church. Who lives here now, no source says.",
-      "read_s": 30,
-      "action_s": 10,
-      "links": [
-        {
-          "kind": "structure",
-          "id": "chappel_infant_school",
-          "label": "About this place"
-        },
-        {
-          "kind": "person",
-          "id": "porter_eliza_chappel",
-          "label": "Eliza Chappel Porter"
-        },
-        {
-          "kind": "source",
-          "id": "andreas_1884_v1",
-          "label": "Andreas, History of Chicago"
-        }
-      ],
-      "evidence": [
-        "chappel-school",
-        "chappel-moved",
-        "chappel-place",
-        "chappel-now",
-        "errand"
-      ],
-      "choices": [
-        {
-          "id": "little-one",
-          "label": "Ask about a child of five",
-          "consequence": "The question is for the youngest of the house.",
-          "effects": [
-            {
-              "op": "set",
-              "var": "age",
-              "value": 1
-            }
-          ],
-          "next": "michigan-street"
-        },
-        {
-          "id": "scholar",
-          "label": "Ask about a child of ten",
-          "consequence": "The question is for a scholar ready for reading and figures.",
-          "effects": [
-            {
-              "op": "set",
-              "var": "age",
-              "value": 2
-            }
-          ],
-          "next": "michigan-street"
-        }
-      ],
-      "narrative": "Where the town's youngest scholars first met."
-    },
-    {
       "id": "michigan-street",
       "destination": {
         "kind": "structure",
         "id": "watkins_school_house"
       },
-      "text": "Over the river to Michigan Street between Cass and Rush. Andreas has John Watkins, hired in 1833, later teaching in a house on this street; Moses and Kirkland say Richard J. Hamilton built his house here and lived in it nineteen years. We read them as one house. No 1835 class is recorded.",
+      "text": "Start north of the river on Michigan Street, between Cass and Rush. Andreas has John Watkins, hired in 1833, later teaching in a house here; Moses and Kirkland say Richard J. Hamilton built his house here and lived in it nineteen years. We read them as one house. No 1835 class is recorded.",
       "read_s": 32,
       "action_s": 5,
       "links": [
@@ -139,7 +76,34 @@
         "one-house",
         "errand"
       ],
-      "next": "north-bank",
+      "choices": [
+        {
+          "id": "little-one",
+          "label": "Ask about a child of five",
+          "consequence": "The question is for the youngest of the house.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "age",
+              "value": 1
+            }
+          ],
+          "next": "north-bank"
+        },
+        {
+          "id": "scholar",
+          "label": "Ask about a child of ten",
+          "consequence": "The question is for a scholar ready for reading and figures.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "age",
+              "value": 2
+            }
+          ],
+          "next": "north-bank"
+        }
+      ],
       "narrative": "A schoolroom once, a home again."
     },
     {
@@ -191,16 +155,52 @@
               "value": 1
             }
           ],
-          "next": "the-notice"
+          "next": "the-log-house"
         },
         {
           "id": "keep-looking",
           "label": "Keep looking for one nearer",
           "consequence": "The note stays blank for now.",
-          "next": "the-notice"
+          "next": "the-log-house"
         }
       ],
       "narrative": "Compare what the histories agree on."
+    },
+    {
+      "id": "the-log-house",
+      "destination": {
+        "kind": "structure",
+        "id": "chappel_infant_school"
+      },
+      "text": "Over the river to State Street, just outside the old military reservation. Andreas puts Eliza Chappel's infant school of 1833–34 in a log house here, part school-room and part lodging; other accounts put her first room elsewhere. In 1834 the school moved into the Presbyterian church. Who lives here now, no source says.",
+      "read_s": 30,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chappel_infant_school",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "porter_eliza_chappel",
+          "label": "Eliza Chappel Porter"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Andreas, History of Chicago"
+        }
+      ],
+      "evidence": [
+        "chappel-school",
+        "chappel-moved",
+        "chappel-place",
+        "chappel-now",
+        "errand"
+      ],
+      "next": "the-notice",
+      "narrative": "Where the town's youngest scholars first met."
     },
     {
       "id": "the-notice",
@@ -208,7 +208,7 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "Back over the river to South Water and Clark, where the Democrat was printed from 1833; by 20 May its office was over Jones & King's hardware. Its number dated today repeats: School District No. 4 meets in the Presbyterian Church on 7 July at six in the evening, to consider building a school house.",
+      "text": "On to South Water and Clark, where the Democrat was printed from 1833; by 20 May its office was over Jones & King's hardware. Its number dated today repeats: School District No. 4 meets in the Presbyterian Church on 7 July at six in the evening, to consider building a school house.",
       "read_s": 32,
       "action_s": 10,
       "links": [
@@ -260,12 +260,12 @@
   ],
   "legs": [
     {
-      "from": "the-log-house",
-      "to": "michigan-street",
-      "note": "North over the river into Kinzie's Addition; no particular crossing is claimed, and both houses' lots are our placement.",
+      "from": "michigan-street",
+      "to": "north-bank",
+      "note": "South through Kinzie's Addition to the river bank just east of Clark; the house's lot is our placement, and another chapter of Andreas puts the school a block west.",
       "evidence": [
-        "chappel-place",
-        "one-house"
+        "one-house",
+        "north-school-place"
       ],
       "story": "The household's question rides with you.",
       "story_evidence": [
@@ -273,23 +273,25 @@
       ]
     },
     {
-      "from": "michigan-street",
-      "to": "north-bank",
-      "note": "South through the Addition to the river bank just east of Clark; another chapter of Andreas puts the school a block west.",
+      "from": "north-bank",
+      "to": "the-log-house",
+      "note": "Over the river to the west side of State Street; no particular crossing is claimed, and the log house's lot is our placement.",
       "evidence": [
-        "north-school-place"
+        "north-school-place",
+        "chappel-place"
+      ],
+      "story": "One more schoolroom to see, south of the river.",
+      "story_evidence": [
+        "errand"
       ]
     },
     {
-      "from": "north-bank",
+      "from": "the-log-house",
       "to": "the-notice",
-      "note": "Back over the river to the corner of South Water and Clark.",
+      "note": "West along the south side to the corner of South Water and Clark.",
       "evidence": [
+        "chappel-place",
         "democrat-corner"
-      ],
-      "story": "A school found or not, the paper next.",
-      "story_evidence": [
-        "errand"
       ]
     }
   ],
