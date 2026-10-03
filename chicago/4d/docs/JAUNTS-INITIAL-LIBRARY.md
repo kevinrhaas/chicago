@@ -368,6 +368,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Do not invent a fitting service or named tailor at a shop whose record only supports retail.
 
+**Route note (published, T-2011):** The shipped story order is Holbrook's store → Harmon & Loomis's store → Brown's boarding house → the Sauganash, one way west along South Water Street. The order proposed above starts at Brown's on LaSalle, walks two blocks east to Dearborn and doubles back west past Clark and LaSalle to Market; computed on the published mirror's own router it reads 13.5 min at Walk, 6.7 at Wagon and 4.7 at Horse. Starting at the clothing store removes the backtrack and keeps the story's sense: made goods, then cloth, then the lodging where the two occasions are weighed, then the call. The catalog card on the published mirror gives these routed figures at both 390×780 and 1280×800: Walk about 10.5 min, Wagon 5.5, Horse 4, Fly 3, Instantly 2. The recommended mode is Horse, as for A Letter Home on the same street: the Sauganash stands at the street's far west end by the South Branch, so on foot the outing is mostly walking and runs well past the quiet outing's 3–4 min, while on horseback it is 4. Fly is the faster mode. This is the batch's quiet outing: it declares no variable or inventory and shows no strip. Holbrook's June 1835 card offers made goods as agent for the manufacturers and names no tailoring; Harmon, Loomis & Co.'s cloth list is their November 1834 notice, carried by their June 1835 card. No maker, fitting or price is claimed.
+
 ## 15. Mend the Harness
 
 **ID:** `mend-the-harness` · **Owner ticket:** [T-1268](../tickets/T-1268-publish-harness-candles-building-materials-and-l.md)

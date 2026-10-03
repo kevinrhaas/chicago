@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1347, ts: '2026-10-03T05:46:22.184Z', date: 'Oct 3, 2026, 12:46 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
+  { v: 1348, ts: '2026-10-03T06:02:57.285Z', date: 'Oct 3, 2026, 1:02 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
     items: [
       'Walk any road through the prairie or the woods and the hazel, elder, dogwood and other bushes now stand far into the distance, out to about 140 metres. Before, they ended 26 metres away and each one appeared out of empty ground through a speckled fade as you walked.',
       'A distant bush is a simpler version of the same bush, at the same spot, size and colour. As you close on it, it sharpens into the full bush, so nothing pops in.',
       'Balanced detail carries them to about 105 metres and Light detail to about 70.',
+    ] },
+  { v: 1347, ts: '2026-10-03T05:37:25.027Z', date: 'Oct 3, 2026, 12:37 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Decent Coat. It is a short, quiet ride west along South Water Street to a call at the Sauganash, about four minutes on horseback, with nothing to count or carry.',
+      'Start at John Holbrook\u2019s, which opened in June 1835 selling made clothing, boots and shoes as agent for the manufacturers. A block on, Harmon, Loomis & Co.\u2019s card lists broadcloth, cassimere and flannel by the piece.',
+      'At Brown\u2019s boarding house, weigh tonight\u2019s call against tomorrow\u2019s work. At the Sauganash, go in a ready-made coat or your old one brushed.',
+      'Finish to keep Fit for the Occasion under Provisions. The errand is our reconstruction (liberty L-jaunt-a-decent-coat). No price, fitting or tailor is claimed.',
     ] },
   { v: 1346, ts: '2026-10-03T05:18:28.781Z', date: 'Oct 3, 2026, 12:18 AM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
     items: [
