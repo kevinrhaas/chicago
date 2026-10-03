@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A new jaunt: A Letter Home', kind: 'feature',
+  { v: 1341, ts: '2026-10-03T04:06:27.654Z', date: 'Oct 2, 2026, 11:06 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
       'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
