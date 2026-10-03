@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1386, ts: '2026-10-03T21:59:08.227Z', date: 'Oct 3, 2026, 4:59 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
+    items: [
+      'The row of colour-swatch buttons is gone. A small dial at the top right now steps through the four appearances, with four dots marking which one is on; hover it to see the name.',
+      'The same dial sits on the arrival card and in the settings panel.',
+      'The appearances are now called Control Room, Precision Brass, Retro Future and Deep Space. Your saved choice carries over.',
+    ] },
   { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
     items: [
       'Nothing you can see changed. All 26 jaunts were ridden end to end, at the pace each one suggests, by air and instantly, and the time each took was written down.',
