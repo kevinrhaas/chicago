@@ -4,9 +4,9 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here \u2014 --write carries that field forward \u2014 and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 182,
-    "gated": 174,
-    "ungated": 8
+    "check_capable": 273,
+    "gated": 264,
+    "ungated": 9
   },
   "ungated": [
     {
@@ -45,6 +45,12 @@
         "--offline"
       ],
       "why_not_gated": "`--check` fetches the leaf images from the archive and needs Pillow, so it cannot be a per-commit gate. check.sh runs `--offline`, which proves a different and gateable thing: that the committed measurement re-derives without the network. Named by T-0896 before it started."
+    },
+    {
+      "tool": "generators/terrain_gen_e1830.py",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "Too slow for the pool, not offline-blocked: `--check` re-derives the 1812 mouth and heightfield byte for byte, which is terrain_gen.build_field's arithmetic over the 1834 grid's 1.9 million cells and takes about 76 s on four cores (T-2003, measured) - more than rule 9 lets one step spend. The 1812 ground is held instead by its input hash (validate.py --stale over terrain_inputs.OVERLAY_EPOCHS) and by the fit and horizontal gates on the baked meshes, which check.sh does run. Measured GREEN when committed. The way to gate it is a cheaper half that re-derives river.geojson alone (milliseconds) and leaves the field to the hash.",
+      "owner_ticket": "T-2003"
     },
     {
       "tool": "tools/measure_boot_payload.mjs",

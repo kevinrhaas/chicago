@@ -62,3 +62,24 @@ Run: `NODE_PATH=<playwright> PW_EXECUTABLE=<chromium> node
  --viewport desktop --detail full`. Add `--baseline --baseline-ref 519ccf6`
 for the original flora module. `--routes` accepts comma-separated route names.
 The browser is Chromium/SwiftShader; absolute rendering times are not phone FPS.
+
+## Recovery and concurrent continuation, 20:24 UTC
+
+The first checkpoint is saved as `65a334da` in draft PR #364. After restoring it
+and merging current dev `17756b47`, the complete 24-sample full/desktop flight
+route reported zero abrupt changes, zero identity errors and no instance-cap
+shortfalls. Peak: 1,874,103 triangles / 193 calls. The next route crashed Chromium;
+that does not constitute a pass for the complete run. The completed flight receipt
+and a representative frame are stored alongside the baseline.
+
+The recovered plank-gap filter and its 12 passing source checks are included in
+this checkpoint. Paired browser checks, remaining motion routes, mobile, all-tier
+costs and release smoke remain pending. The merged source gate passed 752 of 753
+steps on its first attempt: the new test needed its measured isolation row. That
+row is being measured and the gate re-run before committing.
+
+A second live continuation re-claimed these same tickets at 19:47 UTC (T-2035:
+ticket commit `902070e`) and is editing the same branch name with additional
+flora and adaptive-ground work. Reconcile the two implementations before merging
+to dev; compare both plank diagnoses against actual rendered ground triangles.
+This checkpoint is recovery material, not a completed repair or deployment.

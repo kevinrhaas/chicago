@@ -1,8 +1,77 @@
 export const CHANGELOG = [ // newest first
-  { v: 1370, ts: '2026-10-03T16:20:26.435Z', date: 'Oct 3, 2026, 11:20 AM CT', title: 'More continuous summer vegetation', kind: 'fix',
+  { v: 1381, ts: '2026-10-03T20:02:56.410Z', date: 'Oct 3, 2026, 3:02 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
       'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away.',
+    ] },
+  { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
+    items: [
+      'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
+      'In 1812 the river turns south behind the sand spit and runs out to the lake near present Madison Street. There is no cut, no pier and no bridge, and no streets yet.',
+      'The spit is joined to the north shore by a narrow sand neck at its own 4 ft crest. The neck, the spit\u2019s height and the lake shore north of it are our reconstruction (liberties L362\u2013L364).',
+      'Everything south of Twelfth Street, the spit, and the old channel\u2019s west bank, where the 1830 plat and Wright\u2019s 1834 survey disagree, are marked conjectural. No point of this ground is documented.',
+    ] },
+  { v: 1379, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'Abandoned work no longer hides at the top of the to-do list', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind the scenes, a ticket whose worker stopped answering more than three hours ago now reads as free to take on the project\u2019s to-do list, so the next worker picks it up instead of walking past it for days.',
+    ] },
+  { v: 1378, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'Nothing you can see: how drawn layers will leave for other engines', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed.',
+      'Fences, plank walks, docks, signs, boats, yard goods, wells, plants and streets are drawn by the web page from our records. They are not part of the baked buildings, and now they never will be: each will be exported by the same code that draws it.',
+      'Each export is stamped with the ground it was laid on, so a moved shoreline or street rebuilds it rather than leaving it floating.',
+      'People and animals stay on their cards. No figure of anyone is exported.',
+    ] },
+  { v: 1377, ts: '2026-10-03T19:30:31.065Z', date: 'Oct 3, 2026, 2:30 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
+      'The evening, the route and the keepsake, A Pleasant Circuit, are our reconstruction (liberty L-jaunt-an-evening-stroll). No entertainment or dated event is claimed, and the light does not change.',
+    ] },
+  { v: 1376, ts: '2026-10-03T18:14:03.459Z', date: 'Oct 3, 2026, 1:14 PM CT', title: 'A new jaunt: Calling on Neighbors', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Calling on Neighbors, about four minutes on horseback.',
+      'Present a letter of introduction from Mrs Brown\u2019s boarding house, read the Peck household on its card, find the town\u2019s meeting place at the Exchange Coffee House, and leave a calling card.',
+      'The newcomer, the letters, the calls and the keepsake, An Introduction Made, are our reconstruction (liberty L-jaunt-calling-on-neighbors). The meetings and the 1834 notice asking for addresses at the Exchange come from the Chicago Democrat.',
+    ] },
+  { v: 1375, ts: '2026-10-03T17:42:34.011Z', date: 'Oct 3, 2026, 12:42 PM CT', title: 'Interface: four time-machine skins; observatory copy rewritten', kind: 'feature',
+    items: [
+      'The front door is now the Temporal Observatory. The three coordinates, 1835, 1904 and 1812, sit under new copy, an instrument telemetry strip and an archival plate on each tile.',
+      'Pick a machine at the top right: the 1960s Control Room (the standard), Precision Brass, World\u2019s Fair or Deep Space. The choice follows you into the town, and the arrival card and settings panel carry the same selector.',
+      'If you had chosen an earlier skin, you keep it under its new name: Sci-fi is now the Control Room, Steampunk is Precision Brass and Space Age is World\u2019s Fair.',
+      'The Confluence Laboratory and its aperture are framing fiction for the front door. They make no claim about the town; the evidence grades on every card are unchanged.',
+    ] },
+  { v: 1374, ts: '2026-10-03T17:24:17.483Z', date: 'Oct 3, 2026, 12:24 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',
+      'Follow freight from Newberry \u0026 Dole\u2019s warehouse past Norton\u2019s Dearborn Street drawbridge to the 1832 light at the river\u2019s mouth, and finish at the south pier looking across the cut at the north pier. Then mark the light or the end of the north pier on your route note.',
+      'The walk, the note and the keepsake, Knows the Harbor, are our reconstruction (liberty L-jaunt-along-the-harbor). Both piers were still being built that summer, so their lengths are our estimate, and the stop says so.',
+    ] },
+  { v: 1373, ts: '2026-10-03T17:05:20.078Z', date: 'Oct 3, 2026, 12:05 PM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick From Prairie to Town. You arrive from open ground by the lake south of the fort and ride into town. It takes about ten minutes on horseback, or four if you fly.',
+      'Ride north past Fort Dearborn\u2019s stockade and west along the river to Peck\u2019s store. Finish at the door of the Sauganash.',
+      'The traveller, the ride and the keepsake, Into Town, are our reconstruction (liberty L-jaunt-from-prairie-to-town). The first stop is a viewpoint, not a named place, and nothing of 1812 is staged on that shore.',
+    ] },
+  { v: 1372, ts: '2026-10-03T16:54:14.525Z', date: 'Oct 3, 2026, 11:54 AM CT', title: 'A new jaunt: Gossip or Printed Notice?', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Gossip or Printed Notice?, about five and a half minutes on horseback from the Wolf Point Tavern to the town\u2019s two printing offices.',
+      'Two rumors from the forks meet what the papers actually printed: the Democrat of 1 July would only guess at the land sale\u2019s take, and the American of 27 June says the Chicago branch bank has no officers yet. The brick bank on the square is Springfield\u2019s.',
+      'Decide what to carry back: what was printed, that nothing is settled, or nothing. The rumors and the keepsake, A Careful Reader, are our reconstruction (liberty L-jaunt-gossip-or-notice).',
+    ] },
+  { v: 1371, ts: '2026-10-03T16:14:36.599Z', date: 'Oct 3, 2026, 11:14 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
+    items: [
+      'Two boarding houses on the block at Washington and Market streets have four new boarders between them: three at Louis Robillard\u2019s and one at Michel Laframboise\u2019s. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a tailor. Open a house\u2019s card to see them.',
+      'The town was still owed four working lodgers in the South Division, and these houses still had empty beds after this morning\u2019s youths took theirs. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
+      'The two clerks work at John Dean Caton\u2019s and at his law office, and the tailor at George Holsman\u2019s, in places those houses still had open. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1370, ts: '2026-10-03T15:42:04.279Z', date: 'Oct 3, 2026, 10:42 AM CT', title: 'Ninety-one lone men now keep house with a wife and children', kind: 'change',
+    items: [
+      'Open the People view and pick a household with a reconstructed family. In 91 houses the wife and children were not drawn for the house. They came from a house of their own in the same division.',
+      'Each was a woman keeping her own house with her children. She is now the wife of a man the records name and the model says was married, and her children came with her. The household card says where they came from.',
+      'Nobody new was added and nobody was renamed. The marriage is our reconstruction, as the people are (liberty L244).',
+      '277 men are still owed a wife that no woman in the town can be.',
     ] },
   { v: 1369, ts: '2026-10-03T15:38:36.981Z', date: 'Oct 3, 2026, 10:38 AM CT', title: 'A new jaunt: A Sunday Circuit', kind: 'feature',
     items: [

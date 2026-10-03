@@ -62,13 +62,12 @@ WHAT IT REFUSES, each one written rather than quietly taken.
      Seating somebody already in the layer there is allowed either way, because a person
      the town already counts needs no bucket.
 
-  2. NO TRADE IS DEALT. The book's `lodging/trade` buckets want working lodgers and this
-     stage does not fill them, because dealing a trade is T-1173's machinery and the
-     1839 directory's shares are its table. The lodgers minted here carry
-     `none_recorded`, the same as the people the rosters print without one, and the
-     `lodging/trade` order stays open for the stage that can price it. The only trade
-     written anywhere here is a minted keeper's, and that is read off the building's own
-     `function` rather than dealt.
+  2. NO TRADE IS DEALT TO A BOARDER. The lodgers minted out of the `none` cells carry
+     `none_recorded`, the same as the people the rosters print without one, and a minted
+     keeper's trade is read off the building's own `function` rather than dealt. The
+     book's `lodging/trade` order — working lodgers — was left open here "for the stage
+     that can price it" until T-1532 dealt it LAST, through T-1347's own reader of the
+     1839 table: see `working_lodgers()`.
 
   3. NO CHILDREN. The book orders 156 people under ten into lodging households. They are
      the keepers' own families, not boarders — a child does not take a bed at a tavern on
@@ -153,6 +152,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from resident_mint_carry import carry_seats  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 RESIDENTS = ROOT / "data" / "residents"
@@ -1033,7 +1033,8 @@ def name_for(slot_id: str, sex: str, pool: dict, taken_names: set, taken_ids: se
 
 def person_card(slot_id: str, sex: str, band: str, bucket_key: str, place: dict,
                 relationship: str, pool: dict, taken_names: set, taken_ids: set,
-                keeper: bool = False, avoid_surnames: frozenset = frozenset()) -> dict:
+                keeper: bool = False, avoid_surnames: frozenset = frozenset(),
+                trade: dict | None = None) -> dict:
     pid, full, community = name_for(slot_id, sex, pool, taken_names, taken_ids,
                                     avoid_surnames)
     taken_names.add(full.lower())
@@ -1053,9 +1054,13 @@ def person_card(slot_id: str, sex: str, band: str, bucket_key: str, place: dict,
                 "kind": "model",
                 "id": "1835_invented_name_pools",
                 "note": f"Both parts are drawn from the {community['id']} pool, which is "
-                        f"seeded from the attested residents of this town. A lodger "
-                        f"carries no trade, so the pools' trade weighting has nothing to "
-                        f"say here and the community is drawn from the general stock.",
+                        f"seeded from the attested residents of this town. "
+                        + (f"The pools' trade weighting is not consulted for a lodger, "
+                           f"working or not, so the community is drawn from the general "
+                           f"stock." if trade else
+                           f"A lodger carries no trade, so the pools' trade weighting has "
+                           f"nothing to say here and the community is drawn from the "
+                           f"general stock."),
             },
             "seed": f"{slot_id}:forename",
             "replaceable_by": {
@@ -1127,6 +1132,39 @@ def person_card(slot_id: str, sex: str, band: str, bucket_key: str, place: dict,
             "NAMED house is never given a keeper this way — see the tool's refusals. The "
             "family this keeper is owed is not drawn here; `household_owed` says which "
             "ticket owes it. No figure is drawn (L1).")
+    elif trade:
+        # T-1532. A WORKING LODGER: the trade is DEALT off the 1839 table, not read off
+        # the building — see `working_lodgers()` for the set and the seed.
+        person["occupation"] = {
+            "value": trade["value"],
+            "confidence": RECONSTRUCTED,
+            "tier": RECONSTRUCTED,
+            "basis": {
+                "kind": "model",
+                "id": "fergus_1839_trade_table",
+                "note": f"Drawn, at the 1839 directory's printed share. The order book's "
+                        f"bucket {bucket_key} ordered a working lodger here, and the "
+                        f"trade is picked over {trade['set']} — the rows T-1347 deals its "
+                        f"heads from, renormalised over that set. The 1839 volume is four "
+                        f"years after the scene and its shape is read back onto 1835 "
+                        f"knowingly.",
+            },
+            "seed": trade["seed"],
+            "replaceable_by": {
+                "kind": "person",
+                "match": "a source naming a person of this trade who lodged in this house",
+            },
+            "note": "NO EMPLOYER IS NAMED. Which shop or yard this lodger worked at is not "
+                    "drawn here; nothing about this trade is dated.",
+        }
+        person["note"] = (
+            f"RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person "
+            f"exists because the order book wants a WORKING lodger of this sex, band and "
+            f"division and the town model says {place['beds_ordinary']} people slept in "
+            f"this house on an ordinary night, and the whole of what is claimed is that: "
+            f"somebody of this sex and band, at a trade, took a bed here as a "
+            f"{relationship}. They are reproducible from the seeds printed above and a "
+            f"real name retires them. No figure is drawn (L1).")
     else:
         person["occupation"] = {
             "value": "none_recorded",
@@ -1750,6 +1788,161 @@ def top_up(houses: list, house_order: list, cards: dict, seated_by_house: dict,
     return dict(sorted(fills.items())), block
 
 
+# ------------------------------------------------------ the working lodgers --
+#
+# T-1532. Refusal 2 left the book's `lodging/trade` cells open "for the stage that can price
+# it", and named T-1173's machinery as that stage. That machinery exists — T-1346 read the
+# 1839 table and T-1347 deals its heads off it — and nothing ever came back for the order.
+# This is the order, dealt here, because a working lodger is a LODGER: the bed, the house and
+# the card are this stage's, and only the trade is T-1347's, so the trade is read through
+# T-1347's own reader rather than re-implemented.
+#
+# A THIRD ROOM, DEALT LAST, FROZEN THE SAME WAY (T-1503, T-1538). Read live on the build that
+# first records it — a cell's live order, less the re-family arrivals landed in it, less
+# everything this stage drew out of it on the same build, keepers included — and carried in
+# `quota_basis.working_lodgers` on every build after. Dealt after the top-up, so every seed
+# before it sees exactly the room and the names it saw before and not one card moves.
+#
+# THE BED BOUND. A working lodger takes an ordinary-night bed like any other, so the deal is
+# capped by what the top-up left empty in the cell's division, house by house in deal order;
+# an order with no bed under it stays open and the block says so.
+#
+# THE TRADE. Each person's trade is a seeded pick over T-1347's own set for their sex — the
+# 1839 table's rows the 1835 vocabulary carries, less the garrison's and the singular
+# offices — at the table's printed counts, with two cuts, both categorical:
+#
+#   * A KEEPER'S TRADE IS NOT A LODGER'S. Keeping a boarding house or a tavern is keeping
+#     a house, and refusal 5 already says a keeper is not another house's boarder.
+#   * NOR IS A CENSUS-COUNTED ONE. The December 1835 census counts physicians, lawyers,
+#     druggists, printing offices, schools and taverns by the person who keeps them, and
+#     T-1347 spends that room under its ceilings. A lodger drawn into one would be one
+#     more against a ceiling another stage holds, so the set leaves them out.
+#
+# NO SENIORITY RULE, for T-1347's reason: nothing in this corpus prices a trade by age, so
+# an apprentice of 10-19 is drawn over the same shares as a journeyman of 30.
+
+WORKING_TICKET = "T-1532"
+
+
+def committed_working() -> list | None:
+    """The working-lodger room as committed, or None before a build has recorded one."""
+    if not LEDGER.exists():
+        return None
+    block = (load(LEDGER).get("quota_basis") or {}).get("working_lodgers")
+    if not block:
+        return None
+    return [dict(row) for row in block.get("buckets") or []]
+
+
+def lodger_trades(sex: str) -> list:
+    """[(trade, weight)] a working lodger of this sex is drawn over. T-1347's own set,
+    through T-1347's own reader, less the two cuts above."""
+    import reconstruct_trade_households as th
+    rows = dict(th.trade_rows())
+    if sex == "female":
+        weights = [(trade, rows.get(trade, 0) or 1) for trade in sorted(th.WOMENS_TRADES)]
+    else:
+        weights = sorted(rows.items())
+    return [(trade, n) for trade, n in weights
+            if trade not in KEEPER_TRADES and trade not in th.CENSUS_CEILINGS]
+
+
+def working_lodgers(houses: list, house_order: list, cards: dict, seated_by_house: dict,
+                    drawn: Counter, live_room: dict, arrivals: dict, pool: dict,
+                    taken_names: set, taken_ids: set, household_fills: Counter,
+                    refusals: list) -> tuple:
+    """(working-lodger fills, the committed block). Mutates exactly as `top_up()` does,
+    and only ever by ADDING to a bed every earlier draw left empty."""
+    rows = committed_working()
+    if rows is None:
+        rows = [{"bucket": key, "division": div, "sex": sex, "age_band": band,
+                 "to_deal": max(0, int(n) - int(arrivals.get(key, 0)) - int(drawn[key]))}
+                for (div, sex, band, axis), (key, n) in sorted(live_room.items())
+                if axis == "trade" and band in ADULT_BANDS]
+    left = {row["bucket"]: int(row["to_deal"]) for row in rows}
+    by_id = {house["id"]: house for house in houses}
+    fills: Counter = Counter()
+    seated = []
+    for house_id in house_order:
+        house = by_id[house_id]
+        short = house["beds_ordinary"] - house["occupancy"]
+        if short <= 0 or house["division"] not in DIVISIONS:
+            continue
+        cells = [row for row in rows
+                 if row["division"] == house["division"] and left[row["bucket"]] > 0]
+        if not cells:
+            continue
+        weights = [((row["sex"], row["age_band"]), left[row["bucket"]]) for row in cells]
+        key_of = {(row["sex"], row["age_band"]): row["bucket"] for row in cells}
+        deal, _ = allocate_within(short, weights, {cell: left[key_of[cell]]
+                                                   for cell, _ in weights})
+        persons = []
+        under_roof = {p["name"].lower() for p in
+                      (cards.get(f"hh_lodging_{house['id']}") or {}).get("persons", [])}
+        for (sex, band), count in sorted(deal.items()):
+            key = key_of[(sex, band)]
+            trades = lodger_trades(sex)
+            for index in range(1, count + 1):
+                slot_id = f"{STAGE}:working:{house['id']}:{sex}:{band}:{index:03d}"
+                person = person_card(slot_id, sex, band, key, house,
+                                     RELATION[house["class"]], pool,
+                                     taken_names, taken_ids,
+                                     avoid_surnames=frozenset(under_roof),
+                                     trade={"value": pick(f"{slot_id}:trade", trades),
+                                            "seed": f"{slot_id}:trade",
+                                            "set": f"{len(trades)} trades"})
+                under_roof.add(person["name"].lower())
+                person["dealt_by"] = {
+                    "ticket": WORKING_TICKET,
+                    "note": "Dealt as a working lodger, after every other draw this stage "
+                            "makes, out of the book's `lodging/trade` order as it stood "
+                            "when the deal was recorded — see `quota_basis.working_lodgers` "
+                            "in data/reconstruction/1835_lodgers_seated.json.",
+                }
+                persons.append(person)
+                fills[key] += 1
+            left[key] -= count
+        if not persons:
+            continue
+        card_id = f"hh_lodging_{house['id']}"
+        if card_id in cards:
+            cards[card_id]["persons"].extend(persons)
+            cards[card_id]["lodging_household"]["minted_here"] = len(cards[card_id]["persons"])
+        else:
+            cards[card_id] = house_card(house, persons, seated_by_house.get(house["id"], []))
+            household_fills[(house["class"], house["division"])] += 1
+        house["minted_lodgers"] = int(house.get("minted_lodgers") or 0) + len(persons)
+        house["occupancy"] += len(persons)
+        house["working_lodgers"] = len(persons)
+        seated.append({"place": house["id"], "division": house["division"],
+                       "persons": [p["id"] for p in persons]})
+        for refusal in refusals:
+            if refusal.get("place") == house["id"] and "beds_left_empty" in refusal:
+                refusal["beds_left_empty"] -= len(persons)
+                refusal["working_lodgers_by"] = {"ticket": WORKING_TICKET,
+                                                 "seated": len(persons)}
+    refusals[:] = [r for r in refusals if r.get("beds_left_empty", 1) > 0]
+
+    owed = Counter()
+    for row in rows:
+        owed[row["division"]] += left[row["bucket"]]
+    block = {
+        "$note": "DERIVED and CARRIED (T-1532). The book's `lodging/trade` order, dealt "
+                 "after the top-up as working lodgers with a trade drawn off the 1839 "
+                 "table. Read live on the build that first recorded it — the order less "
+                 "the re-family arrivals less what this stage had drawn — and carried on "
+                 "every build after, so a re-cut moves nobody it seats.",
+        "owning_ticket": WORKING_TICKET,
+        "trades_from": "data/research/directories/fergus_1839_trade_table.json, through "
+                       "tools/reconstruct_trade_households.py's own reader, less the "
+                       "keepers' trades and the census-counted ones",
+        "buckets": rows,
+        "seated": seated,
+        "ordered_with_no_bed": {div: owed[div] for div in DIVISIONS},
+    }
+    return dict(sorted(fills.items())), block
+
+
 # -------------------------------------------------------------------- the fill --
 
 def fill() -> tuple:
@@ -2017,6 +2210,13 @@ def fill() -> tuple:
                                       household_fills, refusals, YOUTH_TOP_UP)
     top_up_block["what_is_left"]["beds_with_no_order"] = (
         youth_block["what_is_left"]["beds_with_no_order"])
+    # THE WORKING LODGERS, AFTER THE TOP-UP (T-1532) — the `lodging/trade` order, into
+    # the beds the top-up and the youths left empty.
+    working_fills, working_block = working_lodgers(
+        houses, house_order, cards, seated_by_house,
+        fills + Counter(child_fills) + Counter(top_up_fills)
+        + Counter(youth_fills), live_room, arrivals, pool,
+        taken_names, taken_ids, household_fills, refusals)
 
     ledger = {
         "$schema_note": "DERIVED. Written by tools/seat_lodgers_1835.py --build; "
@@ -2031,7 +2231,8 @@ def fill() -> tuple:
                          "model already apportioned and an order the book already made, "
                          "and it names nobody the sources name.",
         "quota_basis": basis_block(room_as_dealt, house_order, ceiling)
-                       | {"top_up": top_up_block, "youth_top_up": youth_block},
+                       | {"top_up": top_up_block, "youth_top_up": youth_block,
+                          "working_lodgers": working_block},
         "inputs": [
             "data/reconstruction/1835_lodging_model.json",
             "data/reconstruction/1835_reconstruction_order_book.json",
@@ -2070,6 +2271,7 @@ def fill() -> tuple:
         "child_fills": child_fills,
         "top_up_fills": top_up_fills,
         "youth_top_up_fills": youth_fills,
+        "working_fills": working_fills,
         "household_fills": household_fills_block(household_fills),
         "keeper_families": {
             "ticket": CHILD_TICKET,
@@ -2110,8 +2312,11 @@ def fill() -> tuple:
             "the_staff": "T-1183 models how a business was staffed. The bar-keeper, the "
                          "hostler, the cook and the chambermaid under every keeper here "
                          "are that ticket's, as T-1370 already said.",
-            "the_trade_of_a_lodger": "The book's `lodging/trade` buckets are left open. "
-                                     "Dealing a trade is T-1173's machinery.",
+            "the_trade_of_a_lodger": "NOW DEALT, AFTER EVERYTHING ELSE (T-1532): "
+                                     "`quota_basis.working_lodgers` carries the order "
+                                     "and the beds it went into. The boarders above "
+                                     "still carry no trade — they were ordered out of "
+                                     "the `none` cells.",
             "the_children": (
                 "PART OF IT NOW IS. The book orders people under ten into lodging "
                 "households and they are keepers' families rather than boarders, which is "
@@ -2126,6 +2331,12 @@ def fill() -> tuple:
                 "there is no keeper to be kin to. `keeper_families` counts both halves."),
         },
     }
+    # T-1532. A WORKING LODGER IS A TRADE-HOLDER, so `seat_reconstructed_trades_1835.py`
+    # writes their seat onto this stage's card as `persons[].employment`, after this stage
+    # runs. The card is derived whole and compared byte for byte, so the seat is carried
+    # through the rebuild exactly as T-1347's stage carries its own (T-1489); what the
+    # block may contain is that pass's --check to decide.
+    carry_seats(cards, MINTED)
     return cards, ledger
 
 
@@ -2352,6 +2563,7 @@ def measurement(cards: dict, ledger: dict) -> dict:
         "lodging_households_built": ledger["household_fills"]["houses_filled"],
         "the_two_counts_reconciled": the_two_counts_reconciled(ledger),
         "child_buckets_filled": len(ledger.get("child_fills") or {}),
+        "working_lodgers_minted": sum((ledger.get("working_fills") or {}).values()),
         "every_child_is_kin_of_a_named_keeper": all(
             p.get("kin_of", {}).get("person")
             and p["kin_of"]["person"] == card["head"]
@@ -2361,8 +2573,8 @@ def measurement(cards: dict, ledger: dict) -> dict:
             "The book orders 544 people into lodging households. This piece spends "
             f"{minted - children} of them into beds and {children} more as the keepers' "
             "own children; the rest wait on the 37 unbuilt boarding houses, the crews and "
-            "the works gang (T-1372), the trades this stage does not deal, and the "
-            "children of houses this stage does not keep."),
+            "the works gang (T-1372), and the children of houses this stage does not "
+            "keep."),
     }
 
 
@@ -2387,7 +2599,7 @@ def write_fills(ledger: dict) -> None:
     `--build` refuses an overfilled bucket, so the quota is enforced twice."""
     import build_order_book_1835 as ob
     book = load(BOOK)
-    ours = (TICKET, CHILD_TICKET, TOP_UP_TICKET, YOUTH_TOP_UP["ticket"])
+    ours = (TICKET, CHILD_TICKET, TOP_UP_TICKET, YOUTH_TOP_UP["ticket"], WORKING_TICKET)
     rows = [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted(ledger["fills"].items())]
@@ -2404,6 +2616,10 @@ def write_fills(ledger: dict) -> None:
     rows += [{"bucket": key, "ticket": YOUTH_TOP_UP["ticket"], "stage": STAGE,
               "records": n, "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted((ledger.get("youth_top_up_fills") or {}).items())]
+    # And the working lodgers (T-1532), against theirs.
+    rows += [{"bucket": key, "ticket": WORKING_TICKET, "stage": STAGE, "records": n,
+              "by": "tools/seat_lodgers_1835.py --build"}
+             for key, n in sorted((ledger.get("working_fills") or {}).items())]
     # AND THE HOUSES, against this stage's OWN ticket (T-1537): the lodging household
     # record is what THIS stage writes, one per lodging place, and the children above are
     # a later piece's people inside it. `records` means records of the bucket's own unit,
@@ -2461,6 +2677,7 @@ def refuse(cards: dict, ledger: dict) -> None:
     both.update({k: int(v) for k, v in (ledger.get("child_fills") or {}).items()})
     both.update({k: int(v) for k, v in (ledger.get("top_up_fills") or {}).items()})
     both.update({k: int(v) for k, v in (ledger.get("youth_top_up_fills") or {}).items()})
+    both.update({k: int(v) for k, v in (ledger.get("working_fills") or {}).items()})
     refuse_a_recut_under_the_draw(dict(both), live)
     refuse_a_household_fill_outside_the_order(
         {tuple(k.split("/")[1:]): int(v) for k, v in
@@ -2497,6 +2714,12 @@ def refuse(cards: dict, ledger: dict) -> None:
             if person["name"].lower() in real:
                 raise SystemExit("  FAIL the invented name '%s' is borne by a person the "
                                  "sources name" % person["name"])
+            # A WORKING LODGER CARRIES A DEALT TRADE, AND NEVER A KEEPER'S (T-1532).
+            if (person.get("dealt_by") or {}).get("ticket") == WORKING_TICKET:
+                value = (person.get("occupation") or {}).get("value")
+                if value in (None, "", "none_recorded") or value in KEEPER_TRADES:
+                    raise SystemExit("  FAIL %s was dealt as a working lodger and carries "
+                                     "the trade %r" % (person["id"], value))
             if person["relationship"] not in ("son", "daughter"):
                 continue
             # A CHILD IS KIN OF A NAMED KEEPER OR IT IS NOT WRITTEN (T-1533's acceptance).
@@ -2543,7 +2766,11 @@ def check() -> int:
     for ticket, want_fills in ((TICKET, dict(ledger["fills"]) | {
                                    k: int(v) for k, v in
                                    (ledger["household_fills"]["by_cell"] or {}).items()}),
-                               (CHILD_TICKET, ledger.get("child_fills") or {})):
+                               (CHILD_TICKET, ledger.get("child_fills") or {}),
+                               # T-1538's row had dropped out of the committed book with
+                               # nothing here to notice; T-1532 found it.
+                               (TOP_UP_TICKET, ledger.get("top_up_fills") or {}),
+                               (WORKING_TICKET, ledger.get("working_fills") or {})):
         ours = {f["bucket"]: int(f["records"]) for f in book.get("fills", [])
                 if f.get("ticket") == ticket}
         if ours != dict(want_fills):
@@ -2745,10 +2972,18 @@ def self_test() -> int:
     case("no lodger is drawn under ten",
          all(band in {band_block(b, "x")["value"] for b in ADULT_BANDS} for band in bands))
 
-    # 8. No trade is dealt onto a lodger.
+    # 8. No trade is dealt onto a boarder — only the working lodgers T-1532 deals carry one,
+    #    and theirs is never a keeper's.
     trades = {(p["occupation"] or {}).get("value") for card in cards.values()
-              for p in card["persons"] if p["relationship"] != "head"}
-    case("no lodger is dealt a trade", trades <= {"none_recorded"})
+              for p in card["persons"] if p["relationship"] != "head"
+              and (p.get("dealt_by") or {}).get("ticket") != WORKING_TICKET}
+    case("no boarder is dealt a trade", trades <= {"none_recorded"})
+    working = [p for card in cards.values() for p in card["persons"]
+               if (p.get("dealt_by") or {}).get("ticket") == WORKING_TICKET]
+    case("every working lodger carries a dealt trade, and none a keeper's",
+         len(working) == sum((ledger.get("working_fills") or {}).values())
+         and all((p["occupation"] or {}).get("value") not in
+                 (None, "", "none_recorded", *KEEPER_TRADES) for p in working))
 
     # 9. Every keeper's shortfall is stated rather than drawn.
     case("every lodging place's keeper row says who owes the rest of the household",

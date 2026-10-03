@@ -111,11 +111,11 @@
     "at_work_is_not_placed": "`at_a_trade_with_no_house_to_join` is in neither set and that is the point of it. Those people follow a trade; what is missing is a house in the business layer to join them to. Counting them as unemployed would be false and counting them as placed would be an invention."
   },
   "counts": {
-    "people": 3369,
+    "people": 3373,
     "by_status": {
       "at_a_named_house": 127,
-      "at_a_seat_this_project_drew": 122,
-      "at_a_trade_with_no_house_to_join": 343,
+      "at_a_seat_this_project_drew": 125,
+      "at_a_trade_with_no_house_to_join": 344,
       "no_trade_recorded": 2651,
       "on_their_own_account": 126
     },
@@ -134,21 +134,21 @@
       "not_held_by_the_establishment_on_the_scene_date": 8,
       "on_the_staff_of_a_house": 9,
       "roofs_kept_none_owed": 12,
-      "seated_by_the_staffing_model": 122,
+      "seated_by_the_staffing_model": 125,
       "serves_an_establishment_outside_the_register": 4,
-      "the_mechanics_shops_are_over_their_count": 57,
+      "the_mechanics_shops_are_over_their_count": 58,
       "the_printed_count_is_held": 37,
       "works_on_other_people_s_ground": 3
     },
     "by_age_scope": {
-      "age_is_not_settled": 555,
+      "age_is_not_settled": 559,
       "below_working_age": 541,
       "working_age": 2273
     },
     "by_age_scope_and_status": {
       "age_is_not_settled": {
-        "at_a_seat_this_project_drew": 2,
-        "at_a_trade_with_no_house_to_join": 18,
+        "at_a_seat_this_project_drew": 5,
+        "at_a_trade_with_no_house_to_join": 19,
         "no_trade_recorded": 526,
         "on_their_own_account": 9
       },
@@ -163,8 +163,8 @@
         "on_their_own_account": 117
       }
     },
-    "placed_at_work": 375,
-    "carry_a_trade": 668,
+    "placed_at_work": 378,
+    "carry_a_trade": 672,
     "working_age": 2273,
     "working_age_placed_at_work": 364,
     "working_age_with_no_trade_recorded": 1584
@@ -232,7 +232,7 @@
     "employed_persons": {
       "model_low": 425,
       "model_high": 588,
-      "the_layer_places": 375,
+      "the_layer_places": 378,
       "inside_the_band": false,
       "method_the_model_used": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "why_this_is_not_a_job_finished": "The model's band is a SIZE struck against a town of 2,353-3,265 people; the layer holds a different number of cards and the model's own open question says the 1840 industry columns have no row for domestic service at all. A figure inside a range is where the argument starts."
@@ -240,7 +240,7 @@
     "people_the_layer_gives_a_trade": {
       "model_low": 138,
       "model_high": 328,
-      "the_layer_gives_today": 668,
+      "the_layer_gives_today": 672,
       "note": "The model's figure was struck before the reconstruction bands ran. The layer gives more people a trade than it did; the model re-cuts from the layer and will carry it when it next does."
     }
   },
@@ -16670,7 +16670,7 @@
     },
     {
       "person_id": "rc_bacon_betsey",
-      "household_id": "hh_rc_bacon_betsey",
+      "household_id": "hh_blodget_e_b",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -16789,7 +16789,7 @@
     },
     {
       "person_id": "rc_bacon_phebe",
-      "household_id": "hh_rc_bacon_phebe",
+      "household_id": "hh_franchere_l",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -16802,7 +16802,7 @@
     },
     {
       "person_id": "rc_bacon_phebe_1",
-      "household_id": "hh_rc_bacon_phebe",
+      "household_id": "hh_franchere_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -16815,7 +16815,7 @@
     },
     {
       "person_id": "rc_bacon_phebe_2",
-      "household_id": "hh_rc_bacon_phebe",
+      "household_id": "hh_franchere_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -16828,7 +16828,7 @@
     },
     {
       "person_id": "rc_bacon_phebe_3",
-      "household_id": "hh_rc_bacon_phebe",
+      "household_id": "hh_franchere_l",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -16841,7 +16841,7 @@
     },
     {
       "person_id": "rc_bacon_phebe_4",
-      "household_id": "hh_rc_bacon_phebe",
+      "household_id": "hh_franchere_l",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17151,7 +17151,7 @@
     },
     {
       "person_id": "rc_bardwell_phebe",
-      "household_id": "hh_rc_bardwell_phebe",
+      "household_id": "hh_foster_amos",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -17166,7 +17166,7 @@
     },
     {
       "person_id": "rc_bardwell_phebe_1",
-      "household_id": "hh_rc_bardwell_phebe",
+      "household_id": "hh_foster_amos",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17179,7 +17179,7 @@
     },
     {
       "person_id": "rc_bardwell_phebe_2",
-      "household_id": "hh_rc_bardwell_phebe",
+      "household_id": "hh_foster_amos",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17192,7 +17192,7 @@
     },
     {
       "person_id": "rc_bardwell_phebe_3",
-      "household_id": "hh_rc_bardwell_phebe",
+      "household_id": "hh_foster_amos",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17205,7 +17205,7 @@
     },
     {
       "person_id": "rc_bardwell_phebe_4",
-      "household_id": "hh_rc_bardwell_phebe",
+      "household_id": "hh_foster_amos",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17218,7 +17218,7 @@
     },
     {
       "person_id": "rc_bardwell_phebe_5",
-      "household_id": "hh_rc_bardwell_phebe",
+      "household_id": "hh_foster_amos",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17231,7 +17231,7 @@
     },
     {
       "person_id": "rc_bardwell_phebe_6",
-      "household_id": "hh_rc_bardwell_phebe",
+      "household_id": "hh_foster_amos",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17296,7 +17296,7 @@
     },
     {
       "person_id": "rc_barnes_almira",
-      "household_id": "hh_rc_barnes_almira",
+      "household_id": "hh_forester_thomas",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -17311,7 +17311,7 @@
     },
     {
       "person_id": "rc_barnes_almira_1",
-      "household_id": "hh_rc_barnes_almira",
+      "household_id": "hh_forester_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17324,7 +17324,7 @@
     },
     {
       "person_id": "rc_barnes_almira_2",
-      "household_id": "hh_rc_barnes_almira",
+      "household_id": "hh_forester_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17337,7 +17337,7 @@
     },
     {
       "person_id": "rc_barnes_almira_3",
-      "household_id": "hh_rc_barnes_almira",
+      "household_id": "hh_forester_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17350,7 +17350,7 @@
     },
     {
       "person_id": "rc_barnes_almira_4",
-      "household_id": "hh_rc_barnes_almira",
+      "household_id": "hh_forester_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17376,7 +17376,7 @@
     },
     {
       "person_id": "rc_barnes_betsey",
-      "household_id": "hh_rc_barnes_betsey",
+      "household_id": "hh_kimberly_osa",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -17389,7 +17389,7 @@
     },
     {
       "person_id": "rc_barnes_betsey_1",
-      "household_id": "hh_rc_barnes_betsey",
+      "household_id": "hh_kimberly_osa",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17402,7 +17402,7 @@
     },
     {
       "person_id": "rc_barnes_betsey_2",
-      "household_id": "hh_rc_barnes_betsey",
+      "household_id": "hh_kimberly_osa",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17415,7 +17415,7 @@
     },
     {
       "person_id": "rc_barnes_betsey_3",
-      "household_id": "hh_rc_barnes_betsey",
+      "household_id": "hh_kimberly_osa",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17428,7 +17428,7 @@
     },
     {
       "person_id": "rc_barnes_betsey_4",
-      "household_id": "hh_rc_barnes_betsey",
+      "household_id": "hh_kimberly_osa",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17441,7 +17441,7 @@
     },
     {
       "person_id": "rc_barnes_betsey_5",
-      "household_id": "hh_rc_barnes_betsey",
+      "household_id": "hh_kimberly_osa",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17480,7 +17480,7 @@
     },
     {
       "person_id": "rc_barnes_emily",
-      "household_id": "hh_rc_barnes_emily",
+      "household_id": "hh_forbes_stephen",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -17493,7 +17493,7 @@
     },
     {
       "person_id": "rc_barnes_emily_1",
-      "household_id": "hh_rc_barnes_emily",
+      "household_id": "hh_forbes_stephen",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17506,7 +17506,7 @@
     },
     {
       "person_id": "rc_barnes_emily_2",
-      "household_id": "hh_rc_barnes_emily",
+      "household_id": "hh_forbes_stephen",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17519,7 +17519,7 @@
     },
     {
       "person_id": "rc_barnes_esther",
-      "household_id": "hh_rc_barnes_esther",
+      "household_id": "hh_fisher_pitman",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -17532,7 +17532,7 @@
     },
     {
       "person_id": "rc_barnes_esther_1",
-      "household_id": "hh_rc_barnes_esther",
+      "household_id": "hh_fisher_pitman",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17545,7 +17545,7 @@
     },
     {
       "person_id": "rc_barnes_esther_2",
-      "household_id": "hh_rc_barnes_esther",
+      "household_id": "hh_fisher_pitman",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -17558,7 +17558,7 @@
     },
     {
       "person_id": "rc_barnes_esther_3",
-      "household_id": "hh_rc_barnes_esther",
+      "household_id": "hh_fisher_pitman",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17571,7 +17571,7 @@
     },
     {
       "person_id": "rc_barnes_esther_4",
-      "household_id": "hh_rc_barnes_esther",
+      "household_id": "hh_fisher_pitman",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -17644,6 +17644,21 @@
       "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
       "houses": [
         "biz_uncertain_noble_wesencaft"
+      ]
+    },
+    {
+      "person_id": "rc_barnes_john",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "clerk",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_seat_this_project_drew",
+      "reason": "seated_by_the_staffing_model",
+      "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
+      "houses": [
+        "biz_john_dean_caton"
       ]
     },
     {
@@ -17791,7 +17806,7 @@
     },
     {
       "person_id": "rc_barnes_susan",
-      "household_id": "hh_rc_barnes_susan",
+      "household_id": "hh_kenworthy_r",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -17806,7 +17821,7 @@
     },
     {
       "person_id": "rc_barnes_susan_1",
-      "household_id": "hh_rc_barnes_susan",
+      "household_id": "hh_kenworthy_r",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18029,7 +18044,7 @@
     },
     {
       "person_id": "rc_bourassa_madeleine",
-      "household_id": "hh_rc_bourassa_madeleine",
+      "household_id": "hh_finley_clement_a",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -18044,7 +18059,7 @@
     },
     {
       "person_id": "rc_bourassa_madeleine_1",
-      "household_id": "hh_rc_bourassa_madeleine",
+      "household_id": "hh_finley_clement_a",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -18057,7 +18072,7 @@
     },
     {
       "person_id": "rc_bourassa_madeleine_2",
-      "household_id": "hh_rc_bourassa_madeleine",
+      "household_id": "hh_finley_clement_a",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -18070,7 +18085,7 @@
     },
     {
       "person_id": "rc_bourassa_madeleine_3",
-      "household_id": "hh_rc_bourassa_madeleine",
+      "household_id": "hh_finley_clement_a",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18083,7 +18098,7 @@
     },
     {
       "person_id": "rc_bourassa_madeleine_4",
-      "household_id": "hh_rc_bourassa_madeleine",
+      "household_id": "hh_finley_clement_a",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18564,7 +18579,7 @@
     },
     {
       "person_id": "rc_burke_mary",
-      "household_id": "hh_rc_burke_mary",
+      "household_id": "hh_keyes_edward",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -18577,7 +18592,7 @@
     },
     {
       "person_id": "rc_burke_mary_1",
-      "household_id": "hh_rc_burke_mary",
+      "household_id": "hh_keyes_edward",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18590,7 +18605,7 @@
     },
     {
       "person_id": "rc_burke_mary_2",
-      "household_id": "hh_rc_burke_mary",
+      "household_id": "hh_keyes_edward",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18603,7 +18618,7 @@
     },
     {
       "person_id": "rc_burke_mary_3",
-      "household_id": "hh_rc_burke_mary",
+      "household_id": "hh_keyes_edward",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -18722,7 +18737,7 @@
     },
     {
       "person_id": "rc_carroll_ellen",
-      "household_id": "hh_rc_carroll_ellen",
+      "household_id": "hh_madera_victoire",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -18735,7 +18750,7 @@
     },
     {
       "person_id": "rc_carroll_ellen_1",
-      "household_id": "hh_rc_carroll_ellen",
+      "household_id": "hh_madera_victoire",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18748,7 +18763,7 @@
     },
     {
       "person_id": "rc_carroll_ellen_2",
-      "household_id": "hh_rc_carroll_ellen",
+      "household_id": "hh_madera_victoire",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18776,7 +18791,7 @@
     },
     {
       "person_id": "rc_carroll_johanna",
-      "household_id": "hh_rc_carroll_johanna",
+      "household_id": "hh_faraher_thomas",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -18791,7 +18806,7 @@
     },
     {
       "person_id": "rc_carroll_johanna_1",
-      "household_id": "hh_rc_carroll_johanna",
+      "household_id": "hh_faraher_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18804,7 +18819,7 @@
     },
     {
       "person_id": "rc_carroll_johanna_2",
-      "household_id": "hh_rc_carroll_johanna",
+      "household_id": "hh_faraher_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18817,7 +18832,7 @@
     },
     {
       "person_id": "rc_carroll_margaret",
-      "household_id": "hh_rc_carroll_margaret",
+      "household_id": "hh_douglas_calvin",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -18830,7 +18845,7 @@
     },
     {
       "person_id": "rc_carroll_margaret_1",
-      "household_id": "hh_rc_carroll_margaret",
+      "household_id": "hh_douglas_calvin",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -18843,7 +18858,7 @@
     },
     {
       "person_id": "rc_carroll_margaret_2",
-      "household_id": "hh_rc_carroll_margaret",
+      "household_id": "hh_douglas_calvin",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -18856,7 +18871,7 @@
     },
     {
       "person_id": "rc_carroll_margaret_3",
-      "household_id": "hh_rc_carroll_margaret",
+      "household_id": "hh_douglas_calvin",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -18869,7 +18884,7 @@
     },
     {
       "person_id": "rc_carroll_margaret_4",
-      "household_id": "hh_rc_carroll_margaret",
+      "household_id": "hh_douglas_calvin",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -18882,7 +18897,7 @@
     },
     {
       "person_id": "rc_carroll_margaret_5",
-      "household_id": "hh_rc_carroll_margaret",
+      "household_id": "hh_douglas_calvin",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -19244,7 +19259,7 @@
     },
     {
       "person_id": "rc_chapin_clarissa",
-      "household_id": "hh_rc_chapin_clarissa",
+      "household_id": "hh_hunter_robert",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -19257,7 +19272,7 @@
     },
     {
       "person_id": "rc_chapin_clarissa_1",
-      "household_id": "hh_rc_chapin_clarissa",
+      "household_id": "hh_hunter_robert",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -19270,7 +19285,7 @@
     },
     {
       "person_id": "rc_chapin_clarissa_2",
-      "household_id": "hh_rc_chapin_clarissa",
+      "household_id": "hh_hunter_robert",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -19332,7 +19347,7 @@
     },
     {
       "person_id": "rc_chapin_harriet",
-      "household_id": "hh_rc_chapin_harriet",
+      "household_id": "hh_dewey_d_s",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -19345,7 +19360,7 @@
     },
     {
       "person_id": "rc_chapin_harriet_1",
-      "household_id": "hh_rc_chapin_harriet",
+      "household_id": "hh_dewey_d_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -19451,7 +19466,7 @@
     },
     {
       "person_id": "rc_chevalier_angelique",
-      "household_id": "hh_rc_chevalier_angelique",
+      "household_id": "hh_witkins_thomas",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -19464,7 +19479,7 @@
     },
     {
       "person_id": "rc_chevalier_angelique_1",
-      "household_id": "hh_rc_chevalier_angelique",
+      "household_id": "hh_witkins_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -19477,7 +19492,7 @@
     },
     {
       "person_id": "rc_chevalier_angelique_2",
-      "household_id": "hh_rc_chevalier_angelique",
+      "household_id": "hh_witkins_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -19490,7 +19505,7 @@
     },
     {
       "person_id": "rc_chevalier_angelique_3",
-      "household_id": "hh_rc_chevalier_angelique",
+      "household_id": "hh_witkins_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -19503,7 +19518,7 @@
     },
     {
       "person_id": "rc_chevalier_angelique_4",
-      "household_id": "hh_rc_chevalier_angelique",
+      "household_id": "hh_witkins_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -19642,7 +19657,7 @@
     },
     {
       "person_id": "rc_cobb_clarissa",
-      "household_id": "hh_rc_cobb_clarissa",
+      "household_id": "hh_adams_hiram_a",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -19657,7 +19672,7 @@
     },
     {
       "person_id": "rc_cobb_clarissa_1",
-      "household_id": "hh_rc_cobb_clarissa",
+      "household_id": "hh_adams_hiram_a",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -19900,7 +19915,7 @@
     },
     {
       "person_id": "rc_cobb_polly",
-      "household_id": "hh_rc_cobb_polly",
+      "household_id": "hh_hunter_edward_e",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -19913,7 +19928,7 @@
     },
     {
       "person_id": "rc_cobb_polly_1",
-      "household_id": "hh_rc_cobb_polly",
+      "household_id": "hh_hunter_edward_e",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -19926,7 +19941,7 @@
     },
     {
       "person_id": "rc_cobb_polly_2",
-      "household_id": "hh_rc_cobb_polly",
+      "household_id": "hh_hunter_edward_e",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -19939,7 +19954,7 @@
     },
     {
       "person_id": "rc_cobb_polly_3",
-      "household_id": "hh_rc_cobb_polly",
+      "household_id": "hh_hunter_edward_e",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -19952,7 +19967,7 @@
     },
     {
       "person_id": "rc_cobb_polly_4",
-      "household_id": "hh_rc_cobb_polly",
+      "household_id": "hh_hunter_edward_e",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20177,7 +20192,7 @@
     },
     {
       "person_id": "rc_connor_margaret",
-      "household_id": "hh_rc_connor_margaret",
+      "household_id": "hh_bourque_william",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -20192,7 +20207,7 @@
     },
     {
       "person_id": "rc_connor_margaret_1",
-      "household_id": "hh_rc_connor_margaret",
+      "household_id": "hh_bourque_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20205,7 +20220,7 @@
     },
     {
       "person_id": "rc_connor_margaret_2",
-      "household_id": "hh_rc_connor_margaret",
+      "household_id": "hh_bourque_william",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -20218,7 +20233,7 @@
     },
     {
       "person_id": "rc_connor_margaret_3",
-      "household_id": "hh_rc_connor_margaret",
+      "household_id": "hh_bourque_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20231,7 +20246,7 @@
     },
     {
       "person_id": "rc_connor_margaret_4",
-      "household_id": "hh_rc_connor_margaret",
+      "household_id": "hh_bourque_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20244,7 +20259,7 @@
     },
     {
       "person_id": "rc_connor_margaret_5",
-      "household_id": "hh_rc_connor_margaret",
+      "household_id": "hh_bourque_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20350,7 +20365,7 @@
     },
     {
       "person_id": "rc_corrigan_johanna",
-      "household_id": "hh_rc_corrigan_johanna",
+      "household_id": "hh_hunt_charles_cotesworth_pinckney",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -20458,7 +20473,7 @@
     },
     {
       "person_id": "rc_crandall_almira",
-      "household_id": "hh_rc_crandall_almira",
+      "household_id": "hh_david_john",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -20471,7 +20486,7 @@
     },
     {
       "person_id": "rc_crandall_almira_1",
-      "household_id": "hh_rc_crandall_almira",
+      "household_id": "hh_david_john",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20484,7 +20499,7 @@
     },
     {
       "person_id": "rc_crandall_almira_2",
-      "household_id": "hh_rc_crandall_almira",
+      "household_id": "hh_david_john",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -20497,7 +20512,7 @@
     },
     {
       "person_id": "rc_crandall_almira_3",
-      "household_id": "hh_rc_crandall_almira",
+      "household_id": "hh_david_john",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20510,7 +20525,7 @@
     },
     {
       "person_id": "rc_crandall_almira_4",
-      "household_id": "hh_rc_crandall_almira",
+      "household_id": "hh_david_john",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -20523,7 +20538,7 @@
     },
     {
       "person_id": "rc_crandall_almira_5",
-      "household_id": "hh_rc_crandall_almira",
+      "household_id": "hh_david_john",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -20580,7 +20595,7 @@
     },
     {
       "person_id": "rc_crandall_clarissa",
-      "household_id": "hh_rc_crandall_clarissa",
+      "household_id": "hh_markle_joseph_w",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -20593,7 +20608,7 @@
     },
     {
       "person_id": "rc_crandall_clarissa_1",
-      "household_id": "hh_rc_crandall_clarissa",
+      "household_id": "hh_markle_joseph_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20606,7 +20621,7 @@
     },
     {
       "person_id": "rc_crandall_clarissa_2",
-      "household_id": "hh_rc_crandall_clarissa",
+      "household_id": "hh_markle_joseph_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20619,7 +20634,7 @@
     },
     {
       "person_id": "rc_crandall_clarissa_3",
-      "household_id": "hh_rc_crandall_clarissa",
+      "household_id": "hh_markle_joseph_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20632,7 +20647,7 @@
     },
     {
       "person_id": "rc_crandall_clarissa_4",
-      "household_id": "hh_rc_crandall_clarissa",
+      "household_id": "hh_markle_joseph_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20738,7 +20753,7 @@
     },
     {
       "person_id": "rc_crandall_polly",
-      "household_id": "hh_rc_crandall_polly",
+      "household_id": "hh_darling_enoch",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -20751,7 +20766,7 @@
     },
     {
       "person_id": "rc_crandall_polly_1",
-      "household_id": "hh_rc_crandall_polly",
+      "household_id": "hh_darling_enoch",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20764,7 +20779,7 @@
     },
     {
       "person_id": "rc_crandall_polly_2",
-      "household_id": "hh_rc_crandall_polly",
+      "household_id": "hh_darling_enoch",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -20777,7 +20792,7 @@
     },
     {
       "person_id": "rc_crandall_polly_3",
-      "household_id": "hh_rc_crandall_polly",
+      "household_id": "hh_darling_enoch",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -20790,7 +20805,7 @@
     },
     {
       "person_id": "rc_crandall_polly_4",
-      "household_id": "hh_rc_crandall_polly",
+      "household_id": "hh_darling_enoch",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -20803,7 +20818,7 @@
     },
     {
       "person_id": "rc_crandall_polly_5",
-      "household_id": "hh_rc_crandall_polly",
+      "household_id": "hh_darling_enoch",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -20816,7 +20831,7 @@
     },
     {
       "person_id": "rc_crandall_polly_6",
-      "household_id": "hh_rc_crandall_polly",
+      "household_id": "hh_darling_enoch",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21161,7 +21176,7 @@
     },
     {
       "person_id": "rc_dickinson_almira",
-      "household_id": "hh_rc_dickinson_almira",
+      "household_id": "hh_curtis_jacob_s",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -21174,7 +21189,7 @@
     },
     {
       "person_id": "rc_dickinson_almira_1",
-      "household_id": "hh_rc_dickinson_almira",
+      "household_id": "hh_curtis_jacob_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21187,7 +21202,7 @@
     },
     {
       "person_id": "rc_dickinson_almira_2",
-      "household_id": "hh_rc_dickinson_almira",
+      "household_id": "hh_curtis_jacob_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21200,7 +21215,7 @@
     },
     {
       "person_id": "rc_dickinson_almira_3",
-      "household_id": "hh_rc_dickinson_almira",
+      "household_id": "hh_curtis_jacob_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21213,7 +21228,7 @@
     },
     {
       "person_id": "rc_dickinson_almira_4",
-      "household_id": "hh_rc_dickinson_almira",
+      "household_id": "hh_curtis_jacob_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21226,7 +21241,7 @@
     },
     {
       "person_id": "rc_dickinson_almira_5",
-      "household_id": "hh_rc_dickinson_almira",
+      "household_id": "hh_curtis_jacob_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21330,7 +21345,7 @@
     },
     {
       "person_id": "rc_dickinson_harriet",
-      "household_id": "hh_rc_dickinson_harriet",
+      "household_id": "hh_blanchemontagne_alexis_thomas",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -21479,7 +21494,7 @@
     },
     {
       "person_id": "rc_dolan_alice",
-      "household_id": "hh_rc_dolan_alice",
+      "household_id": "hh_clybourn_s",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -21492,7 +21507,7 @@
     },
     {
       "person_id": "rc_dolan_alice_1",
-      "household_id": "hh_rc_dolan_alice",
+      "household_id": "hh_clybourn_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21505,7 +21520,7 @@
     },
     {
       "person_id": "rc_dolan_alice_2",
-      "household_id": "hh_rc_dolan_alice",
+      "household_id": "hh_clybourn_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21518,7 +21533,7 @@
     },
     {
       "person_id": "rc_dolan_alice_3",
-      "household_id": "hh_rc_dolan_alice",
+      "household_id": "hh_clybourn_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21531,7 +21546,7 @@
     },
     {
       "person_id": "rc_dolan_alice_4",
-      "household_id": "hh_rc_dolan_alice",
+      "household_id": "hh_clybourn_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21544,7 +21559,7 @@
     },
     {
       "person_id": "rc_dolan_alice_5",
-      "household_id": "hh_rc_dolan_alice",
+      "household_id": "hh_clybourn_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21557,7 +21572,7 @@
     },
     {
       "person_id": "rc_dolan_johanna",
-      "household_id": "hh_rc_dolan_johanna",
+      "household_id": "hh_jones_m",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -21570,7 +21585,7 @@
     },
     {
       "person_id": "rc_dolan_johanna_1",
-      "household_id": "hh_rc_dolan_johanna",
+      "household_id": "hh_jones_m",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21583,7 +21598,7 @@
     },
     {
       "person_id": "rc_dolan_johanna_2",
-      "household_id": "hh_rc_dolan_johanna",
+      "household_id": "hh_jones_m",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21596,7 +21611,7 @@
     },
     {
       "person_id": "rc_dolan_johanna_3",
-      "household_id": "hh_rc_dolan_johanna",
+      "household_id": "hh_jones_m",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21819,7 +21834,7 @@
     },
     {
       "person_id": "rc_doyle_ellen",
-      "household_id": "hh_rc_doyle_ellen",
+      "household_id": "hh_leframboise_joseph",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -21832,7 +21847,7 @@
     },
     {
       "person_id": "rc_doyle_ellen_1",
-      "household_id": "hh_rc_doyle_ellen",
+      "household_id": "hh_leframboise_joseph",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21845,7 +21860,7 @@
     },
     {
       "person_id": "rc_doyle_ellen_2",
-      "household_id": "hh_rc_doyle_ellen",
+      "household_id": "hh_leframboise_joseph",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -21858,7 +21873,7 @@
     },
     {
       "person_id": "rc_doyle_ellen_3",
-      "household_id": "hh_rc_doyle_ellen",
+      "household_id": "hh_leframboise_joseph",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -21871,7 +21886,7 @@
     },
     {
       "person_id": "rc_doyle_ellen_4",
-      "household_id": "hh_rc_doyle_ellen",
+      "household_id": "hh_leframboise_joseph",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -22259,7 +22274,7 @@
     },
     {
       "person_id": "rc_eastman_emily",
-      "household_id": "hh_rc_eastman_emily",
+      "household_id": "hh_lee_william",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -22272,7 +22287,7 @@
     },
     {
       "person_id": "rc_eastman_emily_1",
-      "household_id": "hh_rc_eastman_emily",
+      "household_id": "hh_lee_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -22285,7 +22300,7 @@
     },
     {
       "person_id": "rc_eastman_emily_2",
-      "household_id": "hh_rc_eastman_emily",
+      "household_id": "hh_lee_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -22298,7 +22313,7 @@
     },
     {
       "person_id": "rc_eastman_emily_3",
-      "household_id": "hh_rc_eastman_emily",
+      "household_id": "hh_lee_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -22311,7 +22326,7 @@
     },
     {
       "person_id": "rc_eastman_emily_4",
-      "household_id": "hh_rc_eastman_emily",
+      "household_id": "hh_lee_william",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -22324,7 +22339,7 @@
     },
     {
       "person_id": "rc_eastman_emily_5",
-      "household_id": "hh_rc_eastman_emily",
+      "household_id": "hh_lee_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -22337,7 +22352,7 @@
     },
     {
       "person_id": "rc_eastman_esther",
-      "household_id": "hh_rc_eastman_esther",
+      "household_id": "hh_cobb_l_b",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -22350,7 +22365,7 @@
     },
     {
       "person_id": "rc_eastman_esther_1",
-      "household_id": "hh_rc_eastman_esther",
+      "household_id": "hh_cobb_l_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -22363,7 +22378,7 @@
     },
     {
       "person_id": "rc_eastman_esther_2",
-      "household_id": "hh_rc_eastman_esther",
+      "household_id": "hh_cobb_l_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -22885,7 +22900,7 @@
     },
     {
       "person_id": "rc_fairbanks_lydia",
-      "household_id": "hh_rc_fairbanks_lydia",
+      "household_id": "hh_clay_william",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -22900,7 +22915,7 @@
     },
     {
       "person_id": "rc_fairbanks_lydia_1",
-      "household_id": "hh_rc_fairbanks_lydia",
+      "household_id": "hh_clay_william",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -22913,7 +22928,7 @@
     },
     {
       "person_id": "rc_fairbanks_lydia_2",
-      "household_id": "hh_rc_fairbanks_lydia",
+      "household_id": "hh_clay_william",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -22926,7 +22941,7 @@
     },
     {
       "person_id": "rc_fairbanks_lydia_3",
-      "household_id": "hh_rc_fairbanks_lydia",
+      "household_id": "hh_clay_william",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -22952,7 +22967,7 @@
     },
     {
       "person_id": "rc_fairbanks_polly",
-      "household_id": "hh_rc_fairbanks_polly",
+      "household_id": "hh_hubbard_ahira",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -22967,7 +22982,7 @@
     },
     {
       "person_id": "rc_fairbanks_polly_1",
-      "household_id": "hh_rc_fairbanks_polly",
+      "household_id": "hh_hubbard_ahira",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -22980,7 +22995,7 @@
     },
     {
       "person_id": "rc_fairbanks_polly_2",
-      "household_id": "hh_rc_fairbanks_polly",
+      "household_id": "hh_hubbard_ahira",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -22993,7 +23008,7 @@
     },
     {
       "person_id": "rc_fairbanks_polly_3",
-      "household_id": "hh_rc_fairbanks_polly",
+      "household_id": "hh_hubbard_ahira",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23272,7 +23287,7 @@
     },
     {
       "person_id": "rc_fisk_almira",
-      "household_id": "hh_rc_fisk_almira",
+      "household_id": "hh_weaver_d",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -23285,7 +23300,7 @@
     },
     {
       "person_id": "rc_fisk_almira_1",
-      "household_id": "hh_rc_fisk_almira",
+      "household_id": "hh_weaver_d",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23298,7 +23313,7 @@
     },
     {
       "person_id": "rc_fisk_almira_2",
-      "household_id": "hh_rc_fisk_almira",
+      "household_id": "hh_weaver_d",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23311,7 +23326,7 @@
     },
     {
       "person_id": "rc_fisk_almira_3",
-      "household_id": "hh_rc_fisk_almira",
+      "household_id": "hh_weaver_d",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23324,7 +23339,7 @@
     },
     {
       "person_id": "rc_fisk_almira_4",
-      "household_id": "hh_rc_fisk_almira",
+      "household_id": "hh_weaver_d",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23350,7 +23365,7 @@
     },
     {
       "person_id": "rc_fisk_anna",
-      "household_id": "hh_rc_fisk_anna",
+      "household_id": "hh_church_thomas",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -23363,7 +23378,7 @@
     },
     {
       "person_id": "rc_fisk_anna_1",
-      "household_id": "hh_rc_fisk_anna",
+      "household_id": "hh_church_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23376,7 +23391,7 @@
     },
     {
       "person_id": "rc_fisk_anna_2",
-      "household_id": "hh_rc_fisk_anna",
+      "household_id": "hh_church_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23389,7 +23404,7 @@
     },
     {
       "person_id": "rc_fisk_anna_3",
-      "household_id": "hh_rc_fisk_anna",
+      "household_id": "hh_church_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23402,7 +23417,7 @@
     },
     {
       "person_id": "rc_fisk_anna_4",
-      "household_id": "hh_rc_fisk_anna",
+      "household_id": "hh_church_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23415,7 +23430,7 @@
     },
     {
       "person_id": "rc_fisk_anna_5",
-      "household_id": "hh_rc_fisk_anna",
+      "household_id": "hh_church_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23428,7 +23443,7 @@
     },
     {
       "person_id": "rc_fisk_anna_6",
-      "household_id": "hh_rc_fisk_anna",
+      "household_id": "hh_church_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23480,7 +23495,7 @@
     },
     {
       "person_id": "rc_fisk_eliza",
-      "household_id": "hh_rc_fisk_eliza",
+      "household_id": "hh_cable_p_b_f",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -23493,7 +23508,7 @@
     },
     {
       "person_id": "rc_fisk_eliza_1",
-      "household_id": "hh_rc_fisk_eliza",
+      "household_id": "hh_cable_p_b_f",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23506,7 +23521,7 @@
     },
     {
       "person_id": "rc_fisk_eliza_2",
-      "household_id": "hh_rc_fisk_eliza",
+      "household_id": "hh_cable_p_b_f",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23519,7 +23534,7 @@
     },
     {
       "person_id": "rc_fisk_eliza_3",
-      "household_id": "hh_rc_fisk_eliza",
+      "household_id": "hh_cable_p_b_f",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23532,7 +23547,7 @@
     },
     {
       "person_id": "rc_fisk_eliza_4",
-      "household_id": "hh_rc_fisk_eliza",
+      "household_id": "hh_cable_p_b_f",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23703,7 +23718,7 @@
     },
     {
       "person_id": "rc_fitzgerald_alice",
-      "household_id": "hh_rc_fitzgerald_alice",
+      "household_id": "hh_dyer_george",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -23716,7 +23731,7 @@
     },
     {
       "person_id": "rc_fitzgerald_alice_1",
-      "household_id": "hh_rc_fitzgerald_alice",
+      "household_id": "hh_dyer_george",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23729,7 +23744,7 @@
     },
     {
       "person_id": "rc_fitzgerald_alice_2",
-      "household_id": "hh_rc_fitzgerald_alice",
+      "household_id": "hh_dyer_george",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23742,7 +23757,7 @@
     },
     {
       "person_id": "rc_fitzgerald_alice_3",
-      "household_id": "hh_rc_fitzgerald_alice",
+      "household_id": "hh_dyer_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23781,7 +23796,7 @@
     },
     {
       "person_id": "rc_fitzgerald_honora",
-      "household_id": "hh_rc_fitzgerald_honora",
+      "household_id": "hh_choulet_michel_alexandre",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -23794,7 +23809,7 @@
     },
     {
       "person_id": "rc_fitzgerald_honora_1",
-      "household_id": "hh_rc_fitzgerald_honora",
+      "household_id": "hh_choulet_michel_alexandre",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23807,7 +23822,7 @@
     },
     {
       "person_id": "rc_fitzgerald_honora_2",
-      "household_id": "hh_rc_fitzgerald_honora",
+      "household_id": "hh_choulet_michel_alexandre",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23820,7 +23835,7 @@
     },
     {
       "person_id": "rc_fitzgerald_honora_3",
-      "household_id": "hh_rc_fitzgerald_honora",
+      "household_id": "hh_choulet_michel_alexandre",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23833,7 +23848,7 @@
     },
     {
       "person_id": "rc_fitzgerald_honora_4",
-      "household_id": "hh_rc_fitzgerald_honora",
+      "household_id": "hh_choulet_michel_alexandre",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -23959,7 +23974,7 @@
     },
     {
       "person_id": "rc_flynn_margaret",
-      "household_id": "hh_rc_flynn_margaret",
+      "household_id": "hh_chapley_m_s",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -23974,7 +23989,7 @@
     },
     {
       "person_id": "rc_flynn_margaret_1",
-      "household_id": "hh_rc_flynn_margaret",
+      "household_id": "hh_chapley_m_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -23987,7 +24002,7 @@
     },
     {
       "person_id": "rc_flynn_margaret_2",
-      "household_id": "hh_rc_flynn_margaret",
+      "household_id": "hh_chapley_m_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24000,7 +24015,7 @@
     },
     {
       "person_id": "rc_flynn_margaret_3",
-      "household_id": "hh_rc_flynn_margaret",
+      "household_id": "hh_chapley_m_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -24240,7 +24255,7 @@
     },
     {
       "person_id": "rc_gagnier_therese",
-      "household_id": "hh_rc_gagnier_therese",
+      "household_id": "hh_burke_james",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -24255,7 +24270,7 @@
     },
     {
       "person_id": "rc_gagnier_therese_1",
-      "household_id": "hh_rc_gagnier_therese",
+      "household_id": "hh_burke_james",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24348,7 +24363,7 @@
     },
     {
       "person_id": "rc_gallagher_ellen",
-      "household_id": "hh_rc_gallagher_ellen",
+      "household_id": "hh_haddock_h",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -24361,7 +24376,7 @@
     },
     {
       "person_id": "rc_gallagher_ellen_1",
-      "household_id": "hh_rc_gallagher_ellen",
+      "household_id": "hh_haddock_h",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -24374,7 +24389,7 @@
     },
     {
       "person_id": "rc_gallagher_ellen_2",
-      "household_id": "hh_rc_gallagher_ellen",
+      "household_id": "hh_haddock_h",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24387,7 +24402,7 @@
     },
     {
       "person_id": "rc_gallagher_ellen_3",
-      "household_id": "hh_rc_gallagher_ellen",
+      "household_id": "hh_haddock_h",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24400,7 +24415,7 @@
     },
     {
       "person_id": "rc_gallagher_ellen_4",
-      "household_id": "hh_rc_gallagher_ellen",
+      "household_id": "hh_haddock_h",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -24413,7 +24428,7 @@
     },
     {
       "person_id": "rc_gallagher_ellen_5",
-      "household_id": "hh_rc_gallagher_ellen",
+      "household_id": "hh_haddock_h",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24704,7 +24719,7 @@
     },
     {
       "person_id": "rc_gilbert_clarissa",
-      "household_id": "hh_rc_gilbert_clarissa",
+      "household_id": "hh_fowler_elmira",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -24719,7 +24734,7 @@
     },
     {
       "person_id": "rc_gilbert_clarissa_1",
-      "household_id": "hh_rc_gilbert_clarissa",
+      "household_id": "hh_fowler_elmira",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24732,7 +24747,7 @@
     },
     {
       "person_id": "rc_gilbert_clarissa_2",
-      "household_id": "hh_rc_gilbert_clarissa",
+      "household_id": "hh_fowler_elmira",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24784,7 +24799,7 @@
     },
     {
       "person_id": "rc_gilbert_hannah",
-      "household_id": "hh_rc_gilbert_hannah",
+      "household_id": "hh_dixon_robert",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -24799,7 +24814,7 @@
     },
     {
       "person_id": "rc_gilbert_hannah_1",
-      "household_id": "hh_rc_gilbert_hannah",
+      "household_id": "hh_dixon_robert",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -24812,7 +24827,7 @@
     },
     {
       "person_id": "rc_gilbert_hannah_2",
-      "household_id": "hh_rc_gilbert_hannah",
+      "household_id": "hh_dixon_robert",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24825,7 +24840,7 @@
     },
     {
       "person_id": "rc_gilbert_hannah_3",
-      "household_id": "hh_rc_gilbert_hannah",
+      "household_id": "hh_dixon_robert",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24838,7 +24853,7 @@
     },
     {
       "person_id": "rc_gilbert_hannah_4",
-      "household_id": "hh_rc_gilbert_hannah",
+      "household_id": "hh_dixon_robert",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24851,7 +24866,7 @@
     },
     {
       "person_id": "rc_gilbert_hannah_5",
-      "household_id": "hh_rc_gilbert_hannah",
+      "household_id": "hh_dixon_robert",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24864,7 +24879,7 @@
     },
     {
       "person_id": "rc_gilbert_hannah_6",
-      "household_id": "hh_rc_gilbert_hannah",
+      "household_id": "hh_dixon_robert",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -24944,7 +24959,7 @@
     },
     {
       "person_id": "rc_gilbert_mary",
-      "household_id": "hh_rc_gilbert_mary",
+      "household_id": "hh_bourassa_mark",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -24957,7 +24972,7 @@
     },
     {
       "person_id": "rc_gilbert_mary_1",
-      "household_id": "hh_rc_gilbert_mary",
+      "household_id": "hh_bourassa_mark",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24970,7 +24985,7 @@
     },
     {
       "person_id": "rc_gilbert_mary_2",
-      "household_id": "hh_rc_gilbert_mary",
+      "household_id": "hh_bourassa_mark",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24983,7 +24998,7 @@
     },
     {
       "person_id": "rc_gilbert_mary_3",
-      "household_id": "hh_rc_gilbert_mary",
+      "household_id": "hh_bourassa_mark",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -24996,7 +25011,7 @@
     },
     {
       "person_id": "rc_gilbert_mary_4",
-      "household_id": "hh_rc_gilbert_mary",
+      "household_id": "hh_bourassa_mark",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -25048,7 +25063,7 @@
     },
     {
       "person_id": "rc_gilbert_ruth",
-      "household_id": "hh_rc_gilbert_ruth",
+      "household_id": "hh_kingstone_paul",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -25063,7 +25078,7 @@
     },
     {
       "person_id": "rc_gilbert_ruth_1",
-      "household_id": "hh_rc_gilbert_ruth",
+      "household_id": "hh_kingstone_paul",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25076,7 +25091,7 @@
     },
     {
       "person_id": "rc_gilbert_ruth_2",
-      "household_id": "hh_rc_gilbert_ruth",
+      "household_id": "hh_kingstone_paul",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25089,7 +25104,7 @@
     },
     {
       "person_id": "rc_gilbert_ruth_3",
-      "household_id": "hh_rc_gilbert_ruth",
+      "household_id": "hh_kingstone_paul",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -25356,7 +25371,7 @@
     },
     {
       "person_id": "rc_hale_almira",
-      "household_id": "hh_rc_hale_almira",
+      "household_id": "hh_burdick_morgan",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -25369,7 +25384,7 @@
     },
     {
       "person_id": "rc_hale_almira_1",
-      "household_id": "hh_rc_hale_almira",
+      "household_id": "hh_burdick_morgan",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25382,7 +25397,7 @@
     },
     {
       "person_id": "rc_hale_almira_2",
-      "household_id": "hh_rc_hale_almira",
+      "household_id": "hh_burdick_morgan",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25395,7 +25410,7 @@
     },
     {
       "person_id": "rc_hale_almira_3",
-      "household_id": "hh_rc_hale_almira",
+      "household_id": "hh_burdick_morgan",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25434,7 +25449,7 @@
     },
     {
       "person_id": "rc_hale_clarissa",
-      "household_id": "hh_rc_hale_clarissa",
+      "household_id": "hh_bruno_jean_baptiste",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -25447,7 +25462,7 @@
     },
     {
       "person_id": "rc_hale_clarissa_1",
-      "household_id": "hh_rc_hale_clarissa",
+      "household_id": "hh_bruno_jean_baptiste",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -25460,7 +25475,7 @@
     },
     {
       "person_id": "rc_hale_clarissa_2",
-      "household_id": "hh_rc_hale_clarissa",
+      "household_id": "hh_bruno_jean_baptiste",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25473,7 +25488,7 @@
     },
     {
       "person_id": "rc_hale_clarissa_3",
-      "household_id": "hh_rc_hale_clarissa",
+      "household_id": "hh_bruno_jean_baptiste",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25486,7 +25501,7 @@
     },
     {
       "person_id": "rc_hale_clarissa_4",
-      "household_id": "hh_rc_hale_clarissa",
+      "household_id": "hh_bruno_jean_baptiste",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -25499,7 +25514,7 @@
     },
     {
       "person_id": "rc_hale_clarissa_5",
-      "household_id": "hh_rc_hale_clarissa",
+      "household_id": "hh_bruno_jean_baptiste",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -25759,7 +25774,7 @@
     },
     {
       "person_id": "rc_hastings_almira",
-      "household_id": "hh_rc_hastings_almira",
+      "household_id": "hh_brown_hanna_e",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -25772,7 +25787,7 @@
     },
     {
       "person_id": "rc_hastings_almira_1",
-      "household_id": "hh_rc_hastings_almira",
+      "household_id": "hh_brown_hanna_e",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -25785,7 +25800,7 @@
     },
     {
       "person_id": "rc_hastings_almira_2",
-      "household_id": "hh_rc_hastings_almira",
+      "household_id": "hh_brown_hanna_e",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -26218,7 +26233,7 @@
     },
     {
       "person_id": "rc_hayes_margaret",
-      "household_id": "hh_rc_hayes_margaret",
+      "household_id": "hh_haighs_isaac",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -26231,7 +26246,7 @@
     },
     {
       "person_id": "rc_hayes_margaret_1",
-      "household_id": "hh_rc_hayes_margaret",
+      "household_id": "hh_haighs_isaac",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -26749,7 +26764,7 @@
     },
     {
       "person_id": "rc_ingalls_abigail",
-      "household_id": "hh_rc_ingalls_abigail",
+      "household_id": "hh_foot_john",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -26886,7 +26901,7 @@
     },
     {
       "person_id": "rc_ingalls_mary",
-      "household_id": "hh_rc_ingalls_mary",
+      "household_id": "hh_bristol_charles_l",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -26899,7 +26914,7 @@
     },
     {
       "person_id": "rc_ingalls_mary_1",
-      "household_id": "hh_rc_ingalls_mary",
+      "household_id": "hh_bristol_charles_l",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -26912,7 +26927,7 @@
     },
     {
       "person_id": "rc_ingalls_mary_2",
-      "household_id": "hh_rc_ingalls_mary",
+      "household_id": "hh_bristol_charles_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -26925,7 +26940,7 @@
     },
     {
       "person_id": "rc_ingalls_mary_3",
-      "household_id": "hh_rc_ingalls_mary",
+      "household_id": "hh_bristol_charles_l",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -26938,7 +26953,7 @@
     },
     {
       "person_id": "rc_ingalls_mary_4",
-      "household_id": "hh_rc_ingalls_mary",
+      "household_id": "hh_bristol_charles_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28444,8 +28459,21 @@
       "houses": []
     },
     {
+      "person_id": "rc_laframboise_alexis",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "carpenter",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_mechanics_shops_are_over_their_count",
+      "decided_by": "premises_rulings.json#carpenter = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-2000",
+      "houses": []
+    },
+    {
       "person_id": "rc_laframboise_angelique",
-      "household_id": "hh_rc_laframboise_angelique",
+      "household_id": "hh_foot_s",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -28458,7 +28486,7 @@
     },
     {
       "person_id": "rc_laframboise_angelique_1",
-      "household_id": "hh_rc_laframboise_angelique",
+      "household_id": "hh_foot_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28471,7 +28499,7 @@
     },
     {
       "person_id": "rc_laframboise_angelique_2",
-      "household_id": "hh_rc_laframboise_angelique",
+      "household_id": "hh_foot_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28484,7 +28512,7 @@
     },
     {
       "person_id": "rc_laframboise_angelique_3",
-      "household_id": "hh_rc_laframboise_angelique",
+      "household_id": "hh_foot_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28497,7 +28525,7 @@
     },
     {
       "person_id": "rc_laframboise_angelique_4",
-      "household_id": "hh_rc_laframboise_angelique",
+      "household_id": "hh_foot_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28510,7 +28538,7 @@
     },
     {
       "person_id": "rc_laframboise_angelique_5",
-      "household_id": "hh_rc_laframboise_angelique",
+      "household_id": "hh_foot_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28523,7 +28551,7 @@
     },
     {
       "person_id": "rc_laframboise_archange",
-      "household_id": "hh_rc_laframboise_archange",
+      "household_id": "hh_braxton_lewis",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -28538,7 +28566,7 @@
     },
     {
       "person_id": "rc_laframboise_archange_1",
-      "household_id": "hh_rc_laframboise_archange",
+      "household_id": "hh_braxton_lewis",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28551,7 +28579,7 @@
     },
     {
       "person_id": "rc_laframboise_archange_2",
-      "household_id": "hh_rc_laframboise_archange",
+      "household_id": "hh_braxton_lewis",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28564,7 +28592,7 @@
     },
     {
       "person_id": "rc_laframboise_archange_3",
-      "household_id": "hh_rc_laframboise_archange",
+      "household_id": "hh_braxton_lewis",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28577,7 +28605,7 @@
     },
     {
       "person_id": "rc_laframboise_archange_4",
-      "household_id": "hh_rc_laframboise_archange",
+      "household_id": "hh_braxton_lewis",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28590,7 +28618,7 @@
     },
     {
       "person_id": "rc_laframboise_archange_5",
-      "household_id": "hh_rc_laframboise_archange",
+      "household_id": "hh_braxton_lewis",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28740,7 +28768,7 @@
     },
     {
       "person_id": "rc_lecuyer_archange",
-      "household_id": "hh_rc_lecuyer_archange",
+      "household_id": "hh_field_secretary",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -28755,7 +28783,7 @@
     },
     {
       "person_id": "rc_lecuyer_archange_1",
-      "household_id": "hh_rc_lecuyer_archange",
+      "household_id": "hh_field_secretary",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28768,7 +28796,7 @@
     },
     {
       "person_id": "rc_lecuyer_archange_2",
-      "household_id": "hh_rc_lecuyer_archange",
+      "household_id": "hh_field_secretary",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28781,7 +28809,7 @@
     },
     {
       "person_id": "rc_lecuyer_archange_3",
-      "household_id": "hh_rc_lecuyer_archange",
+      "household_id": "hh_field_secretary",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28794,7 +28822,7 @@
     },
     {
       "person_id": "rc_lecuyer_archange_4",
-      "household_id": "hh_rc_lecuyer_archange",
+      "household_id": "hh_field_secretary",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28822,7 +28850,7 @@
     },
     {
       "person_id": "rc_lecuyer_madeleine",
-      "household_id": "hh_rc_lecuyer_madeleine",
+      "household_id": "hh_dell_frank",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -28837,7 +28865,7 @@
     },
     {
       "person_id": "rc_lecuyer_madeleine_1",
-      "household_id": "hh_rc_lecuyer_madeleine",
+      "household_id": "hh_dell_frank",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28878,7 +28906,7 @@
     },
     {
       "person_id": "rc_leland_almira",
-      "household_id": "hh_rc_leland_almira",
+      "household_id": "hh_borland_andrew_w",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -28893,7 +28921,7 @@
     },
     {
       "person_id": "rc_leland_almira_1",
-      "household_id": "hh_rc_leland_almira",
+      "household_id": "hh_borland_andrew_w",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28906,7 +28934,7 @@
     },
     {
       "person_id": "rc_leland_almira_2",
-      "household_id": "hh_rc_leland_almira",
+      "household_id": "hh_borland_andrew_w",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28919,7 +28947,7 @@
     },
     {
       "person_id": "rc_leland_almira_3",
-      "household_id": "hh_rc_leland_almira",
+      "household_id": "hh_borland_andrew_w",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -28932,7 +28960,7 @@
     },
     {
       "person_id": "rc_leland_almira_4",
-      "household_id": "hh_rc_leland_almira",
+      "household_id": "hh_borland_andrew_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28945,7 +28973,7 @@
     },
     {
       "person_id": "rc_leland_almira_5",
-      "household_id": "hh_rc_leland_almira",
+      "household_id": "hh_borland_andrew_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -29459,7 +29487,7 @@
     },
     {
       "person_id": "rc_lyman_clarissa",
-      "household_id": "hh_rc_lyman_clarissa",
+      "household_id": "hh_bonn_augustin",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -29472,7 +29500,7 @@
     },
     {
       "person_id": "rc_lyman_clarissa_1",
-      "household_id": "hh_rc_lyman_clarissa",
+      "household_id": "hh_bonn_augustin",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -29485,7 +29513,7 @@
     },
     {
       "person_id": "rc_lyman_clarissa_2",
-      "household_id": "hh_rc_lyman_clarissa",
+      "household_id": "hh_bonn_augustin",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -29498,7 +29526,7 @@
     },
     {
       "person_id": "rc_lyman_clarissa_3",
-      "household_id": "hh_rc_lyman_clarissa",
+      "household_id": "hh_bonn_augustin",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -29511,7 +29539,7 @@
     },
     {
       "person_id": "rc_lyman_clarissa_4",
-      "household_id": "hh_rc_lyman_clarissa",
+      "household_id": "hh_bonn_augustin",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -29710,7 +29738,7 @@
     },
     {
       "person_id": "rc_lyman_ruth",
-      "household_id": "hh_rc_lyman_ruth",
+      "household_id": "hh_downer_stephen",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -29725,7 +29753,7 @@
     },
     {
       "person_id": "rc_lyman_ruth_1",
-      "household_id": "hh_rc_lyman_ruth",
+      "household_id": "hh_downer_stephen",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -29738,7 +29766,7 @@
     },
     {
       "person_id": "rc_lyman_ruth_2",
-      "household_id": "hh_rc_lyman_ruth",
+      "household_id": "hh_downer_stephen",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -30056,7 +30084,7 @@
     },
     {
       "person_id": "rc_mahoney_honora",
-      "household_id": "hh_rc_mahoney_honora",
+      "household_id": "hh_blanshard_f_g",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -30069,7 +30097,7 @@
     },
     {
       "person_id": "rc_mahoney_honora_1",
-      "household_id": "hh_rc_mahoney_honora",
+      "household_id": "hh_blanshard_f_g",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -30082,7 +30110,7 @@
     },
     {
       "person_id": "rc_mahoney_honora_2",
-      "household_id": "hh_rc_mahoney_honora",
+      "household_id": "hh_blanshard_f_g",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -30095,7 +30123,7 @@
     },
     {
       "person_id": "rc_mahoney_honora_3",
-      "household_id": "hh_rc_mahoney_honora",
+      "household_id": "hh_blanshard_f_g",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -30108,7 +30136,7 @@
     },
     {
       "person_id": "rc_mahoney_honora_4",
-      "household_id": "hh_rc_mahoney_honora",
+      "household_id": "hh_blanshard_f_g",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -30121,7 +30149,7 @@
     },
     {
       "person_id": "rc_mahoney_honora_5",
-      "household_id": "hh_rc_mahoney_honora",
+      "household_id": "hh_blanshard_f_g",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -30315,7 +30343,7 @@
     },
     {
       "person_id": "rc_mccarthy_johanna",
-      "household_id": "hh_rc_mccarthy_johanna",
+      "household_id": "hh_blanchard_w_g",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -30330,7 +30358,7 @@
     },
     {
       "person_id": "rc_mccarthy_johanna_1",
-      "household_id": "hh_rc_mccarthy_johanna",
+      "household_id": "hh_blanchard_w_g",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -30343,7 +30371,7 @@
     },
     {
       "person_id": "rc_mccarthy_johanna_2",
-      "household_id": "hh_rc_mccarthy_johanna",
+      "household_id": "hh_blanchard_w_g",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -30356,7 +30384,7 @@
     },
     {
       "person_id": "rc_mccarthy_johanna_3",
-      "household_id": "hh_rc_mccarthy_johanna",
+      "household_id": "hh_blanchard_w_g",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -30369,7 +30397,7 @@
     },
     {
       "person_id": "rc_mccarthy_johanna_4",
-      "household_id": "hh_rc_mccarthy_johanna",
+      "household_id": "hh_blanchard_w_g",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -30382,7 +30410,7 @@
     },
     {
       "person_id": "rc_mccarthy_johanna_5",
-      "household_id": "hh_rc_mccarthy_johanna",
+      "household_id": "hh_blanchard_w_g",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -30623,7 +30651,7 @@
     },
     {
       "person_id": "rc_mcguire_mary",
-      "household_id": "hh_rc_mcguire_mary",
+      "household_id": "hh_clark_john_k",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -31769,7 +31797,7 @@
     },
     {
       "person_id": "rc_newell_polly",
-      "household_id": "hh_rc_newell_polly",
+      "household_id": "hh_fell_j_w",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -31782,7 +31810,7 @@
     },
     {
       "person_id": "rc_newell_polly_1",
-      "household_id": "hh_rc_newell_polly",
+      "household_id": "hh_fell_j_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -31795,7 +31823,7 @@
     },
     {
       "person_id": "rc_newell_polly_2",
-      "household_id": "hh_rc_newell_polly",
+      "household_id": "hh_fell_j_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -31808,7 +31836,7 @@
     },
     {
       "person_id": "rc_newell_polly_3",
-      "household_id": "hh_rc_newell_polly",
+      "household_id": "hh_fell_j_w",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -31821,7 +31849,7 @@
     },
     {
       "person_id": "rc_newell_polly_4",
-      "household_id": "hh_rc_newell_polly",
+      "household_id": "hh_fell_j_w",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -31834,7 +31862,7 @@
     },
     {
       "person_id": "rc_newell_polly_5",
-      "household_id": "hh_rc_newell_polly",
+      "household_id": "hh_fell_j_w",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -31847,7 +31875,7 @@
     },
     {
       "person_id": "rc_newell_polly_6",
-      "household_id": "hh_rc_newell_polly",
+      "household_id": "hh_fell_j_w",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -31875,7 +31903,7 @@
     },
     {
       "person_id": "rc_newell_ruth",
-      "household_id": "hh_rc_newell_ruth",
+      "household_id": "hh_blaisdell_b",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -31890,7 +31918,7 @@
     },
     {
       "person_id": "rc_newell_ruth_1",
-      "household_id": "hh_rc_newell_ruth",
+      "household_id": "hh_blaisdell_b",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -31903,7 +31931,7 @@
     },
     {
       "person_id": "rc_newell_ruth_2",
-      "household_id": "hh_rc_newell_ruth",
+      "household_id": "hh_blaisdell_b",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -31916,7 +31944,7 @@
     },
     {
       "person_id": "rc_newell_ruth_3",
-      "household_id": "hh_rc_newell_ruth",
+      "household_id": "hh_blaisdell_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32008,6 +32036,21 @@
       "houses": []
     },
     {
+      "person_id": "rc_nichols_alvah",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_04",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "tailor",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_seat_this_project_drew",
+      "reason": "seated_by_the_staffing_model",
+      "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
+      "houses": [
+        "biz_george_holsman"
+      ]
+    },
+    {
       "person_id": "rc_nichols_david",
       "household_id": "hh_rc_nichols_david",
       "record_folder": "reconstructed_trades",
@@ -32083,7 +32126,7 @@
     },
     {
       "person_id": "rc_nichols_martha",
-      "household_id": "hh_rc_nichols_martha",
+      "household_id": "hh_bennett_william",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -32096,7 +32139,7 @@
     },
     {
       "person_id": "rc_nichols_martha_1",
-      "household_id": "hh_rc_nichols_martha",
+      "household_id": "hh_bennett_william",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32148,7 +32191,7 @@
     },
     {
       "person_id": "rc_nichols_rhoda",
-      "household_id": "hh_rc_nichols_rhoda",
+      "household_id": "hh_duplas_joseph",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -32161,7 +32204,7 @@
     },
     {
       "person_id": "rc_nichols_rhoda_1",
-      "household_id": "hh_rc_nichols_rhoda",
+      "household_id": "hh_duplas_joseph",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32174,7 +32217,7 @@
     },
     {
       "person_id": "rc_nichols_rhoda_2",
-      "household_id": "hh_rc_nichols_rhoda",
+      "household_id": "hh_duplas_joseph",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32187,7 +32230,7 @@
     },
     {
       "person_id": "rc_nichols_rhoda_3",
-      "household_id": "hh_rc_nichols_rhoda",
+      "household_id": "hh_duplas_joseph",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32291,7 +32334,7 @@
     },
     {
       "person_id": "rc_nolan_bridget",
-      "household_id": "hh_rc_nolan_bridget",
+      "household_id": "hh_dailey_thomas",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -32304,7 +32347,7 @@
     },
     {
       "person_id": "rc_nolan_bridget_1",
-      "household_id": "hh_rc_nolan_bridget",
+      "household_id": "hh_dailey_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32317,7 +32360,7 @@
     },
     {
       "person_id": "rc_nolan_bridget_2",
-      "household_id": "hh_rc_nolan_bridget",
+      "household_id": "hh_dailey_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32330,7 +32373,7 @@
     },
     {
       "person_id": "rc_nolan_bridget_3",
-      "household_id": "hh_rc_nolan_bridget",
+      "household_id": "hh_dailey_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32343,7 +32386,7 @@
     },
     {
       "person_id": "rc_nolan_bridget_4",
-      "household_id": "hh_rc_nolan_bridget",
+      "household_id": "hh_dailey_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32356,7 +32399,7 @@
     },
     {
       "person_id": "rc_nolan_bridget_5",
-      "household_id": "hh_rc_nolan_bridget",
+      "household_id": "hh_dailey_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32369,7 +32412,7 @@
     },
     {
       "person_id": "rc_nolan_bridget_6",
-      "household_id": "hh_rc_nolan_bridget",
+      "household_id": "hh_dailey_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32382,7 +32425,7 @@
     },
     {
       "person_id": "rc_nolan_honora",
-      "household_id": "hh_rc_nolan_honora",
+      "household_id": "hh_cappy_george",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -32395,7 +32438,7 @@
     },
     {
       "person_id": "rc_nolan_honora_1",
-      "household_id": "hh_rc_nolan_honora",
+      "household_id": "hh_cappy_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32408,7 +32451,7 @@
     },
     {
       "person_id": "rc_nolan_honora_2",
-      "household_id": "hh_rc_nolan_honora",
+      "household_id": "hh_cappy_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32421,7 +32464,7 @@
     },
     {
       "person_id": "rc_nolan_honora_3",
-      "household_id": "hh_rc_nolan_honora",
+      "household_id": "hh_cappy_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32434,7 +32477,7 @@
     },
     {
       "person_id": "rc_nolan_honora_4",
-      "household_id": "hh_rc_nolan_honora",
+      "household_id": "hh_cappy_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32447,7 +32490,7 @@
     },
     {
       "person_id": "rc_nolan_honora_5",
-      "household_id": "hh_rc_nolan_honora",
+      "household_id": "hh_cappy_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32460,7 +32503,7 @@
     },
     {
       "person_id": "rc_nolan_honora_6",
-      "household_id": "hh_rc_nolan_honora",
+      "household_id": "hh_cappy_george",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32473,7 +32516,7 @@
     },
     {
       "person_id": "rc_nolan_johanna",
-      "household_id": "hh_rc_nolan_johanna",
+      "household_id": "hh_lewis_thomas",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -32486,7 +32529,7 @@
     },
     {
       "person_id": "rc_nolan_johanna_1",
-      "household_id": "hh_rc_nolan_johanna",
+      "household_id": "hh_lewis_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32499,7 +32542,7 @@
     },
     {
       "person_id": "rc_nolan_johanna_2",
-      "household_id": "hh_rc_nolan_johanna",
+      "household_id": "hh_lewis_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32512,7 +32555,7 @@
     },
     {
       "person_id": "rc_nolan_johanna_3",
-      "household_id": "hh_rc_nolan_johanna",
+      "household_id": "hh_lewis_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32525,7 +32568,7 @@
     },
     {
       "person_id": "rc_nolan_johanna_4",
-      "household_id": "hh_rc_nolan_johanna",
+      "household_id": "hh_lewis_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32538,7 +32581,7 @@
     },
     {
       "person_id": "rc_nolan_johanna_5",
-      "household_id": "hh_rc_nolan_johanna",
+      "household_id": "hh_lewis_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32789,6 +32832,21 @@
       "houses": []
     },
     {
+      "person_id": "rc_parmelee_jared",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "record_folder": "lodgers",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "clerk",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_seat_this_project_drew",
+      "reason": "seated_by_the_staffing_model",
+      "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
+      "houses": [
+        "biz_j_d_caton_attorney_and_counsellor_at_law"
+      ]
+    },
+    {
       "person_id": "rc_parmelee_lemuel",
       "household_id": "hh_lodging_western_hotel",
       "record_folder": "lodgers",
@@ -32829,7 +32887,7 @@
     },
     {
       "person_id": "rc_parmelee_maria",
-      "household_id": "hh_rc_parmelee_maria",
+      "household_id": "hh_bennett_c_h",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -33080,7 +33138,7 @@
     },
     {
       "person_id": "rc_pelletier_josette",
-      "household_id": "hh_rc_pelletier_josette",
+      "household_id": "hh_beaubien_b",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -33093,7 +33151,7 @@
     },
     {
       "person_id": "rc_pelletier_josette_1",
-      "household_id": "hh_rc_pelletier_josette",
+      "household_id": "hh_beaubien_b",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -33106,7 +33164,7 @@
     },
     {
       "person_id": "rc_pelletier_josette_2",
-      "household_id": "hh_rc_pelletier_josette",
+      "household_id": "hh_beaubien_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -33119,7 +33177,7 @@
     },
     {
       "person_id": "rc_pelletier_josette_3",
-      "household_id": "hh_rc_pelletier_josette",
+      "household_id": "hh_beaubien_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -33132,7 +33190,7 @@
     },
     {
       "person_id": "rc_pelletier_josette_4",
-      "household_id": "hh_rc_pelletier_josette",
+      "household_id": "hh_beaubien_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -33145,7 +33203,7 @@
     },
     {
       "person_id": "rc_pelletier_josette_5",
-      "household_id": "hh_rc_pelletier_josette",
+      "household_id": "hh_beaubien_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -33523,7 +33581,7 @@
     },
     {
       "person_id": "rc_pratt_lydia",
-      "household_id": "hh_rc_pratt_lydia",
+      "household_id": "hh_aspam_antoine",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -33538,7 +33596,7 @@
     },
     {
       "person_id": "rc_pratt_lydia_1",
-      "household_id": "hh_rc_pratt_lydia",
+      "household_id": "hh_aspam_antoine",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -33686,7 +33744,7 @@
     },
     {
       "person_id": "rc_quinn_ellen",
-      "household_id": "hh_rc_quinn_ellen",
+      "household_id": "hh_bonin_augustus",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -33699,7 +33757,7 @@
     },
     {
       "person_id": "rc_quinn_ellen_1",
-      "household_id": "hh_rc_quinn_ellen",
+      "household_id": "hh_bonin_augustus",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -33712,7 +33770,7 @@
     },
     {
       "person_id": "rc_quinn_ellen_2",
-      "household_id": "hh_rc_quinn_ellen",
+      "household_id": "hh_bonin_augustus",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -33725,7 +33783,7 @@
     },
     {
       "person_id": "rc_quinn_ellen_3",
-      "household_id": "hh_rc_quinn_ellen",
+      "household_id": "hh_bonin_augustus",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -33738,7 +33796,7 @@
     },
     {
       "person_id": "rc_quinn_ellen_4",
-      "household_id": "hh_rc_quinn_ellen",
+      "household_id": "hh_bonin_augustus",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -33751,7 +33809,7 @@
     },
     {
       "person_id": "rc_quinn_ellen_5",
-      "household_id": "hh_rc_quinn_ellen",
+      "household_id": "hh_bonin_augustus",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34241,7 +34299,7 @@
     },
     {
       "person_id": "rc_rice_lydia",
-      "household_id": "hh_rc_rice_lydia",
+      "household_id": "hh_boardman_harry",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -34254,7 +34312,7 @@
     },
     {
       "person_id": "rc_rice_lydia_1",
-      "household_id": "hh_rc_rice_lydia",
+      "household_id": "hh_boardman_harry",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34267,7 +34325,7 @@
     },
     {
       "person_id": "rc_rice_lydia_2",
-      "household_id": "hh_rc_rice_lydia",
+      "household_id": "hh_boardman_harry",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34280,7 +34338,7 @@
     },
     {
       "person_id": "rc_rice_lydia_3",
-      "household_id": "hh_rc_rice_lydia",
+      "household_id": "hh_boardman_harry",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -34498,7 +34556,7 @@
     },
     {
       "person_id": "rc_ryan_bridget",
-      "household_id": "hh_rc_ryan_bridget",
+      "household_id": "hh_bickerdyke_george",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -34511,7 +34569,7 @@
     },
     {
       "person_id": "rc_ryan_bridget_1",
-      "household_id": "hh_rc_ryan_bridget",
+      "household_id": "hh_bickerdyke_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34524,7 +34582,7 @@
     },
     {
       "person_id": "rc_ryan_bridget_2",
-      "household_id": "hh_rc_ryan_bridget",
+      "household_id": "hh_bickerdyke_george",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34589,7 +34647,7 @@
     },
     {
       "person_id": "rc_ryan_mary",
-      "household_id": "hh_rc_ryan_mary",
+      "household_id": "hh_beaubien_charles",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -34604,7 +34662,7 @@
     },
     {
       "person_id": "rc_ryan_mary_1",
-      "household_id": "hh_rc_ryan_mary",
+      "household_id": "hh_beaubien_charles",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -34617,7 +34675,7 @@
     },
     {
       "person_id": "rc_ryan_mary_2",
-      "household_id": "hh_rc_ryan_mary",
+      "household_id": "hh_beaubien_charles",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34630,7 +34688,7 @@
     },
     {
       "person_id": "rc_ryan_mary_3",
-      "household_id": "hh_rc_ryan_mary",
+      "household_id": "hh_beaubien_charles",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34879,7 +34937,7 @@
     },
     {
       "person_id": "rc_sawyer_ruth",
-      "household_id": "hh_rc_sawyer_ruth",
+      "household_id": "hh_goodrich_c",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -34892,7 +34950,7 @@
     },
     {
       "person_id": "rc_sawyer_ruth_1",
-      "household_id": "hh_rc_sawyer_ruth",
+      "household_id": "hh_goodrich_c",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34905,7 +34963,7 @@
     },
     {
       "person_id": "rc_sawyer_ruth_2",
-      "household_id": "hh_rc_sawyer_ruth",
+      "household_id": "hh_goodrich_c",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -34918,7 +34976,7 @@
     },
     {
       "person_id": "rc_sawyer_ruth_3",
-      "household_id": "hh_rc_sawyer_ruth",
+      "household_id": "hh_goodrich_c",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -34944,7 +35002,7 @@
     },
     {
       "person_id": "rc_sawyer_sophronia",
-      "household_id": "hh_rc_sawyer_sophronia",
+      "household_id": "hh_beaubien_alexandre",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -35052,7 +35110,7 @@
     },
     {
       "person_id": "rc_shea_margaret",
-      "household_id": "hh_rc_shea_margaret",
+      "household_id": "hh_baptist_john",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -35065,7 +35123,7 @@
     },
     {
       "person_id": "rc_shea_margaret_1",
-      "household_id": "hh_rc_shea_margaret",
+      "household_id": "hh_baptist_john",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35078,7 +35136,7 @@
     },
     {
       "person_id": "rc_shea_margaret_2",
-      "household_id": "hh_rc_shea_margaret",
+      "household_id": "hh_baptist_john",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -35241,7 +35299,7 @@
     },
     {
       "person_id": "rc_sheldon_lucy",
-      "household_id": "hh_rc_sheldon_lucy",
+      "household_id": "hh_arquette_michel",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -35254,7 +35312,7 @@
     },
     {
       "person_id": "rc_sheldon_lucy_1",
-      "household_id": "hh_rc_sheldon_lucy",
+      "household_id": "hh_arquette_michel",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35267,7 +35325,7 @@
     },
     {
       "person_id": "rc_sheldon_lucy_2",
-      "household_id": "hh_rc_sheldon_lucy",
+      "household_id": "hh_arquette_michel",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -35280,7 +35338,7 @@
     },
     {
       "person_id": "rc_sheldon_lucy_3",
-      "household_id": "hh_rc_sheldon_lucy",
+      "household_id": "hh_arquette_michel",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35293,7 +35351,7 @@
     },
     {
       "person_id": "rc_sheldon_lucy_4",
-      "household_id": "hh_rc_sheldon_lucy",
+      "household_id": "hh_arquette_michel",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35306,7 +35364,7 @@
     },
     {
       "person_id": "rc_sheldon_lucy_5",
-      "household_id": "hh_rc_sheldon_lucy",
+      "household_id": "hh_arquette_michel",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35319,7 +35377,7 @@
     },
     {
       "person_id": "rc_sheldon_lucy_6",
-      "household_id": "hh_rc_sheldon_lucy",
+      "household_id": "hh_arquette_michel",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35796,7 +35854,7 @@
     },
     {
       "person_id": "rc_stebbins_maria",
-      "household_id": "hh_rc_stebbins_maria",
+      "household_id": "hh_bourrassa_leon",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -35809,7 +35867,7 @@
     },
     {
       "person_id": "rc_stebbins_maria_1",
-      "household_id": "hh_rc_stebbins_maria",
+      "household_id": "hh_bourrassa_leon",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35822,7 +35880,7 @@
     },
     {
       "person_id": "rc_stebbins_maria_2",
-      "household_id": "hh_rc_stebbins_maria",
+      "household_id": "hh_bourrassa_leon",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -35835,7 +35893,7 @@
     },
     {
       "person_id": "rc_stebbins_maria_3",
-      "household_id": "hh_rc_stebbins_maria",
+      "household_id": "hh_bourrassa_leon",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -35848,7 +35906,7 @@
     },
     {
       "person_id": "rc_stebbins_maria_4",
-      "household_id": "hh_rc_stebbins_maria",
+      "household_id": "hh_bourrassa_leon",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -35939,7 +35997,7 @@
     },
     {
       "person_id": "rc_stiles_almira",
-      "household_id": "hh_rc_stiles_almira",
+      "household_id": "hh_abbott_titus_h",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -35952,7 +36010,7 @@
     },
     {
       "person_id": "rc_stiles_almira_1",
-      "household_id": "hh_rc_stiles_almira",
+      "household_id": "hh_abbott_titus_h",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -36030,7 +36088,7 @@
     },
     {
       "person_id": "rc_stiles_esther",
-      "household_id": "hh_rc_stiles_esther",
+      "household_id": "hh_beubien_t_b",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -36045,7 +36103,7 @@
     },
     {
       "person_id": "rc_stiles_esther_1",
-      "household_id": "hh_rc_stiles_esther",
+      "household_id": "hh_beubien_t_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36058,7 +36116,7 @@
     },
     {
       "person_id": "rc_stiles_esther_2",
-      "household_id": "hh_rc_stiles_esther",
+      "household_id": "hh_beubien_t_b",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -36071,7 +36129,7 @@
     },
     {
       "person_id": "rc_stiles_esther_3",
-      "household_id": "hh_rc_stiles_esther",
+      "household_id": "hh_beubien_t_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36084,7 +36142,7 @@
     },
     {
       "person_id": "rc_stiles_esther_4",
-      "household_id": "hh_rc_stiles_esther",
+      "household_id": "hh_beubien_t_b",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36097,7 +36155,7 @@
     },
     {
       "person_id": "rc_stiles_esther_5",
-      "household_id": "hh_rc_stiles_esther",
+      "household_id": "hh_beubien_t_b",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -36465,7 +36523,7 @@
     },
     {
       "person_id": "rc_sullivan_margaret",
-      "household_id": "hh_rc_sullivan_margaret",
+      "household_id": "hh_andrews_thomas",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -36478,7 +36536,7 @@
     },
     {
       "person_id": "rc_sullivan_margaret_1",
-      "household_id": "hh_rc_sullivan_margaret",
+      "household_id": "hh_andrews_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36491,7 +36549,7 @@
     },
     {
       "person_id": "rc_sullivan_margaret_2",
-      "household_id": "hh_rc_sullivan_margaret",
+      "household_id": "hh_andrews_thomas",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36504,7 +36562,7 @@
     },
     {
       "person_id": "rc_sullivan_margaret_3",
-      "household_id": "hh_rc_sullivan_margaret",
+      "household_id": "hh_andrews_thomas",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -36821,7 +36879,7 @@
     },
     {
       "person_id": "rc_thayer_anna",
-      "household_id": "hh_rc_thayer_anna",
+      "household_id": "hh_burton_edward",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -36834,7 +36892,7 @@
     },
     {
       "person_id": "rc_thayer_anna_1",
-      "household_id": "hh_rc_thayer_anna",
+      "household_id": "hh_burton_edward",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36847,7 +36905,7 @@
     },
     {
       "person_id": "rc_thayer_anna_2",
-      "household_id": "hh_rc_thayer_anna",
+      "household_id": "hh_burton_edward",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36860,7 +36918,7 @@
     },
     {
       "person_id": "rc_thayer_anna_3",
-      "household_id": "hh_rc_thayer_anna",
+      "household_id": "hh_burton_edward",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36873,7 +36931,7 @@
     },
     {
       "person_id": "rc_thayer_anna_4",
-      "household_id": "hh_rc_thayer_anna",
+      "household_id": "hh_burton_edward",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -36899,7 +36957,7 @@
     },
     {
       "person_id": "rc_thayer_hannah",
-      "household_id": "hh_rc_thayer_hannah",
+      "household_id": "hh_beaubien_john_s",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -36914,7 +36972,7 @@
     },
     {
       "person_id": "rc_thayer_hannah_1",
-      "household_id": "hh_rc_thayer_hannah",
+      "household_id": "hh_beaubien_john_s",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -36927,7 +36985,7 @@
     },
     {
       "person_id": "rc_thayer_hannah_2",
-      "household_id": "hh_rc_thayer_hannah",
+      "household_id": "hh_beaubien_john_s",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -37005,7 +37063,7 @@
     },
     {
       "person_id": "rc_thayer_maria",
-      "household_id": "hh_rc_thayer_maria",
+      "household_id": "hh_andrews_julian",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -37020,7 +37078,7 @@
     },
     {
       "person_id": "rc_thayer_maria_1",
-      "household_id": "hh_rc_thayer_maria",
+      "household_id": "hh_andrews_julian",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37033,7 +37091,7 @@
     },
     {
       "person_id": "rc_thayer_maria_2",
-      "household_id": "hh_rc_thayer_maria",
+      "household_id": "hh_andrews_julian",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37046,7 +37104,7 @@
     },
     {
       "person_id": "rc_thayer_maria_3",
-      "household_id": "hh_rc_thayer_maria",
+      "household_id": "hh_andrews_julian",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -37059,7 +37117,7 @@
     },
     {
       "person_id": "rc_thayer_maria_4",
-      "household_id": "hh_rc_thayer_maria",
+      "household_id": "hh_andrews_julian",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37319,7 +37377,7 @@
     },
     {
       "person_id": "rc_tobin_ellen",
-      "household_id": "hh_rc_tobin_ellen",
+      "household_id": "hh_abell_sidney",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -37332,7 +37390,7 @@
     },
     {
       "person_id": "rc_tobin_ellen_1",
-      "household_id": "hh_rc_tobin_ellen",
+      "household_id": "hh_abell_sidney",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37345,7 +37403,7 @@
     },
     {
       "person_id": "rc_tobin_ellen_2",
-      "household_id": "hh_rc_tobin_ellen",
+      "household_id": "hh_abell_sidney",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -37358,7 +37416,7 @@
     },
     {
       "person_id": "rc_tobin_ellen_3",
-      "household_id": "hh_rc_tobin_ellen",
+      "household_id": "hh_abell_sidney",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -37823,7 +37881,7 @@
     },
     {
       "person_id": "rc_vieau_angelique",
-      "household_id": "hh_rc_vieau_angelique",
+      "household_id": "hh_blake_edio_l",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -37836,7 +37894,7 @@
     },
     {
       "person_id": "rc_vieau_angelique_1",
-      "household_id": "hh_rc_vieau_angelique",
+      "household_id": "hh_blake_edio_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37849,7 +37907,7 @@
     },
     {
       "person_id": "rc_vieau_angelique_2",
-      "household_id": "hh_rc_vieau_angelique",
+      "household_id": "hh_blake_edio_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37862,7 +37920,7 @@
     },
     {
       "person_id": "rc_vieau_angelique_3",
-      "household_id": "hh_rc_vieau_angelique",
+      "household_id": "hh_blake_edio_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37875,7 +37933,7 @@
     },
     {
       "person_id": "rc_vieau_angelique_4",
-      "household_id": "hh_rc_vieau_angelique",
+      "household_id": "hh_blake_edio_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -37888,7 +37946,7 @@
     },
     {
       "person_id": "rc_vieau_angelique_5",
-      "household_id": "hh_rc_vieau_angelique",
+      "household_id": "hh_blake_edio_l",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -37901,7 +37959,7 @@
     },
     {
       "person_id": "rc_vieau_angelique_6",
-      "household_id": "hh_rc_vieau_angelique",
+      "household_id": "hh_blake_edio_l",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -38554,7 +38612,7 @@
     },
     {
       "person_id": "rc_whitcomb_lydia",
-      "household_id": "hh_rc_whitcomb_lydia",
+      "household_id": "hh_ballard_c_a",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -38569,7 +38627,7 @@
     },
     {
       "person_id": "rc_whitcomb_lydia_1",
-      "household_id": "hh_rc_whitcomb_lydia",
+      "household_id": "hh_ballard_c_a",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -38582,7 +38640,7 @@
     },
     {
       "person_id": "rc_whitcomb_lydia_2",
-      "household_id": "hh_rc_whitcomb_lydia",
+      "household_id": "hh_ballard_c_a",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -38779,7 +38837,7 @@
     },
     {
       "person_id": "rc_wilcox_esther",
-      "household_id": "hh_rc_wilcox_esther",
+      "household_id": "hh_adams_james",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -38792,7 +38850,7 @@
     },
     {
       "person_id": "rc_wilcox_esther_1",
-      "household_id": "hh_rc_wilcox_esther",
+      "household_id": "hh_adams_james",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -38805,7 +38863,7 @@
     },
     {
       "person_id": "rc_wilcox_esther_2",
-      "household_id": "hh_rc_wilcox_esther",
+      "household_id": "hh_adams_james",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -38818,7 +38876,7 @@
     },
     {
       "person_id": "rc_wilcox_esther_3",
-      "household_id": "hh_rc_wilcox_esther",
+      "household_id": "hh_adams_james",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -38831,7 +38889,7 @@
     },
     {
       "person_id": "rc_wilcox_esther_4",
-      "household_id": "hh_rc_wilcox_esther",
+      "household_id": "hh_adams_james",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -38844,7 +38902,7 @@
     },
     {
       "person_id": "rc_wilcox_esther_5",
-      "household_id": "hh_rc_wilcox_esther",
+      "household_id": "hh_adams_james",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -38922,7 +38980,7 @@
     },
     {
       "person_id": "rc_wilcox_maria",
-      "household_id": "hh_rc_wilcox_maria",
+      "household_id": "hh_debogart_h_ven",
       "record_folder": "households",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -38935,7 +38993,7 @@
     },
     {
       "person_id": "rc_wilcox_maria_1",
-      "household_id": "hh_rc_wilcox_maria",
+      "household_id": "hh_debogart_h_ven",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -38948,7 +39006,7 @@
     },
     {
       "person_id": "rc_wilcox_maria_2",
-      "household_id": "hh_rc_wilcox_maria",
+      "household_id": "hh_debogart_h_ven",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -38961,7 +39019,7 @@
     },
     {
       "person_id": "rc_wilcox_maria_3",
-      "household_id": "hh_rc_wilcox_maria",
+      "household_id": "hh_debogart_h_ven",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -39065,7 +39123,7 @@
     },
     {
       "person_id": "rc_wilcox_polly",
-      "household_id": "hh_rc_wilcox_polly",
+      "household_id": "hh_brooks_george_m",
       "record_folder": "households",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -39078,7 +39136,7 @@
     },
     {
       "person_id": "rc_wilcox_polly_1",
-      "household_id": "hh_rc_wilcox_polly",
+      "household_id": "hh_brooks_george_m",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -39091,7 +39149,7 @@
     },
     {
       "person_id": "rc_wilcox_polly_2",
-      "household_id": "hh_rc_wilcox_polly",
+      "household_id": "hh_brooks_george_m",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -39104,7 +39162,7 @@
     },
     {
       "person_id": "rc_wilcox_polly_3",
-      "household_id": "hh_rc_wilcox_polly",
+      "household_id": "hh_brooks_george_m",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -39117,7 +39175,7 @@
     },
     {
       "person_id": "rc_wilcox_polly_4",
-      "household_id": "hh_rc_wilcox_polly",
+      "household_id": "hh_brooks_george_m",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -39130,7 +39188,7 @@
     },
     {
       "person_id": "rc_wilcox_polly_5",
-      "household_id": "hh_rc_wilcox_polly",
+      "household_id": "hh_brooks_george_m",
       "record_folder": "households",
       "age_band": "0-9",
       "age_scope": "below_working_age",

@@ -1,0 +1,100 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 15 min at Walk",
+      "wagon": "about 7.5 min at Wagon",
+      "horse": "about 5.5 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 3 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 333.07165809945474,
+        "reading": 172,
+        "legs": [
+          82.93333333333119,
+          58.599999999999234,
+          26.566666666667146
+        ],
+        "seconds": 340.0999999999976,
+        "phase": "outcome",
+        "outcome": "true-to-the-page"
+      },
+      "fly": {
+        "estimate": 232.9128004413195,
+        "reading": 172,
+        "legs": [
+          22.800000000000292,
+          19.500000000000128,
+          12.4333333333333
+        ],
+        "seconds": 226.73333333333372,
+        "phase": "outcome",
+        "outcome": "true-to-the-page"
+      },
+      "walk": {
+        "estimate": 888.8212259630731,
+        "reading": 172,
+        "legs": [
+          357.8333333334024,
+          177.13333333332585,
+          113.99999999999609
+        ],
+        "seconds": 820.9666666667243,
+        "phase": "outcome",
+        "outcome": "true-to-the-page"
+      }
+    },
+    "ui_drive": {
+      "stop_reached": 0,
+      "phase_after_detail": "atStop",
+      "detail_card_returned_to_same_stop": true,
+      "ending": "true-to-the-page",
+      "ending_phase": "outcome",
+      "after_end_phase": "menu",
+      "stills": [
+        "390-card.png",
+        "390-detail.png",
+        "390-ending.png",
+        "390-opening.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 14.5 min at Walk",
+      "wagon": "about 7.5 min at Wagon",
+      "horse": "about 5.5 min at Horse",
+      "fly": "about 4 min at Fly",
+      "instantly": "about 3 min at Instantly"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 328.9738236818051,
+        "reading": 172,
+        "legs": [
+          77.9666666666648,
+          53.733333333332844,
+          27.566666666667196
+        ],
+        "seconds": 331.26666666666483,
+        "phase": "outcome",
+        "outcome": "true-to-the-page"
+      },
+      "fly": {
+        "estimate": 232.62260279765735,
+        "reading": 172,
+        "legs": [
+          22.500000000000277,
+          18.200000000000063,
+          12.899999999999965
+        ],
+        "seconds": 225.6000000000003,
+        "phase": "outcome",
+        "outcome": "true-to-the-page"
+      }
+    },
+    "page_errors": 0
+  }
+}

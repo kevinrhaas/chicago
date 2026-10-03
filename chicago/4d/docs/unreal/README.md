@@ -128,6 +128,10 @@ its unblocking conditions; do not repeatedly attempt it or manufacture successfu
 
 T-0252 already owns the cross-renderer export decision; this request supplies its missing
 consumer and authorizes pursuing portable scene assets. Resolve the export contract there.
+**Decided 2026-10-03:** [GLB-CONTRACT § Layers drawn at load](../GLB-CONTRACT.md) holds the
+rule (none is baked; each layer is exported by the module that draws it, stamped with its
+heightfield) and the per-layer inventory this section asks for. No layer has a parity
+receipt yet.
 Inventory current layers, including streets/alleys, frontage/plank walks, wharves and bridge
 approaches, flora, fauna subject to project constraints, fences/enclosures, yards/wells,
 boats/wagons/camps/signage, water/terrain material detail, atmosphere/lighting, confidence
