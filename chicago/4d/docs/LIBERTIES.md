@@ -17564,6 +17564,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-09-29 (T-1767).
 
+### L-jaunt-outfit-west — Outfit for the West: an invented errand, purse and prices
+
+**Decision:** Outfit for the West links five existing exterior destinations — the Green Tree, Cobb's saddlery, Peck's store, the Jones grocery and Pierce's smithy — in an invented errand to leave town for the road west. The fifteen-dollar purse, every price in the choices ($2–$6), the readiness count, the light and prepared endings and the Ready for the Road memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought from the trade its own source names — harness from the saddler, hardware from the general merchant, provisions from the grocer, ironwork from the smith — and that pairing is the only part of the errand the evidence bounds. The Jones store's South Water position is the structure record's own reconstruction, and the stop says so.
+
+**Bounds:** The approved 1 July 1835 scene, the five structure records and brief 01 of JAUNTS-INITIAL-LIBRARY.md. Prices are kept in single dollars so no figure reads as a quoted 1835 price.
+
+**How to resolve:** A dated 1835 price list from any of these trades would replace the matching invented price, cited as its own claim; the errand and endings stay interpretation.
+
+**Applies to:** `data/jaunts/outfit-for-the-west.json`.
+
+**Recorded:** 2026-10-02 (T-1260).
+
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
 **Decision:** At the owner's request, v4 uses the default's measured envelope and
