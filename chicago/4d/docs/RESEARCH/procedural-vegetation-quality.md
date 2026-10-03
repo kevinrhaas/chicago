@@ -80,12 +80,20 @@ The final six-stand sweep includes both merged features and records all 36 viewp
 
 Full and balanced retain the established margins of 18,059 and 16,806, rounding upward to 5,000. Light remains inside its initial owner-authorized ceiling. The worst call count is 277 at narrow prairie; the existing 15-call margin rounded upward to five gives 295. Light peaks at 74 and keeps its separate 90-call cap. These are combined-scene costs, not an attribution of the cross-street walks or distant-shrub feature to this ticket.
 
-The reviewed browser scope is published smoke parts 5 and 9–11 at desktop and touch/DPR-2 mobile, plus focused confidence restoration, current traced-water assertions, shader/material parity, changelog and L366 disclosure checks. The stock path mapper conservatively requests all parts for `main.js` and unknown modules; review narrows this budget-only `main.js` diff and the two new surface modules to their actual consumers. The focused checks do not constitute complete parts 2, 12 or 13, and this is not a claim that all 13 parts passed. Final results are pending.
+The reviewed browser scope is published smoke parts 5 and 9–11 at desktop and touch/DPR-2 mobile, plus focused confidence restoration, current traced-water assertions, shader/material parity, changelog and L369 disclosure checks. The stock path mapper conservatively requests all parts for `main.js` and unknown modules; review narrows this budget-only `main.js` diff and the two new surface modules to their actual consumers. The focused checks do not constitute complete parts 2, 12 or 13, and this is not a claim that all 13 parts passed. Final results are pending.
 
 ![Bridge before](vegetation-quality/before-bridge-desktop.jpg)
 ![Bridge after](vegetation-quality/after-bridge-desktop.jpg)
 ![Prairie after](vegetation-quality/after-prairie-desktop.jpg)
 ![Woodland after](vegetation-quality/after-woodland-desktop.jpg)
+
+### Latest dev integration
+
+After checkpoint `000b693e`, dev advanced to `39132f0e`. This integration retains the added roofs, terrain, walks and planting exclusions. The vegetation disclosure is now **L369** because dev independently allocated L366 to South Water Street; both disclosures survive. The prior focused report refers to L366 on its own earlier tree and remains historical evidence.
+
+The new published review uses the merged scene at desktop 1280 × 800 and touch mobile 390 × 780 at DPR 2. The 750-step source gate and preflight pass on this integration. Published normal-loop desktop part 5 passes 27 checks with zero page errors in 11 m 31 s on this shared software renderer. Its full / balanced / light worst triangle counts are 2,431,572 / 1,871,378 / 895,323, all at west prairie; worst calls are 279 / 245 / 74. All declared limits hold. These current readings supersede the earlier scene's costs without changing its declared ceilings. Touch-mobile part 5, both viewports' parts 9–11 and refreshed focused checks remain in progress. No assertion is weakened for the added scene data.
+
+Evidence for this integration is in `vegetation-quality/release/`. The source gate's parallel publisher race was detected by the gate itself and passed its automatic isolated rerun; final verdict is 750 steps, none red.
 
 ### Limits
 

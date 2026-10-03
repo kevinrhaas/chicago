@@ -1,9 +1,72 @@
 export const CHANGELOG = [ // newest first
-  { v: 1351, ts: '2026-10-03T06:48:30.515Z', date: 'Oct 3, 2026, 1:48 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
+  { v: 1361, ts: '2026-10-03T12:09:22.562Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
     items: [
       'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
       'Shrubs gain leafy twig silhouettes in place of broad green rectangles. Higher detail adds curved leaves, grasses and finer branching.',
       'The researched species, planting locations and July flowering rules stay in charge. Leaf and bark surfaces are procedural reconstructions.',
+    ] },
+  { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+    items: [
+      'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
+      'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
+      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
+    ] },
+  { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
+      'Take the leather to S. B. Cobb\u2019s saddlery and the iron to Asahel Pierce\u2019s smithy at Lake and Canal, then decide at the Green Tree whether to take the long road or keep the trip short.',
+      'The crack, the repairs and the keepsake, Sound Tack, are our reconstruction (liberty L-jaunt-mend-harness). The stable, the shops and their trades come from the sources.',
+    ] },
+  { v: 1358, ts: '2026-10-03T10:31:34.336Z', date: 'Oct 3, 2026, 5:31 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+    items: [
+      'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
+      'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
+      'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
+      'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
+    ] },
+  { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+    items: [
+      'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
+      'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
+      'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
+    ] },
+  { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
+    items: [
+      'A North Division boarding house had one bed empty that the town was still owed a lodger for. Henry Metcalf, a man in his twenties, now sleeps there. Open the house\u2019s card to see him among its boarders.',
+      'Nobody already in the town moved to make room. He is our reconstruction, like every boarder no source names (liberty L252).',
+      'Seven more lodgers are owed in the West Division, where every bed is taken. They will move in as new boarding houses are raised.',
+    ] },
+  { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+    items: [
+      'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
+      'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
+      'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
+    ] },
+  { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed, and nobody moved house.',
+      'The model wants 368 of the town\u2019s lone men married, but the town has no unmarried woman left to draw for them. We counted how many could marry a woman already keeping her own house here, keeping each pair\u2019s ages plausible: 91 can. The other 277 cannot marry anyone the town holds.',
+      'The Liberties note on reconstructed families now says so. Moving those women would not even out the town\u2019s men and women either: a move adds nobody.',
+    ] },
+  { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
+    items: [
+      'Walk South Water Street to the store lettered W. MONTGOMERY, Auction & Commission House. He opened there in the last week of June 1835 and held his first sale on 1 July, the day the town is set.',
+      'The two Chicago papers ran his notice under four different headings, and the town held them as four businesses, so none of them could hang a board. They are one house now. His card gathers every printing, and his own words place him in David Carver\u2019s old store, a few doors west of J. Wright\u2019s.',
+      'Neither paper gives a door number, so which store on the street is his is our allocation. A few other South Water merchants moved one roof along to make room.',
+    ] },
+  { v: 1352, ts: '2026-10-03T07:12:28.066Z', date: 'Oct 3, 2026, 2:12 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
+    items: [
+      'Cross the Lake Street bridge to the block between Clinton and Canal. A plank walk now runs the whole Lake Street front, not just the stretch outside its one shop.',
+      'Its Randolph Street side has a walk of its own now, about 97 m of planks, with a board crossing over Randolph at the corner.',
+      'The shop keeps its hitching post. No fences: this block\u2019s lots open onto Clinton and Canal, so these fronts are the ends of the lot rows.',
+      'The walks are our reconstruction, like every walk in the town (liberty L160).',
+    ] },
+  { v: 1351, ts: '2026-10-03T06:48:49.856Z', date: 'Oct 3, 2026, 1:48 AM CT', title: 'A new jaunt: Stock the Household', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Stock the Household. Start a cupboard of your own along one block of South Water Street. It takes about five minutes on foot.',
+      'Begin at Mrs Rufus Brown\u2019s boarding house and choose a list for the table or for the room. Then buy coffee or tea at Jones\u2019s grocery, cream of tartar or tooth powder at Carpenter\u2019s and a cup or some flannel at Peck\u2019s.',
+      'Each good is sold only where that store\u2019s own advertisement lists it. The room, the purse and every price are our reconstruction (liberty L-jaunt-household-provisions).',
+      'Finish to keep A Cupboard Begun in your daybook under Provisions.',
     ] },
   { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
     items: [

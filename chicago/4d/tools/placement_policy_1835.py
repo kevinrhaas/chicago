@@ -38,7 +38,7 @@ because it did not exist: the census credited a building to the corridor it stoo
 however far that was:
 
     street_line_m        2.71   STREET_LINE_M         measure_frontage_fabric
-    frontage_reach_m    67.72   FRONTAGE_REACH_M      measure_frontage_fabric
+    frontage_reach_m    75.58   FRONTAGE_REACH_M      measure_frontage_fabric
     party_line_unit_m    6.072  PARTY_LINE_UNIT_M     measure_end_rule
     trade_letters        C F W  TRADE_LETTERS         measure_frontage_fabric
                                 LIGHT_STREET_ZERO     generate_block_infill
@@ -102,18 +102,22 @@ CONSTANTS = [
                    "midpoint — re-derive with measure_frontage_fabric.py --setbacks. A "
                    "building at or inside this stands ON the street line; anything "
                    "further back stands in the block behind it."},
-    {"name": "frontage_reach_m", "value": 67.72, "unit": "m",
+    {"name": "frontage_reach_m", "value": 75.58, "unit": "m",
      "read_by": [{"module": "tools/measure_frontage_fabric.py",
                   "name": "FRONTAGE_REACH_M"}],
      "derivation": "how far back a footprint may stand and still be FRONTING the "
                    "corridor it is nearest, from the empty band in the town's own "
                    "distribution of nearest-corridor distances, at its midpoint — "
                    "re-derive with measure_frontage_fabric.py --setbacks. Below "
-                   "60.79 m (miller_tannery, on the Market Street corridor) that "
-                   "distribution is continuous: 373 buildings and no gap wider than "
-                   "2.91 m. The next building anywhere stands 74.65 m back "
-                   "(recon_1835_west_052), a band of 13.86 m with nothing in it — "
-                   "4.76 times the widest gap in the body. Beyond this a building is "
+                   "66.06 m (recon_1835_west_050) that distribution is continuous: "
+                   "499 buildings and no gap wider than 4.18 m. The next building "
+                   "anywhere stands 85.10 m back (recon_1835_west_054), a band of "
+                   "19.04 m with nothing in it — 4.56 times the widest gap in the "
+                   "body. RE-STATED BY T-1414 (2026-10-03), not relaxed: it was 67.72 m "
+                   "(body to 60.79 m, band 60.79-74.65 m) until the West Division's "
+                   "tiers and Wabansia entered the corridor layer, which gave the "
+                   "west ground's roofs nearer streets to be measured against and "
+                   "moved both edges of the band. Beyond this a building is "
                    "reported with NO street rather than with a distant one; the "
                    "reservation and the river mouth hold roofs that front none."},
     {"name": "party_line_unit_m", "value": 6.072, "unit": "m",
@@ -518,16 +522,6 @@ MULTI_BUILDING_LOT = {
 #                             not an outlier, so it carries no reason.
 #
 OUTLIER_REASONS = {
-    "wabansia_doctors_house":
-        "a house the Chicago Democrat of 16 July 1834 puts 'in Wabansia' and nowhere more "
-        "exactly, and the only roof in that survey. It does front a street: its facade "
-        "stands 6.1 m behind the corridor edge of `kinzie_west`, Wright's line of Kinzie "
-        "Street across Wabansia in data/streets/1835.json, which is inside the frontage "
-        "reach. The census cannot see that, because tools/plat_corridors.py carries no "
-        "corridor for any Wabansia street — the nearest it holds is Kinzie's Thompson "
-        "reach, which ends at local east -320, 98.86 m away — so the policy reads the "
-        "house as fronting nothing. Its position is invented under docs/LIBERTIES.md L316; "
-        "the reason goes when Wabansia's streets enter the corridor layer.",
     "beaubien_trading_post":
         "a private trade room on the unplatted military reservation, 359.59 m from the "
         "nearest corridor edge: the commercial clauses seat a C roof by a `street_line` "
@@ -621,8 +615,6 @@ OUTLIER_REASONS = {
         "north division. Until T-1191 State was simply the nearest line, 203 m off "
         "across the river; the hotel is now read against Kinzie at 20.47 m, which is a "
         "real north-bank line and still a setback no lodging clause allows.",
-    "walker_meeting_house":
-        "on the west ground 48 m off the Canal line, at the edge of what was platted.",
     "wolf_point_tavern":
         "at the forks, 40 m off Lake's line: the tavern fronts the ferry and the two "
         "branches, which is precisely why it stands there.",

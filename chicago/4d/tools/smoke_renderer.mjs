@@ -5099,8 +5099,12 @@ for (const [label, viewport, touch] of [
       // BEHIND ON dev: its record carries 55 town walks and 49 crossings, so dev
       // read 63 / 51 against 61 / 47 — a parcel after T-1823 moved the record
       // and not this line. Re-pinned to the reading, not to a model of it.
-      frontage.census?.records === 5 && frontage.census?.walks === 113
-        && frontage.census?.crossings === 98
+      // T-0193 — blk_lake_clinton's Randolph face (+1 walk) and its crossing over
+      // Randolph (+1); its Lake face was already one fronts-only run and stays one
+      // run: 113 to 114 and 98 to 99. Refusals hold — the block's own refusal
+      // retires and nothing new is refused. ID-set deltas, read off the record.
+      frontage.census?.records === 5 && frontage.census?.walks === 114
+        && frontage.census?.crossings === 99
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5422,7 +5426,10 @@ for (const [label, viewport, touch] of [
     // chunk (+50), and their crossings ride those chunks: 117, read on the branch
     // (dev's record names 51 walk chunks, so dev read 67 against the 65 here).
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 118 : 117)
+      // T-0193 — blk_lake_clinton's new Randolph run names its chunk (+1) and the
+      // block's standing timber rides a west-bank mesh of its own rather than
+      // Lake's and Randolph's (+1): 119.
+      frontage.authored === (frontage.census?.lettered === 1 ? 120 : 119)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -6160,7 +6167,9 @@ for (const [label, viewport, touch] of [
       edge.hasRecord && edge.cardId === 'town_street_edge'
         // T-0192 — the seven cross streets' 46 platted faces: 93, the record's own
         // `faces_laid` (dev's record already read 47 against the 45 pinned here).
-        && edge.faces === 93 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-0193 — blk_lake_clinton off the skip list: its Lake face stops being
+        // fronts-only and is laid as a street face, and its Randolph face is new: 94.
+        && edge.faces === 94 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6189,8 +6198,10 @@ for (const [label, viewport, touch] of [
     // streets a face is laid fronts-only; each of its five runs is drawn and the
     // boot is on planks in the middle of it.
     check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
-      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
-        && edge.byBusiness.frontsOn === 5,
+      // T-0193 — four: blk_lake_clinton's Lake face is a covered face now, its
+      // walk the whole face rather than the store's front.
+      edge.byBusiness.frontsRecs === 4 && edge.byBusiness.frontsDrawn === 4
+        && edge.byBusiness.frontsOn === 4,
       `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
       + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,

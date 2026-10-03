@@ -351,6 +351,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Keep items tied to supported trades and bound reconstructed quantities/prices; no compulsory health score.
 
+**Route note (T-2010, as built):** the briefed order stands and the whole outing keeps to one block face of South Water Street between Wells and LaSalle: Brown's, behind Peck's, west to Jones's at the Wells end, back east to Carpenter's mid-block, and on to Peck's corner beside where it began (about 210 m). It reads about 5 min at Walk (4.5 at 1280×800), 3–3.5 at Wagon and 3 at Horse. Each good is offered only where that store's own advertisement lists it: coffee, sugar and tea at Jones's (26 Nov 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's. Carpenter's June 1835 window-glass consignment is left out because its signature is cut and not proved to be his. Prices and the purse are `L-jaunt-household-provisions`.
+
 ## 14. A Decent Coat
 
 **ID:** `a-decent-coat` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)
@@ -390,6 +392,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Sound Tack (Livelihood); fictional narrative memento.
 
 **Evidence and route cautions:** The repair story is invented; distinguish leather work from iron work using the actual firm records.
+
+**Route note (published, T-2024):** The briefed order is kept: the Western Hotel's stable → S. B. Cobb's saddlery → Asahel Pierce's smithy → the Green Tree, a block north up Canal Street from Randolph to Lake and then east along Lake to West Water, with no backtrack. The repair is an invented cracked trace and, if the visitor looks the harness over in the yard, a worn whiffletree hook. Leather goes to the saddler and iron to the smith, and that division is read from the two firms' own records: Goss & Cobb's 1833 advertisement lists harness, bridles and trunks and promises repairs 'immediately attended to when brought to their shop', Cobb's June 1835 card continues the business, and Andreas's Pierce paragraph is ironing a stage line and making ploughs. The saddler is never made a smith, and neither shop is said to have done this repair. At the Green Tree the visitor calls the outfit ready (only if the trace was restitched) or keeps tomorrow's trip short, and the four endings follow those choices. The Wagon recommendation stands as briefed: the route is short and the brief's subject is a wagon outfit. Card estimates on the published mirror: Walk 7.5 min, Wagon 5, Horse 4, Fly 3.5, Instantly 3 at 390×780 (Walk 7, Wagon 4.5 at 1280×800). The primary path measured 281 s at Wagon and 207 s at Fly against estimates of 290 s and 215 s. Flags only, no shown variable or inventory: there is nothing to count. Receipt: `docs/performance/jaunt-mend-the-harness/`.
 
 ## 16. Soap and Candles
 

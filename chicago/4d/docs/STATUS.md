@@ -2,7 +2,64 @@
 
 **Implemented, final verification in progress.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
 
-**Verification.** Checkpoint c328395c passes all 750 source checks and preflight; eight earlier fixed views have no page/console errors. The current integration includes dev b06a063a (cross-street walks and distant shrubs). Its 36-view cost sweep has zero page errors and sets full/balanced/light ceilings at 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. Final published desktop/touch-mobile checks and the integrated source gate are pending. PR #333 is a draft. Details and scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
+**Verification.** Checkpoints c328395c and 000b693e pass all 750 source checks and preflight. On the b06a063a integration, the focused published review passed 58 checks across desktop and touch mobile with zero page, console or resource errors. Its 36-view cost sweep sets full/balanced/light ceilings at 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. The current integration now includes dev 39132f0e and renumbers the vegetation disclosure to L369. Its 750-step source preflight and normal-loop desktop detail check pass (27 checks, zero page errors); touch-mobile detail, lighting/vegetation smoke and the refreshed focused review remain in progress. PR #333 is a draft. Details and scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
+
+## T-2024 — Mend the Harness, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Mend the Harness* (Trades and repairs,
+Wagon, 4 stops, Livelihood). While harnessing in the yard behind W. H. Stow's Western Hotel the
+visitor finds a cracked trace and may look the whole harness over, which turns up a worn
+whiffletree hook. The trace goes to S. B. Cobb's saddlery at Lake and Canal, to be restitched or
+bound with twine; the hook, if it was found, goes to Asahel Pierce's smithy on the same crossing;
+and at the Green Tree the visitor calls the outfit ready or keeps tomorrow's trip short. Four
+endings; the keepsake *Sound Tack* goes to Livelihood. Content only: one JSON file, a liberty
+(`L-jaunt-mend-harness`), the regenerated catalog and source-use edges, and brief 15's route
+note. No engine, compiler or CSS change. First of the four pieces T-1268 was split into
+(T-2024..T-2027), the same cut T-1267 took.
+
+**The brief's caution holds by construction.** The damage and the repairs are invented and the
+opening says so. Leather and iron are told apart by the firms' own records — Goss & Cobb's 1833
+advertisement (harness, bridles, trunks, repairing) and Cobb's June 1835 continuation card;
+Andreas's Pierce paragraph (stage-line ironing, ploughs). Neither shop is said to have mended
+this harness, and nobody is met. The corner each shop held is not attested and both stops say
+"this corner" / "the same crossing".
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 7.5 min, Wagon 5, Horse 4, Fly 3.5, Instantly 3 (at
+1280×800 Walk 7, Wagon 4.5, the rest the same). The primary path (look over → restitch → hook →
+ready) measured 281 s at Wagon and 207 s at Fly against the card's 290 s and 215 s, inside the
+quick-play 4–6 min band at the recommended mode. A Playwright drive at 390×780 through the panel
+— card, opening, a detail card and back to the same stop, the ending — reached `sound-tack`
+with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-mend-the-harness/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-2010 — Stock the Household, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Stock the Household* (Household, Walk,
+4 stops, Provisions). With an imagined two dollars and a share of a room at Mrs Rufus Brown's,
+the visitor picks a list for the table or for the room. Then comes Jones's grocery for coffee and
+sugar or tea, Carpenter's drug store for cream of tartar or tooth powder, and Peck's corner for a
+crockery cup and plate or a length of flannel. Every good is offered only where that store's own
+advertisement lists it. There are four endings, and the keepsake *A Cupboard Begun* goes to
+Provisions. Content only: one JSON file, a liberty (`L-jaunt-household-provisions`), the
+regenerated catalog and source-use edges, and brief 13's route note. There is no engine, compiler
+or CSS change.
+
+**The brief's cautions hold by construction.** Quantities and prices are bounded and labelled
+reconstructed, and there is no health score. Jones's stop says that no source places the store and
+that his initial is disputed. Carpenter's cut window-glass notice is not used, because its own
+extract warns it is not proved to be his.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 54 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780 were Walk 5 min, Wagon 3.5, Horse 3, Fly 2.5 and Instantly 2.5; at
+1280×800, Walk 4.5 and Wagon 3. A Playwright drive at both viewports (table → coffee → cream of
+tartar → crockery) reached the `table-laid` ending once, with the keepsake under Receipt and zero
+page errors.
+
+**Unverified.** The stills were taken (card, opening, outcome) but are not committed, and no detail
+card was opened during the drive.
 
 ## T-0192 — the seven cross streets take the plank walk (2026-10-03)
 

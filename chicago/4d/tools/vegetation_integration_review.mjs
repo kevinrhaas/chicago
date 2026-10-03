@@ -241,15 +241,15 @@ try {
       await screenshot('whatsnew');
       await save();
       await page.evaluate(() => { const a = window.__chicago4d; a.hud.selectTab('evidence'); a.evidenceHub.showTopic('liberties'); });
-      await page.waitForFunction(() => [...document.querySelectorAll('#liberties details.lib')].some(e => /\bL366\b/.test(e.textContent)), null, { polling: 100, timeout: READY_MS });
+      await page.waitForFunction(() => [...document.querySelectorAll('#liberties details.lib')].some(e => /\bL369\b/.test(e.textContent)), null, { polling: 100, timeout: READY_MS });
       const liberty = await page.evaluate(() => {
-        const row = [...document.querySelectorAll('#liberties details.lib')].find(e => /\bL366\b/.test(e.textContent));
+        const row = [...document.querySelectorAll('#liberties details.lib')].find(e => /\bL369\b/.test(e.textContent));
         row.open = true; row.scrollIntoView({ block: 'start' });
         const r = row.getBoundingClientRect();
         return { active: window.__chicago4d.hud.tab === 'evidence', visible: r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight, text: row.textContent.replace(/\s+/g, ' ').trim(), rendered: document.querySelectorAll('#liberties details.lib').length, loaded: window.__chicago4d.liberties?.count };
       });
-      check('L366 botanical reconstruction disclosure is visible', liberty.active && liberty.visible && /Leaf.scale procedural vegetation/.test(liberty.text) && /visual reconstructions/.test(liberty.text) && liberty.rendered === liberty.loaded, liberty);
-      await screenshot('liberty-L366');
+      check('L369 botanical reconstruction disclosure is visible', liberty.active && liberty.visible && /Leaf.scale procedural vegetation/.test(liberty.text) && /visual reconstructions/.test(liberty.text) && liberty.rendered === liberty.loaded, liberty);
+      await screenshot('liberty-L369');
       record.liberty = liberty;
       record.finalSha256 = await fingerprints();
       check('published reviewed modules stayed unchanged throughout viewport', JSON.stringify(record.finalSha256) === JSON.stringify(result.provenance.sha256), record.finalSha256);
