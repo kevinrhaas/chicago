@@ -1,0 +1,1280 @@
+{
+  "baselineCommit": "de81fad2e8f87a9923cbca325f76de1748b239d3",
+  "tests": [
+    {
+      "species": "populus_deltoides",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "populus_deltoides",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_nigra",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "salix_amygdaloides",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharinum",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ulmus_americana",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "fraxinus_pennsylvanica",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 212,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 320,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 488,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 212,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 320,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 488,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 212,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 320,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_bicolor",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 488,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "celtis_occidentalis",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "juglans_nigra",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "platanus_occidentalis",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "salix_interior",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 360,
+      "baselineTriangles": 428
+    },
+    {
+      "species": "salix_interior",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 564,
+      "baselineTriangles": 428
+    },
+    {
+      "species": "salix_interior",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 768,
+      "baselineTriangles": 428
+    },
+    {
+      "species": "salix_interior",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 344,
+      "baselineTriangles": 412
+    },
+    {
+      "species": "salix_interior",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 548,
+      "baselineTriangles": 412
+    },
+    {
+      "species": "salix_interior",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 752,
+      "baselineTriangles": 412
+    },
+    {
+      "species": "salix_interior",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 256
+    },
+    {
+      "species": "salix_interior",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 336,
+      "baselineTriangles": 256
+    },
+    {
+      "species": "salix_interior",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 456,
+      "baselineTriangles": 256
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "fraxinus_nigra",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 188,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 260,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "tilia_americana",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 416,
+      "baselineTriangles": 188
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "acer_saccharum",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 216,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 300,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "quercus_rubra",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 480,
+      "baselineTriangles": 216
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 132,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 180,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 288,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 132,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 180,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 288,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 132,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 180,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "ostrya_virginiana",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 288,
+      "baselineTriangles": 132
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 240,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 360,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 552,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 240,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 360,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 552,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 240,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 360,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_macrocarpa",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 552,
+      "baselineTriangles": 260
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 212,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 320,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 488,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 212,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 320,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 488,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 212,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 320,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_alba",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 488,
+      "baselineTriangles": 232
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 196,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 292,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 448,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 196,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 292,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 448,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 196,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 292,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "quercus_velutina",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 448,
+      "baselineTriangles": 212
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 1,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 1,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 1,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 2,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 2,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 2,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 3,
+      "tier": "light",
+      "triangles": 160,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 3,
+      "tier": "balanced",
+      "triangles": 220,
+      "baselineTriangles": 160
+    },
+    {
+      "species": "carya_ovata",
+      "seed": 3,
+      "tier": "full",
+      "triangles": 352,
+      "baselineTriangles": 160
+    }
+  ],
+  "counts": {
+    "full": {
+      "triangles": 1864,
+      "vertices": 3232,
+      "foliageSprays": 580,
+      "attributeBytes": 180992
+    },
+    "light": {
+      "triangles": 832,
+      "vertices": 1408,
+      "foliageSprays": 232,
+      "attributeBytes": 78848
+    }
+  },
+  "errors": []
+}

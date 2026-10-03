@@ -1,0 +1,92 @@
+{
+  "390": {
+    "card_estimates": {
+      "walk": "about 24 min",
+      "wagon": "about 11.5 min",
+      "horse": "about 7.5 min",
+      "fly": "about 4 min",
+      "instantly": "about 3 min"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 458.052239776459,
+        "reading": 171,
+        "legs": [
+          143.39999999999444,
+          127.366666666662,
+          22.166666666666927
+        ],
+        "seconds": 463.93333333332333,
+        "phase": "outcome",
+        "outcome": "equipped"
+      },
+      "fly": {
+        "estimate": 239.1444698790929,
+        "reading": 171,
+        "legs": [
+          35.83333333333386,
+          15.199999999999957,
+          10.66666666666664
+        ],
+        "seconds": 232.70000000000044,
+        "phase": "outcome",
+        "outcome": "equipped"
+      }
+    },
+    "ui_drive": {
+      "ending": "equipped",
+      "after_end_phase": "menu",
+      "detail_card_returned_to_same_stop": true,
+      "detail_note": "A first pass at each viewport opened the structure card from stop 1 (phase 'detail') and returnFromDetail came back to stop 1 at 'atStop'. On the final pass the card call landed before the tannery arrival settled and did not open; the return still read stop 2 at 'atStop'.",
+      "stills": [
+        "390-opening.png",
+        "390-tannery.png",
+        "390-ending.png"
+      ]
+    },
+    "page_errors": 0
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 23.5 min",
+      "wagon": "about 11.5 min",
+      "horse": "about 7.5 min",
+      "fly": "about 4 min",
+      "instantly": "about 3 min"
+    },
+    "measured": {
+      "horse": {
+        "estimate": 451.05515448430583,
+        "reading": 171,
+        "legs": [
+          144.39999999999438,
+          118.93333333332914,
+          20.433333333333508
+        ],
+        "seconds": 454.76666666665704,
+        "phase": "outcome",
+        "outcome": "equipped"
+      },
+      "fly": {
+        "estimate": 239.37724768861312,
+        "reading": 171,
+        "legs": [
+          35.63333333333387,
+          15.866666666666621,
+          10.233333333333308
+        ],
+        "seconds": 232.7333333333338,
+        "phase": "outcome",
+        "outcome": "equipped"
+      }
+    },
+    "ui_drive": {
+      "ending": "equipped",
+      "after_end_phase": "menu",
+      "detail_card_returned_to_same_stop": true,
+      "detail_note": "A first pass at each viewport opened the structure card from stop 1 (phase 'detail') and returnFromDetail came back to stop 1 at 'atStop'. On the final pass the card call landed before the tannery arrival settled and did not open; the return still read stop 2 at 'atStop'.",
+      "stills": []
+    },
+    "page_errors": 0
+  }
+}

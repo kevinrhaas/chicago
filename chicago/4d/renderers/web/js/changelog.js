@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1365, ts: '2026-10-03T14:14:54.093Z', date: 'Oct 3, 2026, 9:14 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
+  { v: 1367, ts: '2026-10-03T14:48:04.860Z', date: 'Oct 3, 2026, 9:48 AM CT', title: 'A new jaunt: Materials for a Roof', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Materials for a Roof, about six minutes on horseback.',
       'Start at Newberry \u0026 Dole\u2019s warehouse on the river, choose nails or nail rods at Peck\u2019s corner, decide on brick at the town\u2019s first brickyard, and end looking at the Lake House going up at Rush Street.',
       'The builder, the list and the keepsake, A Builder\u2019s List, are our reconstruction (liberty L-jaunt-materials-for-a-roof). The goods come from the merchants\u2019 own notices; the Lake House shell is our reconstruction of a building site.',
+    ] },
+  { v: 1366, ts: '2026-10-03T14:21:05.994Z', date: 'Oct 3, 2026, 9:21 AM CT', title: 'A new jaunt: Boots, Leather and the Road', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Boots, Leather and the Road, an outing of about seven and a half minutes on horseback.',
+      'Outfit a rider for tomorrow\u2019s road: boots or a hat at John Holbrook\u2019s on South Water Street, a look at John Miller\u2019s tannery at the forks, a bridle or a trunk at S. B. Cobb\u2019s saddlery, and the Green Tree to lay it all out. Ask the saddler for boots and his own card tells you why not.',
+      'The rider, the purchases and the keepsake, Equipped to Travel, are our reconstruction (liberty L-jaunt-boots-and-leather). What each shop sold comes from its own 1833 and 1835 newspaper cards.',
+    ] },
+  { v: 1365, ts: '2026-10-03T13:40:43.663Z', date: 'Oct 3, 2026, 8:40 AM CT', title: 'Leafy trees and finer summer plants', kind: 'feature',
+    items: [
+      'Tree crowns now have leaf-shaped edges and gaps between branches, with species-shaped foliage and bark grain.',
+      'Shrubs gain leafy twig silhouettes in place of broad green rectangles. Higher detail adds curved leaves, grasses and finer branching.',
+      'The researched species, planting locations and July flowering rules stay in charge. Leaf and bark surfaces are procedural reconstructions.',
     ] },
   { v: 1364, ts: '2026-10-03T13:24:25.493Z', date: 'Oct 3, 2026, 8:24 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [
