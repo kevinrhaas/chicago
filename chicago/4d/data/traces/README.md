@@ -39,6 +39,12 @@ kinzie_addition_water_lots.json       Kinzie's Addition's river-front water lots
                                       back line does not cross, and the division strokes.
                                       Refuses which stroke bounds which numbered lot, and
                                       21 of the 35 figures. Authors no fabric.
+whistler_1808_fort_dearborn.json      The FIRST fort's garrison off Whistler's own 1808
+                                      draught (T-2048), in fort feet off the drafter's 75 ft
+                                      staff: picket rows, blockhouses, ranges, magazine, gate,
+                                      and all 34 index numbers accounted for. Refuses heights,
+                                      bearing, and anything outside the stockade.
+                                      Authors no fabric.
 ```
 
 Two of those five are readings of ONE plate by ONE transform, stated in each file and

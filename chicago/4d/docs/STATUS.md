@@ -8,7 +8,7 @@ House at Lake and Wells. Fix half of T-2051's reading (piece 2 of 6 of T-2041).
   news-before-breakfast 17.65 → **5.70 min** (Fly 4.25, Instantly 3.40); new-in-chicago 10.42 →
   **4.04 min** (Fly 2.90, Instantly 2.10). Zero page errors. `docs/measurements/jaunt-timing.*`
   carry the new rows merged into T-2051's library reading (`--merge`); the other 24 rows are
-  T-2051's and were not re-ridden. 12 jaunts remain over the band, owned by T-2053–T-2056.
+  not re-ridden here. With T-2054's two also in band, 10 jaunts remain over it, owned by T-2053, T-2055 and T-2056.
 - **Why a pace change, and why it is not enough alone.** Walking is 1.45 m/s. On News Before
   Breakfast the Democrat-to-American leg is about two minutes on foot by itself, so no choice of
   stops fits 204 s of reading inside six minutes on foot; on horseback the briefed route still read
@@ -23,6 +23,68 @@ House at Lake and Wells. Fix half of T-2051's reading (piece 2 of 6 of T-2041).
   its own re-timing.
 - **Liberties:** L-jaunt-news-breakfast and L-jaunt-new-in-chicago each gain a **Revised** line
   (append-only): the ride is invented like the rest of each outing.
+
+## T-2054 — Outfit for the West and Freight for the Store brought inside six minutes (2026-10-03)
+
+**What a visitor sees:** Outfit for the West now recommends horseback, and its stops run Green Tree →
+Cobb → Pierce → Jones → Peck, so the river is crossed once. Freight for the Store has a shorter
+opening and shorter stop texts. This is piece 4 of 6 of T-2041, fixing two of the jaunts T-2051 timed over the band.
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only outfit-for-the-west,freight-for-the-store`:**
+  outfit-for-the-west 8.98 min by wagon → **4.90 min on horseback** (Fly 3.38, Instantly 2.60; 4.86
+  at 1280×800). freight-for-the-store 6.12 → **5.80 min by wagon** (Fly 3.45, Instantly 2.72; 5.52 at
+  1280×800). There were zero page errors. `docs/measurements/jaunt-timing.*` has the new rows merged into the
+  library reading (`--merge`, with the 1280×800 column carried through `--also`). The other 24 rows
+  were not ridden again.
+- **Outfit: why both a mode change and a new order.** T-1260's route note already found that no
+  order of the five trades fits six minutes at a wagon's 3.6 m/s, because the South Branch crossing alone is about 500 m.
+  It also ruled that the overrun is not a reason to substitute a stop. On horseback the shipped order still
+  read about 6.1 min, because it crosses the river twice. The one-crossing order is 721 m in straight lines against 1,045.
+  The prose allows the horse, because the visitor hires a wagon only through the harness choice. Stop texts changed only where they named the old
+  crossings, and no `read_s` or `action_s` was lowered.
+- **Freight: why text only.** Loading the wagon is the errand, and every position on the route is
+  attested or the structure record's own reconstruction. So the opening and four stop texts lose
+  about 45 words, and their reading seconds drop with them at no faster a reading rate than before
+  (22 s of reading in all). No fact is added, and the tally stop now says the yard is *likely* quiet,
+  matching its inferred evidence.
+- **Margin:** freight is 12 s inside the band at 390×780. A longer stop text there would need re-timing.
+- **Not touched:** the estimate formula and any other jaunt. `content_version` is bumped on both,
+  so a saved session from the old version is discarded with the runtime's usual note.
+- **Liberties:** L-jaunt-outfit-west and L-jaunt-freight-store each gain a **Revised** line
+  (append-only).
+
+## T-2048 — Whistler's 1808 draught of the first fort, read into a register (2026-10-03)
+
+**What a visitor sees: nothing.** This is piece 1 of 3 of T-0469 (the first Fort Dearborn as it
+stood in August 1812), split because the parent needed more than one demonstration. This piece
+is the measurement half, so it is exemption 2 of the visible-progress rule. T-2049 builds the fort
+from it and T-2050 seats it in the 1812 scene, which does not exist yet.
+
+- **The sheet.** Quaife (1913) prints, facing p. 164, Captain Whistler's own draught of the fort
+  he built, dated in the parade 25 January 1808. It is now a source record,
+  `whistler_1808_fort_dearborn_draught`: tier 1, public domain, geometry permitted. The working
+  copy is pinned by URL and sha256 and is not committed. Quaife's other "first fort" plate,
+  facing p. 100, is a photograph of a later model and is not this source.
+- **The scale is measured, not assumed.** The note says the garrison is "laid down at twenty feet
+  to the Inch", but a reproduction loses the inch. The flagstaff is lettered "75 feete" and is
+  drawn laid down from its foot. That foot lands on the parade's centre to under a foot, so its
+  339 px give **4.52 px/ft**. `--remeasure` finds the same two ends on the fetched sheet.
+- **What it reads** (`data/traces/whistler_1808_fort_dearborn.json`). Two picket rows: the inner
+  encloses **89.6 x 91.2 ft**, the outer **108 x 111 ft**. Two blockhouses at the north-west and
+  south-east angles (17.3 x 19.0 and 19.2 x 18.4 ft), each straddling both rows. Commanding
+  officer's range east, officers' west, soldiers' south either side of the main gate, contractor's
+  store and soldiers north. The brick magazine, in elevation only, between the north range and
+  the north-west blockhouse. Two small houses at diagonally opposite corners.
+- **All 34 index numbers are accounted for:** 10 located, 8 drawn but not to scale (sheet
+  position only), 14 not located with the reason, and 2 that the drafter says he omitted (the
+  covered way, the gutters).
+- **What it refuses.** No height: the four ranges' folded elevations, all "two storeys high",
+  read 11.1 to 18.8 ft. No bearing to true north: no arrow was found. No positions outside the
+  stockade: the note says those houses are "without any Regular rule" and the red-ink distances
+  are "not laid down by a scale". Two of them disagree by a factor of two, which bears that out.
+  No guard house, wicket gate or stores 14 and 15: their numerals are not legible.
+- **Gated.** `tools/read_whistler_1808.py --check` in `check.sh`. It holds the scale's arithmetic,
+  every foot against its pixel box, the 34-number index, and the cross-checks the file says hold.
 
 ## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
 

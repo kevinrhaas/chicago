@@ -980,125 +980,6 @@
       "estimate_s": 114
     },
     {
-      "id": "freight-for-the-store",
-      "title": "Freight for the Store",
-      "mode": "wagon",
-      "recommended": true,
-      "listed": [
-        "wharf",
-        "store",
-        "church",
-        "tally"
-      ],
-      "visited": [
-        "wharf",
-        "store",
-        "church",
-        "tally"
-      ],
-      "done": true,
-      "estimate": 365.7414276905595,
-      "approx": false,
-      "content": {
-        "opening": 18,
-        "stops": 164
-      },
-      "legs": [
-        {
-          "from": "wharf",
-          "seconds": 64.4,
-          "metres": 227
-        },
-        {
-          "from": "store",
-          "seconds": 56.8,
-          "metres": 202
-        },
-        {
-          "from": "church",
-          "seconds": 63.6,
-          "metres": 227
-        }
-      ],
-      "travel_s": 185,
-      "measured_s": 367,
-      "estimate_s": 366
-    },
-    {
-      "id": "freight-for-the-store",
-      "title": "Freight for the Store",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "wharf",
-        "store",
-        "church",
-        "tally"
-      ],
-      "visited": [
-        "wharf",
-        "store",
-        "church",
-        "tally"
-      ],
-      "done": true,
-      "estimate": 231.66243017518167,
-      "approx": false,
-      "content": {
-        "opening": 18,
-        "stops": 164
-      },
-      "legs": [
-        {
-          "from": "wharf",
-          "seconds": 15.3,
-          "metres": 220
-        },
-        {
-          "from": "store",
-          "seconds": 13.3,
-          "metres": 180
-        },
-        {
-          "from": "church",
-          "seconds": 15.3,
-          "metres": 219
-        }
-      ],
-      "travel_s": 44,
-      "measured_s": 226,
-      "estimate_s": 232
-    },
-    {
-      "id": "freight-for-the-store",
-      "title": "Freight for the Store",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "wharf",
-        "store",
-        "church",
-        "tally"
-      ],
-      "visited": [
-        "wharf",
-        "store",
-        "church",
-        "tally"
-      ],
-      "done": true,
-      "estimate": 183.5,
-      "approx": false,
-      "content": {
-        "opening": 18,
-        "stops": 164
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 182,
-      "estimate_s": 184
-    },
-    {
       "id": "from-prairie-to-town",
       "title": "From Prairie to Town",
       "mode": "horse",
@@ -1930,141 +1811,6 @@
       "travel_s": 0,
       "measured_s": 180,
       "estimate_s": 182
-    },
-    {
-      "id": "outfit-for-the-west",
-      "title": "Outfit for the West",
-      "mode": "wagon",
-      "recommended": true,
-      "listed": [
-        "the-list",
-        "tools",
-        "provisions",
-        "carrying",
-        "ironwork"
-      ],
-      "visited": [
-        "the-list",
-        "tools",
-        "provisions",
-        "carrying",
-        "ironwork"
-      ],
-      "done": true,
-      "estimate": 535.3190177924916,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 140
-      },
-      "legs": [
-        {
-          "from": "the-list",
-          "seconds": 174.1,
-          "metres": 620
-        },
-        {
-          "from": "tools",
-          "seconds": 26.8,
-          "metres": 94
-        },
-        {
-          "from": "provisions",
-          "seconds": 181.3,
-          "metres": 649
-        },
-        {
-          "from": "carrying",
-          "seconds": 0.8,
-          "metres": 1
-        }
-      ],
-      "travel_s": 383,
-      "measured_s": 539,
-      "estimate_s": 535
-    },
-    {
-      "id": "outfit-for-the-west",
-      "title": "Outfit for the West",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "the-list",
-        "tools",
-        "provisions",
-        "carrying",
-        "ironwork"
-      ],
-      "visited": [
-        "the-list",
-        "tools",
-        "provisions",
-        "carrying",
-        "ironwork"
-      ],
-      "done": true,
-      "estimate": 227.60396813114113,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 140
-      },
-      "legs": [
-        {
-          "from": "the-list",
-          "seconds": 25.9,
-          "metres": 471
-        },
-        {
-          "from": "tools",
-          "seconds": 7.2,
-          "metres": 76
-        },
-        {
-          "from": "provisions",
-          "seconds": 27.4,
-          "metres": 511
-        },
-        {
-          "from": "carrying",
-          "seconds": 1.9,
-          "metres": 3
-        }
-      ],
-      "travel_s": 62,
-      "measured_s": 218,
-      "estimate_s": 228
-    },
-    {
-      "id": "outfit-for-the-west",
-      "title": "Outfit for the West",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "the-list",
-        "tools",
-        "provisions",
-        "carrying",
-        "ironwork"
-      ],
-      "visited": [
-        "the-list",
-        "tools",
-        "provisions",
-        "carrying",
-        "ironwork"
-      ],
-      "done": true,
-      "estimate": 158,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 140
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 156,
-      "estimate_s": 158
     },
     {
       "id": "schoolday-errand",
@@ -2900,6 +2646,260 @@
       "estimate_s": 137
     },
     {
+      "id": "freight-for-the-store",
+      "title": "Freight for the Store",
+      "mode": "wagon",
+      "recommended": true,
+      "listed": [
+        "wharf",
+        "store",
+        "church",
+        "tally"
+      ],
+      "visited": [
+        "wharf",
+        "store",
+        "church",
+        "tally"
+      ],
+      "done": true,
+      "estimate": 346.7414276905595,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 147
+      },
+      "legs": [
+        {
+          "from": "wharf",
+          "seconds": 64.4,
+          "metres": 227
+        },
+        {
+          "from": "store",
+          "seconds": 56.8,
+          "metres": 202
+        },
+        {
+          "from": "church",
+          "seconds": 63.6,
+          "metres": 227
+        }
+      ],
+      "travel_s": 185,
+      "measured_s": 348,
+      "estimate_s": 347
+    },
+    {
+      "id": "freight-for-the-store",
+      "title": "Freight for the Store",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "wharf",
+        "store",
+        "church",
+        "tally"
+      ],
+      "visited": [
+        "wharf",
+        "store",
+        "church",
+        "tally"
+      ],
+      "done": true,
+      "estimate": 212.66243017518167,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 147
+      },
+      "legs": [
+        {
+          "from": "wharf",
+          "seconds": 15.3,
+          "metres": 220
+        },
+        {
+          "from": "store",
+          "seconds": 13.3,
+          "metres": 180
+        },
+        {
+          "from": "church",
+          "seconds": 15.3,
+          "metres": 219
+        }
+      ],
+      "travel_s": 44,
+      "measured_s": 207,
+      "estimate_s": 213
+    },
+    {
+      "id": "freight-for-the-store",
+      "title": "Freight for the Store",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "wharf",
+        "store",
+        "church",
+        "tally"
+      ],
+      "visited": [
+        "wharf",
+        "store",
+        "church",
+        "tally"
+      ],
+      "done": true,
+      "estimate": 164.5,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 147
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 163,
+      "estimate_s": 165
+    },
+    {
+      "id": "outfit-for-the-west",
+      "title": "Outfit for the West",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "the-list",
+        "carrying",
+        "ironwork",
+        "provisions",
+        "tools"
+      ],
+      "visited": [
+        "the-list",
+        "carrying",
+        "ironwork",
+        "provisions",
+        "tools"
+      ],
+      "done": true,
+      "estimate": 296.4938081538423,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 140
+      },
+      "legs": [
+        {
+          "from": "the-list",
+          "seconds": 19.8,
+          "metres": 125
+        },
+        {
+          "from": "carrying",
+          "seconds": 0.7,
+          "metres": 1
+        },
+        {
+          "from": "ironwork",
+          "seconds": 102.4,
+          "metres": 658
+        },
+        {
+          "from": "provisions",
+          "seconds": 15.1,
+          "metres": 95
+        }
+      ],
+      "travel_s": 138,
+      "measured_s": 294,
+      "estimate_s": 296
+    },
+    {
+      "id": "outfit-for-the-west",
+      "title": "Outfit for the West",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "the-list",
+        "carrying",
+        "ironwork",
+        "provisions",
+        "tools"
+      ],
+      "visited": [
+        "the-list",
+        "carrying",
+        "ironwork",
+        "provisions",
+        "tools"
+      ],
+      "done": true,
+      "estimate": 211.46910355479622,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 140
+      },
+      "legs": [
+        {
+          "from": "the-list",
+          "seconds": 10,
+          "metres": 121
+        },
+        {
+          "from": "carrying",
+          "seconds": 1.9,
+          "metres": 3
+        },
+        {
+          "from": "ironwork",
+          "seconds": 27.3,
+          "metres": 510
+        },
+        {
+          "from": "provisions",
+          "seconds": 7.5,
+          "metres": 80
+        }
+      ],
+      "travel_s": 47,
+      "measured_s": 203,
+      "estimate_s": 211
+    },
+    {
+      "id": "outfit-for-the-west",
+      "title": "Outfit for the West",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "the-list",
+        "carrying",
+        "ironwork",
+        "provisions",
+        "tools"
+      ],
+      "visited": [
+        "the-list",
+        "carrying",
+        "ironwork",
+        "provisions",
+        "tools"
+      ],
+      "done": true,
+      "estimate": 158,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 140
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 156,
+      "estimate_s": 158
+    },
+    {
       "id": "new-in-chicago",
       "title": "New in Chicago",
       "mode": "horse",
@@ -3158,11 +3158,9 @@
   "failures": [
     "boots-and-leather: recommended horse measures 7.73 min, outside 3-6",
     "fort-dearborn-errand: recommended walk measures 6.37 min, outside 3-6",
-    "freight-for-the-store: recommended wagon measures 6.12 min, outside 3-6",
     "from-prairie-to-town: recommended horse measures 9.35 min, outside 3-6",
     "inspect-a-lot: recommended walk measures 6.78 min, outside 3-6",
     "materials-for-a-roof: recommended horse measures 6.07 min, outside 3-6",
-    "outfit-for-the-west: recommended wagon measures 8.98 min, outside 3-6",
     "schoolday-errand: recommended horse measures 6.35 min, outside 3-6",
     "shopping-south-water: recommended walk measures 6.60 min, outside 3-6",
     "soap-and-candles: recommended horse measures 7.13 min, outside 3-6",

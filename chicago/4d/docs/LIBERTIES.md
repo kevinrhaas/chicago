@@ -17639,6 +17639,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-02 (T-1260).
 
+**Revised:** 2026-10-03 (T-2054). The outing measured 9.0 minutes by wagon (T-2051) against a 3–6 minute band, and no order of the five trades fits it at a wagon's pace, because the river crossing alone is about 500 m. So the recommended mode is now a ride on horseback, also invented, and the stops run in the order that crosses the river once: the list at the Green Tree, then how the load will travel at Cobb's, the ironwork at Pierce's on the same corner, and over the river to the Jones grocery and Peck's. Choosing pack or harness before the goods are bought, and leaving the smith before the stores, are part of the same invented errand. The five places, the purse, the prices and the endings are unchanged.
+
 ### L-jaunt-shopping-south-water — Shopping South Water Street: an invented list, purse and prices
 
 **Decision:** Shopping South Water Street links four existing exterior destinations — Peck's store, Carpenter's drug store, the Harmon and Loomis store and Thomas Church's store — in an invented errand to fill a household list. The three-dollar purse, every price in the choices (25¢–$2), the basket, the substitution of a cheaper tea when the purse is short, the two endings and The Household List memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought only from a store whose own advertisement lists it — flour and calico from Peck, liquorice ball from Carpenter, tea, loaf sugar and crockery from Harmon, Loomis & Co. — and that pairing is the only part of the errand the evidence bounds. Nothing is bought at Thomas Church's store, because the one note that records it names no stock; the stop is the tally, and its place on Lake Street is the structure record's own reconstruction.
@@ -20432,6 +20434,8 @@ photographs or restoration records would replace these proportional choices.
 **Applies to:** `data/jaunts/freight-for-the-store.json`.
 
 **Recorded:** 2026-10-03 (T-2009).
+
+**Revised:** 2026-10-03 (T-2054). The jaunt measured 6.1 minutes by wagon (T-2051), seven seconds over a 3–6 minute band. The opening and the four stop texts are shortened, and their reading seconds lowered with them at no faster a reading rate; no fact was added and the wagon stays the recommendation, because loading it is the errand. The tally stop now says the yard is *likely* quiet in July, as its inferred evidence does.
 
 ### L366 — South Water Street's last 22 m to State Street are its own bearing carried to the corner
 
