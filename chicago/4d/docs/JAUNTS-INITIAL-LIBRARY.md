@@ -140,6 +140,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Hogan’s held the post office earlier; the record says it moved about July 1834. This is not the current 1835 mail counter. Engine pilot becomes this final authored jaunt, not a duplicate.
 
+**Route note (published, T-1262):** The proposed order is kept. The stops lie about 613 m apart in straight lines (Sauganash → Hogan 43 m, → Peck 318 m, → Democrat 123 m, → Brown 129 m). Every other order that ends at the bed is longer, so Walk reads about 10.5 min on the catalog card. That is over the 4–6 min target, and Horse reads about 4. The "useful notice" is Kinzie and Forsyth's town-map notice, dated 18 June 1834 and still running in June 1835. The boarding arrangement is a cost-or-convenience preference with no rate given (L-jaunt-new-in-chicago).
+
 ## 04. Shopping South Water Street
 
 **ID:** `shopping-south-water` · **Owner ticket:** [T-1263](../tickets/T-1263-publish-shopping-south-water-street-as-a-five-mi.md)
@@ -159,6 +161,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Verify each item against trade/advertisement evidence; fictional prices remain labeled. The optional broader business layer must not supply later-only goods.
 
+**Route note (published, T-1263):** The shipped story order is Carpenter → Peck → Harmon & Loomis → Church. Carpenter's store stands west of Peck's corner on the same block face, so the proposed order walks west and then doubles back east past Peck's to Clark; starting at the druggist cuts that backtrack, about 40 m, and the list still ends with tea. Every good traces to a dated advertisement for its own firm: flour and calico to Peck's 1833–34 cards, liquorice ball to Carpenter's notice of 27 June 1835, tea, loaf sugar and crockery to Harmon, Loomis & Co.'s notices of 1834 and 20 June 1835. **Nothing is sold at Thomas Church's store**: the only source for it is one undated sentence naming the builder and no stock, so the stop is the tally, not a purchase, and the receipt is the keepsake. The whole walk is about 350 m along South Water, Clark and Lake.
+
 ## 05. Across Wolf Point
 
 **ID:** `across-wolf-point` · **Owner ticket:** [T-1264](../tickets/T-1264-publish-across-wolf-point-as-a-five-minute-jaunt.md)
@@ -177,6 +181,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** Knows the Crossing (Wayfinding); fictional narrative memento.
 
 **Evidence and route cautions:** Route over the current bridge graph, never straight across water. Describe disputed bridge/tavern details at their recorded tier.
+
+**Route note (published, T-1264):** The shipped story order is Wolf Point Tavern → Green Tree → South Branch bridge → Sauganash. The order proposed above starts at the Green Tree, walks north to the forks and then doubles back past the Green Tree to the bridge; on the published mirror that read about 6.5 min at Walk. Starting at the forks and walking down the west bank removes the backtrack and still reads the fork before the crossing. The catalog card on the published mirror gives these routed figures at 390×780: Walk about 5.5 min, Wagon 3.5, Horse 3, Fly 2.5, Instantly 2. Walk sits half a minute over the 3–5 min target because about two minutes of it is reading four stops; the walking itself is about 3.5 min.
 
 ## 06. Fort Dearborn Errand
 
@@ -198,6 +204,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Harrison plan and record dates support locations with stated limits; shop is not automatically a documented blacksmith. Do not invent access to closed interiors or military procedures, figures or Indigenous dialogue; use exterior stops when the route requires.
 
+**Route note (published, T-1265):** The shipped story order is the brief's: stockade → guard-house → sutler's store → store-house → shop. **Stop 1 is substituted:** `fort_dearborn_palisade`'s stand-off resolves to the north bank of the river, which routed the first walk 1.2 km round by a bridge (card: Walk about 19.5 min). The stop now uses the scene anchor `fort_dearborn` ("Fort Dearborn, from the south-west"), 48 m from the guard-house, and keeps the stockade's card link. It crosses the parade twice, south gate to north-east range and back, because the errand reads in that order (state it, choose, account, deliver) and the whole fort is about 55 m across. The guard-house/store-house sides are the structure records' inference from Hubbard's magazine sentence, and the stops say the model chose them. **The sutler's supplies are invented**: no stock list for this store was found, so candles and thread are commonplace goods labelled as the story's. The store-house stop is the one with a dated document behind its use: the Army's fresh-beef proposals of 28 May and 4 June 1834. The shop is a workshop only; the plate names no trade. No soldier, sentry or garrison routine is staged.
+
 ## 07. News Before Breakfast
 
 **ID:** `news-before-breakfast` · **Owner ticket:** [T-1266](../tickets/T-1266-publish-news-mail-lodging-and-work-jaunts.md)
@@ -216,6 +224,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** A Useful Clipping (News & Knowledge); fictional narrative memento.
 
 **Evidence and route cautions:** Only issue-dated, page-and-column-located material eligible on the scene date; do not treat later news as current.
+
+**Route note (T-2004, as built):** the four stops are kept as briefed. The printed items are the Democrat of 24 June 1835 (p. 2 col. 5, the cholera paragraph; p. 3 col. 3, an auction house whose first sale is 1 July) and the American of 27 June 1835 (p. 3 col. 5, Frederick Thomas's Cholera Elixir), all transcription-mediated. The Democrat's corner is visited as its FORMER office (over Jones & King's hardware by 20 May 1835). **Timing is an outlier at Walk and is stated, not hidden:** the stops lie about 1.2 km apart on the routed streets (Sauganash → Clark 525 m, → Dearborn 166 m, → Lake and Wells 530 m), so the card reads about 17.5 min on foot, 9 at Wagon, 6.5 on Horse and 4.5 at Fly. Walk stays the recommendation because the brief names it; whether to re-cut the route or change the recommended mode belongs to T-1271's library-wide timing pass.
 
 ## 08. A Letter Home
 
@@ -254,6 +264,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** A Place to Lay Your Head (Neighbors); fictional narrative memento.
 
 **Evidence and route cautions:** Room prices/availability are narrative bounds, not documented bookings; a four-stop path can finish early without padding.
+
+**Route note (published, T-2006):** The shipped story order is Western Hotel → Sauganash → Brown's boarding house → Mansion House. The order proposed above runs east from the Sauganash to Brown's, back west over the South Branch to the Western and then east again to Dearborn, crossing the river twice; starting at the Western on the west side and riding east once over the bridge and along Lake Street visits the same four houses without the backtrack. The four houses still span the town from Canal Street to Dearborn, about 0.9 km, so even the re-cut order reads **about 15.5 min at Walk** on the published mirror; the recommended pace is therefore **Horse**, as for New in Chicago and Taverns of Chicago, with Walk still offered. The catalog card on the published mirror gives these routed figures at 390×780 and 1280×800 alike: Horse about 5.5 min, Wagon 8, Walk 15.5, Fly 4, Instantly 2.5. This is the batch's quiet outing: a hidden cost-or-convenience preference and the choice of where to ask first decide among three endings, and no purse, basket or resource strip is shown.
 
 ## 10. Work on the Waterfront
 

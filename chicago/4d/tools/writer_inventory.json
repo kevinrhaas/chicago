@@ -25,6 +25,12 @@
       "measured": "continuously",
       "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
     },
+    "check_terrain_e1830.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-02",
+      "finding": "Run bare it prints the --check verdict on the e1830_natural overlay, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: --resolve prints the effective 1812 table to stdout. A checker (T-2002)."
+    },
     "check_terrain_e1871.py": {
       "placement": "manifest",
       "write_mode": "--write",
@@ -727,6 +733,13 @@
       "measured": "2026-09-21",
       "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
       "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
+    },
+    "measure_shore_1812_harrison.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+      "placed": "after derive_shore_1812.py, whose output it measures (T-1286)"
     },
     "measure_west_farm_ground_1835.py": {
       "placement": "manifest",

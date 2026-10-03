@@ -2551,6 +2551,9 @@
     "tools/check_street_surfaces.py": {
       "wrote": []
     },
+    "tools/check_terrain_e1830.py": {
+      "wrote": []
+    },
     "tools/check_terrain_e1871.py": {
       "wrote": []
     },
@@ -2981,6 +2984,9 @@
       "wrote": []
     },
     "tools/measure_sauganash_plate.py": {
+      "wrote": []
+    },
+    "tools/measure_shore_1812_harrison.py": {
       "wrote": []
     },
     "tools/measure_slough_crossing.py": {

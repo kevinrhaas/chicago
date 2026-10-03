@@ -1,0 +1,513 @@
+{
+  "schema_version": 1,
+  "id": "news-before-breakfast",
+  "content_version": 1,
+  "title": "News Before Breakfast",
+  "premise": "Read both of the town's papers before breakfast, tell a report from an advertisement and keep one useful clipping.",
+  "category": "Newspapers",
+  "scene": "1835",
+  "opening": {
+    "text": "Chicago prints two weekly papers this summer, and one of them is three weeks old. Choose a question, walk from your lodging to both offices, decide which columns report and which ones sell, and carry one clipping to breakfast. The morning, the walk and the clipping are invented; the printed words are not.",
+    "read_s": 20
+  },
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "question": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "sorted": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "clipping": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "question",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Start at the Sauganash, the white two-storey house with bright-blue shutters that Juliette Kinzie remembered. The Chicago Democrat of 10 June 1835 reported it repaired, fitted up and furnished with neatness. Both of the town's weekly papers print a short walk east along the river.",
+      "narrative": "Choose the question the papers should answer.",
+      "read_s": 30,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "sauganash-house",
+        "sauganash-refit",
+        "two-weeklies",
+        "continuity",
+        "morning"
+      ],
+      "choices": [
+        {
+          "id": "cholera",
+          "label": "Is the cholera near?",
+          "consequence": "You will read for word of the sickness.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "question",
+              "value": 1
+            }
+          ],
+          "next": "democrat"
+        },
+        {
+          "id": "today",
+          "label": "What is new in town today?",
+          "consequence": "You will read for anything set for today.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "question",
+              "value": 2
+            }
+          ],
+          "next": "democrat"
+        }
+      ]
+    },
+    {
+      "id": "democrat",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "John Calhoun printed the Chicago Democrat at this corner from 1833; by 20 May its office was over Jones & King's hardware on South Water Street. The 24 June number, the last before today, gathers cholera reports from Alton and Springfield, cannot trace an Ottawa rumour, and calls Chicago uncommonly healthy.",
+      "narrative": "Reporting, or an advertisement?",
+      "read_s": 32,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_chicago_democrat_printing_office",
+          "label": "The printing office's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "democrat-corner",
+        "democrat-moved",
+        "democrat-cholera",
+        "continuity",
+        "morning"
+      ],
+      "choices": [
+        {
+          "id": "report",
+          "label": "Call it reporting",
+          "consequence": "You file it with the news.",
+          "effects": [
+            {
+              "op": "inc",
+              "var": "sorted",
+              "value": 1
+            }
+          ],
+          "next": "american"
+        },
+        {
+          "id": "advert",
+          "label": "Call it an advertisement",
+          "consequence": "You file it with the notices for sale.",
+          "next": "american"
+        }
+      ]
+    },
+    {
+      "id": "american",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_american_office"
+      },
+      "text": "Near the drawbridge, T. O. Davis's Chicago American is three weeks old. Its 27 June number carries Frederick Thomas's Cholera Elixir, the Fire King's Specific, offered as a certain preventive and cure of the malignant disease, in a notice dated 24 June: the day the Democrat printed its paragraph.",
+      "narrative": "Reporting, or an advertisement?",
+      "read_s": 32,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_american_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_american_1835",
+          "label": "Read the American source"
+        }
+      ],
+      "evidence": [
+        "american-office",
+        "american-elixir",
+        "continuity",
+        "morning"
+      ],
+      "choices": [
+        {
+          "id": "report",
+          "label": "Call it reporting",
+          "consequence": "You file it with the news.",
+          "next": "exchange"
+        },
+        {
+          "id": "advert",
+          "label": "Call it an advertisement",
+          "consequence": "You file it with the notices for sale.",
+          "effects": [
+            {
+              "op": "inc",
+              "var": "sorted",
+              "value": 1
+            }
+          ],
+          "next": "exchange"
+        }
+      ]
+    },
+    {
+      "id": "exchange",
+      "destination": {
+        "kind": "structure",
+        "id": "exchange_coffee_house"
+      },
+      "text": "Breakfast at the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. The Democrat's third page also announces a new auction house on South Water Street, its first public sale set for the 1st of July: today.",
+      "narrative": "Choose one clipping to carry back.",
+      "read_s": 30,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "exchange-house",
+        "auction-today",
+        "continuity",
+        "morning"
+      ],
+      "choices": [
+        {
+          "id": "clip-report",
+          "label": "Clip the Democrat's cholera paragraph",
+          "consequence": "The Democrat's paragraph goes in your pocket.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "clipping",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "clip-elixir",
+          "label": "Clip the Cholera Elixir notice",
+          "consequence": "The elixir notice goes in your pocket.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "clipping",
+              "value": 2
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "clip-auction",
+          "label": "Clip the auction notice",
+          "consequence": "The auction notice goes in your pocket.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "clipping",
+              "value": 3
+            }
+          ],
+          "next": "$end"
+        }
+      ]
+    }
+  ],
+  "legs": [
+    {
+      "from": "question",
+      "to": "democrat",
+      "note": "East from the forks along the south bank to the Clark Street corner; no particular path is claimed.",
+      "evidence": [
+        "continuity"
+      ],
+      "story": "Walk east with your question in mind.",
+      "story_evidence": [
+        "morning"
+      ]
+    },
+    {
+      "from": "democrat",
+      "to": "american",
+      "note": "A block east along South Water Street, toward the Dearborn Street drawbridge.",
+      "evidence": [
+        "american-office",
+        "continuity"
+      ]
+    },
+    {
+      "from": "american",
+      "to": "exchange",
+      "note": "Back west and a block south to Lake Street at Wells.",
+      "evidence": [
+        "exchange-house",
+        "continuity"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "cholera-answered",
+      "text": "You asked whether the cholera was near and carry back a report, not a promise: news weighed from other towns, a rumour that could not be traced, and the editor's word that Chicago is healthy.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "question",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "clipping",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "sorted",
+            "op": "==",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "sale-today",
+      "text": "You asked what was new today and carry back a sale: an auction room's first, on South Water Street, this very morning. What will be sold the notice leaves to whoever brings the goods.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "question",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "clipping",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "var": "sorted",
+            "op": "==",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "one-fooled-you",
+      "text": "One of the two notices fooled you, which is worth knowing too. The Democrat named the papers its cholera news came from; the elixir was signed, dated and sold by the druggist. Read them again over breakfast.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "var": "sorted",
+        "op": "<",
+        "value": 2
+      }
+    },
+    {
+      "id": "cure-kept",
+      "text": "You kept the advertisement. It promises a certain cure, and a promise is all it is: signed by the seller, reported by no editor. A useful thing to know, and you carry it back.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "var": "clipping",
+        "op": "==",
+        "value": 2
+      }
+    },
+    {
+      "id": "a-useful-clipping",
+      "text": "Two papers compared before breakfast and one clipping in your pocket. The morning's lesson travels with it: a report names where its news came from, and an advertisement names who is selling.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "a-useful-clipping",
+    "title": "A Useful Clipping",
+    "text": "A fictional cutting from a morning's reading of Chicago's two weekly papers, kept for what it told you."
+  },
+  "evidence": [
+    {
+      "id": "sauganash-house",
+      "text": "Kinzie describes the Sauganash in 1831 as a white two-storey building with bright-blue wooden shutters.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Chapter XVII, Chicago in 1831; description of Mark Beaubien’s newly completed house."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat reported that the Sauganash had been repaired, fitted up and furnished with neatness.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town’s public houses (extracted claim chicago_democrat_1835_06_10#c001)."
+    },
+    {
+      "id": "two-weeklies",
+      "text": "In June 1835 Chicago had two weekly papers: the Democrat, published every Wednesday, and the American, established by T. O. Davis on 8 June 1835 and published on Saturday mornings.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1"
+      ],
+      "locator": "Democrat, 20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon ('Is published every W[ednesday]', transcription lines 4177–4180); Andreas vol. 1, scan p. 767, the Chicago American’s establishment."
+    },
+    {
+      "id": "democrat-corner",
+      "text": "The Democrat’s first issue, 26 November 1833, gives its office as the building on the corner of South Water and Clark streets; John Calhoun printed it there.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), the imprint; Andreas vol. 1, the press chapter on Calhoun’s office."
+    },
+    {
+      "id": "democrat-moved",
+      "text": "By 20 May 1835 the Democrat’s colophon gives the office as over Messrs. Jones & King’s hardware store, in South Water Street, so the corner is a former office on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon (transcription lines 4177–4180). Transcription-mediated reading."
+    },
+    {
+      "id": "democrat-cholera",
+      "text": "Under the heading CHOLERA the Democrat lays out rumours of the disease in the state: a Springfield paper on the state of health there, the Alton Spectator’s count of about twenty deaths in three weeks with most cases recovering, no mention in the Galenian, and an Ottawa rumour it could not trace. It calls Chicago uncommonly healthy and promises to print the facts if the disease appears.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "24 June 1835 (Vol. II No. 10), p. 2, col. 5, the paragraph headed ‘CHOLERA.’ (transcription lines 1481–1505; extracted claim chicago_democrat_1835_06_24#c003). Transcription-mediated reading."
+    },
+    {
+      "id": "american-office",
+      "text": "The Chicago American’s office was on Water Street near the drawbridge; this project places it on the south side of South Water Street just east of Dearborn, by the south landing of the Dearborn Street bridge.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives a street and a landmark, not a lot. The structure record’s inferred position reads the drawbridge as the 1834 Dearborn Street bridge, so the stop says ‘near the drawbridge’ and claims no front door."
+    },
+    {
+      "id": "american-elixir",
+      "text": "The American of 27 June 1835 carries an advertisement headed ‘The Cholera El[ixir]’, offering the Fire King’s Specific as a certain preventive and cure of the asphyxiated cholera, signed by Frederick Thomas, druggist, Water Street, and dated Chicago, 24 June 1835.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "27 June 1835 (Vol. I No. 4), p. 3, col. 5 (transcription lines 362–365; extracted claim chicago_american_1835_06_27#c011). Transcription-mediated reading: the signature prints ‘FREDERICK THO[…]’, completed from the same druggist’s 20 June notice; the column is crowded and partly illegible."
+    },
+    {
+      "id": "exchange-house",
+      "text": "Mark Beaubien built a new house on the north-west corner of Wells and Lake streets; in August 1834 Mr. and Mrs. Murphy took charge of it as a hotel, christened it the Exchange Coffee House, and remained until 1836.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
+    },
+    {
+      "id": "auction-today",
+      "text": "A notice headed ‘[Auction an]d Commission House’ announces a store taken on South Water Street for auction and commission business, its first public sale to be held ‘the 1st day of July’, which is the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "24 June 1835 (Vol. II No. 10), p. 3, col. 3 (transcription lines 2540–2559, interleaved; extracted claim chicago_democrat_1835_06_24#c008). Transcription-mediated reading; the auctioneer’s surname reads MONTGOMERY and his initials are lost. The American’s 27 June copy of the notice is ambiguous between the first and the last day of July, so only the Democrat’s reading is used."
+    },
+    {
+      "id": "continuity",
+      "text": "The four places are exterior stops in the 1 July 1835 scene. The Democrat’s corner is visited as its former office, the American’s office is placed near the drawbridge, and no interior, front door, keeper on the morning or newsroom is claimed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "reasoning": "Uses the existing structure records’ scene-date phases and positions, all of which are inferred. The Democrat’s structure keeps its name but has lost the press by May 1835, so the stop speaks of where the paper was printed, not of a press at work on the morning."
+    },
+    {
+      "id": "morning",
+      "text": "The visitor’s morning, lodging at the Sauganash, the question, the walk, the sorting of report from advertisement, breakfast at the Exchange, the choice of clipping, the endings, the timing inputs and the A Useful Clipping keepsake are invented connective narrative, not historical events.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-news-breakfast"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-news-breakfast"
+  ]
+}

@@ -13,7 +13,9 @@
     "max_mounted_cards": 26,
     "boot_jaunt_requests": 0,
     "page_errors": 0,
-    "details": "acceptance.json"
+    "details": "acceptance.json",
+    "tested_dev_base": "de920bf80dae3bb445545d62ef0d8a1c830a5d7b",
+    "note": "Rerun after integrating all eight current 1835 jaunts; screenshots and acceptance.json refreshed."
   },
   "smoke": {
     "stage": 1,
@@ -37,7 +39,8 @@
   "coverage_note": "Smoke parts 2-13 were not rerun; published menu acceptance plus scaffold smoke cover the interface change.",
   "final_preflight": {
     "result": "PASS",
-    "tested_dev_base": "1159e3036a554dfdc45b8a90333bdd5ed65ac955",
-    "note": "After integrating newer dev and regenerating the 1835 catalog; browser receipts above remain from the 604daa6 integration."
+    "tested_dev_base": "de920bf80dae3bb445545d62ef0d8a1c830a5d7b",
+    "steps": 750,
+    "note": "Ticket queue initially failed while the connector-published review update was not synchronized locally; after ticket checkout sync, both direct rerun and the gate quiet retry passed. All eight current 1835 jaunts retained."
   }
 }

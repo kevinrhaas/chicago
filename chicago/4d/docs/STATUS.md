@@ -22,10 +22,222 @@ The first payload attempt timed out under concurrent validation; the standalone
 retry passed without changing the test. Desktop smoke took 10m31s on this host.
 Receipts and reviewed screenshots are under `docs/performance/jaunt-menu/`;
 `validation.json` records the tested integration base and command coverage.
-The full preflight passed again after integrating dev `1159e30` and rebuilding
-the 1835 catalog to retain the newly landed Outfit for the West story.
+The full preflight passed again after integrating dev `de920bf` (750 steps).
+The catalog retains all eight current 1835 jaunts. Published menu acceptance
+passed again at both viewports on that integration; screenshots were refreshed.
+A transient ticket-checkout synchronization failure passed on the gate quiet retry.
 This ticket authors no new stories. Full scene smoke parts 2–13 were not rerun;
 the targeted menu test and scaffold smoke cover this interface change.
+
+## T-2006 — A Bed for the Night, a published 1835 lodging jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Bed for the Night* (Lodging, Horse,
+4 stops, Neighbors). Four houses that took in strangers, seen from the street: the Western Hotel
+on the west side, the Sauganash, Mrs Rufus Brown's boarding house behind Peck's store, and the
+Mansion House on Lake Street. At the first stop the visitor says whether cost or convenience comes
+first; at the last, where to ask first. Three endings follow from the pair, and the keepsake *A
+Place to Lay Your Head* goes to Neighbors. Content only: one JSON file, a liberty
+(`L-jaunt-bed-for-the-night`), the regenerated catalog and source-use edges, and brief 09's route
+note. There is no engine, compiler or CSS change.
+
+**What is told, not invented.** The town's crowding is given in the two papers' own words, three
+weeks before the scene: the Democrat of 17 June 1835 (strangers "crowding every room of our public
+houses … even to the extent of sleeping on the floor") and the American of 13 June. No price, no
+vacancy and no booking is claimed; every ending says the outing does not know whether a bed was
+free. The Western's 1834-or-1835 date is given both ways, Brown's spot is called a placement, and
+the Mansion House's keeper on 1 July 1835 (Haddock or Markle) is left open, as its record leaves it.
+
+**Measured.** `play_jaunt.mjs --all-paths`: six paths, three endings, one keepsake, no dead end.
+The catalog card on the published mirror, 390×780 and 1280×800 alike: Horse about 5.5 min, Wagon
+8, Walk 15.5, Fly 4, Instantly 2.5. Walk is far outside the target because the four documented
+houses span about 0.9 km from Canal Street to Dearborn; the brief's order also crossed the river
+twice, so it was re-cut west to east, and the recommended pace is Horse. A Playwright drive at
+390×780 took the stills in order (menu card, first stop, the detail card and back to the same
+stop, the ending with its keepsake, the menu) with zero page errors, and Start then End returned
+to the menu.
+
+**Unverified.** The 1280×800 drive read the card's figures but was cut off by the 560 s cap
+before the ending; the walk-through is proved at 390×780 only. The stills are not committed.
+## T-1265 — Fort Dearborn Errand, a five-stop jaunt round the fort's service buildings (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Fort Dearborn Errand* (Fort Dearborn, Walk).
+It has five exterior stops: the stockade from the south-west, the guard-house and the store-house
+on either side of the south gate, the sutler's store east of the north gate, and the shop on the
+outer ground toward the lake. The visitor carries an imagined note. They choose candles or thread
+at the sutler's, tally the parcel outside the store-house and set it down at the shop. The ending
+is *accounted* when all three are done (readiness 3), otherwise *unfinished*. The keepsake
+*Accounted for at the Fort* goes to Livelihood. The store-house stop has the only dated document
+of use behind it: the Army's fresh-beef proposals of 28 May and 4 June 1834. The sutler's goods
+are invented, because no stock list was found. The shop is a workshop and not a smithy, because
+the 1830 plan letters it "Shop" and names no trade. No soldier, sentry or garrison routine is
+staged. Content only: one JSON file, a liberty (`L-jaunt-fort-dearborn-errand`), the regenerated
+catalog and source-use edges. There is no engine, compiler or CSS change.
+
+**A substitution, and why.** The brief's first stop was `fort_dearborn_palisade`. Its stand-off
+resolves to the river's NORTH bank, so the real router walked leg 1 for 1,191 m round by a bridge
+against a 128 m line, and the card read **Walk about 19.5 min**. Stop 1 is now the scene anchor
+`fort_dearborn` ("Fort Dearborn, from the south-west"), 48 m from the guard-house. It keeps the
+stockade's card link. This is an engine finding for whoever owns stand-offs: a structure on a
+riverbank can be framed from the far bank.
+
+**Measured** on the published mirror with the real router: mobile 380 s (the card shows about
+6.5 min), desktop 347 s (about 6 min, with "approximate route" on desktop only). Wagon 4, Horse
+3–3.5, Fly 3, Instantly 2.5. Mobile is over the 3–6 min band because the router takes the
+sutler's → store-house leg 163 m round inside the stockade against a 69 m line. Second engine
+finding: on desktop `router.plan(sutler stand → store-house stand)` returns null while the reverse
+plans 117 m, so that leg is priced at a straight line × 1.3. `play_jaunt.mjs --all-paths`: 7
+paths, both endings, one keepsake. A scripted browser play-through at 390×780 and 1280×800 went
+menu → opening → mid-leg switch to Fly → detail card and back → Previous → choices → ending
+`accounted` → menu. It awarded the keepsake once under Livelihood, a replay added no second one,
+and there were 0 page errors at both viewports. End and Jaunts Menu were not pressed.
+
+## T-1262 — New in Chicago, finished as the first-day Orientation jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts → *New in Chicago* now recommends **Walk**, not
+Horse. It still has the pilot's five exterior stops: the Sauganash, Hogan's old mail corner,
+Peck's store, the Democrat's first office and Brown's boarding house. Three stops changed.
+Peck's is now a supply shop, read from his own 1833–34 card. At the Democrat's old corner
+the visitor reads a real notice: Kinzie and Forsyth's lithographed town maps, dated
+18 June 1834 and still running on 10 June 1835 (`chicago_democrat_1833_1835`, 20 May 1835
+p. 3 col. 6; 10 June 1835 p. 4 col. 3). The stop says the paper had moved over Jones and
+King's by then. At Brown's the visitor chooses board by the week (cost) or a bed close to
+the stores (convenience); each leads to its own ending. All four legs now carry route notes.
+The keepsake is still *Finding Your Feet* (Wayfinding). Content only: the one JSON file, a
+new liberty (`L-jaunt-new-in-chicago`), the regenerated catalog and source-use edges. There
+is no engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 3 paths to 3 endings, with one keepsake.
+The catalog card on the published mirror, real router: **Walk about 10.5 min** at 390×780
+(9.5 at 1280×800), Wagon 5.5, Horse 4, Fly 3, Instantly 2. **Walk is over the brief's 4–6
+min**: the five owner-named stops lie about 613 m apart in straight lines (Sauganash → Hogan
+43 m, → Peck 318 m, → Democrat 123 m, → Brown 129 m), and no order that ends at the bed is
+shorter. Brief 03's route note says so. Stills at 390×780 covered the menu card, the opening, a
+mid-leg switch to Fly, a detail card and back, Previous, the choice, the ending, End and the
+menu. The keepsake landed once under Wayfinding, and there were no page errors.
+
+**Unverified.** At 1280×800 the stills stop at the choice: the run reached the 500 s cap
+before the ending still on this software-rendered runner. `tools/test_jaunt_travel.mjs` fails
+at 390×780 when the detail popup is open (the jaunt controls measure 0×0). It fails the same
+way on a clean `dev`, so it predates this change and is not caused by it.
+
+## T-1264 — Across Wolf Point, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Across Wolf Point* (River and routes,
+Walk, 4 stops, Wayfinding). It is a quiet crossing with no purse and no branches: the Wolf Point
+Tavern at the forks, the Green Tree, the South Branch bridge and the Sauganash. The keepsake
+*Knows the Crossing* goes to Wayfinding. Content only: one JSON file, a liberty
+(`L-jaunt-across-wolf-point`), the regenerated catalog and source-use edges, and brief 05's route
+note. There is no engine, compiler or CSS change.
+
+**Two disputes are told in the stop text, not resolved.** Whether the Wolf Point Tavern still
+kept travellers on 1 July 1835 (Walters 1833–36 against "ceased … in 1834"), and whether the
+South Branch bridge was a raft (the retellings) or fixed on abutments and bents (the 1883
+settlers' statement, which the structure record adopts). Positions stay `inferred`, and the
+tavern's distance north of Lake Street is said to be unfixed.
+
+**Measured.** `play_jaunt.mjs --all-paths`: one path, one ending, one keepsake. The catalog
+card on the published mirror: Walk about 5.5 min, Wagon 3.5, Horse 3 (2.5 at 1280×800), Fly 2.5,
+Instantly 2. The brief's order read 6.5 min at Walk because it doubled back past the Green Tree,
+so the route was re-cut to start at the forks (brief 05's route note). Walk is still half a
+minute over the 3–5 min target: about two minutes of it is reading. A Playwright drive at
+390×780 took the stills in order (menu card, first stop, the detail card and back, a mid-leg
+switch to Wagon, Previous, Jaunts Menu → Resume, the ending) with zero page errors. The keepsake
+landed once under Wayfinding, a full replay left the daybook at one copy ("replays keep one
+copy"), and End Jaunt returned to the menu.
+
+**Unverified.** The 1280×800 drive reached the ending with zero page errors, but the replay
+and End steps were cut off by the 580 s cap; those two were proved at 390×780 only. The stills
+are not committed.
+
+## T-1286 — the 1812 shore measured against Harrison 1830, the one pre-cut sheet (2026-10-02)
+
+**Nothing in the scene changed, and no geometry moved.** The owner ruled on 2026-09-17 that
+Wright 1834 carries `shore_1812_pre_cut`; this measures how far the only pre-cut reading
+sits from it. The closed PR's tracer is kept as `tools/trace_shoreline_1830.py` (it
+re-traced byte for byte on 2026-10-02; stockade check 8.0 px) and writes a cross-check
+reading outside `epochs/`; `tools/measure_shore_1812_harrison.py` measures it every 2 m
+against the derived lines, and `check.sh` re-measures it and holds the 1812 file's
+`evidence_limit` to the sentence it produces.
+
+- **Agrees near the fort**: median 9 m, worst 31 m, within 100 m of the transform's anchor;
+  the main stem still within about 20 m at 200 m west.
+- **Strengthens L240**: Harrison's lake shore runs a median 7 m from the line the derived
+  state draws where the bar met the mainland.
+- **Disagrees down the old channel**: 40 m at 150 m from the fort, 71 m at 200 m, then a
+  median 120 m and worst 157 m; Harrison letters the old mouth 357 m north of the adopted
+  station (367 m north of Wright's bar tip), and his sheet stops 253 m short of it.
+- **Filed, not resolved** — the cause (single-anchor transform, memory additions, or a mouth
+  that moved between 1812, 1828 and 1830) is written onto T-1243, which lays the ground there.
+  `docs/RESEARCH/shore_1812_pre_cut.md` § 6 is the full reading.
+
+## T-1263 — Shopping South Water Street, a Commerce jaunt on the riverfront (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Shopping South Water Street* (Commerce,
+Walk). It has four exterior stops: Carpenter's drug store, Peck's store, Harmon, Loomis & Co.
+at Clark, and Thomas Church's store on Lake Street. The visitor has an imagined $3 purse and a
+basket of three. A liquorice ball comes from Carpenter, flour or calico from Peck, and Young
+Hyson tea and loaf sugar or a crockery bowl from Harmon & Loomis. If the purse has run short
+at the tea counter, a cheaper Souchong stands in. Every good is one the firm's own dated
+advertisement lists (1833–20 June 1835). Nothing is sold at Church's, because the one note
+that records his store names no stock, so that stop is the tally. The ending is *list filled*
+with a staple, the remedy and tea, and *list short* otherwise. The keepsake *The Household
+List* goes to Provisions. Content only: one JSON file, a liberty
+(`L-jaunt-shopping-south-water`), the regenerated catalog and source-use edges. There is no
+engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 18 paths to both endings, with one keepsake.
+The substitution is reachable: flour plus liquorice leaves 75¢, and only Souchong fits. Read
+on the published mirror at both 390×780 and 1280×800, with the real router and no
+"approximate route" suffix, the card gives Walk about 6.5 min, Wagon 4, Horse 3, Fly 2.5 and
+Instantly 2. There were no page errors at 390×780; the desktop pass ended before it could
+count them. **Walk is half a minute over the 3–6 min band.** The
+four owner-named stores are only about 350 m apart, so the time is the walking pace plus the
+reading. The story order was changed to start at Carpenter's, which stands west of Peck's on
+the same block face. That cut the double-back and brought Walk down from 7 to 6.5 min.
+
+**Unverified.** At 390×780 these stills were taken: the catalog card, the opening, a detail
+card and Return, and a mid-leg walk with its leg note. The scripted pass did not reach the
+ending in the browser at either viewport. Headless software rendering stalled the page after
+the second stop, so the ending, the daybook entry and replay rest on the walker. The marker
+for Carpenter is mid-block and Church's place on Lake Street is reconstructed, and the stops
+say both.
+## T-2002 — the 1812 ground's zone table, written as what 1834 had that 1812 did not (2026-10-02)
+
+Piece 1 of 2 of T-1243 (of T-0468, the owner's e1812 battle landscape). T-1243 asked for the
+spec, the heightfield and the meshes in one run. The 1871 epoch took two runs for the same
+shape (#170 the spec, #173 the generation), so it was split: the spec here, and **T-2003**
+generates and bakes from it.
+
+**What changed. Nothing you can see in the 1835 town.** The 1812 epoch has no scene yet, and
+no ground is generated from this.
+- **`data/terrain/epochs/e1830_natural/terrain_spec.json`** is an overlay on the 1834 zone
+  table, not a copy. All 37 1834 blocks are accounted for: 22 carry, 3 carry_except,
+  5 replace, 3 drop (the bridge approaches and the street sections) and 4 own. Five 1812
+  blocks each cite a dossier zone: the lake stage (2), the spit (7), the **isthmus** (7), the
+  live outlet channel (26) and the lake shore north of the spit root (28). All are
+  `reconstructed`. Reasoning: `docs/RESEARCH/terrain_e1830_natural.md`.
+- **L240's hole is decided: surfaced.** It is 100 ft of sand at the spit's own +4 ft on
+  `spit_attachment_gap_1812`. Liberties **L362** (isthmus), **L363** (the shore north of the
+  root, a chord to 1834 index 39) and **L364** (stage at the 1835 plane; outlet bed −4 ft).
+- **T-1286's west-bank question is answered: undecided.** Reading (a) is weighed against, (b)
+  stays open, and (c) splits: the mouth did not move, and the bank is open. So the bank and
+  the outlet stay on Wright. The channel and the ground within 157 m west of it, from N −69 to
+  N −426.75, are graded **conjectural**.
+- **`tools/check_terrain_e1830.py`** is in check.sh with 18 self-tests. It refuses an 1834
+  block that is not decided for 1812, a harbour work carried back, an 1812 height not
+  `reconstructed` or citing a zone the dossier lacks, a breached or over-wide isthmus, an
+  outlet as deep as the main stem, and an undecided bank left at `inferred`. Its `resolve()`
+  is the effective table T-2003's generator reads.
+
+**Unverified / open.**
+- **Generation (T-2003)** is not done: the river polygon, heightfield and meshes don't exist.
+- **The battle corridor south of Twelfth Street is conjectural ground.** The carried
+  evidence limit says so, and nothing here changes it.
+- **The 1812 blocks avoid `compile_scene.GROUND_GROUPS` names on purpose** until the
+  generator's `CONSUMED` map is wired.
+
+**Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff` names;
+see the PR.
 
 ## T-1989 — the four empty trade roofs: none can be kept, and each card says why (2026-10-02)
 

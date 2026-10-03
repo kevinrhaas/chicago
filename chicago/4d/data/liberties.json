@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 355,
+  "count": 365,
   "liberties": [
     {
       "id": "L1",
@@ -17856,6 +17856,37 @@
       ]
     },
     {
+      "id": "L-jaunt-new-in-chicago",
+      "title": "New in Chicago: an invented first day, its map errand and a bed by cost or convenience",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The finished New in Chicago keeps L-jaunt-pilot's five exterior stops and adds three inventions to them. At the Democrat's old office the visitor reads Kinzie and Forsyth's town-map notice; the notice is attested, but the reading, and any wish to buy a map, are not. At Brown's the visitor chooses a boarding arrangement — board by the week (cost) or a bed close to the stores (convenience). That choice, the two endings it leads to and the route note are reconstructed. No room, rate, vacancy, sale or conversation is attested; Mrs Brown and the map sellers say nothing; no interior is opened; no price is given."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the five structure records, brief 03 of JAUNTS-INITIAL-LIBRARY.md, and the notice's own printing window (dated 18 June 1834, still running on 10 June 1835). Brown's position stays reconstructed and the stop says so."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated 1835 boarding rate for Brown's house, or any record of a lodger's terms there, would replace the invented arrangement as its own cited claim; the errand and endings stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/new-in-chicago.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1262)."
+        }
+      ]
+    },
+    {
       "id": "L285",
       "title": "The agency's ring of log buildings: four sentences that name the occupants and never describe a house",
       "section": "per_subject",
@@ -19319,6 +19350,135 @@
         {
           "label": "Recorded",
           "text": "2026-10-02 (T-1260)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-shopping-south-water",
+      "title": "Shopping South Water Street: an invented list, purse and prices",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Shopping South Water Street links four existing exterior destinations — Peck's store, Carpenter's drug store, the Harmon and Loomis store and Thomas Church's store — in an invented errand to fill a household list. The three-dollar purse, every price in the choices (25¢–$2), the basket, the substitution of a cheaper tea when the purse is short, the two endings and The Household List memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought only from a store whose own advertisement lists it — flour and calico from Peck, liquorice ball from Carpenter, tea, loaf sugar and crockery from Harmon, Loomis & Co. — and that pairing is the only part of the errand the evidence bounds. Nothing is bought at Thomas Church's store, because the one note that records it names no stock; the stop is the tally, and its place on Lake Street is the structure record's own reconstruction."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the four structure records, the business register's dated advertisements and brief 04 of JAUNTS-INITIAL-LIBRARY.md. Prices are kept in round cents and dollars so no figure reads as a quoted 1835 price."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated 1835 price current from any of these stores would replace the matching invented price, cited as its own claim; a source naming Church's stock would let the last stop sell something. The errand and endings stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/shopping-south-water.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1263)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-fort-dearborn-errand",
+      "title": "Fort Dearborn Errand: an invented note, parcel and delivery",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Fort Dearborn Errand links five existing exterior destinations — the stockade, the guard-house, the sutler's store, the store-house and the shop on the outer ground — in an invented errand: choose a small supply at the sutler's, check the parcel against a note outside the store-house, and set it down at the shop. The note, the parcel, the choice of candles or thread, the tally, the delivery, the readiness count, the two endings and the Accounted for at the Fort memento are reconstructed. No sutler's stock list for Fort Dearborn was found, so the two supplies are commonplace goods chosen for the story, not a claim about what this store sold. No soldier, sentry, sutler or commissary is shown or named, no garrison procedure is staged, no reply is invented, no interior is opened and the gates are not described as passed. What the evidence bounds is the setting: the buildings' functions and places (Hubbard 1827, the 1830 plan, the 1855 key, the 1834 beef notices) and the post being garrisoned on the scene date."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the five structure records, docs/RESEARCH/fort_dearborn.md and brief 06 of JAUNTS-INITIAL-LIBRARY.md. The shop is called a workshop only, because the plate says 'Shop' and names no trade. The August 1835 gathering is not staged and no Indigenous person is depicted or given dialogue."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A sutler's account or advertisement for 1834–35 would replace the invented supplies with goods it lists, cited as its own claim; a post return naming the shop's trade would let the last stop say what was made there. The errand and endings stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/fort-dearborn-errand.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1265)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-taverns",
+      "title": "Taverns of Chicago: an imagined evening round of four public houses",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel",
+        "wolf_point_tavern"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Taverns of Chicago links four existing exterior destinations (the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel) in an invented evening. The purse (none, 25 or 50 cents), the six-cent glass, the bar talk at Wolf Point, the comparison of welcomes, the finishing house, the four endings and the A Sensible Evening calling card are reconstructed, and so are the sobriety count and the reading and action seconds. No named person speaks or serves, no price, room or transaction is attested, no interior is opened and no front door is claimed. The bar talk is kept to what the Chicago Democrat printed on 10 June 1835 (a Lake House building in Kinzie's Addition) and quotes nobody. Declining every glass reaches an ending and the keepsake just as accepting does. Each house's presence and keeper keep their own grades. The Wolf Point Tavern's 1835 trade is disputed and its position is the weakest in the dataset. The Western Hotel's date is Stow's own. The Sauganash's 1835 proprietor is only a lead, so the stop names none."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved July 1, 1835 scene, the four structure records, and brief 02 of JAUNTS-INITIAL-LIBRARY.md. The route, the drinks and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/taverns-of-chicago.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1261)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-news-breakfast",
+      "title": "News Before Breakfast: an imagined morning's reading of the two papers",
+      "section": "per_subject",
+      "subjects": [
+        "exchange_coffee_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "News Before Breakfast links four existing exterior destinations (the Sauganash, the former Chicago Democrat corner, the Chicago American office and the Exchange Coffee House) in an invented morning. The visitor's lodging at the Sauganash, the two questions, the walk, the report-or-advertisement sorting and its count, breakfast at the Exchange, the choice among three clippings, the five endings (one of which tells you a notice fooled you) and the A Useful Clipping keepsake are reconstructed, and so are the reading and action seconds. Every printed item the stops describe is issue-dated and located to page and column, and every one was printed before the scene date: the Democrat of 24 June 1835 (the cholera paragraph and the auction notice) and the American of 27 June 1835 (the Cholera Elixir advertisement). Both are transcription-mediated readings. No named person speaks, no editor, druggist or keeper is met, no interior is opened and no front door is claimed. The Democrat's corner is a former office on the scene date, so the stop speaks of where the paper was printed and where it went, not of a press at work. Every question and every clipping reaches an ending and the keepsake."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved July 1, 1835 scene, the four structure records, the two newspaper runs, and brief 07 of JAUNTS-INITIAL-LIBRARY.md. The route, the sorting game and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A scan read of either column upgrades or corrects the quoted readings."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/news-before-breakfast.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2004)."
         }
       ]
     },
@@ -22492,6 +22652,178 @@
         {
           "label": "Recorded",
           "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L362",
+      "title": "The 1812 spit's isthmus is given a surface: 100 ft of sand at the spit's own +4 ft",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`e1830_natural/terrain_spec.json` → `isthmus_1812` (T-2002) surfaces the hole **L240** left in the 1812 spit. On `spit_attachment_gap_1812`, the 129.1 m line from the spit root to the bar's north-west corner, it lays a ribbon of sand **100 ft wide** with its crest at **+4 ft**, the same crest and the same 12 m faces as the spit (`spit_1812`, dossier zone 7). The river's turn south is its south-west face and the lake its north-east face. The width, the height and the faces are invented. That the ground is continuous is not: it is the deduction L240 already graded `inferred`."
+        },
+        {
+          "label": "Why",
+          "text": "a gap in the spit gives an 1812 scene a river mouth where the 1833–34 cut was later dug, which is the 1834 harbour drawn back into 1812. That is the error `shore_1812_pre_cut` exists to prevent. The width is zone 7's **low** end because both ends of the line are fixed and neither face has a reading, so the narrowest neck zone 7 allows invents the least land. A neck that soldiers cut through with spades again and again between 1816 and 1828 was not a broad one either. The height is the spit's because a lower neck is a breach, which is the landform the February 1834 storm made and not 1812's. A higher one would be the zone 3 ridge, and this is not that ridge."
+        },
+        {
+          "label": "Which way it is wrong if it is wrong",
+          "text": "probably too narrow. The bar's own trace is 108 m wide at N +205, just south of the neck, and that is the recorded upper alternative."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a pre-1833 chart or sounding of the mouth, or any written width of the bar where the soldiers cut it."
+        },
+        {
+          "label": "Related",
+          "text": "**L240** (the hole this fills), **T-2002**, **T-1243**, **T-2003** (which generates it)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L363",
+      "title": "The 1812 lake shore north of the spit root is a chord, then the 1834 line",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`e1830_natural/terrain_spec.json` → `north_lake_shore_1812` (T-2002) takes the 1812 lake shore north of the spit root to be a straight chord. The chord runs from the root (1834 `north_shore_harbor_reach` index 29) to the first 1834 vertex past the pier head (index 39). From there the 1834 line is carried north to the box wall."
+        },
+        {
+          "label": "Why",
+          "text": "a waterline has to be somewhere, and nothing reads this one. `tools/derive_shore_1812.py` claims none of it on purpose: index 30 to the pier head is the drafted pier, and the shore north of it is sand the pier caught (dossier zone 28). Sand caught against a pier was not there before the pier, so the 1812 shore lay **west** of the 1834 line. The chord is the least-land line the two committed points allow. It removes up to **120.8 m** of the drafted pier and the sand inside it."
+        },
+        {
+          "label": "Which way it is wrong if it is wrong",
+          "text": "toward too much beach north of index 39, where the 1834 line is taken as the 1812 one and whatever accretion it still held there is counted as 1812 ground. It is never wrong toward a headland invented in the lake."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a pre-1833 chart of the lake shore north of the river."
+        },
+        {
+          "label": "Related",
+          "text": "**L240**, **L362**; the tickets **T-2002**, **T-1242**, **T-2003**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L364",
+      "title": "The 1812 lake stands at the 1835 plane, and the river ran out over a 4 ft channel",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`e1830_natural/terrain_spec.json` (T-2002) puts the 1812 water surface at Z = 0 (`lake_stage_1812`), which is the summer-1835 plane, bounded by the historic 576–582 ft ASL. It gives the channel behind the spit a bed of **−4 ft** (`outlet_channel_1812`), the deep end of dossier zone 26. The 1834 backwater it became was **−2.5 ft**."
+        },
+        {
+          "label": "Why",
+          "text": "no stage of 1812 is recorded, and holding the 1835 plane keeps the two epochs comparable and every carried bank at its zone's freeboard. The channel carried the whole river in 1812, so it takes zone 26's deep end. It is not carried down to the main stem's −12 to −18 ft, because the bar \"admitted only boats\", the *Tracy* anchored half a mile out in 1803, and Harrison's 1830 plat letters the old mouth \"very shallow\"."
+        },
+        {
+          "label": "Which way it is wrong if it is wrong",
+          "text": "probably too shallow for a live river. That is the direction that does not invent a navigable mouth the record says was not there."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a Michigan–Huron stage reconstruction for the 1810s (NOAA/GLERL), or any sounding of the pre-cut channel."
+        },
+        {
+          "label": "Related",
+          "text": "**L362**, **L363**; the tickets **T-2002**, **T-2003**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-02."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-across-wolf-point",
+      "title": "Across Wolf Point: an invented crossing and route note",
+      "section": "per_subject",
+      "subjects": [
+        "wolf_point_tavern"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Across Wolf Point links four existing exterior destinations — the Green Tree, the Wolf Point Tavern, the South Branch bridge and the Sauganash — in an invented outing from the west bank to the south side. The crossing itself, the route order (north to the forks, back south to the bridge, over and north to Lake and Market), the route note, the single ending and the Knows the Crossing memento are reconstructed. No journey, conversation or encounter is attested; no named person speaks; no interior is opened. The places, the tavern's sign and fabric, the bridge's construction and the Sauganash's 1831 look and June 1835 refit are each cited at their own tier, and the two disputes the records hold — whether the Wolf Point Tavern still kept travellers in July 1835, and whether the bridge was a raft — are stated in the stop text rather than resolved."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the four structure records and brief 05 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated account of anyone's route over the South Branch in 1835 would replace the invented order; the outing and its ending stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/across-wolf-point.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1264)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-bed-for-the-night",
+      "title": "A Bed for the Night: an invented search for lodging",
+      "section": "per_subject",
+      "subjects": [
+        "mansion_house",
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "A Bed for the Night links four existing exterior destinations — the Western Hotel, the Sauganash, Mrs Rufus Brown's boarding house and the Mansion House — in an invented search for a bed by a visitor with a modest purse. The search itself, the cost-or-convenience preference, the route order (west side, over the South Branch bridge, east along Lake Street), the relative cost of the four houses, the choice of where to ask first, the three endings and the A Place to Lay Your Head memento are reconstructed. No price, vacancy, booking, conversation or encounter is attested; no named person speaks; no interior is opened. The houses, their keepers and their fabric are each cited at their own tier, and the crowding of June 1835 is told in the two papers' own words. The Mansion House's keeper on the scene date (Haddock or Markle) is stated as open rather than chosen, and Brown's exact spot is called a placement."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the four structure records and brief 09 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated 1835 tariff or advertisement giving a board or night's rate at any of the four houses would replace the invented relative cost; the search and its endings stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/bed-for-the-night.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2006)."
         }
       ]
     },
