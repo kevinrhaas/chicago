@@ -4672,15 +4672,6 @@
       "phase_id": "log_1833",
       "structure_id": "slough_log_bridge"
     },
-    "south_bank_shed_dearborn_e1__shed_1835.glb": {
-      "archetype": "outbuilding",
-      "baked_ao": false,
-      "bytes": 124716,
-      "inputs_sha256": "58e14b375b53d153f8b5031b49a1c7b88f47f1000dea8b817bd1d158b293b08e",
-      "kind": "generated",
-      "phase_id": "shed_1835",
-      "structure_id": "south_bank_shed_dearborn_e1"
-    },
     "south_bank_shed_dearborn_e2__shed_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -4755,19 +4746,19 @@
     },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
-      "bytes": 30402144,
+      "bytes": 30300760,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "0305d106c2221fb6395aa1ae589983a30758ae869a564256b658583e045ef96e",
+      "inputs_sha256": "a8b534a42f0bc30e37c4e70773ec4882c7f5ada5273593d777bd56f4bd5865e0",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.0054,
+        "max_m": 0.0056,
         "misses": 0,
-        "rms_m": 0.00025,
+        "rms_m": 0.00024,
         "samples": 210897
       },
       "terrain_epoch": "e1834_harbor_cut",
-      "triangles": 1168183
+      "triangles": 1164212
     },
     "terrain__e1871_postfire.glb": {
       "baked_ao": false,
@@ -4843,7 +4834,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "0305d106c2221fb6395aa1ae589983a30758ae869a564256b658583e045ef96e",
+      "inputs_sha256": "a8b534a42f0bc30e37c4e70773ec4882c7f5ada5273593d777bd56f4bd5865e0",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",

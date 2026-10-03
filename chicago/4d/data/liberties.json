@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 372,
+  "count": 373,
   "liberties": [
     {
       "id": "L1",
@@ -16233,14 +16233,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 512
+        "count": 511
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 512 phases (497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 511 phases (512 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Scope revision, 2026-10-01 (T-1766)",
@@ -16706,83 +16706,12 @@
       "title": "One freight shed on the south bank at the Dearborn reach, on ground a filled channel gave back",
       "section": "per_subject",
       "subjects": [
-        "south_bank_shed_dearborn_e1"
+        "south_bank_shed_dearborn_e2"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": null,
-          "aspect": "function"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "documented_range"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "form.construction"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "form.door"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "form.door_side"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "form.paint"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "form.roof_pitch_deg"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "form.roof_type"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "form.wall_height_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "south_bank_shed_dearborn_e1",
-          "phase": "shed_1835",
-          "aspect": "position"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-09-26",
-      "revised": "2026-09-27",
+      "revised": "2026-10-03",
       "fields": [
-        {
-          "label": "Covers",
-          "text": "`south_bank_shed_dearborn_e1.function`, `south_bank_shed_dearborn_e1.shed_1835.documented_range`, `south_bank_shed_dearborn_e1.shed_1835.footprint`, `south_bank_shed_dearborn_e1.shed_1835.form.construction`, `south_bank_shed_dearborn_e1.shed_1835.form.door`, `south_bank_shed_dearborn_e1.shed_1835.form.door_side`, `south_bank_shed_dearborn_e1.shed_1835.form.paint`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_pitch_deg`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_type`, `south_bank_shed_dearborn_e1.shed_1835.form.wall_height_m`, `south_bank_shed_dearborn_e1.shed_1835.position`."
-        },
         {
           "label": "Decision",
           "text": "the south bank of the main stem below the Dearborn drawbridge carries **one low freight shed** where it carried nothing — on the last town ground east of South Water Street's platted corridor and west of State Street's, standing back from the riverside plank walk on the terrace behind it, with its wagon door to the landward side. **It is not attested.** Every value on the record is graded `reconstructed`, including the fact that a building stood there at all, and it disappears with the rest of the reconstructed tier when a visitor turns it off. It is the south-bank half of **L164**, which built the four north-bank sheds of the same plate and said in writing that this bank could not be built. **What bounded the invention, and it is three measurements rather than a judgement.** (1) The EASTING is the westernmost station on the reading's own half-metre lattice, between the two platted corridors, at which the whole rectangle stands on free ground — the west wall at local E 805.5; half a metre west of it the rectangle's west side is inside South Water's corridor. (2) The NORTHING and BEARING come off the riverside plank walk's committed centreline: the back wall — the one the walk and the river are behind — stands 2.00 m back from the walk's boards at N +11.285, 2.915 m from its centreline, and the walls are squared to the walk's own due-east bearing, so `rotation_deg` is 180.000. (3) The committed heightfield holds the 252-point lattice under it between 1.189 m and 1.286 m above the water surface, 0.097 m of relief, well inside the 0.30 m the infill generators allow. The size is the FLOOR of family F1, 18 x 32 ft, because it is the only size the 9.5 m window between the two corridors takes. *(Until T-1643 the northing and bearing were read off the fort road instead, at a 1.25 m setback and 0.273 m of relief, and that seating stood on the walk — see the 2026-09-27 revision below.)* **The setback is the north bank's own, and until T-1643 it was a concession.** The four north-bank sheds keep 2.00 m from North Water Street's travelled edge. Set back from the fort road this building could not: at 2.00 m its back wall fell half a metre further down the bank and the relief reached 0.353 m, past the clause, so the setback came in to 1.25 m and both figures were stated so the trade stayed visible. On the terrace south of the walk the trade does not arise, and the reach's two shed rows are set back by the same figure. **What it stands inside, said plainly.** Nothing. The fort road's RECONSTRUCTED 12 m corridor left this reach with the road (T-1637) and `fort_road`'s committed path now begins 21 m east of this building; `tools/measure_corridor_intrusion.py` reads the footprint clear of all 33 platted corridors; and `tools/measure_south_bank_ground.py --gate` reads it clear of every committed walk. The project's refusal of a building inside a PLATTED corridor is untouched by this and the frontage that refusal was written about is still empty: beside the platted street the reading is zero at every relief clause it is reported at, and one clause harder than when T-0134 wrote it. **Why the ground exists at all, because that is the part a reader should distrust first.** It is ground **T-1629 made** three hours before this shed was placed, by re-tracing the town slough's mouth to Wright's own re-entrant east of State Street and filling the mouth this project had cut west of it. The channel that stood here was this reconstruction's, not the town's; the fill put the bank back to the line Wright drew. So the building is an invention on corrected ground rather than on invented ground — but the correction is recent, and if it is ever undone this shed goes back under water and must go with it. `tools/measure_south_bank_ground.py --gate` is what would say so: it holds the reach's fit counts, and a change in them is the question re-opening."
@@ -16828,8 +16757,16 @@
           "text": "T-1643 (this re-seating) · T-1642 (the reading it re-derives) · T-1275 (the PR whose validation read the red) · **L153** (the riverside walk) · `data/frontage/river_walk_frontage.json` · `docs/RESEARCH/south_bank_dearborn_ground.md` § The shed stood on the river walk."
         },
         {
+          "label": "Revised",
+          "text": "2026-10-03 (T-2012) — **the shed is withdrawn, because the ground it stood on was a gap in the street and not ground.** The owner ruled that South Water Street runs its last 22 m to State Street (**L366**), and the carried line puts the platted corridor across this footprint by 11.07 m. The street's reach is the plat's and this building had no source, so the building goes; there is no dry ground north of the corridor to re-seat it on, because the riverside walk and the bank are inside it. The owner chose the withdrawal over keeping the street short, the same day. `south_bank_shed_dearborn_e2` (**L281**), which stands clear of the corridor, keeps its seat."
+        },
+        {
           "label": "Recorded",
           "text": "2026-09-26."
+        },
+        {
+          "label": "Struck",
+          "text": "2026-10-03 (T-2012) — all eleven `Covers:` tokens, `south_bank_shed_dearborn_e1.*`, are removed because the record they name is withdrawn, and a token pointing at nothing admits to nothing a visitor reads. The prose above is otherwise verbatim."
         }
       ]
     },
@@ -17123,7 +17060,6 @@
       "title": "A second freight shed on the south bank, behind the first one and not in front of its door",
       "section": "per_subject",
       "subjects": [
-        "south_bank_shed_dearborn_e1",
         "south_bank_shed_dearborn_e2"
       ],
       "covers": [
@@ -17195,7 +17131,7 @@
         }
       ],
       "recorded": "2026-09-27",
-      "revised": null,
+      "revised": "2026-10-03",
       "fields": [
         {
           "label": "Covers",
@@ -17224,6 +17160,10 @@
         {
           "label": "Recorded",
           "text": "2026-09-27."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-03 (T-2012) — **the first shed is withdrawn and this one stays.** South Water Street now runs on to State Street (**L366**) and its corridor took e1's footprint (**L274**). This shed stands clear of the corridor and is not moved. Its two eastings and its northing were read off e1's walls; those numbers stand where they were written, at the same `reconstructed` grade, and what is lost is the neighbour they can be checked against. Its door now opens toward the street rather than onto a yard behind another shed."
         }
       ]
     },
@@ -23090,6 +23030,45 @@
         {
           "label": "Recorded",
           "text": "2026-10-03 (T-2009)."
+        }
+      ]
+    },
+    {
+      "id": "L366",
+      "title": "South Water Street's last 22 m to State Street are its own bearing carried to the corner",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`south_water` in `data/streets/1835.json` (T-2012) gains one vertex, local **(826.993, 3.378)**. It is the street's own last bearing, (699, 7) to (805, 4), carried to its intersection with `state`'s committed centreline, (824.4, −400) to (827.1, 20). That adds **22.002 m** of line on the same straight run. The old end at (805, 4) is kept as a vertex, so nothing west of it moves."
+        },
+        {
+          "label": "Why",
+          "text": "the line stopped 22 m short of State Street, so a visitor walking east along the river found the street running out on prairie one step before the corner. The street's own note says it stops at the United States Reservation. `docs/research/04-structures-south.md` (sections F and G) has State Street as the town's eastern edge on this side until February 1835, with the reservation and no platted street east of it. So the extent is the plat's, and only the last 22 m of alignment is this project's construction. The owner ruled for the carry on 2026-10-03."
+        },
+        {
+          "label": "Consequence",
+          "text": "the carried corridor took the footprint of `south_bank_shed_dearborn_e1`, the freight shed **L274** placed in the 22 m gap, so that shed is withdrawn, on the owner's choice of 2026-10-03. The ground is regraded under the new stretch the way it is under every opened street, so the 1835 terrain is rebaked with this change."
+        },
+        {
+          "label": "Which way it is wrong if it is wrong",
+          "text": "sideways by the street's own drawn uncertainty, not in length. If South Water bent before State, the corner moves by metres along State's line; the street does not stop short of it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a traced east end of South Water from Wright 1834 or the Thompson plat sheet would replace the carried bearing outright."
+        },
+        {
+          "label": "Related",
+          "text": "**L190** (street lines carried past their drawn ends) · **L108** (the reservation's boundary); the tickets **T-1637** (which left the gap open), **T-2012**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03."
         }
       ]
     },
