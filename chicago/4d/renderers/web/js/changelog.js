@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1361, ts: '2026-10-03T12:10:45.452Z', date: 'Oct 3, 2026, 7:10 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
+  { v: 1362, ts: '2026-10-03T12:45:11.035Z', date: 'Oct 3, 2026, 7:45 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
     items: [
       'Edward McCarthy\u2019s boarding house, on the block at Washington and Dearborn streets, has four new boarders. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a labourer. Open the house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and this house had empty beds. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'Three of them work at E. W. Haddock\u2019s. One reconstructed clerk who worked there before now works at a wine and liquor store on Dearborn Street. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1361, ts: '2026-10-03T12:09:06.934Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+    items: [
+      'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
+      'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
+      'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
     ] },
   { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
