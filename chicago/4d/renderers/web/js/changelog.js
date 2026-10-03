@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1347, ts: '2026-10-03T05:43:57.132Z', date: 'Oct 3, 2026, 12:43 AM CT', title: 'Plank walks down the cross streets', kind: 'feature',
+  { v: 1349, ts: '2026-10-03T06:24:10.266Z', date: 'Oct 3, 2026, 1:24 AM CT', title: 'Plank walks down the cross streets', kind: 'feature',
     items: [
       'Market, Franklin, Wells, La Salle, Clark, Dearborn and State Streets now have the same plank sidewalks as Lake, South Water, Randolph and Washington. That is nearly five more kilometres of boards on 46 block fronts.',
       'Board crossings join them at the corners, so you can walk the town\u2019s grid on planks and turn any corner without stepping into the mud.',
       'Like the walks on the other streets, these are our reconstruction from the plat, drawn by the same rule.',
       'On the Light setting, the one a phone starts on, the cross-street walks are left out to keep the town quick. Choose Balanced or Full in Settings to see them.',
+    ] },
+  { v: 1348, ts: '2026-10-03T05:54:09.388Z', date: 'Oct 3, 2026, 12:54 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Freight for the Store. Drive a wagon from Newberry & Dole\u2019s wharf to two stores and on to George Dole\u2019s warehouse. It takes about six minutes.',
+      'Count three packages against the bill, take only two, or load them on trust. Check Peck\u2019s own advertised lines, leave a package at Thomas Church\u2019s store on Lake Street, and hand in the tally.',
+      'The shipment, the bill and the keepsake, Cargo Accounted For, are our reconstruction (liberty L-jaunt-freight-store). The firms and what they sold come from their own notices.',
+    ] },
+  { v: 1347, ts: '2026-10-03T05:37:25.027Z', date: 'Oct 3, 2026, 12:37 AM CT', title: 'A new jaunt: A Decent Coat', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick A Decent Coat. It is a short, quiet ride west along South Water Street to a call at the Sauganash, about four minutes on horseback, with nothing to count or carry.',
+      'Start at John Holbrook\u2019s, which opened in June 1835 selling made clothing, boots and shoes as agent for the manufacturers. A block on, Harmon, Loomis & Co.\u2019s card lists broadcloth, cassimere and flannel by the piece.',
+      'At Brown\u2019s boarding house, weigh tonight\u2019s call against tomorrow\u2019s work. At the Sauganash, go in a ready-made coat or your old one brushed.',
+      'Finish to keep Fit for the Occasion under Provisions. The errand is our reconstruction (liberty L-jaunt-a-decent-coat). No price, fitting or tailor is claimed.',
     ] },
   { v: 1346, ts: '2026-10-03T05:18:28.781Z', date: 'Oct 3, 2026, 12:18 AM CT', title: 'The worn ground at the doors is now the road\u2019s own dirt', kind: 'polish',
     items: [

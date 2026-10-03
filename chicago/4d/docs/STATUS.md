@@ -34,6 +34,63 @@ reached while Canal and Clinton are in no tuple. Asked per block, it also names 
 Washington–Madison blocks whose Madison lots no tuple covers (hidden since T-1707). Named, not fixed:
 Madison was not this ticket's ask.
 
+## T-2009 — Freight for the Store, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Freight for the Store* (River commerce,
+Wagon, 4 stops, Livelihood). An invented bill lists three packages landed at Newberry & Dole's.
+The visitor counts them and loads the wagon (a *Packages* chip tracks the load), or takes only
+Peck's two, or loads all three on trust. Then come Peck's store, with the lines his own cards
+advertised, Thomas Church's store on Lake Street, and the tally handed in at George W. Dole's
+1832 warehouse. There are four endings, and the keepsake *Cargo Accounted For* goes to Livelihood.
+Content only: one JSON file, a liberty (`L-jaunt-freight-store`), the regenerated catalog and
+source-use edges, and brief 12's route note. There is no engine, compiler or CSS change.
+
+**The brief's caution holds by construction.** The shipment, the bill and the tally are invented
+and the opening says so. No firm ships, receives or pays for anything, and no price is named.
+Church's store has no stock on record, so his package is never said to hold anything. Newberry &
+Dole's house and Church's store keep their reconstructed positions, and both stops say so.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. The
+briefed order doubled back across town (961 m straight-line against 546 m), so the tally stop
+moves to the end (brief 12's route note). A Playwright drive at 390×780 (count all three → check
+the marks → leave Church's package → hand in the tally) reached `checked-and-counted` with zero
+page errors. It covered the card, the opening, a detail card and back to the same stop, and the
+ending. The keepsake landed once under Livelihood.
+
+**Unverified.** The drive ran at 390×780 only. The stills are not committed.
+
+## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Decent Coat* (Shopping, Horse, 4 stops,
+Provisions). John Holbrook's clothing store → Harmon, Loomis & Co.'s store → Brown's boarding
+house → the Sauganash, one way west along South Water Street. Holbrook's card (Democrat, 10 June
+1835, p. 3 col. 2; American, 13 June, p. 3 col. 6) sells made clothing, hats, boots and shoes as
+agent for the manufacturers; Harmon, Loomis & Co.'s fall notice (Democrat, 5 Nov 1834, p. 3 col. 2)
+lists broadcloth, cassimere, satinet, flannel, Russia duck and canvas, carried to the scene by
+their June 1835 card. At the Sauganash the visitor goes in a ready-made coat or the old one
+brushed; two endings, both completion-eligible, one keepsake (*Fit for the Occasion*). Content
+only: one JSON file, a liberty (`L-jaunt-a-decent-coat`), the regenerated catalog and source-use
+edges, and brief 14's route note. No engine, compiler or CSS change.
+
+**What it refuses to claim.** No purchase, price, size, fitting, tailor or maker: Holbrook's card
+names no tailoring and the stop says so. It is the batch's quiet outing (T-1267 acceptance 4):
+no variable, no inventory, no strip. The person record `holbrook_john` is a shoemaker left
+unplaced, so the stop links Holbrook's business card rather than identify the two.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, endings `ready-tonight` and `brushed`, one
+keepsake each. On the published mirror's router the brief's order (Brown's first, doubling back
+from Dearborn) read 13.5 min at Walk, so the route was re-cut to run one way west. Even so the
+Sauganash is at the street's far end and Walk reads 10.5 min, so the recommended mode is Horse:
+the card reads, at 390×780 and 1280×800 alike, Walk about 10.5, Wagon 5.5, **Horse 4**, Fly 3,
+Instantly 2. A Playwright drive at 390×780 took stills in order (card, first stop, the detail card
+and back to the same stop, the ending, the menu) with zero page errors; the keepsake landed under
+Provisions.
+
+**Unverified.** At 1280×800 the drive reached the `brushed` ending with its keepsake, but the
+return to the menu was cut off by the 560 s cap; menu return is proved at 390×780 only. The stills
+are not committed.
+
 ## T-2013 — the worn ground at the doors drawn with the road's own surface (2026-10-03)
 
 The owner, on dev at Matthias Mason & Co. on Lake Street: the door ground T-1984 laid "is not nearly as
