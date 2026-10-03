@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1390, ts: '2026-10-03T23:24:44.264Z', date: 'Oct 3, 2026, 6:24 PM CT', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'Open Jaunts and pick Look Before You Buy a Lot: it now recommends riding, and takes about three and a half minutes instead of seven on foot.',
+      'Shopping South Water Street now recommends a light wagon for the household list, and takes about four minutes instead of six and a half.',
+      'Fort Dearborn Errand now starts at the fort\'s south gate, where one stop tells you about the stockade and the guard-house together. It takes about five and a half minutes on foot.',
+      'You can still walk any of them. The ride, the wagon and the shorter fort errand are our reconstruction, noted in the liberties for each jaunt.',
+    ] },
   { v: 1389, ts: '2026-10-03T23:03:35.041Z', date: 'Oct 3, 2026, 6:03 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
     items: [
       'Outfit for the West took about nine minutes by wagon. It now suggests riding on horseback and crosses the river only once: the list at the Green Tree, then the saddler and the smith at Lake and Canal, then over the river to the Jones grocery and Peck\'s store. It takes about five minutes. The five places, the purse and the prices are unchanged.',
