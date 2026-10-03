@@ -1,3 +1,35 @@
+## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Materials for a Roof* (Building trades,
+Horse, 4 stops, Livelihood). A builder with a small frame house to roof starts at Newberry &
+Dole's warehouse on the river, whose card in the Democrat of 1 July 1835 offers storage,
+forwarding and commission; chooses nails or nail rods at Peck's corner, from his September 1834
+notice of nails, nail rods, bar iron and steel; chooses brick for a chimney or none at Blodgett's
+brickyard on the North Side; and ends at the Lake House site at Rush Street, seen from the
+street. Three endings; the keepsake *A Builder's List* goes to Livelihood. Content only: one JSON
+file, a liberty (`L-jaunt-materials-for-a-roof`), the regenerated catalog and source-use edges,
+and brief 17's route note. No engine, compiler or CSS change. Third of the four pieces T-1268 was
+split into.
+
+**The brief's cautions hold by construction.** The Lake House is a building site: Andreas's
+finished hotel is dated autumn 1836, the 1835 groundbreaking is an uncredited modern paragraph
+and the stop says so, and the shell is called our reconstruction. No price, order or sale is
+claimed anywhere. The brickyard's structure record says Andreas traces the Lake House's brick to
+this yard; he does not, so the jaunt says nothing of whose brick it was.
+
+**The route was re-cut.** The briefed order (warehouse → brickyard → Lake House → Peck's) crosses
+the river twice, about 1,660 m in straight lines; taking Peck's second crosses once, about 954 m.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 4 paths, three endings, one keepsake. Card estimates
+on the published mirror, identical at 390×780 and 1280×800: Walk 17.5 min, Wagon 8.5, Horse 6, Fly
+4, Instantly 3. The primary path (cut nails → brick chimney → nails-and-brick) measured 364 s at
+Horse and 226 s at Fly against the card's 361 s and 232 s at 390×780, and 365 s and 225 s against
+364 s and 232 s at 1280×800, inside the 4–6 min band. A Playwright drive at 390×780 (card, Start,
+the first stop, About this place and back to the same stop, the ending, End back to the menu)
+reached `nails-and-brick`; zero page errors at either viewport. Stills and the receipt are in
+`docs/performance/jaunt-materials-for-a-roof/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
 ## T-2027 — Boots, Leather and the Road, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Boots, Leather and the Road* (Trades,
