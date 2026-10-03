@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1339, ts: '2026-10-03T02:50:02.553Z', date: 'Oct 2, 2026, 9:50 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
+  { v: 1340, ts: '2026-10-03T03:19:23.807Z', date: 'Oct 2, 2026, 10:19 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Fort Dearborn Errand. You carry an imagined note round the fort\u2019s service buildings.',
       'Five stops: the stockade, the guard-house and store-house either side of the south gate, the sutler\u2019s store by the north gate, and the shop on the outer ground toward the lake.',
       'Choose candles or thread at the sutler\u2019s, tally the parcel outside the store-house, where the Army\u2019s 1834 notices had fresh beef delivered, and set it down at the shop.',
       'Finish the errand and Accounted for at the Fort goes in your daybook under Livelihood. The note and parcel are our reconstruction (liberty L-jaunt-fort-dearborn-errand); no soldier is shown.',
+    ] },
+  { v: 1339, ts: '2026-10-03T02:58:42.777Z', date: 'Oct 2, 2026, 9:58 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick New in Chicago. It now recommends walking, and every leg between its five stops has a route note.',
+      'At the Democrat\u2019s old corner, read a real notice: Kinzie and Forsyth\u2019s lithographed town maps, still advertised in June 1835.',
+      'Peck\u2019s store is now your supply shop, read from his own advertisements. At Brown\u2019s boarding house, choose board by the week or a bed close to the stores. Each choice has its own ending.',
+      'The errand and the boarding choice are our reconstruction (liberty L-jaunt-new-in-chicago); no room, rate or sale is claimed.',
     ] },
   { v: 1338, ts: '2026-10-03T02:34:38.433Z', date: 'Oct 2, 2026, 9:34 PM CT', title: 'A new jaunt: News Before Breakfast', kind: 'feature',
     items: [

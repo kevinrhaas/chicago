@@ -31,6 +31,35 @@ menu → opening → mid-leg switch to Fly → detail card and back → Previous
 `accounted` → menu. It awarded the keepsake once under Livelihood, a replay added no second one,
 and there were 0 page errors at both viewports. End and Jaunts Menu were not pressed.
 
+## T-1262 — New in Chicago, finished as the first-day Orientation jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts → *New in Chicago* now recommends **Walk**, not
+Horse. It still has the pilot's five exterior stops: the Sauganash, Hogan's old mail corner,
+Peck's store, the Democrat's first office and Brown's boarding house. Three stops changed.
+Peck's is now a supply shop, read from his own 1833–34 card. At the Democrat's old corner
+the visitor reads a real notice: Kinzie and Forsyth's lithographed town maps, dated
+18 June 1834 and still running on 10 June 1835 (`chicago_democrat_1833_1835`, 20 May 1835
+p. 3 col. 6; 10 June 1835 p. 4 col. 3). The stop says the paper had moved over Jones and
+King's by then. At Brown's the visitor chooses board by the week (cost) or a bed close to
+the stores (convenience); each leads to its own ending. All four legs now carry route notes.
+The keepsake is still *Finding Your Feet* (Wayfinding). Content only: the one JSON file, a
+new liberty (`L-jaunt-new-in-chicago`), the regenerated catalog and source-use edges. There
+is no engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 3 paths to 3 endings, with one keepsake.
+The catalog card on the published mirror, real router: **Walk about 10.5 min** at 390×780
+(9.5 at 1280×800), Wagon 5.5, Horse 4, Fly 3, Instantly 2. **Walk is over the brief's 4–6
+min**: the five owner-named stops lie about 613 m apart in straight lines (Sauganash → Hogan
+43 m, → Peck 318 m, → Democrat 123 m, → Brown 129 m), and no order that ends at the bed is
+shorter. Brief 03's route note says so. Stills at 390×780 covered the menu card, the opening, a
+mid-leg switch to Fly, a detail card and back, Previous, the choice, the ending, End and the
+menu. The keepsake landed once under Wayfinding, and there were no page errors.
+
+**Unverified.** At 1280×800 the stills stop at the choice: the run reached the 500 s cap
+before the ending still on this software-rendered runner. `tools/test_jaunt_travel.mjs` fails
+at 390×780 when the detail popup is open (the jaunt controls measure 0×0). It fails the same
+way on a clean `dev`, so it predates this change and is not caused by it.
+
 ## T-1264 — Across Wolf Point, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Across Wolf Point* (River and routes,
