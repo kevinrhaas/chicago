@@ -33,6 +33,7 @@ by layer on dev. The forks were over on dev already and stay T-1976's to trim.
 reached while Canal and Clinton are in no tuple. Asked per block, it also names the six
 Washington–Madison blocks whose Madison lots no tuple covers (hidden since T-1707). Named, not fixed:
 Madison was not this ticket's ask.
+
 ## T-2013 — the worn ground at the doors drawn with the road's own surface (2026-10-03)
 
 The owner, on dev at Matthias Mason & Co. on Lake Street: the door ground T-1984 laid "is not nearly as
