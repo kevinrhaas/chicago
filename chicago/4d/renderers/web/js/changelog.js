@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+  { v: 1358, ts: '2026-10-03T10:57:57.482Z', date: 'Oct 3, 2026, 5:57 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
       'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
       'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
