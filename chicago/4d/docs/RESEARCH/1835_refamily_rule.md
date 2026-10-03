@@ -13,14 +13,14 @@ Under option (a) the town LOST people, and with 34 of 60 heads adopted the loss 
 
 | rung | | what a move there rewrites | people |
 |---|---|---|---|
-| `C0` | movable | one line of a derived ledger, and no card anywhere | 220 |
+| `C0` | movable | one line of a derived ledger, and no card anywhere | 851 |
 | `C1` | movable | the reconstructed household's own division, which it derived from this bucket in the first place — and the whole house moves or none of it does | 538 |
 | `R_adopted` | refused | nothing — the move is refused | 286 |
 | `R_house_is_not_wholly_held` | refused | nothing — the move is refused | 25 |
 | `R_seated` | refused | nothing — the move is refused | 24 |
-| `R_division_is_a_reading` | refused | nothing — the move is refused | 53 |
+| `R_division_is_a_reading` | refused | nothing — the move is refused | 81 |
 
-1,146 reconstructed people stand in the 48 refused buckets and 386 of them are the surplus. 758 stand on a movable rung.
+1,805 reconstructed people stand in the 48 refused buckets and 386 of them are the surplus. 1,389 stand on a movable rung.
 
 ## The ceilings, one axis at a time
 
@@ -41,11 +41,11 @@ A C1 card states ONE division for a whole house, so moving half of it would put 
 
 ## What the town converges to
 
-- standing in the layer: 2,381
+- standing in the layer: 3,041
 - still owed: 224
-- converges to now: 2,605
-- converges to if this rule is spent: 2,466
-- 2,466 is inside the model's 2,362-3,265 and 77 below its 2,543 point, against 62 above it today.
+- converges to now: 3,265
+- converges to if this rule is spent: 3,126
+- 3,126 is inside the model's 2,362-3,265 and 583 above its 2,543 point, against 722 above it today.
 
 ## What would raise the ceiling
 

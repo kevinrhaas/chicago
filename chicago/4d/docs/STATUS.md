@@ -1,3 +1,34 @@
+## T-2021 — the ruling on the married houses no woman in the town fits (2026-10-03)
+
+**The ruling: both answers, split by a bound the book already carried.** After T-2020, 277
+married houses still had no wife: the book had no woman left in their cells, and no woman
+the town held fit them. A house is now given its WHOLE drawn family (the very wife and
+children the model drew for it) while the town the order book converges to stays inside
+the town model's range for 1 July 1835. That range tops out at 3,265, the November count.
+A house whose family would go past that stands alone. The admitted houses are read once
+and frozen in `data/reconstruction/1835_family_ruling.json` (`--rule`), so a later re-cut
+re-deals nobody. The book raises each cell's order by exactly what the ruling drew.
+
+| | before | after |
+|---|---:|---:|
+| houses given a family under the ruling | 0 | 202 (660 people: 202 wives, 458 children) |
+| houses standing alone | 277 | 75 (2 of them not offered: their heads live at an inn) |
+| town the book converges to | 2,605 | 3,265 |
+| adult sex ratio, present households | 435.4 | 255.9 |
+| under-ten share | 0.19 of 2,381 | 0.286 of 3,041 standing; 0.267 of 3,265 once every order is filled (model 0.20–0.27) |
+
+**Still out of bracket, and said so:** the adult sex ratio (model 120.9–150). The 1,254
+adult men already present are more than a town of 3,265 has women for. Drawing all 277
+families whole would have meant 904 people and a town of 3,509, past the count.
+
+**What it had to step around.** The ruling's draw steps past every name the resident
+layer already bears, every 1840 census head (the synthesis bridges any card whose name is
+the only match), and the surname plus first initial of every re-admitted person. Each of
+those collisions re-dealt a downstream stage when it was first built. Six inferred
+buildings re-weathered when the arrival cycle redrew, and were re-baked (`--only`).
+T-2043 now owns what the book's family rows still order, and it is a reconciliation
+against the 1,293 head records awaiting a household, not more drawing.
+
 ## T-2032 — Along the Working Harbor, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Along the Working Harbor* (River

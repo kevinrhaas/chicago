@@ -114,6 +114,7 @@ BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 LEDGER = ROOT / "data" / "reconstruction" / "1835_modelled_families.json"
 RULINGS = ROOT / "data" / "reconstruction" / "1835_presence_rulings.json"
 FOLDS = ROOT / "data" / "reconstruction" / "1835_folded_houses.json"
+RULING = ROOT / "data" / "reconstruction" / "1835_family_ruling.json"
 
 STAGE = "modelled_families"
 TICKET = "T-1171"
@@ -365,7 +366,7 @@ def forename(seed: str, community: dict, sex: str, taken: set) -> str:
 
 def person_record(pid: str, name: str, relationship: str, sex: str, band: dict,
                   seed: str, basis_note: str, name_seed: str, name_note: str,
-                  community: dict, head_name: str) -> dict:
+                  community: dict, head_name: str, ticket: str = TICKET) -> dict:
     """A reconstructed person, carrying everything the record contract asks of one."""
     return {
         "id": pid,
@@ -415,7 +416,7 @@ def person_record(pid: str, name: str, relationship: str, sex: str, band: dict,
         "reconstruction": {
             "programme": "1835_resident_reconstruction",
             "stage": STAGE,
-            "ticket": TICKET,
+            "ticket": ticket,
             "community": community["id"],
             "review_required": False,
         },
@@ -521,8 +522,137 @@ def real_names(base: dict) -> set:
     return out
 
 
-def fill(base: dict) -> tuple:
-    """(cards with this stage's people, the ledger). Pure over `base`."""
+def kin_core(hid: str, head_name: str, head_low: int, surname: str, community: dict,
+             size: int, rows: tuple, take, card: dict, ticket: str = TICKET,
+             avoid: frozenset = frozenset(), initials: frozenset = frozenset()) -> tuple:
+    """(members, the wife cell that refused the house or None, their book bands, the
+    child cells that refused a child). The wife and children of one married house, drawn
+    by the household model's rules from seeds keyed on the house alone.
+
+    `take(bucket)` says whether the cell will seat one more person, and spends it if so.
+    The draw is the same whoever asks: the first pass asks the order book, and T-2021's
+    ruling asks nothing, because its houses were admitted against the town's range before
+    they were drawn. So a house the ruling admits draws the very family the book refused
+    it — the same names, bands and seeds — and nothing about it depends on which pass
+    seated it."""
+    female_adult, child_bands, boy_rate = rows
+    family_names = {surname.lower()}
+    # `avoid` is every full name the rest of the layer already bears. A forename that
+    # would make one of them under this surname is stepped past, exactly as a forename of
+    # this family is — the first pass passes nothing, so its draw is the one it always was.
+    tail = " " + surname.lower()
+    family_names |= {n[:-len(tail)] for n in avoid if surname and n.endswith(tail)}
+    # `initials` is every `surname|initial` key a real-name stage refuses to mint past.
+    # A forename that would put this surname and initial on an invented person is
+    # stepped past too, or the re-admission would read the invention as the real man
+    # already in the town and withhold him.
+    blocked = {k.split("|", 1)[1] for k in initials
+               if surname and k.split("|", 1)[0] == readmit_key(f"x {surname}").split("|")[0]}
+    if blocked:
+        family_names |= {n.lower() for n in community["given_male"] + community["given_female"]
+                         if n[:1].lower() in blocked}
+    members, bands, short = [], [], []
+    if size >= 2:
+        # THE WIFE. Her band is drawn from the 1840 female adult columns and never
+        # above the head's own band: the city returned 146.8 men per 100 women aged
+        # twenty and over, and the surplus is young unmarried men, so a wife older
+        # than her husband's decade is the shape the schedule least supports. This is
+        # the spacing rule, and it is an assumption of the model rather than a reading.
+        allowed = [(r, w) for r, w in female_adult if r[1] <= head_low]
+        if not allowed:
+            allowed = female_adult
+        wseed = seed_for(hid, "wife_age_bands_1840")
+        row = pick(wseed, allowed)
+        low = row[1]
+        high = None if low >= 50 else low + (5 if low < 20 else 10) - 1
+        given = forename(seed_for(hid, "wife_forename"), community, "female", family_names)
+        family_names.add(given.lower())
+        name = f"{given} {surname}"
+        bucket = bucket_for(hid, card, "female", low, "wife")
+        if not take(bucket):
+            return [], bucket, [], []
+        members.append(person_record(
+            f"{PREFIX}{hid[3:]}_wife", name, "wife", "female",
+            band_block(low, high, row[3], wseed,
+                       "Never above the head's own band: the spacing rule of the "
+                       "household model, which the 1840 adult sex ratio argues for "
+                       "and no source states."),
+            seed_for(hid, "household_size"),
+            f"The household model drew this house at {size} people from the 1840 "
+            f"city's size histogram, at the head's own band and not at the mean. A "
+            f"house of {size} with a head of {head_low} and over is a married house, "
+            f"and this is its wife.",
+            seed_for(hid, "wife_forename"),
+            f"The forename is drawn from the {community['label']} pool; the surname "
+            f"is the head's own.",
+            community, head_name, ticket))
+        bands.append(book_band(low))
+
+    # THE CHILDREN. What the drawn size leaves once the head and his wife are seated.
+    # No child is born after the scene date and none is older than the marriage the
+    # head's own age allows, so the eldest is capped at his age band's low minus 20.
+    wanted = max(0, size - 2)
+    cap = min(19, max(0, head_low - 20))
+    for index in range(wanted):
+        cseed = seed_for(hid, f"child_{index + 1}_age_bands_1840")
+        allowed = [(r, w) for r, w in child_bands if r[1] <= cap]
+        if not allowed:
+            allowed = [(r, w) for r, w in child_bands if r[1] == 0]
+        row = pick(cseed, allowed)
+        low = row[1]
+        high = low + (5 if low < 20 else 10) - 1
+        sseed = seed_for(hid, f"child_{index + 1}_sex_ratio")
+        sex = "male" if unit(sseed) < boy_rate else "female"
+        given = forename(seed_for(hid, f"child_{index + 1}_forename"),
+                         community, sex, family_names)
+        family_names.add(given.lower())
+        relationship = "son" if sex == "male" else "daughter"
+        bucket = bucket_for(hid, card, sex, low, f"child_{index + 1}")
+        if not take(bucket):
+            short.append(bucket)
+            continue
+        members.append(person_record(
+            f"{PREFIX}{hid[3:]}_child_{index + 1}", f"{given} {surname}",
+            relationship, sex,
+            band_block(low, high, row[3], cseed,
+                       f"Capped at {cap} years: nobody is born after {SCENE_DATE}, and "
+                       f"no child of this house is older than the marriage the head's "
+                       f"own age band allows."),
+            seed_for(hid, "household_size"),
+            f"The household model drew this house at {size} people; the head and his "
+            f"wife seated, {wanted} of them are children.",
+            seed_for(hid, f"child_{index + 1}_forename"),
+            f"The forename is drawn from the {community['label']} pool; the surname "
+            f"is the head's own.",
+            community, head_name, ticket))
+        bands.append(book_band(low))
+    return members, None, bands, short
+
+
+def place_block(card: dict, members: list, block: dict) -> None:
+    """Seat `members` on the card and write this stage's block where it belongs.
+
+    THE BLOCK GOES IMMEDIATELY AFTER `present_on_scene_date`, not at the end. Several
+    research passes own a trailing key and rebuild the card by popping theirs and
+    appending it again (`old_settler_deaths` before `directories`, in
+    spend_old_settlers.py); a new key at the end would move under them and their
+    byte-for-byte --check would read it as drift. `resident_mint_carry` puts it in this
+    same slot when a mint rebuilds the card, and the two have to agree."""
+    rebuilt = {}
+    for key, value in card.items():
+        rebuilt[key] = value
+        if key == "present_on_scene_date":
+            rebuilt["modelled_family"] = None  # placed, filled in below
+    card.clear()
+    card.update(rebuilt)
+    card["persons"] = (card.get("persons") or []) + members
+    card["modelled_family"] = block
+
+
+def fill(base: dict, ruling: dict | None = None) -> tuple:
+    """(cards with this stage's people, the ledger). Pure over `base` and the ruling."""
+    if ruling is None:
+        ruling = load_ruling()
     out = json.loads(json.dumps(base))
     pool = pools()
     sizes = size_rows()
@@ -571,7 +701,6 @@ def fill(base: dict) -> tuple:
         head_low = int(head["age_band"]["low"])
         surname = surname_of(head_name)
         community = community_for(head, hid, pool)
-        family_names = {surname.lower()}
 
         size = pick(seed_for(hid, "household_size"), [(s, n) for s, n in sizes])
         # THE SIZE HISTOGRAM MEASURES THE MODEL, NOT THE BOOK. Every eligible head is
@@ -583,118 +712,40 @@ def fill(base: dict) -> tuple:
         household_type = ("solitary" if size == 1
                           else "married_couple" if size == 2 else "family_with_children")
 
-        if size >= 2:
-            # THE WIFE. Her band is drawn from the 1840 female adult columns and never
-            # above the head's own band: the city returned 146.8 men per 100 women aged
-            # twenty and over, and the surplus is young unmarried men, so a wife older
-            # than her husband's decade is the shape the schedule least supports. This is
-            # the spacing rule, and it is an assumption of the model rather than a reading.
-            allowed = [(r, w) for r, w in female_adult if r[1] <= head_low]
-            if not allowed:
-                allowed = female_adult
-            wseed = seed_for(hid, "wife_age_bands_1840")
-            row = pick(wseed, allowed)
-            low = row[1]
-            high = None if low >= 50 else low + (5 if low < 20 else 10) - 1
-            given = forename(seed_for(hid, "wife_forename"), community, "female", family_names)
-            family_names.add(given.lower())
-            name = f"{given} {surname}"
-            bucket = bucket_for(hid, card, "female", low, "wife")
+        def take(bucket: str) -> bool:
             if left.get(bucket, 0) <= 0:
-                # THE WIFE IS THE HOUSE. The model drew this house married; if the book
-                # has no woman left for her cell, the married house is not a house this
-                # stage may half-draw. Seating the children of a marriage the book would
-                # not seat would put a fatherless-looking cottage of infants on the
-                # ground and would read as evidence of a family nobody drew. The whole
-                # house is refused, the cell that refused it is named, and the head is
-                # left exactly as the sources leave him.
-                refused_buckets[bucket] += 1
-                refusals["the order book has no woman left in this house's cell"] += 1
-                counts["houses_the_book_refused"] += 1
-                refused_size[size] += 1
-                refused_houses[hid] = {"wife_cell": bucket, "head_band_low": head_low,
-                                       "size_drawn": size}
-                continue
-            else:
-                left[bucket] -= 1
-                fills[bucket] += 1
-                members.append(person_record(
-                    f"{PREFIX}{hid[3:]}_wife", name, "wife", "female",
-                    band_block(low, high, row[3], wseed,
-                               "Never above the head's own band: the spacing rule of the "
-                               "household model, which the 1840 adult sex ratio argues for "
-                               "and no source states."),
-                    seed_for(hid, "household_size"),
-                    f"The household model drew this house at {size} people from the 1840 "
-                    f"city's size histogram, at the head's own band and not at the mean. A "
-                    f"house of {size} with a head of {head_low} and over is a married house, "
-                    f"and this is its wife.",
-                    seed_for(hid, "wife_forename"),
-                    f"The forename is drawn from the {community['label']} pool; the surname "
-                    f"is the head's own.",
-                    community, head_name))
-                drawn_band[book_band(low)] += 1
-                counts["wives"] += 1
-
-        counts["heads_drawn_for"] += 1
-
-        # THE CHILDREN. What the drawn size leaves once the head and his wife are seated.
-        # No child is born after the scene date and none is older than the marriage the
-        # head's own age allows, so the eldest is capped at his age band's low minus 20.
-        wanted = max(0, size - 2)
-        cap = min(19, max(0, head_low - 20))
-        for index in range(wanted):
-            cseed = seed_for(hid, f"child_{index + 1}_age_bands_1840")
-            allowed = [(r, w) for r, w in child_bands if r[1] <= cap]
-            if not allowed:
-                allowed = [(r, w) for r, w in child_bands if r[1] == 0]
-            row = pick(cseed, allowed)
-            low = row[1]
-            high = low + (5 if low < 20 else 10) - 1
-            sseed = seed_for(hid, f"child_{index + 1}_sex_ratio")
-            sex = "male" if unit(sseed) < boy_rate else "female"
-            given = forename(seed_for(hid, f"child_{index + 1}_forename"),
-                             community, sex, family_names)
-            family_names.add(given.lower())
-            relationship = "son" if sex == "male" else "daughter"
-            bucket = bucket_for(hid, card, sex, low, f"child_{index + 1}")
-            if left.get(bucket, 0) <= 0:
-                refused_buckets[bucket] += 1
-                continue
+                return False
             left[bucket] -= 1
             fills[bucket] += 1
-            members.append(person_record(
-                f"{PREFIX}{hid[3:]}_child_{index + 1}", f"{given} {surname}",
-                relationship, sex,
-                band_block(low, high, row[3], cseed,
-                           f"Capped at {cap} years: nobody is born after {SCENE_DATE}, and "
-                           f"no child of this house is older than the marriage the head's "
-                           f"own age band allows."),
-                seed_for(hid, "household_size"),
-                f"The household model drew this house at {size} people; the head and his "
-                f"wife seated, {wanted} of them are children.",
-                seed_for(hid, f"child_{index + 1}_forename"),
-                f"The forename is drawn from the {community['label']} pool; the surname "
-                f"is the head's own.",
-                community, head_name))
-            drawn_band[book_band(low)] += 1
-            counts["children"] += 1
+            return True
 
-        # THE BLOCK GOES IMMEDIATELY AFTER `present_on_scene_date`, not at the end.
-        # Several research passes own a trailing key and rebuild the card by popping
-        # theirs and appending it again (`old_settler_deaths` before `directories`, in
-        # spend_old_settlers.py); a new key at the end would move under them and their
-        # byte-for-byte --check would read it as drift. `resident_mint_carry` puts it in
-        # this same slot when a mint rebuilds the card, and the two have to agree.
-        rebuilt = {}
-        for key, value in card.items():
-            rebuilt[key] = value
-            if key == "present_on_scene_date":
-                rebuilt["modelled_family"] = None  # placed, filled in below
-        card.clear()
-        card.update(rebuilt)
-        card["persons"] = (card.get("persons") or []) + members
-        card["modelled_family"] = {
+        members, wife_cell, bands, short = kin_core(
+            hid, head_name, head_low, surname, community, size,
+            (female_adult, child_bands, boy_rate), take, card)
+        if wife_cell is not None:
+            # THE WIFE IS THE HOUSE. The model drew this house married; if the book
+            # has no woman left for her cell, the married house is not a house this
+            # stage may half-draw. Seating the children of a marriage the book would
+            # not seat would put a fatherless-looking cottage of infants on the
+            # ground and would read as evidence of a family nobody drew. The whole
+            # house is refused, the cell that refused it is named, and the head is
+            # left exactly as the sources leave him.
+            refused_buckets[wife_cell] += 1
+            refusals["the order book has no woman left in this house's cell"] += 1
+            counts["houses_the_book_refused"] += 1
+            refused_size[size] += 1
+            refused_houses[hid] = {"wife_cell": wife_cell, "head_band_low": head_low,
+                                   "size_drawn": size}
+            continue
+        counts["heads_drawn_for"] += 1
+        for bucket in short:
+            refused_buckets[bucket] += 1
+        drawn_band.update(bands)
+        if size >= 2:
+            counts["wives"] += 1
+        counts["children"] += len(members) - (1 if size >= 2 else 0)
+
+        place_block(card, members, {
             "stage": STAGE,
             "ticket": TICKET,
             "household_type": household_type,
@@ -704,7 +755,7 @@ def fill(base: dict) -> tuple:
             "note": "The kin core only. A servant, an apprentice or a journeyman this "
                     "house may have held is priced by T-1183 and seated by T-1173; a "
                     "boarder is seated by T-1175. The drawn size is a floor on the house.",
-        }
+        })
         kin_size[1 + len(members)] += 1
         per_card[hid] = {"size_drawn": size, "kin_seated": 1 + len(members),
                          "household_type": household_type}
@@ -774,6 +825,106 @@ def fill(base: dict) -> tuple:
                       "she is still counted where T-1174 dealt her. What the town loses is "
                       "a household for every pair; `%s` keeps each folded card's own keys "
                       "so the fold re-derives." % FOLDS.relative_to(ROOT),
+    }
+
+    # T-2021: THE HOUSES THE RULING ADMITS ARE GIVEN THEIR FAMILIES. Last of all, after
+    # the folds, because the ruling is about the houses NO woman in the town could be wife
+    # to, and which those are is only known once T-2020's pairs are made. The admitted
+    # houses were read once and frozen in RULING (`--rule`), so nothing here is a live
+    # quota: each house draws the very family the book refused it, by `kin_core`, with
+    # the same seeds, and its people are filed as T-2021's fills, which is what the order
+    # book orders for it. A frozen house that is no longer refused — a source named his
+    # family, or a woman in the town now fits him — is passed over and counted, never
+    # drawn twice.
+    hosts = {pair["house"] for pair in ledger["re_housing"]["pairs"]}
+    still_refused = [h for h in refused_houses if h not in hosts]
+    rows = (female_adult, child_bands, boy_rate)
+    # THE RULING DRAWS LAST AND MAY NOT TAKE A NAME ANOTHER STAGE STANDS ON. The trade
+    # heads, the lodgers and the readmitted step past every name in `households/` when
+    # they draw, so a ruled wife who happened to take one of their names would re-deal
+    # them — and the businesses that adopted them by name with them. So the ruling steps
+    # past every name the layer bears, on every card in every resident directory, and
+    # every name this pass has already drawn — past the surname and first initial of every
+    # real person the re-admission minted, which is the key it withholds a reading on —
+    # and past every 1840 census head, because
+    # the resident synthesis bridges any card whose name is the only one to match a
+    # census head, and an invented child would be bridged to a real man's household.
+    town = set(taken) | other_directory_names() | census_1840_heads()
+    protected = readmitted_keys()
+    ruled = Counter()
+    ruled_kin = Counter()
+    ruled_fills = Counter()
+    ruled_band = Counter()
+    passed_over = []
+
+    def given(bucket: str) -> bool:
+        ruled_fills[bucket] += 1
+        return True
+
+    for hid in ruling.get("houses") or []:
+        if hid not in out or hid not in refused_houses or hid in hosts:
+            passed_over.append(hid)
+            continue
+        card = out[hid]
+        head = head_of(card)
+        head_name = str(head.get("name") or "")
+        size = refused_houses[hid]["size_drawn"]
+        members, _, bands, _ = kin_core(
+            hid, head_name, int(head["age_band"]["low"]), surname_of(head_name),
+            community_for(head, hid, pool), size, rows, given, card, RULING_TICKET,
+            town, protected)
+        place_block(card, members, {
+            "stage": STAGE,
+            "ticket": TICKET,
+            "household_type": "married_couple" if size == 2 else "family_with_children",
+            "size_drawn": size,
+            "kin_seated": 1 + len(members),
+            "seed": seed_for(hid, "household_size"),
+            "note": KIN_NOTE,
+            RULED_KEY: {
+                "ticket": RULING_TICKET,
+                "what_happened": (
+                    "DRAWN UNDER A RULING, NOT A QUOTA. The household model drew this "
+                    "house married at %d, and the order book had no woman left in its "
+                    "wife's cell; no woman the town already holds fits him either. "
+                    "T-2021 ruled that such a house is given its whole drawn family while "
+                    "the town stays inside the model's own range for 1 July 1835 — at "
+                    "most 3,265, the November count — and this house was admitted "
+                    "under it. The wife and children are the ones the model drew for "
+                    "this house from its own seeds, at the `reconstructed` tier; no "
+                    "source names them, and none says %s married." % (
+                        size, head_name or "this head")),
+            },
+        })
+        per_card[hid] = {"size_drawn": size, "kin_seated": 1 + len(members),
+                         "household_type": card["modelled_family"]["household_type"],
+                         "ruled": RULING_TICKET}
+        town |= {" ".join(m["name"].split()).lower() for m in members}
+        ruled["houses"] += 1
+        ruled["wives"] += 1
+        ruled["children"] += len(members) - 1
+        ruled[refused_houses[hid]["wife_cell"].split("/")[3]] += 1
+        ruled_kin[1 + len(members)] += 1
+        ruled_band.update(bands)
+    ledger["by_household"] = {k: per_card[k] for k in sorted(per_card)}
+    ledger["family_ruling"] = {
+        "ticket": RULING_TICKET,
+        "of": TICKET,
+        "ruling": ruling.get("ruling"),
+        "frozen_in": str(RULING.relative_to(ROOT)),
+        "houses_no_woman_in_the_town_fits": len(still_refused),
+        "houses_admitted": ruling.get("admitted", len(ruling.get("houses") or [])),
+        "houses_given_their_family": ruled["houses"],
+        "frozen_houses_passed_over": sorted(passed_over),
+        "houses_standing_alone": len(still_refused) - ruled["houses"],
+        "people_drawn": ruled["wives"] + ruled["children"],
+        "wives": ruled["wives"],
+        "children": ruled["children"],
+        "by_division": {d: ruled[d] for d in CIVIL if ruled[d]},
+        "kin_seated_histogram": {str(k): v for k, v in sorted(ruled_kin.items())},
+        "drawn_into_bands": dict(sorted(ruled_band.items())),
+        "fills": dict(sorted(ruled_fills.items())),
+        "the_bound": ruling.get("the_bound"),
     }
     return out, ledger, folds
 
@@ -971,6 +1122,9 @@ def re_housing(base: dict, refused: dict) -> dict:
 # about a house, and printed on his card they would read as his.
 
 FOLD_TICKET = "T-2020"
+#: T-2021, piece 3 of 3: the ruling on the houses no woman in the town can be wife to.
+RULING_TICKET = "T-2021"
+RULED_KEY = "ruled"
 #: On every person a fold moved: the house they were dealt in and what they were in it.
 FOLD_KEY = "folded_in"
 #: Inside the host's `modelled_family`: whose house was folded in, and why.
@@ -1167,16 +1321,20 @@ def what_closes_it(ledger: dict) -> str:
     wrong, and T-2019 is where that was measured: a move puts nobody new in the town, so
     it cannot move a count of men against women at all."""
     rh = ledger.get("re_housing") or {}
-    return ("NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE. %d married "
-            "houses stand refused because the book has no woman left in their cell. "
-            "Re-housing the town's own women into them moves nobody between the sexes, so "
-            "it leaves this ratio where it is; what it changes is who keeps house with "
-            "whom. Of the %d, %d took the wife and children of one of T-1174's "
-            "woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and %d cannot "
-            "take any woman the town holds. Those are T-2021's: a re-cut of the order book "
-            "that orders more women, or heads that stand alone." % (
-                ledger["houses_the_book_refused"], ledger["houses_the_book_refused"],
-                rh.get("matched", 0), rh.get("houses_no_woman_in_the_town_fits", 0)))
+    fr = ledger.get("family_ruling") or {}
+    return ("NO MOVE CLOSES IT, AND THE RULING ONLY NARROWS IT. %d married houses stood "
+            "refused because the book had no woman left in their cell. %d took the wife and "
+            "children of one of T-1174's woman-headed houses (T-2019, T-2020), which moves "
+            "nobody between the sexes. Of the %d no woman in the town fits, T-2021's ruling "
+            "gave %d their whole drawn family (%d people) while the town stays inside the "
+            "model's range for 1 July 1835, and %d stand alone because their families would "
+            "carry it past the 3,265 the range ends at. What is left of the gap is the adult "
+            "men the town already holds: there are more of them than a town of that size has "
+            "women for." % (
+                ledger["houses_the_book_refused"], rh.get("matched", 0),
+                rh.get("houses_no_woman_in_the_town_fits", 0),
+                fr.get("houses_given_their_family", 0), fr.get("people_drawn", 0),
+                fr.get("houses_standing_alone", 0)))
 
 
 def measurement(base: dict, live: dict, ledger: dict) -> dict:
@@ -1229,6 +1387,180 @@ def measurement(base: dict, live: dict, ledger: dict) -> dict:
 
 # --------------------------------------------------------------------- modes --
 
+# ------------------------------------------------------------------- the ruling --
+#
+# T-2021, piece 3 of 3 of T-1171's last bullet: the houses no woman in the town can be wife
+# to. The ticket offered two answers — a re-cut that orders more women, or heads that stand
+# alone — and the ruling is BOTH, partitioned by a bound the order book already carries
+# rather than one invented here: the town model's range for 1 July 1835, whose top is the
+# November 1835 town count (3,265). Every such house drawn whole would carry the town past
+# that count; a wife and no children would leave houses the model drew at five to eight as
+# childless couples in a town whose under-ten share is already below the model's bracket.
+# So a house is given its WHOLE drawn family, in a seeded order, while the town the book
+# converges to stays at or under the count, and a house whose family would carry it past
+# stands alone. The 1,254 adult men already present are what put the town near the top of
+# its range: at the model's own 146.8 they imply about 854 adult women, and 288 stand.
+#
+# THE ADMITTED HOUSES ARE READ ONCE AND FROZEN (`--rule`), the T-1538 shape: a re-cut of
+# the book, or a stage upstream drawing one more person, must not re-deal a family this
+# ruling seated. `--build` reads the frozen list and never recomputes it.
+
+def other_directory_names() -> set:
+    """Every person's name on a card outside `households/` — the trade heads, the lodgers,
+    the readmitted, the transients and the institutions — lower-cased and single-spaced."""
+    out = set()
+    for directory in sorted(HOUSEHOLDS.parent.iterdir()):
+        if not directory.is_dir() or directory == HOUSEHOLDS:
+            continue
+        for path in sorted(directory.glob("hh_*.json")):
+            for person in json.loads(path.read_text(encoding="utf-8")).get("persons") or []:
+                name = " ".join(str(person.get("name") or "").split()).lower()
+                if name:
+                    out.add(name)
+    return out
+
+
+def readmit_key(name: str) -> str:
+    from readmit_borderline_roster import name_key
+    return name_key(name)
+
+
+def readmitted_keys() -> set:
+    """`surname|initial` of every person `readmit_borderline_roster.py` minted under a read
+    name. They carry `grade: reconstructed` — the presence is the reconstruction — but the
+    name is a reading, so it is the one an invention must not stand in front of."""
+    out = set()
+    for path in sorted((HOUSEHOLDS.parent / "readmitted").glob("hh_*.json")):
+        for person in json.loads(path.read_text(encoding="utf-8")).get("persons") or []:
+            key = readmit_key(person.get("name"))
+            if key:
+                out.add(key)
+    return out
+
+
+def census_1840_heads() -> set:
+    """The 1840 census heads the resident synthesis bridges a card to by name, keyed the
+    way it keys them (`synthesize_resident_research.name_key`)."""
+    import csv
+    from synthesize_resident_research import CENSUS_CSV, name_key
+    if not CENSUS_CSV.exists():
+        return set()
+    out = set()
+    with CENSUS_CSV.open(newline="", encoding="utf-8-sig") as handle:
+        for row in csv.DictReader(handle):
+            key = name_key(row.get("head_name_normalized") or row.get("head_name_transcribed"))
+            if key:
+                out.add(key)
+    return out
+
+
+def load_ruling() -> dict:
+    if not RULING.exists():
+        return {}
+    return json.loads(RULING.read_text(encoding="utf-8"))
+
+
+def population_top() -> int:
+    for section in json.loads(MODEL.read_text(encoding="utf-8"))["sections"]:
+        if section["key"] == "population":
+            for figure in section["figures"]:
+                if figure["figure"] == "population_on_1_july_1835":
+                    return int(figure["high"])
+    raise SystemExit("the town model carries no population_on_1_july_1835 range")
+
+
+def admit(houses: list, kin: dict, room: int) -> tuple:
+    """(admitted, standing alone). Pure. `houses` in the order they are served; a house is
+    admitted whole if its kin fit the room left, and otherwise stands alone while the
+    houses after it are still offered what is left — so the room is spent, never
+    overrun, and no house is half-drawn."""
+    admitted, alone = [], []
+    for hid in houses:
+        if kin[hid] <= room:
+            admitted.append(hid)
+            room -= kin[hid]
+        else:
+            alone.append(hid)
+    return admitted, alone
+
+
+def lodging_place_ids() -> set:
+    """Every place the lodging model gives beds, which T-1371 deals."""
+    from seat_lodgers_1835 import lodging_model
+    return {place["id"] for place in lodging_model().get("places") or []}
+
+
+def ruling_order(hid: str) -> str:
+    return hashlib.blake2s(seed_for(hid, "family_ruling_order").encode("utf-8")).hexdigest()
+
+
+def rule(force: bool = False) -> int:
+    """Read the ruling's houses once, and freeze them."""
+    if RULING.exists() and not force:
+        print("  REFUSED %s is frozen; --rule --force re-reads it, and re-deals every "
+              "family it seats" % RULING.relative_to(ROOT))
+        return 1
+    base = base_layer(cards())
+    _, ledger, _ = fill(base, {})
+    hosts = {pair["house"] for pair in ledger["re_housing"]["pairs"]}
+    refused = ledger["houses_the_book_refused_by_household"]
+    # A HEAD WHOSE CARD ALREADY LIVES AT A LODGING PLACE IS NOT OFFERED. His bed is one of
+    # the lodging model's, which T-1371 deals; a family drawn onto it would take beds the
+    # boarders stand on and re-deal them — and the businesses that adopted them by name.
+    inns = lodging_place_ids()
+    lodged = sorted(h for h in refused if h not in hosts
+                    and value_of(base[h].get("lives_at")) in inns)
+    candidates = sorted((h for h in refused if h not in hosts and h not in lodged),
+                        key=lambda h: (ruling_order(h), h))
+    kin = {h: refused[h]["size_drawn"] - 1 for h in candidates}
+    book = json.loads(BOOK.read_text(encoding="utf-8"))
+    already = sum(int(f.get("records") or 0) for f in book.get("fills") or []
+                  if f.get("ticket") == RULING_TICKET)
+    converges = int(book["totals"]["persons_when_the_book_is_filled"]) - already
+    top = population_top()
+    admitted, alone = admit(candidates, kin, top - converges)
+    doc = {
+        "_doc": "FROZEN — written once by tools/reconstruct_modelled_families.py --rule and "
+                "read by --build; it is not re-derived, so a re-cut re-deals nobody it "
+                "seats (the T-1538 shape). Do not hand-edit.",
+        "id": "1835_family_ruling",
+        "ticket": RULING_TICKET,
+        "of": TICKET,
+        "target_date": SCENE_DATE,
+        "not_a_reading": "a ruling over committed derived files — no page of any source "
+                         "was opened",
+        "ruling": "A married house the order book refused a wife, and no woman in the "
+                  "town fits, is given its whole drawn family — wife and children, by the "
+                  "stage's own seeds — while the town the book converges to stays inside "
+                  "the town model's range for 1 July 1835; a house whose family would "
+                  "carry it past the range's top stands alone.",
+        "the_bound": {
+            "population_on_1_july_1835_top": top,
+            "what_the_top_is": "the November 1835 town count; the town model's range for "
+                               "the scene date ends at it",
+            "the_book_converged_to_without_the_ruling": converges,
+            "room": top - converges,
+            "kin_offered": sum(kin.values()),
+            "kin_admitted": sum(kin[h] for h in admitted),
+            "the_town_converges_to": converges + sum(kin[h] for h in admitted),
+        },
+        "order": "blake2s of `<house>:family_ruling_order`, then the id; a house whose "
+                 "family does not fit the room left stands alone and the houses after it "
+                 "are still offered the rest",
+        "houses_offered": len(candidates),
+        "not_offered_living_at_a_lodging_place": lodged,
+        "admitted": len(admitted),
+        "standing_alone": len(alone),
+        "houses": admitted,
+        "alone": alone,
+    }
+    RULING.write_text(dumps(doc), encoding="utf-8")
+    print("  froze %s: %d of %d houses admitted, %d kin, the town converges to %d of %d"
+          % (RULING.relative_to(ROOT), len(admitted), len(candidates),
+             doc["the_bound"]["kin_admitted"], doc["the_bound"]["the_town_converges_to"], top))
+    return 0
+
+
 def base_layer(live: dict) -> dict:
     """The layer as it stood before this stage ran: unfolded, then this pass stripped."""
     return {hid: without_this_pass(card) for hid, card in unfold(live)[0].items()}
@@ -1268,7 +1600,12 @@ def write_fills(ledger: dict) -> None:
     rows = [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
               "by": "tools/reconstruct_modelled_families.py --build"}
              for key, n in sorted(ledger["fills"].items())]
-    book["fills"] = ob.splice_fills(book.get("fills", []), {TICKET}, rows)
+    # T-2021's draw is filed under its own ticket: the book ORDERS exactly these, so its
+    # rows have to be told apart from the quota T-1171 drew against.
+    rows += [{"bucket": key, "ticket": RULING_TICKET, "stage": STAGE, "records": n,
+              "by": "tools/reconstruct_modelled_families.py --build"}
+             for key, n in sorted(ledger["family_ruling"]["fills"].items())]
+    book["fills"] = ob.splice_fills(book.get("fills", []), {TICKET, RULING_TICKET}, rows)
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ob.cmd_build()
 
@@ -1309,12 +1646,32 @@ def check() -> int:
     if ours_fills != {k: v for k, v in ledger["fills"].items()}:
         print("  FAIL the order book's fills for %s are not this stage's ledger" % TICKET)
         return 1
+    ruled_fills = {f["bucket"]: int(f.get("records") or 0)
+                   for f in book.get("fills", []) if f.get("ticket") == RULING_TICKET}
+    if ruled_fills != ledger["family_ruling"]["fills"]:
+        print("  FAIL the order book's fills for %s are not the ruling's draw" % RULING_TICKET)
+        return 1
+    fr = ledger["family_ruling"]
+    if fr["frozen_houses_passed_over"]:
+        print("  FAIL %d house(s) the ruling froze are no longer refused a wife (%s): the "
+              "ruling stands on a layer that has moved under it — re-read it with --rule "
+              "--force and say why" % (len(fr["frozen_houses_passed_over"]),
+                                       ", ".join(fr["frozen_houses_passed_over"][:4])))
+        return 1
+    converges = int(book["totals"]["persons_when_the_book_is_filled"])
+    if fr["houses_admitted"] and converges > population_top():
+        print("  FAIL the town the book converges to is %d, past the %d the ruling is "
+              "bounded by" % (converges, population_top()))
+        return 1
     print("  ok    %d head(s) carry a drawn family; %d people re-derive from their seeds"
           % (ledger["heads_drawn_for"], ledger["people_drawn"]))
     print("  ok    %d woman-headed house(s) fold into a refused married house, exactly the "
           "pairs T-2019 measured" % ledger["married_from_the_town"]["houses"])
     print("  ok    the order book carries %d fill(s) for %s and no bucket is overfilled"
           % (len(ours_fills), TICKET))
+    print("  ok    %d house(s) given their family under %s's ruling (%d people); the town "
+          "converges to %d of %d" % (fr["houses_given_their_family"], RULING_TICKET,
+                                     fr["people_drawn"], converges, population_top()))
     return 0
 
 
@@ -1377,6 +1734,19 @@ def report() -> int:
     print("   %5d  married houses still refused a wife (T-2021)" % mt["houses_still_refused"])
     print("   female-headed households now %s"
           % (stats["female_headed_households_after_the_moves"],))
+    fr = ledger["family_ruling"]
+    bound = fr.get("the_bound") or {}
+    print("THE RULING ON THE HOUSES NO WOMAN IN THE TOWN FITS (T-2021)")
+    print("   %5d  houses no woman in the town fits" % fr["houses_no_woman_in_the_town_fits"])
+    print("   %5d  given their whole drawn family   %s   kin seated %s"
+          % (fr["houses_given_their_family"], fr["by_division"], fr["kin_seated_histogram"]))
+    print("   %5d  people drawn: %d wives, %d children"
+          % (fr["people_drawn"], fr["wives"], fr["children"]))
+    print("   %5d  houses standing alone — their families would carry the town past %s"
+          % (fr["houses_standing_alone"], bound.get("population_on_1_july_1835_top")))
+    print("   the town the book converges to: %s without the ruling, %s with it"
+          % (bound.get("the_book_converged_to_without_the_ruling"),
+             bound.get("the_town_converges_to")))
     if ledger["refused_by_the_order_book"]:
         print("REFUSED BY THE ORDER BOOK — the quota doing its job")
         for bucket, n in sorted(ledger["refused_by_the_order_book"].items()):
@@ -1540,6 +1910,21 @@ def self_test() -> int:
                                   for p_ in ledger["re_housing"]["pairs"]))
     fires("no folded house stands in the layer", not set(folds) & set(filled))
 
+    # T-2021: THE RULING'S ADMISSION. Whole houses, in order, never past the room.
+    got, alone = admit(["a", "b", "c", "d"], {"a": 3, "b": 5, "c": 1, "d": 2}, 6)
+    fires("the ruling admits whole houses and never overruns the range's room",
+          got == ["a", "c", "d"] and alone == ["b"])
+    fires("a house too big for what is left stands alone and smaller ones are still offered",
+          admit(["x", "y"], {"x": 9, "y": 1}, 4) == (["y"], ["x"]))
+    fires("no room admits nobody", admit(["a"], {"a": 1}, 0) == ([], ["a"]))
+    _, frozen_ledger, _ = fill(base_layer(cards()), {"houses": ["hh_no_such_house"]})
+    fires("a frozen house that is no longer refused is passed over, never drawn",
+          frozen_ledger["family_ruling"]["frozen_houses_passed_over"] == ["hh_no_such_house"]
+          and frozen_ledger["family_ruling"]["houses_given_their_family"] == 0)
+    fires("the frozen ruling admits no house past the model's range",
+          (load_ruling().get("the_bound") or {}).get("the_town_converges_to", 0)
+          <= population_top())
+
     print("   %d rule(s) checked, %d failed" % (len(checked), len(failures)))
     return 1 if failures else 0
 
@@ -1550,7 +1935,12 @@ def main(argv) -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--rule", action="store_true",
+                    help="read T-2021's admitted houses once and freeze them")
+    ap.add_argument("--force", action="store_true")
     args = ap.parse_args(argv)
+    if args.rule:
+        return rule(args.force)
     if args.build:
         return build()
     if args.check:

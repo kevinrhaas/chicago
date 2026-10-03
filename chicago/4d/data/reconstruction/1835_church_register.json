@@ -165,8 +165,8 @@
   "tier": "reconstructed"
  },
  "counts": {
-  "r6_rows_citing_the_register": 24,
-  "already_on_a_card": 20,
+  "r6_rows_citing_the_register": 27,
+  "already_on_a_card": 23,
   "cards_minted": 2,
   "minted_present": 1,
   "minted_absent": 1,
@@ -345,6 +345,14 @@
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
   {
+   "row_id": "card:hh_choulet_claudia_pierrette",
+   "name_as_read": "Claudia Pierrette Choulet",
+   "household_id": "hh_choulet_claudia_pierrette",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
    "row_id": "card:hh_gagnier_alexis",
    "name_as_read": "Alexis Gagnier",
    "household_id": "hh_gagnier_alexis",
@@ -412,6 +420,22 @@
    "row_id": "card:hh_laframboise_thrse",
    "name_as_read": "Thrse Laframboise",
    "household_id": "hh_laframboise_thrse",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_ltendre_baptiste",
+   "name_as_read": "Baptiste Ltendre",
+   "household_id": "hh_ltendre_baptiste",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_smith_mathias",
+   "name_as_read": "Mathias Smith",
+   "household_id": "hh_smith_mathias",
    "community_term": "metis",
    "rule": "community_term_on_the_card",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."

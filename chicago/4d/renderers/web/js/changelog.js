@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1375, ts: '2026-10-03T19:33:16.866Z', date: 'Oct 3, 2026, 2:33 PM CT', title: 'Two hundred lone men now keep house with a wife and children', kind: 'change',
+    items: [
+      'Open the People view and pick a household with a reconstructed family. 202 more houses now hold a wife and children, 660 people in all. The household card says why they were drawn.',
+      'These were men the records name, whose houses the model drew as married but who had no woman in the town to be their wife. Each now has the family the model drew for that house.',
+      'The town now numbers 3,265 once every order is filled, the November 1835 count. 75 houses whose families would go past it still stand alone.',
+      'The wives and children are our reconstruction, and no source names them (liberty L244).',
+    ] },
   { v: 1374, ts: '2026-10-03T17:24:17.483Z', date: 'Oct 3, 2026, 12:24 PM CT', title: 'A new jaunt: Along the Working Harbor', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Along the Working Harbor, about six minutes on horseback.',

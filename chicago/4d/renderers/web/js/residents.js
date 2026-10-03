@@ -1818,7 +1818,18 @@ function modelledFamilyHtml(block) {
     of the 1835 resident reconstruction programme, ${escapeHtml(String(block.ticket))}.
     ${escapeHtml(String(block.note || ''))}${
     block.seed ? ` Redrawn with the seed <code>${escapeHtml(String(block.seed))}</code>.` : ''}
-    </span></dd>${marriedHtml(block.married)}`;
+    </span></dd>${marriedHtml(block.married)}${ruledHtml(block.ruled)}`;
+}
+
+/**
+ * T-2021: a married house no woman in the town could be wife to, given the family the
+ * model drew for it under a ruling bounded by the town's population range.
+ */
+function ruledHtml(ruled) {
+  if (!ruled || typeof ruled !== 'object') return '';
+  return `<dt>Why this family was drawn</dt><dd>${swatch('reconstructed')}
+    ${escapeHtml(String(ruled.what_happened || ''))}
+    <br><span class="res-why">Ruled by ${escapeHtml(String(ruled.ticket))}.</span></dd>`;
 }
 
 /**

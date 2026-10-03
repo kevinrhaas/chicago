@@ -1768,8 +1768,8 @@
     "recon_1835_blk_randolph_dearborn_d3_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 28020,
-      "inputs_sha256": "afa74d1093c9590dc0ff3cd9486029a100e4b749ab51c8dd3ca952ce27b83d23",
+      "bytes": 28016,
+      "inputs_sha256": "51502cd98006f81bfa29af883bc6cbe47402733d193a1a136de8dd72fe3b5407",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_dearborn_d3_01"
@@ -1868,7 +1868,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 31612,
-      "inputs_sha256": "5e56b813464f5c707b1a463e9f0d33e75aded10360b7050ce382211cb65cd79a",
+      "inputs_sha256": "dc53fc599bb54d71e02400d232866c449dbbc23ee55e858a5dbd1ed29f2b43d8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_franklin_d3_04"
@@ -1912,8 +1912,8 @@
     "recon_1835_blk_randolph_market_d1_10__inferred_1835.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 32828,
-      "inputs_sha256": "9b03ab71370bc54abe1ec0b3c675bf49ce3c4745c2aec53cdaf8898680f6280f",
+      "bytes": 32832,
+      "inputs_sha256": "ab9b0c205a6ffa679fa868ac34644ced86753f1eb321e8ef3a938ebeca2a51e7",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d1_10"
@@ -2129,7 +2129,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32836,
-      "inputs_sha256": "f2cb97ec704b668f9db5579d2c23bca0c93d1c83de6c4c7be9ae39a6b0c51522",
+      "inputs_sha256": "26d53fff0cbec8fd18b0a2f3bcf84e229af04982be954801cc6e2721e793a816",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d1_04"
@@ -2138,7 +2138,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 28024,
-      "inputs_sha256": "f41137465ffaa84a1e041310730f504e0b48cbcc502bdd1612924d0455c5e2d6",
+      "inputs_sha256": "a78e8450f1bddea99037a4e760c297bb661226c2ff9c03eb369cdcda477de698",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d3_03"
@@ -2525,7 +2525,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32836,
-      "inputs_sha256": "9de94d8d3f088a3bba1145cdbe6c8f69a960a597e048bcfc97fd1ea4be5a4707",
+      "inputs_sha256": "e66da8c7a2433acac0fc2039bf7b650c95b468251720d52dc16e35bb791d6164",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d1_05"

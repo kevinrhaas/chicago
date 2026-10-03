@@ -12716,8 +12716,22 @@ instruction — and the size is seated as a wife and children: 84 wives and 212 
 the sources do not name. Thirty-five of the hundred and nineteen drew a house of one and hold no
 kin at all, so the drawn people stand on 84 cards.
 
-**Scope:** `residents.persons[modelled_families]` — 295 people in 84 households, every one of
-them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
+**Scope:** `residents.persons[modelled_families]` — 955 people in 286 households, every one of
+them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2021 RAISED IT FROM
+295, AND BY A RULING RATHER THAN A QUOTA (2026-10-03).** 277 married houses the book refused a wife
+were left that no woman already in the town fits (T-2019, T-2020). The ruling gives such a house
+its WHOLE drawn family — the very wife and children the model drew for it, from its own seeds —
+while the town the order book converges to stays inside the town model's range for 1 July 1835,
+whose top is the November 1835 count of 3,265; a house whose family would carry the town past
+that count stands alone. 202 houses were admitted (660 people: 202 wives, 458 children) and 75
+stand alone; two heads whose cards already live at an inn were not offered, because their beds
+are the lodging stage's. All 277 drawn whole would have been 904 people and a town of 3,509 — past the count;
+a wife without the children would have left houses drawn at five to eight as childless couples in
+a town whose under-ten share is already below the model's bracket. The admitted houses are frozen
+in `data/reconstruction/1835_family_ruling.json`, and the ruling steps past every name the layer
+already bears. What is invented is the same as above, at the same tier; what bounds it is the
+range, not the pyramid's cells, and the adult men already present (1,254 to 288 women) are why the
+range binds before the sex ratio does. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
 
 **What is invented, stated plainly.** That these men were married at all; how many children each
 had; every child's age band and sex; every forename. The surname is the head's own, the forename

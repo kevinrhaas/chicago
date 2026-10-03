@@ -1,6 +1,6 @@
 # Convergence coverage — which roles and which places reach 1 July 1835
 
-Derived by `tools/report_convergence_coverage.py --build` (T-1144, acceptance 7) over `data/residents/households/`, the location reconciliation and the business register. Table: `data/research/convergence_coverage.json.gz`, 2,383 rows, one per person. Do not edit either by hand.
+Derived by `tools/report_convergence_coverage.py --build` (T-1144, acceptance 7) over `data/residents/households/`, the location reconciliation and the business register. Table: `data/research/convergence_coverage.json.gz`, 3,043 rows, one per person. Do not edit either by hand.
 
 This report RE-DECIDES NOTHING. Every reach flag is copied from the derivation that owns it — `roles[].covers_scene_date` for a role, the reconciliation's `resolved`-at-`scene_date` grading for a home or a workplace, the firm's own `present_at_scene_date` for a business premises — so a row here can only be wrong if its source is wrong, and each of those sources is gated above this one.
 
@@ -10,17 +10,17 @@ Read the three verdicts apart. **reaches** — at least one row on the axis reac
 
 | Axis | reaches 1 Jul 1835 | limited | no claim |
 | --- | ---: | ---: | ---: |
-| `roles[]` — trades, professions, offices | 138 | 190 | 2,055 |
-| home (`lives_at`) | 183 | 283 | 1,917 |
-| work (`works_at`) | 138 | 0 | 2,245 |
-| other places — later addresses, business premises | 128 | 363 | 1,892 |
+| `roles[]` — trades, professions, offices | 138 | 190 | 2,715 |
+| home (`lives_at`) | 183 | 311 | 2,549 |
+| work (`works_at`) | 149 | 0 | 2,894 |
+| other places — later addresses, business premises | 128 | 454 | 2,461 |
 
-Of 2,383 people in 1,421 households.
+Of 3,043 people in 1,421 households.
 
 | Axes reaching the scene date | People |
 | --- | ---: |
-| 0 | 1,963 |
-| 1 | 294 |
+| 0 | 2,612 |
+| 1 | 305 |
 | 2 | 88 |
 | 3 | 35 |
 | 4 | 3 |
@@ -29,7 +29,7 @@ Of 2,383 people in 1,421 households.
 
 **Roles.** 738 dated role rows across the layer; 160 reach 1 July 1835. By kind: `employment` 1, `office` 52, `profession` 84, `trade` 601.
 
-**Places.** 3,244 location rows reach a person; 472 of them reach the scene date. By claim kind: `business_location` 151, `home` 2,383, `later_home_address` 153, `later_workplace_address` 419, `workplace` 138.
+**Places.** 4,032 location rows reach a person; 483 of them reach the scene date. By claim kind: `business_location` 151, `home` 3,043, `later_home_address` 179, `later_workplace_address` 510, `workplace` 149.
 
 A person inherits his household's `home` and `workplace` rows — the claim is made about the roof, not about the man — and inherits a `business_location` row from every firm that names him as proprietor, partner or staff. That is why the location row count above is larger than the reconciliation's own: the same roof is carried to each of the people living under it.
 
@@ -39,7 +39,7 @@ A person inherits his household's `home` and `workplace` rows — the claim is m
 | --- | ---: |
 | `absent` | 2 |
 | `present` | 1,038 |
-| `uncertain` | 1,343 |
+| `uncertain` | 2,003 |
 
 Presence is not a fifth axis. It is the household's verdict (T-1144 acceptance 9, with the last dated sighting under it) and it is carried here only so a row can be read without a second file open. A man whose household is `uncertain` may still hold a role that reaches the day: the role is bounded by its own source, and the two bounds are different questions.
 

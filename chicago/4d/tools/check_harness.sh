@@ -136,8 +136,12 @@ _CHECK_Q_CMD=()
 # A queued step is stored as a %q-quoted string and re-run with `eval`. The quoting is
 # produced here rather than parsed from anywhere, so it round-trips whatever a caller
 # passed — including the labels with em-dashes and quotes that this gate is full of.
+_CHECK_SEEN=0
 _check_enqueue() {
   local kind="$1" label="$2"; shift 2
+  _CHECK_SEEN=$((_CHECK_SEEN + 1))
+  [ "$_CHECK_SEEN" -lt "${CHECK_FROM:-0}" ] && return 0
+  [ "$_CHECK_SEEN" -ge "${CHECK_UNTIL:-99999}" ] && return 0
   _CHECK_Q_KIND+=("$kind")
   _CHECK_Q_LABEL+=("$label")
   _CHECK_Q_CMD+=("$(printf '%q ' "$@")")

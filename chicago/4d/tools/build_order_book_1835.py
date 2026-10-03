@@ -151,7 +151,13 @@ HOUSEHOLD_TYPES = (
 # decides whether the book orders more women or the heads stand alone, and the men and
 # houses still owed here are the same question. The modelled-families STAGE keeps its
 # own ticket, T-1171, on its fills; that is who drew, not who is owed.
-FAMILY_OWNER = "T-2021"
+# T-2021 RULED on 2026-10-03 (`data/reconstruction/1835_family_ruling.json`): 201 of the
+# 277 houses no woman in the town fits were given their whole drawn family, filling the
+# town to the model range's 3,265, and 76 stand alone. What the rows below still order —
+# family and store households, and adult men in family houses who are not anybody's kin —
+# is a reconciliation against the 1,293 head records awaiting a household, not more
+# drawing, and T-2043 owns it.
+FAMILY_OWNER = "T-2043"
 
 # Which ticket fills a person bucket. Read top-down; the first rule that matches
 # owns the cell. Written here rather than in prose so the book can be audited
@@ -1373,6 +1379,38 @@ def _hand_out(total: int, wants: dict[str, int], caps: dict[str, int]) -> dict[s
         if moved == 0:
             break
     return out
+
+
+FAMILY_RULING = "T-2021"
+
+
+def order_the_ruling(buckets: list, fills: list) -> dict:
+    """Raise each person cell's order by the people T-2021's ruling drew into it. In place.
+
+    A fill naming the ruling is not a filler bypassing the book: the ruling admitted its
+    houses against the town's range before it drew them, and this is where the book
+    orders what was admitted. A ruling fill in a cell the book does not have is refused."""
+    ruled = Counter()
+    for fill in fills:
+        if fill.get("ticket") == FAMILY_RULING:
+            ruled[fill["bucket"]] += int(fill.get("records") or 0)
+    by_key = {b["key"]: b for b in buckets}
+    for key in sorted(ruled):
+        if key not in by_key:
+            raise Fault(f"T-2021's ruling files {ruled[key]} into {key}, which is no cell")
+        b = by_key[key]
+        b["to_reconstruct"] = (b["to_reconstruct"] or 0) + ruled[key]
+        b["ordered_by_ruling"] = ruled[key]
+    return {
+        "ticket": FAMILY_RULING,
+        "ruling": "a married house the book refused a wife, and no woman in the town "
+                  "fits, is given its whole drawn family while the town this book "
+                  "converges to stays inside the model's range for 1 July 1835; the rest "
+                  "stand alone",
+        "frozen_in": "data/reconstruction/1835_family_ruling.json",
+        "persons_ordered": sum(ruled.values()),
+        "cells": len(ruled),
+    }
 
 
 def recut_trade_remainder(buckets: list, participation: dict, drawn_by: dict) -> dict:
@@ -2975,6 +3013,22 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     # sat inside its new order.
     trade_re_cut = recut_trade_remainder(families[0]["buckets"], participation, drawn_by)
 
+    # T-2021'S RULING ORDERS WHAT ITS HOUSES DREW, AND NOT ONE PERSON MORE. The married
+    # houses no woman in the town could be wife to are given their whole drawn family while
+    # the town this book converges to stays inside the model's range for the scene date
+    # (`data/reconstruction/1835_family_ruling.json`, frozen). Those people stand in cells
+    # the pyramid had already filled, so the order is RAISED by exactly the ruling's fills:
+    # nothing is left owing on it and nothing is overfilled by it. The ruling, not the
+    # pyramid, is what bounds them, and the town it converges to is checked against that
+    # bound by the stage that draws them.
+    family_ruling = order_the_ruling(families[0]["buckets"], fills)
+    # …and the order a cell's work was drawn against carries it too, or a cell the re-cut
+    # already holds at its draw (`recut_refusals`) reads the ruling's people as a filler
+    # bypassing the book.
+    for b in families[0]["buckets"]:
+        if b.get("ordered_by_ruling") and quota_before.get(b["key"]) is not None:
+            quota_before[b["key"]] += b["ordered_by_ruling"]
+
     # THE RE-FAMILY LEDGER IS ADJUDICATED AGAINST THE CUT LADDER, not against the raw
     # axes: both ends have to be real person buckets, the two ends have to be the same
     # person, a bucket cannot move out more people than were ever drawn in it, and a
@@ -3166,6 +3220,7 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         # it put on each band, what moved, and every cell where a person already drawn stood
         # in its way. The SEX of the remainder is not re-cut and the block says why in terms.
         "trade_re_cut": trade_re_cut,
+        "family_ruling": family_ruling,
         # WHO HAS ALREADY SPENT AGAINST THIS BOOK, named with what they spent, so a reader can
         # tell the settled parts of the book from the open ones. A re-cut that moved a quota
         # under a stage which already spent is the one failure T-1459 exists to make
