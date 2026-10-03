@@ -161,6 +161,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Verify each item against trade/advertisement evidence; fictional prices remain labeled. The optional broader business layer must not supply later-only goods.
 
+**Route note (published, T-1263):** The shipped story order is Carpenter → Peck → Harmon & Loomis → Church. Carpenter's store stands west of Peck's corner on the same block face, so the proposed order walks west and then doubles back east past Peck's to Clark; starting at the druggist cuts that backtrack, about 40 m, and the list still ends with tea. Every good traces to a dated advertisement for its own firm: flour and calico to Peck's 1833–34 cards, liquorice ball to Carpenter's notice of 27 June 1835, tea, loaf sugar and crockery to Harmon, Loomis & Co.'s notices of 1834 and 20 June 1835. **Nothing is sold at Thomas Church's store**: the only source for it is one undated sentence naming the builder and no stock, so the stop is the tally, not a purchase, and the receipt is the keepsake. The whole walk is about 350 m along South Water, Clark and Lake.
+
 ## 05. Across Wolf Point
 
 **ID:** `across-wolf-point` · **Owner ticket:** [T-1264](../tickets/T-1264-publish-across-wolf-point-as-a-five-minute-jaunt.md)

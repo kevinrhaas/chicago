@@ -27,6 +27,75 @@ before the ending still on this software-rendered runner. `tools/test_jaunt_trav
 at 390×780 when the detail popup is open (the jaunt controls measure 0×0). It fails the same
 way on a clean `dev`, so it predates this change and is not caused by it.
 
+## T-1263 — Shopping South Water Street, a Commerce jaunt on the riverfront (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Shopping South Water Street* (Commerce,
+Walk). It has four exterior stops: Carpenter's drug store, Peck's store, Harmon, Loomis & Co.
+at Clark, and Thomas Church's store on Lake Street. The visitor has an imagined $3 purse and a
+basket of three. A liquorice ball comes from Carpenter, flour or calico from Peck, and Young
+Hyson tea and loaf sugar or a crockery bowl from Harmon & Loomis. If the purse has run short
+at the tea counter, a cheaper Souchong stands in. Every good is one the firm's own dated
+advertisement lists (1833–20 June 1835). Nothing is sold at Church's, because the one note
+that records his store names no stock, so that stop is the tally. The ending is *list filled*
+with a staple, the remedy and tea, and *list short* otherwise. The keepsake *The Household
+List* goes to Provisions. Content only: one JSON file, a liberty
+(`L-jaunt-shopping-south-water`), the regenerated catalog and source-use edges. There is no
+engine, compiler or CSS change.
+
+**Measured.** `play_jaunt.mjs --all-paths` walks 18 paths to both endings, with one keepsake.
+The substitution is reachable: flour plus liquorice leaves 75¢, and only Souchong fits. Read
+on the published mirror at both 390×780 and 1280×800, with the real router and no
+"approximate route" suffix, the card gives Walk about 6.5 min, Wagon 4, Horse 3, Fly 2.5 and
+Instantly 2. There were no page errors at 390×780; the desktop pass ended before it could
+count them. **Walk is half a minute over the 3–6 min band.** The
+four owner-named stores are only about 350 m apart, so the time is the walking pace plus the
+reading. The story order was changed to start at Carpenter's, which stands west of Peck's on
+the same block face. That cut the double-back and brought Walk down from 7 to 6.5 min.
+
+**Unverified.** At 390×780 these stills were taken: the catalog card, the opening, a detail
+card and Return, and a mid-leg walk with its leg note. The scripted pass did not reach the
+ending in the browser at either viewport. Headless software rendering stalled the page after
+the second stop, so the ending, the daybook entry and replay rest on the walker. The marker
+for Carpenter is mid-block and Church's place on Lake Street is reconstructed, and the stops
+say both.
+## T-2002 — the 1812 ground's zone table, written as what 1834 had that 1812 did not (2026-10-02)
+
+Piece 1 of 2 of T-1243 (of T-0468, the owner's e1812 battle landscape). T-1243 asked for the
+spec, the heightfield and the meshes in one run. The 1871 epoch took two runs for the same
+shape (#170 the spec, #173 the generation), so it was split: the spec here, and **T-2003**
+generates and bakes from it.
+
+**What changed. Nothing you can see in the 1835 town.** The 1812 epoch has no scene yet, and
+no ground is generated from this.
+- **`data/terrain/epochs/e1830_natural/terrain_spec.json`** is an overlay on the 1834 zone
+  table, not a copy. All 37 1834 blocks are accounted for: 22 carry, 3 carry_except,
+  5 replace, 3 drop (the bridge approaches and the street sections) and 4 own. Five 1812
+  blocks each cite a dossier zone: the lake stage (2), the spit (7), the **isthmus** (7), the
+  live outlet channel (26) and the lake shore north of the spit root (28). All are
+  `reconstructed`. Reasoning: `docs/RESEARCH/terrain_e1830_natural.md`.
+- **L240's hole is decided: surfaced.** It is 100 ft of sand at the spit's own +4 ft on
+  `spit_attachment_gap_1812`. Liberties **L362** (isthmus), **L363** (the shore north of the
+  root, a chord to 1834 index 39) and **L364** (stage at the 1835 plane; outlet bed −4 ft).
+- **T-1286's west-bank question is answered: undecided.** Reading (a) is weighed against, (b)
+  stays open, and (c) splits: the mouth did not move, and the bank is open. So the bank and
+  the outlet stay on Wright. The channel and the ground within 157 m west of it, from N −69 to
+  N −426.75, are graded **conjectural**.
+- **`tools/check_terrain_e1830.py`** is in check.sh with 18 self-tests. It refuses an 1834
+  block that is not decided for 1812, a harbour work carried back, an 1812 height not
+  `reconstructed` or citing a zone the dossier lacks, a breached or over-wide isthmus, an
+  outlet as deep as the main stem, and an undecided bank left at `inferred`. Its `resolve()`
+  is the effective table T-2003's generator reads.
+
+**Unverified / open.**
+- **Generation (T-2003)** is not done: the river polygon, heightfield and meshes don't exist.
+- **The battle corridor south of Twelfth Street is conjectural ground.** The carried
+  evidence limit says so, and nothing here changes it.
+- **The 1812 blocks avoid `compile_scene.GROUND_GROUPS` names on purpose** until the
+  generator's `CONSUMED` map is wired.
+
+**Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff` names;
+see the PR.
+
 ## T-1989 — the four empty trade roofs: none can be kept, and each card says why (2026-10-02)
 
 Piece 2 of T-1986 (of T-1966 → T-1215). Four anonymous trade roofs stood empty after every
