@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 375,
+  "count": 376,
   "liberties": [
     {
       "id": "L1",
@@ -22698,7 +22698,7 @@
         },
         {
           "label": "The W5 stays empty too",
-          "text": "no keeper of a heavy trade is left without a house in the North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery household, whose own card puts its works at the documented tannery 847 m away at the forks; seating them here would give one firm a second works no source records, and the deal declines it in words."
+          "text": "no keeper of a heavy trade is left without a house in the North Division, so the W5 on Wolcott says so on its card (`no_keeper_of_its_trade`). The off-plat deal (T-1614, L271) had adopted it for the Miller and Hall tannery household, whose own card puts its works at the documented tannery 847 m away at the forks; seating them here would give one firm a second works no source records, and the deal declines it in words. **Five more, T-1205 (2026-10-03).** The trade roofs **L368** raises on the north face of Kinzie Street join the deal: the W3 shop, the two C3 stores, the W2 joiner's shop and the C4 store (the T1 tavern is a lodging house and its lodgers fill it). The C4 is offered to the C3's store and grocery keepers; the W3 to coopers and wheelwrights, the two trades its crosswalk label names. None is kept: 6 storekeepers and 5 carpenters and joiners of the North Division are held by their count, and no cooper or wheelwright there is owed a house, so each card says which."
         },
         {
           "label": "Not done, and why",
@@ -23132,6 +23132,40 @@
         {
           "label": "Recorded",
           "text": "2026-10-03."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-mend-harness",
+      "title": "Mend the Harness: an invented repair at two trades' shops",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern",
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Mend the Harness links four existing exterior destinations (the stable behind W. H. Stow's Western Hotel, S. B. Cobb's saddle, harness and trunk manufactory, Asahel Pierce's blacksmith shop and the Green Tree Tavern) in an invented harness check before a long road. The wagon, the long road, the cracked trace, the worn whiffletree hook, the inspection in the yard, the restitching, the twine, the work at the forge, the decision at the Green Tree, the four endings and the Sound Tack keepsake are reconstructed, and so are the reading and action seconds. What each place did is sourced: the stable and its wagon yard from Stow's own account, the saddlery's trade and its promise of repairs from Goss & Cobb's November 1833 advertisement and Cobb's June 1835 continuation card, the smith's iron work from Andreas's account of Pierce, and the Green Tree's building and landlord from the hotel pages. That the trace goes to the saddler and the hook to the smith is the ordinary division of the two trades as their own records describe them; neither shop is claimed to have mended this harness, charged for it or had anyone at work on the day. No named person speaks or is met, no interior is opened and no front door is claimed. Which corner of Lake and Canal each shop held is not attested and the stops say so."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the four structure records, the Democrat's 26 November 1833 issue, the American's June 1835 issues, Andreas's paragraph on Pierce, the chicagology pages on the Western Hotel and the Green Tree, and brief 15 of JAUNTS-INITIAL-LIBRARY.md. The route, the damage, the repairs and the keepsake are present-day interpretive choices."
+        },
+        {
+          "label": "How to resolve",
+          "text": "These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record of a repair at either shop, or of the stable's own fittings, would let a stop name real work in place of the invented crack and hook."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/mend-the-harness.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2024)."
         }
       ]
     },
