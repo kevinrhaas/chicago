@@ -22,7 +22,7 @@ fires on a real seat.
 The small D2 shed on Lake west of Canal (`recon_1835_west_013`) is re-familied as a rough plank
 dwelling; the housing deal moves Ellen Doyle's household there from `recon_1835_west_011` and the
 room that frees seats nine more households that had no roof (523 → 514 unroofed). The roof join stays **closed**; owed a workplace stays
-at dev's **40**.
+at dev's **28**.
 
 **Unverified:** no source places any keeper at any of these roofs; the seat is the invention.
 
