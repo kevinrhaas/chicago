@@ -1,0 +1,88 @@
+{
+  "ticket": "T-2024",
+  "jaunt": "mend-the-harness",
+  "tree": "published mirror (tools/publish.sh) of branch steward/t2024-mend-the-harness",
+  "primary_path": "look-over > restitch > hook > ready => sound-tack",
+  "390": {
+    "card_estimates": {
+      "walk": "about 7.5 min",
+      "wagon": "about 5 min",
+      "horse": "about 4 min",
+      "fly": "about 3.5 min",
+      "instantly": "about 3 min"
+    },
+    "measured": {
+      "wagon": {
+        "estimate": 289.98148671833746,
+        "reading": 180,
+        "legs": [
+          61.433333333332406,
+          1.0333333333333332,
+          38.83333333333369
+        ],
+        "seconds": 281.29999999999944,
+        "phase": "outcome",
+        "outcome": "sound-tack"
+      },
+      "fly": {
+        "estimate": 214.71844024949567,
+        "reading": 180,
+        "legs": [
+          15.03333333333329,
+          1.8666666666666691,
+          10.599999999999973
+        ],
+        "seconds": 207.49999999999994,
+        "phase": "outcome",
+        "outcome": "sound-tack"
+      }
+    },
+    "page_errors": 0,
+    "ui_drive": {
+      "ending": "sound-tack",
+      "detail_card_returned_to_same_stop": true,
+      "stills": [
+        "390-card.png",
+        "390-opening.png",
+        "390-detail.png",
+        "390-ending.png"
+      ]
+    }
+  },
+  "1280": {
+    "card_estimates": {
+      "walk": "about 7 min",
+      "wagon": "about 4.5 min",
+      "horse": "about 4 min",
+      "fly": "about 3.5 min",
+      "instantly": "about 3 min"
+    },
+    "measured": {
+      "wagon": {
+        "estimate": 277.81512703089163,
+        "reading": 180,
+        "legs": [
+          60.29999999999914,
+          1.5666666666666682,
+          35.73333333333387
+        ],
+        "seconds": 277.5999999999997,
+        "phase": "outcome",
+        "outcome": "sound-tack"
+      },
+      "fly": {
+        "estimate": 213.15468919025494,
+        "reading": 180,
+        "legs": [
+          14.799999999999958,
+          1.8333333333333357,
+          10.199999999999974
+        ],
+        "seconds": 206.83333333333326,
+        "phase": "outcome",
+        "outcome": "sound-tack"
+      }
+    },
+    "page_errors": 0
+  }
+}
