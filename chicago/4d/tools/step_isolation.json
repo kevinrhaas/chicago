@@ -2416,6 +2416,9 @@
     "tools/audit_jaunt_refusals.py": {
       "wrote": []
     },
+    "tools/audit_jaunts.py": {
+      "wrote": []
+    },
     "tools/audit_manifest_coverage.mjs": {
       "wrote": []
     },
@@ -2552,6 +2555,9 @@
       "wrote": []
     },
     "tools/check_street_surfaces.py": {
+      "wrote": []
+    },
+    "tools/check_structure_corridors.py": {
       "wrote": []
     },
     "tools/check_terrain_e1830.py": {

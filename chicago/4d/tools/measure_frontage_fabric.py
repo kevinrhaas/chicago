@@ -916,9 +916,12 @@ def self_test() -> int:
     # ground beyond Jefferson now front a street inside the re-stated FRONTAGE_REACH_M:
     # recon_1835_west_039, _048, _050 and _052 Des Plaines, recon_1835_west_038 Fulton.
     # Nobody joined.
+    # 37 -> 36 on 2026-10-03 (T-1743): `beaubien_new_residence` is withdrawn and folded into
+    # the Beaubien homestead on the owner's ruling. The trading post moved west of the house
+    # and still fronts no street, so it stays in this count.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 37 and all(
+                   "leaving it out", len(absent) == 36 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))

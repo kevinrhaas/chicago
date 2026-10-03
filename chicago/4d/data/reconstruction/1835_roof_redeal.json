@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 5,
     "roof_target": 668,
-    "standing_before": 529,
-    "standing_after": 529,
-    "short_of_the_programme_before": 139,
-    "short_of_the_programme_after": 139
+    "standing_before": 528,
+    "standing_after": 528,
+    "short_of_the_programme_before": 140,
+    "short_of_the_programme_after": 140
   },
   "ledger": [
     {
@@ -199,11 +199,11 @@
       "group": "ordinary_dwellings",
       "division": "south",
       "target": 176,
-      "standing": 126,
+      "standing": 125,
       "anonymous": 116,
-      "head_before": 50,
-      "standing_after": 126,
-      "head_after": 50
+      "head_before": 51,
+      "standing_after": 125,
+      "head_after": 51
     },
     {
       "bucket": "structures/ordinary_dwellings/west",

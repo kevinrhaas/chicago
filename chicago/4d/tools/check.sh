@@ -2013,6 +2013,17 @@ step "no building has newly been drawn standing in a platted street" \
 selftest "…and its absolute assertion still fires when a generated roof is put in a street" \
   python3 tools/measure_corridor_intrusion.py --self-test
 
+# That gate and every generator ask the PLATTED corridors only, and the reservation had no
+# plat — so T-1712 placed two Beaubien buildings on the centreline of `fort_road` and
+# nothing asked (T-1743). This asks every street in data/streets/1835.json, at its own
+# declared width, of every phase standing on the layer's date: a ratchet on the 48 laps
+# banked on 2026-10-03, refusing a new one, a deeper one, or a cleared one left banked.
+step "no building is newly drawn standing in any street corridor, the fort road included (T-1743)" \
+  python3 tools/check_structure_corridors.py --gate
+
+selftest "…and it refuses the trading post put back on the fort road (T-1743)" \
+  python3 tools/check_structure_corridors.py --self-test
+
 # The platted corridor above is an Original Town and West Division question: not one of the
 # eleven corridors street_control.json measures is north of the river, and plat_corridors
 # gives no north-bank street a ring at all. So nothing re-derived a north-bank frontage, and
@@ -2734,6 +2745,14 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
+
+# T-2039 (of T-1271): the LIBRARY, not one story — the 25 named premises, the six
+# priority jaunts featured, 4-8 stops, quiet outings, keepsake families and ranks
+# reachable without replay, and the owner's subjects each carried by a jaunt.
+step "Jaunt library shape: roster, featured six, families, ranks, subjects (T-2039)" \
+  python3 tools/audit_jaunts.py
+selftest "…and each of its assertions still fires when the library is broken" \
+  python3 tools/audit_jaunts.py --self-test
 
 # compile_jaunts proves a jaunt is well-formed; this reads what it SAYS: no Indigenous
 # encounter staged, no figure or asset carried, no quotation the claims do not hold
