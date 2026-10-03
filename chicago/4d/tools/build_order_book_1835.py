@@ -1343,6 +1343,9 @@ REMAINDER_STABLE_STAGES = {
               "`quota_basis.top_up` of the same file, so a re-cut moves nobody it seats "
               "(T-1538; named here on 2026-10-03 when T-1205's re-cut first touched a cell "
               "it had drawn in)",
+    "T-1532": "tools/seat_lodgers_1835.py — the working lodgers, dealt against the "
+              "committed `quota_basis.working_lodgers` in the same file, read once and "
+              "carried, so a re-cut re-deals nobody they seat",
 }
 
 
