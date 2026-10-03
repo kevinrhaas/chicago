@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 362,
+  "count": 363,
   "liberties": [
     {
       "id": "L1",
@@ -17852,6 +17852,37 @@
         {
           "label": "Recorded",
           "text": "2026-09-27 (T-1253)."
+        }
+      ]
+    },
+    {
+      "id": "L-jaunt-new-in-chicago",
+      "title": "New in Chicago: an invented first day, its map errand and a bed by cost or convenience",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The finished New in Chicago keeps L-jaunt-pilot's five exterior stops and adds three inventions to them. At the Democrat's old office the visitor reads Kinzie and Forsyth's town-map notice; the notice is attested, but the reading, and any wish to buy a map, are not. At Brown's the visitor chooses a boarding arrangement — board by the week (cost) or a bed close to the stores (convenience). That choice, the two endings it leads to and the route note are reconstructed. No room, rate, vacancy, sale or conversation is attested; Mrs Brown and the map sellers say nothing; no interior is opened; no price is given."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene, the five structure records, brief 03 of JAUNTS-INITIAL-LIBRARY.md, and the notice's own printing window (dated 18 June 1834, still running on 10 June 1835). Brown's position stays reconstructed and the stop says so."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A dated 1835 boarding rate for Brown's house, or any record of a lodger's terms there, would replace the invented arrangement as its own cited claim; the errand and endings stay interpretation."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/jaunts/new-in-chicago.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-1262)."
         }
       ]
     },

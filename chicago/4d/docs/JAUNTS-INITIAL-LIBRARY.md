@@ -140,6 +140,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Hogan’s held the post office earlier; the record says it moved about July 1834. This is not the current 1835 mail counter. Engine pilot becomes this final authored jaunt, not a duplicate.
 
+**Route note (published, T-1262):** The proposed order is kept. The stops lie about 613 m apart in straight lines (Sauganash → Hogan 43 m, → Peck 318 m, → Democrat 123 m, → Brown 129 m). Every other order that ends at the bed is longer, so Walk reads about 10.5 min on the catalog card. That is over the 4–6 min target, and Horse reads about 4. The "useful notice" is Kinzie and Forsyth's town-map notice, dated 18 June 1834 and still running in June 1835. The boarding arrangement is a cost-or-convenience preference with no rate given (L-jaunt-new-in-chicago).
+
 ## 04. Shopping South Water Street
 
 **ID:** `shopping-south-water` · **Owner ticket:** [T-1263](../tickets/T-1263-publish-shopping-south-water-street-as-a-five-mi.md)
