@@ -14128,9 +14128,7 @@
       "reason": "named_by_a_source",
       "decided_by": "the card's own workplaces[], written by T-1432",
       "houses": [
-        "biz_a_new_auction_and_commission_room_south_water_street",
-        "biz_w_montgomery",
-        "biz_w_montgomery_auction_and_commission_house"
+        "biz_w_montgomery"
       ]
     },
     {
@@ -19682,7 +19680,7 @@
       "reason": "seated_by_the_staffing_model",
       "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
       "houses": [
-        "biz_montgomery_auction_and_commission_house"
+        "biz_the_boston_market"
       ]
     },
     {
@@ -26616,7 +26614,7 @@
       "reason": "seated_by_the_staffing_model",
       "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
       "houses": [
-        "biz_w_montgomery_auction_and_commission_house"
+        "biz_d_carver_co"
       ]
     },
     {
@@ -29806,7 +29804,7 @@
       "reason": "seated_by_the_staffing_model",
       "decided_by": "reconstructed_seating.json#seated, drawn by T-1433",
       "houses": [
-        "biz_montgomery_auction_and_commission_house"
+        "biz_a_leather_stock_chicago_june_1835"
       ]
     },
     {

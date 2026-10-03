@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1353, ts: '2026-10-03T07:41:24.128Z', date: 'Oct 3, 2026, 2:41 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
+  { v: null, ts: '', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
       'Walk east along the river on South Water Street. The street used to run out on open prairie about 22 metres short of State Street. It now runs on to meet State at the corner.',
       'The extra stretch carries the street\u2019s own line straight on, so nothing further west moved. The town plat ended at State Street, so the corner is attested; the exact line of the last 22 metres is our reconstruction (liberty L366).',
       'The invented freight shed that stood in that gap, below the Dearborn drawbridge, is gone, because the street now runs through where it stood. The shed behind it stays.',
+    ] },
+  { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
+    items: [
+      'Walk South Water Street to the store lettered W. MONTGOMERY, Auction & Commission House. He opened there in the last week of June 1835 and held his first sale on 1 July, the day the town is set.',
+      'The two Chicago papers ran his notice under four different headings, and the town held them as four businesses, so none of them could hang a board. They are one house now. His card gathers every printing, and his own words place him in David Carver\u2019s old store, a few doors west of J. Wright\u2019s.',
+      'Neither paper gives a door number, so which store on the street is his is our allocation. A few other South Water merchants moved one roof along to make room.',
     ] },
   { v: 1352, ts: '2026-10-03T07:12:28.066Z', date: 'Oct 3, 2026, 2:12 AM CT', title: 'Plank walks on both streets of the West Division block', kind: 'feature',
     items: [
