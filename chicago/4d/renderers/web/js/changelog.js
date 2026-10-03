@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1350, ts: '2026-10-03T06:34:24.311Z', date: 'Oct 3, 2026, 1:34 AM CT', title: 'Bushes seen far down the road, not popping up', kind: 'change',
+    items: [
+      'Walk any road through the prairie or the woods and the hazel, elder, dogwood and other bushes now stand far into the distance, out to about 140 metres. Before, they ended 26 metres away and each one appeared out of empty ground through a speckled fade as you walked.',
+      'A distant bush is a simpler version of the same bush, at the same spot, size and colour. As you close on it, it sharpens into the full bush, so nothing pops in.',
+      'Balanced detail carries them to about 105 metres and Light detail to about 70.',
+    ] },
   { v: 1349, ts: '2026-10-03T06:24:10.266Z', date: 'Oct 3, 2026, 1:24 AM CT', title: 'Plank walks down the cross streets', kind: 'feature',
     items: [
       'Market, Franklin, Wells, La Salle, Clark, Dearborn and State Streets now have the same plank sidewalks as Lake, South Water, Randolph and Washington. That is nearly five more kilometres of boards on 46 block fronts.',
