@@ -38,7 +38,7 @@ because it did not exist: the census credited a building to the corridor it stoo
 however far that was:
 
     street_line_m        2.71   STREET_LINE_M         measure_frontage_fabric
-    frontage_reach_m    67.72   FRONTAGE_REACH_M      measure_frontage_fabric
+    frontage_reach_m    75.58   FRONTAGE_REACH_M      measure_frontage_fabric
     party_line_unit_m    6.072  PARTY_LINE_UNIT_M     measure_end_rule
     trade_letters        C F W  TRADE_LETTERS         measure_frontage_fabric
                                 LIGHT_STREET_ZERO     generate_block_infill
@@ -102,18 +102,22 @@ CONSTANTS = [
                    "midpoint — re-derive with measure_frontage_fabric.py --setbacks. A "
                    "building at or inside this stands ON the street line; anything "
                    "further back stands in the block behind it."},
-    {"name": "frontage_reach_m", "value": 67.72, "unit": "m",
+    {"name": "frontage_reach_m", "value": 75.58, "unit": "m",
      "read_by": [{"module": "tools/measure_frontage_fabric.py",
                   "name": "FRONTAGE_REACH_M"}],
      "derivation": "how far back a footprint may stand and still be FRONTING the "
                    "corridor it is nearest, from the empty band in the town's own "
                    "distribution of nearest-corridor distances, at its midpoint — "
                    "re-derive with measure_frontage_fabric.py --setbacks. Below "
-                   "60.79 m (miller_tannery, on the Market Street corridor) that "
-                   "distribution is continuous: 373 buildings and no gap wider than "
-                   "2.91 m. The next building anywhere stands 74.65 m back "
-                   "(recon_1835_west_052), a band of 13.86 m with nothing in it — "
-                   "4.76 times the widest gap in the body. Beyond this a building is "
+                   "66.06 m (recon_1835_west_050) that distribution is continuous: "
+                   "499 buildings and no gap wider than 4.18 m. The next building "
+                   "anywhere stands 85.10 m back (recon_1835_west_054), a band of "
+                   "19.04 m with nothing in it — 4.56 times the widest gap in the "
+                   "body. RE-STATED BY T-1414 (2026-10-03), not relaxed: it was 67.72 m "
+                   "(body to 60.79 m, band 60.79-74.65 m) until the West Division's "
+                   "tiers and Wabansia entered the corridor layer, which gave the "
+                   "west ground's roofs nearer streets to be measured against and "
+                   "moved both edges of the band. Beyond this a building is "
                    "reported with NO street rather than with a distant one; the "
                    "reservation and the river mouth hold roofs that front none."},
     {"name": "party_line_unit_m", "value": 6.072, "unit": "m",
