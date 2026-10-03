@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1356, ts: '2026-10-03T09:33:30.213Z', date: 'Oct 3, 2026, 4:33 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+  { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
     items: [
       'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
       'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
       'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
+    ] },
+  { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
+    items: [
+      'A North Division boarding house had one bed empty that the town was still owed a lodger for. Henry Metcalf, a man in his twenties, now sleeps there. Open the house\u2019s card to see him among its boarders.',
+      'Nobody already in the town moved to make room. He is our reconstruction, like every boarder no source names (liberty L252).',
+      'Seven more lodgers are owed in the West Division, where every bed is taken. They will move in as new boarding houses are raised.',
     ] },
   { v: 1355, ts: '2026-10-03T08:50:33.007Z', date: 'Oct 3, 2026, 3:50 AM CT', title: 'South Water Street now reaches State Street', kind: 'change',
     items: [
