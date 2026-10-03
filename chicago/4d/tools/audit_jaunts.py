@@ -4,8 +4,10 @@
 compile_jaunts.py proves each jaunt on its own: schema, sources, locators, dates, 25-60
 words a stop, a finite reachable graph. This proves the LIBRARY the owner asked for:
 
-  * the 25 premises named in docs/JAUNTS-INITIAL-LIBRARY.md are exactly the 1835 jaunts,
-    each `available` in the compiled catalog, with no title or premise twice;
+  * the 25 premises named in docs/JAUNTS-INITIAL-LIBRARY.md §§ 1-25 are all 1835 jaunts,
+    and every 1835 jaunt is named in the brief — a jaunt past the 25 (§ 26 on, the growth
+    path T-2042 proved) is named there too, never shipped unnamed — each `available` in the
+    compiled catalog, with no title or premise twice;
   * the six priority jaunts of docs/ARRIVAL-JAUNTS-EXECUTION.md § 5H are all featured;
   * every jaunt has 4-8 stops, and the reducer walk (tools/play_jaunt.mjs --all) reaches
     every declared ending with no failure and awards the keepsake on some path;
@@ -50,7 +52,9 @@ def load():
     catalog = json.loads((ROOT / f'data/sidecars/{SCENE}/jaunts/catalog.json').read_text())['jaunts']
     book = json.loads((ROOT / 'data/jaunts/daybook.json').read_text())
     library = (ROOT / 'docs/JAUNTS-INITIAL-LIBRARY.md').read_text()
-    roster = re.findall(r'^\*\*ID:\*\* `([a-z0-9-]+)`', library, re.M)
+    # (section number, id): §§ 1-25 are the owner's initial library, § 26 on is growth (T-2042).
+    roster = [(int(n), jid) for n, jid in
+              re.findall(r'^## (\d+)\. [^\n]*\n\n\*\*ID:\*\* `([a-z0-9-]+)`', library, re.M)]
     plan = (ROOT / 'docs/ARRIVAL-JAUNTS-EXECUTION.md').read_text()
     section = plan.split('## 5H.', 1)[1].split('\n## ', 1)[0]
     priority = [re.sub(r'\s*\(.*\)$', '', m).strip()
@@ -80,9 +84,11 @@ def audit(lib):
     rows, findings = lib['rows'], []
     by_id = {r['id']: r for r in rows}
     shown = {c['id']: c for c in lib['catalog']}
-    if len(lib['roster']) != 25 or set(lib['roster']) != set(by_id):
-        findings.append(f'roster: the brief names {len(lib["roster"])} jaunts and the scene has {len(by_id)}; '
-                        f'missing {sorted(set(lib["roster"]) - set(by_id))}, unnamed {sorted(set(by_id) - set(lib["roster"]))}')
+    initial = [n for n, _ in lib['roster'] if n <= 25]
+    named = {jid for _, jid in lib['roster']}
+    if sorted(initial) != list(range(1, 26)) or len(named) != len(lib['roster']) or named != set(by_id):
+        findings.append(f'roster: the brief names {len(initial)} of the initial 25 and {len(lib["roster"])} jaunts in all, '
+                        f'the scene has {len(by_id)}; missing {sorted(named - set(by_id))}, unnamed {sorted(set(by_id) - named)}')
     for jid in sorted(by_id):
         if shown.get(jid, {}).get('availability') != 'available':
             findings.append(f'{jid}: not available in the compiled catalog ({shown.get(jid, {}).get("reason") or "absent"})')
@@ -140,7 +146,8 @@ def report(lib, findings, facts):
     for f in findings:
         print(f'JAUNT AUDIT FAIL — {f}')
     if not findings:
-        print('JAUNT AUDIT PASS — the 25 named premises, six featured, every shape bound met')
+        print(f'JAUNT AUDIT PASS — the 25 named premises and {len(lib["roster"]) - 25} more named in the brief, '
+              'six featured, every shape bound met')
 
 
 def self_test(lib):
@@ -155,9 +162,10 @@ def self_test(lib):
 
     def first(bad):
         return bad['rows'][0]
-    first_quiet = next(r['id'] for r in lib['rows'] if r['quiet'] and not r['resources']['hidden'])
     cases = [
         (lambda b: b['roster'].pop(), 'roster:'),
+        (lambda b: b['roster'].pop(0), 'roster:'),
+        (lambda b: b['roster'].append((26, b['roster'][0][1])), 'roster:'),
         (lambda b: b['catalog'][0].update(availability='unavailable'), 'not available'),
         (lambda b: b['catalog'][1].update(title=b['catalog'][0]['title']), 'duplicate title'),
         (lambda b: next(r for r in b['rows'] if r['title'] == b['priority'][0]).update(featured=False), 'is not featured'),
@@ -165,7 +173,8 @@ def self_test(lib):
         (lambda b: first(b).update(failures=['x: state limit']), 'walk failed'),
         (lambda b: first(b)['endings_declared'].append('never'), 'endings never reached'),
         (lambda b: first(b)['keepsake'].update(awarded=False), 'no path awards'),
-        (lambda b: [r['resources']['hidden'].append('x') for r in b['rows'] if r['id'] == first_quiet], 'quiet:'),
+        # Every quiet outing at once: the bound is a floor, so breaking one of six proves nothing.
+        (lambda b: [r['resources']['hidden'].append('x') for r in b['rows'] if r['quiet']], 'quiet:'),
         (lambda b: [r['keepsake'].update(family='Provisions') for r in b['rows'] if r['keepsake']['family'] == 'Neighbors'], 'family Neighbors'),
         (lambda b: [r.update(category='Commerce') for r in b['rows'] if 'mail' in r['category'].lower()], 'subject mail'),
     ]

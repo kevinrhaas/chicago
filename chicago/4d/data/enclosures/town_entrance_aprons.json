@@ -17,7 +17,6 @@
   "agency_striker_log_house",
   "bates_auction_room",
   "beaubien_barn",
-  "beaubien_new_residence",
   "beaubien_trading_post",
   "blacksmith_shop_state_st",
   "brickyard_north_side",
@@ -591,32 +590,18 @@
     [1126.7, 164.78]
    ],
    [
-    [1144.6, 180.9],
-    [1155.15, 180.9],
-    [1155.15, 182.3],
-    [1151.6, 182.3],
-    [1151.1, 184.25],
-    [1150.99, 184.5],
-    [1150.74, 184.6],
-    [1149.01, 184.6],
-    [1148.76, 184.5],
-    [1148.65, 184.25],
-    [1148.15, 182.3],
-    [1144.6, 182.3]
-   ],
-   [
-    [1144.6, 163.38],
-    [1151.5, 163.38],
-    [1151.5, 164.78],
-    [1149.77, 164.78],
-    [1149.27, 166.73],
-    [1149.16, 166.97],
-    [1148.92, 167.08],
-    [1147.18, 167.08],
-    [1146.93, 166.97],
-    [1146.83, 166.73],
-    [1146.33, 164.78],
-    [1144.6, 164.78]
+    [1116.6, 183.88],
+    [1123.5, 183.88],
+    [1123.5, 185.28],
+    [1121.68, 185.28],
+    [1121.18, 186.93],
+    [1121.08, 187.17],
+    [1120.83, 187.28],
+    [1119.27, 187.28],
+    [1119.03, 187.17],
+    [1118.92, 186.93],
+    [1118.42, 185.28],
+    [1116.6, 185.28]
    ],
    [
     [769.4, 114.5],
@@ -7669,24 +7654,14 @@
    "width_m": 1.35
   },
   {
-   "id": "beaubien_new_residence__door_1",
-   "structure_id": "beaubien_new_residence",
-   "archetype": "log_dwelling",
-   "kind": "door",
-   "read_by": "facade_openings.log_dwelling",
-   "at_local_enu_m": [1149.88, 180.9],
-   "bearing_deg": 0.0,
-   "width_m": 1.04
-  },
-  {
    "id": "beaubien_trading_post__door_1",
    "structure_id": "beaubien_trading_post",
-   "archetype": "log_dwelling",
+   "archetype": "outbuilding",
    "kind": "door",
-   "read_by": "facade_openings.log_dwelling",
-   "at_local_enu_m": [1148.05, 163.38],
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [1120.05, 183.88],
    "bearing_deg": 0.0,
-   "width_m": 1.04
+   "width_m": 0.86
   },
   {
    "id": "blacksmith_shop_state_st__door_1",
