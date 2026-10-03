@@ -1,6 +1,6 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
 import { scenePresentation } from './scene-presentation.js';
-export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, onSources = () => {}, isTouch = false }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -86,6 +86,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     if (state !== 'welcome' || !hasEntered() || !resume()) return false;
     state = 'world'; gate.dataset.state = state; $('btn-start').focus(); return true;
   }
+  $('welcome-sources').addEventListener('click', onSources);
   $('welcome-jaunts').addEventListener('click', () => region('jaunts'));
   $('welcome-explore').addEventListener('click', () => region('explore'));
   $('welcome-jaunts-explore').addEventListener('click', () => region('explore'));
@@ -99,8 +100,8 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     event.stopImmediatePropagation();
     if (event.key === 'Escape') { event.preventDefault(); returnToWorld(); }
     if (event.key !== 'Tab') return;
-    const controls = [...gate.querySelectorAll('button:not(:disabled), input')]
-      .filter(el => el.getClientRects().length);
+    const controls = [...gate.querySelectorAll('button:not(:disabled), input, select:not(:disabled), a[href]')]
+      .filter(el => el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
     const first = controls[0], last = controls.at(-1);
     if (event.shiftKey && (document.activeElement === first || document.activeElement === title)) {
       event.preventDefault(); last?.focus();

@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1361, ts: '2026-10-03T12:12:00.384Z', date: 'Oct 3, 2026, 7:12 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+  { v: null, ts: '', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [
       'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, five at the boarding house on the Dearborn block of Washington Street and three at the one on the Market block. Open a house\u2019s card to see them among its boarders.',
       'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
       'Nine children under ten are still owed in South and West Division lodging houses. A child is only ever placed with a keeper\u2019s family, so they will arrive with the keepers of boarding houses not yet raised.',
+    ] },
+  { v: 1361, ts: '2026-10-03T12:09:06.934Z', date: 'Oct 3, 2026, 7:09 AM CT', title: 'Find your next outing in the Jaunts menu', kind: 'feature',
+    items: [
+      'Search outings by name or premise, choose a category, or browse the featured stories. Longer lists show twenty outings at a time.',
+      'Choose how to travel on each card and see its approximate duration change. End an outing and return to the same place in the menu, or resume a paused trip.',
+      'Explore Myself and Sources & City are available from the welcome screen. Your daybook stays beside the outings.',
     ] },
   { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
