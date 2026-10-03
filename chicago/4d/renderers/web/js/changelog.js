@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1357, ts: '2026-10-03T10:28:18.036Z', date: 'Oct 3, 2026, 5:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+  { v: null, ts: '', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
     items: [
       'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
       'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
       'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
+    ] },
+  { v: 1357, ts: '2026-10-03T09:51:30.953Z', date: 'Oct 3, 2026, 4:51 AM CT', title: 'Two West Division shanties step back off the platted streets', kind: 'fix',
+    items: [
+      'Walk along Carroll Street between Canal and Clinton. The labourer\u2019s shanty on the north side now stands just clear of the street, 2.7 m further north. Its corner used to sit 2.2 m inside the platted roadway.',
+      'A roof west of Canal and Lake, by Fulton Street, has moved half a metre north for the same reason.',
+      'Carroll, Fulton, Des Plaines and the seven streets of Wabansia, north of Kinzie Street, are now on the map of platted roadways that new buildings must keep out of. That is why these two moved. Both are our placements, not recorded lots.',
     ] },
   { v: 1356, ts: '2026-10-03T09:30:14.719Z', date: 'Oct 3, 2026, 4:30 AM CT', title: 'One more boarder in a North Division boarding house', kind: 'change',
     items: [

@@ -24,19 +24,19 @@
    "weight": "A block's weight is the mean of its four faces' class shares, read off data/streets/1835.json. Re-class a street there and every block on it re-weights in the same commit.",
    "trade_share_by_class": {
     "light": {
-     "n": 20,
+     "n": 22,
      "trade": 9,
-     "share": 0.45
+     "share": 0.4091
     },
     "none": {
-     "n": 1,
+     "n": 3,
      "trade": 0,
      "share": 0.0
     },
     "ordinary": {
-     "n": 30,
+     "n": 28,
      "trade": 10,
-     "share": 0.3333
+     "share": 0.3571
     },
     "principal": {
      "n": 25,
@@ -409,7 +409,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.4667,
+   "frontage_weight": 0.4786,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -491,7 +491,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.4958,
+   "frontage_weight": 0.4916,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -895,7 +895,7 @@
    },
    "principal": 15,
    "ancillary": 5,
-   "frontage_weight": 0.3458,
+   "frontage_weight": 0.3416,
    "trade_roofs": 2,
    "lot_ceiling_principal": 5,
    "row_lots_required": 5
@@ -1005,7 +1005,7 @@
    },
    "principal": 6,
    "ancillary": 2,
-   "frontage_weight": 0.2792,
+   "frontage_weight": 0.2808,
    "trade_roofs": 1,
    "lot_ceiling_principal": 2,
    "row_lots_required": 2
@@ -1042,7 +1042,7 @@
    },
    "principal": 18,
    "ancillary": 0,
-   "frontage_weight": 0.3083,
+   "frontage_weight": 0.2938,
    "trade_roofs": 2,
    "lot_ceiling_principal": 6,
    "row_lots_required": 6
@@ -1573,7 +1573,7 @@
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.1125,
+   "frontage_weight": 0.1023,
    "trade_roofs": 1,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
@@ -1783,7 +1783,7 @@
    "ancillary_room": 0,
    "headroom": 0,
    "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
+   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -1809,7 +1809,7 @@
    "ancillary_room": 0,
    "headroom": 0,
    "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
+   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -1835,7 +1835,7 @@
    "ancillary_room": 0,
    "headroom": 0,
    "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
+   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -1887,7 +1887,7 @@
    "ancillary_room": 0,
    "headroom": 0,
    "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
+   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -1923,7 +1923,7 @@
    "principal": 3,
    "ancillary": 0,
    "trade_roofs": 0,
-   "frontage_weight": 0.4292,
+   "frontage_weight": 0.4308,
    "lot_ceiling_principal": 7,
    "row_lots_required": 0
   },
@@ -1971,7 +1971,7 @@
    "ancillary_room": 0,
    "headroom": 0,
    "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
+   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -1997,7 +1997,7 @@
    "ancillary_room": 0,
    "headroom": 0,
    "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto; T-1414 owns the small lots the West sheets draw.",
+   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -2446,7 +2446,7 @@
    },
    "principal": 18,
    "ancillary": 0,
-   "frontage_weight": 0.5333,
+   "frontage_weight": 0.5393,
    "trade_roofs": 3,
    "lot_ceiling_principal": 7,
    "row_lots_required": 6

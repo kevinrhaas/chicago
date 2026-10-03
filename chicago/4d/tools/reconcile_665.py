@@ -150,7 +150,7 @@ UNSCHEDULED_PLATS = {
                  "unplaced household in the whole survey"),
     # T-1455 put the West Division's own grid here, and T-1783 (2026-10-01) took it out
     # again: its lot-ruled blocks are scheduled at a density MEASURED on West lots — see
-    # `west_lot_ceiling` — and its unruled ones wait on T-1414 for a lot line, below.
+    # `west_lot_ceiling` — and its unruled ones wait on a lot line nobody can yet read, below.
 }
 
 
@@ -1315,7 +1315,10 @@ def programme_document():
             unit["waiting_on"] = (
                 "a lot line. The sheet prints no lot figures for this cell "
                 "(data/traces/thompson_west_division_lots.json), so there is nothing to "
-                "deal a roof onto; T-1414 owns the small lots the West sheets draw.")
+                "deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors "
+                "into the platted layer and found the sheet's lot figures already on the "
+                "block records, each unruled block with its refusal; a re-read of the "
+                "scan is owed and no live ticket owns it.")
         elif block.get("grid") == WEST_GRID:
             ceiling = (lots * west_density["reviewed_roofs"]) // west_density["lots"]
             rooms = block_rooms(free, max(0, ceiling - stands))
