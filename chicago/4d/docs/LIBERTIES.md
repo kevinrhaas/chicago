@@ -20583,6 +20583,17 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/materials-for-a-roof.json`.
 
 **Recorded:** 2026-10-03 (T-2026).
+### L-jaunt-calling-on-neighbors — Calling on Neighbors: invented calls and a calling card past four documented houses
+
+**Decision:** Calling on Neighbors links four existing exterior destinations (Mrs Rufus Brown's log boarding house behind Peck's store, P. F. W. Peck's store at South Water and LaSalle, the Exchange Coffee House at Lake and Wells, and the Sauganash at Lake and Market) in an invented round of calls: a newcomer lodging at Brown's chooses which of two letters of introduction to present, reads the Peck household on its card rather than at its door, finds at the Exchange a public house where the Democrat reports meetings held and an 1834 notice asked addresses to be left, and leaves a calling card there or at the Sauganash. The newcomer, the room, both letters, the calls, the choice of where the card is left, the route, the three endings and the An Introduction Made keepsake are invented; no introduction, caller, reply or encounter with any named person is claimed.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Peck household record, Andreas vol. 1, the DRLOIH hotel chronology, the Democrat's 19 November 1834, 20 May 1835, 10 June 1835 and 17 June 1835 issues, and brief 21 of JAUNTS-INITIAL-LIBRARY.md. The letters, the calls and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated record of a newcomer's letter of introduction to a Chicago household in 1835, or of cards left at the Exchange, would let the calls name a real practice in place of the invented one.
+
+**Applies to:** `data/jaunts/calling-on-neighbors.json`.
+
+**Recorded:** 2026-10-03 (T-2030).
 
 ### L-jaunt-sunday-circuit — A Sunday Circuit: an invented call, by way of the town's places of worship
 

@@ -248,7 +248,7 @@
 .seg-btn.is-on, .seg-btn[aria-checked="true"],
 .seg-btn.is-on:hover, .seg-btn[aria-checked="true"]:hover {
   background: var(--accent);
-  color: #17140c;
+  color: var(--accent-ink, #17140c);
 }
 
 /* --------------------------------------------------------- travel banner --- */
@@ -287,7 +287,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--accent);
-  color: #17140c;
+  color: var(--accent-ink, #17140c);
   font: inherit;
   font-size: 12px;
   font-weight: 700;
