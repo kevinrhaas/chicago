@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A new jaunt: Mend the Harness', kind: 'feature',
+  { v: 1356, ts: '2026-10-03T09:28:24.814Z', date: 'Oct 3, 2026, 4:28 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
       'Take the leather to S. B. Cobb\u2019s saddlery and the iron to Asahel Pierce\u2019s smithy at Lake and Canal, then decide at the Green Tree whether to take the long road or keep the trip short.',
