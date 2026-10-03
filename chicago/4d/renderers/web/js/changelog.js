@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1330, ts: '2026-10-02T23:49:18.714Z', date: 'Oct 2, 2026, 6:49 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
+    items: [
+      'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',
+      'Eleven more keepers read the same. The other 26 now say which unbuilt or unsettled roof their house is waiting for.',
+      'All 38 people, and the order they are drawn in, are our reconstruction. On the City card, people owed a workplace drop from 40 to 28.',
+    ] },
   { v: 1329, ts: '2026-10-02T23:07:46.373Z', date: 'Oct 2, 2026, 6:07 PM CT', title: 'Reconstructing the town now says whether the town is finished', kind: 'change',
     items: [
       'Open the Evidence tab and choose \u201cReconstructing the town\u201d. A new first section, \u201cIs the town finished?\u201d, answers that before anything else.',
