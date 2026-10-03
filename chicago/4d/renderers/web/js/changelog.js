@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1341, ts: '2026-10-03T04:06:27.654Z', date: 'Oct 2, 2026, 11:06 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
+  { v: 1342, ts: '2026-10-03T04:10:02.783Z', date: 'Oct 2, 2026, 11:10 PM CT', title: 'A new jaunt: A Letter Home', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Letter Home. Write an imagined letter to the people you left behind, in four stops along South Water Street. It takes about five minutes on horseback.',
       'Decide what the letter is for at Brown\u2019s boarding house. The paper comes from Frederick Thomas, the one shop whose June 1835 advertisement lists letter paper, wafers and ink.',
       'At the Democrat\u2019s first corner, read the paper\u2019s list of letters nobody had called for. End at Hogan\u2019s, the former mail corner. The post office had moved a year earlier to an unplaced spot on South Water Street, so you leave with a plan for posting, not a receipt.',
       'The keepsake is A Letter Ready to Send. The letter and the route are our reconstruction (liberty L-jaunt-letter-home).',
+    ] },
+  { v: 1341, ts: '2026-10-03T03:48:19.416Z', date: 'Oct 2, 2026, 10:48 PM CT', title: 'A new jaunt: A Bed for the Night', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick A Bed for the Night. Compare four houses that took in strangers in the full town of 1835, about five and a half minutes on horseback.',
+      'Four stops from the west side to Lake Street: the Western Hotel, the Sauganash, Mrs Rufus Brown\u2019s boarding house and the Mansion House. Say first whether cost or convenience matters more, then choose where to ask.',
+      'The crowding is told in the June 1835 papers\u2019 own words: strangers in every room, some sleeping on the floor. No price or vacancy is claimed.',
+      'Finish to keep A Place to Lay Your Head in your daybook under Neighbors. The search itself is our reconstruction (liberty L-jaunt-bed-for-the-night).',
     ] },
   { v: 1340, ts: '2026-10-03T03:19:23.807Z', date: 'Oct 2, 2026, 10:19 PM CT', title: 'A new jaunt: Fort Dearborn Errand', kind: 'feature',
     items: [
