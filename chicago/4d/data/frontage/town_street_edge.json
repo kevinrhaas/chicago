@@ -24,11 +24,11 @@
       "randolph",
       "washington"
     ],
-    "faces_laid": 47,
-    "walk_m": 3865.7,
-    "crossing_m": 1160.5,
+    "faces_laid": 48,
+    "walk_m": 4042.1,
+    "crossing_m": 1182.5,
     "fence_m": 1748.8,
-    "walking_decks": 376,
+    "walking_decks": 389,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
@@ -39,9 +39,9 @@
     "decked_walks": 4,
     "decked_walk_m": 46.8,
     "bare_fronts": 3,
-    "fronts_only_faces": 5,
-    "fronts_only_runs": 5,
-    "fronts_only_walk_m": 83.4
+    "fronts_only_faces": 4,
+    "fronts_only_runs": 4,
+    "fronts_only_walk_m": 67.7
   },
   "card": {
     "id": "town_street_edge",
@@ -56,10 +56,10 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 3865.7,
+        "value": 4042.1,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "51 run(s) of sidewalk on 47 platted block face(s), plus 1160.5 m of board crossing at 49 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "52 run(s) of sidewalk on 48 platted block face(s), plus 1182.5 m of board crossing at 50 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
         "value": 1748.8,
@@ -678,12 +678,12 @@
       "chunk": "blk_lake_clinton_north_1",
       "centreline_local_enu_m": [
         [
-          -218.42,
-          -118.95
+          -271.01,
+          -118.53
         ],
         [
-          -202.64,
-          -119.07
+          -176.34,
+          -119.29
         ]
       ],
       "width_m": 1.83,
@@ -697,29 +697,376 @@
       "verge_to_track_m": 4.86,
       "footway_decks": [
         {
-          "y": 1.275,
+          "y": 1.34,
           "pts": [
             [
-              -218.5,
-              -119.86
+              -271.1,
+              -119.44
             ],
             [
-              -202.57,
-              -119.99
+              -255.16,
+              -119.57
             ],
             [
-              -202.55,
-              -118.16
+              -255.14,
+              -117.74
             ],
             [
-              -218.49,
-              -118.03
+              -271.08,
+              -117.61
+            ]
+          ],
+          "ground_roll_m": 0.02
+        },
+        {
+          "y": 1.32,
+          "pts": [
+            [
+              -255.32,
+              -119.57
+            ],
+            [
+              -239.38,
+              -119.69
+            ],
+            [
+              -239.37,
+              -117.86
+            ],
+            [
+              -255.3,
+              -117.74
+            ]
+          ],
+          "ground_roll_m": 0.025
+        },
+        {
+          "y": 1.298,
+          "pts": [
+            [
+              -239.54,
+              -119.69
+            ],
+            [
+              -223.6,
+              -119.82
+            ],
+            [
+              -223.59,
+              -117.99
+            ],
+            [
+              -239.53,
+              -117.86
+            ]
+          ],
+          "ground_roll_m": 0.021
+        },
+        {
+          "y": 1.277,
+          "pts": [
+            [
+              -223.76,
+              -119.82
+            ],
+            [
+              -207.82,
+              -119.95
+            ],
+            [
+              -207.81,
+              -118.12
+            ],
+            [
+              -223.75,
+              -117.99
+            ]
+          ],
+          "ground_roll_m": 0.012
+        },
+        {
+          "y": 1.265,
+          "pts": [
+            [
+              -207.98,
+              -119.95
+            ],
+            [
+              -192.05,
+              -120.07
+            ],
+            [
+              -192.03,
+              -118.24
+            ],
+            [
+              -207.97,
+              -118.12
             ]
           ],
           "ground_roll_m": 0.014
+        },
+        {
+          "y": 1.254,
+          "pts": [
+            [
+              -192.21,
+              -120.07
+            ],
+            [
+              -176.27,
+              -120.2
+            ],
+            [
+              -176.25,
+              -118.37
+            ],
+            [
+              -192.19,
+              -118.24
+            ]
+          ],
+          "ground_roll_m": 0.019
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_lake_clinton's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 52.6 m to 68.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed C1 small shop or office #006 (small_shop_or_office, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
+      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_lake_clinton's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 0.0 m to 94.7 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_lake_clinton_south_crossing_over_randolph",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "randolph",
+      "street_name": "Randolph Street",
+      "chunk": "blk_lake_clinton_south_1",
+      "centreline_local_enu_m": [
+        [
+          -263.61,
+          -239.31
+        ],
+        [
+          -263.59,
+          -261.37
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 22.06,
+      "footway_decks": [
+        {
+          "y": 1.328,
+          "pts": [
+            [
+              -264.52,
+              -239.23
+            ],
+            [
+              -264.52,
+              -246.54
+            ],
+            [
+              -262.69,
+              -246.54
+            ],
+            [
+              -262.69,
+              -239.23
+            ]
+          ],
+          "ground_roll_m": 0.113
+        },
+        {
+          "y": 1.27,
+          "pts": [
+            [
+              -264.52,
+              -246.38
+            ],
+            [
+              -264.51,
+              -256.08
+            ],
+            [
+              -262.68,
+              -256.08
+            ],
+            [
+              -262.69,
+              -246.38
+            ]
+          ],
+          "ground_roll_m": 0.12
+        },
+        {
+          "y": 1.325,
+          "pts": [
+            [
+              -264.51,
+              -255.92
+            ],
+            [
+              -264.51,
+              -261.45
+            ],
+            [
+              -262.68,
+              -261.45
+            ],
+            [
+              -262.68,
+              -255.92
+            ]
+          ],
+          "ground_roll_m": 0.062
+        }
+      ],
+      "note": "A BOARD CROSSING OVER RANDOLPH STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_lake_clinton_south_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "randolph",
+      "street_name": "Randolph Street",
+      "chunk": "blk_lake_clinton_south_1",
+      "centreline_local_enu_m": [
+        [
+          -268.19,
+          -239.27
+        ],
+        [
+          -170.71,
+          -240.04
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 6.61,
+      "footway_decks": [
+        {
+          "y": 1.381,
+          "pts": [
+            [
+              -268.26,
+              -238.36
+            ],
+            [
+              -247.58,
+              -238.52
+            ],
+            [
+              -247.59,
+              -240.35
+            ],
+            [
+              -268.28,
+              -240.19
+            ]
+          ],
+          "ground_roll_m": 0.016
+        },
+        {
+          "y": 1.365,
+          "pts": [
+            [
+              -247.74,
+              -238.52
+            ],
+            [
+              -227.06,
+              -238.68
+            ],
+            [
+              -227.07,
+              -240.51
+            ],
+            [
+              -247.75,
+              -240.35
+            ]
+          ],
+          "ground_roll_m": 0.016
+        },
+        {
+          "y": 1.349,
+          "pts": [
+            [
+              -227.22,
+              -238.68
+            ],
+            [
+              -206.54,
+              -238.85
+            ],
+            [
+              -206.55,
+              -240.68
+            ],
+            [
+              -227.23,
+              -240.51
+            ]
+          ],
+          "ground_roll_m": 0.021
+        },
+        {
+          "y": 1.329,
+          "pts": [
+            [
+              -206.7,
+              -238.85
+            ],
+            [
+              -186.01,
+              -239.01
+            ],
+            [
+              -186.03,
+              -240.84
+            ],
+            [
+              -206.71,
+              -240.68
+            ]
+          ],
+          "ground_roll_m": 0.022
+        },
+        {
+          "y": 1.307,
+          "pts": [
+            [
+              -186.17,
+              -239.01
+            ],
+            [
+              -170.62,
+              -239.13
+            ],
+            [
+              -170.64,
+              -240.96
+            ],
+            [
+              -186.19,
+              -240.84
+            ]
+          ],
+          "ground_roll_m": 0.021
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_lake_clinton's south face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 97.5 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_dearborn_north_decked_walk_dole_warehouse_south",
@@ -12742,7 +13089,7 @@
       "clear_of_track_m": 3.88,
       "stands_on_m": 1.15,
       "note": "A POST AT THE ROAD EDGE OUTSIDE Reconstructed C1 small shop or office #006, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `small_shop_or_office`, which the street edge's table of businesses reads as a store (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands one post. The trade is held `reconstructed` — dealt by rule rather than read, so the post is as reconstructed as the trade it serves (T-1813). WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +1.15 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160.",
-      "standing_chunk": "town_street_edge__fronts_only__standing"
+      "standing_chunk": "town_street_edge__west_bank__standing"
     },
     {
       "id": "blk_lake_franklin_north_hitching_recon_1835_blk_lake_franklin_c2_01",
@@ -16676,14 +17023,14 @@
       "why": "inf_harness_shop stands 1.15 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
-      "structure_id": "blk_lake_clinton",
-      "wall": "Lake Street's West Division frontage, across the South Branch",
-      "why": "REFUSED ON A MEASURED FRAME BUDGET AT ONE STAND, AT ONE TIER, AT ONE VIEWPORT (T-0193) — and it is a number now rather than the promise this clause used to carry. This block stands in the WEST DIVISION, across the South Branch from the town the owner's 'south of the river or near the river' names, separated from every other face on this record by a river with one bridge on it, and it is the last platted block this rule has never looked at. THE SAME RULE DOES LAY THE SAME WALK THERE, and it was run rather than assumed: both faces generate cleanly — the Lake face T-0069 named, and the Randolph face that only became coverable when T-0240 put Randolph in the covered streets the day before — for +2 block faces, +192.2 m of walk in 2 unbroken runs, +1 board crossing over Randolph and +3 street-lining fences, with the march refusing only what it refuses everywhere else (a building standing ON the frontage line is the street wall, an unimproved lot takes no fence, and a blacksmith's yard gate takes no hitching post). Published and read at T-0135's five stands at BOTH viewports: `full` and `light` pass everywhere and mobile passes every tier, clearing `balanced` by 34,712. DESKTOP `balanced` does not — 1,228,110 against a 1,210,000 ceiling, OVER BY 18,110 — and the whole of that cost lands at the single stand `lake_at_canal`, which stands at this block's own east end and looks east down the axis where nothing culls: +27,932 triangles there against a flat +8,460 at the other four. AND HALF OF IT DOES NOT FIT EITHER, which is what makes this a fact about the budget rather than about the block: the Lake face ALONE, exactly what T-0069 refused, still reads 1,223,890 and is over by 13,890. `balanced` stood 1,201,344 of 1,210,000 before this was tried — 8,656 triangles, 0.7 % of headroom — so no street frontage of any size fits under that rung today. The unblock is T-0190's second street tier, not a sixth raising of the ceiling, which T-0237's acceptance refuses in as many words."
-    },
-    {
       "structure_id": "blk_lake_clinton_north_crossing_blk_lake_market_north",
       "wall": "corner crossing",
-      "why": "the two walks stop 310.9 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+      "why": "the two walks stop 284.6 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+    },
+    {
+      "structure_id": "blk_lake_clinton_south_crossing_blk_lake_market_south",
+      "wall": "corner crossing",
+      "why": "the two walks stop 268.0 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
     },
     {
       "structure_id": "blk_lake_dearborn_lot0",

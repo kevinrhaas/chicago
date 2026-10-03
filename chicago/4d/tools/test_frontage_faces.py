@@ -86,8 +86,9 @@ def main(break_it: bool = False) -> int:
     along = [f for f in got if f["axis"] == 0]
 
     # 1. THE PLAT'S OWN COUNT. Twenty-three blocks of the South Division are bounded
-    #    east and west by a cross street; `blk_lake_clinton` is skipped as the
-    #    West Division block, and Canal and Clinton Streets bound only it.
+    #    east and west by a cross street; `blk_lake_clinton` is the West
+    #    Division block, and Canal and Clinton Streets, which bound it, are not
+    #    cross streets this rule names (it was skipped outright until T-0193).
     #
     #    IT WAS SEVENTEEN BLOCKS AND 34 FACES UNTIL T-1707, which carried the Original
     #    Town's seven north-south columns from their terrain clip at N -400 to Madison
@@ -176,8 +177,12 @@ def main(break_it: bool = False) -> int:
     reach = [(f["block"]["id"], lot.get("tier"))
              for f in shipped for lot in f["block"].get("lots", [])]
     out_of_reach = sorted({bid for bid, tier in reach if tier not in laid})
+    #    `blk_lake_clinton` joined it on 2026-10-03 (T-0193): the block came off
+    #    `EDGE_SKIP_BLOCKS` and its Lake and Randolph faces are laid, but its ten lots
+    #    front Clinton and Canal, which nothing covers — the same row-end shape, so
+    #    its own walk is laid and its lots take their posts by the door instead.
     check("every lot this layer cannot reach is named, not silently dropped",
-          out_of_reach == ["blk_randolph_clinton"],
+          out_of_reach == ["blk_lake_clinton", "blk_randolph_clinton"],
           f"blocks whose lots front a face nothing lays: {out_of_reach}. Faces laid: "
           f"{sorted(laid)}. A block arriving here has been transposed onto the West "
           f"Division's module and its lots now front a north-south street; add it and "
