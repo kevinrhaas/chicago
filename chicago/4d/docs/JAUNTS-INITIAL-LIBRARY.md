@@ -180,6 +180,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Route over the current bridge graph, never straight across water. Describe disputed bridge/tavern details at their recorded tier.
 
+**Route note (published, T-1264):** The shipped story order is Wolf Point Tavern → Green Tree → South Branch bridge → Sauganash. The order proposed above starts at the Green Tree, walks north to the forks and then doubles back past the Green Tree to the bridge; on the published mirror that read about 6.5 min at Walk. Starting at the forks and walking down the west bank removes the backtrack and still reads the fork before the crossing. The catalog card on the published mirror gives these routed figures at 390×780: Walk about 5.5 min, Wagon 3.5, Horse 3, Fly 2.5, Instantly 2. Walk sits half a minute over the 3–5 min target because about two minutes of it is reading four stops; the walking itself is about 3.5 min.
+
 ## 06. Fort Dearborn Errand
 
 **ID:** `fort-dearborn-errand` · **Owner ticket:** [T-1265](../tickets/T-1265-publish-fort-dearborn-errand-as-a-five-minute-ja.md)
@@ -218,6 +220,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Keepsake/outcome:** A Useful Clipping (News & Knowledge); fictional narrative memento.
 
 **Evidence and route cautions:** Only issue-dated, page-and-column-located material eligible on the scene date; do not treat later news as current.
+
+**Route note (T-2004, as built):** the four stops are kept as briefed. The printed items are the Democrat of 24 June 1835 (p. 2 col. 5, the cholera paragraph; p. 3 col. 3, an auction house whose first sale is 1 July) and the American of 27 June 1835 (p. 3 col. 5, Frederick Thomas's Cholera Elixir), all transcription-mediated. The Democrat's corner is visited as its FORMER office (over Jones & King's hardware by 20 May 1835). **Timing is an outlier at Walk and is stated, not hidden:** the stops lie about 1.2 km apart on the routed streets (Sauganash → Clark 525 m, → Dearborn 166 m, → Lake and Wells 530 m), so the card reads about 17.5 min on foot, 9 at Wagon, 6.5 on Horse and 4.5 at Fly. Walk stays the recommendation because the brief names it; whether to re-cut the route or change the recommended mode belongs to T-1271's library-wide timing pass.
 
 ## 08. A Letter Home
 

@@ -17612,6 +17612,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-2005).
 
+### L-jaunt-news-breakfast — News Before Breakfast: an imagined morning's reading of the two papers
+
+**Decision:** News Before Breakfast links four existing exterior destinations (the Sauganash, the former Chicago Democrat corner, the Chicago American office and the Exchange Coffee House) in an invented morning. The visitor's lodging at the Sauganash, the two questions, the walk, the report-or-advertisement sorting and its count, breakfast at the Exchange, the choice among three clippings, the five endings (one of which tells you a notice fooled you) and the A Useful Clipping keepsake are reconstructed, and so are the reading and action seconds. Every printed item the stops describe is issue-dated and located to page and column, and every one was printed before the scene date: the Democrat of 24 June 1835 (the cholera paragraph and the auction notice) and the American of 27 June 1835 (the Cholera Elixir advertisement). Both are transcription-mediated readings. No named person speaks, no editor, druggist or keeper is met, no interior is opened and no front door is claimed. The Democrat's corner is a former office on the scene date, so the stop speaks of where the paper was printed and where it went, not of a press at work. Every question and every clipping reaches an ending and the keepsake.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, the two newspaper runs, and brief 07 of JAUNTS-INITIAL-LIBRARY.md. The route, the sorting game and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A scan read of either column upgrades or corrects the quoted readings.
+
+**Applies to:** `data/jaunts/news-before-breakfast.json`.
+
+**Recorded:** 2026-10-03 (T-2004).
+
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
 **Decision:** At the owner's request, v4 uses the default's measured envelope and
@@ -20145,3 +20157,15 @@ sounding of the pre-cut channel.
 
 **Related:** **L362**, **L363**; the tickets **T-2002**, **T-2003**.
 **Recorded:** 2026-10-02.
+
+### L-jaunt-across-wolf-point — Across Wolf Point: an invented crossing and route note
+
+**Decision:** Across Wolf Point links four existing exterior destinations — the Green Tree, the Wolf Point Tavern, the South Branch bridge and the Sauganash — in an invented outing from the west bank to the south side. The crossing itself, the route order (north to the forks, back south to the bridge, over and north to Lake and Market), the route note, the single ending and the Knows the Crossing memento are reconstructed. No journey, conversation or encounter is attested; no named person speaks; no interior is opened. The places, the tavern's sign and fabric, the bridge's construction and the Sauganash's 1831 look and June 1835 refit are each cited at their own tier, and the two disputes the records hold — whether the Wolf Point Tavern still kept travellers in July 1835, and whether the bridge was a raft — are stated in the stop text rather than resolved.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records and brief 05 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water.
+
+**How to resolve:** A dated account of anyone's route over the South Branch in 1835 would replace the invented order; the outing and its ending stay interpretation.
+
+**Applies to:** `data/jaunts/across-wolf-point.json`.
+
+**Recorded:** 2026-10-03 (T-1264).
