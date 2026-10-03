@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1354, ts: '2026-10-03T08:20:41.188Z', date: 'Oct 3, 2026, 3:20 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
+  { v: null, ts: '', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
     items: [
       'Open Businesses and look under physician. Two new offices stand there: Dr. J. McGuire\u2019s and Dr. J. Tuttle\u2019s.',
       'The December 1835 census counts fourteen physicians. Scaled to the town\u2019s size in July 1835, that is ten, and the record names eight. These two offices fill the gap.',
       'Dr. McGuire had lost his office in an earlier recount and now has it back. Dr. Tuttle is new. He takes the place of one reconstructed labourer, and nobody else in the town changes.',
       'Both doctors and both offices are our reconstruction, not names from a source (liberty L367).',
+    ] },
+  { v: 1354, ts: '2026-10-03T08:02:51.415Z', date: 'Oct 3, 2026, 3:02 AM CT', title: 'Nothing you can see: how many lone men could marry', kind: 'change',
+    items: [
+      'Nothing you can see in the town changed, and nobody moved house.',
+      'The model wants 368 of the town\u2019s lone men married, but the town has no unmarried woman left to draw for them. We counted how many could marry a woman already keeping her own house here, keeping each pair\u2019s ages plausible: 91 can. The other 277 cannot marry anyone the town holds.',
+      'The Liberties note on reconstructed families now says so. Moving those women would not even out the town\u2019s men and women either: a move adds nobody.',
     ] },
   { v: 1353, ts: '2026-10-03T07:34:52.851Z', date: 'Oct 3, 2026, 2:34 AM CT', title: 'W. Montgomery\u2019s auction house hangs its board', kind: 'feature',
     items: [
