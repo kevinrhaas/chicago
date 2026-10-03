@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1335, ts: '2026-10-03T01:39:33.132Z', date: 'Oct 2, 2026, 8:39 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
+  { v: 1336, ts: '2026-10-03T01:53:56.804Z', date: 'Oct 2, 2026, 8:53 PM CT', title: 'New in Chicago, finished: a first day on foot', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick New in Chicago. It now recommends walking, and every leg between its five stops has a route note.',
       'At the Democrat\u2019s old corner, read a real notice: Kinzie and Forsyth\u2019s lithographed town maps, still advertised in June 1835.',
       'Peck\u2019s store is now your supply shop, read from his own advertisements. At Brown\u2019s boarding house, choose board by the week or a bed close to the stores. Each choice has its own ending.',
       'The errand and the boarding choice are our reconstruction (liberty L-jaunt-new-in-chicago); no room, rate or sale is claimed.',
+    ] },
+  { v: 1335, ts: '2026-10-03T01:32:51.629Z', date: 'Oct 2, 2026, 8:32 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Taverns of Chicago. It is an evening ride round four public houses at the forks: the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel. It takes about five minutes on horseback.',
+      'Choose a purse, hear some bar talk at Wolf Point, compare the Green Tree\u2019s welcome with the Sauganash\u2019s and pick the house where your evening ends. A glass is optional. Turning every glass down reaches an ending and the keepsake, A Sensible Evening, just as taking one does.',
+      'Each stop says what the sources say about the house, and how sure they are. The evening, the bar talk and the prices are our reconstruction (liberty L-jaunt-taverns), and the talk sticks to what the Chicago Democrat printed that June.',
     ] },
   { v: 1334, ts: '2026-10-03T01:15:33.917Z', date: 'Oct 2, 2026, 8:15 PM CT', title: 'A new jaunt: Shopping South Water Street', kind: 'feature',
     items: [
