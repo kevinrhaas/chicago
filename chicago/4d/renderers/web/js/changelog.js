@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1331, ts: '2026-10-03T00:08:09.855Z', date: 'Oct 2, 2026, 7:08 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
+  { v: 1332, ts: '2026-10-03T00:31:39.376Z', date: 'Oct 2, 2026, 7:31 PM CT', title: '1812 river mouth checked against Harrison\u2019s 1830 map', kind: 'change',
     items: [
       'Nothing you can see in the town changed. The 1812 shoreline is still the one derived from Wright\u2019s 1834 survey.',
       'It has now been measured against Harrison\u2019s plan of February 1830, the only map we hold drawn before the harbour cut. Near the fort the two agree to about 9 metres, and Harrison draws the sand bar joined to the shore where we had joined it.',
       'Down the old channel behind the bar they disagree by about 120 metres, and Harrison marks the old mouth about 357 metres further north than we place it. That is recorded on the 1812 shore, not settled.',
+    ] },
+  { v: 1331, ts: '2026-10-03T00:20:58.425Z', date: 'Oct 2, 2026, 7:20 PM CT', title: 'A new jaunt: Outfit for the West', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Outfit for the West. You have an imagined fifteen dollars to get ready for the road west.',
+      'Five stops: the Green Tree, Peck\u2019s store, the Jones grocery, Cobb\u2019s saddlery and Pierce\u2019s smithy. Each sells what its own advertisement or history says it sold: hardware from the merchant, provisions from the grocer, harness from the saddler, ironwork from the smith.',
+      'Your purchases decide the ending: you leave prepared, or you set out light. Either way the keepsake Ready for the Road goes in your daybook under Provisions.',
+      'The errand, the purse and every price are our reconstruction (liberty L-jaunt-outfit-west). The trades and their dates come from the 1833\u201335 newspapers and Andreas.',
     ] },
   { v: 1330, ts: '2026-10-02T23:49:18.714Z', date: 'Oct 2, 2026, 6:49 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
