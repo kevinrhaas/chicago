@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1345, ts: '2026-10-03T05:02:16.240Z', date: 'Oct 3, 2026, 12:02 AM CT', title: 'A new jaunt: Freight for the Store', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'A new jaunt: Freight for the Store', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Freight for the Store. Drive a wagon from Newberry & Dole\u2019s wharf to two stores and on to George Dole\u2019s warehouse. It takes about six minutes.',
       'Count three packages against the bill, take only two, or load them on trust. Check Peck\u2019s own advertised lines, leave a package at Thomas Church\u2019s store on Lake Street, and hand in the tally.',
       'The shipment, the bill and the keepsake, Cargo Accounted For, are our reconstruction (liberty L-jaunt-freight-store). The firms and what they sold come from their own notices.',
+    ] },
+  { v: 1345, ts: '2026-10-03T05:07:27.567Z', date: 'Oct 3, 2026, 12:07 AM CT', title: 'Glessner’s west elevation rebuilt and north windows corrected', kind: 'fix',
+    items: [
+      'The west wing now has a tall front gable, a lower rear roof, evenly spaced rear lights, a broad dormer and dark gutters. Its small turret aligns with the front gable.',
+      'The north windows sit beneath the eave. The entrance stonework, stable doors and loft surround follow the architectural references more closely.',
+      'Measured stone courses guide the north openings; the west elevation and unmeasured details remain declared reconstructions.'
     ] },
   { v: 1344, ts: '2026-10-03T04:50:43.870Z', date: 'Oct 2, 2026, 11:50 PM CT', title: 'A new jaunt: Look Before You Buy a Lot', kind: 'feature',
     items: [

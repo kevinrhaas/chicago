@@ -20230,6 +20230,54 @@ sounding of the pre-cut channel.
 
 **Recorded:** 2026-10-03 (T-2006).
 
+
+### L365 — Glessner north and west elevations reconciled with the owner references
+
+**Applies to:** `glessner_house`, T-1999, canonical detailed model and its light derivative.
+**Decision:** Rebuild the west front gable and lower rear gable roof to the owner's
+2 October 2026 square-on reconstructed elevation, retaining the HABS footprint and
+measured north range. The west gable peak is at S18.4/z38.6 ft; its south foot
+at S35 joins the 16.5-ft rear alley eave. A 25.5-ft rear ridge continues to the
+solid south gable. Its courtyard shoulder remains high enough for the existing
+upper windows; the roof is asymmetric behind the west view. The stable turret
+aligns at S18.4/W141, with body top38.9 and apex 43.3 ft. This supersedes L339's
+raised rear roof and L331's south hip, not the surveyed building footprint.
+
+The west eight-light arrangement is explicitly reconstructed: two broad lower
+lights, two upper slits and four equal narrow rear lights at 5.5-ft centers.
+The low roof carries a broad dark hood opening, side supports without a center
+post, a square hipped tile cap and finial. Three downpipes follow the west
+corners and gable foot, connected to a half-round rear gutter. Pipe sections,
+leadwork, roof returns, joinery dimensions and surface relief are reconstructed.
+The printed HABS sheet 5 ashlar sequence is retained; carrying it across this
+west façade and into the gable is a reconstruction, not a block-by-block survey.
+
+**North correction:** sheet 5's printed course sums put the lower corridor
+apertures at 111–173.5in and upper apertures at 231–267in above north grade, leaving
+the 4 in cap. Those replace the incorrect raster-scaled upper head above the eave.
+Applying the measured pair along the rest of the north corridor is inferred.
+The 12-ft porch arch and 12.1-ft carriage opening are retained. The porch cheek
+has a deep rounded coping; stable leaves have vertical lower boards and a
+gridded upper glazed zone, with rough monolithic lintels, a segmental relieving
+arch and projecting hoist stone. Their unmeasured proportions and hardware are
+reconstructed from the supplied northwest view, whose capture date is not
+independently established.
+
+**Basis:** owner brief `owner_glessner_v4_reconstruction_brief_2026`, supplied
+images listed in `docs/RESEARCH/glessner-elevation-rebuild/work.md`, HABS IL-1015
+sheets 2–5 and the existing source dossier. The owner elevation is a design
+target, not newly discovered historical testimony. No photographic pixels are
+used as textures.
+**How to resolve:** a measured original west elevation or roof section and a
+dated pre1946 stable-door photograph would replace the proportional choices.
+**Covers:** `glessner_house.as_built_1887.form.openings_alley`,
+`glessner_house.as_built_1887.form.v4_detail`,
+`glessner_house.as_built_1887.form.turret_stable`,
+`glessner_house.as_built_1887.form.opening_heights`,
+`glessner_house.as_built_1887.form.openings_stable_doors`,
+`glessner_house.as_built_1887.form.eave_cornice`.
+**Recorded:** 2026-10-02.
+
 ### L-jaunt-freight-store — Freight for the Store: an invented consignment and its tally
 
 **Decision:** Freight for the Store links four existing exterior destinations (Newberry & Dole's forwarding house, P. F. W. Peck's store, Thomas Church's store and George W. Dole's 1832 warehouse) in an invented delivery of three packages from wharf to shop. The consignment, the bill of lading, the packages and their marks, the counting, the wagon load and its three-package limit, the second trip, the delivery at each store, the tally carried to Dole's warehouse, the four endings and the Cargo Accounted For keepsake are reconstructed, and so are the reading and action seconds. What each firm did is sourced: Newberry & Dole's trade from their own November 1833 card and the American's June 1835 Michigan freight notice, Peck's stock from his own cards of 1833-34, Church's store from the one modern sentence that records it. No firm is claimed to have shipped, received or paid for these goods, and no bill, freight charge or price is named. No named person speaks or is met, no interior is opened and no front door is claimed. Newberry & Dole's house and Church's store stand at reconstructed positions and the stops say so. The tally ends at Dole's warehouse because Dole was the firm's partner and the warehouse sits a block from Church's store; that the firm squared its bills there is invented.
