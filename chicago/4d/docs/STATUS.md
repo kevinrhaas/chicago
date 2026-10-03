@@ -1,3 +1,27 @@
+## T-1743 — Col. Beaubien's homestead is one house and two outbuildings, off the fort road (2026-10-03)
+
+**Owner-reported**, so the visible-progress rule's first exemption would apply; it is visible anyway.
+The owner saw three identical log houses by the fort, two of them on the fort road, and ruled (answer
+b on the ticket) for one dwelling and two outbuildings.
+
+- **Measured before the fix:** `beaubien_new_residence` and `beaubien_trading_post`, placed by eye on
+  T-1712, stood astride the `fort_road` centreline (0.0 m from it, 6.0 m deep in its 12 m corridor).
+  The house clears it by 8.2 m and the barn by 13.8 m.
+- **Fold:** `beaubien_new_residence` is withdrawn (record, sidecar, master and web GLB, manifest rows)
+  and folded into `jb_beaubien_homestead` on § 6a's reading; dossier § 4 says so.
+- **Re-site and redraw:** the trading post moves onto the outbuilding archetype (log, shed roof, man
+  door, no chimney) 4.0 m west of the house, where the ground lands it (the frontage line itself
+  stood it 0.39 m into the slope). The barn keeps its place and gains
+  a loft door. L283 is revised and struck; L219, L263 and L266 restate their counts.
+- **Gate:** `tools/check_structure_corridors.py --gate` measures every street in
+  `data/streets/1835.json` at its own width against every phase standing on its date — 48 laps across
+  41 records are banked as a ratchet (most on `north_water`, from sourced positions, and not moved);
+  a new, deeper or cleared-but-banked lap is refused. The self-test puts the trading post back on the
+  fort road and watches it go red.
+- **Not done here:** the trading post's and barn's meshes need the pinned-Blender bake, which this
+  container cannot run; the bake is dispatched on the branch. The garden Wentworth names is still
+  unbuilt.
+
 ## T-2003 — the 1812 ground generated: mouth, heightfield, ground and water meshes (2026-10-03)
 
 **What a visitor sees: nothing yet.** No scene stands on `e1830_natural`. The 1812 Fort Dearborn

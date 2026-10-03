@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1382, ts: '2026-10-03T20:23:00.212Z', date: 'Oct 3, 2026, 3:23 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
+  { v: 1383, ts: '2026-10-03T20:48:21.371Z', date: 'Oct 3, 2026, 3:48 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Over the Draw to the North Side, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
       'Start at the foot of the Dearborn Street drawbridge, cross to the North Side and look at Blodgett\u2019s brickyard, the first house built for a school, and the Lake House going up at Rush Street. Then choose to end there or go back over the draw.',
       'It is the library\u2019s 26th jaunt, and the first added after the original 25. It was added as one data file, with no change to the page\u2019s code.',
       'The outing, the crossing and the keepsake, North of the River, are our reconstruction (liberty L-jaunt-over-the-draw). Every fact about the four places is one already cited in another jaunt.',
+    ] },
+  { v: 1382, ts: '2026-10-03T20:16:55.784Z', date: 'Oct 3, 2026, 3:16 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
+    items: [
+      'Walk south from the fort\u2019s south gate. The road no longer runs through two log houses: Col. Jean Baptiste Beaubien\u2019s homestead is one house with two outbuildings behind it.',
+      'His small trading post is now a low log store with a single-slope roof, standing west of the house, away from the road. His barn, behind the house, now has a hay-loft door.',
+      'Andreas mentions a \u201cnew residence\u201d as well. We read it as the same house, so it is no longer drawn twice. Where the store and barn stand, and what they look like, are our reconstruction (liberty L283).',
     ] },
   { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
     items: [
