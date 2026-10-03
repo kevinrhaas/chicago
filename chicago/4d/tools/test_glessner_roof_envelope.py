@@ -31,7 +31,34 @@ for i in range(1800):
 # explicit owner-reference proportions, not merely the implementation's planes.
 g=r['stable_roof'];mid=(r['x0']+r['x1'])/2
 assert r['conf_roof']==r['conf_plan']==1.0
-if g.get('lower_rear_gable'):
+if g.get('connected_roof_plan'):
+    assert not g.get('lower_rear_gable') and not g.get('continuous_south_gable')
+    n=g['north_range']
+    assert n['kick'] is None
+    # Both ridges are straight in plan; their two heights retain their source
+    # control points. The stable crossing locally occludes the lower ridge.
+    for i in range(101):
+        y=r['y0']+(r['y1']-r['y0'])*i/100
+        assert abs(height(r,r['ridge_at'],y)-38.6*.3048)<1e-4
+    for x in (r['x0'],r['x1']):
+        assert abs(height(r,x,n['ridge_at'])-34.1*.3048)<1e-4
+    # Full south gable, never a hip or the former 25.5-ft rear ridge.
+    assert abs(height(r,r['ridge_at'],r['y0'])-38.6*.3048)<1e-4
+    assert len(profile(r,'south'))==3
+    # Every shared internal patch edge is continuous, including dormant hood.
+    import math
+    for _,pts in patches(r,False):
+        for a,b in zip(pts,pts[1:]+pts[:1]):
+            dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
+            if length<1e-8:continue
+            for t in [.2,.5,.8]:
+                x=a[0]+dx*t;y=a[1]+dy*t
+                if not(r['x0']+1e-5<x<r['x1']-1e-5 and r['y0']+1e-5<y<r['y1']-1e-5):continue
+                xx,yy=-dy/length*1e-6,dx/length*1e-6
+                assert abs(height(r,x+xx,y+yy)-height(r,x-xx,y-yy))<1e-4,(x,y)
+    assert len(p.chimneys)==7
+    assert p.detail['dining_roof_junction'] and p.detail['continuous_copper_corner']
+elif g.get('lower_rear_gable'):
     assert not g.get('continuous_south_gable')
     assert abs(g['cross_y']-(74-18.4)*.3048)<1e-4
     assert abs(height(r,r['x0'],g['cross_y'])-38.6*.3048)<1e-4
@@ -93,7 +120,12 @@ for face in ['west','east','south']:
 d=p.detail['west_dormer']
 for y in [d['u0'],(d['u0']+d['u1'])/2,d['u1']]:
     assert d['eave_z']-1.35>height(r,d['front'],y)
-    assert d['eave_z']>height(r,d['back'],y)
+    if not d.get('connected_ridge'):
+        assert d['eave_z']>height(r,d['back'],y)
+    else:
+        # The long dormer penetrates its host, so its ridge is clipped by the
+        # roof instead of stopping short as the former isolated hood did.
+        assert height(r,d['back'],y)>d['apex_z']
 # Inspect emitted light geometry against the independent host-roof envelope.
 # The reduced cap once ignored the descending crest and floated horizontally.
 if g.get('lower_rear_gable'):

@@ -317,6 +317,22 @@ viewports had zero page errors. Stills and the receipt are in
 
 **Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
 
+## T-2016 — Glessner connected roof plan (2026-10-03)
+
+The north ridge is straight to the west wall, and the full-height stable ridge
+continues to a south gable with a courtyard-facing roof. The courtyard north
+slope is planar. The west dormer joins the host with a decorated ridge; two tiled
+returns meet the dining bay copper roof, and copper fills the northeast court
+corner. Earlier north and west aperture corrections remain. The owner aerial
+is the geometric target; roof joins and two service stacks are reconstructed.
+Historical review did not establish that the stacks were absent in 1904.
+See `docs/RESEARCH/glessner-connected-roof-plan/work.md` and liberty
+`L-glessner-connected-roof-2016`. The full and light exports, 1,800 roof samples, 186 opening rays and published
+desktop/mobile detail switching pass. Integration with dev 1b56a552 passes all
+750 source checks and preflight. Official published stage 13 passes at both
+viewports with zero page errors; logs and scope are in the research folder.
+No production promotion is included.
+
 ## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Materials for a Roof* (Building trades,
