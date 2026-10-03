@@ -351,6 +351,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Keep items tied to supported trades and bound reconstructed quantities/prices; no compulsory health score.
 
+**Route note (T-2010, as built):** the briefed order stands and the whole outing keeps to one block face of South Water Street between Wells and LaSalle: Brown's, behind Peck's, west to Jones's at the Wells end, back east to Carpenter's mid-block, and on to Peck's corner beside where it began (about 210 m). It reads about 5 min at Walk (4.5 at 1280×800), 3–3.5 at Wagon and 3 at Horse. Each good is offered only where that store's own advertisement lists it: coffee, sugar and tea at Jones's (26 Nov 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's. Carpenter's June 1835 window-glass consignment is left out because its signature is cut and not proved to be his. Prices and the purse are `L-jaunt-household-provisions`.
+
 ## 14. A Decent Coat
 
 **ID:** `a-decent-coat` · **Owner ticket:** [T-1267](../tickets/T-1267-publish-land-freight-household-supplies-and-clot.md)
