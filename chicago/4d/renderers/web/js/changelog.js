@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1360, ts: '2026-10-03T11:55:13.852Z', date: 'Oct 3, 2026, 6:55 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+  { v: 1361, ts: '2026-10-03T12:12:00.384Z', date: 'Oct 3, 2026, 7:12 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [
-      'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, and four each at the two boarding houses on the Dearborn and Market blocks of Washington Street. Open a house\u2019s card to see them among its boarders.',
+      'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, five at the boarding house on the Dearborn block of Washington Street and three at the one on the Market block. Open a house\u2019s card to see them among its boarders.',
       'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
       'Nine children under ten are still owed in South and West Division lodging houses. A child is only ever placed with a keeper\u2019s family, so they will arrive with the keepers of boarding houses not yet raised.',
+    ] },
+  { v: 1360, ts: '2026-10-03T11:28:24.535Z', date: 'Oct 3, 2026, 6:28 AM CT', title: 'Stores, a tavern and workshops on Kinzie Street', kind: 'feature',
+    items: [
+      'Cross the Dearborn drawbridge to the north side and turn east along Kinzie Street. Its north side, empty until now, has six places of business: a tavern by the bridge approach, a wagon-maker\u2019s shop, a wide two-storey store and a narrow one on either corner of Wolcott Street, a joiner\u2019s shop and one more store.',
+      'They stand on the street line with open ground between them, not as a solid row. The north side was still thinly built in 1835.',
+      'All six are our reconstruction: no record names them, and turning off reconstructed buildings hides them (liberty L368). The warehouse the north side is also owed waits for the North Water bank.',
     ] },
   { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
     items: [

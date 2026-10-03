@@ -1138,7 +1138,8 @@
     "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
     "remainder_stable_stages": {
       "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)",
-      "T-1536": "tools/seat_lodgers_1835.py — the youths' top-up, dealt against the committed `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json"
+      "T-1536": "tools/seat_lodgers_1835.py — the youths' top-up, dealt against the committed `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json",
+      "T-1538": "tools/seat_lodgers_1835.py — the top-up room, read live once and carried in `quota_basis.top_up` of the same file, so a re-cut moves nobody it seats (T-1538; named here on 2026-10-03 when T-1205's re-cut first touched a cell it had drawn in)"
     },
     "held_by_an_unaudited_stage": {
       "persons/female/10_19/north/family/none": [
@@ -1468,8 +1469,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 541,
-    "roofs_to_build": 145,
+    "roofs_standing": 547,
+    "roofs_to_build": 139,
     "persons_standing": 2381,
     "persons_still_owed": 228,
     "persons_when_the_book_is_filled": 2609,
@@ -1491,9 +1492,9 @@
     "still_owed": 1226,
     "roofs_adopted": 223,
     "slots_requested": 29,
-    "roofs_standing": 541,
-    "roofs_standing_unseated": 318,
-    "share_of_standing_roofs_seated": 0.4122,
+    "roofs_standing": 547,
+    "roofs_standing_unseated": 324,
+    "share_of_standing_roofs_seated": 0.4077,
     "passes": [
       {
         "key": "platted",
@@ -1516,10 +1517,10 @@
           "west": 28
         },
         "by_clause": {
-          "labourer_dwellings": 35,
+          "labourer_dwellings": 36,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 33,
-          "tradesman_dwellings": 109
+          "tradesman_dwellings": 108
         }
       },
       {
@@ -1533,7 +1534,7 @@
         "handed_on": 1226,
         "roofs_adopted": 73,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 73,
+        "roofs_offered_for_adoption": 79,
         "roofs_held_back": 19,
         "ground_taken": 14,
         "ground_taken_unit": "parcels",
@@ -1566,8 +1567,8 @@
         "name": "The Albee household — a name from the post office's letter lists",
         "district": "north",
         "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_indiana_north_cass",
-        "lot_id": "blk_indiana_north_cass#10",
+        "block_id": "blk_indiana_north_wolcott",
+        "lot_id": "blk_indiana_north_wolcott#11",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1577,7 +1578,7 @@
         "district": "north",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_indiana_north_wolcott",
-        "lot_id": "blk_indiana_north_wolcott#11",
+        "lot_id": "blk_indiana_north_wolcott#10",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1658,8 +1659,8 @@
         "clause": "tradesman_dwellings",
         "block_id": "blk_indiana_north_cass",
         "lot_id": "blk_indiana_north_cass#03",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_beach_william_h",
@@ -1668,8 +1669,8 @@
         "clause": "tradesman_dwellings",
         "block_id": "blk_indiana_north_cass",
         "lot_id": "blk_indiana_north_cass#02",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D6",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_beaubien_john_s",
@@ -1714,16 +1715,6 @@
       {
         "household_id": "hh_blaisdell_b",
         "name": "The Blaisdell household — a name the town's own records carry",
-        "district": "north",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_indiana_north_wolcott",
-        "lot_id": "blk_indiana_north_wolcott#10",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_blodgett_tyler_k",
-        "name": "The brickyard household",
         "district": "north",
         "clause": "tradesman_dwellings",
         "block_id": "blk_indiana_north_wolcott",
@@ -1830,6 +1821,16 @@
         "lot_id": "blk_washington_market#07",
         "family": "D4",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_barre_john_s",
+        "name": "The Barre household — a name from the post office's letter lists",
+        "district": "north",
+        "clause": "labourer_dwellings",
+        "block_id": "blk_indiana_north_cass",
+        "lot_id": "blk_indiana_north_cass#10",
+        "family": "D2",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_bruno_anne_franoise_apolline",
@@ -5028,11 +5029,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 541,
+        "standing_records": 547,
         "standing_with_an_occupant": 180,
-        "standing_without_an_occupant": 361,
-        "to_build_total": 145,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 361 of the 541 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 367,
+        "to_build_total": 139,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 367 of the 547 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5147,13 +5148,13 @@
             "division": "north"
           },
           "target": 2,
-          "standing": 1,
-          "to_build": 1,
+          "standing": 2,
+          "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1205",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 1 of them to build"
+          "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/institutional_public/south",
@@ -5387,13 +5388,13 @@
             "division": "north"
           },
           "target": 4,
-          "standing": 1,
-          "to_build": 3,
+          "standing": 4,
+          "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1205",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 4; the 668-roof programme leaves 3 of them to build"
+          "basis": "the inventory's district/group matrix sets 4; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/stores_mixed_use/fort",
@@ -5477,7 +5478,7 @@
           "to_build": 1,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1205",
+          "owning_ticket": "T-2022",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 7; the 668-roof programme leaves 1 of them to build"
         },
@@ -5518,13 +5519,13 @@
             "division": "north"
           },
           "target": 7,
-          "standing": 5,
-          "to_build": 2,
+          "standing": 7,
+          "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1205",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 7; the 668-roof programme leaves 2 of them to build"
+          "basis": "the inventory's district/group matrix sets 7; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/workshops/fort",
@@ -5548,9 +5549,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 96,
+        "roofs_on_committed_ground": 90,
         "roofs_gated_on_coverage": 49,
-        "statement": "96 of the 145 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 49 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "statement": "90 of the 139 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 49 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5890,7 +5891,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "361 of 541 standing records carry no occupants block."
+      "measured_now": "367 of 547 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
@@ -5913,6 +5914,13 @@
   ],
   "fills": [
     {
+      "bucket": "businesses/druggist",
+      "ticket": "T-1184",
+      "stage": "stores_and_provisions",
+      "records": 2,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
       "bucket": "businesses/brewery",
       "ticket": "T-1185",
       "stage": "mechanics_shops",
@@ -5927,10 +5935,10 @@
       "by": "tools/reconstruct_businesses_1835.py --build"
     },
     {
-      "bucket": "businesses/druggist",
-      "ticket": "T-1184",
-      "stage": "stores_and_provisions",
-      "records": 2,
+      "bucket": "businesses/lawyer",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
       "by": "tools/reconstruct_businesses_1835.py --build"
     },
     {
@@ -6569,13 +6577,6 @@
       "stage": "women_and_children",
       "records": 23,
       "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "businesses/lawyer",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
     },
     {
       "bucket": "persons/female/20_29/north/family/trade",
