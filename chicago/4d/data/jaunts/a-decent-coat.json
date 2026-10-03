@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "id": "a-decent-coat",
+  "content_version": 1,
+  "title": "A Decent Coat",
+  "premise": "Look at what two South Water stores advertised to wear, and choose how to go to a call at the Sauganash.",
+  "category": "Shopping",
+  "scene": "1835",
+  "opening": {
+    "text": "A call to pay at the Sauganash this evening, work to begin tomorrow, and one coat still dusty from the road. Look at a clothing store and a dry-goods counter, stop at your boarding house, and go to the call. Nothing to count or carry; the errand is invented, the stores are not.",
+    "read_s": 17
+  },
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "stops": [
+    {
+      "id": "ready-made",
+      "destination": {
+        "kind": "structure",
+        "id": "john_holbrook_store"
+      },
+      "text": "Start one door east of Dearborn at John Holbrook's. On 10 June 1835 he advertised clothing, boots and shoes, wholesale and retail, as agent for the manufacturers, with more arriving every fifteen or twenty days. His card offers made goods and no tailoring; the building itself is our reconstruction.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "john_holbrook_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_john_holbrook",
+          "label": "John Holbrook's business"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "holbrook-card",
+        "holbrook-made",
+        "holbrook-place",
+        "outing"
+      ],
+      "next": "cloth",
+      "narrative": "A coat you could wear tonight."
+    },
+    {
+      "id": "cloth",
+      "destination": {
+        "kind": "structure",
+        "id": "harmon_loomis_store"
+      },
+      "text": "A block west at Clark, Harmon, Loomis and Company sold dry goods. Their November 1834 card lists broadcloths, cassimeres, satinets and flannels, with heavier Russia duck and canvas; their June 1835 card still offers dry goods. Cloth is not yet a coat, and no maker is named here.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "harmon_loomis_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_harmon_loomis_co",
+          "label": "Harmon, Loomis & Co."
+        }
+      ],
+      "evidence": [
+        "harmon-cloth",
+        "harmon-june",
+        "harmon-place",
+        "outing"
+      ],
+      "next": "dress",
+      "narrative": "A better coat, one day, but not by tonight."
+    },
+    {
+      "id": "dress",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "One more block west, to the reconstructed spot of Brown's boarding house. Andreas names Mrs Rufus Brown as a boarding-house keeper and places her log house behind Peck's store. Here, in this imagined errand, you weigh tonight's call against tomorrow's work: one coat has to serve both.",
+      "read_s": 24,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "brown_boarding_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "brown_rufus",
+          "label": "Rufus Brown"
+        }
+      ],
+      "evidence": [
+        "brown",
+        "brown-place",
+        "continuity",
+        "outing"
+      ],
+      "next": "the-call",
+      "narrative": "A call wants neatness; a day's work wants wear."
+    },
+    {
+      "id": "the-call",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "On to Lake and Market and the Sauganash. Wau-Bun remembered it in 1831 as white and two-story, with bright-blue shutters; on 10 June 1835 the Democrat reported it repaired and newly fitted up. The acquaintance and the call are invented. Decide what you wear to it.",
+      "read_s": 24,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Wau-Bun"
+        }
+      ],
+      "evidence": [
+        "sauganash-look",
+        "sauganash-refit",
+        "sauganash-place",
+        "outing"
+      ],
+      "choices": [
+        {
+          "id": "made-coat",
+          "label": "Wear a ready-made coat",
+          "consequence": "A plain made coat of the kind Holbrook's card offers, ready tonight.",
+          "next": "ready-tonight"
+        },
+        {
+          "id": "brushed-coat",
+          "label": "Brush the old coat",
+          "consequence": "Go neat in what you have; cloth for a work coat can be made up later.",
+          "next": "brushed"
+        }
+      ],
+      "narrative": "Finish prepared: the call is tonight, whatever you wear."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ready-tonight",
+      "text": "You go to the call in a plain made coat, and keep the travelling coat for tomorrow's work. No price, sale or fitting is recorded; the choice is the outing's.",
+      "read_s": 11,
+      "completion_eligible": true
+    },
+    {
+      "id": "brushed",
+      "text": "You go to the call brushed and neat in the coat you came in, with a length of good cloth in mind for later. Who would make it up is a question for another day.",
+      "read_s": 11,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Provisions",
+    "id": "fit-for-the-occasion",
+    "title": "Fit for the Occasion",
+    "text": "A fictional note of what you wore to a call at the Sauganash, and what you looked at along South Water Street."
+  },
+  "evidence": [
+    {
+      "id": "holbrook-card",
+      "text": "John Holbrook advertised clothing, boots and shoes, wholesale and retail, 'on South-Water st. one door from Dearborn street', signed himself agent for the manufacturers, and said he would be receiving additions to his assortment every fifteen or twenty days through the season; the American's printing adds hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "locator": "Chicago Democrat, 10 June 1835, p. 3, col. 2 (claim chicago_democrat_1835_06_10#c010, copy line 'Chicago, June 10, 1835'); Chicago American, 13 June 1835, p. 3, col. 6 (claim chicago_american_1835_06_13#c012). Transcription-mediated readings."
+    },
+    {
+      "id": "holbrook-made",
+      "text": "Holbrook's stock was made clothing sold from stock, not a tailoring service.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "reasoning": "An agent for the manufacturers who keeps 'a large assortment of the named articles' and restocks by shipment is selling finished goods made elsewhere. The card names no cutting, measuring, fitting or making to order, so the stop claims none; that the goods were ready-made is read from the card's words, not stated in them."
+    },
+    {
+      "id": "holbrook-place",
+      "text": "The store stood on the south side of South Water Street, one door east of Dearborn; the side of Dearborn is a reading and the building is reconstructed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
+      ],
+      "reasoning": "Both printings give 'one door from Dearborn' on South Water Street. The structure record reads the door count as the next front east of the Chicago American's corner office under the owner's corner-ordinal ruling, because that makes three addresses printed on this face consistent; its size and form are borrowed from neighbours on the face and graded reconstructed."
+    },
+    {
+      "id": "harmon-cloth",
+      "text": "Harmon, Loomis & Co.'s fall and winter notice lists fancy and staple dry goods, among them broad cloths, cassimeres, domestic cloths, satinets, Peter Sham, goats' hair camlet, woollen and cotton flannels, Russia duck and canvas.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "Chicago Democrat, 5 Nov 1834, p. 3, col. 2 ('Fall and Winter Goods', claim chicago_democrat_1834_11_05#c007). Transcription-mediated reading."
+    },
+    {
+      "id": "harmon-june",
+      "text": "In June 1835 Harmon, Loomis & Co. still advertised staple and fancy dry goods at wholesale and retail from their store in South Water Street; the cloth list itself is carried forward from the November 1834 notice.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835"
+      ],
+      "reasoning": "The Chicago American of 20 June 1835, p. 1, col. 2 ('At Wholesale and Retail', claim c006) opens its list with dry goods but its transcription is damaged there and names no cloths. That the firm stocked broadcloth and the rest on 1 July 1835 is carried from the 1834 notice by the June one; no source records a cloth, sale or price on the scene date."
+    },
+    {
+      "id": "harmon-place",
+      "text": "Andreas puts the Harmon and Loomis store at the corner of Clark and South Water and never says which corner; the marker's south-east corner is the structure record's choice.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The north side of South Water was the river frontage and Andreas gives the south-west corner to the Chicago Democrat's office, so the record takes the south-east. The advertisements name South Water Street only."
+    },
+    {
+      "id": "brown",
+      "text": "Andreas names Mrs Rufus Brown as a boarding-house keeper in his account of 1833, and places Brown's log house behind Peck's store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
+    },
+    {
+      "id": "brown-place",
+      "text": "The boarding house is placed directly behind Peck's store at the south-west corner of South Water and LaSalle; its distance behind the store is not documented.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives the position only relative to Peck's store. The structure record sets the house directly south of the store's footprint on the same lot line and grades the coordinate reconstructed, so the stop calls the spot reconstructed."
+    },
+    {
+      "id": "continuity",
+      "text": "The boarding house is an exterior stop in the July 1835 scene; Andreas's account of 1833 does not prove that the visitor, or anyone, lodged there that day.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The stop uses the structure record's scene-date phase and its continuity argument. A building label is an identity, not proof of a continuing tenancy; the visitor's lodging there is part of the invented errand."
+    },
+    {
+      "id": "sauganash-look",
+      "text": "Wau-Bun describes the Sauganash in 1831 as 'a pretentious white two-story building, with bright-blue wooden shutters'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the Wolf Point houses, Mark Beaubien's house just completed."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "outing",
+      "text": "The visitor's call at the Sauganash, the acquaintance, the dusty coat, the route order, the weighing of the two occasions, the choice of coat, both endings and the Fit for the Occasion keepsake are invented connective narrative. No purchase, price, fitting or tailor is attested.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-a-decent-coat"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-a-decent-coat"
+  ],
+  "legs": [
+    {
+      "from": "ready-made",
+      "to": "cloth",
+      "note": "One block west along South Water Street, from Dearborn to Clark. Which corner of Clark the store held is not recorded.",
+      "evidence": [
+        "holbrook-place",
+        "harmon-place"
+      ],
+      "story": "From made clothes to the cloth they are made from.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "cloth",
+      "to": "dress",
+      "note": "On west to LaSalle. The boarding house stands behind Peck's corner store; its exact spot is our placement.",
+      "evidence": [
+        "brown-place"
+      ],
+      "story": "Back to your lodging to set the two occasions side by side.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "dress",
+      "to": "the-call",
+      "note": "West toward the South Branch and a block south to Lake Street, where the Sauganash keeps the Market Street corner.",
+      "evidence": [
+        "sauganash-place"
+      ],
+      "story": "Arrive at the town's newly refitted public house for the call.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ]
+}

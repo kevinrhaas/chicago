@@ -20206,6 +20206,18 @@ sounding of the pre-cut channel.
 
 **Recorded:** 2026-10-03 (T-1264).
 
+### L-jaunt-a-decent-coat — A Decent Coat: an invented call and a choice of coat
+
+**Decision:** A Decent Coat links four existing exterior destinations — John Holbrook's clothing store, Harmon, Loomis & Co.'s store, Mrs Rufus Brown's boarding house and the Sauganash — in an invented errand to be decently dressed for a call. The call, the acquaintance, the travel-worn coat, the route order (west along South Water Street from Dearborn to LaSalle, then to Lake and Market), the weighing of a call against a day's work, the choice between a made coat and the old one brushed, both endings and the Fit for the Occasion memento are reconstructed, and so are the reading and action seconds. Holbrook's card (Democrat 10 June 1835; American 13 June 1835) and Harmon, Loomis & Co.'s cloth list (Democrat 5 Nov 1834, carried by their June 1835 notice) are cited at their own tiers; all are transcription-mediated readings. No purchase, price, size, fitting, tailor or maker is invented: Holbrook's card offers made goods as the manufacturers' agent and names no tailoring, and no maker for the cloth is named. No named person speaks; no interior is opened. This is the batch's quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the two papers' June 1835 cards and brief 14 of JAUNTS-INITIAL-LIBRARY.md. The route, the choice and the keepsake are present-day interpretive choices.
+
+**How to resolve:** A dated record of a clothing sale, a price or a tailor at work in the town in 1835 would let the errand name one; until then it stays a look and a choice. A scan read of the three cards upgrades or corrects the transcription-mediated readings.
+
+**Applies to:** `data/jaunts/a-decent-coat.json`.
+
+**Recorded:** 2026-10-03 (T-2011).
+
 ### L-jaunt-bed-for-the-night — A Bed for the Night: an invented search for lodging
 
 **Decision:** A Bed for the Night links four existing exterior destinations — the Western Hotel, the Sauganash, Mrs Rufus Brown's boarding house and the Mansion House — in an invented search for a bed by a visitor with a modest purse. The search itself, the cost-or-convenience preference, the route order (west side, over the South Branch bridge, east along Lake Street), the relative cost of the four houses, the choice of where to ask first, the three endings and the A Place to Lay Your Head memento are reconstructed. No price, vacancy, booking, conversation or encounter is attested; no named person speaks; no interior is opened. The houses, their keepers and their fabric are each cited at their own tier, and the crowding of June 1835 is told in the two papers' own words. The Mansion House's keeper on the scene date (Haddock or Markle) is stated as open rather than chosen, and Brown's exact spot is called a placement.
