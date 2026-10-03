@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1331, ts: '2026-10-03T00:16:15.797Z', date: 'Oct 2, 2026, 7:16 PM CT', title: 'A new jaunt: Taverns of Chicago', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Taverns of Chicago. It is an evening ride round four public houses at the forks: the Sauganash, the Wolf Point Tavern, the Green Tree and the Western Hotel. It takes about five minutes on horseback.',
+      'Choose a purse, hear some bar talk at Wolf Point, compare the Green Tree\u2019s welcome with the Sauganash\u2019s and pick the house where your evening ends. A glass is optional. Turning every glass down reaches an ending and the keepsake, A Sensible Evening, just as taking one does.',
+      'Each stop says what the sources say about the house, and how sure they are. The evening, the bar talk and the prices are our reconstruction (liberty L-jaunt-taverns), and the talk sticks to what the Chicago Democrat printed that June.',
+    ] },
   { v: 1330, ts: '2026-10-02T23:49:18.714Z', date: 'Oct 2, 2026, 6:49 PM CT', title: 'Boarding-house keepers now say which house they are owed', kind: 'change',
     items: [
       'Open Lucy Goodrich\u2019s card, a boarding-house keeper in the South Division, and look under Were they at work? It used to say a house would be made for her. Every boarding house standing in 1835 already has a keeper, and the town plan has room for 26 more. Lucy Goodrich is one of 38 keepers with no house, and she falls outside those 26, so her card now says no house is owed.',

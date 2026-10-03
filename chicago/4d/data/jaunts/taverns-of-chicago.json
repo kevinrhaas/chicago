@@ -1,0 +1,479 @@
+{
+  "schema_version": 1,
+  "id": "taverns-of-chicago",
+  "content_version": 1,
+  "title": "Taverns of Chicago",
+  "premise": "Visit three taverns, collect local talk and decide where to finish the evening.",
+  "category": "Taverns",
+  "scene": "1835",
+  "opening": {
+    "text": "Four public houses stand within a short ride of the forks. Choose a purse, hear some invented bar talk, compare two welcomes and pick where to end the evening. A glass is optional, and declining is as good an evening as accepting. Nothing said or bought here is history.",
+    "read_s": 20
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "money": {
+      "min": 0,
+      "max": 50,
+      "initial": 0,
+      "unit": "cents"
+    },
+    "sobriety": {
+      "min": 0,
+      "max": 2,
+      "initial": 2,
+      "unit": "count"
+    }
+  },
+  "stops": [
+    {
+      "id": "purse",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Start outside the Sauganash, the white two-storey house with bright-blue shutters that Juliette Kinzie remembered. On 10 June 1835 the Chicago Democrat reported it repaired, fitted up and furnished with neatness.",
+      "narrative": "Before you ride on, decide how much of an imagined purse this evening may spend.",
+      "read_s": 30,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "sauganash-house",
+        "sauganash-refit",
+        "continuity",
+        "evening"
+      ],
+      "choices": [
+        {
+          "id": "no-purse",
+          "label": "Bring no purse",
+          "consequence": "Talk is free; you will spend nothing tonight.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "money",
+              "value": 0
+            }
+          ],
+          "next": "wolf-point"
+        },
+        {
+          "id": "modest",
+          "label": "A modest purse",
+          "consequence": "An imagined 25 cents for the evening.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "money",
+              "value": 25
+            }
+          ],
+          "next": "wolf-point"
+        },
+        {
+          "id": "fuller",
+          "label": "A fuller purse",
+          "consequence": "An imagined 50 cents for the evening.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "money",
+              "value": 50
+            }
+          ],
+          "next": "wolf-point"
+        }
+      ]
+    },
+    {
+      "id": "wolf-point",
+      "destination": {
+        "kind": "structure",
+        "id": "wolf_point_tavern"
+      },
+      "text": "Across the river stands the Wolf Point Tavern, its painted wolf sign hung by about 1833. William Walters is named its landlord until 1836, though one chronology says it closed as a public house in 1834.",
+      "narrative": "The bar talk here is invented, and kept to what the papers printed: a new Lake House is building north of the river.",
+      "read_s": 32,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "wolf_point_tavern",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "drloih_wolf_point",
+          "label": "Read the Wolf Point source"
+        }
+      ],
+      "evidence": [
+        "wolf-sign",
+        "wolf-tenure",
+        "lake-house",
+        "continuity",
+        "evening"
+      ],
+      "choices": [
+        {
+          "id": "glass",
+          "label": "Take a glass with the talk",
+          "consequence": "Six imagined cents spent, and the talk runs on.",
+          "when": {
+            "all": [
+              {
+                "var": "money",
+                "op": ">=",
+                "value": 6
+              }
+            ]
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -6
+            },
+            {
+              "op": "inc",
+              "var": "sobriety",
+              "value": -1
+            }
+          ],
+          "next": "green-tree"
+        },
+        {
+          "id": "water",
+          "label": "Listen over a cup of water",
+          "consequence": "Your purse and your head stay as they were.",
+          "next": "green-tree"
+        }
+      ]
+    },
+    {
+      "id": "green-tree",
+      "destination": {
+        "kind": "structure",
+        "id": "green_tree_tavern"
+      },
+      "text": "A short way south, the Green Tree was built by James Kinzie in 1833 for hotel purposes, and Chester Ingersoll is named landlord from 1834. Guests later recalled a bar-room, whitewashed board partitions and chambers about twelve feet square.",
+      "narrative": "Weigh its welcome against the Sauganash's.",
+      "read_s": 30,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "green_tree_tavern",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_prefire127",
+          "label": "Read the Green Tree source"
+        }
+      ],
+      "evidence": [
+        "green-tree",
+        "green-tree-rooms",
+        "continuity",
+        "evening"
+      ],
+      "choices": [
+        {
+          "id": "glass",
+          "label": "Another glass in the bar-room",
+          "consequence": "Six more imagined cents, and a slower ride on.",
+          "when": {
+            "all": [
+              {
+                "var": "money",
+                "op": ">=",
+                "value": 6
+              },
+              {
+                "var": "sobriety",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -6
+            },
+            {
+              "op": "inc",
+              "var": "sobriety",
+              "value": -1
+            }
+          ],
+          "next": "western"
+        },
+        {
+          "id": "chambers",
+          "label": "Ask after the chambers instead",
+          "consequence": "You note the rooms and keep a clear head.",
+          "next": "western"
+        }
+      ]
+    },
+    {
+      "id": "western",
+      "destination": {
+        "kind": "structure",
+        "id": "western_hotel"
+      },
+      "text": "End the circuit at W. H. Stow's Western Hotel, built in 1834 by his own account: a forty-foot front, a sixty-foot wing, a large stable and a yard the farmers' wagon trains drove into.",
+      "narrative": "Now choose the house where your imagined evening ends.",
+      "read_s": 30,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "western_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_prefire278",
+          "label": "Read the Western Hotel source"
+        }
+      ],
+      "evidence": [
+        "western",
+        "western-date",
+        "continuity",
+        "evening"
+      ],
+      "choices": [
+        {
+          "id": "stay-western",
+          "label": "Stay among the teamsters",
+          "consequence": "You finish the evening at the Western.",
+          "next": "$end"
+        },
+        {
+          "id": "back-green-tree",
+          "label": "Ride back to the Green Tree",
+          "consequence": "You finish the evening at the Green Tree.",
+          "next": "$end"
+        },
+        {
+          "id": "back-sauganash",
+          "label": "Cross back to the Sauganash",
+          "consequence": "You finish the evening where you began.",
+          "next": "$end"
+        }
+      ]
+    }
+  ],
+  "legs": [
+    {
+      "from": "purse",
+      "to": "wolf-point",
+      "note": "The route crosses to the west bank; no particular bridge or ferry is claimed for the crossing.",
+      "evidence": [
+        "continuity"
+      ],
+      "story": "Ride to the west bank with your purse decided.",
+      "story_evidence": [
+        "evening"
+      ]
+    },
+    {
+      "from": "wolf-point",
+      "to": "green-tree",
+      "note": "Both houses are placed on the west bank near the Lake Street crossing; the Wolf Point Tavern's position is the least certain in the town.",
+      "evidence": [
+        "continuity"
+      ]
+    },
+    {
+      "from": "green-tree",
+      "to": "western",
+      "note": "The Western stands a block south of the Green Tree, at Randolph and Canal.",
+      "evidence": [
+        "western",
+        "continuity"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "talk-is-free",
+      "text": "You brought no purse and missed nothing. The talk cost you nothing, and you carry home every word of it.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "money",
+        "op": "==",
+        "value": 0
+      }
+    },
+    {
+      "id": "clear-head",
+      "text": "You declined every glass and kept your purse whole. A clear head carries the evening's talk home intact.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "sobriety",
+        "op": "==",
+        "value": 2
+      }
+    },
+    {
+      "id": "two-houses",
+      "text": "A glass in two bar-rooms, and still a modest evening. You let the gossip stay gossip and rode home slowly.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "sobriety",
+        "op": "==",
+        "value": 0
+      }
+    },
+    {
+      "id": "a-sensible-evening",
+      "text": "One glass, a good deal of talk and a purse barely touched. A sensible evening, and an imagined one.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "a-sensible-evening",
+    "title": "A Sensible Evening",
+    "text": "A fictional calling card from an evening's round of the public houses at the forks."
+  },
+  "evidence": [
+    {
+      "id": "sauganash-house",
+      "text": "Kinzie describes the Sauganash in 1831 as a white two-storey building with bright-blue wooden shutters.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Chapter XVII, Chicago in 1831; description of Mark Beaubien’s newly completed house."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat reported that the Sauganash had been repaired, fitted up and furnished with neatness, and judged it, so far as it went, just the thing.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town’s public houses (extracted claim chicago_democrat_1835_06_10#c001)."
+    },
+    {
+      "id": "lake-house",
+      "text": "The same paragraph complains that no Chicago house is sufficiently extensive and reports a new house building in Kinzie’s Addition, to be named the Lake House.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town’s public houses (extracted claim chicago_democrat_1835_06_10#c001)."
+    },
+    {
+      "id": "wolf-sign",
+      "text": "A painted sign of a wolf hung outside the Wolf Point Tavern by about 1833.",
+      "confidence": "attested",
+      "sources": [
+        "drloih_wolf_point",
+        "chicagology_prefire273"
+      ],
+      "locator": "Wolf Point beginnings, the tavern’s operator succession and its painted wolf sign; chicagology pre-fire page 273, Wentworth’s tavern."
+    },
+    {
+      "id": "wolf-tenure",
+      "text": "William Walters is named landlord of the Wolf Point Tavern for 1833–1836; the hotel chronology says it ceased as a public house in 1834.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point",
+        "drloih_hotels"
+      ],
+      "reasoning": "The two readings are recorded on the structure and not resolved. Innkeeping in July 1835 is the structure record’s adopted, inferred reading, so the stop states both and claims no open bar-room as fact."
+    },
+    {
+      "id": "green-tree",
+      "text": "James Kinzie built the Green Tree in 1833 as the first building in the place erected for hotel purposes; Chester Ingersoll is given as landlord 1834–1837.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "locator": "chicagology pre-fire page 127, Green Tree Tavern: construction and landlords; DRLOIH hotel chronology, Green Tree entry."
+    },
+    {
+      "id": "green-tree-rooms",
+      "text": "Recollections printed on the Green Tree page describe a bar-room, whitewashed walls and board partitions, and a guest chamber about 12 by 12 feet with two windows.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "locator": "chicagology pre-fire page 127, Green Tree Tavern: Edwin O. Gale’s recollection of his chamber and John Gray’s description of the house."
+    },
+    {
+      "id": "western",
+      "text": "W. H. Stow built the Western Hotel at the south-east corner of Randolph and Canal: a 40 ft front with a 60 ft wing, a large stable and a yard the wagon trains drove into, serving farmers and teamsters from the west.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "locator": "chicagology pre-fire page 278, Town of Chicago: W. H. Stow’s account of the Western Hotel."
+    },
+    {
+      "id": "western-date",
+      "text": "Stow dates his hotel to 1834; the hotel chronology says it opened in 1835.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire278",
+        "drloih_hotels"
+      ],
+      "reasoning": "The structure record adopts the builder’s own 1834 date over an undated chronology line, so the stop says 1834 ‘by his own account’ and does not claim the house was open on any particular evening."
+    },
+    {
+      "id": "continuity",
+      "text": "The four houses are treated as exterior stops in the July 1835 scene; each keeps its own placement and tenure grade, and no interior, front door or keeper on the evening is claimed.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicagology_prefire127",
+        "chicagology_prefire278",
+        "drloih_wolf_point"
+      ],
+      "reasoning": "Uses the existing structure records’ scene-date phases. All four positions are inferred; the Wolf Point Tavern’s is the weakest in the dataset, and the Sauganash’s 1835 proprietor is only a lead, so the stop names no keeper for it."
+    },
+    {
+      "id": "evening",
+      "text": "The visitor’s evening, purse, glass prices, bar talk, comparison of welcomes, finishing house, endings, timing inputs and A Sensible Evening keepsake are invented connective narrative, not historical events.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-taverns"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-taverns"
+  ]
+}
