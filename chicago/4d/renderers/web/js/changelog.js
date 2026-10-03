@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1338, ts: '2026-10-03T03:06:24.274Z', date: 'Oct 2, 2026, 10:06 PM CT', title: 'A new jaunt: A Bed for the Night', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick A Bed for the Night. Compare four houses that took in strangers in the full town of 1835, about five and a half minutes on horseback.',
+      'Four stops from the west side to Lake Street: the Western Hotel, the Sauganash, Mrs Rufus Brown\u2019s boarding house and the Mansion House. Say first whether cost or convenience matters more, then choose where to ask.',
+      'The crowding is told in the June 1835 papers\u2019 own words: strangers in every room, some sleeping on the floor. No price or vacancy is claimed.',
+      'Finish to keep A Place to Lay Your Head in your daybook under Neighbors. The search itself is our reconstruction (liberty L-jaunt-bed-for-the-night).',
+    ] },
   { v: 1337, ts: '2026-10-03T02:08:05.503Z', date: 'Oct 2, 2026, 9:08 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
     items: [
       'Open the welcome, choose Jaunts and pick Across Wolf Point. It is a short walk across the river, with nothing to buy, about five and a half minutes on foot.',

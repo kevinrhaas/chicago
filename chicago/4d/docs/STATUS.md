@@ -1,3 +1,33 @@
+## T-2006 — A Bed for the Night, a published 1835 lodging jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Bed for the Night* (Lodging, Horse,
+4 stops, Neighbors). Four houses that took in strangers, seen from the street: the Western Hotel
+on the west side, the Sauganash, Mrs Rufus Brown's boarding house behind Peck's store, and the
+Mansion House on Lake Street. At the first stop the visitor says whether cost or convenience comes
+first; at the last, where to ask first. Three endings follow from the pair, and the keepsake *A
+Place to Lay Your Head* goes to Neighbors. Content only: one JSON file, a liberty
+(`L-jaunt-bed-for-the-night`), the regenerated catalog and source-use edges, and brief 09's route
+note. There is no engine, compiler or CSS change.
+
+**What is told, not invented.** The town's crowding is given in the two papers' own words, three
+weeks before the scene: the Democrat of 17 June 1835 (strangers "crowding every room of our public
+houses … even to the extent of sleeping on the floor") and the American of 13 June. No price, no
+vacancy and no booking is claimed; every ending says the outing does not know whether a bed was
+free. The Western's 1834-or-1835 date is given both ways, Brown's spot is called a placement, and
+the Mansion House's keeper on 1 July 1835 (Haddock or Markle) is left open, as its record leaves it.
+
+**Measured.** `play_jaunt.mjs --all-paths`: six paths, three endings, one keepsake, no dead end.
+The catalog card on the published mirror, 390×780 and 1280×800 alike: Horse about 5.5 min, Wagon
+8, Walk 15.5, Fly 4, Instantly 2.5. Walk is far outside the target because the four documented
+houses span about 0.9 km from Canal Street to Dearborn; the brief's order also crossed the river
+twice, so it was re-cut west to east, and the recommended pace is Horse. A Playwright drive at
+390×780 took the stills in order (menu card, first stop, the detail card and back to the same
+stop, the ending with its keepsake, the menu) with zero page errors, and Start then End returned
+to the menu.
+
+**Unverified.** The 1280×800 drive read the card's figures but was cut off by the 560 s cap
+before the ending; the walk-through is proved at 390×780 only. The stills are not committed.
+
 ## T-1264 — Across Wolf Point, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Across Wolf Point* (River and routes,

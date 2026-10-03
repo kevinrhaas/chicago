@@ -20145,3 +20145,15 @@ sounding of the pre-cut channel.
 **Applies to:** `data/jaunts/across-wolf-point.json`.
 
 **Recorded:** 2026-10-03 (T-1264).
+
+### L-jaunt-bed-for-the-night — A Bed for the Night: an invented search for lodging
+
+**Decision:** A Bed for the Night links four existing exterior destinations — the Western Hotel, the Sauganash, Mrs Rufus Brown's boarding house and the Mansion House — in an invented search for a bed by a visitor with a modest purse. The search itself, the cost-or-convenience preference, the route order (west side, over the South Branch bridge, east along Lake Street), the relative cost of the four houses, the choice of where to ask first, the three endings and the A Place to Lay Your Head memento are reconstructed. No price, vacancy, booking, conversation or encounter is attested; no named person speaks; no interior is opened. The houses, their keepers and their fabric are each cited at their own tier, and the crowding of June 1835 is told in the two papers' own words. The Mansion House's keeper on the scene date (Haddock or Markle) is stated as open rather than chosen, and Brown's exact spot is called a placement.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records and brief 09 of JAUNTS-INITIAL-LIBRARY.md. The route rides the scene's bridge graph and never crosses open water.
+
+**How to resolve:** A dated 1835 tariff or advertisement giving a board or night's rate at any of the four houses would replace the invented relative cost; the search and its endings stay interpretation.
+
+**Applies to:** `data/jaunts/bed-for-the-night.json`.
+
+**Recorded:** 2026-10-03 (T-2006).
