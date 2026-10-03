@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1386, ts: '2026-10-03T21:57:18.505Z', date: 'Oct 3, 2026, 4:57 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+    items: [
+      'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
+      'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
+    ] },
   { v: 1385, ts: '2026-10-03T21:39:22.010Z', date: 'Oct 3, 2026, 4:39 PM CT', title: 'Nothing you can see: every jaunt timed by riding it', kind: 'change',
     items: [
       'Nothing you can see changed. All 26 jaunts were ridden end to end, at the pace each one suggests, by air and instantly, and the time each took was written down.',

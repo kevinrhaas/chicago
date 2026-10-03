@@ -47,6 +47,7 @@
  */
 
 import * as THREE from 'three';
+import { adaptiveGroundGrid } from './terrain-base.js';
 import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { HORIZON_HAZE } from './world.js';
@@ -618,6 +619,20 @@ export async function createTerrain({
     water,
     material: groundMat,
     waterMaterial: waterMat,
+    /** Keep the far base below emitted crossing decks without moving timber.
+     * One replacement per frontage load; the current geometry has exactly one
+     * disposal entry even if a caller rebuilds the protection later. */
+    protectGroundUnder(footprints) {
+      if (!groundBase || !heightfield.loaded) return null;
+      const geometry = gridGeometry(heightfield, GROUND_BASE_STEP, footprints);
+      const previous = groundBase.geometry;
+      const slot = disposables.indexOf(previous);
+      if (slot >= 0) disposables[slot] = geometry;
+      else disposables.push(geometry);
+      groundBase.geometry = geometry;
+      previous.dispose();
+      return geometry.userData.adaptiveGround;
+    },
     /**
      * Point the water at the same distance the air is pointing at — T-1631.
      *
@@ -1160,12 +1175,26 @@ export function conformGroundToField(geometry, hf) {
  * missing; identical surface, more triangles, and it means a missing asset
  * degrades to "slower" rather than to "no ground".
  */
-function gridGeometry(hf, step = 1) {
+function gridGeometry(hf, step = 1, footprints = []) {
   if (!hf.loaded) {
     const g = new THREE.PlaneGeometry(2400, 2400, 1, 1);
     g.rotateX(-Math.PI / 2);
     g.setAttribute('_confidence',
       new THREE.BufferAttribute(new Float32Array(4).fill(1), 1));
+    return g;
+  }
+  if (step > 1) {
+    // Only crossing footprints request finer cells; surrounding coarse cells
+    // share their edge samples, so no terrain crack or depth override is needed.
+    const mesh = adaptiveGroundGrid(hf, step, 0.025, footprints);
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(mesh.position, 3));
+    const conf = new Float32Array(mesh.position.length / 3);
+    for (let i = 0; i < conf.length; i++) conf[i] = mesh.position[i * 3 + 1] < SHORE_Y ? 1 : 0.5;
+    g.setAttribute('_confidence', new THREE.BufferAttribute(conf, 1));
+    g.setIndex(new THREE.BufferAttribute(mesh.index, 1));
+    g.computeVertexNormals();
+    g.userData.adaptiveGround = mesh.stats;
     return g;
   }
   const { cols, rows, cellM, originE, originN } = hf;

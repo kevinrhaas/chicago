@@ -34,6 +34,15 @@ STRICT=""
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
 source "$_check_tools/check_harness.sh"
 
+step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
+  node tools/check_plank_gap_filter.mjs
+
+step "Emitted plank crossings remain above the distant terrain (T-2037)" \
+  node tools/check_plank_ground.mjs
+
+step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
+  node tools/check_far_plank_tops.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 

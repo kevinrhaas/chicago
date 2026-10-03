@@ -20687,6 +20687,44 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 
 **Recorded:** 2026-10-03 (T-2034).
 
+
+### L-vegetation-motion-continuity — stable clump representations and shrub scatter
+
+**Decision:** Close grass tufts and mid-distance clumps have lower-cost representations at the same world slots, using identical species, support, height, width, yaw and colour draws. Their distance limits, overlapping detail handovers, far-plant transition widths and pitch-aware culling are rendering choices. Shrub positions use the full placement cell rather than a species-correlated quarter-cell, removing artificial rows without changing the recorded species deal. Both shrub representations share this placement. These are not surveyed plant locations.
+
+**Bounds:** The existing 1 July 1835 flora records, community extents, confidence, soil/water support and flowering rules remain authoritative. No new plant species, crop, garden or elevated canopy is introduced. Close-verge plants remain full-height and solid; distant coverage may fade.
+
+**How to resolve:** Compare moving-camera views and measured rendering costs; better botanical/location evidence may refine the underlying records independently.
+
+**Applies to:** `renderers/web/js/flora.js`.
+
+**Recorded:** 2026-10-03 (T-2035, T-2038).
+
+### L-plankwalk-subpixel-gaps — filtering unresolved joints in reconstructed plankwalks
+
+**Decision:** The existing 20 mm joints between deck boards close smoothly in the renderer when their projected width falls below one framebuffer pixel, reaching closure below 0.35 pixels. Each board edge moves along the walk by at most 10 mm. This is an antialiasing choice, not a claim that historical boards had no gaps. Resolved joints keep their recorded geometry; height, width, run endpoints, confidence and ordinary occlusion remain unchanged.
+
+**Bounds:** The existing reconstructed frontage records remain authoritative. No new walk, bridge, filled slough, depth bias or surface above the boards is introduced. The filter adds no triangles or draw calls and respects the actual framebuffer viewport, including captures.
+
+**How to resolve:** Compare moving-camera captures at identical poses and framebuffer sizes, with the filter enabled and disabled. Refine filtering if it still produces visible discontinuity.
+
+**Applies to:** `renderers/web/js/frontage.js`.
+
+**Recorded:** 2026-10-03 (T-2037).
+
+
+### L-plank-crossing-ground-refinement — preserving recorded ground beneath low timber crossings
+
+**Decision:** The distant terrain mesh retains heightfield sample spacing in coarse cells underneath emitted board crossings when the coarse triangle exceeds a sample by more than 25 mm. Adjacent cells share edge samples to close the transition. The threshold selects cells for refinement; it is not a guaranteed error bound between samples. Crossing clearance is checked against the actual emitted deck triangles.
+
+**Bounds:** Only the renderer mesh changes. The authoritative heightfield, walking surface, timber heights, street alignment, water and intentional slough gaps remain unchanged. The 1835 crossing-only correction adds 8,704 terrain triangles, with no new draw call. The original coarse surface intersected 1,855 emitted top triangles; exact triangle-overlap comparison finds none after refinement, with at least 47.9 mm clearance.
+
+**How to resolve:** Keep validating actual deck/ground intersections as the heightfield or frontage records change; improve the representation without inventing a higher deck or biased depth.
+
+**Applies to:** `renderers/web/js/terrain-base.js`, `renderers/web/js/terrain.js`, `renderers/web/js/frontage.js`.
+
+**Recorded:** 2026-10-03 (T-2037).
+
 ### L-jaunt-over-the-draw — Over the Draw to the North Side: an invented crossing to three places on the far bank
 
 **Decision:** Over the Draw to the North Side is the library's 26th jaunt and the demonstration that the library grows by data alone (T-2042): it was added as one JSON file and compiled by `tools/compile_jaunts.py`, with no change to the renderer's code or styles. It links four existing exterior destinations — the Dearborn Street drawbridge, Blodgett's brickyard, the North Side school-house and the Lake House site — in an invented outing. The outing, the crossing, the route order (from the foot of Dearborn on South Water Street over the draw, west along the north bank toward Clark, then east along the bank to Rush), the looking from the street, the choice of where to end, both endings and the North of the River memento are reconstructed, and so are the reading seconds. No passage over the draw on a given day is claimed. The building facts are cited at their own tiers and reuse evidence already published in other jaunts, word for word: the draw from Norton's letter and Andreas (Along the Working Harbor), the brickyard and the Lake House from Andreas and the chicagology compilation (Materials for a Roof), the school-house from Andreas's schools chapter (A Schoolday Errand). No claim is new. No named person is met or speaks, no interior is opened, and no Native presence is narrated. It is a quiet outing: it declares no variable or inventory and shows no strip.
@@ -20698,3 +20736,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/over-the-draw.json`.
 
 **Recorded:** 2026-10-03 (T-2042).
+
+### L-plankwalk-far-top-retention — retaining existing footways beyond furniture reach
+
+**Decision:** When the selected detail tier hides a distant timber chunk, its emitted walk, crossing and decked-walk top triangles remain in one shared-material batch. Only visible-frustum, tier-eligible, reach-culled chunks contribute. Returning inside the reach removes the replacement before the detailed chunk draws. This is a rendering handover, not another frontage record.
+
+**Bounds:** The replacement copies actual vertex positions and all material attributes. It cannot add a walk, fill an intentional gap, lift a board, bypass normal depth testing, or restore cross-street walks excluded by the selected tier. Board-gap filtering remains shared with the detailed geometry. The batch adds at most one draw call; its actual triangle cost is subject to the existing tier budgets.
+
+**How to resolve:** Compare walking and overhead views at every detail tier, including transitions across the furniture reach, and retain exact deck/ground clearance checks.
+
+**Applies to:** `renderers/web/js/frontage.js`, `renderers/web/js/main.js`.
+
+**Recorded:** 2026-10-03 (T-2037).

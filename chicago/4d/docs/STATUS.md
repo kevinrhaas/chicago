@@ -1,3 +1,23 @@
+## T-2035 / T-2037 / T-2038 — vegetation and plankwalk continuity (validation in progress)
+
+Draft PR #364 preserves four checkpoints through `db49ce6a`. Seven motion routes
+across three tiers and both viewports pass after the final light-flight fade fix:
+zero abrupt coverage changes, plant identity errors or instance-cap shortfalls.
+The evidence retains the initial two light-flight failures and their passing repeat.
+
+The plank repair addresses unresolved board gaps, low crossings buried by coarse
+terrain, and complete sidewalks lost to light-tier furniture reach. The new far
+batch retains exact emitted deck tops, uses the shared material and adds at most
+one call. Crossing-only ground refinement adds 8,704 triangles and leaves all
+107,532 emitted top triangles clear. Intentional slough gaps remain.
+
+Current dev `98ece8ad` is integrated; its final update contains only jaunt timing
+reports/tooling and release notes. The owner authorized a measured rendering
+limit increase if needed on October 3 at 16:35 CDT; zero-area grass-tip triangles
+are removed first. Final integrated budgets, paired plank views and complete
+release gates are pending. No completed dev deployment is claimed yet.
+
+
 ## T-2051 — every jaunt's primary path ridden and timed, measurement half of T-2041 (2026-10-03)
 
 **What a visitor sees: nothing.** This is the measurement half of a split (AGENTS.md's

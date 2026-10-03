@@ -2512,6 +2512,9 @@
     "tools/check_exact_sums.py": {
       "wrote": []
     },
+    "tools/check_far_plank_tops.mjs": {
+      "wrote": []
+    },
     "tools/check_gate_readers.py": {
       "wrote": []
     },
@@ -2528,6 +2531,12 @@
       "wrote": []
     },
     "tools/check_only_selection.py": {
+      "wrote": []
+    },
+    "tools/check_plank_gap_filter.mjs": {
+      "wrote": []
+    },
+    "tools/check_plank_ground.mjs": {
       "wrote": []
     },
     "tools/check_published.mjs": {

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 389,
+  "count": 393,
   "liberties": [
     {
       "id": "L1",
@@ -23748,6 +23748,99 @@
       ]
     },
     {
+      "id": "L-vegetation-motion-continuity",
+      "title": "stable clump representations and shrub scatter",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Close grass tufts and mid-distance clumps have lower-cost representations at the same world slots, using identical species, support, height, width, yaw and colour draws. Their distance limits, overlapping detail handovers, far-plant transition widths and pitch-aware culling are rendering choices. Shrub positions use the full placement cell rather than a species-correlated quarter-cell, removing artificial rows without changing the recorded species deal. Both shrub representations share this placement. These are not surveyed plant locations."
+        },
+        {
+          "label": "Bounds",
+          "text": "The existing 1 July 1835 flora records, community extents, confidence, soil/water support and flowering rules remain authoritative. No new plant species, crop, garden or elevated canopy is introduced. Close-verge plants remain full-height and solid; distant coverage may fade."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Compare moving-camera views and measured rendering costs; better botanical/location evidence may refine the underlying records independently."
+        },
+        {
+          "label": "Applies to",
+          "text": "`renderers/web/js/flora.js`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2035, T-2038)."
+        }
+      ]
+    },
+    {
+      "id": "L-plankwalk-subpixel-gaps",
+      "title": "filtering unresolved joints in reconstructed plankwalks",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The existing 20 mm joints between deck boards close smoothly in the renderer when their projected width falls below one framebuffer pixel, reaching closure below 0.35 pixels. Each board edge moves along the walk by at most 10 mm. This is an antialiasing choice, not a claim that historical boards had no gaps. Resolved joints keep their recorded geometry; height, width, run endpoints, confidence and ordinary occlusion remain unchanged."
+        },
+        {
+          "label": "Bounds",
+          "text": "The existing reconstructed frontage records remain authoritative. No new walk, bridge, filled slough, depth bias or surface above the boards is introduced. The filter adds no triangles or draw calls and respects the actual framebuffer viewport, including captures."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Compare moving-camera captures at identical poses and framebuffer sizes, with the filter enabled and disabled. Refine filtering if it still produces visible discontinuity."
+        },
+        {
+          "label": "Applies to",
+          "text": "`renderers/web/js/frontage.js`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2037)."
+        }
+      ]
+    },
+    {
+      "id": "L-plank-crossing-ground-refinement",
+      "title": "preserving recorded ground beneath low timber crossings",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The distant terrain mesh retains heightfield sample spacing in coarse cells underneath emitted board crossings when the coarse triangle exceeds a sample by more than 25 mm. Adjacent cells share edge samples to close the transition. The threshold selects cells for refinement; it is not a guaranteed error bound between samples. Crossing clearance is checked against the actual emitted deck triangles."
+        },
+        {
+          "label": "Bounds",
+          "text": "Only the renderer mesh changes. The authoritative heightfield, walking surface, timber heights, street alignment, water and intentional slough gaps remain unchanged. The 1835 crossing-only correction adds 8,704 terrain triangles, with no new draw call. The original coarse surface intersected 1,855 emitted top triangles; exact triangle-overlap comparison finds none after refinement, with at least 47.9 mm clearance."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Keep validating actual deck/ground intersections as the heightfield or frontage records change; improve the representation without inventing a higher deck or biased depth."
+        },
+        {
+          "label": "Applies to",
+          "text": "`renderers/web/js/terrain-base.js`, `renderers/web/js/terrain.js`, `renderers/web/js/frontage.js`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2037)."
+        }
+      ]
+    },
+    {
       "id": "L-jaunt-over-the-draw",
       "title": "Over the Draw to the North Side: an invented crossing to three places on the far bank",
       "section": "per_subject",
@@ -23775,6 +23868,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-03 (T-2042)."
+        }
+      ]
+    },
+    {
+      "id": "L-plankwalk-far-top-retention",
+      "title": "retaining existing footways beyond furniture reach",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "When the selected detail tier hides a distant timber chunk, its emitted walk, crossing and decked-walk top triangles remain in one shared-material batch. Only visible-frustum, tier-eligible, reach-culled chunks contribute. Returning inside the reach removes the replacement before the detailed chunk draws. This is a rendering handover, not another frontage record."
+        },
+        {
+          "label": "Bounds",
+          "text": "The replacement copies actual vertex positions and all material attributes. It cannot add a walk, fill an intentional gap, lift a board, bypass normal depth testing, or restore cross-street walks excluded by the selected tier. Board-gap filtering remains shared with the detailed geometry. The batch adds at most one draw call; its actual triangle cost is subject to the existing tier budgets."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Compare walking and overhead views at every detail tier, including transitions across the furniture reach, and retain exact deck/ground clearance checks."
+        },
+        {
+          "label": "Applies to",
+          "text": "`renderers/web/js/frontage.js`, `renderers/web/js/main.js`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-03 (T-2037)."
         }
       ]
     },
