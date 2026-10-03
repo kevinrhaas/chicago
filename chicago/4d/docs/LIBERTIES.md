@@ -20547,3 +20547,16 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/sunday-circuit.json`.
 
 **Recorded:** 2026-10-03 (T-2029).
+
+
+### L-vegetation-motion-continuity — stable clump representations and shrub scatter
+
+**Decision:** Close grass tufts and mid-distance clumps have lower-cost representations at the same world slots, using identical species, support, height, width, yaw and colour draws. Their distance limits, overlapping detail handovers, far-plant transition widths and pitch-aware culling are rendering choices. Shrub positions use the full placement cell rather than a species-correlated quarter-cell, removing artificial rows without changing the recorded species deal. Both shrub representations share this placement. These are not surveyed plant locations.
+
+**Bounds:** The existing 1 July 1835 flora records, community extents, confidence, soil/water support and flowering rules remain authoritative. No new plant species, crop, garden or elevated canopy is introduced. Close-verge plants remain full-height and solid; distant coverage may fade.
+
+**How to resolve:** Compare moving-camera views and measured rendering costs; better botanical/location evidence may refine the underlying records independently.
+
+**Applies to:** `renderers/web/js/flora.js`.
+
+**Recorded:** 2026-10-03 (T-2035, T-2038).

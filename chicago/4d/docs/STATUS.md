@@ -1,3 +1,15 @@
+## T-2035 / T-2037 / T-2038 — owner-reported vegetation and plankwalk continuity (in progress)
+
+The 2026-10-03 owner screenshots show walking/flying vegetation pop, regular shrub
+rows and partial South Water plankwalks. Tickets are claimed in the shared queue.
+The first checkpoint adds same-slot grass/reed carry geometry, per-frame distant
+plant transitions, pitch-aware placement cones and independent full-cell shrub
+jitter. The source gate passes all 750 steps. The first full/desktop roadside
+motion pass has zero abrupt coverage changes (101 before) and zero identity errors. Published before/after still comparisons are being measured; motion,
+mobile, cost ceilings and release gates remain unverified. Plankwalk diagnosis
+is still open: sampled boards clear the terrain, and reach/subpixel effects need
+browser discrimination. Do not treat this checkpoint as completion or deployment.
+
 ## T-2028 — A Schoolday Errand, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *A Schoolday Errand* (Education, Horse, 4

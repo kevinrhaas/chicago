@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1370, ts: '2026-10-03T16:20:26.435Z', date: 'Oct 3, 2026, 11:20 AM CT', title: 'More continuous summer vegetation', kind: 'fix',
+    items: [
+      'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
+      'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
+    ] },
   { v: 1369, ts: '2026-10-03T15:38:36.981Z', date: 'Oct 3, 2026, 10:38 AM CT', title: 'A new jaunt: A Sunday Circuit', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick A Sunday Circuit, a quiet outing of about six and a half minutes on horseback, with nothing to count or carry.',

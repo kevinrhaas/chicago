@@ -39,7 +39,7 @@
  * Placement is a deterministic world lattice: a plant's position, species,
  * height and colour are a hash of its cell, so re-centring on a walking camera
  * regenerates the same plants and nothing swims underfoot. Only the ring edge
- * changes, and it is scaled in rather than popped.
+ * changes; T-2035 carries the same close slots outward and fades distant coverage.
  *
  * Procedural per AGENTS.md and the publish budget: no image asset, no binary,
  * a bounded handful of draw calls. Every material carries `_CONFIDENCE` as a per-INSTANCE
@@ -617,10 +617,23 @@ function heightOf(ring, d) {
  * appears and disappears at ITS OWN radius rather than every card in a ring
  * doing it together, and it makes the same decision from every camera.
  */
+function rankCoverage(a, b, c, d, width) {
+  // Both ramps are affine in a slot's uniform rank. Break at every clamp;
+  // Simpson integration is exact on the resulting quadratic pieces.
+  const cuts = [0, 1, a / b, (a - width) / b, c / d, (c - width) / d]
+    .filter(Number.isFinite).filter(x => x >= 0 && x <= 1).sort((x, y) => x - y);
+  const at = u => clamp01((a - b * u) / width) * clamp01((c - d * u) / width);
+  let sum = 0;
+  for (let i = 1; i < cuts.length; i++) {
+    const lo = cuts[i - 1], hi = cuts[i];
+    sum += (hi - lo) * (at(lo) + 4 * at((lo + hi) / 2) + at(hi)) / 6;
+  }
+  return sum;
+}
 function farKeepAt(d, band) {
-  const inner = band.innerRamp > 0 ? clamp01((d - band.inner) / band.innerRamp) : 1;
-  const outer = band.ramp > 0 ? clamp01((band.radius - d) / band.ramp) : 1;
-  return band.keep * inner * outer;
+  const feather = Math.min(8, band.innerRamp, band.ramp);
+  return band.keep * rankCoverage(band.radius - d, band.ramp,
+    d - band.inner, band.innerRamp, feather);
 }
 
 /** The two bands' combined reach at `d`, which is the number a measurement
@@ -642,13 +655,14 @@ function farRank(e, n, band) {
  *  slot's world-anchored place in it — `farKeepAt` and `farRank`, one stratum
  *  over. No inner ramp: the handover is the slot's own hard edge. */
 function farShrubKeepAt(d, fs) {
-  return fs.ramp > 0 ? clamp01((fs.radius - d) / fs.ramp) : (d <= fs.radius ? 1 : 0);
+  const feather = Math.min(12, fs.ramp / 2);
+  return rankCoverage(fs.radius - fs.step - d, fs.ramp, feather, 0, feather);
 }
 function farShrubRank(e, n) {
   return unitHash(Math.round(e * 8), Math.round(n * 8), 0x6d2b79f5);
 }
 
-/** The far band is not faded by the shader at all — see `farKeepAt`. This is
+/** Legacy unbounded ring, also the initial scratch value for proxies. This is
  *  the ring that says so: an outer radius nothing can reach, and a band wide
  *  enough that `chiFade` lands on 1 and the fragment shader's guard skips the
  *  dither branch entirely. */
@@ -707,6 +721,21 @@ const CONE_KEEP_M = 3.5;
 /** Cosine of the cone half-angle, and the yaw change that forces a rebuild. */
 const CONE_COS = Math.cos(62 * Math.PI / 180);
 const CONE_YAW_STEP = 0.20;
+
+/** Conservative camera azimuth, quantized outward in five-degree buckets.
+ * A level-camera cone misses ground exposed by a downward flight view; using
+ * an exact continuously changing angle instead would re-deal on every frame. */
+function placementCone(camera, forward) {
+  const fl = Math.hypot(forward.x, forward.z);
+  const vertical = Math.tan(camera.fov * Math.PI / 360);
+  const projected = fl * fl - forward.y * forward.y * vertical * vertical;
+  const half = projected <= 0 ? Math.PI : Math.min(Math.PI,
+    Math.max(Math.acos(CONE_COS),
+      Math.atan2(vertical * camera.aspect, Math.sqrt(projected)) + CONE_YAW_STEP));
+  const bucket = Math.ceil(half / (Math.PI / 36)) * Math.PI / 36;
+  return { fe: fl > 1e-6 ? forward.x / fl : 0,
+    fn: fl > 1e-6 ? -forward.z / fl : 1, cos: Math.cos(bucket) };
+}
 
 /** Everything gets halved on a phone; mobile 390x780 is a release gate. */
 const LOW = {
@@ -1232,13 +1261,21 @@ export async function createFlora({
   // more draw call and no new shader program. See `TUNE.farShrub`.
   const farShrubSet = instSet('flora-shrub-far', farShrubGeometry(), bladeMat,
     tune.cap.farShrub);
+  // T-2035. Persistent, rooted versions of the SAME near and mid slots.
+  // The close representation refines a clump already present in the scene.
+  // Reuse placement RNGs, not a second population or a raised canopy sheet.
+  const nearCarry = instSet('flora-near-carry', tuftGeometry(9, quality === 'light' ? 1 : 2),
+    bladeMat, quality === 'light' ? 12000 : quality === 'balanced' ? 22000 : 40000);
+  const midCarry = instSet('flora-mid-carry', cardGeometry(7, [0, 3, 6]), cardMat,
+    quality === 'light' ? 16000 : quality === 'balanced' ? 24000 : 32000);
   const sets = [nearSet, midSet, forbSet, rosetteSet, shrubSet, farSet, farShrubSet,
+    nearCarry, midCarry,
     ...Object.values(heads)];
   for (const s of sets) { group.add(s.mesh); disposables.push(s.mesh.geometry); }
 
   // ---- placement --------------------------------------------------------- //
 
-  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null };
+  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null };
   const waterY = terrain.heightfield?.meta?.water_surface_m ?? 0;
 
   // The lattice each layer is scattered on, and the ring the shader fades it
@@ -1322,6 +1359,27 @@ export async function createFlora({
       }
     }
     return y;
+  }
+
+  // Flight can expose every azimuth, but not every plant in a whole disc.
+  // Cull against the actual 3D view with a conservative botanical sphere and
+  // the movement/turn margin. Walking keeps its established census window.
+  const maxPlantHeight = Math.max(...zones.flatMap(z => [...z.byId.values()]
+    .map(sp => sp.height[1]))) * 1.25;
+  function viewCone(camera, direction) {
+    const cone = placementCone(camera, direction);
+    const baseY = terrain.surfaceHeight(camera.position.x, -camera.position.z);
+    if (camera.position.y - baseY > 5) {
+      camera.updateMatrixWorld();
+      const matrix = new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,
+        camera.matrixWorldInverse);
+      cone.planes = new THREE.Frustum().setFromProjectionMatrix(matrix).planes;
+      cone.surface = (e, n) => Math.max(waterY, terrain.surfaceHeight(e, n));
+      cone.halfHeight = maxPlantHeight / 2;
+      cone.bodyRadius = Math.hypot(cone.halfHeight, 3);
+      cone.eyeY = camera.position.y;
+    }
+    return cone;
   }
 
   function* rebuildGround(camE, camN, cone) {
@@ -1484,7 +1542,7 @@ export async function createFlora({
     // clearance, the station rules and the head. `placeShrub` reads `width_m` as
     // the clump diameter it is on a shrub (K53).
     yield* scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
-      f.lattice.outer, f.lattice.inner, 0x7b5c1d, 'lattice', cone,
+      f.lattice.outer, f.lattice.inner, 0x7b5c1d, 'wild', cone,
       (e, n, r, rng, _cellSeed, u) => {
         const off = fringeOf(e, n, f.fringe);
         if (r > f.fade[0] + off + step) return;
@@ -1530,12 +1588,19 @@ export async function createFlora({
    */
   function* rebuildFar(camE, camN, cone) {
     farSet.reset();
-    farSet.ring(FAR_RING);
+    // Each slot now carries a continuous ring instead of changing presence
+    // only on a CPU rebuild (T-2035).
     for (const [i, band] of tune.far.bands.entries()) {
-      yield* scatter(camE, camN, band.cell, band.perCell, band.radius, band.inner,
+      yield* scatter(camE, camN, band.cell, band.perCell, band.radius + step, Math.max(0, band.inner - step),
         0x3a91c7 ^ (i * 0x85ebca6b), 'lattice', cone,
         (e, n, r, rng, _cellSeed, u) => {
-          if (farRank(e, n, i) >= farKeepAt(r, band)) return;
+          const rank = farRank(e, n, i) / band.keep;
+          if (rank >= 1) return;
+          const outer = band.radius - band.ramp * rank;
+          const inner = band.inner + band.innerRamp * rank;
+          const feather = Math.min(8, band.innerRamp, band.ramp);
+          if (r > outer + step || r < inner - step) return;
+          farSet.ring([outer, feather, inner, feather]);
           const zone = finder(e, n);
           if (!zone || !zone.graminoids.length) return;
           const wet = water.isWater(e, n);
@@ -1655,9 +1720,13 @@ export async function createFlora({
           // forb ring already uses, so this is instances on a mesh that is
           // drawn either way, never a new draw call.
           if (forb && h > 0 && sp.head && tune.far.minPx
-            && r <= farHeadReach(sp, tune.far.minPx)) {
-            maybeHead(heads, sp, e, y, n, rng, h,
-              farHeadRing(sp, tune.far.minPx, _headRing));
+            && r <= farHeadReach(sp, tune.far.minPx) + step) {
+            const hr = farHeadRing(sp, tune.far.minPx, _headRing);
+            hr[0] = Math.min(hr[0], outer - HEAD_FADE_AT * feather);
+            hr[1] = Math.max(hr[1], (1 - HEAD_FADE_AT) * feather);
+            hr[2] = inner + HEAD_FADE_AT * feather;
+            hr[3] = (1 - HEAD_FADE_AT) * feather;
+            maybeHead(heads, sp, e, y, n, rng, h, hr);
           }
         });
     }
@@ -1676,6 +1745,7 @@ export async function createFlora({
    */
   const _farShrubRing = [FAR_RING[0], FAR_RING[1], 0, HARD];
   function* rebuildFarShrubs(camE, camN, cone) {
+    cone = cone ? { ...cone, margin: tune.farShrub.step } : null;
     farShrubSet.reset();
     const f = rings.forb;
     const fs = tune.farShrub;
@@ -1684,13 +1754,14 @@ export async function createFlora({
     // in past it by as far as the walker can go before the next rebuild.
     const inner = Math.max(0, f.fade[0] - f.fade[1] - f.fringe - fs.step);
     yield* scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
-      fs.radius, inner, 0x7b5c1d, 'lattice', cone,
+      fs.radius, inner, 0x7b5c1d, 'wild', cone,
       (e, n, r, rng, _cellSeed, u) => {
         const off = fringeOf(e, n, f.fringe);
         // Where THIS slot's detailed bush stops fading and is drawn whole.
         const handover = f.fade[0] + off - f.fade[1];
         if (r < handover - fs.step) return;
-        if (farShrubRank(e, n) >= farShrubKeepAt(r, fs)) return;
+        const outer = fs.radius - fs.step - fs.ramp * farShrubRank(e, n);
+        if (r > outer + fs.step) return;
         const zone = finder(e, n);
         if (!zone || !zone.shrubs.length) return;
         const wet = water.isWater(e, n);
@@ -1699,11 +1770,57 @@ export async function createFlora({
         if (!sp) return;
         const y = station(e, n, zone, sp, wet);
         if (y === null) return;
+        _farShrubRing[0] = outer;
+        _farShrubRing[1] = Math.min(12, fs.ramp / 2);
         _farShrubRing[2] = handover;
         farShrubSet.ring(_farShrubRing);
         placeShrub(farShrubSet, sp, e, y, n, rng);
       });
     farShrubSet.commit();
+    yield* rebuildCarry(camE, camN, cone);
+  }
+
+  /** Same-slot sward continuity. The detailed tufts/card geometry and this
+   * lower-cost geometry are dealt from identical keys and receive identical
+   * transforms. Coverage fades only beyond the nine-metre close verge. */
+  function* rebuildCarry(camE, camN, cone) {
+    const margin = tune.farShrub.step;
+    for (const [kind, target, salt] of [
+      ['near', nearCarry, 0x51ed27], ['mid', midCarry, 0x9e3779],
+    ]) {
+      target.reset();
+      const original = rings[kind];
+      const layer = tune[kind];
+      const radius = kind === 'near' ? tune.mid.radius + tune.mid.fringe
+        : tune.far.bands[0].radius;
+      const band = Math.min(radius - 9.5, kind === 'near' ? 9 : 20);
+      const inner = kind === 'mid' ? 0 : Math.max(0, original.fade[0] - original.fade[1]
+        - original.spread.outer - original.fringe - margin);
+      const carryFringe = Math.min(3, original.fringe);
+      yield* scatter(camE, camN, layer.cell, layer.perCell,
+        radius + carryFringe + margin, inner, salt, 'strata', cone,
+        (e, n, r, rng, _cellSeed, u) => {
+          const off = fringeOf(e, n, original.fringe);
+          const detailRing = slotRing(original, e, n, off, _ring);
+          // Keep the coarse clump through the detailed representation's
+          // partial coverage. Its inner edge falls where detail is solid.
+          const handover = kind === 'mid' ? 0 : detailRing[0] - detailRing[1];
+          const edge = radius + fringeOf(e, n, carryFringe);
+          if (r < handover - margin || r > edge + margin) return;
+          const zone = finder(e, n);
+          if (!zone || !zone.graminoids.length) return;
+          const wet = water.isWater(e, n);
+          const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
+            zone.matrixShare, u);
+          if (!sp) return;
+          const y = station(e, n, zone, sp, wet);
+          if (y === null) return;
+          target.ring([edge, band, handover, kind === 'mid' ? 0 : HARD]);
+          if (kind === 'near') placeGraminoid(target, sp, e, y, n, rng);
+          else placeCard(target, sp, zone, e, y, n, rng);
+        });
+      target.commit();
+    }
   }
 
   /** The frame's flora figures, off every set as it stands now. Read after
@@ -1711,6 +1828,12 @@ export async function createFlora({
   function tally() {
     stats.instances = sets.reduce((a, s) => a + s.mesh.count, 0);
     stats.sets = Object.fromEntries(sets.map((s) => [s.mesh.name, s.mesh.count]));
+    stats.caps = Object.fromEntries(sets.map((s) => [s.mesh.name, s.max]));
+    stats.capped = sets.filter((s) => s.mesh.count >= s.max).map((s) => s.mesh.name);
+    stats.demand = Object.fromEntries(sets.map((s) => [s.mesh.name, s.demand()]));
+    stats.trisPer = Object.fromEntries(sets.map((s) => [s.mesh.name, s.tris]));
+    stats.shortfall = Object.fromEntries(sets.map((s) => [s.mesh.name, s.demand() - s.mesh.count])
+      .filter(([, short]) => short > 0));
     stats.triangles = sets.reduce((a, s) => a + s.mesh.count * s.tris, 0);
     stats.drawCalls = sets.filter((s) => s.mesh.count > 0).length;
   }
@@ -1722,31 +1845,8 @@ export async function createFlora({
     yield* rebuildFar(camE, camN, cone);
     closeCensus();
     // The far shrubs commit themselves, on their own step.
-    for (const s of sets) if (s !== farShrubSet) s.commit();
-    stats.instances = sets.reduce((a, s) => a + s.mesh.count, 0);
-    stats.sets = Object.fromEntries(sets.map((s) => [s.mesh.name, s.mesh.count]));
-    /** T-0034. The ceiling beside the count, because `capped` answers only
-     *  "is this set full" and the question a bloom measurement has to ask is
-     *  "how much of its ceiling is spent" — a set at 0.31 of its cap and one at
-     *  0.99 are the same row otherwise, and they are the difference between a
-     *  raise a lattice can carry and one an instance budget eats. */
-    stats.caps = Object.fromEntries(sets.map((s) => [s.mesh.name, s.max]));
-    stats.capped = sets.filter((s) => s.mesh.count >= s.max).map((s) => s.mesh.name);
-    /** T-0214. What each set was ASKED for this pass, and what it had to refuse.
-     *  A set sitting on its cap is not by itself a fault — a set that refused
-     *  four hundred inflorescences the records asked for is, and until this the
-     *  two looked identical from outside. `shortfall` carries only the sets with
-     *  something in them, so an empty object is the assertion worth making. */
-    stats.demand = Object.fromEntries(sets.map((s) => [s.mesh.name, s.demand()]));
-    /** Triangles ONE instance of each set costs, so a shortfall in instances can
-     *  be priced in the unit the frame budget is kept in without re-deriving an
-     *  archetype's geometry outside the module that built it. */
-    stats.trisPer = Object.fromEntries(sets.map((s) => [s.mesh.name, s.tris]));
-    stats.shortfall = Object.fromEntries(sets
-      .map((s) => [s.mesh.name, s.demand() - s.mesh.count])
-      .filter(([, short]) => short > 0));
-    stats.triangles = sets.reduce((a, s) => a + s.mesh.count * s.tris, 0);
-    stats.drawCalls = sets.filter((s) => s.mesh.count > 0).length;
+    for (const s of sets) if (s !== farShrubSet && s !== nearCarry && s !== midCarry) s.commit();
+    tally();
   }
 
   const tmpV = new THREE.Vector3();
@@ -1981,15 +2081,18 @@ export async function createFlora({
       const e = tmpV.x, n = -tmpV.z;
       const fl = Math.hypot(tmpF.x, tmpF.z) || 1;
       const fe = tmpF.x / fl, fn = -tmpF.z / fl;
-      for (const row of rebuildFarShrubs(e, n, { fe, fn, cos: CONE_COS })) {
+      const cone = viewCone(camera, tmpF);
+      centres.coneCos = cone.cos;
+      for (const row of rebuildFarShrubs(e, n, cone)) {
         const pause = checkpoint(); if (pause) await pause;
       }
-      for (const row of rebuildAll(e, n, { fe, fn, cos: CONE_COS })) {
+      for (const row of rebuildAll(e, n, cone)) {
         onProgress(row.done, row.total);
         const pause = checkpoint(); if (pause) await pause;
       }
       centres.near = { e, n }; centres.yaw = Math.atan2(fe, fn);
       centres.farShrub = { e, n }; centres.farShrubYaw = centres.yaw;
+      centres.pitch = Math.asin(tmpF.y); centres.eyeY = tmpV.y;
     },
 
     update(dt, camera) {
@@ -2008,6 +2111,12 @@ export async function createFlora({
       const fe = tmpF.x / fl;
       const fn = -tmpF.z / fl;
       const yaw = Math.atan2(fe, fn);
+      const cone = viewCone(camera, tmpF);
+      const coneCos = cone.cos;
+      const pitch = Math.asin(tmpF.y);
+      const coneChanged = centres.coneCos !== coneCos
+        || centres.pitch === null || Math.abs(pitch - centres.pitch) > 0.1
+        || centres.eyeY === null || Math.abs(tmpV.y - centres.eyeY) > step;
       const turned = centres.yaw === null
         || Math.abs(((yaw - centres.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
            > CONE_YAW_STEP;
@@ -2015,17 +2124,20 @@ export async function createFlora({
         || Math.abs(((yaw - centres.farShrubYaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
            > CONE_YAW_STEP;
       let rebuilt = false;
-      if (turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step)) {
-        for (const _ of rebuildFarShrubs(e, n, { fe, fn, cos: CONE_COS })) { /* synchronous */ }
+      if (coneChanged || turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step)) {
+        for (const _ of rebuildFarShrubs(e, n, cone)) { /* synchronous */ }
         centres.farShrub = { e, n };
         centres.farShrubYaw = yaw;
         rebuilt = true;
       }
-      if (turned || moved(centres.near, e, n, step)) {
-        for (const _ of rebuildAll(e, n, { fe, fn, cos: CONE_COS })) { /* runtime synchronous path */ }
+      if (coneChanged || turned || moved(centres.near, e, n, step)) {
+        for (const _ of rebuildAll(e, n, cone)) { /* runtime synchronous path */ }
         centres.near = { e, n };
         centres.yaw = yaw;
         rebuilt = false;
+      }
+      if (coneChanged) {
+        centres.coneCos = coneCos; centres.pitch = pitch; centres.eyeY = tmpV.y;
       }
       if (rebuilt) tally();
     },
@@ -3649,8 +3761,12 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
         // the eye reads as bare soil and clusters it reads as one plant.
         const sx = k % sub;
         const sy = (k / sub) | 0;
-        const e = (c + (sx + rng()) / sub) * cell;
-        const n = (r + (sy + rng()) / sub) * cell;
+        // T-2038. Sparse shrub ranks repeatedly selected the same quarter of
+        // every cell. Use independent full-cell jitter for wild woody plants;
+        // both shrub LODs consume these same two draws and retain identity.
+        const je = rng(), jn = rng();
+        const e = (c + (draw === 'wild' ? je : (sx + je) / sub)) * cell;
+        const n = (r + (draw === 'wild' ? jn : (sy + jn) / sub)) * cell;
         const d2 = (e - camE) ** 2 + (n - camN) ** 2;
         if (d2 > rr || d2 < ri) continue;
         const d = Math.sqrt(d2);
@@ -3661,7 +3777,17 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
         // before the lattice catches up; inside CONE_KEEP_M everything is kept,
         // because that ring must not flicker as you turn on the spot.
         if (cone && d > CONE_KEEP_M
-          && ((e - camE) * cone.fe + (n - camN) * cone.fn) / d < cone.cos) continue;
+          && ((e - camE) * cone.fe + (n - camN) * cone.fn)
+            < d * cone.cos - 2 * (cone.margin ?? 0)) continue;
+        if (cone?.planes) {
+          const y = cone.surface(e, n) + cone.halfHeight;
+          // Distance to any unit plane can change by no more than translation
+          // plus the rotation chord. 0.22 rad exceeds both yaw/pitch thresholds.
+          const pad = cone.bodyRadius + (cone.margin ?? 0.6)
+            + Math.hypot(d, cone.eyeY - y) * 0.22;
+          if (cone.planes.some(p => p.normal.x * e + p.normal.y * y
+              - p.normal.z * n + p.constant < -pad)) continue;
+        }
         emit(e, n, d, rng, cellSeed, u);
       }
     }
@@ -4365,7 +4491,7 @@ function tuftGeometry(blades = 12, segments = 2) {
  * Four columns of different heights, because a rectangle reads as a fence and a
  * flat top edge reads as mown.
  */
-function cardGeometry(columns = 7) {
+function cardGeometry(columns = 7, selected = null) {
   const g = emptyGeo();
   const rng = rngFrom(0x5a17c001);
   for (let i = 0; i < columns; i++) {
@@ -4389,7 +4515,7 @@ function cardGeometry(columns = 7) {
     // physical envelope, instance census and two-triangle budget stay fixed.
     botany(g, a, 0, 0, 4); botany(g, b, 1, 0, 4);
     botany(g, c, 0, 1, 4); botany(g, d, 1, 1, 4);
-    g.idx.push(a, b, c, b, d, c);
+    if (!selected || selected.includes(i)) g.idx.push(a, b, c, b, d, c);
   }
   return finishGeo(g, 'flora-card');
 }
@@ -4828,7 +4954,7 @@ function rosetteGeometry(segments = 1) {
  * the envelope; `measure_spray_grain.mjs` measures its uncut support area,
  * not the leaf coverage left after the botanical alpha mask.
  */
-function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, segments = 1) {
+function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, segments = 1, sprayStride = 1) {
   const g = emptyGeo();
   const rng = rngFrom(0x5c123b00);
   // The stems, the bands, the spray plan and every corner are `shrub-grain.js`,
@@ -4866,7 +4992,7 @@ function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, seg
   // smaller masses — is answered by `tools/measure_spray_grain.mjs` rather than
   // by preference. `SHRUB_GRAIN` in `shrub-grain.js` carries the answer and the
   // reasoning; the shading is all that is left here.
-  for (const p of sprays) {
+  for (const [sprayIndex, p] of sprays.entries()) {
     if (segments > 1) {
       // Attach every sampled shoot to its nearest main stem. The old spray
       // envelope contained disconnected green plates; removing those plates
@@ -4912,7 +5038,7 @@ function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, seg
         botany(g, v, side, t, 2);
         row.push(v);
       }
-      if (previous) g.idx.push(previous[0], row[0], previous[1],
+      if (previous && sprayIndex % sprayStride === 0) g.idx.push(previous[0], row[0], previous[1],
         previous[1], row[0], row[1]);
       previous = row;
     }
@@ -4936,8 +5062,10 @@ function shrubReach(grain) {
  * bigger plates fill the shell rather than widen the bush past its record.
  */
 function farShrubGeometry() {
-  return shrubGeometry(FAR_SHRUB_GRAIN, 'flora-shrub-far',
-    shrubReach(SHRUB_GRAIN) / shrubReach(FAR_SHRUB_GRAIN), 1);
+  // T-2035: select canonical sprays, so the coarse bush is already contained
+  // in the detailed one at handover. A different larger-plate layout changed
+  // the entire silhouette at the old hard switch. All RNG draws are retained.
+  return shrubGeometry(SHRUB_GRAIN, 'flora-shrub-far', 1, 1, 3);
 }
 
 /** Smooth value noise, 0..1. No texture, no table. */
