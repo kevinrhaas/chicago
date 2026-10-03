@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
+  { v: 1388, ts: '2026-10-03T22:54:33.786Z', date: 'Oct 3, 2026, 5:54 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
     items: [
       'Nothing you can see changes yet. The first Fort Dearborn, burned in August 1812, will be built from the plan its commandant drew in January 1808. That plan is now read and measured.',
       'His drawing shows a double row of pickets about 110 feet square, blockhouses at the north-west and south-east corners, barracks on all four sides and a brick magazine. The 75-foot flagstaff he drew laid flat gives the scale.',
