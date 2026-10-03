@@ -20500,3 +20500,15 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/soap-and-candles.json`.
 
 **Recorded:** 2026-10-03 (T-2025).
+
+### L-jaunt-sunday-circuit — A Sunday Circuit: an invented call, by way of the town's places of worship
+
+**Decision:** A Sunday Circuit links four existing exterior destinations — St. Mary's Catholic Church, the First Presbyterian Church, the Walker meeting house and the Sauganash — in an invented outing to pay a call. The neighbour, the call, the route order (west along Lake Street from State to Clark, over the South Branch bridge to Wolf Point and back to Lake and Market), the looking from the road, the single ending and the A Morning Among Neighbors memento are reconstructed, and so are the reading seconds. The title names a kind of outing, not a date: no service, sermon, minister, congregation, schedule or day of the week is claimed for 1 July 1835, which was a Wednesday. The building facts are cited at their own tiers — St. Mary's from the Andreas transcription on chicagology, the Presbyterian dedication from the Baptist transcription of Andreas, the School District No. 4 notice from the Democrat and the American of June 1835 (a meeting called for 7 July, after the scene date, and not narrated as held), the Walker building from Wau-Bun and a pioneer account. The Walker meeting house's position is conjectural and the stop calls its marker a placeholder. St. Mary's later tower and bell are left out. No named person is met or speaks, no interior is opened, and no Native presence is narrated. This is the batch's quiet outing: it declares no variable or inventory and shows no strip.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat and American notices of June 1835, and brief 20 of JAUNTS-INITIAL-LIBRARY.md. The route, the call and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A source settling which bank the 1835 Methodist meeting house stood on would let the third stop name its place instead of a placeholder.
+
+**Applies to:** `data/jaunts/sunday-circuit.json`.
+
+**Recorded:** 2026-10-03 (T-2029).
