@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "id": "across-wolf-point",
+  "content_version": 1,
+  "title": "Across Wolf Point",
+  "premise": "Make a short crossing between the settlement's divisions and learn why the forks mattered.",
+  "category": "River and routes",
+  "scene": "1835",
+  "featured": true,
+  "opening": {
+    "text": "Cross the river where the town began: from the tavern at the forks, down the west bank, over the South Branch bridge to the south side. Four exterior stops, nothing to buy. The outing is reconstructed; the places and the bridge are documented.",
+    "read_s": 16
+  },
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "stops": [
+    {
+      "id": "the-fork",
+      "destination": {
+        "kind": "structure",
+        "id": "wolf_point_tavern"
+      },
+      "text": "Start on the west bank at the tavern that named Wolf Point, partly log and partly frame, its sign a wolf painted on a piece of box. Whether it still kept travellers in July 1835 is disputed.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "wolf_point_tavern",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_prefire273",
+          "label": "Wolf's Point, 1857"
+        }
+      ],
+      "evidence": [
+        "wolf-tavern",
+        "wolf-dispute",
+        "forks",
+        "outing"
+      ],
+      "next": "west-bank",
+      "narrative": "Read the fork: the North and South Branches meet off this bank and run east as one river."
+    },
+    {
+      "id": "west-bank",
+      "destination": {
+        "kind": "structure",
+        "id": "green_tree_tavern"
+      },
+      "text": "South along the bank to the Green Tree, the public house at Lake and West Water on the west bank of the South Branch. Old settlers recalled Chester Ingersoll keeping it from 1834 to 1837.",
+      "read_s": 24,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "green_tree_tavern",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "ingersoll_chester",
+          "label": "Chester Ingersoll"
+        }
+      ],
+      "evidence": [
+        "green-tree",
+        "west-bank",
+        "outing"
+      ],
+      "next": "the-crossing",
+      "narrative": "Face east: the river, and the south side beyond it, is where you are going."
+    },
+    {
+      "id": "the-crossing",
+      "destination": {
+        "kind": "structure",
+        "id": "south_branch_raft_bridge"
+      },
+      "text": "A few steps south, the South Branch bridge, between Lake and Randolph. Four old settlers signed that it stood on log abutments and two bents, about ten feet wide and six feet above the water. Retellings call it a raft; the signers describe a fixed bridge.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "south_branch_raft_bridge",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "old_settlers_bridges_1883",
+          "label": "The settlers' statement"
+        }
+      ],
+      "evidence": [
+        "bridge-build",
+        "bridge-raft",
+        "bridge-place",
+        "outing"
+      ],
+      "next": "south-side",
+      "narrative": "This is the crossing: the deck, never the water."
+    },
+    {
+      "id": "south-side",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Off the bridge and north to Lake and Market: the Sauganash. Wau-Bun describes it in 1831 as white, two-story, with bright-blue wooden shutters. On 10 June 1835 the Democrat reported it repaired and newly fitted up.",
+      "read_s": 24,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Wau-Bun"
+        }
+      ],
+      "evidence": [
+        "sauganash-look",
+        "sauganash-refit",
+        "sauganash-place",
+        "outing"
+      ],
+      "next": "$end",
+      "narrative": "Note the route: down the west bank, over the bridge, north to this corner."
+    }
+  ],
+  "endings": [
+    {
+      "id": "crossed",
+      "text": "You have crossed between the divisions by the bridge, not the water. In this imagined outing you can now find your way from the west bank to the south side.",
+      "read_s": 12,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Wayfinding",
+    "id": "knows-the-crossing",
+    "title": "Knows the Crossing",
+    "text": "A fictional route note across the South Branch, from the forks to the Sauganash corner."
+  },
+  "evidence": [
+    {
+      "id": "green-tree",
+      "text": "The Green Tree was a public house at Lake and West Water; the old settlers' account gives Chester Ingersoll as its landlord from 1834 to 1837.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127"
+      ],
+      "locator": "Inter Ocean, 1 July 1883, 'Old Chicago' early-hotels feature as transcribed by Chicagology; landlord chronology (Ingersoll, 1834–1837)."
+    },
+    {
+      "id": "west-bank",
+      "text": "The Green Tree's corner is on the west bank of the South Branch, with the river to its east.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_wolf_point"
+      ],
+      "reasoning": "The structure record places the tavern at the north-east corner of Lake and West Water, its river end on the bank (position inferred, moved on the owner's ruling T-0141); West Water Street is the west-bank frontage, so the river lies east of it."
+    },
+    {
+      "id": "wolf-tavern",
+      "text": "Wentworth's tavern at the Point was partly log and partly frame, on the ground north of the Lake Street crossing; Lieutenant Allen made its sign from a piece of a box and painted a picture of a wolf on it.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "locator": "Chicagology, 'Wolf's Point and the Town of Chicago': the forks buildings sentence ('partly log and partly frame'), and the note at the page's foot on Wentworth's sign ('He painted a picture of a wolf on it')."
+    },
+    {
+      "id": "wolf-dispute",
+      "text": "One account has William Walters keeping the tavern from 1833 to 1836; the hotel chronology says it ceased operations as a public house in 1834.",
+      "confidence": "attested",
+      "sources": [
+        "drloih_wolf_point",
+        "drloih_hotels"
+      ],
+      "locator": "DRLOIH, 'The Beginning of Wolf Point', the tavern's operator succession (Walters 1833–1836); DRLOIH hotel chronology, Wolf Point Tavern entry ('ceased operations as a public house in 1834')."
+    },
+    {
+      "id": "forks",
+      "text": "The tavern stood on the west bank at the forks, where the North and South Branches meet and run east to the lake as one river.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "DRLOIH puts the tavern 'on the west bank of the river at Wolf Point' and Wau-Bun's 1831 sequence has it 'facing down the river from the west'. That Wolf Point is the confluence is read from the project's committed river trace (the datum origin is the forks), not stated in either sentence. The building's exact distance north of Lake Street is not fixed by any source."
+    },
+    {
+      "id": "bridge-build",
+      "text": "Old settlers' statement on the first bridges over the branches: both were built on log abutments and two bents, about ten feet wide, and about six feet above the water, so that teams passed under them on the ice.",
+      "confidence": "attested",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "locator": "Andreas, History of Chicago vol. 1, footnote across pp. 631–632, signed J. D. Caton, John Bates, Charles Cleaver and John Noble (1883)."
+    },
+    {
+      "id": "bridge-raft",
+      "text": "Later retellings call the South Branch crossing a log raft bridge; the settlers' statement of abutments, bents and clearance describes a fixed bridge, and the record adopts the fixed reading while keeping the name.",
+      "confidence": "inferred",
+      "sources": [
+        "old_settlers_bridges_1883"
+      ],
+      "reasoning": "The structure record's research note holds the conflict open: a floating raft has no abutments, no bents resting on the bottom and no six feet of air beneath it, so four men who used the bridge are preferred over the retold type-word."
+    },
+    {
+      "id": "bridge-place",
+      "text": "The bridge crossed the South Branch between Lake and Randolph Streets, its west landing on West Water Street; the exact station along that reach is placed at the midpoint because the accounts pull opposite ways.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026"
+      ],
+      "reasoning": "The structure record places the deck at the midpoint of the 69 m reach between Lake and Randolph, between the traced 1834 waterlines; its documented range runs from 1833 to an attestation of 18 August 1835, so it stands on the scene date."
+    },
+    {
+      "id": "sauganash-look",
+      "text": "Wau-Bun describes the Sauganash in 1831 as 'a pretentious white two-story building, with bright-blue wooden shutters'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the Wolf Point houses, Mark Beaubien's house just completed."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "outing",
+      "text": "The visitor's crossing, the route order, the route note, the ending and the Knows the Crossing keepsake are invented connective narrative, not a historical journey.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-across-wolf-point"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-across-wolf-point"
+  ],
+  "legs": [
+    {
+      "from": "the-fork",
+      "to": "west-bank",
+      "note": "A short way south along the west bank. How far north of Lake Street the tavern stood is not fixed by any source.",
+      "evidence": [
+        "forks"
+      ],
+      "story": "See the two branches first, then walk down the one you will cross.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "west-bank",
+      "to": "the-crossing",
+      "note": "On down West Water Street to the bridge's west landing, between Lake and Randolph.",
+      "evidence": [
+        "bridge-place"
+      ],
+      "story": "The South Branch is the water between you and the south side.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "the-crossing",
+      "to": "south-side",
+      "note": "Over the deck and north to Lake Street. The route keeps to the bridge; there is no way across the water here without it.",
+      "evidence": [
+        "bridge-place",
+        "sauganash-place"
+      ],
+      "story": "Arrive on the south side at the town's best-known house.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ]
+}

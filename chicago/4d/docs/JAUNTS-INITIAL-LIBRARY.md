@@ -178,6 +178,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Route over the current bridge graph, never straight across water. Describe disputed bridge/tavern details at their recorded tier.
 
+**Route note (published, T-1264):** The shipped story order is Wolf Point Tavern → Green Tree → South Branch bridge → Sauganash. The order proposed above starts at the Green Tree, walks north to the forks and then doubles back past the Green Tree to the bridge; on the published mirror that read about 6.5 min at Walk. Starting at the forks and walking down the west bank removes the backtrack and still reads the fork before the crossing. The catalog card on the published mirror gives these routed figures at 390×780: Walk about 5.5 min, Wagon 3.5, Horse 3, Fly 2.5, Instantly 2. Walk sits half a minute over the 3–5 min target because about two minutes of it is reading four stops; the walking itself is about 3.5 min.
+
 ## 06. Fort Dearborn Errand
 
 **ID:** `fort-dearborn-errand` · **Owner ticket:** [T-1265](../tickets/T-1265-publish-fort-dearborn-errand-as-a-five-minute-ja.md)

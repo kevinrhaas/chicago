@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1334, ts: '2026-10-03T01:19:57.347Z', date: 'Oct 2, 2026, 8:19 PM CT', title: 'A new jaunt: Across Wolf Point', kind: 'feature',
+    items: [
+      'Open the welcome, choose Jaunts and pick Across Wolf Point. It is a short walk across the river, with nothing to buy, about five and a half minutes on foot.',
+      'Four stops: the Wolf Point Tavern at the forks, the Green Tree, the South Branch bridge and the Sauganash. The route keeps to the bridge and never crosses open water.',
+      'Two disputes are told, not hidden. Was the tavern still taking travellers in July 1835? Was the bridge a raft? The old settlers who used it describe a fixed bridge.',
+      'Finish to keep Knows the Crossing in your daybook under Wayfinding. The outing itself is our reconstruction (liberty L-jaunt-across-wolf-point).',
+    ] },
   { v: 1333, ts: '2026-10-03T00:59:27.495Z', date: 'Oct 2, 2026, 7:59 PM CT', title: 'The ground of 1812 is written down, ready to be built', kind: 'change',
     items: [
       'Nothing you can see changes in the 1835 town. This is the plan for the ground the 1812 Fort Dearborn landscape will stand on, written before any of it is built.',
