@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
+  { v: 1388, ts: '2026-10-03T22:54:12.057Z', date: 'Oct 3, 2026, 5:54 PM CT', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
     items: [
       'Open Jaunts and pick Look Before You Buy a Lot: it now recommends riding, and takes about three and a half minutes instead of seven on foot.',
       'Shopping South Water Street now recommends a light wagon for the household list, and takes about four minutes instead of six and a half.',
       'Fort Dearborn Errand now starts at the fort\'s south gate, where one stop tells you about the stockade and the guard-house together. It takes about five and a half minutes on foot.',
       'You can still walk any of them. The ride, the wagon and the shorter fort errand are our reconstruction, noted in the liberties for each jaunt.',
+    ] },
+  { v: 1387, ts: '2026-10-03T22:08:33.624Z', date: 'Oct 3, 2026, 5:08 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
+    items: [
+      'The row of colour-swatch buttons is gone. A small dial at the top right now steps through the four appearances, with four dots marking which one is on; hover it to see the name.',
+      'The same dial sits on the arrival card and in the settings panel.',
+      'The appearances are now called Control Room, Precision Brass, Retro Future and Deep Space. Your saved choice carries over.',
     ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
