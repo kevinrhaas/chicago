@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1374, ts: '2026-10-03T18:18:21.182Z', date: 'Oct 3, 2026, 1:18 PM CT', title: 'A new jaunt: An Evening Stroll', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick An Evening Stroll, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
+      'Set out from the Sauganash, pass Peck\u2019s store and the corner where the Chicago Democrat was first printed, then reach the Exchange Coffee House. There you choose whether to end at the Exchange or walk back to where you began.',
+      'The evening, the route and the keepsake, A Pleasant Circuit, are our reconstruction (liberty L-jaunt-an-evening-stroll). No entertainment or dated event is claimed, and the light does not change.',
+    ] },
   { v: 1373, ts: '2026-10-03T17:05:20.078Z', date: 'Oct 3, 2026, 12:05 PM CT', title: 'A new jaunt: From Prairie to Town', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick From Prairie to Town. You arrive from open ground by the lake south of the fort and ride into town. It takes about ten minutes on horseback, or four if you fly.',
