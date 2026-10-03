@@ -1,3 +1,71 @@
+## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Materials for a Roof* (Building trades,
+Horse, 4 stops, Livelihood). A builder with a small frame house to roof starts at Newberry &
+Dole's warehouse on the river, whose card in the Democrat of 1 July 1835 offers storage,
+forwarding and commission; chooses nails or nail rods at Peck's corner, from his September 1834
+notice of nails, nail rods, bar iron and steel; chooses brick for a chimney or none at Blodgett's
+brickyard on the North Side; and ends at the Lake House site at Rush Street, seen from the
+street. Three endings; the keepsake *A Builder's List* goes to Livelihood. Content only: one JSON
+file, a liberty (`L-jaunt-materials-for-a-roof`), the regenerated catalog and source-use edges,
+and brief 17's route note. No engine, compiler or CSS change. Third of the four pieces T-1268 was
+split into.
+
+**The brief's cautions hold by construction.** The Lake House is a building site: Andreas's
+finished hotel is dated autumn 1836, the 1835 groundbreaking is an uncredited modern paragraph
+and the stop says so, and the shell is called our reconstruction. No price, order or sale is
+claimed anywhere. The brickyard's structure record says Andreas traces the Lake House's brick to
+this yard; he does not, so the jaunt says nothing of whose brick it was.
+
+**The route was re-cut.** The briefed order (warehouse → brickyard → Lake House → Peck's) crosses
+the river twice, about 1,660 m in straight lines; taking Peck's second crosses once, about 954 m.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 4 paths, three endings, one keepsake. Card estimates
+on the published mirror, identical at 390×780 and 1280×800: Walk 17.5 min, Wagon 8.5, Horse 6, Fly
+4, Instantly 3. The primary path (cut nails → brick chimney → nails-and-brick) measured 364 s at
+Horse and 226 s at Fly against the card's 361 s and 232 s at 390×780, and 365 s and 225 s against
+364 s and 232 s at 1280×800, inside the 4–6 min band. A Playwright drive at 390×780 (card, Start,
+the first stop, About this place and back to the same stop, the ending, End back to the menu)
+reached `nails-and-brick`; zero page errors at either viewport. Stills and the receipt are in
+`docs/performance/jaunt-materials-for-a-roof/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+## T-2027 — Boots, Leather and the Road, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Boots, Leather and the Road* (Trades,
+Horse, 4 stops, Livelihood). A rider who leaves tomorrow chooses boots or a hat at John
+Holbrook's clothing store one door east of Dearborn; looks from the road at John Miller's
+tannery at the forks, recorded as the town's first factory; chooses a bridle or a trunk at S. B.
+Cobb's saddle, harness and trunk shop at Lake and Canal, or asks him for boots and is told by his
+own card why not; and lays the outfit out at the Green Tree. Four endings; the keepsake *Equipped
+to Travel* goes to Livelihood. The kit is a two-item inventory (the engine shows it as a
+"Basket 1/2" strip); no purse, price or sale is claimed. Content only: one JSON file, a liberty
+(`L-jaunt-boots-and-leather`), the regenerated catalog and source-use edges, and brief 18's
+route note. No engine, compiler or CSS change. Last of the four pieces T-1268 was split into.
+
+**The brief's cautions hold by construction.** The saddler is not made a bootmaker: his card
+(Democrat, 26 November 1833; Cobb's continuation card, American, 13 June 1835) lists saddles,
+harness, bridles, martingales, trunks and repairing, and the boots are Holbrook's (Democrat, 10
+June 1835; American, 13 June 1835), so no shoemaker was substituted. The tannery stop says its
+source trail ends in 1832 and claims no work on the scene date. Nobody is met.
+
+**The route was re-cut.** The briefed order (tannery → Cobb → Holbrook → Green Tree) runs about
+1,871 m in straight lines and crosses the South Branch twice; starting at Holbrook's runs about
+1,090 m one way, east to west.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 24 min, Wagon 11.5, Horse 7.5, Fly 4, Instantly 3
+(Walk 23.5 at 1280×800, the rest the same). The primary path (boots → bridle → ride →
+`equipped`) measured 464 s at Horse and 233 s at Fly against the card's 458 s and 239 s (455 s
+and 233 s at 1280×800). **Horse is 1.5 minutes over the 4–6 min band**: 143 s of it is the one
+ride from South Water Street over the river to the forks, which any order that includes both
+Holbrook's and the tannery pays; Fly is the quick version. Zero page errors at both viewports;
+End returns to the menu. Stills and the receipt are in `docs/performance/jaunt-boots-and-leather/`.
+
+**Unverified.** The detail-card round trip was proven on a first pass (card opened from the
+tannery stop and returned to it) but not on the final pass that produced the stills; T-2025's
+stills remain the batch's full card → detail → ending sequence.
+
 ## T-2015 — Realistic procedural vegetation (2026-10-03)
 
 **Implemented and validated.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
