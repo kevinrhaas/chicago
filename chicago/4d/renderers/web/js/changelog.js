@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1387, ts: '2026-10-03T22:35:06.005Z', date: 'Oct 3, 2026, 5:35 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
+  { v: 1388, ts: '2026-10-03T22:55:45.460Z', date: 'Oct 3, 2026, 5:55 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
     items: [
       'Outfit for the West took about nine minutes by wagon. It now suggests riding on horseback and crosses the river only once: the list at the Green Tree, then the saddler and the smith at Lake and Canal, then over the river to the Jones grocery and Peck\'s store. It takes about five minutes. The five places, the purse and the prices are unchanged.',
       'Freight for the Store took a few seconds over six minutes. Its opening and its four stops are a little shorter, so it now takes under six minutes by wagon. Nothing new is claimed. The tally stop now says Dole\'s yard is likely quiet in July, because the evidence for that is an inference.',
+    ] },
+  { v: 1387, ts: '2026-10-03T22:08:33.624Z', date: 'Oct 3, 2026, 5:08 PM CT', title: 'A quieter appearance dial, and the machines renamed', kind: 'change',
+    items: [
+      'The row of colour-swatch buttons is gone. A small dial at the top right now steps through the four appearances, with four dots marking which one is on; hover it to see the name.',
+      'The same dial sits on the arrival card and in the settings panel.',
+      'The appearances are now called Control Room, Precision Brass, Retro Future and Deep Space. Your saved choice carries over.',
     ] },
   { v: 1386, ts: '2026-10-03T21:53:14.628Z', date: 'Oct 3, 2026, 4:53 PM CT', title: 'Jaunts are checked for what they must never say', kind: 'fix',
     items: [
