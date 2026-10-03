@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
+  { v: 1377, ts: '2026-10-03T18:38:23.017Z', date: 'Oct 3, 2026, 1:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [
       'Nothing you can see changes in the 1835 town. The ground the 1812 Fort Dearborn scene will stand on now exists as a heightfield and ground and water meshes.',
       'In 1812 the river turns south behind the sand spit and runs out to the lake near present Madison Street. There is no cut, no pier and no bridge, and no streets yet.',
