@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1372, ts: '2026-10-03T16:54:14.525Z', date: 'Oct 3, 2026, 11:54 AM CT', title: 'A new jaunt: Gossip or Printed Notice?', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Gossip or Printed Notice?, about five and a half minutes on horseback from the Wolf Point Tavern to the town\u2019s two printing offices.',
+      'Two rumors from the forks meet what the papers actually printed: the Democrat of 1 July would only guess at the land sale\u2019s take, and the American of 27 June says the Chicago branch bank has no officers yet. The brick bank on the square is Springfield\u2019s.',
+      'Decide what to carry back: what was printed, that nothing is settled, or nothing. The rumors and the keepsake, A Careful Reader, are our reconstruction (liberty L-jaunt-gossip-or-notice).',
+    ] },
   { v: 1371, ts: '2026-10-03T16:14:36.599Z', date: 'Oct 3, 2026, 11:14 AM CT', title: 'Four young working lodgers in two boarding houses on Washington Street', kind: 'change',
     items: [
       'Two boarding houses on the block at Washington and Market streets have four new boarders between them: three at Louis Robillard\u2019s and one at Michel Laframboise\u2019s. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a tailor. Open a house\u2019s card to see them.',
