@@ -90,8 +90,9 @@ def main(break_it: bool = False) -> int:
     along = [f for f in got if f["axis"] == 0]
 
     # 1. THE PLAT'S OWN COUNT. Twenty-three blocks of the South Division are bounded
-    #    east and west by a cross street; `blk_lake_clinton` is skipped as the
-    #    West Division block, and Canal and Clinton Streets bound only it.
+    #    east and west by a cross street; `blk_lake_clinton` is the West
+    #    Division block, and Canal and Clinton Streets, which bound it, are not
+    #    cross streets this rule names (it was skipped outright until T-0193).
     #
     #    IT WAS SEVENTEEN BLOCKS AND 34 FACES UNTIL T-1707, which carried the Original
     #    Town's seven north-south columns from their terrain clip at N -400 to Madison
@@ -199,7 +200,11 @@ def main(break_it: bool = False) -> int:
     # Madison lots take no fence and no post. That is a street nobody has asked this
     # layer to cover, not a fault in the deal, so it is named here rather than
     # fixed in passing: the cross streets were T-0192's ask, Madison was not.
-    UNREACHED = ["blk_randolph_clinton"] + [
+    # `blk_lake_clinton` joined them on 2026-10-03 (T-0193): the block came off
+    # `EDGE_SKIP_BLOCKS` and its Lake and Randolph faces are laid, but its ten lots
+    # front Clinton and Canal, which nothing covers — the same row-end shape, so its
+    # walk is laid and its store takes its post by the door instead.
+    UNREACHED = ["blk_lake_clinton", "blk_randolph_clinton"] + [
         f"blk_washington_{c}" for c in
         ("clark", "dearborn", "franklin", "lasalle", "market", "wells")]
     check("every lot this layer cannot reach is named, not silently dropped",
