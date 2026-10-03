@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
+  { v: 1364, ts: '2026-10-03T13:24:25.493Z', date: 'Oct 3, 2026, 8:24 AM CT', title: 'Eleven young boarders take empty beds in the North and South Divisions', kind: 'change',
     items: [
       'The town was still owed eleven young people, aged ten to nineteen, living in lodging houses. Three now sleep at the Steamboat Hotel, five at the boarding house on the Dearborn block of Washington Street and three at the one on the Market block. Open a house\u2019s card to see them among its boarders.',
       'Nobody already in the town moved to make room. Like every boarder no source names, they are our reconstruction (liberty L252).',
