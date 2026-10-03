@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1381, ts: '2026-10-03T20:22:45.653Z', date: 'Oct 3, 2026, 3:22 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
+  { v: 1382, ts: '2026-10-03T20:23:00.212Z', date: 'Oct 3, 2026, 3:23 PM CT', title: 'A new jaunt: Over the Draw to the North Side', kind: 'feature',
     items: [
       'Choose Jaunts on the welcome screen and pick Over the Draw to the North Side, a quiet outing of about four and a half minutes on horseback, with nothing to count or carry.',
       'Start at the foot of the Dearborn Street drawbridge, cross to the North Side and look at Blodgett\u2019s brickyard, the first house built for a school, and the Lake House going up at Rush Street. Then choose to end there or go back over the draw.',
       'It is the library\u2019s 26th jaunt, and the first added after the original 25. It was added as one data file, with no change to the page\u2019s code.',
       'The outing, the crossing and the keepsake, North of the River, are our reconstruction (liberty L-jaunt-over-the-draw). Every fact about the four places is one already cited in another jaunt.',
+    ] },
+  { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
+    items: [
+      'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',
+      'Nothing else on the menu changed. Behind it, the build now checks the whole library of 25 jaunts: each of the 25 named outings is available, every ending can be reached, and there are at least five quiet outings. Each keepsake family has three keepsakes or more, so the top daybook rank can be reached in 15 different outings without repeating one.',
     ] },
   { v: 1380, ts: '2026-10-03T19:38:11.428Z', date: 'Oct 3, 2026, 2:38 PM CT', title: 'The ground of August 1812 is built, ready for its scene', kind: 'change',
     items: [

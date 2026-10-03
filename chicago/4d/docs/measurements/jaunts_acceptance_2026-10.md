@@ -4,10 +4,16 @@ T-2042 (piece 4 of 4 of T-1271, *Reconcile and time the complete 25-jaunt librar
 Written 2026-10-03 against `dev` at 17756b47 plus this branch. Every number below is
 read from a file or measured by a command named beside it. None is estimated.
 
-The parent's other three pieces are separate PRs: T-2039 (`play_jaunt --all`, the
-library-shape audit, the six featured titles), T-2040 (the content refusals) and T-2041
-(routed timing of all 25 on the published mirror). Their tables belong to them. When they
-land, their numbers are the gate's, and this report does not restate them.
+The parent's other three pieces are separate PRs. T-2039 (`play_jaunt --all`, the
+library-shape audit `tools/audit_jaunts.py`, the six featured titles) merged as #363 while
+this piece was in flight. T-2040 (the content refusals) and T-2041 (routed timing of all 25
+on the published mirror) are their own PRs. Their tables belong to them and their numbers
+are the gate's; this report does not restate them.
+
+**The audit on this branch** (`python3 tools/audit_jaunts.py`): `JAUNT AUDIT PASS — the 25
+named premises and 1 more named in the brief, six featured, every shape bound met`. That
+covers 26 jaunts, 6 quiet outings, families 5/6/5/5/5, and ranks reached in 5, 10 and 15
+distinct completions. `--self-test`: all 13 breakages fire.
 
 ## 1. The growth path — a 26th jaunt by JSON and `compile_jaunts.py` alone
 
@@ -98,7 +104,13 @@ Every family has at least 3 jaunts (T-1271 #4). The 26th takes Wayfinding from 4
 
 - None to the initial 25. This piece adds one jaunt and changes no existing one.
 - The brief's menu table gains row 26, and its catalogue gains § 26 with the route note.
-- **For T-2039's audit:** it asserts the brief names exactly 25 jaunts. With a real 26th
-  kept, that bound becomes "the 25 named premises are all present and available, and every
-  further jaunt is named in the brief". The 25 are still checked one by one. It does not
-  become a looser count.
+- **T-2039's audit roster.** As merged, it required the brief to name exactly 25 jaunts,
+  so any growth at all would have read as a finding. It now reads the brief's numbered
+  sections. §§ 1–25 must all be present, every one of them a jaunt in the scene. Every
+  further jaunt must be named in its own section from § 26 on. No id may appear twice, and
+  no 1835 jaunt may go unnamed. The initial 25 are still checked one by one, so the bound
+  is no looser. Two self-test cases were added: an initial section dropped, and an id
+  named twice.
+- **T-2039's quiet self-test** broke one quiet outing and expected the floor of five to
+  fire. That only works while there are exactly five. With six it was silent, so it now
+  breaks every quiet outing at once.
