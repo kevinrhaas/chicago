@@ -17660,6 +17660,18 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-2007).
 
+### L-jaunt-household-provisions — Stock the Household: an invented room, list, purse and prices
+
+**Decision:** Stock the Household links four existing exterior destinations on one block of South Water Street (Mrs Rufus Brown's boarding house, Jones's grocery and provision store, Philo Carpenter's drug store and P. F. W. Peck's store) in an invented errand to begin a cupboard. The visitor's share of a room at Brown's, the two-dollar purse, the choice of a list for the table or for the room, every price, the basket, the four endings and the A Cupboard Begun keepsake are reconstructed, and so are the reading and action seconds. Each good is offered only at a store whose own advertisement lists it: coffee, sugar and tea at Jones's (26 November 1833), cream of tartar and tooth powder at Carpenter's (27 June 1835), crockery and flannel at Peck's (December 1833 and December 1834). The position of Jones's store at the Wells end of the block is the structure record's reconstruction, and the stop says so.
+
+**Bounds:** The approved July 1, 1835 scene, the four structure records, the Democrat's first issue and its 1833-35 run, the American's June 1835 issues, Andreas's boarding-house and 1834-advertiser passages, and brief 13 of JAUNTS-INITIAL-LIBRARY.md. The room, the lists, the prices and the keepsake are present-day interpretive choices; no vacancy at Brown's, sale or price is claimed.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated 1835 price current for tea, coffee or flannel at Chicago would let the prices cite it; an 1834-35 Jones advertisement with an address would place the grocery stop.
+
+**Applies to:** `data/jaunts/household-provisions.json`.
+
+**Recorded:** 2026-10-03 (T-2010).
+
 ### L305 — Glessner v4: reconstructed fabric and openings within a measured house
 
 **Decision:** At the owner's request, v4 uses the default's measured envelope and
@@ -20289,6 +20301,18 @@ dated pre1946 stable-door photograph would replace the proportional choices.
 `glessner_house.as_built_1887.form.openings_stable_doors`,
 `glessner_house.as_built_1887.form.eave_cornice`.
 **Recorded:** 2026-10-02.
+
+### L-jaunt-freight-store — Freight for the Store: an invented consignment and its tally
+
+**Decision:** Freight for the Store links four existing exterior destinations (Newberry & Dole's forwarding house, P. F. W. Peck's store, Thomas Church's store and George W. Dole's 1832 warehouse) in an invented delivery of three packages from wharf to shop. The consignment, the bill of lading, the packages and their marks, the counting, the wagon load and its three-package limit, the second trip, the delivery at each store, the tally carried to Dole's warehouse, the four endings and the Cargo Accounted For keepsake are reconstructed, and so are the reading and action seconds. What each firm did is sourced: Newberry & Dole's trade from their own November 1833 card and the American's June 1835 Michigan freight notice, Peck's stock from his own cards of 1833-34, Church's store from the one modern sentence that records it. No firm is claimed to have shipped, received or paid for these goods, and no bill, freight charge or price is named. No named person speaks or is met, no interior is opened and no front door is claimed. Newberry & Dole's house and Church's store stand at reconstructed positions and the stops say so. The tally ends at Dole's warehouse because Dole was the firm's partner and the warehouse sits a block from Church's store; that the firm squared its bills there is invented.
+
+**Bounds:** The approved 1 July 1835 scene, the four structure records, the Democrat and American runs, Andreas's account of the firm and its packing, the chicagology note on Church's store, and brief 12 of JAUNTS-INITIAL-LIBRARY.md. The route, the load, the packages and the keepsake are present-day interpretive choices.
+
+**How to resolve:** These narrative choices cannot be upgraded into historical claims; revise them openly as interpretation. A dated Newberry & Dole notice of goods received for a named Chicago store would let the wharf stop name a real consignment; any dated record of Church's stock would let his stop say what the package held.
+
+**Applies to:** `data/jaunts/freight-for-the-store.json`.
+
+**Recorded:** 2026-10-03 (T-2009).
 
 ### L366 — South Water Street's last 22 m to State Street are its own bearing carried to the corner
 

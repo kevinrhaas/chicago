@@ -1,3 +1,91 @@
+## T-2010 — Stock the Household, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Stock the Household* (Household, Walk,
+4 stops, Provisions). With an imagined two dollars and a share of a room at Mrs Rufus Brown's,
+the visitor picks a list for the table or for the room. Then comes Jones's grocery for coffee and
+sugar or tea, Carpenter's drug store for cream of tartar or tooth powder, and Peck's corner for a
+crockery cup and plate or a length of flannel. Every good is offered only where that store's own
+advertisement lists it. There are four endings, and the keepsake *A Cupboard Begun* goes to
+Provisions. Content only: one JSON file, a liberty (`L-jaunt-household-provisions`), the
+regenerated catalog and source-use edges, and brief 13's route note. There is no engine, compiler
+or CSS change.
+
+**The brief's cautions hold by construction.** Quantities and prices are bounded and labelled
+reconstructed, and there is no health score. Jones's stop says that no source places the store and
+that his initial is disputed. Carpenter's cut window-glass notice is not used, because its own
+extract warns it is not proved to be his.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 54 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780 were Walk 5 min, Wagon 3.5, Horse 3, Fly 2.5 and Instantly 2.5; at
+1280×800, Walk 4.5 and Wagon 3. A Playwright drive at both viewports (table → coffee → cream of
+tartar → crockery) reached the `table-laid` ending once, with the keepsake under Receipt and zero
+page errors.
+
+**Unverified.** The stills were taken (card, opening, outcome) but are not committed, and no detail
+card was opened during the drive.
+
+## T-0192 — the seven cross streets take the plank walk (2026-10-03)
+
+**What a visitor sees.** Market, Franklin, Wells, La Salle, Clark, Dearborn and State carry the plank
+walk the four east-west streets carry, laid by the same rule (`EDGE_CROSS_STREETS` =
+`EDGE_CROSS_STREETS_ALL` in `tools/generate_frontage_works.py`): 46 platted faces, +4,764.9 m of walk
+and +47 board crossings, so the record goes 47 faces / 3,865.7 m to 93 / 8,630.6 m. No fence or
+hitching post on a cross face — both rules are per-lot and those faces are the ends of lot rows,
+which the record already says. Five wagon stands that would now sit on the boards are refused
+(73 → 68 wagons), and the dooryard plantings re-derive around the new strips.
+
+**Priced and argued where the ceiling is defined.** Owner's queue note of 2026-10-03: a measured
+raise is allowed and `light` is the floor. `tools/measure_detail_ceilings.mjs`, published mirrors of
+dev @ d8b7748d and of this branch, desktop 1280x800, same run:
+
+| tier | dev worst | with the seven | ceiling was | ceiling now |
+| --- | --- | --- | --- | --- |
+| `full` | 1,857,267 (Lake at Canal) | 2,120,153 | 1,845,000 | **2,140,000** |
+| `balanced` | 1,626,744 (Lake at Canal) | 1,801,124 | 1,615,000 | **1,820,000** |
+| `light` | 851,431 (the forks) | 856,275 | 825,000 | 825,000 — not moved |
+| calls | 224 (`full`) | 259 | 240 | **275** |
+
+The rule is T-1975's and T-1987's: worst stand plus T-0672's 18,059 / 16,806, rounded up to 5,000;
+calls + 15. dev was already over `full`/`balanced` (by 12,267 / 11,744) before this branch.
+
+**`light` does not draw them** (`light.crossStreetWalks: false`, the woodpiles' mechanism): Lake and
+Market 798,916 → 738,536 and the open aerial 838,167 → 822,297, back inside. Left at `light`: +4,844 at
+the forks and +9,204 at the aerial over dev. Not boards — those are hidden — but the walks still keep
+the sward and planting off their strips at every tier; that attribution is inferred, not read layer
+by layer on dev. The forks were over on dev already and stay T-1976's to trim.
+
+**The reach test is now per block.** `tools/test_frontage_faces.py` asked whether a lot's face was laid
+*anywhere*; with east/west faces laid on the South Division that would call `blk_randolph_clinton`
+reached while Canal and Clinton are in no tuple. Asked per block, it also names the six
+Washington–Madison blocks whose Madison lots no tuple covers (hidden since T-1707). Named, not fixed:
+Madison was not this ticket's ask.
+
+## T-2009 — Freight for the Store, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Freight for the Store* (River commerce,
+Wagon, 4 stops, Livelihood). An invented bill lists three packages landed at Newberry & Dole's.
+The visitor counts them and loads the wagon (a *Packages* chip tracks the load), or takes only
+Peck's two, or loads all three on trust. Then come Peck's store, with the lines his own cards
+advertised, Thomas Church's store on Lake Street, and the tally handed in at George W. Dole's
+1832 warehouse. There are four endings, and the keepsake *Cargo Accounted For* goes to Livelihood.
+Content only: one JSON file, a liberty (`L-jaunt-freight-store`), the regenerated catalog and
+source-use edges, and brief 12's route note. There is no engine, compiler or CSS change.
+
+**The brief's caution holds by construction.** The shipment, the bill and the tally are invented
+and the opening says so. No firm ships, receives or pays for anything, and no price is named.
+Church's store has no stock on record, so his package is never said to hold anything. Newberry &
+Dole's house and Church's store keep their reconstructed positions, and both stops say so.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. The
+briefed order doubled back across town (961 m straight-line against 546 m), so the tally stop
+moves to the end (brief 12's route note). A Playwright drive at 390×780 (count all three → check
+the marks → leave Church's package → hand in the tally) reached `checked-and-counted` with zero
+page errors. It covered the card, the opening, a detail card and back to the same stop, and the
+ending. The keepsake landed once under Livelihood.
+
+**Unverified.** The drive ran at 390×780 only. The stills are not committed.
+
 ## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *A Decent Coat* (Shopping, Horse, 4 stops,
