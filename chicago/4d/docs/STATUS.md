@@ -1,3 +1,34 @@
+## T-2024 — Mend the Harness, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Mend the Harness* (Trades and repairs,
+Wagon, 4 stops, Livelihood). While harnessing in the yard behind W. H. Stow's Western Hotel the
+visitor finds a cracked trace and may look the whole harness over, which turns up a worn
+whiffletree hook. The trace goes to S. B. Cobb's saddlery at Lake and Canal, to be restitched or
+bound with twine; the hook, if it was found, goes to Asahel Pierce's smithy on the same crossing;
+and at the Green Tree the visitor calls the outfit ready or keeps tomorrow's trip short. Four
+endings; the keepsake *Sound Tack* goes to Livelihood. Content only: one JSON file, a liberty
+(`L-jaunt-mend-harness`), the regenerated catalog and source-use edges, and brief 15's route
+note. No engine, compiler or CSS change. First of the four pieces T-1268 was split into
+(T-2024..T-2027), the same cut T-1267 took.
+
+**The brief's caution holds by construction.** The damage and the repairs are invented and the
+opening says so. Leather and iron are told apart by the firms' own records — Goss & Cobb's 1833
+advertisement (harness, bridles, trunks, repairing) and Cobb's June 1835 continuation card;
+Andreas's Pierce paragraph (stage-line ironing, ploughs). Neither shop is said to have mended
+this harness, and nobody is met. The corner each shop held is not attested and both stops say
+"this corner" / "the same crossing".
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 7.5 min, Wagon 5, Horse 4, Fly 3.5, Instantly 3 (at
+1280×800 Walk 7, Wagon 4.5, the rest the same). The primary path (look over → restitch → hook →
+ready) measured 281 s at Wagon and 207 s at Fly against the card's 290 s and 215 s, inside the
+quick-play 4–6 min band at the recommended mode. A Playwright drive at 390×780 through the panel
+— card, opening, a detail card and back to the same stop, the ending — reached `sound-tack`
+with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-mend-the-harness/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
 ## T-2010 — Stock the Household, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Stock the Household* (Household, Walk,

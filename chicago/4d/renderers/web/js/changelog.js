@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1359, ts: '2026-10-03T10:59:58.119Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
+  { v: 1360, ts: '2026-10-03T11:45:17.155Z', date: 'Oct 3, 2026, 6:45 AM CT', title: 'Four young working lodgers at Edward McCarthy\u2019s boarding house', kind: 'change',
     items: [
       'Edward McCarthy\u2019s boarding house, on the block at Washington and Dearborn streets, has four new boarders. They are youths in their teens, and each works at a trade: two clerks, a carpenter and a labourer. Open the house\u2019s card to see them.',
       'The town was still owed four working lodgers in the South Division, and this house had empty beds. Their trades are drawn at the shares Fergus\u2019s 1839 directory prints. The people and their trades are our reconstruction (liberties L252 and L248).',
       'Three of them work at E. W. Haddock\u2019s. One reconstructed clerk who worked there before now works at a wine and liquor store on Dearborn Street. Four lone men at the back of the housing queue now wait for a roof, because the town is already as crowded as the census allows.',
+    ] },
+  { v: 1359, ts: '2026-10-03T10:59:52.173Z', date: 'Oct 3, 2026, 5:59 AM CT', title: 'A new jaunt: Mend the Harness', kind: 'feature',
+    items: [
+      'Choose Jaunts on the welcome screen and pick Mend the Harness. Find a cracked trace in the yard behind the Western Hotel and get the outfit fit for the road, about five minutes by wagon.',
+      'Take the leather to S. B. Cobb\u2019s saddlery and the iron to Asahel Pierce\u2019s smithy at Lake and Canal, then decide at the Green Tree whether to take the long road or keep the trip short.',
+      'The crack, the repairs and the keepsake, Sound Tack, are our reconstruction (liberty L-jaunt-mend-harness). The stable, the shops and their trades come from the sources.',
     ] },
   { v: 1358, ts: '2026-10-03T10:31:34.336Z', date: 'Oct 3, 2026, 5:31 AM CT', title: 'Two doctors\u2019 offices for the town\u2019s missing physicians', kind: 'feature',
     items: [
