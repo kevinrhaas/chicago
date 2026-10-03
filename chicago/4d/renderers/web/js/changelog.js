@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1382, ts: '2026-10-03T20:16:55.784Z', date: 'Oct 3, 2026, 3:16 PM CT', title: 'Colonel Beaubien\u2019s homestead is one house, and the fort road is clear', kind: 'fix',
+    items: [
+      'Walk south from the fort\u2019s south gate. The road no longer runs through two log houses: Col. Jean Baptiste Beaubien\u2019s homestead is one house with two outbuildings behind it.',
+      'His small trading post is now a low log store with a single-slope roof, standing west of the house, away from the road. His barn, behind the house, now has a hay-loft door.',
+      'Andreas mentions a \u201cnew residence\u201d as well. We read it as the same house, so it is no longer drawn twice. Where the store and barn stand, and what they look like, are our reconstruction (liberty L283).',
+    ] },
   { v: 1381, ts: '2026-10-03T19:57:47.719Z', date: 'Oct 3, 2026, 2:57 PM CT', title: 'Taverns of Chicago joins the featured jaunts', kind: 'fix',
     items: [
       'Open Jaunts from the welcome screen: the Featured shelf now shows all six priority outings. Taverns of Chicago, one of the six, had been left off it, so the shelf showed five.',
