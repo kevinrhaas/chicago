@@ -1932,260 +1932,6 @@
       "estimate_s": 182
     },
     {
-      "id": "new-in-chicago",
-      "title": "New in Chicago",
-      "mode": "walk",
-      "recommended": true,
-      "listed": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "visited": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "done": true,
-      "estimate": 619.4720766734807,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 110
-      },
-      "legs": [
-        {
-          "from": "arrival",
-          "seconds": 39.5,
-          "metres": 56
-        },
-        {
-          "from": "mail-corner",
-          "seconds": 241,
-          "metres": 348
-        },
-        {
-          "from": "store",
-          "seconds": 107.8,
-          "metres": 156
-        },
-        {
-          "from": "newspaper",
-          "seconds": 110.6,
-          "metres": 159
-        }
-      ],
-      "travel_s": 499,
-      "measured_s": 625,
-      "estimate_s": 619
-    },
-    {
-      "id": "new-in-chicago",
-      "title": "New in Chicago",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "visited": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "done": true,
-      "estimate": 179.67621758311847,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 110
-      },
-      "legs": [
-        {
-          "from": "arrival",
-          "seconds": 5.9,
-          "metres": 57
-        },
-        {
-          "from": "mail-corner",
-          "seconds": 20.2,
-          "metres": 324
-        },
-        {
-          "from": "store",
-          "seconds": 11.4,
-          "metres": 145
-        },
-        {
-          "from": "newspaper",
-          "seconds": 10.2,
-          "metres": 124
-        }
-      ],
-      "travel_s": 48,
-      "measured_s": 174,
-      "estimate_s": 180
-    },
-    {
-      "id": "new-in-chicago",
-      "title": "New in Chicago",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "visited": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "done": true,
-      "estimate": 128,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 110
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 126,
-      "estimate_s": 128
-    },
-    {
-      "id": "news-before-breakfast",
-      "title": "News Before Breakfast",
-      "mode": "walk",
-      "recommended": true,
-      "listed": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "visited": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "done": true,
-      "estimate": 1052.2557461754632,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 184
-      },
-      "legs": [
-        {
-          "from": "question",
-          "seconds": 373,
-          "metres": 539
-        },
-        {
-          "from": "democrat",
-          "seconds": 114.6,
-          "metres": 165
-        },
-        {
-          "from": "american",
-          "seconds": 367.4,
-          "metres": 532
-        }
-      ],
-      "travel_s": 855,
-      "measured_s": 1059,
-      "estimate_s": 1052
-    },
-    {
-      "id": "news-before-breakfast",
-      "title": "News Before Breakfast",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "visited": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "done": true,
-      "estimate": 274.84908478729636,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 184
-      },
-      "legs": [
-        {
-          "from": "question",
-          "seconds": 26.6,
-          "metres": 490
-        },
-        {
-          "from": "democrat",
-          "seconds": 12.4,
-          "metres": 163
-        },
-        {
-          "from": "american",
-          "seconds": 25,
-          "metres": 447
-        }
-      ],
-      "travel_s": 64,
-      "measured_s": 268,
-      "estimate_s": 275
-    },
-    {
-      "id": "news-before-breakfast",
-      "title": "News Before Breakfast",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "visited": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "done": true,
-      "estimate": 205.5,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 184
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 204,
-      "estimate_s": 206
-    },
-    {
       "id": "outfit-for-the-west",
       "title": "Outfit for the West",
       "mode": "wagon",
@@ -3152,6 +2898,260 @@
       "travel_s": 0,
       "measured_s": 135,
       "estimate_s": 137
+    },
+    {
+      "id": "new-in-chicago",
+      "title": "New in Chicago",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "visited": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "done": true,
+      "estimate": 237.6360786425457,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 110
+      },
+      "legs": [
+        {
+          "from": "arrival",
+          "seconds": 10.7,
+          "metres": 59
+        },
+        {
+          "from": "mail-corner",
+          "seconds": 55.8,
+          "metres": 351
+        },
+        {
+          "from": "store",
+          "seconds": 24.5,
+          "metres": 156
+        },
+        {
+          "from": "newspaper",
+          "seconds": 25.4,
+          "metres": 161
+        }
+      ],
+      "travel_s": 116,
+      "measured_s": 242,
+      "estimate_s": 238
+    },
+    {
+      "id": "new-in-chicago",
+      "title": "New in Chicago",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "visited": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "done": true,
+      "estimate": 179.67621758311847,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 110
+      },
+      "legs": [
+        {
+          "from": "arrival",
+          "seconds": 5.9,
+          "metres": 57
+        },
+        {
+          "from": "mail-corner",
+          "seconds": 20.2,
+          "metres": 324
+        },
+        {
+          "from": "store",
+          "seconds": 11.4,
+          "metres": 145
+        },
+        {
+          "from": "newspaper",
+          "seconds": 10.2,
+          "metres": 124
+        }
+      ],
+      "travel_s": 48,
+      "measured_s": 174,
+      "estimate_s": 180
+    },
+    {
+      "id": "new-in-chicago",
+      "title": "New in Chicago",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "visited": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "done": true,
+      "estimate": 128,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 110
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 126,
+      "estimate_s": 128
+    },
+    {
+      "id": "news-before-breakfast",
+      "title": "News Before Breakfast",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "visited": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "done": true,
+      "estimate": 337.5215945574961,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 184
+      },
+      "legs": [
+        {
+          "from": "question",
+          "seconds": 85.2,
+          "metres": 544
+        },
+        {
+          "from": "democrat",
+          "seconds": 26.6,
+          "metres": 166
+        },
+        {
+          "from": "american",
+          "seconds": 25.9,
+          "metres": 165
+        }
+      ],
+      "travel_s": 138,
+      "measured_s": 342,
+      "estimate_s": 338
+    },
+    {
+      "id": "news-before-breakfast",
+      "title": "News Before Breakfast",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "visited": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "done": true,
+      "estimate": 260.67647705105037,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 184
+      },
+      "legs": [
+        {
+          "from": "question",
+          "seconds": 26.6,
+          "metres": 490
+        },
+        {
+          "from": "democrat",
+          "seconds": 12.4,
+          "metres": 163
+        },
+        {
+          "from": "american",
+          "seconds": 11.8,
+          "metres": 152
+        }
+      ],
+      "travel_s": 51,
+      "measured_s": 255,
+      "estimate_s": 261
+    },
+    {
+      "id": "news-before-breakfast",
+      "title": "News Before Breakfast",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "visited": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "done": true,
+      "estimate": 205.5,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 184
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 204,
+      "estimate_s": 206
     }
   ],
   "runFailures": [],
@@ -3162,8 +3162,6 @@
     "from-prairie-to-town: recommended horse measures 9.35 min, outside 3-6",
     "inspect-a-lot: recommended walk measures 6.78 min, outside 3-6",
     "materials-for-a-roof: recommended horse measures 6.07 min, outside 3-6",
-    "new-in-chicago: recommended walk measures 10.42 min, outside 3-6",
-    "news-before-breakfast: recommended walk measures 17.65 min, outside 3-6",
     "outfit-for-the-west: recommended wagon measures 8.98 min, outside 3-6",
     "schoolday-errand: recommended horse measures 6.35 min, outside 3-6",
     "shopping-south-water: recommended walk measures 6.60 min, outside 3-6",
