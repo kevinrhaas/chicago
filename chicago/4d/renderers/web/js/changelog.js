@@ -1,7 +1,7 @@
 export const CHANGELOG = [ // newest first
   { v: null, ts: '', date: '', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [
-      'Around the forks, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
+      'Across the town, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
       'Past a few steps from you the turf is painted on the ground instead of being drawn as clumps of grass, so it no longer stands knee-high across the town.',
       'Scene detail now reaches the town too: Full keeps the grass at your feet, Balanced and Light keep less of it, and the texture carries the rest.',
       'At the in-town views the plants cost 59\u201377% fewer triangles at every setting, with no extra draw calls.',

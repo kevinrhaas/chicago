@@ -11508,9 +11508,11 @@ for (const [label, viewport, touch] of [
       && popIn.inset.every((r) => r.outer >= -1e-9 && r.inner >= -1e-9),
       popIn.inset.map((r) => `${r.id} outer +${r.outer.toFixed(2)} inner +${r.inner.toFixed(2)}`)
         .join(', ') + ` against a ${popIn.step} m rebuild step`);
-    // The bound is one pace, not zero: the rebuild fires on the frame that
-    // carries the walker past the step, so it can overshoot by however far that
-    // one frame moved. 0.15 m of a 2.2 m near band is 7%.
+    // The bound is not zero only for a walker whose pace changes: since T-2085
+    // the rebuild fires a frame EARLY, on the last frame's move (flora.js
+    // `moved`). It used to fire on the frame that carried the walker past the
+    // step, and the near ring's edge is a per-slot handover with no ramp, so
+    // that one pace of overshoot let a tuft arrive at 100% (6.93 m, T-2085).
     check(`${label}: a plant in front of the walker never arrives already visible`,
       popIn.arrivals >= 20 && popIn.worst <= 0.10,
       `${popIn.arrivals} arrivals over ${(20 * popIn.pace).toFixed(2)} m; worst coverage `

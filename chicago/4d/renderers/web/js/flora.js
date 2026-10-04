@@ -1305,7 +1305,8 @@ export async function createFlora({
 
   // ---- placement --------------------------------------------------------- //
 
-  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null };
+  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null,
+    last: null };
   const waterY = terrain.heightfield?.meta?.water_surface_m ?? 0;
 
   // The lattice each layer is scattered on, and the ring the shader fades it
@@ -2177,14 +2178,19 @@ export async function createFlora({
       const turnedFar = centres.farShrubYaw === null
         || Math.abs(((yaw - centres.farShrubYaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
            > CONE_YAW_STEP;
+      // T-2085. How far the last frame carried the walker: the next one will
+      // carry it about as far, so the rebuild is taken a frame EARLY rather
+      // than a frame late. See `moved`.
+      const pace = centres.last ? Math.hypot(e - centres.last.e, n - centres.last.n) : 0;
+      centres.last = { e, n };
       let rebuilt = false;
-      if (coneChanged || turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step)) {
+      if (coneChanged || turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step, pace)) {
         for (const _ of rebuildFarShrubs(e, n, cone)) { /* synchronous */ }
         centres.farShrub = { e, n };
         centres.farShrubYaw = yaw;
         rebuilt = true;
       }
-      if (coneChanged || turned || moved(centres.near, e, n, step)) {
+      if (coneChanged || turned || moved(centres.near, e, n, step, pace)) {
         for (const _ of rebuildAll(e, n, cone)) { /* runtime synchronous path */ }
         centres.near = { e, n };
         centres.yaw = yaw;
@@ -2213,9 +2219,25 @@ function inertRig(group, stats) {
   };
 }
 
-function moved(centre, e, n, step) {
+/**
+ * Whether the walker has gone far enough from `centre` that the lattice has to
+ * be rebuilt. `ringsFor` insets every ring inside its lattice by exactly
+ * `step`, so the rebuild has to land while the walker is still within `step`
+ * of the old centre — and a test of `> step` alone only ever fires on the
+ * frame AFTER it has left, overshooting by up to one frame's move.
+ *
+ * T-2085. On the near ring that overshoot was not the 7 % of a ramp the smoke
+ * allowed for: since T-0093 its edge is a per-slot handover and the shader's
+ * band is `HARD`, so a tuft whose own boundary fell inside the overshoot
+ * arrived at 100 % — measured at 6.93 m on the arrival walk, at 0.15 m paces
+ * that crossed the 0.6 m step on the fifth pace and not the fourth. So the
+ * last frame's move is taken as the next one's and the rebuild fires a frame
+ * early. A move longer than the step is a jump, not a pace: it rebuilds on its
+ * own distance, and is not carried into the frame after it.
+ */
+function moved(centre, e, n, step, pace = 0) {
   if (!centre) return true;
-  return Math.hypot(e - centre.e, n - centre.n) > step;
+  return Math.hypot(e - centre.e, n - centre.n) + (pace <= step ? pace : 0) > step;
 }
 
 /** SUN_FALLBACK as a direction, in three's axes: +x east, +y up, -z north. */
