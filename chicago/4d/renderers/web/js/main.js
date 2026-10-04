@@ -674,7 +674,32 @@ const DETAIL_DECLARED = {
   // full 2,820,988 +18,059 ->2,840,000; balanced 2,127,277 +16,806 ->2,145,000.
   // The owner authorized measured increases at 16:35 CDT, 2026-10-03.
   // Draw-call limits remain unchanged; these costs are not an FPS benchmark.
-  full:     { triangles: 2840000, shadowReachM: 240, furnitureCastsShadow: true,
+  //
+  // -- T-0672, 2026-10-04 -- THE RETURN: EVERY TIER COMES BACK DOWN --
+  //
+  // Lowering is free and needs no argument; it can only make the gate stricter.
+  // Read with `tools/measure_detail_ceilings.mjs`, published mirror of dev @
+  // 7504e4fc (#432 in), six stands, both release viewports; the reading is
+  // committed as docs/measurements/t-0672-detail-ceilings.json:
+  //
+  //   tier      desktop 1280x800 worst       390x780 worst
+  //   full      2,665,994 west prairie       2,433,217 west prairie
+  //   balanced  2,072,747 Lake at Canal      1,913,781 Lake at Canal
+  //   light       988,055 west prairie         893,194 west prairie
+  //
+  // Desktop sets all three. T-0672's rule, unchanged: worst stand plus the
+  // absolute headroom it recorded, rounded up to 5,000.
+  //
+  //   full      2,665,994 + 18,059 = 2,684,053  ->  2,840,000 -> 2,685,000
+  //   balanced  2,072,747 + 16,806 = 2,089,553  ->  2,145,000 -> 2,090,000
+  //   light       988,055 + 15,791 = 1,003,846  ->  1,040,000 -> 1,005,000
+  //
+  // `light` does NOT return to 785,000. The owner authorized its raises past
+  // that figure twice on 2026-10-03 (T-2015, T-2035/T-2037, above), after
+  // T-0672 was written, so the later ruling stands and this takes back only
+  // the slack the town no longer uses. Nothing in the renderer moves. The
+  // draw-call caps are unchanged (worst 275 at `full`, 81 at `light`).
+  full:     { triangles: 2685000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -683,7 +708,10 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '2,840,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
+              measured: '2,685,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+                + 'six published stands, worst 2,665,994 and 250 calls at west prairie, '
+                + '1280x800 (390x780 read 2,433,217); +18,059 rounded up to 5,000. '
+                + 'Previously 2,840,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
                 + 'at 16:35 CDT. Integrated dev a9c98af7, six published desktop '
                 + 'stands after zero-area tuft-tip removal: worst 2,820,988 and '
                 + '282 calls at west prairie; +18,059 rounded up to 5,000. '
@@ -797,11 +825,16 @@ const DETAIL_DECLARED = {
   // reading and the rule are in the block above `full`.
   // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
   // same rule — the reading is in the block above `full`.
-  balanced: { triangles: 2145000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-0672, 2026-10-04: 2,145,000 -> 2,090,000, the return — the reading and
+  // the rule are in the block above `full`.
+  balanced: { triangles: 2090000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,145,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
+              measured: '2,090,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+                + 'six published stands, worst 2,072,747 and 233 calls at Lake Street '
+                + 'at Canal, 1280x800 (390x780 read 1,913,781); +16,806 rounded up to '
+                + '5,000. Previously 2,145,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
                 + 'at 16:35 CDT. Integrated dev a9c98af7, six published desktop '
                 + 'stands after zero-area tuft-tip removal: worst 2,127,277 and '
                 + '248 calls at west prairie; +16,806 rounded up to 5,000. '
@@ -892,7 +925,9 @@ const DETAIL_DECLARED = {
   // zero-area tuft-tip triangles. Retain the prior 21,933 margin, rounded up
   // to 5,000: 1,040,000. This knowingly raises the weak-device triangle budget;
   // it does not establish consumer FPS. The separate 90-call cap is unchanged.
-  light:    { triangles: 1040000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-0672, 2026-10-04: 1,040,000 -> 1,005,000, the return — the reading and
+  // the rule are in the block above `full`; why not 785,000 is said there too.
+  light:    { triangles: 1005000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -912,7 +947,11 @@ const DETAIL_DECLARED = {
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '1,040,000 set 2026-10-03 (T-2035/T-2037), explicitly authorized '
+              measured: '1,005,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+                + 'six published stands, worst 988,055 and 62 calls at west prairie, '
+                + '1280x800 (390x780 read 893,194); +15,791, T-0672’s recorded '
+                + 'headroom for this rung, rounded up to 5,000. '
+                + 'Previously 1,040,000 set 2026-10-03 (T-2035/T-2037), explicitly authorized '
                 + 'by the owner at 16:35 CDT. Published six-stand worst after dev '
                 + 'a9c98af7 and zero-area tuft-tip removal: desktop 1,015,035 and '
                 + 'mobile 920,708, both at west prairie; maximum calls 77/75. '

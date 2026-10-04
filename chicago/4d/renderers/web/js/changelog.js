@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1452, ts: '2026-10-04T23:33:52.054Z', date: 'Oct 4, 2026, 6:33 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We counted what the town draws at six places, at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Each setting\u2019s limit came down to that count plus a small fixed margin, so a change that makes the town heavier is caught sooner.',
+    ] },
   { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
