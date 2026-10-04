@@ -71,9 +71,8 @@
  * on another machine's numbers; `--strict` fails it. The frame is also printed
  * in BARE SCREENS (over a frame with every layer hidden, timed in the same
  * page), which was the first design for a machine-free unit and is NOT gated:
- * the two machines read on 2026-10-04 moved the frame and the bare screen in
- * opposite directions, so the ratio differed by a quarter where the
- * milliseconds differed by a tenth. `.github/workflows/chicago-4d-frame-time.yml`
+ * of three CPUs read on 2026-10-04, two agreed on it within 4 % and the third
+ * read it a third higher (docs/measurements/T-2111-still-frame-ceiling.md). `.github/workflows/chicago-4d-frame-time.yml`
  * runs the gate.
  */
 import http from 'node:http';
@@ -460,12 +459,14 @@ for (const pass of passes) {
 }
 // THE CEILING (T-2111). Each tier's frame at the worst stand, in milliseconds,
 // against the number written in `still_frame_ceilings.json` for THIS machine and
-// viewport. A machine the file does not know is read and warned about — its
-// milliseconds are not another machine's — and fails only under `--strict`. On
-// a known machine, a tier or viewport with no number is a failure, not a pass.
+// viewport. A machine (or a viewport of one) the file has no number for is read
+// and warned about — its milliseconds are not another machine's — and fails
+// only under `--strict`. GitHub's runner pool is several CPUs (three seen in one
+// evening), and a red that only means "a new CPU" would teach people to ignore it.
 const CPU = { model: os.cpus()[0]?.model?.trim() || 'unknown', cores: os.cpus().length };
 console.log(`\nmachine: ${CPU.model}, ${CPU.cores} core(s)`);
 if (GATE) {
+  let unheld = 0;
   const machine = CEILINGS.machines.find((m) => m.cpu === CPU.model && m.cores === CPU.cores);
   console.log(`\n================  the still-frame ceiling (${path.basename(CEILINGS_PATH)})  ================`);
   console.log(`year ${YEAR}, stand ${CEILINGS.stand}; ceilings for `
@@ -474,22 +475,25 @@ if (GATE) {
     const vp = pass.viewport.startsWith('phone') ? 'mobile' : 'desktop';
     for (const row of pass.rows) {
       const ceiling = machine?.tiers[row.level]?.[vp];
-      const ok = typeof ceiling === 'number' && row.frame <= ceiling;
-      if (machine && !ok) bad++;
-      console.log(`  ${ok ? 'ok  ' : machine ? 'FAIL' : '--  '}  ${vp.padEnd(8)} ${row.level.padEnd(9)} `
+      const held = typeof ceiling === 'number';
+      const ok = held && row.frame <= ceiling;
+      if (held && !ok) bad++;
+      if (!held) unheld++;
+      console.log(`  ${ok ? 'ok  ' : held ? 'FAIL' : '--  '}  ${vp.padEnd(8)} ${row.level.padEnd(9)} `
         + `${row.frame.toFixed(0).padStart(7)} ms  (ceiling ${ceiling ?? 'NONE'})`
         + `   ${row.screens} bare screens of ${row.bare.frame.toFixed(1)} ms, `
         + `${row.triangles.toLocaleString()} triangles`);
     }
   }
-  if (!machine) {
-    console.log(`::warning title=still-frame ceiling::no ceilings for ${CPU.model} (${CPU.cores} cores) `
-      + `in ${path.basename(CEILINGS_PATH)}: read, not held. Add this machine's reading by the file's rule.`);
-    if (process.argv.includes('--strict')) bad++;
+  if (unheld) {
+    console.log(`::warning title=still-frame ceiling::${unheld} reading(s) with no ceiling for `
+      + `${CPU.model} (${CPU.cores} cores) in ${path.basename(CEILINGS_PATH)}: read, not held. `
+      + "Add this machine's reading by the file's rule.");
+    if (process.argv.includes('--strict')) bad += unheld;
   }
   console.log(bad ? `\nTHE CEILING IS BROKEN: ${bad} reading(s) over or unbudgeted. A parcel that `
     + 'makes every frame slower argues its own number in still_frame_ceilings.json, '
-    + 'with the reading, in the same commit.' : machine ? '\nevery tier under its ceiling' : '');
+    + 'with the reading, in the same commit.' : unheld ? '' : '\nevery tier under its ceiling');
 }
 if (jsonOut) {
   fs.writeFileSync(jsonOut, `${JSON.stringify({ ticket: GATE || ARRIVAL || JAUNT_STAND.length ? 'T-2111' : 'T-2099',

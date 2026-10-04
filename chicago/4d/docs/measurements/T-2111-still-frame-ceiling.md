@@ -44,39 +44,42 @@ started. Take both `full` cells as one reading each, not a ranking.
 ## 3. The ceiling: the worst stand, every tier, in milliseconds per machine
 
 The worst 1835 stand at every tier and viewport is still T-2084's back yard on Washington
-and Wells (T-2099). Read with `--gate` on two machines the same evening:
+and Wells (T-2099). `--gate` read it on three CPUs the same evening: this steward runner and
+two GitHub-hosted runners that `chicago-4d-frame-time.yml` happened to land on. Frame ms,
+with the frame in bare screens after it:
 
-| tier | steward runner desktop | phone | GitHub-hosted desktop | phone |
-|---|---:|---:|---:|---:|
-| full | 13919 | 10028 | 12331 | 8433 |
-| balanced | 10460 | 7220 | 9397 | 6141 |
-| light | 6650 | 4262 | 6175 | 3730 |
-| bare screen | 82.5–84.7 | 68.7–69.5 | 99.0–99.3 | 75.8–77.2 |
+| tier | EPYC 9V74 desktop | EPYC 7763 desktop | EPYC 9V74 phone | EPYC 7763 phone | Xeon 8573C phone |
+|---|---:|---:|---:|---:|---:|
+| full | 13919 · 168.7 | 12440 · 124.8 | 10028 · 144.3 | 8433 · 110.7 | 6492 · 106.8 |
+| balanced | 10460 · 123.8 | 9479 · 95.6 | 7220 · 105.1 | 6141 · 79.5 | 4890 · 82.6 |
+| light | 6650 · 78.5 | 6184 · 62.0 | 4262 · 61.8 | 3730 · 49.2 | 2884 · 48.8 |
+| bare screen | 82.5–84.7 | 99.2–99.7 | 68.7–69.5 | 75.8–77.2 | 59.1–60.8 |
 
-**The first design gated a ratio, and the second machine refuted it.** The plan was to
-divide the frame by a bare screen (every layer hidden: clear and sky, one call) timed in the
-same page, so a faster or slower runner would cancel out. It did not. The GitHub-hosted
-runner drew the frame 7–16 % faster and the bare screen 15–20 % SLOWER, so the ratio
-differed by about a quarter (desktop `full` 168.7 against 124.3 screens). The milliseconds
-differed by only a tenth. The ratio is still printed, as `bare screens`, and is not gated.
+**The first design gated the ratio, and the third CPU refuted it.** The plan was to divide
+the frame by a bare screen (every layer hidden: clear and sky, one call) timed in the same
+page, so a faster or slower runner would cancel out. On the two GitHub-hosted CPUs it nearly
+did: their milliseconds differ by up to 30 %, and their ratios agree within 4 %. The EPYC
+9V74 draws the bare screen quickly and the town slowly, so it reads the ratio about a third
+higher. A unit that is machine-free on two CPUs out of three is not machine-free. The ratio
+is still printed, as `bare screens`, and it is not gated.
 
 So **the ceiling is in milliseconds, and it belongs to one machine.**
-`tools/still_frame_ceilings.json` keeps ceilings per CPU model and core count, each set by
-the rule *that machine's reading plus 10 %, rounded up to 250 ms*. The steward runner (AMD
-EPYC 9V74, 4 cores):
+`tools/still_frame_ceilings.json` keeps ceilings per CPU model and core count. Each is set by
+the rule *that machine's own reading plus 10 %, rounded up to 250 ms*:
 
-| tier | desktop | phone |
-|---|---:|---:|
-| full | 15500 | 11250 |
-| balanced | 11750 | 8000 |
-| light | 7500 | 4750 |
+| tier | 9V74 desktop | 9V74 phone | 7763 desktop | 7763 phone | 8573C phone |
+|---|---:|---:|---:|---:|---:|
+| full | 15500 | 11250 | 13750 | 9500 | 7250 |
+| balanced | 11750 | 8000 | 10500 | 7000 | 5500 |
+| light | 7500 | 4750 | 7000 | 4250 | 3250 |
 
-The GitHub-hosted runner's ceilings are set by the same rule, from its own reading, once it
-has named its CPU (see the file). A machine the file does not list is read and warned
-about, never failed on another machine's numbers; `--strict` fails it.
-`.github/workflows/chicago-4d-frame-time.yml` runs the gate nightly, on dispatch, and on
-any push that changes the gate, its ceilings or the workflow, one job per viewport. It is
-not in the smoke because one viewport's gate is about five minutes of software rasterising.
+A machine, or a viewport of one, with no number is read and warned about (`::warning`).
+It is never failed on another machine's numbers, and `--strict` fails it. A red that only
+meant "GitHub gave us a new CPU" would teach people to ignore the gate. The next reading on
+an unlisted CPU adds its own numbers by the same rule.
+`.github/workflows/chicago-4d-frame-time.yml` runs the gate nightly, on dispatch, and on any
+push that changes the gate, its ceilings or the workflow, one job per viewport. It is not in
+the smoke because one viewport's gate is about five minutes of software rasterising.
 
 ## What is left of T-2099
 

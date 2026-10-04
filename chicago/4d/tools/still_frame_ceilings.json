@@ -1,7 +1,7 @@
 {
   "ticket": "T-2111",
   "what": "A still frame's time at the worst 1835 stand, per Scene detail tier and release viewport, held as a ceiling beside T-1975's triangle ceilings (DETAIL in renderers/web/js/main.js). Gated by `node tools/measure_still_frame.mjs --gate`; .github/workflows/chicago-4d-frame-time.yml runs it.",
-  "unit": "milliseconds of one still frame (median of 2, after 2 settle frames), on the machine named: headless Chromium rasterises in software (SwiftShader), so a millisecond is the runner's CPU's and a ceiling belongs to one machine. The gate finds this machine by CPU model and core count; a machine not listed is read and warned about, never failed on another machine's numbers. The frame is also printed in bare screens (over a frame with every layer hidden), the first design for a machine-free unit, NOT gated: on 2026-10-04 the steward runner and the GitHub-hosted runner moved the frame and the bare screen in opposite directions (frame 7-16 % slower on the first, bare screen 15-20 % faster), so the ratio differed by a quarter where the milliseconds differed by a tenth.",
+  "unit": "milliseconds of one still frame (median of 2, after 2 settle frames), on the machine named: headless Chromium rasterises in software (SwiftShader), so a millisecond is the runner's CPU's and a ceiling belongs to one machine. The gate finds this machine by CPU model and core count; a machine, or a viewport of one, with no number here is read and warned about, never failed on another machine's numbers. The frame is also printed in bare screens (over a frame with every layer hidden, timed in the same page), the first design for a machine-free unit, NOT gated: of three CPUs read on 2026-10-04 two agreed on it within 4 % and the third read it a third higher. docs/measurements/T-2111-still-frame-ceiling.md has the table.",
   "rule": "each machine's own reading at the worst stand plus 10 %, rounded up to 250 ms. A parcel that makes every frame slower argues its own numbers here, with its reading, in the same commit; one that makes frames cheaper brings them down to its reading by the same rule.",
   "year": "1835",
   "stand": "town_backyard",
@@ -15,7 +15,7 @@
     {
       "cpu": "AMD EPYC 9V74 80-Core Processor",
       "cores": 4,
-      "where": "the steward runner (polecat-platform's steward-improve)",
+      "where": "the steward runner, 2026-10-04 (GitHub-hosted, polecat-platform's steward-improve)",
       "tiers": {
         "full": {
           "desktop": 15500,
@@ -70,6 +70,80 @@
             "frame_ms": 4262,
             "bare_ms": 69.0,
             "triangles": 942016
+          }
+        }
+      }
+    },
+    {
+      "cpu": "AMD EPYC 7763 64-Core Processor",
+      "cores": 4,
+      "where": "GitHub-hosted ubuntu-latest, .github/workflows/chicago-4d-frame-time.yml",
+      "tiers": {
+        "full": {
+          "desktop": 13750,
+          "mobile": 9500
+        },
+        "balanced": {
+          "desktop": 10500,
+          "mobile": 7000
+        },
+        "light": {
+          "desktop": 7000,
+          "mobile": 4250
+        }
+      },
+      "measured": {
+        "on": "2026-10-04, this branch on dev @ 29fa96f2, chicago-4d-frame-time.yml runs 37237661272 (both viewports) and 37239085079 (desktop); the higher of the two desktop readings",
+        "desktop": {
+          "full": {
+            "frame_ms": 12440
+          },
+          "balanced": {
+            "frame_ms": 9479
+          },
+          "light": {
+            "frame_ms": 6184
+          }
+        },
+        "mobile": {
+          "full": {
+            "frame_ms": 8433
+          },
+          "balanced": {
+            "frame_ms": 6141
+          },
+          "light": {
+            "frame_ms": 3730
+          }
+        }
+      }
+    },
+    {
+      "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "cores": 4,
+      "where": "GitHub-hosted ubuntu-latest, .github/workflows/chicago-4d-frame-time.yml (phone only so far: no desktop job has landed on it)",
+      "tiers": {
+        "full": {
+          "mobile": 7250
+        },
+        "balanced": {
+          "mobile": 5500
+        },
+        "light": {
+          "mobile": 3250
+        }
+      },
+      "measured": {
+        "on": "2026-10-04, this branch on dev @ 29fa96f2, chicago-4d-frame-time.yml run 37239085079 (phone)",
+        "mobile": {
+          "full": {
+            "frame_ms": 6492
+          },
+          "balanced": {
+            "frame_ms": 4890
+          },
+          "light": {
+            "frame_ms": 2884
           }
         }
       }
