@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
+    items: [
+      'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
+      'Fly up over the town. The flat dark slab on the far horizon is gone too. From the air the trees you see are the town\u2019s own.',
+      'Nearer woods now fade out of the far treeline smoothly instead of standing tall right up to where they stopped. Where a stretch of far woods ends, it tapers off.',
+      'How the far treeline is drawn is our reconstruction. The Liberties page explains it (L380).',
+    ] },
   { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',

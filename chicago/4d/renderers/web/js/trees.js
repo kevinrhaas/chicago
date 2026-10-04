@@ -349,11 +349,18 @@ function canopyAt(body, bi, s, d) {
   // T-1978: an open body steps down over its last crown and a half, so its end
   // is a shoulder of lower crowns and not a sheer cliff — the owner's "big cut
   // down". Short enough (one or two crowns) that it cannot read as a hill.
-  // ...and a body coming within MIN_FAR_M steps down over its last 60 m before
-  // the cut, for the same reason: the band ends there, and a full-height end
-  // is a cliff that slides along the horizon as you walk toward it.
-  const nearF = Math.min(1, Math.max(0, (d - MIN_FAR_M) / 60));
-  const hn = h * (0.30 + 0.70 * nearF * nearF * (3 - 2 * nearF));
+  // ...and a body coming in toward MIN_FAR_M sinks to nothing well before the
+  // cut (T-2103). The band is a far-field device: it draws angle, not depth.
+  // T-1978 stepped a body down over its last 60 m, and that was not enough
+  // where a body points AT the eye — `main_stem_belt_east` runs along South
+  // Water's south side, so looking down the street every sample along it
+  // lands in the same few bearings and the bin keeps the nearest, tallest
+  // one: a narrow blob at the street end whose height rode the cut as you
+  // walked (the owner's "massive moving up and down blobs", 2026-10-04).
+  // Faded over NEAR_FADE_M instead, the tallest an end-on body can draw is
+  // set by its far reaches, low, and it changes slowly with every step.
+  const nearF = Math.min(1, Math.max(0, (d - MIN_FAR_M) / (NEAR_FADE_M - MIN_FAR_M)));
+  const hn = h * nearF * nearF * (3 - 2 * nearF);
   const len = FAR_EDGE_LEN[bi];
   if (!len || FAR_EDGE_CLOSED[bi]) return hn;
   const f = Math.min(1, Math.max(0, Math.min(s, len - s) / (body.crown * 1.5)));
@@ -367,6 +374,19 @@ function canopyAt(body, bi, s, d) {
  * that is a worse lie than the gap it leaves.
  */
 const MIN_FAR_M = 330;
+/** T-2103 — where a far body reaches its full height again; it rises from
+ *  nothing at MIN_FAR_M on a smoothstep. See `canopyAt`. */
+const NEAR_FADE_M = 800;
+/**
+ * T-2103 — eye heights between which the band fades out, in metres. The band
+ * is a WALKER'S horizon: its foot is a fixed RING_FOOT_M below the eye, which
+ * the near ground hides from a standing or riding eye and nothing hides from
+ * the air, so from fifteen metres up it stood on the far ground as a dark
+ * slab with sheer ends (the owner's "another when flying", 55 ft over La
+ * Salle). Above the town the modelled trees carry the view; the band's top
+ * sinks onto its foot between these two heights and is gone above the second.
+ */
+const BAND_FADE_EYE_M = [5, 12];
 /**
  * The floor under the crown/gap modulation, in FRAME PIXELS, and the reason the
  * band is solved against the viewport at all.
@@ -3237,18 +3257,27 @@ export async function createTrees({
   // At the moment of a re-solve the two agree exactly — theta is exactly
   // linear in eyeY — which is what removes the snap.
   const uEyeY = { value: 2.7 };
+  // T-2103: how much of the band stands up at this eye height, 1 walking and
+  // 0 from the air — computed once per frame by `bandLift` and read by both
+  // the shader and `horizonLift()`, so the gate and the frame cannot disagree.
+  const uBandUp = { value: 1 };
   {
     const prior = farMat.onBeforeCompile;
     farMat.onBeforeCompile = (shader, renderer) => {
       if (typeof prior === 'function') prior(shader, renderer);
       shader.uniforms.uEyeY = uEyeY;
+      shader.uniforms.uBandUp = uBandUp;
       shader.vertexShader = `
 attribute float aTheta0;
 attribute float aSlope;
 uniform float uEyeY;
+uniform float uBandUp;
 ` + shader.vertexShader.replace('#include <begin_vertex>', /* glsl */`
 #include <begin_vertex>
-  transformed.y = ${RING_RADIUS.toFixed(1)} * tan(aTheta0 - aSlope * uEyeY);
+  // T-2103: from the air the top sinks onto the foot (BAND_FADE_EYE_M). A
+  // foot vertex carries theta0 = the foot and slope 0, so it is unmoved.
+  float bandFoot = ${(RING_FOOT_M / RING_RADIUS).toFixed(6)};
+  transformed.y = ${RING_RADIUS.toFixed(1)} * tan(mix(bandFoot, aTheta0 - aSlope * uEyeY, uBandUp));
 `);
     };
     farMat.needsUpdate = true;
@@ -3516,10 +3545,18 @@ uniform float uEyeY;
         // The same end taper and shared-vertex average are applied to the
         // (A, S) pair — theta is linear in eyeY, so combining the halves
         // combines the function.
-        let thA = j === 0 ? binA[right] * 0.88
-          : j === len ? binA[left] * 0.88 : (binA[left] + binA[right]) * 0.5;
-        let thS = j === 0 ? binS[right] * 0.88
-          : j === len ? binS[left] * 0.88 : (binS[left] + binS[right]) * 0.5;
+        // T-2103: ...but a full-height last crown on a run of a few bins is a
+        // sheer edge on a narrow block, which read as a slab. The last few
+        // vertices of a run step down on a quarter-sine to 45 %, over at most
+        // a quarter of the run so a short run keeps a top: a shoulder, still
+        // well short of the dome described above.
+        const edge = Math.min(j, len - j);
+        const span = Math.max(1, Math.min(4, Math.floor(len / 4)));
+        const sh = edge >= span ? 1 : 0.45 + 0.55 * Math.sin((edge / span) * Math.PI * 0.5);
+        let thA = (j === 0 ? binA[right]
+          : j === len ? binA[left] : (binA[left] + binA[right]) * 0.5) * sh;
+        let thS = (j === 0 ? binS[right]
+          : j === len ? binS[left] : (binS[left] + binS[right]) * 0.5) * sh;
         if (thA - thS * eyeY < 1e-5) { thA = 1e-5; thS = 0; }
         const d = j === len ? binDist[left] : binDist[right];
         putVert((start + b + j) * binRad, thA, thS, d);
@@ -3633,6 +3670,15 @@ uniform float uEyeY;
      * made visible by any choice this function has, and counting it as a
      * failure would only invite the floor to be raised until it lies.
      */
+    /**
+     * T-2103 — how much of the band stands up at the live eye: 1 for a walker
+     * or a rider, 0 from the air (`BAND_FADE_EYE_M`), and whether it is drawn.
+     */
+    horizonLift() {
+      return { lift: uBandUp.value, visible: hMesh.visible, eyeY: uEyeY.value,
+        fadeEyeM: [...BAND_FADE_EYE_M] };
+    },
+
     horizonContinuity() {
       return { ...continuity };
     },
@@ -3736,6 +3782,9 @@ uniform float uEyeY;
       // re-solved profile agrees with the shader-corrected one to under a
       // fiftieth of a pixel, because theta is exactly linear in eyeY.
       uEyeY.value = p.y;
+      uBandUp.value = bandLift(p.y);
+      // Nothing to draw when the top has sunk onto the foot.
+      hMesh.visible = uBandUp.value > 0;
       const e = p.x;
       const n = -p.z;
       // A viewport change moves the pixel the floor is measured in, so it is a
@@ -3755,6 +3804,12 @@ uniform float uEyeY;
   };
 }
 
+/** T-2103 — the band's lift at an eye height: 1 below the fade, 0 above it. */
+function bandLift(eyeY) {
+  const [a, b] = BAND_FADE_EYE_M;
+  const t = Math.min(1, Math.max(0, (eyeY - a) / (b - a)));
+  return 1 - t * t * (3 - 2 * t);
+}
 /** How far a canopy top at `d` metres stands above a level line of sight. */
 function apparentTopDeg(canopyM, d, eyeY) {
   return ((canopyM - eyeY) / d - d / (2 * R_EFF)) * 180 / Math.PI;
