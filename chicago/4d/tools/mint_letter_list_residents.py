@@ -910,17 +910,13 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
         # not un-mint a committed record in passing. Its card shows the same tally,
         # and re-reading those cards is a ticket of its own, not a side effect here.
         # And a mint read that way gives way to a standing card of this pass on the
-        # same family name, whatever the ranking says: `John Wilson 4` is printed
+        # same family name, whatever the ranking says (refusal 8, at its foot below): `John Wilson 4` is printed
         # beside the `Wilson, John` the town already holds, and letting it take the
         # surname first would hang a collision on the committed card for a tally.
         counted = LETTER_COUNT.match(name)
         if counted and display(name) not in standing:
             name = counted.group("name")
         fam = surname(name)
-        if counted and name != cand["name"] and fam in standing_fams:
-            refusals.append((cand["id"], cand["name"], len(returns_of(gaz["mentions"])),
-                             "surname already minted"))
-            continue
         outside = [p for p in (gaz.get("associated_places") or [])
                    if norm_place(p) not in in_town]
         reason = None
@@ -944,6 +940,8 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
         elif guard is not None and (hit := guard.holder(name, blind_to=blind)) is not None:
             reason = guard_refusal(hit)
         elif fam in taken:
+            reason = "surname already minted"
+        elif name != cand["name"] and fam in standing_fams:
             reason = "surname already minted"
         # T-0660 (c). A mint-time refusal does not un-mint a standing record: it is
         # SAID on the card instead. The surname is NOT claimed here — the holder keeps
