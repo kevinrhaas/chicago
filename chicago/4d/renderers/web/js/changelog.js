@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
+  { v: 1449, ts: '2026-10-04T21:51:03.440Z', date: 'Oct 4, 2026, 4:51 PM CT', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
     items: [
       'Nothing you can see changes yet. 1904\u2019s Glessner house windows draw the whole scene a second time every frame, and that is about half of each frame there.',
       'Two cheaper kinds of glass are ready to try. Either one makes the 1904 landing about twice as fast to draw, on a phone and on a desktop.',
