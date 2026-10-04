@@ -30,17 +30,17 @@ Each line is *how many of the 2929 people carry at least one record of that kind
 | household membership | **1864** | 63.6% | recorded inside a household of two or more people |
 | kinship | **1283** | 43.8% | a stated kin relationship (brother, child, daughter, father, husband, mother, sister, son, wife) |
 | property / address | **289** | 9.9% | the household resolves a `lives_at` or a `works_at` |
-| voter / civic evidence | **304** | 10.4% | a poll book, tax list, muster roll, treaty payment or other public record |
+| voter / civic evidence | **305** | 10.4% | a poll book, tax list, muster roll, treaty payment or other public record |
 | census linkage | **47** | 1.6% | an 1840 census row bridged to this person |
 
 ## What each person rests on
 
 | audit result | people | % |
 | --- | ---: | ---: |
-| `corroborated_across_categories` | 467 | 15.9% |
+| `corroborated_across_categories` | 468 | 16.0% |
 | `two_or_more_sources_one_category` | 14 | 0.5% |
 | `one_source` | 357 | 12.2% |
-| `the_letter_lists_alone` | 601 | 20.5% |
+| `the_letter_lists_alone` | 600 | 20.5% |
 | `no_source` | 1490 | 50.9% |
 
 `corroborated_across_categories` is the only result that means two *kinds* of
@@ -52,7 +52,7 @@ record agree; two newspaper notices of the same name are
 | category | people citing at least one |
 | --- | ---: |
 | newspaper | 1105 |
-| civic | 304 |
+| civic | 305 |
 | census | 47 |
 | church | 42 |
 | book | 382 |
@@ -331,8 +331,8 @@ defect in this export.
 | unplaced | 2439 | the household carries division `unplaced`: in the town, on no lot |
 | no research row | 2093 | no cohort ticket has reviewed this person; the programme reached 836 of 2929 |
 | no source of their own | 1490 | the collective `household_member` rows — "the rest of the Beaubien household, unnamed" and its two fellows — which are an inferred count of people, not named individuals; the household record carries the sources |
-| rests on one source | 958 | one source id on the card and no second category to check it against |
-| rests on the letter lists alone | 601 | known only from the post office's uncalled-for lists |
+| rests on one source | 957 | one source id on the card and no second category to check it against |
+| rests on the letter lists alone | 600 | known only from the post office's uncalled-for lists |
 | candidate identity open | 118 | a candidate was found and not asserted; the identity is still a question |
 | conflicting evidence, ruled | 95 | a recorded conflict carries a written adjudication and a named reopening condition; every one of them is a decline, and none adopts a candidate |
 | standing constraint | 13 | the household carries `review_required` with `touches_removal`: the final removal of the Potawatomi reaches it, no scene holding it may be `released`, and no research retires the flag |

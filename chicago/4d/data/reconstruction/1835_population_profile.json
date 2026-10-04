@@ -1115,8 +1115,8 @@
        2922,
        "99.8%",
        7,
-       54,
-       2861,
+       53,
+       2862,
        0,
        7
       ],
@@ -1525,13 +1525,13 @@
       ],
       [
        "inferred",
-       54,
+       53,
        "1.8%",
        "the band an inferred birth year or age puts them in"
       ],
       [
        "reconstructed",
-       2861,
+       2862,
        "97.7%",
        "DRAWN from the 1840 Chicago schedule's sex × age bands, conditioned on what the person is recorded doing, seeded by their own id — a band, never a year"
       ],
@@ -17822,11 +17822,6 @@
        "reconstructed"
       ],
       [
-       "Hiram Chapin",
-       "The Mid-Atlantic states",
-       "reconstructed"
-      ],
-      [
        "Hiram Clark",
        "New York State",
        "reconstructed"
@@ -22764,6 +22759,11 @@
       [
        "Nathaniel Kellogg",
        "The Southern states",
+       "reconstructed"
+      ],
+      [
+       "Nathaniel Metcalf",
+       "The Mid-Atlantic states",
        "reconstructed"
       ],
       [

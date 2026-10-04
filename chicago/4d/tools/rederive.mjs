@@ -155,6 +155,44 @@ function check(m = load()) {
     }
   });
 
+  // A READER SITS BELOW WHAT IT READS (T-2080). On a clean tree a reader placed above
+  // its writer passes, because every committed file already agrees with its inputs;
+  // the lag shows only on a merged tree, as a refusal that reads like a data fault or
+  // as a stale file written without complaint. So the edge is declared on the reader
+  // (`reads`) and held here: rebuilt by a step ABOVE it, and named in the reader's own
+  // source, so the declaration cannot be cargo. A cycle is `second_pass`, not this.
+  m.steps.forEach((s, i) => {
+    if (s.reads === undefined) return;
+    const at = `step ${i + 1} (${(s.command ?? []).join(' ')})`;
+    if (!Array.isArray(s.reads) || s.reads.length === 0) {
+      problems.push(`${at}: reads must be a non-empty array of paths`);
+      return;
+    }
+    const script = path.join(APP, String(s.command?.[1] ?? ''));
+    const source = existsSync(script) ? readFileSync(script, 'utf8') : '';
+    for (const rel of s.reads) {
+      const owner = m.steps.findIndex((st) => (st.resolves ?? []).includes(rel));
+      if (owner < 0) {
+        problems.push(`${at}: declares it reads ${rel}, which no step rebuilds — there is no `
+          + 'edge to hold. Declare only files the sequence itself rewrites.');
+      } else if (owner === i) {
+        problems.push(`${at}: declares it reads ${rel}, which it rebuilds itself. A step is `
+          + 'not downstream of its own output.');
+      } else if (owner > i) {
+        problems.push(`${at}: reads ${rel}, which step ${owner + 1} (${m.steps[owner].command.join(' ')}) `
+          + 'rebuilds BELOW it. On a merged tree this step reads the pre-merge file — T-2080 '
+          + 'measured location_spend.py refusing a business whose seat had moved, and '
+          + 'report_convergence_coverage.py writing a stale join without a word. Move the '
+          + `writer above step ${i + 1}; if they read each other, it is a cycle and belongs `
+          + 'in second_pass with reads_rebuilt.');
+      }
+      if (source && !source.includes(path.basename(rel))) {
+        problems.push(`${at}: declares it reads ${rel}, and ${s.command[1]} never names `
+          + `${path.basename(rel)}. A read the tool does not make is an edge that holds nothing.`);
+      }
+    }
+  });
+
   // THE SECOND PASS (T-1363). Its safety rests entirely on every entry naming a
   // step from the list above: re-running a command the sequence already runs adds
   // no tool that `_only_gated_tools` has not gated and `--prove` has not proved.
@@ -696,6 +734,12 @@ async function selfTest() {
   check_('mint comes after consolidate, which moves the inputs it reads (PR #1055)',
     real.steps.findIndex((s) => s.command.join(' ').includes('mint_civic_residents'))
       > real.steps.findIndex((s) => s.command.join(' ').includes('consolidate_resident_evidence')));
+  const gz = 'chicago/4d/data/research/location_reconciliation.json.gz';
+  const stepOf = (t) => real.steps.findIndex((s) => s.command[1] === t);
+  check_('both readers of the location reconciliation declare it and sit below it (T-2080)',
+    ['tools/location_spend.py', 'tools/report_convergence_coverage.py'].every((t) =>
+      (real.steps[stepOf(t)]?.reads ?? []).includes(gz)
+        && stepOf(t) > stepOf('tools/location_reconciliation.py')));
 
   console.log('\n  the second pass that closes the cycle (T-1363)');
   const pass = real.second_pass ?? [];
@@ -762,6 +806,19 @@ async function selfTest() {
       }]) === 1);
     check_('a listed path that is not in the tree',
       bad([{ command: ['python3', 'tools/compile_scene.py'], resolves: ['chicago/4d/data/nope.json'] }]) === 1);
+
+    // …and the declared reads (T-2080): the order that shipped until then is the
+    // first case, and it must be refused.
+    const recon = { command: ['python3', 'tools/location_reconciliation.py', '--build'], resolves: [gz] };
+    const spend = { command: ['python3', 'tools/location_spend.py', '--build'], resolves: [], reads: [gz] };
+    check_('a reader ABOVE the step that rebuilds what it reads — the order before T-2080',
+      bad([spend, recon]) === 1);
+    check_('the same reader BELOW it is accepted', bad([recon, spend]) === 0);
+    check_('a declared read of a file no step rebuilds — no edge to hold',
+      bad([recon, { ...spend, reads: ['chicago/4d/data/town_census.json'] }]) === 1);
+    check_('a declared read the tool\'s own source never names — cargo',
+      bad([recon, { command: ['python3', 'tools/compile_scene.py'], resolves: [], reads: [gz] }]) === 1);
+    check_('an empty reads list', bad([recon, { ...spend, reads: [] }]) === 1);
 
     // …and the second pass's own assertions. Each is a way the pass could quietly
     // stop meaning anything: a tool nothing gated, a claimed lag that is not one,

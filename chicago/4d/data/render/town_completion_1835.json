@@ -20,13 +20,13 @@
     "data/streets/1835.json"
   ],
   "summary": {
-    "households_housed": 1394,
-    "households_unhoused": 0,
+    "households_housed": 1391,
+    "households_unhoused": 3,
     "households_counted_apart": {
       "absent_on_the_scene_date": 29,
       "waiting_on_a_roof": 584
     },
-    "working_age_persons_owed_a_workplace": 67,
+    "working_age_persons_owed_a_workplace": 66,
     "businesses_neither_roofed_nor_stated": 0,
     "structures_empty_owing_somebody": 0,
     "dangling_ids": 0,
@@ -34,8 +34,8 @@
   },
   "housed": {
     "households": {
-      "housed": 1394,
-      "unhoused": 0,
+      "housed": 1391,
+      "unhoused": 3,
       "counted_apart": 613
     },
     "counted_apart": {
@@ -49,24 +49,30 @@
     "persons_housed": {
       "attested": 262,
       "inferred": 595,
-      "reconstructed": 1662
+      "reconstructed": 1659
     },
     "persons_unhoused": {
       "attested": 0,
       "inferred": 0,
-      "reconstructed": 0
+      "reconstructed": 3
     },
     "present_on_scene_date": {
-      "persons_housed": 2518,
-      "persons_unhoused": 0,
+      "persons_housed": 2515,
+      "persons_unhoused": 3,
       "persons_waiting_on_a_roof": 1062
     },
     "housed_through": {
       "lives_at": 56,
-      "seated_by_a_structure": 1338
+      "seated_by_a_structure": 1335
     },
-    "unhoused_by_folder": {},
-    "unhoused_present_households": []
+    "unhoused_by_folder": {
+      "reconstructed_trades": 3
+    },
+    "unhoused_present_households": [
+      "hh_rc_hastings_lemuel",
+      "hh_rc_metcalf_george",
+      "hh_rc_sawyer_eliza"
+    ]
   },
   "visitors_counted_apart": {
     "persons": 307,
@@ -82,12 +88,12 @@
     "stated_no_fixed_premises": {
       "attested": 20,
       "inferred": 0,
-      "reconstructed": 276
+      "reconstructed": 277
     },
     "owed": {
       "attested": 1,
       "inferred": 0,
-      "reconstructed": 66
+      "reconstructed": 65
     },
     "no_trade_recorded": {
       "attested": 232,
@@ -97,7 +103,7 @@
     "owed_by_reason": {
       "held_on_an_identity_question": 1,
       "keeps_their_own_house": 26,
-      "trade_attested_no_house_named": 40
+      "trade_attested_no_house_named": 39
     }
   },
   "roofed": {
@@ -148,7 +154,7 @@
       "housed": {
         "attested": 262,
         "inferred": 595,
-        "reconstructed": 1662
+        "reconstructed": 1659
       },
       "waiting_on_a_roof": {
         "attested": 150,
@@ -163,14 +169,14 @@
       "unhoused": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 0
+        "reconstructed": 3
       }
     },
     "households": {
       "housed": {
         "attested": 250,
         "inferred": 580,
-        "reconstructed": 564
+        "reconstructed": 561
       },
       "waiting_on_a_roof": {
         "attested": 150,
@@ -185,7 +191,7 @@
       "unhoused": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 0
+        "reconstructed": 3
       }
     },
     "businesses": {
@@ -245,13 +251,13 @@
     {
       "join": "housed",
       "label": "Every household housed",
-      "open": 584,
+      "open": 587,
       "what_keeps_it_open": "households without a roof yet"
     },
     {
       "join": "at_work",
       "label": "Every working person at a workplace",
-      "open": 67,
+      "open": 66,
       "what_keeps_it_open": "working people owed a workplace"
     },
     {
