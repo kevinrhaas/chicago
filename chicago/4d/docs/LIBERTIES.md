@@ -6023,6 +6023,16 @@ and holding the Kinzie-view plate as a proper `chicagology_*` source record (T-0
 garden treatment a citation instead of a committed path. Related: **L127** and **L128** (the two
 fences), **L129** (the garden pickets, whose "the ground inside the fences is not drawn" this
 answers), **L139** (the Sauganash's yard fence), **L151** (the stems inside them).
+**Revised:** 2026-10-04 (T-2090) — the surfaces are now drawn on the town's two shared tiles
+rather than on four painted canvases. The wagon yard's dust and the pound's earth are the road's
+own grit and worn-earth tones (`streets.js` DIRT_TONES), laid in world space as the door aprons'
+`road_earth` already was (T-2013): the yard keeps its two swinging wheel tracks and gains hoof
+pocks; the pound is the road's between-lane earth and that earth a fifth darker, poached in
+patches. The dooryard green is T-2089's grass grain (L374) mixed between a light and a dark kept
+green by 0.5-2 m clumps, and the beds keep their painted drills with the grit's grain laid over
+them. All of it is still the renderer's own invention, at the same tier; the tones of the two
+earths are now the road's rather than this layer's, and the green's pair holds the old canvas's
+mean colour.
 **Recorded:** 2026-08-21.
 
 ### L159 — The town's signs say what they are: thirty-three invented names, in ten colourways, on five mountings

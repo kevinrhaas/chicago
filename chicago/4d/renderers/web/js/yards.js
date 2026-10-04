@@ -66,6 +66,7 @@
 import * as THREE from 'three';
 import { GRIT_TILE_M } from './ground-strip-mask.js';
 import { DIRT_TONES, linearTone, roadGrit } from './streets.js';
+import { swardTexture, swardUniforms } from './terrain.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -255,16 +256,17 @@ function hash(x, y) {
 }
 
 /**
- * One surface, painted into a canvas the way `streets.js` paints its wagon
- * track. The tones are this file's, argued rather than sourced, and they are
- * chosen against the palette the town already carries: the two earths sit on the
- * road ribbon's own ochre so a yard reads as continuous with the track a wagon
- * was driven in off, and the green is the sward's own summer colour a shade
- * duller and a great deal shorter.
+ * The garden bed's drills, painted into a canvas — the one yard surface that
+ * keeps one (T-2090). A bed's pattern belongs to the BED's own frame (the drills
+ * run down its length), which world-space noise cannot know, so the drills and
+ * the row of green standing up each are painted here; everything finer, the
+ * grain and the relief, is the road's grit laid over them in world space by
+ * `yardGround()`. The pattern varies ACROSS the bed (`v`) so the drills run
+ * ALONG it, which is the axis the caller aligns with the bed's own length.
  *
  * The scale is one tile per `period` metres, set by the caller.
  */
-function surfaceTexture(surface) {
+function bedTexture() {
   const canvas = document.createElement('canvas');
   canvas.width = 128;
   canvas.height = 128;
@@ -272,44 +274,15 @@ function surfaceTexture(surface) {
   const image = ctx.createImageData(canvas.width, canvas.height);
   for (let y = 0; y < canvas.height; y++) {
     for (let x = 0; x < canvas.width; x++) {
-      const u = x / (canvas.width - 1);
       const v = y / (canvas.height - 1);
-      // Two octaves of the same value noise every earth surface in this project
-      // is grained with, so a yard and a road are made of the same dirt.
-      const grain = (hash(x >> 1, y >> 1) - 0.5) * 20 + (hash(x >> 3, y >> 3) - 0.5) * 14;
-      let rgb;
-      if (surface === 'worn_earth') {
-        // A wagon yard: dust, with the wheel tracks a team leaves swinging
-        // through it. Two soft ruts across the tile, deliberately not straight —
-        // a yard is turned in, not driven down.
-        const rut = Math.exp(-(((u - 0.32 - 0.05 * Math.sin(v * 6.28)) / 0.075) ** 2))
-          + Math.exp(-(((u - 0.74 + 0.05 * Math.sin(v * 6.28)) / 0.075) ** 2));
-        const hoof = hash(x >> 2, y >> 2) > 0.90 ? -6 : 0;
-        rgb = [150 + grain - rut * 16 + hoof,
-          128 + grain * 0.8 - rut * 15 + hoof,
-          96 + grain * 0.55 - rut * 11 + hoof];
-      } else if (surface === 'trodden_earth') {
-        // A pound: finer, darker, poached rather than rutted — beasts turning in
-        // a small space, and no wheel has ever been in here.
-        const poach = hash(x >> 2, y >> 2) > 0.78 ? -12 : 0;
-        rgb = [116 + grain + poach, 97 + grain * 0.8 + poach, 72 + grain * 0.55 + poach];
-      } else if (surface === 'garden_bed') {
-        // A tilled bed: dark worked earth with the drill rows in it, and the row
-        // of green standing up the middle of each drill. The pattern varies
-        // ACROSS the bed (`v`) so the drills run ALONG it, which is the axis the
-        // caller aligns with the bed's own length.
-        const drill = Math.abs(((v * 4) % 1) - 0.5) * 2;
-        const crop = Math.exp(-(((drill - 0.0) / 0.30) ** 2));
-        rgb = [86 + grain - drill * 8 + crop * 18,
-          70 + grain * 0.8 - drill * 6 + crop * 58,
-          52 + grain * 0.55 - drill * 4 + crop * 16];
-      } else {
-        // Dooryard green: short, kept, and NOT the prairie — the sward this
-        // town stands in is a metre and a half of bluestem, and the whole point
-        // of a dooryard is that somebody kept it down.
-        const clump = hash(x >> 2, y >> 2);
-        rgb = [92 + grain + clump * 12, 112 + grain + clump * 20, 58 + grain + clump * 8];
-      }
+      // A tilled bed: dark worked earth with the drill rows in it, and a little
+      // clumping in the crop so a row is plants and not a stripe.
+      const clump = (hash(x >> 2, y >> 2) - 0.5) * 10;
+      const drill = Math.abs(((v * 4) % 1) - 0.5) * 2;
+      const crop = Math.exp(-(((drill - 0.0) / 0.30) ** 2));
+      const rgb = [86 - drill * 8 + crop * (18 + clump),
+        70 - drill * 6 + crop * (58 + clump * 2),
+        52 - drill * 4 + crop * (16 + clump)];
       const i = (y * canvas.width + x) * 4;
       image.data[i] = Math.max(0, Math.min(255, rgb[0]));
       image.data[i + 1] = Math.max(0, Math.min(255, rgb[1]));
@@ -319,7 +292,7 @@ function surfaceTexture(surface) {
   }
   ctx.putImageData(image, 0, 0);
   const texture = new THREE.CanvasTexture(canvas);
-  texture.name = `yard-${surface}`;
+  texture.name = 'yard-garden_bed';
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -340,14 +313,42 @@ function surfaceTexture(surface) {
  * the same 35 m broad tone, and the grit's relief as the normal. What it leaves
  * out is everything that belongs to a street's frame: lanes along an axis,
  * ruts, shoulders and sod islands.
+ *
+ * T-2090 — EVERY YARD SURFACE ON THE SHARED TILES. The owner, 2026-10-04: "the
+ * road texture is beautiful I am thinking you can update and improve all the
+ * other grass and land textures in the same way". The road_earth shading above
+ * is now the shading of every earth in a yard, and the dooryard green is drawn
+ * on T-2089's grass grain the same way:
+ *
+ *   `worn_earth`     the road's grit and its worn-earth tones, as road_earth,
+ *                    with the two swinging wheel tracks the canvas used to
+ *                    carry (in the yard's own frame, period 7 m) and hoof pocks
+ *                    at ~0.2 m. So a wagon yard is the road's dirt, turned in.
+ *   `trodden_earth`  the grit again, on the road's BETWEEN-lane earth darkened a
+ *                    fifth (no wheel has been in a pound, so no lane is lighter
+ *                    than the rest), poached in ~0.3 m patches.
+ *   `garden_bed`     its drills stay a canvas (they run in the bed's frame); the
+ *                    grit's grain and relief are laid over them in world space.
+ *   `dooryard_green` the grass grain (grass-grain.js, 256 px over 1.6 m, the
+ *                    terrain's own tile), a kept-green tone pair mixed by
+ *                    0.5-2 m clumps, the 35 m broad tone, lit through the
+ *                    grain's normal — the sward's surface, cropped short.
+ *
+ * Every grain is read over its tile's own mean, so `mix(1, grain, k)` averages
+ * 1.0 and a surface's mean colour is its tone pair's. Nothing here adds a draw
+ * call: each surface is still one mesh, and the canvases it replaces are gone.
  */
-const ROAD_EARTH_HEAD = /* glsl */`
+const YARD_HEAD = /* glsl */`
 varying vec3 vYardWorld;
+varying vec2 vYardUv;
 uniform sampler2D uGrit;
 uniform float uGritM;
 uniform float uGritMean;
 uniform vec3 uDirtLane;
 uniform vec3 uDirtRest;
+uniform sampler2D uSward;
+uniform float uSwardM;
+uniform float uSwardMean;
 float yardHash(vec2 p) {
   vec3 q = fract(vec3(p.xyx) * 0.1031);
   q += dot(q, q.yzx + 33.33);
@@ -361,41 +362,102 @@ float yardNoise(vec2 p) {
              mix(yardHash(i + vec2(0.0, 1.0)), yardHash(i + vec2(1.0, 1.0)), u.x), u.y);
 }
 `;
-const ROAD_EARTH_FRAGMENT = /* glsl */`
+
+/** The road's dirt, per fragment: grit, lane/rest wear, broad tone. `extra` is
+ *  spliced in before the grain is applied, to mark a yard's own use on it. */
+const earthFragment = (extra = '') => /* glsl */`
   vec2 yardEN = vec2(vYardWorld.x, -vYardWorld.z);
   vec4 yardGrit = texture2D(uGrit, yardEN / uGritM);
   float yardGrain = yardGrit.r / max(uGritMean, 1e-6);
   float yardWear = 0.6 * yardNoise(yardEN / 3.0) + 0.4 * yardNoise(yardEN / 1.1 + 7.3);
   float yardBroad = 0.93 + 0.14 * yardNoise(yardEN / 35.0);
-  vec3 yardDirt = mix(uDirtRest, uDirtLane, smoothstep(0.15, 0.75, yardWear)) * yardBroad;
+  vec3 yardDirt = mix(uDirtRest, uDirtLane, smoothstep(0.15, 0.75, yardWear)) * yardBroad;${extra}
   diffuseColor.rgb = min(yardDirt * mix(1.0, yardGrain, 0.65), vec3(1.0));
+  vec2 yardXY = yardGrit.gb * 2.0 - 1.0;
 `;
-const ROAD_EARTH_NORMAL = /* glsl */`
-  vec3 yardTn = normalize(vec3(yardGrit.gb * 2.0 - 1.0, 1.0));
+
+const YARD_FRAGMENT = {
+  road_earth: earthFragment(),
+  // A wagon yard: the canvas's two soft wheel tracks, deliberately not straight
+  // (a yard is turned in, not driven down), and hoof pocks.
+  worn_earth: earthFragment(`
+  float yardU = fract(vYardUv.x);
+  float yardSw = 0.05 * sin(fract(vYardUv.y) * 6.2832);
+  float yardRut = exp(-pow((yardU - 0.32 - yardSw) / 0.075, 2.0))
+                + exp(-pow((yardU - 0.74 + yardSw) / 0.075, 2.0));
+  float yardHoof = smoothstep(0.70, 0.90, yardNoise(yardEN / 0.22 + 11.0));
+  yardDirt *= (1.0 - 0.11 * yardRut) * (1.0 - 0.06 * yardHoof);`),
+  // A pound: poached, not rutted.
+  trodden_earth: earthFragment(`
+  float yardPoach = smoothstep(0.62, 0.80, yardNoise(yardEN / 0.3 + 3.7));
+  yardDirt *= 1.0 - 0.11 * yardPoach;`),
+  // The bed's own canvas (map_fragment, kept), with the grit's grain over it.
+  garden_bed: /* glsl */`
+  #include <map_fragment>
+  vec2 yardEN = vec2(vYardWorld.x, -vYardWorld.z);
+  vec4 yardGrit = texture2D(uGrit, yardEN / uGritM);
+  float yardGrain = yardGrit.r / max(uGritMean, 1e-6);
+  diffuseColor.rgb = min(diffuseColor.rgb * mix(1.0, yardGrain, 0.5), vec3(1.0));
+  vec2 yardXY = (yardGrit.gb * 2.0 - 1.0) * 0.8;
+`,
+  // Kept green: the grass grain, sheared by a 3 m noise so its 1.6 m repeat
+  // never lines up into rows, over 0.5-2 m clumps of a light and a dark green.
+  // Its relief is the sward's, a little flatter: this is grass kept down.
+  dooryard_green: /* glsl */`
+  vec2 yardEN = vec2(vYardWorld.x, -vYardWorld.z);
+  vec4 yardSw = texture2D(uSward, yardEN / uSwardM + vec2(0.31, 0.23) * yardNoise(yardEN / 3.0 + 4.1));
+  float yardGrain = yardSw.r / max(uSwardMean, 1e-6);
+  float yardClump = 0.6 * yardNoise(yardEN / 1.4 + 2.9) + 0.4 * yardNoise(yardEN / 0.55 + 5.1);
+  float yardBroad = 0.93 + 0.14 * yardNoise(yardEN / 35.0 + 1.7);
+  vec3 yardGreen = mix(uDirtRest, uDirtLane, smoothstep(0.25, 0.75, yardClump)) * yardBroad;
+  diffuseColor.rgb = min(yardGreen * mix(1.0, yardGrain, mix(0.25, 0.45, yardClump)), vec3(1.0));
+  vec2 yardXY = (yardSw.gb * 2.0 - 1.0) * 0.7;
+`,
+};
+
+const YARD_NORMAL = /* glsl */`
+  vec3 yardTn = normalize(vec3(yardXY, 1.0));
   vec3 yardEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
   vec3 yardT = normalize(yardEastV - normal * dot(yardEastV, normal));
   vec3 yardB = cross(normal, yardT);
   normal = normalize(yardT * yardTn.x + yardB * yardTn.y + normal * yardTn.z);
 `;
 
-/** The road's dirt on a yard material (T-2013). Set before `confidence.patch()`,
- *  which chains whatever `onBeforeCompile` it finds. */
-function roadEarth(mat, grit) {
-  const tones = DIRT_TONES.worn_earth;
+/**
+ * The tone pair each surface is mixed between (sRGB 0-255). The earths are the
+ * road's own (`streets.js` DIRT_TONES); the pound's is the road's between-lane
+ * earth and that earth a fifth darker. The green is this file's argued kept
+ * green — the canvas's mean held, its clump range made the pair — because no
+ * record states a dooryard's colour; the bed's tones live in its canvas.
+ */
+const WORN = DIRT_TONES.worn_earth;
+const YARD_TONES = {
+  road_earth: WORN,
+  worn_earth: WORN,
+  trodden_earth: { lane: WORN.rest, rest: WORN.rest.map((c) => Math.round(c * 0.82)) },
+  garden_bed: WORN,
+  dooryard_green: { lane: [104, 132, 66], rest: [92, 112, 58] },
+};
+
+/** A yard surface's material on the shared tiles (T-2013, T-2090). Set before
+ *  `confidence.patch()`, which chains whatever `onBeforeCompile` it finds. */
+function yardGround(mat, surface, tiles) {
+  const tones = YARD_TONES[surface];
   mat.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, {
-      uGrit: { value: grit.texture },
+      uGrit: { value: tiles.grit.texture },
       uGritM: { value: GRIT_TILE_M },
-      uGritMean: { value: grit.mean },
+      uGritMean: { value: tiles.grit.mean },
       uDirtLane: { value: linearTone(tones.lane) },
       uDirtRest: { value: linearTone(tones.rest) },
+      ...swardUniforms(tiles.sward),
     });
-    shader.vertexShader = `varying vec3 vYardWorld;\n${shader.vertexShader}`.replace(
+    shader.vertexShader = `varying vec3 vYardWorld;\nvarying vec2 vYardUv;\n${shader.vertexShader}`.replace(
       '#include <begin_vertex>',
-      '#include <begin_vertex>\n  vYardWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
-    shader.fragmentShader = `${ROAD_EARTH_HEAD}\n${shader.fragmentShader}`
-      .replace('#include <map_fragment>', ROAD_EARTH_FRAGMENT)
-      .replace('#include <normal_fragment_maps>', ROAD_EARTH_NORMAL);
+      '#include <begin_vertex>\n  vYardWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;\n  vYardUv = uv;');
+    shader.fragmentShader = `${YARD_HEAD}\n${shader.fragmentShader}`
+      .replace('#include <map_fragment>', YARD_FRAGMENT[surface])
+      .replace('#include <normal_fragment_maps>', YARD_NORMAL);
   };
 }
 
@@ -742,7 +804,10 @@ export function createFencedGround({
     }
   }
 
-  const disposables = [];
+  // The two shared tiles, made once for the whole layer: the road's grit for the
+  // earths and the bed, the grass grain for the green.
+  const tiles = { grit: roadGrit(), sward: swardTexture() };
+  const disposables = [tiles.grit.texture, tiles.sward];
   for (const [surface, buf] of buffers) {
     if (!buf.pos.length) continue;
     const geo = new THREE.BufferGeometry();
@@ -757,9 +822,9 @@ export function createFencedGround({
     buf.pos = buf.uv = buf.col = buf.conf = null;
     geo.computeVertexNormals();
     geo.computeBoundingSphere();
-    // `road_earth` draws the road's own grit (T-2013) and carries no canvas.
-    const grit = surface === 'road_earth' ? roadGrit() : null;
-    const map = grit ? null : surfaceTexture(surface);
+    // Every surface draws the shared tiles (T-2013, T-2090); only the bed keeps
+    // a canvas, for its drills.
+    const map = surface === 'garden_bed' ? bedTexture() : null;
     const mat = new THREE.MeshStandardMaterial({
       map,
       vertexColors: true,
@@ -777,7 +842,7 @@ export function createFencedGround({
       polygonOffsetUnits: -32,
     });
     mat.name = `yard-${surface}`;
-    if (grit) roadEarth(mat, grit);
+    yardGround(mat, surface, tiles);
     confidence?.patch(mat);
     // This layer's own program, for the reason enclosures.js records at length:
     // `customProgramCacheKey` defaults to the SOURCE TEXT of `onBeforeCompile`,
@@ -794,7 +859,8 @@ export function createFencedGround({
     mesh.receiveShadow = true;
     mesh.renderOrder = surface === 'garden_bed' ? 2 : (surface === 'worn_earth' ? 1 : 0);
     group.add(mesh);
-    disposables.push(geo, mat, map ?? grit.texture);
+    disposables.push(geo, mat);
+    if (map) disposables.push(map);
   }
   group.userData.census = out.census;
   if (!group.children.length) {
