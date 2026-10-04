@@ -30,13 +30,13 @@
   "known_layer": {
     "households_total": 1458,
     "households_present": 1412,
-    "households_uncertain": 960,
-    "households_ruled_present": 960,
+    "households_uncertain": 959,
+    "households_ruled_present": 959,
     "households_evidenced_absent": 2,
     "households_reconstructed": 44,
     "persons_total": 2928,
     "persons_standing": 2926,
-    "persons_ruled_present": 966,
+    "persons_ruled_present": 965,
     "persons_present": 1439,
     "persons_present_attested": 411,
     "persons_present_inferred": 1028,
@@ -78,22 +78,22 @@
     "source": "data/reconstruction/1835_presence_rulings.json",
     "summed_into_known": true,
     "summed_by": "T-1463",
-    "persons_ruled_present": 1875,
-    "households_ruled_present": 960,
+    "persons_ruled_present": 1874,
+    "households_ruled_present": 959,
     "by_presence_tier": {
       "reconstructed": 1508,
       "inferred": 183,
-      "attested": 184
+      "attested": 183
     },
     "by_residence_grade": {
-      "inferred": 688,
+      "inferred": 687,
       "attested": 278,
       "reconstructed": 909
     },
     "what_known_takes": "the 826 attested and inferred; the 1 reconstructed is a fill",
-    "persons_known_before_the_rulings": 473,
+    "persons_known_before_the_rulings": 474,
     "persons_known_now": 1439,
-    "households_known_before_the_rulings": 452,
+    "households_known_before_the_rulings": 453,
     "households_known_now": 1412,
     "the_roster_is_not_double_counted": "R1 offers these names to T-1172 as a LICENCE to use a real read name, never as a quota (rule `real_names_first`), and T-1386 has already re-admitted them into the layer. Counting them known orders nobody twice; it stops ordering them once.",
     "what_re_cuts_the_quotas": [
@@ -1567,9 +1567,9 @@
     }
   ],
   "roster_offered": {
-    "total": 1813,
+    "total": 1812,
     "by_class": {
-      "R1_in_window_uncertain": 905,
+      "R1_in_window_uncertain": 904,
       "R2_in_window_single_source": 207,
       "R3_1834_return_or_muster": 28,
       "R4_surname_only_census": 438,
@@ -2013,7 +2013,7 @@
       "asks": "The model wants 643 households and the layer holds 1,456 records. Are those the same thing?",
       "the_answer_is": "NO — RULED BY THE OWNER, 2026-09-21, and carried here (T-1476).",
       "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,456 against 643 is a BACKLOG, not a contradiction.",
-      "households_known_before_the_rulings": 452,
+      "households_known_before_the_rulings": 453,
       "records_known_now": 1412,
       "houses_known_now": 82,
       "records_awaiting_a_household": 1330,
@@ -4563,7 +4563,7 @@
         "known_present": 82,
         "known_present_records": 1412,
         "known_present_awaiting_a_household": 1330,
-        "known_uncertain_in_the_index_ruled_in_by_T-1386": 960
+        "known_uncertain_in_the_index_ruled_in_by_T-1386": 959
       },
       "buckets": [
         {

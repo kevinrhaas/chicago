@@ -279,8 +279,8 @@
      "rows": [
       [
        "present",
-       496,
-       "34.0%"
+       497,
+       "34.1%"
       ],
       [
        "absent",
@@ -289,7 +289,7 @@
       ],
       [
        "uncertain",
-       960,
+       959,
        "65.8%"
       ]
      ],
@@ -306,7 +306,7 @@
      "rows": [
       [
        "attested",
-       184,
+       183,
        "9.8%"
       ],
       [
@@ -317,11 +317,11 @@
       [
        "reconstructed",
        1508,
-       "80.4%"
+       "80.5%"
       ],
       [
        "TOTAL",
-       1875,
+       1874,
        "100.0%"
       ]
      ],
@@ -1074,7 +1074,7 @@
     }
    ],
    "notes": [
-    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 960 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1875 of their people are ruled into the town, each at the tier its own readings reach. Exactly 2 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
+    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 959 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1874 of their people are ruled into the town, each at the tier its own readings reach. Exactly 2 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
     "No PERSON carries the `reconstructed` grade (1487) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 122 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
    ]
   },
@@ -6520,7 +6520,7 @@
       [
        "The Hopkins household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [

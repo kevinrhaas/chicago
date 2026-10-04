@@ -380,11 +380,11 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 ## Real names before invented ones
 
-The roster offers 1,813 names the corpus printed and this project withheld. Each class is a licence, not a quota:
+The roster offers 1,812 names the corpus printed and this project withheld. Each class is a licence, not a quota:
 
 | class | offered | ticket |
 |---|---:|---|
-| `R1_in_window_uncertain` | 905 | T-1172 |
+| `R1_in_window_uncertain` | 904 | T-1172 |
 | `R2_in_window_single_source` | 207 | T-1172 |
 | `R3_1834_return_or_muster` | 28 | T-1172 |
 | `R4_surname_only_census` | 438 | T-1170 |
@@ -592,7 +592,7 @@ The households the model wants, by kind and division.
 - `known_present`: 82
 - `known_present_records`: 1,412
 - `known_present_awaiting_a_household`: 1,330
-- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 960
+- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 959
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
