@@ -8,12 +8,12 @@
     "upheld": 134,
     "named": 2,
     "refused": 68,
-    "unruled": 6
+    "unruled": 7
   },
   "counts": {
     "purchasers": 647,
-    "matched": 142,
-    "refused": 505,
+    "matched": 143,
+    "refused": 504,
     "firms": 2,
     "bodies": 3
   },
@@ -5383,6 +5383,23 @@
       "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
     },
     {
+      "purchaser_as_read": "BARNES WHEELER",
+      "record_ids": [
+        "ls0948"
+      ],
+      "resident_id": "barnes_wheeler",
+      "resident_name": "Wheeler Barnes",
+      "household_id": "hh_barnes_wheeler",
+      "match": "forename_agrees",
+      "rule": "BARNES WHEELER matches Wheeler Barnes: the forename names Wheeler Barnes of the 1 person of this surname, and the forename agrees in full.",
+      "via_card_merge": null,
+      "rivals": [],
+      "residence_column": "UNKNOWN",
+      "evidence_grade": "inferred",
+      "ruling": null,
+      "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
+    },
+    {
       "purchaser_as_read": "ALLEN JAMES",
       "record_ids": [
         "ls0954"
@@ -8635,8 +8652,19 @@
     },
     {
       "a": "BARNES HAMILTON",
-      "b": "0 residents named Barnes",
-      "rule": "BARNES HAMILTON is refused against 0 residents named Barnes: the residents layer holds nobody of the surname.",
+      "b": "Wheeler Barnes",
+      "rule": "BARNES HAMILTON is refused against Wheeler Barnes: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "rivals": [
+        {
+          "key": "barnes_wheeler",
+          "name": "Wheeler Barnes",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        }
+      ],
       "record_ids": [
         "ls0063",
         "ls0064"
@@ -9698,8 +9726,19 @@
     },
     {
       "a": "WEED EDMUND",
-      "b": "0 residents named Weed",
-      "rule": "WEED EDMUND is refused against 0 residents named Weed: the residents layer holds nobody of the surname.",
+      "b": "Sally Weed",
+      "rule": "WEED EDMUND is refused against Sally Weed: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "rivals": [
+        {
+          "key": "weed_sally",
+          "name": "Sally Weed",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        }
+      ],
       "record_ids": [
         "ls0364"
       ],
@@ -11858,9 +11897,18 @@
     },
     {
       "a": "OSBORN JAMES D",
-      "b": "Wm. Osborn",
-      "rule": "OSBORN JAMES D is refused against Wm. Osborn: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "2 residents named Osborn",
+      "rule": "OSBORN JAMES D is refused against B. Osborn and Wm. Osborn: the forename names 0 of the 2 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "osborn_b",
+          "name": "B. Osborn",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "D",
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "osborn_wm",
           "name": "Wm. Osborn",
@@ -14917,9 +14965,18 @@
     },
     {
       "a": "OSBORN DAVID",
-      "b": "Wm. Osborn",
-      "rule": "OSBORN DAVID is refused against Wm. Osborn: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "2 residents named Osborn",
+      "rule": "OSBORN DAVID is refused against B. Osborn and Wm. Osborn: the forename names 0 of the 2 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "osborn_b",
+          "name": "B. Osborn",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "osborn_wm",
           "name": "Wm. Osborn",
@@ -14939,9 +14996,18 @@
     },
     {
       "a": "OSBORN HENDRY",
-      "b": "Wm. Osborn",
-      "rule": "OSBORN HENDRY is refused against Wm. Osborn: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "2 residents named Osborn",
+      "rule": "OSBORN HENDRY is refused against B. Osborn and Wm. Osborn: the forename names 0 of the 2 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "osborn_b",
+          "name": "B. Osborn",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "osborn_wm",
           "name": "Wm. Osborn",
@@ -15253,17 +15319,6 @@
       "record_ids": [
         "ls0946",
         "ls0947"
-      ],
-      "evidence": [
-        "data/residents/index.json"
-      ]
-    },
-    {
-      "a": "BARNES WHEELER",
-      "b": "0 residents named Barnes",
-      "rule": "BARNES WHEELER is refused against 0 residents named Barnes: the residents layer holds nobody of the surname.",
-      "record_ids": [
-        "ls0948"
       ],
       "evidence": [
         "data/residents/index.json"

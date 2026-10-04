@@ -15582,7 +15582,7 @@
     {
       "id": "rcb_metcalf_druggist",
       "file": "rcb_metcalf_druggist.json",
-      "name": "Nathaniel Metcalf, drugs, medicines and dye stuffs",
+      "name": "George Metcalf, drugs, medicines and dye stuffs",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -15598,8 +15598,8 @@
       "firm_styles": [],
       "people": [
         {
-          "name": "Nathaniel Metcalf",
-          "person_id": "rc_metcalf_nathaniel",
+          "name": "George Metcalf",
+          "person_id": "rc_metcalf_george",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,
