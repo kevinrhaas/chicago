@@ -1,0 +1,104 @@
+{
+  "id": "first_fort_dearborn_flagstaff",
+  "name": "First Fort Dearborn — flagstaff",
+  "aka": [
+    "the 'lofty flagstaff' of the fort of 1803"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1803-08-17",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913_swearingen",
+          "quaife_1913",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+      },
+      "position": {
+        "utm_e": null,
+        "utm_n": null,
+        "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'flagstaff'): E +0.0..+1.6 ft, N +0.0..+1.6 ft of the flagstaff's foot, its foot is the frame's origin, and the footprint is the square of ground it stands on, from the foot north-east. NOT YET SEATED ON THE GROUND: the fort's place and its bearing to true north are T-2050's.",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "PLACED IN THE FORT'S OWN FRAME AND NOWHERE ELSE YET. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. 'East' is the sheet's right, which the register infers from the lake lettered down that margin; the sheet has no north arrow. The utm fields stay null until T-2050 seats the whole frame with one origin and one bearing, which is the only way the fort can be placed without moving one building against another."
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            0.49,
+            0
+          ],
+          [
+            0.49,
+            0.49
+          ],
+          [
+            0,
+            0.49
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "The square of ground the staff stands on, 0.49 m a side, as the second fort's staff. The draught draws the staff laid down, so its thickness is not on it."
+      },
+      "form": {
+        "kind": {
+          "value": "flagstaff",
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "Drawn laid down from the centre of the parade, lettered '75 feete' along its length; Quaife: 'a lofty flagstaff'."
+        },
+        "wall_height_m": {
+          "value": 22.86,
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "75 ft, the drafter's own figure lettered along the staff, and the anchor of the whole register's scale."
+        },
+        "roof_type": {
+          "value": "none",
+          "confidence": "reconstructed",
+          "note": "A staff has no roof; nothing says it carried a top or a yard, and none is built."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Unattested: a timber spar."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "note": "Unattested."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "garrison_flagstaff",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "The garrison's flagstaff at the centre of the parade."
+  },
+  "research_note": "THE ONE DIMENSION THE COMMANDANT WROTE ON HIS GARRISON. Whistler lettered the staff '75 feete' and drew it laid down from its foot at the parade's centre; that is the anchor the register's whole scale is measured from, so this record's height is the best-attested number in the fort.",
+  "review_required": false
+}

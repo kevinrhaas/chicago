@@ -1,0 +1,123 @@
+{
+  "id": "first_fort_dearborn_pickets_inner",
+  "name": "First Fort Dearborn — inward row of pickets",
+  "aka": [
+    "Whistler's index no. 5, 'Inward Row of pickets'"
+  ],
+  "archetype": "palisade",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1803-08-17",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913_swearingen",
+          "quaife_1913",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+      },
+      "position": {
+        "utm_e": null,
+        "utm_n": null,
+        "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'index 5 lines'): E -44.2..+45.4 ft, N -45.6..+45.6 ft of the flagstaff's foot, the main gate in the south side. NOT YET SEATED ON THE GROUND: the fort's place and its bearing to true north are T-2050's.",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "PLACED IN THE FORT'S OWN FRAME AND NOWHERE ELSE YET. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. 'East' is the sheet's right, which the register infers from the lake lettered down that margin; the sheet has no north arrow. The utm fields stay null until T-2050 seats the whole frame with one origin and one bearing, which is the only way the fort can be placed without moving one building against another."
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            27.31,
+            0
+          ],
+          [
+            27.31,
+            27.8
+          ],
+          [
+            0,
+            27.8
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "MEASURED: 89.6 x 91.2 ft, east-west by north-south, between the parade-side edges of the hatched band the draught draws for each curtain. Every range's back wall stands on this line, so on the draught the inward row runs only between the buildings; the archetype builds a closed loop, and along the ranges its pickets stand against their back walls."
+      },
+      "form": {
+        "wall_kind": {
+          "value": "picket_stockade",
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "Whistler's index no. 5, 'Inward Row of pickets'. Quaife: 'the whole was inclosed within a double row of palisades'."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "Not stated: upright timber posts, as 'pickets' means."
+        },
+        "picket_height_m": {
+          "value": 3.7,
+          "confidence": "reconstructed",
+          "note": "Unattested. Twelve feet, the second fort's figure and a common frontier stockade height. The drafter notes pickets 'five feet in length' only for a fence across the river that he had taken down."
+        },
+        "picket_width_m": {
+          "value": 0.24,
+          "confidence": "reconstructed",
+          "note": "Unattested, as the second fort's."
+        },
+        "picket_spacing_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "Unattested, as the second fort's."
+        },
+        "gate_sides": {
+          "value": [
+            "s"
+          ],
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "Whistler's index no. 7, 'Main Gate', drawn in the middle of the south range. Quaife: 'The main gateway of the stockade was at the middle of the south side'. The wicket gate (index no. 8) Quaife puts 'near the northwestern blockhouse' is not built: the register could not find it on the sheet. THE ARCHETYPE CENTRES A GATE ON ITS SIDE; the draught puts the passage at E -11.1..-4.9 ft, about 8.6 ft west of this row's centre."
+        },
+        "gate_width_m": {
+          "value": 1.89,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "6.2 ft, the gap the draught leaves between the two halves of the south range (index no. 7)."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "military_post_enclosure",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "The inward of the two picket rows round the first fort. Quaife: 'so arranged that the blockhouses commanded not only the space without the four walls, but also that inclosed between the two rows of palisades'."
+  },
+  "research_note": "THE INNER OF THE FIRST FORT'S TWO PICKET ROWS. The double row is the first fort's and not the second's, which had one row with bastions (fort_dearborn_palisade). The covered way to the river (index no. 33) is named in the index and 'Omited in their places' by the drafter, so it is not built.",
+  "review_required": false
+}
