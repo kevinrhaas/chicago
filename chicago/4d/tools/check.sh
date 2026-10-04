@@ -119,6 +119,8 @@ selftest "…only the canonical v4 derivative producer refreshes the package" \
   python3 tools/test_glessner_v4_package_producer.py --self-test
 selftest "…arched apertures preserve whole-stone relief without false joints" \
   python3 tools/test_glessner_block_clipping.py --self-test
+selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra, forged refused (T-2067)" \
+  python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
 

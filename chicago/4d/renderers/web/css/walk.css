@@ -1555,6 +1555,21 @@ kbd {
 #welcome-message { font-size: 13px; margin: 0; }
 #welcome-message:empty { display: none; }
 .gate[data-region="explore"] .welcome-intro { display: none; }
+/* T-0472: a scene's interpretive cards, folded under the intro until asked for. */
+.welcome-about { margin: -8px 0 16px; flex: 0 0 auto; }
+.welcome-about[hidden], .gate[data-region] .welcome-about { display: none; }
+.welcome-about summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-size: 14px; color: var(--accent); }
+/* Open, the fold gives up height before the actions do and scrolls inside itself, so
+   the buttons under it never ride over one another; its summary stays to close it. */
+.welcome-about[open] { flex: 0 1 auto; min-height: 96px; overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
+.welcome-about[open] summary { position: sticky; top: 0; z-index: 1; background: var(--panel-solid); }
+.welcome-about-card { border-left: 2px solid var(--brass); padding: 2px 0 2px 12px; margin: 8px 0 14px; }
+.welcome-about-card h3 { font-size: 15px; margin: 0 0 6px; }
+.welcome-about-card p { font-size: 13px; line-height: 1.5; margin: 0 0 8px; color: var(--ink-dim); }
+.welcome-about-card figure { margin: 0 0 8px; }
+.welcome-about-card blockquote { margin: 0; font-size: 13px; line-height: 1.45; font-style: italic; color: var(--ink); }
+.welcome-about-card figcaption { font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
+.welcome-about-card .welcome-about-held { font-size: 12px; border: 1px dashed var(--edge); border-radius: 6px; padding: 6px 8px; }
 .gate[data-region="explore"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
 .gate[data-region="explore"] .welcome-action { padding: 8px; }
 .gate[data-region="explore"] .welcome-action strong { font-size: 14px; }

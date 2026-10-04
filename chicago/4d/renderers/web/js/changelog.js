@@ -1,9 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1406, ts: '2026-10-04T07:05:37.820Z', date: 'Oct 4, 2026, 2:05 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
+  { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'When a ticket is blocked, the ticket tool now writes its line in the queue\u2019s blocked list itself, and takes it out again when the ticket is unblocked or withdrawn. Before, that line was written by hand, so one blocked ticket went missing from the list and two stood in it twice.',
       'The queue check now refuses a ticket listed twice there.',
+    ] },
+  { v: 1408, ts: '2026-10-04T07:40:22.742Z', date: 'Oct 4, 2026, 2:40 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The tool that tells a change which part of the browser checks to run sent edits to the People directory to the wrong part. The directory is checked in part 12, and the tool said part 13, so those checks were skipped.',
+      'Three modules the person card is built from now name part 12 too, and the shared seat block no longer names a part that never reads it.',
+      'The tool\u2019s own self-test now finds where each of eight modules is actually checked and fails if the map disagrees, so the same mistake cannot return unnoticed.',
+    ] },
+  { v: 1407, ts: '2026-10-04T07:22:27.332Z', date: 'Oct 4, 2026, 2:22 AM CT', title: 'The 1812 view explains what happened there, and whose accounts say so', kind: 'feature',
+    items: [
+      'Open the 1812 door: the welcome now says \u201cThe first Fort Dearborn\u201d and has a fold, About 1812, with five short cards. Each quotes the sources it rests on, and says who wrote them and where they were printed.',
+      'One card covers the two names for 15 August 1812, the Battle of Fort Dearborn and the Fort Dearborn Massacre. Another covers the two answers to where the attack happened, which do not agree. A third covers whose accounts these are: all were written by the garrison\u2019s side or by settler historians, and none by the Potawatomi.',
+      'Three cards are marked as held for review by Native scholars or community organisations, and each says why. The 1812 view stays unreleased until that review. No people are shown, and the last card says why.',
+    ] },
+  { v: 1406, ts: '2026-10-04T07:06:15.901Z', date: 'Oct 4, 2026, 2:06 AM CT', title: 'The 1835 town can now be packed as one checked download', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. This is groundwork for running the town outside the browser, starting with the Unreal version.',
+      'One command now packs a version of the 1835 town into a single file: every building and its records, the ground and the water.',
+      'Every file in the package is fingerprinted. A copy with one changed byte, a missing file or an extra file is refused.',
+      'Packing the same version twice gives an identical file. The streets, trees, fences and other things drawn as the page loads are listed as not yet included.',
     ] },
   { v: 1405, ts: '2026-10-04T06:38:44.336Z', date: 'Oct 4, 2026, 1:38 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [

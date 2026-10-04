@@ -131,7 +131,8 @@ A stable latest-tested-Mac pointer and automated retention are pending T-1472.
 ## Execution and future work
 
 T-1472 makes this sequence a repeatable on-demand operation. T-1357 provides regular
-portable source bundles; T-1358 consumes them with safe incremental updates. Those
+portable source bundles ([SCENE-BUNDLE.md](SCENE-BUNDLE.md): packer and verifier
+shipped as T-2067, scheduled publication is T-2068); T-1358 consumes them with safe incremental updates. Those
 are separate contracts. Adding a schedule or build runner is not already done by
 writing this document. Workflow changes go through an owner-visible PR, and an
 engine-equipped runner must prove its capabilities before a held ticket is opened.
