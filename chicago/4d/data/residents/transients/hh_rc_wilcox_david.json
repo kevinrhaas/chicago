@@ -345,8 +345,8 @@
    "note": "A VISITOR OF THE SEASON, NOT A RESIDENT. Counted apart from the town's own population, because the Chicago American counted them apart: it put the population at 2,500 to 3,000 and the strangers at 'some hundreds more'."
   },
   {
-   "id": "rc_wilcox_phebe",
-   "name": "Phebe Wilcox",
+   "id": "rc_wilcox_betsey",
+   "name": "Betsey Wilcox",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "female",
@@ -361,7 +361,7 @@
      "id": "age_bands_1840",
      "note": "Drawn from the 1840 Chicago schedule's free-white age columns, folded to the order book's six bands. Nothing here is a reading of anybody's age."
     },
-    "seed": "transients:a_room_in_a_public_house:001:household_member:rc_wilcox_phebe:age_band",
+    "seed": "transients:a_room_in_a_public_house:001:household_member:rc_wilcox_betsey:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -375,7 +375,7 @@
     "note": "NO TRADE IS DRAWN FOR A VISITOR. The occupation model counts the town's working people and this person is not one of them; a trade written here would be spent out of a quota that belongs to the residents."
    },
    "name_basis": {
-    "value": "Phebe Wilcox",
+    "value": "Betsey Wilcox",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -383,7 +383,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the New England and New York pool, which is seeded from the attested residents of this town. The pool is chosen by the pools' own default weighting, restricted to the two eastern communities the emigrant trade of 1835 brought off the lake vessels."
     },
-    "seed": "transients:a_room_in_a_public_house:001:household_member:rc_wilcox_phebe:name",
+    "seed": "transients:a_room_in_a_public_house:001:household_member:rc_wilcox_betsey:name",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real visitor of this town in the summer of 1835"
@@ -395,7 +395,7 @@
     "id": "1835_transient_cohort",
     "note": "T-1352 bounds the strangers of 1 July 1835 at 192 to 900 and prints two candidate points; this stage spends 384, the 'twice the 1843 rate' reading. This person is one of the 384 less the 77 the land-sale register names, dealt to the sleeping-place class 'a room in a public house' and so sleeping under a roof in the town."
    },
-   "seed": "transients:a_room_in_a_public_house:001:household_member:rc_wilcox_phebe",
+   "seed": "transients:a_room_in_a_public_house:001:household_member:rc_wilcox_betsey",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a real member of the summer crowd of 1835, or a re-reading of T-1352's bracket that no longer counts this person"

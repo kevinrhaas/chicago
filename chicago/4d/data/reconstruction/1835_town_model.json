@@ -77,7 +77,7 @@
           "high": 1404,
           "point": null,
           "is_a_count": true,
-          "method": "The resident layer carries 1,404 people — 412 attested, 992 inferred, 1,663 reconstructed. A count of the layer, not of the town.",
+          "method": "The resident layer carries 1,404 people — 412 attested, 992 inferred, 2,168 reconstructed. A count of the layer, not of the town.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -148,9 +148,9 @@
           ]
         },
         "known_by_presence": {
-          "present": 2669,
-          "absent": 106,
-          "uncertain": 292
+          "present": 3021,
+          "absent": 119,
+          "uncertain": 432
         }
       }
     },
@@ -492,11 +492,11 @@
         },
         {
           "figure": "household_records_the_layer_carries",
-          "low": 1970,
-          "high": 1970,
+          "low": 1969,
+          "high": 1969,
           "point": null,
           "is_a_count": true,
-          "method": "1,970 household records for 1,404 people — 0.71 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
+          "method": "1,969 household records for 1,404 people — 0.71 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -863,79 +863,79 @@
       ],
       "tables": {
         "arrival_year_of_the_known_layer": {
-          "unit": "people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,422 who record one at all",
+          "unit": "people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,930 who record one at all",
           "not_the_figures_denominator": "The FIGURES above divide by the named layer alone; this table does not, and the two are different populations on purpose (T-1364).",
-          "rows_total": 2422,
+          "rows_total": 2930,
           "rows": [
             {
               "year": 1812,
               "people": 3,
-              "share": 0.0012
+              "share": 0.001
             },
             {
               "year": 1816,
               "people": 3,
-              "share": 0.0012
+              "share": 0.001
             },
             {
               "year": 1818,
               "people": 3,
-              "share": 0.0012
+              "share": 0.001
             },
             {
               "year": 1820,
               "people": 1,
-              "share": 0.0004
+              "share": 0.0003
             },
             {
               "year": 1823,
               "people": 2,
-              "share": 0.0008
+              "share": 0.0007
             },
             {
               "year": 1824,
               "people": 5,
-              "share": 0.0021
+              "share": 0.0017
             },
             {
               "year": 1826,
               "people": 3,
-              "share": 0.0012
+              "share": 0.001
             },
             {
               "year": 1827,
               "people": 2,
-              "share": 0.0008
+              "share": 0.0007
             },
             {
               "year": 1830,
               "people": 5,
-              "share": 0.0021
+              "share": 0.0017
             },
             {
               "year": 1831,
               "people": 22,
-              "share": 0.0091
+              "share": 0.0075
             },
             {
               "year": 1832,
-              "people": 41,
-              "share": 0.0169
+              "people": 46,
+              "share": 0.0157
             },
             {
               "year": 1833,
-              "people": 357,
-              "share": 0.1474
+              "people": 518,
+              "share": 0.1768
             },
             {
               "year": 1834,
-              "people": 834,
-              "share": 0.3443
+              "people": 1019,
+              "share": 0.3478
             },
             {
               "year": 1835,
-              "people": 1141,
-              "share": 0.4711
+              "people": 1298,
+              "share": 0.443
             }
           ]
         },
