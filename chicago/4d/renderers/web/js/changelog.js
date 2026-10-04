@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1408, ts: '2026-10-04T07:45:31.532Z', date: 'Oct 4, 2026, 2:45 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. This is a check on how the people known only from the post office\u2019s lists of uncalled-for letters are kept.',
+      'The pass that adds them was not checked at all, because later passes rightly rewrite parts of the same records. It is now checked on the parts that are its own.',
+      'What it would still change is listed person by person for reading: 43 people it would add, 7 it would drop, 10 it would file under a new name and 27 records whose dates or names moved.',
+    ] },
   { v: 1407, ts: '2026-10-04T07:22:27.332Z', date: 'Oct 4, 2026, 2:22 AM CT', title: 'The 1812 view explains what happened there, and whose accounts say so', kind: 'feature',
     items: [
       'Open the 1812 door: the welcome now says \u201cThe first Fort Dearborn\u201d and has a fold, About 1812, with five short cards. Each quotes the sources it rests on, and says who wrote them and where they were printed.',

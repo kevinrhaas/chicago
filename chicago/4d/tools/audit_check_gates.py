@@ -16,10 +16,10 @@ answer could only ever be found by hand, one tool at a time, by someone who susp
 
 WHAT THIS ASSERTS, AND WHAT IT DOES NOT. It does not assert that every `--check` runs in
 the gate: some of these are one-shot passes whose inputs are gone, some are slow, and a
-few are red today for reasons that are their own tickets (T-0691 holds
-`mint_letter_list_residents.py --check`, which is red because a cohort drifted, not
-because this file is wrong). Gating them is work with rulings in it and it is not free.
-What this asserts is a RATCHET: the set of `--check`-capable tools the gate never runs
+few are red for reasons that are their own tickets (`mint_letter_list_residents.py
+--check` was one, red because a cohort drifted and not because this file was wrong,
+until T-2070 gave it a contract it could hold). Gating them is work with rulings in it
+and it is not free. What this asserts is a RATCHET: the set of `--check`-capable tools the gate never runs
 may SHRINK freely and may not GROW. A new derivation arrives gated, or it arrives with a
 deliberate line in `data/research/check_gate_baseline.json` saying why not.
 
@@ -297,11 +297,17 @@ def self_test() -> int:
     expect("the crosswalk this ticket gated is no longer ungated",
            "tools/crosswalk_census_1840_heads.py" in {r["tool"] for r in found["ungated"]},
            False)
+    # The fixture was mint_letter_list_residents.py (--gate and --self-test, no
+    # --check) until T-2070 gated its --check on 2026-10-04 — the ratchet shrinking,
+    # which is what it is for. The Fergus verifier is the same shape today.
     expect("a tool run only under another mode still counts as ungated",
            next((r["other_modes_in_check_sh"]
                  for r in found["ungated"]
-                 if r["tool"] == "tools/mint_letter_list_residents.py"), None),
-           ["--gate", "--self-test"])
+                 if r["tool"] == "tools/verify_fergus_1839_first_ward.py"), None),
+           ["--offline"])
+    expect("a tool whose --check the gate runs beside its other modes is not ungated",
+           "tools/mint_letter_list_residents.py" in {r["tool"] for r in found["ungated"]},
+           False)
     expect("the baseline covers every ungated tool found today",
            sorted({r["tool"] for r in found["ungated"]}
                   - {r["tool"] for r in load_baseline().get("ungated", [])}), [])

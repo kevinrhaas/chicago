@@ -3579,8 +3579,8 @@ PY
 #
 # T-1228 gated the first three on 2026-09-17, each at its own slot above, on a
 # field-level ownership contract rather than byte-identity — the same shape T-0662
-# found the letter-list mint wants and has not got yet. Only the mint is still
-# carried as ungated in data/research/check_gate_baseline.json.
+# found the letter-list mint wants. T-2070 gave the mint that contract on 2026-10-04,
+# and its `--check` runs at the mint's own slot below.
 #
 # `mint_documented_residents.py` was on that list until T-1220 read its 10 files, fixed
 # the two faults under them and committed the rest; it is a step of its own below.
@@ -4034,21 +4034,24 @@ selftest "all four resident mints preserve findings across a derived-note change
 # one of them quietly ceasing to fire would now be worth hundreds of records rather than
 # one. `--report` prints the mint and every refusal with its reason; `--scale` counts
 # what the ruling did to the town on whatever tree it is run against.
-# NOT GATED (T-0662; the drift itself is T-1222's. It was T-0691's until 2026-09-18,
-# when the owner's ruling landed and T-0691 shrank to the card gate below — the 798
-# files are a pipeline-ordering question and were never the collisions).
-# This slot ran `synthesize_resident_research.py --check`, which is not the mint.
-# `tools/mint_letter_list_residents.py --check` is, and it reports 798 file(s)
-# differing — but a byte-identity check is the wrong contract for this pass, because
-# it is NOT the last writer of the files it derives: the synthesis above rewrites the
-# `letter_list_only` cohort's grade, subtype and note, and retires households outright.
-# Re-running the mint over the committed tree therefore REVERTS that work — it puts
-# grades back from `inferred` to `attested` and strips the PROJECTED RESIDENT
-# qualifier off post-office-only names, which is a confidence upgrade this project
-# forbids — and it re-mints 54 households under changed ids (hh_adains_will_si becomes
-# hh_adains_willisi) out of the same name-splitting fault as above. The pass is gated
-# below by `--gate` and `--self-test`, which prove what they can. `--report` and
-# `--scale` print the mint and its refusals.
+# GATED ON WHAT IT OWNS (T-2070, out of T-1222; T-0662 found the contract). A byte-for-
+# byte `--check` was the wrong one for this pass, and was carried ungated for it: the
+# mint is NOT the last writer of the files it derives. The synthesis and the ladder
+# rewrite the `letter_list_only` cohort's grade and note after it — the PROJECTED
+# RESIDENT downgrade — and the research passes and the T-1169 fill stage append to the
+# same cards, so re-deriving byte for byte was red on ~800 files of OTHER passes' work,
+# and a re-run would have reverted it (grades back up to `attested`, a confidence
+# upgrade this project forbids). `--check` now compares only what the mint owns: which
+# households it holds, under which ids, and the keys its KEY_OWNERS table rules its
+# own; a key on no row of that table is drift, never a default. What stood on the day
+# it was gated — 43 people a re-run would add, 7 it would lose, 10 it would re-mint
+# under a new id, 27 cards whose returns, bounds or names moved — is written row by
+# row in data/research/letter_list_mint_ledger.json, each row naming the ticket that
+# reads it (T-2071, T-2072, T-2073). The ledger only shrinks: red on drift that is on
+# no row, red on a row that no longer stands. `tools/letter_list_mint_drift.py` prints
+# the whole difference, later passes' keys included, off the same table.
+step "the letter-list mint re-derives what it owns, and only the ledgered drift differs" \
+  python3 tools/mint_letter_list_residents.py --check
 
 # T-0491. The 1840 identity bridges — three adjudicated links from a canonical 1835
 # resident to a named head of household in the federal census five years later. The
