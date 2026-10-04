@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1413, ts: '2026-10-04T08:46:59.447Z', date: 'Oct 4, 2026, 3:46 AM CT', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
+  { v: null, ts: '', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the check that stops one gate step from changing files another step is reading.',
       'That check used to be handed a list of three folders and files it should ignore. It now asks git which files are ignored build products, such as the published copy of the site, and records the answer when the steps are measured.',
       'A change to a file the project actually keeps is never excused this way. The old list let some kept files at the site\u2019s top level through; the new check would refuse them.',
+    ] },
+  { v: 1413, ts: '2026-10-04T08:48:27.244Z', date: 'Oct 4, 2026, 3:48 AM CT', title: 'The Baptist meeting house card names its first Episcopal service', kind: 'feature',
+    items: [
+      'Open the Temple Building on South Water Street near Franklin, the town\u2019s Baptist meeting house. Its card now records that on Sunday 19 October 1834 the Rev. Isaac W. Hallam held Episcopal services in it.',
+      'The card also cites a second history, Moses and Kirkland\u2019s of 1895, which puts Sproat\u2019s boys\u2019 school in \u201cthe First Baptist church, a small frame building located on South Water street near Franklin\u201d. That is this building, and it gains that name.',
+      'No building was added and none moved. A research note had asked for this meeting house to be placed, not knowing the town already had it.',
     ] },
   { v: 1412, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
     items: [
