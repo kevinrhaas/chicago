@@ -139,6 +139,30 @@
     "chicago_democrat_1833_1835"
    ],
    "note": "GRADED BY THE OWNER'S RATIFIED LADDER — rule G2e, applied 2026-09-04. This identity is inferred because that rung fired on the civic and press rows recorded on this card, which the resident-research corpus does not read. This programme's letter-list rule of 2026-09-02 would call it a projected resident on the absence of a research row; it is superseded here, and a no-find in one corpus is not a finding about another (T-0822). KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print '@ Stules, David' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "press_evidence": [
+    {
+     "list": "newspaper_letter_list",
+     "as_read": "[St]iles, David",
+     "locator": "chicago_democrat_1834_10_22#c005",
+     "record_id": "person_st_iles_david",
+     "describes_date": "1834-10-22",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G2e"
+    },
+    {
+     "list": "newspaper_letter_list",
+     "as_read": "David Stiles",
+     "locator": "chicago_democrat_1835_05_20#c013",
+     "record_id": "person_david_stiles",
+     "describes_date": "1835-05-20",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G2e"
+    }
+   ],
+   "resident_research": {
+    "regraded_on": "2026-09-04",
+    "rule": "G2e"
+   },
    "sex": "male",
    "sex_basis": {
     "value": "male",
@@ -173,30 +197,6 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('stiles_david:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
-   },
-   "press_evidence": [
-    {
-     "list": "newspaper_letter_list",
-     "as_read": "[St]iles, David",
-     "locator": "chicago_democrat_1834_10_22#c005",
-     "record_id": "person_st_iles_david",
-     "describes_date": "1834-10-22",
-     "source": "chicago_democrat_1833_1835",
-     "rule": "G2e"
-    },
-    {
-     "list": "newspaper_letter_list",
-     "as_read": "David Stiles",
-     "locator": "chicago_democrat_1835_05_20#c013",
-     "record_id": "person_david_stiles",
-     "describes_date": "1835-05-20",
-     "source": "chicago_democrat_1833_1835",
-     "rule": "G2e"
-    }
-   ],
-   "resident_research": {
-    "regraded_on": "2026-09-04",
-    "rule": "G2e"
    }
   }
  ],
