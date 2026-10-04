@@ -51,5 +51,113 @@
     "structures"
   ],
   "released": false,
-  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). THE COVER (T-0471): the flora layer is drawn, and data/flora/index.json's `scenes` lists decide what of it stands here - the natural zone records (prairie, sedge meadow, marsh, river timber, wet woods, beach and sand prairie) are the ground's and are dealt from this epoch's heightfield, while the settled town's sward and the 1835 plantings (dooryards, the Lombardy rows, the Sauganash's trees, the willows by the second fort) are scoped to 1835 and stand nowhere here. The one planting of this scene is massacre_cottonwoods_1812, a remembered pair whose existence is inferred and whose places are reconstructed (L372); the cover's own month and the garrison's missing clearing are L371. The other town-wide layers written for 1835 are still left out - fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here. `eighteenth_street_shore` is a CAMERA on the conjectural bank three kilometres south of the fort, looking east-south-east at the two cottonwoods; it does not locate the battle, which is T-0470's to map. No person is drawn: the Indigenous-history review gates of T-0472 come before any figure, card or narrative of 1812, and this scene is not released."
+  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). THE COVER (T-0471): the flora layer is drawn, and data/flora/index.json's `scenes` lists decide what of it stands here - the natural zone records (prairie, sedge meadow, marsh, river timber, wet woods, beach and sand prairie) are the ground's and are dealt from this epoch's heightfield, while the settled town's sward and the 1835 plantings (dooryards, the Lombardy rows, the Sauganash's trees, the willows by the second fort) are scoped to 1835 and stand nowhere here. The one planting of this scene is massacre_cottonwoods_1812, a remembered pair whose existence is inferred and whose places are reconstructed (L372); the cover's own month and the garrison's missing clearing are L371. The other town-wide layers written for 1835 are still left out - fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here. `eighteenth_street_shore` is a CAMERA on the conjectural bank three kilometres south of the fort, looking east-south-east at the two cottonwoods; it does not locate the battle, which is T-0470's to map. No person is drawn: the Indigenous-history review gates of T-0472 come before any figure. The scene's cards (T-0472) name the event, say whose accounts it rests on and where they disagree, and are held for that review, so this scene is not released.",
+  "cards": [
+    {
+      "id": "first_fort_plan",
+      "kind": "evidence",
+      "title": "The fort you see, and the plan it is built from",
+      "text": "This is the first Fort Dearborn, built in 1803 and burned on 16 August 1812, the morning after its garrison marched out. It is built from the only known plan of it: the draught Captain John Whistler drew of his own post in January 1808. The plan states its own scale for the garrison and for nothing outside the stockade, and it gives no reliable height, so the buildings' heights are this project's reading and not Whistler's. The second fort, begun in 1816 on the same site, is not drawn in this year.",
+      "quotes": [
+        {
+          "source_id": "whistler_1808_fort_dearborn_draught",
+          "locator": "the drafter's note on the draught, as reproduced in Quaife 1913, plate facing p. 164",
+          "cite": "Captain John Whistler's draught of Fort Dearborn, 1808",
+          "text": "The measurement of the Garrison including the Block Houses And Barrick are laid down at twenty feet to the Inch"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 50, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 7612-7615, Captain Nathan Heald's letter",
+          "cite": "Captain Nathan Heald, 1812, as printed in Moses and Kirkland's History of Chicago (1895), p. 50",
+          "text": "The next morning they set fire to the fort and left the place, taking the prisoners with them."
+        }
+      ],
+      "confidence": "documented",
+      "confidence_note": "The plan, its date and its scale are Whistler's own (tier 1); the burning is the commanding officer's own letter, read as quoted in the 1895 history's machine OCR ('tire' and 'wilh' read as 'fire' and 'with'). That the heights are not Whistler's is the source record's own finding: the folded elevations on the sheet disagree with one another."
+    },
+    {
+      "id": "what_it_is_called",
+      "kind": "terminology",
+      "title": "What the event of 15 August 1812 is called",
+      "text": "Two weeks after the afternoon this scene shows, on 15 August 1812, the garrison and the families with it left the fort under orders to march to Fort Wayne, and their column was attacked on the lake shore south of the river mouth by warriors Captain Heald counted as mostly Potawatomi. It is called both the Battle of Fort Dearborn and the Fort Dearborn Massacre, and choosing between the names is a judgement about the event. The sources split the same way from the start: the commanding officer wrote of 'the action'; the 1895 history heads its chapter 'The Massacre'. This reconstruction takes neither name as its verdict, and calls it the evacuation of the fort and the attack on the lake shore.",
+      "quotes": [
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 50, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 7588-7590, Heald's letter",
+          "cite": "Captain Nathan Heald, 1812, as printed in Moses and Kirkland's History of Chicago (1895), p. 50",
+          "text": "I immediately marched up, with the company, to the top of the bank when the action commenced"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 50, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 7615-7617, Heald's letter",
+          "cite": "Captain Nathan Heald, 1812, as printed in Moses and Kirkland's History of Chicago (1895), p. 50",
+          "text": "Their number of warriors was between 400 and 500, mostly of the Pottowatomie nation"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 46, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 7100-7103, the head of chapter IV",
+          "cite": "Moses and Kirkland, History of Chicago (1895), p. 46",
+          "text": "CHAPTER IV. THE MASSACRE."
+        }
+      ],
+      "confidence": "inferred",
+      "confidence_note": "The words each side used are documented in the quotes. That both names are in use today is this project's statement and no source record in this corpus is cited for it; the order to march to Fort Wayne is the 1895 history's ('Gen. Hull sent Capt. William Wells ... to escort Captain Heald to Fort Wayne', p. 52, lines 7834-7836). Heald's letter is read as quoted in that history's machine OCR, so it is graded no higher than the compilation it reaches us through.",
+      "review_required": true,
+      "review_note": "Held for review because this card names an attack by Potawatomi warriors and chooses words for it, and how the event is named is the Indigenous-history judgement AGENTS.md places under consultation with Native scholars or community organisations before the scene is released."
+    },
+    {
+      "id": "where_it_happened",
+      "kind": "conflict",
+      "title": "Where the attack happened: two answers that do not meet",
+      "text": "The accounts place the attack in two ways, and they do not agree. Captain Heald, writing within weeks, measured it along the march: about a mile and a half from the fort, at a bank between the beach and the prairie. A later tradition, written down in the 1880s and 1890s, pointed to two old cottonwoods left standing in Eighteenth Street and called them the Massacre trees. Eighteenth Street is about two miles and an eighth from the fort site in a straight line, farther than a mile and a half reaches before the march's bends are counted. The two cottonwoods stand in this scene where that tradition put them, as a tradition and not as a marker. This reconstruction does not choose between the two answers, and nothing in it marks where the attack happened.",
+      "quotes": [
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 50, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 7586-7588, Heald's letter (the OCR's 'bad' and 'hall' read as 'had' and 'half')",
+          "cite": "Captain Nathan Heald, 1812, as printed in Moses and Kirkland's History of Chicago (1895), p. 50",
+          "text": "We had proceeded about a mile and a half when it was discovered that the Indians were preparing to attack us from behind the bank."
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 60, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8886-8892",
+          "cite": "Moses and Kirkland, History of Chicago (1895), p. 60",
+          "text": "When Eighteenth street came to be laid out there stood between its curb stones, two old cottonwood trees which were pointed out by earlier traditions as marking the battle-ground and named the \"Massacre trees,\""
+        }
+      ],
+      "confidence": "inferred",
+      "confidence_note": "Both placings are documented as statements; neither is adopted. The straight-line distance is this project's measurement in the local frame: the first fort's flagstaff foot at E +1152, N +221 (this scene's note) to the OpenStreetMap crossing of 18th Street and Prairie Avenue at E +1401.9, N -3206.9 (data/traces/south_anchor_control.json § control.eighteenth_prairie), 3,437 m or 2.14 miles. The march went down the river before it reached the beach, so its length to that crossing is longer still. Where a mile and a half falls on the 1812 shore is derived in data/terrain/1812_evacuation_route.geojson (T-0470) and is not drawn here; the cottonwoods are the planting massacre_cottonwoods_1812 (T-0471), whose existence is inferred from the same tradition and whose places are reconstructed (L372).",
+      "review_required": true,
+      "review_note": "Held for review because this card locates a battle fought by Potawatomi and allied warriors from accounts written by the garrison's side and by settler historians, which is the Indigenous-history review AGENTS.md requires before the scene is released."
+    },
+    {
+      "id": "whose_accounts",
+      "kind": "evidence",
+      "title": "Whose accounts these are",
+      "text": "Every account this scene reads was written by the garrison's side or by settler historians: Captain Heald's letter, his son's recollection printed in 1881, the 1895 history that quotes them both, and Quaife's study of 1913. None was written by the Potawatomi, and the 1895 history tells the event in its own era's terms. One Native statement reaches the record, and only at second hand, through a settler's daughter half a century later. A fuller account needs Potawatomi history and Native scholarship that this project has not yet read; the Newberry Library's Indigenous Chicago materials are where that reading begins.",
+      "quotes": [
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "the synopsis of chapter IV in the table of contents, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 250-251",
+          "cite": "Moses and Kirkland, History of Chicago (1895), contents of chapter IV",
+          "text": "Evacuation of Fort Dearborn — Indian treachery — Death of Captain Wells"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 61, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8955-8957, Mary Clark Williams's recollection",
+          "cite": "Mary Clark Williams, as recorded in Moses and Kirkland (1895), p. 61",
+          "text": "In 1840 an Indian told her father that the massacre occurred on that spot."
+        }
+      ],
+      "confidence": "documented",
+      "confidence_note": "Who wrote each account is read from the accounts themselves and from the source records quaife_1913 and moses_kirkland_history_of_chicago_v1. 'An Indian' is the source's word, and the speaker's nation is not stated, so it is not given here.",
+      "review_required": true,
+      "review_note": "Held for review because this card characterises the record of an attack by Potawatomi warriors and quotes a settler history's language about Native people, and both are for the Native scholars or community organisations AGENTS.md says to consult before the scene is released."
+    },
+    {
+      "id": "no_one_is_drawn",
+      "kind": "project",
+      "title": "Why no one is drawn here",
+      "text": "This scene shows the fort on its ground and nothing else. No soldier, family or Potawatomi person is drawn - not the garrison's daily life, not the march, not the attack - and none will be until Native scholars or community organisations have reviewed how this event is shown. The cards above are held for that review, so the scene is not released. An empty, accurate fort is honest; a populated, invented one is not."
+    }
+  ]
 }

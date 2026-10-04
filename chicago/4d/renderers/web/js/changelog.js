@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1407, ts: '2026-10-04T07:22:27.332Z', date: 'Oct 4, 2026, 2:22 AM CT', title: 'The 1812 view explains what happened there, and whose accounts say so', kind: 'feature',
+    items: [
+      'Open the 1812 door: the welcome now says \u201cThe first Fort Dearborn\u201d and has a fold, About 1812, with five short cards. Each quotes the sources it rests on, and says who wrote them and where they were printed.',
+      'One card covers the two names for 15 August 1812, the Battle of Fort Dearborn and the Fort Dearborn Massacre. Another covers the two answers to where the attack happened, which do not agree. A third covers whose accounts these are: all were written by the garrison\u2019s side or by settler historians, and none by the Potawatomi.',
+      'Three cards are marked as held for review by Native scholars or community organisations, and each says why. The 1812 view stays unreleased until that review. No people are shown, and the last card says why.',
+    ] },
   { v: 1406, ts: '2026-10-04T07:06:15.901Z', date: 'Oct 4, 2026, 2:06 AM CT', title: 'The 1835 town can now be packed as one checked download', kind: 'change',
     items: [
       'Nothing you can see in the town changes. This is groundwork for running the town outside the browser, starting with the Unreal version.',
