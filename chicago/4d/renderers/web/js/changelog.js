@@ -1,10 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1446, ts: '2026-10-04T21:07:43.467Z', date: 'Oct 4, 2026, 4:07 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
+  { v: null, ts: '', title: 'Turning, walking and flying stutter less', kind: 'fix',
     items: [
       'The grass and flowers around you used to cost a long pause each time you turned a little or walked a step further. That pause is now about half as long, and the plants stand exactly where they did.',
       'On a slowed-down phone at Light detail, a slow turn now drops below 50 ms per frame for most of its steps. The worst frame of a turn fell from 127 ms to 70 ms, of a flight from 108 ms to 56 ms, and of a walk from 47 ms to 34 ms.',
       'On a desktop at Full detail, the worst pause in a turn fell from 70 ms to under 40 ms.',
       'More of the lag is still being worked on: the next step spreads this work over several frames, so no single frame has to wait for it.',
+    ] },
+  { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+    items: [
+      'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
+      'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
+      'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
+      'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
+      'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
+    ] },
+  { v: 1446, ts: '2026-10-04T21:05:08.589Z', date: 'Oct 4, 2026, 4:05 PM CT', title: 'Fenced lots are closed all round, open where a house faces the street', kind: 'fix',
+    items: [
+      'Fly over any built block, the Clark Street blocks south of the river for one: a fenced lot is now fenced along both sides from the street back to the alley, where the fence used to stop partway and leave the lot open to its neighbours.',
+      'Where a house or store stands at the front of the lot, the street side stays open so you see the building. A lot with only a shed or privy at the back is fenced on the street too, with a cart gate.',
+      'Lots with no fence before still have none, so not every building is fenced.',
+      'Early Chicago let ringed hogs run loose in the streets, and a fence open on three sides keeps nothing out. Which lots are fenced, and how, is a reconstruction (Liberty L379).',
     ] },
   { v: 1445, ts: '2026-10-04T20:41:19.184Z', date: 'Oct 4, 2026, 3:41 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
     items: [
