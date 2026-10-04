@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a ticket is blocked, the ticket tool now writes its line in the queue\u2019s blocked list itself, and takes it out again when the ticket is unblocked or withdrawn. Before, that line was written by hand, so one blocked ticket went missing from the list and two stood in it twice.',
+      'The queue check now refuses a ticket listed twice there.',
+    ] },
   { v: 1408, ts: '2026-10-04T07:40:22.742Z', date: 'Oct 4, 2026, 2:40 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',

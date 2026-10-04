@@ -1978,6 +1978,15 @@ function check(tickets) {
   // this file writes and is therefore answerable for. A line saying a ticket waits on
   // the owner, for a ticket that has since unblocked, is worse than no line: it is read
   // as current.
+  // …AND ONCE (T-1541). Two branches that each wrote the same block left T-1532 and
+  // T-1536 standing twice in the band; the queue's own duplicate check reads only
+  // uncommented lines, so nothing saw it. A band line is a claim about one ticket, and
+  // two of them disagree the moment either is edited.
+  const bandIds = [...queueSrc.matchAll(/^#\s*BLOCKED-(?:OWNER|TECH)\s+(T-\d+)/gm)].map((m) => m[1]);
+  for (const id of new Set(bandIds.filter((id, i) => bandIds.indexOf(id) !== i))) {
+    problems.push(`QUEUE.md band 8b lists ${id} twice — keep one line; \`ticket.mjs block\` `
+      + 'writes it, and re-blocking replaces it');
+  }
   for (const m of queueSrc.matchAll(/^#\s*BLOCKED-(?:OWNER|TECH)\s+(T-\d+)/gm)) {
     const t = ledger.get(m[1]);
     if (!t) {
@@ -2142,6 +2151,38 @@ function queueDropBlockedLines(id) {
     out.push(lines[i]);
   }
   writeFileSync(QUEUE, out.join('\n').replace(/\n+$/, '\n'));
+}
+
+/** THE BAND 8b LINE IS THE TOOL'S TO WRITE (T-1541). `block` took a ticket out of the
+ *  queue and wrote nothing in its place, so the line T-1518's gate demands was written
+ *  by hand: T-1479 stood in no band at all until a run's gate caught it, and two
+ *  branches that each hand-wrote the same block left T-1532 and T-1536 standing twice
+ *  in the band. So `block` writes the line itself, dropping any line the ticket already
+ *  has first (a re-block, owner to tech, replaces rather than adds), and every verb that
+ *  takes a ticket out of `blocked-*` drops it again. Placed at the foot of band 8b's
+ *  entries; a queue with no band 8b gets the heading, above band 9 where there is one. */
+const BLOCKED_BAND = '# --- 8b. BLOCKED AND WAITING — every ticket that is not workable and not finished';
+const BLOCKED_TITLE_MAX = 120;
+function queueWriteBlockedLine(t) {
+  queueDropBlockedLines(t.id);
+  const title = t.title.length > BLOCKED_TITLE_MAX ? `${t.title.slice(0, BLOCKED_TITLE_MAX - 1)}…` : t.title;
+  const kind = t.state === 'blocked-owner' ? 'OWNER' : 'TECH';
+  const rows = [`# BLOCKED-${kind} ${t.id} (opened ${t.opened ?? '?'}, ${t.epic ?? '?'}) — ${title}`];
+  if (t.blocked_on) rows.push(`#     waits: ${String(t.blocked_on).replace(/\s+/g, ' ').trim()}`);
+  const lines = queueLines();
+  while (lines.length && lines[lines.length - 1] === '') lines.pop();
+  let head = lines.findIndex((l) => /^# --- 8b\./.test(l));
+  if (head < 0) {
+    const nine = lines.findIndex((l) => /^# --- 9\./.test(l));
+    head = nine < 0 ? lines.length : nine;
+    lines.splice(head, 0, BLOCKED_BAND, ...(nine < 0 ? [] : ['#']));
+  }
+  let end = lines.findIndex((l, i) => i > head && /^# --- /.test(l));
+  if (end < 0) end = lines.length;
+  let at = end;
+  while (at - 1 > head && /^#?\s*$/.test(lines[at - 1])) at -= 1;
+  lines.splice(at, 0, ...rows);
+  writeFileSync(QUEUE, `${lines.join('\n')}\n`);
 }
 
 const DECISION_BAND = '# --- 0. WAITING ON THE OWNER — answer on Manager\'s 4D Board; runs skip these until answered';
@@ -2532,7 +2573,7 @@ switch (cmd) {
       // trips is fixable in this PR and nowhere cheaper.
       if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'review'); refuseIfClosingStrandsAnAncestor(t); }
       t.state = 'review'; t.pr = String(pr).replace(/^#/, '');
-      writeTicket(t); generateBoard(loadAll());
+      writeTicket(t); queueDropBlockedLines(t.id); generateBoard(loadAll());
       commitMessage = `${t.id}: review — PR #${t.pr}`;
       console.log(`${t.id} in review (PR #${t.pr}) — it becomes done when that PR merges (settle)`);
       break;
@@ -2540,7 +2581,7 @@ switch (cmd) {
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
     if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'done'); refuseIfClosingStrandsAnAncestor(t); }  // T-1548 / T-1581
-    writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
+    writeTicket(t); queueRemove(t.id); queueDropBlockedLines(t.id); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the
     // handback for the same fault — said why `done` was left alone: "`done` and
@@ -2576,7 +2617,7 @@ switch (cmd) {
     t.state = has('owner') ? 'blocked-owner' : 'blocked-tech';
     t.blocked_on = flag('on');
     if (!t.blocked_on) { console.error('block needs --on "the question or the missing thing"'); process.exit(1); }
-    writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
+    writeTicket(t); queueRemove(t.id); queueWriteBlockedLine(t); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the
     // handback for the same fault — said why `done` was left alone: "`done` and
@@ -2609,14 +2650,14 @@ switch (cmd) {
   case 'unblock': {
     const t = find(tickets, args[0]);
     t.state = 'open'; t.blocked_on = null;
-    writeTicket(t); queueAppend(t); generateBoard(loadAll());
+    writeTicket(t); queueDropBlockedLines(t.id); queueAppend(t); generateBoard(loadAll());
     console.log(`${t.id} → open (appended to QUEUE bottom; the owner may move it up)`);
     break;
   }
   case 'withdraw': {
     const t = find(tickets, args[0]);
     t.state = 'withdrawn'; t.closed = today(); t.closed_at = nowIso(); t.blocked_on = flag('why') ?? t.blocked_on;
-    writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
+    writeTicket(t); queueRemove(t.id); queueDropBlockedLines(t.id); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the
     // handback for the same fault — said why `done` was left alone: "`done` and
