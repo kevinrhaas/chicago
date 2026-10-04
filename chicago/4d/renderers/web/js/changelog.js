@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
+  { v: 1392, ts: '2026-10-04T00:17:28.264Z', date: 'Oct 3, 2026, 7:17 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
     items: [
       'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',
       'New in Chicago also recommends riding now, and takes about four minutes instead of ten and a half. Its five stops are unchanged.',
