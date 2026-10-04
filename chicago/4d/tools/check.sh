@@ -3243,6 +3243,17 @@ step "the lap publishes the mirror before the rebuild that reads it" \
 step "a lap that cannot check out a branch says which step failed, and why" \
   node tools/test_pr_lap_checkout.mjs
 
+# ...AND A BRANCH LEVEL WITH dev IS NOT THEREFORE CURRENT WITH dev'S GATES (T-1362).
+# The lap rebuilt the derived layer only inside a merge, so a branch with nothing to
+# merge never reached it: #1487 sat red on four stale manifest-owned files while the
+# lap printed `already current — nothing to lap`, and #1518 for two hours the same
+# way. The lap now reads the head's own `gate` verdict (one REST call) and re-derives
+# a current branch only when that reads red; a rebuild that moves nothing pushes
+# nothing and says so on the PR once per head. REAL script, REAL bare remote, stub
+# tools — and run again with the old exit restored, which must fail.
+step "a branch level with dev but red is re-derived, not called current" \
+  node tools/test_pr_lap_current.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`

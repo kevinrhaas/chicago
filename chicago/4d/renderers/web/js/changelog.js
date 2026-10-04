@@ -1,9 +1,32 @@
 export const CHANGELOG = [ // newest first
-  { v: 1418, ts: '2026-10-04T10:47:16.019Z', date: 'Oct 4, 2026, 5:47 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
+  { v: null, ts: '', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
     items: [
       'Nothing in the town or on its menus changed.',
       'Four research reports were candidates to stop being kept in the project\u2019s history, because they change often. They stay: a count of 925 recent merges found that dropping them would not have avoided a single conflict.',
       'So they remain readable on GitHub without building anything, and the reasoning is written beside the rule.',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the helper that keeps waiting changes up to date before they are merged.',
+      'That helper only rebuilt a change\u2019s derived records when it had something new to merge in. A change that was already up to date, but failing a check added after it was written, was reported as having nothing to do and left stuck until a person noticed.',
+      'It now looks at the change\u2019s own check result. If the check failed, it rebuilds the derived records and pushes only if something actually changed. If nothing changed, it says once on the change that the failure is the change\u2019s own.',
+    ] },
+  { v: 1418, ts: '2026-10-04T10:34:49.982Z', date: 'Oct 4, 2026, 5:34 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
+    items: [
+      'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
+      'Its Evidence panel no longer shows the 1835 town\u2019s City, wildlife, plants, not-here, open-questions, population and order-book topics.',
+      'Go to no longer lists 286 firms of 1835 that could not be reached from 1904.',
+      'The 1835 scene keeps every section it had.',
     ] },
   { v: 1417, ts: '2026-10-04T10:19:51.514Z', date: 'Oct 4, 2026, 5:19 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
     items: [
