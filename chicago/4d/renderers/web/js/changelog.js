@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1427, ts: '2026-10-04T12:13:35.760Z', date: 'Oct 4, 2026, 7:13 AM CT', title: 'Nothing you can see: the house-seating passes rebuild with the rest', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The three passes that seat households on lots and record each household\u2019s address now rebuild automatically, in a measured order, when two changes are merged together.',
+      'Before this, a merge that moved a house could leave the address book and the seat lists out of step until someone rebuilt them by hand.',
+    ] },
   { v: 1426, ts: '2026-10-04T11:34:29.744Z', date: 'Oct 4, 2026, 6:34 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
     items: [
       'Twelve people known only from the post office\u2019s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
