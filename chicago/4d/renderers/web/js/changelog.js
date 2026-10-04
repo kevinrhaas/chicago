@@ -1,10 +1,43 @@
 export const CHANGELOG = [ // newest first
-  { v: 1420, ts: '2026-10-04T11:19:35.384Z', date: 'Oct 4, 2026, 6:19 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
+  { v: 1426, ts: '2026-10-04T11:34:29.744Z', date: 'Oct 4, 2026, 6:34 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
     items: [
       'Twelve people known only from the post office\u2019s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
       'Constant Abbott, Alfred Churchill and Samuel Stout are now known to the town from 1 January 1834, not from April or July. A list printed in March 1834 names all three.',
       'Two people whose arrival year comes from a history of their own keep it. The post-office dates no longer overwrite it.',
       'Six more were looked at and left as they are, with the reason written down. In each, the same name is printed twice and only one printing is read. That is now its own question.',
+    ] },
+  { v: 1425, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: 'Nothing you can see: the rebuild reads business locations in order', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When two changes land together, a tool rebuilds the files derived from them, one step after another. The step that lists where each business stands ran before the step that rebuilds where each claim resolves, so it read the old answer.',
+      'So after a seat moved, that step refused the business as if the data were wrong. When Haddock\u2019s Tavern moved one lot east, it refused Elmira Fowler\u2019s millinery, whose seat moved in the same change. A second step quietly wrote a stale table.',
+      'The rebuild now runs them in the right order, and its check fails if a step is ever placed above a file it reads.',
+    ] },
+  { v: 1424, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1423, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1422, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1421, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1420, ts: '2026-10-04T11:18:02.264Z', date: 'Oct 4, 2026, 6:18 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Four research reports were candidates to stop being kept in the project\u2019s history, because they change often. They stay: a count of 925 recent merges found that dropping them would not have avoided a single conflict.',
+      'So they remain readable on GitHub without building anything, and the reasoning is written beside the rule.',
     ] },
   { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
     items: [
