@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
+  { v: 1431, ts: '2026-10-04T14:32:09.029Z', date: 'Oct 4, 2026, 9:32 AM CT', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
     items: [
       'Open a house on the Lake Street blocks and its card now names the household living there, where 26 of them read \u201cAnonymous count-unit\u201d before. Two more on Randolph near Clinton do too.',
       'Eighteen other Lake Street houses say on their card why nobody is named: the household placed there is known only from the post office\u2019s letter lists, and a name on a letter is not an address.',
