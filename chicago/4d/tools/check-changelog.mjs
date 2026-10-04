@@ -95,8 +95,29 @@ if (!shape.entries.length) problems.push('no entries found — the `{ v: N,` hea
 // promotion pipeline tags `release-vNNN` from it — so a repeated number
 // mis-tags a release and makes two different entries indistinguishable to
 // every consumer at once.
+//
+// RETIRED numbers are the one sanctioned gap, and each says why. A number goes
+// here only when the entry it was stamped onto was a COPY of another entry and
+// was removed — never to make room for a dropped one, which is what the gap
+// check exists to catch. A shipped number is never re-used, so it is retired.
+const RETIRED = new Map([
+  // T-2083: the merge driver could not read the double-quoted title of v1397
+  // ("Kelsey's boarding-house on the sand hills is painted yellow"), so laps
+  // put it back on top as new and the stamper numbered each copy. Removed.
+  [1411, 'T-2083: a merge-driver copy of v1397'],
+  [1421, 'T-2083: a merge-driver copy of v1397'],
+  [1422, 'T-2083: a merge-driver copy of v1397'],
+  [1423, 'T-2083: a merge-driver copy of v1397'],
+  [1424, 'T-2083: a merge-driver copy of v1397'],
+]);
 {
   const numbered = shape.entries.filter((e) => e.v !== 'null').map((e) => ({ ...e, n: Number(e.v) }));
+  for (const e of numbered) {
+    if (RETIRED.has(e.n)) {
+      problems.push(`line ${e.line}: v${e.n} is a RETIRED number (${RETIRED.get(e.n)}) — it shipped `
+        + 'once and is never assigned again');
+    }
+  }
   for (let i = 1; i < numbered.length; i++) {
     const prev = numbered[i - 1];
     const cur = numbered[i];
@@ -112,9 +133,11 @@ if (!shape.entries.length) problems.push('no entries found — the `{ v: N,` hea
       break;
     }
   }
-  if (numbered.length > 1 && numbered[0].n !== numbered.length + numbered[0].n - numbered.at(-1).n
-      && numbered.at(-1).n !== numbered[0].n - (numbered.length - 1)) {
-    problems.push(`the numbering has ${numbered[0].n - numbered.at(-1).n + 1 - numbered.length} `
+  const retiredIn = numbered.length
+    ? [...RETIRED.keys()].filter((n) => n < numbered[0].n && n > numbered.at(-1).n).length : 0;
+  const gaps = numbered.length ? numbered[0].n - numbered.at(-1).n + 1 - numbered.length - retiredIn : 0;
+  if (numbered.length > 1 && gaps !== 0) {
+    problems.push(`the numbering has ${gaps} `
       + `gap(s): v${numbered[0].n} down to v${numbered.at(-1).n} over ${numbered.length} entries. `
       + 'A gap means an entry was dropped in a merge');
   }
@@ -200,6 +223,22 @@ if (CHANGELOG?.[0] && Number(CHANGELOG[0].v) >= ENFORCE_FROM) {
   check('title length in words', tw, LIMITS.titleWords);
   check('item count', (e.items || []).length, LIMITS.items);
   check('total words', iw, LIMITS.words);
+}
+
+// A TITLE TWICE IS AN ENTRY COPIED. The merge driver identifies an entry by its
+// title across base, ours and theirs, so two entries sharing one cannot both
+// survive a merge honestly — and the one way this file has grown a repeat is a
+// lap copying an entry back on top (T-2083: v1397 six times on dev, and nothing
+// here noticed, because each copy had a fresh number and a valid shape).
+{
+  const first = new Map();
+  for (const e of [...(CHANGELOG || [])].reverse()) {           // oldest first: the copy is named
+    const t = String(e.title ?? '');
+    if (first.has(t)) {
+      problems.push(`v${e.v}: repeats the title of v${first.get(t)} ("${t.slice(0, 60)}") — an entry `
+        + 'copied by a merge. Delete the copy; if it was already stamped, retire its number in RETIRED');
+    } else first.set(t, e.v);
+  }
 }
 
 let prev = Infinity;

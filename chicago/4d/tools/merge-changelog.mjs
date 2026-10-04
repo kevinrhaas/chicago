@@ -61,7 +61,13 @@ if (!base || !ours || !theirs) {
 }
 
 const START = /^  \{ v: /;                 // an entry begins here, and only here
-const TITLE = /title:\s*'((?:[^'\\]|\\.)*)'/;
+// A title is written in whichever quote its own text allows: `'…'` almost
+// always, `"…"` when the title carries an apostrophe (T-1724's "Kelsey's
+// boarding-house …" was the first, v1397). This read only `'…'` until T-2083,
+// and an entry it could not title was keyed by its LINE NUMBER — which differs
+// between base, ours and theirs, so the entry read as new on every lap and went
+// back on top as an unstamped copy. Six copies stood on dev, four from one merge.
+const TITLE = /title:\s*(?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)"|`((?:[^`\\]|\\.)*)`)/;
 const read = (p) => { try { return readFileSync(p, 'utf8'); } catch { return ''; } };
 
 /**
@@ -82,8 +88,12 @@ function parse(text) {
     const end = (k + 1 < starts.length ? starts[k + 1] : term) - 1;
     const text_ = lines.slice(s, end + 1).join('\n');
     const t = TITLE.exec(text_);
-    return { title: t ? t[1] : `«untitled@${s}»`, text: text_ };
+    return { title: t ? (t[1] ?? t[2] ?? t[3]) : null, line: s + 1, text: text_ };
   });
+  // An entry with no title this can read has no identity across the three
+  // versions, so it cannot be merged — only guessed at. Refuse it (T-2083).
+  const blind = entries.find((e) => e.title === null);
+  if (blind) return { ok: false, why: `no title readable in the entry at line ${blind.line}` };
   return {
     prologue: lines.slice(0, starts[0]).join('\n'),
     entries,
