@@ -20828,3 +20828,46 @@ to inferred.
 **Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
 **Recorded:** 2026-10-04 (T-2049).
 
+
+### L371 — The 1812 scene wears the 1835 plant communities, in July's dress, with no garrison clearing
+**Decision:** the 1812 scene (`data/scenes/1812.json`) now draws the flora layer, and what it
+draws is the NATURAL zone records of `data/flora/zones/` — wet and mesic prairie, sedge meadow,
+marsh, river timber, the wet woods, the lakeshore beach and foredune, the sand prairie — dealt
+from the 1812 ground exactly as they are dealt from 1835's. Everything the town made is scoped
+out by the manifest's `scenes` lists (T-0471): `z10_settled_town`'s cropped, hoof-poached sward,
+the 260 dooryard stems, the Lombardy rows, the Sauganash's three trees and the willows by the
+second fort's west wall stand in 1835 only. Those zone records are written for 1 July 1835 and
+carry a `july` phenology block; the 1812 scene is dated 1 August 1812 and shows them as written.
+**Why:** the communities are the ground's, not the town's — every one of them is graded from the
+ecology literature and the presettlement surveys, not from anything the settlers did, so the
+twenty-three years between the scenes move the town and not the prairie. A scene that drew bare
+terrain (which is what 1812 drew before this) said the shore had no cover at all, which is worse
+than a month's drift in bloom.
+**Consequence:** a visitor sees the fort standing in uncut prairie. The garrison's gardens and
+the factor's grounds are not drawn (T-2062 owns them), so the ground round the pickets is greener
+and less trodden than it was. The bloom is July's, two weeks early for 1 August.
+**How to resolve:** an August phenology block per zone, and a cleared-and-trodden zone for the
+first fort's surroundings once T-2062 places its gardens and outbuildings.
+**Recorded:** 2026-10-04 (T-0471).
+
+### L372 — The two Massacre cottonwoods stand where we put them on Eighteenth Street, at the smallest tree the record allows
+**Decision:** `data/flora/plantings/massacre_cottonwoods_1812.json` stands two eastern
+cottonwoods, 5.0 m each, at local `1534, -3203` and `1535, -3211` in the 1812 scene only.
+**Existence is `inferred`** from Moses and Kirkland (1895) p. 60: a tradition, through Mrs.
+Kinzie to Mrs. Henry W. King, that the two "Massacre trees" left standing in the roadway of
+Eighteenth Street "were saplings at the time of the massacre". **Both positions and both
+heights are `reconstructed`.** The northing is bounded by the Eighteenth Street line this
+repository already resolves (the `eighteenth_prairie` anchor, N -3206.93) because the source
+puts them "between its curb stones"; the easting is ours, on the lower reach of the 1812 bank
+where p. 60 puts the shore's scattered cottonwoods and inside z08_lakeshore's woody band; the
+8 m between them is ours; 5.0 m is the floor of the species' recorded band, held there because
+"saplings" is the only size anybody gave.
+**Why:** the ticket asked for the remembered tree "only with its provenance and uncertainty made
+explicit", and the corpus already held the passage. A remembered landmark is drawn from its own
+record and never folded into the reconstructed cover, so a visitor's inspector can tell them apart.
+**Consequence:** two young poplars stand together on the bank at the later Eighteenth Street.
+They are NOT a statement of where the fighting was — that is T-0470's to map — and the bank they
+stand on is itself conjectural ground south of Twelfth Street.
+**How to resolve:** a street plat or photograph that draws the surviving tree against the curb
+and the railroad would make the easting inferred.
+**Recorded:** 2026-10-04 (T-0471).

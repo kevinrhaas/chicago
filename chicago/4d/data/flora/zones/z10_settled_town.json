@@ -7,6 +7,7 @@
  "palette": "july_town_ruderal",
  "reads_as": "a cropped, hoof-poached, dusty weedy halo grading out into unbroken prairie, with relict river timber left standing on part-cleared blocks",
  "plantable_in_scene": true,
+ "scenes": ["1835"],
  "cover": {"matrix_fraction":0.45,"bare_soil_fraction":0.45,"standing_water_fraction":0.02},
  "ground": {"rgb":[92,80,62],"wet_rgb":[62,54,44]},
  "extent": {

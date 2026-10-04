@@ -1045,7 +1045,7 @@ const GRASS_SHAPE = {
 export async function createFlora({
   checkpoint = () => null,
   dataBase, terrain, footprints = [], growthBlocked = () => false,
-  confidence = null, problems = [], lowSpec = false, detail = 'full',
+  confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'flora';
@@ -1065,7 +1065,7 @@ export async function createFlora({
     abundance: null,
   };
 
-  const dataset = await loadFlora(dataBase, problems);
+  const dataset = await loadFlora(dataBase, problems, sceneId);
   if (!dataset) return inertRig(group, stats);
 
   // `lowSpec` is the device guess and still means the lightest tune; an
@@ -2280,7 +2280,23 @@ async function getJSON(url) {
 
 /** One fetch for the manifest, then exactly the files it names — never a probe.
  *  A 404 in the network log is indistinguishable from a broken boot. */
-async function loadFlora(dataBase, problems) {
+/**
+ * T-0471 — WHICH SCENES A MANIFEST ENTRY BELONGS TO. A zone or planting with no
+ * `scenes` list is ecology and stands in every scene that draws the flora layer;
+ * one WITH a list is a claim about those scenes only. The settled town's ruderal
+ * sward and the four planting records (dooryards, the Lombardy rows, the
+ * Sauganash's stems, the wood by the second fort's west wall) are 1835's, and the
+ * 1812 lakeshore must not inherit a single urban yard from them. `sceneId` null
+ * draws everything, which is what every caller did before scenes were scoped.
+ * tools/validate.py holds the list to scene ids that exist and to the record's
+ * own copy, and refuses a planting whose `scene` its manifest entry does not list.
+ */
+export function floraInScene(entry, sceneId) {
+  if (sceneId == null || !Array.isArray(entry?.scenes)) return true;
+  return entry.scenes.map(String).includes(String(sceneId));
+}
+
+async function loadFlora(dataBase, problems, sceneId = null) {
   if (!dataBase) {
     problems.push('flora: no data base URL — nothing is planted');
     return null;
@@ -2298,6 +2314,7 @@ async function loadFlora(dataBase, problems) {
     problems.push('flora: the manifest lists no zones — no vegetation is drawn');
     return null;
   }
+  index = { ...index, zones: index.zones.filter((z) => floraInScene(z, sceneId)) };
   const files = new Map();
   const wanted = [
     ...index.zones.map((z) => ['zone', z.id, z.file]),

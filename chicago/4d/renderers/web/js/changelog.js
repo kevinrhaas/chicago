@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The 1812 shore grows prairie, beach grass and two remembered cottonwoods', kind: 'feature',
+    items: [
+      'Open 1812 and the fort no longer stands on bare ground: the prairie, the sedge and marsh by the river, the river timber and the sand prairie and beach grass along the lake now grow there, from the same plant records as 1835.',
+      'Nothing the town planted comes with them. The 1835 dooryard trees, the rows of poplars, the town\u2019s trampled weeds and the trees by the later fort stay in 1835.',
+      'Walk south down the shore to the later Eighteenth Street and two young cottonwoods stand together on the bank. A family tradition, written down in 1895, remembered them as saplings at the time of the battle of 15 August 1812.',
+      'Their existence rests on that tradition; where they stand and how tall they are is our reconstruction (liberty L372). They do not mark where the fighting was.',
+    ] },
   { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
       'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
