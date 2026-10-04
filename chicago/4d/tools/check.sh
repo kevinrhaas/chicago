@@ -46,6 +46,9 @@ step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
+step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
+  node tools/check_glass_modes.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
