@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1427, ts: '2026-10-04T12:12:16.087Z', date: 'Oct 4, 2026, 7:12 AM CT', title: "What's-New lists the yellow boarding-house note once, not six times", kind: 'fix',
+    items: [
+      "The note that Kelsey’s boarding-house on the sand hills is painted yellow had been listed six times in What’s-New. It now appears once, under the day it shipped.",
+      'A tool that combines release notes when two changes land together could not read a title with an apostrophe in it, so it copied that note again each time. It now reads every title, and a repeated note is refused.',
+    ] },
   { v: 1426, ts: '2026-10-04T11:34:29.744Z', date: 'Oct 4, 2026, 6:34 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
     items: [
       'Twelve people known only from the post office\u2019s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
@@ -12,26 +17,6 @@ export const CHANGELOG = [ // newest first
       'When two changes land together, a tool rebuilds the files derived from them, one step after another. The step that lists where each business stands ran before the step that rebuilds where each claim resolves, so it read the old answer.',
       'So after a seat moved, that step refused the business as if the data were wrong. When Haddock\u2019s Tavern moved one lot east, it refused Elmira Fowler\u2019s millinery, whose seat moved in the same change. A second step quietly wrote a stale table.',
       'The rebuild now runs them in the right order, and its check fails if a step is ever placed above a file it reads.',
-    ] },
-  { v: 1424, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
-    ] },
-  { v: 1423, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
-    ] },
-  { v: 1422, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
-    ] },
-  { v: 1421, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
   { v: 1420, ts: '2026-10-04T11:18:02.264Z', date: 'Oct 4, 2026, 6:18 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
     items: [
@@ -89,11 +74,6 @@ export const CHANGELOG = [ // newest first
       'Nothing you can see in the town changes. This is a check on how the people known only from the post office\u2019s lists of uncalled-for letters are kept.',
       'The pass that adds them was not checked at all, because later passes rightly rewrite parts of the same records. It is now checked on the parts that are its own.',
       'What it would still change is listed person by person for reading: 43 people it would add, 7 it would drop, 10 it would file under a new name and 27 records whose dates or names moved.',
-    ] },
-  { v: 1411, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
   { v: 1410, ts: '2026-10-04T08:06:12.271Z', date: 'Oct 4, 2026, 3:06 AM CT', title: 'Nothing you can see: the queue check reports a stale board, not mends it', kind: 'chore',
     items: [
