@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1398, ts: '2026-10-04T04:08:19.433Z', date: 'Oct 3, 2026, 11:08 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
+  { v: 1400, ts: '2026-10-04T04:24:02.785Z', date: 'Oct 3, 2026, 11:24 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
       'Boots, Leather and the Road now views Miller\u2019s tannery across the North Branch from Wolf Point, without riding over the river to it. Its stops read a little shorter, and the ride takes just under six minutes, down from almost eight.',
       'Soap and Candles now starts at Wolf Point, looking up the North Branch to where we place Elston & Co.\u2019s works, so you cross the river once instead of twice. The ride takes under six minutes, down from seven.',
       'Each was timed by riding it on the published site. Flying and Instantly are still faster on all three. What the stops say about each place is unchanged, and new claims are cited in the stop\u2019s sources.',
+    ] },
+  { v: 1399, ts: '2026-10-04T04:12:17.062Z', date: 'Oct 3, 2026, 11:12 PM CT', title: 'Nothing you can see: rebuilding the research no longer stops half-finished', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a change adds or moves residents, the tool that rebuilds the town\u2019s derived research now finishes the job by itself. Before, it left the population model one step behind the people it counts, and someone had to rebuild that model by hand before the checks would pass.',
+      'It now rebuilds the model before it re-draws when people arrived, and it re-runs the scene until nothing more changes. On a test that reproduced the fault, the rebuild now matches the published town byte for byte.',
+    ] },
+  { v: 1398, ts: '2026-10-04T03:54:13.850Z', date: 'Oct 3, 2026, 10:54 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+    items: [
+      'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
+      'If loading fails on a phone, the Retry screen shows the touch hints too.',
     ] },
   { v: 1397, ts: '2026-10-04T03:36:03.066Z', date: 'Oct 3, 2026, 10:36 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
