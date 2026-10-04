@@ -456,7 +456,12 @@ is the contract. The short form:
   already in the queue is cut with `ticket.mjs split T-NNNN "piece" "piece"` — the
   children inherit the parent's exact place in QUEUE, so a split never re-prioritises.
   If a run discovers mid-flight that its ticket is bigger than one demonstration, it
-  splits rather than shipping a self-invented "(1/2)". `--anyway` is the ticket
+  splits rather than shipping a self-invented "(1/2)". **`split` refuses a parent another
+  run holds** — a live claim that is not yours, or an open PR on it (T-1344): the claim
+  lock is per id, so the pieces would go into the queue unheld while that run carries on
+  onto one of them. Your own claim never refuses, and every piece records what stood on
+  the parent; `--anyway --why "…"` splits past a rival and writes the reason into the
+  pieces. Separately, `--anyway` is the ticket
   *budget's* override and cannot reach an L: the queue gate refuses one unconditionally,
   so filing one anyway only chooses whose pull request goes red for it.
 - `tools/check.sh` runs `ticket.mjs check`: duplicate ids, queue drift, stale BOARD, a

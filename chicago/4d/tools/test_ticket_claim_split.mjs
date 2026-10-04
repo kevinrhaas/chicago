@@ -85,7 +85,13 @@ function sandbox() {
   return { tmp, APP, bare };
 }
 
+// `split` asks GitHub for the open pull requests on its parent (T-1344). The gate never
+// reaches the network for that: every split here reads an empty list unless the case
+// hands it a fixture of its own.
+const NO_PULLS = path.join(mkdtempSync(path.join(tmpdir(), 'c4d-pulls-')), 'none.json');
+writeFileSync(NO_PULLS, '[]');
 const run = (APP, ...args) => {
+  if (args[0] === 'split' && !args.includes('--pr-json')) args = [...args, '--pr-json', NO_PULLS];
   const r = spawnSync('node', [path.join(APP, 'tools', 'ticket.mjs'), ...args],
     { cwd: APP, encoding: 'utf8', env: { ...process.env, GITHUB_RUN_ID: '' } });
   return { status: r.status, out: `${r.stdout ?? ''}${r.stderr ?? ''}` };
@@ -505,7 +511,112 @@ const markers = (bare) =>
   }
 }
 
+/* ------------------------- a split under somebody else's live work is refused (T-1344) */
+
+/**
+ * The claim lock is per id, and a split mints NEW ids. On 2026-09-18 T-1144 held
+ * `claim/t-1144` and an open PR when it was split into T-1333/T-1334: the in-flight run
+ * retargeted onto T-1333 (#1477) while a fresh run claimed T-1333 from the queue
+ * (#1480), and the same acceptance was built twice. Neither claim contended with the
+ * other, because neither was on the same id.
+ *
+ * Two signals, asserted separately because only one is local: a rival CLAIM (the front
+ * matter, and the remote marker) and an open PULL REQUEST (`--pr-json` stands in for
+ * the REST list, so this asserts the reading and not today's GitHub). The splitter's
+ * OWN claim is the documented remedy and must keep working; it leaves a record on the
+ * children instead of a refusal.
+ */
+{
+  const { tmp, APP, bare } = sandbox();
+  const FILE = path.join(APP, 'tickets', 'T-1145-fixture.md');
+  const files = () => readdirSync(path.join(APP, 'tickets')).filter((f) => /^T-\d+/.test(f)).length;
+  const claimedBy = (run, at) => ticketFile('T-1145', 'The ticket two runs both split', 'claimed')
+    .replace('claimed_by: null', 'claimed_by: run 9/18/2026, 3:38:16 AM CT')
+    .replace('claimed_run: null', `claimed_run: ${run}\nclaimed_at: ${at}`);
+  try {
+    console.log('\n  a parent another run is already working');
+    writeFileSync(FILE, claimedBy('https://github.com/x/y/actions/runs/1144',
+      new Date(Date.now() - 20 * 60e3).toISOString()));
+    let before = files();
+    const byClaim = run(APP, 'split', 'T-1145', 'first piece', 'second piece');
+    check('32. a split under ANOTHER run\'s live claim is refused',
+      byClaim.status !== 0 && /ALREADY BEING WORKED/.test(byClaim.out), byClaim.out.trim().split('\n')[0]);
+    check('   …it names the run that holds it, and mints nothing',
+      byClaim.out.includes('actions/runs/1144') && files() === before, `${before} → ${files()} files`);
+
+    writeFileSync(FILE, claimedBy('https://github.com/x/y/actions/runs/1144',
+      new Date(Date.now() - 5 * 3.6e6).toISOString()));
+    const dead = run(APP, 'split', 'T-1145', 'first piece', 'second piece');
+    check('33. …while a DEAD claim, which `claim` would steal, holds nothing',
+      dead.status === 0, dead.out.trim().split('\n').pop());
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+
+  const s2 = sandbox();
+  try {
+    console.log('\n  a parent whose claim marker stands on the remote, seen from a tree that never claimed it');
+    run(s2.APP, 'claim', 'T-1145');
+    writeFileSync(path.join(s2.APP, 'tickets', 'T-1145-fixture.md'),
+      ticketFile('T-1145', 'The ticket two runs both split', 'open'));
+    const r = run(s2.APP, 'split', 'T-1145', 'first piece', 'second piece');
+    check('34. the remote marker refuses too, by name',
+      r.status !== 0 && r.out.includes('claim/t-1145'), r.out.trim().split('\n').slice(0, 2).join(' / '));
+  } finally {
+    rmSync(s2.tmp, { recursive: true, force: true });
+  }
+
+  const s3 = sandbox();
+  try {
+    console.log('\n  a parent with an open pull request and no claim at all');
+    const pulls = path.join(s3.tmp, 'pulls.json');
+    writeFileSync(pulls, JSON.stringify([
+      { number: 1469, state: 'open', title: 'T-1145: the redirect leg', head: { ref: 'steward/t-1145-closing-convergence' } },
+      { number: 1500, state: 'open', title: 'T-2145: a different ticket', head: { ref: 'steward/t-2145-other' } },
+    ]));
+    const before = readdirSync(path.join(s3.APP, 'tickets')).filter((f) => /^T-\d+/.test(f)).length;
+    const r = run(s3.APP, 'split', 'T-1145', 'first piece', 'second piece', '--pr-json', pulls);
+    check('35. an open PR on the parent refuses the split',
+      r.status !== 0 && /#1469/.test(r.out) && /closing-convergence/.test(r.out),
+      r.out.trim().split('\n').slice(0, 2).join(' / '));
+    check('   …and a PR on a different number does not count', !/#1500/.test(r.out));
+
+    const noWhy = run(s3.APP, 'split', 'T-1145', 'first piece', 'second piece', '--pr-json', pulls, '--anyway');
+    check('36. --anyway alone is refused: it needs --why', noWhy.status !== 0 && /--anyway needs --why/.test(noWhy.out),
+      noWhy.out.trim().split('\n').pop());
+
+    const anyway = run(s3.APP, 'split', 'T-1145', 'first piece', 'second piece',
+      '--pr-json', pulls, '--anyway', '--why', 'that run died at its gate');
+    const kids = readdirSync(path.join(s3.APP, 'tickets')).filter((f) => /^T-\d+/.test(f) && !f.startsWith('T-1145'));
+    const body = kids.map((f) => readFileSync(path.join(s3.APP, 'tickets', f), 'utf8'));
+    check('37. --anyway --why splits, into exactly the two pieces named (the reason is not a title)',
+      anyway.status === 0 && kids.length === 2, `${kids.join(', ')} · ${anyway.out.trim().split('\n').pop()}`);
+    check('   …and every piece names the branch and PR already on the parent, and why it was split past',
+      body.length === 2 && body.every((b) => /SPLIT WHILE WORK STOOD ON THE PARENT/.test(b)
+        && b.includes('steward/t-1145-closing-convergence') && b.includes('#1469')
+        && b.includes('that run died at its gate')),
+      body[0]?.split('\n').filter((l) => /^- |--anyway/.test(l)).join(' | '));
+  } finally {
+    rmSync(s3.tmp, { recursive: true, force: true });
+  }
+
+  const s4 = sandbox();
+  try {
+    console.log('\n  a run splitting the ticket it holds itself — the documented remedy');
+    run(s4.APP, 'claim', 'T-1145');
+    const r = run(s4.APP, 'split', 'T-1145', 'first piece', 'second piece');
+    const kids = readdirSync(path.join(s4.APP, 'tickets')).filter((f) => /^T-\d+/.test(f) && !f.startsWith('T-1145'));
+    const body = kids.map((f) => readFileSync(path.join(s4.APP, 'tickets', f), 'utf8'));
+    check('38. its own claim never refuses', r.status === 0 && kids.length === 2, r.out.trim().split('\n').pop());
+    check('   …and the pieces say the run that split it may be working one of them',
+      body.every((b) => /held by the run that split it/.test(b) && /may be working one of the pieces/.test(b)),
+      body[0]?.split('\n').filter((l) => /^- /.test(l)).join(' | ') || 'no record');
+  } finally {
+    rmSync(s4.tmp, { recursive: true, force: true });
+  }
+}
+
 console.log(failures
   ? `\n  ${failures} failure(s)\n`
-  : '\n  a split keeps its lock, and the queue drops only finished work and regains what a merge lost\n');
+  : '\n  a split keeps its lock and refuses a parent another run holds, and the queue drops only finished work and regains what a merge lost\n');
 process.exit(failures ? 1 : 0);

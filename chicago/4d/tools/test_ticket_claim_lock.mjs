@@ -45,6 +45,9 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
+// `split` asks GitHub for open pull requests on its parent (T-1344); the gate never does.
+const NO_PULLS = path.join(mkdtempSync(path.join(tmpdir(), 'c4d-pulls-')), 'none.json');
+writeFileSync(NO_PULLS, '[]');
 
 let failures = 0;
 const check = (what, ok, detail) => {
@@ -320,7 +323,7 @@ const boxes = [];
   check('the marker exists while the work is in flight',
     markerSha(s.clones[0], s.origin, 'T-0001') !== '');
   const r = spawnSync('node', [path.join(s.clones[0], 'chicago', '4d', 'tools', 'ticket.mjs'),
-    'split', 'T-0001', 'the first piece', 'the second piece'],
+    'split', 'T-0001', 'the first piece', 'the second piece', '--pr-json', NO_PULLS],
     { cwd: s.clones[0], encoding: 'utf8' });
   check('`split` succeeds', r.status === 0, (r.stderr || '').trim().split('\n').pop());
   check('`split` KEEPS the marker — the parent is still offered by an unmerged dev',
