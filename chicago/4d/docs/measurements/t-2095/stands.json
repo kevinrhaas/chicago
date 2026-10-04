@@ -1,0 +1,8 @@
+[
+  { "id": "alley_randolph_wells", "label": "in the alley of the Randolph-Wells block, looking east",
+    "pose": { "local_e": 352, "local_n": -323.2, "yaw_deg": 90, "pitch_deg": -8 } },
+  { "id": "alley_mouth_wells", "label": "on Wells Street at the alley's mouth, looking east into it",
+    "pose": { "local_e": 327, "local_n": -322.5, "yaw_deg": 92, "pitch_deg": -7 } },
+  { "id": "alley_lake_wells", "label": "in the alley behind the Lake Street row, Wells to LaSalle, looking east",
+    "pose": { "local_e": 350, "local_n": -184.2, "yaw_deg": 90, "pitch_deg": -8 } }
+]

@@ -1,0 +1,10 @@
+after  desktop full     alley_randolph_wells tris 1699453 calls 236 flora 22317/8 frame 6066 ms heap 690.7 MB
+after  desktop full     alley_mouth_wells tris 1684540 calls 241 flora 4470/8 frame 7072 ms heap 691.0 MB
+after  desktop full     alley_lake_wells tris 1849573 calls 248 flora 18246/7 frame 6067 ms heap 691.1 MB
+before desktop full     alley_randolph_wells tris 1681944 calls 236 flora 30821/8 frame 6389 ms heap 686.4 MB
+before desktop full     alley_mouth_wells tris 1661062 calls 241 flora 7005/8 frame 7003 ms heap 686.7 MB
+before desktop full     alley_lake_wells tris 1831685 calls 248 flora 26371/7 frame 5995 ms heap 686.9 MB
+stand / level           flora tris before -> after   total tris delta   calls   frame ms
+alley_randolph_wells full     30821 -> 22317          17509   236->236   6389->6066
+alley_mouth_wells full        7005 -> 4470           23478   241->241   7003->7072
+alley_lake_wells full        26371 -> 18246          17888   248->248   5995->6067
