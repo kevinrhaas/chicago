@@ -1,0 +1,133 @@
+{
+  "checks": [
+    "only emitted crossings request terrain protection",
+    "baseline reproduces buried crossing top faces",
+    "all actual emitted top faces clear protected terrain",
+    "adaptive transitions share every internal edge with upward winding",
+    "crossing refinement stays local and below its measured 9000-triangle allocation",
+    "partial edge cells keep their shared transitions closed",
+    "repeated terrain replacement disposes each geometry once",
+    "publication protects accepted crossings at their actual default width"
+  ],
+  "scope": "CPU geometry: all Float32 emitted walk, crossing and kerb top faces. Each planar overlap is clipped against actual rendered base triangles; no browser, GPU, reach, shader or visual claim.",
+  "baseStride": 6,
+  "baseOffset": -0.03,
+  "cellM": 2.5,
+  "origin": [
+    -705,
+    -3800
+  ],
+  "footprints": 99,
+  "fingerprints": {
+    "terrain": "26fcc3ac0c689922e652f248f95e2e3a62c046884ccff0363a089d1a3ccb7e68",
+    "terrainBase": "559f9a980f9d2089d20fd5fad510304f0997384a0ef93382d3edb08493ca91ce",
+    "frontage": "7d6f8be458f5bad8529548522f041c3b83f953f4a6fb8fa6556bf979cac765f5",
+    "heightfield": "11a95062c9dff1faaf85b67c15330538985e0550718f4474935c6743f2d5b886"
+  },
+  "before": {
+    "triangles": 105616
+  },
+  "after": {
+    "cells": 52808,
+    "protectedCells": 161,
+    "refinedCells": 103,
+    "maxOverrun": 0.380000002682209,
+    "triangles": 114320,
+    "tolerance": 0.025
+  },
+  "additionalTriangles": 8704,
+  "edges": {
+    "before": {
+      "internalOpen": 0,
+      "nonmanifold": 0,
+      "boundary": 978,
+      "down": 0,
+      "degenerate": 0
+    },
+    "after": {
+      "internalOpen": 0,
+      "nonmanifold": 0,
+      "boundary": 978,
+      "down": 0,
+      "degenerate": 0
+    }
+  },
+  "subsets": {
+    "all": {
+      "walks": 213,
+      "topTriangles": 107532,
+      "beforeBuried": 1855,
+      "afterBuried": 0,
+      "beforeMissing": 0,
+      "afterMissing": 0,
+      "beforeMax": 0.11681542143095303,
+      "afterMax": -0.04790165901184085
+    },
+    "southWater": {
+      "walks": 43,
+      "topTriangles": 19570,
+      "beforeBuried": 610,
+      "afterBuried": 0,
+      "beforeMissing": 0,
+      "afterMissing": 0,
+      "beforeMax": 0.11681542143095303,
+      "afterMax": -0.08373956762361712
+    },
+    "southWaterLongitudinal": {
+      "walks": 23,
+      "topTriangles": 13974,
+      "beforeBuried": 0,
+      "afterBuried": 0,
+      "beforeMissing": 0,
+      "afterMissing": 0,
+      "beforeMax": -0.08310971099853726,
+      "afterMax": -0.10336247943609922
+    }
+  },
+  "worstBefore": {
+    "id": "blk_south_water_clark_north_crossing_blk_south_water_dearborn_north",
+    "kind": "board_crossing",
+    "topTriangles": 384,
+    "beforeBuried": 198,
+    "afterBuried": 0,
+    "beforeMax": 0.11681542143095303,
+    "afterMax": -0.08373956762361712,
+    "beforeMissing": 0,
+    "afterMissing": 0,
+    "beforeWorst": {
+      "e": 695.3737182617188,
+      "n": -3.420145034790039,
+      "deck": 0.4644017815589905,
+      "ground": 0.5812172029899435
+    },
+    "afterWorst": {
+      "e": 692.5,
+      "n": -3.357989080070269,
+      "deck": 0.637763261795044,
+      "ground": 0.5540236941714268
+    }
+  },
+  "worstAfter": {
+    "id": "blk_washington_wells_north_crossing_blk_washington_lasalle_north",
+    "kind": "board_crossing",
+    "topTriangles": 312,
+    "beforeBuried": 67,
+    "afterBuried": 0,
+    "beforeMax": 0.06160237521282408,
+    "afterMax": -0.04790165901184085,
+    "beforeMissing": 0,
+    "afterMissing": 0,
+    "beforeWorst": {
+      "e": 447.4779357910156,
+      "n": -402.4485778808594,
+      "deck": 0.7681284546852112,
+      "ground": 0.8297308298980353
+    },
+    "afterWorst": {
+      "e": 445.72998727564476,
+      "n": -403.22998727564476,
+      "deck": 0.9229016304016113,
+      "ground": 0.8749999713897705
+    }
+  }
+}

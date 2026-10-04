@@ -1,0 +1,95 @@
+serving /workspace/scratch/728bcee376d6/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "mobile"
+
+NOT THE FULL GATE — stages filtered to "1" of 13
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: the frame is multisampled — the town's edges are resolved on a phone too
+  pass  mobile 390x780: the declared scene-detail ceilings descend — it is a ladder, not three numbers
+  pass  mobile 390x780: no scene-detail rung is running clamped — the table and the scene agree
+  pass  mobile 390x780: every scene-detail rung says what it protects and what measurement set it
+  pass  mobile 390x780: the loader carries no town census or coverage dashboard
+  pass  mobile 390x780: the bridge declares a water anchor
+  pass  mobile 390x780: the bridge sits on the water plane, not on the terrain
+  pass  mobile 390x780: the enclosure layer draws its records
+  pass  mobile 390x780: the enclosure layer is chunked so the frustum can cull it
+  pass  mobile 390x780: every fence vertex carries a confidence grade
+  pass  mobile 390x780: no fence member stands outside its own authored run
+  pass  mobile 390x780: the yard fence reaches the screen from inside the yard
+  pass  mobile 390x780: the estray pen is drawn as an enclosure and bakes no mesh
+  pass  mobile 390x780: the retired box leaves no invisible wall on the public square
+  pass  mobile 390x780: the pen reaches the screen from inside the pen
+  pass  mobile 390x780: aiming at the pen's fence still opens the pen's card
+  pass  mobile 390x780: the town's house lots carry generated picket gardens
+  pass  mobile 390x780: the picket branch draws pales, not just posts and rails
+  pass  mobile 390x780: the garden fence reaches the screen from the dooryard
+  pass  mobile 390x780: the town's improved lots read as fenced, block after block
+  pass  mobile 390x780: the lot fences are built in the period's three types
+  pass  mobile 390x780: the enclosure is spread over the town, not stacked in one district
+  pass  mobile 390x780: a lot's yard states no ground treatment, so its sward stands
+  pass  mobile 390x780: every lot fence is graded reconstructed, record and vertex
+  pass  mobile 390x780: the lot fences reach the screen from the alley they face
+  pass  mobile 390x780: the Sauganash's rear yard is fenced with boards, not rails
+  pass  mobile 390x780: the yard fence is drawn at the height its record states
+  pass  mobile 390x780: every stem the yard's planting record places stands inside that yard
+  pass  mobile 390x780: the yard fence reaches the screen from Market Street
+  pass  mobile 390x780: the trees behind the fence reach the screen with it
+  pass  mobile 390x780: every fenced interior in the town carries a ground treatment
+  pass  mobile 390x780: the ground inside a 'worn_earth' fence reads as its own type
+  pass  mobile 390x780: no prairie plant roots inside a 'worn_earth' fence
+  pass  mobile 390x780: the ground inside a 'trodden_earth' fence reads as its own type
+  pass  mobile 390x780: no prairie plant roots inside a 'trodden_earth' fence
+  pass  mobile 390x780: the ground inside a 'road_earth' fence reads as its own type
+  pass  mobile 390x780: no prairie plant roots inside a 'road_earth' fence
+  pass  mobile 390x780: the ground inside a 'dooryard_garden' fence reads as its own type
+  pass  mobile 390x780: no prairie plant roots inside a 'dooryard_garden' fence
+  pass  mobile 390x780: the fenced ground is graded reconstructed and casts no shadow
+  pass  mobile 390x780: the sward is suppressed on the ground the records declare and nowhere else
+  pass  mobile 390x780: the ground in the wagon yard reaches the screen from inside it
+  pass  mobile 390x780: the ground in a picketed dooryard reaches the screen from inside it
+  pass  mobile 390x780: the dooryard pass planted stems across the town
+  pass  mobile 390x780: Cobweb Castle's dealt stems are among them
+  pass  mobile 390x780: Cobweb Castle's dooryard trees reach the screen
+  pass  mobile 390x780: the currant clump by its door reaches the screen
+  pass  mobile 390x780: the stockade's pickets are baked at the record's twelve feet
+  pass  mobile 390x780: the stockade tops a walker's eye where wall and anchor meet
+  pass  mobile 390x780: a level gaze there stops at the stockade, and the card says so
+  pass  mobile 390x780: the garden fence holds below the eye of the walker who meets it
+  pass  mobile 390x780: a level gaze sails clean over the garden fence
+  pass  mobile 390x780: a tap on the garden fence names the garden, not a fort wall
+  pass  mobile 390x780: the stockade stands over a walker's eye from the parade side
+  pass  mobile 390x780: a level gaze from the parade side stops at the stockade
+  pass  mobile 390x780: the signage layer puts up the record's signs
+  pass  mobile 390x780: the whole signage layer is one draw call
+  pass  mobile 390x780: no board is fixed over a door or a window
+  pass  mobile 390x780: the signs still cast into the shadow map
+  pass  mobile 390x780: every signboard vertex is graded reconstructed
+  pass  mobile 390x780: no sign strays past the reach its own mounting declares
+  pass  mobile 390x780: every sign stands outside its own facade
+  pass  mobile 390x780: every sign carries its business's name, painted
+  pass  mobile 390x780: no two signs within sight of each other are alike
+  pass  mobile 390x780: the town puts its signs up five different ways
+  pass  mobile 390x780: one street's signs are visibly different from each other
+  pass  mobile 390x780: the hotel's board reaches the screen from the street
+  pass  mobile 390x780: aiming at a signboard opens the business behind it
+  pass  mobile 390x780: the board and the card agree about whose business this is
+  pass  mobile 390x780: every board names its proprietor and its trade, not our label
+  pass  mobile 390x780: the golden mortar is on Carpenter's board and on no other
+  pass  mobile 390x780: part 1 hands the page on with nothing standing over the chrome
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+82 passed, 0 failed
+72 staged-section check(s) (stage 1 of 13), 10 always-on check(s)
+3 m 10 s for stage 1 at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

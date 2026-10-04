@@ -1,0 +1,57 @@
+serving /workspace/scratch/728bcee376d6/chicago/site/4d on 4287 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — stages filtered to "14" of 14
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: the arrival counts down from the present and never reads 1835 before the scene is ready — 2026· 2024· 2017· 2016· 2015· 2014· 2013· 2012· 2004· 2003· 2002· 2001· 2000· 1999· 1998· 1997· 1996· 1995· 1994· 1993· 1992· 1991· 1990· 1989· 1988· 1987· 1986· 1985· 1984· 1983· 1982· 1980· 1979· 1978· 1977· 1976· 1974· 1973· 1972· 1971· 1970· 1968· 1967· 1966· 1964· 1963· 1962· 1961· 1960· 1958· 1957· 1956· 1954· 1947· 1946· 1945· 1943· 1942· 1941· 1940· 1938· 1934· 1932· 1930· 1929· 1927· 1926· 1924· 1923· 1921· 1920· 1916· 1915· 1914· 1913· 1912· 1911· 1910· 1909· 1908· 1907· 1906· 1905· 1904· 1903· 1902· 1901· 1900· 1899· 1898· 1897· 1896· 1895· 1894· 1893· 1892· 1891· 1890· 1889· 1888· 1887· 1886· 1885· 1884· 1883· 1882· 1881· 1880· 1879· 1878· 1877· 1876· 1875· 1874· 1872· 1871· 1866· 1865· 1863· 1862· 1861· 1860· 1854· 1853· 1851· 1850· 1849· 1848· 1847· 1846· 1845· 1844· 1843· 1842· 1841· 1840· 1839· 1838· 1837· 1835
+  pass  mobile 390x780: the welcome shows no count and no percentage
+  pass  mobile 390x780: a place picked under Starting At… enters the town without taking the pointer
+  pass  mobile 390x780: a jaunt started from the menu stands at its first stop, Previous disabled
+  pass  mobile 390x780: the stop's place card opens, and Return comes back to the same stop
+  pass  mobile 390x780: the stop's source opens in Sources, whose count is the published catalog's — 330 rows, data-count 330; index.json 330
+  pass  mobile 390x780: Return from the source comes back to the same stop with the drawer shut
+  pass  mobile 390x780: changing the travel mode changes the estimate, and the next ride goes at that mode — horse "about 4 min remaining" -> walk "about 10.5 min remaining"; ride {"phase":"travelling","travel":"travelling","mode":"walk"}
+  pass  mobile 390x780: Next and Previous move between stops 1 and 2
+  pass  mobile 390x780: the Jaunts menu pauses the outing and Resume returns to the same stop
+  pass  mobile 390x780: End Jaunt returns to the menu in under 200 ms — 0.9 ms
+  pass  mobile 390x780: a second jaunt starts at its own first stop
+  pass  mobile 390x780: Explore on my own clears a paused jaunt
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: the arrival counts down from the present and never reads 1835 before the scene is ready — 2026· 2024· 2019· 2018· 2017· 2016· 2015· 2008· 2007· 2006· 2005· 2004· 2003· 2002· 2000· 1999· 1997· 1996· 1994· 1992· 1990· 1989· 1987· 1985· 1983· 1981· 1980· 1978· 1976· 1974· 1973· 1970· 1968· 1966· 1964· 1962· 1959· 1957· 1955· 1953· 1950· 1948· 1946· 1944· 1941· 1939· 1937· 1935· 1932· 1930· 1928· 1926· 1924· 1923· 1921· 1919· 1917· 1915· 1913· 1911· 1910· 1908· 1906· 1904· 1902· 1901· 1900· 1899· 1898· 1897· 1896· 1895· 1894· 1893· 1892· 1891· 1890· 1889· 1888· 1886· 1880· 1877· 1876· 1874· 1868· 1865· 1864· 1862· 1859· 1858· 1856· 1855· 1854· 1853· 1852· 1851· 1850· 1849· 1848· 1847· 1846· 1845· 1844· 1843· 1842· 1841· 1840· 1835
+  pass  desktop 1280x800: the welcome shows no count and no percentage
+  pass  desktop 1280x800: a place picked under Starting At… enters the town without taking the pointer
+  pass  desktop 1280x800: a jaunt started from the menu stands at its first stop, Previous disabled
+  pass  desktop 1280x800: the stop's place card opens, and Return comes back to the same stop
+  pass  desktop 1280x800: the stop's source opens in Sources, whose count is the published catalog's — 330 rows, data-count 330; index.json 330
+  pass  desktop 1280x800: Return from the source comes back to the same stop with the drawer shut
+  pass  desktop 1280x800: changing the travel mode changes the estimate, and the next ride goes at that mode — horse "about 4 min remaining" -> walk "about 9.5 min remaining"; ride {"phase":"travelling","travel":"travelling","mode":"walk"}
+  pass  desktop 1280x800: Next and Previous move between stops 1 and 2
+  pass  desktop 1280x800: the Jaunts menu pauses the outing and Resume returns to the same stop
+  pass  desktop 1280x800: End Jaunt returns to the menu in under 200 ms — 0.8 ms
+  pass  desktop 1280x800: a second jaunt starts at its own first stop
+  pass  desktop 1280x800: Explore on my own clears a paused jaunt
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+44 passed, 0 failed
+26 staged-section check(s) (stage 14 of 14), 18 always-on check(s)
+6 m 56 s for stage 14 — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS
