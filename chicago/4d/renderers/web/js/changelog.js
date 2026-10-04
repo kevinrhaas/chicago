@@ -1,7 +1,7 @@
 export const CHANGELOG = [ // newest first
   { v: null, ts: '', date: '', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
     items: [
-      'Walk down Lake Street or stand at a shop front: the knee-high ragweed, dock and lamb\'s-quarters that grew between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
+      'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
       'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
       'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
     ] },
