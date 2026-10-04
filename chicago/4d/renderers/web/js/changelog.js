@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1403, ts: '2026-10-04T04:53:53.077Z', date: 'Oct 3, 2026, 11:53 PM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
@@ -7,15 +7,26 @@ export const CHANGELOG = [ // newest first
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
     ] },
-  { v: 1402, ts: '2026-10-04T04:53:53.077Z', date: 'Oct 3, 2026, 11:53 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1401, ts: '2026-10-04T04:53:53.077Z', date: 'Oct 3, 2026, 11:53 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
+    items: [
+      'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
+      'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',
+      'Every one of these people is our reconstruction, not a record. No source names them, and none says these men married.',
     ] },
   { v: 1400, ts: '2026-10-04T04:29:40.593Z', date: 'Oct 3, 2026, 11:29 PM CT', title: 'The 1835 town opens on an iPhone again', kind: 'fix',
     items: [

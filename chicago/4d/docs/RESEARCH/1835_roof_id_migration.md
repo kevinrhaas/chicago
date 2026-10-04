@@ -14,7 +14,7 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 
 | file | where | roof | group | becomes | why it is not a rename |
 | --- | --- | --- | --- | --- | --- |
-| `data/sidecars/1835/people.json` | `.people[913].lives_at` | `recon_1835_north_t1_061` | inns_taverns | barns_stables | `lives_at` needs a dwelling and barns_stables is not one |
+| `data/sidecars/1835/people.json` | `.people[1025].lives_at` | `recon_1835_north_t1_061` | inns_taverns | barns_stables | `lives_at` needs a dwelling and barns_stables is not one |
 
 **1** reference(s), across 1 file(s).
 

@@ -19,7 +19,7 @@
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
  },
  "people": {
-  "housed": 183,
+  "housed": 190,
   "households_housed": 33,
   "group_entries": 3,
   "households_without_a_dwelling": 1388,
@@ -35,8 +35,8 @@
     "inferred": 327,
     "reconstructed": 578
    },
-   "cards_total": 2383,
-   "cards_not_established": 1345,
+   "cards_total": 2891,
+   "cards_not_established": 1853,
    "target": 2543,
    "target_low": 2362,
    "target_high": 3265,
@@ -47,26 +47,26 @@
    "basis": "Persons in households the layer records `present` on the scene date — the order book's Rule 3. A card the layer holds without establishing the person in Chicago on 1 July is not counted here; `cards_not_established` is how many those are.",
    "question": "How many people does a record establish in Chicago on 1 July 1835? It is the strictest reading the layer supports and it is NOT the town's population: it leaves out every person the research left unadjudicated.",
    "population": {
-    "persons": 2381,
+    "persons": 2889,
     "households": 1419,
     "by_grade": {
      "attested": 411,
      "inferred": 991,
-     "reconstructed": 979
+     "reconstructed": 1487
     },
     "question": "How many people did the project's evidence put in the town on 1 July 1835? This is the population — the established people plus the ones the research left `uncertain` and T-1386 has ruled in, each at the tier its own dated readings reach.",
     "established": 1038,
-    "ruled_in": 1343,
+    "ruled_in": 1851,
     "ruled_in_households": 936,
     "ruled_in_by_tier": {
-     "attested": 99,
-     "inferred": 119,
-     "reconstructed": 1125
+     "attested": 184,
+     "inferred": 183,
+     "reconstructed": 1484
     },
     "ruled_in_by_residence_grade": {
      "attested": 278,
      "inferred": 664,
-     "reconstructed": 401
+     "reconstructed": 909
     },
     "absent_on_evidence": 2,
     "basis": "data/reconstruction/1835_presence_rulings.json — one ruling per household the research left `uncertain`, with the dated reading it was reached from. An attested or inferred resident is in the population unless there is EVIDENCE they were not; `absent_on_evidence` is how many that is.",

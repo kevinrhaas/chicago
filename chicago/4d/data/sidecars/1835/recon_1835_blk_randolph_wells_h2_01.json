@@ -90,7 +90,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "plan": {
       "value": "centre_passage",
@@ -289,22 +289,22 @@
     "stands_on": "street",
     "fronts": "randolph",
     "sequence": 1,
-    "finish_key": "mixed_patch",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-L",
       "class": "labourer",
       "by": "keeper_trade",
       "household": "hh_abell_sidney",
-      "words": "patched clapboard on a balloon frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a weathered roof — The Abell household's, a laundress, in Chicago since 1834 (rule F-L)"
+      "words": "new-sawn clapboard on a balloon frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a new roof — The Abell household's, a laundress, in Chicago since 1835 (rule F-L)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "labourer",
-    "age_state": "recent",
-    "weather_years": 1.5,
+    "age_state": "new",
+    "weather_years": 0.5,
     "weather_rate": 1.0,
     "lay_m": 0.008,
     "confidence": "reconstructed"
