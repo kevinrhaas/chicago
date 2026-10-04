@@ -1,0 +1,58 @@
+name: Chicago 4D — moving frames
+
+# T-2106. THE MOVING-FRAME GATE, IN A CI LEG OF ITS OWN.
+#
+# The owner's report (2026-10-04) was that walking lagged, and every frame budget
+# this project held was read at a STAND. tools/measure_walk_frames.mjs drives a
+# walk, a turn in place, a flight and a ride frame by frame and times what flora
+# spends in each; `--gate` holds the worst frame and the p95 per tier to the
+# ceilings written in that file, and `--verify` checks that a rebuild spread over
+# frames lands exactly the plants a one-frame rebuild deals. Until this leg the
+# gate only ran when a steward run thought to run it.
+#
+# It is NOT in check.sh, and NOT in the dev gate's `gate` job, because it is a
+# browser run of about seven minutes: the dev gate is the window in which a PR can
+# be overtaken, and it does not get longer for one family of files. It runs beside
+# it, on the pull requests that can move a moving frame: the renderer's own
+# JavaScript, the flora and tree data it plants from, and this tool.
+#
+# Desktop only, unthrottled. The phone stand-in reads the same code under a 4x CPU
+# throttle somebody chose; the desktop reading is the one on this runner that is
+# not scaled by a factor, which is why the ceilings are written against it.
+
+on:
+  pull_request:
+    paths:
+      - 'chicago/4d/renderers/web/js/**'
+      - 'chicago/4d/data/flora/**'
+      - 'chicago/4d/tools/measure_walk_frames.mjs'
+      - '.github/workflows/chicago-4d-moving-frames.yml'
+  workflow_dispatch:
+
+jobs:
+  moving-frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Installed GLOBALLY, as chicago-4d-smoke.yml does: the tool resolves
+      # Playwright through `npm root -g` when the workspace has none.
+      - name: Install Playwright
+        run: |
+          set -e
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+
+      # The mirror is generated (T-0938); the gate reads what ships.
+      - name: Publish the mirror the gate serves (site/4d/ is generated)
+        working-directory: chicago/4d
+        run: bash tools/publish.sh
+
+      - name: Walk, turn, fly and ride; hold the flora frame to its ceilings
+        working-directory: chicago/4d
+        run: node tools/measure_walk_frames.mjs --only desktop --verify --gate

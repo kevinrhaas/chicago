@@ -3188,7 +3188,18 @@ async function boot() {
     return camera.near;
   }
 
-  function tick() {
+  /**
+   * T-2106. The milliseconds of a frame the flora's near rebuild may spend: the
+   * animation loop spreads a pass over the frames its margin allows rather than
+   * paying for it all in the frame that needs it, which on a phone was a 44 ms
+   * hitch on every small turn. `step()` keeps the whole pass in one frame,
+   * because every test that drives it reads the buffers straight after;
+   * `setFloraSpread(true)` lets a measurement drive the loop's own behaviour.
+   */
+  const FLORA_SLICE_MS = 4;
+  let stepFloraSpread = false;
+
+  function tick(floraBudget = FLORA_SLICE_MS) {
     // Keep visual simulation stable, but do not make a visitor crawl in direct
     // proportion to a slow renderer. At 2 fps the former 0.05 s clamp advanced
     // walking by only 0.10 s per real second. Movement now consumes up to a
@@ -3234,7 +3245,7 @@ async function boot() {
     // ground's reach holds back is a function of where the eye ended up this
     // frame (T-1154).
     terrain.updateGroundReach(camera.position);
-    flora.update(dt, camera);
+    flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
 
     renderer.render(scene3d, camera);
@@ -3450,7 +3461,10 @@ async function boot() {
       return state;
     },
     /** Force one frame — for tests that must not race the animation loop. */
-    step() { tick(); },
+    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity); },
+    /** T-2106. Let `step()` spread the flora rebuild as the animation loop
+     *  does — for `tools/measure_walk_frames.mjs`, which times that loop. */
+    setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },
     /** Keep rendering, advance nothing — for tests comparing two frames of the
      *  same scene. Never set by the application. */
     setAnimationHold(on) { animationHold = !!on; return animationHold; },
