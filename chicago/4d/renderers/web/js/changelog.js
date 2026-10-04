@@ -1,10 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1443, ts: '2026-10-04T19:59:03.475Z', date: 'Oct 4, 2026, 2:59 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+  { v: null, ts: '', title: 'Letter-list cards read every printing of their own name', kind: 'change',
     items: [
       'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
       'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
       'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
       'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
+    ] },
+  { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
+    items: [
+      'This note was first published on 19 September as release 971. Twenty-five minutes later a merge dropped it from this list and gave its number to the next release. It is back under a new number, and the list now refuses any change that drops a published note or moves its number.',
+      'That night three of six ruled arrival dates were written: Botsford, Eli B. Williams and Hibbard Porter belonged to the spring of 1833, and their cards said so. Those cards are rebuilt from newspapers and civic registers, which can only say a man was here by some day, and a date written by hand used to be dropped without complaint.',
+      'A ledger now carries such a reading to the card: the page, the identification that joins it to the card, and the bound it replaces. It cannot identify anybody or invent a page, the new date must be earlier than the old one, and it cannot raise the confidence: these three stay inferred.',
+      'If the registers later derive a different bound, the build stops and names the card and both dates, rather than writing a stale ruling over fresh evidence.',
+      'Hibbard Porter moved furthest: the registers placed him no earlier than the afternoon of the scene, and the compiler\u2019s list puts him in the town two years and four months before it.',
+      'The other three, from the Baptist meeting of 19 October 1833, waited: writing that page onto three cards would have dropped the ten other people it had admitted to the town the day before.',
+    ] },
+  { v: 1443, ts: '2026-10-04T19:07:50.251Z', date: 'Oct 4, 2026, 2:07 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
+    items: [
+      'Walk up Franklin Street to the river: Newberry & Dole\u2019s forwarding and commission warehouse no longer stands across the end of the street and in South Water Street. It now sits back in the corner west of Franklin and south of South Water, still facing the river.',
+      'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
+      'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L378).',
     ] },
   { v: 1442, ts: '2026-10-04T18:53:07.735Z', date: 'Oct 4, 2026, 1:53 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
     items: [

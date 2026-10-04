@@ -34,14 +34,14 @@
      "share": 0.0
     },
     "ordinary": {
-     "n": 27,
-     "trade": 10,
-     "share": 0.3704
+     "n": 28,
+     "trade": 11,
+     "share": 0.3929
     },
     "principal": {
-     "n": 26,
-     "trade": 15,
-     "share": 0.5769
+     "n": 25,
+     "trade": 14,
+     "share": 0.56
     }
    },
    "moved": [
@@ -409,7 +409,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.4736,
+   "frontage_weight": 0.4764,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -491,7 +491,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.4833,
+   "frontage_weight": 0.4805,
    "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -895,7 +895,7 @@
    },
    "principal": 15,
    "ancillary": 5,
-   "frontage_weight": 0.3391,
+   "frontage_weight": 0.3405,
    "trade_roofs": 2,
    "lot_ceiling_principal": 5,
    "row_lots_required": 5
@@ -1005,7 +1005,7 @@
    },
    "principal": 6,
    "ancillary": 2,
-   "frontage_weight": 0.2875,
+   "frontage_weight": 0.2987,
    "trade_roofs": 1,
    "lot_ceiling_principal": 2,
    "row_lots_required": 2
@@ -1042,7 +1042,7 @@
    },
    "principal": 18,
    "ancillary": 0,
-   "frontage_weight": 0.2971,
+   "frontage_weight": 0.3028,
    "trade_roofs": 2,
    "lot_ceiling_principal": 6,
    "row_lots_required": 6
@@ -1923,7 +1923,7 @@
    "principal": 3,
    "ancillary": 0,
    "trade_roofs": 0,
-   "frontage_weight": 0.4317,
+   "frontage_weight": 0.4387,
    "lot_ceiling_principal": 7,
    "row_lots_required": 0
   },
@@ -2446,7 +2446,7 @@
    },
    "principal": 19,
    "ancillary": 0,
-   "frontage_weight": 0.5253,
+   "frontage_weight": 0.5182,
    "trade_roofs": 3,
    "lot_ceiling_principal": 7,
    "row_lots_required": 6

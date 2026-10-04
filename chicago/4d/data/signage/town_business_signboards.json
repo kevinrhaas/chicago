@@ -3159,10 +3159,10 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        202.47,
-        6.2
+        183.25,
+        -20.11
       ],
-      "facade_bearing_deg": 0.0,
+      "facade_bearing_deg": 345.0,
       "arm_height_m": 3.15,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
       "board_w_m": 3.56,
@@ -3177,20 +3177,20 @@
       "frontage_m": 11.0,
       "ground_quad_local_enu_m": [
         [
-          200.3,
-          -4.8
+          184.0,
+          -31.3
         ],
         [
-          211.3,
-          -4.8
+          194.63,
+          -28.45
         ],
         [
-          211.3,
-          6.2
+          191.78,
+          -17.83
         ],
         [
-          200.3,
-          6.2
+          181.15,
+          -20.67
         ]
       ],
       "opening_fit": {

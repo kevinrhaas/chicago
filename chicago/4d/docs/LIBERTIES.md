@@ -21066,3 +21066,29 @@ corrections to the houses.
 the plat model's strip; a reading of the Lake Street houses' seating that moves them out of the
 strip lets those lanes run through.
 **Recorded:** 2026-10-04 (T-2095).
+
+### L378 — Newberry & Dole's warehouse stands back in the Franklin corner, across the street from its dock
+**Decision:** `newberry_dole_warehouse` moves out of the roadway. It had stood at local E +200 to
++211, across the head of Franklin Street and inside South Water Street's platted corridor (9.8 m
+into Franklin's and 12.1 m into South Water's by `tools/measure_corridor_intrusion.py`). It now
+stands in the inside corner of the block west of Franklin and south of South Water (plat block 21,
+which this dataset does not lot), origin local E +184.0, N -31.3, with its east wall and its river
+wall each about 1.2 m clear of the drawn corridors. Its facade turns from bearing 0 to 345, square
+to South Water where the street bends there, so it still faces the river. The dock is not authored:
+`tools/generate_river_wharves.py` re-derives it from the new wall, and it lands on the traced bank
+across the street, about 25 m north-west of where it was, at the same reconstructed size.
+**Why:** the owner, 2026-10-04 (T-2097): "should come back south and west so it sits at that
+northwest inside corner of franklin and south water ... this way it is not in the road". The first
+placement was a point chosen on South Water Street with nothing behind it but the street (L66), so
+moving it a few metres back along the same frontage trades one free choice for another that does
+not stand in a public way.
+**What is recorded and what is not:** the bank stays the south bank, adopted against Andreas and
+Bonnell as before (L66, T-1723). That the firm faced its wharf is an argument from the trade. The
+lot, the corner, the setback and the bearing are ours; no source gives this building a block.
+**Consequence:** the warehouse now has a street between it and its landing, which is how South
+Water's stores stood. A wagon crosses the roadway to load. The tree west of the Franklin crossing
+is not part of any record and stands where the town's timber rule puts it.
+**How to resolve:** a Chicago Democrat advertisement of 1834-35 giving the firm's street address,
+or an identified c. 1835 view, places the house; T-1723 may move it to the north bank.
+**Covers:** `newberry_dole_warehouse.frame_1833.position`
+**Recorded:** 2026-10-04 (T-2097).
