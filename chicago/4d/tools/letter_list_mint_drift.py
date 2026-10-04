@@ -8,13 +8,13 @@ hundred people nobody read. T-1334's first acceptance is that the drift is MEASU
 NAMED, so this tool reads the mint's output against the committed tree and says, per
 class and per key, what a re-run would actually change.
 
-WHAT THIS IS NOT. It is not the gate. T-1222 owns the check `tools/check.sh` should run
-at the mint's own place in the pipeline, and that is a different instrument: it has to
-compare what the mint OWNS and ignore what a later pass owns, which means ruling on
-ownership key by key and defending each ruling. This tool rules on nothing. It sorts the
+WHAT THIS IS NOT. It is not the gate. The gate is the mint's own `--check` (T-2070,
+out of T-1222), which compares what the mint OWNS and ignores what a later pass owns,
+ruling on ownership key by key in the mint's KEY_OWNERS table. This tool rules on
+nothing of its own: it reads that table. It sorts the
 difference into classes a reader can check by hand and prints the counts, and where it
 cannot attribute a key it says so loudly rather than folding it into a bucket. Run it,
-read it, and take the argument to T-1222.
+read it, and take the argument to the mint's KEY_OWNERS.
 
 THE FOUR CLASSES, in the order they matter to the town:
 
@@ -37,88 +37,23 @@ from __future__ import annotations
 
 import argparse
 import collections
-import importlib.util
 import json
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MINT = ROOT / "tools" / "mint_letter_list_residents.py"
+sys.path.insert(0, str(ROOT / "tools"))
+import mint_letter_list_residents as mint_module  # noqa: E402
+from mint_letter_list_residents import fold, leaves, normalise, owner_of  # noqa: E402
 
-# WHO OWNS EACH KEY THE TWO TREES DISAGREE ABOUT. A key is listed here only where the
-# project has already written down which pass fills it; the `note` on each row is the
-# evidence a reader checks the attribution against. Anything not listed comes out under
-# UNATTRIBUTED, which is a finding and not a default.
-#
-# `mint` means the mint derives the value itself, so a difference is the mint's own
-# derivation having MOVED — the register's letter-list readings were re-read under
-# T-1115, T-1138 and T-1155 and the mint has not been run since.
-# Every other owner is a pass that runs AFTER the mint and writes over it, so a
-# difference is work a re-run would REVERT.
-OWNERS: list[tuple[str, str, str]] = [
-    ("name", "mint",
-     "the household label the mint builds out of the read name"),
-    ("persons[].name", "mint",
-     "the person name as the register prints it, which is the mint's to read"),
-    ("persons[].letter_list_only", "mint",
-     "the mint's own cohort flag"),
-    ("persons[].letter_list_returns", "mint",
-     "the dated returns of uncalled-for letters the mint counts the name in"),
-    ("arrival", "mint",
-     "the bound the mint derives from the earliest return, and nothing else writes"),
-    ("present_on_scene_date", "mint",
-     "the mint states the corpus's last dated appearance here; it moves with the returns"),
-    ("persons[].grade", "synthesize_resident_research.py / spend_ladder_rungs.py",
-     "the PROJECTED RESIDENT downgrade and the ratified ladder's rungs, both after the mint"),
-    ("persons[].note", "synthesize_resident_research.py / spend_ladder_rungs.py",
-     "the same two passes prepend their prose to the note the mint wrote"),
-    ("persons[].sources", "the resident-research passes",
-     "a corroborating source appended to the card after the mint set the list"),
-    ("persons[].occupation", "the resident-research passes",
-     "the mint writes none_recorded; a later reading fills the trade it found"),
-    ("origin", "the arrival and origin fill stage (T-1169)",
-     "written_by_stage: attribute_fill_arrival; the mint writes Not attested."),
-    ("reason_for_coming", "the arrival and origin fill stage (T-1169)",
-     "written_by_stage: attribute_fill_arrival"),
-]
-
-
+# WHO OWNS EACH KEY THE TWO TREES DISAGREE ABOUT is ruled in ONE place, the mint's own
+# KEY_OWNERS, because since T-2070 its `--check` compares on exactly that table and a
+# second copy here could only disagree with it. This report reads it for the ownership
+# column; anything no row claims comes out under UNATTRIBUTED, which is a finding and not
+# a default.
 def load_mint():
-    spec = importlib.util.spec_from_file_location("mint_letter_list_residents", MINT)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-def normalise(path: str) -> str:
-    """A leaf path with list indices flattened: persons.[0].note becomes persons[].note."""
-    return re.sub(r"\.?\[\d+\]", "[]", path)
-
-
-def owner_of(key: str) -> tuple[str, str]:
-    for prefix, owner, why in OWNERS:
-        if key == prefix or key.startswith(prefix + ".") or key.startswith(prefix + "["):
-            return owner, why
-    return "UNATTRIBUTED", "no pass in this tool's table claims this key"
-
-
-def leaves(a, b, prefix: str = "") -> list[str]:
-    """Every leaf path at which two committed documents differ."""
-    out: list[str] = []
-    if isinstance(a, dict) and isinstance(b, dict):
-        for key in sorted(set(a) | set(b)):
-            if key not in a or key not in b:
-                out.append(prefix + key)
-            elif a[key] != b[key]:
-                out += leaves(a[key], b[key], prefix + key + ".")
-        return out
-    if isinstance(a, list) and isinstance(b, list) and len(a) == len(b):
-        for index, (x, y) in enumerate(zip(a, b)):
-            if x != y:
-                out += leaves(x, y, f"{prefix}[{index}].")
-        return out
-    return [prefix.rstrip(".")]
+    return mint_module
 
 
 def person_names(module) -> dict[str, list[str]]:
@@ -129,12 +64,6 @@ def person_names(module) -> dict[str, list[str]]:
         for person in doc.get("persons", []):
             index[fold(person.get("name"))].append(path.stem)
     return index
-
-
-def fold(name) -> str:
-    """A name reduced to its bare word set, so 'Joseph Pothier' and 'Pothier, Joseph' meet."""
-    words = re.sub(r"[^a-z ]", " ", str(name or "").lower()).split()
-    return " ".join(sorted(w for w in words if len(w) > 1))
 
 
 def measure() -> dict:

@@ -1,0 +1,640 @@
+{
+ "schema": 1,
+ "ticket": "T-2070, out of T-1222",
+ "what": "The drift between tools/mint_letter_list_residents.py's derivation and the committed letter-list cards, in the keys and the membership the mint OWNS (KEY_OWNERS in that file), as it stood on 2026-10-04 when --check was first gated on it. Each row is a reading still owed, and names the ticket that owes it: T-2071 the households the mint no longer derives and the ones it re-mints under a new id, T-2072 the people it would add, T-2073 the cards whose mint-owned keys moved.",
+ "how_to_change_it": "SHRINK ONLY. Read a row, write or refuse what it describes, then run `python3 tools/mint_letter_list_residents.py --retire-ledger`, which takes off the rows whose drift no longer stands and adds none. `--check` is red on drift that is on no row, on a row whose drift no longer stands, and on a rewritten card whose ledgered keys grew. Adding a row by hand is blessing drift nobody has read: don't.",
+ "rows": [
+  {
+   "id": "hh_augustus_h_conant",
+   "class": "gained",
+   "name": "Conant Augustus H",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_bacon_richani",
+   "class": "gained",
+   "name": "Richani jr. Bacon",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_barnes_wheeler",
+   "class": "gained",
+   "name": "Wheeler Barnes",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_chester_marshall_2",
+   "class": "gained",
+   "name": "Marshall [?] Chester",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_crandall_beman",
+   "class": "gained",
+   "name": "Beman Crandall",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_crissy_william",
+   "class": "gained",
+   "name": "William Crissy",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_dickinson_alexander",
+   "class": "gained",
+   "name": "Alexander Dickinson",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_eliphalet_atkins_2",
+   "class": "gained",
+   "name": "Atkins [?] Eliphalet",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_haight_d_s",
+   "class": "gained",
+   "name": "D. S. Haight",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_julius_perrin_2",
+   "class": "gained",
+   "name": "Perrin [?] Julius",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_kerchevel_lewis",
+   "class": "gained",
+   "name": "Lewis Kerchevel",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_killigoss_isaac",
+   "class": "gained",
+   "name": "Isaac Killigoss",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_loweley_watere_e",
+   "class": "gained",
+   "name": "Watere e Loweley",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_mackel_james",
+   "class": "gained",
+   "name": "James Mackel",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_mcarty_n",
+   "class": "gained",
+   "name": "N. M'Carty",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_mdaniel_a",
+   "class": "gained",
+   "name": "A. M'Daniel",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_meriams_mary",
+   "class": "gained",
+   "name": "Mary Meriams",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_miranda_miner_2",
+   "class": "gained",
+   "name": "Miner [?] Miranda",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_monreou_john",
+   "class": "gained",
+   "name": "John Monreou",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_natta_j_v",
+   "class": "gained",
+   "name": "J. V. Natta",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_nett_robert_a",
+   "class": "gained",
+   "name": "Robert A. Nett",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_nicholson_joshua_f",
+   "class": "gained",
+   "name": "Joshua F. Nicholson",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_orisbee_edgar_i",
+   "class": "gained",
+   "name": "Edgar I.. Orisbee",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_ormshee_s_b",
+   "class": "gained",
+   "name": "S. B. Ormshee",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_osborn_b",
+   "class": "gained",
+   "name": "B. Osborn",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_pedrick_robert_c",
+   "class": "gained",
+   "name": "Robert c. Pedrick",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_peter_temple_3",
+   "class": "gained",
+   "name": "Temple [?] Peter",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_poel_green",
+   "class": "gained",
+   "name": "Green Poel",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_richey_thos_h",
+   "class": "gained",
+   "name": "Thos. H. Richey",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_root_ez_c",
+   "class": "gained",
+   "name": "Ez c. Root",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_roult_2",
+   "class": "gained",
+   "name": "Roult [?] Mr",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_sawyer_james_a",
+   "class": "gained",
+   "name": "James A. Sawyer",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_sheldon_oliveann",
+   "class": "gained",
+   "name": "Oliveann Sheldon",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_stiles_david",
+   "class": "gained",
+   "name": "David Stiles",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_swanwick_f",
+   "class": "gained",
+   "name": "F. Swanwick",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_thorn_platt",
+   "class": "gained",
+   "name": "Platt Thorn",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_timothy_b",
+   "class": "gained",
+   "name": "B. Timothy",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_vanderwerker_adam",
+   "class": "gained",
+   "name": "Adam Vanderwerker",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_vanzandt_w_2",
+   "class": "gained",
+   "name": "Vanzandt [?] W.",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_weed_sally",
+   "class": "gained",
+   "name": "Sally Weed",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_whitcomb_aaron",
+   "class": "gained",
+   "name": "Aaron Whitcomb",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_willaee_philip",
+   "class": "gained",
+   "name": "Philip Willaee",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_wrickey_thomas_h",
+   "class": "gained",
+   "name": "Thomas H. Wrickey",
+   "reader": "T-2072"
+  },
+  {
+   "id": "hh_adains_will_si",
+   "class": "lost",
+   "name": "Willisi Adains",
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_bandle_will_nm",
+   "class": "lost",
+   "name": "Willinm Bandle",
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_crisey_william",
+   "class": "lost",
+   "name": "William Crisey",
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_pease_h",
+   "class": "lost",
+   "name": "H. Pease",
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_plumer_f",
+   "class": "lost",
+   "name": "F. Plumer",
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_swena_benjam_n",
+   "class": "lost",
+   "name": "Benjamin Jr. Swena",
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_toby_samuel",
+   "class": "lost",
+   "name": "Samuel E. Toby",
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_adains_willisi",
+   "class": "re-minted",
+   "name": "Willisi Adains",
+   "already_in_the_layer_as": [
+    "hh_adains_will_si"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_bandle_willinm",
+   "class": "re-minted",
+   "name": "Willinm Bandle",
+   "already_in_the_layer_as": [
+    "hh_bandle_will_nm"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_frazer_wm_h",
+   "class": "re-minted",
+   "name": "Wm. H. Frazer",
+   "already_in_the_layer_as": [
+    "hh_fraser_wm_h"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_pease_c_h",
+   "class": "re-minted",
+   "name": "C. H. Pease",
+   "already_in_the_layer_as": [
+    "hh_pease_h"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_plumer_s_f",
+   "class": "re-minted",
+   "name": "S. F. Plumer",
+   "already_in_the_layer_as": [
+    "hh_plumer_f"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_pruvis_joshua",
+   "class": "re-minted",
+   "name": "Joshua Pruvis",
+   "already_in_the_layer_as": [
+    "hh_provis_joshua"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_salmon_rutherford_3",
+   "class": "re-minted",
+   "name": "Rutherford [?] Salmon",
+   "already_in_the_layer_as": [
+    "hh_rutherford_salmon"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_swena_benjamin",
+   "class": "re-minted",
+   "name": "Benjamin Jr. Swena",
+   "already_in_the_layer_as": [
+    "hh_swena_benjam_n"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_toby_samuel_e",
+   "class": "re-minted",
+   "name": "Samuel E. Toby",
+   "already_in_the_layer_as": [
+    "hh_toby_samuel"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_vandine_john",
+   "class": "re-minted",
+   "name": "John Vandine",
+   "already_in_the_layer_as": [
+    "hh_vandino_john"
+   ],
+   "reader": "T-2071"
+  },
+  {
+   "id": "hh_abbott_constant",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "arrival.value",
+    "persons[].letter_list_returns[]"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_ambrose_joshua",
+   "class": "rewritten",
+   "keys": [
+    "persons[].letter_list_only"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_beegle_a",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "persons[].letter_list_returns[]"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_bradford_harriet",
+   "class": "rewritten",
+   "keys": [
+    "persons[].letter_list_only"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_chapman_chas_h",
+   "class": "rewritten",
+   "keys": [
+    "persons[].letter_list_only"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_churchill_alfred",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "arrival.value",
+    "persons[].letter_list_returns"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_conte_e_w",
+   "class": "rewritten",
+   "keys": [
+    "present_on_scene_date.note"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_doty_j_d",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "persons[].letter_list_returns[]"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_easling_n_w",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "persons[].letter_list_returns[]"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_elliot_william",
+   "class": "rewritten",
+   "keys": [
+    "present_on_scene_date.note"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_fisher_h",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "persons[].letter_list_returns[]"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_fitzgerald_thos",
+   "class": "rewritten",
+   "keys": [
+    "persons[].letter_list_only"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_forster_jane",
+   "class": "rewritten",
+   "keys": [
+    "present_on_scene_date.note"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_fraser_wm_h",
+   "class": "rewritten",
+   "keys": [
+    "name",
+    "persons[].name"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_heere_anthony",
+   "class": "rewritten",
+   "keys": [
+    "present_on_scene_date.note"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_lafton_lewis",
+   "class": "rewritten",
+   "keys": [
+    "present_on_scene_date.note"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_murray_alonzo",
+   "class": "rewritten",
+   "keys": [
+    "persons[].letter_list_only"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_neff_r_a",
+   "class": "rewritten",
+   "keys": [
+    "persons[].letter_list_only"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_orsemus_morrison",
+   "class": "rewritten",
+   "keys": [
+    "arrival.confidence",
+    "arrival.note",
+    "arrival.precision",
+    "arrival.sources[]",
+    "arrival.value"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_palmer_n_h",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "arrival.value",
+    "persons[].letter_list_returns[]",
+    "present_on_scene_date.last_dated_appearance",
+    "present_on_scene_date.note",
+    "present_on_scene_date.value"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_provis_joshua",
+   "class": "rewritten",
+   "keys": [
+    "name",
+    "persons[].name"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_simons_e",
+   "class": "rewritten",
+   "keys": [
+    "persons[].letter_list_only"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_stout_samuel",
+   "class": "rewritten",
+   "keys": [
+    "arrival.note",
+    "arrival.value",
+    "persons[].letter_list_returns"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_teal_william",
+   "class": "rewritten",
+   "keys": [
+    "present_on_scene_date.note"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_vandino_john",
+   "class": "rewritten",
+   "keys": [
+    "name",
+    "persons[].name"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_wilson_john",
+   "class": "rewritten",
+   "keys": [
+    "present_on_scene_date.note"
+   ],
+   "reader": "T-2073"
+  },
+  {
+   "id": "hh_woodworth_james_h",
+   "class": "rewritten",
+   "keys": [
+    "arrival.confidence",
+    "arrival.note",
+    "arrival.precision",
+    "arrival.sources[]",
+    "arrival.value"
+   ],
+   "reader": "T-2073"
+  }
+ ]
+}
