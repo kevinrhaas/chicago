@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1445, ts: '2026-10-04T20:52:58.465Z', date: 'Oct 4, 2026, 3:52 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
+  { v: null, ts: '', title: 'Turning, walking and flying stutter less', kind: 'fix',
     items: [
       'The grass and flowers around you used to cost a long pause each time you turned a little or walked a step further. That pause is now about half as long, and the plants stand exactly where they did.',
       'On a slowed-down phone at Light detail, a slow turn now drops below 50 ms per frame for most of its steps. The worst frame of a turn fell from 127 ms to 70 ms, of a flight from 108 ms to 56 ms, and of a walk from 47 ms to 34 ms.',
       'On a desktop at Full detail, the worst pause in a turn fell from 70 ms to under 40 ms.',
       'More of the lag is still being worked on: the next step spreads this work over several frames, so no single frame has to wait for it.',
+    ] },
+  { v: 1445, ts: '2026-10-04T20:41:19.184Z', date: 'Oct 4, 2026, 3:41 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+    items: [
+      'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
+      'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
+      'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
+      'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
     ] },
   { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
     items: [
