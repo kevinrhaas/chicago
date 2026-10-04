@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
+  { v: 1435, ts: '2026-10-04T16:19:37.231Z', date: 'Oct 4, 2026, 11:19 AM CT', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
     items: [
       'Step into the Western Hotel\'s wagon yard or a pound and the ground is now the same worn dirt as the road outside, grain and all, lit by the sun, where it used to be a blurry print of squares.',
       'The kept green in the town\'s gardens and dooryards shows short blades in clumps, the same grass as the prairie but cropped, and the garden beds carry the soil\'s grain over their rows.',
