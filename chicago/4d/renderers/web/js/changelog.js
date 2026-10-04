@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1430, ts: '2026-10-04T14:43:03.044Z', date: 'Oct 4, 2026, 9:43 AM CT', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
+    items: [
+      'Walk into a back yard, along a road or up to a shop front anywhere in the town: the waist-high prairie grass and tall flowers are gone, and the ground is the short, grazed, dusty turf of a lived-in town.',
+      'The town\u2019s ground now reaches 50 metres past every laid-out block and every building, the edge of the grazed ground the town\u2019s pigs and cattle kept short. Before, it covered only the few buildings around the forks.',
+      'Prairie still begins at the edge of town. The beach and the slough in the public square keep their own plants, and the trees, gardens and planted rows are where they were.',
+      'The town is lighter to draw: in a back yard on Washington Street the grass and flowers now cost less than half what they did, at every Scene detail setting.',
+    ] },
   { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',

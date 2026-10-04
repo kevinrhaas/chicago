@@ -1,3 +1,26 @@
+## T-2091 — the settled town's ground, derived over every built block (2026-10-04)
+
+The first piece of the owner's T-2084 ("the town stands in wet prairie"). `z10_settled_town`'s
+extent was a hand-drawn polygon around the eight buildings the scene placed when it was drawn;
+on 2026-10-04 it held 19 of the 560 placed structures and every other lot stood in wet or mesic
+prairie. `tools/derive_settled_town_extent.py` now derives it — the plat's 78 blocks, the
+footprints of the 544 structures standing on 1835-07-01 and the old forks polygon as a seed,
+grown by the dossier's 50 m grazed halo — and `check.sh` refuses a hand edit or a district built
+without re-running it (the tool is in the derived manifest, before the dooryard plantings that
+count against its polygon). 541 of 544 standing structures are inside; the three outside are
+named by the tool with their reasons (the estray pen and the log jail in the public square,
+which z03 keeps as slough; Kelsey's boarding house inside the beach band z08 keeps).
+
+**Measured, and only at 1280x800**: at the three new in-town poses (`--town` in
+`measure_detail_ceilings.mjs`) the flora group's triangles fall at every tier — the back yard
+at `full` from 545,853 to 252,893 — and no draw-call count rises
+(`docs/measurements/settled-town-ground.md`). **Not measured**: 390x780, T-0135's five stands,
+the phone heap and the before/after captures; those are T-2092. The trees do not read this
+extent (trees.js places timber from the heightfield and asks the zone classifier only for the
+dune), so they cannot have moved; no stem count was taken. The street corridors are inside the
+town wherever they run between blocks; of 79 streets, 26 lie wholly on town ground, 35 leave it
+as country roads, and 18 never reach it.
+
 ## T-1740 — the drawer follows the scene's layers list (2026-10-04)
 
 **What a visitor sees:** at /4d/1904/ the drawer rail is Go to, Travel, Evidence,
