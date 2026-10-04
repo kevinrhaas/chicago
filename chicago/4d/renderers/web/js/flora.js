@@ -1056,12 +1056,14 @@ const GRASS_SHAPE = {
  * @param {object} o  dataBase (data/ root) · terrain (createTerrain's return) ·
  *   footprints (nothing grows through a wall) · growthBlocked (a narrow dated
  *   travelway clears plants, without clearing its whole legal corridor) ·
+ *   verge (T-2094: where in an opened street's corridor a point stands, so a
+ *   turf community's tall plants give way there — see `trodden`) ·
  *   confidence (every material is patched into it) · problems (the shared
  *   collector) · lowSpec (touch/mobile)
  */
 export async function createFlora({
   checkpoint = () => null,
-  dataBase, terrain, footprints = [], growthBlocked = () => false,
+  dataBase, terrain, footprints = [], growthBlocked = () => false, verge = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
 } = {}) {
   const group = new THREE.Group();
@@ -1339,6 +1341,33 @@ export async function createFlora({
     'flora-forb': rings.forb, 'flora-rosette': rings.forb, 'flora-shrub': rings.forb,
   };
 
+  /**
+   * T-2094 — A STREET'S VERGE IN TOWN IS CROPPED TO THE TOWN'S OWN TURF.
+   *
+   * Inside an opened street's corridor, a plant of a turf community taller than
+   * that community's own low layer (`turfCeiling`, the tallest of its matrix and
+   * ground species: Poa, plantain, knotweed and clover to 0.25 m today) has no
+   * station: not on the worked roadway, and not on the verge between it and the
+   * lot line, where hooves, wheels pulling out to pass and feet crop it. The
+   * number is the record's, not this module's, so a re-reading of the zone
+   * moves it with nothing here to edit.
+   *
+   * A FEW WEEDS ARE KEPT, where nothing treads: in the last VERGE_KEEP_M of the
+   * corridor at the lot line, or at the street edge of a plank walk that stands
+   * there, in patches one VERGE_CELL_M cell wide that a positional hash keeps at
+   * VERGE_KEEP_SHARE. Positional, so a re-centred lattice keeps the same tufts,
+   * and patchy, because a dock at a post base is a clump and not an even
+   * dusting. All three are reconstructed (L327, revised for T-2094).
+   */
+  function trodden(e, n, zone, species) {
+    if (!zone?.turfCeiling || !species?.height || species.height[1] <= zone.turfCeiling) return false;
+    const at = verge(e, n);
+    if (!at) return false;
+    if (at.band !== 'verge' || at.edgeM > VERGE_KEEP_M) return true;
+    return hash3(Math.floor(e / VERGE_CELL_M), Math.floor(n / VERGE_CELL_M), 0x2094) / 4294967296
+      >= VERGE_KEEP_SHARE;
+  }
+
   /** A community that stands in no water, for the plantable-ground question the
    *  gate asks without naming a species. */
   const NO_COMMUNITY = { standsInWater: false };
@@ -1348,6 +1377,7 @@ export async function createFlora({
    *  lattice slot to choose which half of the community it may pick from. */
   function station(e, n, zone, species, wet = water.isWater(e, n)) {
     if (growthBlocked(e, n)) return null;
+    if (trodden(e, n, zone, species)) return null;
     // THE FLOOR TEST COMES BEFORE THE WATER TEST, and the order is the bug it
     // fixes. This block-list rejection used to sit below the `wet` early return,
     // so it only ever governed DRY ground - and every deck standing over water
@@ -2745,6 +2775,10 @@ function compileZones({ index, files }, terrain, problems, stats) {
       /** Every drawn species of this community by id, so a gate can ask the
        *  placer about one by name. */
       byId: new Map([...graminoids, ...forbs, ...shrubs].map((s) => [s.id, s])),
+      /** T-2094. How tall the turf's own low layer grows — the tallest matrix
+       *  or ground species — which is the height a trodden verge is cropped to
+       *  (`trodden`). Null off the turf communities. */
+      turfCeiling: isTurfCommunity(rec) ? turfCeilingOf([...graminoids, ...forbs]) : null,
       /** Chance a matrix lattice slot is used at all: the record's own
        *  `cover.matrix_fraction`. Clamped only because a fraction over 1 would
        *  be a bookkeeping error the validator already refuses. */
@@ -3521,6 +3555,23 @@ function smoothstep(lo, hi, x) {
   if (!(hi > lo)) return x >= hi ? 1 : 0;
   const t = Math.min(1, Math.max(0, (x - lo) / (hi - lo)));
   return t * t * (3 - 2 * t);
+}
+
+/**
+ * T-2094 — the trodden verge's kept weeds (`trodden`): within this far of the
+ * corridor's edge, one VERGE_CELL_M cell in VERGE_KEEP_SHARE keeps its tall
+ * plants. 2.6 m is a plank walk (1.83 m) and its 0.2 m clearance standing at
+ * the lot line, plus the half metre at its street edge a boot does not reach.
+ */
+const VERGE_KEEP_M = 2.6;
+const VERGE_CELL_M = 1.5;
+const VERGE_KEEP_SHARE = 0.22;
+
+/** T-2094. The tallest recorded height of a community's low layer. */
+function turfCeilingOf(species) {
+  const low = species.filter((sp) => (sp.role === 'matrix' || sp.role === 'ground')
+    && Array.isArray(sp.height));
+  return low.length ? Math.max(...low.map((sp) => sp.height[1])) : null;
 }
 
 /** Deterministic hash -> a repeatable per-slot random stream, so re-centring

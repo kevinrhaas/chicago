@@ -1985,6 +1985,9 @@ async function boot() {
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
   const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
+  // T-2094. Past the cleared track the rest of an opened street's corridor is
+  // trodden: flora.js crops a turf community's tall plants there to the turf's
+  // own height (`streets.verge` says where; the zone record says how tall).
 
   let floraUnits = 0, floraDone = 0, treeDone = 0;
   const plantingProgress = (done, total) => {
@@ -1995,7 +1998,7 @@ async function boot() {
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-    growthBlocked: swardBlocked,
+    growthBlocked: swardBlocked, verge: streets.verge,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
@@ -2060,7 +2063,7 @@ async function boot() {
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-          growthBlocked: swardBlocked,
+          growthBlocked: swardBlocked, verge: streets.verge,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
@@ -2161,7 +2164,7 @@ async function boot() {
       flora.dispose?.();
       flora = await createFlora({
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-        growthBlocked: swardBlocked,
+        growthBlocked: swardBlocked, verge: streets.verge,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);
