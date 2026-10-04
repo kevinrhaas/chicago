@@ -4,6 +4,7 @@
  *   node tools/measure_still_frame.mjs [--source] [--year 1835|1812|1904]
  *        [--only desktop|mobile|both] [--tiers full,balanced,light]
  *        [--stands a,b] [--sharpness 1,1.5,2] [--attribute | --attribute-at id]
+ *        [--probe] [--capture dir]
  *        [--frames N] [--warmup N] [--throttle N] [--json out.json]
  *
  * The owner, 2026-10-04: "that lag is all over not just walking". T-2096 owns the
@@ -77,6 +78,12 @@ const argAt = (name) => {
 const list = (name, dflt) => (argAt(name) || dflt).split(',').filter(Boolean);
 const wantSource = process.argv.includes('--source');
 const attribute = process.argv.includes('--attribute');
+// `--probe` (T-2110): trees and the ground, each drawn alone as shipped and then
+// with a cheaper material swapped in — see PROBES in the page below.
+const probe = process.argv.includes('--probe');
+// `--capture dir` writes each row's whole frame as a PNG, read in the same task
+// as its draw — the picture a shader change must not move (T-2110).
+const captureDir = argAt('--capture');
 // `--attribute-at id` attributes at that one stand and only times the rest.
 const attributeAt = argAt('--attribute-at');
 const jsonOut = argAt('--json');
@@ -171,7 +178,7 @@ for (const vp of VIEWPORTS) {
     await cdp.send('Emulation.setCPUThrottlingRate', { rate: THROTTLE });
   }
   const seen = await page.evaluate(async ({ stands, tiers, frames, warmup, sharpness,
-    attribute, attributeAt, label }) => {
+    attribute, attributeAt, probe, capture, label }) => {
     const a = window.__chicago4d;
     const r = a.renderer;
     r.setAnimationLoop(null);
@@ -250,6 +257,66 @@ for (const vp of VIEWPORTS) {
         return () => { for (const [m, t] of glass) m.transmission = t; };
       },
     };
+    // T-2110's variants. `make(material)` returns the material to draw instead,
+    // or null to leave that one alone; `swapIn` puts the shipped ones back.
+    // The page's own three, through its import map: the same module instance the
+    // scene was built with, so a swapped material is one the renderer knows.
+    const THREE_ = probe ? await import('three').catch(() => null) : null;
+    const swapIn = (layer, make) => {
+      const undo = [];
+      layer.traverse((o) => {
+        if (!o.isMesh || !o.material || Array.isArray(o.material)) return;
+        const next = make(o.material);
+        if (!next) return;
+        // A function is an in-place tweak's own undo; a material is a swap.
+        if (typeof next === 'function') { undo.push([o, null, next]); return; }
+        undo.push([o, o.material]);
+        o.material = next;
+      });
+      if (!undo.length) return null;
+      return () => {
+        for (const [o, m, back] of undo) {
+          if (back) { back(); continue; }
+          if (m !== o.material) o.material.dispose?.();
+          o.material = m;
+        }
+      };
+    };
+    const own = (m, patch) => { const c = m.clone(); patch(c); c.needsUpdate = true; return c; };
+    const ground = (m) => !!m.userData?.groundTex;
+    const PROBES = {
+      trees: {
+        // The bump reads the atlas three more times a fragment, and on a leaf
+        // card the patch keeps 3.5 % of what it bends.
+        'no bump': (m) => (m.bumpMap ? own(m, (c) => { c.bumpMap = null; }) : null),
+        // Lambert: one diffuse term, no GGX, the same cut-out.
+        'lambert, same cut-out': (m) => (m.isMeshStandardMaterial && THREE_
+          ? new THREE_.MeshLambertMaterial({ map: m.map, alphaTest: m.alphaTest, side: m.side,
+            vertexColors: m.vertexColors }) : null),
+        // The floor: the same cards cut the same way, no light at all.
+        'unlit, same cut-out': (m) => (m.isMeshStandardMaterial && THREE_
+          ? new THREE_.MeshBasicMaterial({ map: m.map, alphaTest: m.alphaTest, side: m.side,
+            vertexColors: m.vertexColors }) : null),
+      },
+      terrain: {
+        // The turf chunk's eight value noises run only inside its mask's box; an
+        // empty box (zero scale) is the ground with no turf anywhere.
+        'no turf': (m) => {
+          const box = ground(m) && r.properties.get(m)?.uniforms?.uTurfBox;
+          if (!box) return null;
+          const was = box.value.clone();
+          box.value.set(0, 0, 0, 0);
+          return () => box.value.copy(was);
+        },
+        // The same light model with none of the ground's own chunks: what the
+        // prairie, sward, zone and turf GLSL cost on top of a lit plain.
+        'lit, no ground chunks': (m) => (ground(m) && THREE_
+          ? new THREE_.MeshStandardMaterial({ color: 0x7a8a4a, roughness: 1, metalness: 0 })
+          : null),
+        'unlit': (m) => (ground(m) && THREE_
+          ? new THREE_.MeshBasicMaterial({ color: 0x7a8a4a }) : null),
+      },
+    };
     const dpr = window.devicePixelRatio || 1;
     const ratioWas = r.getPixelRatio();
     const rows = [];
@@ -264,6 +331,7 @@ for (const vp of VIEWPORTS) {
           const whole = time();
           const row = { level, stand: st.id, sharpness: q, pixelRatio: r.getPixelRatio(),
                         ...round(whole) };
+          if (capture) { a.step(); row.png = r.domElement.toDataURL('image/png'); }
           if (attribute || st.id === attributeAt) {
             // EACH LAYER ALONE, against the frame with every layer hidden. A
             // subtraction from the whole frame (the triangle tools' method) costs a
@@ -305,7 +373,83 @@ for (const vp of VIEWPORTS) {
                 triangles: whole.triangles - other.triangles, calls: whole.calls - other.calls });
             }
           }
-          console.log(`still-frame ${label} ${JSON.stringify(row)}`);
+          if (probe) {
+            // T-2110. WHAT A CHEAPER SHADER COULD WIN, layer by layer: the layer
+            // drawn alone as shipped, then with each variant swapped onto its
+            // meshes. A variant is a ceiling on a saving, not a proposal — the
+            // unlit ones draw a different picture on purpose, to price the
+            // lighting and the custom chunks apart from the cover and the fill.
+            row.probe = {};
+            const layers = a.scene3d.children.filter((c) => c.name && c.name !== 'sky'
+              && !c.isLight && c.visible);
+            for (const layer of layers) layer.visible = false;
+            settle();
+            const empty = time();
+            for (const [name, variants] of Object.entries(PROBES)) {
+              const layer = layers.find((l) => l.name === name);
+              if (!layer) continue;
+              layer.visible = true;
+              settle();
+              const shipped = time();
+              const out = { shipped: round({ frame: shipped.frame - empty.frame,
+                triangles: shipped.triangles - empty.triangles }) };
+              for (const [vname, make] of Object.entries(variants)) {
+                const undo = swapIn(layer, make);
+                if (!undo) continue;
+                settle();
+                const v = time();
+                undo();
+                out[vname] = round({ frame: v.frame - empty.frame,
+                  triangles: v.triangles - empty.triangles,
+                  saves: shipped.frame - v.frame });
+              }
+              settle();
+              layer.visible = false;
+              if (name === 'terrain') {
+                // How many substrate zones the ground's fragment tests, each one
+                // a ramped extent in the chunk `zoneGlsl` writes.
+                layer.traverse((o) => { if (o.material?.userData?.substrateZones) {
+                  out.zones = o.material.userData.substrateZones.length; } });
+              }
+              row.probe[name] = out;
+            }
+            for (const layer of layers) layer.visible = true;
+            settle();
+            // DRAWN LAST: the same frame with one layer sorted after every other
+            // opaque thing, so a fragment something nearer already covers fails
+            // the depth test instead of being shaded and painted over. Timed on
+            // the WHOLE frame, and its pixels compared with the shipped frame's.
+            const grab = () => {
+              a.step();
+              const w = gl.drawingBufferWidth; const h = gl.drawingBufferHeight;
+              const b = new Uint8Array(w * h * 4);
+              gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, b);
+              return b;
+            };
+            const base = time();
+            const basePx = grab();
+            row.probe.order = { shipped: round({ frame: base.frame }) };
+            for (const name of Object.keys(PROBES)) {
+              const layer = layers.find((l) => l.name === name);
+              if (!layer) continue;
+              const was = layer.renderOrder;
+              layer.renderOrder = 10;
+              settle();
+              const v = time();
+              const px = grab();
+              layer.renderOrder = was;
+              let changed = 0; let most = 0;
+              for (let i = 0; i < px.length; i += 4) {
+                const d = Math.max(Math.abs(px[i] - basePx[i]), Math.abs(px[i + 1] - basePx[i + 1]),
+                  Math.abs(px[i + 2] - basePx[i + 2]));
+                if (d) { changed++; if (d > most) most = d; }
+              }
+              row.probe.order[`${name} last`] = round({ frame: v.frame, saves: base.frame - v.frame,
+                pixelsChanged: changed / (px.length / 4), mostLevels: most });
+            }
+            settle();
+          }
+          console.log(`still-frame ${label} ${JSON.stringify({ ...row, png: undefined })}`);
           rows.push(row);
           if (q !== null) { r.setPixelRatio(ratioWas); }
         }
@@ -313,7 +457,17 @@ for (const vp of VIEWPORTS) {
     }
     return { device, timerQuery, dpr, lowSpecShadows: shadowTypeWas !== 2, rows };
   }, { stands: STANDS, tiers: TIERS, frames: FRAMES, warmup: WARMUP, sharpness: SHARPNESS,
-       attribute, attributeAt, label: vp.label });
+       attribute, attributeAt, probe, capture: !!captureDir, label: vp.label });
+  if (captureDir) {
+    fs.mkdirSync(captureDir, { recursive: true });
+    for (const row of seen.rows) {
+      if (!row.png) continue;
+      const name = `${vp.mobile ? 'phone' : 'desktop'}-${YEAR}-${row.level}-${row.stand}`
+        + `${row.sharpness ? `-px${row.sharpness}` : ''}.png`;
+      fs.writeFileSync(path.join(captureDir, name), Buffer.from(row.png.split(',')[1], 'base64'));
+      delete row.png;
+    }
+  }
   passes.push({ viewport: vp.label, ...seen, errors });
   await ctx.close();
 }
