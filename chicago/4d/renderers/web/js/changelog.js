@@ -6,6 +6,14 @@ export const CHANGELOG = [ // newest first
       'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
       'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
     ] },
+  { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+    items: [
+      'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
+      'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
+      'Held sideways, Starting At\u2026 now scrolls instead of drawing Tap to enter Chicago over the list of places.',
+      'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
+      'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
+    ] },
   { v: 1428, ts: '2026-10-04T12:42:37.866Z', date: 'Oct 4, 2026, 7:42 AM CT', title: 'Nothing you can see: the house-seating passes rebuild with the rest', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
