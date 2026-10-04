@@ -1,10 +1,27 @@
 export const CHANGELOG = [ // newest first
-  { v: 1399, ts: '2026-10-04T04:17:33.029Z', date: 'Oct 3, 2026, 11:17 PM CT', title: 'The first Fort Dearborn stands in an 1812 view', kind: 'feature',
+  { v: 1402, ts: '2026-10-04T05:01:49.654Z', date: 'Oct 4, 2026, 12:01 AM CT', title: 'The first Fort Dearborn stands in an 1812 view', kind: 'feature',
     items: [
       'Open the 1812 door on the front page: it now shows the first Fort Dearborn as it stood in the summer of 1812, two weeks before it was evacuated and burned. Until now that door said the year was still being surveyed.',
       'You see the double row of pickets, the two blockhouses at opposite corners, the four barracks ranges facing the parade, the brick magazine, two small houses and the 75-foot flagstaff. Their plans come from the drawing the fort\u2019s commander made in 1808. Their heights and roofs are our reconstruction (liberty L370).',
       'The fort stands on the same ground as the 1835 fort, on the river and shore as they were before the harbour was cut. Its plan is turned to face north as the 1808 drawing implies, not borrowed from the later fort.',
       'The 1812 view and the 1835 view can never show both forts at once. No people are shown in 1812: the history of that August is still under review.',
+    ] },
+  { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
+    items: [
+      'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
+      'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',
+      'Every one of these people is our reconstruction, not a record. No source names them, and none says these men married.',
+    ] },
+  { v: 1400, ts: '2026-10-04T04:29:40.593Z', date: 'Oct 3, 2026, 11:29 PM CT', title: 'The 1835 town opens on an iPhone again', kind: 'fix',
+    items: [
+      'On a phone, opening 1835 could close the browser tab before the town appeared, because the page held far more memory than a phone allows. It now uses about a third as much once the town has loaded, and the town itself is unchanged.',
+      'The extra memory was left over from laying the plank walks, fences, trees and yard goods, which was kept after those pieces had been built.',
+    ] },
+  { v: 1399, ts: '2026-10-04T04:12:17.062Z', date: 'Oct 3, 2026, 11:12 PM CT', title: 'Nothing you can see: rebuilding the research no longer stops half-finished', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a change adds or moves residents, the tool that rebuilds the town\u2019s derived research now finishes the job by itself. Before, it left the population model one step behind the people it counts, and someone had to rebuild that model by hand before the checks would pass.',
+      'It now rebuilds the model before it re-draws when people arrived, and it re-runs the scene until nothing more changes. On a test that reproduced the fault, the rebuild now matches the published town byte for byte.',
     ] },
   { v: 1398, ts: '2026-10-04T03:54:13.850Z', date: 'Oct 3, 2026, 10:54 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
     items: [

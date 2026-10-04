@@ -33,6 +33,33 @@ title: the register reads the Factors House and the House in Factors Dept. as `n
 the agent's and interpreter's houses, the stables and the gardens as drawn "without any Regular
 rule" (`sheet_only`), so the draught does not place any of them to scale. They are T-2062 rather
 than placed by eye.
+## T-2021 — the married houses no woman in the town fits, ruled on (2026-10-03)
+
+**What a visitor sees:** 156 married houses in the People directory now hold the wife and children
+the household model drew for them (508 people), and 121 stand alone with a card that says why.
+
+- **The ruling.** In a seeded order, each of the 277 refused houses is given the whole family this
+  stage drew for it and refused, while the town the order book converges to stays at or under
+  3,265 AND the under-ten share at or under the model's 0.2702. The walk stops at the first house
+  either bound refuses (a prefix, never a packing). It stopped at house 157 on the under-ten
+  bracket. Frozen in `data/reconstruction/1835_family_ruling.json`.
+- **Measured:** town converges 2,605 → 3,113; under-ten share 0.1894 → 0.2699; adult sex ratio
+  435.4 → 282.4 (the model's 120.9–150.0 is still not met, and the measurement says why).
+- **The book** orders exactly the ruling's cells (`ordered_by_the_family_ruling`), filled under
+  T-2021, counted apart from the re-cut. The family rows still owed name **T-2043**.
+- **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
+  past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
+  re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first
+  initial: a drawn child displacing a read man. The ruling now also steps past the initial of every
+  roster name that stage mints (six of its 508 forenames moved; 121 re-admissions stand, as before).
+  The boarders lose three: the ruling seats seven more people in lodging places before that stage
+  deals, Edward Haddock's family now fills the Mansion House, whose lodging card retires, and one
+  keeper's child is refused for the name pool (L252 restated, 150 in 23 to 147 in 22).
+- **How it was re-derived.** Seven stages the rebuild manifest does not list (re-admissions,
+  transients, Native and Metis, church register, boarders, the staffing join's three tools, door
+  aprons) were rebuilt by hand around two `rederive.mjs --run` passes until a further pass changed
+  nothing; nine structures whose occupancy moved were rebaked with `bake.sh --only`.
+
 ## T-2035 / T-2037 / T-2038 — continuous vegetation and distant plankwalks
 
 PR #364 addresses the owner's walking/flying plant pop-in, wild shrub rows and

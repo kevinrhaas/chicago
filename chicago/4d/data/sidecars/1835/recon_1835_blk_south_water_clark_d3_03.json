@@ -90,7 +90,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'older_frontier'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "plan": {
       "value": "single_pen",
@@ -243,22 +243,22 @@
     "stands_on": "street",
     "fronts": "lake",
     "sequence": 3,
-    "finish_key": "mixed_patch",
+    "finish_key": "weathered_timber",
     "roof_condition": "patched",
-    "age_state": "older_frontier",
+    "age_state": "established",
     "fabric_basis": {
       "rule": "F-L",
       "class": "labourer",
       "by": "keeper_trade",
       "household": "hh_bonn_augustin",
-      "words": "patched clapboard on a braced frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a patched roof — The Bonn household's, a laundress, in Chicago since 1830 (rule F-L)"
+      "words": "silvered clapboard on a braced frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a patched roof — The Bonn household's, a laundress, in Chicago since 1833 (rule F-L)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "labourer",
-    "age_state": "older_frontier",
-    "weather_years": 5.0,
+    "age_state": "established",
+    "weather_years": 2.5,
     "weather_rate": 1.0,
     "lay_m": 0.008,
     "confidence": "reconstructed"
