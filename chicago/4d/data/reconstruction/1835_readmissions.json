@@ -104,10 +104,10 @@
    "class": "R1_in_window_uncertain",
    "household_id": "hh_abbott_constant",
    "name_as_read": "Constant Abbott",
-   "dated_evidence": "1834-04-01",
-   "dated_evidence_read_as": "1834-04-01",
-   "years_before_the_scene": 1.2485,
-   "persistence": 0.9237,
+   "dated_evidence": "1834-03-04",
+   "dated_evidence_read_as": "1834-03-04",
+   "years_before_the_scene": 1.3251,
+   "persistence": 0.9192,
    "seed": "hh_abbott_constant:persistence",
    "present_on_scene_date": {
     "value": "present",
@@ -116,7 +116,7 @@
     "basis": {
      "kind": "model",
      "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-04-01, 1.25 years before the scene date, and says nothing after it. The persistence model gives 0.924 for that lag; the draw seeded on this household reads present."
+     "note": "The corpus last names this person on 1834-03-04, 1.33 years before the scene date, and says nothing after it. The persistence model gives 0.919 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_abbott_constant:persistence",
     "replaceable_by": {
@@ -1756,10 +1756,10 @@
    "class": "R1_in_window_uncertain",
    "household_id": "hh_beegle_a",
    "name_as_read": "A. Beegle",
-   "dated_evidence": "1834-07-16",
-   "dated_evidence_read_as": "1834-07-16",
-   "years_before_the_scene": 0.9583,
-   "persistence": 0.9409,
+   "dated_evidence": "1834-07-09",
+   "dated_evidence_read_as": "1834-07-09",
+   "years_before_the_scene": 0.9774,
+   "persistence": 0.9398,
    "seed": "hh_beegle_a:persistence",
    "present_on_scene_date": {
     "value": "present",
@@ -1768,7 +1768,7 @@
     "basis": {
      "kind": "model",
      "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-07-16, 0.96 years before the scene date, and says nothing after it. The persistence model gives 0.941 for that lag; the draw seeded on this household reads present."
+     "note": "The corpus last names this person on 1834-07-09, 0.98 years before the scene date, and says nothing after it. The persistence model gives 0.940 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_beegle_a:persistence",
     "replaceable_by": {
@@ -5928,10 +5928,10 @@
    "class": "R1_in_window_uncertain",
    "household_id": "hh_doty_j_d",
    "name_as_read": "J. D. Doty",
-   "dated_evidence": "1834-07-16",
-   "dated_evidence_read_as": "1834-07-16",
-   "years_before_the_scene": 0.9583,
-   "persistence": 0.9409,
+   "dated_evidence": "1834-07-09",
+   "dated_evidence_read_as": "1834-07-09",
+   "years_before_the_scene": 0.9774,
+   "persistence": 0.9398,
    "seed": "hh_doty_j_d:persistence",
    "present_on_scene_date": {
     "value": "present",
@@ -5940,7 +5940,7 @@
     "basis": {
      "kind": "model",
      "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-07-16, 0.96 years before the scene date, and says nothing after it. The persistence model gives 0.941 for that lag; the draw seeded on this household reads present."
+     "note": "The corpus last names this person on 1834-07-09, 0.98 years before the scene date, and says nothing after it. The persistence model gives 0.940 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_doty_j_d:persistence",
     "replaceable_by": {
@@ -6516,10 +6516,10 @@
    "class": "R1_in_window_uncertain",
    "household_id": "hh_easling_n_w",
    "name_as_read": "N. W. Easling",
-   "dated_evidence": "1834-07-16",
-   "dated_evidence_read_as": "1834-07-16",
-   "years_before_the_scene": 0.9583,
-   "persistence": 0.9409,
+   "dated_evidence": "1834-07-09",
+   "dated_evidence_read_as": "1834-07-09",
+   "years_before_the_scene": 0.9774,
+   "persistence": 0.9398,
    "seed": "hh_easling_n_w:persistence",
    "present_on_scene_date": {
     "value": "present",
@@ -6528,7 +6528,7 @@
     "basis": {
      "kind": "model",
      "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-07-16, 0.96 years before the scene date, and says nothing after it. The persistence model gives 0.941 for that lag; the draw seeded on this household reads present."
+     "note": "The corpus last names this person on 1834-07-09, 0.98 years before the scene date, and says nothing after it. The persistence model gives 0.940 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_easling_n_w:persistence",
     "replaceable_by": {
@@ -6992,10 +6992,10 @@
    "class": "R1_in_window_uncertain",
    "household_id": "hh_fisher_h",
    "name_as_read": "H. Fisher",
-   "dated_evidence": "1834-07-16",
-   "dated_evidence_read_as": "1834-07-16",
-   "years_before_the_scene": 0.9583,
-   "persistence": 0.9409,
+   "dated_evidence": "1834-07-09",
+   "dated_evidence_read_as": "1834-07-09",
+   "years_before_the_scene": 0.9774,
+   "persistence": 0.9398,
    "seed": "hh_fisher_h:persistence",
    "present_on_scene_date": {
     "value": "present",
@@ -7004,7 +7004,7 @@
     "basis": {
      "kind": "model",
      "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-07-16, 0.96 years before the scene date, and says nothing after it. The persistence model gives 0.941 for that lag; the draw seeded on this household reads present."
+     "note": "The corpus last names this person on 1834-07-09, 0.98 years before the scene date, and says nothing after it. The persistence model gives 0.940 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_fisher_h:persistence",
     "replaceable_by": {
