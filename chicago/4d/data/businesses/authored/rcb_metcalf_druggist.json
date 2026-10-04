@@ -1,7 +1,7 @@
 {
   "id": "rcb_metcalf_druggist",
   "register_id": null,
-  "name": "Nathaniel Metcalf, drugs, medicines and dye stuffs",
+  "name": "George Metcalf, drugs, medicines and dye stuffs",
   "provenance": "reconstructed",
   "type": [
     "druggist"
@@ -14,14 +14,14 @@
   "firm_styles": [],
   "proprietors": [
     {
-      "name": "Nathaniel Metcalf",
-      "person_id": "rc_metcalf_nathaniel",
+      "name": "George Metcalf",
+      "person_id": "rc_metcalf_george",
       "register_person_id": null,
       "role": "proprietor",
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "ADOPTED, NOT MINTED. Nathaniel Metcalf is the reconstructed trade head the resident band's `trade_households` stage drew at druggist in the north division (slot trade_households:persons/male/20_29/north/family/trade:druggist:012), and that card says itself that the business band adopts these heads rather than minting its own. One quota, filled once: this house is the establishment that head keeps.",
+      "basis": "ADOPTED, NOT MINTED. George Metcalf is the reconstructed trade head the resident band's `trade_households` stage drew at druggist in the north division (slot trade_households:persons/male/20_29/north/family/trade:druggist:012), and that card says itself that the business band adopts these heads rather than minting its own. One quota, filled once: this house is the establishment that head keeps.",
       "source_id": null,
       "claim_ids": []
     }
@@ -57,11 +57,11 @@
     "value": "yankee",
     "tier": "reconstructed",
     "rule": "proprietors_agree",
-    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Nathaniel Metcalf (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: George Metcalf (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
     "from": [
       {
-        "person_id": "rc_metcalf_nathaniel",
-        "name": "Nathaniel Metcalf",
+        "person_id": "rc_metcalf_george",
+        "name": "George Metcalf",
         "role": "proprietor",
         "community": "yankee",
         "tier": "reconstructed"

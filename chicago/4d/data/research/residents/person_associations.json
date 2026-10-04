@@ -14,12 +14,12 @@
     "persons_gaining_rows": 0,
     "rows_proposed": 0,
     "rows_by_kind": {},
-    "refusals": 329,
+    "refusals": 330,
     "refusals_by_kind": {
       "agency_held": 2,
       "church": 183,
       "civic_seat": 46,
-      "land_purchased": 91,
+      "land_purchased": 92,
       "school": 7
     },
     "rows_already_held": 76
@@ -2555,6 +2555,12 @@
       "person_id": "hunter_edward_e",
       "purchaser_as_read": "HUNTER E E",
       "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "barnes_wheeler",
+      "purchaser_as_read": "BARNES WHEELER",
+      "why": "The crosswalk's match is unruled, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
     },
     {
       "kind": "land_purchased",

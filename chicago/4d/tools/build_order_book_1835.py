@@ -78,6 +78,7 @@ import copy
 import json
 import re
 import sys
+import tempfile
 from collections import Counter
 from pathlib import Path
 
@@ -2927,6 +2928,29 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                 b.get("drawn_here", b.get("to_reconstruct", b.get("to_build"))))
             for fam in json.loads(BOOK.read_text(encoding="utf-8"))["bucket_families"]
             for b in fam["buckets"]}
+    # AND THE ORDER A LANDED MOVE FILLED, WHICH `drawn_here` CANNOT SAY (T-2078). A move's
+    # destination draws nobody, so its `drawn_here` is 0 and the yardstick above reads it as
+    # never ordered. What the committed book does say is the order it carried with the move
+    # already counted inside it: `to_reconstruct` beside `refamilied_in`. T-2078 wrote 39
+    # letter-list residents, the known layer's pro-rata share in
+    # `persons/female/40_49/north/lodging/trade` rounded from 0 to 1, and that cell's order
+    # fell to 0 under the one head T-1563 had already landed in it against an order of 1.
+    # That is T-0841's case on the arriving end of a move instead of the drawing end, and
+    # the owner's ruling of 2026-09-20 (T-1459) covers it the same way: the person is on a
+    # card and nothing already counted moves. A landing the committed book never carried,
+    # or more landings than it carried, is still a move into a closed order and a FAULT.
+    committed_landing = {}
+    if BOOK.exists():
+        committed_landing = {
+            b["key"]: {"order": b.get("to_reconstruct") or 0,
+                       "landed": b["refamilied_in"]}
+            for fam in json.loads(BOOK.read_text(encoding="utf-8"))["bucket_families"]
+            for b in fam["buckets"] if b.get("refamilied_in")}
+
+    def landed_against_an_open_order(b: dict) -> bool:
+        was = committed_landing.get(b["key"])
+        return bool(was and b.get("refamilied_in", 0) <= was["landed"]
+                    and b["filled"] <= was["order"])
     recut_refusals = []
     businesses = business_buckets(data["crosswalk"], data["register"], data["trade_spend"],
                                   data["model"])
@@ -3010,7 +3034,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     # though the move had filled something.
     refamily_against_buckets(moves, families[0]["buckets"], counted)
     for b in families[0]["buckets"]:
-        if b.get("refamilied_in") and b["filled"] > (b["to_reconstruct"] or 0):
+        if (b.get("refamilied_in") and b["filled"] > (b["to_reconstruct"] or 0)
+                and not landed_against_an_open_order(b)):
             raise Fault(
                 f"the re-family ledger lands {b['refamilied_in']} head(s) in {b['key']}, "
                 f"which orders {b['to_reconstruct']} and already holds "
@@ -3042,6 +3067,14 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                         was, cause = committed, "a_documented_reading_shrank_the_order"
                     elif was is None:
                         was, cause = committed, "a_documented_reading_shrank_the_order"
+                landed = (family["key"] == "persons" and b.get("refamilied_in")
+                          and landed_against_an_open_order(b))
+                if landed:
+                    # Read on the order the move landed against, whatever the pre-ruling
+                    # cut says: on this end of a move the re-cut drew nobody, so it is
+                    # never the re-cut that closed the order.
+                    was = committed_landing[b["key"]]["order"]
+                    cause = "a_documented_reading_shrank_the_order"
                 if was is not None and b["filled"] <= was:
                     recut_refusals.append({
                         "bucket": b["key"],
@@ -3060,9 +3093,16 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                         "drawn_here": b.get("drawn_here", b["filled"]),
                         "refamilied_out": b.get("refamilied_out", 0),
                         "surplus_still_held": b["filled"] - todo,
+                        **({"refamilied_in": b["refamilied_in"]} if landed else {}),
                         "why": ("the re-cut would put this bucket's order under the people "
                                 "already drawn against it."
                                 if cause == "the_re_cut_reached_work_already_drawn" else
+                                "the town read more people it can name, the known layer's "
+                                "share of this cell grew, and its order fell under the "
+                                "head(s) the re-family ledger had already landed in it "
+                                "against an open order (T-2078). Nobody is moved back; the "
+                                "surplus is the owning ticket's to retire."
+                                if landed and not b.get("drawn_here") else
                                 "the town read a practitioner it can name and this bucket's "
                                 "order fell under the records already drawn against it. The "
                                 "town over-supplies this class by the difference, and the "
@@ -4124,9 +4164,13 @@ def cmd_self_test() -> int:
     # book rather than typed in here: the figure moves whenever a stage draws or
     # retires a person, and a number written into a self-test goes stale silently —
     # 2,267 was typed here on 2026-09-20 and was wrong four people later (T-1369).
+    # Built the way cmd_build builds it, re-family ledger and all (T-2078): without the
+    # moves the same book owes 130 more people, and once the letter-list gains raised the
+    # standing town that move-less book crossed the model's ceiling while the shipped one
+    # sat inside it, so the assertion was testing a book nobody ships.
     committed_standing = json.loads(BOOK.read_text(encoding="utf-8"))["totals"]["persons_standing"]
     assert (f"{committed_standing:,} standing"
-            in converges_inside_the_model(build(data, _fills_on_disk(), occ)))
+            in converges_inside_the_model(build(data, _fills_on_disk(), occ, moves=_moves_on_disk())))
 
     # THE RE-CUT IS REFUSED, NOT CLAMPED, WHERE IT REACHES WORK ALREADY DRAWN (T-1463).
     # Every refusal names its bucket, what the re-cut would have ordered and what was
@@ -4239,6 +4283,47 @@ def cmd_self_test() -> int:
     if full is not None:
         fires("a re-family move into a bucket with no order left to fill",
               lambda: build(data, _fills_on_disk(), occ, [move(to_bucket=full["key"])]))
+
+    # …UNLESS THE ORDER WAS OPEN WHEN IT LANDED AND A READING SHRANK IT SINCE (T-2078). One
+    # head more than the destination's room stands in for an order that fell under its
+    # landings. A committed book that carried those landings against an order that held
+    # them makes it a refusal by name; one that carried fewer landings, or none, leaves it
+    # the fault above. The committed book is swapped for a fixture and put back.
+    over = (twin["to_reconstruct"] or 0) - twin["filled"] + 1
+    if held["filled"] >= over:
+        heads = [move(person=f"res_self_test_landed_{n}") for n in range(over)]
+        committed = json.loads(BOOK.read_text(encoding="utf-8"))
+
+        def with_landed(landed):
+            # The written book leaves out a trade cell nobody has drawn in, so the
+            # destination is put in rather than looked up.
+            fixture = copy.deepcopy(committed)
+            persons_fam = fixture["bucket_families"][0]["buckets"]
+            persons_fam[:] = [b for b in persons_fam if b["key"] != twin["key"]]
+            persons_fam.append({**twin, "to_reconstruct": twin["filled"] + over,
+                                "refamilied_in": landed})
+            path = Path(tempfile.mkstemp(suffix=".json")[1])
+            path.write_text(json.dumps(fixture), encoding="utf-8")
+            made.append(path)
+            return path
+
+        made: list[Path] = []
+
+        saved = globals()["BOOK"]
+        try:
+            globals()["BOOK"] = with_landed(over)
+            kept = build(data, _fills_on_disk(), occ, heads)
+            refused = next(r for r in kept["recut_refusals"] if r["bucket"] == twin["key"])
+            assert (refused["cause"] == "a_documented_reading_shrank_the_order"
+                    and refused["refamilied_in"] == over and refused["held_at"]
+                    == twin["filled"] + over and "T-2078" in refused["why"]), refused
+            globals()["BOOK"] = with_landed(over - 1)
+            fires("more heads landed in a shrunk order than the committed book carried",
+                  lambda: build(data, _fills_on_disk(), occ, heads))
+        finally:
+            globals()["BOOK"] = saved
+            for path in made:
+                path.unlink(missing_ok=True)
 
     # ---- THE TRADE RE-CUT (T-1459) -------------------------------------------------
     # The ruling has two halves and both are guarded: the cut changes, and nothing already

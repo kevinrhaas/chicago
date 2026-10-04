@@ -5,6 +5,14 @@ export const CHANGELOG = [ // newest first
       'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
       'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L376).',
     ] },
+  { v: 1437, ts: '2026-10-04T17:29:51.479Z', date: 'Oct 4, 2026, 12:29 PM CT', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
+    items: [
+      'Open People: 37 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
+      'Twenty-three were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
+      'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
+      'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
+      'To make room, some households already in town moved one house along on Randolph, Washington and South Water streets. Four named keepers moved with them, and two houses on Randolph no longer name a keeper, because the household placed there now is known only from a letter list.',
+    ] },
   { v: 1436, ts: '2026-10-04T16:59:01.860Z', date: 'Oct 4, 2026, 11:59 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [
       'Across the town, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',

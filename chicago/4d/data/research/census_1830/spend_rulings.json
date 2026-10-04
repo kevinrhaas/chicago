@@ -6,8 +6,8 @@
   "counts": {
     "the_1830_line_names_the_garrison_and_not_a_person": 1,
     "the_1830_schedule_describes_its_own_making": 2,
-    "the_1830_surname_only_match_was_refused_in_the_crosswalk": 64,
-    "the_1830_surname_stands_in_no_town_household": 118,
+    "the_1830_surname_only_match_was_refused_in_the_crosswalk": 67,
+    "the_1830_surname_stands_in_no_town_household": 115,
     "the_1830_surname_variant_is_a_candidate_and_not_a_merge": 1,
     "the_1830_town_finding_is_earlier_evidence": 2
   },
@@ -85,8 +85,8 @@
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_010",
-      "rule": "the_1830_surname_stands_in_no_town_household",
-      "note": "The 1830 schedule, leaf n576 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Nicholson' read as 'JOHN NICHOLSON'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n576 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John Nicholson' read as 'JOHN NICHOLSON'. The 1830 reading 'John Nicholson' shares only a surname with the town person(s) Joshua F. Nicholson (hh_nicholson_joshua_f). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n576_011",
@@ -450,8 +450,8 @@
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_029",
-      "rule": "the_1830_surname_stands_in_no_town_household",
-      "note": "The 1830 schedule, leaf n578 entry 29, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jeriab Root' read as 'JERIAB ROOT'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n578 entry 29, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Jeriab Root' read as 'JERIAB ROOT'. The 1830 reading 'Jeriab Root' shares only a surname with the town person(s) Ez c. Root (hh_root_ez_c). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_030",
@@ -590,8 +590,8 @@
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_002",
-      "rule": "the_1830_surname_stands_in_no_town_household",
-      "note": "The 1830 schedule, leaf n580 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Edmond Weed' read as 'EDMOND WEED'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n580 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Edmond Weed' read as 'EDMOND WEED'. The 1830 reading 'Edmond Weed' shares only a surname with the town person(s) Sally Weed (hh_weed_sally). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_003",

@@ -254,22 +254,22 @@
     "programme_phase": "phase1_south_mixed_blocks",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 5,
-    "finish_key": "fresh_timber",
-    "roof_condition": "fresh",
-    "age_state": "new",
+    "finish_key": "mixed_patch",
+    "roof_condition": "weathered",
+    "age_state": "recent",
     "fabric_basis": {
       "rule": "F-L",
       "class": "labourer",
       "by": "keeper_trade",
       "household": "hh_haighs_isaac",
-      "words": "new-sawn boards under a new roof — The Haighs household's, a laundress, in Chicago since 1835 (rule F-L)"
+      "words": "patched boards under a weathered roof — The Haighs household's, a laundress, in Chicago since 1834 (rule F-L)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "labourer",
-    "age_state": "new",
-    "weather_years": 0.5,
+    "age_state": "recent",
+    "weather_years": 1.5,
     "weather_rate": 1.0,
     "lay_m": 0.008,
     "confidence": "reconstructed"
