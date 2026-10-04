@@ -1208,6 +1208,10 @@ const api = {
   structureVersion: null,
 };
 window.__chicago4d = api;
+// The gate is up exactly when no control backend is live, so its hint row cannot wait
+// for one: it follows the device's best guess (T-2045). A phone was shown W A S D and
+// Esc through the whole arrival, on a failed boot, and back on the welcome.
+document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
 const bootController = createBoot({
