@@ -20907,3 +20907,31 @@ places the store yet.
 north-east corner of Lake and Dearborn substitutes for this count-unit.
 **Covers:** `recon_1835_blk_south_water_dearborn_d2_04.inferred_1835.position`
 **Recorded:** 2026-10-04 (T-1679).
+
+### L374 — The town's short turf is a painted texture, and its pattern is ours
+**Decision:** on a community whose every matrix grass tops out at or under 0.25 m — on the
+committed records `z10_settled_town` alone — the walkthrough draws the sward as plants only to
+the near ring (7.6 m at Full, 4.0 m at Balanced, 2.6 m at Light, ragged by under a metre) and
+paints the rest on the ground: one seeded 256 px tile over 2 m (blade strokes, a few plantain and
+clover rosettes, soil crumbs; height read as grain and as a lighting normal) and value noise at
+0.6, 1.7 and 5.5 m that leaves the record's `bare_soil_fraction` bare. The mid and far clump
+cards, and their carries, draw nothing there (`renderers/web/js/turf-tile.js`, `flora.js`,
+`terrain.js`).
+**Why:** the owner, 2026-10-04 (T-2085): "a lower grass ... with some strong textures and be
+reusable so you don't have to spend much rendering on it". A 0.05-0.20 m sward is a fraction of a
+pixel at ten metres, so cards were spending triangles on what a texture carries.
+**What is recorded and what is not:** the community, its species and their shares are untouched;
+the sod is painted between the community palette's darkest green (darkened by 0.62 for the shade
+between blades — a render tuning) and its third green; bare ground is the record's `ground.rgb`,
+dust the palette's `dry_rgb`, wet ground `ground.wet_rgb`; the bare share is the record's 0.45,
+measured off the same noise the shader draws. The PATTERN — stroke lengths, rosette count, the
+three noise scales, the lean of the blades — is reconstructed, bounded by the dossier's "cropped,
+patchy turf ... dotted with dung and hoof pugs" (§ ZONE 10) and the 0.5-2 m coherent growth the
+photographic preparation found in grazed ground. Dung and hoof pugs themselves are not drawn.
+**Consequence:** on turf the plants a visitor sees stop at the near ring; past it the ground is a
+picture of turf, lit by its own relief but with no silhouette. Flora triangles at the in-town
+poses fall by 59-77 % at every tier (docs/measurements/t-2085-town-turf.json).
+**How to resolve:** a photograph or account of 1830s town ground in this region that states the
+pattern of wear and growth replaces the reconstructed scales; a dossier height over 0.25 m for the
+town's matrix takes the community off this rule by its own record.
+**Recorded:** 2026-10-04 (T-2085).

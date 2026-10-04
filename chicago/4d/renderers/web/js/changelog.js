@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1431, ts: '2026-10-04T14:58:41.631Z', date: 'Oct 4, 2026, 9:58 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
+    items: [
+      'Around the forks, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
+      'Past a few steps from you the turf is painted on the ground instead of being drawn as clumps of grass, so it no longer stands knee-high across the town.',
+      'Scene detail now reaches the town too: Full keeps the grass at your feet, Balanced and Light keep less of it, and the texture carries the rest.',
+      'At the in-town views the plants cost 59\u201377% fewer triangles at every setting, with no extra draw calls.',
+      'The pattern of the turf is a reconstruction. Its colours and how much ground lies bare come from the town\u2019s plant records. It is listed under Liberties.',
+    ] },
   { v: 1430, ts: '2026-10-04T13:57:56.279Z', date: 'Oct 4, 2026, 8:57 AM CT', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
     items: [
       'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
