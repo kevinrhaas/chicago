@@ -69,10 +69,10 @@ T-1144 banked acceptances 3, 5 and 9 to this pass "to state as deltas rather tha
 |---|---:|---:|---:|
 | acc. 3 — Mary Durbin, John Simmons, John Vincent or Logdson in the layer | 0 | 0 | 0 |
 | acc. 5 — standing 1835 trades cited to no 1835 source | 0 | 0 | 0 |
-| acc. 9 — uncertain presences | 820 | 960 | +140 |
-| acc. 9 — …of them carrying a dated evidence leg | 820 | 960 | +140 |
+| acc. 9 — uncertain presences | 820 | 959 | +139 |
+| acc. 9 — …of them carrying a dated evidence leg | 820 | 959 | +139 |
 
-Acceptance 9 reads as a pair: 960 of 960 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
+Acceptance 9 reads as a pair: 959 of 959 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
 
 ## 5. What holds this page
 

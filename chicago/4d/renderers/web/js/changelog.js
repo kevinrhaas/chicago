@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1445, ts: '2026-10-04T20:43:28.091Z', date: 'Oct 4, 2026, 3:43 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+  { v: 1446, ts: '2026-10-04T21:00:46.401Z', date: 'Oct 4, 2026, 4:00 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
     items: [
       'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
       'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
       'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
       'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
       'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
+    ] },
+  { v: 1445, ts: '2026-10-04T20:41:19.184Z', date: 'Oct 4, 2026, 3:41 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+    items: [
+      'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
+      'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
+      'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
+      'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
     ] },
   { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
     items: [
