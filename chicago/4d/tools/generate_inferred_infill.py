@@ -53,7 +53,8 @@ from family_bands import (cargo_door_bays, eave_floor,  # noqa: E402
                           eave_for_ridge, eave_limits, families, pitch_deg,
                           wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
-from inferred_occupancy import occupancy  # noqa: E402
+from inferred_occupancy import (keeper_assignments, keeper_refusals,  # noqa: E402
+                                occupancy)
 # Every committed footprint in this scene's local frame, so a frontage run can butt
 # onto a building this parcel did not write — read from the module the occupancy and
 # separation gates read, so a run and a gate cannot be looking at two towns.
@@ -77,6 +78,19 @@ CORRIDOR_LINE_WHY = (
 )
 
 OCCUPANCY = occupancy()
+# T-1691. The platted deal's keepers hand over a second block, `resident_assignment` —
+# `assigned` with the household id where tools/name_the_keepers_1835.py wrote a keeper,
+# `unassigned` with the reason where it refused one — exactly as generate_block_infill.py
+# has spent it since T-1638 and T-1675. Without it a keeper's prose would reach this
+# layer's roof and its id would not, and the deal's own adoptable() would read the roof as
+# held by a rival claim and seat the household elsewhere on its next re-derivation.
+ASSIGNMENTS = keeper_assignments()
+REFUSALS = keeper_refusals()
+if set(ASSIGNMENTS) & set(REFUSALS):
+    raise SystemExit("data/reconstruction/1835_roof_keepers.json writes and refuses the "
+                     "same roof(s): %s — re-run tools/name_the_keepers_1835.py --build"
+                     % ", ".join(sorted(set(ASSIGNMENTS) & set(REFUSALS))))
+ASSIGNMENTS = {**ASSIGNMENTS, **REFUSALS}
 # The crosswalk's per-family bands, read once. `family_bands` is the only reader of that
 # file, so this parcel and every gate that measures it see the same eave, roof and ridge
 # columns.
@@ -590,6 +604,7 @@ def make_record(seq: int, family: str, e: float, n: float, row: dict,
         "function": inferred(function, f"Assigned from the {family} production family to satisfy the aggregate South Division mix; no occupant or individual use is known."),
         **({"occupants": OCCUPANCY[sid]} if sid in OCCUPANCY else {}),
         "reconstruction": reconstruction,
+        **({"resident_assignment": ASSIGNMENTS[sid]} if sid in ASSIGNMENTS else {}),
         "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",
         "review_required": False
     }
