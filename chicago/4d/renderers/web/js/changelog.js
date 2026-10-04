@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1430, ts: '2026-10-04T14:43:03.044Z', date: 'Oct 4, 2026, 9:43 AM CT', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
+  { v: 1432, ts: '2026-10-04T14:56:52.936Z', date: 'Oct 4, 2026, 9:56 AM CT', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
     items: [
       'Walk into a back yard, along a road or up to a shop front anywhere in the town: the waist-high prairie grass and tall flowers are gone, and the ground is the short, grazed, dusty turf of a lived-in town.',
       'The town\u2019s ground now reaches 50 metres past every laid-out block and every building, the edge of the grazed ground the town\u2019s pigs and cattle kept short. Before, it covered only the few buildings around the forks.',
       'Prairie still begins at the edge of town. The beach and the slough in the public square keep their own plants, and the trees, gardens and planted rows are where they were.',
       'The town is lighter to draw: in a back yard on Washington Street the grass and flowers now cost less than half what they did, at every Scene detail setting.',
+    ] },
+  { v: 1431, ts: '2026-10-04T14:32:09.029Z', date: 'Oct 4, 2026, 9:32 AM CT', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
+    items: [
+      'Open a house on the Lake Street blocks and its card now names the household living there, where 26 of them read \u201cAnonymous count-unit\u201d before. Two more on Randolph near Clinton do too.',
+      'Eighteen other Lake Street houses say on their card why nobody is named: the household placed there is known only from the post office\u2019s letter lists, and a name on a letter is not an address.',
+      'Twenty-one of the newly named houses now show how long their household has been in town. The Baxleys, here since 1834, have a weathered cottage, not a new-sawn one.',
+      'Which household lives in which house is still this project\u2019s reconstruction, and each card says so. No source places these families on these lots.',
+    ] },
+  { v: 1430, ts: '2026-10-04T13:57:56.279Z', date: 'Oct 4, 2026, 8:57 AM CT', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
+    items: [
+      'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
+      'The pass that adds these people was set to file seven of them again under new names, and to drop their old records. It now knows when a name it reads is someone the town already holds, and adds the new reading to that person\u2019s record.',
+      'Two names read better from the page image: H. Pease is C. H. Pease, and F. Plumer is S. F. Plumer, who now appears from the January 1834 printing of the list rather than the March one.',
+      'Where two printings of one list spell a name differently, the record lists both printings. William Crisey keeps that spelling for now, because the page image reads Crissy and choosing between them needs a written ruling.',
     ] },
   { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [

@@ -20,6 +20,32 @@ extent (trees.js places timber from the heightfield and asks the zone classifier
 dune), so they cannot have moved; no stem count was taken. The street corridors are inside the
 town wherever they run between blocks; of 79 streets, 26 lie wholly on town ground, 35 leave it
 as country roads, and 18 never reach it.
+## T-1691 — the Lake Street blocks' roofs name their keepers (2026-10-04)
+
+`tools/name_the_keepers_1835.py` now runs over a third district, `lake` (of T-1201), and is
+wired through three roof layers rather than one (`ROOF_LAYERS`): the block infill it always
+had, plus `generate_inferred_infill.py` (`recon_1835_south_*`) and `generate_west_infill.py`
+(`recon_1835_west_*`), which now hand over `resident_assignment` the way the block infill has
+since T-1638. That second half is T-1697's finding, folded in: the deal seats by lot position
+and the pass owned roofs by id prefix, so 40 of the Lake blocks' 44 seated roofs, and three on
+`blk_randolph_clinton`, were owed by construction.
+
+- **Lake district: 44 seats, 26 keepers written, 18 refusals said on the roof** (every one the
+  letter-list ruling of 2026-08-30). Town-wide: written 23 → **51**, refused 78 (55 on the
+  roof), owed 48 → **20**. `--check` and `--self-test` green; L276 restated.
+- **21 roofs re-baked** (`bake.sh`'s Blender step `--only` those ids, then
+  `web_derivatives.sh --only` each): a named roof's fabric follows its keeper's arrival under
+  the T-1816 finish rule (L330), so their finish, roof condition, age and, on one H1, the frame
+  moved. The 18 refused roofs carry prose only and no mesh moved.
+- **The yard privy dealer now refuses a corner a door opens onto** (`generate_yard_outbuildings.py`
+  asks `generate_entrances.doorway_zones()`, the zone `measure_doorways.py --gate` holds): the
+  H1 roof on `blk_lake_lasalle` became a merchant's house with a roofed porch and its doorway
+  reached the neighbouring lot's privy. One privy moved to its other corner.
+- Downstream re-derived: entrance aprons, woodpiles, yard outbuildings, the roof redeal audit,
+  1835 sidecars, source-use backlinks, the closing research audit.
+
+**Unverified:** no source places any of these households on these lots; the seat is L270's
+invention and the card says so. 20 seats stay owed, by name, outside the three districts.
 
 ## T-1740 — the drawer follows the scene's layers list (2026-10-04)
 

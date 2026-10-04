@@ -15795,14 +15795,15 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Fifty-one roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 75
+**Scope:** `roof_keepers.written[named]` — 51 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 78
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
 South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
-tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
+tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202; the other 28
+were written by **T-1691** (below). The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
@@ -15846,6 +15847,25 @@ count tracks is not how many keepers the project has decided on but how many sea
 happen to sit inside the districts this pass has been run over, and a cascade moves them across
 that boundary in both directions. No ruling moved, no name was written to a roof it was not
 dealt, and every seat outside the districts run so far is still held owed BY NAME.
+
+**T-1691 TAKES IT TO 51, AND MOST OF THE GAIN IS A WIRE, NOT A DISTRICT.** The Lake Street
+blocks enter `DISTRICTS` as `lake` (of T-1201), and the deal had seated 44 households on them:
+26 are now named on their roofs and 18 are letter-list names the ruling of 2026-08-30 refuses,
+each said on its roof. But only four of those 44 roofs are `recon_1835_blk_*`; 36 are
+`recon_1835_south_*` — the South Division's aggregate infill, raised before any block recipe
+reached Lake Street — and four on the Lake–Clinton block are `recon_1835_west_*`. This pass
+was wired through the block-infill generator alone, so every one of them would have been owed
+by construction however many districts it ran over. `generate_inferred_infill.py` and
+`generate_west_infill.py` now hand over `resident_assignment` exactly as the block-infill
+generator has since T-1638, and the pass names all three layers in `ROOF_LAYERS`. That also
+reaches the three Randolph seats on `recon_1835_west_018`, `_019` and `_021` (T-1697, folded
+into T-1691): the two T-1783 left owed are written, and `_018`'s letter-list refusal, filed in
+the ledger until now, is said on its roof. A keeper on a roof of a later-wired layer
+names T-1691 as the pass that carried it, even inside a district T-1685 ran. Written **23 → 51**,
+refused **78** (55 of them said on the roof), owed **48 → 20**. A named roof's fabric then follows
+its keeper's arrival year under the T-1816 finish rule (**L330**), so 21 of the new keepers'
+roofs were re-baked: an older household's cottage stands silvered and weathered rather than
+new-sawn. No ruling moved, and no name was written to a roof it was not dealt.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
