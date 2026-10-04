@@ -1,11 +1,32 @@
 export const CHANGELOG = [ // newest first
-  { v: 1430, ts: '2026-10-04T14:48:44.394Z', date: 'Oct 4, 2026, 9:48 AM CT', title: '38 more people from the post office\u2019s letter lists join the town', kind: 'change',
+  { v: null, ts: '', date: '', title: '38 more people from the post office\u2019s letter lists join the town', kind: 'change',
     items: [
       'Open People: 38 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
       'Twenty-four were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
       'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
       'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
       'To make room, some households already in town moved one house along on Randolph, Washington and South Water streets, and five houses on Randolph and South Water now name a different household as their keeper.',
+    ] },
+  { v: 1432, ts: '2026-10-04T14:56:13.412Z', date: 'Oct 4, 2026, 9:56 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
+    items: [
+      'Look down anywhere on the open prairie: the ground now shows blades of grass, last year\'s thatch between the tussocks, and the shade under them, lit by the sun the way the dirt roads are.',
+      'Lusher clumps show more blades and the wet ground near the water less. The beach sand stays bare.',
+      'The worn bank by the river and the strip of sand and dirt at the forks carry the same grass where they meet the prairie, so there is no seam.',
+      'The colour of every kind of ground is unchanged; only its surface is new. The grain is a reconstruction (Liberty L374).',
+    ] },
+  { v: 1431, ts: '2026-10-04T14:32:09.029Z', date: 'Oct 4, 2026, 9:32 AM CT', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
+    items: [
+      'Open a house on the Lake Street blocks and its card now names the household living there, where 26 of them read \u201cAnonymous count-unit\u201d before. Two more on Randolph near Clinton do too.',
+      'Eighteen other Lake Street houses say on their card why nobody is named: the household placed there is known only from the post office\u2019s letter lists, and a name on a letter is not an address.',
+      'Twenty-one of the newly named houses now show how long their household has been in town. The Baxleys, here since 1834, have a weathered cottage, not a new-sawn one.',
+      'Which household lives in which house is still this project\u2019s reconstruction, and each card says so. No source places these families on these lots.',
+    ] },
+  { v: 1430, ts: '2026-10-04T13:57:56.279Z', date: 'Oct 4, 2026, 8:57 AM CT', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
+    items: [
+      'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
+      'The pass that adds these people was set to file seven of them again under new names, and to drop their old records. It now knows when a name it reads is someone the town already holds, and adds the new reading to that person\u2019s record.',
+      'Two names read better from the page image: H. Pease is C. H. Pease, and F. Plumer is S. F. Plumer, who now appears from the January 1834 printing of the list rather than the March one.',
+      'Where two printings of one list spell a name differently, the record lists both printings. William Crisey keeps that spelling for now, because the page image reads Crissy and choosing between them needs a written ruling.',
     ] },
   { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [

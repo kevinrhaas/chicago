@@ -28750,14 +28750,14 @@
    "layer": "residents",
    "outcome": "refused",
    "class": "locality_absent",
-   "reason": "Refused. All 1 card(s) heading 'Pease f e' name Illinois and neither Chicago nor Cook County, so the lead against H. Pease stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
+   "reason": "Refused. All 1 card(s) heading 'Pease f e' name Illinois and neither Chicago nor Cook County, so the lead against C. H. Pease stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
    "record_ids": [
     "nbi_v03_1215"
    ],
    "candidates": [
     {
      "id": "pease_h",
-     "name": "H. Pease",
+     "name": "C. H. Pease",
      "rule": "exact surname"
     }
    ],
@@ -80659,10 +80659,10 @@
   {
    "record_id": "nbi_v03_1215",
    "a": "Pease f e | l!l*Dewey\"'la'ni; (Dewey, L i l . ) 1898, j l e j Ind«, i",
-   "b": "H. Pease",
+   "b": "C. H. Pease",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'Pease f e' name Illinois and neither Chicago nor Cook County, so the lead against H. Pease stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Pease f e | l!l*Dewey\"\\'la\\'ni; (Dewey, L i l . ) 1898, j l e j Ind«, i' against H. Pease.",
+   "rule": "Refused. All 1 card(s) heading 'Pease f e' name Illinois and neither Chicago nor Cook County, so the lead against C. H. Pease stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Pease f e | l!l*Dewey\"\\'la\\'ni; (Dewey, L i l . ) 1898, j l e j Ind«, i' against C. H. Pease.",
    "layers": [
     "residents"
    ],

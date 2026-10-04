@@ -6794,6 +6794,13 @@
    "rule": "The surname 'George' is in Fergus 1843 and no entry under it carries the initial 'C' of 'C. George'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "C. H. Pease",
+   "person_id": "pease_h",
+   "surname_in_1843": "Pease",
+   "candidates": 1,
+   "rule": "The surname 'Pease' is in Fergus 1843 and no entry under it carries the initial 'C' of 'C. H. Pease'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Caleb Foster",
    "person_id": "foster_caleb",
    "surname_in_1843": "Foster",
@@ -7464,13 +7471,6 @@
    "surname_in_1843": "Comstock",
    "candidates": 2,
    "rule": "The surname 'Comstock' is in Fergus 1843 and no entry under it carries the initial 'H' of 'H. H. Comstock'. A surname-only agreement is a refusal."
-  },
-  {
-   "resident": "H. Pease",
-   "person_id": "pease_h",
-   "surname_in_1843": "Pease",
-   "candidates": 1,
-   "rule": "The surname 'Pease' is in Fergus 1843 and no entry under it carries the initial 'H' of 'H. Pease'. A surname-only agreement is a refusal."
   },
   {
    "resident": "H. Y. Crane",

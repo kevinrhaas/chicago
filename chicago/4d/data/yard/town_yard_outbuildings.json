@@ -136,8 +136,8 @@
     "stables": 16,
     "privy_standing": 34,
     "stable_standing": 15,
-    "horse_households": 31,
-    "refused": 8,
+    "horse_households": 32,
+    "refused": 9,
     "dwellings_off_plat": 109
   },
   "dwellings_off_plat_note": "Dwellings standing on no platted lot have no lot line to put an alley behind; they are counted, not drawn.",
@@ -834,7 +834,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1034,7 +1034,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1056,7 +1056,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1122,7 +1122,7 @@
       "eave_m": 1.85,
       "head_m": 2.05,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "slab"
     },
@@ -1166,7 +1166,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1313,8 +1313,8 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        536.48,
-        -181.34
+        514.45,
+        -181.15
       ],
       "bearing_deg": 0.36,
       "along_m": 1.22,
@@ -1322,7 +1322,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1344,7 +1344,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -1388,7 +1388,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -1410,7 +1410,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -1478,7 +1478,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1544,7 +1544,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1588,7 +1588,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -3307,6 +3307,12 @@
     {
       "lot": "blk_lake_clark_lot5",
       "kind": "privy",
+      "belongs_to": "recon_1835_south_d1_032",
+      "why": "no yard: the committed buildings reach 1.87 m past the lot's own rear line"
+    },
+    {
+      "lot": "blk_lake_clark_lot5",
+      "kind": "stable",
       "belongs_to": "recon_1835_south_d1_032",
       "why": "no yard: the committed buildings reach 1.87 m past the lot's own rear line"
     },

@@ -9,11 +9,11 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "e0b7612ac001d0f9abc8ff46a0a3d17547ef1a33a021ee2718e1da5047d4e87d",
+    "fingerprint": "8a27fc803bf1b5f73dcd792e44ad0c4abc3a6a6f410a8a1ac687e12a3bb89433",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
-      "residents": 1442,
+      "residents": 1404,
       "structures": 546,
       "voters": 345
     }
@@ -21,10 +21,10 @@
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1032,
+    "leads": 1023,
     "leads_by_layer": {
       "census_1840": 355,
-      "residents": 482,
+      "residents": 473,
       "structures": 44,
       "voters": 151
     }
@@ -1366,28 +1366,6 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
-      "id": "lead_v01_bacon_residents",
-      "surname_key": "bacon",
-      "spellings_as_printed": [
-        "Bacon"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "bacon_richani",
-          "name": "Richani jr. Bacon",
-          "rule": "exact surname"
-        }
-      ],
-      "entries": [
-        "nbi_v01_0235"
-      ],
-      "works_cited": [
-        "county_histories_kett_and_co"
-      ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
       "id": "lead_v01_bailey_census_1840",
       "surname_key": "bailey",
       "spellings_as_printed": [
@@ -1751,33 +1729,6 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
-      "id": "lead_v01_barnes_residents",
-      "surname_key": "barnes",
-      "spellings_as_printed": [
-        "Barnes"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "barnes_wheeler",
-          "name": "Wheeler Barnes",
-          "rule": "exact surname"
-        }
-      ],
-      "entries": [
-        "nbi_v01_0310",
-        "nbi_v01_0311",
-        "nbi_v01_0316",
-        "nbi_v01_0317"
-      ],
-      "works_cited": [
-        "county_histories_kett_and_co",
-        "moses_illinois_historical_and_statistical",
-        "sons_of_the_american_revolution_illinois_1896"
-      ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
       "id": "lead_v01_barr_residents",
       "surname_key": "barr",
       "spellings_as_printed": [
@@ -2053,26 +2004,6 @@
       ],
       "entries": [
         "nbi_v01_0394"
-      ],
-      "works_cited": [],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
-      "id": "lead_v01_beacon_residents",
-      "surname_key": "beacon",
-      "spellings_as_printed": [
-        "Beacon"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "bacon_richani",
-          "name": "Richani jr. Bacon",
-          "rule": "OCR variant (0.91 similarity to 'bacon')"
-        }
-      ],
-      "entries": [
-        "nbi_v01_0351"
       ],
       "works_cited": [],
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
@@ -8726,11 +8657,6 @@
           "id": "crandal_alva",
           "name": "Alva Crandal",
           "rule": "OCR variant (0.93 similarity to 'crandal')"
-        },
-        {
-          "id": "crandall_beman",
-          "name": "Beman Crandall",
-          "rule": "exact surname"
         }
       ],
       "entries": [
@@ -9921,11 +9847,6 @@
       "layer": "residents",
       "candidates": [
         {
-          "id": "dickinson_alexander",
-          "name": "Alexander Dickinson",
-          "rule": "OCR variant (0.89 similarity to 'dickinson')"
-        },
-        {
           "id": "dickson_david",
           "name": "David Dickson",
           "rule": "OCR variant (0.88 similarity to 'dickson')"
@@ -9940,29 +9861,6 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
-      "id": "lead_v01_dickinnon_residents",
-      "surname_key": "dickinnon",
-      "spellings_as_printed": [
-        "Dickinnon"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "dickinson_alexander",
-          "name": "Alexander Dickinson",
-          "rule": "OCR variant (0.89 similarity to 'dickinson')"
-        }
-      ],
-      "entries": [
-        "nbi_v01_1926",
-        "nbi_v01_1927"
-      ],
-      "works_cited": [
-        "la_salle_book_co_cook_county"
-      ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
       "id": "lead_v01_dickinson_residents",
       "surname_key": "dickinson",
       "spellings_as_printed": [
@@ -9970,11 +9868,6 @@
       ],
       "layer": "residents",
       "candidates": [
-        {
-          "id": "dickinson_alexander",
-          "name": "Alexander Dickinson",
-          "rule": "exact surname"
-        },
         {
           "id": "dickson_david",
           "name": "David Dickson",
@@ -20411,26 +20304,6 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
-      "id": "lead_v03_mocarty_residents",
-      "surname_key": "mocarty",
-      "spellings_as_printed": [
-        "MoCarty"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "mcarty_n",
-          "name": "N. M'Carty",
-          "rule": "OCR variant (0.92 similarity to 'mcarty')"
-        }
-      ],
-      "entries": [
-        "nbi_v03_0222"
-      ],
-      "works_cited": [],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
       "id": "lead_v03_mofadden_residents",
       "surname_key": "mofadden",
       "spellings_as_printed": [
@@ -21676,26 +21549,6 @@
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {
-      "id": "lead_v03_nichols_residents",
-      "surname_key": "nichols",
-      "spellings_as_printed": [
-        "I Nichols"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "nicholson_joshua_f",
-          "name": "Joshua F. Nicholson",
-          "rule": "OCR variant (0.88 similarity to 'nicholson')"
-        }
-      ],
-      "entries": [
-        "nbi_v03_0962"
-      ],
-      "works_cited": [],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
       "id": "lead_v03_nicholson_census_1840",
       "surname_key": "nicholson",
       "spellings_as_printed": [
@@ -21712,28 +21565,6 @@
           "id": "33S7-9YYJ-9RG:l29",
           "name": "Luther Nichols",
           "rule": "OCR variant (0.88 similarity to 'nichols')"
-        }
-      ],
-      "entries": [
-        "nbi_v03_0963"
-      ],
-      "works_cited": [
-        "fergus_chicago_directory_1839"
-      ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
-      "id": "lead_v03_nicholson_residents",
-      "surname_key": "nicholson",
-      "spellings_as_printed": [
-        "Nicholson"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "nicholson_joshua_f",
-          "name": "Joshua F. Nicholson",
-          "rule": "exact surname"
         }
       ],
       "entries": [
@@ -22805,7 +22636,7 @@
       "candidates": [
         {
           "id": "pease_h",
-          "name": "H. Pease",
+          "name": "C. H. Pease",
           "rule": "exact surname"
         }
       ],
@@ -24708,34 +24539,6 @@
         {
           "id": "33S7-9YYJ-9RG:l22",
           "name": "[?]. S. Root",
-          "rule": "exact surname"
-        }
-      ],
-      "entries": [
-        "nbi_v03_1872",
-        "nbi_v03_1873",
-        "nbi_v03_1874",
-        "nbi_v03_1875"
-      ],
-      "works_cited": [
-        "andreas_history_of_chicago",
-        "la_salle_book_co_cook_county",
-        "moses_illinois_historical_and_statistical",
-        "moses_kirkland_history_of_chicago"
-      ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
-      "id": "lead_v03_root_residents",
-      "surname_key": "root",
-      "spellings_as_printed": [
-        "Root"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "root_ez_c",
-          "name": "Ez c. Root",
           "rule": "exact surname"
         }
       ],
@@ -26944,26 +26747,6 @@
       "works_cited": [
         "county_histories_kett_and_co"
       ],
-      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
-    },
-    {
-      "id": "lead_v04_thon_residents",
-      "surname_key": "thon",
-      "spellings_as_printed": [
-        "Thon"
-      ],
-      "layer": "residents",
-      "candidates": [
-        {
-          "id": "thorn_platt",
-          "name": "Platt Thorn",
-          "rule": "OCR variant (0.89 similarity to 'thorn')"
-        }
-      ],
-      "entries": [
-        "nbi_v04_0223"
-      ],
-      "works_cited": [],
       "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
     },
     {

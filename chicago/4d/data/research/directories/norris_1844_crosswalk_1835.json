@@ -4068,6 +4068,13 @@
    "rule": "The surname 'George' is in Norris 1844 and no entry under it carries the initial 'C' of 'C. George'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "C. H. Pease",
+   "person_id": "pease_h",
+   "surname_in_1844": "Pease",
+   "candidates": 1,
+   "rule": "The surname 'Pease' is in Norris 1844 and no entry under it carries the initial 'C' of 'C. H. Pease'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Caleb Foster",
    "person_id": "foster_caleb",
    "surname_in_1844": "Foster",
@@ -4696,13 +4703,6 @@
    "surname_in_1844": "Comstock",
    "candidates": 3,
    "rule": "The surname 'Comstock' is in Norris 1844 and no entry under it carries the initial 'H' of 'H. H. Comstock'. A surname-only agreement is a refusal."
-  },
-  {
-   "resident": "H. Pease",
-   "person_id": "pease_h",
-   "surname_in_1844": "Pease",
-   "candidates": 1,
-   "rule": "The surname 'Pease' is in Norris 1844 and no entry under it carries the initial 'H' of 'H. Pease'. A surname-only agreement is a refusal."
   },
   {
    "resident": "H. Y. Crane",

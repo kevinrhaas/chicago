@@ -10614,7 +10614,7 @@ tickets **T-0373** (this), **T-0368**, **T-0376**, **T-0378**, **T-0374**, **T-0
 **Recorded:** 2026-08-29.
 
 ### L214 — Three quarters of this town's people are a name on a post-office list and nothing else
-**Scope:** `residents.persons[letter_list_only]` — 774 people
+**Scope:** `residents.persons[letter_list_only]` — 736 people
 **Decision:** on 2026-08-30 the owner ruled that EVERY name the post office's lists of
 uncalled-for letters yield, and the mint's refusals admit, joins the town. 712 names were
 minted on that ruling, beside the 15 L207 already held, and the reconstruction went from 244
@@ -12935,20 +12935,8 @@ here can be mistaken for research. R4 (a family for a head the town already hold
 T-1170's and R6 (the Native, Métis and Black cohorts, which carry their own review) is
 T-1177's; neither is spent here.
 
-**And thirty-eight more, written as the mint now derives them (T-2078).** Re-deriving the mint
-over the extractions as they stand admits 39 names no committed card held: 24 off the 1 January
-1834 return completed from its page image, 13 off the list of 1 July 1835 read through OCR and
-kept as printed (`register_letter_list_suspicions.py` is where a doubtful reading is answered),
-and 2 more 1834 printings. 38 are written, each the mint's own card, byte for byte, with the
-same flag, the same refusals passed and the same ten gate assertions. The 39th, `Conant
-Augustus H`, is printed surname first and the mint reads it given-first, so `--gate` refuses
-it; it stays on the mint's ledger for the name-order reading (T-1217). Their surnames moved three invented
-garrison names (L251 is that draw) and shrank one lodging order under a
-head the re-family programme had already landed; the order book holds that order by name
-(T-1459's ruling) rather than moving her back.
-
 **What it leaves open.** The order book models 643 households in the town and the layer now
-reads 1,133 present. The two counts are not in the same unit — 774 of the layer's households
+reads 1,133 present. The two counts are not in the same unit — 736 of the layer's households
 are letter-list CONTAINERS holding one person and arguing for a person rather than a
 dwelling — and reconciling them is T-1171's and T-1179's.
 
@@ -14901,7 +14889,7 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 178 households (T-2078 wrote 38 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 28 more step a roof each behind them, hh_austin_w_g among them, from blk_randolph_dearborn#03 to recon_1835_blk_washington_franklin_d7_04; 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 178 households (179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15807,28 +15795,18 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-two roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Fifty-one roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 22 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
+**Scope:** `roof_keepers.written[named]` — 51 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 78
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
 South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
-tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202. The pass runs one
+tier and the Randolph block west of the river, and were written by **T-1685**, piece 1 of 4 of T-1202; the other 28
+were written by **T-1691** (below). The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
-
-**T-2078 takes it to 22, and every roof it moves is L270's.** Writing 38 letter-list
-households turned the platted deal over under a count that held at 178 (L270). Two named keepers
-leave the Randolph tier: `hh_guisin_byran` is handed on, owed to T-1614 in writing, and
-`hh_austin_w_g` steps from `recon_1835_blk_randolph_dearborn_d1_04` to `recon_1835_blk_washington_franklin_d7_04`, outside
-the districts this pass has run, so he is owed rather than named. One is gained:
-`hh_clark_john_k` on `recon_1835_blk_south_water_dearborn_d1_05`. Three keepers step a roof with
-the deal and keep their names: `hh_barney_anne_maria` (Randolph and Market to Randolph and Clark),
-`hh_cass_lewis` and `hh_blanshard_g` (each one roof along South Water). Written **23 → 22**,
-refused **78 → 80**, owed **48 → 47**. No ruling moved, and no name was written to a roof it was
-not dealt.
 
 **T-1783 takes it back to 23, and the one it loses is T-1761's.** Opening the outer West blocks
 re-deals the West Division's households across the ground the schedule now names. On the tree
@@ -15869,6 +15847,25 @@ count tracks is not how many keepers the project has decided on but how many sea
 happen to sit inside the districts this pass has been run over, and a cascade moves them across
 that boundary in both directions. No ruling moved, no name was written to a roof it was not
 dealt, and every seat outside the districts run so far is still held owed BY NAME.
+
+**T-1691 TAKES IT TO 51, AND MOST OF THE GAIN IS A WIRE, NOT A DISTRICT.** The Lake Street
+blocks enter `DISTRICTS` as `lake` (of T-1201), and the deal had seated 44 households on them:
+26 are now named on their roofs and 18 are letter-list names the ruling of 2026-08-30 refuses,
+each said on its roof. But only four of those 44 roofs are `recon_1835_blk_*`; 36 are
+`recon_1835_south_*` — the South Division's aggregate infill, raised before any block recipe
+reached Lake Street — and four on the Lake–Clinton block are `recon_1835_west_*`. This pass
+was wired through the block-infill generator alone, so every one of them would have been owed
+by construction however many districts it ran over. `generate_inferred_infill.py` and
+`generate_west_infill.py` now hand over `resident_assignment` exactly as the block-infill
+generator has since T-1638, and the pass names all three layers in `ROOF_LAYERS`. That also
+reaches the three Randolph seats on `recon_1835_west_018`, `_019` and `_021` (T-1697, folded
+into T-1691): the two T-1783 left owed are written, and `_018`'s letter-list refusal, filed in
+the ledger until now, is said on its roof. A keeper on a roof of a later-wired layer
+names T-1691 as the pass that carried it, even inside a district T-1685 ran. Written **23 → 51**,
+refused **78** (55 of them said on the roof), owed **48 → 20**. A named roof's fabric then follows
+its keeper's arrival year under the T-1816 finish rule (**L330**), so 21 of the new keepers'
+roofs were re-baked: an older household's cottage stands silvered and weathered rather than
+new-sawn. No ruling moved, and no name was written to a roof it was not dealt.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
@@ -20930,3 +20927,27 @@ places the store yet.
 north-east corner of Lake and Dearborn substitutes for this count-unit.
 **Covers:** `recon_1835_blk_south_water_dearborn_d2_04.inferred_1835.position`
 **Recorded:** 2026-10-04 (T-1679).
+
+### L374 — The sward's fine relief is a generated grass grain, not a measured surface
+**Decision:** T-2089 gives the terrain's prairie ground the road's method (T-1797, T-1811): one
+seeded 256 px tile over 1.6 m, `renderers/web/js/grass-grain.js`, whose red channel is a height
+read as luminance grain over its own mean and whose green and blue are its normal, sampled in
+world space and lit by the scene's sun. Its content is invented within bounds — 13 cm tussock
+crowns, 4 cm leaf mass, 2,400 raised blade strokes 3-9 cm long laid densest on the crowns, and
+260 flatter thatch strokes 8-20 cm long between them. How strongly a fragment shows the grain is
+taken from the July colour tile it already reads (lusher, brighter clumps more; wet ground about
+half), and the lake-shore sand zone takes none of it. The ground strip and the worked bank carry
+the same relief wherever they draw prairie.
+**Why:** the owner asked, on 2026-10-04, for the grass and land to be done "the same way" as the
+road, whose surface reads as ground because it has relief lit by the sun. No source records the
+surface relief of a July sward at Chicago, so there is nothing to attest and nothing particular
+to infer from; the scales are bounded by the plant (bunch-grass crowns and blades) and by the
+colour tile above it, which already owns everything from 0.7 m up.
+**Consequence:** at walking distance the ground shows blades, thatch and shade between them where
+it used to show a flat colour print. The grain is read over its measured mean and is independent
+of the colour tile, so every substrate zone's mean albedo is unchanged (`tools/
+measure_ground_albedo.mjs`). It is not a reading of any one patch of 1835 ground.
+**How to resolve:** a period description, or a modern measurement of a restored tallgrass or
+wet-prairie sward in July, that states blade length, crown spacing or litter cover would replace
+the strokes' counts and sizes.
+**Recorded:** 2026-10-04 (T-2089).
