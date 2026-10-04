@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1398, ts: '2026-10-04T03:54:13.850Z', date: 'Oct 3, 2026, 10:54 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+    items: [
+      'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
+      'If loading fails on a phone, the Retry screen shows the touch hints too.',
+    ] },
   { v: 1397, ts: '2026-10-04T03:36:03.066Z', date: 'Oct 3, 2026, 10:36 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
