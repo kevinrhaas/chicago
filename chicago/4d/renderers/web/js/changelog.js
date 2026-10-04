@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1453, ts: '2026-10-04T23:46:05.749Z', date: 'Oct 4, 2026, 6:46 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+    items: [
+      'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
+      'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
+      'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
+      'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
+    ] },
   { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
       'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
