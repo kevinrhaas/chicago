@@ -804,8 +804,13 @@ async function selfTest() {
     real.steps.every((s) => Array.isArray(s.resolves)));
   check_('the hand-authored file is NOT resolvable',
     resolvable(['chicago/4d/data/research/land_sales/resident_rulings.json'], real) === 1);
-  check_('a file nobody derives is NOT resolvable',
+  check_('a file that is its own input is NOT resolvable',
     resolvable(['chicago/4d/data/residents/households/hh_taylor_c.json'], real) === 1);
+  // T-1282: a household card is the input of the steps that write into it, so taking
+  // either side of a card conflict drops the other side's evidence and re-derives green.
+  // `_a_card_is_its_own_input` in the manifest is the measurement.
+  check_('no household card is listed — a card is its own writers\' input (T-1282)',
+    !allResolved(real).some((r) => r.startsWith('chicago/4d/data/residents/households/')));
   check_('a file the manifest owns IS resolvable',
     resolvable(['chicago/4d/data/research/land_sales/resident_crosswalk.json'], real) === 0);
   check_('a MIXED set is refused as a whole — half a merge is not a merge',

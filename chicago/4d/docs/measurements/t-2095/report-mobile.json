@@ -1,0 +1,507 @@
+{
+  "viewport": "mobile",
+  "levels": [
+    "full",
+    "light"
+  ],
+  "stands": [
+    {
+      "id": "alley_randolph_wells",
+      "label": "in the alley of the Randolph-Wells block, looking east",
+      "pose": {
+        "local_e": 352,
+        "local_n": -323.2,
+        "yaw_deg": 90,
+        "pitch_deg": -8
+      }
+    },
+    {
+      "id": "alley_mouth_wells",
+      "label": "on Wells Street at the alley's mouth, looking east into it",
+      "pose": {
+        "local_e": 327,
+        "local_n": -322.5,
+        "yaw_deg": 92,
+        "pitch_deg": -7
+      }
+    },
+    {
+      "id": "alley_lake_wells",
+      "label": "in the alley behind the Lake Street row, Wells to LaSalle, looking east",
+      "pose": {
+        "local_e": 350,
+        "local_n": -184.2,
+        "yaw_deg": 90,
+        "pitch_deg": -8
+      }
+    }
+  ],
+  "after": {
+    "root": "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/site/4d",
+    "errors": [],
+    "rows": [
+      {
+        "level": "full",
+        "stand": "alley_randolph_wells",
+        "triangles": 1541891,
+        "calls": 211,
+        "floraTriangles": 22317,
+        "floraCalls": 8,
+        "floraSets": {
+          "flora-near": 218,
+          "flora-mid": 0,
+          "flora-forb": 8,
+          "flora-rosette": 13,
+          "flora-shrub": 1,
+          "flora-far": 14,
+          "flora-shrub-far": 27,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 325,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 55,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 2256.9000000001397,
+        "heapMB": 690.5517644882202
+      },
+      {
+        "level": "full",
+        "stand": "alley_mouth_wells",
+        "triangles": 1517994,
+        "calls": 212,
+        "floraTriangles": 4470,
+        "floraCalls": 8,
+        "floraSets": {
+          "flora-near": 17,
+          "flora-mid": 0,
+          "flora-forb": 1,
+          "flora-rosette": 2,
+          "flora-shrub": 2,
+          "flora-far": 4,
+          "flora-shrub-far": 31,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 19,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 20,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 2507.7000000001863,
+        "heapMB": 690.7805242538452
+      },
+      {
+        "level": "full",
+        "stand": "alley_lake_wells",
+        "triangles": 1677009,
+        "calls": 219,
+        "floraTriangles": 18246,
+        "floraCalls": 7,
+        "floraSets": {
+          "flora-near": 158,
+          "flora-mid": 0,
+          "flora-forb": 8,
+          "flora-rosette": 7,
+          "flora-shrub": 4,
+          "flora-far": 0,
+          "flora-shrub-far": 38,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 186,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 57,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 2829.5,
+        "heapMB": 690.992151260376
+      },
+      {
+        "level": "light",
+        "stand": "alley_randolph_wells",
+        "triangles": 656950,
+        "calls": 71,
+        "floraTriangles": 3535,
+        "floraCalls": 6,
+        "floraSets": {
+          "flora-near": 68,
+          "flora-mid": 0,
+          "flora-forb": 1,
+          "flora-rosette": 2,
+          "flora-shrub": 0,
+          "flora-far": 0,
+          "flora-shrub-far": 9,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 77,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 19,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 1426.5999999998603,
+        "heapMB": 794.3059988021851
+      },
+      {
+        "level": "light",
+        "stand": "alley_mouth_wells",
+        "triangles": 643080,
+        "calls": 63,
+        "floraTriangles": 547,
+        "floraCalls": 2,
+        "floraSets": {
+          "flora-near": 1,
+          "flora-mid": 0,
+          "flora-forb": 0,
+          "flora-rosette": 0,
+          "flora-shrub": 0,
+          "flora-far": 0,
+          "flora-shrub-far": 10,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 0,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 0,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 1424,
+        "heapMB": 547.063886642456
+      },
+      {
+        "level": "light",
+        "stand": "alley_lake_wells",
+        "triangles": 713621,
+        "calls": 69,
+        "floraTriangles": 2628,
+        "floraCalls": 7,
+        "floraSets": {
+          "flora-near": 47,
+          "flora-mid": 0,
+          "flora-forb": 4,
+          "flora-rosette": 3,
+          "flora-shrub": 1,
+          "flora-far": 0,
+          "flora-shrub-far": 11,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 27,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 21,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 1660.5999999998603,
+        "heapMB": 547.1698741912842
+      }
+    ]
+  },
+  "before": {
+    "root": "/home/runner/work/polecat-platform/polecat-platform/before-tree/site/4d",
+    "errors": [],
+    "rows": [
+      {
+        "level": "full",
+        "stand": "alley_randolph_wells",
+        "triangles": 1524382,
+        "calls": 211,
+        "floraTriangles": 30821,
+        "floraCalls": 8,
+        "floraSets": {
+          "flora-near": 307,
+          "flora-mid": 0,
+          "flora-forb": 14,
+          "flora-rosette": 18,
+          "flora-shrub": 2,
+          "flora-far": 14,
+          "flora-shrub-far": 28,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 420,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 72,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 2209.3000000000466,
+        "heapMB": 712.346399307251
+      },
+      {
+        "level": "full",
+        "stand": "alley_mouth_wells",
+        "triangles": 1494516,
+        "calls": 212,
+        "floraTriangles": 7005,
+        "floraCalls": 8,
+        "floraSets": {
+          "flora-near": 46,
+          "flora-mid": 0,
+          "flora-forb": 3,
+          "flora-rosette": 4,
+          "flora-shrub": 2,
+          "flora-far": 4,
+          "flora-shrub-far": 32,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 35,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 32,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 2499.1999999999534,
+        "heapMB": 686.6639881134033
+      },
+      {
+        "level": "full",
+        "stand": "alley_lake_wells",
+        "triangles": 1659121,
+        "calls": 219,
+        "floraTriangles": 26371,
+        "floraCalls": 7,
+        "floraSets": {
+          "flora-near": 243,
+          "flora-mid": 0,
+          "flora-forb": 12,
+          "flora-rosette": 13,
+          "flora-shrub": 4,
+          "flora-far": 0,
+          "flora-shrub-far": 38,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 328,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 71,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 2766.6999999999534,
+        "heapMB": 686.8688554763794
+      },
+      {
+        "level": "light",
+        "stand": "alley_randolph_wells",
+        "triangles": 633158,
+        "calls": 71,
+        "floraTriangles": 5756,
+        "floraCalls": 6,
+        "floraSets": {
+          "flora-near": 118,
+          "flora-mid": 0,
+          "flora-forb": 5,
+          "flora-rosette": 6,
+          "flora-shrub": 0,
+          "flora-far": 0,
+          "flora-shrub-far": 10,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 122,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 32,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 1288.9000000001397,
+        "heapMB": 790.1745738983154
+      },
+      {
+        "level": "light",
+        "stand": "alley_mouth_wells",
+        "triangles": 617336,
+        "calls": 64,
+        "floraTriangles": 816,
+        "floraCalls": 3,
+        "floraSets": {
+          "flora-near": 8,
+          "flora-mid": 0,
+          "flora-forb": 0,
+          "flora-rosette": 0,
+          "flora-shrub": 0,
+          "flora-far": 0,
+          "flora-shrub-far": 10,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 0,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 8,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 1392.1999999999534,
+        "heapMB": 542.9637956619263
+      },
+      {
+        "level": "light",
+        "stand": "alley_lake_wells",
+        "triangles": 690102,
+        "calls": 69,
+        "floraTriangles": 5122,
+        "floraCalls": 7,
+        "floraSets": {
+          "flora-near": 100,
+          "flora-mid": 0,
+          "flora-forb": 7,
+          "flora-rosette": 5,
+          "flora-shrub": 1,
+          "flora-far": 0,
+          "flora-shrub-far": 11,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 100,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 26,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 1595.5,
+        "heapMB": 543.0395708084106
+      }
+    ]
+  }
+}

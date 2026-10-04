@@ -2574,6 +2574,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_bank_decal_depth.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_corridor_line.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2886,6 +2890,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/generate_alley_lanes.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/generate_block_infill.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2931,6 +2939,10 @@
       "wrote_ignored": []
     },
     "tools/generate_inferred_names.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_kept_ground.py": {
       "wrote": [],
       "wrote_ignored": []
     },
