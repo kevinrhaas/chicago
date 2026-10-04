@@ -4164,9 +4164,13 @@ def cmd_self_test() -> int:
     # book rather than typed in here: the figure moves whenever a stage draws or
     # retires a person, and a number written into a self-test goes stale silently —
     # 2,267 was typed here on 2026-09-20 and was wrong four people later (T-1369).
+    # Built the way cmd_build builds it, re-family ledger and all (T-2078): without the
+    # moves the same book owes 130 more people, and once the letter-list gains raised the
+    # standing town that move-less book crossed the model's ceiling while the shipped one
+    # sat inside it, so the assertion was testing a book nobody ships.
     committed_standing = json.loads(BOOK.read_text(encoding="utf-8"))["totals"]["persons_standing"]
     assert (f"{committed_standing:,} standing"
-            in converges_inside_the_model(build(data, _fills_on_disk(), occ)))
+            in converges_inside_the_model(build(data, _fills_on_disk(), occ, moves=_moves_on_disk())))
 
     # THE RE-CUT IS REFUSED, NOT CLAMPED, WHERE IT REACHES WORK ALREADY DRAWN (T-1463).
     # Every refusal names its bucket, what the re-cut would have ordered and what was

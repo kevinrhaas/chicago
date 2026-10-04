@@ -1900,11 +1900,12 @@ def self_test() -> int:
     # instead of as a silent re-count. Minting the 120 households St Mary's baptismal
     # register names put 116 more households through the same adjudication, every one of
     # them ruled `present` — the file still carries no other verdict, which is the half of
-    # this assertion that is not the count. T-2078 RESTATED IT FROM 936 TO 961: writing 38
-    # letter-list households put 25 of them (and the cards their rulings re-graded, such as
-    # hh_stiles_david) through the same adjudication, and every one was ruled `present`.
+    # this assertion that is not the count. T-2078 RESTATED IT FROM 936 TO 960: writing 37
+    # letter-list households put 24 of them (and the cards their rulings re-graded, such as
+    # hh_stiles_david) through the same adjudication, and every one was ruled `present`
+    # (38 and 961 until T-2071's concordance read hh_crissy_william onto hh_crisey_william).
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 961)
+          len(ruled_present()) == 960)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",
