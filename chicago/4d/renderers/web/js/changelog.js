@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
+  { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
       'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
       'Fly up over the town. The flat dark slab on the far horizon is gone too. From the air the trees you see are the town\u2019s own.',
