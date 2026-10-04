@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1394, ts: '2026-10-04T02:29:40.433Z', date: 'Oct 3, 2026, 9:29 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
+  { v: 1395, ts: '2026-10-04T02:57:02.729Z', date: 'Oct 3, 2026, 9:57 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
       'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
       'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',
       'Every one of these people is our reconstruction, not a record. No source names them, and none says these men married.',
+    ] },
+  { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'We measured what a first visit costs. The arrival and the jaunts add about 11 KB of it, and the jaunt catalog and the sources still load only when you open them.',
+      'Two of the town\u2019s own limits are now broken, and neither by the jaunts: a first visit downloads 13.1 MB against our 13 MB budget, and the newest trees make a phone stutter while the prairie is planted. Each now has its own fix ticketed.',
     ] },
   { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
     items: [

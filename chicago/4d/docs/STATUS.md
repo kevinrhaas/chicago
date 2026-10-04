@@ -25,6 +25,33 @@ the household model drew for them (508 people), and 121 stand alone with a card 
   aprons) were rebuilt by hand around two `rederive.mjs --run` passes until a further pass changed
   nothing; nine structures whose occupancy moved were rebaked with `bake.sh --only`.
 
+## T-2047 — the arrival and jaunts against the town's budgets; two budgets broken elsewhere (2026-10-04)
+
+**What a visitor sees:** nothing changed. This is piece 4 of 4 of T-1272: the budgets, the
+legacy surfaces and the acceptance report, `docs/measurements/arrival_jaunts_acceptance_2026-10.md`.
+
+- **The section is inside its own budget.** It adds 11.5 KB to a first visit (`arrival.js`,
+  `welcome.js`, `loading-early.js`, `data/loading/statuses.json`), and no catalog, jaunt file
+  or source-index URL is among the 1306 boot requests.
+- **The boot payload is OVER its budget on dev: 13.122 MB > 13 MB** (`measure_boot_payload.mjs
+  --check`). T-1973's tree re-measures at its own 12.575 MB, so the +0.547 MB is growth:
+  sidecars +0.263, T-2036's fonts +0.071, the entrance aprons +0.050. No gate has said so,
+  because every dev bake since 2026-10-03 was cancelled by a newer push. → T-2058.
+- **The mobile flora heartbeat is past its 250 ms check:** 320-356 ms on dev. Bisected to
+  T-2015 (#333): 143 → 339 ms across that one merge. → T-2059.
+- **The boot moved 25-70 % against the tree before the arrival**, on one runner. Most of
+  it is a ~2.9 s long task now opening the terrain phase (0.72 → 3.71 s), already present on
+  2026-10-02 and so not the arrival's. `boot-weights.js` was NOT rewritten: its seconds come
+  from another machine and pace every first visit's arrival. → T-2060 decides which machine.
+- **Frame cost** at desktop full and balanced is inside every ceiling at all six stands, but
+  balanced stands at 99.0-99.3 % at two of them. The light level and mobile were not read: two
+  sweeps hit the 580 s cap. The smoke's part 4 holds them, last passed in CI on 2026-10-01.
+- **Legacy surfaces** (smoke, `--published`, this branch): mobile part 3 PASS 102/102 and
+  mobile part 12 PASS 97/97, both with zero page errors. Desktop part 12 was cut off at the
+  590 s cap with 49 passed and none failed, so it is NOT a pass. Part 13 was not run.
+- **Unverified here:** T-2045's boot variants and T-2046's layouts, which were in flight. Their
+  verdicts are theirs. No budget was raised.
+
 ## T-2056 — four horse jaunts just over six minutes brought inside it (2026-10-03)
 
 **What a visitor sees:** A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and
