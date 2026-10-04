@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1428, ts: '2026-10-04T13:16:37.685Z', date: 'Oct 4, 2026, 8:16 AM CT', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
+  { v: null, ts: '', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
     items: [
       'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
       'The pass that adds these people was set to file seven of them again under new names, and to drop their old records. It now knows when a name it reads is someone the town already holds, and adds the new reading to that person\u2019s record.',
       'Two names read better from the page image: H. Pease is C. H. Pease, and F. Plumer is S. F. Plumer, who now appears from the January 1834 printing of the list rather than the March one.',
       'Where two printings of one list spell a name differently, the record lists both printings. William Crisey keeps that spelling for now, because the page image reads Crissy and choosing between them needs a written ruling.',
+    ] },
+  { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+    items: [
+      'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
+      'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
+      'Held sideways, Starting At\u2026 now scrolls instead of drawing Tap to enter Chicago over the list of places.',
+      'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
+      'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
+    ] },
+  { v: 1428, ts: '2026-10-04T12:42:37.866Z', date: 'Oct 4, 2026, 7:42 AM CT', title: 'Nothing you can see: the house-seating passes rebuild with the rest', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The three passes that seat households on lots and record each household\u2019s address now rebuild automatically, in a measured order, when two changes are merged together.',
+      'Before this, a merge that moved a house could leave the address book and the seat lists out of step until someone rebuilt them by hand.',
     ] },
   { v: 1427, ts: '2026-10-04T12:12:16.087Z', date: 'Oct 4, 2026, 7:12 AM CT', title: "What's-New lists the yellow boarding-house note once, not six times", kind: 'fix',
     items: [

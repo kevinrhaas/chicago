@@ -278,3 +278,5 @@
 }
 .pop-firm:hover { background: color-mix(in srgb, var(--accent) 24%, transparent); border-color: var(--accent); }
 .pop-firm:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* T-2046: a firm opened from a jaunt stop is tapped with a thumb — 44px, the path's floor. */
+body.is-touch .pop-firm { min-height: 44px; }
