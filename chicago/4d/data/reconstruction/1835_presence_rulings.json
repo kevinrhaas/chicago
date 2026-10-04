@@ -94,7 +94,7 @@
         "basis": {
           "kind": "rule",
           "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-04-01, 1.2485 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9237 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
+          "note": "The corpus last reads this person 1834-03-04, 1.3251 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9192 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
         },
         "replaceable_by": {
           "kind": "person",
@@ -103,8 +103,8 @@
         "priced_by": {
           "model": "persistence_1835",
           "lambda_per_year": 0.063541,
-          "years_before_the_scene": 1.2485,
-          "persistence": 0.9237
+          "years_before_the_scene": 1.3251,
+          "persistence": 0.9192
         },
         "residence_grade_this_stands_beside": "inferred"
       },
@@ -2670,7 +2670,7 @@
         "basis": {
           "kind": "rule",
           "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-07-16, 0.9583 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9409 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
+          "note": "The corpus last reads this person 1834-07-09, 0.9774 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9398 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
         },
         "replaceable_by": {
           "kind": "person",
@@ -2679,8 +2679,8 @@
         "priced_by": {
           "model": "persistence_1835",
           "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.9583,
-          "persistence": 0.9409
+          "years_before_the_scene": 0.9774,
+          "persistence": 0.9398
         },
         "residence_grade_this_stands_beside": "inferred"
       },
@@ -9462,7 +9462,7 @@
         "basis": {
           "kind": "rule",
           "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-07-16, 0.9583 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9409 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
+          "note": "The corpus last reads this person 1834-07-09, 0.9774 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9398 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
         },
         "replaceable_by": {
           "kind": "person",
@@ -9471,8 +9471,8 @@
         "priced_by": {
           "model": "persistence_1835",
           "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.9583,
-          "persistence": 0.9409
+          "years_before_the_scene": 0.9774,
+          "persistence": 0.9398
         },
         "residence_grade_this_stands_beside": "inferred"
       },
@@ -10276,7 +10276,7 @@
         "basis": {
           "kind": "rule",
           "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-07-16, 0.9583 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9409 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
+          "note": "The corpus last reads this person 1834-07-09, 0.9774 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9398 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
         },
         "replaceable_by": {
           "kind": "person",
@@ -10285,8 +10285,8 @@
         "priced_by": {
           "model": "persistence_1835",
           "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.9583,
-          "persistence": 0.9409
+          "years_before_the_scene": 0.9774,
+          "persistence": 0.9398
         },
         "residence_grade_this_stands_beside": "inferred"
       },
@@ -10990,7 +10990,7 @@
         "basis": {
           "kind": "rule",
           "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-07-16, 0.9583 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9409 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
+          "note": "The corpus last reads this person 1834-07-09, 0.9774 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9398 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
         },
         "replaceable_by": {
           "kind": "person",
@@ -10999,8 +10999,8 @@
         "priced_by": {
           "model": "persistence_1835",
           "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.9583,
-          "persistence": 0.9409
+          "years_before_the_scene": 0.9774,
+          "persistence": 0.9398
         },
         "residence_grade_this_stands_beside": "inferred"
       },

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1415, ts: '2026-10-04T09:34:08.233Z', date: 'Oct 4, 2026, 4:34 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
+    items: [
+      'Twelve people known only from the post office’s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
+      'Constant Abbott, Alfred Churchill and Samuel Stout are now known to the town from 1 January 1834, not from April or July. A list printed in March 1834 names all three.',
+      'Two people whose arrival year comes from a history of their own keep it. The post-office dates no longer overwrite it.',
+      'Thirteen more were looked at and left as they are, with the reason written down. Seven belong to another open fix. In six, the same name is printed twice and the records read only one printing, which is now its own question.',
+    ] },
   { v: 1414, ts: '2026-10-04T09:05:46.494Z', date: 'Oct 4, 2026, 4:05 AM CT', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the check that stops one gate step from changing files another step is reading.',

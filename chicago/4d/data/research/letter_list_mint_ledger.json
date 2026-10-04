@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "ticket": "T-2070, out of T-1222",
- "what": "The drift between tools/mint_letter_list_residents.py's derivation and the committed letter-list cards, in the keys and the membership the mint OWNS (KEY_OWNERS in that file), as it stood on 2026-10-04 when --check was first gated on it. Each row is a reading still owed, and names the ticket that owes it: T-2071 the households the mint no longer derives and the ones it re-mints under a new id, T-2072 the people it would add, T-2073 the cards whose mint-owned keys moved.",
+ "what": "The drift between tools/mint_letter_list_residents.py's derivation and the committed letter-list cards, in the keys and the membership the mint OWNS (KEY_OWNERS in that file), as it stood on 2026-10-04 when --check was first gated on it. Each row is a reading still owed, and names the ticket that owes it: T-2071 the households the mint no longer derives and the ones it re-mints under a new id, T-2072 the people it would add, T-2073 the cards whose mint-owned keys moved — read on 2026-10-04: twelve written, two refused as a later pass's (CARD_OWNERS), and thirteen handed on, each row saying to whom and why.",
  "how_to_change_it": "SHRINK ONLY. Read a row, write or refuse what it describes, then run `python3 tools/mint_letter_list_residents.py --retire-ledger`, which takes off the rows whose drift no longer stands and adds none. `--check` is red on drift that is on no row, on a row whose drift no longer stands, and on a rewritten card whose ledgered keys grew. Adding a row by hand is blessing drift nobody has read: don't.",
  "rows": [
   {
@@ -395,31 +395,16 @@
    "reader": "T-2071"
   },
   {
-   "id": "hh_abbott_constant",
-   "class": "rewritten",
-   "keys": [
-    "arrival.note",
-    "arrival.value",
-    "persons[].letter_list_returns[]"
-   ],
-   "reader": "T-2073"
-  },
-  {
    "id": "hh_ambrose_joshua",
    "class": "rewritten",
    "keys": [
     "persons[].letter_list_only"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_beegle_a",
-   "class": "rewritten",
-   "keys": [
-    "arrival.note",
-    "persons[].letter_list_returns[]"
-   ],
-   "reader": "T-2073"
+   "reader": "T-1689",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "T-1689 owns these seven cards (its run held the claim when T-2073 read them): the flag was rightly cleared under T-1005 because each card's press_evidence holds a reading that is not a letter list, and the mint sets it back because record() writes it unconditionally. The pass that clears the flag is the pass T-1689 asks to revise the card's name, so the two settle together there."
+   }
   },
   {
    "id": "hh_bradford_harriet",
@@ -427,7 +412,11 @@
    "keys": [
     "persons[].letter_list_only"
    ],
-   "reader": "T-2073"
+   "reader": "T-1689",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "T-1689 owns these seven cards (its run held the claim when T-2073 read them): the flag was rightly cleared under T-1005 because each card's press_evidence holds a reading that is not a letter list, and the mint sets it back because record() writes it unconditionally. The pass that clears the flag is the pass T-1689 asks to revise the card's name, so the two settle together there."
+   }
   },
   {
    "id": "hh_chapman_chas_h",
@@ -435,43 +424,11 @@
    "keys": [
     "persons[].letter_list_only"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_churchill_alfred",
-   "class": "rewritten",
-   "keys": [
-    "arrival.note",
-    "arrival.value",
-    "persons[].letter_list_returns"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_conte_e_w",
-   "class": "rewritten",
-   "keys": [
-    "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_doty_j_d",
-   "class": "rewritten",
-   "keys": [
-    "arrival.note",
-    "persons[].letter_list_returns[]"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_easling_n_w",
-   "class": "rewritten",
-   "keys": [
-    "arrival.note",
-    "persons[].letter_list_returns[]"
-   ],
-   "reader": "T-2073"
+   "reader": "T-1689",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "T-1689 owns these seven cards (its run held the claim when T-2073 read them): the flag was rightly cleared under T-1005 because each card's press_evidence holds a reading that is not a letter list, and the mint sets it back because record() writes it unconditionally. The pass that clears the flag is the pass T-1689 asks to revise the card's name, so the two settle together there."
+   }
   },
   {
    "id": "hh_elliot_william",
@@ -479,16 +436,11 @@
    "keys": [
     "present_on_scene_date.note"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_fisher_h",
-   "class": "rewritten",
-   "keys": [
-    "arrival.note",
-    "persons[].letter_list_returns[]"
-   ],
-   "reader": "T-2073"
+   "reader": "T-2076",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "The re-derivation reads one of two printings of the same name, not more of the corpus: hh_palmer_n_h keeps the 1 July 1835 surname-first reprint and loses the 20 May return (a later, looser bound), and hh_elliot_william and hh_wilson_john lose the 4 March 1834 reprint because the list's count of letters ('Elliot 3', 'Wilson 4') splits it into another person. Writing it would throw a printing away; refused here, settled by the derivation rule T-2076 owns."
+   }
   },
   {
    "id": "hh_fitzgerald_thos",
@@ -496,15 +448,11 @@
    "keys": [
     "persons[].letter_list_only"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_forster_jane",
-   "class": "rewritten",
-   "keys": [
-    "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
+   "reader": "T-1689",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "T-1689 owns these seven cards (its run held the claim when T-2073 read them): the flag was rightly cleared under T-1005 because each card's press_evidence holds a reading that is not a letter list, and the mint sets it back because record() writes it unconditionally. The pass that clears the flag is the pass T-1689 asks to revise the card's name, so the two settle together there."
+   }
   },
   {
    "id": "hh_fraser_wm_h",
@@ -513,23 +461,11 @@
     "name",
     "persons[].name"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_heere_anthony",
-   "class": "rewritten",
-   "keys": [
-    "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_lafton_lewis",
-   "class": "rewritten",
-   "keys": [
-    "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
+   "reader": "T-2076",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "The two spellings are two printings of one return (28 January and 4 March 1834) that reach the mint as two candidates. Written on 2026-10-04 and taken back the same day: once the card shows the other spelling, the first stops resolving to it and the mint mints it as a second household (hh_frazer_wm_h, hh_pruvis_joshua, hh_vandine_john — T-2071's re-minted rows are the other face of this pair). Neither spelling is the card's to choose until T-2076 decides how one card reads two printings."
+   }
   },
   {
    "id": "hh_murray_alonzo",
@@ -537,7 +473,11 @@
    "keys": [
     "persons[].letter_list_only"
    ],
-   "reader": "T-2073"
+   "reader": "T-1689",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "T-1689 owns these seven cards (its run held the claim when T-2073 read them): the flag was rightly cleared under T-1005 because each card's press_evidence holds a reading that is not a letter list, and the mint sets it back because record() writes it unconditionally. The pass that clears the flag is the pass T-1689 asks to revise the card's name, so the two settle together there."
+   }
   },
   {
    "id": "hh_neff_r_a",
@@ -545,19 +485,11 @@
    "keys": [
     "persons[].letter_list_only"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_orsemus_morrison",
-   "class": "rewritten",
-   "keys": [
-    "arrival.confidence",
-    "arrival.note",
-    "arrival.precision",
-    "arrival.sources[]",
-    "arrival.value"
-   ],
-   "reader": "T-2073"
+   "reader": "T-1689",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "T-1689 owns these seven cards (its run held the claim when T-2073 read them): the flag was rightly cleared under T-1005 because each card's press_evidence holds a reading that is not a letter list, and the mint sets it back because record() writes it unconditionally. The pass that clears the flag is the pass T-1689 asks to revise the card's name, so the two settle together there."
+   }
   },
   {
    "id": "hh_palmer_n_h",
@@ -570,7 +502,11 @@
     "present_on_scene_date.note",
     "present_on_scene_date.value"
    ],
-   "reader": "T-2073"
+   "reader": "T-2076",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "The re-derivation reads one of two printings of the same name, not more of the corpus: hh_palmer_n_h keeps the 1 July 1835 surname-first reprint and loses the 20 May return (a later, looser bound), and hh_elliot_william and hh_wilson_john lose the 4 March 1834 reprint because the list's count of letters ('Elliot 3', 'Wilson 4') splits it into another person. Writing it would throw a printing away; refused here, settled by the derivation rule T-2076 owns."
+   }
   },
   {
    "id": "hh_provis_joshua",
@@ -579,7 +515,11 @@
     "name",
     "persons[].name"
    ],
-   "reader": "T-2073"
+   "reader": "T-2076",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "The two spellings are two printings of one return (28 January and 4 March 1834) that reach the mint as two candidates. Written on 2026-10-04 and taken back the same day: once the card shows the other spelling, the first stops resolving to it and the mint mints it as a second household (hh_frazer_wm_h, hh_pruvis_joshua, hh_vandine_john — T-2071's re-minted rows are the other face of this pair). Neither spelling is the card's to choose until T-2076 decides how one card reads two printings."
+   }
   },
   {
    "id": "hh_simons_e",
@@ -587,25 +527,11 @@
    "keys": [
     "persons[].letter_list_only"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_stout_samuel",
-   "class": "rewritten",
-   "keys": [
-    "arrival.note",
-    "arrival.value",
-    "persons[].letter_list_returns"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_teal_william",
-   "class": "rewritten",
-   "keys": [
-    "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
+   "reader": "T-1689",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "T-1689 owns these seven cards (its run held the claim when T-2073 read them): the flag was rightly cleared under T-1005 because each card's press_evidence holds a reading that is not a letter list, and the mint sets it back because record() writes it unconditionally. The pass that clears the flag is the pass T-1689 asks to revise the card's name, so the two settle together there."
+   }
   },
   {
    "id": "hh_vandino_john",
@@ -614,7 +540,11 @@
     "name",
     "persons[].name"
    ],
-   "reader": "T-2073"
+   "reader": "T-2076",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "The two spellings are two printings of one return (28 January and 4 March 1834) that reach the mint as two candidates. Written on 2026-10-04 and taken back the same day: once the card shows the other spelling, the first stops resolving to it and the mint mints it as a second household (hh_frazer_wm_h, hh_pruvis_joshua, hh_vandine_john — T-2071's re-minted rows are the other face of this pair). Neither spelling is the card's to choose until T-2076 decides how one card reads two printings."
+   }
   },
   {
    "id": "hh_wilson_john",
@@ -622,19 +552,11 @@
    "keys": [
     "present_on_scene_date.note"
    ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_woodworth_james_h",
-   "class": "rewritten",
-   "keys": [
-    "arrival.confidence",
-    "arrival.note",
-    "arrival.precision",
-    "arrival.sources[]",
-    "arrival.value"
-   ],
-   "reader": "T-2073"
+   "reader": "T-2076",
+   "handed_on": {
+    "from": "T-2073",
+    "why": "The re-derivation reads one of two printings of the same name, not more of the corpus: hh_palmer_n_h keeps the 1 July 1835 surname-first reprint and loses the 20 May return (a later, looser bound), and hh_elliot_william and hh_wilson_john lose the 4 March 1834 reprint because the list's count of letters ('Elliot 3', 'Wilson 4') splits it into another person. Writing it would throw a printing away; refused here, settled by the derivation rule T-2076 owns."
+   }
   }
  ]
 }
