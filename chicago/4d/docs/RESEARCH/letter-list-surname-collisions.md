@@ -28,10 +28,10 @@ rows they were, read now off what the pass says rather than off who it drops.
 
 * the pool the register offers this pass: **1856** candidates
 * accepted under the pre-T-0638 reading: **782**
-* accepted under the corrected reading: **784**
+* accepted under the corrected reading: **783**
 * standing records a mint-time refusal lands on, corrected reading: **79**; pre-T-0638 reading: **80**
 * THE COLLISIONS THIS FAULT UNCOVERED — said under the corrected reading and not under the old one: **9**
-* candidates the correction ADMITS that the old reading refused: **2**
+* candidates the correction ADMITS that the old reading refused: **1**
 
 ## The collisions — what the paper printed, and who holds the surname instead
 
@@ -71,7 +71,7 @@ and they are why the owner answered it with (c) — keep both, say the collision
 ## The committed cohort against its own derivation
 
 The tree holds **780** letter-list households. The pass, run today
-against that same tree, derives **784**. `check.sh` runs this pass's
+against that same tree, derives **783**. `check.sh` runs this pass's
 `--gate` and not its `--check`, so the gap has never been red. Under the ruling the
 mint-time causes are gone from this table by construction — a standing record is no
 longer out of step with its own pass for colliding on a family name. What is left is
@@ -96,7 +96,6 @@ The other half of the same diff, and none of them is committed today.
 
 | printed | as a card would show it | old | new | returns |
 |---|---|---|---|---|
-| `Augustus H, Conant` | Conant Augustus H | `h` | `augustus` | 1 |
 | `Daniel B. Clevinger 4` | B. Clevinger [?] Daniel | `4` | `daniel` | 1 |
 
 ## A residual fault in the corrected reading
@@ -105,13 +104,7 @@ Reported here rather than fixed, because a change to `surname()` re-derives the
 whole cohort, and the ruling of 2026-09-18 explicitly declined to pay for that: it
 is option (b)'s cost, and (b) is not what was chosen.
 
-| printed | reads the surname as | after the comma |
-|---|---|---|
-| `Augustus H, Conant` | `augustus` | `Conant` |
-
-A comma says the family name is the group BEFORE it. When that group ends on an
-initial, `surname_is_first_token()` fires and takes the first full word of the
-whole printing — the given name — instead of the full word after the comma.
+None in the pool as it stands.
 
 ---
 
