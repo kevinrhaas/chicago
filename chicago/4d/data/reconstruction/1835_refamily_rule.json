@@ -3511,6 +3511,414 @@
       }
     },
     {
+      "person": "rc_wilcox_ezra",
+      "household": "hh_lodging_brown_boarding_house",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_brown_boarding_house:rc_wilcox_ezra",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_whitcomb_lucy",
+      "household": "hh_lodging_exchange_coffee_house",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/female/30_39/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_exchange_coffee_house:rc_whitcomb_lucy",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_doyle_hugh",
+      "household": "hh_lodging_exchange_coffee_house",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_exchange_coffee_house:rc_doyle_hugh",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_pothier_francois",
+      "household": "hh_lodging_exchange_coffee_house",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_exchange_coffee_house:rc_pothier_francois",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_sullivan_dennis",
+      "household": "hh_lodging_exchange_coffee_house",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_exchange_coffee_house:rc_sullivan_dennis",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_hale_eliza",
+      "household": "hh_lodging_new_york_house",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/female/30_39/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_new_york_house:rc_hale_eliza",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_marcotte_louis",
+      "household": "hh_lodging_new_york_house",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_new_york_house:rc_marcotte_louis",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_fisk_levi",
+      "household": "hh_lodging_new_york_house",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_new_york_house:rc_fisk_levi",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_chapin_abner",
+      "household": "hh_lodging_recon_1835_blk_indiana_north_cass_h3_09",
+      "relationship": "son",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_indiana_north_cass_h3_09:rc_chapin_abner",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_fairbanks_maria",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/female/30_39/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_05:rc_fairbanks_maria",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_ingalls_ezra",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_05:rc_ingalls_ezra",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_quinn_michael",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_05:rc_quinn_michael",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_nash_warren",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_05:rc_nash_warren",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_ingalls_orrin",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_06:rc_ingalls_orrin",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_parmelee_luther",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_06:rc_parmelee_luther",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_rice_silas",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_06:rc_rice_silas",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_fisk_charles",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_11:rc_fisk_charles",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_cobb_lemuel",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_11:rc_cobb_lemuel",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_hastings_harvey",
+      "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_11:rc_hastings_harvey",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_bardwell_esther",
+      "household": "hh_lodging_recon_1835_north_h1_007",
+      "relationship": "head",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/female/20_29/north/lodging/trade",
+      "rung": "R_seated",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": [
+            "rcb_bardwell_boarding_house"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
+        }
+      ],
+      "deal_key": "hh_lodging_recon_1835_north_h1_007:rc_bardwell_esther",
+      "axes": {
+        "sex": "female",
+        "age_band": "20_29",
+        "division": "north",
+        "household": "lodging",
+        "trade": "trade"
+      }
+    },
+    {
+      "person": "rc_bardwell_david",
+      "household": "hh_lodging_recon_1835_north_h1_007",
+      "relationship": "son",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h1_007:rc_bardwell_david",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_bardwell_henry",
+      "household": "hh_lodging_recon_1835_north_h1_007",
+      "relationship": "son",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h1_007:rc_bardwell_henry",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_barnes_ezra",
       "household": "hh_lodging_recon_1835_north_h2_022",
       "relationship": "head",
@@ -3541,6 +3949,144 @@
       }
     },
     {
+      "person": "rc_barnes_george",
+      "household": "hh_lodging_recon_1835_north_h2_022",
+      "relationship": "son",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_022:rc_barnes_george",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_barnes_luther",
+      "household": "hh_lodging_recon_1835_north_h2_022",
+      "relationship": "son",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_022:rc_barnes_luther",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_barnes_samuel",
+      "household": "hh_lodging_recon_1835_north_h2_022",
+      "relationship": "son",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_022:rc_barnes_samuel",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_marcotte_joseph",
+      "household": "hh_lodging_recon_1835_north_h2_028",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/40_49/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_028:rc_marcotte_joseph",
+      "axes": {
+        "sex": "male",
+        "age_band": "40_49",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_newell_lydia",
+      "household": "hh_lodging_recon_1835_north_h2_030",
+      "relationship": "head",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/female/20_29/north/lodging/trade",
+      "rung": "R_seated",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": [
+            "rcb_newell_boarding_house"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
+        }
+      ],
+      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_newell_lydia",
+      "axes": {
+        "sex": "female",
+        "age_band": "20_29",
+        "division": "north",
+        "household": "lodging",
+        "trade": "trade"
+      }
+    },
+    {
+      "person": "rc_newell_james",
+      "household": "hh_lodging_recon_1835_north_h2_030",
+      "relationship": "son",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_newell_james",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_lyman_henry",
+      "household": "hh_lodging_recon_1835_north_h2_045",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/40_49/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_045:rc_lyman_henry",
+      "axes": {
+        "sex": "male",
+        "age_band": "40_49",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_fitzgerald_martin",
       "household": "hh_lodging_recon_1835_west_006",
       "relationship": "head",
@@ -3568,6 +4114,168 @@
         "division": "west",
         "household": "lodging",
         "trade": "trade"
+      }
+    },
+    {
+      "person": "rc_doyle_martin",
+      "household": "hh_lodging_sauganash_hotel",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_sauganash_hotel:rc_doyle_martin",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_sheldon_orrin",
+      "household": "hh_lodging_sauganash_hotel",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_sauganash_hotel:rc_sheldon_orrin",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_ingalls_maria",
+      "household": "hh_lodging_tremont_house_1",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/female/30_39/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_tremont_house_1:rc_ingalls_maria",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_metcalf_amos",
+      "household": "hh_lodging_tremont_house_1",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_tremont_house_1:rc_metcalf_amos",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_bourassa_louis",
+      "household": "hh_lodging_tremont_house_1",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_tremont_house_1:rc_bourassa_louis",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_thayer_abigail",
+      "household": "hh_lodging_western_hotel",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/female/30_39/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_western_hotel:rc_thayer_abigail",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_newell_william",
+      "household": "hh_lodging_western_hotel",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_western_hotel:rc_newell_william",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_parmelee_lemuel",
+      "household": "hh_lodging_western_hotel",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_western_hotel:rc_parmelee_lemuel",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_nash_otis",
+      "household": "hh_lodging_western_hotel",
+      "relationship": "lodger",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_western_hotel:rc_nash_otis",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "lodging",
+        "trade": "none"
       }
     },
     {
@@ -11690,6 +12398,24 @@
       }
     },
     {
+      "person": "rc_hastings_lemuel",
+      "household": "hh_rc_hastings_lemuel",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/male/50_plus/west/family/trade",
+      "rung": "C1",
+      "adoptions": [],
+      "deal_key": "trade_households:persons/male/50_plus/west/family/trade:liquor_dealer:001",
+      "axes": {
+        "sex": "male",
+        "age_band": "50_plus",
+        "division": "west",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
       "person": "rc_hastings_lydia",
       "household": "hh_rc_hastings_lydia",
       "relationship": "head",
@@ -11727,24 +12453,6 @@
         "sex": "female",
         "age_band": "30_39",
         "division": "north",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
-      "person": "rc_hastings_silas",
-      "household": "hh_rc_hastings_silas",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/male/50_plus/west/family/trade",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "trade_households:persons/male/50_plus/west/family/trade:liquor_dealer:001",
-      "axes": {
-        "sex": "male",
-        "age_band": "50_plus",
-        "division": "west",
         "household": "family",
         "trade": "trade"
       }
@@ -14669,6 +15377,24 @@
       }
     },
     {
+      "person": "rc_metcalf_george",
+      "household": "hh_rc_metcalf_george",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/male/20_29/north/family/trade",
+      "rung": "C1",
+      "adoptions": [],
+      "deal_key": "trade_households:persons/male/20_29/north/family/trade:druggist:012",
+      "axes": {
+        "sex": "male",
+        "age_band": "20_29",
+        "division": "north",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
       "person": "rc_metcalf_hiram",
       "household": "hh_rc_metcalf_hiram",
       "relationship": "head",
@@ -14718,36 +15444,6 @@
         "sex": "female",
         "age_band": "20_29",
         "division": "west",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
-      "person": "rc_metcalf_nathaniel",
-      "household": "hh_rc_metcalf_nathaniel",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/male/20_29/north/family/trade",
-      "rung": "R_adopted",
-      "adoptions": [
-        {
-          "layer": "employment",
-          "seat": "on_their_own_account",
-          "houses": [
-            "rcb_metcalf_druggist"
-          ]
-        },
-        {
-          "layer": "business",
-          "business": "index"
-        }
-      ],
-      "deal_key": "trade_households:persons/male/20_29/north/family/trade:druggist:012",
-      "axes": {
-        "sex": "male",
-        "age_band": "20_29",
-        "division": "north",
         "household": "family",
         "trade": "trade"
       }
@@ -18200,8 +18896,8 @@
       }
     },
     {
-      "person": "rc_sawyer_harriet",
-      "household": "hh_rc_sawyer_harriet",
+      "person": "rc_sawyer_eliza",
+      "household": "hh_rc_sawyer_eliza",
       "relationship": "head",
       "stage": "trade_households",
       "ticket": "T-1347",
@@ -27010,8 +27706,8 @@
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
     {
-      "person": "rc_hastings_silas",
-      "household": "hh_rc_hastings_silas",
+      "person": "rc_hastings_lemuel",
+      "household": "hh_rc_hastings_lemuel",
       "rung": "C1",
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
@@ -27310,6 +28006,12 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
+      "person": "rc_metcalf_george",
+      "household": "hh_rc_metcalf_george",
+      "rung": "C1",
+      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
+    },
+    {
       "person": "rc_wilcox_silas",
       "household": "hh_rc_wilcox_silas",
       "rung": "C1",
@@ -27382,8 +28084,8 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
-      "person": "rc_sawyer_harriet",
-      "household": "hh_rc_sawyer_harriet",
+      "person": "rc_sawyer_eliza",
+      "household": "hh_rc_sawyer_eliza",
       "rung": "C1",
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
@@ -29471,65 +30173,65 @@
     }
   ],
   "counts": {
-    "people_in_the_refused_buckets": 1146,
-    "the_surplus_those_buckets_hold": 386,
+    "people_in_the_refused_buckets": 1184,
+    "the_surplus_those_buckets_hold": 415,
     "by_rung": {
       "C0": 220,
-      "C1": 538,
-      "R_adopted": 286,
+      "C1": 539,
+      "R_adopted": 285,
       "R_house_is_not_wholly_held": 25,
-      "R_seated": 24,
+      "R_seated": 62,
       "R_division_is_a_reading": 53
     },
-    "movable_people": 758,
-    "refused_on_their_own_account": 275,
+    "movable_people": 759,
+    "refused_on_their_own_account": 312,
     "refused_with_their_house": 113,
-    "carrying_an_adoption_themselves": 200,
+    "carrying_an_adoption_themselves": 201,
     "moves_the_rule_yields": 139,
     "buckets_moved_out_of": 40,
     "buckets_moved_into": 42,
     "adoptions_carried": 0,
-    "the_roster_is_reconciled": "all 45 refused buckets accounted for, 1,146 people named"
+    "the_roster_is_reconciled": "all 53 refused buckets accounted for, 1,184 people named"
   },
   "the_ceilings": {
     "_doc": "Upper bounds, each loosening ONE more axis than the one above it. They are bounds and not plans: the rule's own yield is below the last of them because movability then applies.",
-    "if_only_the_division_changed": 0,
-    "if_the_household_kind_changed_too": 12,
-    "if_the_trade_could_change_as_well": 69,
+    "if_only_the_division_changed": 3,
+    "if_the_household_kind_changed_too": 15,
+    "if_the_trade_could_change_as_well": 76,
     "and_then_with_movability_applied_but_a_house_free_to_split": 12,
     "under_this_rule": 139,
     "what_the_whole_house_condition_costs": -127,
     "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -127 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
     "the_number_T_1556_named": 265,
-    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 69: 215 of the 227 open slots stand in adult-MALE cells while the surplus holds 224 people under twenty and 105 adult women, whose cells hold 12 slots between them.",
-    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 22 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
+    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 76: 208 of the 220 open slots stand in adult-MALE cells while the surplus holds 237 people under twenty and 114 adult women, whose cells hold 12 slots between them.",
+    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 21 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
-    "persons_standing_in_the_layer": 2889,
-    "still_owed_now": 227,
-    "converges_to_now": 3116,
-    "converges_to_if_the_rule_is_spent": 2977,
-    "the_model_point": 2543,
+    "persons_standing_in_the_layer": 2927,
+    "still_owed_now": 220,
+    "converges_to_now": 3147,
+    "converges_to_if_the_rule_is_spent": 3008,
+    "the_model_point": 2545,
     "the_model_range": [
-      2362,
+      2365,
       3265
     ],
-    "reading": "2,977 is inside the model's 2,362-3,265 and 434 above its 2,543 point, against 573 above it today."
+    "reading": "3,008 is inside the model's 2,365-3,265 and 463 above its 2,545 point, against 602 above it today."
   },
   "what_would_raise_the_ceiling": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 224 people under twenty and 105 adult women, and their cells hold 10 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 237 people under twenty and 114 adult women, and their cells hold 10 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "200 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "201 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
       "id": "the_22_seated_households",
-      "says": "24 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
+      "says": "62 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
       "who_owns_it": "T-1199"
     },
     {

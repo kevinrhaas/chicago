@@ -315,6 +315,16 @@ def basis_bucket(person: dict) -> str | None:
     return bucket if isinstance(bucket, str) and bucket else None
 
 
+def lodger_child_band(person: dict) -> str | None:
+    """The order book's band for a keeper's child, whose band (not whose basis) the book ordered."""
+    if person.get("relationship") not in ("son", "daughter"):
+        return None
+    band = person.get("age_band")
+    if not isinstance(band, dict) or (band.get("basis") or {}).get("id") != "1835_reconstruction_order_book":
+        return None
+    return band_of(int(band["low"])) if isinstance(band.get("low"), int) else None
+
+
 def held_roster(doc: dict, by_id: dict) -> list:
     """Every reconstructed person standing in a bucket, with the cell that counts him.
 
@@ -368,6 +378,18 @@ def held_roster(doc: dict, by_id: dict) -> list:
                 # what it adds is the ability to ACCOUNT for a refused lodging bucket,
                 # which the re-cut produces as soon as a re-family lands in the band.
                 key = basis_bucket(person)
+            elif stage == "lodgers" and lodger_child_band(person):
+                # AND A KEEPER'S CHILD, WHOSE OWN BASIS IS THE TOWN MODEL'S SIZE DRAW
+                # (T-2078). `seat_lodgers_1835.py` deals a child against
+                # room[(house division, sex, under_10, "none")] — no trade axis, because a
+                # child carries none — and writes that cell only into the prose of its
+                # basis note. So it is re-derived here from the card exactly as the deal
+                # made it. It stayed invisible until a re-cut first refused a child cell:
+                # persons/male/under_10/north/lodging/none, when one more documented boy
+                # shrank its order under the 10 already drawn, held 7 such children and
+                # the roster named none of them.
+                key = (f"persons/{person['sex']}/{lodger_child_band(person)}/"
+                       f"{division}/lodging/none")
             else:
                 continue
             rows.append({
@@ -1070,8 +1092,15 @@ def cmd_self_test() -> int:
         "the rule yields %d move(s) that change the division and nothing else — T-1558's "
         "finding was that the held surplus and the open orders are disjoint on every "
         "other axis, so the division alone moves nobody" % len(division_only))
-    held = {r["bucket"] for r in doc["recut_refusals"]}
-    assert not [m for m in moves if m["to_bucket"] in held], \
+    # ONE EXCEPTION, AND IT IS THE BOOK'S OWN (T-2078): a destination whose order was
+    # open when the move landed and has since been shrunk by a documented reading is held
+    # as `a_documented_reading_shrank_the_order`, with the landings it carried counted in
+    # `refamilied_in`. Those landings, and no more than those, may stand there.
+    held = {r["bucket"]: r for r in doc["recut_refusals"]}
+    landed = Counter(m["to_bucket"] for m in moves if m["to_bucket"] in held)
+    assert not [b for b, n in landed.items()
+                if held[b].get("cause") != "a_documented_reading_shrank_the_order"
+                or n > (held[b].get("refamilied_in") or 0)], \
         "a move lands in a bucket the re-cut itself refuses"
     out_of = Counter(m["from_bucket"] for m in moves)
     # THE CAP IS THE SURPLUS THE BUCKET EVER HELD, not the surplus it holds now. The
