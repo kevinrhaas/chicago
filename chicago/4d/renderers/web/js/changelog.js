@@ -1,20 +1,10 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
+  { v: 1417, ts: '2026-10-04T10:23:52.787Z', date: 'Oct 4, 2026, 5:23 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
     items: [
       'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
       'Its Evidence panel no longer shows the 1835 town\u2019s City, wildlife, plants, not-here, open-questions, population and order-book topics.',
       'Go to no longer lists 286 firms of 1835 that could not be reached from 1904.',
       'The 1835 scene keeps every section it had.',
-    ] },
-  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
-    ] },
-  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
   { v: 1416, ts: '2026-10-04T09:51:42.459Z', date: 'Oct 4, 2026, 4:51 AM CT', title: 'Seven households no longer called letter-list names alone', kind: 'fix',
     items: [
