@@ -185,6 +185,33 @@ try {
   writeFileSync(MIRROR, readFileSync(SRC));
   check('and republishing clears it again', published().ok);
 
+  /* --- half three: `check` reports a stale board, and never repairs it ---- */
+  //
+  // T-1341. `check` used to regenerate the pair on its way past, so on a stale tree
+  // it rewrote tickets.json and the mirror and the drift was gone before anyone saw
+  // it — the T-0856 check-that-repairs fault. It now compares. The sandbox queue may
+  // carry faults of its own (embedded mode charges them all), so the exit status is
+  // not the assertion: what it SAYS about the board, and the bytes, are.
+  const bytes = () => [SRC, BOARD, MIRROR].map((f) => (existsSync(f) ? readFileSync(f, 'utf8') : null));
+  const checkSays = () => { try { return { code: 0, out: ticket('check') }; } catch (e) { return { code: e.status, out: said(e) }; } };
+  ticket('board');
+  writeFileSync(MIRROR, readFileSync(SRC));
+  const before = bytes();
+  const clean = checkSays();
+  check('`check` on a current board does not call it stale', !clean.out.includes('is STALE'));
+  check('…and writes nothing', bytes().every((b, i) => b === before[i]));
+
+  writeFileSync(SRC, readFileSync(SRC, 'utf8').replace('"tickets": [', '"tickets": [ ').replace(/"title": "/, '"title": "STALE '));
+  const staled = bytes();
+  const stale = checkSays();
+  check('`check` on a stale tickets.json fails and names it', stale.code !== 0
+    && stale.out.includes('tickets/tickets.json is STALE'), stale.out.includes('is STALE') ? 'named' : 'silent');
+  check('…and writes NOTHING — not the source, not the board, not the mirror',
+    bytes().every((b, i) => b === staled[i]), 'repairing is `board`\'s job, not the gate\'s');
+  ticket('board');
+  writeFileSync(MIRROR, readFileSync(SRC));
+  check('and `board` is what clears it', !checkSays().out.includes('is STALE'));
+
   /* --- the pin: two copies of one fact cannot drift ---------------------- */
   //
   // ticket.mjs hard-codes where publish.sh puts this file. `check` pins the copy
