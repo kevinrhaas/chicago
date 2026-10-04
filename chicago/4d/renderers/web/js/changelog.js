@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1452, ts: '2026-10-04T23:36:53.640Z', date: 'Oct 4, 2026, 6:36 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+  { v: null, ts: '', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
     items: [
       'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
       'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
       'The front steps of 108 houses had the same fault at their base and are fixed too.',
       'Nothing new is drawn, so it costs nothing extra on a phone.',
+    ] },
+  { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
+    items: [
+      'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
+      'Fly up over the town. The flat dark slab on the far horizon is gone too. From the air the trees you see are the town\u2019s own.',
+      'Nearer woods now fade out of the far treeline smoothly instead of standing tall right up to where they stopped. Where a stretch of far woods ends, it tapers off.',
+      'How the far treeline is drawn is our reconstruction. The Liberties page explains it (L380).',
     ] },
   { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
     items: [
