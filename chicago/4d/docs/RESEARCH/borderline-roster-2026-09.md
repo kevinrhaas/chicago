@@ -61,7 +61,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 | class / rule | rows |
 |---|---:|
 | `R0_ineligible/already_carried_as_present` | 1054 |
-| `R0_ineligible/carried_by_the_cards_own_row` | 1276 |
+| `R0_ineligible/carried_by_the_cards_own_row` | 1275 |
 | `R0_ineligible/carried_under_a_crosswalk_merged_name` | 162 |
 | `R0_ineligible/earlier_than_the_window` | 146 |
 | `R0_ineligible/forename_printed_surname_lost` | 1 |
@@ -80,7 +80,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R0_ineligible/researched_not_resident` | 9 |
 | `R0_ineligible/single_name_parent_of_a_named_child` | 3 |
 | `R0_ineligible/surname_only_and_unmatched` | 252 |
-| `R0_ineligible/undated_reading` | 257 |
+| `R0_ineligible/undated_reading` | 258 |
 | `R1_in_window_uncertain/card_presence_is_uncertain` | 881 |
 | `R2_in_window_single_source/in_window_read_and_withheld` | 79 |
 | `R2_in_window_single_source/in_window_unspent_inside_an_asserted_claim` | 128 |
