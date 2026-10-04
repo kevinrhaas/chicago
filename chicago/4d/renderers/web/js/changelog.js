@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The alleys behind the houses are worn lanes', kind: 'change',
+  { v: 1441, ts: '2026-10-04T18:50:33.012Z', date: 'Oct 4, 2026, 1:50 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
     items: [
       'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',
       'At each end the lane crosses the roadside to the street, so a cart turning in from Wells or LaSalle leaves the road on the same ground.',
