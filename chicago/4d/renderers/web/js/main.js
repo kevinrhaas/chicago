@@ -50,6 +50,7 @@ import { loadAgencies } from './agencies.js';
 import { createFencedGround } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
+import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
 import { createWharves } from './wharves.js';
@@ -1985,6 +1986,12 @@ async function boot() {
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
   const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
+  // T-2086 — THE KEPT YARDS. The forb layer alone stands back inside a lot's
+  // kept ring (the yard layer carries the record); the strip along the lot
+  // lines, the back corners and the foot of an outbuilding keep their weeds.
+  const kept = keptGround((yard.records ?? []).find((r) => r.id === 'town_kept_ground') ?? null);
+  api.keptGround = kept;
+  const forbBlocked = kept.blocksForb;
 
   let floraUnits = 0, floraDone = 0, treeDone = 0;
   const plantingProgress = (done, total) => {
@@ -1995,7 +2002,7 @@ async function boot() {
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-    growthBlocked: swardBlocked,
+    growthBlocked: swardBlocked, forbBlocked,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
@@ -2060,7 +2067,7 @@ async function boot() {
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-          growthBlocked: swardBlocked,
+          growthBlocked: swardBlocked, forbBlocked,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
@@ -2161,7 +2168,7 @@ async function boot() {
       flora.dispose?.();
       flora = await createFlora({
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-        growthBlocked: swardBlocked,
+        growthBlocked: swardBlocked, forbBlocked,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);

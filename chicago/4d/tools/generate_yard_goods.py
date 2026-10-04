@@ -1252,6 +1252,12 @@ def _town_world(cars: dict) -> dict:
         treatment = ground.get("treatment")
         if not treatment:
             continue
+        # T-2086's worn yard paths are DOWNSTREAM of this layer: they run to the privies
+        # and stables tools/generate_yard_outbuildings.py places clear of these wagons, and
+        # tools/generate_kept_ground.py refuses a path across a trade yard itself. Reading
+        # them here would make the goods depend on their own descendants.
+        if rec.get("id") == "town_yard_paths":
+            continue
         authored = ground.get("interior_local_enu_m")
         # One ring is `[[e, n], ...]` and several are `[[[e, n], ...], ...]`, which is
         # what T-0097's fort apron carries: the ground a record covers is not always

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1436, ts: '2026-10-04T16:26:31.083Z', date: 'Oct 4, 2026, 11:26 AM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
+    items: [
+      'Walk into a house yard and the middle of it is now short, cropped ground: the tall lamb\'s-quarters, ragweed, dock and vervain no longer stand in the open where people and animals walked every day.',
+      'The weeds and flowers are still in town, gathered where scythe, hoof and foot did not reach: a strip along every lot line, the lot\'s back corners and the foot of each privy and stable.',
+      'A worn earth path now runs from each house\'s back wall to its privy, stable or shed, 239 of them across 183 lots.',
+      'Empty lots are unchanged for now. Where the ground is kept and where the paths run is a reconstruction (Liberty L376).',
+    ] },
   { v: 1435, ts: '2026-10-04T16:11:51.956Z', date: 'Oct 4, 2026, 11:11 AM CT', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
     items: [
       'Step into the Western Hotel\'s wagon yard or a pound and the ground is now the same worn dirt as the road outside, grain and all, lit by the sun, where it used to be a blurry print of squares.',

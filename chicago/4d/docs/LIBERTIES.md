@@ -20961,3 +20961,29 @@ measure_ground_albedo.mjs`). It is not a reading of any one patch of 1835 ground
 wet-prairie sward in July, that states blade length, crown spacing or litter cover would replace
 the strokes' counts and sizes.
 **Recorded:** 2026-10-04 (T-2089).
+
+### L376 — A used lot is kept short: weeds and flowers stand at its lines, its back corners and its sheds
+**Decision:** T-2086 writes, for every improved platted lot, the ground its household kept
+(`data/yard/town_kept_ground.json`, `tools/generate_kept_ground.py`, re-derived by `check.sh`).
+Inside the lot pulled in 0.76 m (2½ ft) from every lot line, with its two rear corners cut back
+2.44 m (8 ft), the settled-town community grows its low layer and no forb; the strip, the
+corners and 0.61 m (2 ft) round the foot of every outbuilding keep the zone's weeds and flowers
+exactly as before. A 0.91 m (3 ft) worn path runs straight from the house's back wall to each
+outbuilding (`data/enclosures/town_yard_paths.json`), laid in the door aprons' road earth. A lot
+with no building is not touched.
+**Why:** the owner asked on 2026-10-04 for a town "less 'weedy' ... in front of stores and
+houses, and in the house back yards and properties", without cutting "the beautiful plants and
+grass and flowers". No source says where on any 1835 Chicago lot the ground was short. What
+bounds the invention is the zone record's own grazing evidence — the town's code of 7 Nov 1833
+against wandering pigs, cattle on the unfenced commons — and the mechanics of a used yard: what a
+household walks and its stock crops is short, and a fence line, a back corner and the foot of a
+wall are where scythe, hoof and foot do not reach. Cropped, not mown: a striped lawn is not 1835.
+**Consequence:** a house yard reads as lived-in ground with weeds along its fences and in its
+back corners, and paths worn to the privy and the stable; the forbs are not deleted from the
+town, only from the middle of its yards. The lot-line fences' own records (L161) still state no
+ground: the kept ring is a separate record and the fences are unchanged. Vacant lots keep the
+settled-town planting until the other half of T-2086 decides what a grazed remnant is.
+**How to resolve:** a period description or view of a Chicago or comparable 1830s frontier town
+lot that shows where its ground was bare, cropped or weedy would replace the strip, corner and
+refuge widths, and a plan placing a house's privy path would replace the straight line.
+**Recorded:** 2026-10-04 (T-2086).
