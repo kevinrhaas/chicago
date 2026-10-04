@@ -343,8 +343,8 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_kellogg_samuel",
-   "name": "Samuel Kellogg",
+   "id": "rc_kellogg_john",
+   "name": "John Kellogg",
    "relationship": "boarder",
    "grade": "reconstructed",
    "sex": "male",
@@ -367,7 +367,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Samuel Kellogg",
+    "value": "John Kellogg",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

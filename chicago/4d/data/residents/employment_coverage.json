@@ -111,12 +111,12 @@
     "at_work_is_not_placed": "`at_a_trade_with_no_house_to_join` is in neither set and that is the point of it. Those people follow a trade; what is missing is a house in the business layer to join them to. Counting them as unemployed would be false and counting them as placed would be an invention."
   },
   "counts": {
-    "people": 3878,
+    "people": 3915,
     "by_status": {
       "at_a_named_house": 127,
       "at_a_seat_this_project_drew": 123,
       "at_a_trade_with_no_house_to_join": 346,
-      "no_trade_recorded": 3156,
+      "no_trade_recorded": 3193,
       "on_their_own_account": 126
     },
     "by_reason": {
@@ -130,7 +130,7 @@
       "named_by_a_source": 112,
       "no_employer_named": 162,
       "no_ruling_on_the_trade": 4,
-      "no_trade_recorded": 3156,
+      "no_trade_recorded": 3193,
       "not_held_by_the_establishment_on_the_scene_date": 8,
       "on_the_staff_of_a_house": 9,
       "roofs_kept_none_owed": 12,
@@ -141,33 +141,33 @@
       "works_on_other_people_s_ground": 3
     },
     "by_age_scope": {
-      "age_is_not_settled": 577,
-      "below_working_age": 868,
-      "working_age": 2433
+      "age_is_not_settled": 578,
+      "below_working_age": 867,
+      "working_age": 2470
     },
     "by_age_scope_and_status": {
       "age_is_not_settled": {
         "at_a_seat_this_project_drew": 3,
         "at_a_trade_with_no_house_to_join": 21,
-        "no_trade_recorded": 544,
+        "no_trade_recorded": 545,
         "on_their_own_account": 9
       },
       "below_working_age": {
-        "no_trade_recorded": 868
+        "no_trade_recorded": 867
       },
       "working_age": {
         "at_a_named_house": 127,
         "at_a_seat_this_project_drew": 120,
         "at_a_trade_with_no_house_to_join": 325,
-        "no_trade_recorded": 1744,
+        "no_trade_recorded": 1781,
         "on_their_own_account": 117
       }
     },
     "placed_at_work": 376,
     "carry_a_trade": 672,
-    "working_age": 2433,
+    "working_age": 2470,
     "working_age_placed_at_work": 364,
-    "working_age_with_no_trade_recorded": 1744
+    "working_age_with_no_trade_recorded": 1781
   },
   "mechanics_shops": {
     "printed_count": 25,
@@ -230,7 +230,7 @@
   },
   "against_the_town_model": {
     "employed_persons": {
-      "model_low": 425,
+      "model_low": 426,
       "model_high": 588,
       "the_layer_places": 376,
       "inside_the_band": false,
@@ -246,7 +246,7 @@
   },
   "what_this_does_not_do": {
     "the_business_side_is_T-1462s": "Nothing is written onto a business record here. `staff[]` stays as the register left it, and the order book's employment buckets stay unfilled until T-1459's re-cut lets the mint run.",
-    "it_supplies_no_trade": "3156 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
+    "it_supplies_no_trade": "3193 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
     "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating, the business register's own proprietors, partners and staff (T-1990), the by-name rulings on the attested trades (T-1994), the order book's printed counts (T-1996) and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
   },
   "rows": [
@@ -1125,6 +1125,19 @@
       "houses": []
     },
     {
+      "person_id": "bacon_richani",
+      "household_id": "hh_bacon_richani",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "bailey_amos",
       "household_id": "hh_bailey_amos",
       "record_folder": "households",
@@ -1411,6 +1424,19 @@
       "houses": [
         "biz_dr_j_h_barnard"
       ]
+    },
+    {
+      "person_id": "barnes_wheeler",
+      "household_id": "hh_barnes_wheeler",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
     },
     {
       "person_id": "barney_anne_maria",
@@ -5371,6 +5397,19 @@
       "houses": []
     },
     {
+      "person_id": "crandall_beman",
+      "household_id": "hh_crandall_beman",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "crane_h_y",
       "household_id": "hh_crane_h_y",
       "record_folder": "households",
@@ -6067,6 +6106,19 @@
       "houses": [
         "biz_s_dewey"
       ]
+    },
+    {
+      "person_id": "dickinson_alexander",
+      "household_id": "hh_dickinson_alexander",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
     },
     {
       "person_id": "dickson_david",
@@ -6874,6 +6926,19 @@
       "record_folder": "readmitted",
       "age_band": null,
       "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "eliphalet_atkins_2",
+      "household_id": "hh_eliphalet_atkins_2",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -8593,6 +8658,19 @@
     {
       "person_id": "haighs_isaac",
       "household_id": "hh_haighs_isaac",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "haight_d_s",
+      "household_id": "hh_haight_d_s",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -11075,6 +11153,19 @@
       "houses": []
     },
     {
+      "person_id": "julius_perrin_2",
+      "household_id": "hh_julius_perrin_2",
+      "record_folder": "households",
+      "age_band": "15-19",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "juneau_marguerite",
       "household_id": "hh_juneau_marguerite",
       "record_folder": "households",
@@ -11347,6 +11438,19 @@
       ]
     },
     {
+      "person_id": "kerchevel_lewis",
+      "household_id": "hh_kerchevel_lewis",
+      "record_folder": "households",
+      "age_band": "15-19",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "keyes_edward",
       "household_id": "hh_keyes_edward",
       "record_folder": "households",
@@ -11403,6 +11507,19 @@
       "household_id": "hh_kilburn_milton",
       "record_folder": "households",
       "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "killigoss_isaac",
+      "household_id": "hh_killigoss_isaac",
+      "record_folder": "households",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -12713,6 +12830,19 @@
       "houses": []
     },
     {
+      "person_id": "loweley_watere_e",
+      "household_id": "hh_loweley_watere_e",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "loyd_alexander",
       "household_id": "hh_loyd_alexander",
       "record_folder": "households",
@@ -12914,6 +13044,19 @@
       "household_id": "hh_mack_stephen",
       "record_folder": "households",
       "age_band": "40-49",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "mackel_james",
+      "household_id": "hh_mackel_james",
+      "record_folder": "households",
+      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -13411,6 +13554,19 @@
       "houses": []
     },
     {
+      "person_id": "mcarty_n",
+      "household_id": "hh_mcarty_n",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "mcburney_samuel",
       "household_id": "hh_mcburney_samuel",
       "record_folder": "households",
@@ -13496,6 +13652,19 @@
     {
       "person_id": "mcloud_i",
       "household_id": "hh_mcloud_i",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "mdaniel_a",
+      "household_id": "hh_mdaniel_a",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -13631,6 +13800,19 @@
     {
       "person_id": "meleney_patrick",
       "household_id": "hh_meleney_patrick",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "meriams_mary",
+      "household_id": "hh_meriams_mary",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -14094,6 +14276,19 @@
       "record_folder": "underdocumented",
       "age_band": null,
       "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "monreou_john",
+      "household_id": "hh_monreou_john",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -14657,6 +14852,19 @@
       "houses": []
     },
     {
+      "person_id": "natta_j_v",
+      "household_id": "hh_natta_j_v",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "nau_con_ne_bec",
       "household_id": "hh_um_nau_con_ne_bec",
       "record_folder": "underdocumented",
@@ -14776,6 +14984,19 @@
       "houses": []
     },
     {
+      "person_id": "nett_robert_a",
+      "household_id": "hh_nett_robert_a",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "newberry_walter_loomis",
       "household_id": "hh_newberry_walter_loomis",
       "record_folder": "households",
@@ -14793,6 +15014,19 @@
     {
       "person_id": "newton_daniel",
       "household_id": "hh_newton_daniel",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "nicholson_joshua_f",
+      "household_id": "hh_nicholson_joshua_f",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -15104,10 +15338,49 @@
       "houses": []
     },
     {
+      "person_id": "orisbee_edgar_i",
+      "household_id": "hh_orisbee_edgar_i",
+      "record_folder": "households",
+      "age_band": "40-49",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "ormshee_s_b",
+      "household_id": "hh_ormshee_s_b",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "orsemus_morrison",
       "household_id": "hh_orsemus_morrison",
       "record_folder": "households",
       "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "osborn_b",
+      "household_id": "hh_osborn_b",
+      "record_folder": "households",
+      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -15698,6 +15971,19 @@
       ]
     },
     {
+      "person_id": "pedrick_robert_c",
+      "household_id": "hh_pedrick_robert_c",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "pee_way_tan",
       "household_id": "hh_um_pee_way_tan",
       "record_folder": "underdocumented",
@@ -15989,6 +16275,19 @@
     {
       "person_id": "plumer_f",
       "household_id": "hh_plumer_f",
+      "record_folder": "households",
+      "age_band": "15-19",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "poel_green",
+      "household_id": "hh_poel_green",
       "record_folder": "households",
       "age_band": "15-19",
       "age_scope": "working_age",
@@ -16697,19 +16996,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_bacon_chauncey",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_bacon_esther",
       "household_id": "hh_lodging_recon_1835_north_h2_022",
       "record_folder": "lodgers",
@@ -16918,19 +17204,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_bacon_william",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "10-19",
-      "age_scope": "age_is_not_settled",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_ballard_thomas_child_1",
       "household_id": "hh_ballard_thomas",
       "record_folder": "households",
@@ -16993,32 +17266,6 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_bardwell_eli",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "10-19",
-      "age_scope": "age_is_not_settled",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_bardwell_elisha",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -17132,6 +17379,32 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_bardwell_lemuel",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_bardwell_luther",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -17401,19 +17674,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_barnes_amos",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_barnes_betsey",
       "household_id": "hh_kimberly_osa",
       "record_folder": "households",
@@ -17502,19 +17762,6 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_barnes_eli",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "10-19",
-      "age_scope": "age_is_not_settled",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -17696,19 +17943,6 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_barnes_levi",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -20124,19 +20358,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_chapin_henry",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_chapin_horace",
       "household_id": "hh_rc_chapin_sarah",
       "record_folder": "transients",
@@ -21879,19 +22100,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_crandall_lemuel",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_crandall_martha",
       "household_id": "hh_rc_crandall_rhoda",
       "record_folder": "transients",
@@ -22604,15 +22812,15 @@
     },
     {
       "person_id": "rc_dickinson_amos",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
+      "household_id": "hh_rc_dickinson_james",
+      "record_folder": "transients",
+      "age_band": "0-9",
+      "age_scope": "below_working_age",
+      "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -22639,19 +22847,6 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "in_service_in_another_household",
       "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
-      "houses": []
-    },
-    {
-      "person_id": "rc_dickinson_chauncey",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -22722,32 +22917,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_dickinson_levi",
-      "household_id": "hh_rc_dickinson_james",
-      "record_folder": "transients",
-      "age_band": "0-9",
-      "age_scope": "below_working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_dickinson_lucy",
-      "household_id": "hh_rc_sheldon_erastus",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "laundress",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_dickinson_orrin",
       "household_id": "hh_rc_dickinson_orrin",
       "record_folder": "reconstructed_trades",
@@ -22809,19 +22978,6 @@
       "record_folder": "transients",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_dickinson_silas",
-      "household_id": "hh_rc_eastman_james",
-      "record_folder": "households",
-      "age_band": "0-9",
-      "age_scope": "below_working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -23766,6 +23922,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_eastman_eli",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_eastman_elisha",
       "household_id": "hh_rc_garrison_company_1",
       "record_folder": "households",
@@ -23912,33 +24081,7 @@
       "person_id": "rc_eastman_henry",
       "household_id": "hh_rc_garrison_company_2",
       "record_folder": "households",
-      "age_band": "10-19",
-      "age_scope": "age_is_not_settled",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_eastman_horace",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
       "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_eastman_james",
-      "household_id": "hh_rc_eastman_james",
-      "record_folder": "households",
-      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": "soldier",
       "trade_confidence": "reconstructed",
@@ -24000,19 +24143,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_eastman_nathaniel",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_eastman_orrin",
       "household_id": "hh_rc_eastman_orrin",
       "record_folder": "reconstructed_trades",
@@ -24026,6 +24156,19 @@
       "houses": [
         "biz_j_h_mulford"
       ]
+    },
+    {
+      "person_id": "rc_eastman_reuben",
+      "household_id": "hh_rc_eastman_reuben",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
     },
     {
       "person_id": "rc_eastman_rhoda",
@@ -24340,6 +24483,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_fairbanks_elisha",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_fairbanks_emily",
       "household_id": "hh_rc_fairbanks_hannah",
       "record_folder": "transients",
@@ -24402,19 +24558,6 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_fairbanks_harvey",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -24498,16 +24641,16 @@
       "houses": []
     },
     {
-      "person_id": "rc_fairbanks_orrin",
-      "household_id": "hh_rc_garrison_company_2",
+      "person_id": "rc_fairbanks_phebe",
+      "household_id": "hh_rc_fisk_erastus",
       "record_folder": "households",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": "soldier",
+      "age_band": "0-9",
+      "age_scope": "below_working_age",
+      "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -24578,6 +24721,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_fairbanks_rufus",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_fairbanks_ruth",
       "household_id": "hh_rc_fairbanks_hannah",
       "record_folder": "transients",
@@ -24607,6 +24763,19 @@
       "house_names": [
         "S. Fairbanks, land agent"
       ]
+    },
+    {
+      "person_id": "rc_fairbanks_william",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
     },
     {
       "person_id": "rc_fb_anderson_benjamin",
@@ -24909,19 +25078,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_fisk_amos",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_fisk_anna",
       "household_id": "hh_church_thomas",
       "record_folder": "households",
@@ -25013,6 +25169,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_fisk_asa",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_fisk_charles",
       "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
       "record_folder": "lodgers",
@@ -25036,19 +25205,6 @@
       "status": "on_their_own_account",
       "reason": "keeps_their_own_house",
       "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_fisk_david",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -25117,6 +25273,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_fisk_erastus",
+      "household_id": "hh_rc_fisk_erastus",
+      "record_folder": "households",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_fisk_esther",
       "household_id": "hh_rc_fisk_esther",
       "record_folder": "households",
@@ -25157,9 +25326,9 @@
     },
     {
       "person_id": "rc_fisk_lemuel",
-      "household_id": "hh_rc_garrison_company_1",
+      "household_id": "hh_rc_garrison_company_2",
       "record_folder": "households",
-      "age_band": "30-39",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": "soldier",
       "trade_confidence": "reconstructed",
@@ -25285,6 +25454,19 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_fisk_seth",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -28151,15 +28333,15 @@
     },
     {
       "person_id": "rc_hastings_elisha",
-      "household_id": "hh_lodging_recon_1835_north_h2_030",
-      "record_folder": "lodgers",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": null,
+      "trade": "soldier",
       "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -28217,21 +28399,21 @@
       ]
     },
     {
-      "person_id": "rc_hastings_harvey",
-      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
-      "record_folder": "lodgers",
+      "person_id": "rc_hastings_hiram",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": null,
+      "trade": "soldier",
       "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
-      "person_id": "rc_hastings_lemuel",
-      "household_id": "hh_rc_garrison_company_1",
+      "person_id": "rc_hastings_james",
+      "household_id": "hh_rc_garrison_company_2",
       "record_folder": "households",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -28240,6 +28422,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "no_employer_named",
       "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_hastings_lemuel",
+      "household_id": "hh_rc_hastings_lemuel",
+      "record_folder": "reconstructed_trades",
+      "age_band": "50+",
+      "age_scope": "working_age",
+      "trade": "liquor_dealer",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#liquor_dealer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -28256,16 +28451,29 @@
       "houses": []
     },
     {
-      "person_id": "rc_hastings_luther",
-      "household_id": "hh_rc_garrison_company_1",
+      "person_id": "rc_hastings_lucy",
+      "household_id": "hh_rc_fisk_erastus",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": "soldier",
+      "trade": "laundress",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "no_employer_named",
       "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_hastings_luther",
+      "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
+      "record_folder": "lodgers",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -28283,15 +28491,15 @@
     },
     {
       "person_id": "rc_hastings_orrin",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
+      "household_id": "hh_lodging_recon_1835_north_h2_030",
+      "record_folder": "lodgers",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": "soldier",
+      "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -28331,19 +28539,6 @@
       "status": "on_their_own_account",
       "reason": "keeps_their_own_house",
       "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_hastings_silas",
-      "household_id": "hh_rc_hastings_silas",
-      "record_folder": "reconstructed_trades",
-      "age_band": "50+",
-      "age_scope": "working_age",
-      "trade": "liquor_dealer",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "the_printed_count_is_held",
-      "decided_by": "premises_rulings.json#liquor_dealer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -29257,6 +29452,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_ingalls_amos",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_ingalls_chauncey",
       "household_id": "hh_rc_ingalls_chauncey",
       "record_folder": "reconstructed_trades",
@@ -29270,6 +29478,19 @@
       "houses": [
         "biz_b_jones_storage_and_forwarding"
       ]
+    },
+    {
+      "person_id": "rc_ingalls_david",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
     },
     {
       "person_id": "rc_ingalls_erastus",
@@ -29314,6 +29535,19 @@
       "house_names": [
         "H. Ingalls, refectory"
       ]
+    },
+    {
+      "person_id": "rc_ingalls_ira",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
     },
     {
       "person_id": "rc_ingalls_james",
@@ -29521,6 +29755,19 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_ingalls_william",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -30117,7 +30364,7 @@
     },
     {
       "person_id": "rc_kellogg_alvah",
-      "household_id": "hh_rc_kellogg_willard",
+      "household_id": "hh_rc_kellogg_jared",
       "record_folder": "transients",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -30364,23 +30611,23 @@
     },
     {
       "person_id": "rc_kellogg_jared",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
+      "household_id": "hh_rc_kellogg_jared",
+      "record_folder": "transients",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": "soldier",
+      "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
       "person_id": "rc_kellogg_john",
-      "household_id": "hh_rc_kellogg_willard",
-      "record_folder": "transients",
-      "age_band": "0-9",
-      "age_scope": "below_working_age",
+      "household_id": "hh_lodging_recon_1835_north_h2_022",
+      "record_folder": "lodgers",
+      "age_band": "20-29",
+      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -30459,8 +30706,21 @@
       "houses": []
     },
     {
+      "person_id": "rc_kellogg_nathaniel",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_kellogg_orrin",
-      "household_id": "hh_rc_kellogg_willard",
+      "household_id": "hh_rc_kellogg_jared",
       "record_folder": "transients",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -30511,19 +30771,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_kellogg_samuel",
-      "household_id": "hh_lodging_recon_1835_north_h2_022",
-      "record_folder": "lodgers",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_kellogg_seth",
       "household_id": "hh_rc_kellogg_seth",
       "record_folder": "reconstructed_trades",
@@ -30537,21 +30784,8 @@
       "houses": []
     },
     {
-      "person_id": "rc_kellogg_silas",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_kellogg_warren",
-      "household_id": "hh_rc_kellogg_willard",
+      "household_id": "hh_rc_kellogg_jared",
       "record_folder": "transients",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -30564,10 +30798,10 @@
     },
     {
       "person_id": "rc_kellogg_willard",
-      "household_id": "hh_rc_kellogg_willard",
+      "household_id": "hh_rc_kellogg_jared",
       "record_folder": "transients",
-      "age_band": "20-29",
-      "age_scope": "working_age",
+      "age_band": "0-9",
+      "age_scope": "below_working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -32104,7 +32338,7 @@
     },
     {
       "person_id": "rc_leland_betsey",
-      "household_id": "hh_rc_leland_henry",
+      "household_id": "hh_rc_leland_samuel",
       "record_folder": "transients",
       "age_band": "40-49",
       "age_scope": "working_age",
@@ -32117,7 +32351,7 @@
     },
     {
       "person_id": "rc_leland_chauncey",
-      "household_id": "hh_rc_leland_samuel",
+      "household_id": "hh_rc_leland_willard",
       "record_folder": "transients",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32145,7 +32379,7 @@
     },
     {
       "person_id": "rc_leland_esther",
-      "household_id": "hh_rc_leland_henry",
+      "household_id": "hh_rc_leland_samuel",
       "record_folder": "transients",
       "age_band": "10-19",
       "age_scope": "age_is_not_settled",
@@ -32158,7 +32392,7 @@
     },
     {
       "person_id": "rc_leland_george",
-      "household_id": "hh_rc_leland_henry",
+      "household_id": "hh_rc_leland_samuel",
       "record_folder": "transients",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32183,19 +32417,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_leland_henry",
-      "household_id": "hh_rc_leland_henry",
-      "record_folder": "transients",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
       "person_id": "rc_leland_joseph",
       "household_id": "hh_rc_leland_joseph",
       "record_folder": "reconstructed_trades",
@@ -32209,7 +32430,20 @@
       "houses": []
     },
     {
-      "person_id": "rc_leland_lemuel",
+      "person_id": "rc_leland_maria",
+      "household_id": "hh_rc_eastman_reuben",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "laundress",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_leland_orrin",
       "household_id": "hh_rc_garrison_company_1",
       "record_folder": "households",
       "age_band": "20-29",
@@ -32223,7 +32457,7 @@
     },
     {
       "person_id": "rc_leland_rhoda",
-      "household_id": "hh_rc_leland_samuel",
+      "household_id": "hh_rc_leland_willard",
       "record_folder": "transients",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32251,7 +32485,7 @@
       "person_id": "rc_leland_samuel",
       "household_id": "hh_rc_leland_samuel",
       "record_folder": "transients",
-      "age_band": "30-39",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -32262,7 +32496,7 @@
     },
     {
       "person_id": "rc_leland_seth",
-      "household_id": "hh_rc_leland_henry",
+      "household_id": "hh_rc_leland_samuel",
       "record_folder": "transients",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -32306,20 +32540,20 @@
     },
     {
       "person_id": "rc_leland_willard",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
+      "household_id": "hh_rc_leland_willard",
+      "record_folder": "transients",
       "age_band": "30-39",
       "age_scope": "working_age",
-      "trade": "soldier",
+      "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
       "person_id": "rc_leland_william",
-      "household_id": "hh_rc_leland_samuel",
+      "household_id": "hh_rc_leland_willard",
       "record_folder": "transients",
       "age_band": "0-9",
       "age_scope": "below_working_age",
@@ -32513,23 +32747,10 @@
       "houses": []
     },
     {
-      "person_id": "rc_lyman_abner",
+      "person_id": "rc_lyman_alanson",
       "household_id": "hh_rc_garrison_company_2",
       "record_folder": "households",
       "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_lyman_alvah",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": "soldier",
       "trade_confidence": "reconstructed",
@@ -32562,6 +32783,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "the_printed_count_is_held",
       "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
+      "houses": []
+    },
+    {
+      "person_id": "rc_lyman_chauncey",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -32671,6 +32905,19 @@
       ]
     },
     {
+      "person_id": "rc_lyman_harvey",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_lyman_henry",
       "household_id": "hh_lodging_recon_1835_north_h2_045",
       "record_folder": "lodgers",
@@ -32713,10 +32960,10 @@
     },
     {
       "person_id": "rc_lyman_levi",
-      "household_id": "hh_rc_eastman_james",
-      "record_folder": "households",
-      "age_band": "0-9",
-      "age_scope": "below_working_age",
+      "household_id": "hh_rc_lyman_lucy",
+      "record_folder": "transients",
+      "age_band": "20-29",
+      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -32738,19 +32985,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_lyman_nathaniel",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_lyman_otis",
       "household_id": "hh_rc_lyman_otis",
       "record_folder": "transients",
@@ -32769,19 +33003,6 @@
       "record_folder": "transients",
       "age_band": "0-9",
       "age_scope": "below_working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_lyman_reuben",
-      "household_id": "hh_rc_lyman_lucy",
-      "record_folder": "transients",
-      "age_band": "20-29",
-      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -34223,6 +34444,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_metcalf_alvah",
+      "household_id": "hh_rc_metcalf_alvah",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "sutler",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#sutler = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
+      "houses": []
+    },
+    {
       "person_id": "rc_metcalf_amos",
       "household_id": "hh_lodging_tremont_house_1",
       "record_folder": "lodgers",
@@ -34262,19 +34496,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_metcalf_david",
-      "household_id": "hh_rc_metcalf_david",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "sutler",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "the_printed_count_is_held",
-      "decided_by": "premises_rulings.json#sutler = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
-      "houses": []
-    },
-    {
       "person_id": "rc_metcalf_elisha",
       "household_id": "hh_rc_metcalf_elisha",
       "record_folder": "reconstructed_trades",
@@ -34291,16 +34512,21 @@
     },
     {
       "person_id": "rc_metcalf_george",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
+      "household_id": "hh_rc_metcalf_george",
+      "record_folder": "reconstructed_trades",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": "soldier",
+      "trade": "druggist",
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
+      "status": "on_their_own_account",
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_metcalf_druggist#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_metcalf_druggist"
+      ],
+      "house_names": [
+        "George Metcalf, drugs, medicines and dye stuffs"
+      ]
     },
     {
       "person_id": "rc_metcalf_henry",
@@ -34334,6 +34560,19 @@
       ]
     },
     {
+      "person_id": "rc_metcalf_james",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_metcalf_jared",
       "household_id": "hh_rc_metcalf_jared",
       "record_folder": "transients",
@@ -34344,19 +34583,6 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_metcalf_lemuel",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -34387,21 +34613,16 @@
     },
     {
       "person_id": "rc_metcalf_nathaniel",
-      "household_id": "hh_rc_metcalf_nathaniel",
-      "record_folder": "reconstructed_trades",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": "druggist",
+      "trade": "soldier",
       "trade_confidence": "reconstructed",
-      "status": "on_their_own_account",
-      "reason": "keeps_a_house_the_register_holds",
-      "decided_by": "the business register's own row: rcb_metcalf_druggist#proprietors (proprietor, reconstructed), read by T-1990",
-      "houses": [
-        "rcb_metcalf_druggist"
-      ],
-      "house_names": [
-        "Nathaniel Metcalf, drugs, medicines and dye stuffs"
-      ]
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
     },
     {
       "person_id": "rc_metcalf_sarah",
@@ -35178,6 +35399,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_nash_alvah",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_nash_eli",
       "household_id": "hh_rc_nash_eli",
       "record_folder": "reconstructed_trades",
@@ -35188,6 +35422,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "in_service_in_another_household",
       "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
+      "houses": []
+    },
+    {
+      "person_id": "rc_nash_erastus",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -35219,10 +35466,23 @@
       "houses": []
     },
     {
-      "person_id": "rc_nash_levi",
-      "household_id": "hh_rc_garrison_company_2",
+      "person_id": "rc_nash_henry",
+      "household_id": "hh_rc_fisk_erastus",
       "record_folder": "households",
-      "age_band": "20-29",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_nash_levi",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": "soldier",
       "trade_confidence": "reconstructed",
@@ -35401,19 +35661,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_nash_samuel",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_nash_warren",
       "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
       "record_folder": "lodgers",
@@ -35531,6 +35778,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_newell_alanson",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_newell_almira",
       "household_id": "hh_rc_newell_almira",
       "record_folder": "transients",
@@ -35545,10 +35805,10 @@
     },
     {
       "person_id": "rc_newell_alvah",
-      "household_id": "hh_rc_newell_almira",
-      "record_folder": "transients",
-      "age_band": "0-9",
-      "age_scope": "below_working_age",
+      "household_id": "hh_lodging_western_hotel",
+      "record_folder": "lodgers",
+      "age_band": "20-29",
+      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -35567,6 +35827,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "in_service_in_another_household",
       "decided_by": "reconstructed_seating.json#class_held_no_house, drawn by T-1433; premises_rulings.json#domestic = no_fixed_premises, \"given in another household's house\", read by T-1993",
+      "houses": []
+    },
+    {
+      "person_id": "rc_newell_amos",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -35715,10 +35988,23 @@
       "houses": []
     },
     {
+      "person_id": "rc_newell_lemuel",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_newell_levi",
       "household_id": "hh_rc_garrison_company_1",
       "record_folder": "households",
-      "age_band": "30-39",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": "soldier",
       "trade_confidence": "reconstructed",
@@ -35987,23 +36273,10 @@
     },
     {
       "person_id": "rc_newell_willard",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_newell_william",
-      "household_id": "hh_lodging_western_hotel",
-      "record_folder": "lodgers",
-      "age_band": "20-29",
-      "age_scope": "working_age",
+      "household_id": "hh_rc_newell_almira",
+      "record_folder": "transients",
+      "age_band": "0-9",
+      "age_scope": "below_working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -36068,19 +36341,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_nichols_erastus",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_nichols_george",
       "household_id": "hh_rc_nichols_george",
       "record_folder": "reconstructed_trades",
@@ -36114,6 +36374,32 @@
       ]
     },
     {
+      "person_id": "rc_nichols_lemuel",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_nichols_luther",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_nichols_martha",
       "household_id": "hh_bennett_william",
       "record_folder": "households",
@@ -36141,22 +36427,9 @@
     },
     {
       "person_id": "rc_nichols_nathaniel",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_nichols_otis",
       "household_id": "hh_rc_garrison_company_1",
       "record_folder": "households",
-      "age_band": "30-39",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": "soldier",
       "trade_confidence": "reconstructed",
@@ -36270,6 +36543,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_nichols_silas",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_nichols_willard",
       "household_id": "hh_rc_nichols_willard",
       "record_folder": "reconstructed_trades",
@@ -36280,6 +36566,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "the_mechanics_shops_are_over_their_count",
       "decided_by": "premises_rulings.json#blacksmith = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-2000",
+      "houses": []
+    },
+    {
+      "person_id": "rc_nichols_william",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -37250,32 +37549,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_parmelee_henry",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
-      "person_id": "rc_parmelee_james",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_parmelee_lemuel",
       "household_id": "hh_lodging_western_hotel",
       "record_folder": "lodgers",
@@ -37328,6 +37601,19 @@
       "houses": [
         "biz_andrews_eells"
       ]
+    },
+    {
+      "person_id": "rc_parmelee_nathaniel",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
     },
     {
       "person_id": "rc_parmelee_otis",
@@ -37403,6 +37689,19 @@
       "age_band": "20-29",
       "age_scope": "working_age",
       "trade": "music_teacher",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_parmelee_warren",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
       "trade_confidence": "reconstructed",
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "no_employer_named",
@@ -39847,9 +40146,9 @@
     },
     {
       "person_id": "rc_sawyer_clarissa",
-      "household_id": "hh_rc_sawyer_warren",
-      "record_folder": "transients",
-      "age_band": "50+",
+      "household_id": "hh_lodging_new_york_house",
+      "record_folder": "lodgers",
+      "age_band": "40-49",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -39860,7 +40159,7 @@
     },
     {
       "person_id": "rc_sawyer_elisha",
-      "household_id": "hh_rc_sawyer_nancy",
+      "household_id": "hh_rc_sawyer_harriet",
       "record_folder": "transients",
       "age_band": "50+",
       "age_scope": "working_age",
@@ -39873,15 +40172,15 @@
     },
     {
       "person_id": "rc_sawyer_eliza",
-      "household_id": "hh_rc_sheldon_erastus",
-      "record_folder": "households",
-      "age_band": "0-9",
-      "age_scope": "below_working_age",
-      "trade": null,
+      "household_id": "hh_rc_sawyer_eliza",
+      "record_folder": "reconstructed_trades",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "hardware_merchant",
       "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "the_printed_count_is_held",
+      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
       "houses": []
     },
     {
@@ -39900,14 +40199,14 @@
     {
       "person_id": "rc_sawyer_harriet",
       "household_id": "hh_rc_sawyer_harriet",
-      "record_folder": "reconstructed_trades",
-      "age_band": "30-39",
+      "record_folder": "transients",
+      "age_band": "20-29",
       "age_scope": "working_age",
-      "trade": "hardware_merchant",
+      "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "the_printed_count_is_held",
-      "decided_by": "premises_rulings.json#hardware_merchant = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -39925,7 +40224,7 @@
     },
     {
       "person_id": "rc_sawyer_joseph",
-      "household_id": "hh_rc_sawyer_nancy",
+      "household_id": "hh_rc_sawyer_harriet",
       "record_folder": "transients",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -39938,7 +40237,7 @@
     },
     {
       "person_id": "rc_sawyer_lydia",
-      "household_id": "hh_rc_sawyer_nancy",
+      "household_id": "hh_rc_sawyer_harriet",
       "record_folder": "transients",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -39964,9 +40263,9 @@
     },
     {
       "person_id": "rc_sawyer_nancy",
-      "household_id": "hh_rc_sawyer_nancy",
+      "household_id": "hh_rc_sawyer_warren",
       "record_folder": "transients",
-      "age_band": "20-29",
+      "age_band": "50+",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -39999,32 +40298,6 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_sawyer_rhoda",
-      "household_id": "hh_lodging_new_york_house",
-      "record_folder": "lodgers",
-      "age_band": "40-49",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_sawyer_rufus",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -40081,7 +40354,7 @@
     },
     {
       "person_id": "rc_sawyer_sarah",
-      "household_id": "hh_rc_sawyer_nancy",
+      "household_id": "hh_rc_sawyer_harriet",
       "record_folder": "transients",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -40401,19 +40674,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_sheldon_amos",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_sheldon_anna",
       "household_id": "hh_rc_sheldon_anna",
       "record_folder": "transients",
@@ -40465,19 +40725,6 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_sheldon_erastus",
-      "household_id": "hh_rc_sheldon_erastus",
-      "record_folder": "households",
-      "age_band": "10-19",
-      "age_scope": "age_is_not_settled",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -41211,6 +41458,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_stebbins_asa",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_stebbins_clarissa",
       "household_id": "hh_rc_stebbins_clarissa",
       "record_folder": "households",
@@ -41276,6 +41536,32 @@
       "houses": []
     },
     {
+      "person_id": "rc_stebbins_elisha",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_stebbins_eliza",
+      "household_id": "hh_rc_fisk_erastus",
+      "record_folder": "households",
+      "age_band": "0-9",
+      "age_scope": "below_working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rc_stebbins_esther",
       "household_id": "hh_rc_stebbins_silas",
       "record_folder": "transients",
@@ -41292,7 +41578,7 @@
       "person_id": "rc_stebbins_henry",
       "household_id": "hh_rc_garrison_company_1",
       "record_folder": "households",
-      "age_band": "30-39",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": "soldier",
       "trade_confidence": "reconstructed",
@@ -41345,6 +41631,19 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "the_mechanics_shops_are_over_their_count",
       "decided_by": "premises_rulings.json#builder = own_premises, census_class other (no printed count); the Chicago American, 15 August 1835: \"twenty-five mechanics' shops of all kinds\"; the register prints 45 of them trading on 1 July 1835, so none is owed — ruled by T-2000",
+      "houses": []
+    },
+    {
+      "person_id": "rc_stebbins_levi",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -41726,15 +42025,15 @@
     },
     {
       "person_id": "rc_stiles_charles",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
+      "household_id": "hh_rc_stiles_mary",
+      "record_folder": "transients",
+      "age_band": "30-39",
       "age_scope": "working_age",
-      "trade": "soldier",
+      "trade": null,
       "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
       "houses": []
     },
     {
@@ -41844,19 +42143,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_stiles_ezra",
-      "household_id": "hh_rc_garrison_company_2",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_stiles_hiram",
       "household_id": "hh_rc_stiles_nancy",
       "record_folder": "transients",
@@ -41874,19 +42160,6 @@
       "household_id": "hh_lodging_recon_1835_north_h1_007",
       "record_folder": "lodgers",
       "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_stiles_joseph",
-      "household_id": "hh_rc_stiles_mary",
-      "record_folder": "transients",
-      "age_band": "30-39",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -42555,6 +42828,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_thayer_alanson",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_thayer_almira",
       "household_id": "hh_rc_thayer_almira",
       "record_folder": "reconstructed_trades",
@@ -42737,6 +43023,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_thayer_eli",
+      "household_id": "hh_rc_garrison_company_2",
+      "record_folder": "households",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_thayer_erastus",
       "household_id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
       "record_folder": "lodgers",
@@ -42853,6 +43152,19 @@
       "status": "no_trade_recorded",
       "reason": "no_trade_recorded",
       "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "rc_thayer_luther",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "10-19",
+      "age_scope": "age_is_not_settled",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -44201,8 +44513,8 @@
       ]
     },
     {
-      "person_id": "rc_wadsworth_alanson",
-      "household_id": "hh_rc_garrison_company_1",
+      "person_id": "rc_wadsworth_abner",
+      "household_id": "hh_rc_garrison_company_2",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -44255,19 +44567,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_wadsworth_ezra",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_wadsworth_hannah",
       "household_id": "hh_rc_wadsworth_horace",
       "record_folder": "transients",
@@ -44294,7 +44593,7 @@
       "houses": []
     },
     {
-      "person_id": "rc_wadsworth_ira",
+      "person_id": "rc_wadsworth_jared",
       "household_id": "hh_rc_garrison_company_2",
       "record_folder": "households",
       "age_band": "20-29",
@@ -44333,19 +44632,6 @@
       "houses": []
     },
     {
-      "person_id": "rc_wadsworth_maria",
-      "household_id": "hh_rc_eastman_james",
-      "record_folder": "households",
-      "age_band": "20-29",
-      "age_scope": "working_age",
-      "trade": "laundress",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
-      "houses": []
-    },
-    {
       "person_id": "rc_wadsworth_mary",
       "household_id": "hh_rc_wadsworth_horace",
       "record_folder": "transients",
@@ -44372,6 +44658,19 @@
       "houses": []
     },
     {
+      "person_id": "rc_wadsworth_otis",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
+      "houses": []
+    },
+    {
       "person_id": "rc_wadsworth_polly",
       "household_id": "hh_rc_wadsworth_polly",
       "record_folder": "reconstructed_trades",
@@ -44395,6 +44694,19 @@
       "status": "on_their_own_account",
       "reason": "keeps_their_own_house",
       "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
+      "houses": []
+    },
+    {
+      "person_id": "rc_wadsworth_william",
+      "household_id": "hh_rc_garrison_company_1",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": "soldier",
+      "trade_confidence": "reconstructed",
+      "status": "at_a_trade_with_no_house_to_join",
+      "reason": "no_employer_named",
+      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -45184,19 +45496,6 @@
       "status": "at_a_trade_with_no_house_to_join",
       "reason": "the_printed_count_is_held",
       "decided_by": "premises_rulings.json#grocer = own_premises, census_class store; 1835_reconstruction_order_book.json#businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled, so none is ordered — ruled by T-1996",
-      "houses": []
-    },
-    {
-      "person_id": "rc_whitcomb_otis",
-      "household_id": "hh_rc_garrison_company_1",
-      "record_folder": "households",
-      "age_band": "30-39",
-      "age_scope": "working_age",
-      "trade": "soldier",
-      "trade_confidence": "reconstructed",
-      "status": "at_a_trade_with_no_house_to_join",
-      "reason": "no_employer_named",
-      "decided_by": "reconstructed_seating.json#no_employer_named, drawn by T-1433",
       "houses": []
     },
     {
@@ -46568,6 +46867,19 @@
       "houses": []
     },
     {
+      "person_id": "richey_thos_h",
+      "household_id": "hh_richey_thos_h",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "rider_eli_a",
       "household_id": "hh_rider_eli_a",
       "record_folder": "households",
@@ -46941,6 +47253,19 @@
     {
       "person_id": "romer_carl",
       "household_id": "hh_romer_carl",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "root_ez_c",
+      "household_id": "hh_root_ez_c",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -47414,6 +47739,19 @@
       "houses": []
     },
     {
+      "person_id": "sawyer_james_a",
+      "household_id": "hh_sawyer_james_a",
+      "record_folder": "households",
+      "age_band": "40-49",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "saxton_l_c",
       "household_id": "hh_saxton_l_c",
       "record_folder": "households",
@@ -47782,6 +48120,19 @@
       "household_id": "hh_sheff_r",
       "record_folder": "households",
       "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "sheldon_oliveann",
+      "household_id": "hh_sheldon_oliveann",
+      "record_folder": "households",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -48816,6 +49167,19 @@
       ]
     },
     {
+      "person_id": "stiles_david",
+      "household_id": "hh_stiles_david",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "stillman_josiah",
       "household_id": "hh_stillman_josiah",
       "record_folder": "households",
@@ -49073,6 +49437,19 @@
       "record_folder": "readmitted",
       "age_band": null,
       "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "swanwick_f",
+      "household_id": "hh_swanwick_f",
+      "record_folder": "households",
+      "age_band": "15-19",
+      "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
@@ -49526,6 +49903,19 @@
       "houses": []
     },
     {
+      "person_id": "thorn_platt",
+      "household_id": "hh_thorn_platt",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "thrall_e_l",
       "household_id": "hh_thrall_e_l",
       "record_folder": "households",
@@ -49545,6 +49935,19 @@
       "household_id": "hh_timothv_pitkin",
       "record_folder": "households",
       "age_band": "30-39",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "timothy_b",
+      "household_id": "hh_timothy_b",
+      "record_folder": "households",
+      "age_band": "20-29",
       "age_scope": "working_age",
       "trade": null,
       "trade_confidence": "reconstructed",
@@ -49895,6 +50298,19 @@
       "houses": []
     },
     {
+      "person_id": "vanderwerker_adam",
+      "household_id": "hh_vanderwerker_adam",
+      "record_folder": "households",
+      "age_band": "15-19",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "vandeventer_wm",
       "household_id": "hh_vandeventer_wm",
       "record_folder": "households",
@@ -49949,6 +50365,19 @@
     {
       "person_id": "vanorsdol_william",
       "household_id": "hh_vanorsdol_william",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "vanzandt_w_2",
+      "household_id": "hh_vanzandt_w_2",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -50696,6 +51125,19 @@
       "houses": []
     },
     {
+      "person_id": "weed_sally",
+      "household_id": "hh_weed_sally",
+      "record_folder": "households",
+      "age_band": "40-49",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "ween_go",
       "household_id": "hh_um_ween_go",
       "record_folder": "underdocumented",
@@ -50959,6 +51401,19 @@
       "houses": []
     },
     {
+      "person_id": "whitcomb_aaron",
+      "household_id": "hh_whitcomb_aaron",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "white_edson",
       "household_id": "hh_white_edson",
       "record_folder": "households",
@@ -51070,6 +51525,19 @@
     {
       "person_id": "wilkes_alexander",
       "household_id": "hh_wilkes_alexander",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "willaee_philip",
+      "household_id": "hh_willaee_philip",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -51556,6 +52024,19 @@
     {
       "person_id": "works_charles",
       "household_id": "hh_works_charles",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "wrickey_thomas_h",
+      "household_id": "hh_wrickey_thomas_h",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",

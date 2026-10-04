@@ -17,11 +17,11 @@
   "proprietor_names_printed": 204,
   "proprietors_with_a_given_name_or_initial": 157,
   "proprietors_printed_as_a_surname_alone_unmatchable": 47,
-  "residents_considered": 1402,
+  "residents_considered": 1439,
   "matched_one_card": 20,
   "matched_more_than_one_ambiguous": 3,
   "one_printed_proprietor_contested_by_two_residents": 6,
-  "surname_present_initial_absent_refused": 133,
+  "surname_present_initial_absent_refused": 135,
   "letter_list_bucket_refused": 1,
   "residents_that_refusal_reaches": 1,
   "cards_the_whole_name_refused": 0,
@@ -1433,6 +1433,13 @@
    "rule": "The surname 'Boyer' stands on an 1844 advertising card and no proprietor under it carries the initial 'J' of 'J. K. Boyer'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "James A. Sawyer",
+   "person_id": "sawyer_james_a",
+   "surname_on_a_card": "Sawyer",
+   "cards_under_that_surname": 1,
+   "rule": "The surname 'Sawyer' stands on an 1844 advertising card and no proprietor under it carries the initial 'J' of 'James A. Sawyer'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "James Adams",
    "person_id": "adams_james",
    "surname_on_a_card": "Adams",
@@ -1690,6 +1697,13 @@
    "surname_on_a_card": "Norton",
    "cards_under_that_surname": 5,
    "rule": "The surname 'Norton' stands on an 1844 advertising card and no proprietor under it carries the initial 'N' of 'Nelson R. Norton'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Oliveann Sheldon",
+   "person_id": "sheldon_oliveann",
+   "surname_on_a_card": "Sheldon",
+   "cards_under_that_surname": 1,
+   "rule": "The surname 'Sheldon' stands on an 1844 advertising card and no proprietor under it carries the initial 'O' of 'Oliveann Sheldon'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Orson Wheeler",

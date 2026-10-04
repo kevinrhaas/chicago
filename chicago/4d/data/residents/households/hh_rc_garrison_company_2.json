@@ -2,7 +2,7 @@
  "id": "hh_rc_garrison_company_2",
  "name": "The second company of the 5th Infantry — the men in barracks",
  "division": "fort",
- "head": "rc_crandall_lemuel",
+ "head": "rc_bardwell_lemuel",
  "source_pass": "reconstructed_garrison",
  "arrival": {
   "value": "1835-07-01",
@@ -11,7 +11,7 @@
   "note": "A BOUND THE HYPOTHESIS CARRIES, NOT A READING. No source names these people, so none dates their coming. What the record says is that the post was held on 1835-07-01 — that is the whole of what this stage claims — and a soldier at a held post arrived not later than the day. A company of the 5th Infantry moved on orders and the year below is DRAWN by the programme's arrival stage, not read off a return."
  },
  "arrival_year": {
-  "value": 1835,
+  "value": 1834,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -50,14 +50,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -113,16 +113,16 @@
   "married_households": [
    "hh_rc_shea_martin",
    "hh_rc_walsh_owen",
-   "hh_rc_eastman_james",
-   "hh_rc_sheldon_erastus"
+   "hh_rc_eastman_reuben",
+   "hh_rc_fisk_erastus"
   ],
   "officers_not_written": 3,
   "note": "A BARRACK ROOM IS NOT A FAMILY, and this card is not claiming it is. The resident layer's unit is the household and a company mess has no other shape to take here; `head` is the card's own grammar, filled with the company's senior sergeant because the format requires a person and the statute gives the company no other senior enlisted man. The three commissioned officers the establishment gives this company are NOT written — see the ledger's `officers` block and T-1348."
  },
  "persons": [
   {
-   "id": "rc_crandall_lemuel",
-   "name": "Lemuel Crandall",
+   "id": "rc_bardwell_lemuel",
+   "name": "Lemuel Bardwell",
    "relationship": "head",
    "grade": "reconstructed",
    "sex": "male",
@@ -160,7 +160,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Lemuel Crandall",
+    "value": "Lemuel Bardwell",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -196,8 +196,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_wadsworth_ira",
-   "name": "Ira Wadsworth",
+   "id": "rc_ingalls_ira",
+   "name": "Ira Ingalls",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -235,7 +235,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Ira Wadsworth",
+    "value": "Ira Ingalls",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -346,8 +346,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_nichols_nathaniel",
-   "name": "Nathaniel Nichols",
+   "id": "rc_kellogg_nathaniel",
+   "name": "Nathaniel Kellogg",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -385,7 +385,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Nathaniel Nichols",
+    "value": "Nathaniel Kellogg",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -796,8 +796,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_hastings_orrin",
-   "name": "Orrin Hastings",
+   "id": "rc_nichols_william",
+   "name": "William Nichols",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -835,7 +835,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Orrin Hastings",
+    "value": "William Nichols",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -843,7 +843,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_2/private_1:given_name#1",
+    "seed": "garrison/company_2/private_1:given_name",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
@@ -946,8 +946,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_parmelee_henry",
-   "name": "Henry Parmelee",
+   "id": "rc_eastman_henry",
+   "name": "Henry Eastman",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -985,7 +985,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Henry Parmelee",
+    "value": "Henry Eastman",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1021,8 +1021,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_eastman_henry",
-   "name": "Henry Eastman",
+   "id": "rc_hastings_james",
+   "name": "James Hastings",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -1060,7 +1060,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Henry Eastman",
+    "value": "James Hastings",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1068,7 +1068,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_2/private_4:given_name#1",
+    "seed": "garrison/company_2/private_4:given_name",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
@@ -1096,8 +1096,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_barnes_amos",
-   "name": "Amos Barnes",
+   "id": "rc_ingalls_amos",
+   "name": "Amos Ingalls",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -1135,7 +1135,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Amos Barnes",
+    "value": "Amos Ingalls",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1246,8 +1246,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_fairbanks_orrin",
-   "name": "Orrin Fairbanks",
+   "id": "rc_nichols_lemuel",
+   "name": "Lemuel Nichols",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -1285,7 +1285,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Orrin Fairbanks",
+    "value": "Lemuel Nichols",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1293,7 +1293,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_2/private_7:given_name",
+    "seed": "garrison/company_2/private_7:given_name#2",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
@@ -1471,8 +1471,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_sawyer_rufus",
-   "name": "Rufus Sawyer",
+   "id": "rc_fairbanks_rufus",
+   "name": "Rufus Fairbanks",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -1510,7 +1510,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Rufus Sawyer",
+    "value": "Rufus Fairbanks",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1696,8 +1696,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_lyman_alvah",
-   "name": "Alvah Lyman",
+   "id": "rc_nash_alvah",
+   "name": "Alvah Nash",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -1735,7 +1735,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Alvah Lyman",
+    "value": "Alvah Nash",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1921,8 +1921,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_stiles_ezra",
-   "name": "Ezra Stiles",
+   "id": "rc_lyman_alanson",
+   "name": "Alanson Lyman",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -1960,7 +1960,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Ezra Stiles",
+    "value": "Alanson Lyman",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1968,7 +1968,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_2/private_16:given_name",
+    "seed": "garrison/company_2/private_16:given_name#2",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
@@ -2071,8 +2071,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_barnes_eli",
-   "name": "Eli Barnes",
+   "id": "rc_thayer_eli",
+   "name": "Eli Thayer",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -2110,7 +2110,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Eli Barnes",
+    "value": "Eli Thayer",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -2221,8 +2221,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_sheldon_amos",
-   "name": "Amos Sheldon",
+   "id": "rc_hastings_elisha",
+   "name": "Elisha Hastings",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -2260,7 +2260,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Amos Sheldon",
+    "value": "Elisha Hastings",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -2268,7 +2268,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_2/private_21:given_name#2",
+    "seed": "garrison/company_2/private_21:given_name#5",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
@@ -2296,8 +2296,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_metcalf_lemuel",
-   "name": "Lemuel Metcalf",
+   "id": "rc_fisk_lemuel",
+   "name": "Lemuel Fisk",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -2335,7 +2335,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Lemuel Metcalf",
+    "value": "Lemuel Fisk",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -2671,8 +2671,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_bardwell_elisha",
-   "name": "Elisha Bardwell",
+   "id": "rc_fairbanks_elisha",
+   "name": "Elisha Fairbanks",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -2710,7 +2710,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Elisha Bardwell",
+    "value": "Elisha Fairbanks",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -2896,8 +2896,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_fairbanks_harvey",
-   "name": "Harvey Fairbanks",
+   "id": "rc_lyman_harvey",
+   "name": "Harvey Lyman",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -2935,7 +2935,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Harvey Fairbanks",
+    "value": "Harvey Lyman",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -3121,8 +3121,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_nash_levi",
-   "name": "Levi Nash",
+   "id": "rc_stebbins_levi",
+   "name": "Levi Stebbins",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -3160,7 +3160,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Levi Nash",
+    "value": "Levi Stebbins",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -3271,8 +3271,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_fisk_david",
-   "name": "David Fisk",
+   "id": "rc_ingalls_david",
+   "name": "David Ingalls",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -3310,7 +3310,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "David Fisk",
+    "value": "David Ingalls",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -3346,8 +3346,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_lyman_abner",
-   "name": "Abner Lyman",
+   "id": "rc_wadsworth_abner",
+   "name": "Abner Wadsworth",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -3385,7 +3385,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Abner Lyman",
+    "value": "Abner Wadsworth",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -3421,8 +3421,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_leland_willard",
-   "name": "Willard Leland",
+   "id": "rc_fisk_seth",
+   "name": "Seth Fisk",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -3460,7 +3460,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Willard Leland",
+    "value": "Seth Fisk",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -3468,7 +3468,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_2/private_40:given_name",
+    "seed": "garrison/company_2/private_40:given_name#1",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
@@ -3496,8 +3496,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_kellogg_jared",
-   "name": "Jared Kellogg",
+   "id": "rc_wadsworth_jared",
+   "name": "Jared Wadsworth",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -3535,7 +3535,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Jared Kellogg",
+    "value": "Jared Wadsworth",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

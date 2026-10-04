@@ -1,10 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1437, ts: '2026-10-04T17:42:33.726Z', date: 'Oct 4, 2026, 12:42 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
+  { v: 1440, ts: '2026-10-04T18:37:03.300Z', date: 'Oct 4, 2026, 1:37 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
     items: [
       'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',
       'At each end the lane crosses the roadside to the street, so a cart turning in from Wells or LaSalle leaves the road on the same ground.',
       'Twenty-nine alleys have a lane. Seven on blocks with nothing built stay grass. On the Lake Street blocks the lane stops where a house stands across the alley.',
-      'Nothing new is drawn as a separate piece, so the town draws no more objects than before. The lanes are a reconstruction (Liberty L376).',
+      'Nothing new is drawn as a separate piece, so the town draws no more objects than before. The lanes are a reconstruction (Liberty L377).',
+    ] },
+  { v: 1439, ts: '2026-10-04T18:11:34.742Z', date: 'Oct 4, 2026, 1:11 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The short town ground from the last release was measured at phone and desktop size, at every Scene detail setting, against the version that is live today.',
+      'On a phone every standard view stays inside its drawing budget at every setting.',
+    ] },
+  { v: 1438, ts: '2026-10-04T17:47:42.763Z', date: 'Oct 4, 2026, 12:47 PM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
+    items: [
+      'Walk into a house yard and the middle of it is now short, cropped ground: the tall lamb\'s-quarters, ragweed, dock and vervain no longer stand in the open where people and animals walked every day.',
+      'The weeds and flowers are still in town, gathered where scythe, hoof and foot did not reach: a strip along every lot line, the lot\'s back corners and the foot of each privy and stable.',
+      'A worn earth path now runs from each house\'s back wall to its privy, stable or shed, 239 of them across 183 lots.',
+      'Empty lots are unchanged for now. Where the ground is kept and where the paths run is a reconstruction (Liberty L376).',
+    ] },
+  { v: 1437, ts: '2026-10-04T17:29:51.479Z', date: 'Oct 4, 2026, 12:29 PM CT', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
+    items: [
+      'Open People: 37 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
+      'Twenty-three were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
+      'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
+      'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
+      'To make room, some households already in town moved one house along on Randolph, Washington and South Water streets. Four named keepers moved with them, and two houses on Randolph no longer name a keeper, because the household placed there now is known only from a letter list.',
     ] },
   { v: 1436, ts: '2026-10-04T16:59:01.860Z', date: 'Oct 4, 2026, 11:59 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [

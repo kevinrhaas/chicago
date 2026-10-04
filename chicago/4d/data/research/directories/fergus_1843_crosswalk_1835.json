@@ -12,11 +12,11 @@
  "whole_name_rule": ". A printed forename and a reading of 1835 are THE SAME NAME when\nthey set the SAME NUMBER of words and agree word by word — each pair either\nletter for letter, or one of them the single initial the other begins with.\nWhere exactly ONE candidate is the same name in that sense, the page names\nthat one and no other. Where none is, or more than one is, nothing happens\nand the tie stands with the reason filed.",
  "wife_rule": "— the second clause, and it is R6 arriving where it\nwas always true. `tools/consolidate_resident_evidence.py` holds `Mrs Rufus\nBrown` apart from `Rufus Brown` (R6, T-0723) because the honorific strip leaves\nthe husband's forename tokens on both readings and folds a wife onto him. The\ncrosswalks strip titles the same way and had no such rule, so the town layer's\ntwo people met `Brown, Rufus B., warehouseman` together and were filed as a\nCONTEST — a man contesting a printed line with his own wife. Where one\ncandidate of 1835 carries a female honorific, its forename tokens are exactly\nthose of another candidate carried WITHOUT one, and the printed entry sets no\nfemale honorific of its own, the entry is the husband's and she is not named by\nit. The proof is the same proof R6 asks for and it is in the contest itself:\nthe town layer prints both readings, which is what put them here together.",
  "counts": {
-  "residents_considered": 1402,
+  "residents_considered": 1439,
   "matched_one_1843_entry": 137,
   "matched_more_than_one_ambiguous": 15,
   "one_1843_entry_contested_by_two_residents": 4,
-  "surname_present_initial_absent_refused": 343,
+  "surname_present_initial_absent_refused": 350,
   "of_those_an_entry_one_letter_off_the_surname": 15,
   "entries_one_letter_off_a_refused_surname": 12,
   "of_those_overturned": 0,
@@ -24,9 +24,9 @@
   "residents_that_refusal_reaches": 2,
   "further_initial_disagreed_refused": 12,
   "residents_that_further_initial_refusal_reaches": 11,
-  "initial_agreed_forenames_disagreed_refused": 89,
+  "initial_agreed_forenames_disagreed_refused": 90,
   "of_those_a_garbled_printed_forename": 0,
-  "residents_left_with_no_1843_entry_by_that_refusal": 46,
+  "residents_left_with_no_1843_entry_by_that_refusal": 47,
   "entries_the_whole_name_refused": 11,
   "residents_that_whole_name_refusal_reaches": 9,
   "contests_the_page_named": 5,
@@ -6689,6 +6689,13 @@
    "rule": "The surname 'Knapp' is in Fergus 1843 and no entry under it carries the initial 'B' of 'B S Knapp'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "B. Osborn",
+   "person_id": "osborn_b",
+   "surname_in_1843": "Osborn",
+   "candidates": 1,
+   "rule": "The surname 'Osborn' is in Fergus 1843 and no entry under it carries the initial 'B' of 'B. Osborn'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Ben Butterfield",
    "person_id": "butterfield_ben",
    "surname_in_1843": "Butterfield",
@@ -6960,6 +6967,13 @@
    "surname_in_1843": "Wilcox",
    "candidates": 5,
    "rule": "The surname 'Wilcox' is in Fergus 1843 and no entry under it carries the initial 'D' of 'D Wilcox'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "D. S. Haight",
+   "person_id": "haight_d_s",
+   "surname_in_1843": "Haight",
+   "candidates": 3,
+   "rule": "The surname 'Haight' is in Fergus 1843 and no entry under it carries the initial 'D' of 'D. S. Haight'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Damel M. Green",
@@ -7275,6 +7289,13 @@
    "surname_in_1843": "Noble",
    "candidates": 4,
    "rule": "The surname 'Noble' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Esq. Mark Noble'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Ez c. Root",
+   "person_id": "root_ez_c",
+   "surname_in_1843": "Root",
+   "candidates": 1,
+   "rule": "The surname 'Root' is in Fergus 1843 and no entry under it carries the initial 'E' of 'Ez c. Root'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Ezekiel Turner",
@@ -7676,6 +7697,13 @@
    "rule": "The surname 'Reed' is in Fergus 1843 and no entry under it carries the initial 'J' of 'J. W. Reed'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "James A. Sawyer",
+   "person_id": "sawyer_james_a",
+   "surname_in_1843": "Sawyer",
+   "candidates": 3,
+   "rule": "The surname 'Sawyer' is in Fergus 1843 and no entry under it carries the initial 'J' of 'James A. Sawyer'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "James Adams",
    "person_id": "adams_james",
    "surname_in_1843": "Adams",
@@ -7884,6 +7912,13 @@
    "surname_in_1843": "Ambrose",
    "candidates": 2,
    "rule": "The surname 'Ambrose' is in Fergus 1843 and no entry under it carries the initial 'J' of 'Joshua Ambrose'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Joshua F. Nicholson",
+   "person_id": "nicholson_joshua_f",
+   "surname_in_1843": "Nicholson",
+   "candidates": 1,
+   "rule": "The surname 'Nicholson' is in Fergus 1843 and no entry under it carries the initial 'J' of 'Joshua F. Nicholson'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Judge Sidney Breese",
@@ -8213,6 +8248,13 @@
    "surname_in_1843": "Goss",
    "candidates": 3,
    "rule": "The surname 'Goss' is in Fergus 1843 and no entry under it carries the initial 'O' of 'O. Goss'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Oliveann Sheldon",
+   "person_id": "sheldon_oliveann",
+   "surname_in_1843": "Sheldon",
+   "candidates": 2,
+   "rule": "The surname 'Sheldon' is in Fergus 1843 and no entry under it carries the initial 'O' of 'Oliveann Sheldon'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Oliver Cross",
@@ -8710,6 +8752,13 @@
    "surname_in_1843": "Harmon",
    "candidates": 5,
    "rule": "The surname 'Harmon' is in Fergus 1843 and no entry under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Wheeler Barnes",
+   "person_id": "barnes_wheeler",
+   "surname_in_1843": "Barnes",
+   "candidates": 4,
+   "rule": "The surname 'Barnes' is in Fergus 1843 and no entry under it carries the initial 'W' of 'Wheeler Barnes'. A surname-only agreement is a refusal."
   },
   {
    "resident": "William A Bell",
@@ -9524,6 +9573,25 @@
   }
  ],
  "forename_refusals": [
+  {
+   "resident": "Alexander Dickinson",
+   "person_id": "dickinson_alexander",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e0810",
+    "as_printed": "Dickinson, Augustus, City Eating House, Dearb'n. bet Lake & S. Water [died January 13, 1891. aged 74]",
+    "page": "fergus_1843_page_002",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": "City Eating House, Dearb'n",
+    "address_1843": "bet Lake & S. Water",
+    "death_note_1843": "died January 13, 1891. aged 74",
+    "forename_1835": "Alexander",
+    "forename_printed": "Augustus",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Alexander' against 'Augustus'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
   {
    "resident": "Anson H. Taylor",
    "person_id": "taylor_anson_h",
