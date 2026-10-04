@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
+  { v: 1447, ts: '2026-10-04T21:21:58.420Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
     items: [
       'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
       'The rule changed once to make that true, so 729 reconstructed families show a different year today, and the town as a whole still came in the same proportions: about one in six in 1833, one in three in 1834 and the rest in 1835.',
