@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1394, ts: '2026-10-04T00:58:15.370Z', date: 'Oct 3, 2026, 7:58 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
+  { v: null, ts: '', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
       'Boots, Leather and the Road now views Miller\u2019s tannery across the North Branch from Wolf Point, without riding over the river to it. Its stops read a little shorter, and the ride takes just under six minutes, down from almost eight.',
       'Soap and Candles now starts at Wolf Point, looking up the North Branch to where we place Elston & Co.\u2019s works, so you cross the river once instead of twice. The ride takes under six minutes, down from seven.',
       'Each was timed by riding it on the published site. Flying and Instantly are still faster on all three. What the stops say about each place is unchanged, and new claims are cited in the stop\u2019s sources.',
+    ] },
+  { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'We measured what a first visit costs. The arrival and the jaunts add about 11 KB of it, and the jaunt catalog and the sources still load only when you open them.',
+      'Two of the town\u2019s own limits are now broken, and neither by the jaunts: a first visit downloads 13.1 MB against our 13 MB budget, and the newest trees make a phone stutter while the prairie is planted. Each now has its own fix ticketed.',
     ] },
   { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
     items: [
