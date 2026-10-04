@@ -1,16 +1,28 @@
 export const CHANGELOG = [ // newest first
-  { v: 1433, ts: '2026-10-04T15:38:42.083Z', date: 'Oct 4, 2026, 10:38 AM CT', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
+  { v: null, ts: '', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
     items: [
       'Step into the Western Hotel\'s wagon yard or a pound and the ground is now the same worn dirt as the road outside, grain and all, lit by the sun, where it used to be a blurry print of squares.',
       'The kept green in the town\'s gardens and dooryards shows short blades in clumps, the same grass as the prairie but cropped, and the garden beds carry the soil\'s grain over their rows.',
       'Nothing new is drawn, so the town costs no more to show. The yards\' surfaces are a reconstruction (Liberty L158).',
     ] },
-  { v: 1432, ts: '2026-10-04T14:56:13.412Z', date: 'Oct 4, 2026, 9:56 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
+  { v: 1434, ts: '2026-10-04T15:57:34.725Z', date: 'Oct 4, 2026, 10:57 AM CT', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
+    items: [
+      'Walk into a back yard, along a road or up to a shop front anywhere in the town: the waist-high prairie grass and tall flowers are gone, and the ground is the short, grazed, dusty turf of a lived-in town.',
+      'The town\u2019s ground now reaches 50 metres past every laid-out block and every building, the edge of the grazed ground the town\u2019s pigs and cattle kept short. Before, it covered only the few buildings around the forks.',
+      'Prairie still begins at the edge of town. The beach and the slough in the public square keep their own plants, and the trees, gardens and planted rows are where they were.',
+      'The town is lighter to draw: in a back yard on Washington Street the grass and flowers now cost less than half what they did, at every Scene detail setting.',
+    ] },
+  { v: 1433, ts: '2026-10-04T15:43:22.462Z', date: 'Oct 4, 2026, 10:43 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
     items: [
       'Look down anywhere on the open prairie: the ground now shows blades of grass, last year\'s thatch between the tussocks, and the shade under them, lit by the sun the way the dirt roads are.',
       'Lusher clumps show more blades and the wet ground near the water less. The beach sand stays bare.',
       'The worn bank by the river and the strip of sand and dirt at the forks carry the same grass where they meet the prairie, so there is no seam.',
       'The colour of every kind of ground is unchanged; only its surface is new. The grain is a reconstruction (Liberty L374).',
+    ] },
+  { v: 1432, ts: '2026-10-04T15:05:30.879Z', date: 'Oct 4, 2026, 10:05 AM CT', title: 'A workshop\u2019s card keeps up when a household\u2019s name is corrected', kind: 'fix',
+    items: [
+      'Some workshops outside the platted town say on their card which household was offered them and why it was not seated there. When a household\u2019s name was corrected, that card could keep the old name until someone rebuilt it by hand. It now updates with everything else.',
+      'Behind the scenes, the steps that rebuild the town after a change were checked one by one for this kind of lag. Only that card had it, and a new step can no longer be added where it could lag without being checked first.',
     ] },
   { v: 1431, ts: '2026-10-04T14:32:09.029Z', date: 'Oct 4, 2026, 9:32 AM CT', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
     items: [
