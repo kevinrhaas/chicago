@@ -395,6 +395,10 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     # card says so rather than listing them as though a visitor could walk to
     # them. Still gated by validate.py; it is now also read.
     "plantable_in_scene": ("shown", "zone.plantable_in_scene ?? entry.plantable_in_scene"),
+    # T-0471 — which scenes the community stands in. The renderer reads the
+    # manifest's denormalised copy (flora.js `floraInScene`, which validate.py
+    # holds equal to this one) and a zone scoped out of the scene draws nothing.
+    "scenes": ("mesh", "entry.scenes"),
 }
 
 FLORA_MANIFEST_READS: dict[str, tuple[str, str]] = {
@@ -438,6 +442,10 @@ FLORA_MANIFEST_READS: dict[str, tuple[str, str]] = {
     "vocabulary.forms_trees": ("shown", "vocab.forms_trees"),
     # The community's own claim about whether it stands anywhere in this scene.
     "zones[].plantable_in_scene": ("shown", "zone.plantable_in_scene ?? entry.plantable_in_scene"),
+    # T-0471 — the scene scope: a zone or planting whose list does not name the
+    # scene being drawn is dropped before anything is dealt or painted.
+    "zones[].scenes": ("mesh", "entry.scenes"),
+    "plantings[].scenes": ("mesh", "entry.scenes"),
 }
 
 FLORA_PALETTE_READS: dict[str, tuple[str, str]] = {

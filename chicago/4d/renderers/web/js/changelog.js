@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The 1812 shore grows prairie, beach grass and two remembered cottonwoods', kind: 'feature',
+  { v: 1403, ts: '2026-10-04T05:39:07.652Z', date: 'Oct 4, 2026, 12:39 AM CT', title: 'The 1812 shore grows prairie, beach grass and two remembered cottonwoods', kind: 'feature',
     items: [
       'Open 1812 and the fort no longer stands on bare ground: the prairie, the sedge and marsh by the river, the river timber and the sand prairie and beach grass along the lake now grow there, from the same plant records as 1835.',
       'Nothing the town planted comes with them. The 1835 dooryard trees, the rows of poplars, the town\u2019s trampled weeds and the trees by the later fort stay in 1835.',
       'Walk south down the shore to the later Eighteenth Street and two young cottonwoods stand together on the bank. A family tradition, written down in 1895, remembered them as saplings at the time of the battle of 15 August 1812.',
       'Their existence rests on that tradition; where they stand and how tall they are is our reconstruction (liberty L372). They do not mark where the fighting was.',
+    ] },
+  { v: 1402, ts: '2026-10-04T05:01:49.654Z', date: 'Oct 4, 2026, 12:01 AM CT', title: 'The first Fort Dearborn stands in an 1812 view', kind: 'feature',
+    items: [
+      'Open the 1812 door on the front page: it now shows the first Fort Dearborn as it stood in the summer of 1812, two weeks before it was evacuated and burned. Until now that door said the year was still being surveyed.',
+      'You see the double row of pickets, the two blockhouses at opposite corners, the four barracks ranges facing the parade, the brick magazine, two small houses and the 75-foot flagstaff. Their plans come from the drawing the fort\u2019s commander made in 1808. Their heights and roofs are our reconstruction (liberty L370).',
+      'The fort stands on the same ground as the 1835 fort, on the river and shore as they were before the harbour was cut. Its plan is turned to face north as the 1808 drawing implies, not borrowed from the later fort.',
+      'The 1812 view and the 1835 view can never show both forts at once. No people are shown in 1812: the history of that August is still under review.',
     ] },
   { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
