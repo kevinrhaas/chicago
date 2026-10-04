@@ -1539,8 +1539,9 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
  * the screen everywhere; this is paid only on the town's own ground.
  *
  * WHAT IS RECORDED AND WHAT IS NOT: the sod's two greens are the community
- * palette's, the bare ground is the record's `ground.rgb`, dust its palette's
- * `dry_rgb`, wet its `ground.wet_rgb`, and the share left bare is the record's
+ * palette's, the bare ground is the record's ground colour (the manifest's
+ * `ground_rgb`), dust its palette's dry glaze, wet ground the manifest's
+ * `ground_wet_rgb`, and the share left bare is the record's
  * `bare_soil_fraction`, measured off the very noise drawn here (`bareCut`).
  * The pattern is reconstructed — docs/LIBERTIES.md.
  */

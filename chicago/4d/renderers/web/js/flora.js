@@ -2686,9 +2686,12 @@ function compileZones({ index, files }, terrain, problems, stats) {
       turfTones: isTurfCommunity(rec) ? {
         sodDark: palette?.greens?.[0] ?? null,
         sodLight: palette?.greens?.[2] ?? palette?.greens?.at?.(-1) ?? null,
-        bare: rec.ground?.rgb ?? null,
-        dust: palette?.ground?.dry_rgb ?? rec.ground?.rgb ?? null,
-        wet: rec.ground?.wet_rgb ?? null,
+        // The manifest's copies of the record's two ground tones, which
+        // validate.py holds equal to it and terrain.js already paints the box
+        // zones from; the dust is the palette's own dry-glaze tone.
+        bare: entry.ground_rgb ?? null,
+        dust: palette?.ground?.dry_rgb ?? entry.ground_rgb ?? null,
+        wet: entry.ground_wet_rgb ?? null,
         bareFraction: typeof cover.bare_soil_fraction === 'number' ? cover.bare_soil_fraction : 0,
       } : null,
       extent: rec.extent ?? entry.extent ?? null,
