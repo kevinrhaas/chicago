@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1416, ts: '2026-10-04T09:33:33.291Z', date: 'Oct 4, 2026, 4:33 AM CT', title: 'Four people the letter lists would have added twice or wrongly are turned away', kind: 'change',
+  { v: 1416, ts: '2026-10-04T09:33:33.291Z', date: 'Oct 4, 2026, 4:33 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
     items: [
       'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
       'Some lines of the 1834 post-office letter list end with how many letters were waiting, as in \u201cPeter Temple 3\u201d. The pass that adds letter-list people read that number as part of the name, so it looked up \u201cPeter\u201d as the family name.',
