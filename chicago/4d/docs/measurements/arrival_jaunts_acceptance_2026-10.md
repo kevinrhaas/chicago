@@ -144,7 +144,16 @@ and the People directory and Evidence panel part 13. Each was run in the foregro
 the published mirror of this branch, which differs from `dev` only in documentation and
 the release note:
 
-SMOKE_RESULTS
+| part | viewport | command | result |
+|---|---|---|---|
+| 3 — the card a visitor opens | 390×780 | `SMOKE_VIEWPORT=mobile SMOKE_STAGE=3 node tools/smoke_renderer.mjs --published` | **SMOKE PASS, 102 passed, 0 failed**, zero page errors (4 m 44 s) |
+| 12 — the Evidence hub, What's-new | 390×780 | `SMOKE_VIEWPORT=mobile SMOKE_STAGE=12 …` | **SMOKE PASS, 97 passed, 0 failed**, zero page errors (7 m 58 s) |
+| 12 — the Evidence hub, What's-new | 1280×800 | `SMOKE_VIEWPORT=desktop SMOKE_STAGE=12 …` | **cut off, not passed**: 49 checks passed and none failed before the 590 s cap killed it, and zero page errors had been seen to that point |
+| 13 — People, the Evidence panel | — | not run | the run's leg budget was spent. Its last pass was mobile on `04a0efca` (2026-10-03, steward runner, 124 passed) |
+
+Part 14, the arrival-to-jaunt path itself, passed at both viewports on the tree T-2044
+merged (#367). Go to and Travel settings are walked by part 14 and by parts this piece
+did not run. What is listed above is what was run, and nothing more is claimed.
 
 ## 5. Named successors
 

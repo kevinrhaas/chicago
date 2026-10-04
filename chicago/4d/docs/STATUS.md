@@ -19,8 +19,9 @@ legacy surfaces and the acceptance report, `docs/measurements/arrival_jaunts_acc
 - **Frame cost** at desktop full and balanced is inside every ceiling at all six stands, but
   balanced stands at 99.0-99.3 % at two of them. The light level and mobile were not read: two
   sweeps hit the 580 s cap. The smoke's part 4 holds them, last passed in CI on 2026-10-01.
-- **Legacy surfaces**: the popup, Evidence and People smoke parts, run on this branch. See the
-  report's § 4.
+- **Legacy surfaces** (smoke, `--published`, this branch): mobile part 3 PASS 102/102 and
+  mobile part 12 PASS 97/97, both with zero page errors. Desktop part 12 was cut off at the
+  590 s cap with 49 passed and none failed, so it is NOT a pass. Part 13 was not run.
 - **Unverified here:** T-2045's boot variants and T-2046's layouts, which were in flight. Their
   verdicts are theirs. No budget was raised.
 
