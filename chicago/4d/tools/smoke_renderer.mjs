@@ -11093,6 +11093,7 @@ for (const [label, viewport, touch] of [
       }
       out.street = { peakPx: peak, peakRad: peak / cen.pxPerRad, body,
         lift: a.trees.horizonLift?.()?.lift ?? null };
+      a.setFly(true);
       w.teleport({ local_e: 451, local_n: -112, yaw_deg: 251, altitude_m: 17, pitch_deg: -12 });
       await frames(3);
       out.air = a.trees.horizonLift?.() ?? { lift: null, visible: null };
