@@ -1631,13 +1631,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1425,
-    "seated": 250,
-    "still_owed": 1175,
-    "roofs_adopted": 221,
+    "seated": 251,
+    "still_owed": 1174,
+    "roofs_adopted": 222,
     "slots_requested": 29,
     "roofs_standing": 546,
-    "roofs_standing_unseated": 325,
-    "share_of_standing_roofs_seated": 0.4048,
+    "roofs_standing_unseated": 324,
+    "share_of_standing_roofs_seated": 0.4066,
     "passes": [
       {
         "key": "platted",
@@ -1646,9 +1646,9 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1425,
-        "seated": 177,
-        "handed_on": 1248,
-        "roofs_adopted": 148,
+        "seated": 178,
+        "handed_on": 1247,
+        "roofs_adopted": 149,
         "slots_requested": 29,
         "roofs_offered_for_adoption": 157,
         "roofs_held_back": 56,
@@ -1656,11 +1656,11 @@
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 21,
-          "south": 128,
+          "south": 129,
           "west": 28
         },
         "by_clause": {
-          "labourer_dwellings": 34,
+          "labourer_dwellings": 35,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 33,
           "tradesman_dwellings": 108
@@ -1672,9 +1672,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1248,
+        "rows_offered": 1247,
         "seated": 73,
-        "handed_on": 1175,
+        "handed_on": 1174,
         "roofs_adopted": 73,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 79,
@@ -1995,7 +1995,7 @@
       "blk_west_lake_canal"
     ],
     "what_the_slots_wait_on": "29 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,175 of the 1,425 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,174 of the 1,425 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5242,10 +5242,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 546,
-        "standing_with_an_occupant": 179,
-        "standing_without_an_occupant": 367,
+        "standing_with_an_occupant": 180,
+        "standing_without_an_occupant": 366,
         "to_build_total": 140,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 367 of the 546 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 366 of the 546 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -6103,7 +6103,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "367 of 546 standing records carry no occupants block."
+      "measured_now": "366 of 546 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
