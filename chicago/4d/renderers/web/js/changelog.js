@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1392, ts: '2026-10-04T00:09:05.510Z', date: 'Oct 3, 2026, 7:09 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
+    items: [
+      'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',
+      'New in Chicago also recommends riding now, and takes about four minutes instead of ten and a half. Its five stops are unchanged.',
+      'You can still choose to walk either one. The ride and the Tremont breakfast are our reconstruction (liberties L-jaunt-news-breakfast and L-jaunt-new-in-chicago).',
+    ] },
   { v: 1391, ts: '2026-10-03T23:41:06.651Z', date: 'Oct 3, 2026, 6:41 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',

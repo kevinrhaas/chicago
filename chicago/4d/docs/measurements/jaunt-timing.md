@@ -8,8 +8,6 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 
 | Jaunt | Recommended | Stops | Content s | Travel s | Measured min | Estimate min | Menu says | Fly min | Instantly min | 1280x800 min | Verdict |
 |---|---|---:|---:|---:|---:|---:|---|---:|---:|---:|---|
-| news-before-breakfast | walk | 4 | 204 | 855 | 17.65 | 17.53 | about 17.5 | 4.47 | 3.40 | — | **over by 699 s** |
-| new-in-chicago | walk | 5 | 126 | 499 | 10.42 | 10.32 | about 10.5 | 2.90 | 2.10 | — | **over by 265 s** |
 | from-prairie-to-town | horse | 4 | 114 | 447 | 9.35 | 10.20 | about 10 | 3.85 | 1.90 | 9.33 | **over by 201 s** |
 | boots-and-leather | horse | 4 | 171 | 293 | 7.73 | 7.63 | about 7.5 | 3.88 | 2.85 | — | **over by 104 s** |
 | soap-and-candles | horse | 4 | 168 | 260 | 7.13 | 7.08 | about 7 | 3.62 | 2.80 | — | **over by 68 s** |
@@ -20,6 +18,7 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 | along-the-harbor | horse | 4 | 160 | 197 | 5.95 | 5.87 | about 6 | 3.68 | 2.67 | 5.38 | in band |
 | freight-for-the-store | wagon | 4 | 163 | 185 | 5.80 | 5.78 | about 6 | 3.45 | 2.72 | 5.52 | in band |
 | across-wolf-point | walk | 4 | 116 | 230 | 5.77 | 5.52 | about 5.5 | 2.35 | 1.93 | 5.42 | in band |
+| news-before-breakfast | horse | 4 | 204 | 138 | 5.70 | 5.63 | about 5.5 | 4.25 | 3.40 | — | in band |
 | gossip-or-notice | horse | 4 | 172 | 168 | 5.67 | 5.55 | about 5.5 | 3.78 | 2.87 | — | in band |
 | bed-for-the-night | horse | 4 | 162 | 168 | 5.50 | 5.58 | about 5.5 | 3.68 | 2.70 | — | in band |
 | fort-dearborn-errand | walk | 4 | 100 | 229 | 5.48 | 5.73 | about 5.5 | 2.00 | 1.67 | — | in band |
@@ -32,18 +31,17 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 | an-evening-stroll | horse | 4 | 121 | 147 | 4.47 | 4.42 | about 4.5 | 2.88 | 2.02 | 4.30 | in band |
 | calling-on-neighbors | horse | 4 | 159 | 85 | 4.07 | 4.05 | about 4 | 3.22 | 2.65 | 3.95 | in band |
 | a-decent-coat | horse | 4 | 127 | 115 | 4.03 | 4.02 | about 4 | 2.85 | 2.12 | 4.03 | in band |
+| new-in-chicago | horse | 5 | 126 | 116 | 4.03 | 3.97 | about 4 | 2.90 | 2.10 | — | in band |
 | shopping-south-water | wagon | 4 | 124 | 112 | 3.93 | 3.93 | about 4 | 2.55 | 2.07 | — | in band |
 | inspect-a-lot | horse | 4 | 137 | 62 | 3.32 | 3.35 | about 3.5 | 2.77 | 2.28 | — | in band |
 
-26 jaunts measured: 17 in band, 9 over, 0 under.
+26 jaunts measured: 19 in band, 7 over, 0 under.
 
 ## Findings
 
 - boots-and-leather: recommended horse measures 7.73 min, outside 3-6
 - from-prairie-to-town: recommended horse measures 9.35 min, outside 3-6
 - materials-for-a-roof: recommended horse measures 6.07 min, outside 3-6
-- new-in-chicago: recommended walk measures 10.42 min, outside 3-6
-- news-before-breakfast: recommended walk measures 17.65 min, outside 3-6
 - schoolday-errand: recommended horse measures 6.35 min, outside 3-6
 - soap-and-candles: recommended horse measures 7.13 min, outside 3-6
 - sunday-circuit: recommended horse measures 6.55 min, outside 3-6

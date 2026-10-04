@@ -145,6 +145,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Route note (published, T-1262):** The proposed order is kept. The stops lie about 613 m apart in straight lines (Sauganash → Hogan 43 m, → Peck 318 m, → Democrat 123 m, → Brown 129 m). Every other order that ends at the bed is longer, so Walk reads about 10.5 min on the catalog card. That is over the 4–6 min target, and Horse reads about 4. The "useful notice" is Kinzie and Forsyth's town-map notice, dated 18 June 1834 and still running in June 1835. The boarding arrangement is a cost-or-convenience preference with no rate given (L-jaunt-new-in-chicago).
 
+**Route note (T-2052, re-timed):** the five stops and their texts are kept. Measured on the published mirror at 390×780 (T-2051), Walk is 10.42 min: the forks-to-LaSalle leg alone is about four minutes on foot, so no nearer stop on this route fits the 3–6 min band. **Horse is now the recommended mode** and measures 4.04 min (Fly 2.90, Instantly 2.10); the one leg story that said "Walk the river street" now says "Ride". Walk stays allowed.
+
 ## 04. Shopping South Water Street
 
 **ID:** `shopping-south-water` · **Owner ticket:** [T-1263](../tickets/T-1263-publish-shopping-south-water-street-as-a-five-mi.md)
@@ -233,6 +235,8 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 **Evidence and route cautions:** Only issue-dated, page-and-column-located material eligible on the scene date; do not treat later news as current.
 
 **Route note (T-2004, as built):** the four stops are kept as briefed. The printed items are the Democrat of 24 June 1835 (p. 2 col. 5, the cholera paragraph; p. 3 col. 3, an auction house whose first sale is 1 July) and the American of 27 June 1835 (p. 3 col. 5, Frederick Thomas's Cholera Elixir), all transcription-mediated. The Democrat's corner is visited as its FORMER office (over Jones & King's hardware by 20 May 1835). **Timing is an outlier at Walk and is stated, not hidden:** the stops lie about 1.2 km apart on the routed streets (Sauganash → Clark 525 m, → Dearborn 166 m, → Lake and Wells 530 m), so the card reads about 17.5 min on foot, 9 at Wagon, 6.5 on Horse and 4.5 at Fly. Walk stays the recommendation because the brief names it; whether to re-cut the route or change the recommended mode belongs to T-1271's library-wide timing pass.
+
+**Route note (T-2052, re-cut):** measured at 17.65 min on foot (T-2051). Walking cannot fit the band on any order of these offices (the Democrat-to-American leg alone is about two minutes on foot), and Horse on the briefed route read about 6.6. So **breakfast moves from the Exchange Coffee House at Lake and Wells to the first Tremont House at Lake and Dearborn**, a block from the American's office, which removes the 530 m ride back west, and **Horse is the recommended mode**. The Tremont stop rests on Andreas p. 635 and the 1874 Tribune letter (Ira Couch took the house in 1834); the auction notice and both papers' items are unchanged. Measured 5.70 min at Horse, 4.25 at Fly, 3.40 Instantly. Walk stays allowed.
 
 ## 08. A Letter Home
 

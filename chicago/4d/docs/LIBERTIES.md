@@ -16459,6 +16459,8 @@ row whose idiom it borrows), **L10** (the yard that is still a fence nobody mode
 
 **Recorded:** 2026-10-03 (T-1262).
 
+**Revised:** 2026-10-03 (T-2052). The outing measured 10.4 minutes on foot (T-2051) against a 3–6 minute band; the forks-to-LaSalle leg alone is four minutes of walking. The recommended mode is now a ride on horseback, which is invented like the rest of the first day, and the one leg story that said to walk the river street now says to ride it. The five stops and their texts are unchanged.
+
 ### L285 — The agency's ring of log buildings: four sentences that name the occupants and never describe a house
 
 **Decision:** three `log_dwelling` records — `mckee_log_house`, `caldwell_agency_log_house` and
@@ -17702,6 +17704,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/news-before-breakfast.json`.
 
 **Recorded:** 2026-10-03 (T-2004).
+
+**Revised:** 2026-10-03 (T-2052). The jaunt measured 17.6 minutes on foot (T-2051) against a 3–6 minute band, and walking cannot fit it: the leg between the two offices alone is about two minutes on foot. So the recommended mode is now a ride on horseback, also invented, and breakfast moves from the Exchange Coffee House at Lake and Wells, the long ride back west, to the first Tremont House at Lake and Dearborn, a block from the American's office. The Tremont stop rests on Andreas and the 1874 Tribune letter the structure record already carries; the Exchange is no longer a stop, and nothing printed in either paper changed.
 
 ### L-jaunt-work-waterfront — Work on the Waterfront: an invented search for work
 
