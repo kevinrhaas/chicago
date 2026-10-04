@@ -349,56 +349,56 @@
       ],
       [
         [
-          382.77,
+          382.79,
           -12.81
         ],
         [
-          381.88,
+          381.89,
           -13.0
         ],
         [
-          389.06,
-          -47.9
+          389.29,
+          -48.06
         ],
         [
-          389.95,
-          -47.72
+          390.18,
+          -47.87
         ]
       ],
       [
         [
-          381.03,
-          -13.02
-        ],
-        [
-          380.16,
-          -12.75
-        ],
-        [
-          370.14,
-          -45.25
-        ],
-        [
-          371.01,
-          -45.51
-        ]
-      ],
-      [
-        [
-          381.15,
+          381.13,
           -88.22
         ],
         [
-          382.03,
+          382.01,
           -88.45
         ],
         [
-          390.1,
-          -57.49
+          389.86,
+          -57.65
         ],
         [
-          389.22,
-          -57.26
+          388.97,
+          -57.42
+        ]
+      ],
+      [
+        [
+          379.28,
+          -88.49
+        ],
+        [
+          380.15,
+          -88.21
+        ],
+        [
+          370.97,
+          -59.84
+        ],
+        [
+          370.1,
+          -60.12
         ]
       ],
       [
@@ -4554,14 +4554,14 @@
       "to": "privy_blk_south_water_wells_lot2"
     },
     {
-      "lot": "blk_south_water_wells_lot2",
-      "from": "recon_1835_blk_south_water_wells_d1_05",
-      "to": "stable_blk_south_water_wells_lot2"
+      "lot": "blk_south_water_wells_lot3",
+      "from": "recon_1835_blk_south_water_wells_d2_06",
+      "to": "privy_blk_south_water_wells_lot3"
     },
     {
       "lot": "blk_south_water_wells_lot3",
       "from": "recon_1835_blk_south_water_wells_d2_06",
-      "to": "privy_blk_south_water_wells_lot3"
+      "to": "stable_blk_south_water_wells_lot3"
     },
     {
       "lot": "blk_south_water_wells_lot3",
