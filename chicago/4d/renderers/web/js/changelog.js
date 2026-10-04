@@ -6,7 +6,7 @@ export const CHANGELOG = [ // newest first
       'Prairie still begins at the edge of town. The beach and the slough in the public square keep their own plants, and the trees, gardens and planted rows are where they were.',
       'The town is lighter to draw: in a back yard on Washington Street the grass and flowers now cost less than half what they did, at every Scene detail setting.',
     ] },
-  { v: null, ts: '', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
+  { v: 1433, ts: '2026-10-04T15:43:22.462Z', date: 'Oct 4, 2026, 10:43 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
     items: [
       'Look down anywhere on the open prairie: the ground now shows blades of grass, last year\'s thatch between the tussocks, and the shade under them, lit by the sun the way the dirt roads are.',
       'Lusher clumps show more blades and the wet ground near the water less. The beach sand stays bare.',
