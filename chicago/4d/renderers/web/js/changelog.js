@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
+    items: [
+      'Walk up Franklin Street to the river: Newberry & Dole\u2019s forwarding and commission warehouse no longer stands across the end of the street and in South Water Street. It now sits back in the corner west of Franklin and south of South Water, still facing the river.',
+      'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
+      'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L376).',
+    ] },
   { v: 1436, ts: '2026-10-04T16:59:01.860Z', date: 'Oct 4, 2026, 11:59 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [
       'Across the town, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',

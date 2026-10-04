@@ -931,13 +931,13 @@
         "evidence_records": 12,
         "standing_with_a_street": 12,
         "by_street_class": {
-          "principal": 11,
-          "ordinary": 0,
+          "principal": 10,
+          "ordinary": 1,
           "light": 1
         },
         "fronting_no_street": 0,
         "on_the_street_line": 11,
-        "setback_m_min": -12.1,
+        "setback_m_min": -10.06,
         "setback_m_max": 4.16
       }
     },
