@@ -273,6 +273,9 @@ function check(m = load()) {
           + `step(s) ${above.map((i) => i + 1).join(', ')}. The tail would re-run the cycle the `
           + 'pass just closed; start it below the pass.');
       }
+      const lo = passAt.length ? Math.min(...passAt) : hits[0][0];
+      problems.push(...between(m, m.steps.map((_, i) => i)
+        .filter((i) => i > lo && i < hits[0][0] && !passAt.includes(i)), passAt));
     }
     if (!Number.isInteger(after.max_laps) || after.max_laps < 2 || after.max_laps > 5) {
       problems.push(`${at}: max_laps must be an integer from 2 to 5 — one lap cannot show `
@@ -290,6 +293,90 @@ function check(m = load()) {
     + `resolvable file(s), none hand-authored; second pass of ${secondPass.length} step(s)`
     + (after ? `, then the tail from ${after.tail_from} until it settles` : ''));
   return 0;
+}
+
+/**
+ * THE STEPS BETWEEN THE PASS AND THE TAIL (T-2082, T-1671's step 3). `window` is every
+ * step below the pass's first step and above `tail_from` that is not itself in the pass.
+ * Nothing re-runs these after the pass moves the population, so each one is safe there
+ * only if it reads nothing the pass moves, and that is a measurement, not a property of
+ * the code: a source scan says nearly all of them read the resident cards. So the answer
+ * is written down, as `after_the_pass.between`, with the date and the perturbation that
+ * took it, and held here. A step inserted into the window, or a pass entry that widens
+ * it, fails until somebody measures the step the same way and lists it. A step found
+ * sensitive does not get listed: it joins the pass or goes below the tail, which is what
+ * happened to seat_trade_roofs_1835.py when this was first measured.
+ */
+function between(m, window, passAt) {
+  const problems = [];
+  const at = 'after_the_pass.between';
+  const b = m.after_the_pass?.between;
+  const cmd = (i) => m.steps[i].command.join(' ');
+  if (b === undefined) {
+    if (window.length) {
+      problems.push(`${at}: steps ${window.map((i) => i + 1).join(', ')} sit between the second `
+        + 'pass and the tail, where nothing re-runs them after the pass moves the population, '
+        + 'and no measured answer says they are safe there. Perturb what the pass writes, '
+        + '--check each of them, and record what you found here.');
+    }
+    return problems;
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(b?.measured ?? ''))) {
+    problems.push(`${at}: measured must be the date the answer was taken (YYYY-MM-DD)`);
+  }
+  if (!String(b?.how ?? '').trim()) {
+    problems.push(`${at}: needs how: the perturbation that took the answer, so the next step `
+      + 'inserted here can be measured the same way');
+  }
+  const listed = b?.insensitive;
+  if (!Array.isArray(listed)) {
+    problems.push(`${at}: insensitive must be the array of commands measured safe there`);
+    return problems;
+  }
+  const here = new Set(window.map(cmd));
+  for (const i of window) {
+    if (!listed.includes(cmd(i))) {
+      problems.push(`${at}: step ${i + 1} (${cmd(i)}) sits between the pass and the tail and was `
+        + 'never measured there. If it reads what the pass moves, a --run ends with it stale '
+        + 'and nothing says so. Measure it the way `how` says and list it, or, if it moves, put '
+        + 'it in second_pass or below tail_from.');
+    }
+  }
+  listed.forEach((c, j) => {
+    if (listed.indexOf(c) !== j) problems.push(`${at}: lists ${c} twice`);
+    else if (!here.has(c)) {
+      problems.push(`${at}: lists ${c}, which does not sit between the pass and the tail. The `
+        + 'answer is a reading of the steps actually there; take it off.');
+    }
+  });
+  // A DECLARED read of a file a pass step rewrites is the one edge the answer must name.
+  // It is the case most likely to move, so it gets its own measured why.
+  const rewrites = new Map();
+  for (const i of passAt) for (const rel of m.steps[i].resolves ?? []) rewrites.set(rel, i);
+  const readers = b.declared_readers ?? {};
+  if (typeof readers !== 'object' || Array.isArray(readers)) {
+    problems.push(`${at}: declared_readers must map a command to its measured why`);
+    return problems;
+  }
+  const owed = new Set();
+  for (const i of window) {
+    const hit = (m.steps[i].reads ?? []).filter((rel) => rewrites.has(rel));
+    if (!hit.length) continue;
+    owed.add(cmd(i));
+    if (!String(readers[cmd(i)] ?? '').trim()) {
+      problems.push(`${at}: step ${i + 1} (${cmd(i)}) declares it reads ${hit.map((rel) => `${rel} `
+        + `(rewritten by pass step ${rewrites.get(rel) + 1})`).join(', ')}. Say in `
+        + 'declared_readers why that rewrite does not move it, measured, or put it in the pass.');
+    }
+  }
+  for (const c of Object.keys(readers)) {
+    if (!owed.has(c)) {
+      problems.push(`${at}: declared_readers names ${c}, which declares no read of a file the `
+        + 'pass rewrites, or is not between the pass and the tail. A why for an edge that is '
+        + 'not there is cargo.');
+    }
+  }
+  return problems;
 }
 
 /* ------------------------------------------------------- resolvable? */
@@ -874,7 +961,11 @@ async function selfTest() {
       }));
       return check(load(f));
     };
-    const settle = { tail_from: 'tools/town_census.py', max_laps: 3, why: 'reads what the pass moved' };
+    // compile_scene.py is the pass, town_census.py the tail; model_town_1835.py sits between.
+    const answered = { measured: '2026-10-04', how: 'perturb what the pass writes, --check each',
+      insensitive: ['python3 tools/model_town_1835.py --build'] };
+    const settle = { tail_from: 'tools/town_census.py', max_laps: 3, why: 'reads what the pass moved',
+      between: answered };
     check_('a settled tail below the pass is accepted', withAfter(settle) === 0);
     check_('a settled tail starting AT a pass step — it would re-open the cycle',
       withAfter({ ...settle, tail_from: 'tools/compile_scene.py' }) === 1);
@@ -882,6 +973,52 @@ async function selfTest() {
     check_('a settled tail of one lap — one lap cannot show the tree stopped moving',
       withAfter({ ...settle, max_laps: 1 }) === 1);
     check_('a settled tail with no why', withAfter({ ...settle, why: '' }) === 1);
+
+    console.log('\n  and the steps between the pass and the tail are a measured answer, held (T-2082)');
+    const real_between = real.after_the_pass?.between ?? {};
+    check_('the shipped answer lists steps, and says when and how it was taken',
+      (real_between.insensitive ?? []).length > 0 && /^\d{4}-\d{2}-\d{2}$/.test(real_between.measured ?? '')
+      && String(real_between.how ?? '').length > 0, `${(real_between.insensitive ?? []).length} step(s)`);
+    check_('seat_trade_roofs_1835.py, measured to move with the deals, is in the pass and not the answer',
+      (real.second_pass ?? []).some((e) => k(e.command).includes('seat_trade_roofs_1835.py'))
+      && !(real_between.insensitive ?? []).some((c) => c.includes('seat_trade_roofs_1835.py')));
+    check_('a window with no answer at all — the hole T-1671 found',
+      withAfter({ ...settle, between: undefined }) === 1);
+    check_('a step INSERTED into the window that nobody measured',
+      withAfter({ ...settle, between: { ...answered, insensitive: [] } }) === 1);
+    check_('a listed step that is not between the pass and the tail',
+      withAfter({ ...settle, between: { ...answered,
+        insensitive: [...answered.insensitive, 'python3 tools/town_census.py'] } }) === 1);
+    check_('a step listed twice',
+      withAfter({ ...settle, between: { ...answered,
+        insensitive: [...answered.insensitive, ...answered.insensitive] } }) === 1);
+    check_('an answer with no date', withAfter({ ...settle, between: { ...answered, measured: 'today' } }) === 1);
+    check_('an answer that does not say how it was taken',
+      withAfter({ ...settle, between: { ...answered, how: ' ' } }) === 1);
+    const withReader = (between_) => {
+      const f = path.join(tmp, 'r.json');
+      const model = ['python3', 'tools/model_town_1835.py', '--build'];
+      writeFileSync(f, JSON.stringify({
+        schema: 1,
+        steps: [
+          { command: model, resolves: ['chicago/4d/data/reconstruction/1835_town_model.json'] },
+          { command: ['python3', 'tools/town_census.py'], resolves: [],
+            reads: ['chicago/4d/data/reconstruction/1835_town_model.json'] },
+          { command: ['python3', 'tools/compile_scene.py'], resolves: ['chicago/4d/data/sidecars/1835/people.json'] },
+        ],
+        second_pass: [{ command: model, reads_rebuilt: ['chicago/4d/data/sidecars/1835/people.json'], why: 'lags' }],
+        after_the_pass: { tail_from: 'tools/compile_scene.py', max_laps: 3, why: 'x', between: between_ },
+      }));
+      return check(load(f));
+    };
+    const census = { measured: '2026-10-04', how: 'x', insensitive: ['python3 tools/town_census.py'] };
+    const readerWhy = { 'python3 tools/town_census.py': 'measured still when the model moved' };
+    check_('a step declaring it reads what the pass rewrites, with its measured why, is accepted',
+      withReader({ ...census, declared_readers: readerWhy }) === 0);
+    check_('the same declared read with no why — the edge most likely to move',
+      withReader(census) === 1);
+    check_('a why for a read the step does not declare is cargo',
+      withReader({ ...census, declared_readers: { ...readerWhy, 'python3 tools/compile_scene.py': 'x' } }) === 1);
 
     console.log('\n  and a merge in a clone resolves the way the lap does (--resolve)');
     const src = (id) => `chicago/4d/data/sidecars/1835/sources/${id}.json`;

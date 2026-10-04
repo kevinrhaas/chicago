@@ -60,7 +60,7 @@
       "reads_rebuilt": [
         "chicago/4d/data/reconstruction/1835_address_book.json"
       ],
-      "why": "THE SEATING CHAIN'S BACKWARD EDGE (T-2081). The platted deal reads the address book, which seat_known_1835.py rebuilds below it from the seats this deal wrote, so no linear order settles the pair (the one that puts the address book first refuses outright — see the chain's step). What travels back is small: each seat copies its household's display name out of the address book. Measured 2026-10-04 with the chain's seven outputs taken from before #396 and everything else at dev: one walk of the chain left exactly two seats behind — hh_ambrose_joshua and hh_bradford_harriet still named 'a name from the post office's letter lists', the name T-1689 (#398) had already changed on their cards — and the seat checks red; this entry and the next cleared both, and the tree came back byte-identical to dev with seat_known, both deals, the order book, compile_liberties, house_the_present and seat_trade_roofs all --check green. compile_liberties.py and seat_trade_roofs_1835.py also read the seats and were NOT moved by that difference, so they are not re-run here; if a later perturbation moves them, check.sh goes red on them and they join this pass."
+      "why": "THE SEATING CHAIN'S BACKWARD EDGE (T-2081). The platted deal reads the address book, which seat_known_1835.py rebuilds below it from the seats this deal wrote, so no linear order settles the pair (the one that puts the address book first refuses outright — see the chain's step). What travels back is small: each seat copies its household's display name out of the address book. Measured 2026-10-04 with the chain's seven outputs taken from before #396 and everything else at dev: one walk of the chain left exactly two seats behind — hh_ambrose_joshua and hh_bradford_harriet still named 'a name from the post office's letter lists', the name T-1689 (#398) had already changed on their cards — and the seat checks red; this entry and the next cleared both, and the tree came back byte-identical to dev with seat_known, both deals, the order book, compile_liberties, house_the_present and seat_trade_roofs all --check green. compile_liberties.py and seat_trade_roofs_1835.py also read the seats and were NOT moved by that difference. A later perturbation (T-2082) did move seat_trade_roofs_1835.py, and it joined this pass below; compile_liberties.py stayed still under that one too, and after_the_pass.between holds it to that answer."
     },
     {
       "command": [
@@ -69,13 +69,78 @@
         "--build"
       ],
       "why": "The off-plat deal's scope is the platted deal's `owed` list, so it follows the entry above whenever that one re-runs (T-2081)."
+    },
+    {
+      "command": [
+        "python3",
+        "tools/seat_trade_roofs_1835.py",
+        "--build"
+      ],
+      "why": "THE ONE STEP BETWEEN THE PASS AND THE TAIL THAT MOVES WITH IT (T-2082). seat_trade_roofs_1835.py writes each off-plat adoption's household name into the note of a roof it declines (\"The off-plat deal (T-1614) adopted it for The Miller and Hall tannery household, but ...\"), so when the deal above re-runs and a name travels back from the address book, this step is left one name behind and nothing re-runs it: the tail starts below it. Measured 2026-10-04 by renaming two households in each seat file by hand: of the 47 steps that sat between the pass and the tail, this was the only one whose --check went red (`1835_trade_roof_seats.json is stale`), and --build moved exactly that note. T-2081's reproduction did not move it because no name it moved was an off-plat adoption's. It follows the off-plat deal because that is what it reads."
     }
   ],
-  "_after_the_pass": "AND THEN THE SCENE, UNTIL IT STOPS MOVING (T-1602). The second pass rewrites resident cards, so everything from compile_scene.py down is standing on cards that have since moved; that is why pr-lap.sh re-ran `--tail tools/compile_scene.py` after every `--run`, and why a person running `--run` alone was left one hand step short of a green gate. One tail is not always enough either, because the scene and its generators are a CYCLE of their own: compile_scene.py reads the structure records generate_block_infill.py and its siblings write (their fabric rule reads each household's arrival), and those generators read the sidecars compile_scene.py writes. Measured 2026-10-04 on the same reproduction as the model entry above: after the pass, one tail left 8 sidecars and town_yard_outbuildings.json a lap behind their structures, and a second tail returned the tree byte-identical to dev. So `--run` (and every `--tail` and `--resolve`) repeats the tail from `tail_from` until a lap changes nothing in the tree, at most `max_laps` times. A settled tree costs one lap: the lap that proves nothing moved. Steps between the pass and `tail_from` were measured insensitive on that reproduction (nothing there moved once the pass had run), which is evidence and not a proof; T-1602's successor carries the rest of that question.",
+  "_after_the_pass": "AND THEN THE SCENE, UNTIL IT STOPS MOVING (T-1602). The second pass rewrites resident cards, so everything from compile_scene.py down is standing on cards that have since moved; that is why pr-lap.sh re-ran `--tail tools/compile_scene.py` after every `--run`, and why a person running `--run` alone was left one hand step short of a green gate. One tail is not always enough either, because the scene and its generators are a CYCLE of their own: compile_scene.py reads the structure records generate_block_infill.py and its siblings write (their fabric rule reads each household's arrival), and those generators read the sidecars compile_scene.py writes. Measured 2026-10-04 on the same reproduction as the model entry above: after the pass, one tail left 8 sidecars and town_yard_outbuildings.json a lap behind their structures, and a second tail returned the tree byte-identical to dev. So `--run` (and every `--tail` and `--resolve`) repeats the tail from `tail_from` until a lap changes nothing in the tree, at most `max_laps` times. A settled tree costs one lap: the lap that proves nothing moved. THE STEPS BETWEEN THE PASS AND THE TAIL ARE A MEASURED ANSWER, AND IT IS GATED (T-2082, T-1671's step 3). The pass re-runs its own steps, and the tail re-runs everything from `tail_from` down, but the steps that sit below the pass's first step and above `tail_from` are run once, before the pass, and never again. Each one is safe there only if what the pass moves does not move it. Reading the source cannot settle that: followed through its imports, nearly every one of them reads the resident cards. So it was measured, by perturbing what the pass writes and asking --check of each step. `between` records the date, the perturbations and the steps found still. rederive.mjs --check refuses a step in that window that the answer does not list, and a listed step that has left it. So the next step inserted there fails until someone measures it the same way. A step that DOES move does not get listed: it joins the pass or goes below the tail. The first measurement found one, seat_trade_roofs_1835.py, and it joined the pass.",
   "after_the_pass": {
     "tail_from": "tools/compile_scene.py",
     "max_laps": 3,
-    "why": "compile_scene.py is the first step below the second pass that reads the resident cards it rewrites, and the step pr-lap.sh has always re-run late (T-1661)."
+    "why": "compile_scene.py is the first step below the second pass that reads the resident cards it rewrites, and the step pr-lap.sh has always re-run late (T-1661).",
+    "between": {
+      "measured": "2026-10-04",
+      "how": "Two perturbations of what the pass writes, each on a clean dev tree, each followed by every step below with its own check.sh line (python3 <tool> --check), 2 minutes 30 for the lot. (1) THE ARRIVAL DRAWS, the pass's reason for existing: 150 of arrival_year_of_the_known_layer's 1835 people moved to 1833 in data/reconstruction/1835_town_model.json, then the pass's arrival stage, migrate_attribute_tiers.py and profile_population_1835.py rebuilt from it (383 files moved: the cards' arrival draws, the tier table, the profile). Every step below stayed green. Control: generate_block_infill.py, below the tail, went red on the same tree, so the checks do see the move. (2) THE SEATS, what the seating chain's backward edge carries (T-2081: display names out of the address book): two households renamed in data/reconstruction/1835_platted_seats.json and two in 1835_off_plat_seats.json. Every step below stayed green. seat_trade_roofs_1835.py went red, and it joined the pass instead of this list. Before that, every step here was green on clean dev. To measure a step you add here, run both perturbations, --check it, and restore the tree with git checkout. It is evidence over two perturbations, not a proof over every input, and it is now evidence that a new step cannot skip.",
+      "insensitive": [
+        "python3 tools/reconstruct_sex_age.py --build",
+        "python3 tools/spend_person_sex_age.py",
+        "python3 tools/reconstruct_modelled_families.py --build",
+        "python3 tools/reconstruct_women_children.py --build",
+        "python3 tools/reconstruct_trade_households.py --build",
+        "python3 tools/reconstruct_garrison_1835.py --build",
+        "python3 tools/synthesize_resident_research.py",
+        "python3 tools/apply_census_1840_bridges.py --write",
+        "python3 tools/associations.py --write",
+        "python3 tools/audit_scene_window_trades.py --write",
+        "python3 tools/carry_kinzie_west.py --write",
+        "python3 tools/derive_presence_evidence_leg.py --write",
+        "python3 tools/mint_documented_residents.py",
+        "python3 tools/mint_placed_residents.py",
+        "python3 tools/normalise_structure_function.py --build",
+        "python3 tools/register_letter_list_suspicions.py --build",
+        "python3 tools/trade_census_1835.py --build",
+        "python3 tools/trade_census_spend_1835.py --build",
+        "python3 tools/spend_ladder_rungs.py --build",
+        "python3 tools/qualify_later_trades.py",
+        "python3 tools/derive_resident_roles.py --write",
+        "python3 tools/derive_person_community.py",
+        "python3 tools/location_reconciliation.py --build",
+        "python3 tools/location_spend.py --build",
+        "python3 tools/report_convergence_coverage.py --build",
+        "python3 tools/rule_presence_1835.py --build",
+        "python3 tools/read_fergus_1839_lots.py --build",
+        "python3 tools/survey_stated_kin.py --write",
+        "python3 tools/spend_person_facts.py",
+        "python3 tools/adopt_street_faces.py",
+        "python3 tools/build_staffing_model_1835.py --build",
+        "python3 tools/model_transients_1835.py --build",
+        "python3 tools/canal_approach_occupancy.py --build",
+        "python3 tools/generate_canal_approach_trade.py",
+        "python3 tools/compile_businesses.py --build",
+        "python3 tools/audit_businesses.py --write",
+        "python3 tools/compile_gazetteer.py --build",
+        "python3 tools/fergus_1839_street_faces.py --build",
+        "python3 tools/reconcile_665.py",
+        "python3 tools/seat_kinzie_addition_streets.py --write",
+        "python3 tools/seat_michigan_st_tract.py --write",
+        "python3 tools/seat_wabansia_streets.py --write",
+        "python3 tools/build_order_book_1835.py --build",
+        "python3 tools/seat_known_1835.py --build",
+        "python3 tools/compile_liberties.py",
+        "python3 tools/house_the_present_1835.py"
+      ],
+      "declared_readers": {
+        "python3 tools/build_order_book_1835.py --build": "Reads both seat files' slot and seat counts, which the two deals in the pass rewrite. What the pass carries back through them is display names (T-2081): two names changed in each seat file left its --check green, and so did T-2081's chain reproduction.",
+        "python3 tools/seat_known_1835.py --build": "Reads the town model (rewritten by the pass's first entry) and both seat files (rewritten by the deals). The model: with 150 of the arrival table's 1835 people moved to 1833 and the arrival stage, tiers and profile rebuilt from it, its --check stayed green, and #382's reproduction (the model rebuilt from a pre-#344 scene) ended with the tree byte-identical to dev. The seats: two names changed in each seat file left it green.",
+        "python3 tools/compile_liberties.py": "Reads both seat files, which the deals in the pass rewrite. T-2081's chain reproduction did not move it, and two names changed in each seat file left its --check green."
+      }
+    }
   },
   "_a_writer_belongs_here": "IF YOU ADD A GATED WRITER, ADD IT HERE, AND THAT IS ENFORCED RATHER THAN ASKED. A tool check.sh runs with --check, and which can also --build or --write, produces DERIVED content by definition: if this file has never heard of it, rederive.mjs never runs it, pr-lap.sh leaves every open PR stale against it, and the gate goes red with no automated remedy and no clue in the message. Owner, 2026-09-18, after four separate hand-fixes in one night on exactly that — derive_resident_roles.py went red on FOUR merges, location_spend.py on the splitter change, profile_population_1835.py and model_town_1835.py the same night: \"add a note to things to say if you add a writer it should be in that manifest, right?\" A note is what this preamble already was, and it did not hold. tools/audit_manifest_coverage.mjs is the gate: every gated writer is listed here, or it is in that file's NOT_DERIVABLE list with the measurement that says why it cannot be. It found four MORE on the day it was written. Before listing anything, measure what `_must_reproduce` asks: run the build on a clean tree and confirm it changes no committed byte. A tool that does not reproduce belongs in the exemption list, never here.",
   "steps": [
