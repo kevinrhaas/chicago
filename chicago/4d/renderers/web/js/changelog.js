@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Nothing you can see: the rebuild reads business locations in the right order', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When two changes land together, a tool rebuilds the files derived from them, one step after another. The step that lists where each business stands ran before the step that rebuilds where each claim resolves, so it read the old answer.',
+      'So after a seat moved, that step refused the business as if the data were wrong. When Haddock\u2019s Tavern moved one lot east, it refused Elmira Fowler\u2019s millinery, whose seat moved in the same change. A second step quietly wrote a stale table.',
+      'The rebuild now runs them in the right order, and its check fails if a step is ever placed above a file it reads.',
+    ] },
   { v: 1418, ts: '2026-10-04T10:34:49.982Z', date: 'Oct 4, 2026, 5:34 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
     items: [
       'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
