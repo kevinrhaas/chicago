@@ -10,17 +10,17 @@
   "dwellings": 299,
   "by_row": {
    "cabin": 41,
-   "cottage": 132,
+   "cottage": 133,
    "house": 53,
    "keeper": 18,
    "merchant": 28,
-   "shanty": 26
+   "shanty": 25
   },
   "by_class": {
    "keeper": 18,
-   "labourer": 73,
+   "labourer": 72,
    "merchant": 28,
-   "tradesman": 179
+   "tradesman": 180
   },
   "by_basis": {
    "default": 17,
@@ -30,10 +30,10 @@
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 272,
+   "chopping_block": 273,
    "cordwood": 298,
    "log_heap": 41,
-   "slab_heap": 26
+   "slab_heap": 25
   },
   "piled": 298,
   "refused": 1
@@ -4322,31 +4322,32 @@
    "structure_id": "recon_1835_blk_south_water_dearborn_d1_05",
    "name": "Reconstructed D1 older log dwelling #05",
    "function": "older_log_dwelling",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "log",
-   "row": "cabin",
-   "rule": "Y-W2",
+   "row": "cottage",
+   "rule": "Y-W3",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
-     "kind": "log_heap",
+     "kind": "cordwood",
      "at_local_enu_m": [
-      772.39,
-      -16.96
+      771.73,
+      -16.56
      ],
      "bearing_deg": 1.62,
-     "logs": 3,
-     "log_length_m": 3.24,
-     "depth_m": 1.38,
+     "length_m": 1.9,
+     "depth_m": 0.61,
+     "height_m": 0.87,
+     "stick": "stove",
      "seed": 1332517823
     },
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      773.51,
-      -18.78
+      772.19,
+      -17.98
      ],
      "bearing_deg": 1.62,
      "billets": 3,
@@ -5046,49 +5047,35 @@
    "structure_id": "recon_1835_blk_south_water_wells_d1_05",
    "name": "Reconstructed D1 older log dwelling #05",
    "function": "older_log_dwelling",
-   "household_class": "merchant",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "log",
-   "row": "merchant",
-   "rule": "Y-W5",
+   "row": "cabin",
+   "rule": "Y-W2",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
-     "kind": "cordwood",
+     "kind": "log_heap",
      "at_local_enu_m": [
-      377.74,
-      -7.87
+      380.75,
+      -14.22
      ],
-     "bearing_deg": 89.53,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 1.15,
-     "stick": "cord",
+     "bearing_deg": 359.53,
+     "logs": 5,
+     "log_length_m": 3.11,
+     "depth_m": 2.1,
      "seed": 1377043785
-    },
-    {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      377.76,
-      -10.66
-     ],
-     "bearing_deg": 89.53,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 0.95,
-     "stick": "cord",
-     "seed": 957820283
     },
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      376.06,
-      -11.45
+      381.88,
+      -16.36
      ],
-     "bearing_deg": 89.53,
+     "bearing_deg": 359.53,
      "billets": 1,
-     "seed": 50684526
+     "seed": 957820283
     }
    ]
   },
@@ -5132,23 +5119,36 @@
    "structure_id": "recon_1835_blk_south_water_wells_d2_06",
    "name": "Reconstructed D2 rough plank dwelling or shanty #06",
    "function": "rough_plank_dwelling_or_shanty",
-   "household_class": "labourer",
+   "household_class": "merchant",
    "household_by": "fabric_rule",
    "house": "shanty",
-   "row": "shanty",
-   "rule": "Y-W1",
+   "row": "merchant",
+   "rule": "Y-W5",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
-     "kind": "slab_heap",
+     "kind": "cordwood",
      "at_local_enu_m": [
-      379.65,
-      -87.35
+      380.02,
+      -87.39
      ],
      "bearing_deg": 180.34,
-     "pieces": 12,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.14,
+     "stick": "cord",
      "seed": 404398878
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      379.26,
+      -85.68
+     ],
+     "bearing_deg": 180.34,
+     "billets": 2,
+     "seed": 2100802972
     }
    ]
   },

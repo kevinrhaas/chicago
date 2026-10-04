@@ -3835,7 +3835,7 @@
       }
     },
     {
-      "person": "rc_hastings_harvey",
+      "person": "rc_hastings_luther",
       "household": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
       "relationship": "boarder",
       "stage": "lodgers",
@@ -3843,7 +3843,7 @@
       "bucket": "persons/male/20_29/south/lodging/none",
       "rung": "R_seated",
       "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_11:rc_hastings_harvey",
+      "deal_key": "hh_lodging_recon_1835_blk_washington_clark_h3_11:rc_hastings_luther",
       "axes": {
         "sex": "male",
         "age_band": "20_29",
@@ -4225,7 +4225,7 @@
       }
     },
     {
-      "person": "rc_newell_william",
+      "person": "rc_newell_alvah",
       "household": "hh_lodging_western_hotel",
       "relationship": "lodger",
       "stage": "lodgers",
@@ -4233,7 +4233,7 @@
       "bucket": "persons/male/20_29/south/lodging/none",
       "rung": "R_seated",
       "adoptions": [],
-      "deal_key": "hh_lodging_western_hotel:rc_newell_william",
+      "deal_key": "hh_lodging_western_hotel:rc_newell_alvah",
       "axes": {
         "sex": "male",
         "age_band": "20_29",
@@ -15383,8 +15383,20 @@
       "stage": "trade_households",
       "ticket": "T-1347",
       "bucket": "persons/male/20_29/north/family/trade",
-      "rung": "C1",
-      "adoptions": [],
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": [
+            "rcb_metcalf_druggist"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
+        }
+      ],
       "deal_key": "trade_households:persons/male/20_29/north/family/trade:druggist:012",
       "axes": {
         "sex": "male",
@@ -28006,12 +28018,6 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
-      "person": "rc_metcalf_george",
-      "household": "hh_rc_metcalf_george",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
       "person": "rc_wilcox_silas",
       "household": "hh_rc_wilcox_silas",
       "rung": "C1",
@@ -30177,16 +30183,16 @@
     "the_surplus_those_buckets_hold": 415,
     "by_rung": {
       "C0": 220,
-      "C1": 539,
-      "R_adopted": 285,
+      "C1": 538,
+      "R_adopted": 286,
       "R_house_is_not_wholly_held": 25,
       "R_seated": 62,
       "R_division_is_a_reading": 53
     },
-    "movable_people": 759,
-    "refused_on_their_own_account": 312,
+    "movable_people": 758,
+    "refused_on_their_own_account": 313,
     "refused_with_their_house": 113,
-    "carrying_an_adoption_themselves": 201,
+    "carrying_an_adoption_themselves": 202,
     "moves_the_rule_yields": 139,
     "buckets_moved_out_of": 40,
     "buckets_moved_into": 42,
@@ -30226,7 +30232,7 @@
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "201 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "202 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
