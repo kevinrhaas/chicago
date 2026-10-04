@@ -1,0 +1,65 @@
+name: Chicago 4D — still-frame ceiling
+
+# T-2111: the still-frame TIME ceiling per Scene detail tier at the worst 1835
+# stand, beside T-1975's triangle ceilings (`DETAIL` in main.js). The numbers
+# and the reading they were set on are in chicago/4d/tools/still_frame_ceilings.json;
+# the gate is `tools/measure_still_frame.mjs --gate`, which reads them.
+#
+# NOT IN THE SMOKE, ON PURPOSE. One viewport's gate is ~5 minutes of software
+# rasterising (three tiers at the worst stand, each a frame of seconds), and
+# the smoke's parts are already packed under the 600 s a steward command gets.
+# Its own workflow, one job per viewport, so neither waits on the other and a
+# red names its viewport. T-2106's moving-frame gate is meant to sit beside it
+# as another job here.
+#
+# Nightly, by hand, and on any push that changes the gate, its ceilings or this
+# file — so a PR that moves a ceiling is gated on the number it writes.
+
+on:
+  schedule:
+    - cron: '47 7 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/chicago-4d-frame-time.yml'
+      - 'chicago/4d/tools/measure_still_frame.mjs'
+      - 'chicago/4d/tools/still_frame_ceilings.json'
+
+jobs:
+  still-frame:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        viewport: [desktop, mobile]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Globally, as the smoke does: the tool falls back to `npm root -g`.
+      - name: Install Playwright
+        run: |
+          set -e
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+
+      # The mirror is generated (T-0938); the gate reads what ships.
+      - name: Publish the mirror the gate serves (site/4d/ is generated)
+        working-directory: chicago/4d
+        run: bash tools/publish.sh
+
+      - name: Hold the still-frame ceiling
+        working-directory: chicago/4d
+        run: node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
+
+      - name: Keep the reading
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: still-frame-${{ matrix.viewport }}
+          path: chicago/4d/still-frame-${{ matrix.viewport }}.json
+          if-no-files-found: ignore
