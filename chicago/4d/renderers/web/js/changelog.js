@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Neither is the slowest view. That is still a back yard on Washington Street.',
+      'The welcome screen redraws the whole town again and again while you read it, even though the picture never changes. A phone spends its effort on a menu, and making it draw once is the next fix.',
+      'Each Scene detail setting now has a time limit at that back yard. A change that makes every frame slower is caught before it ships.',
+    ] },
   { v: 1450, ts: '2026-10-04T22:20:07.096Z', date: 'Oct 4, 2026, 5:20 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
     items: [
       'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
