@@ -91,6 +91,10 @@ no yellow, so the house builds in unpainted clapboard. **White was refused as a 
 it is a different claim, and a wrong one, about the one appearance fact this building has. The
 record states no paint rather than the wrong paint and the finish is filed as its own ticket.
 
+**Paid, 2026-10-04 (T-1724).** The finish is built: the record states `paint: yellow`, attested,
+and `generators/common/materials.py` carries a `yellow_paint` coating for it alone. The shade is a
+reconstruction and L291 says what bounds it.
+
 **It is not the house the directories print, and the range says so.** Fergus 1843 has "Kelsey,
 Patrick, boarding-house, Wolcott, bet Kinzie and Michigan" and Norris 1844 has "Kelsey,
 Parnick, boarding house, Wolcott st. b Kinzie and Mich." — the same trade on a platted
