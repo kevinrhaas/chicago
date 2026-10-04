@@ -85,8 +85,17 @@
       }
     },
     "z10_settled_town": {
-      "verdict": "no-box",
-      "box": null
+      "verdict": "meets-the-planter",
+      "box": {
+        "e": [
+          -768,
+          1364
+        ],
+        "n": [
+          -736,
+          1128
+        ]
+      }
     }
   },
   "unselectable": {},

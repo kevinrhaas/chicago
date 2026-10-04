@@ -1,0 +1,212 @@
+{
+ "id": "settled_town_ground_2026_10_04",
+ "ticket": "T-2091",
+ "parent_ticket": "T-2084",
+ "instrument": "node tools/measure_detail_ceilings.mjs --town --flora --stepped --stands town_backyard,town_lake_shoulder,town_south_water_store --only desktop",
+ "tree": "published mirror (tools/publish.sh), dev @ d05fd637 before; this branch after",
+ "viewport": "desktop 1280x800",
+ "renderer": "SwiftShader on a four-core runner; triangles and draw calls are renderer-reported, frame time is not read on a software renderer",
+ "what_this_is_not": "Not the whole reading T-2084 asked for: the phone viewport, T-0135's five stands, the JS heap and the captures are T-2092's. Each pass here was cut off by the 600 s foreground limit after its last stand was logged, so every row below is a completed reading; the sweep's own teardown (restore the tier, heap, captures) did not run.",
+ "before": [
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_backyard",
+   "triangles": 3179128,
+   "calls": 255,
+   "flora": {
+    "tris": 545853,
+    "calls": 16
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_lake_shoulder",
+   "triangles": 2212313,
+   "calls": 237,
+   "flora": {
+    "tris": 295450,
+    "calls": 17
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_south_water_store",
+   "triangles": 2242022,
+   "calls": 229,
+   "flora": {
+    "tris": 230309,
+    "calls": 14
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_backyard",
+   "triangles": 2412248,
+   "calls": 244,
+   "flora": {
+    "tris": 315365,
+    "calls": 16
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_lake_shoulder",
+   "triangles": 1793932,
+   "calls": 223,
+   "flora": {
+    "tris": 151475,
+    "calls": 13
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_south_water_store",
+   "triangles": 1851522,
+   "calls": 229,
+   "flora": {
+    "tris": 104007,
+    "calls": 14
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_backyard",
+   "triangles": 1094371,
+   "calls": 85,
+   "flora": {
+    "tris": 99646,
+    "calls": 15
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_lake_shoulder",
+   "triangles": 893907,
+   "calls": 83,
+   "flora": {
+    "tris": 49257,
+    "calls": 13
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_south_water_store",
+   "triangles": 834311,
+   "calls": 82,
+   "flora": {
+    "tris": 35483,
+    "calls": 13
+   }
+  }
+ ],
+ "after": [
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_backyard",
+   "triangles": 2866776,
+   "calls": 250,
+   "flora": {
+    "tris": 252893,
+    "calls": 11
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_lake_shoulder",
+   "triangles": 2076602,
+   "calls": 231,
+   "flora": {
+    "tris": 155131,
+    "calls": 11
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_south_water_store",
+   "triangles": 2177833,
+   "calls": 225,
+   "flora": {
+    "tris": 167512,
+    "calls": 10
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_backyard",
+   "triangles": 2242447,
+   "calls": 239,
+   "flora": {
+    "tris": 145564,
+    "calls": 11
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_lake_shoulder",
+   "triangles": 1713852,
+   "calls": 221,
+   "flora": {
+    "tris": 71395,
+    "calls": 11
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_south_water_store",
+   "triangles": 1812723,
+   "calls": 224,
+   "flora": {
+    "tris": 65208,
+    "calls": 9
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_backyard",
+   "triangles": 1039674,
+   "calls": 80,
+   "flora": {
+    "tris": 44949,
+    "calls": 10
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_lake_shoulder",
+   "triangles": 867973,
+   "calls": 81,
+   "flora": {
+    "tris": 23323,
+    "calls": 11
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_south_water_store",
+   "triangles": 818675,
+   "calls": 78,
+   "flora": {
+    "tris": 19847,
+    "calls": 9
+   }
+  }
+ ]
+}

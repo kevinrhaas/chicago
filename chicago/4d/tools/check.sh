@@ -1358,6 +1358,14 @@ step "every enclosure run says whose ground it stands on, or records why it cann
 step "the dooryard plantings re-derive from the rule that dealt their stems" \
   python3 tools/generate_dooryard_plantings.py --check
 
+# The settled town's ground is DERIVED, not drawn (T-2084): every plat block, every
+# standing footprint and the forks seed, grown by the dossier's 50 m grazed halo, with
+# the beach and the public square's slough held out. A hand edit of the polygon, or a
+# district built without re-running the tool, leaves its houses standing in prairie —
+# which is what the owner walked through on 2026-10-04 — and this refuses both.
+step "the settled town's ground re-derives from the plat and every standing roof (T-2084)" \
+  python3 tools/derive_settled_town_extent.py --check
+
 # And the planted rows are the same shape again, on the one flora treatment this project
 # has in WORDS rather than in pictures: Wau-Bun states "a broad green space was inclosed
 # between it and the river, and shaded by a row of Lombardy poplars", at a house that is
