@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Nothing you can see: rebuilding the town\u2019s research no longer leaves it half-finished', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a change adds or moves residents, the tool that rebuilds the town\u2019s derived research now finishes the job by itself. Before, it left the population model one step behind the people it counts, and someone had to rebuild that model by hand before the checks would pass.',
+      'It now rebuilds the model before it re-draws when people arrived, and it re-runs the scene until nothing more changes. On a test that reproduced the fault, the rebuild now matches the published town byte for byte.',
+    ] },
   { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
     items: [
       'Nothing you can see changes yet. The first Fort Dearborn, which stood from 1803 until it was burned on 16 August 1812, now has a record for each of its fourteen parts, measured from the plan its commandant drew in 1808.',
