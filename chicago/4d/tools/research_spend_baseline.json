@@ -6,7 +6,7 @@
   "civic": 17,
   "census_1830": 0,
   "census_1840": 284,
-  "church": 509,
+  "church": 516,
   "books": 223,
   "directories": 7315,
   "newberry_index": 4914,
@@ -27,8 +27,8 @@
    "spent": 819
   },
   "church": {
-   "read": 1747,
-   "spent": 1238
+   "read": 1770,
+   "spent": 1254
   },
   "books": {
    "read": 303,
@@ -617,6 +617,14 @@
    "to": 509,
    "date": "2026-09-17",
    "why": "T-1129 withdrew six false Chicago residents minted off the three Bear Creek, Sangamon County marriages of May 1834, which the register's own rows mark at_chicago: false. Three of those readings now match no person in the town at all, so they fall back to unmatched: the gap widened because a false spend was withdrawn, not because the domain read further."
+  },
+  {
+   "domain": "church",
+   "hop": "read",
+   "from": 509,
+   "to": 516,
+   "date": "2026-10-04",
+   "why": "T-2078: the 38 letter-list households added surnames the residents did not carry, and tools/read_second_presbyterian.py reads only the 1892 roll lines whose surname a resident carries, so the roll grew 945 -> 964 records: church read 1751 -> 1770, ruled on 1247 -> 1254, unspent 504 -> 516. No new research was read; the meter followed the population."
   }
  ],
  "lowered": [

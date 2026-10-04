@@ -83,7 +83,7 @@
    "G2a": 33,
    "G4": 1
   },
-  "proposed_changes_to_existing_people": 84,
+  "proposed_changes_to_existing_people": 83,
   "conflicts": 81
  },
  "proposals": [
@@ -7118,7 +7118,6 @@
   {"identity":"id_robinson_catherine_chevalier","person_id":"robinson_catherine","from":{"grade":"attested","resident_subtype":null},"to":{"grade":null,"resident_subtype":null},"rule":"G5","direction":"down"},
   {"identity":"id_sen_elijah_wentworth","person_id":"sen_elijah_wentworth","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":"projected_resident"},"rule":"G3","direction":"down"},
   {"identity":"id_stcyr_john_mary_irenaeus","person_id":"st_cyr_john_mary","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":null},"rule":"G2c","direction":"down"},
-  {"identity":"id_stiles_david","person_id":"stiles_david","from":{"grade":"inferred","resident_subtype":"projected_resident"},"to":{"grade":"inferred","resident_subtype":null},"rule":"G2e","direction":"subtype_only"},
   {"identity":"id_stow_william_h","person_id":"stow_william_h","from":{"grade":"attested","resident_subtype":null},"to":{"grade":null,"resident_subtype":null},"rule":"G5","direction":"down"},
   {"identity":"id_taylor_augustine_deodat","person_id":"taylor_augustine","from":{"grade":"attested","resident_subtype":null},"to":{"grade":null,"resident_subtype":null},"rule":"G5","direction":"down"},
   {"identity":"id_therestofthebeaubienhousehold_unnamed","person_id":"beaubien_household_unnamed","from":{"grade":"inferred","resident_subtype":null},"to":{"grade":null,"resident_subtype":null},"rule":"G5","direction":"subtype_only"},
