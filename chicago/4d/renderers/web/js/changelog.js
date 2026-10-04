@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1426, ts: '2026-10-04T11:34:29.744Z', date: 'Oct 4, 2026, 6:34 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
+    items: [
+      'Twelve people known only from the post office\u2019s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
+      'Constant Abbott, Alfred Churchill and Samuel Stout are now known to the town from 1 January 1834, not from April or July. A list printed in March 1834 names all three.',
+      'Two people whose arrival year comes from a history of their own keep it. The post-office dates no longer overwrite it.',
+      'Six more were looked at and left as they are, with the reason written down. In each, the same name is printed twice and only one printing is read. That is now its own question.',
+    ] },
   { v: 1425, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: 'Nothing you can see: the rebuild reads business locations in order', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
