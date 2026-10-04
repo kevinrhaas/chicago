@@ -21,10 +21,13 @@
  * mounts asynchronously after boot, the counts are re-read on every show and
  * whenever a mount mutates.
  *
- * Contract (main.js): createEvidenceHub({ root, onTitle }) ->
+ * Contract (main.js): createEvidenceHub({ root, onTitle, omit }) ->
  *   { showHub({ keep }), showTopic(id), get topic }
  * `onTitle(text, onBack)` is the drawer head (hud.setTitle): a topic pushes its
  * title and a back action; `onTitle(null)` restores the section's own name.
+ * `omit` (T-1740) names topics the scene does not carry — the 1835 town's
+ * wildlife, plants, residents and research record in a scene of another date:
+ * they get no tile, their container stays hidden, and `showTopic` refuses them.
  * `showHub({ keep: true })` is what the tab re-selection sends: an open topic
  * stays open (the head title is re-pushed, because selecting a tab resets it).
  */
@@ -130,7 +133,7 @@ function scopeFacet(entry) {
 
 const norm = (s) => (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
 
-export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {} } = {}) {
+export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {}, omit = [] } = {}) {
   if (!root) return { showHub() {}, showTopic() {}, get topic() { return null; } };
 
   const hub = root.querySelector('#evidence-hub');
@@ -138,6 +141,7 @@ export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {}
   for (const spec of TOPICS) {
     const el = root.querySelector(`.ev-topic[data-topic="${spec.id}"]`);
     if (!el) continue;
+    if (omit.includes(spec.id)) { el.hidden = true; continue; }
     const mount = el.querySelector(spec.mount || '.liberties') || el.querySelector('.legend-list');
     const title = el.querySelector('.ev-topic-title')?.textContent.trim() || spec.id;
     const entries = spec.entries || ((topic) => [...(mount?.querySelectorAll(':scope > details') ?? [])]);

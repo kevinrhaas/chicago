@@ -340,6 +340,15 @@ FEMALE_TITLES = {"mrs", "miss"}
 MALE_TITLES = {"mr"}
 FIRM = re.compile(r"&| and |\bco\b|\bcompany\b", re.I)
 UNCERTAIN = re.compile(r"\[|uncertain", re.I)
+# T-2072. The office set the NUMBER of letters it held after a name — `Peter Temple
+# 3`, `Mr. Roult 2` — and the roster of 1 January 1834 carries that count into the
+# register's name, where `words()` counts it as a word and `surname()` steps past it.
+# So `Peter Temple 3` was tested as family name `peter` and walked past refusal 7 and
+# the identity master to a duplicate of the Peter Temple the town already holds, and
+# `Mr. Roult 2` passed refusal 5 on a forename that is a tally. A bare count after a
+# name with no comma in it is that tally; `8.` and `1.` (an unread initial, T-0721)
+# carry the stop an initial carries and are not touched.
+LETTER_COUNT = re.compile(r"^(?P<name>[^,]*\S)\s+\d+$")
 BARE_TOWN = {"chicago", "the town of chicago"}
 STREETS = DATA / "streets" / "1835.json"
 STRUCTURES = DATA / "structures"
@@ -890,9 +899,23 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
     # both printings resolve to the same card, and the second is a mint.
     minted: set[str] = set()
     accepted, refusals = [], []
+    standing_fams = {surname(c["name"]) for c in candidates
+                     if display(c["name"]) in standing}
     for cand in candidates:
         gaz = gazetteer[cand["id"]]
         name = cand["name"]
+        # T-2072. A MINT is tested on the name without the office's letter count
+        # (LETTER_COUNT, above). A STANDING card keeps the reading it was minted under,
+        # on the footing T-0660 set for refusals 7 and 8: correcting the reading must
+        # not un-mint a committed record in passing. Its card shows the same tally,
+        # and re-reading those cards is a ticket of its own, not a side effect here.
+        # And a mint read that way gives way to a standing card of this pass on the
+        # same family name, whatever the ranking says (refusal 8, at its foot below): `John Wilson 4` is printed
+        # beside the `Wilson, John` the town already holds, and letting it take the
+        # surname first would hang a collision on the committed card for a tally.
+        counted = LETTER_COUNT.match(name)
+        if counted and display(name) not in standing:
+            name = counted.group("name")
         fam = surname(name)
         outside = [p for p in (gaz.get("associated_places") or [])
                    if norm_place(p) not in in_town]
@@ -918,10 +941,12 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
             reason = guard_refusal(hit)
         elif fam in taken:
             reason = "surname already minted"
+        elif name != cand["name"] and fam in standing_fams:
+            reason = "surname already minted"
         # T-0660 (c). A mint-time refusal does not un-mint a standing record: it is
         # SAID on the card instead. The surname is NOT claimed here — the holder keeps
         # it — so nothing below this candidate sees a different refusal because of it.
-        shown = display(name)
+        shown = display(cand["name"])
         if (reason is not None and is_mint_time(reason)
                 and shown in standing and shown not in minted):
             cand["surname_collision"] = {
@@ -1190,7 +1215,7 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
     present = "present" if cand["last_seen"] >= SCENE_DATE else "uncertain"
     doc = {
         "id": hid,
-        "name": f"The {fam} household — a name from the post office's letter lists",
+        "name": f"The {fam} household — {LETTER_LIST_NAME}",
         "division": DIVISION,
         "head": pid,
     }
@@ -1255,6 +1280,33 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
     })
     if cand.get("surname_collision"):
         doc["surname_collision"] = collision_block(cand["surname_collision"], fam)
+    return doc
+
+
+# T-1689. THE HOUSEHOLD'S NAME SAYS WHICH EVIDENCE IT RESTS ON, SO IT FOLLOWS THE FLAG.
+# A card is minted when a letter list is all there is, so it is named for the list. When
+# a later pass carries an ordinary reading of the papers onto it, `press_contradicting`
+# refuses the flag — and until T-1689 nothing revised the name, so seven cards (and every
+# building card, scene sidecar and roof ledger that read them) went on saying "a name from
+# the post office's letter lists" about a person the same record says the papers name
+# elsewhere. `tools/name_the_keepers_1835.py` refused two roofs on that disagreement.
+# The second form says what is true of those seven and no more: the papers print the name
+# outside the lists. It claims no address, no trade and no presence on the scene date.
+LETTER_LIST_NAME = "a name from the post office's letter lists"
+PRINTED_ELSEWHERE_NAME = "a name the papers print beyond the letter lists"
+
+
+def settle_the_flag(doc: dict) -> dict:
+    """Refuse the flag where the card's own press evidence contradicts it, and rename to match.
+
+    One-directional, like `press_contradicting`: it never SETS the flag. It runs after
+    `carry_over`, because the press evidence that refuses the flag is a later pass's, carried.
+    """
+    for person in doc.get("persons") or []:
+        if press_contradicting(person):
+            person.pop("letter_list_only", None)
+    if not any(p.get("letter_list_only") for p in doc.get("persons") or []):
+        doc["name"] = doc["name"].replace(LETTER_LIST_NAME, PRINTED_ELSEWHERE_NAME)
     return doc
 
 
@@ -1376,6 +1428,7 @@ def build(preload: dict | None = None):
         doc = record(cand, gaz, docs, seen, standing)
         existing = docs.get(HOUSEHOLDS / f"{doc['id']}.json") or {}
         carry_over(doc, existing)
+        settle_the_flag(doc)
         if doc["id"] in seen:
             raise SystemExit(f"two candidates mint the same household id {doc['id']}")
         seen.add(doc["id"])
@@ -1641,6 +1694,18 @@ def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
         if len(persons) != 1:
             problems.append(f"{hid}: {len(persons)} persons — a letter list names one "
                             f"person and this pass may not invent a household around them")
+        # T-1689. The household's name is the flag said in words, so the two agree on
+        # every card this pass minted: the letter-list name where a person carries the
+        # flag, and never where none does. Seven cards stood on the second half.
+        flagged = any(p.get("letter_list_only") for p in persons)
+        says = LETTER_LIST_NAME in (doc.get("name") or "")
+        if flagged != says:
+            problems.append(
+                f"{hid}: the household is named {doc.get('name')!r} and "
+                + ("a person on it carries letter_list_only — a name known only from the "
+                   "post office is named for the post office" if flagged else
+                   "no person on it carries letter_list_only — the name still says the "
+                   "post office is all there is, and the record beside it says otherwise"))
         for person in persons:
             pid = person.get("id")
             # T-1005. The flag's own justification is the test: it is what keeps a
@@ -2050,6 +2115,32 @@ def name_reading_self_test() -> int:
             failed += 1
             print(f"   FAIL plain_fragment({printed!r}) -> {got_fragment!r}, "
                   f"expected {want_fragment!r}")
+    # T-2072. A MINT is refused on its name without the office's letter count; a
+    # STANDING card keeps the reading it was minted under; and a counted mint gives
+    # way to a standing card of this pass on the same family name.
+    claim = "chicago_democrat_1834_03_04#c027"
+    def verdicts(names, known=(), standing=()):
+        cands = [{"id": f"c{i}", "name": n, "first_seen": "1834-03-04"}
+                 for i, n in enumerate(names)]
+        gaz = {c["id"]: {"mentions": [claim], "associated_places": []} for c in cands}
+        accepted, refused = apply_refusals(cands, gaz, set(known), set(),
+                                           standing=frozenset(standing))
+        why = {cid: reason for cid, _n, _k, reason in refused}
+        return [why.get(c["id"]) for c in cands], accepted
+    for names, known, standing, want in (
+        (["Mr. Roult 2"], (), (), ["a surname and nothing else"]),
+        (["Peter Temple 3"], ("temple",), (), ["the town already names a Temple"]),
+        (["Eliphalet Atkins 2"], (), (), [None]),
+        (["Mr. Roult 2"], (), (display("Mr. Roult 2"),), [None]),
+        (["John Wilson 4", "Wilson, John"], (), (display("Wilson, John"),),
+         ["surname already minted", None]),
+    ):
+        got, accepted = verdicts(names, known, standing)
+        collided = [c["name"] for c, _g in accepted if c.get("surname_collision")]
+        if got != want or collided:
+            failed += 1
+            print(f"   FAIL letter count: {names} (known {list(known)}, standing "
+                  f"{list(standing)}) -> {got}, expected {want}; collisions {collided}")
     if failed:
         print(f"   {failed} name-reading assertion(s) failed")
         return 1
@@ -2152,6 +2243,24 @@ def self_test() -> int:
     def drop_flag(d, i, s):
         d[victim]["persons"][0].pop("letter_list_only")
         i["counts"]["letter_list_only"] -= 1
+
+    # T-1689. Both halves of the name rule: a cleared flag that leaves the old name
+    # behind (how the seven stood), and a flagged card renamed as if it were cleared.
+    unflagged = next((p for p, doc in sorted(docs.items())
+                      if minted_by(p, doc, "letter_list", PREFIX)
+                      and not any(q.get("letter_list_only")
+                                  for q in doc.get("persons") or [])), None)
+    if unflagged is None:
+        print("   no letter-list card has had its flag refused — T-1689's rule is untested")
+        return 1
+
+    def keep_the_old_name(d, i, s):
+        d[unflagged]["name"] = d[unflagged]["name"].replace(PRINTED_ELSEWHERE_NAME,
+                                                            LETTER_LIST_NAME)
+
+    def rename_a_flagged_card(d, i, s):
+        d[victim]["name"] = d[victim]["name"].replace(LETTER_LIST_NAME,
+                                                      PRINTED_ELSEWHERE_NAME)
 
     def drop_dates(d, i, s):
         d[victim]["persons"][0]["letter_list_returns"] = []
@@ -2300,6 +2409,10 @@ def self_test() -> int:
         ("a bound stops being not_later_than", blur_the_precision, "precision"),
         ("a flagged person gains an ordinary press reading", advertise_a_shop,
          "not letter lists"),
+        ("a refused flag leaves the post office's name behind", keep_the_old_name,
+         "the name still says"),
+        ("a flagged card is named as if the papers printed it", rename_a_flagged_card,
+         "named for the post office"),
     ]
     failed = 0
     for label, mutate, expect in cases:
@@ -2380,7 +2493,7 @@ KEY_OWNERS: list[tuple[str, str, str]] = [
 # here and red on a row whose drift no longer stands, and the one mode that writes it,
 # `--retire-ledger`, only ever takes rows away. Nothing in this file adds one.
 LEDGER = DATA / "research" / "letter_list_mint_ledger.json"
-READERS = {"lost": "T-2071", "re-minted": "T-2071", "gained": "T-2072",
+READERS = {"lost": "T-2071", "re-minted": "T-2071", "gained": "T-2078",
            "rewritten": "T-2073"}
 
 

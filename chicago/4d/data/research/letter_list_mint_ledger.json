@@ -1,260 +1,236 @@
 {
  "schema": 1,
  "ticket": "T-2070, out of T-1222",
- "what": "The drift between tools/mint_letter_list_residents.py's derivation and the committed letter-list cards, in the keys and the membership the mint OWNS (KEY_OWNERS in that file), as it stood on 2026-10-04 when --check was first gated on it. Each row is a reading still owed, and names the ticket that owes it: T-2071 the households the mint no longer derives and the ones it re-mints under a new id, T-2072 the people it would add, T-2073 the cards whose mint-owned keys moved.",
+ "what": "The drift between tools/mint_letter_list_residents.py's derivation and the committed letter-list cards, in the keys and the membership the mint OWNS (KEY_OWNERS in that file), as it stood on 2026-10-04 when --check was first gated on it. Each row is a reading still owed, and names the ticket that owes it: T-2071 the households the mint no longer derives and the ones it re-mints under a new id, T-2078 the people it would add (T-2072 split: T-2077 refused the four whose name carries the office's letter count), T-2073 the cards whose mint-owned keys moved.",
  "how_to_change_it": "SHRINK ONLY. Read a row, write or refuse what it describes, then run `python3 tools/mint_letter_list_residents.py --retire-ledger`, which takes off the rows whose drift no longer stands and adds none. `--check` is red on drift that is on no row, on a row whose drift no longer stands, and on a rewritten card whose ledgered keys grew. Adding a row by hand is blessing drift nobody has read: don't.",
  "rows": [
   {
    "id": "hh_augustus_h_conant",
    "class": "gained",
    "name": "Conant Augustus H",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_bacon_richani",
    "class": "gained",
    "name": "Richani jr. Bacon",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_barnes_wheeler",
    "class": "gained",
    "name": "Wheeler Barnes",
-   "reader": "T-2072"
-  },
-  {
-   "id": "hh_chester_marshall_2",
-   "class": "gained",
-   "name": "Marshall [?] Chester",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_crandall_beman",
    "class": "gained",
    "name": "Beman Crandall",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_dickinson_alexander",
    "class": "gained",
    "name": "Alexander Dickinson",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_eliphalet_atkins_2",
    "class": "gained",
    "name": "Atkins [?] Eliphalet",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_haight_d_s",
    "class": "gained",
    "name": "D. S. Haight",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_julius_perrin_2",
    "class": "gained",
    "name": "Perrin [?] Julius",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_kerchevel_lewis",
    "class": "gained",
    "name": "Lewis Kerchevel",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_killigoss_isaac",
    "class": "gained",
    "name": "Isaac Killigoss",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_loweley_watere_e",
    "class": "gained",
    "name": "Watere e Loweley",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_mackel_james",
    "class": "gained",
    "name": "James Mackel",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_mcarty_n",
    "class": "gained",
    "name": "N. M'Carty",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_mdaniel_a",
    "class": "gained",
    "name": "A. M'Daniel",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_meriams_mary",
    "class": "gained",
    "name": "Mary Meriams",
-   "reader": "T-2072"
-  },
-  {
-   "id": "hh_miranda_miner_2",
-   "class": "gained",
-   "name": "Miner [?] Miranda",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_monreou_john",
    "class": "gained",
    "name": "John Monreou",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_natta_j_v",
    "class": "gained",
    "name": "J. V. Natta",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_nett_robert_a",
    "class": "gained",
    "name": "Robert A. Nett",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_nicholson_joshua_f",
    "class": "gained",
    "name": "Joshua F. Nicholson",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_orisbee_edgar_i",
    "class": "gained",
    "name": "Edgar I.. Orisbee",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_ormshee_s_b",
    "class": "gained",
    "name": "S. B. Ormshee",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_osborn_b",
    "class": "gained",
    "name": "B. Osborn",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_pedrick_robert_c",
    "class": "gained",
    "name": "Robert c. Pedrick",
-   "reader": "T-2072"
-  },
-  {
-   "id": "hh_peter_temple_3",
-   "class": "gained",
-   "name": "Temple [?] Peter",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_poel_green",
    "class": "gained",
    "name": "Green Poel",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_richey_thos_h",
    "class": "gained",
    "name": "Thos. H. Richey",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_root_ez_c",
    "class": "gained",
    "name": "Ez c. Root",
-   "reader": "T-2072"
-  },
-  {
-   "id": "hh_roult_2",
-   "class": "gained",
-   "name": "Roult [?] Mr",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_sawyer_james_a",
    "class": "gained",
    "name": "James A. Sawyer",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_sheldon_oliveann",
    "class": "gained",
    "name": "Oliveann Sheldon",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_stiles_david",
    "class": "gained",
    "name": "David Stiles",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_swanwick_f",
    "class": "gained",
    "name": "F. Swanwick",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_thorn_platt",
    "class": "gained",
    "name": "Platt Thorn",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_timothy_b",
    "class": "gained",
    "name": "B. Timothy",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_vanderwerker_adam",
    "class": "gained",
    "name": "Adam Vanderwerker",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_vanzandt_w_2",
    "class": "gained",
    "name": "Vanzandt [?] W.",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_weed_sally",
    "class": "gained",
    "name": "Sally Weed",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_whitcomb_aaron",
    "class": "gained",
    "name": "Aaron Whitcomb",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_willaee_philip",
    "class": "gained",
    "name": "Philip Willaee",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_wrickey_thomas_h",
    "class": "gained",
    "name": "Thomas H. Wrickey",
-   "reader": "T-2072"
+   "reader": "T-2078"
   },
   {
    "id": "hh_abbott_constant",
@@ -267,35 +243,11 @@
    "reader": "T-2073"
   },
   {
-   "id": "hh_ambrose_joshua",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
    "id": "hh_beegle_a",
    "class": "rewritten",
    "keys": [
     "arrival.note",
     "persons[].letter_list_returns[]"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_bradford_harriet",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_chapman_chas_h",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
    ],
    "reader": "T-2073"
   },
@@ -353,14 +305,6 @@
    "reader": "T-2073"
   },
   {
-   "id": "hh_fitzgerald_thos",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
    "id": "hh_forster_jane",
    "class": "rewritten",
    "keys": [
@@ -381,22 +325,6 @@
    "class": "rewritten",
    "keys": [
     "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_murray_alonzo",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_neff_r_a",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
    ],
    "reader": "T-2073"
   },
@@ -422,14 +350,6 @@
     "present_on_scene_date.last_dated_appearance",
     "present_on_scene_date.note",
     "present_on_scene_date.value"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_simons_e",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
    ],
    "reader": "T-2073"
   },

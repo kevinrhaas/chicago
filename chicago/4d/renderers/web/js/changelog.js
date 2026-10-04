@@ -1,20 +1,69 @@
 export const CHANGELOG = [ // newest first
-  { v: 1418, ts: '2026-10-04T10:10:11.263Z', date: 'Oct 4, 2026, 5:10 AM CT', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
+  { v: null, ts: '', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
     items: [
       'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
       'The pass that adds these people was set to file seven of them again under new names, and to drop their old records. It now knows when a name it reads is someone the town already holds, and adds the new reading to that person\u2019s record.',
       'Two names read better from the page image: H. Pease is C. H. Pease, and F. Plumer is S. F. Plumer, who now appears from the January 1834 printing of the list rather than the March one.',
       'Where two printings of one list spell a name differently, the record lists both printings. William Crisey keeps that spelling for now, because the page image reads Crissy and choosing between them needs a written ruling.',
     ] },
-  { v: 1417, ts: '2026-10-04T10:10:11.263Z', date: 'Oct 4, 2026, 5:10 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: 1425, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: 'Nothing you can see: the rebuild reads business locations in order', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When two changes land together, a tool rebuilds the files derived from them, one step after another. The step that lists where each business stands ran before the step that rebuilds where each claim resolves, so it read the old answer.',
+      'So after a seat moved, that step refused the business as if the data were wrong. When Haddock\u2019s Tavern moved one lot east, it refused Elmira Fowler\u2019s millinery, whose seat moved in the same change. A second step quietly wrote a stale table.',
+      'The rebuild now runs them in the right order, and its check fails if a step is ever placed above a file it reads.',
+    ] },
+  { v: 1424, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1416, ts: '2026-10-04T10:10:11.263Z', date: 'Oct 4, 2026, 5:10 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: 1423, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1422, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1421, ts: '2026-10-04T11:33:38.774Z', date: 'Oct 4, 2026, 6:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1420, ts: '2026-10-04T11:18:02.264Z', date: 'Oct 4, 2026, 6:18 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Four research reports were candidates to stop being kept in the project\u2019s history, because they change often. They stay: a count of 925 recent merges found that dropping them would not have avoided a single conflict.',
+      'So they remain readable on GitHub without building anything, and the reasoning is written beside the rule.',
+    ] },
+  { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the helper that keeps waiting changes up to date before they are merged.',
+      'That helper only rebuilt a change\u2019s derived records when it had something new to merge in. A change that was already up to date, but failing a check added after it was written, was reported as having nothing to do and left stuck until a person noticed.',
+      'It now looks at the change\u2019s own check result. If the check failed, it rebuilds the derived records and pushes only if something actually changed. If nothing changed, it says once on the change that the failure is the change\u2019s own.',
+    ] },
+  { v: 1418, ts: '2026-10-04T10:34:49.982Z', date: 'Oct 4, 2026, 5:34 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
+    items: [
+      'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
+      'Its Evidence panel no longer shows the 1835 town\u2019s City, wildlife, plants, not-here, open-questions, population and order-book topics.',
+      'Go to no longer lists 286 firms of 1835 that could not be reached from 1904.',
+      'The 1835 scene keeps every section it had.',
+    ] },
+  { v: 1417, ts: '2026-10-04T10:19:51.514Z', date: 'Oct 4, 2026, 5:19 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
+      'Some lines of the 1834 post-office letter list end with how many letters were waiting, as in \u201cPeter Temple 3\u201d. The pass that adds letter-list people read that number as part of the name, so it looked up \u201cPeter\u201d as the family name.',
+      'Read without the number, four of the people it was about to add are turned away. Peter Temple is already in the town. The town already has a Marshall and a Miner, and \u201cMr. Roult\u201d gives no first name. A fifth, Salmon Rutherford, is already in the town and would have been added a second time.',
+      'The other 39 new names wait for a separate fix. Adding them shifts the numbers the town\u2019s made-up households are planned from, and one planned move no longer fits.',
+    ] },
+  { v: 1416, ts: '2026-10-04T09:51:42.459Z', date: 'Oct 4, 2026, 4:51 AM CT', title: 'Seven households no longer called letter-list names alone', kind: 'fix',
+    items: [
+      'Open the Bradford, Ambrose, Chapman, Fitzgerald, Murray, Neff or Simons household in People, or a house they are seated in: each was named “a name from the post office’s letter lists” although the same card shows the papers naming them elsewhere too.',
+      'Each now reads “a name the papers print beyond the letter lists”. That claims no address, trade or presence in July 1835, only what their cards already show.',
+      'The minting tool now renames a household whenever it drops the letter-list mark, and its check fails if the name and the mark ever disagree again.',
     ] },
   { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
     items: [
