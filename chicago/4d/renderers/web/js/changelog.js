@@ -1,10 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1416, ts: '2026-10-04T09:33:33.291Z', date: 'Oct 4, 2026, 4:33 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
+  { v: null, ts: '', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
     items: [
       'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
       'Some lines of the 1834 post-office letter list end with how many letters were waiting, as in \u201cPeter Temple 3\u201d. The pass that adds letter-list people read that number as part of the name, so it looked up \u201cPeter\u201d as the family name.',
       'Read without the number, four of the people it was about to add are turned away. Peter Temple is already in the town. The town already has a Marshall and a Miner, and \u201cMr. Roult\u201d gives no first name. A fifth, Salmon Rutherford, is already in the town and would have been added a second time.',
       'The other 39 new names wait for a separate fix. Adding them shifts the numbers the town\u2019s made-up households are planned from, and one planned move no longer fits.',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1416, ts: '2026-10-04T09:51:42.459Z', date: 'Oct 4, 2026, 4:51 AM CT', title: 'Seven households no longer called letter-list names alone', kind: 'fix',
+    items: [
+      'Open the Bradford, Ambrose, Chapman, Fitzgerald, Murray, Neff or Simons household in People, or a house they are seated in: each was named “a name from the post office’s letter lists” although the same card shows the papers naming them elsewhere too.',
+      'Each now reads “a name the papers print beyond the letter lists”. That claims no address, trade or presence in July 1835, only what their cards already show.',
+      'The minting tool now renames a household whenever it drops the letter-list mark, and its check fails if the name and the mark ever disagree again.',
     ] },
   { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
     items: [
