@@ -7,6 +7,8 @@
  *
  *   --root     the published mirror to read (default ../../site/4d)
  *   --against  a second mirror, read the same way (the BEFORE: dev's mirror)
+ *   --stands   a JSON file of stands to read instead of the five below, in their
+ *              shape (T-2095 reads its alley stands this way)
  *
  * The rig is `woodpile_shots.mjs`'s and the levels are `measure_detail_ceilings.mjs`'s
  * (`setDetail` through `detailOrder` on one boot). At each stand it reads the whole
@@ -55,7 +57,7 @@ const VP = opt('--viewport', 'desktop');
 const LEVELS = opt('--levels') ? opt('--levels').split(',') : null;
 mkdirSync(OUT, { recursive: true });
 
-const STANDS = [
+const DEFAULT_STANDS = [
   { id: 'lake_market', anchor: 'lake_market', label: 'Lake Street at Market, a road edge' },
   { id: 'green_tree', anchor: 'green_tree', label: 'the Green Tree, a storefront corner' },
   { id: 'back_lot', label: 'a back lot behind the Lake Street row, looking south',
@@ -63,6 +65,8 @@ const STANDS = [
   { id: 'forks', anchor: 'forks', label: 'the forks' },
   { id: 'from_above', anchor: 'from_above', label: 'the open aerial', fly: true },
 ];
+const STANDS = opt('--stands')
+  ? JSON.parse(await readFile(path.resolve(opt('--stands')), 'utf8')) : DEFAULT_STANDS;
 
 const TYPES = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',

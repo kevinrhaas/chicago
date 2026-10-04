@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 400,
+  "count": 401,
   "liberties": [
     {
       "id": "L1",
@@ -21207,7 +21207,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-10-01",
-      "revised": null,
+      "revised": "2026-10-04",
       "fields": [
         {
           "label": "Applies to",
@@ -21232,6 +21232,10 @@
         {
           "label": "Ticket",
           "text": "T-1811 (piece 1 of T-1770)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-04 (T-2094, piece 1 of T-2087) — the omission above is answered for the town. In every opened street's corridor inside a turf community (the settled town), nothing taller than that community's own low layer stands past the cleared track: not on the worked roadway, and not on the verge between it and the lot line. The cap is read off the zone record, the tallest of its matrix and ground species (Poa, plantain, knotweed and clover to 0.25 m), so the lamb's-quarters, ragweed, dock and vervain to 1.2 m are gone from the street, and the ground there is T-2085's cropped turf grading into the roadway's dirt. A few weeds are kept where nothing treads: within 2.6 m of the corridor's edge (a 1.83 m walk, its 0.2 m clearance and the half metre at its street edge), in 1.5 m patches a positional hash keeps at 0.22. The trampling, the band and the share are all ours; no source describes a Chicago street verge in 1835. A street that runs out across open prairie keeps its prairie, because the cap belongs to the ground's community and not to the street."
         },
         {
           "label": "Recorded",
@@ -24498,6 +24502,41 @@
         {
           "label": "Recorded",
           "text": "2026-10-04 (T-2086)."
+        }
+      ]
+    },
+    {
+      "id": "L377",
+      "title": "The town's block alleys are drawn as worn lanes where something stands on the block",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "on every block where the plat model cuts a mid-block alley (`data/traces/vectors/thompson_lots.json` `alley_local_enu_m`) and at least one structure stands on the scene date, the walkthrough lays a band of the road's own dirt 2.4 m wide down the strip's centreline (narrower where the strip is, so 0.6 m of turf is always left at each edge), its edges wandering 0.22 m over 9 m, and carries it at each end across the street corridor to the cross street's travelled track and 0.4 m onto it, widening 1.2 m each side over the last 4 m. Where the cross street has no track it stops 1.5 m past the block edge. No plant grows on the band. 29 alleys, 3.3 km of lane (`tools/generate_alley_lanes.py`, `data/enclosures/town_alley_lanes.json`, drawn by `yards.js` as `road_earth`)."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-04 (T-2087, piece T-2095): the alleys still read as ground nobody used. The yard outbuildings have stood \"off the alley\" behind the built lots since T-1960, and nothing on the ground said where the alley was."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "the strip is the plat model's, and the model is itself `reconstructed` on which blocks were alleyed and where the alley ran (`module.alley_note`). The fact of wear, the band's width (a cart's 5 ft gauge and a horse between the shafts, with a hand either side), the wobble and the mouth are all ours. Seven alleyed blocks with nothing standing on them stay turf, and are named in the record's `left_in_turf`. No alley is added where the plat model draws none (Wabansia, the unlotted blocks of Kinzie's Addition)."
+        },
+        {
+          "label": "Consequence",
+          "text": "a lane stops where a committed footprint stands across it, and the record lists each stop under `cut_by_structures`: fifteen, ten of them reconstructed houses on the Lake Street blocks from Franklin to State whose backs stand in the plat's alley strip. Those are cuts in the lane, not corrections to the houses."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a source that says which 1835 blocks were alleyed, or describes one, replaces the plat model's strip; a reading of the Lake Street houses' seating that moves them out of the strip lets those lanes run through."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-04 (T-2095)."
         }
       ]
     },

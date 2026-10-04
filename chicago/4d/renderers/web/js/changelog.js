@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1441, ts: '2026-10-04T18:49:43.833Z', date: 'Oct 4, 2026, 1:49 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Letter-list cards read every printing of their own name', kind: 'change',
     items: [
       'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
       'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
       'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
       'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
+    ] },
+  { v: 1442, ts: '2026-10-04T18:53:07.735Z', date: 'Oct 4, 2026, 1:53 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+    items: [
+      'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
+      'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
+      'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
+    ] },
+  { v: 1441, ts: '2026-10-04T18:51:58.275Z', date: 'Oct 4, 2026, 1:51 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
+    items: [
+      'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',
+      'At each end the lane crosses the roadside to the street, so a cart turning in from Wells or LaSalle leaves the road on the same ground.',
+      'Twenty-nine alleys have a lane. Seven on blocks with nothing built stay grass. On the Lake Street blocks the lane stops where a house stands across the alley.',
+      'Nothing new is drawn as a separate piece, so the town draws no more objects than before. The lanes are a reconstruction (Liberty L377).',
     ] },
   { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
     items: [
