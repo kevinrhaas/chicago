@@ -1,9 +1,27 @@
 export const CHANGELOG = [ // newest first
-  { v: 1410, ts: '2026-10-04T08:07:06.955Z', date: 'Oct 4, 2026, 3:07 AM CT', title: 'The Baptist meeting house card names its first Episcopal service', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'The Baptist meeting house card names its first Episcopal service', kind: 'feature',
     items: [
       'Open the Temple Building on South Water Street near Franklin, the town\u2019s Baptist meeting house. Its card now records that on Sunday 19 October 1834 the Rev. Isaac W. Hallam held Episcopal services in it.',
       'The card also cites a second history, Moses and Kirkland\u2019s of 1895, which puts Sproat\u2019s boys\u2019 school in \u201cthe First Baptist church, a small frame building located on South Water street near Franklin\u201d. That is this building, and it gains that name.',
       'No building was added and none moved. A research note had asked for this meeting house to be placed, not knowing the town already had it.',
+    ] },
+  { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
+  { v: 1412, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. This is a check on how the people known only from the post office\u2019s lists of uncalled-for letters are kept.',
+      'The pass that adds them was not checked at all, because later passes rightly rewrite parts of the same records. It is now checked on the parts that are its own.',
+      'What it would still change is listed person by person for reading: 43 people it would add, 7 it would drop, 10 it would file under a new name and 27 records whose dates or names moved.',
+    ] },
+  { v: 1411, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1410, ts: '2026-10-04T08:06:12.271Z', date: 'Oct 4, 2026, 3:06 AM CT', title: 'Nothing you can see: the queue check reports a stale board, not mends it', kind: 'chore',
+    items: [
+      'Nothing you can see in the town changes. This is about the tool that keeps the work queue.',
+      'Checking the queue used to quietly rebuild its board when the board was out of date, so the mismatch vanished before anyone saw it.',
+      'Now the check only compares: an out-of-date board fails with the one command that rebuilds it, and nothing is written.',
     ] },
   { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
     items: [

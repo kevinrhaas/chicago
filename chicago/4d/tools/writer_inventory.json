@@ -806,6 +806,12 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "mint_letter_list_residents.py": {
+      "placement": "not_derivable",
+      "write_mode": "(bare)",
+      "measured": "2026-10-04",
+      "finding": "Does NOT reproduce: ran `(bare)` on a clean tree and moved 797 committed file(s) — 737 rewritten (736 cards and the manifest), 7 deleted, 53 added. Not a fault in the write: this mint is not the last writer of its cards (later passes own grade, note, sources, occupation and origin), so its `--check` compares only what it owns, against the shrink-only ledger data/research/letter_list_mint_ledger.json (T-2070); the drift in what it owns is T-2071, T-2072 and T-2073's to read."
+    },
     "mint_placed_residents.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
