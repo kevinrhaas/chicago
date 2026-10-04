@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1440, ts: '2026-10-04T18:26:43.590Z', date: 'Oct 4, 2026, 1:26 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+  { v: 1441, ts: '2026-10-04T18:43:44.267Z', date: 'Oct 4, 2026, 1:43 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
     items: [
       'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
       'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
       'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
+    ] },
+  { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
+    items: [
+      'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
+      'The worn riverbank it lies on was being drawn in front of the boards at a distance. The bank now always lies under the walk and the road, as it does up close.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
     ] },
   { v: 1439, ts: '2026-10-04T18:11:34.742Z', date: 'Oct 4, 2026, 1:11 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
     items: [
