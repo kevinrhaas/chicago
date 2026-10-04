@@ -1701,8 +1701,13 @@ def _contact_outline(poly: list, mode: str) -> list[tuple]:
 def unlanded_values(structures: dict, scenes: dict, rep: Report,
                     field=None, origin: tuple | None = None,
                     contacts: dict | None = None,
-                    resolvers: dict | None = None) -> list[tuple]:
+                    resolvers: dict | None = None,
+                    fields: dict | None = None) -> list[tuple]:
     """Every structure whose ground contact does not reach the ground.
+
+    `fields` maps a terrain epoch to its heightfield; a phase is measured on the ground
+    of the first scene (by date) that resolves it, and on `field` when that epoch is not
+    in the map.
 
     Returns `(structure_id, phase_id, "ground_contact", where, gap_m)`.
 
@@ -1732,7 +1737,9 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             except Exception:  # noqa: BLE001 — reported by the param check
                 continue
 
-    targets = [d for d in (parse_date(sc.get("target_date", "")) for sc in scenes.values()) if d]
+    targets = sorted((d, sc.get("terrain_epoch")) for d, sc in
+                     ((parse_date(sc.get("target_date", "")), sc) for sc in scenes.values()) if d)
+    town_field = field
     for name, st in sorted(structures.items()):
         sid = st.get("id", name)
         arch = st.get("archetype")
@@ -1743,8 +1750,10 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             pid = ph.get("id", "?")
             r = ph.get("documented_range", {})
             frm, to = parse_date(r.get("from", "")), parse_date(r.get("to", ""))
-            if not (frm and to and any(frm <= t <= to for t in targets)):
+            hits = [ep for t, ep in targets if frm and to and frm <= t <= to]
+            if not hits:
                 continue
+            field = (fields or {}).get(hits[0]) or town_field
             # No mesh, no ground contact to measure: this phase's geometry is
             # drawn by another layer, which drapes on the heightfield at every
             # post rather than standing a footprint on it.
@@ -6316,15 +6325,20 @@ def main() -> int:
     # asked, and a gate that silently answers "yes" when it cannot see is worse
     # than one that says it did not run.
     contacts = archetype_ground_contact(rep)
+    # Every scene's ground is loaded, and each phase is measured against the ground of the
+    # scene that resolves it (T-2050): before the 1812 scene, "the first epoch in sorted
+    # order" was the town's, and e1830_natural sorting first would have stood every 1835
+    # record on the pre-cut ground. `field` stays the town's for the undated questions
+    # (versions, flora), which are all written for 1835.
     epoch_ids = {sc.get("terrain_epoch") for sc in scenes.values() if sc.get("terrain_epoch")}
-    field = None
+    fields: dict = {}
     for ep in sorted(i for i in epoch_ids if i):
         try:
-            field = Heightfield.load(DATA / "terrain" / "epochs" / ep)
+            fields[ep] = Heightfield.load(DATA / "terrain" / "epochs" / ep)
         except Exception as e:  # noqa: BLE001
             rep.error("ground contact", f"cannot read the {ep} heightfield: {e}")
-        if field is not None:
-            break
+    town = next((sc.get("terrain_epoch") for sc in scenes.values() if sc.get("id") == "1835"), None)
+    field = fields.get(town) or next(iter(fields.values()), None)
     datum_origin = None
     if datum.get("origin_utm_e") is not None and datum.get("origin_utm_n") is not None:
         datum_origin = (float(datum["origin_utm_e"]), float(datum["origin_utm_n"]))
@@ -6333,7 +6347,8 @@ def main() -> int:
         rep.note("ground contact: skipped — needs a committed heightfield, a datum origin "
                  "and at least one archetype declaring GROUND_CONTACT")
     else:
-        unlanded = unlanded_values(structures, scenes, rep, field, datum_origin, contacts)
+        unlanded = unlanded_values(structures, scenes, rep, field, datum_origin, contacts,
+                                   fields=fields)
         check_ground_contact(structures, unlanded, rep)
 
     # and the structure VERSIONS, each held to the rules above as a structure (T-1727)

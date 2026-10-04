@@ -26,7 +26,12 @@ commit (data/traces/README.md):
     `data/structures/first_fort_dearborn_*.json` names its register part, carries the
     part's measured plan dimensions (to 0.02 m) and its fort-frame box in its
     `symbolic_location`, and stands 1803-08-17 to 1812-08-16 — a range no committed
-    scene date falls inside, so no scene draws the first fort beside the second one.
+    scene date falls inside, so no scene draws the first fort beside the second one;
+  * (T-2050) the fort is SEATED with one origin and one bearing: each record's utm point
+    and rotation are what SEAT_LOCAL, SEAT_BEARING_DEG and its FACING give its box, and
+    the two forts cannot resolve together — no second-fort phase opens inside the first
+    fort's range, every scene resolves all fourteen first-fort records or none, and the
+    1812 scene resolves all fourteen.
 
 `--remeasure` fetches the working copy, refuses it if its sha256 has moved, and finds
 the staff's two ends again: the longest near-continuous dark run in columns 994-1007,
@@ -37,6 +42,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -161,6 +168,73 @@ FIRST_FORT = ("1803-08-17", "1812-08-16")
 FT_M = 0.3048
 TOL_M = 0.02
 
+#: T-2050. The seat: ONE origin and ONE bearing for the whole frame, so no record can be
+#: moved against another. The staff's foot stands on the fort site at local E +1152,
+#: N +221 (the Wright 1834 reading the second fort also hangs on: both forts stood on
+#: "the same ground"), and the frame's north is grid north (the register's own inference
+#: that the sheet's right is east). Each record's origin is its box's corner after its
+#: FACING — degrees clockwise from the frame's north that its front faces, from what the
+#: record says it faces — so a footprint anchored at its own (0, 0) lands on its box.
+SEAT_LOCAL = (1152.0, 221.0)
+SEAT_BEARING_DEG = 0.0
+FACING = {
+    "first_fort_dearborn_commanding_officers_barracks": 270,   # west, onto the parade
+    "first_fort_dearborn_officers_barracks": 90,               # east, onto the parade
+    "first_fort_dearborn_north_range": 180,                    # south, onto the parade
+    "first_fort_dearborn_magazine": 180,                       # its arched front, south
+    "first_fort_dearborn_small_house_ne": 180,                 # its front, south
+}
+#: which box edges (e index, n index into [e0, e1, n0, n1]) a facing anchors at
+CORNER = {0: (0, 2), 90: (0, 3), 180: (1, 3), 270: (1, 2)}
+SEAT_TOL_M = 0.01
+BOX = re.compile(r"E ([+-][\d.]+)\.\.([+-][\d.]+) ft, N ([+-][\d.]+)\.\.([+-][\d.]+) ft")
+
+
+def seat(box: list[float], facing: int, datum: dict) -> tuple[float, float, float]:
+    """The UTM point and facade bearing the seat gives a record with this frame box."""
+    ce, cn = box[CORNER[facing][0]] * FT_M, box[CORNER[facing][1]] * FT_M
+    th = math.radians(SEAT_BEARING_DEG)
+    e = SEAT_LOCAL[0] + ce * math.cos(th) + cn * math.sin(th)
+    n = SEAT_LOCAL[1] - ce * math.sin(th) + cn * math.cos(th)
+    return (datum["origin_utm_e"] + e, datum["origin_utm_n"] + n,
+            (SEAT_BEARING_DEG + facing) % 360)
+
+
+def two_forts() -> list[str]:
+    """T-2050: the first fort and the second can never resolve into one scene.
+
+    Held twice. Over ALL dates: every phase of every second-fort record opens after the
+    first fort's range closes, so no date a scene could take resolves both. And over the
+    committed scenes: each resolves all fourteen first-fort records or none of them, and
+    the 1812 scene resolves all fourteen and no second-fort record.
+    """
+    errs: list[str] = []
+    sdir = ROOT / "data" / "structures"
+    first = {p.stem: json.loads(p.read_text()) for p in sdir.glob("first_fort_dearborn_*.json")}
+    second = {p.stem: json.loads(p.read_text()) for p in sdir.glob("fort_dearborn_*.json")}
+    for sid, st in sorted(second.items()):
+        for ph in st.get("phases", []):
+            frm = ph.get("documented_range", {}).get("from", "")
+            if frm <= FIRST_FORT[1]:
+                errs.append(f"{sid}/{ph.get('id')}: opens {frm}, inside the first fort's range "
+                            f"(to {FIRST_FORT[1]}) — a date could draw both forts")
+
+    def resolves(st: dict, d: str) -> bool:
+        return any(ph["documented_range"]["from"] <= d <= ph["documented_range"]["to"]
+                   for ph in st.get("phases", []) if "documented_range" in ph)
+
+    for p in sorted((ROOT / "data" / "scenes").glob("*.json")):
+        d = json.loads(p.read_text())["target_date"]
+        f = sorted(s for s, st in first.items() if resolves(st, d))
+        s2 = sorted(s for s, st in second.items() if resolves(st, d))
+        if f and s2:
+            errs.append(f"scene {p.stem} ({d}) resolves both forts: {f[0]} and {s2[0]}")
+        if f and len(f) != len(first):
+            errs.append(f"scene {p.stem} ({d}) resolves {len(f)} of the first fort's {len(first)} records")
+        if p.stem == "1812" and len(f) != len(first):
+            errs.append(f"the 1812 scene ({d}) does not resolve the first fort")
+    return errs
+
 
 def records(doc: dict) -> list[str]:
     """The first fort's structure records against the reading they are built from."""
@@ -182,6 +256,7 @@ def records(doc: dict) -> list[str]:
     for sid in sorted(have ^ set(RECORDS)):
         errs.append(f"{sid}: {'a first-fort record this reading does not map' if sid in have else 'mapped here, but no record'}")
     scenes = [json.loads(p.read_text())["target_date"] for p in (ROOT / "data" / "scenes").glob("*.json")]
+    datum = json.loads((ROOT / "data" / "datum.json").read_text())
     for sid, (label, axis) in RECORDS.items():
         f = ROOT / "data" / "structures" / f"{sid}.json"
         if not f.exists():
@@ -197,6 +272,19 @@ def records(doc: dict) -> list[str]:
         both = [d for d in scenes if rng[0] <= d <= rng[1]]
         if both and not (ROOT / "data" / "scenes" / "1812.json").exists():
             errs.append(f"{sid}: scene date {both[0]} resolves it, and no 1812 scene exists to own it")
+        pos = ph["position"]
+        m = BOX.search(pos.get("symbolic_location", ""))
+        if not m:
+            errs.append(f"{sid}: symbolic_location carries no fort-frame box to seat")
+        elif pos.get("utm_e") is None or pos.get("utm_n") is None:
+            errs.append(f"{sid}: not seated — the 1812 scene draws it, so it needs the seat's utm point")
+        else:
+            e, n, rot = seat([float(x) for x in m.groups()], FACING.get(sid, 0), datum)
+            off = math.hypot(pos["utm_e"] - e, pos["utm_n"] - n)
+            if off > SEAT_TOL_M or float(pos.get("rotation_deg") or 0.0) != rot:
+                errs.append(f"{sid}: stands at {pos['utm_e']}, {pos['utm_n']} turned "
+                            f"{pos.get('rotation_deg')}, not where the seat puts its box "
+                            f"({e:.2f}, {n:.2f} turned {rot}): {off:.2f} m off")
         if axis is None:
             continue
         part = parts[label]
@@ -260,7 +348,7 @@ def remeasure(doc: dict) -> list[str]:
 
 def main() -> int:
     doc = json.loads(TRACE.read_text())
-    errs = check(doc) + records(doc)
+    errs = check(doc) + records(doc) + two_forts()
     if "--remeasure" in sys.argv:
         errs += remeasure(doc)
     if errs:

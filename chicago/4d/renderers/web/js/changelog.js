@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1402, ts: '2026-10-04T05:11:23.309Z', date: 'Oct 4, 2026, 12:11 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [
       'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',
       'The zone runs along the 1812 shore from just south of Harrison Street down to Eighteenth Street, between the water and the sand ridge a hundred yards back. It is a strip of beach, not a pin.',
       'Captain Heald, who led the garrison out of the fort on 15 August 1812, wrote that it had gone \u201cabout a mile and a half\u201d when it was attacked from behind the bank. Two cottonwoods later standing in Eighteenth Street were long remembered as marking the spot. Those two places are more than a kilometre apart, so the zone takes in both and does not choose.',
-      'The route the column took is mapped too: down the river to its old mouth near Madison Street, then south along the beach. It will be drawn when the 1812 scene is built.',
+      'The route the column took is mapped too: down the river to its old mouth near Madison Street, then south along the beach. It is not drawn in the 1812 view yet.',
+    ] },
+  { v: 1402, ts: '2026-10-04T05:01:49.654Z', date: 'Oct 4, 2026, 12:01 AM CT', title: 'The first Fort Dearborn stands in an 1812 view', kind: 'feature',
+    items: [
+      'Open the 1812 door on the front page: it now shows the first Fort Dearborn as it stood in the summer of 1812, two weeks before it was evacuated and burned. Until now that door said the year was still being surveyed.',
+      'You see the double row of pickets, the two blockhouses at opposite corners, the four barracks ranges facing the parade, the brick magazine, two small houses and the 75-foot flagstaff. Their plans come from the drawing the fort\u2019s commander made in 1808. Their heights and roofs are our reconstruction (liberty L370).',
+      'The fort stands on the same ground as the 1835 fort, on the river and shore as they were before the harbour was cut. Its plan is turned to face north as the 1808 drawing implies, not borrowed from the later fort.',
+      'The 1812 view and the 1835 view can never show both forts at once. No people are shown in 1812: the history of that August is still under review.',
     ] },
   { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
