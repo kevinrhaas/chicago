@@ -39,7 +39,9 @@
  */
 
 import * as THREE from 'three';
-import { PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture } from './terrain.js';
+import {
+  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms,
+} from './terrain.js';
 import {
   STRIP, MASK_PX_PER_M, maskSize, stripMaskPixels, stripWeights, maskAt, stripLocal,
   GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels,
@@ -125,6 +127,7 @@ const FRAGMENT_HEAD = /* glsl */`
 varying vec3 vChiWorld;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
+${SWARD_HEAD}
 uniform sampler2D uMask;
 uniform vec4 uMaskFrame;
 uniform sampler2D uGrit;
@@ -201,7 +204,10 @@ const NORMAL_FRAGMENT = /* glsl */`
   // full on the dirt, softened on the bank as it wets, a skim on the mud where
   // water has levelled it, and a little on the sand.
   vec2 chiGN = chiGrit.gb * 2.0 - 1.0;
-  vec2 chiXY = chiGN * (wDirt + wBank * (1.0 - 0.6 * chiBankWet) + 0.2 * wMud + 0.35 * wSand);
+  vec2 chiXY = chiGN * (wDirt + wBank * (1.0 - 0.6 * chiBankWet) + 0.2 * wMud + 0.35 * wSand)
+             // and the sward's own (T-2089) wherever the strip draws prairie,
+             // so the relief runs on across the feather into the terrain's.
+             + chiSwardXY * wPrairie;
   vec3 chiTn = normalize(vec3(chiXY, 1.0));
   vec3 chiEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
   vec3 chiT = normalize(chiEastV - normal * dot(chiEastV, normal));
@@ -252,6 +258,7 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
   maskTex.colorSpace = THREE.NoColorSpace;
   maskTex.wrapS = maskTex.wrapT = THREE.ClampToEdgeWrapping;
   const prairie = prairieTexture();
+  const sward = swardTexture();
   // The grit tile, the other runtime canvas: fine relief the library lacks.
   const gritData = gritTilePixels();
   const gc = document.createElement('canvas');
@@ -278,6 +285,7 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
     Object.assign(shader.uniforms, {
       uGround: { value: prairie },
       uPrairieLuma: { value: prairie.userData.meanLinearLuma },
+      ...swardUniforms(sward),
       uMask: { value: maskTex },
       // West feather edge, south feather edge, 1/span along, 1/span across.
       uMaskFrame: { value: new THREE.Vector4(STRIP.e0 - F, STRIP.n0 - spanV / 2, 1 / spanU, 1 / spanV) },
@@ -347,7 +355,7 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
     return hash(e, n) > stripWeights(u, v, m).prairie;
   };
 
-  const textures = [maskTex, prairie, gritTex, ...lib.map((l) => l.colour)];
+  const textures = [maskTex, prairie, sward, gritTex, ...lib.map((l) => l.colour)];
   stats.drawn = true;
   stats.triangles = index.length / 3;
   stats.textures = textures.length;
@@ -356,7 +364,7 @@ export async function createGroundStrip({ terrain, assetBase, problems = [] } = 
     const img = t.image;
     return s + (img?.width ?? 0) * (img?.height ?? 0) * 4 * 4 / 3;
   }, 0));
-  stats.fetchesPerFragment = 3 /* mask, prairie, grit */ + 2 /* muck, sand colour */;
+  stats.fetchesPerFragment = 4 /* mask, prairie, sward, grit */ + 2 /* muck, sand colour */;
   stats.loadMs = Math.round(performance.now() - t0);
   stats.maskPxPerM = MASK_PX_PER_M;
   stats.maskSize = maskSize();
