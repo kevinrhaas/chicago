@@ -1,0 +1,35 @@
+{
+  "rows": [
+    {
+      "viewport": "desktop",
+      "passed": true,
+      "version": 1389,
+      "expectedEntries": 1389,
+      "entries": 1389,
+      "flagged": 1,
+      "newest": "More continuous summer vegetation",
+      "expectedTitle": "More continuous summer vegetation",
+      "dated": true,
+      "seen": "1389",
+      "sourceInIndex": true,
+      "sourceId": "whistler_1808_fort_dearborn_draught",
+      "sourceTier": 1
+    },
+    {
+      "viewport": "mobile",
+      "passed": true,
+      "version": 1389,
+      "expectedEntries": 1389,
+      "entries": 1389,
+      "flagged": 1,
+      "newest": "More continuous summer vegetation",
+      "expectedTitle": "More continuous summer vegetation",
+      "dated": true,
+      "seen": "1389",
+      "sourceInIndex": true,
+      "sourceId": "whistler_1808_fort_dearborn_draught",
+      "sourceTier": 1
+    }
+  ],
+  "errors": []
+}

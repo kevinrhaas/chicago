@@ -1,0 +1,82 @@
+[
+  {
+    "variant": "current",
+    "flora": true,
+    "mean": 0.2708333333333333,
+    "worst": 8,
+    "state": {
+      "e": -127.7,
+      "n": -292,
+      "yaw": 0,
+      "pitch": 0,
+      "groundY": 1.1090800151824949,
+      "eyeY": 2.7890800151824946,
+      "speed": 0,
+      "blocked": false,
+      "flying": false,
+      "altitude": 0,
+      "bob": 0
+    },
+    "detail": "light"
+  },
+  {
+    "variant": "current",
+    "flora": false,
+    "mean": 0.5277777777777778,
+    "worst": 17,
+    "state": {
+      "e": -127.7,
+      "n": -292,
+      "yaw": 0,
+      "pitch": 0,
+      "groundY": 1.1090800151824949,
+      "eyeY": 2.7890800151824946,
+      "speed": 0,
+      "blocked": false,
+      "flying": false,
+      "altitude": 0,
+      "bob": 0
+    },
+    "detail": "light"
+  },
+  {
+    "variant": "dev",
+    "flora": true,
+    "mean": 0.3888888888888889,
+    "worst": 12,
+    "state": {
+      "e": -127.7,
+      "n": -292,
+      "yaw": 0,
+      "pitch": 0,
+      "groundY": 1.1090800151824949,
+      "eyeY": 2.7890800151824946,
+      "speed": 0,
+      "blocked": false,
+      "flying": false,
+      "altitude": 0,
+      "bob": 0
+    },
+    "detail": "light"
+  },
+  {
+    "variant": "dev",
+    "flora": false,
+    "mean": 0.5277777777777778,
+    "worst": 17,
+    "state": {
+      "e": -127.7,
+      "n": -292,
+      "yaw": 0,
+      "pitch": 0,
+      "groundY": 1.1090800151824949,
+      "eyeY": 2.7890800151824946,
+      "speed": 0,
+      "blocked": false,
+      "flying": false,
+      "altitude": 0,
+      "bob": 0
+    },
+    "detail": "light"
+  }
+]

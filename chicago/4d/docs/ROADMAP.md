@@ -1,3 +1,13 @@
+## T-2035 / T-2037 / T-2038 - continuity while moving (2026-10-03)
+
+Held frames did not establish continuity: the owner still sees whole clumps appear
+on walks and flights after T-2015. Carry exact close-slot identities farther out,
+evaluate distant transitions per frame and include pitch in culling. Preserve
+the solid close verge, support and July records. Decouple sparse shrub ranks from
+quarter-cell planting positions. Diagnose South Water deck gaps independently.
+Motion, both viewports, all tiers and measured costs are required; STATUS records
+what has actually been verified.
+
 ## T-2016 — Glessner connected roof plan
 
 Owner-directed roof continuity repair follows T-1999 while retaining its façade

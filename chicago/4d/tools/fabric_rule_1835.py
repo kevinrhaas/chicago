@@ -636,6 +636,8 @@ def self_test() -> int:
                 failures.append(f"{klass} deals {value!r}, not a material-sheet finish")
             if value == "white_paint":
                 failures.append(f"{klass} deals white_paint, which is the Sauganash's")
+            if value == "yellow_paint":
+                failures.append(f"{klass} deals yellow_paint, which is Kelsey's house's")
         for value in row["roof"].values():
             if value not in roofs:
                 failures.append(f"{klass} deals roof {value!r}, not a sheet condition")
