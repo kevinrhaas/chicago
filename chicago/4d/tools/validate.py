@@ -4075,6 +4075,51 @@ def check_flora_species(zid: str, sp: dict, source_ids: set, vocab: dict,
         tally[conf] = tally.get(conf, 0) + 1
 
 
+def check_flora_scenes(index: dict, rep: Report) -> None:
+    """T-0471 — the `scenes` scope on a flora manifest entry.
+
+    A zone or planting with no `scenes` list stands in every scene that draws the
+    flora layer; one with a list stands in those scenes only, and the renderer
+    (flora.js `floraInScene`) filters on it. So a list must name scenes that
+    exist, and a planting — which states stems for ONE scene in its own `scene`
+    field — must be scoped to exactly that scene: an unscoped planting is how
+    1835's dooryards would stand on the 1812 shore."""
+    scenes_dir = DATA / "scenes"
+    known = {p.stem for p in scenes_dir.glob("*.json")}
+    for kind in ("zones", "plantings"):
+        for entry in index.get(kind, []):
+            eid, sc = entry.get("id"), entry.get("scenes")
+            if sc is None:
+                continue
+            if (not isinstance(sc, list) or not sc
+                    or not all(isinstance(x, str) for x in sc) or len(set(sc)) != len(sc)):
+                rep.error("flora index", f"{kind[:-1]} '{eid}' scenes must be a non-empty "
+                                         f"list of distinct scene ids, not {sc!r}")
+                continue
+            for x in sc:
+                if x not in known:
+                    rep.error("flora index", f"{kind[:-1]} '{eid}' is scoped to scene "
+                                             f"'{x}', and data/scenes/{x}.json does not exist")
+    for entry in index.get("plantings", []):
+        pid, pfile = entry.get("id"), entry.get("file")
+        path = FLORA / (pfile or "")
+        if not pfile or not path.exists():
+            rep.error("flora index", f"planting '{pid}' names {pfile}, which does not exist")
+            continue
+        rec = load_json(path, rep)
+        if not isinstance(rec, dict):
+            continue
+        scene = rec.get("scene")
+        if scene is None:
+            rep.error(f"flora planting {pid}", "states no `scene`: a planting is a claim "
+                                               "about the stems one scene carries")
+        elif entry.get("scenes") != [str(scene)]:
+            rep.error("flora index", f"planting '{pid}' states its stems for scene {scene} "
+                                     f"and its manifest entry is scoped to "
+                                     f"{entry.get('scenes')!r}; it must be [\"{scene}\"], or "
+                                     f"every other scene that draws flora plants these stems too")
+
+
 def check_flora(source_ids: set, field, rep: Report, tally: dict) -> dict:
     """Schema, provenance and phenology gate for data/flora/**."""
     index_path = FLORA / "index.json"
@@ -4103,6 +4148,8 @@ def check_flora(source_ids: set, field, rep: Report, tally: dict) -> dict:
                                      f"K42 measured that it does not: of the seven "
                                      f"published vocabularies the renderer reads one, "
                                      f"inflorescence_shapes, which is not one of these five")
+
+    check_flora_scenes(index, rep)
 
     palettes = {}
     for entry in index.get("palettes", []):
@@ -4157,6 +4204,7 @@ def check_flora(source_ids: set, field, rep: Report, tally: dict) -> dict:
         # a copy that has drifted is worse than no copy at all
         for key, actual in (("extent", z.get("extent")),
                             ("plantable_in_scene", z.get("plantable_in_scene")),
+                            ("scenes", z.get("scenes")),
                             ("ground_rgb", (z.get("ground") or {}).get("rgb")),
                             ("ground_wet_rgb", (z.get("ground") or {}).get("wet_rgb")),
                             ("bare_soil_fraction",
