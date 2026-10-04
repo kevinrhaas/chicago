@@ -158,6 +158,12 @@ NO_SOURCE_REFUSAL = (
 # named on it, and the stale naming is filed as its own ticket rather than fixed in
 # passing — it reaches 7 cards town-wide and every reader of their names, which is not
 # one district's pass to make.
+#
+# T-1689 made that revision at its source: the mint now renames a card in the same step
+# that refuses its flag, and its `--gate` holds the name and the flag together on every
+# card it minted. So this refusal class is EMPTY by construction, and the two roofs it
+# held are written like any other keeper. The test stays as a defence in case the gate
+# is ever bypassed; its self-test case went with the last row it could exercise.
 LETTER_LIST_NAME = "a name from the post office's letter lists"
 
 NAME_DISAGREES_REFUSAL = (
@@ -619,11 +625,6 @@ def self_test(scopes: tuple[str, ...]) -> int:
         doc["refused"] = [r for r in doc["refused"] if r["why"] != LETTER_LIST_REFUSAL]
         return doc
 
-    def unrefuse_the_name_disagreements(doc: dict) -> dict:
-        doc["refused"] = [r for r in doc["refused"]
-                          if r["why"] != NAME_DISAGREES_REFUSAL]
-        return doc
-
     def silence_a_refusal(doc: dict) -> dict:
         for row in doc["refused"]:
             if row.get("on_the_card"):
@@ -659,9 +660,7 @@ def self_test(scopes: tuple[str, ...]) -> int:
              ("a keeper's name is changed", rename_a_keeper),
              ("a keeper's household is changed", move_a_keeper),
              ("the counts stop counting", miscount),
-             ("the letter-list refusals are quietly dropped", unrefuse_the_letter_lists),
-             ("the name-disagreement refusals are quietly dropped",
-              unrefuse_the_name_disagreements)]
+             ("the letter-list refusals are quietly dropped", unrefuse_the_letter_lists)]
     failures = 0
     for label, break_it in cases:
         broken = break_it(json.loads(json.dumps(ledger)))
