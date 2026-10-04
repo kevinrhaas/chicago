@@ -1,9 +1,33 @@
 export const CHANGELOG = [ // newest first
-  { v: 1408, ts: '2026-10-04T07:45:31.532Z', date: 'Oct 4, 2026, 2:45 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
+  { v: null, ts: '', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
     items: [
       'Nothing you can see in the town changes. This is a check on how the people known only from the post office\u2019s lists of uncalled-for letters are kept.',
       'The pass that adds them was not checked at all, because later passes rightly rewrite parts of the same records. It is now checked on the parts that are its own.',
       'What it would still change is listed person by person for reading: 43 people it would add, 7 it would drop, 10 it would file under a new name and 27 records whose dates or names moved.',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1410, ts: '2026-10-04T08:06:12.271Z', date: 'Oct 4, 2026, 3:06 AM CT', title: 'Nothing you can see: the queue check reports a stale board, not mends it', kind: 'chore',
+    items: [
+      'Nothing you can see in the town changes. This is about the tool that keeps the work queue.',
+      'Checking the queue used to quietly rebuild its board when the board was out of date, so the mismatch vanished before anyone saw it.',
+      'Now the check only compares: an out-of-date board fails with the one command that rebuilds it, and nothing is written.',
+    ] },
+  { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a ticket is blocked, the ticket tool now writes its line in the queue\u2019s blocked list itself, and takes it out again when the ticket is unblocked or withdrawn. Before, that line was written by hand, so one blocked ticket went missing from the list and two stood in it twice.',
+      'The queue check now refuses a ticket listed twice there.',
+    ] },
+  { v: 1408, ts: '2026-10-04T07:40:22.742Z', date: 'Oct 4, 2026, 2:40 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The tool that tells a change which part of the browser checks to run sent edits to the People directory to the wrong part. The directory is checked in part 12, and the tool said part 13, so those checks were skipped.',
+      'Three modules the person card is built from now name part 12 too, and the shared seat block no longer names a part that never reads it.',
+      'The tool\u2019s own self-test now finds where each of eight modules is actually checked and fails if the map disagrees, so the same mistake cannot return unnoticed.',
     ] },
   { v: 1407, ts: '2026-10-04T07:22:27.332Z', date: 'Oct 4, 2026, 2:22 AM CT', title: 'The 1812 view explains what happened there, and whose accounts say so', kind: 'feature',
     items: [

@@ -249,18 +249,29 @@ const COVERAGE = [
   ['renderers/web/js/ground-strip-mask.js', [1], 'the ground-strip proof\'s layout and mask pixels (T-1797)'],
   ['renderers/web/js/citations.js', [3], 'pick -> provenance, and what kind of source'],
   ['renderers/web/js/liberties.js', [3, 13], 'the liberties on the card, and in the panel'],
-  ['renderers/web/js/residents.js', [3, 13], 'who was here, and the people in the panel'],
-  // T-1158. The per-attribute tier the household card draws its chip from. Same two
-  // surfaces as the file that imports it — the building card's resident rows and the
-  // People directory's person card — and mapped on arrival, because an unmapped module
+  // T-1519. The People directory's person card is `householdHtml` from this module, and
+  // that card is opened and read in PART 12 — so 12 joins the building card (3) and the
+  // Evidence panel's household cards (13), which are this module's other two surfaces.
+  ['renderers/web/js/residents.js', [3, 12, 13], 'who was here, the person a directory opens, and the people in the panel'],
+  // T-1158. The per-attribute tier the household card draws its chip from. Same
+  // surfaces as residents.js, which imports it — the building card's resident rows (3),
+  // the People directory's person card and its tier filter (12, T-1519: this row said
+  // 13 for the directory, which is where the directory is not), and the Evidence
+  // panel's household cards (13) — and mapped on arrival, because an unmapped module
   // prices every diff that touches it at the whole gate.
-  ['renderers/web/js/attribute-tiers.js', [3, 13], 'which tier each attribute of a person stands on'],
-  // T-1041. The agency relation renders on the BUILDING card (part 3) and on the person
-  // card the People directory opens (part 13) — one module, two surfaces, and both are
-  // pinned. `people.js` is the directory itself, mapped for the first time here: it was
-  // unmapped, so every diff touching it priced the whole gate.
+  ['renderers/web/js/attribute-tiers.js', [3, 12, 13], 'which tier each attribute of a person stands on'],
+  // T-1041. The agency relation renders on the BUILDING card (part 3) and on the man's
+  // own household card in the Evidence panel (part 13) — one module, two surfaces, and
+  // both are pinned. `people.js` is the directory itself, mapped for the first time
+  // here: it was unmapped, so every diff touching it priced the whole gate.
+  //
+  // T-1519. It was mapped to part 13 on the belief that the directory is read there,
+  // and it is not: every check that opens the People tab, filters it, or opens a person
+  // card sits inside `stageOn(12)`. Part 13 touches the directory once, in a defensive
+  // `api.people?.close?.()` that asserts nothing. A run that trusted the old row ran
+  // part 13 and never opened the directory it had changed. ANCHORS below now holds it.
   ['renderers/web/js/agencies.js', [3, 13], 'the agency on the card, and on the person'],
-  ['renderers/web/js/people.js', [13], 'the directory of everyone in the town'],
+  ['renderers/web/js/people.js', [12], 'the directory of everyone in the town'],
   ['data/reconstruction/1835_agencies.json', [3, 13], 'the compiled relation both cards read'],
   // T-1959. The placement policy is the seating and yard generators' rule book: what
   // it decides reaches the scene only through the records those generators write (the
@@ -285,10 +296,12 @@ const COVERAGE = [
   // touching a business record priced the whole gate, and the 196 records move together.
   ['renderers/web/js/businesses.js', [3, 12], 'the firms directory, and the crosswalk the card reads'],
   // T-1493. The address book's seat block, shared by the business card (the firms
-  // directory, part 12) and the person card (the People directory, part 13). The
-  // BUILDING card never renders it — a roof is the seat, not a reading about one —
-  // so part 3 is not pinned here even though `businesses.js` is pinned to it.
-  ['renderers/web/js/seat.js', [12, 13], 'the seat a card prints, and the way to it'],
+  // directory) and the person card (the People directory) — and BOTH are part 12
+  // (T-1519: this row said the People directory was part 13, which is how part 13
+  // came to be pinned here; no check there reads a seat). The BUILDING card never
+  // renders it — a roof is the seat, not a reading about one — so part 3 is not
+  // pinned here even though `businesses.js` is pinned to it.
+  ['renderers/web/js/seat.js', [12], 'the seat a card prints, and the way to it'],
   ['data/reconstruction/1835_address_book.json', [12, 13], 'the rung each household and firm is seated at'],
   ['data/businesses/', [3, 12], 'the compiled business records and their index'],
   ['data/businesses.schema.json', [3, 12], 'the shape those records are refused against'],
@@ -365,6 +378,42 @@ const COVERAGE = [
   ['data/jaunts/', [14], 'the authored jaunts'],
   ['data/sidecars/1835/jaunts/', [14], 'the compiled jaunts and their catalog'],
 ];
+
+/** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than
+ *  remembered. Each anchor is a literal only that module's surface puts in the
+ *  smoke (a tab it owns, a class it renders, the ticket a check is filed under);
+ *  `--self-test` finds every PART whose `stageOn(N)` block contains it and fails
+ *  if the module's COVERAGE row leaves one out. That is the fault this exists for:
+ *  people.js was mapped to part 13 while every People-directory check sat inside
+ *  `stageOn(12)`, and nothing could tell, because the map was written from a
+ *  belief about where the directory is read. An anchor gives a FLOOR, never a
+ *  ceiling — a row may name parts its anchors do not reach — and an anchor found
+ *  in no part at all has rotted, which also fails. */
+const ANCHORS = [
+  ['renderers/web/js/people.js', ['data-tab="people"', 'people-filters', 'people-card']],
+  ['renderers/web/js/businesses.js', ['data-tab="businesses"']],
+  ['renderers/web/js/seat.js', ['people-seat']],
+  // householdHtml is the body of the People directory's person card (12) and of the
+  // Evidence panel's household cards, mounted at #residents (13).
+  ['renderers/web/js/residents.js', ['people-card', "getElementById('residents')"]],
+  ['renderers/web/js/attribute-tiers.js', ['T-1158', 'people-card', "getElementById('residents')"]],
+  ['renderers/web/js/agencies.js', ['.pop-agency']],
+  ['renderers/web/js/evidence.js', ['data-tab="evidence"']],
+  ['renderers/web/js/whatsnew.js', ['data-tab="whatsnew"']],
+];
+
+/** The parts whose `if (stageOn(N)) {` … `} // end PART N` block contains `needle`. */
+function partsHolding(smoke, needle) {
+  const found = new Set();
+  let part = 0;
+  for (const line of smoke.split('\n')) {
+    const open = /^\s*if \(stageOn\((\d+)\)\) \{/.exec(line);
+    if (open) part = Number(open[1]);
+    else if (/^\s*\} \/\/ end PART \d+/.test(line)) part = 0;
+    if (part && line.includes(needle)) found.add(part);
+  }
+  return [...found].sort((x, y) => x - y);
+}
 
 // ---------------------------------------------------------------------------
 
@@ -677,6 +726,21 @@ function selfTest() {
   }
   for (const p of ALL) if (!seen.has(p)) fails.push(`part ${p} is covered by no row of the map`);
 
+  // T-1519 — every anchored module's row names every part its anchors are found in.
+  for (const [pat, needles] of ANCHORS) {
+    const row = COVERAGE.find(([p]) => p === pat);
+    if (!row) { fails.push(`${pat}: anchored but has no row of its own in the map`); continue; }
+    for (const needle of needles) {
+      const holding = partsHolding(smoke, needle);
+      if (!holding.length) fails.push(`${pat}: anchor ${JSON.stringify(needle)} is in no part of the gate — the anchor has rotted`);
+      const missing = holding.filter((p) => !row[1].includes(p));
+      if (missing.length) {
+        fails.push(`${pat}: maps to [${row[1].join(', ')}] but its anchor ${JSON.stringify(needle)} `
+          + `is checked in part ${missing.join(', ')} — a run that trusts the row runs the wrong leg`);
+      }
+    }
+  }
+
   // The published mirror can no longer reach this map at all (T-0938), and that is
   // asserted rather than assumed: it is untracked and .gitignored, so `--for-diff`'s
   // `git diff --name-only` never names it. Two self-test cases used to hold the mirror
@@ -744,7 +808,7 @@ function selfTest() {
   }
   const legs = gateShape().legs;
   console.log(`smoke budget self-test: the map covers all ${PARTS} parts, `
-    + `${COVERAGE.length} patterns all exist, the renumbering holds`
+    + `${COVERAGE.length} patterns all exist, ${ANCHORS.length} anchored modules sit in their parts, the renumbering holds`
     + (legs ? `, the ${legs.length} gate legs tile 1-${PARTS} exactly once` : ', gate legs not in this checkout'));
 }
 
