@@ -6,6 +6,7 @@ export const CHANGELOG = [ // newest first
       'Scene detail now reaches the town too: Full keeps the grass at your feet, Balanced and Light keep less of it, and the texture carries the rest.',
       'At the in-town views the plants cost 59\u201377% fewer triangles at every setting, with no extra draw calls.',
       'The pattern of the turf is a reconstruction. Its colours and how much ground lies bare come from the town\u2019s plant records. It is listed under Liberties.',
+    ] },
   { v: 1432, ts: '2026-10-04T14:56:13.412Z', date: 'Oct 4, 2026, 9:56 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
     items: [
       'Look down anywhere on the open prairie: the ground now shows blades of grass, last year\'s thatch between the tussocks, and the shade under them, lit by the sun the way the dirt roads are.',
