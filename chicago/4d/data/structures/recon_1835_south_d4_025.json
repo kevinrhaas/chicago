@@ -84,7 +84,7 @@
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
         },
         "plan": {
           "value": "hall_parlour",
@@ -184,14 +184,14 @@
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 25,
     "finish_key": "ochre",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
       "by": "keeper_trade",
       "household": "hh_andrews_julian",
-      "words": "ochre-washed clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Andrews household's, a dressmaker, in Chicago since 1834 (rule F-T)"
+      "words": "ochre-washed clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Andrews household's, a dressmaker, in Chicago since 1835 (rule F-T)"
     }
   },
   "resident_assignment": {

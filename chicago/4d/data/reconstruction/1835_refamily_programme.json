@@ -52,9 +52,9 @@
   },
   "what_it_is_left_holding": {
     "people": 415,
-    "buckets": 53,
+    "buckets": 52,
     "buckets_cleared": 0,
-    "of_refused_buckets": 53,
+    "of_refused_buckets": 52,
     "by_family": [
       {
         "sex": "male",
@@ -64,12 +64,12 @@
       {
         "sex": "female",
         "age_band": "under_10",
-        "people_still_held": 72
+        "people_still_held": 73
       },
       {
         "sex": "female",
         "age_band": "20_29",
-        "people_still_held": 67
+        "people_still_held": 66
       },
       {
         "sex": "male",
@@ -122,32 +122,32 @@
   "what_the_town_converges_to": {
     "still_owed_now": 220,
     "still_owed_when_the_programme_is_spent": 220,
-    "persons_standing_in_the_layer": 2927,
-    "converges_to_now": 3147,
-    "converges_to_when_the_programme_is_spent": 3147,
-    "the_model_point": 2545,
+    "persons_standing_in_the_layer": 2926,
+    "converges_to_now": 3146,
+    "converges_to_when_the_programme_is_spent": 3146,
+    "the_model_point": 2544,
     "the_model_range": [
-      2365,
+      2364,
       3265
     ],
-    "reading": "3,147 is inside the model's 2,365-3,265 and 602 above its 2,545 point, against 602 above it today.",
+    "reading": "3,146 is inside the model's 2,364-3,265 and 602 above its 2,544 point, against 602 above it today.",
     "and_the_rules_own_projection_is_not_used": {
-      "the_rule_says": 3008,
-      "this_report_says": 3147,
+      "the_rule_says": 3007,
+      "this_report_says": 3146,
       "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
     }
   },
   "the_residue_and_the_ruling_on_it": {
     "people_still_held": 415,
-    "buckets_they_are_held_in": 53,
+    "buckets_they_are_held_in": 52,
     "and_what_holds_each_of_them": [
       {
         "refusal": "a_documented_reading_shrank_the_order",
-        "people": 8
+        "people": 7
       },
       {
         "refusal": "the_re_cut_reached_work_already_drawn",
-        "people": 407
+        "people": 408
       }
     ],
     "the_programme_is_settled": true,
@@ -161,17 +161,17 @@
   "what_would_move_the_remainder": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 237 people under twenty and 114 adult women, and their cells hold 10 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 238 people under twenty and 113 adult women, and their cells hold 10 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "202 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "200 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
       "id": "the_22_seated_households",
-      "says": "62 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
+      "says": "60 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
       "who_owns_it": "T-1199"
     },
     {
@@ -195,11 +195,11 @@
       "bucket": "persons/female/under_10/south/family/none",
       "owning_ticket": "T-1174",
       "held_at": 100,
-      "the_re_cut_would_have_ordered": 56,
-      "surplus_still_held": 44,
+      "the_re_cut_would_have_ordered": 55,
+      "surplus_still_held": 45,
       "refamilied_out_already": 7,
       "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 44
+      "surplus_when_the_programme_is_spent": 45
     },
     {
       "bucket": "persons/female/20_29/south/family/none",
@@ -540,16 +540,6 @@
       "refamilied_out_already": 0,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 2
-    },
-    {
-      "bucket": "persons/female/20_29/north/lodging/trade",
-      "owning_ticket": "T-1532",
-      "held_at": 3,
-      "the_re_cut_would_have_ordered": 2,
-      "surplus_still_held": 1,
-      "refamilied_out_already": 0,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 1
     },
     {
       "bucket": "persons/female/30_39/south/lodging/none",

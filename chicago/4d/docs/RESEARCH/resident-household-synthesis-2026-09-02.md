@@ -6,13 +6,13 @@ T-0487 → T-0490 synthesis of the completed newspaper/letter-list sweep, reside
 
 | Measure | Before | After |
 |---|---:|---:|
-| Households | 920 | 1459 |
-| Person entries | 956 | 2929 |
+| Households | 920 | 1458 |
+| Person entries | 956 | 2928 |
 | Attested | 823 | 412 |
-| Inferred | 25 | 1030 |
+| Inferred | 25 | 1029 |
 | Reconstructed | 108 | 1487 |
-| Letter-list-only flag | 727 | 774 |
-| Projected residents | 0 | 760 |
+| Letter-list-only flag | 727 | 773 |
+| Projected residents | 0 | 759 |
 | Linked to named 1840 census household | 0 | 3 |
 
 **108 reconstructed people were retired** and 96 empty household containers removed. 5 evidence-based people/households formerly seated by the reconstructed programme were retained but made unplaced. Reconstructed building stock was abandoned as unassigned rather than deleted.

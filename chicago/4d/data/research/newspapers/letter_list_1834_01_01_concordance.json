@@ -953,7 +953,7 @@
     "kind": "minted",
     "person": "person_william_crissy",
     "household": "hh_crissy_william",
-    "card_name": "William Crissy",
+    "card_name": null,
     "by": "tools/mint_letter_list_residents.py"
    }
   },

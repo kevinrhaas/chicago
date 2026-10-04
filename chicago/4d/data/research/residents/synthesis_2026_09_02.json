@@ -232,7 +232,6 @@
       "catran_o_p",
       "clevinger_d_p",
       "crandall_beman",
-      "crissy_william",
       "daniel_b_clevinger_4",
       "dickinson_alexander",
       "eberiden_samuel",
@@ -1119,13 +1118,13 @@
     "census_1840_linked": 0
   },
   "after": {
-    "households": 1459,
-    "persons": 2929,
+    "households": 1458,
+    "persons": 2928,
     "attested": 412,
-    "inferred": 1030,
+    "inferred": 1029,
     "reconstructed": 1487,
-    "letter_list_only": 774,
-    "projected_residents": 760,
+    "letter_list_only": 773,
+    "projected_residents": 759,
     "census_1840_linked": 3
   },
   "retirement": {

@@ -14,7 +14,7 @@
  "not_a_reading": "Rungs 1, 3-for-an-adopted-firm and 6 restate a seat some other committed record already made. Rung 3 for a refused street-only firm and rung 4 are RECONSTRUCTION (T-1512): each carries tier `reconstructed`, the clause it rests on, a seed and what would retire it, and neither adds a street or a division the record did not already carry. RUNG 5 IS THE ONE PLACE IN THIS FILE WHERE A DIVISION IS DEALT (T-1522) — for the 1,186 households no source places at all, off the order book's own household shape and the town model's own employment distribution, seeded and exact, every row saying so in its words. No coordinate, no lot and no roof is invented by this pass, no bucket of the order book is spent, and no household record is written to. T-1618 carries the PLACEMENT POLICY's own deal onto the row as `dealt_roof` — read from the two committed seats files and restated, not re-decided — and it is not a rung: every dealt row keeps the rung, seat, tier and words its evidence earned, and the roof is substitutable by construction.",
  "policy_only_deal": {
   "ticket": "T-1522",
-  "households": 1343,
+  "households": 1342,
   "what_is_dealt": "both halves of the band. These households carry no roof, no street and no division, so nothing about where they stood is read here — the division comes off the reconstruction order book's household target by division and the class off the town model's employment distribution, and every row says both in its own words.",
   "nothing_is_minted": "these 1,186 households are already in the committed layer and the book records them as KNOWN, not as households to reconstruct. So the book supplies the SHAPE of the deal and no bucket's `filled` moves, no record is written and nothing is added to the town. The invariant the book calls `no_bucket_overfilled` is untouched by this pass.",
   "division": {
@@ -33,7 +33,7 @@
    },
    "dealt": {
     "north": 300,
-    "south": 768,
+    "south": 767,
     "west": 275
    },
    "fort_is_not_in_the_shape": "the garrison's households are T-1176's and the book gives households/garrison/fort no target, so a household no source places is never dealt into the military reservation"
@@ -67,7 +67,7 @@
     "farms_and_country_seats": 210,
     "labourer_dwellings": 110,
     "merchant_and_professional_dwellings": 396,
-    "tradesman_dwellings": 627
+    "tradesman_dwellings": 626
    }
   },
   "method": "exact, not sampled. Households are ordered by sha256 of their own id and a stated salt — one order per axis, so the division a household is dealt does not determine its class — and each quota is dealt off that order by largest remainder. The dealt counts are therefore the committed shape to the person, and a re-run gives the same answer.",
@@ -228,27 +228,27 @@
   ]
  },
  "counts": {
-  "rows": 1635,
-  "households": 1459,
+  "rows": 1634,
+  "households": 1458,
   "businesses": 176,
   "by_rung": {
    "division_band": 82,
    "face": 56,
    "owed": 11,
-   "policy_only": 1343,
+   "policy_only": 1342,
    "structure": 80,
    "unplaceable": 63
   },
   "by_reach": {
    "division": 82,
    "face": 56,
-   "none": 1406,
+   "none": 1405,
    "structure": 80,
    "structure_owed": 11
   },
   "households_by_rung": {
    "division_band": 82,
-   "policy_only": 1343,
+   "policy_only": 1342,
    "structure": 33,
    "unplaceable": 1
   },
@@ -258,10 +258,10 @@
    "structure": 47,
    "unplaceable": 62
   },
-  "seated": 1561,
+  "seated": 1560,
   "owed": 11,
   "by_seat_kind": {
-   "division_band": 1425,
+   "division_band": 1424,
    "street_face": 16,
    "structure": 120
   },
@@ -270,22 +270,22 @@
    "north/farms_and_country_seats": 60,
    "north/heavy_and_noxious_trades": 1,
    "north/labourer_dwellings": 21,
-   "north/merchant_and_professional_dwellings": 89,
-   "north/tradesman_dwellings": 138,
+   "north/merchant_and_professional_dwellings": 88,
+   "north/tradesman_dwellings": 139,
    "south/division_ground": 15,
    "south/farms_and_country_seats": 104,
    "south/heavy_and_noxious_trades": 1,
    "south/labourer_dwellings": 80,
    "south/lodging_near_the_landings": 2,
-   "south/merchant_and_professional_dwellings": 247,
-   "south/tradesman_dwellings": 377,
+   "south/merchant_and_professional_dwellings": 248,
+   "south/tradesman_dwellings": 375,
    "west/division_ground": 3,
    "west/farms_and_country_seats": 46,
    "west/labourer_dwellings": 27,
    "west/merchant_and_professional_dwellings": 81,
    "west/tradesman_dwellings": 127
   },
-  "reconstructed_seats": 1452,
+  "reconstructed_seats": 1451,
   "dealt_a_roof": 251,
   "dealt_a_standing_roof": 222,
   "dealt_a_slot_not_yet_built": 29,
@@ -18127,46 +18127,6 @@
    "dealt_roof": null
   },
   {
-   "id": "hh_crissy_william",
-   "kind": "household",
-   "name": "The Crissy household — a name from the post office's letter lists",
-   "rung": "policy_only",
-   "seat": {
-    "kind": "division_band",
-    "id": "north/merchant_and_professional_dwellings",
-    "division": "north",
-    "clause": "merchant_and_professional_dwellings"
-   },
-   "works_seat": null,
-   "reach": "none",
-   "reach_value": null,
-   "division": "unplaced",
-   "tier": "reconstructed",
-   "basis": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's merchant_and_professional_dwellings clause. The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
-   "replaceable_by": "any source that places this household in a division or nearer",
-   "owed_to": null,
-   "band": {
-    "band": "north/merchant_and_professional_dwellings",
-    "clause": "merchant_and_professional_dwellings",
-    "clause_applies_to": [
-     "H1",
-     "H2",
-     "D7"
-    ],
-    "clause_tier": "inferred",
-    "statement": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
-    "division_is_the_clause_preference": false,
-    "from_trade": null,
-    "division_is_dealt": true,
-    "division_dealt_from": "the order book's household target by division",
-    "class_is_dealt": true,
-    "class_dealt_from": "the town model's employment_shape_1840 distribution"
-   },
-   "seed": "hh_crissy_william|T-1522|division:1704d9e3e5b9|class:84c71b02dbba",
-   "dealt_roof": null
-  },
-  {
    "id": "hh_crocker_h",
    "kind": "household",
    "name": "The Crocker household — a documented schoolteacher, unplaced in the town",
@@ -20824,8 +20784,8 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "south/tradesman_dwellings",
-    "division": "south",
+    "id": "north/tradesman_dwellings",
+    "division": "north",
     "clause": "tradesman_dwellings"
    },
    "works_seat": null,
@@ -20834,11 +20794,11 @@
    "division": "unplaced",
    "tier": "reconstructed",
    "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "south/tradesman_dwellings",
+    "band": "north/tradesman_dwellings",
     "clause": "tradesman_dwellings",
     "clause_applies_to": [
      "D3",
@@ -20848,7 +20808,7 @@
     ],
     "clause_tier": "inferred",
     "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-    "division_is_the_clause_preference": true,
+    "division_is_the_clause_preference": false,
     "from_trade": null,
     "division_is_dealt": true,
     "division_dealt_from": "the order book's household target by division",
@@ -54542,31 +54502,30 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "south/tradesman_dwellings",
+    "id": "south/merchant_and_professional_dwellings",
     "division": "south",
-    "clause": "tradesman_dwellings"
+    "clause": "merchant_and_professional_dwellings"
    },
    "works_seat": null,
    "reach": "none",
    "reach_value": null,
    "division": "unplaced",
    "tier": "reconstructed",
-   "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "basis": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's merchant_and_professional_dwellings clause. The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "south/tradesman_dwellings",
-    "clause": "tradesman_dwellings",
+    "band": "south/merchant_and_professional_dwellings",
+    "clause": "merchant_and_professional_dwellings",
     "clause_applies_to": [
-     "D3",
-     "D4",
-     "D5",
-     "D6"
+     "H1",
+     "H2",
+     "D7"
     ],
     "clause_tier": "inferred",
-    "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-    "division_is_the_clause_preference": true,
+    "statement": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
+    "division_is_the_clause_preference": false,
     "from_trade": null,
     "division_is_dealt": true,
     "division_dealt_from": "the order book's household target by division",

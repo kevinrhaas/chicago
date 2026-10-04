@@ -44,17 +44,17 @@
   }
  ],
  "counts": {
-  "leads_ruled": 1032,
-  "cards_ruled": 1430,
+  "leads_ruled": 1023,
+  "cards_ruled": 1424,
   "by_outcome": {
-   "refused": 767,
-   "candidate": 265
+   "refused": 760,
+   "candidate": 263
   },
   "by_class": {
-   "ocr_variant_only": 370,
-   "testable_in_a_held_work": 265,
-   "locality_absent": 296,
-   "surname_only_chicago": 101
+   "ocr_variant_only": 367,
+   "testable_in_a_held_work": 263,
+   "locality_absent": 293,
+   "surname_only_chicago": 100
   },
   "matched": 0,
   "discriminators_found": 0
@@ -1699,35 +1699,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v01_bacon_residents",
-   "surname_key": "bacon",
-   "spellings_as_printed": [
-    "Bacon"
-   ],
-   "layer": "residents",
-   "outcome": "refused",
-   "class": "locality_absent",
-   "reason": "Refused. All 1 card(s) heading 'Bacon' name Illinois and neither Chicago nor Cook County, so the lead against Richani jr. Bacon stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
-   "record_ids": [
-    "nbi_v01_0235"
-   ],
-   "candidates": [
-    {
-     "id": "bacon_richani",
-     "name": "Richani jr. Bacon",
-     "rule": "exact surname"
-    }
-   ],
-   "person_ids": [
-    "bacon_richani"
-   ],
-   "works_cited": [
-    "county_histories_kett_and_co"
-   ],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v01_bailey_census_1840",
    "surname_key": "bailey",
    "spellings_as_printed": [
@@ -2189,40 +2160,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v01_barnes_residents",
-   "surname_key": "barnes",
-   "spellings_as_printed": [
-    "Barnes"
-   ],
-   "layer": "residents",
-   "outcome": "refused",
-   "class": "locality_absent",
-   "reason": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against Wheeler Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
-   "record_ids": [
-    "nbi_v01_0310",
-    "nbi_v01_0311",
-    "nbi_v01_0316",
-    "nbi_v01_0317"
-   ],
-   "candidates": [
-    {
-     "id": "barnes_wheeler",
-     "name": "Wheeler Barnes",
-     "rule": "exact surname"
-    }
-   ],
-   "person_ids": [
-    "barnes_wheeler"
-   ],
-   "works_cited": [
-    "county_histories_kett_and_co",
-    "moses_illinois_historical_and_statistical",
-    "sons_of_the_american_revolution_illinois_1896"
-   ],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v01_barr_residents",
    "surname_key": "barr",
    "spellings_as_printed": [
@@ -2578,33 +2515,6 @@
    ],
    "person_ids": [
     "beach_william_h"
-   ],
-   "works_cited": [],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
-   "lead_id": "lead_v01_beacon_residents",
-   "surname_key": "beacon",
-   "spellings_as_printed": [
-    "Beacon"
-   ],
-   "layer": "residents",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Beacon' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Beacon' at all. And if it were, a heading against Richani jr. Bacon would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v01_0351"
-   ],
-   "candidates": [
-    {
-     "id": "bacon_richani",
-     "name": "Richani jr. Bacon",
-     "rule": "OCR variant (0.91 similarity to 'bacon')"
-    }
-   ],
-   "person_ids": [
-    "bacon_richani"
    ],
    "works_cited": [],
    "held_works": [],
@@ -10916,8 +10826,8 @@
    ],
    "layer": "residents",
    "outcome": "refused",
-   "class": "locality_absent",
-   "reason": "Refused. All 2 card(s) heading 'Crandall' name Illinois and neither Chicago nor Cook County, so the lead against Alva Crandal; Beman Crandall stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
+   "class": "ocr_variant_only",
+   "reason": "Refused twice over. No candidate reaches 'Crandall' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Crandall' at all. And if it were, a heading against Alva Crandal would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v01_1647",
     "nbi_v01_1648"
@@ -10927,16 +10837,10 @@
      "id": "crandal_alva",
      "name": "Alva Crandal",
      "rule": "OCR variant (0.93 similarity to 'crandal')"
-    },
-    {
-     "id": "crandall_beman",
-     "name": "Beman Crandall",
-     "rule": "exact surname"
     }
    ],
    "person_ids": [
-    "crandal_alva",
-    "crandall_beman"
+    "crandal_alva"
    ],
    "works_cited": [],
    "held_works": [],
@@ -12444,16 +12348,11 @@
    "layer": "residents",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Dickenson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickenson' at all. And if it were, a heading against Alexander Dickinson; David Dickson would still be a surname against a person, which is always a refusal here.",
+   "reason": "Refused twice over. No candidate reaches 'Dickenson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickenson' at all. And if it were, a heading against David Dickson would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v01_1909"
    ],
    "candidates": [
-    {
-     "id": "dickinson_alexander",
-     "name": "Alexander Dickinson",
-     "rule": "OCR variant (0.89 similarity to 'dickinson')"
-    },
     {
      "id": "dickson_david",
      "name": "David Dickson",
@@ -12461,7 +12360,6 @@
     }
    ],
    "person_ids": [
-    "dickinson_alexander",
     "dickson_david"
    ],
    "works_cited": [
@@ -12473,36 +12371,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v01_dickinnon_residents",
-   "surname_key": "dickinnon",
-   "spellings_as_printed": [
-    "Dickinnon"
-   ],
-   "layer": "residents",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Dickinnon' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickinnon' at all. And if it were, a heading against Alexander Dickinson would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v01_1926",
-    "nbi_v01_1927"
-   ],
-   "candidates": [
-    {
-     "id": "dickinson_alexander",
-     "name": "Alexander Dickinson",
-     "rule": "OCR variant (0.89 similarity to 'dickinson')"
-    }
-   ],
-   "person_ids": [
-    "dickinson_alexander"
-   ],
-   "works_cited": [
-    "la_salle_book_co_cook_county"
-   ],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v01_dickinson_residents",
    "surname_key": "dickinson",
    "spellings_as_printed": [
@@ -12510,18 +12378,13 @@
    ],
    "layer": "residents",
    "outcome": "refused",
-   "class": "surname_only_chicago",
-   "reason": "Refused. 2 of the 2 card(s) heading 'Dickinson' do name Chicago or Cook County and the heading is the surname of Alexander Dickinson exactly, but the index files every family of a surname under one heading and gives no forename, so 'Dickinson' against Alexander Dickinson; David Dickson is a surname against a person. It waits on la_salle_book_co_cook_county, which this project does not hold.",
+   "class": "ocr_variant_only",
+   "reason": "Refused twice over. No candidate reaches 'Dickinson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickinson' at all. And if it were, a heading against David Dickson would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v01_1924",
     "nbi_v01_1925"
    ],
    "candidates": [
-    {
-     "id": "dickinson_alexander",
-     "name": "Alexander Dickinson",
-     "rule": "exact surname"
-    },
     {
      "id": "dickson_david",
      "name": "David Dickson",
@@ -12529,7 +12392,6 @@
     }
    ],
    "person_ids": [
-    "dickinson_alexander",
     "dickson_david"
    ],
    "works_cited": [
@@ -25750,33 +25612,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v03_mocarty_residents",
-   "surname_key": "mocarty",
-   "spellings_as_printed": [
-    "MoCarty"
-   ],
-   "layer": "residents",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'MoCarty' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'MoCarty' at all. And if it were, a heading against N. M'Carty would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v03_0222"
-   ],
-   "candidates": [
-    {
-     "id": "mcarty_n",
-     "name": "N. M'Carty",
-     "rule": "OCR variant (0.92 similarity to 'mcarty')"
-    }
-   ],
-   "person_ids": [
-    "mcarty_n"
-   ],
-   "works_cited": [],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v03_mofadden_residents",
    "surname_key": "mofadden",
    "spellings_as_printed": [
@@ -27329,33 +27164,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v03_nichols_residents",
-   "surname_key": "nichols",
-   "spellings_as_printed": [
-    "I Nichols"
-   ],
-   "layer": "residents",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'I Nichols' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'I Nichols' at all. And if it were, a heading against Joshua F. Nicholson would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v03_0962"
-   ],
-   "candidates": [
-    {
-     "id": "nicholson_joshua_f",
-     "name": "Joshua F. Nicholson",
-     "rule": "OCR variant (0.88 similarity to 'nicholson')"
-    }
-   ],
-   "person_ids": [
-    "nicholson_joshua_f"
-   ],
-   "works_cited": [],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v03_nicholson_census_1840",
    "surname_key": "nicholson",
    "spellings_as_printed": [
@@ -27381,37 +27189,6 @@
     }
    ],
    "person_ids": [],
-   "works_cited": [
-    "fergus_chicago_directory_1839"
-   ],
-   "held_works": [
-    "fergus_chicago_directory_1839"
-   ],
-   "discriminators": []
-  },
-  {
-   "lead_id": "lead_v03_nicholson_residents",
-   "surname_key": "nicholson",
-   "spellings_as_printed": [
-    "Nicholson"
-   ],
-   "layer": "residents",
-   "outcome": "candidate",
-   "class": "testable_in_a_held_work",
-   "reason": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 1 card(s) heading 'Nicholson' name Chicago or Cook County, the heading is the surname of Joshua F. Nicholson exactly, and the cards under it cite fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody.",
-   "record_ids": [
-    "nbi_v03_0963"
-   ],
-   "candidates": [
-    {
-     "id": "nicholson_joshua_f",
-     "name": "Joshua F. Nicholson",
-     "rule": "exact surname"
-    }
-   ],
-   "person_ids": [
-    "nicholson_joshua_f"
-   ],
    "works_cited": [
     "fergus_chicago_directory_1839"
    ],
@@ -31149,43 +30926,6 @@
    "discriminators": []
   },
   {
-   "lead_id": "lead_v03_root_residents",
-   "surname_key": "root",
-   "spellings_as_printed": [
-    "Root"
-   ],
-   "layer": "residents",
-   "outcome": "candidate",
-   "class": "testable_in_a_held_work",
-   "reason": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of Ez c. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody.",
-   "record_ids": [
-    "nbi_v03_1872",
-    "nbi_v03_1873",
-    "nbi_v03_1874",
-    "nbi_v03_1875"
-   ],
-   "candidates": [
-    {
-     "id": "root_ez_c",
-     "name": "Ez c. Root",
-     "rule": "exact surname"
-    }
-   ],
-   "person_ids": [
-    "root_ez_c"
-   ],
-   "works_cited": [
-    "andreas_history_of_chicago",
-    "la_salle_book_co_cook_county",
-    "moses_illinois_historical_and_statistical",
-    "moses_kirkland_history_of_chicago"
-   ],
-   "held_works": [
-    "andreas_history_of_chicago"
-   ],
-   "discriminators": []
-  },
-  {
    "lead_id": "lead_v03_rose_census_1840",
    "surname_key": "rose",
    "spellings_as_printed": [
@@ -33947,33 +33687,6 @@
    "works_cited": [
     "county_histories_kett_and_co"
    ],
-   "held_works": [],
-   "discriminators": []
-  },
-  {
-   "lead_id": "lead_v04_thon_residents",
-   "surname_key": "thon",
-   "spellings_as_printed": [
-    "Thon"
-   ],
-   "layer": "residents",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Thon' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Thon' at all. And if it were, a heading against Platt Thorn would still be a surname against a person, which is always a refusal here.",
-   "record_ids": [
-    "nbi_v04_0223"
-   ],
-   "candidates": [
-    {
-     "id": "thorn_platt",
-     "name": "Platt Thorn",
-     "rule": "OCR variant (0.89 similarity to 'thorn')"
-    }
-   ],
-   "person_ids": [
-    "thorn_platt"
-   ],
-   "works_cited": [],
    "held_works": [],
    "discriminators": []
   },
@@ -54526,22 +54239,18 @@
   {
    "record_id": "nbi_v03_0963",
    "a": "Nicholson | Chicago, III., Directory, 1839. (Fergus hist, s-r",
-   "b": "[?] Nicholson; Luther Nichols; Joshua F. Nicholson",
+   "b": "[?] Nicholson; Luther Nichols",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 1 card(s) heading 'Nicholson' name Chicago or Cook County, the heading is the surname of [?] Nicholson exactly, and the cards under it cite fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Nicholson | Chicago, III., Directory, 1839. (Fergus hist, s-r' against [?] Nicholson; Luther Nichols; Joshua F. Nicholson.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 1 of the 1 card(s) heading 'Nicholson' name Chicago or Cook County, the heading is the surname of [?] Nicholson exactly, and the cards under it cite fergus_chicago_directory_1839, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Nicholson | Chicago, III., Directory, 1839. (Fergus hist, s-r' against [?] Nicholson; Luther Nichols.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v03_nicholson_census_1840",
-    "lead_v03_nicholson_residents"
+    "lead_v03_nicholson_census_1840"
    ],
-   "person_ids": [
-    "nicholson_joshua_f"
-   ],
-   "person_id": "nicholson_joshua_f",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v03_0963",
     "data/research/newberry_index/leads.json"
@@ -56757,22 +56466,18 @@
   {
    "record_id": "nbi_v03_1872",
    "a": "Root | Chicago III. (Andreas, A, T.) |« 4.vj ' 0",
-   "b": "[?]. S. Root; Ez c. Root",
+   "b": "[?]. S. Root",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Root | Chicago III. (Andreas, A, T.) |« 4.vj ' 0\" against [?]. S. Root; Ez c. Root.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card \"Root | Chicago III. (Andreas, A, T.) |« 4.vj ' 0\" against [?]. S. Root.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v03_root_census_1840",
-    "lead_v03_root_residents"
+    "lead_v03_root_census_1840"
    ],
-   "person_ids": [
-    "root_ez_c"
-   ],
-   "person_id": "root_ez_c",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v03_1872",
     "data/research/newberry_index/leads.json"
@@ -56792,22 +56497,18 @@
   {
    "record_id": "nbi_v03_1873",
    "a": "Root | Chicago, III. (Moaea, J, and Kirkland, J.) 13951",
-   "b": "[?]. S. Root; Ez c. Root",
+   "b": "[?]. S. Root",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Root | Chicago, III. (Moaea, J, and Kirkland, J.) 13951' against [?]. S. Root; Ez c. Root.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Root | Chicago, III. (Moaea, J, and Kirkland, J.) 13951' against [?]. S. Root.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v03_root_census_1840",
-    "lead_v03_root_residents"
+    "lead_v03_root_census_1840"
    ],
-   "person_ids": [
-    "root_ez_c"
-   ],
-   "person_id": "root_ez_c",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v03_1873",
     "data/research/newberry_index/leads.json"
@@ -56827,22 +56528,18 @@
   {
    "record_id": "nbi_v03_1874",
    "a": "Root | — Cook Co. III. (Andreas, A. T.) 1884 1553,",
-   "b": "[?]. S. Root; Ez c. Root",
+   "b": "[?]. S. Root",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Root | — Cook Co. III. (Andreas, A. T.) 1884 1553,' against [?]. S. Root; Ez c. Root.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Root | — Cook Co. III. (Andreas, A. T.) 1884 1553,' against [?]. S. Root.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v03_root_census_1840",
-    "lead_v03_root_residents"
+    "lead_v03_root_census_1840"
    ],
-   "person_ids": [
-    "root_ez_c"
-   ],
-   "person_id": "root_ez_c",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v03_1874",
     "data/research/newberry_index/leads.json"
@@ -56862,22 +56559,18 @@
   {
    "record_id": "nbi_v03_1875",
    "a": "Root | LaSalle Co., III. (SeMwtn, E.) IB77i 397.",
-   "b": "[?]. S. Root; Ez c. Root",
+   "b": "[?]. S. Root",
    "outcome": "candidate",
    "class": "testable_in_a_held_work",
-   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Root | LaSalle Co., III. (SeMwtn, E.) IB77i 397.' against [?]. S. Root; Ez c. Root.",
+   "rule": "Plausible, insufficient - and answerable without acquiring anything. 3 of the 4 card(s) heading 'Root' name Chicago or Cook County, the heading is the surname of [?]. S. Root exactly, and the cards under it cite andreas_history_of_chicago, which this project already holds. Read it there. No card here gives a forename, so this mints nobody. Ruled on the card 'Root | LaSalle Co., III. (SeMwtn, E.) IB77i 397.' against [?]. S. Root.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v03_root_census_1840",
-    "lead_v03_root_residents"
+    "lead_v03_root_census_1840"
    ],
-   "person_ids": [
-    "root_ez_c"
-   ],
-   "person_id": "root_ez_c",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v03_1875",
     "data/research/newberry_index/leads.json"
@@ -59342,39 +59035,6 @@
    "ticket": "T-0590"
   },
   {
-   "record_id": "nbi_v01_0235",
-   "a": "Bacon | Bureau Co., III. (Ketl & Co., Pub.) 1877i 176,",
-   "b": "Richani jr. Bacon",
-   "outcome": "refused",
-   "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'Bacon' name Illinois and neither Chicago nor Cook County, so the lead against Richani jr. Bacon stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Bacon | Bureau Co., III. (Ketl & Co., Pub.) 1877i 176,' against Richani jr. Bacon.",
-   "layers": [
-    "residents"
-   ],
-   "leads": [
-    "lead_v01_bacon_residents"
-   ],
-   "person_ids": [
-    "bacon_richani"
-   ],
-   "person_id": "bacon_richani",
-   "evidence": [
-    "nbi_v01_0235",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_01",
-    "text_file": "vol_01_locality_cards.txt",
-    "lines": [
-     475,
-     476
-    ],
-    "index_page": 83,
-    "column": 3
-   },
-   "ticket": "T-0590"
-  },
-  {
    "record_id": "nbi_v01_0238",
    "a": "Bailey | Illinois. (Moses, J.) 1880-9?. ?». See inder. I J",
    "b": "J. Bailey; Amos Bailey; Bennet Bailey; John Baily; Amos Bailey",
@@ -59908,22 +59568,18 @@
   {
    "record_id": "nbi_v01_0310",
    "a": "Barnes | Illinois. (Moses, J.) 1383-92. 2v. See Inde",
-   "b": "A. M. Barnes; Hamilton Barnes; Wheeler Barnes",
+   "b": "A. M. Barnes; Hamilton Barnes",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Barnes | Illinois. (Moses, J.) 1383-92. 2v. See Inde' against A. M. Barnes; Hamilton Barnes; Wheeler Barnes.",
+   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Barnes | Illinois. (Moses, J.) 1383-92. 2v. See Inde' against A. M. Barnes; Hamilton Barnes.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v01_barnes_census_1840",
-    "lead_v01_barnes_residents"
+    "lead_v01_barnes_census_1840"
    ],
-   "person_ids": [
-    "barnes_wheeler"
-   ],
-   "person_id": "barnes_wheeler",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v01_0310",
     "data/research/newberry_index/leads.json"
@@ -59943,22 +59599,18 @@
   {
    "record_id": "nbi_v01_0311",
    "a": "Barnes | Illinois, Soc, Sons Am. Rev, 1896:75.",
-   "b": "A. M. Barnes; Hamilton Barnes; Wheeler Barnes",
+   "b": "A. M. Barnes; Hamilton Barnes",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Barnes | Illinois, Soc, Sons Am. Rev, 1896:75.' against A. M. Barnes; Hamilton Barnes; Wheeler Barnes.",
+   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Barnes | Illinois, Soc, Sons Am. Rev, 1896:75.' against A. M. Barnes; Hamilton Barnes.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v01_barnes_census_1840",
-    "lead_v01_barnes_residents"
+    "lead_v01_barnes_census_1840"
    ],
-   "person_ids": [
-    "barnes_wheeler"
-   ],
-   "person_id": "barnes_wheeler",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v01_0311",
     "data/research/newberry_index/leads.json"
@@ -59978,22 +59630,18 @@
   {
    "record_id": "nbi_v01_0316",
    "a": "Barnes | F 84615.4 I Sangamon Co., III. (Power, J. C.) 1876",
-   "b": "A. M. Barnes; Hamilton Barnes; Wheeler Barnes",
+   "b": "A. M. Barnes; Hamilton Barnes",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Barnes | F 84615.4 I Sangamon Co., III. (Power, J. C.) 1876' against A. M. Barnes; Hamilton Barnes; Wheeler Barnes.",
+   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Barnes | F 84615.4 I Sangamon Co., III. (Power, J. C.) 1876' against A. M. Barnes; Hamilton Barnes.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v01_barnes_census_1840",
-    "lead_v01_barnes_residents"
+    "lead_v01_barnes_census_1840"
    ],
-   "person_ids": [
-    "barnes_wheeler"
-   ],
-   "person_id": "barnes_wheeler",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v01_0316",
     "data/research/newberry_index/leads.json"
@@ -60013,22 +59661,18 @@
   {
    "record_id": "nbi_v01_0317",
    "a": "Barnes | r&iiM.oe I ' ^ ^ á n e í a í o ' C o , III. (Kelt, H. F„ 4 Co., Pub.",
-   "b": "A. M. Barnes; Hamilton Barnes; Wheeler Barnes",
+   "b": "A. M. Barnes; Hamilton Barnes",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card \"Barnes | r&iiM.oe I ' ^ ^ á n e í a í o ' C o , III. (Kelt, H. F„ 4 Co., Pub.\" against A. M. Barnes; Hamilton Barnes; Wheeler Barnes.",
+   "rule": "Refused. All 4 card(s) heading 'Barnes' name Illinois and neither Chicago nor Cook County, so the lead against A. M. Barnes; Hamilton Barnes stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card \"Barnes | r&iiM.oe I ' ^ ^ á n e í a í o ' C o , III. (Kelt, H. F„ 4 Co., Pub.\" against A. M. Barnes; Hamilton Barnes.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v01_barnes_census_1840",
-    "lead_v01_barnes_residents"
+    "lead_v01_barnes_census_1840"
    ],
-   "person_ids": [
-    "barnes_wheeler"
-   ],
-   "person_id": "barnes_wheeler",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v01_0317",
     "data/research/newberry_index/leads.json"
@@ -60147,39 +59791,6 @@
     ],
     "index_page": 128,
     "column": 3
-   },
-   "ticket": "T-0590"
-  },
-  {
-   "record_id": "nbi_v01_0351",
-   "a": "Beacon | OuPagt Co, III. 'Bl-i-hcrd, R.) I882i Pt .21 l:n",
-   "b": "Richani jr. Bacon",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Beacon' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Beacon' at all. And if it were, a heading against Richani jr. Bacon would still be a surname against a person, which is always a refusal here. Ruled on the card \"Beacon | OuPagt Co, III. 'Bl-i-hcrd, R.) I882i Pt .21 l:n\" against Richani jr. Bacon.",
-   "layers": [
-    "residents"
-   ],
-   "leads": [
-    "lead_v01_beacon_residents"
-   ],
-   "person_ids": [
-    "bacon_richani"
-   ],
-   "person_id": "bacon_richani",
-   "evidence": [
-    "nbi_v01_0351",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_01",
-    "text_file": "vol_01_locality_cards.txt",
-    "lines": [
-     707,
-     708
-    ],
-    "index_page": 132,
-    "column": 2
    },
    "ticket": "T-0590"
   },
@@ -66416,10 +66027,10 @@
   {
    "record_id": "nbi_v01_1647",
    "a": "Crandall | *—a Co, III. (Minray, Y/iillamton &. Phelpi, PuSaJ tan,",
-   "b": "Alva Crandal; Beman Crandall",
+   "b": "Alva Crandal",
    "outcome": "refused",
-   "class": "locality_absent",
-   "rule": "Refused. All 2 card(s) heading 'Crandall' name Illinois and neither Chicago nor Cook County, so the lead against Alva Crandal; Beman Crandall stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Crandall | *—a Co, III. (Minray, Y/iillamton &. Phelpi, PuSaJ tan,' against Alva Crandal; Beman Crandall.",
+   "class": "ocr_variant_only",
+   "rule": "Refused twice over. No candidate reaches 'Crandall' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Crandall' at all. And if it were, a heading against Alva Crandal would still be a surname against a person, which is always a refusal here. Ruled on the card 'Crandall | *—a Co, III. (Minray, Y/iillamton &. Phelpi, PuSaJ tan,' against Alva Crandal.",
    "layers": [
     "residents"
    ],
@@ -66427,10 +66038,9 @@
     "lead_v01_crandall_residents"
    ],
    "person_ids": [
-    "crandal_alva",
-    "crandall_beman"
+    "crandal_alva"
    ],
-   "person_id": null,
+   "person_id": "crandal_alva",
    "evidence": [
     "nbi_v01_1647",
     "data/research/newberry_index/leads.json"
@@ -66450,10 +66060,10 @@
   {
    "record_id": "nbi_v01_1648",
    "a": "Crandall | llvinrilon Co, III. (LeBaron, W, If , 4 Co , Pub,.) IBIS,",
-   "b": "Alva Crandal; Beman Crandall",
+   "b": "Alva Crandal",
    "outcome": "refused",
-   "class": "locality_absent",
-   "rule": "Refused. All 2 card(s) heading 'Crandall' name Illinois and neither Chicago nor Cook County, so the lead against Alva Crandal; Beman Crandall stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Crandall | llvinrilon Co, III. (LeBaron, W, If , 4 Co , Pub,.) IBIS,' against Alva Crandal; Beman Crandall.",
+   "class": "ocr_variant_only",
+   "rule": "Refused twice over. No candidate reaches 'Crandall' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Crandall' at all. And if it were, a heading against Alva Crandal would still be a surname against a person, which is always a refusal here. Ruled on the card 'Crandall | llvinrilon Co, III. (LeBaron, W, If , 4 Co , Pub,.) IBIS,' against Alva Crandal.",
    "layers": [
     "residents"
    ],
@@ -66461,10 +66071,9 @@
     "lead_v01_crandall_residents"
    ],
    "person_ids": [
-    "crandal_alva",
-    "crandall_beman"
+    "crandal_alva"
    ],
-   "person_id": null,
+   "person_id": "crandal_alva",
    "evidence": [
     "nbi_v01_1648",
     "data/research/newberry_index/leads.json"
@@ -67968,10 +67577,10 @@
   {
    "record_id": "nbi_v01_1909",
    "a": "Dickenson | Chicago, l i l . (Andreas, A. T.) 1884-61 3 , „ a",
-   "b": "Alexander Dickinson; David Dickson",
+   "b": "David Dickson",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Dickenson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickenson' at all. And if it were, a heading against Alexander Dickinson; David Dickson would still be a surname against a person, which is always a refusal here. Ruled on the card 'Dickenson | Chicago, l i l . (Andreas, A. T.) 1884-61 3 , „ a' against Alexander Dickinson; David Dickson.",
+   "rule": "Refused twice over. No candidate reaches 'Dickenson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickenson' at all. And if it were, a heading against David Dickson would still be a surname against a person, which is always a refusal here. Ruled on the card 'Dickenson | Chicago, l i l . (Andreas, A. T.) 1884-61 3 , „ a' against David Dickson.",
    "layers": [
     "residents"
    ],
@@ -67979,10 +67588,9 @@
     "lead_v01_dickenson_residents"
    ],
    "person_ids": [
-    "dickinson_alexander",
     "dickson_david"
    ],
-   "person_id": null,
+   "person_id": "dickson_david",
    "evidence": [
     "nbi_v01_1909",
     "data/research/newberry_index/leads.json"
@@ -68002,10 +67610,10 @@
   {
    "record_id": "nbi_v01_1924",
    "a": "Dickinson | Cook Co., III. (Ano'rcc:, ... T.) 1384 iS41,",
-   "b": "Alexander Dickinson; David Dickson",
+   "b": "David Dickson",
    "outcome": "refused",
-   "class": "surname_only_chicago",
-   "rule": "Refused. 2 of the 2 card(s) heading 'Dickinson' do name Chicago or Cook County and the heading is the surname of Alexander Dickinson exactly, but the index files every family of a surname under one heading and gives no forename, so 'Dickinson' against Alexander Dickinson; David Dickson is a surname against a person. It waits on la_salle_book_co_cook_county, which this project does not hold. Ruled on the card \"Dickinson | Cook Co., III. (Ano'rcc:, ... T.) 1384 iS41,\" against Alexander Dickinson; David Dickson.",
+   "class": "ocr_variant_only",
+   "rule": "Refused twice over. No candidate reaches 'Dickinson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickinson' at all. And if it were, a heading against David Dickson would still be a surname against a person, which is always a refusal here. Ruled on the card \"Dickinson | Cook Co., III. (Ano'rcc:, ... T.) 1384 iS41,\" against David Dickson.",
    "layers": [
     "residents"
    ],
@@ -68013,10 +67621,9 @@
     "lead_v01_dickinson_residents"
    ],
    "person_ids": [
-    "dickinson_alexander",
     "dickson_david"
    ],
-   "person_id": null,
+   "person_id": "dickson_david",
    "evidence": [
     "nbi_v01_1924",
     "data/research/newberry_index/leads.json"
@@ -68036,10 +67643,10 @@
   {
    "record_id": "nbi_v01_1925",
    "a": "Dickinson | Cook Co.. Iii. Oa Salle Book Co., Pub.) 1900.",
-   "b": "Alexander Dickinson; David Dickson",
+   "b": "David Dickson",
    "outcome": "refused",
-   "class": "surname_only_chicago",
-   "rule": "Refused. 2 of the 2 card(s) heading 'Dickinson' do name Chicago or Cook County and the heading is the surname of Alexander Dickinson exactly, but the index files every family of a surname under one heading and gives no forename, so 'Dickinson' against Alexander Dickinson; David Dickson is a surname against a person. It waits on la_salle_book_co_cook_county, which this project does not hold. Ruled on the card 'Dickinson | Cook Co.. Iii. Oa Salle Book Co., Pub.) 1900.' against Alexander Dickinson; David Dickson.",
+   "class": "ocr_variant_only",
+   "rule": "Refused twice over. No candidate reaches 'Dickinson' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickinson' at all. And if it were, a heading against David Dickson would still be a surname against a person, which is always a refusal here. Ruled on the card 'Dickinson | Cook Co.. Iii. Oa Salle Book Co., Pub.) 1900.' against David Dickson.",
    "layers": [
     "residents"
    ],
@@ -68047,10 +67654,9 @@
     "lead_v01_dickinson_residents"
    ],
    "person_ids": [
-    "dickinson_alexander",
     "dickson_david"
    ],
-   "person_id": null,
+   "person_id": "dickson_david",
    "evidence": [
     "nbi_v01_1925",
     "data/research/newberry_index/leads.json"
@@ -68061,72 +67667,6 @@
     "lines": [
      3855,
      3856
-    ],
-    "index_page": 742,
-    "column": 0
-   },
-   "ticket": "T-0590"
-  },
-  {
-   "record_id": "nbi_v01_1926",
-   "a": "Dickinnon | Fulton Co , III, (Chapman, C. C. 6 Co.) 1879:",
-   "b": "Alexander Dickinson",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Dickinnon' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickinnon' at all. And if it were, a heading against Alexander Dickinson would still be a surname against a person, which is always a refusal here. Ruled on the card 'Dickinnon | Fulton Co , III, (Chapman, C. C. 6 Co.) 1879:' against Alexander Dickinson.",
-   "layers": [
-    "residents"
-   ],
-   "leads": [
-    "lead_v01_dickinnon_residents"
-   ],
-   "person_ids": [
-    "dickinson_alexander"
-   ],
-   "person_id": "dickinson_alexander",
-   "evidence": [
-    "nbi_v01_1926",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_01",
-    "text_file": "vol_01_locality_cards.txt",
-    "lines": [
-     3857,
-     3858
-    ],
-    "index_page": 742,
-    "column": 0
-   },
-   "ticket": "T-0590"
-  },
-  {
-   "record_id": "nbi_v01_1927",
-   "a": "Dickinnon | LaSalle Cs., III. (Baldwin, E.) I877i -",
-   "b": "Alexander Dickinson",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Dickinnon' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Dickinnon' at all. And if it were, a heading against Alexander Dickinson would still be a surname against a person, which is always a refusal here. Ruled on the card 'Dickinnon | LaSalle Cs., III. (Baldwin, E.) I877i -' against Alexander Dickinson.",
-   "layers": [
-    "residents"
-   ],
-   "leads": [
-    "lead_v01_dickinnon_residents"
-   ],
-   "person_ids": [
-    "dickinson_alexander"
-   ],
-   "person_id": "dickinson_alexander",
-   "evidence": [
-    "nbi_v01_1927",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_01",
-    "text_file": "vol_01_locality_cards.txt",
-    "lines": [
-     3859,
-     3860
     ],
     "index_page": 742,
     "column": 0
@@ -76946,39 +76486,6 @@
    "ticket": "T-0590"
   },
   {
-   "record_id": "nbi_v03_0222",
-   "a": "MoCarty | I I I . ? — ' ; « ) . ! 4 « . , S 4 , lV-'4fe'.\"\"*' \" F 854.07",
-   "b": "N. M'Carty",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'MoCarty' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'MoCarty' at all. And if it were, a heading against N. M'Carty would still be a surname against a person, which is always a refusal here. Ruled on the card 'MoCarty | I I I . ? — \\' ; « ) . ! 4 « . , S 4 , lV-\\'4fe\\'.\"\"*\\' \" F 854.07' against N. M'Carty.",
-   "layers": [
-    "residents"
-   ],
-   "leads": [
-    "lead_v03_mocarty_residents"
-   ],
-   "person_ids": [
-    "mcarty_n"
-   ],
-   "person_id": "mcarty_n",
-   "evidence": [
-    "nbi_v03_0222",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_03",
-    "text_file": "vol_03_locality_cards.txt",
-    "lines": [
-     449,
-     450
-    ],
-    "index_page": 100,
-    "column": 3
-   },
-   "ticket": "T-0590"
-  },
-  {
    "record_id": "nbi_v03_0253",
    "a": "Mccormick | Illinois, (Moses, J.) 1888-92, 2v, See Index.",
    "b": "Rachel McCormick",
@@ -79683,22 +79190,18 @@
   {
    "record_id": "nbi_v03_0962",
    "a": "I Nichols | ;I I I.ynr„:;a.„.. In.cr. (Uoulton.J.T.)",
-   "b": "[?] Nicholson; Luther Nichols; Joshua F. Nicholson",
+   "b": "[?] Nicholson; Luther Nichols",
    "outcome": "refused",
    "class": "locality_absent",
-   "rule": "Refused. All 1 card(s) heading 'I Nichols' name Illinois and neither Chicago nor Cook County, so the lead against [?] Nicholson; Luther Nichols stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'I Nichols | ;I I I.ynr„:;a.„.. In.cr. (Uoulton.J.T.)' against [?] Nicholson; Luther Nichols; Joshua F. Nicholson.",
+   "rule": "Refused. All 1 card(s) heading 'I Nichols' name Illinois and neither Chicago nor Cook County, so the lead against [?] Nicholson; Luther Nichols stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'I Nichols | ;I I I.ynr„:;a.„.. In.cr. (Uoulton.J.T.)' against [?] Nicholson; Luther Nichols.",
    "layers": [
-    "census_1840",
-    "residents"
+    "census_1840"
    ],
    "leads": [
-    "lead_v03_nichols_census_1840",
-    "lead_v03_nichols_residents"
+    "lead_v03_nichols_census_1840"
    ],
-   "person_ids": [
-    "nicholson_joshua_f"
-   ],
-   "person_id": "nicholson_joshua_f",
+   "person_ids": [],
+   "person_id": null,
    "evidence": [
     "nbi_v03_0962",
     "data/research/newberry_index/leads.json"
@@ -84391,39 +83894,6 @@
     ],
     "index_page": 409,
     "column": 1
-   },
-   "ticket": "T-0590"
-  },
-  {
-   "record_id": "nbi_v04_0223",
-   "a": "Thon | Cook Cory Ms (riicrcass fa id HSA 1497,",
-   "b": "Platt Thorn",
-   "outcome": "refused",
-   "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Thon' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Thon' at all. And if it were, a heading against Platt Thorn would still be a surname against a person, which is always a refusal here. Ruled on the card 'Thon | Cook Cory Ms (riicrcass fa id HSA 1497,' against Platt Thorn.",
-   "layers": [
-    "residents"
-   ],
-   "leads": [
-    "lead_v04_thon_residents"
-   ],
-   "person_ids": [
-    "thorn_platt"
-   ],
-   "person_id": "thorn_platt",
-   "evidence": [
-    "nbi_v04_0223",
-    "data/research/newberry_index/leads.json"
-   ],
-   "locator": {
-    "list": "vol_04",
-    "text_file": "vol_04_locality_cards.txt",
-    "lines": [
-     451,
-     452
-    ],
-    "index_page": 414,
-    "column": 0
    },
    "ticket": "T-0590"
   },

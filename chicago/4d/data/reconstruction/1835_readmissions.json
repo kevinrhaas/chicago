@@ -71,13 +71,13 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 906,
+   "R1_in_window_uncertain": 905,
    "R2_in_window_single_source": 207,
    "R3_1834_return_or_muster": 28,
    "R5_later_only_backprojectable": 53
   },
   "readmitted": {
-   "R1_in_window_uncertain": 797,
+   "R1_in_window_uncertain": 796,
    "R2_in_window_single_source": 62,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
@@ -88,7 +88,7 @@
    "R3_1834_return_or_muster": 8,
    "R5_later_only_backprojectable": 14
   },
-  "presence_ruled_present": 750,
+  "presence_ruled_present": 749,
   "presence_ruled_absent": 47,
   "cards_minted": 121,
   "minted_present": 111
@@ -5075,34 +5075,6 @@
      "note": "The corpus last names this person on 1834-01-28, 1.42 years before the scene date, and says nothing after it. The persistence model gives 0.914 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_crisey_william:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_crissy_william",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_crissy_william",
-   "name_as_read": "William Crissy",
-   "dated_evidence": "1834-01-28",
-   "dated_evidence_read_as": "1834-01-28",
-   "years_before_the_scene": 1.421,
-   "persistence": 0.9137,
-   "seed": "hh_crissy_william:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-01-28, 1.42 years before the scene date, and says nothing after it. The persistence model gives 0.914 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_crissy_william:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"

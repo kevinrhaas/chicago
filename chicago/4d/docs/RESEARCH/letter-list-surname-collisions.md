@@ -70,7 +70,7 @@ and they are why the owner answered it with (c) — keep both, say the collision
 
 ## The committed cohort against its own derivation
 
-The tree holds **781** letter-list households. The pass, run today
+The tree holds **780** letter-list households. The pass, run today
 against that same tree, derives **784**. `check.sh` runs this pass's
 `--gate` and not its `--check`, so the gap has never been red. Under the ruling the
 mint-time causes are gone from this table by construction — a standing record is no

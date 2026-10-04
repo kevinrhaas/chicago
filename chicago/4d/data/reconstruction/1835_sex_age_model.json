@@ -44,7 +44,7 @@
     "own_male_rate": 0.9435,
     "measured_on_its_own": true,
     "drawn_at": 0.9435,
-    "drawn_for": 409,
+    "drawn_for": 408,
     "why": "its own 372 settled names are enough to measure it"
    },
    {
@@ -333,7 +333,7 @@
  },
  "counts": {
   "sex_drawn": {
-   "letter_list": 409,
+   "letter_list": 408,
    "civic": 303,
    "documented": 24,
    "placed": 3,
@@ -350,7 +350,7 @@
    "placed": 2
   },
   "age_drawn": {
-   "named_on_a_roll_15_and_over": 1137,
+   "named_on_a_roll_15_and_over": 1136,
    "civic_list_20_and_over": 194,
    "dependent_child_under_15": 44
   },
@@ -364,12 +364,12 @@
    "a_married_style_over_a_kinship_word": 1
   },
   "drawn_sex_is": {
-   "male": 698,
+   "male": 697,
    "female": 46
   },
   "drawn_band_is": {
    "20-29": 658,
-   "30-39": 365,
+   "30-39": 364,
    "15-19": 117,
    "40-49": 124,
    "50-59": 42,

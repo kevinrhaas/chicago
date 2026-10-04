@@ -37,15 +37,15 @@ The remedy reaches 25% of what it was asked to remedy. The other 75% is not owed
 
 ## What it is left holding
 
-415 people stand in 53 of the 53 refused buckets once every move the rule yields has been made. 0 bucket(s) clear completely.
+415 people stand in 52 of the 52 refused buckets once every move the rule yields has been made. 0 bucket(s) clear completely.
 
 T-1558 measured the ceilings, each loosening one more axis than the one above it: 3 if only the division changed, 15 if the household kind changed too, 76 if the trade could change as well, and 139 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else.
 
 | sex | age band | still held |
 |---|---|---:|
 | male | `under_10` | 74 |
-| female | `under_10` | 72 |
-| female | `20_29` | 67 |
+| female | `under_10` | 73 |
+| female | `20_29` | 66 |
 | male | `10_19` | 49 |
 | female | `10_19` | 42 |
 | male | `20_29` | 38 |
@@ -62,12 +62,12 @@ The programme is **settled**, and its finish line is the rule's own fixpoint: th
 
 > owner, 2026-09-25, answering T-1597 with option (a): "They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so." It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.
 
-**415 people remain held**, in 53 refused bucket(s). What becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
+**415 people remain held**, in 52 refused bucket(s). What becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
 
 | the refusal that holds them | people |
 |---|---:|
-| `a_documented_reading_shrank_the_order` | 8 |
-| `the_re_cut_reached_work_already_drawn` | 407 |
+| `a_documented_reading_shrank_the_order` | 7 |
+| `the_re_cut_reached_work_already_drawn` | 408 |
 
 **What would reopen it:** a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again.
 
@@ -75,20 +75,20 @@ Read from `data/reconstruction/1835_reconstruction_order_book.json § re_family_
 
 ## What the town converges to
 
-- standing in the layer: 2,927
+- standing in the layer: 2,926
 - still owed now: 220
 - still owed when the programme is spent: 220
-- converges to now: 3,147
-- converges to when the programme is spent: 3,147
-- 3,147 is inside the model's 2,365-3,265 and 602 above its 2,545 point, against 602 above it today.
+- converges to now: 3,146
+- converges to when the programme is spent: 3,146
+- 3,146 is inside the model's 2,364-3,265 and 602 above its 2,544 point, against 602 above it today.
 
-The rule's own projection of 3,008 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
+The rule's own projection of 3,007 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
 
 ## What would move the remainder
 
-- **more_orders_in_the_women_and_children_cells** (T-1532, T-1536, T-1538 (the lodging band) and the book itself) — The binding constraint is room, not willingness: the surplus is 237 people under twenty and 114 adult women, and their cells hold 10 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.
-- **a_ruling_that_an_adoption_may_be_RE_SEATED** (the business staffing band (T-1189 and its successors)) — 202 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.
-- **the_22_seated_households** (T-1199) — 62 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.
+- **more_orders_in_the_women_and_children_cells** (T-1532, T-1536, T-1538 (the lodging band) and the book itself) — The binding constraint is room, not willingness: the surplus is 238 people under twenty and 113 adult women, and their cells hold 10 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.
+- **a_ruling_that_an_adoption_may_be_RE_SEATED** (the business staffing band (T-1189 and its successors)) — 200 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.
+- **the_22_seated_households** (T-1199) — 60 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.
 - **and_the_honest_alternative** (T-1560, the programme's report) — What is left standing after the rule is spent is a remainder that NOTHING can move, and T-1459's ruling says it is held rather than clamped. The book will go on naming both numbers per bucket, which is the state the owner's ruling improved on rather than abolished.
 
 ## Every refused bucket, and what it is left holding
@@ -98,7 +98,7 @@ Each of the buckets below keeps its `held_at` and its `the_re_cut_would_have_ord
 | bucket | ticket | held at | the re-cut would have ordered | surplus today | moves outstanding | left holding |
 |---|---|---:|---:|---:|---:|---:|
 | `persons/male/under_10/south/family/none` | T-1174 | 109 | 62 | 47 | 0 | 47 |
-| `persons/female/under_10/south/family/none` | T-1174 | 100 | 56 | 44 | 0 | 44 |
+| `persons/female/under_10/south/family/none` | T-1174 | 100 | 55 | 45 | 0 | 45 |
 | `persons/female/20_29/south/family/none` | T-1174 | 64 | 35 | 29 | 0 | 29 |
 | `persons/male/10_19/south/family/none` | T-1174 | 65 | 38 | 27 | 0 | 27 |
 | `persons/female/10_19/south/family/none` | T-1174 | 55 | 32 | 23 | 0 | 23 |
@@ -133,7 +133,6 @@ Each of the buckets below keeps its `held_at` and its `the_re_cut_would_have_ord
 | `persons/female/40_49/south/family/trade` | T-1347 | 5 | 3 | 2 | 0 | 2 |
 | `persons/female/50_plus/south/family/none` | T-1174 | 6 | 4 | 2 | 0 | 2 |
 | `persons/male/20_29/south/lodging/none` | T-2023 | 22 | 20 | 2 | 0 | 2 |
-| `persons/female/20_29/north/lodging/trade` | T-1532 | 3 | 2 | 1 | 0 | 1 |
 | `persons/female/30_39/south/lodging/none` | T-2023 | 9 | 8 | 1 | 0 | 1 |
 | `persons/female/40_49/north/family/none` | T-1174 | 4 | 3 | 1 | 0 | 1 |
 | `persons/female/40_49/north/lodging/trade` | T-1532 | 1 | 0 | 1 | 0 | 1 |

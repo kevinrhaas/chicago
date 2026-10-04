@@ -15,13 +15,13 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3462,
-  "households": 1984,
-  "known": 3325,
+  "persons": 3461,
+  "households": 1983,
+  "known": 3324,
   "unknown": 137,
   "by_community": {
    "yankee": 1681,
-   "new_york": 559,
+   "new_york": 558,
    "irish": 479,
    "french_canadian": 185,
    "other": 137,
@@ -33,14 +33,14 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3267,
+   "reconstructed": 3266,
    "null": 137,
    "inferred": 55,
    "attested": 3
   },
   "by_rule": {
    "reconstruction_community": 1899,
-   "origin_region": 1401,
+   "origin_region": 1400,
    "no_origin_recorded": 121,
    "stated_community": 25,
    "origin_does_not_speak_for_this_person": 12,
@@ -48,7 +48,7 @@
   },
   "households_by_community": {
    "yankee": 690,
-   "new_york": 558,
+   "new_york": 557,
    "irish": 138,
    "other": 137,
    "unknown": 124,
@@ -1997,11 +1997,6 @@
    "rule": "origin_region"
   },
   "crisey_william": {
-   "value": "new_york",
-   "tier": "reconstructed",
-   "rule": "origin_region"
-  },
-  "crissy_william": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -19990,13 +19985,6 @@
    "rule": "origin_region",
    "head": "crisey_william",
    "file": "households/hh_crisey_william.json"
-  },
-  "hh_crissy_william": {
-   "value": "new_york",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "crissy_william",
-   "file": "households/hh_crissy_william.json"
   },
   "hh_crocker_h": {
    "value": "british",
