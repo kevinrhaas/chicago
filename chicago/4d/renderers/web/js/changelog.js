@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1410, ts: '2026-10-04T08:06:12.271Z', date: 'Oct 4, 2026, 3:06 AM CT', title: 'Nothing you can see: the queue check reports a stale board, not mends it', kind: 'chore',
+    items: [
+      'Nothing you can see in the town changes. This is about the tool that keeps the work queue.',
+      'Checking the queue used to quietly rebuild its board when the board was out of date, so the mismatch vanished before anyone saw it.',
+      'Now the check only compares: an out-of-date board fails with the one command that rebuilds it, and nothing is written.',
+    ] },
   { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
