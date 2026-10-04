@@ -1,11 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1393, ts: '2026-10-04T02:04:09.643Z', date: 'Oct 3, 2026, 9:04 PM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
       'Held sideways, Starting At\u2026 now scrolls instead of drawing Tap to enter Chicago over the list of places.',
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
+    ] },
+  { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'We measured what a first visit costs. The arrival and the jaunts add about 11 KB of it, and the jaunt catalog and the sources still load only when you open them.',
+      'Two of the town\u2019s own limits are now broken, and neither by the jaunts: a first visit downloads 13.1 MB against our 13 MB budget, and the newest trees make a phone stutter while the prairie is planted. Each now has its own fix ticketed.',
+    ] },
+  { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and Materials for a Roof now each take about five and a half to six minutes on horseback, down from just over six.',
+      'Each stop reads shorter. The places, the route, the choices and the endings are unchanged.',
+      'Every stop still says what is invented and where a place is uncertain.',
     ] },
   { v: 1392, ts: '2026-10-04T00:09:05.510Z', date: 'Oct 3, 2026, 7:09 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
     items: [
