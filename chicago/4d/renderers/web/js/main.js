@@ -1428,6 +1428,7 @@ async function boot() {
     epochId: loaded.scene.terrain_epoch,
     // The sand belt and the marsh are painted from the 1835 plant zones' extents.
     substrateBase: layerBase('flora'),
+    sceneId: loaded.scene.id ?? YEAR,
     confidence,
     problems,
   });
@@ -1977,7 +1978,7 @@ async function boot() {
   };
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
-    dataBase: layerBase('flora'), terrain, footprints: planting,
+    dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: swardBlocked,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
@@ -1989,7 +1990,7 @@ async function boot() {
       floraDone += done - treeDone; treeDone = done;
       bootController.progress('flora', floraDone, floraUnits);
     },
-    dataBase: layerBase('flora'), terrain, footprints: planting,
+    dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: treesBlocked,
     confidence, problems: layerProblems('flora'), pixelsPerRadian,
     streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
@@ -2042,12 +2043,12 @@ async function boot() {
           next.buildings.group.visible = buildings.group.visible;
         }
         next.flora = await createFlora({
-          dataBase: layerBase('flora'), terrain, footprints: planting,
+          dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
-          dataBase: layerBase('flora'), terrain, footprints: planting,
+          dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: treesBlocked,
           confidence, problems: layerProblems('flora'), pixelsPerRadian,
           streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
@@ -2143,7 +2144,7 @@ async function boot() {
       scene3d.remove(flora.group);
       flora.dispose?.();
       flora = await createFlora({
-        dataBase: layerBase('flora'), terrain, footprints: planting,
+        dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
@@ -2152,7 +2153,7 @@ async function boot() {
       scene3d.remove(trees.group);
       trees.dispose?.();
       trees = await createTrees({
-        dataBase: layerBase('flora'), terrain, footprints: planting,
+        dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: treesBlocked,
         confidence, problems: layerProblems('flora'), pixelsPerRadian,
         streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],

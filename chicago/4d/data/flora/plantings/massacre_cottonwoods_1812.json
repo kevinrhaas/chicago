@@ -1,0 +1,42 @@
+{
+  "_doc": "A PLANTING RECORD for the 1812 scene (T-0471): woody stems whose position is stated rather than dealt, read by renderers/web/js/trees.js through data/flora/index.json exactly as the 1835 records are, and scoped there to scene 1812 so it stands in no other year. The rest of the 1812 shore's cover is the zone records' ecology, dealt from the land; this file is the one place a TRADITION about two particular trees is written down, and it is kept apart from that cover so the two claims can never be mistaken for each other.",
+  "id": "massacre_cottonwoods_1812",
+  "name": "The two cottonwood saplings remembered as marking the ground of 15 August 1812",
+  "kind": "planting",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "zone": "z08_lakeshore",
+  "existence": {
+    "value": true,
+    "confidence": "inferred",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "note": "A TRADITION, RECORDED EIGHTY YEARS ON, AND GRADED AS ONE. Moses and Kirkland, History of Chicago vol. 1 (1895), p. 60: 'When Eighteenth street came to be laid out there stood between its curb stones, two old cottonwood trees which were pointed out by earlier traditions as marking the battle-ground and named the \"Massacre trees,\" and they were therefore spared, although standing near the middle of the roadway.' The same page carries the claim that puts them in THIS scene: 'Mrs. Kinzie, author of Wau-Bun ... told Mrs. Henry W. King that those trees were saplings at the time of the massacre, and marked the spot of its occurrence', and p. 61 adds Isaac N. Arnold's recollection of 1836, 'There were then growing some cottonwood trees, near which I was told the massacre occurred', one of them 'still standing in the street leading from Michigan avenue to the lake, and not very far from the track of the Illinois Central railroad.' Nobody in that chain saw the trees in 1812; the claim is family tradition passed through two hands, so existence is INFERRED from it and not documented. The same page's general description is what makes the species unremarkable rather than chosen: 'On its lower reaches stood scattered cottonwoods, and here and there a small group or a single tree' (p. 60). THESE TREES DO NOT LOCATE THE BATTLE. The literature's confidence zone for the action is T-0470's to map; these stems stand where a tradition says two trees stood, which is a claim about the trees."
+  },
+  "stems": [
+    {
+      "id": "massacre_cottonwood_north",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        1534.0,
+        -3203.0
+      ],
+      "height_m": 5.0,
+      "confidence": "reconstructed",
+      "note": "POSITION RECONSTRUCTED WITHIN TWO BOUNDS. Northing: 4 m north of N -3206.93, the Eighteenth Street line this repository already resolves from OpenStreetMap for the eighteenth_prairie anchor (data/traces/south_anchor_control.json) — the source puts both trees 'between its curb stones', so they stand on that line, and 4 m either side of it keeps the pair inside a roadway. Easting: on the lower reach of the 1812 bank, where the ground of e1830_natural stands about 1.8 m above the water and inside z08_lakeshore's woody_stratum (1.22-2.32 m), because p. 60 puts the scattered cottonwoods 'on its lower reaches' and Arnold puts the survivor near the Illinois Central, which ran along the shore. The bank's own place at this northing is conjectural ground (the terrain spec's evidence_limit), so this point is too. HEIGHT 5.0 m is the floor of the species' recorded 5-15 m band in z08_lakeshore: Mrs. Kinzie's word is 'saplings', and a sapling is held at the smallest tree the record allows rather than below it."
+    },
+    {
+      "id": "massacre_cottonwood_south",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        1535.0,
+        -3211.0
+      ],
+      "height_m": 5.0,
+      "confidence": "reconstructed",
+      "note": "POSITION RECONSTRUCTED, the pair's second stem: 4 m south of the same Eighteenth Street line and 1 m further down the bank, so the two read as a pair in one roadway rather than a single crown. The 8 m between them is ours; the source says only 'two'. Ground about 1.8 m above the water, inside z08_lakeshore's woody band. Height 5.0 m for the reason its partner's note gives."
+    }
+  ],
+  "research_note": "WHAT WOULD MOVE THESE. A plat or survey of Eighteenth Street at its laying-out that draws the trees in the roadway, or a photograph of the surviving tree against the curb line and the railroad, would turn the easting from reconstructed into inferred. Moses and Kirkland say it bore its last leaves in 1887 and was still standing dead when they wrote (p. 60). No such plat or photograph is in this corpus yet, so none is cited."
+}

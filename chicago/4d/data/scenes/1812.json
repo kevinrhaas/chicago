@@ -35,13 +35,21 @@
       "yaw_deg": 0.0,
       "altitude_m": 120.0,
       "pitch_deg": -35.0
+    },
+    {
+      "id": "eighteenth_street_shore",
+      "label": "The bank at the later Eighteenth Street - two remembered cottonwoods",
+      "local_e": 1495.0,
+      "local_n": -3185.0,
+      "yaw_deg": 120.0
     }
   ],
   "layers": [
     "terrain",
     "water",
+    "flora",
     "structures"
   ],
   "released": false,
-  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). Only the town-wide layers written for 1835 are left out - flora, fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here - so the ground is the epoch's bare ground. No person is drawn: the Indigenous-history review gates of T-0472 come before any figure, card or narrative of 1812, and this scene is not released."
+  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). THE COVER (T-0471): the flora layer is drawn, and data/flora/index.json's `scenes` lists decide what of it stands here - the natural zone records (prairie, sedge meadow, marsh, river timber, wet woods, beach and sand prairie) are the ground's and are dealt from this epoch's heightfield, while the settled town's sward and the 1835 plantings (dooryards, the Lombardy rows, the Sauganash's trees, the willows by the second fort) are scoped to 1835 and stand nowhere here. The one planting of this scene is massacre_cottonwoods_1812, a remembered pair whose existence is inferred and whose places are reconstructed (L372); the cover's own month and the garrison's missing clearing are L371. The other town-wide layers written for 1835 are still left out - fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here. `eighteenth_street_shore` is a CAMERA on the conjectural bank three kilometres south of the fort, looking east-south-east at the two cottonwoods; it does not locate the battle, which is T-0470's to map. No person is drawn: the Indigenous-history review gates of T-0472 come before any figure, card or narrative of 1812, and this scene is not released."
 }

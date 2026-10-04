@@ -74,6 +74,7 @@
  */
 
 import * as THREE from 'three';
+import { floraInScene } from './flora.js';
 import { createTreeAtlas, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 
 /**
@@ -1144,7 +1145,7 @@ function timberEastLimits(streetRecords, problems = []) {
   return out;
 }
 
-async function loadTimberZones(dataBase, problems = []) {
+async function loadTimberZones(dataBase, problems = [], sceneId = null) {
   const manifestUrl = new URL('flora/index.json', dataBase);
   const manifest = await fetchOk(manifestUrl);
   const specs = {};
@@ -1266,9 +1267,13 @@ async function loadTimberZones(dataBase, problems = []) {
   // settled town will ever put one there rather than three doors down. So a
   // planting record states the stem, and it is read through the same manifest
   // and by the same rule as everything else here — exactly the files named,
-  // never a probe.
+  // never a probe. A planting is a claim about the scene it names (T-0471): the
+  // 1812 shore is not planted with 1835's dooryards. The zone records above are
+  // still read whole — they are ecology, and z10's poplar is reachable only
+  // through a planting, so a scene without the rows cannot select it.
   const plantings = [];
   for (const entry of manifest.plantings ?? []) {
+    if (!floraInScene(entry, sceneId)) continue;
     plantings.push(await fetchOk(new URL(entry.file, manifestUrl)));
   }
   return { specs, byZone, shrubByZone, bands, woody, unimplemented: [...unimplemented],
@@ -2033,6 +2038,7 @@ export async function createTrees({
   dataBase, terrain, footprints = [], growthBlocked = () => false,
   confidence = null, problems = [], lowSpec = false, detail = 'full',
   pixelsPerRadian = null, streetRecords = [], zoneAt = null, checkpoint = () => null, onProgress = () => {},
+  sceneId = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'trees';
@@ -2095,7 +2101,7 @@ export async function createTrees({
   let records;
   try {
     if (!dataBase) throw new Error('no dataBase');
-    records = await loadTimberZones(dataBase, problems);
+    records = await loadTimberZones(dataBase, problems, sceneId);
   } catch (err) {
     problems.push(`trees: the flora zone records did not load (${err.message}) — `
       + 'no woody vegetation placed');
