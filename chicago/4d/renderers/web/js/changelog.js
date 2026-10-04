@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1441, ts: '2026-10-04T18:49:26.256Z', date: 'Oct 4, 2026, 1:49 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
+  { v: null, ts: '', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
     items: [
       'Walk up Franklin Street to the river: Newberry & Dole\u2019s forwarding and commission warehouse no longer stands across the end of the street and in South Water Street. It now sits back in the corner west of Franklin and south of South Water, still facing the river.',
       'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
-      'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L377).',
+      'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L378).',
+    ] },
+  { v: 1441, ts: '2026-10-04T18:51:58.275Z', date: 'Oct 4, 2026, 1:51 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
+    items: [
+      'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',
+      'At each end the lane crosses the roadside to the street, so a cart turning in from Wells or LaSalle leaves the road on the same ground.',
+      'Twenty-nine alleys have a lane. Seven on blocks with nothing built stay grass. On the Lake Street blocks the lane stops where a house stands across the alley.',
+      'Nothing new is drawn as a separate piece, so the town draws no more objects than before. The lanes are a reconstruction (Liberty L377).',
     ] },
   { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
     items: [
