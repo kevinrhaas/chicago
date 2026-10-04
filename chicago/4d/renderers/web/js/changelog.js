@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1450, ts: '2026-10-04T22:20:07.096Z', date: 'Oct 4, 2026, 5:20 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
+    items: [
+      'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
+      'The rule changed once to make that true, so 729 reconstructed families show a different year today, and the town as a whole still came in the same proportions: about one in six in 1833, one in three in 1834 and the rest in 1835.',
+      'Because a building\u2019s weathering follows how long its family has been here, 23 houses and shops look a season newer or older. Campbell\u2019s on the south side, for one, now has fresh clapboard and a new roof.',
+    ] },
   { v: 1449, ts: '2026-10-04T21:51:03.440Z', date: 'Oct 4, 2026, 4:51 PM CT', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
     items: [
       'Nothing you can see changes yet. 1904\u2019s Glessner house windows draw the whole scene a second time every frame, and that is about half of each frame there.',
