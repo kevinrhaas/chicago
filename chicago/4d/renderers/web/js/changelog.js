@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
+    items: [
+      'Fourteen jaunts, A Bed for the Night among them, ask you to choose before you can move on. On a phone the options sat below the story, out of sight, and Next Stop was simply greyed out, so the outing looked stuck at its first stop.',
+      'At a stop like that the button now reads Choose an Option. Tap it and the panel scrolls to the options.',
+      'Nothing about the previous jaunt was carried over. All 26 jaunts were run start to finish, one after another, on a phone-sized and a desktop-sized window.',
+    ] },
   { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
