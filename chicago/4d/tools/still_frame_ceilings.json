@@ -6,6 +6,11 @@
   "year": "1835",
   "stand": "town_backyard",
   "stand_why": "T-2084's back yard on Washington and Wells: the worst 1835 stand at every tier and both viewports in T-2099's table (docs/measurements/T-2099-still-frame.md). 1904's landing is slower still and is T-2109's to fix; this holds 1835.",
+  "tiers": [
+    "full",
+    "balanced",
+    "light"
+  ],
   "machines": [
     {
       "cpu": "AMD EPYC 9V74 80-Core Processor",

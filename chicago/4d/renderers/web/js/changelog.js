@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Neither is the slowest view. That is still a back yard on Washington Street.',
+      'The welcome screen redraws the whole town again and again while you read it, even though the picture never changes. A phone spends its effort on a menu, and making it draw once is the next fix.',
+      'Each Scene detail setting now has a time limit at that back yard. A change that makes every frame slower is caught before it ships.',
+    ] },
   { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
     items: [
       'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
