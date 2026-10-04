@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1440, ts: '2026-10-04T18:49:29.905Z', date: 'Oct 4, 2026, 1:49 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+  { v: 1441, ts: '2026-10-04T18:49:43.833Z', date: 'Oct 4, 2026, 1:49 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
     items: [
       'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
       'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
       'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
       'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
+    ] },
+  { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
+    items: [
+      'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
+      'The worn riverbank it lies on was being drawn in front of the boards at a distance. The bank now always lies under the walk and the road, as it does up close.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
     ] },
   { v: 1439, ts: '2026-10-04T18:11:34.742Z', date: 'Oct 4, 2026, 1:11 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
     items: [
