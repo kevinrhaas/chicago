@@ -246,22 +246,22 @@
     "stands_on": "alley",
     "fronts": "randolph",
     "sequence": 6,
-    "finish_key": "weathered_timber",
-    "roof_condition": "darkened",
-    "age_state": "established",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
       "by": "keeper_trade",
       "household": "hh_dewey_d_s",
-      "words": "silvered boards under a weather-darkened roof — The Dewey household's, a milliner, in Chicago since 1833 (rule F-T)"
+      "words": "new-sawn boards under a new roof — The Dewey household's, a milliner, in Chicago since 1835 (rule F-T)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "tradesman",
-    "age_state": "established",
-    "weather_years": 2.5,
+    "age_state": "new",
+    "weather_years": 0.5,
     "weather_rate": 1.0,
     "lay_m": 0.006,
     "confidence": "reconstructed"

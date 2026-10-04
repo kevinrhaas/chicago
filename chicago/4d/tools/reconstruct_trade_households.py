@@ -656,8 +656,21 @@ def band_block(band: str, seed: str) -> dict:
     }
 
 
+def moved_slots(moves: dict) -> dict:
+    """{the slot a moved head was dealt in: his person id} (T-2078).
+
+    The rule's move rows name the head and not the slot; its held roster names both, as
+    `deal_key`, which is this stage's own slot id. Only heads the rule moves are read."""
+    if not moves or not REFAMILY_RULE.exists():
+        return {}
+    moved = {r["person"] for rows in moves.values() for r in rows}
+    doc = json.loads(REFAMILY_RULE.read_text(encoding="utf-8"))
+    return {r["deal_key"]: r["person"] for r in doc.get("the_held_roster") or []
+            if r.get("person") in moved and r.get("deal_key")}
+
+
 def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
-             moves: dict | None = None) -> dict:
+             moves: dict | None = None, pins: dict | None = None) -> dict:
     bucket, sex, band, division, trade, index = slot
     slot_id = f"{STAGE}:{bucket}:{trade}:{index:03d}"
     community = community_for(trade, slot_id, pool)
@@ -672,6 +685,26 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
     second = draw(f"{slot_id}:forename")
     surname = surnames[first % len(surnames)]
     given = givens[second % len(givens)]
+    # A HEAD THE RULE HAS MOVED KEEPS THE NAME IT MOVED UNDER (T-2078). The search below
+    # steps past every name the layer holds, including the garrison's, which is drawn
+    # AFTER this stage and redraws whenever a real surname joins the town. When T-2078's
+    # 39 letter-list residents did that, the garrison let go of `Lemuel Leland`, this slot
+    # stopped stepping past him, and `rc_leland_silas` — moved, seated in a west-side
+    # house, counted in the book's ledger — would have been dealt again as somebody else.
+    # A move is matched to its slot by the rule's `deal_key` (`moved_slots`), and if the
+    # pair it names is still free here the search starts on it; if it is not, the search
+    # runs as before and the move check below says so. On a tree where nothing redrew,
+    # the search would have found this same pair, so no card changes.
+    pinned = (pins or {}).get(slot_id)
+    search_from = (first, second)
+    if pinned:
+        for s_i, cand_s in enumerate(surnames):
+            for g_i, cand_g in enumerate(givens):
+                if (f"{PREFIX}{cand_s.lower()}_{cand_g.lower()}" == pinned
+                        and f"{cand_g} {cand_s}".lower() not in taken_names
+                        and pinned not in taken_ids):
+                    search_from = (s_i, g_i)
+    first, second = search_from
     for step_s in range(len(surnames)):
         candidate_surname = surnames[(first + step_s) % len(surnames)]
         for step_g in range(len(givens)):
@@ -942,6 +975,7 @@ def fill() -> tuple:
     plan = trade_plan()
     taken_names, _real, taken_ids = layer()
     moves = refamily_moves()
+    pins = moved_slots(moves)
 
     cards = {}
     by_trade = Counter()
@@ -952,7 +986,7 @@ def fill() -> tuple:
     sizes_owed = Counter()
 
     for slot in deal():
-        card = card_for(slot, pool, sizes, caps, taken_names, taken_ids, moves)
+        card = card_for(slot, pool, sizes, caps, taken_names, taken_ids, moves, pins)
         cards[card["id"]] = card
         by_trade[slot[4]] += 1
         by_division[slot[3]] += 1

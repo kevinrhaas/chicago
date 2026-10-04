@@ -11,22 +11,22 @@
   "proposed_not_written": 864
  },
  "counts": {
-  "person_records": 2891,
+  "person_records": 2928,
   "carried_by_the_civic_mint": 511,
-  "rungs_spent": 812,
-  "conflicts_for_the_owner": 77,
+  "rungs_spent": 845,
+  "conflicts_for_the_owner": 81,
   "spent_by_rule": {
    "G1a": 22,
    "G1b": 92,
    "G1c": 11,
    "G2c": 1,
-   "G2e": 53,
-   "G3": 633
+   "G2e": 54,
+   "G3": 665
   },
   "conflicts_by_kind": {
-   "abstention": 41,
+   "abstention": 44,
    "downgrade": 35,
-   "subtype": 1
+   "subtype": 2
   }
  },
  "refusal_kinds": {
@@ -352,6 +352,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "bacon_richani",
+   "household_id": "hh_bacon_richani",
+   "name": "Richani jr. Bacon",
+   "identity": "id_bacon_richani",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "bailly_joseph",
    "household_id": "hh_bailly_joseph",
    "name": "Joseph Bailly",
@@ -446,6 +455,15 @@
    "household_id": "hh_barbour_timothy",
    "name": "Timothy Barbour",
    "identity": "id_barbour_timothy",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "barnes_wheeler",
+   "household_id": "hh_barnes_wheeler",
+   "name": "Wheeler Barnes",
+   "identity": "id_barnes_wheeler",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -1810,6 +1828,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "crandall_beman",
+   "household_id": "hh_crandall_beman",
+   "name": "Beman Crandall",
+   "identity": "id_crandall_beman",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "crane_h_y",
    "household_id": "hh_crane_h_y",
    "name": "H. Y. Crane",
@@ -2039,6 +2066,15 @@
    "household_id": "hh_devoe_samuel",
    "name": "Samuel Devoe",
    "identity": "id_devoe_samuel",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "dickinson_alexander",
+   "household_id": "hh_dickinson_alexander",
+   "name": "Alexander Dickinson",
+   "identity": "id_dickinson_alexander",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -3034,6 +3070,15 @@
    "resident_subtype": null
   },
   {
+   "person_id": "haight_d_s",
+   "household_id": "hh_haight_d_s",
+   "name": "D. S. Haight",
+   "identity": "id_haight_d_s",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "hail_aifred",
    "household_id": "hh_hail_aifred",
    "name": "Aifred Hail",
@@ -3907,6 +3952,15 @@
    "resident_subtype": null
   },
   {
+   "person_id": "kerchevel_lewis",
+   "household_id": "hh_kerchevel_lewis",
+   "name": "Lewis Kerchevel",
+   "identity": "id_kerchevel_lewis",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "keys_ed_or_jos_keys",
    "household_id": "hh_keys_ed_or_jos_keys",
    "name": "Ed. or Jos. Keys Keys",
@@ -3929,6 +3983,15 @@
    "household_id": "hh_kilburn_milton",
    "name": "Milton Kilburn",
    "identity": "id_kilburn_milton",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "killigoss_isaac",
+   "household_id": "hh_killigoss_isaac",
+   "name": "Isaac Killigoss",
+   "identity": "id_killigoss_isaac",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -4375,6 +4438,15 @@
    "resident_subtype": null
   },
   {
+   "person_id": "loweley_watere_e",
+   "household_id": "hh_loweley_watere_e",
+   "name": "Watere e Loweley",
+   "identity": "id_loweley_watere_e",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "loyell_j_hi",
    "household_id": "hh_loyell_j_hi",
    "name": "J. HI. Loyell",
@@ -4445,6 +4517,15 @@
    "rule": "G1c",
    "grade": "attested",
    "resident_subtype": null
+  },
+  {
+   "person_id": "mackel_james",
+   "household_id": "hh_mackel_james",
+   "name": "James Mackel",
+   "identity": "id_mackel_james",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
   },
   {
    "person_id": "mackie_james",
@@ -4591,6 +4672,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "mcarty_n",
+   "household_id": "hh_mcarty_n",
+   "name": "N. M'Carty",
+   "identity": "id_mcarty_n",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "mcclinton_wilson",
    "household_id": "hh_mcclinton_wilson",
    "name": "Wilson McClinton",
@@ -4627,6 +4717,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "mdaniel_a",
+   "household_id": "hh_mdaniel_a",
+   "name": "A. M'Daniel",
+   "identity": "id_mdaniel_a",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "mdolold_james",
    "household_id": "hh_mdolold_james",
    "name": "James M'Dolold",
@@ -4640,6 +4739,15 @@
    "household_id": "hh_meacham_mary",
    "name": "Mary Meacham",
    "identity": "id_meacham_mary",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "meriams_mary",
+   "household_id": "hh_meriams_mary",
+   "name": "Mary Meriams",
+   "identity": "id_meriams_mary",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -4802,6 +4910,15 @@
    "household_id": "hh_mlean_john_y",
    "name": "John Y. M'Lean",
    "identity": "id_mlean_john_y",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "monreou_john",
+   "household_id": "hh_monreou_john",
+   "name": "John Monreou",
+   "identity": "id_monreou_john",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -4996,6 +5113,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "natta_j_v",
+   "household_id": "hh_natta_j_v",
+   "name": "J. V. Natta",
+   "identity": "id_natta_j_v",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "neff_r_a",
    "household_id": "hh_neff_r_a",
    "name": "R. A. Neff",
@@ -5023,10 +5149,28 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "nett_robert_a",
+   "household_id": "hh_nett_robert_a",
+   "name": "Robert A. Nett",
+   "identity": "id_nett_robert_a",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "newton_daniel",
    "household_id": "hh_newton_daniel",
    "name": "Daniel Newton",
    "identity": "id_newton_daniel",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "nicholson_joshua_f",
+   "household_id": "hh_nicholson_joshua_f",
+   "name": "Joshua F. Nicholson",
+   "identity": "id_nicholson_joshua_f",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -5099,6 +5243,33 @@
    "household_id": "hh_orinsbey_martin_t",
    "name": "martin T. Orinsbey",
    "identity": "id_orinsbey_martin_t",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "orisbee_edgar_i",
+   "household_id": "hh_orisbee_edgar_i",
+   "name": "Edgar I.. Orisbee",
+   "identity": "id_orisbee_edgar_i",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "ormshee_s_b",
+   "household_id": "hh_ormshee_s_b",
+   "name": "S. B. Ormshee",
+   "identity": "id_ormshee_s_b",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "osborn_b",
+   "household_id": "hh_osborn_b",
+   "name": "B. Osborn",
+   "identity": "id_osborn_b",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -5311,6 +5482,15 @@
    "resident_subtype": null
   },
   {
+   "person_id": "pedrick_robert_c",
+   "household_id": "hh_pedrick_robert_c",
+   "name": "Robert c. Pedrick",
+   "identity": "id_pedrick_robert_c",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "pennington_sack_f",
    "household_id": "hh_pennington_sack_f",
    "name": "Sack F. Pennington",
@@ -5423,6 +5603,15 @@
    "household_id": "hh_plumer_f",
    "name": "S. F. Plumer",
    "identity": "id_plumer_s_f",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "poel_green",
+   "household_id": "hh_poel_green",
+   "name": "Green Poel",
+   "identity": "id_poel_green",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -5635,6 +5824,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "richey_thos_h",
+   "household_id": "hh_richey_thos_h",
+   "name": "Thos. H. Richey",
+   "identity": "id_richey_thomas_h",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "rinhart_james_h",
    "household_id": "hh_rinhart_james_h",
    "name": "James H. Rinhart",
@@ -5729,6 +5927,15 @@
    "household_id": "hh_romer_carl",
    "name": "Carl Romer",
    "identity": "id_romer_carl",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "root_ez_c",
+   "household_id": "hh_root_ez_c",
+   "name": "Ez c. Root",
+   "identity": "id_root_ez_c",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -5896,6 +6103,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "sawyer_james_a",
+   "household_id": "hh_sawyer_james_a",
+   "name": "James A. Sawyer",
+   "identity": "id_sawyer_james_a",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "saymore_ira",
    "household_id": "hh_saymore_ira",
    "name": "Ira Saymore",
@@ -6008,6 +6224,15 @@
    "household_id": "hh_shearman_h_c",
    "name": "H. C. Shearman",
    "identity": "id_shearman_h_c",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "sheldon_oliveann",
+   "household_id": "hh_sheldon_oliveann",
+   "name": "Oliveann Sheldon",
+   "identity": "id_sheldon_oliveann",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -6427,6 +6652,15 @@
    "resident_subtype": null
   },
   {
+   "person_id": "stiles_david",
+   "household_id": "hh_stiles_david",
+   "name": "David Stiles",
+   "identity": "id_stiles_david",
+   "rule": "G2e",
+   "grade": "inferred",
+   "resident_subtype": null
+  },
+  {
    "person_id": "stimson_s_c",
    "household_id": "hh_stimson_s_c",
    "name": "S. C. Stimson",
@@ -6539,6 +6773,15 @@
    "household_id": "hh_sunny_miches",
    "name": "Miches! Sunny",
    "identity": "id_sunny_miches",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "swanwick_f",
+   "household_id": "hh_swanwick_f",
+   "name": "F. Swanwick",
+   "identity": "id_swanwick_f",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -6688,6 +6931,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "thorn_platt",
+   "household_id": "hh_thorn_platt",
+   "name": "Platt Thorn",
+   "identity": "id_thorn_platt",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "thrall_e_l",
    "household_id": "hh_thrall_e_l",
    "name": "E. L. Thrall",
@@ -6701,6 +6953,15 @@
    "household_id": "hh_timothv_pitkin",
    "name": "Pitkin Timothv",
    "identity": "id_timothv_pitkin",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "timothy_b",
+   "household_id": "hh_timothy_b",
+   "name": "B. Timothy",
+   "identity": "id_timothy_b",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -6821,6 +7082,15 @@
    "rule": "G1b",
    "grade": "attested",
    "resident_subtype": null
+  },
+  {
+   "person_id": "vanderwerker_adam",
+   "household_id": "hh_vanderwerker_adam",
+   "name": "Adam Vanderwerker",
+   "identity": "id_vanderwerker_adam",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
   },
   {
    "person_id": "vandeventer_wm",
@@ -7102,6 +7372,15 @@
    "resident_subtype": "projected_resident"
   },
   {
+   "person_id": "whitcomb_aaron",
+   "household_id": "hh_whitcomb_aaron",
+   "name": "Aaron Whitcomb",
+   "identity": "id_whitcomb_aaron",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "white_edson",
    "household_id": "hh_white_edson",
    "name": "Edson White",
@@ -7142,6 +7421,15 @@
    "household_id": "hh_wilkes_alexander",
    "name": "Alexander Wilkes",
    "identity": "id_wilkes_alexander",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "willaee_philip",
+   "household_id": "hh_willaee_philip",
+   "name": "Philip Willaee",
+   "identity": "id_willaee_philip",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -7307,6 +7595,15 @@
    "rule": "G2e",
    "grade": "inferred",
    "resident_subtype": null
+  },
+  {
+   "person_id": "wrickey_thomas_h",
+   "household_id": "hh_wrickey_thomas_h",
+   "name": "Thomas H. Wrickey",
+   "identity": "id_wrickey_thomas_h",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
   },
   {
    "person_id": "wright_john",
@@ -7752,6 +8049,21 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "eliphalet_atkins_2",
+   "household_id": "hh_eliphalet_atkins_2",
+   "name": "Atkins [?] Eliphalet",
+   "identity": "id_eliphalet_atkins",
+   "rule": "G5",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "abstention",
+   "proposed": {
+    "grade": null,
+    "resident_subtype": null
+   },
+   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
    "person_id": "evans_sciota",
    "household_id": "hh_evans_sciota",
    "name": "Sciota Evans",
@@ -7966,6 +8278,21 @@
    "household_id": "hh_jones_es_high",
    "name": "High Es Jones",
    "identity": "id_jones_high_es",
+   "rule": "G5",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "abstention",
+   "proposed": {
+    "grade": null,
+    "resident_subtype": null
+   },
+   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "julius_perrin_2",
+   "household_id": "hh_julius_perrin_2",
+   "name": "Perrin [?] Julius",
+   "identity": "id_julius_perrin",
    "rule": "G5",
    "grade": "inferred",
    "resident_subtype": "projected_resident",
@@ -8457,6 +8784,21 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "vanzandt_w_2",
+   "household_id": "hh_vanzandt_w_2",
+   "name": "Vanzandt [?] W.",
+   "identity": "id_vanzandt_w",
+   "rule": "G5",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "abstention",
+   "proposed": {
+    "grade": null,
+    "resident_subtype": null
+   },
+   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
    "person_id": "vasseur_noel",
    "household_id": "hh_vasseur_noel",
    "name": "Noel Vasseur",
@@ -8485,6 +8827,21 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "weed_sally",
+   "household_id": "hh_weed_sally",
+   "name": "Sally Weed",
+   "identity": "id_weed_sally",
+   "rule": "G2e",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "subtype",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": null
+   },
+   "why": "the rung proposes the same grade with a DIFFERENT resident_subtype. Taking a `projected_resident` caveat off a card, or putting one on, is a change to what the card claims and not a reason for what it already says."
   },
   {
    "person_id": "woodworth_james_h",

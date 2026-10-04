@@ -30,8 +30,8 @@
   "newspapers": {
    "names_read": 2317,
    "identities": 2074,
-   "appearances_on_an_identity_the_town_already_carries": 1241,
-   "unmatched": 1076
+   "appearances_on_an_identity_the_town_already_carries": 1277,
+   "unmatched": 1040
   },
   "old_settlers": {
    "names_read": 744,
@@ -40,10 +40,10 @@
    "unmatched": 692
   },
   "residents": {
-   "names_read": 1400,
-   "identities": 1400,
+   "names_read": 1437,
+   "identities": 1437,
    "appearances_on_an_identity_the_town_already_carries": 0,
-   "unmatched": 1400
+   "unmatched": 1437
   },
   "books": {
    "names_read": 0,
@@ -103,14 +103,14 @@
   "directories|residents": 160,
   "newspapers|newspapers": 2074,
   "newspapers|old_settlers": 50,
-  "newspapers|residents": 1058,
+  "newspapers|residents": 1092,
   "old_settlers|old_settlers": 736,
   "old_settlers|residents": 50,
-  "residents|residents": 1400
+  "residents|residents": 1437
  },
  "town_rows_this_tool_could_not_parse": {
-  "persons_in_the_layer": 1404,
-  "persons_this_tool_placed_on_an_identity": 1400,
+  "persons_in_the_layer": 1441,
+  "persons_this_tool_placed_on_an_identity": 1437,
   "why": "a card whose name is a surname alone, a firm style, or an honorific with no forename cannot be split into (surname, forename) and is refused by R1 like any other source reading. They are named in the master's refusals."
  },
  "negative_searches_recorded": {
@@ -126,6 +126,6 @@
    "X2": 1,
    "X3": 1
   },
-  "declared_refusals": 2287
+  "declared_refusals": 2295
  }
 }

@@ -8,11 +8,11 @@
  "what_a_match_here_does_not_mean": "It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload.",
  "rule": "SURNAME must match after both are folded (case, punctuation and the transcriber's usual confusions removed), AND the first initial of the given name must match. A surname-only agreement is a REFUSAL, however good it looks. Where one 1835 person meets more than one entry the match is AMBIGUOUS and is filed as such; where two 1835 people meet one entry it is CONTESTED and no match is made.",
  "counts": {
-  "residents_considered": 1402,
+  "residents_considered": 1439,
   "matched_one_entry": 64,
   "matched_more_than_one_ambiguous": 17,
   "one_entry_contested_by_two_residents": 20,
-  "surname_present_initial_absent_refused": 264,
+  "surname_present_initial_absent_refused": 267,
   "matches_carrying_a_birth_year": 42,
   "matches_carrying_a_date_of_death": 57
  },
@@ -3451,6 +3451,13 @@
    "rule": "The surname 'Harris' is in Fergus's death notices and no entry under it carries the initial 'D' of 'David Harris'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "David Stiles",
+   "person_id": "stiles_david",
+   "surname_in_the_list": "Stiles",
+   "candidates": 1,
+   "rule": "The surname 'Stiles' is in Fergus's death notices and no entry under it carries the initial 'D' of 'David Stiles'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "David Swearingen",
    "person_id": "swearingen_david",
    "surname_in_the_list": "Swearingen",
@@ -3610,6 +3617,13 @@
    "surname_in_the_list": "Bailly",
    "candidates": 1,
    "rule": "The surname 'Bailly' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Esther Bailly'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Ez c. Root",
+   "person_id": "root_ez_c",
+   "surname_in_the_list": "Root",
+   "candidates": 3,
+   "rule": "The surname 'Root' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Ez c. Root'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Ezekiel Turner",
@@ -4422,6 +4436,13 @@
    "surname_in_the_list": "Thompson",
    "candidates": 2,
    "rule": "The surname 'Thompson' is in Fergus's death notices and no entry under it carries the initial 'O' of 'O I Thompson'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Oliveann Sheldon",
+   "person_id": "sheldon_oliveann",
+   "surname_in_the_list": "Sheldon",
+   "candidates": 1,
+   "rule": "The surname 'Sheldon' is in Fergus's death notices and no entry under it carries the initial 'O' of 'Oliveann Sheldon'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Ordemus Morrison",
