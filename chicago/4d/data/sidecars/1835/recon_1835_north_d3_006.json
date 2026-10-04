@@ -191,8 +191,8 @@
       "research_note": "WRITTEN BY tools/readmit_borderline_roster.py (T-1172), the `readmissions` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a re-admission lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
-      "household": "hh_rc_newell_amanda",
-      "name": "The Newell household — a trade the rosters never printed",
+      "household": "hh_rc_sullivan_johanna",
+      "name": "The Sullivan household — a trade the rosters never printed",
       "division": "north",
       "relation": "boarded here",
       "why": "boarding in the division's least crowded dwelling",
@@ -200,7 +200,7 @@
       "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Amanda Newell",
+          "name": "Johanna Sullivan",
           "relationship": "head",
           "grade": "reconstructed",
           "occupation": "domestic",

@@ -132,14 +132,14 @@
   ],
   "inside_the_model_s_range": false,
   "age_pyramid_after": {
-   "10_19": 301,
+   "10_19": 302,
    "20_29": 394,
    "30_39": 233,
    "40_49": 65,
    "50_plus": 37,
-   "under_10": 411
+   "under_10": 410
   },
-  "share_under_ten_after": 0.2852,
+  "share_under_ten_after": 0.2845,
   "share_under_ten_model": [
    0.2,
    0.2702

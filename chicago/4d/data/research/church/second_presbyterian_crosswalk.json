@@ -492,7 +492,7 @@
       "name": "Alexander Dickinson",
       "person_id": "dickinson_alexander",
       "household_id": "hh_dickinson_alexander",
-      "grade": "attested",
+      "grade": "inferred",
       "source_id": "second_presbyterian_chicago_1892",
       "rule": "Surname 'Dickinson' folds to the same string as the roll line's, and the given name of both begins A.",
       "roll_lines": [
@@ -2999,7 +2999,7 @@
       "name": "Wheeler Barnes",
       "person_id": "barnes_wheeler",
       "household_id": "hh_barnes_wheeler",
-      "grade": "attested",
+      "grade": "inferred",
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 3,
       "rule": "The surname 'Barnes' stands on the Second Presbyterian roll and no line under it carries the initial 'W' of 'Wheeler Barnes'. A surname-only agreement is a refusal."
@@ -3917,7 +3917,7 @@
       "name": "D. S. Haight",
       "person_id": "haight_d_s",
       "household_id": "hh_haight_d_s",
-      "grade": "attested",
+      "grade": "inferred",
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 1,
       "rule": "The surname 'Haight' stands on the Second Presbyterian roll and no line under it carries the initial 'D' of 'D. S. Haight'. A surname-only agreement is a refusal."
@@ -5276,7 +5276,7 @@
       "name": "James A. Sawyer",
       "person_id": "sawyer_james_a",
       "household_id": "hh_sawyer_james_a",
-      "grade": "attested",
+      "grade": "inferred",
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 2,
       "rule": "The surname 'Sawyer' stands on the Second Presbyterian roll and no line under it carries the initial 'J' of 'James A. Sawyer'. A surname-only agreement is a refusal."
@@ -5294,7 +5294,7 @@
       "name": "Oliveann Sheldon",
       "person_id": "sheldon_oliveann",
       "household_id": "hh_sheldon_oliveann",
-      "grade": "attested",
+      "grade": "inferred",
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 4,
       "rule": "The surname 'Sheldon' stands on the Second Presbyterian roll and no line under it carries the initial 'O' of 'Oliveann Sheldon'. A surname-only agreement is a refusal."
@@ -5618,7 +5618,7 @@
       "name": "Sally Weed",
       "person_id": "weed_sally",
       "household_id": "hh_weed_sally",
-      "grade": "attested",
+      "grade": "inferred",
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 3,
       "rule": "The surname 'Weed' stands on the Second Presbyterian roll and no line under it carries the initial 'S' of 'Sally Weed'. A surname-only agreement is a refusal."
@@ -5672,7 +5672,7 @@
       "name": "Aaron Whitcomb",
       "person_id": "whitcomb_aaron",
       "household_id": "hh_whitcomb_aaron",
-      "grade": "attested",
+      "grade": "inferred",
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 1,
       "rule": "The surname 'Whitcomb' stands on the Second Presbyterian roll and no line under it carries the initial 'A' of 'Aaron Whitcomb'. A surname-only agreement is a refusal."

@@ -30,8 +30,8 @@
     "tiers_written_on_the_card": 10952,
     "by_tier": {
       "attested": 586,
-      "inferred": 3633,
-      "reconstructed": 10958,
+      "inferred": 3632,
+      "reconstructed": 10959,
       "unknown": 6886
     },
     "by_attribute": {
@@ -103,8 +103,8 @@
       },
       "persons[].age_band": {
         "attested": 7,
-        "inferred": 54,
-        "reconstructed": 2861,
+        "inferred": 53,
+        "reconstructed": 2862,
         "unknown": 7
       },
       "persons[].age_on_scene_date": {
@@ -2789,9 +2789,9 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2858,
+      "values": 2859,
       "by_value": {
-        "20-29": 979,
+        "20-29": 980,
         "0-4": 484,
         "30-39": 470,
         "10-19": 239,
@@ -3484,7 +3484,6 @@
         "Henry Thayer": 1,
         "Henry Wellmaker": 1,
         "Hiram Barnes": 1,
-        "Hiram Chapin": 1,
         "Hiram Clark": 1,
         "Hiram Collins": 1,
         "Hiram Crandall": 1,
@@ -3969,6 +3968,7 @@
         "Nathaniel Ingersoll": 1,
         "Nathaniel Irwell": 1,
         "Nathaniel Kellogg": 1,
+        "Nathaniel Metcalf": 1,
         "Nathaniel Nash": 1,
         "Nathaniel Nichols": 1,
         "Nathaniel Parmelee": 1,

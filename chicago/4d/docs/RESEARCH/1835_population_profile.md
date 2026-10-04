@@ -185,7 +185,7 @@ THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2929 PEOPLE, TOGETHER. 6 of the nin
 | attribute | carried by | answered | share | attested | inferred | reconstructed | stated, no tier written | not answered |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | sex | person | 2923 | 99.8% | 1589 | 590 | 744 | 0 | 6 |
-| age band | person | 2922 | 99.8% | 7 | 54 | 2861 | 0 | 7 |
+| age band | person | 2922 | 99.8% | 7 | 53 | 2862 | 0 | 7 |
 | arrival | household | 2929 | 100.0% | 142 | 2487 | 300 | 0 | 0 |
 | origin | household | 2929 | 100.0% | 24 | 94 | 2811 | 0 | 0 |
 | reason for coming | household | 2929 | 100.0% | 33 | 28 | 2868 | 0 | 0 |
@@ -281,8 +281,8 @@ Named rather than summed away, which is the whole of this section. Every reason 
 | tier | persons | share | what it means |
 |---|---:|---:|---|
 | attested | 7 | 0.2% | the band this person's own recorded birth year or age puts them in |
-| inferred | 54 | 1.8% | the band an inferred birth year or age puts them in |
-| reconstructed | 2861 | 97.7% | DRAWN from the 1840 Chicago schedule's sex × age bands, conditioned on what the person is recorded doing, seeded by their own id — a band, never a year |
+| inferred | 53 | 1.8% | the band an inferred birth year or age puts them in |
+| reconstructed | 2862 | 97.7% | DRAWN from the 1840 Chicago schedule's sex × age bands, conditioned on what the person is recorded doing, seeded by their own id — a band, never a year |
 | unknown | 7 | 0.2% | a collective description: a row that stands for more than one person has no band of its own |
 
 ### The layer by age band on 1 July 1835
@@ -3321,7 +3321,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Hills [?] Levi | The Mid-Atlantic states | reconstructed |
 | Hiram A Adams | New York State | reconstructed |
 | Hiram Barnes | New York State | reconstructed |
-| Hiram Chapin | The Mid-Atlantic states | reconstructed |
 | Hiram Clark | New York State | reconstructed |
 | Hiram Collins | Ireland | reconstructed |
 | Hiram Crandall | New York State | reconstructed |
@@ -4310,6 +4309,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Nathaniel Ingersoll | New York State | reconstructed |
 | Nathaniel Irwell | New York State | reconstructed |
 | Nathaniel Kellogg | The Southern states | reconstructed |
+| Nathaniel Metcalf | The Mid-Atlantic states | reconstructed |
 | Nathaniel Nash | New England | reconstructed |
 | Nathaniel Nichols | The Mid-Atlantic states | reconstructed |
 | Nathaniel Parmelee | The Mid-Atlantic states | reconstructed |

@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 982,
+        "none_recorded": 1020,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 988,
+      "households_total": 1026,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -9199,7 +9199,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "mdaniel_a",
-      "action_note": "data/residents/ already holds this person as mdaniel_a (hh_mdaniel_a, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as mdaniel_a (hh_mdaniel_a, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_a_m_gregor",
@@ -9386,7 +9386,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "whitcomb_aaron",
-      "action_note": "data/residents/ already holds this person as whitcomb_aaron (hh_whitcomb_aaron, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as whitcomb_aaron (hh_whitcomb_aaron, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_aarri_t_bradford",
@@ -9529,7 +9529,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "vanderwerker_adam",
-      "action_note": "data/residents/ already holds this person as vanderwerker_adam (hh_vanderwerker_adam, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as vanderwerker_adam (hh_vanderwerker_adam, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_adam_vandorwerk",
@@ -9738,7 +9738,7 @@
       "last_seen": "1834-04-01",
       "action": "enrich",
       "action_target": "dickinson_alexander",
-      "action_note": "data/residents/ already holds this person as dickinson_alexander (hh_dickinson_alexander, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as dickinson_alexander (hh_dickinson_alexander, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_alexander_fullerton",
@@ -10662,7 +10662,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "bacon_richani",
-      "action_note": "data/residents/ already holds this person as bacon_richani (hh_bacon_richani, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as bacon_richani (hh_bacon_richani, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_bacon_richard",
@@ -10673,7 +10673,7 @@
       "last_seen": "1835-08-19",
       "action": "enrich",
       "action_target": "bacon_richani",
-      "action_note": "data/residents/ already holds this person as bacon_richani (hh_bacon_richani, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as bacon_richani (hh_bacon_richani, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_bailey_bennet",
@@ -10981,7 +10981,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "barnes_wheeler",
-      "action_note": "data/residents/ already holds this person as barnes_wheeler (hh_barnes_wheeler, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as barnes_wheeler (hh_barnes_wheeler, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_barney_john",
@@ -14050,7 +14050,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "crandall_beman",
-      "action_note": "data/residents/ already holds this person as crandall_beman (hh_crandall_beman, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as crandall_beman (hh_crandall_beman, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_crane_h_y",
@@ -14402,7 +14402,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "haight_d_s",
-      "action_note": "data/residents/ already holds this person as haight_d_s (hh_haight_d_s, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as haight_d_s (hh_haight_d_s, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_d_u_dly_peck",
@@ -14941,7 +14941,7 @@
       "last_seen": "1835-05-20",
       "action": "enrich",
       "action_target": "stiles_david",
-      "action_note": "data/residents/ already holds this person as stiles_david (hh_stiles_david, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as stiles_david (hh_stiles_david, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_davie_wilham_h",
@@ -16316,7 +16316,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "eliphalet_atkins_2",
-      "action_note": "data/residents/ already holds this person as eliphalet_atkins_2 (hh_eliphalet_atkins_2, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as eliphalet_atkins_2 (hh_eliphalet_atkins_2, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_elisha_h_hazzard",
@@ -18208,7 +18208,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "poel_green",
-      "action_note": "data/residents/ already holds this person as poel_green (hh_poel_green, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as poel_green (hh_poel_green, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_green_seth",
@@ -20606,7 +20606,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "killigoss_isaac",
-      "action_note": "data/residents/ already holds this person as killigoss_isaac (hh_killigoss_isaac, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as killigoss_isaac (hh_killigoss_isaac, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_isaac_l_hill",
@@ -21354,7 +21354,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "natta_j_v",
-      "action_note": "data/residents/ already holds this person as natta_j_v (hh_natta_j_v, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as natta_j_v (hh_natta_j_v, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_j_v_owen",
@@ -21717,7 +21717,7 @@
       "last_seen": "1834-07-16",
       "action": "enrich",
       "action_target": "sawyer_james_a",
-      "action_note": "data/residents/ already holds this person as sawyer_james_a (hh_sawyer_james_a, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as sawyer_james_a (hh_sawyer_james_a, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_james_arrasmith",
@@ -21959,7 +21959,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "mackel_james",
-      "action_note": "data/residents/ already holds this person as mackel_james (hh_mackel_james, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as mackel_james (hh_mackel_james, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_james_mackie",
@@ -23070,7 +23070,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "monreou_john",
-      "action_note": "data/residents/ already holds this person as monreou_john (hh_monreou_john, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as monreou_john (hh_monreou_john, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_john_moore",
@@ -24214,7 +24214,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "julius_perrin_2",
-      "action_note": "data/residents/ already holds this person as julius_perrin_2 (hh_julius_perrin_2, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as julius_perrin_2 (hh_julius_perrin_2, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_junie_aaron_capt",
@@ -25336,7 +25336,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "kerchevel_lewis",
-      "action_note": "data/residents/ already holds this person as kerchevel_lewis (hh_kerchevel_lewis, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kerchevel_lewis (hh_kerchevel_lewis, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_lewis_lafton",
@@ -25699,7 +25699,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "loweley_watere_e",
-      "action_note": "data/residents/ already holds this person as loweley_watere_e (hh_loweley_watere_e, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as loweley_watere_e (hh_loweley_watere_e, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_lowell_wiliam",
@@ -26513,7 +26513,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "meriams_mary",
-      "action_note": "data/residents/ already holds this person as meriams_mary (hh_meriams_mary, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as meriams_mary (hh_meriams_mary, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_mary_noble",
@@ -27745,7 +27745,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "mcarty_n",
-      "action_note": "data/residents/ already holds this person as mcarty_n (hh_mcarty_n, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as mcarty_n (hh_mcarty_n, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_n_w_easling",
@@ -28020,7 +28020,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "nett_robert_a",
-      "action_note": "data/residents/ already holds this person as nett_robert_a (hh_nett_robert_a, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as nett_robert_a (hh_nett_robert_a, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_newberry_dole",
@@ -28119,7 +28119,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "nicholson_joshua_f",
-      "action_note": "data/residents/ already holds this person as nicholson_joshua_f (hh_nicholson_joshua_f, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as nicholson_joshua_f (hh_nicholson_joshua_f, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_night_clapp",
@@ -28295,7 +28295,7 @@
       "last_seen": "1835-05-20",
       "action": "enrich",
       "action_target": "sheldon_oliveann",
-      "action_note": "data/residents/ already holds this person as sheldon_oliveann (hh_sheldon_oliveann, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as sheldon_oliveann (hh_sheldon_oliveann, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_oliver_goss",
@@ -28394,7 +28394,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "orisbee_edgar_i",
-      "action_note": "data/residents/ already holds this person as orisbee_edgar_i (hh_orisbee_edgar_i, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as orisbee_edgar_i (hh_orisbee_edgar_i, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_ormshee_s_b",
@@ -28405,7 +28405,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "ormshee_s_b",
-      "action_note": "data/residents/ already holds this person as ormshee_s_b (hh_ormshee_s_b, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as ormshee_s_b (hh_ormshee_s_b, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_orro_samuel",
@@ -28427,7 +28427,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "osborn_b",
-      "action_note": "data/residents/ already holds this person as osborn_b (hh_osborn_b, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as osborn_b (hh_osborn_b, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_oscar_l_hawley",
@@ -29054,7 +29054,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "pedrick_robert_c",
-      "action_note": "data/residents/ already holds this person as pedrick_robert_c (hh_pedrick_robert_c, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as pedrick_robert_c (hh_pedrick_robert_c, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_peet_le_wi_s",
@@ -29307,7 +29307,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "willaee_philip",
-      "action_note": "data/residents/ already holds this person as willaee_philip (hh_willaee_philip, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as willaee_philip (hh_willaee_philip, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_phillips_james",
@@ -29604,7 +29604,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "thorn_platt",
-      "action_note": "data/residents/ already holds this person as thorn_platt (hh_thorn_platt, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as thorn_platt (hh_thorn_platt, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_poke_edward",
@@ -30847,7 +30847,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "root_ez_c",
-      "action_note": "data/residents/ already holds this person as root_ez_c (hh_root_ez_c, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as root_ez_c (hh_root_ez_c, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_rowe_anson_or_joseph",
@@ -31408,7 +31408,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "weed_sally",
-      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_salmon_rutherford",
@@ -32046,7 +32046,7 @@
       "last_seen": "1835-08-19",
       "action": "enrich",
       "action_target": "sheldon_oliveann",
-      "action_note": "data/residents/ already holds this person as sheldon_oliveann (hh_sheldon_oliveann, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as sheldon_oliveann (hh_sheldon_oliveann, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_sheldon_philo",
@@ -32728,7 +32728,7 @@
       "last_seen": "1834-10-22",
       "action": "enrich",
       "action_target": "stiles_david",
-      "action_note": "data/residents/ already holds this person as stiles_david (hh_stiles_david, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as stiles_david (hh_stiles_david, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_stallord_arnold",
@@ -33267,7 +33267,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "swanwick_f",
-      "action_note": "data/residents/ already holds this person as swanwick_f (hh_swanwick_f, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as swanwick_f (hh_swanwick_f, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_swapp_abram",
@@ -33993,7 +33993,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "wrickey_thomas_h",
-      "action_note": "data/residents/ already holds this person as wrickey_thomas_h (hh_wrickey_thomas_h, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as wrickey_thomas_h (hh_wrickey_thomas_h, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_thomas_hartec_l_l",
@@ -34191,7 +34191,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "richey_thos_h",
-      "action_note": "data/residents/ already holds this person as richey_thos_h (hh_richey_thos_h, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as richey_thos_h (hh_richey_thos_h, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_thos_h_ritchy",
@@ -34235,7 +34235,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "timothy_b",
-      "action_note": "data/residents/ already holds this person as timothy_b (hh_timothy_b, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as timothy_b (hh_timothy_b, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_timothy_b_clark",
@@ -35181,7 +35181,7 @@
       "last_seen": "1835-05-20",
       "action": "enrich",
       "action_target": "natta_j_v",
-      "action_note": "data/residents/ already holds this person as natta_j_v (hh_natta_j_v, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as natta_j_v (hh_natta_j_v, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_noble_wesencaft",
@@ -35335,7 +35335,7 @@
       "last_seen": "1834-01-28",
       "action": "enrich",
       "action_target": "weed_sally",
-      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_samuel_stout",
@@ -36699,7 +36699,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "vanzandt_w_2",
-      "action_note": "data/residents/ already holds this person as vanzandt_w_2 (hh_vanzandt_w_2, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as vanzandt_w_2 (hh_vanzandt_w_2, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_w_wattles",
@@ -36974,7 +36974,7 @@
       "last_seen": "1835-08-19",
       "action": "enrich",
       "action_target": "weed_sally",
-      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_wells_andrew_8",
@@ -37238,7 +37238,7 @@
       "last_seen": "1834-03-04",
       "action": "enrich",
       "action_target": "crissy_william",
-      "action_note": "data/residents/ already holds this person as crissy_william (hh_crissy_william, attested) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as crissy_william (hh_crissy_william, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_william_elliot",

@@ -4441,7 +4441,7 @@
     {
       "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r13e_t38n_t41n_r14e_t38n_r15e_through_1836.json#records/ls0948",
       "rule": "a_sale_is_never_a_residence",
-      "note": "The register enters 'BARNES WHEELER' read as Wheeler Barnes at purchase 0003918, volume 687 page 273, section 32, T41N R14E on 1835-06-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+      "note": "The register enters 'BARNES WHEELER' read as Wheeler Barnes at purchase 0003918, volume 687 page 273, section 32, T41N R14E on 1835-06-27, with the residence column reading UNKNOWN. The crosswalk proposed a candidate this town has not adjudicated. What the row documents is that this name entered this tract on this day."
     },
     {
       "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r13e_t38n_t41n_r14e_t38n_r15e_through_1836.json#records/ls0949",
