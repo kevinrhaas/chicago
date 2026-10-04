@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1394, ts: '2026-10-04T01:22:51.893Z', date: 'Oct 3, 2026, 8:22 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+  { v: null, ts: '', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
     items: [
       'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
       'If loading fails on a phone, the Retry screen shows the touch hints too.',
+    ] },
+  { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'We measured what a first visit costs. The arrival and the jaunts add about 11 KB of it, and the jaunt catalog and the sources still load only when you open them.',
+      'Two of the town\u2019s own limits are now broken, and neither by the jaunts: a first visit downloads 13.1 MB against our 13 MB budget, and the newest trees make a phone stutter while the prairie is planted. Each now has its own fix ticketed.',
     ] },
   { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
     items: [
