@@ -50,6 +50,7 @@ import * as THREE from 'three';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { floraInScene } from './flora.js';
 import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
+import { TURF_TILE_PX, TURF_TILE_M, turfTilePixels, turfTileMeanGrain, bareCut } from './turf-tile.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { HORIZON_HAZE } from './world.js';
 import { loadMeshoptDecoder } from './scene-loader.js';
@@ -422,14 +423,17 @@ export async function createTerrain({
   // rather than a box. lakeshore.js; null without a heightfield.
   const lakeShore = lakeShoreLine(heightfield);
   const zones = await substrateZones(substrateBase, problems, sceneId);
-  const groundMat = groundMaterial(zones, lakeShore);
+  // T-2085: the town's turf, one uniform set for both ground materials, filled
+  // when the sward hands over where it stopped drawing cards (`setTurf`).
+  const turf = turfGround();
+  const groundMat = groundMaterial(zones, lakeShore, { turf });
   /** The radius around the eye inside which the 15 m base is not drawn. See
    *  the base below, and `baseHoleM()` for how it follows the reach. */
   const baseHole = { value: baseHoleM(Infinity) };
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.
-  disposables.push(groundMat, groundMat.userData.groundTex);
+  disposables.push(groundMat, groundMat.userData.groundTex, turf);
   confidence?.patch(groundMat);
 
   let ground = null;
@@ -516,7 +520,7 @@ export async function createTerrain({
   let groundBase = null;
   if (heightfield.loaded) {
     const baseMat = groundMaterial(zones, lakeShore,
-      { nearHole: baseHole, groundTex: groundMat.userData.groundTex });
+      { nearHole: baseHole, groundTex: groundMat.userData.groundTex, turf });
     disposables.push(baseMat);
     confidence?.patch(baseMat);
     groundBase = new THREE.Mesh(gridGeometry(heightfield, GROUND_BASE_STEP), baseMat);
@@ -620,6 +624,9 @@ export async function createTerrain({
     mesh: ground,
     water,
     material: groundMat,
+    /** T-2085. Paint the short turf where the sward has stopped drawing cards.
+     *  Called by flora.js with its own mask; false if the spec is unusable. */
+    setTurf(spec) { return turf.set(spec); },
     waterMaterial: waterMat,
     /** Keep the far base below emitted crossing decks without moving timber.
      * One replacement per frontage load; the current geometry has exactly one
@@ -1511,6 +1518,198 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
 `;
 
 /**
+ * T-2085 — THE TOWN'S SHORT TURF, painted by the ground instead of planted.
+ *
+ * The owner, 2026-10-04: "a lower grass ... with some strong textures and be
+ * reusable so you don't have to spend much rendering on it". On a community
+ * `turf-tile.js` calls turf, `flora.js` keeps only its near tufts and draws no
+ * mid or far clump cards; this is what stands in for them. It is the road's
+ * method (T-1797/T-1811): one seeded grain-and-normal tile in world space,
+ * the coarse scales as value noise, the recorded tones times the grain.
+ *
+ * WHERE: a mask the SWARD rasterises off its own zone finder and hands over
+ * (`setTurf`), so the ground paints turf exactly where the placer has stopped
+ * drawing cards — one rule, read once, and no polygon test per fragment. Until
+ * it arrives `uTurfBox` is zero and the test below fails before any fetch.
+ *
+ * WHAT IT COSTS: no draw call, no mesh. Outside the mask's box, two compares.
+ * Inside it, two fetches — the mask (unfiltered by mip, so it is safe inside
+ * the branch) and the tile, by explicit gradient so the branch cannot spoil its
+ * mip choice. The one-fetch rule above is about the prairie, which is most of
+ * the screen everywhere; this is paid only on the town's own ground.
+ *
+ * WHAT IS RECORDED AND WHAT IS NOT: the sod's two greens are the community
+ * palette's, the bare ground is the record's `ground.rgb`, dust its palette's
+ * `dry_rgb`, wet its `ground.wet_rgb`, and the share left bare is the record's
+ * `bare_soil_fraction`, measured off the very noise drawn here (`bareCut`).
+ * The pattern is reconstructed — docs/LIBERTIES.md.
+ */
+const TURF_HEAD = /* glsl */`
+uniform sampler2D uTurfMask;
+uniform sampler2D uTurfTile;
+uniform vec4 uTurfBox;
+uniform vec3 uTurfSodDark;
+uniform vec3 uTurfSodLight;
+uniform vec3 uTurfBare;
+uniform vec3 uTurfDust;
+uniform vec3 uTurfWet;
+uniform float uTurfCut;
+uniform float uTurfTileM;
+uniform float uTurfGrainMean;
+float chiTurfHash(vec2 p) {
+  vec3 q = fract(vec3(p.xyx) * 0.1031);
+  q += dot(q, q.yzx + 33.33);
+  return fract((q.x + q.y) * q.z);
+}
+float chiTurfNoise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(chiTurfHash(i), chiTurfHash(i + vec2(1.0, 0.0)), u.x),
+             mix(chiTurfHash(i + vec2(0.0, 1.0)), chiTurfHash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+`;
+
+const TURF_FRAGMENT = /* glsl */`
+  // ---- T-2085, the town's short turf (turf-tile.js) ----------------------- //
+  vec2 chiTurfEN = vec2(vChiWorld.x, -vChiWorld.z);
+  vec2 chiTurfUv = chiTurfEN / uTurfTileM;
+  vec2 chiTurfDx = dFdx(chiTurfUv);
+  vec2 chiTurfDy = dFdy(chiTurfUv);
+  vec2 chiTurfQ = (chiTurfEN - uTurfBox.xy) * uTurfBox.zw;
+  float chiTurfW = 0.0;
+  vec2 chiTurfSlope = vec2(0.0);
+  if (chiTurfQ.x > 0.0 && chiTurfQ.y > 0.0 && chiTurfQ.x < 1.0 && chiTurfQ.y < 1.0) {
+    float chiTurfM = textureLod(uTurfMask, chiTurfQ, 0.0).r;
+    if (chiTurfM > 0.002) {
+      // The edge grades over the mask's own ramp and is ragged at 3 m, so the
+      // town's ground meets the prairie as a worn margin and not a contour.
+      chiTurfW = smoothstep(0.25, 0.75,
+        chiTurfM + 0.35 * (chiTurfNoise(chiTurfEN / 3.3 + 5.1) - 0.5));
+      // A 9 m drift shears the 2 m tile against itself: no lattice at 20 m.
+      vec2 chiTurfShear = vec2(chiTurfNoise(chiTurfEN / 9.0),
+                               chiTurfNoise(chiTurfEN / 9.0 + 13.7)) - 0.5;
+      vec4 chiTurfT = textureGrad(uTurfTile, chiTurfUv + 0.6 * chiTurfShear,
+                                  chiTurfDx, chiTurfDy);
+      float chiTurfG = chiTurfT.r;
+      // Sod or bare, at the record's share: 1.7 m patches, 0.62 m edges, a
+      // 5.5 m drift (turfSodField), with the grain fraying the patch edge.
+      float chiTurfS = 0.55 * chiTurfNoise(chiTurfEN / 1.7)
+                     + 0.30 * chiTurfNoise(chiTurfEN / 0.62 + vec2(7.3, 2.9))
+                     + 0.15 * chiTurfNoise(chiTurfEN / 5.5 + vec2(3.1, 11.7));
+      float chiTurfSod = smoothstep(uTurfCut - 0.05, uTurfCut + 0.05,
+                                    chiTurfS + 0.30 * (chiTurfG - uTurfGrainMean));
+      // Sod does not stand in the wet band; the soil there is the record's mud.
+      chiTurfSod *= 1.0 - chiWet;
+      float chiTurfVig = chiTurfNoise(chiTurfEN / 0.9 + 21.0) - 0.5;
+      // The palette's darkest green, in the shade between the blades, up to its
+      // sunlit third green on a blade tip: the grain decides which, steeply.
+      vec3 chiTurfGreen = mix(uTurfSodDark * 0.62, uTurfSodLight,
+                              clamp((chiTurfG - 0.22) * 2.1 + 0.30 * chiTurfVig, 0.0, 1.0));
+      // Bare ground takes the crumbs and not the blades: a blade stroke in the
+      // dirt would read as a scratch.
+      vec3 chiTurfSoil = mix(uTurfBare, uTurfDust,
+                             smoothstep(0.35, 0.80, chiTurfNoise(chiTurfEN / 3.1 + 40.0)))
+                       * (0.74 + 1.1 * min(chiTurfG, 0.32));
+      chiTurfSoil = mix(chiTurfSoil, uTurfWet, chiWet);
+      vec3 chiTurfC = mix(chiTurfSoil, chiTurfGreen, chiTurfSod);
+      chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), chiTurfC), chiTurfW);
+      chiTurfSlope = (chiTurfT.gb * 2.0 - 1.0) * mix(0.55, 1.0, chiTurfSod) * chiTurfW;
+    }
+  }
+`;
+
+// The tile's relief in a world tangent frame (east, north, up), as the road's
+// grit is lit (streets.js ROAD_NORMAL). Weighted to nothing off the turf.
+const TURF_NORMAL = /* glsl */`
+  if (chiTurfW > 0.0) {
+    vec3 chiTurfTn = normalize(vec3(chiTurfSlope, 1.0));
+    vec3 chiTurfEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
+    vec3 chiTurfTt = normalize(chiTurfEastV - normal * dot(chiTurfEastV, normal));
+    vec3 chiTurfBt = cross(normal, chiTurfTt);
+    normal = normalize(chiTurfTt * chiTurfTn.x + chiTurfBt * chiTurfTn.y + normal * chiTurfTn.z);
+  }
+`;
+
+/**
+ * The turf's shared uniforms and the call that fills them. One object for both
+ * ground materials (the tiles and the base), so a hand-over reaches both.
+ * Inert until `set`: a 1x1 mask and tile and a zero box.
+ */
+function turfGround() {
+  const blank = (format, bytes) => {
+    const t = new THREE.DataTexture(new Uint8Array(bytes), 1, 1, format);
+    t.needsUpdate = true;
+    return t;
+  };
+  const placeholders = [blank(THREE.RedFormat, [0]), blank(THREE.RGBAFormat, [0, 128, 128, 255])];
+  const c = () => new THREE.Color(0, 0, 0);
+  const uniforms = {
+    uTurfMask: { value: placeholders[0] },
+    uTurfTile: { value: placeholders[1] },
+    uTurfBox: { value: new THREE.Vector4(0, 0, 0, 0) },
+    uTurfSodDark: { value: c() }, uTurfSodLight: { value: c() },
+    uTurfBare: { value: c() }, uTurfDust: { value: c() }, uTurfWet: { value: c() },
+    uTurfCut: { value: 0 },
+    uTurfTileM: { value: TURF_TILE_M },
+    uTurfGrainMean: { value: 0.4 },
+  };
+  let tile = null;
+  let mask = null;
+  const tone = (rgb) => new THREE.Color().setRGB(...rgb.map((v) => v / 255), THREE.SRGBColorSpace);
+  return {
+    uniforms,
+    /** `spec`: { box: {e0,e1,n0,n1}, mask: {data, w, h}, sodDark, sodLight,
+     *  bare, dust, wet (sRGB 0-255 triples), bareFraction } — see flora.js. */
+    set(spec) {
+      if (!spec?.box || !spec.mask?.data) return false;
+      if (!tile) {
+        const px = turfTilePixels();
+        tile = new THREE.DataTexture(new Uint8Array(px.buffer), TURF_TILE_PX, TURF_TILE_PX,
+          THREE.RGBAFormat);
+        tile.name = 'town-turf';
+        tile.colorSpace = THREE.NoColorSpace;
+        tile.wrapS = tile.wrapT = THREE.RepeatWrapping;
+        tile.magFilter = THREE.LinearFilter;
+        tile.minFilter = THREE.LinearMipmapLinearFilter;
+        tile.generateMipmaps = true;
+        tile.anisotropy = 4;
+        // The pixels live on the GPU once uploaded; the JS copy is let go so
+        // the phone's heap does not carry the tile twice.
+        tile.onUpdate = () => { tile.image.data = null; };
+        tile.needsUpdate = true;
+        uniforms.uTurfTile.value = tile;
+        uniforms.uTurfGrainMean.value = turfTileMeanGrain(px);
+      }
+      mask?.dispose();
+      mask = new THREE.DataTexture(spec.mask.data, spec.mask.w, spec.mask.h, THREE.RedFormat);
+      mask.name = 'town-turf-mask';
+      mask.unpackAlignment = 1;
+      mask.magFilter = mask.minFilter = THREE.LinearFilter;
+      mask.generateMipmaps = false;
+      const m = mask;
+      m.onUpdate = () => { m.image.data = null; };
+      mask.needsUpdate = true;
+      uniforms.uTurfMask.value = mask;
+      const { e0, e1, n0, n1 } = spec.box;
+      uniforms.uTurfBox.value.set(e0, n0, 1 / (e1 - e0), 1 / (n1 - n0));
+      uniforms.uTurfSodDark.value.copy(tone(spec.sodDark));
+      uniforms.uTurfSodLight.value.copy(tone(spec.sodLight));
+      uniforms.uTurfBare.value.copy(tone(spec.bare));
+      uniforms.uTurfDust.value.copy(tone(spec.dust));
+      uniforms.uTurfWet.value.copy(tone(spec.wet));
+      uniforms.uTurfCut.value = bareCut(spec.bareFraction);
+      return true;
+    },
+    dispose() {
+      tile?.dispose();
+      mask?.dispose();
+      for (const t of placeholders) t.dispose();
+    },
+  };
+}
+
+/**
  * Ground: a procedural prairie sampled in WORLD space, darkening to wet mud as
  * the surface approaches the water.
  *
@@ -1543,7 +1742,7 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
  * prairie would be filling a gap silently. When those records land, the zone a
  * point falls in belongs here — and the ground stops being one green.
  */
-function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundTex = null } = {}) {
+function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundTex = null, turf = null } = {}) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff, roughness: 1, metalness: 0,
   });
@@ -1560,6 +1759,7 @@ function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundT
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     if (nearHole) shader.uniforms.uChiNearHole = nearHole;
+    if (turf) Object.assign(shader.uniforms, turf.uniforms);
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );
@@ -1569,12 +1769,16 @@ uniform sampler2D uGround;
 uniform float uPrairieLuma;
 ${nearHole ? 'uniform float uChiNearHole;' : ''}
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
+${turf ? TURF_HEAD : ''}
 ` + shader.fragmentShader.replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
 ${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}`)
       .replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones, lakeShore)}
+${turf ? TURF_FRAGMENT : ''}
   diffuseColor.rgb = chiPrairie;
-`);
+`)
+      .replace('#include <normal_fragment_maps>',
+        `#include <normal_fragment_maps>${turf ? TURF_NORMAL : ''}`);
   };
   // Its own program: `customProgramCacheKey` defaults to the source text of
   // `onBeforeCompile`, which both ground materials share, so without this the
