@@ -94,6 +94,7 @@ from block_faces import face_frame, project
 # repository rather than two that can drift apart.
 from generate_business_signboards import PUBLIC_TRADES, TRADE_GRADES, WORKS_TRADES
 import generate_entrances as entrances  # noqa: E402
+import gate_kinds  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -2941,13 +2942,24 @@ def _fence_runs(entry, laid, buildings, hf, refused):
             continue
         # Clipped to the walk actually laid at its foot, then only the part of
         # that clip which is long enough to be a fence rather than a gatepost.
+        # T-2112 — THE LOT'S WAY IN FROM THE STREET, in front of the building nearest
+        # it: a foot gate for a house, a pair of carriage leaves for a trade. Placed
+        # on the building's own centre as the street sees it, which is where a path
+        # from its front door meets the line, and kept inside the lot's frontage.
+        front = next(b for b in here if b["id"] == nearest)
+        use = "dwelling" if business_class(front.get("trade")) is None else "trade"
+        width = gate_kinds.FOOT_GATE_W_M if use == "dwelling" else gate_kinds.CARRIAGE_GATE_W_M
+        mid = sum(project(frame, p)[0] for p in front["pts"]) / len(front["pts"])
         for lo, hi in laid:
             a = max(s0, lo)
             b = min(s1, hi)
             if b - a < 6.0:
                 continue
+            at = min(max(mid, a + width / 2 + 0.6), b - width / 2 - 0.6)
             runs.append({"a": a, "b": b, "lot": index, "chunk": None,
-                         "setback": setback, "who": here[0]["id"]})
+                         "setback": setback, "who": here[0]["id"],
+                         "gates": [{"s": at, "width": width, "use": use,
+                                    "serves": front["id"]}]})
     # Neighbouring lots share a fence line, so their runs are welded into one
     # rather than drawn as two fences that meet at a post nobody described.
     runs.sort(key=lambda r: r["a"])
@@ -2957,9 +2969,10 @@ def _fence_runs(entry, laid, buildings, hf, refused):
             welded[-1]["b"] = max(welded[-1]["b"], r["b"])
             welded[-1]["lots"].append(r["lot"])
             welded[-1]["setback"] = min(welded[-1]["setback"], r["setback"])
+            welded[-1]["gates"] += r["gates"]
             continue
         welded.append({"a": r["a"], "b": r["b"], "lots": [r["lot"]],
-                       "setback": r["setback"]})
+                       "setback": r["setback"], "gates": list(r["gates"])})
     return welded
 
 
@@ -3825,7 +3838,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
     refused: list = []
     laid_by_face: dict = {}
     census = {"faces": 0, "runs": 0, "walk_m": 0.0, "crossings": 0, "cross_m": 0.0,
-              "fences": 0, "fence_m": 0.0, "decks": 0, "hitching": 0, "fittings": {},
+              "fences": 0, "fence_m": 0.0, "gates": 0, "decks": 0, "hitching": 0, "fittings": {},
               "decked_walks": 0, "decked_m": 0.0, "bare_fronts": 0, "bare": [],
               "front_faces": 0, "front_runs": 0, "front_walk_m": 0.0}
     fittings: list = []
@@ -4021,8 +4034,33 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
             p1 = _point_on(frame, b, 0.0)
             census["fences"] += 1
             census["fence_m"] += b - a
+            fence_id = f"{key}_fence_{len(fences) + 1}"
+            openings = []
+            for g in sorted(run["gates"], key=lambda g: g["s"]):
+                gid = f"{fence_id}_gate_{len(openings) + 1}"
+                at = _point_on(frame, g["s"], 0.0)
+                into = _point_on(frame, g["s"], -4.0)
+                openings.append({
+                    "id": gid,
+                    "on": "street",
+                    "serves": g["serves"],
+                    "at_local_enu_m": [_round(at[0]), _round(at[1])],
+                    "width_m": g["width"],
+                    "gate": gate_kinds.gate_for(gid, g["use"], "board"),
+                    "opens_into_local_enu_m": [_round(into[0]), _round(into[1])],
+                    "confidence": "reconstructed",
+                    "note": (
+                        f"INVENTED (T-2112): the way into this lot from {name}, in front "
+                        f"of {g['serves']}, which is the building nearest the street on "
+                        "it. " + ("A house's foot gate, one leaf" if g["use"] == "dwelling"
+                                  else "A trade's cart gate, a pair of leaves")
+                        + ", by the rule in tools/gate_kinds.py; no source places, sizes "
+                        "or describes it (L380)."
+                    ),
+                })
+                census["gates"] += 1
             fences.append({
-                "id": f"{key}_fence_{len(fences) + 1}",
+                "id": fence_id,
                 "belongs_to": STREET_EDGE_ID,
                 "kind": "board_fence",
                 "confidence": "reconstructed",
@@ -4041,6 +4079,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                 "rail_courses": EDGE_FENCE_COURSES,
                 "lots": run["lots"],
                 "least_setback_m": _round(run["setback"]),
+                "openings": openings,
                 "note": (
                     "A FENCE LINING THE STREET, on the lot line with the plank walk at "
                     "its foot — which is the first Cook County jail engraving read "

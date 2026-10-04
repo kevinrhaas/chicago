@@ -94,6 +94,7 @@ from pathlib import Path
 
 from generate_dooryard_pickets import footprint_world, poly_contains
 import enclosure_owners
+import gate_kinds
 import generate_entrances
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -526,6 +527,11 @@ def build(entries, sidecars):
     openings = {"board": [], "picket": [], "post_and_rail": []}
     links = enclosure_owners.household_links()
 
+    def centre_of(lot_id):
+        poly = ground[lot_id][0]
+        return [round(math.fsum(v[0] for v in poly) / len(poly), 2),
+                round(math.fsum(v[1] for v in poly) / len(poly), 2)]
+
     def belongs(lot_ids, path):
         return enclosure_owners.owners_for(
             [(lid, ground[lid][0], ground[lid][1]) for lid in sorted(set(lot_ids))],
@@ -612,11 +618,16 @@ def build(entries, sidecars):
             if not any(point_seg_dist(mid, p, q) < 0.05 for p, q in got):
                 mid = lerp(best[0], best[1], 0.5)
             if seg_len(*best) > GATE_WIDTH_M + 2 * MIN_PIECE_M:
+                gid = f"rear_{rec['lot']}_gate"
                 openings[rec["kind"]].append({
-                    "id": f"rear_{rec['lot']}_gate",
+                    "id": gid,
                     "on": "alley",
                     "at_local_enu_m": [round(mid[0], 2), round(mid[1], 2)],
                     "width_m": GATE_WIDTH_M,
+                    # T-2112 — WHAT HANGS IN IT, by tools/gate_kinds.py's rule, and
+                    # which way a leaf swings: into the lot it belongs to.
+                    "gate": gate_kinds.gate_for(gid, "yard", {"board": "board", "picket": "picket", "post_and_rail": "rail"}[rec["kind"]]),
+                    "opens_into_local_enu_m": centre_of(rec["lot"]),
                     "confidence": "reconstructed",
                     "note": (
                         "INVENTED, like every gateway on this layer. A yard a cart could "
@@ -624,8 +635,10 @@ def build(entries, sidecars):
                         "lot a cart could come at, so the gap is centred in the alley line; "
                         "10 ft is a team and a wagon, not a person with a basket. NO GATE "
                         "LEAF IS DRAWN — the fence simply stops, the way it does at the "
-                        "wagon yard, the pound and the garden plots, because a hung gate "
-                        "would be an invention on top of an invention."
+                        "wagon yard, the pound and the garden plots. SINCE T-2112 `gate` "
+                        "says what hangs in it — a pair of leaves, slip bars or nothing — "
+                        "by the rule in tools/gate_kinds.py, an invention on top of an "
+                        "invention and graded so."
                     ),
                 })
 
@@ -654,16 +667,22 @@ def build(entries, sidecars):
             if not any(point_seg_dist(mid, p, q) < 0.05 for p, q in got):
                 mid = lerp(best[0], best[1], 0.5)
             if seg_len(*best) > GATE_WIDTH_M + 2 * MIN_PIECE_M:
+                gid = f"front_{rec['lot']}_gate"
                 openings[rec["kind"]].append({
-                    "id": f"front_{rec['lot']}_gate",
+                    "id": gid,
                     "on": "street",
                     "at_local_enu_m": [round(mid[0], 2), round(mid[1], 2)],
                     "width_m": GATE_WIDTH_M,
+                    # T-2112 — WHAT HANGS IN IT, by tools/gate_kinds.py's rule, and
+                    # which way a leaf swings: into the lot it belongs to.
+                    "gate": gate_kinds.gate_for(gid, "yard", {"board": "board", "picket": "picket", "post_and_rail": "rail"}[rec["kind"]]),
+                    "opens_into_local_enu_m": centre_of(rec["lot"]),
                     "confidence": "reconstructed",
                     "note": (
                         "INVENTED, like every gateway on this layer. A lot closed on its "
                         "street line still has to be got into from the street, so the gap "
-                        "is centred in that line, 10 ft for a cart. NO GATE LEAF IS DRAWN."
+                        "is centred in that line, 10 ft for a cart; `gate` says what hangs "
+                        "in it (T-2112, tools/gate_kinds.py, L380)."
                     ),
                 })
 
