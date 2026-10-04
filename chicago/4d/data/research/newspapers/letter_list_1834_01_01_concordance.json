@@ -31,16 +31,17 @@
    "spelling": 14
   },
   "reaches": {
-   "minted": 92,
-   "refused": 66,
+   "minted": 88,
+   "refused": 70,
    "held_already": 12
   },
-  "reaches_a_card": 104,
+  "reaches_a_card": 100,
   "refused_by_reason": {
    "surname already minted": 26,
-   "the town already names that family": 27,
+   "the town already names that family": 30,
    "garbled": 12,
-   "a firm, not a person": 1
+   "a firm, not a person": 1,
+   "a surname and nothing else": 1
   },
   "readings_that_disagree": 3,
   "readings_ruled_onto_the_page_image": 16,
@@ -889,7 +890,7 @@
    "reaches": {
     "kind": "refused",
     "person": "person_henry_b_clarke_2",
-    "reason": "surname already minted",
+    "reason": "the town already names a Clarke",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2261,10 +2262,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_miranda_miner_2",
-    "household": "hh_miranda_miner_2",
-    "card_name": null,
+    "reason": "surname already minted",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2431,10 +2431,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_chester_marshall_2",
-    "household": "hh_chester_marshall_2",
-    "card_name": null,
+    "reason": "the town already names a Marshall",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2757,10 +2756,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_mr_roult_2",
-    "household": "hh_roult_2",
-    "card_name": null,
+    "reason": "a surname and nothing else",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3449,10 +3447,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_peter_temple_3",
-    "household": "hh_peter_temple_3",
-    "card_name": null,
+    "reason": "the town already names a Temple",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
