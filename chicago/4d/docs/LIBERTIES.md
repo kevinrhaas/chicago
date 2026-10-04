@@ -14889,7 +14889,7 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 179 households (182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 178 households (179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15891,6 +15891,13 @@ rather than revised in passing — it reaches seven cards and every reader of th
 which is not one district's pass to make. It costs this liberty one keeper of fifteen on the
 Randolph tier, and that is the direction this pass is wrong in when it is wrong: too few
 keepers named, each shortfall counted.
+**T-1689 settled it at the source.** The letter-list mint now renames a card in the same
+step that refuses its flag — *a name the papers print beyond the letter lists*, which claims
+no address, trade or presence and only says what the card's own press reading already shows
+— and its `--gate` holds the name and the flag together on every card it minted. The seven
+cards carry that name; the two refused roofs are no longer refusals but seats **owed** to a
+later district pass (both stand on roofs this pass is not wired through), so refused
+**81 → 79**, owed **46 → 48**, written unmoved at **23**. No ruling moved.
 
 **One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
 for a garden when a household id appears in a structure's `occupants` prose. Putting the id
@@ -20871,3 +20878,32 @@ stand on is itself conjectural ground south of Twelfth Street.
 **How to resolve:** a street plat or photograph that draws the surviving tree against the curb
 and the railroad would make the easting inferred.
 **Recorded:** 2026-10-04 (T-0471).
+
+### L373 — The plank shanty on Lake Street takes the Dearborn corner the Mansion House left
+**Decision:** T-1679 moved `mansion_house` (Haddock's Tavern) and its stable one platted lot
+east, from `blk_south_water_dearborn` lot #01 (plat lot 5, the Lake-and-Dearborn corner) to lot
+#03 (plat lot 6), on G. Spring's 1834 notice selling lot 7 "one lot east of Haddock's Tavern".
+The move itself is an **inference** and is argued in the house's own position note, not here.
+**The liberty is the anonymous roof it displaced:** `recon_1835_blk_south_water_dearborn_d2_04`,
+a D2 plank dwelling or shanty, stood on lot #03 and could not stand beside the tavern. Its slot
+in `data/reconstruction/1835_platted_block_parcels.json` now names lot 1 instead of lot 3, with
+the same face, setback and lateral offset, and `tools/generate_block_infill.py` set it out from
+the lot polygon as before. No coordinate is authored, no roof is added or removed, and the
+block's family mix is unchanged.
+**Why:** a slot on a free lot is an invented count-unit, and moving it to the lot the tavern
+vacated is the smallest change that keeps the block's roof count without crowding a documented
+house. Re-dealing the whole block to put a better roof on the corner would have been a second
+decision riding on the first.
+Sliding it east on lot #03 instead was tried and refused: a recipe slot may not share a lot with a
+committed principal roof.
+**Consequence:** the meanest roof on the block now stands on its most prominent corner, which the
+end rule would not have chosen. The platted deal does not seat a labourer's household on a corner
+lot, so the household the shanty housed takes the next roof in the deal's order, nine more move
+one roof each down that chain, and the last is handed to T-1614 with the plat's other unseated
+households (`data/reconstruction/1835_platted_seats.json`, 179 seated to 178). All of those were
+seats dealt onto anonymous roofs; no source-backed home moved. T-0324 reads J. K. Botsford's store on that corner; no record
+places the store yet.
+**How to resolve:** a record that places Botsford's store (or any documented building) on the
+north-east corner of Lake and Dearborn substitutes for this count-unit.
+**Covers:** `recon_1835_blk_south_water_dearborn_d2_04.inferred_1835.position`
+**Recorded:** 2026-10-04 (T-1679).

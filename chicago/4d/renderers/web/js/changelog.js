@@ -1,10 +1,30 @@
 export const CHANGELOG = [ // newest first
-  { v: 1415, ts: '2026-10-04T09:34:08.233Z', date: 'Oct 4, 2026, 4:34 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
+  { v: 1418, ts: '2026-10-04T10:32:30.937Z', date: 'Oct 4, 2026, 5:32 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
     items: [
-      'Twelve people known only from the post office’s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
+      'Twelve people known only from the post office\u2019s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
       'Constant Abbott, Alfred Churchill and Samuel Stout are now known to the town from 1 January 1834, not from April or July. A list printed in March 1834 names all three.',
       'Two people whose arrival year comes from a history of their own keep it. The post-office dates no longer overwrite it.',
-      'Thirteen more were looked at and left as they are, with the reason written down. Seven belong to another open fix. In six, the same name is printed twice and the records read only one printing, which is now its own question.',
+      'Six more were looked at and left as they are, with the reason written down. In each, the same name is printed twice and only one printing is read. That is now its own question.',
+    ] },
+  { v: 1417, ts: '2026-10-04T10:19:51.514Z', date: 'Oct 4, 2026, 5:19 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
+      'Some lines of the 1834 post-office letter list end with how many letters were waiting, as in \u201cPeter Temple 3\u201d. The pass that adds letter-list people read that number as part of the name, so it looked up \u201cPeter\u201d as the family name.',
+      'Read without the number, four of the people it was about to add are turned away. Peter Temple is already in the town. The town already has a Marshall and a Miner, and \u201cMr. Roult\u201d gives no first name. A fifth, Salmon Rutherford, is already in the town and would have been added a second time.',
+      'The other 39 new names wait for a separate fix. Adding them shifts the numbers the town\u2019s made-up households are planned from, and one planned move no longer fits.',
+    ] },
+  { v: 1416, ts: '2026-10-04T09:51:42.459Z', date: 'Oct 4, 2026, 4:51 AM CT', title: 'Seven households no longer called letter-list names alone', kind: 'fix',
+    items: [
+      'Open the Bradford, Ambrose, Chapman, Fitzgerald, Murray, Neff or Simons household in People, or a house they are seated in: each was named “a name from the post office’s letter lists” although the same card shows the papers naming them elsewhere too.',
+      'Each now reads “a name the papers print beyond the letter lists”. That claims no address, trade or presence in July 1835, only what their cards already show.',
+      'The minting tool now renames a household whenever it drops the letter-list mark, and its check fails if the name and the mark ever disagree again.',
+    ] },
+  { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
+    items: [
+      'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',
+      'Why: an 1834 newspaper notice sells lot 7 of the block as \u201cone lot east of Haddock\u2019s Tavern\u201d. That puts the tavern on lot 6, next door to lot 7. Another 1834 advertiser\u2019s two addresses point to the same lot.',
+      'Its stable moved with it, to the back of the new lot.',
+      'The small plank shanty that stood on lot 6 is a reconstruction, not a recorded building. It now stands on the corner lot the tavern left.',
     ] },
   { v: 1414, ts: '2026-10-04T09:05:46.494Z', date: 'Oct 4, 2026, 4:05 AM CT', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
     items: [

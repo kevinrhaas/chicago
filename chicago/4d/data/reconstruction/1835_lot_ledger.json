@@ -6796,12 +6796,10 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "mansion_house",
-    "mansion_house_stable"
+    "recon_1835_blk_south_water_dearborn_d2_04"
    ],
    "standing_families": {
-    "mansion_house": "T1",
-    "mansion_house_stable": "A1"
+    "recon_1835_blk_south_water_dearborn_d2_04": "D2"
    },
    "principal_roofs_standing": 1,
    "bars_another_roof": true,
@@ -6870,10 +6868,12 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_dearborn_d2_04"
+    "mansion_house",
+    "mansion_house_stable"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_dearborn_d2_04": "D2"
+    "mansion_house": "T1",
+    "mansion_house_stable": "A1"
    },
    "principal_roofs_standing": 1,
    "bars_another_roof": true,

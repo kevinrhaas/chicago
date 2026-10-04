@@ -598,7 +598,7 @@ Every household carries an arrival block and 95.4% of them (1355) hold a `not_la
 | The Alling household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Allison household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Almond household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
-| The Ambrose household — a name from the post office's letter lists | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
+| The Ambrose household — a name the papers print beyond the letter lists | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
 | The Anderson household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Andress household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Andrews household — a name from the post office's letter lists | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
@@ -745,7 +745,7 @@ Every household carries an arrival block and 95.4% of them (1355) hold a `not_la
 | The Bowen household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Boyer household — documented at Chicago, no trade printed, unplaced in the town | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Brackett household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
-| The Bradford household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
+| The Bradford household — a name the papers print beyond the letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Bradford household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Bradley household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Bradstreet household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
@@ -827,7 +827,7 @@ Every household carries an arrival block and 95.4% of them (1355) hold a `not_la
 | The Chandler household — a name the town's own records carry | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
 | The Chanpagne household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Chapley household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
-| The Chapman household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
+| The Chapman household — a name the papers print beyond the letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Chapman household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Chappel household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Chariton household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
@@ -1017,7 +1017,7 @@ Every household carries an arrival block and 95.4% of them (1355) hold a `not_la
 | The Fish household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Fisher household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Fisher household — a name the town's own records carry | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
-| The Fitzgerald household — a name from the post office's letter lists | season_not_apportioned | The trading post, the fort and the country trade — the town before the boom | reconstructed |
+| The Fitzgerald household — a name the papers print beyond the letter lists | season_not_apportioned | The trading post, the fort and the country trade — the town before the boom | reconstructed |
 | The Fitzlugh household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Fitzsimmons household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Fleet household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
@@ -1408,7 +1408,7 @@ Every household carries an arrival block and 95.4% of them (1355) hold a `not_la
 | The Munriou household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Murphy household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Murphy household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
-| The Murray household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
+| The Murray household — a name the papers print beyond the letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Murray household — a name the town's own records carry | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
 | The Murray household — a name the town's own records carry | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Murray household — a name the town's own records carry | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
@@ -1419,7 +1419,7 @@ Every household carries an arrival block and 95.4% of them (1355) hold a `not_la
 | The Myrick household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Nadeau household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Nalla household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
-| The Neff household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
+| The Neff household — a name the papers print beyond the letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Neleh household — a name from the post office's letter lists | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
 | The Nelson household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Nelts household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
@@ -1614,7 +1614,7 @@ Every household carries an arrival block and 95.4% of them (1355) hold a `not_la
 | The Silas household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Silver household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Simmons household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
-| The Simons household — a name from the post office's letter lists | season_not_apportioned | The trading post, the fort and the country trade — the town before the boom | reconstructed |
+| The Simons household — a name the papers print beyond the letter lists | season_not_apportioned | The trading post, the fort and the country trade — the town before the boom | reconstructed |
 | The Simpaon household — a name from the post office's letter lists | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
 | The Simpson household — a name from the post office's letter lists | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
 | The Skinner household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
