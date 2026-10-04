@@ -1,11 +1,42 @@
 export const CHANGELOG = [ // newest first
-  { v: 1439, ts: '2026-10-04T19:35:50.395Z', date: 'Oct 4, 2026, 2:35 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+  { v: null, ts: '', title: 'Where the lag comes from when you stand still', kind: 'change',
     items: [
       'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
       'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
       'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
       'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
       'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
+    ] },
+  { v: 1443, ts: '2026-10-04T19:07:50.251Z', date: 'Oct 4, 2026, 2:07 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
+    items: [
+      'Walk up Franklin Street to the river: Newberry & Dole\u2019s forwarding and commission warehouse no longer stands across the end of the street and in South Water Street. It now sits back in the corner west of Franklin and south of South Water, still facing the river.',
+      'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
+      'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L378).',
+    ] },
+  { v: 1442, ts: '2026-10-04T18:53:07.735Z', date: 'Oct 4, 2026, 1:53 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+    items: [
+      'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
+      'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
+      'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
+    ] },
+  { v: 1441, ts: '2026-10-04T18:51:58.275Z', date: 'Oct 4, 2026, 1:51 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
+    items: [
+      'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',
+      'At each end the lane crosses the roadside to the street, so a cart turning in from Wells or LaSalle leaves the road on the same ground.',
+      'Twenty-nine alleys have a lane. Seven on blocks with nothing built stay grass. On the Lake Street blocks the lane stops where a house stands across the alley.',
+      'Nothing new is drawn as a separate piece, so the town draws no more objects than before. The lanes are a reconstruction (Liberty L377).',
+    ] },
+  { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
+    items: [
+      'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
+      'The worn riverbank it lies on was being drawn in front of the boards at a distance. The bank now always lies under the walk and the road, as it does up close.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
+    ] },
+  { v: 1439, ts: '2026-10-04T18:11:34.742Z', date: 'Oct 4, 2026, 1:11 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The short town ground from the last release was measured at phone and desktop size, at every Scene detail setting, against the version that is live today.',
+      'On a phone every standard view stays inside its drawing budget at every setting.',
     ] },
   { v: 1438, ts: '2026-10-04T17:47:42.763Z', date: 'Oct 4, 2026, 12:47 PM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
     items: [
