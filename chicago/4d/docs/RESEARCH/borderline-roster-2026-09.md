@@ -103,7 +103,7 @@ Five rows of each class, in the roster's own order, with the reason each name wa
 |---|---|---|---|
 | A. A. M'Grigg | 1834-10-22 | `hh_mgrigg_a_a` | The layer holds this household and no source follows it to 1 July 1835, so its presence stands `uncertain`. Reconstruction may fix it `present` at tier `reconstructed` against the persistence rate. |
 | A B Sasoton | 1834 | `hh_sasoton_a_b` | The layer holds this household and no source follows it to 1 July 1835, so its presence stands `uncertain`. Reconstruction may fix it `present` at tier `reconstructed` against the persistence rate. |
-| A. Beegle | 1834-07-16 | `hh_beegle_a` | The layer holds this household and no source follows it to 1 July 1835, so its presence stands `uncertain`. Reconstruction may fix it `present` at tier `reconstructed` against the persistence rate. |
+| A. Beegle | 1834-07-09 | `hh_beegle_a` | The layer holds this household and no source follows it to 1 July 1835, so its presence stands `uncertain`. Reconstruction may fix it `present` at tier `reconstructed` against the persistence rate. |
 | A Filer | 1835 (a window over the scene date, so no day before it) | `hh_filer_a` | The layer holds this household and no source follows it to 1 July 1835, so its presence stands `uncertain`. Reconstruction may fix it `present` at tier `reconstructed` against the persistence rate. |
 | A. M. Wing | 1834-07-02 | `hh_wing_a_m` | The layer holds this household and no source follows it to 1 July 1835, so its presence stands `uncertain`. Reconstruction may fix it `present` at tier `reconstructed` against the persistence rate. |
 
