@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
+  { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
     items: [
       'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
       'The worn riverbank it lies on was being drawn in front of the boards at a distance. The bank now always lies under the walk and the road, as it does up close.',
