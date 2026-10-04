@@ -4891,8 +4891,12 @@ def cmd_self_test() -> int:
     # 251 -> 252 on 2026-10-02 (T-1989): `recon_1835_west_013`, re-dealt from a utility shed
     # to a D2 on Lake west of Canal, is a standing roof `labourer_dwellings` admits off the
     # plat, so the off-plat pass adopts it for hh_rc_doyle_ellen (72 -> 73, L271, L265).
+    # 252 -> 251 on 2026-10-04 (T-1679): the Mansion House moves one lot east onto the
+    # D2 shanty's lot and the shanty takes the Dearborn corner, where `labourer_dwellings`
+    # seats no one; hh_clark_john_k and nine more step down one roof each and
+    # hh_humphrey_fre_lemuel is owed to T-1614 (179 -> 178 platted seats, L270, L373).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 252
+        data["inventory"], data["programme"], occ))["seated"] == 251
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

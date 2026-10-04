@@ -18,12 +18,12 @@
         "note": "COPIED FROM THE HOUSE IT SERVES (data/structures/mansion_house.json, phase log_frame_1833, 1833-01-01 to 1850-12-31). No source dates this building, because no source mentions it. The stable is taken to stand while the house kept travellers, because keeping a traveller's horse overnight was a priced service of a Chicago tavern from the county's first licences on (the 1831 order below). If the house kept its horses at a livery or a neighbour's barn instead, this range is wrong in the only way that matters: the building was not there. T-1776."
       },
       "position": {
-        "utm_e": 447786.7,
-        "utm_n": 4637330.6,
+        "utm_e": 447812.62,
+        "utm_n": 4637330.12,
         "rotation_deg": 0.0,
-        "symbolic_location": "Rear of the Mansion House's lot on the north side of Lake Street east of Dearborn, against the block's east-west alley.",
+        "symbolic_location": "Rear of the Mansion House's lot, plat lot 6 of block 16 on the north side of Lake Street east of Dearborn, against the block's east-west alley.",
         "confidence": "reconstructed",
-        "note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_dearborn lot #01, the Mansion House's own lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) at the alley's west end, and 3.3 m inside the lot's Dearborn line, square behind the house. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L317.",
+        "note": "NOTHING PLACES THIS BUILDING AND THIS COORDINATE IS A CHOICE, bounded by the lot. The placement policy's ancillary clause (`ancillary_behind_its_own_roof`: stables 'go off the block alley behind the roof they serve') and the house's own footprint decide where it may go; inside that, it is the alley end of blk_south_water_dearborn lot #01, the Mansion House's own lot: 1.5 m inside the alley line (plat_occupancy's LOT_MARGIN_M) at the alley's west end, and 3.3 m inside the lot's Dearborn line, square behind the house. Checked against every committed footprint with a 1 m clearance and against the modelled water; nothing was hit. L317. MOVED 2026-10-04 WITH THE HOUSE IT SERVES (T-1679): the Mansion House now stands on lot #03, plat lot 6, one lot east, and the clause that put this stable on the house's own lot moves it with the house. It keeps the same seat on its new lot — the same distance inside the alley line and inside the lot's west line — translated by the committed plat's lot-to-lot vector along the alley, (+25.92, -0.48) m local, lot 5's north-west corner 710.72,-57.14 to lot 6's 736.64,-57.62. Nothing else about it changes.",
         "derivation": {
           "method": "not_derivable",
           "reason": "Placed against the lot it stands on (data/traces/vectors/thompson_lots.json) or, off the plat, against the house it serves — neither is a street line or a traced waterline that validate.py can re-derive a coordinate from. The reasoning is in position.note."

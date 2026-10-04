@@ -159,3 +159,9 @@ record's own.
 
 Acting on it is a structure move and a bake, and it is filed as **T-1679** rather than taken
 inside a register pass. Neither this document nor the ruling register moves the record.
+
+**Taken by T-1679 (2026-10-04): the house moved to lot 6.** The "measurement or next door"
+question did not need answering: either reading puts the tavern on the lot adjacent to lot 7 on
+the west, and that is lot 6. The record's position note carries the argument, including why an
+1834 notice may place a house whose 1835 existence rests on Andreas. Its stable moved with it,
+and the anonymous D2 shanty that stood on lot 6 took the corner (docs/LIBERTIES.md L373).

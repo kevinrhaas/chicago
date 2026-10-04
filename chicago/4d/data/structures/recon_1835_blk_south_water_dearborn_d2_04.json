@@ -12,9 +12,9 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 447825.967,
-        "utm_n": 4637303.537,
-        "rotation_deg": 180.36,
+        "utm_e": 447800.05,
+        "utm_n": 4637303.752,
+        "rotation_deg": 180.35,
         "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by South Water, State, Lake and Dearborn; standing back from the Lake Street frontage",
         "confidence": "reconstructed",
         "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 6.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
@@ -131,13 +131,12 @@
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D2 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
   "occupants": {
-    "value": "The Clark household — a name the town's own records carry",
+    "value": "Elmira Fowler — millinery and dress making",
     "confidence": "reconstructed",
     "sources": [
-      "chicago_american_1835",
-      "isa_public_domain_land_tract_sales"
+      "chicago_democrat_1833_1835"
     ],
-    "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1638; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_south_water_dearborn#03, fronting lake, a standing roof of family D2 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+    "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Dearborn Street AND NOTHING NARROWER — 1 printing, 1834-11-05 to 1834-11-05, claims chicago_democrat_1834_11_05#c004 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST Dearborn Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
   },
   "reconstruction": {
     "status": "inferred_anonymous",
@@ -147,26 +146,20 @@
     "programme_phase": "phase3_platted_block_south_water_dearborn",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "block_id": "blk_south_water_dearborn",
-    "lot_index": 3,
+    "lot_index": 1,
     "stands_on": "street",
     "fronts": "lake",
     "sequence": 4,
     "finish_key": "mixed_patch",
-    "roof_condition": "darkened",
-    "age_state": "older_frontier",
+    "roof_condition": "weathered",
+    "age_state": "recent",
     "fabric_basis": {
-      "rule": "F-T",
-      "class": "tradesman",
-      "by": "keeper_trade",
-      "household": "hh_clark_john_k",
-      "words": "patched boards under a weather-darkened roof — The Clark household's, a milliner, in Chicago since 1817 (rule F-T)"
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a weathered roof — a rough plank dwelling or shanty, a year old (rule F-L: a labourer's by its type)"
     }
-  },
-  "resident_assignment": {
-    "status": "assigned",
-    "confidence": "reconstructed",
-    "note": "T-1638: seated by the placement policy's platted deal under its labourer_dwellings clause, on blk_south_water_dearborn#03 fronting lake — a standing anonymous roof of family D2 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-    "household_id": "hh_clark_john_k"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

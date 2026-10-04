@@ -2345,7 +2345,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 67636,
-      "inputs_sha256": "64f3777fec7598a374f24f1fd1c4d944dc07ca8cefa80eaf1ea3e495a08a4d87",
+      "inputs_sha256": "d80ce2d2f6bea23f494454e247979c2911daa35d3e32ed68f3883e106eb8c9c7",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_d2_04"
@@ -2425,8 +2425,8 @@
     "recon_1835_blk_south_water_franklin_d1_04__inferred_1835.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 32852,
-      "inputs_sha256": "a29c7fa025ab3fd29c891e554dba88ba58f21b2f14a9584046da1e5151e3131c",
+      "bytes": 32848,
+      "inputs_sha256": "57dd1be868cb0749b0eb1eb0a62769cf3ecf2dbdce3810a9b34a9e43ad9a0316",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d1_04"
