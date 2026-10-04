@@ -5191,7 +5191,10 @@ for (const [label, viewport, touch] of [
         // takes its post at its own tier (+25), an inn stands two (+5), 18 + 30.
         // T-1823 — the fronts-only faces: the Western Hotel's two and three West
         // Division stores' one each, 48 to 53. A fronts-only face takes no fence.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 32
+        // T-1679 (#396) moved Haddock's Tavern one lot east on blk_south_water_dearborn,
+        // and the Lake Street face it left now takes a street fence
+        // (blk_south_water_dearborn_south_fence_6): 32 to 33. Restated in T-2102 for T-2093.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 33
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.

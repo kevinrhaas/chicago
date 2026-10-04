@@ -1,10 +1,32 @@
 export const CHANGELOG = [ // newest first
-  { v: 1445, ts: '2026-10-04T21:31:19.091Z', date: 'Oct 4, 2026, 4:31 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+  { v: 1448, ts: '2026-10-04T21:54:31.346Z', date: 'Oct 4, 2026, 4:54 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
     items: [
       'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
       'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
       'The front steps of 108 houses had the same fault at their base and are fixed too.',
       'Nothing new is drawn, so it costs nothing extra on a phone.',
+    ] },
+  { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+    items: [
+      'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
+      'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
+      'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
+      'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
+      'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
+    ] },
+  { v: 1446, ts: '2026-10-04T21:05:08.589Z', date: 'Oct 4, 2026, 4:05 PM CT', title: 'Fenced lots are closed all round, open where a house faces the street', kind: 'fix',
+    items: [
+      'Fly over any built block, the Clark Street blocks south of the river for one: a fenced lot is now fenced along both sides from the street back to the alley, where the fence used to stop partway and leave the lot open to its neighbours.',
+      'Where a house or store stands at the front of the lot, the street side stays open so you see the building. A lot with only a shed or privy at the back is fenced on the street too, with a cart gate.',
+      'Lots with no fence before still have none, so not every building is fenced.',
+      'Early Chicago let ringed hogs run loose in the streets, and a fence open on three sides keeps nothing out. Which lots are fenced, and how, is a reconstruction (Liberty L379).',
+    ] },
+  { v: 1445, ts: '2026-10-04T20:41:19.184Z', date: 'Oct 4, 2026, 3:41 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+    items: [
+      'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
+      'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
+      'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
+      'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
     ] },
   { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
     items: [
