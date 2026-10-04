@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Trees cost less to draw, and look the same', kind: 'fix',
+  { v: 1450, ts: '2026-10-04T23:02:23.700Z', date: 'Oct 4, 2026, 6:02 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
     items: [
       'Every leaf on every tree is now cheaper to draw. The trees take about an eighth less time to draw, on a phone and on a desktop. Compared pixel for pixel, the picture is the same.',
       'Each leaf used to work out a tiny surface texture that it then nearly threw away. It now skips that step. Bark keeps its texture.',
