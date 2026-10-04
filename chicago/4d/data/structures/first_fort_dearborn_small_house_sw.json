@@ -1,0 +1,95 @@
+{
+  "id": "first_fort_dearborn_small_house_sw",
+  "name": "First Fort Dearborn — small house, south-west corner",
+  "aka": [
+    "Whistler's index no. 16, 'Small Houses in the garrison'"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1803-08-17",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913_swearingen",
+          "quaife_1913",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+      },
+      "position": {
+        "utm_e": null,
+        "utm_n": null,
+        "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'small house, south-west'): E -40.3..-34.7 ft, N -41.2..-33.4 ft of the flagstaff's foot, facade not drawn. NOT YET SEATED ON THE GROUND: the fort's place and its bearing to true north are T-2050's.",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "PLACED IN THE FORT'S OWN FRAME AND NOWHERE ELSE YET. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. 'East' is the sheet's right, which the register infers from the lake lettered down that margin; the sheet has no north arrow. The utm fields stay null until T-2050 seats the whole frame with one origin and one bearing, which is the only way the fort can be placed without moving one building against another."
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            1.68,
+            0
+          ],
+          [
+            1.68,
+            2.35
+          ],
+          [
+            0,
+            2.35
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "MEASURED: 5.5 x 7.7 ft, east-west by north-south, the plan box the register reads with numeral 16 upside-down inside it."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "quaife_1913"
+          ],
+          "note": "Not stated; timber like the rest of the post."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "reconstructed",
+          "note": "Unattested; a one-storey small house."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "note": "Unattested at this scale of drawing."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "reconstructed",
+          "note": "Unattested."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "outbuilding",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "The other of the two 'Small Houses in the garrison' (index no. 16), its use unstated."
+  },
+  "research_note": "A SMALL HOUSE OF UNSTATED USE, in the corner diagonally opposite the north-east one, as Quaife says and the draught draws it.",
+  "review_required": false
+}

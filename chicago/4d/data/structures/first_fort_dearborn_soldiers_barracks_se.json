@@ -1,0 +1,130 @@
+{
+  "id": "first_fort_dearborn_soldiers_barracks_se",
+  "name": "First Fort Dearborn — soldiers' barracks, east of the main gate",
+  "aka": [
+    "Whistler's index no. 12, 'Soldiers Barracks'"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1803-08-17",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913_swearingen",
+          "quaife_1913",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+      },
+      "position": {
+        "utm_e": null,
+        "utm_n": null,
+        "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'south range, east of the gate'): E -4.9..+18.4 ft, N -45.6..-32.3 ft of the flagstaff's foot, facing north onto the parade. NOT YET SEATED ON THE GROUND: the fort's place and its bearing to true north are T-2050's.",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "PLACED IN THE FORT'S OWN FRAME AND NOWHERE ELSE YET. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. 'East' is the sheet's right, which the register infers from the lake lettered down that margin; the sheet has no north arrow. The utm fields stay null until T-2050 seats the whole frame with one origin and one bearing, which is the only way the fort can be placed without moving one building against another."
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            7.07,
+            0
+          ],
+          [
+            7.07,
+            4.05
+          ],
+          [
+            0,
+            4.05
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "MEASURED: 23.2 ft along the parade face by 13.3 ft deep, the plan box the register reads for the south range, east of the gate. Its back wall stands on the inward row of pickets, as every range's does on the draught."
+      },
+      "form": {
+        "kind": {
+          "value": "barracks",
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "Whistler's index no. 12, the south range's eastern half, across the main gate from its western one."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "quaife_1913"
+          ],
+          "note": "Not stated on the sheet. Built by the garrison out of local timber in 1803; Quaife calls the factor's and agent's houses beside it 'two log houses', and the magazine is singled out as the one structure of brick."
+        },
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "Whistler's index, note: 'the Barracks are two storeys high with shingled Roofs and Galliaries fronting the parade'. Quaife, reading the same sheet: 'two stories in height, with shingled roofs and covered galleries'."
+        },
+        "wall_height_m": {
+          "value": 5.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. Two storeys of log, at the second fort's inferred 5.0 m. The register refuses a height from the folded elevations, which disagree with each other by 70 percent."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The index says 'shingled Roofs' and each range's elevation, folded out over the curtain, draws a pitched roof with its ridge along the range. A gable is that roof; the shingles are not a parameter the archetype reads."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "reconstructed",
+          "note": "Unattested. The folded elevations are not drawn at the plan scale (the register's height cross-check FAILS), so no pitch is read off them. The second fort's ranges carry the same figure."
+        },
+        "gallery": {
+          "value": true,
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "The same note: 'Galliaries fronting the parade'. Built along the parade face; nothing says how deep the gallery was or how it was carried, and the archetype's gallery is a typical one."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Unattested in number. The north range's folded elevation draws a chimney above its roof; a two-storey range quartered through a Chicago winter is heated, but how many stacks and where are ours."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "enlisted_mens_barracks",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "Whistler's index no. 12, the south range's eastern half, across the main gate from its western one."
+  },
+  "research_note": "A RANGE OF THE FIRST FORT, BURNED ON 16 AUGUST 1812. Its plan is the commandant's measured draught and its two storeys and gallery are his own note; its wall height, pitch and stacks are ours, because the elevations he folded out over the curtain are not drawn to the plan's scale.",
+  "review_required": false
+}

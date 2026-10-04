@@ -14299,7 +14299,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 516 phases (517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 528 phases (516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14415,7 +14415,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 4 structures. The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 5 structures (4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -14571,8 +14571,10 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 81 phases: 66 log dwellings and
-15 fort structures. It was 83 until T-1743, 2026-10-03, folded `beaubien_new_residence` into the
+**Scope:** `structures.phases[log_or_fort_archetype]` — 91 phases: 66 log dwellings and
+25 fort structures. It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
+`fort_structure` records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles
+are not this entry's extension at all: Whistler's own 1808 note says "shingled Roofs". It was 83 until T-1743, 2026-10-03, folded `beaubien_new_residence` into the
 Beaubien homestead and moved `beaubien_trading_post` onto the outbuilding archetype. It was 75 until T-1648 re-familied the La Salle block's South Water
 frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
 documented dry-goods house in it, became a C1 shop and left this liberty's population for
@@ -20744,3 +20746,27 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/over-the-draw.json`.
 
 **Recorded:** 2026-10-03 (T-2042).
+
+### L370 — The first Fort Dearborn's heights, roofs, stacks, pickets and two missing depths are ours
+**Decision:** the fourteen records of the fort of 1803-1812 (T-2049) take their PLANS from Captain
+Whistler's own measured draught of 25 January 1808 and almost nothing else from it, because a plan
+is all it measures. Every wall height, every roof pitch, the blockhouses' pyramid caps and jetties,
+the number of stacks on each range, the pickets' height, face and spacing, and the roofs and heights
+of the magazine and the two small houses are invented, and they are built anyway. So are the plan
+DEPTHS of the magazine and the north-east small house: the draught draws both in elevation only, so
+their width and their front's place are measured and the 10 ft each runs back from it is ours.
+**Why:** the register (data/traces/whistler_1808_fort_dearborn.json) tested the obvious source of
+heights and it failed: the four ranges' elevations, folded out over the curtains, give four
+different depths for buildings the drafter's own note calls equally "two storeys high", so they
+are not drawn at the plan scale. What the records take from the note instead is attested and is
+not on this list: two storeys, the galleries fronting the parade, the shingled roofs' existence.
+The invented values are the second fort's figures where it has one (5.0 m ranges, 5.2 m
+blockhouses, 3.7 m pickets), so the two forts differ only where a source says they did.
+**Consequence:** the first fort's skyline is ours. A visitor who sees it seated in the 1812 scene
+(T-2050) sees the commandant's footprint under a massing of our choosing; its blockhouses carry no
+cupola, because the drafter wrote that the cupolas he drew were "not yet built".
+**How to resolve:** a War Department estimate or return for the post of 1803-1812, the
+quartermaster's building accounts, or a dimensioned elevation; any of them would move the heights
+to inferred.
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
+**Recorded:** 2026-10-04 (T-2049).
