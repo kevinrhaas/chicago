@@ -30,8 +30,8 @@
 # sweep is only ever cancelled by a newer push to THE SAME branch, whose old head is
 # no longer the PR's head and whose cancelled check no longer matters; the
 # newest-wins economy the workflow's own comment defends survives on each ref. It is
-# a workflow change, which needs an owner-visible PR, so it is filed as its own
-# ticket and NOT made here. Until it lands, this shape is how the reporter covers
+# a workflow change, which needs an owner-visible PR, so it is filed as T-2069
+# and NOT made here. Until it lands, this shape is how the reporter covers
 # the state its own trigger creates — and it would be needed after it, too, for any
 # other non-required check that is cancelled or fails and is never re-run.
 #
