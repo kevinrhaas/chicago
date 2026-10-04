@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1437, ts: '2026-10-04T17:42:33.726Z', date: 'Oct 4, 2026, 12:42 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
+    items: [
+      'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',
+      'At each end the lane crosses the roadside to the street, so a cart turning in from Wells or LaSalle leaves the road on the same ground.',
+      'Twenty-nine alleys have a lane. Seven on blocks with nothing built stay grass. On the Lake Street blocks the lane stops where a house stands across the alley.',
+      'Nothing new is drawn as a separate piece, so the town draws no more objects than before. The lanes are a reconstruction (Liberty L376).',
+    ] },
   { v: 1436, ts: '2026-10-04T16:59:01.860Z', date: 'Oct 4, 2026, 11:59 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [
       'Across the town, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
