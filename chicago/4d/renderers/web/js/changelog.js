@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
+    items: [
+      'Every leaf on every tree is now cheaper to draw. The trees take about an eighth less time to draw, on a phone and on a desktop. Compared pixel for pixel, the picture is the same.',
+      'Each leaf used to work out a tiny surface texture that it then nearly threw away. It now skips that step. Bark keeps its texture.',
+      'On a desktop at Full detail, a frame at the river forks is about 5% faster. On a phone at Light detail, the busiest views are about 3% faster.',
+      'On a phone, Image sharpness Low draws a frame 26 to 29% faster than Medium, but softer. Whether a phone should start at Low is for the owner to decide. You can choose it now in Settings.',
+    ] },
   { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
       'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
