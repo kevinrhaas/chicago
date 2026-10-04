@@ -16459,6 +16459,8 @@ row whose idiom it borrows), **L10** (the yard that is still a fence nobody mode
 
 **Recorded:** 2026-10-03 (T-1262).
 
+**Revised:** 2026-10-03 (T-2052). The outing measured 10.4 minutes on foot (T-2051) against a 3–6 minute band; the forks-to-LaSalle leg alone is four minutes of walking. The recommended mode is now a ride on horseback, which is invented like the rest of the first day, and the one leg story that said to walk the river street now says to ride it. The five stops and their texts are unchanged.
+
 ### L285 — The agency's ring of log buildings: four sentences that name the occupants and never describe a house
 
 **Decision:** three `log_dwelling` records — `mckee_log_house`, `caldwell_agency_log_house` and
@@ -17651,6 +17653,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-1263).
 
+**Revised:** 2026-10-03 (T-2053). The outing measured 6.6 minutes on foot (T-2051) against a 3–6 minute band. The recommended mode is now a drive in a light wagon, invented like the rest of the errand (a household buying flour would plausibly bring one), and the last stop's "Walk up to Lake Street" now says "Drive". The four stops, the stores' advertised goods and the prices are unchanged; Walk stays allowed.
+
 ### L-jaunt-fort-dearborn-errand — Fort Dearborn Errand: an invented note, parcel and delivery
 
 **Decision:** Fort Dearborn Errand links five existing exterior destinations — the stockade, the guard-house, the sutler's store, the store-house and the shop on the outer ground — in an invented errand: choose a small supply at the sutler's, check the parcel against a note outside the store-house, and set it down at the shop. The note, the parcel, the choice of candles or thread, the tally, the delivery, the readiness count, the two endings and the Accounted for at the Fort memento are reconstructed. No sutler's stock list for Fort Dearborn was found, so the two supplies are commonplace goods chosen for the story, not a claim about what this store sold. No soldier, sentry, sutler or commissary is shown or named, no garrison procedure is staged, no reply is invented, no interior is opened and the gates are not described as passed. What the evidence bounds is the setting: the buildings' functions and places (Hubbard 1827, the 1830 plan, the 1855 key, the 1834 beef notices) and the post being garrisoned on the scene date.
@@ -17662,6 +17666,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/fort-dearborn-errand.json`.
 
 **Recorded:** 2026-10-03 (T-1265).
+
+**Revised:** 2026-10-03 (T-2053). The errand measured 6.4 minutes on foot (T-2051) against a 3–6 minute band. It stays a walk, because it crosses the parade inside the pickets, so the first stop is folded into the second: the visitor now starts at the south gate, where the guard-house stop carries the stockade's card link, Juliette Kinzie's pickets and gates and the June 1832 garrison in one shorter text. The jaunt has four stops, not five; the sutler's store, store-house and shop stops are unchanged, and nothing new is claimed. The stop's prompt now carries the old text's “nobody replies”: no reply is invented.
 
 ### L-jaunt-taverns — Taverns of Chicago: an imagined evening round of four public houses
 
@@ -17698,6 +17704,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/news-before-breakfast.json`.
 
 **Recorded:** 2026-10-03 (T-2004).
+
+**Revised:** 2026-10-03 (T-2052). The jaunt measured 17.6 minutes on foot (T-2051) against a 3–6 minute band, and walking cannot fit it: the leg between the two offices alone is about two minutes on foot. So the recommended mode is now a ride on horseback, also invented, and breakfast moves from the Exchange Coffee House at Lake and Wells, the long ride back west, to the first Tremont House at Lake and Dearborn, a block from the American's office. The Tremont stop rests on Andreas and the 1874 Tribune letter the structure record already carries; the Exchange is no longer a stop, and nothing printed in either paper changed.
 
 ### L-jaunt-work-waterfront — Work on the Waterfront: an invented search for work
 
@@ -20314,6 +20322,8 @@ sounding of the pre-cut channel.
 **Applies to:** `data/jaunts/inspect-a-lot.json`.
 
 **Recorded:** 2026-10-03 (T-2008).
+
+**Revised:** 2026-10-03 (T-2053). The errand measured 6.8 minutes on foot (T-2051) against a 3–6 minute band. The recommended mode is now a ride on horseback between the four stops, invented like the rest of the errand; no stop text named walking, and the choice that promises to walk a lot's own ground still means a later errand on foot. The stops, notices and endings are unchanged; Walk stays allowed.
 
 ### L-jaunt-bed-for-the-night — A Bed for the Night: an invented search for lodging
 

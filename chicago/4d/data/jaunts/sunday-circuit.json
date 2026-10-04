@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "id": "sunday-circuit",
-  "content_version": 1,
+  "content_version": 2,
   "title": "A Sunday Circuit",
   "premise": "A quiet outing past the town's two churches and its log meeting house, ending with a call at the Sauganash.",
   "category": "Social life",
   "scene": "1835",
   "opening": {
-    "text": "A neighbour has asked you to call at the Sauganash, and the way there can pass every place the town gathered to worship. Look at each from the road. No service, sermon or day of the week is claimed: the outing is the summer of 1835, not a dated Sunday. Nothing to count or carry.",
-    "read_s": 17
+    "text": "A neighbour expects you at the Sauganash, and the way passes every place the town worshipped. Look from the road; no service or day is claimed.",
+    "read_s": 8
   },
   "default_mode": "horse",
   "allowed_modes": [
@@ -25,8 +25,8 @@
         "kind": "structure",
         "id": "st_marys_church"
       },
-      "text": "Begin on Lake Street just west of State, at St. Mary's. Augustine D. Taylor built it in 1833, twenty-five by thirty-five feet, for about $400, of lumber brought by scow from St. Joseph. Andreas says it was unplastered and unpainted, with neither steeple nor tower. The lot is our placement.",
-      "read_s": 26,
+      "text": "St. Mary's, on Lake Street west of State, built in 1833 by Augustine D. Taylor for about $400; Andreas says unplastered and unpainted. The lot is our placement.",
+      "read_s": 16,
       "links": [
         {
           "kind": "structure",
@@ -54,8 +54,8 @@
         "kind": "structure",
         "id": "first_presbyterian_church"
       },
-      "text": "Two blocks west, at the south-west corner of Lake and Clark, the Presbyterian church was dedicated on 4 January 1834. It was a meeting room as well: June's papers called School District No. 4 to meet here at six on the evening of 7 July, to consider building a school house.",
-      "read_s": 26,
+      "text": "Two blocks west, at Lake and Clark, the Presbyterian church, dedicated 4 January 1834, was a meeting room too: School District No. 4 was called here for 7 July.",
+      "read_s": 16,
       "links": [
         {
           "kind": "structure",
@@ -83,8 +83,8 @@
         "kind": "structure",
         "id": "walker_meeting_house"
       },
-      "text": "Across the South Branch to Wolf Point. Wau-Bun remembered a small square log building west of the forks in 1831, a school-house used for worship whenever a travelling minister came. Whether the 1835 meeting house is that cabin, or one raised north of the river in 1834, is unsettled; our marker is a placeholder.",
-      "read_s": 27,
+      "text": "Over the South Branch to Wolf Point, where Wau-Bun remembered a log school-house used for worship in 1831. Whether it is the 1835 meeting house is unsettled; our marker is a placeholder.",
+      "read_s": 17,
       "links": [
         {
           "kind": "structure",
@@ -112,8 +112,8 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Last, back over the South Branch to Lake and Market and the Sauganash. Wau-Bun recalled it in 1831 as white and two-story, with bright-blue shutters; on 10 June 1835 the Democrat reported it repaired and newly fitted up. The neighbour expecting you is invented, and so is the visit.",
-      "read_s": 24,
+      "text": "Back over the bridge to Lake and Market and the Sauganash, white with blue shutters in Wau-Bun, newly fitted up by the Democrat of 10 June 1835. The neighbour and the visit are invented.",
+      "read_s": 17,
       "links": [
         {
           "kind": "structure",

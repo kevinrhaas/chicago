@@ -607,6 +607,125 @@
       "estimate_s": 164
     },
     {
+      "id": "boots-and-leather",
+      "title": "Boots, Leather and the Road",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "visited": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "done": true,
+      "estimate": 458.052239776459,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 155
+      },
+      "legs": [
+        {
+          "from": "ready-made",
+          "seconds": 143.4,
+          "metres": 911
+        },
+        {
+          "from": "tannery",
+          "seconds": 127.4,
+          "metres": 809
+        },
+        {
+          "from": "saddler",
+          "seconds": 22.2,
+          "metres": 141
+        }
+      ],
+      "travel_s": 293,
+      "measured_s": 464,
+      "estimate_s": 458
+    },
+    {
+      "id": "boots-and-leather",
+      "title": "Boots, Leather and the Road",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "visited": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "done": true,
+      "estimate": 239.1444698790929,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 155
+      },
+      "legs": [
+        {
+          "from": "ready-made",
+          "seconds": 35.8,
+          "metres": 736
+        },
+        {
+          "from": "tannery",
+          "seconds": 15.2,
+          "metres": 216
+        },
+        {
+          "from": "saddler",
+          "seconds": 10.7,
+          "metres": 132
+        }
+      ],
+      "travel_s": 62,
+      "measured_s": 233,
+      "estimate_s": 239
+    },
+    {
+      "id": "boots-and-leather",
+      "title": "Boots, Leather and the Road",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "visited": [
+        "ready-made",
+        "tannery",
+        "saddler",
+        "road"
+      ],
+      "done": true,
+      "estimate": 172.5,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 155
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 171,
+      "estimate_s": 173
+    },
+    {
       "id": "calling-on-neighbors",
       "title": "Calling on Neighbors",
       "mode": "horse",
@@ -726,139 +845,123 @@
       "estimate_s": 161
     },
     {
-      "id": "fort-dearborn-errand",
-      "title": "Fort Dearborn Errand",
-      "mode": "walk",
+      "id": "from-prairie-to-town",
+      "title": "From Prairie to Town",
+      "mode": "horse",
       "recommended": true,
       "listed": [
-        "stockade",
-        "errand",
-        "supply",
-        "account",
-        "deliver"
+        "open-shore",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
       ],
       "visited": [
-        "stockade",
-        "errand",
-        "supply",
-        "account",
-        "deliver"
+        "open-shore",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
       ],
       "done": true,
-      "estimate": 390.1215003667353,
+      "estimate": 611.9540255275215,
       "approx": false,
       "content": {
-        "opening": 13,
-        "stops": 99
+        "opening": 18,
+        "stops": 96
       },
       "legs": [
         {
-          "from": "stockade",
-          "seconds": 33.2,
-          "metres": 47
+          "from": "open-shore",
+          "seconds": 300.5,
+          "metres": 1945
         },
         {
-          "from": "errand",
-          "seconds": 70.5,
-          "metres": 101
+          "from": "the-stockade",
+          "seconds": 85.2,
+          "metres": 539
         },
         {
-          "from": "supply",
-          "seconds": 109.1,
-          "metres": 157
-        },
-        {
-          "from": "account",
-          "seconds": 56.9,
-          "metres": 82
+          "from": "the-store",
+          "seconds": 60.8,
+          "metres": 387
         }
       ],
-      "travel_s": 270,
-      "measured_s": 382,
-      "estimate_s": 390
+      "travel_s": 447,
+      "measured_s": 561,
+      "estimate_s": 612
     },
     {
-      "id": "fort-dearborn-errand",
-      "title": "Fort Dearborn Errand",
+      "id": "from-prairie-to-town",
+      "title": "From Prairie to Town",
       "mode": "fly",
       "recommended": false,
       "listed": [
-        "stockade",
-        "errand",
-        "supply",
-        "account",
-        "deliver"
+        "open-shore",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
       ],
       "visited": [
-        "stockade",
-        "errand",
-        "supply",
-        "account",
-        "deliver"
+        "open-shore",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
       ],
       "done": true,
-      "estimate": 143.83945157814236,
+      "estimate": 238.50287077707983,
       "approx": false,
       "content": {
-        "opening": 13,
-        "stops": 99
+        "opening": 18,
+        "stops": 96
       },
       "legs": [
         {
-          "from": "stockade",
-          "seconds": 5,
-          "metres": 46
+          "from": "open-shore",
+          "seconds": 58.4,
+          "metres": 1331
         },
         {
-          "from": "errand",
-          "seconds": 7.7,
-          "metres": 82
+          "from": "the-stockade",
+          "seconds": 37.7,
+          "metres": 775
         },
         {
-          "from": "supply",
-          "seconds": 6.5,
-          "metres": 65
-        },
-        {
-          "from": "account",
-          "seconds": 6.6,
-          "metres": 66
+          "from": "the-store",
+          "seconds": 20.6,
+          "metres": 335
         }
       ],
-      "travel_s": 26,
-      "measured_s": 138,
-      "estimate_s": 144
+      "travel_s": 117,
+      "measured_s": 231,
+      "estimate_s": 239
     },
     {
-      "id": "fort-dearborn-errand",
-      "title": "Fort Dearborn Errand",
+      "id": "from-prairie-to-town",
+      "title": "From Prairie to Town",
       "mode": "instantly",
       "recommended": false,
       "listed": [
-        "stockade",
-        "errand",
-        "supply",
-        "account",
-        "deliver"
+        "open-shore",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
       ],
       "visited": [
-        "stockade",
-        "errand",
-        "supply",
-        "account",
-        "deliver"
+        "open-shore",
+        "the-stockade",
+        "the-store",
+        "the-public-house"
       ],
       "done": true,
-      "estimate": 114,
+      "estimate": 115.5,
       "approx": false,
       "content": {
-        "opening": 13,
-        "stops": 99
+        "opening": 18,
+        "stops": 96
       },
       "legs": [],
       "travel_s": 0,
-      "measured_s": 112,
-      "estimate_s": 114
+      "measured_s": 114,
+      "estimate_s": 116
     },
     {
       "id": "gossip-or-notice",
@@ -1099,125 +1202,6 @@
       "estimate_s": 138
     },
     {
-      "id": "inspect-a-lot",
-      "title": "Look Before You Buy a Lot",
-      "mode": "walk",
-      "recommended": true,
-      "listed": [
-        "auction",
-        "notice",
-        "corner",
-        "ground"
-      ],
-      "visited": [
-        "auction",
-        "notice",
-        "corner",
-        "ground"
-      ],
-      "done": true,
-      "estimate": 417.98999986507465,
-      "approx": false,
-      "content": {
-        "opening": 15,
-        "stops": 122
-      },
-      "legs": [
-        {
-          "from": "auction",
-          "seconds": 114.2,
-          "metres": 165
-        },
-        {
-          "from": "notice",
-          "seconds": 108.7,
-          "metres": 157
-        },
-        {
-          "from": "corner",
-          "seconds": 47.5,
-          "metres": 68
-        }
-      ],
-      "travel_s": 270,
-      "measured_s": 407,
-      "estimate_s": 418
-    },
-    {
-      "id": "inspect-a-lot",
-      "title": "Look Before You Buy a Lot",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "auction",
-        "notice",
-        "corner",
-        "ground"
-      ],
-      "visited": [
-        "auction",
-        "notice",
-        "corner",
-        "ground"
-      ],
-      "done": true,
-      "estimate": 171.9267458571561,
-      "approx": false,
-      "content": {
-        "opening": 15,
-        "stops": 122
-      },
-      "legs": [
-        {
-          "from": "auction",
-          "seconds": 11,
-          "metres": 139
-        },
-        {
-          "from": "notice",
-          "seconds": 11.4,
-          "metres": 144
-        },
-        {
-          "from": "corner",
-          "seconds": 6.2,
-          "metres": 61
-        }
-      ],
-      "travel_s": 29,
-      "measured_s": 166,
-      "estimate_s": 172
-    },
-    {
-      "id": "inspect-a-lot",
-      "title": "Look Before You Buy a Lot",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "auction",
-        "notice",
-        "corner",
-        "ground"
-      ],
-      "visited": [
-        "auction",
-        "notice",
-        "corner",
-        "ground"
-      ],
-      "done": true,
-      "estimate": 138.5,
-      "approx": false,
-      "content": {
-        "opening": 15,
-        "stops": 122
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 137,
-      "estimate_s": 139
-    },
-    {
       "id": "letter-home",
       "title": "A Letter Home",
       "mode": "horse",
@@ -1330,125 +1314,6 @@
       "content": {
         "opening": 18,
         "stops": 148
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 166,
-      "estimate_s": 168
-    },
-    {
-      "id": "materials-for-a-roof",
-      "title": "Materials for a Roof",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "the-wharf",
-        "the-ironwork",
-        "the-brickyard",
-        "the-lake-house"
-      ],
-      "visited": [
-        "the-wharf",
-        "the-ironwork",
-        "the-brickyard",
-        "the-lake-house"
-      ],
-      "done": true,
-      "estimate": 361.1208398562776,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 146
-      },
-      "legs": [
-        {
-          "from": "the-wharf",
-          "seconds": 36.3,
-          "metres": 227
-        },
-        {
-          "from": "the-ironwork",
-          "seconds": 61.5,
-          "metres": 396
-        },
-        {
-          "from": "the-brickyard",
-          "seconds": 99.8,
-          "metres": 639
-        }
-      ],
-      "travel_s": 198,
-      "measured_s": 364,
-      "estimate_s": 361
-    },
-    {
-      "id": "materials-for-a-roof",
-      "title": "Materials for a Roof",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "the-wharf",
-        "the-ironwork",
-        "the-brickyard",
-        "the-lake-house"
-      ],
-      "visited": [
-        "the-wharf",
-        "the-ironwork",
-        "the-brickyard",
-        "the-lake-house"
-      ],
-      "done": true,
-      "estimate": 231.72401350022756,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 146
-      },
-      "legs": [
-        {
-          "from": "the-wharf",
-          "seconds": 15.3,
-          "metres": 220
-        },
-        {
-          "from": "the-ironwork",
-          "seconds": 16.5,
-          "metres": 239
-        },
-        {
-          "from": "the-brickyard",
-          "seconds": 28,
-          "metres": 524
-        }
-      ],
-      "travel_s": 60,
-      "measured_s": 226,
-      "estimate_s": 232
-    },
-    {
-      "id": "materials-for-a-roof",
-      "title": "Materials for a Roof",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "the-wharf",
-        "the-ironwork",
-        "the-brickyard",
-        "the-lake-house"
-      ],
-      "visited": [
-        "the-wharf",
-        "the-ironwork",
-        "the-brickyard",
-        "the-lake-house"
-      ],
-      "done": true,
-      "estimate": 167.5,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 146
       },
       "legs": [],
       "travel_s": 0,
@@ -1575,615 +1440,123 @@
       "estimate_s": 182
     },
     {
-      "id": "new-in-chicago",
-      "title": "New in Chicago",
-      "mode": "walk",
-      "recommended": true,
-      "listed": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "visited": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "done": true,
-      "estimate": 619.4720766734807,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 110
-      },
-      "legs": [
-        {
-          "from": "arrival",
-          "seconds": 39.5,
-          "metres": 56
-        },
-        {
-          "from": "mail-corner",
-          "seconds": 241,
-          "metres": 348
-        },
-        {
-          "from": "store",
-          "seconds": 107.8,
-          "metres": 156
-        },
-        {
-          "from": "newspaper",
-          "seconds": 110.6,
-          "metres": 159
-        }
-      ],
-      "travel_s": 499,
-      "measured_s": 625,
-      "estimate_s": 619
-    },
-    {
-      "id": "new-in-chicago",
-      "title": "New in Chicago",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "visited": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "done": true,
-      "estimate": 179.67621758311847,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 110
-      },
-      "legs": [
-        {
-          "from": "arrival",
-          "seconds": 5.9,
-          "metres": 57
-        },
-        {
-          "from": "mail-corner",
-          "seconds": 20.2,
-          "metres": 324
-        },
-        {
-          "from": "store",
-          "seconds": 11.4,
-          "metres": 145
-        },
-        {
-          "from": "newspaper",
-          "seconds": 10.2,
-          "metres": 124
-        }
-      ],
-      "travel_s": 48,
-      "measured_s": 174,
-      "estimate_s": 180
-    },
-    {
-      "id": "new-in-chicago",
-      "title": "New in Chicago",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "visited": [
-        "arrival",
-        "mail-corner",
-        "store",
-        "newspaper",
-        "lodging"
-      ],
-      "done": true,
-      "estimate": 128,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 110
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 126,
-      "estimate_s": 128
-    },
-    {
-      "id": "news-before-breakfast",
-      "title": "News Before Breakfast",
-      "mode": "walk",
-      "recommended": true,
-      "listed": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "visited": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "done": true,
-      "estimate": 1052.2557461754632,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 184
-      },
-      "legs": [
-        {
-          "from": "question",
-          "seconds": 373,
-          "metres": 539
-        },
-        {
-          "from": "democrat",
-          "seconds": 114.6,
-          "metres": 165
-        },
-        {
-          "from": "american",
-          "seconds": 367.4,
-          "metres": 532
-        }
-      ],
-      "travel_s": 855,
-      "measured_s": 1059,
-      "estimate_s": 1052
-    },
-    {
-      "id": "news-before-breakfast",
-      "title": "News Before Breakfast",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "visited": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "done": true,
-      "estimate": 274.84908478729636,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 184
-      },
-      "legs": [
-        {
-          "from": "question",
-          "seconds": 26.6,
-          "metres": 490
-        },
-        {
-          "from": "democrat",
-          "seconds": 12.4,
-          "metres": 163
-        },
-        {
-          "from": "american",
-          "seconds": 25,
-          "metres": 447
-        }
-      ],
-      "travel_s": 64,
-      "measured_s": 268,
-      "estimate_s": 275
-    },
-    {
-      "id": "news-before-breakfast",
-      "title": "News Before Breakfast",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "visited": [
-        "question",
-        "democrat",
-        "american",
-        "exchange"
-      ],
-      "done": true,
-      "estimate": 205.5,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 184
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 204,
-      "estimate_s": 206
-    },
-    {
-      "id": "schoolday-errand",
-      "title": "A Schoolday Errand",
+      "id": "soap-and-candles",
+      "title": "Soap and Candles",
       "mode": "horse",
       "recommended": true,
       "listed": [
-        "michigan-street",
-        "north-bank",
-        "the-log-house",
-        "the-notice"
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
       ],
       "visited": [
-        "michigan-street",
-        "north-bank",
-        "the-log-house",
-        "the-notice"
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
       ],
       "done": true,
-      "estimate": 381.8304732017881,
+      "estimate": 425.23055034369247,
       "approx": false,
       "content": {
         "opening": 20,
-        "stops": 159
+        "stops": 148
       },
       "legs": [
         {
-          "from": "michigan-street",
-          "seconds": 96.1,
-          "metres": 616
+          "from": "the-works",
+          "seconds": 194.1,
+          "metres": 1246
         },
         {
-          "from": "north-bank",
-          "seconds": 58.6,
-          "metres": 377
+          "from": "the-list",
+          "seconds": 43.2,
+          "metres": 276
         },
         {
-          "from": "the-log-house",
-          "seconds": 47,
-          "metres": 301
+          "from": "lake-street",
+          "seconds": 22.7,
+          "metres": 144
         }
       ],
-      "travel_s": 202,
-      "measured_s": 381,
-      "estimate_s": 382
+      "travel_s": 260,
+      "measured_s": 428,
+      "estimate_s": 425
     },
     {
-      "id": "schoolday-errand",
-      "title": "A Schoolday Errand",
+      "id": "soap-and-candles",
+      "title": "Soap and Candles",
       "mode": "fly",
       "recommended": false,
       "listed": [
-        "michigan-street",
-        "north-bank",
-        "the-log-house",
-        "the-notice"
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
       ],
       "visited": [
-        "michigan-street",
-        "north-bank",
-        "the-log-house",
-        "the-notice"
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
       ],
       "done": true,
-      "estimate": 251.073677188648,
+      "estimate": 223.7043296020936,
       "approx": false,
       "content": {
         "opening": 20,
-        "stops": 159
+        "stops": 148
       },
       "legs": [
         {
-          "from": "michigan-street",
-          "seconds": 27.2,
-          "metres": 508
+          "from": "the-works",
+          "seconds": 23.5,
+          "metres": 406
         },
         {
-          "from": "north-bank",
-          "seconds": 18.8,
-          "metres": 291
+          "from": "the-list",
+          "seconds": 15.7,
+          "metres": 226
         },
         {
-          "from": "the-log-house",
-          "seconds": 17.5,
-          "metres": 264
+          "from": "lake-street",
+          "seconds": 9.5,
+          "metres": 112
         }
       ],
-      "travel_s": 64,
-      "measured_s": 243,
-      "estimate_s": 251
+      "travel_s": 49,
+      "measured_s": 217,
+      "estimate_s": 224
     },
     {
-      "id": "schoolday-errand",
-      "title": "A Schoolday Errand",
+      "id": "soap-and-candles",
+      "title": "Soap and Candles",
       "mode": "instantly",
       "recommended": false,
       "listed": [
-        "michigan-street",
-        "north-bank",
-        "the-log-house",
-        "the-notice"
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
       ],
       "visited": [
-        "michigan-street",
-        "north-bank",
-        "the-log-house",
-        "the-notice"
+        "the-works",
+        "the-list",
+        "lake-street",
+        "home"
       ],
       "done": true,
-      "estimate": 180.5,
+      "estimate": 169.5,
       "approx": false,
       "content": {
         "opening": 20,
-        "stops": 159
+        "stops": 148
       },
       "legs": [],
       "travel_s": 0,
-      "measured_s": 179,
-      "estimate_s": 181
-    },
-    {
-      "id": "shopping-south-water",
-      "title": "Shopping South Water Street",
-      "mode": "walk",
-      "recommended": true,
-      "listed": [
-        "remedy",
-        "staples",
-        "compare",
-        "receipt"
-      ],
-      "visited": [
-        "remedy",
-        "staples",
-        "compare",
-        "receipt"
-      ],
-      "done": true,
-      "estimate": 400.2092311687303,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 108
-      },
-      "legs": [
-        {
-          "from": "remedy",
-          "seconds": 37,
-          "metres": 52
-        },
-        {
-          "from": "staples",
-          "seconds": 106.7,
-          "metres": 154
-        },
-        {
-          "from": "compare",
-          "seconds": 127.9,
-          "metres": 184
-        }
-      ],
-      "travel_s": 272,
-      "measured_s": 396,
-      "estimate_s": 400
-    },
-    {
-      "id": "shopping-south-water",
-      "title": "Shopping South Water Street",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "remedy",
-        "staples",
-        "compare",
-        "receipt"
-      ],
-      "visited": [
-        "remedy",
-        "staples",
-        "compare",
-        "receipt"
-      ],
-      "done": true,
-      "estimate": 157.93309260236444,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 108
-      },
-      "legs": [
-        {
-          "from": "remedy",
-          "seconds": 5.4,
-          "metres": 51
-        },
-        {
-          "from": "staples",
-          "seconds": 11.3,
-          "metres": 143
-        },
-        {
-          "from": "compare",
-          "seconds": 12.5,
-          "metres": 164
-        }
-      ],
-      "travel_s": 29,
-      "measured_s": 153,
-      "estimate_s": 158
-    },
-    {
-      "id": "shopping-south-water",
-      "title": "Shopping South Water Street",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "remedy",
-        "staples",
-        "compare",
-        "receipt"
-      ],
-      "visited": [
-        "remedy",
-        "staples",
-        "compare",
-        "receipt"
-      ],
-      "done": true,
-      "estimate": 125.5,
-      "approx": false,
-      "content": {
-        "opening": 16,
-        "stops": 108
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 124,
-      "estimate_s": 126
-    },
-    {
-      "id": "sunday-circuit",
-      "title": "A Sunday Circuit",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "st-marys",
-        "presbyterian",
-        "walker",
-        "the-call"
-      ],
-      "visited": [
-        "st-marys",
-        "presbyterian",
-        "walker",
-        "the-call"
-      ],
-      "done": true,
-      "estimate": 394.8182821511329,
-      "approx": false,
-      "content": {
-        "opening": 17,
-        "stops": 103
-      },
-      "legs": [
-        {
-          "from": "st-marys",
-          "seconds": 43.6,
-          "metres": 278
-        },
-        {
-          "from": "presbyterian",
-          "seconds": 147.6,
-          "metres": 951
-        },
-        {
-          "from": "walker",
-          "seconds": 81.7,
-          "metres": 522
-        }
-      ],
-      "travel_s": 273,
-      "measured_s": 393,
-      "estimate_s": 395
-    },
-    {
-      "id": "sunday-circuit",
-      "title": "A Sunday Circuit",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "st-marys",
-        "presbyterian",
-        "walker",
-        "the-call"
-      ],
-      "visited": [
-        "st-marys",
-        "presbyterian",
-        "walker",
-        "the-call"
-      ],
-      "done": true,
-      "estimate": 196.6070163990624,
-      "approx": false,
-      "content": {
-        "opening": 17,
-        "stops": 103
-      },
-      "legs": [
-        {
-          "from": "st-marys",
-          "seconds": 17.7,
-          "metres": 270
-        },
-        {
-          "from": "presbyterian",
-          "seconds": 33.6,
-          "metres": 671
-        },
-        {
-          "from": "walker",
-          "seconds": 16.9,
-          "metres": 248
-        }
-      ],
-      "travel_s": 68,
-      "measured_s": 188,
-      "estimate_s": 197
-    },
-    {
-      "id": "sunday-circuit",
-      "title": "A Sunday Circuit",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "st-marys",
-        "presbyterian",
-        "walker",
-        "the-call"
-      ],
-      "visited": [
-        "st-marys",
-        "presbyterian",
-        "walker",
-        "the-call"
-      ],
-      "done": true,
-      "estimate": 121.5,
-      "approx": false,
-      "content": {
-        "opening": 17,
-        "stops": 103
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 120,
-      "estimate_s": 122
+      "measured_s": 168,
+      "estimate_s": 170
     },
     {
       "id": "taverns-of-chicago",
@@ -2303,125 +1676,6 @@
       "travel_s": 0,
       "measured_s": 202,
       "estimate_s": 204
-    },
-    {
-      "id": "work-on-waterfront",
-      "title": "Work on the Waterfront",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "notices",
-        "packing",
-        "forwarding",
-        "breakfast"
-      ],
-      "visited": [
-        "notices",
-        "packing",
-        "forwarding",
-        "breakfast"
-      ],
-      "done": true,
-      "estimate": 370.8361660533766,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 178
-      },
-      "legs": [
-        {
-          "from": "notices",
-          "seconds": 43.3,
-          "metres": 275
-        },
-        {
-          "from": "packing",
-          "seconds": 94.2,
-          "metres": 607
-        },
-        {
-          "from": "forwarding",
-          "seconds": 38.7,
-          "metres": 242
-        }
-      ],
-      "travel_s": 176,
-      "measured_s": 374,
-      "estimate_s": 371
-    },
-    {
-      "id": "work-on-waterfront",
-      "title": "Work on the Waterfront",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "notices",
-        "packing",
-        "forwarding",
-        "breakfast"
-      ],
-      "visited": [
-        "notices",
-        "packing",
-        "forwarding",
-        "breakfast"
-      ],
-      "done": true,
-      "estimate": 260.63928077,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 178
-      },
-      "legs": [
-        {
-          "from": "notices",
-          "seconds": 14.6,
-          "metres": 207
-        },
-        {
-          "from": "packing",
-          "seconds": 27.6,
-          "metres": 516
-        },
-        {
-          "from": "forwarding",
-          "seconds": 13.2,
-          "metres": 179
-        }
-      ],
-      "travel_s": 55,
-      "measured_s": 253,
-      "estimate_s": 261
-    },
-    {
-      "id": "work-on-waterfront",
-      "title": "Work on the Waterfront",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "notices",
-        "packing",
-        "forwarding",
-        "breakfast"
-      ],
-      "visited": [
-        "notices",
-        "packing",
-        "forwarding",
-        "breakfast"
-      ],
-      "done": true,
-      "estimate": 199.5,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 178
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 198,
-      "estimate_s": 200
     },
     {
       "id": "over-the-draw",
@@ -2797,374 +2051,1098 @@
       "estimate_s": 158
     },
     {
-      "id": "boots-and-leather",
-      "title": "Boots, Leather and the Road",
-      "mode": "horse",
+      "id": "fort-dearborn-errand",
+      "title": "Fort Dearborn Errand",
+      "mode": "walk",
       "recommended": true,
       "listed": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
+        "errand",
+        "supply",
+        "account",
+        "deliver"
       ],
       "visited": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
+        "errand",
+        "supply",
+        "account",
+        "deliver"
       ],
       "done": true,
-      "estimate": 351.62800033870457,
+      "estimate": 344.1420281942581,
       "approx": false,
       "content": {
         "opening": 13,
-        "stops": 142
+        "stops": 87
       },
       "legs": [
         {
-          "from": "ready-made",
-          "seconds": 161.1,
-          "metres": 1040
+          "from": "errand",
+          "seconds": 62.8,
+          "metres": 90
         },
         {
-          "from": "tannery",
-          "seconds": 13.5,
-          "metres": 80
+          "from": "supply",
+          "seconds": 109.1,
+          "metres": 157
         },
         {
-          "from": "saddler",
-          "seconds": 21.9,
-          "metres": 139
+          "from": "account",
+          "seconds": 56.9,
+          "metres": 82
         }
       ],
-      "travel_s": 197,
-      "measured_s": 352,
-      "estimate_s": 352
-    },
-    {
-      "id": "boots-and-leather",
-      "title": "Boots, Leather and the Road",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "visited": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "done": true,
-      "estimate": 218.71945176285683,
-      "approx": false,
-      "content": {
-        "opening": 13,
-        "stops": 142
-      },
-      "legs": [
-        {
-          "from": "ready-made",
-          "seconds": 39.6,
-          "metres": 830
-        },
-        {
-          "from": "tannery",
-          "seconds": 7.8,
-          "metres": 85
-        },
-        {
-          "from": "saddler",
-          "seconds": 10.7,
-          "metres": 132
-        }
-      ],
-      "travel_s": 58,
-      "measured_s": 213,
-      "estimate_s": 219
-    },
-    {
-      "id": "boots-and-leather",
-      "title": "Boots, Leather and the Road",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "visited": [
-        "ready-made",
-        "tannery",
-        "saddler",
-        "road"
-      ],
-      "done": true,
-      "estimate": 156.5,
-      "approx": false,
-      "content": {
-        "opening": 13,
-        "stops": 142
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 155,
-      "estimate_s": 157
-    },
-    {
-      "id": "from-prairie-to-town",
-      "title": "From Prairie to Town",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "factors-house",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "visited": [
-        "factors-house",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "done": true,
-      "estimate": 318.35171941466757,
-      "approx": false,
-      "content": {
-        "opening": 15,
-        "stops": 96
-      },
-      "legs": [
-        {
-          "from": "factors-house",
-          "seconds": 22.6,
-          "metres": 135
-        },
-        {
-          "from": "the-stockade",
-          "seconds": 132.2,
-          "metres": 854
-        },
-        {
-          "from": "the-store",
-          "seconds": 60.7,
-          "metres": 386
-        }
-      ],
-      "travel_s": 216,
-      "measured_s": 327,
-      "estimate_s": 318
-    },
-    {
-      "id": "from-prairie-to-town",
-      "title": "From Prairie to Town",
-      "mode": "fly",
-      "recommended": false,
-      "listed": [
-        "factors-house",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "visited": [
-        "factors-house",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "done": true,
-      "estimate": 179.63245324467357,
-      "approx": false,
-      "content": {
-        "opening": 15,
-        "stops": 96
-      },
-      "legs": [
-        {
-          "from": "factors-house",
-          "seconds": 9.8,
-          "metres": 119
-        },
-        {
-          "from": "the-stockade",
-          "seconds": 34,
-          "metres": 687
-        },
-        {
-          "from": "the-store",
-          "seconds": 20.6,
-          "metres": 335
-        }
-      ],
-      "travel_s": 64,
-      "measured_s": 175,
-      "estimate_s": 180
-    },
-    {
-      "id": "from-prairie-to-town",
-      "title": "From Prairie to Town",
-      "mode": "instantly",
-      "recommended": false,
-      "listed": [
-        "factors-house",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "visited": [
-        "factors-house",
-        "the-stockade",
-        "the-store",
-        "the-public-house"
-      ],
-      "done": true,
-      "estimate": 112.5,
-      "approx": false,
-      "content": {
-        "opening": 15,
-        "stops": 96
-      },
-      "legs": [],
-      "travel_s": 0,
-      "measured_s": 111,
-      "estimate_s": 113
-    },
-    {
-      "id": "soap-and-candles",
-      "title": "Soap and Candles",
-      "mode": "horse",
-      "recommended": true,
-      "listed": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "visited": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
-      ],
-      "done": true,
-      "estimate": 343.52070969166545,
-      "approx": false,
-      "content": {
-        "opening": 20,
-        "stops": 151
-      },
-      "legs": [
-        {
-          "from": "the-works",
-          "seconds": 106.5,
-          "metres": 684
-        },
-        {
-          "from": "the-list",
-          "seconds": 43.2,
-          "metres": 276
-        },
-        {
-          "from": "lake-street",
-          "seconds": 22.7,
-          "metres": 144
-        }
-      ],
-      "travel_s": 172,
-      "measured_s": 343,
+      "travel_s": 229,
+      "measured_s": 329,
       "estimate_s": 344
     },
     {
-      "id": "soap-and-candles",
-      "title": "Soap and Candles",
+      "id": "fort-dearborn-errand",
+      "title": "Fort Dearborn Errand",
       "mode": "fly",
       "recommended": false,
       "listed": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
+        "errand",
+        "supply",
+        "account",
+        "deliver"
       ],
       "visited": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
+        "errand",
+        "supply",
+        "account",
+        "deliver"
       ],
       "done": true,
-      "estimate": 228.55849077605592,
+      "estimate": 125.21917551150877,
       "approx": false,
       "content": {
-        "opening": 20,
-        "stops": 151
+        "opening": 13,
+        "stops": 87
       },
       "legs": [
         {
-          "from": "the-works",
-          "seconds": 25.3,
-          "metres": 455
+          "from": "errand",
+          "seconds": 6.5,
+          "metres": 67
         },
         {
-          "from": "the-list",
-          "seconds": 15.6,
-          "metres": 225
+          "from": "supply",
+          "seconds": 6.5,
+          "metres": 65
         },
         {
-          "from": "lake-street",
-          "seconds": 9.5,
-          "metres": 112
+          "from": "account",
+          "seconds": 6.6,
+          "metres": 66
         }
       ],
-      "travel_s": 50,
+      "travel_s": 20,
+      "measured_s": 120,
+      "estimate_s": 125
+    },
+    {
+      "id": "fort-dearborn-errand",
+      "title": "Fort Dearborn Errand",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "errand",
+        "supply",
+        "account",
+        "deliver"
+      ],
+      "visited": [
+        "errand",
+        "supply",
+        "account",
+        "deliver"
+      ],
+      "done": true,
+      "estimate": 101.5,
+      "approx": false,
+      "content": {
+        "opening": 13,
+        "stops": 87
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 100,
+      "estimate_s": 102
+    },
+    {
+      "id": "inspect-a-lot",
+      "title": "Look Before You Buy a Lot",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "auction",
+        "notice",
+        "corner",
+        "ground"
+      ],
+      "visited": [
+        "auction",
+        "notice",
+        "corner",
+        "ground"
+      ],
+      "done": true,
+      "estimate": 200.8477692006705,
+      "approx": false,
+      "content": {
+        "opening": 15,
+        "stops": 122
+      },
+      "legs": [
+        {
+          "from": "auction",
+          "seconds": 26.4,
+          "metres": 166
+        },
+        {
+          "from": "notice",
+          "seconds": 24.7,
+          "metres": 157
+        },
+        {
+          "from": "corner",
+          "seconds": 11.1,
+          "metres": 69
+        }
+      ],
+      "travel_s": 62,
+      "measured_s": 199,
+      "estimate_s": 201
+    },
+    {
+      "id": "inspect-a-lot",
+      "title": "Look Before You Buy a Lot",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "auction",
+        "notice",
+        "corner",
+        "ground"
+      ],
+      "visited": [
+        "auction",
+        "notice",
+        "corner",
+        "ground"
+      ],
+      "done": true,
+      "estimate": 171.9267458571561,
+      "approx": false,
+      "content": {
+        "opening": 15,
+        "stops": 122
+      },
+      "legs": [
+        {
+          "from": "auction",
+          "seconds": 11,
+          "metres": 139
+        },
+        {
+          "from": "notice",
+          "seconds": 11.4,
+          "metres": 144
+        },
+        {
+          "from": "corner",
+          "seconds": 6.2,
+          "metres": 61
+        }
+      ],
+      "travel_s": 29,
+      "measured_s": 166,
+      "estimate_s": 172
+    },
+    {
+      "id": "inspect-a-lot",
+      "title": "Look Before You Buy a Lot",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "auction",
+        "notice",
+        "corner",
+        "ground"
+      ],
+      "visited": [
+        "auction",
+        "notice",
+        "corner",
+        "ground"
+      ],
+      "done": true,
+      "estimate": 138.5,
+      "approx": false,
+      "content": {
+        "opening": 15,
+        "stops": 122
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 137,
+      "estimate_s": 139
+    },
+    {
+      "id": "shopping-south-water",
+      "title": "Shopping South Water Street",
+      "mode": "wagon",
+      "recommended": true,
+      "listed": [
+        "remedy",
+        "staples",
+        "compare",
+        "receipt"
+      ],
+      "visited": [
+        "remedy",
+        "staples",
+        "compare",
+        "receipt"
+      ],
+      "done": true,
+      "estimate": 236.14677366518302,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 108
+      },
+      "legs": [
+        {
+          "from": "remedy",
+          "seconds": 16.6,
+          "metres": 53
+        },
+        {
+          "from": "staples",
+          "seconds": 43.4,
+          "metres": 154
+        },
+        {
+          "from": "compare",
+          "seconds": 52.4,
+          "metres": 185
+        }
+      ],
+      "travel_s": 112,
+      "measured_s": 236,
+      "estimate_s": 236
+    },
+    {
+      "id": "shopping-south-water",
+      "title": "Shopping South Water Street",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "remedy",
+        "staples",
+        "compare",
+        "receipt"
+      ],
+      "visited": [
+        "remedy",
+        "staples",
+        "compare",
+        "receipt"
+      ],
+      "done": true,
+      "estimate": 157.93309260236444,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 108
+      },
+      "legs": [
+        {
+          "from": "remedy",
+          "seconds": 5.4,
+          "metres": 51
+        },
+        {
+          "from": "staples",
+          "seconds": 11.3,
+          "metres": 143
+        },
+        {
+          "from": "compare",
+          "seconds": 12.5,
+          "metres": 164
+        }
+      ],
+      "travel_s": 29,
+      "measured_s": 153,
+      "estimate_s": 158
+    },
+    {
+      "id": "shopping-south-water",
+      "title": "Shopping South Water Street",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "remedy",
+        "staples",
+        "compare",
+        "receipt"
+      ],
+      "visited": [
+        "remedy",
+        "staples",
+        "compare",
+        "receipt"
+      ],
+      "done": true,
+      "estimate": 125.5,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 108
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 124,
+      "estimate_s": 126
+    },
+    {
+      "id": "new-in-chicago",
+      "title": "New in Chicago",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "visited": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "done": true,
+      "estimate": 237.6360786425457,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 110
+      },
+      "legs": [
+        {
+          "from": "arrival",
+          "seconds": 10.7,
+          "metres": 59
+        },
+        {
+          "from": "mail-corner",
+          "seconds": 55.8,
+          "metres": 351
+        },
+        {
+          "from": "store",
+          "seconds": 24.5,
+          "metres": 156
+        },
+        {
+          "from": "newspaper",
+          "seconds": 25.4,
+          "metres": 161
+        }
+      ],
+      "travel_s": 116,
+      "measured_s": 242,
+      "estimate_s": 238
+    },
+    {
+      "id": "new-in-chicago",
+      "title": "New in Chicago",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "visited": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "done": true,
+      "estimate": 179.67621758311847,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 110
+      },
+      "legs": [
+        {
+          "from": "arrival",
+          "seconds": 5.9,
+          "metres": 57
+        },
+        {
+          "from": "mail-corner",
+          "seconds": 20.2,
+          "metres": 324
+        },
+        {
+          "from": "store",
+          "seconds": 11.4,
+          "metres": 145
+        },
+        {
+          "from": "newspaper",
+          "seconds": 10.2,
+          "metres": 124
+        }
+      ],
+      "travel_s": 48,
+      "measured_s": 174,
+      "estimate_s": 180
+    },
+    {
+      "id": "new-in-chicago",
+      "title": "New in Chicago",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "visited": [
+        "arrival",
+        "mail-corner",
+        "store",
+        "newspaper",
+        "lodging"
+      ],
+      "done": true,
+      "estimate": 128,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 110
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 126,
+      "estimate_s": 128
+    },
+    {
+      "id": "news-before-breakfast",
+      "title": "News Before Breakfast",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "visited": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "done": true,
+      "estimate": 337.5215945574961,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 184
+      },
+      "legs": [
+        {
+          "from": "question",
+          "seconds": 85.2,
+          "metres": 544
+        },
+        {
+          "from": "democrat",
+          "seconds": 26.6,
+          "metres": 166
+        },
+        {
+          "from": "american",
+          "seconds": 25.9,
+          "metres": 165
+        }
+      ],
+      "travel_s": 138,
+      "measured_s": 342,
+      "estimate_s": 338
+    },
+    {
+      "id": "news-before-breakfast",
+      "title": "News Before Breakfast",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "visited": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "done": true,
+      "estimate": 260.67647705105037,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 184
+      },
+      "legs": [
+        {
+          "from": "question",
+          "seconds": 26.6,
+          "metres": 490
+        },
+        {
+          "from": "democrat",
+          "seconds": 12.4,
+          "metres": 163
+        },
+        {
+          "from": "american",
+          "seconds": 11.8,
+          "metres": 152
+        }
+      ],
+      "travel_s": 51,
+      "measured_s": 255,
+      "estimate_s": 261
+    },
+    {
+      "id": "news-before-breakfast",
+      "title": "News Before Breakfast",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "visited": [
+        "question",
+        "democrat",
+        "american",
+        "tremont"
+      ],
+      "done": true,
+      "estimate": 205.5,
+      "approx": false,
+      "content": {
+        "opening": 20,
+        "stops": 184
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 204,
+      "estimate_s": 206
+    },
+    {
+      "id": "materials-for-a-roof",
+      "title": "Materials for a Roof",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "the-wharf",
+        "the-ironwork",
+        "the-brickyard",
+        "the-lake-house"
+      ],
+      "visited": [
+        "the-wharf",
+        "the-ironwork",
+        "the-brickyard",
+        "the-lake-house"
+      ],
+      "done": true,
+      "estimate": 336.1208398562776,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 125
+      },
+      "legs": [
+        {
+          "from": "the-wharf",
+          "seconds": 36.3,
+          "metres": 227
+        },
+        {
+          "from": "the-ironwork",
+          "seconds": 61.5,
+          "metres": 396
+        },
+        {
+          "from": "the-brickyard",
+          "seconds": 99.8,
+          "metres": 639
+        }
+      ],
+      "travel_s": 198,
+      "measured_s": 339,
+      "estimate_s": 336
+    },
+    {
+      "id": "materials-for-a-roof",
+      "title": "Materials for a Roof",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "the-wharf",
+        "the-ironwork",
+        "the-brickyard",
+        "the-lake-house"
+      ],
+      "visited": [
+        "the-wharf",
+        "the-ironwork",
+        "the-brickyard",
+        "the-lake-house"
+      ],
+      "done": true,
+      "estimate": 206.72401350022756,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 125
+      },
+      "legs": [
+        {
+          "from": "the-wharf",
+          "seconds": 15.3,
+          "metres": 220
+        },
+        {
+          "from": "the-ironwork",
+          "seconds": 16.5,
+          "metres": 239
+        },
+        {
+          "from": "the-brickyard",
+          "seconds": 28,
+          "metres": 524
+        }
+      ],
+      "travel_s": 60,
+      "measured_s": 201,
+      "estimate_s": 207
+    },
+    {
+      "id": "materials-for-a-roof",
+      "title": "Materials for a Roof",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "the-wharf",
+        "the-ironwork",
+        "the-brickyard",
+        "the-lake-house"
+      ],
+      "visited": [
+        "the-wharf",
+        "the-ironwork",
+        "the-brickyard",
+        "the-lake-house"
+      ],
+      "done": true,
+      "estimate": 142.5,
+      "approx": false,
+      "content": {
+        "opening": 16,
+        "stops": 125
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 141,
+      "estimate_s": 143
+    },
+    {
+      "id": "schoolday-errand",
+      "title": "A Schoolday Errand",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "michigan-street",
+        "north-bank",
+        "the-log-house",
+        "the-notice"
+      ],
+      "visited": [
+        "michigan-street",
+        "north-bank",
+        "the-log-house",
+        "the-notice"
+      ],
+      "done": true,
+      "estimate": 339.8304732017881,
+      "approx": false,
+      "content": {
+        "opening": 11,
+        "stops": 126
+      },
+      "legs": [
+        {
+          "from": "michigan-street",
+          "seconds": 96.1,
+          "metres": 616
+        },
+        {
+          "from": "north-bank",
+          "seconds": 58.6,
+          "metres": 377
+        },
+        {
+          "from": "the-log-house",
+          "seconds": 47,
+          "metres": 301
+        }
+      ],
+      "travel_s": 202,
+      "measured_s": 339,
+      "estimate_s": 340
+    },
+    {
+      "id": "schoolday-errand",
+      "title": "A Schoolday Errand",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "michigan-street",
+        "north-bank",
+        "the-log-house",
+        "the-notice"
+      ],
+      "visited": [
+        "michigan-street",
+        "north-bank",
+        "the-log-house",
+        "the-notice"
+      ],
+      "done": true,
+      "estimate": 209.073677188648,
+      "approx": false,
+      "content": {
+        "opening": 11,
+        "stops": 126
+      },
+      "legs": [
+        {
+          "from": "michigan-street",
+          "seconds": 27.2,
+          "metres": 508
+        },
+        {
+          "from": "north-bank",
+          "seconds": 18.8,
+          "metres": 291
+        },
+        {
+          "from": "the-log-house",
+          "seconds": 17.5,
+          "metres": 264
+        }
+      ],
+      "travel_s": 64,
+      "measured_s": 201,
+      "estimate_s": 209
+    },
+    {
+      "id": "schoolday-errand",
+      "title": "A Schoolday Errand",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "michigan-street",
+        "north-bank",
+        "the-log-house",
+        "the-notice"
+      ],
+      "visited": [
+        "michigan-street",
+        "north-bank",
+        "the-log-house",
+        "the-notice"
+      ],
+      "done": true,
+      "estimate": 138.5,
+      "approx": false,
+      "content": {
+        "opening": 11,
+        "stops": 126
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 137,
+      "estimate_s": 139
+    },
+    {
+      "id": "sunday-circuit",
+      "title": "A Sunday Circuit",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "st-marys",
+        "presbyterian",
+        "walker",
+        "the-call"
+      ],
+      "visited": [
+        "st-marys",
+        "presbyterian",
+        "walker",
+        "the-call"
+      ],
+      "done": true,
+      "estimate": 348.81828215113296,
+      "approx": false,
+      "content": {
+        "opening": 8,
+        "stops": 66
+      },
+      "legs": [
+        {
+          "from": "st-marys",
+          "seconds": 43.6,
+          "metres": 278
+        },
+        {
+          "from": "presbyterian",
+          "seconds": 147.6,
+          "metres": 951
+        },
+        {
+          "from": "walker",
+          "seconds": 81.7,
+          "metres": 522
+        }
+      ],
+      "travel_s": 273,
+      "measured_s": 347,
+      "estimate_s": 349
+    },
+    {
+      "id": "sunday-circuit",
+      "title": "A Sunday Circuit",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "st-marys",
+        "presbyterian",
+        "walker",
+        "the-call"
+      ],
+      "visited": [
+        "st-marys",
+        "presbyterian",
+        "walker",
+        "the-call"
+      ],
+      "done": true,
+      "estimate": 150.6070163990624,
+      "approx": false,
+      "content": {
+        "opening": 8,
+        "stops": 66
+      },
+      "legs": [
+        {
+          "from": "st-marys",
+          "seconds": 17.7,
+          "metres": 270
+        },
+        {
+          "from": "presbyterian",
+          "seconds": 33.6,
+          "metres": 671
+        },
+        {
+          "from": "walker",
+          "seconds": 16.9,
+          "metres": 248
+        }
+      ],
+      "travel_s": 68,
+      "measured_s": 142,
+      "estimate_s": 151
+    },
+    {
+      "id": "sunday-circuit",
+      "title": "A Sunday Circuit",
+      "mode": "instantly",
+      "recommended": false,
+      "listed": [
+        "st-marys",
+        "presbyterian",
+        "walker",
+        "the-call"
+      ],
+      "visited": [
+        "st-marys",
+        "presbyterian",
+        "walker",
+        "the-call"
+      ],
+      "done": true,
+      "estimate": 75.5,
+      "approx": false,
+      "content": {
+        "opening": 8,
+        "stops": 66
+      },
+      "legs": [],
+      "travel_s": 0,
+      "measured_s": 74,
+      "estimate_s": 76
+    },
+    {
+      "id": "work-on-waterfront",
+      "title": "Work on the Waterfront",
+      "mode": "horse",
+      "recommended": true,
+      "listed": [
+        "notices",
+        "packing",
+        "forwarding",
+        "breakfast"
+      ],
+      "visited": [
+        "notices",
+        "packing",
+        "forwarding",
+        "breakfast"
+      ],
+      "done": true,
+      "estimate": 338.8361660533766,
+      "approx": false,
+      "content": {
+        "opening": 14,
+        "stops": 152
+      },
+      "legs": [
+        {
+          "from": "notices",
+          "seconds": 43.3,
+          "metres": 275
+        },
+        {
+          "from": "packing",
+          "seconds": 94.2,
+          "metres": 607
+        },
+        {
+          "from": "forwarding",
+          "seconds": 38.7,
+          "metres": 242
+        }
+      ],
+      "travel_s": 176,
+      "measured_s": 342,
+      "estimate_s": 339
+    },
+    {
+      "id": "work-on-waterfront",
+      "title": "Work on the Waterfront",
+      "mode": "fly",
+      "recommended": false,
+      "listed": [
+        "notices",
+        "packing",
+        "forwarding",
+        "breakfast"
+      ],
+      "visited": [
+        "notices",
+        "packing",
+        "forwarding",
+        "breakfast"
+      ],
+      "done": true,
+      "estimate": 228.63928077,
+      "approx": false,
+      "content": {
+        "opening": 14,
+        "stops": 152
+      },
+      "legs": [
+        {
+          "from": "notices",
+          "seconds": 14.6,
+          "metres": 207
+        },
+        {
+          "from": "packing",
+          "seconds": 27.6,
+          "metres": 516
+        },
+        {
+          "from": "forwarding",
+          "seconds": 13.2,
+          "metres": 179
+        }
+      ],
+      "travel_s": 55,
       "measured_s": 221,
       "estimate_s": 229
     },
     {
-      "id": "soap-and-candles",
-      "title": "Soap and Candles",
+      "id": "work-on-waterfront",
+      "title": "Work on the Waterfront",
       "mode": "instantly",
       "recommended": false,
       "listed": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
+        "notices",
+        "packing",
+        "forwarding",
+        "breakfast"
       ],
       "visited": [
-        "the-works",
-        "the-list",
-        "lake-street",
-        "home"
+        "notices",
+        "packing",
+        "forwarding",
+        "breakfast"
       ],
       "done": true,
-      "estimate": 172.5,
+      "estimate": 167.5,
       "approx": false,
       "content": {
-        "opening": 20,
-        "stops": 151
+        "opening": 14,
+        "stops": 152
       },
       "legs": [],
       "travel_s": 0,
-      "measured_s": 171,
-      "estimate_s": 173
+      "measured_s": 166,
+      "estimate_s": 168
     }
   ],
   "runFailures": [],
   "failures": [
-    "fort-dearborn-errand: recommended walk measures 6.37 min, outside 3-6",
-    "inspect-a-lot: recommended walk measures 6.78 min, outside 3-6",
-    "materials-for-a-roof: recommended horse measures 6.07 min, outside 3-6",
-    "new-in-chicago: recommended walk measures 10.42 min, outside 3-6",
-    "news-before-breakfast: recommended walk measures 17.65 min, outside 3-6",
-    "schoolday-errand: recommended horse measures 6.35 min, outside 3-6",
-    "shopping-south-water: recommended walk measures 6.60 min, outside 3-6",
-    "sunday-circuit: recommended horse measures 6.55 min, outside 3-6",
-    "work-on-waterfront: recommended horse measures 6.23 min, outside 3-6"
+    "boots-and-leather: recommended horse measures 7.73 min, outside 3-6",
+    "from-prairie-to-town: recommended horse measures 9.35 min, outside 3-6",
+    "soap-and-candles: recommended horse measures 7.13 min, outside 3-6"
   ],
   "pageErrors": []
 }

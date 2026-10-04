@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "id": "schoolday-errand",
-  "content_version": 1,
+  "content_version": 2,
   "title": "A Schoolday Errand",
   "premise": "Ride past the places Chicago's first classes met, on both sides of the river, with an invented household's question about school, and finish with a notice in the Democrat dated today.",
   "category": "Education",
   "scene": "1835",
   "opening": {
-    "text": "You have newly taken rooms in town, and the household has one question: where could a child learn? Ride past the places Chicago's first classes met, from a house north of the river to a log house by State Street, and finish where the Democrat was first printed. The household and its question are invented; the schools are documented.",
-    "read_s": 20
+    "text": "Your household has one question: where could a child learn? Ride past the places Chicago's first classes met, ending where the Democrat was printed. The household is invented; the schools are documented.",
+    "read_s": 11
   },
   "default_mode": "horse",
   "allowed_modes": [
@@ -45,8 +45,8 @@
         "kind": "structure",
         "id": "watkins_school_house"
       },
-      "text": "Start north of the river on Michigan Street, between Cass and Rush. Andreas has John Watkins, hired in 1833, later teaching in a house here; Moses and Kirkland say Richard J. Hamilton built his house here and lived in it nineteen years. We read them as one house. No 1835 class is recorded.",
-      "read_s": 32,
+      "text": "On Michigan Street, between Cass and Rush, Andreas has John Watkins, hired in 1833, later teaching in a house; Moses and Kirkland make it Richard J. Hamilton's home. We read one house; no 1835 class is recorded.",
+      "read_s": 23,
       "action_s": 5,
       "links": [
         {
@@ -112,8 +112,8 @@
         "kind": "structure",
         "id": "north_side_school_1833"
       },
-      "text": "Down to the river bank just east of Clark Street. Andreas says Hamilton and Owen built a school-house here in 1833, though Watkins did not remember it, and that in 1835 Watkins was teaching what had become the North Side's public school. The year is attested; this July is not.",
-      "read_s": 30,
+      "text": "Down to the bank east of Clark. Andreas says Hamilton and Owen built a school-house here in 1833, which Watkins did not remember, and that by 1835 it was the North Side's public school. This July is not attested.",
+      "read_s": 24,
       "action_s": 10,
       "links": [
         {
@@ -172,8 +172,8 @@
         "kind": "structure",
         "id": "chappel_infant_school"
       },
-      "text": "Over the river to State Street, just outside the old military reservation. Andreas puts Eliza Chappel's infant school of 1833–34 in a log house here, part school-room and part lodging; other accounts put her first room elsewhere. In 1834 the school moved into the Presbyterian church. Who lives here now, no source says.",
-      "read_s": 30,
+      "text": "Over the river to State Street, by the old military reservation. Andreas puts Eliza Chappel's infant school of 1833–34 in a log house here; other accounts differ. In 1834 it moved into the Presbyterian church.",
+      "read_s": 21,
       "action_s": 10,
       "links": [
         {
@@ -208,8 +208,8 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "On to South Water and Clark, where the Democrat was printed from 1833; by 20 May its office was over Jones & King's hardware. Its number dated today repeats: School District No. 4 meets in the Presbyterian Church on 7 July at six in the evening, to consider building a school house.",
-      "read_s": 32,
+      "text": "On to South Water and Clark, where the Democrat was printed from 1833. Today's number repeats: School District No. 4 meets in the Presbyterian Church on 7 July at six, to consider building a school house.",
+      "read_s": 23,
       "action_s": 10,
       "links": [
         {
