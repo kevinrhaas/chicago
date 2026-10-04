@@ -2549,6 +2549,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | C Pettit | New York State | reconstructed |
 | C. E. Townsend | The Mid-Atlantic states | reconstructed |
 | C. George | New England | reconstructed |
+| C. H. Pease | New England | reconstructed |
 | C. II. Stoel | New York State | reconstructed |
 | Caleb Foster | New England | reconstructed |
 | Caleb Harrison | New York State | reconstructed |
@@ -3060,7 +3061,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | F G Blanshard | New York State | reconstructed |
 | F Gantry Blanchard | New York State | reconstructed |
 | F. H. Morland | New England | reconstructed |
-| F. Plumer | New York State | reconstructed |
 | F.C. Berger | New England | reconstructed |
 | Ford Freeman | New York State | reconstructed |
 | Francis B. Northrop | New York State | reconstructed |
@@ -3160,7 +3160,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | H. Fisher | New England | reconstructed |
 | H. H. Comstock | New England | reconstructed |
 | H. K. Fay | New England | reconstructed |
-| H. Pease | New England | reconstructed |
 | H. Walford | New York State | reconstructed |
 | H. Y. Crane | West of the Alleghenies | reconstructed |
 | Hamilton S. Henry | New York State | reconstructed |
@@ -4576,6 +4575,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | S G Trowbridge | New England | reconstructed |
 | S W Reed | New York State | reconstructed |
 | S. C. Stimson | New England | reconstructed |
+| S. F. Plumer | New York State | reconstructed |
 | S. Foot | New England | reconstructed |
 | S. Sherwood | New York State | reconstructed |
 | Sabrina A. Mason | New York State | reconstructed |
