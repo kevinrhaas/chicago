@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1452, ts: '2026-10-04T23:36:06.768Z', date: 'Oct 4, 2026, 6:36 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
+  { v: null, ts: '', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
     items: [
       'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
       'On a slowed-down phone at Light detail, the worst frame of a slow turn fell from 70 ms to 16 ms, of a flight from 56 ms to 15 ms, and of a walk from 34 ms to 23 ms. No frame of those moves takes longer than 33 ms any more.',
       'On a desktop at Full detail, the worst frame of a turn fell from 31 ms to 8 ms.',
       'Turning in 1812 is as smooth as in 1835. 1904 has no wild planting to redraw, so walking there was already light on the processor.',
+    ] },
+  { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
+    items: [
+      'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
+      'Fly up over the town. The flat dark slab on the far horizon is gone too. From the air the trees you see are the town\u2019s own.',
+      'Nearer woods now fade out of the far treeline smoothly instead of standing tall right up to where they stopped. Where a stretch of far woods ends, it tapers off.',
+      'How the far treeline is drawn is our reconstruction. The Liberties page explains it (L380).',
     ] },
   { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
     items: [

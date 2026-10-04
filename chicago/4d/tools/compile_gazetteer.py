@@ -2401,7 +2401,7 @@ def compile_gazetteer(files, identity, corpus, quiet=True):
         last = date.fromisoformat(b["evidence"]["last_issue"])
         b["survival_liberty_required"] = b["built_at_scene_date"] and last.year < SCENE_DATE.year
         b["goods"].sort()
-        b["mentions"].sort()
+        b["mentions"] = sorted(set(b["mentions"]))
         b["opening_announced"].sort(key=lambda o: (o["iso"] or "", o["claim"]))
         b["evidence"]["copy_dates"].sort()
         for r in b["placement_readings"]:
@@ -2410,13 +2410,21 @@ def compile_gazetteer(files, identity, corpus, quiet=True):
             key=lambda r: (r["first_issue"], r["anchor"] or "", r["class"] or ""))
         if b.get("vendor_placements"):
             b["vendor_placements"].sort(key=lambda v: (v["issue"], v["claim"]))
+    # T-0829: `mentions` is the set of CLIPPINGS that name an entry, and every
+    # reader downstream counts it as printings (mint_letter_list_residents.py says
+    # "printing(s)"). An entity is a printed LINE, so one clipping that carries two
+    # lines for one key appended its id twice: "Catton, Mr." printed on two lines of
+    # the 1 July 1835 list (all three printings agree), and Isaac Clark and Orinda
+    # Guryl each read as two entities out of ONE printed line, which the merge rules
+    # then joined. Each was counted one printing too many. The lines themselves stay
+    # in `variants[]`, one per line with its claim, so nothing printed is lost.
     for p in persons.values():
-        p["mentions"].sort()
+        p["mentions"] = sorted(set(p["mentions"]))
         p["variants"].sort(key=lambda v: (v["claim"], v["as_printed"] or ""))
         p["occupations"].sort()
         p["associated_places"].sort()
     for pl in places.values():
-        pl["mentions"].sort()
+        pl["mentions"] = sorted(set(pl["mentions"]))
         pl["variants"].sort(key=lambda v: (v["claim"], v["as_printed"] or ""))
         pl["associated_places"].sort()
 
