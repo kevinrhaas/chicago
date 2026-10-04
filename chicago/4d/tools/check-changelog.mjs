@@ -236,8 +236,10 @@ if (CHANGELOG?.[0] && Number(CHANGELOG[0].v) >= ENFORCE_FROM) {
 // file to read: an entry dropped with its number handed to the next release (v971,
 // 2026-09-19), and a shipped entry moved to another number (six times on dev,
 // 2026-09-23 to 10-04). Both show only against the base, so this asks it.
+let heldNote = null;
 if (Array.isArray(CHANGELOG)) {
   const held = await holdToBase(CHANGELOG);
+  heldNote = held.note;
   problems.push(...held.problems);
   for (const w of held.warnings) console.warn(`  note  ${w}`);
 }
@@ -262,7 +264,8 @@ for (const e of CHANGELOG) {
 
 report();
 console.log(`changelog contract OK — ${CHANGELOG.length} entr${CHANGELOG.length === 1 ? 'y' : 'ies'}`
-  + ` (${shape.entries.length} in the literal), latest v${LATEST_VERSION}`);
+  + ` (${shape.entries.length} in the literal), latest v${LATEST_VERSION}`
+  + (heldNote ? `; ${heldNote}` : ''));
 
 function report() {
   if (!problems.length) return;
