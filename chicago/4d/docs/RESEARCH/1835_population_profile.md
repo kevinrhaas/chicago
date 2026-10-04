@@ -2957,6 +2957,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Elisha Eastman | The Mid-Atlantic states | reconstructed |
 | Elisha Fairbanks | The Southern states | reconstructed |
 | Elisha H. Hazzard | West of the Alleghenies | reconstructed |
+| Elisha Hastings | The Southern states | reconstructed |
 | Elisha Kennicott | New York State | reconstructed |
 | Elisha Mcburney | New England | reconstructed |
 | Elisha Price | New York State | reconstructed |
@@ -4365,7 +4366,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Otis Gilbert | New York State | reconstructed |
 | Otis Hubbard | New England | reconstructed |
 | Otis Kinzie | New England | reconstructed |
-| Otis Nichols | The Southern states | reconstructed |
 | Otis Rollins | New York State | reconstructed |
 | Otis Wadsworth | The Mid-Atlantic states | reconstructed |
 | Owen Cook | The Southern states | reconstructed |

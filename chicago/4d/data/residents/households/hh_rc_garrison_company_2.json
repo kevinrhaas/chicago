@@ -2221,8 +2221,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_nichols_otis",
-   "name": "Otis Nichols",
+   "id": "rc_hastings_elisha",
+   "name": "Elisha Hastings",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -2260,7 +2260,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Otis Nichols",
+    "value": "Elisha Hastings",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -2268,7 +2268,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_2/private_21:given_name#6",
+    "seed": "garrison/company_2/private_21:given_name#5",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"

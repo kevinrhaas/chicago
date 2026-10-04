@@ -15807,10 +15807,10 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Twenty-three roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Twenty-one roofs on South Water and the Randolph tier now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 23 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 75
+**Scope:** `roof_keepers.written[named]` — 21 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 79
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
 South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
@@ -15818,6 +15818,14 @@ tier and the Randolph block west of the river, and were written by **T-1685**, p
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
+
+**T-2078 takes it to 21, and both roofs it loses are L270's.** Writing 38 letter-list
+households moved the policy-only rung's band deal, and it re-dealt `hh_austin_w_g` and
+`hh_guisin_byran` from the South's labourer band to its merchant-and-professional band, where
+no free roof of an admitted family stands (L270, now 176). So the two Randolph-tier roofs they
+kept, `recon_1835_blk_randolph_dearborn_d1_04` and `recon_1835_blk_randolph_market_d2_05`, no
+longer carry a keeper this pass may name. Written **23 → 21**, refused **78 → 79**, owed
+**48 → 47**. No ruling moved, and no name was written to a roof it was not dealt.
 
 **T-1783 takes it back to 23, and the one it loses is T-1761's.** Opening the outer West blocks
 re-deals the West Division's households across the ground the schedule now names. On the tree

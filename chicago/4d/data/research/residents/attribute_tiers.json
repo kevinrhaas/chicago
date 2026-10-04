@@ -26,12 +26,12 @@
   },
   "counts": {
     "cards": 1459,
-    "blocks": 22063,
-    "tiers_written_on_the_card": 10952,
+    "blocks": 22101,
+    "tiers_written_on_the_card": 10990,
     "by_tier": {
       "attested": 586,
       "inferred": 3632,
-      "reconstructed": 10959,
+      "reconstructed": 10997,
       "unknown": 6886
     },
     "by_attribute": {
@@ -74,7 +74,7 @@
       "division_reconstructed": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1305,
+        "reconstructed": 1343,
         "unknown": 0
       },
       "kin[]": {
@@ -2678,11 +2678,11 @@
         "kind": "household",
         "match": "any source that places this household in a division or nearer"
       },
-      "values": 1305,
+      "values": 1343,
       "by_value": {
-        "south": 746,
-        "north": 292,
-        "west": 267
+        "south": 768,
+        "north": 300,
+        "west": 275
       },
       "a_seed": "hh_abbot_8_g|T-1522|division:d885452788c3|class:611ac327f05d",
       "a_card": "hh_abbot_8_g"
@@ -3283,6 +3283,7 @@
         "Elisha Bradley": 1,
         "Elisha Eastman": 1,
         "Elisha Fairbanks": 1,
+        "Elisha Hastings": 1,
         "Elisha Kennicott": 1,
         "Elisha Mcburney": 1,
         "Elisha Price": 1,
@@ -3987,7 +3988,6 @@
         "Otis Forsythe": 1,
         "Otis Gilbert": 1,
         "Otis Kinzie": 1,
-        "Otis Nichols": 1,
         "Otis Rollins": 1,
         "Otis Wadsworth": 1,
         "Owen Cook": 1,

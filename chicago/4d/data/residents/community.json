@@ -9696,6 +9696,11 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
+  "rc_hastings_elisha": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "rc_hastings_esther": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -12087,11 +12092,6 @@
    "rule": "reconstruction_community"
   },
   "rc_nichols_nathaniel": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_nichols_otis": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"

@@ -1403,6 +1403,7 @@
    "letter_list_only": true,
    "head": "bacon_richani",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -1755,6 +1756,7 @@
    "letter_list_only": true,
    "head": "barnes_wheeler",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -6300,6 +6302,7 @@
    "letter_list_only": true,
    "head": "crandall_beman",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -6366,6 +6369,7 @@
    "letter_list_only": true,
    "head": "crissy_william",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -6415,7 +6419,7 @@
    "letter_list_only": true,
    "head": "crull_david",
    "division": "unplaced",
-   "division_reconstructed": "west",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -7140,6 +7144,7 @@
    "letter_list_only": true,
    "head": "dickinson_alexander",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -8000,6 +8005,7 @@
    "letter_list_only": true,
    "head": "eliphalet_atkins_2",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -10002,6 +10008,7 @@
    "letter_list_only": true,
    "head": "haight_d_s",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -12352,6 +12359,7 @@
    "letter_list_only": true,
    "head": "julius_perrin_2",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -12566,6 +12574,7 @@
    "letter_list_only": true,
    "head": "kerchevel_lewis",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -12651,6 +12660,7 @@
    "letter_list_only": true,
    "head": "killigoss_isaac",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -14203,6 +14213,7 @@
    "letter_list_only": true,
    "head": "loweley_watere_e",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -14434,6 +14445,7 @@
    "letter_list_only": true,
    "head": "mackel_james",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -14898,6 +14910,7 @@
    "letter_list_only": true,
    "head": "mcarty_n",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -15032,6 +15045,7 @@
    "letter_list_only": true,
    "head": "mdaniel_a",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -15130,6 +15144,7 @@
    "letter_list_only": true,
    "head": "meriams_mary",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -15615,6 +15630,7 @@
    "letter_list_only": true,
    "head": "monreou_john",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -16280,6 +16296,7 @@
    "letter_list_only": true,
    "head": "natta_j_v",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -16362,6 +16379,7 @@
    "letter_list_only": true,
    "head": "nett_robert_a",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -16412,6 +16430,7 @@
    "letter_list_only": true,
    "head": "nicholson_joshua_f",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -16745,6 +16764,7 @@
    "letter_list_only": true,
    "head": "orisbee_edgar_i",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -16761,6 +16781,7 @@
    "letter_list_only": true,
    "head": "ormshee_s_b",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -16793,6 +16814,7 @@
    "letter_list_only": true,
    "head": "osborn_b",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -17394,6 +17416,7 @@
    "letter_list_only": true,
    "head": "pedrick_robert_c",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -17478,7 +17501,7 @@
    "civic_mint": true,
    "head": "perry_calvin",
    "division": "unplaced",
-   "division_reconstructed": "west",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -17714,6 +17737,7 @@
    "letter_list_only": true,
    "head": "poel_green",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -19073,6 +19097,7 @@
    "letter_list_only": true,
    "head": "richey_thos_h",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -19488,6 +19513,7 @@
    "letter_list_only": true,
    "head": "root_ez_c",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -19956,6 +19982,7 @@
    "letter_list_only": true,
    "head": "sawyer_james_a",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -20357,6 +20384,7 @@
    "letter_list_only": true,
    "head": "sheldon_oliveann",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -21539,6 +21567,7 @@
    "letter_list_only": true,
    "head": "stiles_david",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -21859,6 +21888,7 @@
    "letter_list_only": true,
    "head": "swanwick_f",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -22236,6 +22266,7 @@
    "letter_list_only": true,
    "head": "thorn_platt",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -22285,6 +22316,7 @@
    "letter_list_only": true,
    "head": "timothy_b",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -22735,6 +22767,7 @@
    "letter_list_only": true,
    "head": "vanderwerker_adam",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -22836,6 +22869,7 @@
    "letter_list_only": true,
    "head": "vanzandt_w_2",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -23519,6 +23553,7 @@
    "letter_list_only": true,
    "head": "weed_sally",
    "division": "unplaced",
+   "division_reconstructed": "north",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -23855,6 +23890,7 @@
    "letter_list_only": true,
    "head": "whitcomb_aaron",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -24022,6 +24058,7 @@
    "letter_list_only": true,
    "head": "willaee_philip",
    "division": "unplaced",
+   "division_reconstructed": "west",
    "persons": 1,
    "grades": {
     "inferred": 1
@@ -24535,6 +24572,7 @@
    "letter_list_only": true,
    "head": "wrickey_thomas_h",
    "division": "unplaced",
+   "division_reconstructed": "south",
    "persons": 1,
    "grades": {
     "inferred": 1
