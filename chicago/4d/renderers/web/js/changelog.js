@@ -1,8 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1395, ts: '2026-10-04T02:44:13.814Z', date: 'Oct 3, 2026, 9:44 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+  { v: 1396, ts: '2026-10-04T03:13:34.904Z', date: 'Oct 3, 2026, 10:13 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
     items: [
       'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
       'If loading fails on a phone, the Retry screen shows the touch hints too.',
+    ] },
+  { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The first Fort Dearborn, which stood from 1803 until it was burned on 16 August 1812, now has a record for each of its fourteen parts, measured from the plan its commandant drew in 1808.',
+      'They are the two picket rows, the two blockhouses, the four barracks ranges, the brick magazine, two small houses, the parade and the 75-foot flagstaff. Two storeys and galleries facing the parade are the commandant\u2019s own words; the heights and roofs are our reconstruction (liberty L370).',
+      'The guard house, the two stores and the small side gate are named in his index but not drawn where they can be found, so they are not built. Neither are the covered way to the river or the gutters, which he says he left off.',
+      'The records are dated so that no 1835 view can show them. They will appear when the fort is placed in an 1812 view.',
     ] },
   { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
     items: [

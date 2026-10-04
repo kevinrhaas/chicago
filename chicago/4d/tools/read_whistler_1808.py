@@ -21,7 +21,12 @@ commit (data/traces/README.md):
   * the index is complete: all 34 numbers, each located, not located (with why),
     sheet-only (drawn, but where the sheet says it is not to scale), or omitted by
     the drafter. 33 and 34 MUST be the last, because the index says so;
-  * the cross-checks the file says HOLD still hold on its own numbers.
+  * the cross-checks the file says HOLD still hold on its own numbers;
+  * (T-2049) the first fort's structure records are built FROM this reading: each
+    `data/structures/first_fort_dearborn_*.json` names its register part, carries the
+    part's measured plan dimensions (to 0.02 m) and its fort-frame box in its
+    `symbolic_location`, and stands 1803-08-17 to 1812-08-16 — a range no committed
+    scene date falls inside, so no scene draws the first fort beside the second one.
 
 `--remeasure` fetches the working copy, refuses it if its sha256 has moved, and finds
 the staff's two ends again: the longest near-continuous dark run in columns 994-1007,
@@ -133,6 +138,86 @@ def check(doc: dict) -> list[str]:
     return errs
 
 
+#: T-2049. Each first-fort record, the register part it is built from, and how its plan
+#: reads the part: "ew" — width east-west, depth north-south; "ns" — width along a range
+#: that runs north-south; "front" — an ELEVATION, so only the width is measured.
+RECORDS = {
+    "first_fort_dearborn_blockhouse_nw": ("north-west blockhouse", "ew"),
+    "first_fort_dearborn_blockhouse_se": ("south-east blockhouse", "ew"),
+    "first_fort_dearborn_commanding_officers_barracks": ("east range", "ns"),
+    "first_fort_dearborn_officers_barracks": ("west range", "ns"),
+    "first_fort_dearborn_soldiers_barracks_sw": ("south range, west of the gate", "ew"),
+    "first_fort_dearborn_soldiers_barracks_se": ("south range, east of the gate", "ew"),
+    "first_fort_dearborn_north_range": ("north range", "ew"),
+    "first_fort_dearborn_magazine": ("magazine", "front"),
+    "first_fort_dearborn_small_house_ne": ("small house, north-east", "front"),
+    "first_fort_dearborn_small_house_sw": ("small house, south-west", "ew"),
+    "first_fort_dearborn_parade": ("parade", "ew"),
+    "first_fort_dearborn_flagstaff": ("flagstaff", None),
+    "first_fort_dearborn_pickets_inner": (5, "ew"),
+    "first_fort_dearborn_pickets_outer": (6, "ew"),
+}
+FIRST_FORT = ("1803-08-17", "1812-08-16")
+FT_M = 0.3048
+TOL_M = 0.02
+
+
+def records(doc: dict) -> list[str]:
+    """The first fort's structure records against the reading they are built from."""
+    errs: list[str] = []
+    s = doc["scale"]["px_per_ft"]
+    ox, oy = doc["scale"]["staff_px"]["foot"]
+    parts = {p["label"]: p["fort_ft"] for r in doc["index"] for p in r.get("parts", [])}
+    parts["parade"] = doc["parade"]["fort_ft"]
+    north = (parts["north range, west room"], parts["north range, east room"])
+    parts["north range"] = {
+        "e_ft": [north[0]["e_ft"][0], north[1]["e_ft"][1]], "n_ft": north[1]["n_ft"],
+        "size_ft": [round(north[1]["e_ft"][1] - north[0]["e_ft"][0], 1), north[1]["size_ft"][1]]}
+    for r in doc["index"]:
+        if "lines" in r:
+            L = r["lines"]
+            x0, x1, y0, y1 = L["west"]["x_px"], L["east"]["x_px"], L["north"]["y_px"], L["south"]["y_px"]
+            parts[r["no"]] = feet([x0, y0, x1, y1], s, ox, oy)
+    have = {p.stem for p in (ROOT / "data" / "structures").glob("first_fort_dearborn_*.json")}
+    for sid in sorted(have ^ set(RECORDS)):
+        errs.append(f"{sid}: {'a first-fort record this reading does not map' if sid in have else 'mapped here, but no record'}")
+    scenes = [json.loads(p.read_text())["target_date"] for p in (ROOT / "data" / "scenes").glob("*.json")]
+    for sid, (label, axis) in RECORDS.items():
+        f = ROOT / "data" / "structures" / f"{sid}.json"
+        if not f.exists():
+            continue
+        st = json.loads(f.read_text())
+        if len(st["phases"]) != 1:
+            errs.append(f"{sid}: carries {len(st['phases'])} phases; the first fort has one")
+            continue
+        ph = st["phases"][0]
+        rng = (ph["documented_range"]["from"], ph["documented_range"]["to"])
+        if rng != FIRST_FORT:
+            errs.append(f"{sid}: stands {rng[0]}..{rng[1]}, not the first fort's {FIRST_FORT[0]}..{FIRST_FORT[1]}")
+        both = [d for d in scenes if rng[0] <= d <= rng[1]]
+        if both and not (ROOT / "data" / "scenes" / "1812.json").exists():
+            errs.append(f"{sid}: scene date {both[0]} resolves it, and no 1812 scene exists to own it")
+        if axis is None:
+            continue
+        part = parts[label]
+        e_ft, n_ft = part["e_ft"], part["n_ft"]
+        loc = ph["position"].get("symbolic_location", "")
+        want_e = f"E {e_ft[0]:+.1f}..{e_ft[1]:+.1f} ft"
+        if want_e not in loc:
+            errs.append(f"{sid}: symbolic_location does not carry the register's {want_e}")
+        if axis != "front" and f"N {n_ft[0]:+.1f}..{n_ft[1]:+.1f} ft" not in loc:
+            errs.append(f"{sid}: symbolic_location does not carry the register's N box")
+        poly = ph["footprint"]["polygon"]
+        w = max(p[0] for p in poly) - min(p[0] for p in poly)
+        d = max(p[1] for p in poly) - min(p[1] for p in poly)
+        ew, ns = (part["size_ft"][0] * FT_M, part["size_ft"][1] * FT_M)
+        want = {"ew": (ew, ns), "ns": (ns, ew), "front": (ew, None)}[axis]
+        if abs(w - want[0]) > TOL_M or (want[1] is not None and abs(d - want[1]) > TOL_M):
+            errs.append(f"{sid}: footprint {w:.2f} x {d:.2f} m is not the register's "
+                        f"{label!r} at {want[0]:.2f}" + (f" x {want[1]:.2f} m" if want[1] else " m wide"))
+    return errs
+
+
 def fetch(doc: dict) -> bytes:
     cache = Path("/tmp") / "chicago4d-whistler-1808.png"
     if not cache.exists():
@@ -175,7 +260,7 @@ def remeasure(doc: dict) -> list[str]:
 
 def main() -> int:
     doc = json.loads(TRACE.read_text())
-    errs = check(doc)
+    errs = check(doc) + records(doc)
     if "--remeasure" in sys.argv:
         errs += remeasure(doc)
     if errs:
@@ -185,7 +270,8 @@ def main() -> int:
     rows = doc["index"]
     count = {st: sum(1 for r in rows if r["status"] == st) for st in sorted(STATUSES)}
     print(f"OK: Whistler 1808 at {doc['scale']['px_per_ft']} px/ft off the 75 ft staff; "
-          f"34 index numbers — " + ", ".join(f"{v} {k}" for k, v in count.items()))
+          f"34 index numbers — " + ", ".join(f"{v} {k}" for k, v in count.items())
+          + f"; {len(RECORDS)} first-fort records built from it")
     return 0
 
 
