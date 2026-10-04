@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Fenced lots are closed all round, open only where a house faces the street', kind: 'fix',
+  { v: 1445, ts: '2026-10-04T20:34:11.607Z', date: 'Oct 4, 2026, 3:34 PM CT', title: 'Fenced lots are closed all round, open where a house faces the street', kind: 'fix',
     items: [
       'Fly over any built block, the Clark Street blocks south of the river for one: a fenced lot is now fenced along both sides from the street back to the alley, where the fence used to stop partway and leave the lot open to its neighbours.',
       'Where a house or store stands at the front of the lot, the street side stays open so you see the building. A lot with only a shed or privy at the back is fenced on the street too, with a cart gate.',
