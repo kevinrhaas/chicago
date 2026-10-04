@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
+  { v: null, ts: '', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
       'Neither is the slowest view. That is still a back yard on Washington Street.',
       'The welcome screen redraws the whole town again and again while you read it, even though the picture never changes. A phone spends its effort on a menu, and making it draw once is the next fix.',
       'Each Scene detail setting now has a time limit at that back yard. A change that makes every frame slower is caught before it ships.',
+    ] },
+  { v: 1449, ts: '2026-10-04T21:51:03.440Z', date: 'Oct 4, 2026, 4:51 PM CT', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. 1904\u2019s Glessner house windows draw the whole scene a second time every frame, and that is about half of each frame there.',
+      'Two cheaper kinds of glass are ready to try. Either one makes the 1904 landing about twice as fast to draw, on a phone and on a desktop.',
+      'Add &glass=clear or &glass=dark to the address of the 1904 scene to compare them. Clear looks almost the same as today. Dark makes every pane a darker plate.',
+      'The owner will choose which one ships.',
+    ] },
+  { v: 1448, ts: '2026-10-04T21:40:47.295Z', date: 'Oct 4, 2026, 4:40 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
+    items: [
+      'The grass and flowers around you used to cost a long pause each time you turned a little or walked a step further. That pause is now about half as long, and the plants stand exactly where they did.',
+      'On a slowed-down phone at Light detail, a slow turn now drops below 50 ms per frame for most of its steps. The worst frame of a turn fell from 127 ms to 70 ms, of a flight from 108 ms to 56 ms, and of a walk from 47 ms to 34 ms.',
+      'On a desktop at Full detail, the worst pause in a turn fell from 70 ms to under 40 ms.',
+      'More of the lag is still being worked on: the next step spreads this work over several frames, so no single frame has to wait for it.',
     ] },
   { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
     items: [
