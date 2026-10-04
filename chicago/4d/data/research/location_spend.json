@@ -23,8 +23,8 @@
   "adjudicated_grades": {
    "structure_committed": 47,
    "structure_pending": 11,
-   "street_only_adopted": 39,
-   "street_only_unseated": 17,
+   "street_only_adopted": 40,
+   "street_only_unseated": 16,
    "unplaceable": 62
   },
   "households_by_seating_class": {
@@ -35,7 +35,7 @@
    "none": 1305
   },
   "moved_between_published_limits": 0,
-  "seats_that_are_substitutable": 39
+  "seats_that_are_substitutable": 40
  },
  "placements": [
   {
@@ -665,15 +665,15 @@
   {
    "business_id": "business_elmira_fowler",
    "published_limit": "street_only",
-   "grade": "street_only_unseated",
+   "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": null,
-   "seat_is_substitutable": false,
+   "model_seat": "recon_1835_blk_south_water_dearborn_d2_04",
+   "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "street, nearly opposite the new bridge, and",
-   "clause": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: every roof on the face is spoken for."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_d2_04', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_everson_co",

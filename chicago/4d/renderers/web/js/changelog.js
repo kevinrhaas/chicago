@@ -1,10 +1,39 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Ten people from the letter lists keep their records instead of being filed twice', kind: 'change',
+  { v: null, ts: '', title: 'Ten people from the letter lists keep their records instead of being filed twice', kind: 'change',
     items: [
       'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
       'The pass that adds these people was set to file seven of them again under new names, and to drop their old records. It now knows when a name it reads is someone the town already holds, and adds the new reading to that person\u2019s record.',
       'Two names read better from the page image: H. Pease is C. H. Pease, and F. Plumer is S. F. Plumer, who now appears from the January 1834 printing of the list rather than the March one.',
       'Where two printings of one list spell a name differently, the record lists both printings. William Crisey keeps that spelling for now, because the page image reads Crissy and choosing between them needs a written ruling.',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
+    items: [
+      'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',
+      'Why: an 1834 newspaper notice sells lot 7 of the block as \u201cone lot east of Haddock\u2019s Tavern\u201d. That puts the tavern on lot 6, next door to lot 7. Another 1834 advertiser\u2019s two addresses point to the same lot.',
+      'Its stable moved with it, to the back of the new lot.',
+      'The small plank shanty that stood on lot 6 is a reconstruction, not a recorded building. It now stands on the corner lot the tavern left.',
+    ] },
+  { v: 1414, ts: '2026-10-04T09:05:46.494Z', date: 'Oct 4, 2026, 4:05 AM CT', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the check that stops one gate step from changing files another step is reading.',
+      'That check used to be handed a list of three folders and files it should ignore. It now asks git which files are ignored build products, such as the published copy of the site, and records the answer when the steps are measured.',
+      'A change to a file the project actually keeps is never excused this way. The old list let some kept files at the site\u2019s top level through; the new check would refuse them.',
+    ] },
+  { v: 1413, ts: '2026-10-04T08:48:27.244Z', date: 'Oct 4, 2026, 3:48 AM CT', title: 'The Baptist meeting house card names its first Episcopal service', kind: 'feature',
+    items: [
+      'Open the Temple Building on South Water Street near Franklin, the town\u2019s Baptist meeting house. Its card now records that on Sunday 19 October 1834 the Rev. Isaac W. Hallam held Episcopal services in it.',
+      'The card also cites a second history, Moses and Kirkland\u2019s of 1895, which puts Sproat\u2019s boys\u2019 school in \u201cthe First Baptist church, a small frame building located on South Water street near Franklin\u201d. That is this building, and it gains that name.',
+      'No building was added and none moved. A research note had asked for this meeting house to be placed, not knowing the town already had it.',
     ] },
   { v: 1412, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
     items: [
