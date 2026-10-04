@@ -20907,3 +20907,27 @@ places the store yet.
 north-east corner of Lake and Dearborn substitutes for this count-unit.
 **Covers:** `recon_1835_blk_south_water_dearborn_d2_04.inferred_1835.position`
 **Recorded:** 2026-10-04 (T-1679).
+
+### L374 — The sward's fine relief is a generated grass grain, not a measured surface
+**Decision:** T-2089 gives the terrain's prairie ground the road's method (T-1797, T-1811): one
+seeded 256 px tile over 1.6 m, `renderers/web/js/grass-grain.js`, whose red channel is a height
+read as luminance grain over its own mean and whose green and blue are its normal, sampled in
+world space and lit by the scene's sun. Its content is invented within bounds — 13 cm tussock
+crowns, 4 cm leaf mass, 2,400 raised blade strokes 3-9 cm long laid densest on the crowns, and
+260 flatter thatch strokes 8-20 cm long between them. How strongly a fragment shows the grain is
+taken from the July colour tile it already reads (lusher, brighter clumps more; wet ground about
+half), and the lake-shore sand zone takes none of it. The ground strip and the worked bank carry
+the same relief wherever they draw prairie.
+**Why:** the owner asked, on 2026-10-04, for the grass and land to be done "the same way" as the
+road, whose surface reads as ground because it has relief lit by the sun. No source records the
+surface relief of a July sward at Chicago, so there is nothing to attest and nothing particular
+to infer from; the scales are bounded by the plant (bunch-grass crowns and blades) and by the
+colour tile above it, which already owns everything from 0.7 m up.
+**Consequence:** at walking distance the ground shows blades, thatch and shade between them where
+it used to show a flat colour print. The grain is read over its measured mean and is independent
+of the colour tile, so every substrate zone's mean albedo is unchanged (`tools/
+measure_ground_albedo.mjs`). It is not a reading of any one patch of 1835 ground.
+**How to resolve:** a period description, or a modern measurement of a restored tallgrass or
+wet-prairie sward in July, that states blade length, crown spacing or litter cover would replace
+the strokes' counts and sizes.
+**Recorded:** 2026-10-04 (T-2089).

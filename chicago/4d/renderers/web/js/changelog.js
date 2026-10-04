@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1430, ts: '2026-10-04T14:23:06.867Z', date: 'Oct 4, 2026, 9:23 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
+    items: [
+      'Look down anywhere on the open prairie: the ground now shows blades of grass, last year\'s thatch between the tussocks, and the shade under them, lit by the sun the way the dirt roads are.',
+      'Lusher clumps show more blades and the wet ground near the water less. The beach sand stays bare.',
+      'The worn bank by the river and the strip of sand and dirt at the forks carry the same grass where they meet the prairie, so there is no seam.',
+      'The colour of every kind of ground is unchanged; only its surface is new. The grain is a reconstruction (Liberty L374).',
+    ] },
   { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
