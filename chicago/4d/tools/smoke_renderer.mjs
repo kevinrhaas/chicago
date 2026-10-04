@@ -11092,10 +11092,10 @@ for (const [label, viewport, touch] of [
         if (b.drawnPx > peak) { peak = b.drawnPx; body = b.body; }
       }
       out.street = { peakPx: peak, peakRad: peak / cen.pxPerRad, body,
-        lift: a.trees.horizonLift().lift };
+        lift: a.trees.horizonLift?.()?.lift ?? null };
       w.teleport({ local_e: 451, local_n: -112, yaw_deg: 251, altitude_m: 17, pitch_deg: -12 });
       await frames(3);
-      out.air = a.trees.horizonLift();
+      out.air = a.trees.horizonLift?.() ?? { lift: null, visible: null };
       a.setFly(was.flying);
       w.teleport({ local_e: was.e, local_n: was.n, yaw_deg: was.yaw, pitch_deg: was.pitch,
         altitude_m: was.flying ? was.alt : null });
