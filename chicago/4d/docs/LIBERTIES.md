@@ -20911,7 +20911,7 @@ north-east corner of Lake and Dearborn substitutes for this count-unit.
 ### L374 — The town's short turf is a painted texture, and its pattern is ours
 **Decision:** on a community whose every matrix grass tops out at or under 0.25 m — on the
 committed records `z10_settled_town` alone — the walkthrough draws the sward as plants only to
-the near ring (7.6 m at Full, 4.0 m at Balanced, 2.6 m at Light, ragged by under a metre) and
+its own near ring (7.6 m at Full, 4.8 m at Balanced, 3.4 m at Light), built and faded like every ring, and
 paints the rest on the ground: one seeded 256 px tile over 2 m (blade strokes, a few plantain and
 clover rosettes, soil crumbs; height read as grain and as a lighting normal) and value noise at
 0.6, 1.7 and 5.5 m that leaves the record's `bare_soil_fraction` bare. The mid and far clump

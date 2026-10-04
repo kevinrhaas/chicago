@@ -816,7 +816,7 @@ const LOW = {
   farShrub: { radius: 70.0, ramp: 24.0 },
   // T-2085: a slow phone in the town spends almost nothing on ground cover —
   // the tufts at its feet and the texture beyond.
-  turf: { radius: 2.6, fringe: 0.5 },
+  turf: { radius: 3.4, fringe: 0.5 },
   cap: { near: 600, mid: 900, forb: 260, head: 480, far: 190, farShrub: 900 },
 };
 
@@ -849,7 +849,7 @@ const MID = {
     minPx: 2.0,
   },
   farShrub: { radius: 105.0, ramp: 35.0 },
-  turf: { radius: 4.0, fringe: 0.6 },
+  turf: { radius: 4.8, fringe: 0.6 },
   cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 300, farShrub: 2000 },
 };
 
@@ -1205,10 +1205,6 @@ export async function createFlora({
   const finder = zoneFinder(zones, terrain, water);
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
   stats.turf = handTurfToGround(zones, finder, water, terrain, problems);
-  const turfR = tune.turf.radius;
-  /** T-2085. True where a slot on short turf lies past the drawn turf ring. */
-  const pastTurf = (zone, e, n, r) => zone.turf
-    && r > turfR + fringeOf(e, n, tune.turf.fringe);
   if (stats.unzonedLandFraction >= 0.999) {
     // Not a tolerance: records exist, ground exists, and NOTHING matches — the
     // layer would draw an empty prairie while looking healthy. Any fraction
@@ -1323,6 +1319,19 @@ export async function createFlora({
     rings[layer] = ringsFor(tune[layer], step);
     rings[layer].head = headRingOf(rings[layer].fade);
   }
+  // T-2085. The near tufts and the weeds on short turf stand on rings of their
+  // own, built by `ringsFor` like every layer's, so a turf plant is placed at
+  // coverage zero past its edge and arrives through the same handover as any
+  // other — a cut instead of a ring would pop them in whole. Kept out of
+  // `rings` because the gate holds that to the three layers it names.
+  const turfBand = (band) => Math.min(band, tune.turf.radius * 0.3);
+  const turfRings = {
+    near: ringsFor({ ...tune.near, radius: Math.min(tune.turf.radius, tune.near.radius),
+      band: turfBand(tune.near.band) }, step),
+    forb: ringsFor({ ...tune.forb, radius: Math.min(tune.turf.radius, tune.forb.radius),
+      band: turfBand(tune.forb.band), fringe: tune.turf.fringe }, step),
+  };
+  turfRings.forb.head = headRingOf(turfRings.forb.fade);
   /** Which ring each rooted set is drawn on. A rosette is a forb. */
   const ringOfSet = {
     'flora-near': rings.near, 'flora-mid': rings.mid,
@@ -1446,10 +1455,11 @@ export async function createFlora({
         // vertex program collapses a plant outside its ring to a point, which
         // is what it already did for the annulus between the fade and the
         // lattice, so the frame pays nothing for them either.
-        const ring = slotRing(near, e, n, 0, _ring);
         const zone = finder(e, n);
         if (!zone || !zone.graminoids.length) return;
-        if (pastTurf(zone, e, n, r)) return;
+        // T-2085: past the turf's own lattice nothing is dealt at all.
+        if (zone.turf && r > turfRings.near.lattice.outer) return;
+        const ring = slotRing(zone.turf ? turfRings.near : near, e, n, 0, _ring);
         // The community's own recorded matrix cover decides whether this slot
         // carries a plant — the same rule the forb layer has always applied to
         // its own recorded densities, on the field the matrix layer ignored.
@@ -1544,7 +1554,10 @@ export async function createFlora({
         if (r > f.fade[0] + off + step) return;
         const zone = finder(e, n);
         if (!zone || !zone.forbs.length) return;
-        if (pastTurf(zone, e, n, r)) return;
+        // T-2085: the weeds on turf stand on the turf's forb ring.
+        const fr = zone.turf ? turfRings.forb : f;
+        const fo = zone.turf ? fringeOf(e, n, fr.fringe) : off;
+        if (zone.turf && r > fr.fade[0] + fo + step) return;
         // The forb layer's density is the zone's OWN summed density_per_ha, so a
         // sparse community stays sparse. `share` is the chance this lattice slot
         // is used at all — of the half of the community that may stand on this
@@ -1561,10 +1574,10 @@ export async function createFlora({
         if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) { if (c) c.row.rejWalker++; return; }
         countDraw(c, sp, wet);
         const set = sp.form === 'forb_basal_scape' ? rosetteSet : forbSet;
-        set.ring(ringAt(f.fade, off, _ring));
+        set.ring(ringAt(fr.fade, fo, _ring));
         const h = placeForb(set, sp, e, y, n, rng);
-        if (h > 0 && r <= f.head[0] + off + step) {
-          maybeHead(heads, sp, e, y, n, rng, h, ringAt(f.head, off, _headRing));
+        if (h > 0 && r <= fr.head[0] + fo + step) {
+          maybeHead(heads, sp, e, y, n, rng, h, ringAt(fr.head, fo, _headRing));
         }
       });
 
@@ -1848,7 +1861,8 @@ export async function createFlora({
           if (r < handover - margin || r > edge + margin) return;
           const zone = finder(e, n);
           if (!zone || !zone.graminoids.length) return;
-          if (zone.turf && (kind === 'mid' || pastTurf(zone, e, n, r))) return;
+          // T-2085: no carry on turf — past its own rings the ground carries it.
+          if (zone.turf) return;
           const wet = water.isWater(e, n);
           const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
             zone.matrixShare, u);
