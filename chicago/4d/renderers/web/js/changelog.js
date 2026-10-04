@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1435, ts: '2026-10-04T17:51:44.646Z', date: 'Oct 4, 2026, 12:51 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The short town ground from the last release was measured at phone and desktop size, at every Scene detail setting, against the version that is live today.',
+      'On a phone every standard view stays inside its drawing budget at every setting.',
+    ] },
   { v: 1434, ts: '2026-10-04T15:57:34.725Z', date: 'Oct 4, 2026, 10:57 AM CT', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
     items: [
       'Walk into a back yard, along a road or up to a shop front anywhere in the town: the waist-high prairie grass and tall flowers are gone, and the ground is the short, grazed, dusty turf of a lived-in town.',
