@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the check that stops one gate step from changing files another step is reading.',
+      'That check used to be handed a list of three folders and files it should ignore. It now asks git which files are ignored build products, such as the published copy of the site, and records the answer when the steps are measured.',
+      'A change to a file the project actually keeps is never excused this way. The old list let some kept files at the site\u2019s top level through; the new check would refuse them.',
+    ] },
   { v: 1410, ts: '2026-10-04T08:06:12.271Z', date: 'Oct 4, 2026, 3:06 AM CT', title: 'Nothing you can see: the queue check reports a stale board, not mends it', kind: 'chore',
     items: [
       'Nothing you can see in the town changes. This is about the tool that keeps the work queue.',
