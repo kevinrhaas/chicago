@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1411, ts: '2026-10-04T08:53:10.697Z', date: 'Oct 4, 2026, 3:53 AM CT', title: 'Seven households no longer called letter-list names alone', kind: 'fix',
+    items: [
+      'Open the Bradford, Ambrose, Chapman, Fitzgerald, Murray, Neff or Simons household in People, or a house they are seated in: each was named “a name from the post office’s letter lists” although the same card shows the papers naming them elsewhere too.',
+      'Each now reads “a name the papers print beyond the letter lists”. That claims no address, trade or presence in July 1835, only what their cards already show.',
+      'The minting tool now renames a household whenever it drops the letter-list mark, and its check fails if the name and the mark ever disagree again.',
+    ] },
   { v: 1410, ts: '2026-10-04T08:06:12.271Z', date: 'Oct 4, 2026, 3:06 AM CT', title: 'Nothing you can see: the queue check reports a stale board, not mends it', kind: 'chore',
     items: [
       'Nothing you can see in the town changes. This is about the tool that keeps the work queue.',

@@ -15891,6 +15891,13 @@ rather than revised in passing — it reaches seven cards and every reader of th
 which is not one district's pass to make. It costs this liberty one keeper of fifteen on the
 Randolph tier, and that is the direction this pass is wrong in when it is wrong: too few
 keepers named, each shortfall counted.
+**T-1689 settled it at the source.** The letter-list mint now renames a card in the same
+step that refuses its flag — *a name the papers print beyond the letter lists*, which claims
+no address, trade or presence and only says what the card's own press reading already shows
+— and its `--gate` holds the name and the flag together on every card it minted. The seven
+cards carry that name; the two refused roofs are no longer refusals but seats **owed** to a
+later district pass (both stand on roofs this pass is not wired through), so refused
+**81 → 79**, owed **46 → 48**, written unmoved at **23**. No ruling moved.
 
 **One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
 for a garden when a household id appears in a structure's `occupants` prose. Putting the id

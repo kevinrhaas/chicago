@@ -1183,7 +1183,7 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
     present = "present" if cand["last_seen"] >= SCENE_DATE else "uncertain"
     doc = {
         "id": hid,
-        "name": f"The {fam} household — a name from the post office's letter lists",
+        "name": f"The {fam} household — {LETTER_LIST_NAME}",
         "division": DIVISION,
         "head": pid,
     }
@@ -1251,6 +1251,33 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
     return doc
 
 
+# T-1689. THE HOUSEHOLD'S NAME SAYS WHICH EVIDENCE IT RESTS ON, SO IT FOLLOWS THE FLAG.
+# A card is minted when a letter list is all there is, so it is named for the list. When
+# a later pass carries an ordinary reading of the papers onto it, `press_contradicting`
+# refuses the flag — and until T-1689 nothing revised the name, so seven cards (and every
+# building card, scene sidecar and roof ledger that read them) went on saying "a name from
+# the post office's letter lists" about a person the same record says the papers name
+# elsewhere. `tools/name_the_keepers_1835.py` refused two roofs on that disagreement.
+# The second form says what is true of those seven and no more: the papers print the name
+# outside the lists. It claims no address, no trade and no presence on the scene date.
+LETTER_LIST_NAME = "a name from the post office's letter lists"
+PRINTED_ELSEWHERE_NAME = "a name the papers print beyond the letter lists"
+
+
+def settle_the_flag(doc: dict) -> dict:
+    """Refuse the flag where the card's own press evidence contradicts it, and rename to match.
+
+    One-directional, like `press_contradicting`: it never SETS the flag. It runs after
+    `carry_over`, because the press evidence that refuses the flag is a later pass's, carried.
+    """
+    for person in doc.get("persons") or []:
+        if press_contradicting(person):
+            person.pop("letter_list_only", None)
+    if not any(p.get("letter_list_only") for p in doc.get("persons") or []):
+        doc["name"] = doc["name"].replace(LETTER_LIST_NAME, PRINTED_ELSEWHERE_NAME)
+    return doc
+
+
 def carry_over(doc: dict, existing: dict) -> dict:
     """Keep later passes' findings when this letter-list mint rebuilds its card."""
     # A printed title is this pass's evidence for ``sex``; its absence after a new
@@ -1274,6 +1301,7 @@ def build(preload: dict | None = None):
         doc = record(cand, gaz, docs, seen)
         existing = docs.get(HOUSEHOLDS / f"{doc['id']}.json") or {}
         carry_over(doc, existing)
+        settle_the_flag(doc)
         if doc["id"] in seen:
             raise SystemExit(f"two candidates mint the same household id {doc['id']}")
         seen.add(doc["id"])
@@ -1539,6 +1567,18 @@ def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
         if len(persons) != 1:
             problems.append(f"{hid}: {len(persons)} persons — a letter list names one "
                             f"person and this pass may not invent a household around them")
+        # T-1689. The household's name is the flag said in words, so the two agree on
+        # every card this pass minted: the letter-list name where a person carries the
+        # flag, and never where none does. Seven cards stood on the second half.
+        flagged = any(p.get("letter_list_only") for p in persons)
+        says = LETTER_LIST_NAME in (doc.get("name") or "")
+        if flagged != says:
+            problems.append(
+                f"{hid}: the household is named {doc.get('name')!r} and "
+                + ("a person on it carries letter_list_only — a name known only from the "
+                   "post office is named for the post office" if flagged else
+                   "no person on it carries letter_list_only — the name still says the "
+                   "post office is all there is, and the record beside it says otherwise"))
         for person in persons:
             pid = person.get("id")
             # T-1005. The flag's own justification is the test: it is what keeps a
@@ -2047,6 +2087,24 @@ def self_test() -> int:
         d[victim]["persons"][0].pop("letter_list_only")
         i["counts"]["letter_list_only"] -= 1
 
+    # T-1689. Both halves of the name rule: a cleared flag that leaves the old name
+    # behind (how the seven stood), and a flagged card renamed as if it were cleared.
+    unflagged = next((p for p, doc in sorted(docs.items())
+                      if minted_by(p, doc, "letter_list", PREFIX)
+                      and not any(q.get("letter_list_only")
+                                  for q in doc.get("persons") or [])), None)
+    if unflagged is None:
+        print("   no letter-list card has had its flag refused — T-1689's rule is untested")
+        return 1
+
+    def keep_the_old_name(d, i, s):
+        d[unflagged]["name"] = d[unflagged]["name"].replace(PRINTED_ELSEWHERE_NAME,
+                                                            LETTER_LIST_NAME)
+
+    def rename_a_flagged_card(d, i, s):
+        d[victim]["name"] = d[victim]["name"].replace(LETTER_LIST_NAME,
+                                                      PRINTED_ELSEWHERE_NAME)
+
     def drop_dates(d, i, s):
         d[victim]["persons"][0]["letter_list_returns"] = []
 
@@ -2194,6 +2252,10 @@ def self_test() -> int:
         ("a bound stops being not_later_than", blur_the_precision, "precision"),
         ("a flagged person gains an ordinary press reading", advertise_a_shop,
          "not letter lists"),
+        ("a refused flag leaves the post office's name behind", keep_the_old_name,
+         "the name still says"),
+        ("a flagged card is named as if the papers printed it", rename_a_flagged_card,
+         "named for the post office"),
     ]
     failed = 0
     for label, mutate, expect in cases:
