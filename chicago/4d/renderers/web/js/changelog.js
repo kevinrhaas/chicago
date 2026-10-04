@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The first Fort Dearborn, which stood from 1803 until it was burned on 16 August 1812, now has a record for each of its fourteen parts, measured from the plan its commandant drew in 1808.',
+      'They are the two picket rows, the two blockhouses, the four barracks ranges, the brick magazine, two small houses, the parade and the 75-foot flagstaff. Two storeys and galleries facing the parade are the commandant\u2019s own words; the heights and roofs are our reconstruction (liberty L370).',
+      'The guard house, the two stores and the small side gate are named in his index but not drawn where they can be found, so they are not built. Neither are the covered way to the river or the gutters, which he says he left off.',
+      'The records are dated so that no 1835 view can show them. They will appear when the fort is placed in an 1812 view.',
+    ] },
   { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
     items: [
       'A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and Materials for a Roof now each take about five and a half to six minutes on horseback, down from just over six.',

@@ -1,3 +1,39 @@
+## T-2049 — the first fort's fourteen structure records, built from the 1808 register (2026-10-04)
+
+Piece 2 of 3 of T-0469. **Nothing a visitor can see changed, and that is the honest state:** the
+records are dated 1803-08-17 to 1812-08-16, no committed scene date falls in that range, and no
+scene for 1812 exists yet. They are invisible by construction until T-2050 seats them.
+
+**What was built.** `data/structures/first_fort_dearborn_*.json`, fourteen records, every plan
+taken from `data/traces/whistler_1808_fort_dearborn.json` (T-2048): the inward and outward picket
+rows (89.6 x 91.2 ft and 108.0 x 111.3 ft, `palisade`), the north-west and south-east blockhouses,
+the commanding officer's (east), officers' (west) and soldiers' (south, either side of the main
+gate) ranges, the north range with the contractor's store as its west room, the brick magazine,
+the two small houses, the parade and the 75 ft flagstaff. Two storeys, galleries fronting the
+parade and the shingled roofs are ATTESTED from Whistler's own note; every height, pitch, cap,
+stack and picket dimension is reconstructed at the second fort's figure, under L370.
+
+**What was refused, with the register's reasons.** The guard house (9), the hospital store (14),
+the assistant military agent's store (15) and the wicket gate (8) are in the ticket's title but
+not on the sheet where the register could find them; placing them inside a measured plan would
+be inventing the one thing the plan is good for. The covered way (33) and the gutters (34) are
+"Omited in their places" by the drafter. The magazine and the north-east small house are drawn
+in elevation only, so their widths and fronts are measured and their 10 ft depths are ours.
+
+**How it is held.** `tools/read_whistler_1808.py --check` (already in check.sh) now also maps each
+record to its register part and refuses a footprint more than 0.02 m off the part's measured
+plan, a `symbolic_location` that does not carry the part's fort-frame box, a range other than the
+first fort's, and any scene date that would resolve the first fort while no 1812 scene owns it.
+
+**What T-2050 inherits.** Each record carries `utm_e`/`utm_n` null and its box in the draught's
+own frame (feet east and north of the staff's foot, "east" being the sheet's right). Seating the
+fort is therefore one origin and one bearing applied to all fourteen. **The bake moved with it:**
+`generators/build.py` builds only phases some committed scene resolves (T-1732), so these records
+cannot be baked until a scene for 1812 exists. Two things to look at in that first bake: the
+archetype centres a palisade gate on its side while the draught's passage is about 8 ft west of
+the rows' centre, and the inward row's closed loop stands against the ranges' back walls, where
+the draught draws it only between them.
+
 ## T-2056 — four horse jaunts just over six minutes brought inside it (2026-10-03)
 
 **What a visitor sees:** A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and
