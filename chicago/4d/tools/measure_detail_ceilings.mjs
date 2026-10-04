@@ -4,7 +4,8 @@
  *   PW_EXECUTABLE=/opt/pw-browsers/chromium-1194/chrome-linux/chrome \
  *     node tools/measure_detail_ceilings.mjs [--source] [--only desktop|mobile]
  *                                            [--json out.json] [--against DIR]
- *                                            [--stepped]
+ *                                            [--stepped] [--south] [--town]
+ *                                            [--flora] [--shots DIR]
  *
  * `tools/smoke_renderer.mjs` already walks this sweep and holds each tier to its
  * ceiling — that is the GATE and this is not it. The problem is where the sweep
@@ -97,6 +98,18 @@
  * the drop, put it back, clear `castShadow` across it and read again. The ratio of
  * those two IS the tier's multiplier on a roof, and if a future tier ever does
  * decimate a building this table will say so without anyone editing this comment.
+ *
+ * `--town` (T-2084) ADDS three poses INSIDE the town, where a visitor walks among the
+ * houses rather than looks at them from a street anchor: a back yard on a Washington
+ * Street block, the shoulder of Lake Street, and a storefront on South Water Street.
+ * The owner walked exactly those places and found prairie standing in them, which no
+ * stand above sees from close enough to count. Like `--south` they are reported beside
+ * the five and never counted in the exit tally. `--flora` reads, at every stand, what
+ * the `flora` group alone costs (the frame drawn once with it hidden), and `--shots
+ * DIR` writes one capture per in-town pose at the tier the page booted into, named
+ * `<tree>-<viewport>-<pose>.png`, so a before and an after sit side by side. Every
+ * pass also records the JS heap after a forced collection, because content added to
+ * 1835 has cost the phone its heap before (T-2063).
  * The tightest stand and nowhere else, because that is the only stand whose headroom
  * is being divided — and because three extra settled reads at all five stands at all
  * three tiers cost this sweep more than its own 600 s foreground ceiling, which is a
@@ -137,6 +150,9 @@ const argAt = (name) => {
 const wantSource = process.argv.includes('--source');
 const wantStepped = process.argv.includes('--stepped');
 const wantSouth = process.argv.includes('--south');
+const wantTown = process.argv.includes('--town');
+const wantFlora = process.argv.includes('--flora');
+const shotsDir = argAt('--shots');
 const jsonOut = argAt('--json');
 const against = argAt('--against');
 const ONLY = argAt('--only') || 'desktop';
@@ -185,7 +201,32 @@ const SOUTH = [
     label: 'from the air over the southern field',
     pose: { local_e: 600, local_n: -1600, yaw_deg: 0, altitude_m: 700, pitch_deg: -45 } },
 ];
-const STANDS = wantSouth ? [...DOWNTOWN, ...SOUTH] : DOWNTOWN;
+// T-2084. Inside the town, at walking height, where the owner found prairie standing
+// in yards, on road shoulders and before shop fronts. Coordinates are scene-local
+// metres read off the committed blocks and roofs on 2026-10-04: the back yards of
+// the Washington Street houses on blk_washington_wells (h1_02 / h1_03 stand at
+// n -418.6, their lots run back to the alley at about -452); Lake Street's north
+// shoulder beside blk_south_water_lasalle (the block's south line is at n -102,
+// the street's centreline near -112); and the South Water Street frontage of the
+// same block, before the two narrow stores c3_12 and c3_13 (n -18 to -20).
+const TOWN = [
+  { id: 'town_backyard', kind: 'pose',
+    label: 'a back yard on Washington and Wells',
+    pose: { local_e: 385, local_n: -450, yaw_deg: 0, pitch_deg: -6 } },
+  { id: 'town_lake_shoulder', kind: 'pose',
+    label: 'the shoulder of Lake Street, looking west',
+    pose: { local_e: 520, local_n: -104, yaw_deg: 270, pitch_deg: -6 } },
+  { id: 'town_south_water_store', kind: 'pose',
+    label: 'a storefront on South Water Street',
+    pose: { local_e: 501, local_n: -2, yaw_deg: 180, pitch_deg: -6 } },
+];
+// `--stands a,b` keeps only the named stands, for a reading that has to fit one
+// 600 s foreground call: on a four-core runner one tier at eight stands with
+// `--flora` is about that long (T-2084). A verdict over a filtered set is printed
+// only for the groups that are still whole.
+const standFilter = argAt('--stands')?.split(',').filter(Boolean) ?? null;
+const STANDS = [...DOWNTOWN, ...(wantSouth ? SOUTH : []), ...(wantTown ? TOWN : [])]
+  .filter((st) => !standFilter || standFilter.includes(st.id));
 
 const VIEWPORTS = [
   { label: 'desktop 1280x800', width: 1280, height: 800 },
@@ -361,7 +402,8 @@ async function sweep(browser, root, entry, port, treeLabel) {
     // The scene boots on a software renderer here; the gate allows the same.
     await page.waitForFunction(() => window.__chicago4d?.ready === true,
       null, { timeout: 300_000 });
-    const seen = await page.evaluate(async ({ stands, price, budgetStandIds, stepped }) => {
+    const seen = await page.evaluate(async ({ stands, price, budgetStandIds, stepped,
+      floraShare }) => {
       const a = window.__chicago4d;
       if (stepped) a.renderer.setAnimationLoop(null);
       const settle = stepped
@@ -389,10 +431,23 @@ async function sweep(browser, root, entry, port, treeLabel) {
           } else a.goTo(st.target);
           await settle();
           const r = a.stats();
+          // T-2084. The flora group's share: the same frame drawn once without it.
+          let flora = null;
+          const fg = floraShare ? a.scene3d.getObjectByName('flora') : null;
+          if (fg) {
+            const was = fg.visible;
+            fg.visible = false;
+            await settle();
+            const without = a.stats();
+            fg.visible = was;
+            await settle();
+            flora = { tris: r.triangles - without.triangles,
+                      calls: r.drawCalls - without.drawCalls };
+          }
           await window.reportDetailStand({ level, stand: st.id,
-            triangles: r.triangles, calls: r.drawCalls });
+            triangles: r.triangles, calls: r.drawCalls, flora });
           atStands.push({ id: st.id, label: st.label,
-                          tris: r.triangles, calls: r.drawCalls, structures: null });
+                          tris: r.triangles, calls: r.drawCalls, flora, structures: null });
         }
         // T-1674. What the frame spends on STRUCTURES, and how much of that is the
         // sun drawing them a second time — `tools/measure_stand_budget.mjs` owns
@@ -449,8 +504,27 @@ async function sweep(browser, root, entry, port, treeLabel) {
       await a.setDetail(started);
       return rows;
     }, { stands: STANDS, price: wantPrice, budgetStandIds: DOWNTOWN.map((s) => s.id),
-      stepped: wantStepped });
-    passes.push({ viewport: vp.label, seen, errors });
+      stepped: wantStepped, floraShare: wantFlora });
+    // T-2084. The heap after a forced collection, so the reading is the scene's
+    // own retained size and not whatever garbage the sweep left behind.
+    const heap = await page.evaluate(() => {
+      window.gc?.();
+      return performance.memory ? performance.memory.usedJSHeapSize : null;
+    });
+    if (shotsDir && wantTown) {
+      fs.mkdirSync(shotsDir, { recursive: true });
+      for (const st of TOWN) {
+        await page.evaluate(async (pose) => {
+          const a = window.__chicago4d;
+          a.setFly(false);
+          a.walker.teleport(pose);
+          await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        }, st.pose);
+        const tag = `${treeLabel.replace(/\W+/g, '_')}-${vp.label.split(' ')[0]}-${st.id}`;
+        await page.screenshot({ path: path.join(shotsDir, `${tag}.png`) });
+      }
+    }
+    passes.push({ viewport: vp.label, seen, errors, heap });
     await page.close();
   }
   server.close();
@@ -574,7 +648,8 @@ if (priceFrom) {
 const { chromium } = await loadPlaywright();
 const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
-  args: ['--enable-unsafe-swiftshader'],
+  args: ['--enable-unsafe-swiftshader', '--enable-precise-memory-info',
+    '--js-flags=--expose-gc'],
 });
 
 const ROOT = wantSource
@@ -615,18 +690,24 @@ for (const vp of VIEWPORTS) {
       const seen = group
         .map((st) => mine.atStands.find((x) => x.id === st.id))
         .filter(Boolean);
-      if (!seen.length) return null;
+      if (seen.length < group.length) return null;
       const w = seen.reduce((x, y) => (y.tris > x.tris ? y : x));
       return { ...w, verdict: w.tris <= mine.ceiling
         ? `PASS by ${num(mine.ceiling - w.tris)}`
         : `OVER by ${num(w.tris - mine.ceiling)}` };
     };
     const worst = groupWorst(DOWNTOWN);
-    if (worst.tris > mine.ceiling) over += 1;
-    console.log(`\n${level}  ceiling ${num(mine.ceiling)}  `
-      + `worst ${num(worst.tris)} at ${worst.label}  — ${worst.verdict}`);
-    if (wantSouth) {
-      const s4 = groupWorst(SOUTH);
+    if (worst && worst.tris > mine.ceiling) over += 1;
+    console.log(`\n${level}  ceiling ${num(mine.ceiling)}  ` + (worst
+      ? `worst ${num(worst.tris)} at ${worst.label}  — ${worst.verdict}`
+      : 'the downtown stands were filtered out — no verdict'));
+    const t3 = wantTown ? groupWorst(TOWN) : null;
+    if (t3) {
+      console.log(`${' '.repeat(level.length)}  the in-town three        `
+        + `worst ${num(t3.tris)} at ${t3.label}  — ${t3.verdict}`);
+    }
+    const s4 = wantSouth ? groupWorst(SOUTH) : null;
+    if (s4) {
       southOver += s4.tris > mine.ceiling ? 1 : 0;
       console.log(`${' '.repeat(level.length)}  the southern four        `
         + `worst ${num(s4.tris)} at ${s4.label}  — ${s4.verdict}`);
@@ -638,8 +719,10 @@ for (const vp of VIEWPORTS) {
     console.log(head);
     for (const st of STANDS) {
       const a = mine.atStands.find((x) => x.id === st.id);
+      if (!a) continue;
       let line = `   ${st.label.padEnd(42)} ${num(a.tris).padStart(11)} `
         + `${String(a.calls).padStart(6)}`;
+      if (a.flora) line += `  flora ${num(a.flora.tris).padStart(9)} / ${a.flora.calls}`;
       if (rows.length > 1) {
         const b = rows[1].lv.atStands.find((x) => x.id === st.id);
         const d = a.tris - b.tris;
@@ -651,6 +734,10 @@ for (const vp of VIEWPORTS) {
   }
   const errs = results.flatMap((r) => r.passes
     .filter((p) => p.viewport === vp.label).flatMap((p) => p.errors));
+  for (const r of results) {
+    const h = r.passes.find((p) => p.viewport === vp.label)?.heap;
+    if (h != null) console.log(`   JS heap after gc (${r.tree}): ${(h / 1048576).toFixed(1)} MiB`);
+  }
   if (errs.length) console.log(`\nPAGE ERRORS: ${errs.join('; ')}`);
 }
 if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify(results, null, 2)}\n`);
