@@ -2034,6 +2034,36 @@ export function createStreets({ terrain, records = [], confidence = null, detail
     return false;
   }
 
+  /**
+   * T-2094 — THE REST OF THE CORRIDOR IS TRODDEN GROUND, NOT MEADOW.
+   *
+   * `blocksGrowth` clears only the track and 0.65 m beside it, so on an 80-foot
+   * street the six metres between the ruts and the lot line grew whatever the
+   * ground's community grows, and in the settled town that is lamb's-quarters,
+   * ragweed, dock and vervain to 1.2 m — a cart track cut through a meadow. A
+   * corridor in daily use by teams standing at doors, droves and foot traffic
+   * is trampled to the height the town's own turf is cropped to.
+   *
+   * This answers WHERE: `worked` inside the drawn roadway (T-1811's worked
+   * width), `verge` from there out to the corridor's edge, and with it the
+   * distance in from that edge, or null outside every opened corridor. It does
+   * not say what may grow: the cap is the ground community's own (flora.js
+   * reads it off the zone record), so a street that runs out across open
+   * prairie keeps its prairie and only the town's ground is trodden. Platted
+   * but unopened streets are not in `prepared` and keep their ground (T-0797).
+   */
+  function verge(e, n) {
+    let best = null;
+    for (const street of prepared) {
+      const hit = nearestOn(street, e, n);
+      if (!hit) continue;
+      if (hit.distance <= street.drawn_width_m * 0.5) return { band: 'worked', edgeM: null };
+      const edgeM = street.corridor_width_m * 0.5 - hit.distance;
+      if (edgeM >= 0 && (!best || edgeM > best.edgeM)) best = { band: 'verge', edgeM };
+    }
+    return best;
+  }
+
   return {
     group,
     records: prepared,
@@ -2041,6 +2071,7 @@ export function createStreets({ terrain, records = [], confidence = null, detail
     status,
     hitsAt,
     blocksGrowth,
+    verge,
     /** The ground's upper triangulation at (e, n), the surface a ridge-laid
      *  panel stands on (THE RIDGE DRAPE). For the smoke's drape gates. */
     ridgeHeight: (e, n) => ridgeHeight(terrain, e, n),

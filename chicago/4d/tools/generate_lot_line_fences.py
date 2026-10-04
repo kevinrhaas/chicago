@@ -20,7 +20,7 @@ with a street gateway. UNTIL T-2102 the side fences ran only along the rear 40 f
 the lot open to both neighbours and the street. The owner, 2026-10-04: *"the half built
 fence seems odd if there is no facing of a building on that street"* — and the town's
 1833 code let ringed hogs run at large, so a fence open on three sides kept nothing out
-(docs/LIBERTIES.md L378). The CONTINUOUS STREET-LINING runs at the road edge
+(docs/LIBERTIES.md L379). The CONTINUOUS STREET-LINING runs at the road edge
 are deliberately NOT here: they are T-0069's half of the owner's sentence, and a fence
 built twice on one line is worse than a fence built once.
 
@@ -575,7 +575,7 @@ def build(entries, sidecars):
                     f"COMMITTED PLAT'S, corner to corner out of "
                     f"data/traces/vectors/thompson_lots.json; what is derived is only "
                     f"WHERE ALONG IT the timber runs — the whole line, street corner to rear "
-                    f"corner, since T-2102 closed the lot (L378) — and it stops "
+                    f"corner, since T-2102 closed the lot (L379) — and it stops "
                     f"{BUILDING_CLEAR_M:.2f} m short of any committed footprint standing "
                     f"on the line, because a wall on a lot line is not a hole in the fence, "
                     f"it IS the fence there."
