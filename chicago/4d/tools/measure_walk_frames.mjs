@@ -105,20 +105,27 @@ const VERIFY = process.argv.includes('--verify');
  * may spend while the visitor walks, turns, flies or rides. Before T-2096 those
  * worst frames read 70 ms at `full`, 46 at `balanced` and 31 at `light`; T-2105
  * took them to 38, 21 and 15 (docs/measurements/t-2096-walk-frames-*.json).
- * T-2106 spread the rebuilds over frames and they read 21, 12 and 9.4 — each
- * on the ride, whose near passes at a horse's pace are still taken in one
- * frame (docs/measurements/t-2106-walk-frames-after-desktop.json). Each ceiling
- * is that reading with about forty per cent on top: a single frame is the
- * noisiest number a shared CI runner reads, and this gate runs there now.
+ * T-2106 spread the rebuilds over frames and they read 21, 12 and 9.4 on a
+ * steward runner (docs/measurements/t-2106-walk-frames-after-desktop.json) —
+ * each on the ride, whose near passes at a horse's pace are still one frame.
+ *
+ * THE CEILINGS ARE WRITTEN AGAINST THE RUNNER THAT ENFORCES THEM: the CI leg,
+ * .github/workflows/chicago-4d-moving-frames.yml. Its first run on PR #436 read
+ * the same moves about twice as slow (the page was ready in 169 s against 105;
+ * the ride's worst frame at `full` 43.2 ms against 21) and failed six of the
+ * ceilings first written from the steward reading. Its readings were 43.2,
+ * 22.6 and 14.8 worst and 10.7, 6.3 and 4.4 at p95; each ceiling below is that
+ * with about forty per cent on top, because a single frame is the noisiest
+ * number a shared runner reads.
  *
  * `FLORA_MOVE_P95_MS` is the 95th-percentile flora frame of every move, and it
- * is what holds T-2106's gain: a turn read 26, 16 and 11 ms at p95 with each
- * pass taken in one frame and 6.2, 4.1 and 4.1 spread, so a change that puts
- * the rebuild back into one frame fails here however its worst frame reads.
- * The ceilings are the spread readings with about two-thirds on top.
+ * is what holds T-2106's gain: a turn read 26, 16 and 11 ms at p95 on the
+ * steward runner with each pass taken in one frame, against 6.2, 4.1 and 4.1
+ * spread — the same fourfold gap on a runner twice as slow puts a one-frame
+ * rebuild far over these, however its worst frame reads.
  */
-const FLORA_MOVE_CEILING_MS = { full: 30, balanced: 17, light: 14 };
-const FLORA_MOVE_P95_MS = { full: 10, balanced: 7, light: 7 };
+const FLORA_MOVE_CEILING_MS = { full: 60, balanced: 32, light: 21 };
+const FLORA_MOVE_P95_MS = { full: 15, balanced: 9, light: 7 };
 
 const VIEWPORTS = [
   { id: 'desktop', width: 1280, height: 800, touch: false, scale: 1, throttle: 1 },
