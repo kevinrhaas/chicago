@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
+  { v: 1400, ts: '2026-10-04T04:40:34.155Z', date: 'Oct 3, 2026, 11:40 PM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [
       'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',
       'The zone runs along the 1812 shore from just south of Harrison Street down to Eighteenth Street, between the water and the sand ridge a hundred yards back. It is a strip of beach, not a pin.',
