@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'We measured what a first visit costs. The arrival and the jaunts add about 11 KB of it, and the jaunt catalog and the sources still load only when you open them.',
+      'Two of the town\u2019s own limits are now broken, and neither by the jaunts: a first visit downloads 13.1 MB against our 13 MB budget, and the newest trees make a phone stutter while the prairie is planted. Each now has its own fix ticketed.',
+    ] },
   { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
     items: [
       'A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and Materials for a Roof now each take about five and a half to six minutes on horseback, down from just over six.',
