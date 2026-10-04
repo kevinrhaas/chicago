@@ -48,6 +48,7 @@
 
 import * as THREE from 'three';
 import { adaptiveGroundGrid } from './terrain-base.js';
+import { floraInScene } from './flora.js';
 import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { HORIZON_HAZE } from './world.js';
@@ -391,6 +392,7 @@ export class Heightfield {
  */
 export async function createTerrain({
   dataBase, assetBase, epochId, substrateBase = dataBase, confidence = null, problems = [],
+  sceneId = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'terrain';
@@ -419,7 +421,7 @@ export async function createTerrain({
   // beach is a band measured from it, so the sand follows the modelled shore
   // rather than a box. lakeshore.js; null without a heightfield.
   const lakeShore = lakeShoreLine(heightfield);
-  const zones = await substrateZones(substrateBase, problems);
+  const zones = await substrateZones(substrateBase, problems, sceneId);
   const groundMat = groundMaterial(zones, lakeShore);
   /** The radius around the eye inside which the 15 m base is not drawn. See
    *  the base below, and `baseHoleM()` for how it follows the reach. */
@@ -1299,7 +1301,7 @@ export const WORLD_POS_VERT = /* glsl */`
  * Degrades to today's behaviour: no manifest, no zones, and the ground is the
  * prairie everywhere, with the problem recorded.
  */
-async function substrateZones(dataBase, problems) {
+async function substrateZones(dataBase, problems, sceneId = null) {
   if (!dataBase) return [];
   let index = null;
   try {
@@ -1320,6 +1322,8 @@ async function substrateZones(dataBase, problems) {
     // A community the scene does not plant does not paint the ground it does not
     // stand on either. z07_bur_oak_savanna is the one, 5.6 km SSW of the forks.
     if (z.plantable_in_scene === false) continue;
+    // Nor does a zone scoped to another scene (T-0471).
+    if (!floraInScene(z, sceneId)) continue;
     if (!Array.isArray(z.ground_rgb) || !Array.isArray(z.ground_wet_rgb)) {
       problems.push(`terrain: flora zone ${z.id} has a box extent but records no `
         + 'ground colour — the mesh leaves it as prairie');
