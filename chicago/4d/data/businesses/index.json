@@ -4165,7 +4165,13 @@
         "tier": "inferred",
         "from": "1834-11-05",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the new bridge' names nothing the committed town holds."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the new bridge' names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-11-05",

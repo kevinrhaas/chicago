@@ -614,29 +614,23 @@
       "id": "privy_blk_south_water_dearborn_lot1",
       "kind": "privy",
       "lot": "blk_south_water_dearborn_lot1",
-      "belongs_to": "mansion_house",
-      "households": [
-        {
-          "id": "hh_haddock_edward",
-          "held_as": "home",
-          "at": "mansion_house"
-        }
-      ],
-      "household_class": "keeper",
-      "class_read_from": "its function, tavern_inn",
+      "belongs_to": "recon_1835_blk_south_water_dearborn_d2_04",
+      "households": [],
+      "household_class": "labourer",
+      "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        712.22,
-        -58.53
+        712.0,
+        -58.45
       ],
       "bearing_deg": -179.65,
-      "along_m": 1.52,
-      "depth_m": 1.22,
-      "eave_m": 2.0,
-      "head_m": 2.3,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_south_water_dearborn_lot2",
@@ -664,21 +658,27 @@
       "id": "privy_blk_south_water_dearborn_lot3",
       "kind": "privy",
       "lot": "blk_south_water_dearborn_lot3",
-      "belongs_to": "recon_1835_blk_south_water_dearborn_d2_04",
-      "households": [],
-      "household_class": "tradesman",
-      "class_read_from": "fabric_basis.class (L330)",
+      "belongs_to": "mansion_house",
+      "households": [
+        {
+          "id": "hh_haddock_edward",
+          "held_as": "home",
+          "at": "mansion_house"
+        }
+      ],
+      "household_class": "keeper",
+      "class_read_from": "its function, tavern_inn",
       "at_local_enu_m": [
-        737.99,
-        -59.0
+        738.14,
+        -59.01
       ],
       "bearing_deg": -179.64,
-      "along_m": 1.22,
+      "along_m": 1.52,
       "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "eave_m": 2.0,
+      "head_m": 2.3,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },

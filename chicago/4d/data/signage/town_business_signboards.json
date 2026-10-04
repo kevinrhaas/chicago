@@ -2581,8 +2581,8 @@
         "note": "white fat face on a chocolate-brown ground"
       },
       "anchor_local_enu_m": [
-        716.52,
-        -100.56
+        742.44,
+        -100.78
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.3,
@@ -2600,20 +2600,20 @@
       "frontage_m": 12.0,
       "ground_quad_local_enu_m": [
         [
-          724.22,
-          -91.56
+          750.14,
+          -91.78
         ],
         [
-          712.22,
-          -91.56
+          738.14,
+          -91.78
         ],
         [
-          712.22,
-          -100.56
+          738.14,
+          -100.78
         ],
         [
-          724.22,
-          -100.56
+          750.14,
+          -100.78
         ]
       ]
     },
@@ -8191,6 +8191,11 @@
       "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
       "trade": "store_residence",
       "why": "Harmon, Loomis & Co. already letters its name on a board the evidence hangs, at harmon_loomis_store; a second board for the same firm on a roof the adoption chose would put the house in two places."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+      "trade": "rough_plank_dwelling_or_shanty",
+      "why": "the register firm the street-face adoption houses here, Elmira Fowler (biz_elmira_fowler), keeps a trade — milliner — that ADOPTED_FIRM_TRADE hangs no board for (a school is outside both classes, by clause 2)."
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",

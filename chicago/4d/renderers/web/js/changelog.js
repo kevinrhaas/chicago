@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
+    items: [
+      'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',
+      'Why: an 1834 newspaper notice sells lot 7 of the block as \u201cone lot east of Haddock\u2019s Tavern\u201d. That puts the tavern on lot 6, next door to lot 7. Another 1834 advertiser\u2019s two addresses point to the same lot.',
+      'Its stable moved with it, to the back of the new lot.',
+      'The small plank shanty that stood on lot 6 is a reconstruction, not a recorded building. It now stands on the corner lot the tavern left.',
+    ] },
   { v: 1414, ts: '2026-10-04T09:05:46.494Z', date: 'Oct 4, 2026, 4:05 AM CT', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the check that stops one gate step from changing files another step is reading.',
