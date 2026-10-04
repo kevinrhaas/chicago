@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1395, ts: '2026-10-04T02:48:44.198Z', date: 'Oct 3, 2026, 9:48 PM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
       'Held sideways, Starting At\u2026 now scrolls instead of drawing Tap to enter Chicago over the list of places.',
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
+    ] },
+  { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The first Fort Dearborn, which stood from 1803 until it was burned on 16 August 1812, now has a record for each of its fourteen parts, measured from the plan its commandant drew in 1808.',
+      'They are the two picket rows, the two blockhouses, the four barracks ranges, the brick magazine, two small houses, the parade and the 75-foot flagstaff. Two storeys and galleries facing the parade are the commandant\u2019s own words; the heights and roofs are our reconstruction (liberty L370).',
+      'The guard house, the two stores and the small side gate are named in his index but not drawn where they can be found, so they are not built. Neither are the covered way to the river or the gutters, which he says he left off.',
+      'The records are dated so that no 1835 view can show them. They will appear when the fort is placed in an 1812 view.',
     ] },
   { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
     items: [
