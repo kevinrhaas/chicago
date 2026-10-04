@@ -1,8 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1397, ts: '2026-10-04T04:03:23.102Z', date: 'Oct 3, 2026, 11:03 PM CT', title: 'The 1835 town opens on an iPhone again', kind: 'fix',
+  { v: null, ts: '', title: 'The 1835 town opens on an iPhone again', kind: 'fix',
     items: [
       'On a phone, opening 1835 could close the browser tab before the town appeared, because the page held far more memory than a phone allows. It now uses about a third as much once the town has loaded, and the town itself is unchanged.',
       'The extra memory was left over from laying the plank walks, fences, trees and yard goods, which was kept after those pieces had been built.',
+    ] },
+  { v: 1399, ts: '2026-10-04T04:12:17.062Z', date: 'Oct 3, 2026, 11:12 PM CT', title: 'Nothing you can see: rebuilding the research no longer stops half-finished', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a change adds or moves residents, the tool that rebuilds the town\u2019s derived research now finishes the job by itself. Before, it left the population model one step behind the people it counts, and someone had to rebuild that model by hand before the checks would pass.',
+      'It now rebuilds the model before it re-draws when people arrived, and it re-runs the scene until nothing more changes. On a test that reproduced the fault, the rebuild now matches the published town byte for byte.',
+    ] },
+  { v: 1398, ts: '2026-10-04T03:54:13.850Z', date: 'Oct 3, 2026, 10:54 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+    items: [
+      'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
+      'If loading fails on a phone, the Retry screen shows the touch hints too.',
+    ] },
+  { v: 1397, ts: '2026-10-04T03:36:03.066Z', date: 'Oct 3, 2026, 10:36 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
   { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
