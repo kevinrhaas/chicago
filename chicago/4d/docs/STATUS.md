@@ -1,3 +1,30 @@
+## T-1740 — the drawer follows the scene's layers list (2026-10-04)
+
+**What a visitor sees:** at /4d/1904/ the drawer rail is Go to, Travel, Evidence,
+Settings, Controls and What's new — the People and Firms sections are gone — and the
+Evidence hub shows four tiles (How we grade, Sources, What we made up, the ground's
+claims) instead of eleven. Go to no longer offers the 286 firms of 1835's register,
+every one of which read "No known address" there. The 1835 scene offers all eight
+sections and eleven tiles exactly as before.
+
+- **The mechanism is T-1739's, extended to the drawer.** `main.js` maps each section and
+  topic to the layer it reads — `residents` → People, City, Population, Order book;
+  `businesses` (a new layer value, listed by 1835 only) → Firms and the Go-to firm rows;
+  `fauna` → wildlife; `flora` → plants; `exclusions` → not-here and open questions. A
+  scene that does not list the layer gets no tab (`hud.omitTabs`), no tile
+  (`createEvidenceHub({ omit })`) and no fetch; nothing mounts to say it failed.
+- **1812 follows the same list**, which it did not before: it lists `flora` and
+  `structures`, so it keeps the plants topic and loses People, Firms, wildlife and the
+  residents topics. That is the list's own answer and the intended one.
+- **Not done, and said so:** the Sources topic still reads `sidecars/1835/sources/`
+  (hard-coded in `sources.js`), so 1904's Sources is the 1835 catalog — it needs a
+  per-scene source index compiled, which is its own ticket. What we made up is the one
+  project-wide liberties list, 1904's own entries (L293, L296) among it; it is left
+  whole on purpose.
+- **Verified:** smoke part 13 asserts the 1904 drawer at both viewports (no People,
+  no Firms, none of the seven topics, no 1835 firm in Go to, and the six sections it
+  keeps); the 1835 drawer is held by the parts that already read it.
+
 ## T-0470 — the 15 August 1812 route and battle zone, derived from the accounts (2026-10-04)
 
 **What a visitor sees:** the Go-to viewpoint `battle_reach_1812`, which said "the 1812

@@ -148,6 +148,60 @@ chicago/4d/renderers/web/js/changelog.js merge=changelog
 # in the tree: they are the record of what was tried, and `tools/merge-generated-
 # selftest.mjs` still holds the behaviour if anything ever needs it again.
 
+# …AND THE FOUR DERIVED RESEARCH REPORTS STAY TRACKED, ON A MEASUREMENT (T-1355).
+#
+#   chicago/4d/docs/RESEARCH/research-closing-audit-2026-09.md
+#   chicago/4d/docs/RESEARCH/research-signoff-2026-09.md
+#   chicago/4d/docs/RESEARCH/research-spend-ledger-2026-09-15.md
+#   chicago/4d/data/research/research_spend_ledger.json.gz
+#
+# They were filed (2026-09-19) as the next set to take off the PR surface the way
+# T-0937 and T-0938 took the board and the mirror: each is rebuilt by a tool in
+# tools/derived_manifest.json, and they changed in 28-38 of one week's 342 commits.
+# The question is not whether they conflict. It is whether UNTRACKING THEM WOULD
+# HAVE MADE ANY MERGE CLEAN, because untracking a file removes its own conflicts
+# and nobody else's. Measured 2026-10-04 by replaying every merge on every PR head
+# since the split with `git merge-tree` (tools/measure_merge_conflicts.mjs; 925
+# merges, 399 PRs, 2026-09-24 → 2026-10-04):
+#
+#   the four were in the conflicted set of      72 merges (closing audit 71,
+#                                                 signoff 14, report 8, ledger 7)
+#   ...and were the ONLY conflict in             0 of them
+#   ...beside a file no tool rebuilds in         67 — a run resolves those anyway
+#   ...beside only changelog.js /
+#      dev-smoke-state.json in                    5 — conflicting on the server anyway
+#   renderers/web/js/changelog.js conflicted in 864 of the 925
+#
+# So taking them off the surface would have turned none of 925 merges clean. What
+# keeps GitHub calling a branch conflicting is the changelog, on nearly every merge;
+# a hand-authored file decides whether a run has to come back. Neither is touched by
+# untracking these. And since T-1355 was filed, the lap (pr-lap.sh) clears a
+# manifest-owned conflict by itself: `rederive.mjs --resolvable` says yes and
+# `rederive.mjs --run` rebuilds the layer. The hand lap the filing measured (#1483
+# paying it four times on the same three files) is now a machine lap riding a merge
+# that had to happen for another file.
+#
+# Against that, untracking costs something real: three of the four are reports a
+# reader opens on GitHub without a checkout, and the fourth is read by both of the
+# other report builders, so every consumer would have to rebuild it before reading.
+# Kept tracked, the reports stay readable and the cost is nil.
+#
+# WHAT WOULD CHANGE THE ANSWER: the "only the candidates" row of
+# `node tools/measure_merge_conflicts.mjs` reading above zero. Re-take it before
+# re-opening this.
+#
+# AND NOT A MERGE DRIVER, A THIRD TIME. A driver in this file runs only in a clone
+# where it is registered. GitHub's server-side merge, the one that decides whether
+# a PR is mergeable and whether auto-merge can fire, runs none. PR #940 is the
+# proof: zero conflicts in a clone with `merge=generated` registered, "merge
+# conflict" on the identical merge in GitHub's UI. So no driver line is written for
+# these four, and none should be.
+#
+# THE GATE IS UNCHANGED, and it is what makes a conflict here cheap: each file's
+# owning tool fails `--check` the moment the committed copy stops re-deriving
+# (check.sh runs all four), and `rederive.mjs --check` holds the manifest that owns
+# them. Re-tested by tampering each file on 2026-10-04: all four checks refused.
+
 # …AND THE FILE THAT LOOKS LIKE ONE OF THEM AND IS NOT.
 #
 # tools/dev-smoke-state.json sits in exactly the same conflict set, and treating it

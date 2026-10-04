@@ -102,6 +102,8 @@
   -webkit-tap-highlight-color: transparent;
   transition: background .12s, color .12s;
 }
+/* T-1740: a section the scene does not carry is not offered at all. */
+.panel-tab[hidden] { display: none; }
 .panel-tab svg { width: 22px; height: 22px; flex: none; display: block; }
 /* The label may break at its space — "What's new" is two words and a wide
    system font can want more than the rail's width for them on one line. It
