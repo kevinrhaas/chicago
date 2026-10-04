@@ -24,12 +24,12 @@
  "head": "hugunin_leonard_c",
  "source_pass": "letter_list",
  "arrival": {
-  "value": "1835-06-30",
+  "value": "1835-03-31",
   "confidence": "inferred",
   "sources": [
    "chicago_democrat_1833_1835"
   ],
-  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of June 1835 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1835-07-01, 1 day later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1835-06-30 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of March 1835 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1835-05-20, 50 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1835-03-31 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
   "precision": "not_later_than"
  },
  "arrival_year": {
@@ -105,7 +105,7 @@
    "grade": "attested",
    "letter_list_only": true,
    "letter_list_returns": [
-    "1835-07-01"
+    "1835-05-20"
    ],
    "occupation": {
     "value": "none_recorded",

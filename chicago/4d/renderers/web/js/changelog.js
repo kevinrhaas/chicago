@@ -1,10 +1,39 @@
 export const CHANGELOG = [ // newest first
-  { v: 1445, ts: '2026-10-04T21:19:25.978Z', date: 'Oct 4, 2026, 4:19 PM CT', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
+  { v: null, ts: '', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
     items: [
       'Nothing you can see changes yet. 1904\u2019s Glessner house windows draw the whole scene a second time every frame, and that is about half of each frame there.',
       'Two cheaper kinds of glass are ready to try. Either one makes the 1904 landing about twice as fast to draw, on a phone and on a desktop.',
       'Add &glass=clear or &glass=dark to the address of the 1904 scene to compare them. Clear looks almost the same as today. Dark makes every pane a darker plate.',
       'The owner will choose which one ships.',
+    ] },
+  { v: 1448, ts: '2026-10-04T21:40:47.295Z', date: 'Oct 4, 2026, 4:40 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
+    items: [
+      'The grass and flowers around you used to cost a long pause each time you turned a little or walked a step further. That pause is now about half as long, and the plants stand exactly where they did.',
+      'On a slowed-down phone at Light detail, a slow turn now drops below 50 ms per frame for most of its steps. The worst frame of a turn fell from 127 ms to 70 ms, of a flight from 108 ms to 56 ms, and of a walk from 47 ms to 34 ms.',
+      'On a desktop at Full detail, the worst pause in a turn fell from 70 ms to under 40 ms.',
+      'More of the lag is still being worked on: the next step spreads this work over several frames, so no single frame has to wait for it.',
+    ] },
+  { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+    items: [
+      'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
+      'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
+      'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
+      'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
+      'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
+    ] },
+  { v: 1446, ts: '2026-10-04T21:05:08.589Z', date: 'Oct 4, 2026, 4:05 PM CT', title: 'Fenced lots are closed all round, open where a house faces the street', kind: 'fix',
+    items: [
+      'Fly over any built block, the Clark Street blocks south of the river for one: a fenced lot is now fenced along both sides from the street back to the alley, where the fence used to stop partway and leave the lot open to its neighbours.',
+      'Where a house or store stands at the front of the lot, the street side stays open so you see the building. A lot with only a shed or privy at the back is fenced on the street too, with a cart gate.',
+      'Lots with no fence before still have none, so not every building is fenced.',
+      'Early Chicago let ringed hogs run loose in the streets, and a fence open on three sides keeps nothing out. Which lots are fenced, and how, is a reconstruction (Liberty L379).',
+    ] },
+  { v: 1445, ts: '2026-10-04T20:41:19.184Z', date: 'Oct 4, 2026, 3:41 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+    items: [
+      'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
+      'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
+      'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
+      'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
     ] },
   { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
     items: [

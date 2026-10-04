@@ -100,7 +100,7 @@
      "blk_lake_clinton_lot9"
     ],
     "rows_seated_on_those_lots": {
-     "data/enclosures/town_lot_line_rails.json": 30
+     "data/enclosures/town_lot_line_rails.json": 31
     },
     "structures_named_on_those_lots": [
      "recon_1835_blk_lake_clinton_a1_03",
@@ -231,7 +231,8 @@
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot5",
        "data/enclosures/town_lot_line_rails.json:rear_blk_lake_clinton_lot5_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot5_blk_lake_clinton_lot6_s",
-       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot5_n"
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot5_n",
+       "data/enclosures/town_lot_line_rails.json:side_blk_lake_clinton_lot5_n_1"
       ],
       "structures": [
        "recon_1835_west_007"
@@ -452,7 +453,7 @@
      "blk_randolph_clinton_lot9"
     ],
     "rows_seated_on_those_lots": {
-     "data/enclosures/town_lot_line_rails.json": 28
+     "data/enclosures/town_lot_line_rails.json": 32
     },
     "structures_named_on_those_lots": [
      "recon_1835_blk_randolph_clinton_a1_06",
@@ -546,10 +547,13 @@
       "column": "west",
       "row": 4,
       "records": [
+       "data/enclosures/town_lot_line_rails.json:front_blk_randolph_clinton_lot3",
+       "data/enclosures/town_lot_line_rails.json:front_blk_randolph_clinton_lot3_gate",
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot3",
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot3_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot2_blk_randolph_clinton_lot3_s",
-       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot3_blk_randolph_clinton_lot4_s"
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot3_blk_randolph_clinton_lot4_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot3_blk_randolph_clinton_lot4_s_1"
       ],
       "structures": [
        "recon_1835_blk_randolph_clinton_a2_05",
@@ -569,6 +573,7 @@
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot4",
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot4_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot3_blk_randolph_clinton_lot4_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot3_blk_randolph_clinton_lot4_s_1",
        "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot4_s"
       ],
       "structures": [
@@ -615,7 +620,8 @@
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot7",
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot7_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot6_blk_randolph_clinton_lot7_s",
-       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot7_blk_randolph_clinton_lot8_s"
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot7_blk_randolph_clinton_lot8_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot7_blk_randolph_clinton_lot8_s_1"
       ],
       "structures": [
        "recon_1835_blk_randolph_clinton_a1_06",
@@ -635,6 +641,7 @@
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot8",
        "data/enclosures/town_lot_line_rails.json:rear_blk_randolph_clinton_lot8_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot7_blk_randolph_clinton_lot8_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot7_blk_randolph_clinton_lot8_s_1",
        "data/enclosures/town_lot_line_rails.json:side_blk_randolph_clinton_lot8_blk_randolph_clinton_lot9_s"
       ],
       "structures": [

@@ -197,8 +197,17 @@ PERSON_TICKET_RULES = (
     # T-1407 (the crews and the harbour-works gang) stays the one live descendant of
     # T-1175 and is NOT given cells here: a crew sleeps aboard rather than in a division's
     # house, and the book has no axis that separates them. T-1534 carries that refusal.
+    # SWEPT OFF T-1532 ONTO T-2023 ON 2026-10-04 (T-2076). T-1532 dealt the working
+    # lodgers and closed with every cell at its order. Then T-2076 read the second printing
+    # of eleven letter-list names onto their cards, three arrival bounds moved from 1835 to
+    # 1834, the town model's 1 July floor rose by five and `persons/female/30_39/south/
+    # lodging/trade` ordered three more beds than it held. A cell with work left may not
+    # name a finished ticket (T-1420), and the bed-bound remainder of the lodging cells is
+    # T-2023's — "seat the lodging remainder as lodging roofs rise" — exactly as the
+    # children's rule below already names it, by the same rule: a bucket names who does
+    # what is LEFT. seat_lodgers_1835.py keeps its fills under T-1532's quota.
     ("a working lodger, a bed rather than a household",
-     lambda a: a["household_type"] == "lodging" and a["trade"] == "trade", "T-1532"),
+     lambda a: a["household_type"] == "lodging" and a["trade"] == "trade", "T-2023"),
     # T-1536 succeeds T-1533 here, on the day T-1533 shipped. T-1533 drew the children of
     # the six keepers the boarders stage MINTED — ten of the eighty-six — and the other
     # seventy-six are not reachable from that stage at all: they are the children of
