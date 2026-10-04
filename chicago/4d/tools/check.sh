@@ -1429,6 +1429,11 @@ step "every door is read once, its apron re-derives, and no two holes on a front
   python3 tools/generate_entrances.py --check
 step "nothing placed in the town stands in a doorway (T-1984)" \
   python3 tools/measure_doorways.py --gate
+# T-2095. THE ALLEYS ARE LANES. The plat model's mid-block alley strip, on every block a
+# structure stands on, laid in the road's dirt and carried to the cross street's track —
+# re-derived here, and refused if a ring winds clockwise (yards.js culls it unseen).
+step "the alley lanes re-derive from the plat's strips and the blocks built on (T-2095)" \
+  python3 tools/generate_alley_lanes.py --check
 # The yard outbuildings (T-1960) are the same shape again: a privy in a rear corner of every
 # dwelling lot the plat reaches and a stable for the horse-keeping households, dealt from the
 # lot survey the fences read and the house's own class and age — a rule, so re-derived here.
