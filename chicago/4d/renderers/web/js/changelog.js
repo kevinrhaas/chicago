@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
