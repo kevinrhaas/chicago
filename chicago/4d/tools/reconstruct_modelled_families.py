@@ -103,7 +103,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
+import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -119,6 +121,10 @@ LEDGER = ROOT / "data" / "reconstruction" / "1835_modelled_families.json"
 RULINGS = ROOT / "data" / "reconstruction" / "1835_presence_rulings.json"
 FOLDS = ROOT / "data" / "reconstruction" / "1835_folded_houses.json"
 RULING = ROOT / "data" / "reconstruction" / "1835_family_ruling.json"
+ROSTER = ROOT / "data" / "reconstruction" / "1835_borderline_roster.json"
+# The roster classes tools/readmit_borderline_roster.py mints a card from by its read name.
+READMIT_MINTS = ("R2_in_window_single_source", "R3_1834_return_or_muster",
+                 "R5_later_only_backprojectable")
 
 STAGE = "modelled_families"
 TICKET = "T-1171"
@@ -353,15 +359,17 @@ def community_for(head: dict, hid: str, pool: dict) -> dict:
     return pick(seed_for(hid, "name_pool_community"), weighted)
 
 
-def forename(seed: str, community: dict, sex: str, taken: set) -> str:
+def forename(seed: str, community: dict, sex: str, taken: set,
+             initials: frozenset = frozenset()) -> str:
     """A forename from the pool. Deterministic, and it steps on past a name already
     borne by a real person of this family — an invention a reader could mistake for a
-    finding is the one thing the pools may never produce."""
+    finding is the one thing the pools may never produce. `initials` is the ruling's
+    (T-2021): first letters this surname may not take, because a read name waits on them."""
     names = community["given_male" if sex == "male" else "given_female"]
     start = draw(seed) % len(names)
     for offset in range(len(names)):
         candidate = names[(start + offset) % len(names)]
-        if candidate.lower() not in taken:
+        if candidate.lower() not in taken and candidate[:1].lower() not in initials:
             return candidate
     return names[start]
 
@@ -541,7 +549,8 @@ def fill(base: dict) -> tuple:
     all_children = sum(r[2] for r in ages if r[1] < 20)
     boy_rate = male_children / float(all_children)
 
-    def draft(hid: str, card: dict, size: int, avoid: frozenset = frozenset()) -> list:
+    def draft(hid: str, card: dict, size: int, avoid: frozenset = frozenset(),
+              read: frozenset = frozenset()) -> list:
         """The kin core the model draws for this house at `size`, before the book speaks:
         [{"bucket", "low", "record"}], the wife first where the house is married. Pure, and
         the same draft whichever stage spends it — the quota below (T-1171) or the family
@@ -553,7 +562,11 @@ def fill(base: dict) -> tuple:
         `avoid` is the ruling's (T-2021): full names somebody else in the town already
         bears. A forename that would make one of them steps on, exactly as it steps past a
         name the family bears — the ruling draws after T-1174 dealt its women, and two
-        invented Hannah Gilberts in one town would read as one woman twice. The quota's
+        invented Hannah Gilberts in one town would read as one woman twice. `read` is the
+        ruling's too: `surname|initial` keys of the roster names the re-admission stage
+        mints. That stage refuses a read name whose surname and first initial a card
+        already bears, and it draws after this one, so an invented Henry Stewart would turn
+        away the roster's Hart L. Stewart — a drawn child displacing a read man. The quota's
         own draws pass nothing here and are unchanged."""
         head = head_of(card)
         head_name = str(head.get("name") or "")
@@ -563,9 +576,11 @@ def fill(base: dict) -> tuple:
         family_names = {surname.lower()}
         tail = " " + surname.lower()
         borne = {n[:-len(tail)] for n in avoid if n.endswith(tail)}
+        waiting = frozenset(k.split("|")[1] for k in read
+                            if k.split("|")[0] == initial_key(surname).split("|")[0])
 
         def given_for(seed: str, sex: str) -> str:
-            given = forename(seed, community, sex, family_names | borne)
+            given = forename(seed, community, sex, family_names | borne, waiting)
             family_names.add(given.lower())
             return given
         drafted = []
@@ -800,6 +815,7 @@ def fill(base: dict) -> tuple:
     hosts = {pair["house"] for pair in ledger["re_housing"]["pairs"]}
     still = sorted(hid for hid in refused_houses if hid not in hosts)
     borne = set(real_names(base)) | layer_names()
+    read_keys = roster_read_keys()
     before_people = present(out)
     ruling = load_ruling()
     if ruling is None:
@@ -813,7 +829,7 @@ def fill(base: dict) -> tuple:
         seed = seed_for(hid, "household_size")
         if row and row.get("verdict") == ADMITTED:
             members = []
-            for drafted in draft(hid, out[hid], size, frozenset(borne)):
+            for drafted in draft(hid, out[hid], size, frozenset(borne), read_keys):
                 record = drafted["record"]
                 borne.add(" ".join(record["name"].split()).lower())
                 record["reconstruction"]["ticket"] = RULING_TICKET
@@ -931,6 +947,34 @@ def layer_names() -> set:
                 if name:
                     out.add(name)
     return out
+
+
+def initial_key(name) -> str:
+    """`surname|first initial`, folded — tools/readmit_borderline_roster.py's own
+    discriminator, which its directory crosswalks share. A one-word name keys its surname."""
+    folded = unicodedata.normalize("NFD", str(name or ""))
+    folded = "".join(ch for ch in folded if unicodedata.category(ch) != "Mn").lower()
+    words = [w for w in re.split(r"[^a-z]+", folded) if w]
+    if not words:
+        return ""
+    return f"{words[-1]}|{words[0][0]}"
+
+
+def roster_read_keys() -> frozenset:
+    """The keys of every roster row the re-admission stage may mint a card from (T-2021).
+
+    Read off the roster, which is upstream of both stages, and never off the re-admitted
+    cards: those are withdrawn the moment a ruling name collides with them, so a ruling
+    that read them would step past a name on one pass and onto it on the next."""
+    if not ROSTER.exists():
+        return frozenset()
+    rows = json.loads(ROSTER.read_text(encoding="utf-8")).get("rows") or []
+    keys = set()
+    for row in rows:
+        if row.get("class") in READMIT_MINTS and len(str(row.get("normalised") or "").split()) >= 2:
+            keys.add(initial_key(row["normalised"]))
+    keys.discard("")
+    return frozenset(keys)
 
 
 def load_ruling():
@@ -1900,6 +1944,10 @@ def self_test() -> int:
     fires("a forename steps past a name the family already bears",
           forename("s", {"given_male": ["John", "Samuel"], "given_female": []},
                    "male", {"john"}) == "Samuel")
+    fires("a ruling forename steps past an initial a read name waits on (T-2021)",
+          forename("s", {"given_male": ["Henry", "Samuel"], "given_female": []},
+                   "male", set(), frozenset({"h"})) == "Samuel"
+          and initial_key("Hart L. Stewart") == "stewart|h")
     fires("an age of 9 bands as a child", book_band(9) == "under_10")
     fires("an age of 50 bands as the open cohort", book_band(50) == "50_plus")
     fires("a surname is the head's last printed word",

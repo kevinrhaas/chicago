@@ -12,7 +12,7 @@
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 546 | 140 |
 
-**2,889 people stand in the layer today** and **224** are still owed after the counters, so the town this book converges to is **3,113** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,889 people stand in the layer today** and **227** are still owed after the counters, so the town this book converges to is **3,116** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,889 standing plus 224 still owed is 3,113, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,889 + 843 = 3,732, and the book was ordering a replacement for 826 people already in the layer. It is 570 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,889 standing plus 227 still owed is 3,116, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,889 + 843 = 3,732, and the book was ordering a replacement for 826 people already in the layer. It is 573 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -107,9 +107,9 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **A move is not** a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).
 
-386 held head(s) stand across 45 refused bucket(s), and 224 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
+386 held head(s) stand across 45 refused bucket(s), and 227 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
 
-**139 move(s) have been made**, carrying 0 adoption(s) out of 40 bucket(s) and into 42. The book is owed 224 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
+**139 move(s) have been made**, carrying 0 adoption(s) out of 40 bucket(s) and into 42. The book is owed 227 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
@@ -349,8 +349,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-2021 | 508 | 19 |
 | T-1347 | 308 | 24 |
 | T-1171 | 295 | 19 |
-| T-1371 | 132 | 34 |
-| T-1533 | 25 | 5 |
+| T-1371 | 129 | 34 |
+| T-1533 | 24 | 5 |
 | T-1536 | 11 | 4 |
 | T-1532 | 4 | 1 |
 | T-1184 | 2 | 1 |
@@ -466,7 +466,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/20_29/west/family/trade` | 16 | 9 | 9 | 9 | T-1347 |
 | `persons/female/20_29/west/family/none` | 30 | 16 | 44 | 44 | T-1174 |
 | `persons/female/20_29/west/lodging/trade` | 5 | 2 | 3 | 3 | T-1532 |
-| `persons/female/20_29/west/lodging/none` | 11 | 6 | 5 | 5 | T-2023 |
+| `persons/female/20_29/west/lodging/none` | 11 | 6 | 5 | 4 | T-2023 |
 | `persons/female/30_39/north/family/trade` | 8 | 4 | 6 | 6 | T-1347 |
 | `persons/female/30_39/north/family/none` | 16 | 9 | 16 | 16 | T-1174 |
 | `persons/female/30_39/north/lodging/trade` | 3 | 2 | 1 | 1 | T-1532 |
@@ -504,7 +504,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/50_plus/west/lodging/trade` | 1 | 0 | 1 | 1 | T-1532 |
 | `persons/female/50_plus/west/lodging/none` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/female/under_10/north/family/none` | 55 | 29 | 62 | 62 | T-1174 |
-| `persons/female/under_10/north/lodging/none` | 19 | 11 | 8 | 8 | T-2023 |
+| `persons/female/under_10/north/lodging/none` | 19 | 11 | 8 | 7 | T-2023 |
 | `persons/female/under_10/south/family/none` | 132 | 75 | 198 | 198 | T-1174 |
 | `persons/female/under_10/south/lodging/none` | 46 | 26 | 20 | 16 | T-2023 |
 | `persons/female/under_10/west/family/none` | 49 | 26 | 73 | 73 | T-1174 |
@@ -541,7 +541,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/30_39/west/family/trade` | 16 | 9 | 10 | 10 | T-1347 |
 | `persons/male/30_39/west/family/none` | 30 | 16 | 14 | 0 | T-2043 |
 | `persons/male/30_39/west/lodging/trade` | 5 | 2 | 3 | 3 | T-1532 |
-| `persons/male/30_39/west/lodging/none` | 11 | 6 | 5 | 3 | T-2023 |
+| `persons/male/30_39/west/lodging/none` | 11 | 6 | 5 | 2 | T-2023 |
 | `persons/male/40_49/north/family/trade` | 5 | 3 | 3 | 3 | T-1347 |
 | `persons/male/40_49/north/family/none` | 10 | 5 | 5 | 0 | T-2043 |
 | `persons/male/40_49/north/lodging/trade` | 2 | 1 | 1 | 1 | T-1532 |
@@ -596,7 +596,7 @@ The households the model wants, by kind and division.
 | `households/family_dwelling/south` | 258 | 41 | 217 | 15 | T-2043 |
 | `households/family_dwelling/west` | 110 | 7 | 103 | 10 | T-2043 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
-| `households/inn_tavern/south` | 7 | 1 | 6 | 6 | T-2023 |
+| `households/inn_tavern/south` | 7 | 1 | 6 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/store_residence/north` | 6 | 0 | 6 | 0 | T-2043 |

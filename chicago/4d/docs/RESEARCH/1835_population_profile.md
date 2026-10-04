@@ -2161,6 +2161,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Abigail Porter | Jefferson Co., N.Y. | inferred |
 | Abigail Reed | New York State | reconstructed |
 | Abigail Rollins | New York State | reconstructed |
+| Abigail Smith | England | reconstructed |
 | Abigail Vardon | New England | reconstructed |
 | Abigail Whitcomb | New York State | reconstructed |
 | Abigail Wilcox | New York State | reconstructed |
@@ -2254,11 +2255,13 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Alice Wickham | New York State | reconstructed |
 | Alison B. Vaughn | New York State | reconstructed |
 | Almira Barnes | The Southern states | reconstructed |
+| Almira Beaubien | New England | reconstructed |
 | Almira Byram | New York State | reconstructed |
 | Almira Crandall | England | reconstructed |
 | Almira Dickinson | New York State | reconstructed |
 | Almira Elston | England | inferred |
 | Almira Fisk | New England | reconstructed |
+| Almira Haddock | New York State | reconstructed |
 | Almira Hale | New England | reconstructed |
 | Almira Hastings | The Southern states | reconstructed |
 | Almira Hubbard | England | reconstructed |
@@ -2638,6 +2641,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Charles Rue | New York State | reconstructed |
 | Charles Seston | England | reconstructed |
 | Charles Spicer | England | reconstructed |
+| Charles Stewart | New York State | reconstructed |
 | Charles Stiles | The Mid-Atlantic states | reconstructed |
 | Charles T. Richards | New York State | reconstructed |
 | Charles Thayer | New England | reconstructed |
@@ -2853,7 +2857,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Edward Fitzgerald | New England | reconstructed |
 | Edward Gallagher | The Mid-Atlantic states | reconstructed |
 | Edward H. Haddock | New York State | reconstructed |
-| Edward Hubbard | New England | reconstructed |
 | Edward Keyes | New York State | reconstructed |
 | Edward Kripes | New England | reconstructed |
 | Edward Mahoney | The Southern states | reconstructed |
@@ -3009,14 +3012,12 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Esq. Mark Noble | New England | reconstructed |
 | Esther Bailly | New England | reconstructed |
 | Esther Barnes | West of the Alleghenies | reconstructed |
-| Esther Beaubien | New England | reconstructed |
 | Esther Bruno | England | reconstructed |
 | Esther Clarke | New England | reconstructed |
 | Esther Cobb | New England | reconstructed |
 | Esther Davis | The Mid-Atlantic states | reconstructed |
 | Esther Eastman | New York State | reconstructed |
 | Esther Fisk | New England | reconstructed |
-| Esther Haddock | New York State | reconstructed |
 | Esther Hubbard | Windsor, Vermont, by way of Montreal | inferred |
 | Esther Hugunin | New York State | reconstructed |
 | Esther King | New York State | reconstructed |
@@ -3255,7 +3256,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Henry S. Misner | New England | reconstructed |
 | Henry S. Vyekoff | The Southern states | reconstructed |
 | Henry Stebbins | The Mid-Atlantic states | reconstructed |
-| Henry Stewart | New York State | reconstructed |
 | Henry Stone | New England | reconstructed |
 | Henry Thayer | New York State | reconstructed |
 | Henry Tucker | New England | reconstructed |
@@ -4606,7 +4606,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Samuel Nash | The Mid-Atlantic states | reconstructed |
 | Samuel Olingar | New England | reconstructed |
 | Samuel Pallet | New England | reconstructed |
-| Samuel Rice | New York State | reconstructed |
 | Samuel Rider | New York State | reconstructed |
 | Samuel Rue | New York State | reconstructed |
 | Samuel Russell | New England | reconstructed |
@@ -4636,7 +4635,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Sarah Reynolds | New York State | reconstructed |
 | Sarah Salisbury | New England | reconstructed |
 | Sarah Saunders | New York State | reconstructed |
-| Sarah Smith | England | reconstructed |
 | Sarah Spring | New York State | reconstructed |
 | Sarah Thayer | New England | reconstructed |
 | Sarah Wattles | New England | reconstructed |
@@ -4765,6 +4763,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Terence Doyle | The Southern states | reconstructed |
 | Terence Flynn | England | reconstructed |
 | Terence Gallagher | The Southern states | reconstructed |
+| Terence Hubbard | New England | reconstructed |
 | Terence Keegan | The Southern states | reconstructed |
 | Terence Kelly | The Southern states | reconstructed |
 | Terence Mahoney | The Mid-Atlantic states | reconstructed |
@@ -4958,6 +4957,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | William Power | England | reconstructed |
 | William R. Dorby | New York State | reconstructed |
 | William Reed | New York State | reconstructed |
+| William Rice | New York State | reconstructed |
 | William S. Saunders | New England | reconstructed |
 | William Smith | New York State | reconstructed |
 | William Spencer | The Mid-Atlantic states | reconstructed |

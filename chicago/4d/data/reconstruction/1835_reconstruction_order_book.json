@@ -1360,7 +1360,7 @@
     },
     {
       "ticket": "T-1371",
-      "records": 132,
+      "records": 129,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
@@ -1400,7 +1400,7 @@
     },
     {
       "ticket": "T-1533",
-      "records": 25,
+      "records": 24,
       "buckets": [
         "persons/female/under_10/north/lodging/none",
         "persons/female/under_10/south/lodging/none",
@@ -1505,14 +1505,14 @@
     "roofs_standing": 546,
     "roofs_to_build": 140,
     "persons_standing": 2889,
-    "persons_still_owed": 224,
-    "persons_when_the_book_is_filled": 3113,
+    "persons_still_owed": 227,
+    "persons_when_the_book_is_filled": 3116,
     "persons_target_range": [
       2362,
       3265
     ],
     "households_standing": 126,
-    "households_still_owed": 507
+    "households_still_owed": 508
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1903,14 +1903,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2889,
-      "persons_still_owed": 224,
-      "converges_to": 3113,
+      "persons_still_owed": 227,
+      "converges_to": 3116,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,889 standing plus 224 still owed is 3,113, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,889 + 843 = 3,732, and the book was ordering a replacement for 826 people already in the layer. It is 570 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,889 standing plus 227 still owed is 3,116, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,889 + 843 = 3,732, and the book was ordering a replacement for 826 people already in the layer. It is 573 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -2355,10 +2355,10 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 5,
-          "filled": 5,
+          "filled": 4,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household",
-          "drawn_here": 3,
+          "drawn_here": 2,
           "refamilied_in": 2
         },
         {
@@ -3097,10 +3097,10 @@
           "known_attested": 3,
           "known_inferred": 8,
           "to_reconstruct": 8,
-          "filled": 8,
+          "filled": 7,
           "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 6,
+          "drawn_here": 5,
           "refamilied_in": 2
         },
         {
@@ -3806,7 +3806,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 5,
-          "filled": 3,
+          "filled": 2,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4528,7 +4528,7 @@
           "target": 7,
           "known": 1,
           "to_reconstruct": 6,
-          "filled": 6,
+          "filled": 5,
           "owning_ticket": "T-2023",
           "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the south division"
         },
@@ -6032,7 +6032,7 @@
       "bucket": "persons/female/20_29/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 3,
+      "records": 2,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6144,7 +6144,7 @@
       "bucket": "persons/male/30_39/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 3,
+      "records": 2,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6193,7 +6193,7 @@
       "bucket": "persons/female/under_10/north/lodging/none",
       "ticket": "T-1533",
       "stage": "lodgers",
-      "records": 6,
+      "records": 5,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6298,7 +6298,7 @@
       "bucket": "households/inn_tavern/south",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 6,
+      "records": 5,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -9469,11 +9469,11 @@
       "buckets_refused": 45,
       "people_held": 386,
       "people_still_held": 386,
-      "open_headroom_in_person_buckets": 224,
+      "open_headroom_in_person_buckets": 227,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 224,
+      "still_owed_now": 227,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }
