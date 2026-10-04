@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
+  { v: 1436, ts: '2026-10-04T16:54:14.115Z', date: 'Oct 4, 2026, 11:54 AM CT', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
     items: [
       'Open People: 37 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
       'Twenty-three were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
