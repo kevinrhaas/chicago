@@ -1,10 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Nothing you can see: the rebuild reads business locations in the right order', kind: 'chore',
+  { v: null, ts: '', title: 'Nothing you can see: the rebuild reads business locations in the right order', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'When two changes land together, a tool rebuilds the files derived from them, one step after another. The step that lists where each business stands ran before the step that rebuilds where each claim resolves, so it read the old answer.',
       'So after a seat moved, that step refused the business as if the data were wrong. When Haddock\u2019s Tavern moved one lot east, it refused Elmira Fowler\u2019s millinery, whose seat moved in the same change. A second step quietly wrote a stale table.',
       'The rebuild now runs them in the right order, and its check fails if a step is ever placed above a file it reads.',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the helper that keeps waiting changes up to date before they are merged.',
+      'That helper only rebuilt a change\u2019s derived records when it had something new to merge in. A change that was already up to date, but failing a check added after it was written, was reported as having nothing to do and left stuck until a person noticed.',
+      'It now looks at the change\u2019s own check result. If the check failed, it rebuilds the derived records and pushes only if something actually changed. If nothing changed, it says once on the change that the failure is the change\u2019s own.',
     ] },
   { v: 1418, ts: '2026-10-04T10:34:49.982Z', date: 'Oct 4, 2026, 5:34 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
     items: [
