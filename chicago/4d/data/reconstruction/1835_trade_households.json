@@ -1035,6 +1035,13 @@
    "division": "south"
   },
   {
+   "id": "hh_rc_hastings_lemuel",
+   "file": "reconstructed_trades/hh_rc_hastings_lemuel.json",
+   "bucket": "persons/male/50_plus/west/family/trade",
+   "trade": "liquor_dealer",
+   "division": "west"
+  },
+  {
    "id": "hh_rc_hastings_lydia",
    "file": "reconstructed_trades/hh_rc_hastings_lydia.json",
    "bucket": "persons/female/30_39/north/family/trade",
@@ -1047,13 +1054,6 @@
    "bucket": "persons/female/30_39/north/family/trade",
    "trade": "boarding_house_keeper",
    "division": "north"
-  },
-  {
-   "id": "hh_rc_hastings_silas",
-   "file": "reconstructed_trades/hh_rc_hastings_silas.json",
-   "bucket": "persons/male/50_plus/west/family/trade",
-   "trade": "liquor_dealer",
-   "division": "west"
   },
   {
    "id": "hh_rc_hastings_willard",
@@ -1455,6 +1455,13 @@
    "division": "south"
   },
   {
+   "id": "hh_rc_metcalf_george",
+   "file": "reconstructed_trades/hh_rc_metcalf_george.json",
+   "bucket": "persons/male/20_29/north/family/trade",
+   "trade": "druggist",
+   "division": "north"
+  },
+  {
    "id": "hh_rc_metcalf_hiram",
    "file": "reconstructed_trades/hh_rc_metcalf_hiram.json",
    "bucket": "persons/male/30_39/south/family/trade",
@@ -1467,13 +1474,6 @@
    "bucket": "persons/female/20_29/west/family/trade",
    "trade": "boarding_house_keeper",
    "division": "west"
-  },
-  {
-   "id": "hh_rc_metcalf_nathaniel",
-   "file": "reconstructed_trades/hh_rc_metcalf_nathaniel.json",
-   "bucket": "persons/male/20_29/north/family/trade",
-   "trade": "druggist",
-   "division": "north"
   },
   {
    "id": "hh_rc_murphy_bryan",
@@ -1917,8 +1917,8 @@
    "division": "south"
   },
   {
-   "id": "hh_rc_sawyer_harriet",
-   "file": "reconstructed_trades/hh_rc_sawyer_harriet.json",
+   "id": "hh_rc_sawyer_eliza",
+   "file": "reconstructed_trades/hh_rc_sawyer_eliza.json",
    "bucket": "persons/female/30_39/south/family/trade",
    "trade": "hardware_merchant",
    "division": "south"

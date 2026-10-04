@@ -1,9 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
+  { v: 1438, ts: '2026-10-04T17:57:02.961Z', date: 'Oct 4, 2026, 12:57 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
     items: [
       'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
       'The worn riverbank it lies on was being drawn in front of the boards at a distance. The bank now always lies under the walk and the road, as it does up close.',
       'Nothing new is drawn, so it costs nothing extra on a phone.',
+    ] },
+  { v: 1437, ts: '2026-10-04T17:29:51.479Z', date: 'Oct 4, 2026, 12:29 PM CT', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
+    items: [
+      'Open People: 37 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
+      'Twenty-three were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
+      'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
+      'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
+      'To make room, some households already in town moved one house along on Randolph, Washington and South Water streets. Four named keepers moved with them, and two houses on Randolph no longer name a keeper, because the household placed there now is known only from a letter list.',
+    ] },
+  { v: 1436, ts: '2026-10-04T16:59:01.860Z', date: 'Oct 4, 2026, 11:59 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
+    items: [
+      'Across the town, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
+      'Past a few steps from you the turf is painted on the ground instead of being drawn as clumps of grass, so it no longer stands knee-high across the town.',
+      'Scene detail now reaches the town too: Full keeps the grass at your feet, Balanced and Light keep less of it, and the texture carries the rest.',
+      'At the in-town views the plants cost 59\u201377% fewer triangles at every setting, with no extra draw calls.',
+      'The pattern of the turf is a reconstruction. Its colours and how much ground lies bare come from the town\u2019s plant records. It is listed under Liberties.',
     ] },
   { v: 1435, ts: '2026-10-04T16:11:51.956Z', date: 'Oct 4, 2026, 11:11 AM CT', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
     items: [

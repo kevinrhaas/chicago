@@ -1,0 +1,814 @@
+{
+ "ticket": "T-2085",
+ "what": "The town's short turf: flora and frame cost at five in-town poses, before (dev @ 31370bec published mirror) and after (this branch), every Scene detail tier, both release viewports; read with tools/turf_shots.mjs (stepped settle, software rasteriser). Frame time is relative between the two trees, not a GPU figure.",
+ "stands": [
+  {
+   "id": "lake_market",
+   "anchor": "lake_market",
+   "label": "Lake Street at Market, a road edge"
+  },
+  {
+   "id": "green_tree",
+   "anchor": "green_tree",
+   "label": "the Green Tree, a storefront corner"
+  },
+  {
+   "id": "back_lot",
+   "label": "a back lot behind the Lake Street row, looking south",
+   "pose": {
+    "local_e": 100,
+    "local_n": -142,
+    "yaw_deg": 0,
+    "pitch_deg": -6
+   }
+  },
+  {
+   "id": "forks",
+   "anchor": "forks",
+   "label": "the forks"
+  },
+  {
+   "id": "from_above",
+   "anchor": "from_above",
+   "label": "the open aerial",
+   "fly": true
+  }
+ ],
+ "readings": {
+  "desktop": {
+   "viewport": "desktop",
+   "pageerrors": [
+    0,
+    0
+   ],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "lake_market",
+     "flora_triangles": [
+      123211,
+      50165
+     ],
+     "triangles": [
+      2112307,
+      2039261
+     ],
+     "calls": [
+      238,
+      238
+     ],
+     "frame_ms": [
+      4128,
+      4186
+     ],
+     "heap_mb": [
+      728.5,
+      728.8
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "green_tree",
+     "flora_triangles": [
+      161910,
+      46838
+     ],
+     "triangles": [
+      2166691,
+      2051619
+     ],
+     "calls": [
+      155,
+      154
+     ],
+     "frame_ms": [
+      5851,
+      5704
+     ],
+     "heap_mb": [
+      703.2,
+      703.5
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "back_lot",
+     "flora_triangles": [
+      152203,
+      72100
+     ],
+     "triangles": [
+      2128077,
+      2047974
+     ],
+     "calls": [
+      137,
+      137
+     ],
+     "frame_ms": [
+      6246,
+      6549
+     ],
+     "heap_mb": [
+      703.2,
+      703.6
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "forks",
+     "flora_triangles": [
+      248356,
+      188904
+     ],
+     "triangles": [
+      2450103,
+      2390651
+     ],
+     "calls": [
+      225,
+      225
+     ],
+     "frame_ms": [
+      5329,
+      5593
+     ],
+     "heap_mb": [
+      724.1,
+      724.4
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "from_above",
+     "flora_triangles": [
+      11758,
+      11740
+     ],
+     "triangles": [
+      2201800,
+      2201782
+     ],
+     "calls": [
+      169,
+      169
+     ],
+     "frame_ms": [
+      5835,
+      6386
+     ],
+     "heap_mb": [
+      724.2,
+      724.6
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "lake_market",
+     "flora_triangles": [
+      57390,
+      22111
+     ],
+     "triangles": [
+      1776462,
+      1741183
+     ],
+     "calls": [
+      236,
+      232
+     ],
+     "frame_ms": [
+      3453,
+      3610
+     ],
+     "heap_mb": [
+      838.6,
+      838.9
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "green_tree",
+     "flora_triangles": [
+      81811,
+      26411
+     ],
+     "triangles": [
+      1658362,
+      1602962
+     ],
+     "calls": [
+      145,
+      144
+     ],
+     "frame_ms": [
+      3860,
+      3952
+     ],
+     "heap_mb": [
+      625.3,
+      625.6
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "back_lot",
+     "flora_triangles": [
+      79395,
+      22953
+     ],
+     "triangles": [
+      1584917,
+      1528475
+     ],
+     "calls": [
+      136,
+      135
+     ],
+     "frame_ms": [
+      4070,
+      4220
+     ],
+     "heap_mb": [
+      625.3,
+      625.6
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "forks",
+     "flora_triangles": [
+      125541,
+      69561
+     ],
+     "triangles": [
+      1936504,
+      1880524
+     ],
+     "calls": [
+      207,
+      207
+     ],
+     "frame_ms": [
+      3884,
+      3902
+     ],
+     "heap_mb": [
+      629.9,
+      630.2
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "from_above",
+     "flora_triangles": [
+      3028,
+      3028
+     ],
+     "triangles": [
+      1700974,
+      1700974
+     ],
+     "calls": [
+      165,
+      165
+     ],
+     "frame_ms": [
+      3978,
+      4166
+     ],
+     "heap_mb": [
+      629.9,
+      630.3
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "lake_market",
+     "flora_triangles": [
+      15467,
+      5195
+     ],
+     "triangles": [
+      777225,
+      766953
+     ],
+     "calls": [
+      77,
+      73
+     ],
+     "frame_ms": [
+      2165,
+      2276
+     ],
+     "heap_mb": [
+      719.0,
+      719.3
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "green_tree",
+     "flora_triangles": [
+      26595,
+      6459
+     ],
+     "triangles": [
+      823298,
+      803162
+     ],
+     "calls": [
+      56,
+      55
+     ],
+     "frame_ms": [
+      2194,
+      2296
+     ],
+     "heap_mb": [
+      541.3,
+      541.6
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "back_lot",
+     "flora_triangles": [
+      25190,
+      6463
+     ],
+     "triangles": [
+      741498,
+      722771
+     ],
+     "calls": [
+      60,
+      59
+     ],
+     "frame_ms": [
+      2426,
+      2557
+     ],
+     "heap_mb": [
+      541.3,
+      541.6
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "forks",
+     "flora_triangles": [
+      37258,
+      16076
+     ],
+     "triangles": [
+      902855,
+      881673
+     ],
+     "calls": [
+      60,
+      59
+     ],
+     "frame_ms": [
+      2186,
+      2320
+     ],
+     "heap_mb": [
+      541.4,
+      541.7
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "flora_triangles": [
+      240,
+      240
+     ],
+     "triangles": [
+      804296,
+      804296
+     ],
+     "calls": [
+      54,
+      54
+     ],
+     "frame_ms": [
+      2216,
+      2346
+     ],
+     "heap_mb": [
+      543.0,
+      543.3
+     ]
+    }
+   ]
+  },
+  "mobile": {
+   "viewport": "mobile",
+   "pageerrors": [
+    0,
+    0
+   ],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "lake_market",
+     "flora_triangles": [
+      123211,
+      50165
+     ],
+     "triangles": [
+      1754494,
+      1681448
+     ],
+     "calls": [
+      216,
+      216
+     ],
+     "frame_ms": [
+      1750,
+      1930
+     ],
+     "heap_mb": [
+      695.3,
+      695.6
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "green_tree",
+     "flora_triangles": [
+      161910,
+      46838
+     ],
+     "triangles": [
+      1821571,
+      1706499
+     ],
+     "calls": [
+      134,
+      133
+     ],
+     "frame_ms": [
+      2673,
+      2733
+     ],
+     "heap_mb": [
+      695.6,
+      695.9
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "back_lot",
+     "flora_triangles": [
+      152203,
+      72100
+     ],
+     "triangles": [
+      1984188,
+      1904085
+     ],
+     "calls": [
+      128,
+      128
+     ],
+     "frame_ms": [
+      3132,
+      3108
+     ],
+     "heap_mb": [
+      695.6,
+      696.0
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "forks",
+     "flora_triangles": [
+      248356,
+      188904
+     ],
+     "triangles": [
+      2014346,
+      1954894
+     ],
+     "calls": [
+      203,
+      203
+     ],
+     "frame_ms": [
+      2501,
+      2486
+     ],
+     "heap_mb": [
+      701.5,
+      701.8
+     ]
+    },
+    {
+     "level": "full",
+     "stand": "from_above",
+     "flora_triangles": [
+      365817,
+      365799
+     ],
+     "triangles": [
+      2373061,
+      2373043
+     ],
+     "calls": [
+      154,
+      154
+     ],
+     "frame_ms": [
+      3279,
+      3365
+     ],
+     "heap_mb": [
+      701.6,
+      701.9
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "lake_market",
+     "flora_triangles": [
+      57390,
+      22111
+     ],
+     "triangles": [
+      1541019,
+      1505740
+     ],
+     "calls": [
+      215,
+      211
+     ],
+     "frame_ms": [
+      1550,
+      1522
+     ],
+     "heap_mb": [
+      828.3,
+      828.6
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "green_tree",
+     "flora_triangles": [
+      81811,
+      26411
+     ],
+     "triangles": [
+      1380812,
+      1325412
+     ],
+     "calls": [
+      128,
+      127
+     ],
+     "frame_ms": [
+      1802,
+      1748
+     ],
+     "heap_mb": [
+      618.0,
+      618.3
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "back_lot",
+     "flora_triangles": [
+      79395,
+      22953
+     ],
+     "triangles": [
+      1465028,
+      1408586
+     ],
+     "calls": [
+      127,
+      126
+     ],
+     "frame_ms": [
+      1917,
+      1929
+     ],
+     "heap_mb": [
+      618.0,
+      618.3
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "forks",
+     "flora_triangles": [
+      125541,
+      69561
+     ],
+     "triangles": [
+      1602543,
+      1546563
+     ],
+     "calls": [
+      174,
+      174
+     ],
+     "frame_ms": [
+      1880,
+      1840
+     ],
+     "heap_mb": [
+      620.0,
+      620.3
+     ]
+    },
+    {
+     "level": "balanced",
+     "stand": "from_above",
+     "flora_triangles": [
+      229059,
+      229059
+     ],
+     "triangles": [
+      1772371,
+      1772371
+     ],
+     "calls": [
+      154,
+      154
+     ],
+     "frame_ms": [
+      2050,
+      2113
+     ],
+     "heap_mb": [
+      620.0,
+      620.4
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "lake_market",
+     "flora_triangles": [
+      15467,
+      5195
+     ],
+     "triangles": [
+      679939,
+      669667
+     ],
+     "calls": [
+      75,
+      71
+     ],
+     "frame_ms": [
+      846,
+      862
+     ],
+     "heap_mb": [
+      697.6,
+      698.1
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "green_tree",
+     "flora_triangles": [
+      26595,
+      6459
+     ],
+     "triangles": [
+      649358,
+      629222
+     ],
+     "calls": [
+      53,
+      52
+     ],
+     "frame_ms": [
+      875,
+      834
+     ],
+     "heap_mb": [
+      541.4,
+      541.7
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "back_lot",
+     "flora_triangles": [
+      25190,
+      6463
+     ],
+     "triangles": [
+      672946,
+      654219
+     ],
+     "calls": [
+      55,
+      54
+     ],
+     "frame_ms": [
+      946,
+      975
+     ],
+     "heap_mb": [
+      541.4,
+      543.4
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "forks",
+     "flora_triangles": [
+      37258,
+      16076
+     ],
+     "triangles": [
+      791573,
+      770391
+     ],
+     "calls": [
+      54,
+      53
+     ],
+     "frame_ms": [
+      1085,
+      1052
+     ],
+     "heap_mb": [
+      541.4,
+      543.4
+     ]
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "flora_triangles": [
+      72238,
+      72238
+     ],
+     "triangles": [
+      827255,
+      827255
+     ],
+     "calls": [
+      66,
+      66
+     ],
+     "frame_ms": [
+      1036,
+      1091
+     ],
+     "heap_mb": [
+      541.4,
+      543.4
+     ]
+    }
+   ]
+  }
+ },
+ "ceilings": {
+  "tool": "tools/measure_detail_ceilings.mjs --only desktop --stepped, published mirror of this branch",
+  "worst": {
+   "full": [
+    2820923,
+    "West prairie"
+   ],
+   "balanced": [
+    2127322,
+    "West prairie"
+   ],
+   "light": [
+    1015016,
+    "West prairie"
+   ]
+  },
+  "max_calls": {
+   "full": 282,
+   "balanced": 248,
+   "light": 73
+  },
+  "rule": "T-1975: worst stand + T-0672's absolute headroom, rounded up to 5,000",
+  "result": {
+   "full": "2,820,923 + 18,059 = 2,838,982 -> 2,840,000 (unchanged)",
+   "balanced": "2,127,322 + 16,806 = 2,144,128 -> 2,145,000 (unchanged)",
+   "light": "1,015,016 inside 1,040,000; 73 calls inside the 90-call floor"
+  },
+  "why_unchanged": "The worst stand at every tier is the west prairie, which is not turf; the turf lowers the in-town stands (forks -59,452 at full, Lake and Market -73,046) but not the one the ceilings are set by. T-0672's return is not paid by this ticket."
+ },
+ "turf": {
+  "zones": [
+   "z10_settled_town"
+  ],
+  "painted": true,
+  "cellM": 2,
+  "texels": 7040
+ }
+}

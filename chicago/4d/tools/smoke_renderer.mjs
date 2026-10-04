@@ -11375,7 +11375,28 @@ for (const [label, viewport, touch] of [
         inner: r.fade[3] > 0 ? r.fade[2] - (r.lattice.inner + rings.step) : 0,
       }));
 
-      a.walker.teleport({ local_e: 107, local_n: -103, yaw_deg: 180 });
+      // T-2085. The walk needs plants to ARRIVE, and the settled town the
+      // Sauganash stands in is short turf now: past its own near ring the ground
+      // paints it, so a walk from the hotel door saw no plant arrive at all and
+      // the bar below read a vacuous zero. It starts instead at the nearest
+      // dense, plantable ground with plantable ground ahead of it — part 11's own
+      // rule for a sward drawn as plants — searched outward from the hotel, so a
+      // town that grows (T-2084) moves the walk rather than emptying it.
+      const denseIds = new Set(a.flora.communities()
+        .filter((c) => c.graminoids && c.matrixShare >= 0.7).map((c) => c.id));
+      const sward = (e, n) => denseIds.has(a.flora.zoneAt(e, n)) && a.flora.plantableAt(e, n);
+      let start = { local_e: 107, local_n: -103 };
+      found: for (let d = 0; d <= 900; d += 6) {
+        for (const [de, dn] of [[-d, 0], [0, -d], [d, 0], [0, d]]) {
+          const e = 107 + de;
+          const n = -103 + dn;
+          if ([0, 3, 6, 9, 12].every((k) => sward(e, n - k))) {
+            start = { local_e: e, local_n: n };
+            break found;
+          }
+        }
+      }
+      a.walker.teleport({ ...start, yaw_deg: 180 });
       a.step();
       const snap = () => {
         const p = a.camera.position;
@@ -11487,9 +11508,11 @@ for (const [label, viewport, touch] of [
       && popIn.inset.every((r) => r.outer >= -1e-9 && r.inner >= -1e-9),
       popIn.inset.map((r) => `${r.id} outer +${r.outer.toFixed(2)} inner +${r.inner.toFixed(2)}`)
         .join(', ') + ` against a ${popIn.step} m rebuild step`);
-    // The bound is one pace, not zero: the rebuild fires on the frame that
-    // carries the walker past the step, so it can overshoot by however far that
-    // one frame moved. 0.15 m of a 2.2 m near band is 7%.
+    // The bound is not zero only for a walker whose pace changes: since T-2085
+    // the rebuild fires a frame EARLY, on the last frame's move (flora.js
+    // `moved`). It used to fire on the frame that carried the walker past the
+    // step, and the near ring's edge is a per-slot handover with no ramp, so
+    // that one pace of overshoot let a tuft arrive at 100% (6.93 m, T-2085).
     check(`${label}: a plant in front of the walker never arrives already visible`,
       popIn.arrivals >= 20 && popIn.worst <= 0.10,
       `${popIn.arrivals} arrivals over ${(20 * popIn.pace).toFixed(2)} m; worst coverage `

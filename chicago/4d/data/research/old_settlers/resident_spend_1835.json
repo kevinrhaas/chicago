@@ -26,9 +26,9 @@
  },
  "already_written_by_another_pass": {
   "what": "The 45 roster merges of crosswalk.json are written onto their cards by tools/old_settlers.py as it builds — rule OS1/OS2A, 'only merges are written' — so this pass would only duplicate them. It writes none of them and CHECKS all of them instead: --check fails if a merged person stops citing the roll they were merged from.",
-  "merges": 46,
+  "merges": 45,
   "by_source": {
-   "calumet_club_early_chicago_1879": 25,
+   "calumet_club_early_chicago_1879": 24,
    "chicago_tribune_1882_04_25_old_settler_deaths": 8,
    "chicago_tribune_1882_05_19_fourth_reception": 13
   }
@@ -46,12 +46,12 @@
   },
   {
    "group": "refusals",
-   "rulings": 264,
+   "rulings": 267,
    "why": "the surname agrees and the given initial does not, or is absent — a surname-only agreement is a refusal however good it looks"
   },
   {
    "group": "probable (roster)",
-   "rulings": 1,
+   "rulings": 2,
    "why": "rule OS2: one bearer of the surname and an initial that agrees, with nothing spelling the forename out. Probable is not merged and goes to the identity master as a proposal"
   },
   {

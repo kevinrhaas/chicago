@@ -939,13 +939,33 @@ def enlisted_roll() -> list:
     return roll
 
 
+def cards_elsewhere() -> dict:
+    """Every card the residents layer keeps OUTSIDE `households/` (T-2078).
+
+    The stages above this one do not all write there: `reconstruct_trade_households.py`
+    keeps its heads in `reconstructed_trades/`, and the layer has readmitted, lodging and
+    transient folders beside it. `cards()` reads `households/` alone, so this draw stepped
+    past every name in the town but theirs. It held until 39 letter-list residents moved
+    the borne surnames under it; the post sutler redrew as David Leland, a teamster
+    `reconstructed_trades/` already holds as `rc_leland_david`, and the people directory
+    refused the town for a duplicate id. Their names and ids are stepped past here; their
+    surnames are NOT added to `borne`, which stays the households layer's reading, so a
+    tree with no collision draws byte for byte what it drew before.
+    """
+    return {f"{path.parent.name}/{path.stem}": json.loads(path.read_text(encoding="utf-8"))
+            for path in sorted(HOUSEHOLDS.parent.glob("*/hh_*.json"))
+            if path.parent != HOUSEHOLDS}
+
+
 def fill(base: dict) -> tuple:
     """Draw the whole garrison. Returns (cards by id, the ledger)."""
     pool_data = pools()
     comms = community_rows()
-    taken_names = real_names(base)
+    elsewhere = {k: v for k, v in cards_elsewhere().items() if isinstance(v, dict)}
+    taken_names = real_names(base) | real_names(elsewhere)
     borne = borne_surnames(base)
-    taken_ids = {p.get("id") for card in base.values() for p in (card.get("persons") or [])}
+    taken_ids = {p.get("id") for card in (*base.values(), *elsewhere.values())
+                 for p in (card.get("persons") or [])}
     sizes = size_rows()
     female_adult = composition_weights("female", ("20_29", "30_39", "40_49"))
     child_by_sex = {sex: composition_weights(sex, CHILD_BANDS) for sex in ("male", "female")}

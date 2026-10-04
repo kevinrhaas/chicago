@@ -18,7 +18,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1402
+   "n": 1439
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -40,7 +40,7 @@
   "residents_matched_one_entry": 90,
   "residents_ambiguous": 31,
   "residents_contested": 21,
-  "residents_surname_only_refused": 233,
+  "residents_surname_only_refused": 236,
   "residents_further_initial_disagreed_refused": 4,
   "residents_letter_list_bucket_refused": 1,
   "voters_matched_one_entry": 81,
@@ -3840,6 +3840,11 @@
     "rule": "The surname 'Harmon' stands in the 1837 poll and no man under it carries the initial 'D' of 'D Harmon'. A surname-only agreement is a refusal."
    },
    {
+    "name": "D. S. Haight",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Haight' stands in the 1837 poll and no man under it carries the initial 'D' of 'D. S. Haight'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Daniel Outhet",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Outhet' stands in the 1837 poll and no man under it carries the initial 'D' of 'Daniel Outhet'. A surname-only agreement is a refusal."
@@ -4585,6 +4590,11 @@
     "rule": "The surname 'Dewey' stands in the 1837 poll and no man under it carries the initial 'S' of 'S Dewey'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Sally Weed",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Weed' stands in the 1837 poll and no man under it carries the initial 'S' of 'Sally Weed'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Samuel Calhoun",
     "candidates_under_that_surname": 3,
     "rule": "The surname 'Calhoun' stands in the 1837 poll and no man under it carries the initial 'S' of 'Samuel Calhoun'. A surname-only agreement is a refusal."
@@ -4698,6 +4708,11 @@
     "name": "Welthyan Loomis Harmon",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Harmon' stands in the 1837 poll and no man under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Wheeler Barnes",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Barnes' stands in the 1837 poll and no man under it carries the initial 'W' of 'Wheeler Barnes'. A surname-only agreement is a refusal."
    },
    {
     "name": "Willard Jones",
