@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1416, ts: '2026-10-04T09:51:42.459Z', date: 'Oct 4, 2026, 4:51 AM CT', title: 'Seven households no longer called letter-list names alone', kind: 'fix',
+    items: [
+      'Open the Bradford, Ambrose, Chapman, Fitzgerald, Murray, Neff or Simons household in People, or a house they are seated in: each was named “a name from the post office’s letter lists” although the same card shows the papers naming them elsewhere too.',
+      'Each now reads “a name the papers print beyond the letter lists”. That claims no address, trade or presence in July 1835, only what their cards already show.',
+      'The minting tool now renames a household whenever it drops the letter-list mark, and its check fails if the name and the mark ever disagree again.',
+    ] },
   { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
     items: [
       'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',
