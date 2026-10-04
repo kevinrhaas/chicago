@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1435, ts: '2026-10-04T16:11:51.956Z', date: 'Oct 4, 2026, 11:11 AM CT', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
+    items: [
+      'Step into the Western Hotel\'s wagon yard or a pound and the ground is now the same worn dirt as the road outside, grain and all, lit by the sun, where it used to be a blurry print of squares.',
+      'The kept green in the town\'s gardens and dooryards shows short blades in clumps, the same grass as the prairie but cropped, and the garden beds carry the soil\'s grain over their rows.',
+      'Nothing new is drawn, so the town costs no more to show. The yards\' surfaces are a reconstruction (Liberty L158).',
+    ] },
   { v: 1434, ts: '2026-10-04T15:57:34.725Z', date: 'Oct 4, 2026, 10:57 AM CT', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
     items: [
       'Walk into a back yard, along a road or up to a shop front anywhere in the town: the waist-high prairie grass and tall flowers are gone, and the ground is the short, grazed, dusty turf of a lived-in town.',
