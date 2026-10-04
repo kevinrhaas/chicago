@@ -21025,3 +21025,27 @@ settled-town planting until the other half of T-2086 decides what a grazed remna
 lot that shows where its ground was bare, cropped or weedy would replace the strip, corner and
 refuge widths, and a plan placing a house's privy path would replace the straight line.
 **Recorded:** 2026-10-04 (T-2086).
+
+### L377 — The far treeline rises from nothing near the town and is not drawn from the air
+
+**Decision:** the horizon timber band (`renderers/web/js/trees.js` § 5) now draws a far body at
+nothing where it comes within 330 m of the eye and rises on a smoothstep to its full height at
+**800 m** (`NEAR_FADE_M`), where L356 had it step down only over its last 60 m. A run of the band
+ends in a shoulder: its last few vertices step down to 45 % over at most a quarter of the run. And
+the band is a walker's horizon only: between an eye height of **5 m and 12 m** its top sinks onto
+its foot (`BAND_FADE_EYE_M`), and above 12 m it is not drawn. **What the band leaves out near the
+town and above it is a choice of drawing, not a claim that no timber stood there.**
+**Why:** the owner, 2026-10-04 (T-2103): *"you can see massive moving up and down blobs"* looking
+west down South Water, and *"i found another when flying"* from 55 ft over La Salle. The South
+Water belt runs along the street, so seen down the street every point of it lands in the same few
+bearings and the band kept the nearest, tallest one: a 23–28 px blob that rode the 330 m cut as he
+walked. From the air the band's foot, a fixed 12 m below the eye and hidden by the near ground when
+walking, stood on the far ground as a slab with sheer ends. A ring silhouette draws angle, not
+depth, so it cannot draw a body pointing at the eye or seen from above honestly; the modelled trees
+carry both views instead.
+**How to resolve:** draw the near bodies as modelled timber (the near-field planter's stands carried
+past the box), at which point the band can keep only what is truly far; or a horizon renderer that
+carries depth.
+**Related:** **L356** (the band's top and texture), **L182** (the South Water Street belt),
+**T-1978**, **T-2103** (this entry).
+**Recorded:** 2026-10-04.

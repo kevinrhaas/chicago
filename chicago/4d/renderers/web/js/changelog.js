@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1441, ts: '2026-10-04T19:28:01.197Z', date: 'Oct 4, 2026, 2:28 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
+    items: [
+      'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
+      'Fly up over the town. The flat dark slab on the far horizon is gone too. From the air the trees you see are the town\u2019s own.',
+      'Nearer woods now fade out of the far treeline smoothly instead of standing tall right up to where they stopped. Where a stretch of far woods ends, it tapers off.',
+      'How the far treeline is drawn is our reconstruction. The Liberties page explains it (L377).',
+    ] },
   { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
     items: [
       'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
