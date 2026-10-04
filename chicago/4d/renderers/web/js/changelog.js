@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+  { v: 1395, ts: '2026-10-04T02:44:13.814Z', date: 'Oct 3, 2026, 9:44 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
     items: [
       'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
       'If loading fails on a phone, the Retry screen shows the touch hints too.',
