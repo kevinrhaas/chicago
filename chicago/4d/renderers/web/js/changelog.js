@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1431, ts: '2026-10-04T14:58:41.631Z', date: 'Oct 4, 2026, 9:58 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
+  { v: 1433, ts: '2026-10-04T15:39:06.550Z', date: 'Oct 4, 2026, 10:39 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [
       'Around the forks, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
       'Past a few steps from you the turf is painted on the ground instead of being drawn as clumps of grass, so it no longer stands knee-high across the town.',
       'Scene detail now reaches the town too: Full keeps the grass at your feet, Balanced and Light keep less of it, and the texture carries the rest.',
       'At the in-town views the plants cost 59\u201377% fewer triangles at every setting, with no extra draw calls.',
       'The pattern of the turf is a reconstruction. Its colours and how much ground lies bare come from the town\u2019s plant records. It is listed under Liberties.',
+  { v: 1432, ts: '2026-10-04T14:56:13.412Z', date: 'Oct 4, 2026, 9:56 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
+    items: [
+      'Look down anywhere on the open prairie: the ground now shows blades of grass, last year\'s thatch between the tussocks, and the shade under them, lit by the sun the way the dirt roads are.',
+      'Lusher clumps show more blades and the wet ground near the water less. The beach sand stays bare.',
+      'The worn bank by the river and the strip of sand and dirt at the forks carry the same grass where they meet the prairie, so there is no seam.',
+      'The colour of every kind of ground is unchanged; only its surface is new. The grain is a reconstruction (Liberty L374).',
+    ] },
+  { v: 1431, ts: '2026-10-04T14:32:09.029Z', date: 'Oct 4, 2026, 9:32 AM CT', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
+    items: [
+      'Open a house on the Lake Street blocks and its card now names the household living there, where 26 of them read \u201cAnonymous count-unit\u201d before. Two more on Randolph near Clinton do too.',
+      'Eighteen other Lake Street houses say on their card why nobody is named: the household placed there is known only from the post office\u2019s letter lists, and a name on a letter is not an address.',
+      'Twenty-one of the newly named houses now show how long their household has been in town. The Baxleys, here since 1834, have a weathered cottage, not a new-sawn one.',
+      'Which household lives in which house is still this project\u2019s reconstruction, and each card says so. No source places these families on these lots.',
     ] },
   { v: 1430, ts: '2026-10-04T13:57:56.279Z', date: 'Oct 4, 2026, 8:57 AM CT', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
     items: [

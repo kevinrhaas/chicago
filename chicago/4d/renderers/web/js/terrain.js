@@ -50,6 +50,7 @@ import * as THREE from 'three';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { floraInScene } from './flora.js';
 import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
+import { GRASS_GRAIN_PX, GRASS_GRAIN_M, grassGrainPixels, grassGrainMean } from './grass-grain.js';
 import { TURF_TILE_PX, TURF_TILE_M, turfTilePixels, turfTileMeanGrain, bareCut } from './turf-tile.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { HORIZON_HAZE } from './world.js';
@@ -433,7 +434,7 @@ export async function createTerrain({
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.
-  disposables.push(groundMat, groundMat.userData.groundTex, turf);
+  disposables.push(groundMat, groundMat.userData.groundTex, groundMat.userData.swardTex, turf);
   confidence?.patch(groundMat);
 
   let ground = null;
@@ -520,7 +521,8 @@ export async function createTerrain({
   let groundBase = null;
   if (heightfield.loaded) {
     const baseMat = groundMaterial(zones, lakeShore,
-      { nearHole: baseHole, groundTex: groundMat.userData.groundTex, turf });
+      { nearHole: baseHole, groundTex: groundMat.userData.groundTex,
+        swardTex: groundMat.userData.swardTex, turf });
     disposables.push(baseMat);
     confidence?.patch(baseMat);
     groundBase = new THREE.Mesh(gridGeometry(heightfield, GROUND_BASE_STEP), baseMat);
@@ -1372,6 +1374,20 @@ async function substrateZones(dataBase, problems, sceneId = null) {
 const ZONE_EDGE_RAMP_M = 50;
 
 /**
+ * Whether a substrate zone's ground is SWARD (T-2089) — grass standing on it, so
+ * it takes the grass grain's tone and relief like the prairie it replaces — or
+ * bare ground that does not. The lake shore is the one bare zone: its record is
+ * a beach, and blades printed on sand would be a lawn on the strand. The sand
+ * prairie keeps the grain; it is grassland on a sand soil. Reconstructed (L-entry
+ * in docs/LIBERTIES.md): no record states a zone's surface relief.
+ */
+function zoneIsSward(z) {
+  return z.extent?.kind !== 'lake_shore';
+}
+const swardTone = (z) => (zoneIsSward(z) ? ' * chiSwardTone' : '');
+const swardOff = (z) => (zoneIsSward(z) ? '' : '\n    chiSwardW *= 1.0 - w;');
+
+/**
  * The substrate zones as fragment code, generated from the records at material
  * build time rather than carried as uniforms.
  *
@@ -1420,7 +1436,7 @@ function zoneGlsl(zones, lakeShore = null) {
   {
     ${softExtentGlsl(z.extent)}
     vec3 c = mix(${v3(z.dry)}, ${v3(z.wet)}, chiWet);
-    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain), w);
+    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain${swardTone(z)}), w);${swardOff(z)}
   }` : `
   // ${z.id} — priority ${z.priority}, e ${z.e0}..${z.e1}, n ${z.n0}..${z.n1}
   {
@@ -1429,7 +1445,7 @@ function zoneGlsl(zones, lakeShore = null) {
             * smoothstep(${f(z.n0 - ZONE_EDGE_RAMP_M)}, ${f(z.n0 + ZONE_EDGE_RAMP_M)}, chiN)
             * (1.0 - smoothstep(${f(z.n1 - ZONE_EDGE_RAMP_M)}, ${f(z.n1 + ZONE_EDGE_RAMP_M)}, chiN));
     vec3 c = mix(${v3(z.dry)}, ${v3(z.wet)}, chiWet);
-    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain), w);
+    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), c * chiGrain${swardTone(z)}), w);${swardOff(z)}
   }`)).join('\n');
   return `
   // ---- the substrate zones (${zones.map((z) => z.id).join(', ')}) ---------- //
@@ -1515,6 +1531,60 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
   // reads finer and yellower than the swale beside it and still reads green.
   chiPrairie *= mix(vec3(1.0), vec3(1.05, 1.03, 0.92),
                     smoothstep(0.95, 1.28, vChiWorld.y));
+
+  // THE SWARD'S OWN RELIEF (T-2089) — the road's method, on grass. One more
+  // fetch, the grass grain (grass-grain.js: 256 px over 1.6 m, R height, G/B
+  // normal), in WORLD space so nothing stretches across the bake's dissolves,
+  // and sheared by the mosaic already in hand so its 1.6 m repeat does not
+  // line up into rows (T-1825's trick on the colour tile). NO value noise for
+  // the clumping: the colour tile in hand already carries the 0.7 m clumps and
+  // the 1.4-2.75 m growth patches, so its own luminance decides how strongly
+  // each clump shows its blades — lusher, brighter clumps more, thin ground
+  // less, at the cost of no instruction a noise would add to the one surface
+  // that covers most of the screen. The grain is read over its own
+  // measured mean and is independent of the colour tile, so mix(1, grain, k)
+  // averages 1.0 whatever k is: a zone's mean albedo is still the triple its
+  // record states. The relief is lit through chiSwardXY by whoever owns the
+  // normal stage; wet ground carries less of it.
+  vec2 chiSwardEN = vec2(vChiWorld.x, -vChiWorld.z);
+  vec4 chiSward = texture2D(uSward, chiSwardEN / uSwardM + vec2(0.31, 0.23) * chiPatch);
+  float chiSwardGrain = chiSward.r / max(uSwardMean, 1e-6);
+  float chiSwardClump = clamp(dot(chiTex, vec3(0.2126, 0.7152, 0.0722))
+                              / max(uPrairieLuma, 1e-6) - 0.45, 0.0, 1.0);
+  float chiSwardK = mix(0.20, 0.44, chiSwardClump) * (1.0 - 0.55 * chiWet);
+  float chiSwardTone = mix(1.0, chiSwardGrain, chiSwardK);
+  chiPrairie *= chiSwardTone;
+  // How much of the sward a fragment carries: 1 on grass, taken down by any
+  // substrate zone that is not sward (zoneGlsl).
+  float chiSwardW = 1.0;
+  vec2 chiSwardXY = (chiSward.gb * 2.0 - 1.0) * (0.9 - 0.55 * chiWet);
+`;
+
+/**
+ * What `PRAIRIE_FRAGMENT` needs declared beside `uGround` and `uPrairieLuma`
+ * (T-2089): the grass grain. Every material that splices the
+ * prairie in splices this into its fragment head too, and binds `uSward*` from
+ * `swardUniforms()`.
+ */
+export const SWARD_HEAD = /* glsl */`
+uniform sampler2D uSward;
+uniform float uSwardM;
+uniform float uSwardMean;
+`;
+
+/**
+ * The sward's relief lit by the sun — the normal stage for a surface that is
+ * prairie through and through (the terrain). The ground strip and the worked
+ * bank fold `chiSwardXY` into their own normal stages at their prairie weight
+ * instead, so the relief runs on across their feathered edges without a seam.
+ */
+export const SWARD_NORMAL = /* glsl */`
+  vec2 chiSwXY = chiSwardXY * chiSwardW;
+  vec3 chiSwTn = normalize(vec3(chiSwXY, 1.0));
+  vec3 chiSwEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
+  vec3 chiSwT = normalize(chiSwEastV - normal * dot(chiSwEastV, normal));
+  vec3 chiSwB = cross(normal, chiSwT);
+  normal = normalize(chiSwT * chiSwTn.x + chiSwB * chiSwTn.y + normal * chiSwTn.z);
 `;
 
 /**
@@ -1587,6 +1657,9 @@ const TURF_FRAGMENT = /* glsl */`
       // town's ground meets the prairie as a worn margin and not a contour.
       chiTurfW = smoothstep(0.25, 0.75,
         chiTurfM + 0.35 * (chiTurfNoise(chiTurfEN / 3.3 + 5.1) - 0.5));
+      // The turf carries its own relief, so the prairie's grass grain (T-2089)
+      // gives way to it, as it does inside every zone that is not prairie.
+      chiSwardW *= 1.0 - chiTurfW;
       // A 9 m drift shears the 2 m tile against itself: no lattice at 20 m.
       vec2 chiTurfShear = vec2(chiTurfNoise(chiTurfEN / 9.0),
                                chiTurfNoise(chiTurfEN / 9.0 + 13.7)) - 0.5;
@@ -1743,7 +1816,8 @@ function turfGround() {
  * prairie would be filling a gap silently. When those records land, the zone a
  * point falls in belongs here — and the ground stops being one green.
  */
-function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundTex = null, turf = null } = {}) {
+function groundMaterial(zones = [], lakeShore = null,
+  { nearHole = null, groundTex = null, swardTex = null, turf = null } = {}) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff, roughness: 1, metalness: 0,
   });
@@ -1751,6 +1825,9 @@ function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundT
   const tex = groundTex ?? prairieTexture();
   mat.map = null;
   mat.userData.groundTex = tex;
+  // And the grass grain (T-2089), shared the same way.
+  const sward = swardTex ?? swardTexture();
+  mat.userData.swardTex = sward;
   mat.userData.substrateZones = zones.map((z) => z.id);
 
   const prior = mat.onBeforeCompile;
@@ -1758,6 +1835,7 @@ function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundT
     if (typeof prior === 'function') prior(shader, renderer);
     shader.uniforms.uGround = { value: tex };
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
+    Object.assign(shader.uniforms, swardUniforms(sward));
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     if (nearHole) shader.uniforms.uChiNearHole = nearHole;
     if (turf) Object.assign(shader.uniforms, turf.uniforms);
@@ -1768,6 +1846,7 @@ function groundMaterial(zones = [], lakeShore = null, { nearHole = null, groundT
 varying vec3 vChiWorld;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
+${SWARD_HEAD}
 ${nearHole ? 'uniform float uChiNearHole;' : ''}
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
 ${turf ? TURF_HEAD : ''}
@@ -1778,8 +1857,7 @@ ${zoneGlsl(zones, lakeShore)}
 ${turf ? TURF_FRAGMENT : ''}
   diffuseColor.rgb = chiPrairie;
 `)
-      .replace('#include <normal_fragment_maps>',
-        `#include <normal_fragment_maps>${turf ? TURF_NORMAL : ''}`);
+      .replace('#include <normal_fragment_maps>', SWARD_NORMAL + (turf ? TURF_NORMAL : ''));
   };
   // Its own program: `customProgramCacheKey` defaults to the source text of
   // `onBeforeCompile`, which both ground materials share, so without this the
@@ -1927,6 +2005,37 @@ export function prairieTexture() {
   tex.anisotropy = 4;
   tex.colorSpace = THREE.SRGBColorSpace;
   return tex;
+}
+
+/**
+ * The grass grain as a texture (T-2089) — `grass-grain.js`'s pixels on a
+ * runtime canvas, the way the grit is drawn for the road: no image fetch and no
+ * wire bytes, 256 KiB of texture (a third more with its mips). Data, not colour
+ * (`NoColorSpace`): R is a height and G/B a normal. Anisotropy 4, for the reason
+ * the prairie tile gives above. `userData.mean` is the divisor the shader reads
+ * the grain over, measured from the pixels.
+ */
+export function swardTexture() {
+  const data = grassGrainPixels();
+  const c = document.createElement('canvas');
+  c.width = c.height = GRASS_GRAIN_PX;
+  c.getContext('2d').putImageData(new ImageData(data, GRASS_GRAIN_PX, GRASS_GRAIN_PX), 0, 0);
+  const tex = new THREE.CanvasTexture(c);
+  tex.name = 'sward-grain';
+  tex.colorSpace = THREE.NoColorSpace;
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.anisotropy = 4;
+  tex.userData.mean = grassGrainMean(data);
+  return tex;
+}
+
+/** The `uSward*` uniforms `SWARD_HEAD` declares, bound to one sward texture. */
+export function swardUniforms(tex) {
+  return {
+    uSward: { value: tex },
+    uSwardM: { value: GRASS_GRAIN_M },
+    uSwardMean: { value: tex.userData.mean },
+  };
 }
 
 /** A drifting ripple normal map, generated once. */

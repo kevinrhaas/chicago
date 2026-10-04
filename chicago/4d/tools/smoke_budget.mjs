@@ -242,6 +242,9 @@ const COVERAGE = [
   // T-1055. terrain.js's ground tile, lifted into its own module so a tool can
   // measure it without a browser. Same part as the file it was lifted out of.
   ['renderers/web/js/prairie-tile.js', [3], 'the ground tile the prairie is painted from'],
+  // T-2089. The grass grain the prairie's fine relief is read from: the same
+  // ground, so the same part.
+  ['renderers/web/js/grass-grain.js', [3], 'the grass grain the prairie\'s relief is lit from'],
   ['renderers/web/js/turf-tile.js', [3, 10, 11], 'the town turf: painted by the ground, thinned in the sward'],
   // T-1797. The ground-strip proof: imported only under `?proof=ground`, which
   // no part loads, so the boot chain never reaches it. Part 1 boots the scene
