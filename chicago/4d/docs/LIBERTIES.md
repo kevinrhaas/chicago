@@ -10624,7 +10624,7 @@ tickets **T-0373** (this), **T-0368**, **T-0376**, **T-0378**, **T-0374**, **T-0
 **Recorded:** 2026-08-29.
 
 ### L214 — Three quarters of this town's people are a name on a post-office list and nothing else
-**Scope:** `residents.persons[letter_list_only]` — 736 people
+**Scope:** `residents.persons[letter_list_only]` — 773 people
 **Decision:** on 2026-08-30 the owner ruled that EVERY name the post office's lists of
 uncalled-for letters yield, and the mint's refusals admit, joins the town. 712 names were
 minted on that ruling, beside the 15 L207 already held, and the reconstruction went from 244
@@ -14899,7 +14899,7 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 178 households (179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 178 households (T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15805,10 +15805,10 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Fifty-one roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Forty-nine roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 51 roofs given the name of the household the
-placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 78
+**Scope:** `roof_keepers.written[named]` — 49 roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
 South Water blocks and were written by T-1638; the other 14 are on the Randolph–Washington
@@ -15817,6 +15817,16 @@ were written by **T-1691** (below). The pass runs one
 district at a time and its scope is data rather than a constant — a district enters
 `DISTRICTS` with the ticket that carried it, so a roof's own prose names the pass that named
 its keeper, and every seat outside the districts run so far is held as owed BY NAME.
+
+**T-2078 takes it from 51 to 49, and both roofs it loses are on the Randolph tier.** Writing
+the 37 letter-list households it gains moves the platted deal under the pass. The count of seats
+the deal makes holds at 178 (L270), but who sits where turns over. `hh_guisin_byran` is handed
+on to T-1614 and `hh_austin_w_g` is dealt outside the districts this pass has run, so
+`recon_1835_blk_randolph_market_d2_05` and `recon_1835_blk_randolph_dearborn_d1_04` now go to
+letter-list households, which this pass refuses. Four keepers move one roof along and are
+still named: `hh_clark_john_k` (to `recon_1835_blk_south_water_dearborn_d1_05`), `hh_cass_lewis`,
+`hh_blanshard_g` and `hh_barney_anne_maria`. Written **51 → 49**, refused **78 → 80**, owed
+unchanged at **20**. No ruling moved, and no name was written to a roof it was not dealt.
 
 **T-1783 takes it back to 23, and the one it loses is T-1761's.** Opening the outer West blocks
 re-deals the West Division's households across the ground the schedule now names. On the tree
@@ -15967,7 +15977,7 @@ one, and the nine would stop being a liberty.
 T-1638 and its parent **T-1200**, T-1685 and its parent **T-1202**, T-1689 (the stale
 letter-list naming), the ruling **T-0379**, and
 `data/reconstruction/1835_roof_keepers.json`.
-**Recorded:** 2026-09-26. **Revised:** 2026-10-01 (T-1761, the written and owed counts).
+**Recorded:** 2026-09-26. **Revised:** 2026-10-04 (T-2078, the written and refused counts; 2026-10-01 T-1761, the written and owed counts).
 
 ### L277 — The store-residence's attic is lit by an invented sash in each gable, and that is the only outside sign the half storey has
 **Decision:** the eight anonymous C2 store-residences on the platted blocks are built at the
@@ -21002,3 +21012,29 @@ poses fall by 59-77 % at every tier (docs/measurements/t-2085-town-turf.json).
 pattern of wear and growth replaces the reconstructed scales; a dossier height over 0.25 m for the
 town's matrix takes the community off this rule by its own record.
 **Recorded:** 2026-10-04 (T-2085).
+
+### L376 — A used lot is kept short: weeds and flowers stand at its lines, its back corners and its sheds
+**Decision:** T-2086 writes, for every improved platted lot, the ground its household kept
+(`data/yard/town_kept_ground.json`, `tools/generate_kept_ground.py`, re-derived by `check.sh`).
+Inside the lot pulled in 0.76 m (2½ ft) from every lot line, with its two rear corners cut back
+2.44 m (8 ft), the settled-town community grows its low layer and no forb; the strip, the
+corners and 0.61 m (2 ft) round the foot of every outbuilding keep the zone's weeds and flowers
+exactly as before. A 0.91 m (3 ft) worn path runs straight from the house's back wall to each
+outbuilding (`data/enclosures/town_yard_paths.json`), laid in the door aprons' road earth. A lot
+with no building is not touched.
+**Why:** the owner asked on 2026-10-04 for a town "less 'weedy' ... in front of stores and
+houses, and in the house back yards and properties", without cutting "the beautiful plants and
+grass and flowers". No source says where on any 1835 Chicago lot the ground was short. What
+bounds the invention is the zone record's own grazing evidence — the town's code of 7 Nov 1833
+against wandering pigs, cattle on the unfenced commons — and the mechanics of a used yard: what a
+household walks and its stock crops is short, and a fence line, a back corner and the foot of a
+wall are where scythe, hoof and foot do not reach. Cropped, not mown: a striped lawn is not 1835.
+**Consequence:** a house yard reads as lived-in ground with weeds along its fences and in its
+back corners, and paths worn to the privy and the stable; the forbs are not deleted from the
+town, only from the middle of its yards. The lot-line fences' own records (L161) still state no
+ground: the kept ring is a separate record and the fences are unchanged. Vacant lots keep the
+settled-town planting until the other half of T-2086 decides what a grazed remnant is.
+**How to resolve:** a period description or view of a Chicago or comparable 1830s frontier town
+lot that shows where its ground was bare, cropped or weedy would replace the strip, corner and
+refuge widths, and a plan placing a house's privy path would replace the straight line.
+**Recorded:** 2026-10-04 (T-2086).

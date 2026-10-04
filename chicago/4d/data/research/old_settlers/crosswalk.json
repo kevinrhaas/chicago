@@ -194,16 +194,6 @@
    "evidence": "surname and spelled-out forename agree, one bearer"
   },
   {
-   "id": "os1879r107",
-   "as_read": "Osborn, William",
-   "source_id": "calumet_club_early_chicago_1879",
-   "person_id": "osborn_wm",
-   "household_id": "hh_osborn_wm",
-   "resident_name": "Wm. Osborn",
-   "rule": "OS2A",
-   "evidence": "one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'william' — the discriminator the roster's initials do not supply"
-  },
-  {
    "id": "os1879r110",
    "as_read": "Pierce, Asahel",
    "source_id": "calumet_club_early_chicago_1879",
@@ -482,6 +472,16 @@
    "probable_person_id": "ambrose_joshua",
    "household_id": "hh_ambrose_joshua",
    "resident_name": "Joshua Ambrose",
+   "rule": "OS2",
+   "why": "one bearer of the surname in the whole residents layer and the forename initial agrees, but neither side spells the forename out and nothing discriminates. PROBABLE, NOT MERGED: no record is written on it"
+  },
+  {
+   "id": "os1882g029",
+   "as_read": "Dickinson, Augustus",
+   "source_id": "chicago_tribune_1882_05_19_fourth_reception",
+   "probable_person_id": "dickinson_alexander",
+   "household_id": "hh_dickinson_alexander",
+   "resident_name": "Alexander Dickinson",
    "rule": "OS2",
    "why": "one bearer of the surname in the whole residents layer and the forename initial agrees, but neither side spells the forename out and nothing discriminates. PROBABLE, NOT MERGED: no record is written on it"
   }
@@ -1195,7 +1195,18 @@
    "source_id": "calumet_club_early_chicago_1879",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 1 bearer(s) of 'osborn', none with the forename initial 'a'; same surname, different forename initial never merges"
+   "why": "the residents layer has 2 bearer(s) of 'osborn', none with the forename initial 'a'; same surname, different forename initial never merges"
+  },
+  {
+   "id": "os1879r107",
+   "as_read": "Osborn, William",
+   "source_id": "calumet_club_early_chicago_1879",
+   "rule": "OS4",
+   "outcome": "candidate",
+   "why": "1 bearers of 'osborn' share the forename initial 'w'; the roster does not discriminate between them",
+   "candidates": [
+    "osborn_wm"
+   ]
   },
   {
    "id": "os1879r108",
@@ -1321,9 +1332,9 @@
    "id": "os1879r125",
    "as_read": "Sawyer, Sidney",
    "source_id": "calumet_club_early_chicago_1879",
-   "rule": "OS5",
-   "outcome": "unmatched",
-   "why": "no bearer of the surname 'sawyer' in the residents layer"
+   "rule": "OS3",
+   "outcome": "refused",
+   "why": "the residents layer has 1 bearer(s) of 'sawyer', none with the forename initial 's'; same surname, different forename initial never merges"
   },
   {
    "id": "os1879r126",
@@ -1732,14 +1743,6 @@
    "rule": "OS5",
    "outcome": "unmatched",
    "why": "no bearer of the surname 'dexter' in the residents layer"
-  },
-  {
-   "id": "os1882g029",
-   "as_read": "Dickinson, Augustus",
-   "source_id": "chicago_tribune_1882_05_19_fourth_reception",
-   "rule": "OS5",
-   "outcome": "unmatched",
-   "why": "no bearer of the surname 'dickinson' in the residents layer"
   },
   {
    "id": "os1882g030",
@@ -2244,9 +2247,9 @@
    "id": "os1882g097",
    "as_read": "Sawyer, Dr. Sidney",
    "source_id": "chicago_tribune_1882_05_19_fourth_reception",
-   "rule": "OS5",
-   "outcome": "unmatched",
-   "why": "no bearer of the surname 'sawyer' in the residents layer"
+   "rule": "OS3",
+   "outcome": "refused",
+   "why": "the residents layer has 1 bearer(s) of 'sawyer', none with the forename initial 's'; same surname, different forename initial never merges"
   },
   {
    "id": "os1882g098",
@@ -2502,9 +2505,9 @@
    "id": "os1882d002",
    "as_read": "Joseph A. Barnes",
    "source_id": "chicago_tribune_1882_04_25_old_settler_deaths",
-   "rule": "OS5",
-   "outcome": "unmatched",
-   "why": "no bearer of the surname 'barnes' in the residents layer"
+   "rule": "OS3",
+   "outcome": "refused",
+   "why": "the residents layer has 1 bearer(s) of 'barnes', none with the forename initial 'j'; same surname, different forename initial never merges"
   },
   {
    "id": "os1882d004",
@@ -2759,8 +2762,8 @@
   }
  ],
  "counts": {
-  "merges": 46,
-  "probable": 1,
+  "merges": 45,
+  "probable": 2,
   "refusals": 280
  }
 }

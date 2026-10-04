@@ -1,9 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+  { v: 1439, ts: '2026-10-04T18:14:43.479Z', date: 'Oct 4, 2026, 1:14 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
     items: [
       'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
       'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
       'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
+    ] },
+  { v: 1438, ts: '2026-10-04T17:47:42.763Z', date: 'Oct 4, 2026, 12:47 PM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
+    items: [
+      'Walk into a house yard and the middle of it is now short, cropped ground: the tall lamb\'s-quarters, ragweed, dock and vervain no longer stand in the open where people and animals walked every day.',
+      'The weeds and flowers are still in town, gathered where scythe, hoof and foot did not reach: a strip along every lot line, the lot\'s back corners and the foot of each privy and stable.',
+      'A worn earth path now runs from each house\'s back wall to its privy, stable or shed, 239 of them across 183 lots.',
+      'Empty lots are unchanged for now. Where the ground is kept and where the paths run is a reconstruction (Liberty L376).',
+    ] },
+  { v: 1437, ts: '2026-10-04T17:29:51.479Z', date: 'Oct 4, 2026, 12:29 PM CT', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
+    items: [
+      'Open People: 37 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
+      'Twenty-three were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
+      'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
+      'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
+      'To make room, some households already in town moved one house along on Randolph, Washington and South Water streets. Four named keepers moved with them, and two houses on Randolph no longer name a keeper, because the household placed there now is known only from a letter list.',
     ] },
   { v: 1436, ts: '2026-10-04T16:59:01.860Z', date: 'Oct 4, 2026, 11:59 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [

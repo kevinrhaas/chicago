@@ -81,7 +81,7 @@
  },
  "sutler": {
   "written": 1,
-  "person": "rc_metcalf_david",
+  "person": "rc_metcalf_alvah",
   "seated_at": "fort_dearborn_sutlers_store",
   "note": "One man at an attested building with an attested function. No family, no partners, no stock is claimed. Andreas's sutler of about 1830 is five years early and is not reused."
  },
@@ -89,12 +89,12 @@
   "households": 11,
   "persons": 125,
   "by_sex": {
-   "female": 17,
-   "male": 108
+   "female": 18,
+   "male": 107
   },
   "by_age_band": {
-   "0-9": 5,
-   "10-19": 23,
+   "0-9": 4,
+   "10-19": 24,
    "20-29": 65,
    "30-39": 32
   },
@@ -126,8 +126,8 @@
     "married_households": [
      "hh_rc_shea_martin",
      "hh_rc_walsh_owen",
-     "hh_rc_eastman_james",
-     "hh_rc_sheldon_erastus"
+     "hh_rc_eastman_reuben",
+     "hh_rc_fisk_erastus"
     ],
     "officers_not_written": 3
    }

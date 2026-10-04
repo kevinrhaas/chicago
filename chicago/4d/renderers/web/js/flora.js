@@ -1059,11 +1059,13 @@ const GRASS_SHAPE = {
  *   verge (T-2094: where in an opened street's corridor a point stands, so a
  *   turf community's tall plants give way there — see `trodden`) ·
  *   confidence (every material is patched into it) · problems (the shared
- *   collector) · lowSpec (touch/mobile)
+ *   collector) · lowSpec (touch/mobile) · forbSeat (T-2086: where a forb
+ *   slot stands — null where it is, false nowhere, [e, n] re-seated)
  */
 export async function createFlora({
   checkpoint = () => null,
   dataBase, terrain, footprints = [], growthBlocked = () => false, verge = () => null,
+  forbSeat = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
 } = {}) {
   const group = new THREE.Group();
@@ -1600,6 +1602,19 @@ export async function createFlora({
         if (!sp) return;
         const c = zone.census?.forb;
         countDealt(c, sp, wet);
+        // T-2086: a kept yard turns its forb slot out — the record says where
+        // scythe, hoof and foot reached. A stated share of those slots is
+        // re-seated in the strip beside the lot line, where the weeds survive;
+        // the rest stand empty, counted as a station refusal, which is what it
+        // is: the ground here refuses the plant. A re-seated slot is asked
+        // everything again at its new foot, and must still be inside the ring.
+        const seat = forbSeat(e, n);
+        if (seat === false) { if (c) c.row.rejStation++; return; }
+        if (seat) {
+          e = seat[0]; n = seat[1];
+          r = Math.hypot(e - camE, n - camN);
+          if (r > f.fade[0] + off) { if (c) c.row.rejStation++; return; }
+        }
         const y = station(e, n, zone, sp, wet);
         if (y === null) { if (c) c.row.rejStation++; return; }
         if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) { if (c) c.row.rejWalker++; return; }
