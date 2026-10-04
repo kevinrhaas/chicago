@@ -875,6 +875,11 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "modelled_family.married.wife": ("shown", "escapeHtml(String(married.wife))"),
     "modelled_family.married.from_household": ("shown", "escapeHtml(String(married.from_household))"),
     "modelled_family.married.what_happened": ("shown", "escapeHtml(String(married.what_happened || ''))"),
+    # T-2021. The ruling on a married house no woman in the town fits: `rulingHtml` prints
+    # whether the house was given its drawn family or stands alone, and why.
+    "modelled_family.ruling.ticket": ("shown", "escapeHtml(String(ruling.ticket))"),
+    "modelled_family.ruling.verdict": ("shown", "escapeHtml(words(ruling.verdict))"),
+    "modelled_family.ruling.what_happened": ("shown", "escapeHtml(String(ruling.what_happened || ''))"),
     # T-1564. THE ONE FIGURE OF THE RE-FAMILY BLOCK A RENDERER ALREADY REACHES. The
     # household card's `refamilied` block records the move a held head was counted into,
     # and `businessBlockHtml` prints the `withdrawn_if` of any block it is handed — so

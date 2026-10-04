@@ -1642,8 +1642,8 @@
     "recon_1835_blk_randolph_clinton_d4_09__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 39568,
-      "inputs_sha256": "3a5a0bfd2e07bdcbe0f275eab1e53b2d410a824d6bd39ff00a3c4b93d6b693b5",
+      "bytes": 39256,
+      "inputs_sha256": "afdd4d627d915c47c0dea1496e32ee18d3508e99069ea18cf42a749cdca8d969",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_d4_09"
@@ -1759,8 +1759,8 @@
     "recon_1835_blk_randolph_dearborn_d3_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 28020,
-      "inputs_sha256": "058c000e7fd8a4d5cff22d6267765c6b1939b29e99d10573ba0e4ac505b2c83c",
+      "bytes": 27396,
+      "inputs_sha256": "3f22fe02ad89368df496d0cf7d790ab1ed8d6135ca83b1f056f54b0ff336c868",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_dearborn_d3_01"
@@ -1904,7 +1904,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32828,
-      "inputs_sha256": "01851032aa77f87104d27583f8b773f783bd498c25906ea8e8112be7ff74bb1b",
+      "inputs_sha256": "662ed2d8e481644c5a317716451b54cba43728dd797db46d74b7e927dbe8d587",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d1_10"
@@ -1922,7 +1922,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 68540,
-      "inputs_sha256": "58fab6d77fbf144b1b1076bdcb314bb634c2a4d87d619bb01fdc5850038431ae",
+      "inputs_sha256": "29058528dc6d34506c375aaccbaf21c119e11f74803410b4f647d999cef49ddb",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d2_06"
@@ -2083,8 +2083,8 @@
     "recon_1835_blk_randolph_wells_h2_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 67176,
-      "inputs_sha256": "8ca354fcca0d610290323a49eba288a8532b68516da32848ce21aad7ad2ff3e5",
+      "bytes": 67180,
+      "inputs_sha256": "444642c8a075cd58bb092b62ef63729abb3ab8205c673374ccd74017cc3cff50",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_wells_h2_01"
@@ -2120,7 +2120,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32836,
-      "inputs_sha256": "c9544ab540c0b4f79d0c61d362eae9b86941359bff756a80b3541fb06bd72e83",
+      "inputs_sha256": "11f71bcd62e32a922e8953f43dbb0b00d5558710c95586dab688dcf06fc97aae",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d1_04"
@@ -2129,7 +2129,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 28024,
-      "inputs_sha256": "c3edd29c49d855866c7be2aca4b8f04bb637fb9948450441b8f3d2c1b2835865",
+      "inputs_sha256": "d811f20bf1ba48b3969336347dc5298404128b00d86372932a5a99823b846b37",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d3_03"
@@ -2443,8 +2443,8 @@
     "recon_1835_blk_south_water_lasalle_d3_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 30056,
-      "inputs_sha256": "ffa8a8f033640c7e05ecdce9ff24d79170a79f68aec9b84b3184daba09ec7385",
+      "bytes": 30052,
+      "inputs_sha256": "92fbef91cb73a6a23eb47c1a780e73950aa5e4d1ec4f6ca051d0b91e45ba4c2e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_d3_03"
@@ -2516,7 +2516,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32836,
-      "inputs_sha256": "e8f7d3341122cff09c993c488be11f9585c44a3be2ac4eaf7b265b658afe6853",
+      "inputs_sha256": "b0a8a2658a6e528eea447feb288519a2e9fdac5eb9b8e44566484ece96f2dfd8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d1_05"

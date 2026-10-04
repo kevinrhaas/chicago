@@ -188,21 +188,7 @@
       "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
       "persons": [
         {
-          "name": "Archange Vieau",
-          "relationship": "lodger",
-          "grade": "reconstructed",
-          "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 4 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Levi Metcalf",
-          "relationship": "lodger",
-          "grade": "reconstructed",
-          "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 4 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Silas Tuttle",
+          "name": "Lemuel Gilbert",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
@@ -228,6 +214,20 @@
           "grade": "inferred",
           "occupation": "tavern_keeper",
           "note": "DERIVED, AND THE REASON IS A CONTRADICTION IN THE SOURCES RATHER THAN A GAP. The same body of material that puts Walters in the house 1833-1836 also says the house stopped operating as a public house in 1834, and a landlord of a closed house is not a coherent claim. data/structures/wolf_point_tavern.json records the occupancy as inferred for exactly this reason; this household inherits the doubt and does not paper over it."
+        },
+        {
+          "name": "Honora Walters",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Terence Walters",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "THE WEST BANK'S OLDEST PUBLIC HOUSE AND ITS LEAST CERTAIN OCCUPANT. This household is written so that the west-bank row is not left as buildings with nobody in them, and it is graded derived throughout because the sources behind it contradict each other about whether there was a tavern here to keep. THE SUCCESSION THIS RECORD SITS AT THE END OF is worth keeping in view for the derived phase: Archibald Caldwell for James Kinzie by 1829, Elijah 'Old Geese' Wentworth from early 1830, Charles and Mary Taylor 1831-1833, then Walters. Four households this project has not written, three of them out of scope by date."
@@ -300,10 +300,10 @@
       "people": 4,
       "beds_ordinary": 4,
       "empty": 0,
-      "statement": "4 on this card against an ordinary night's 4 beds: 1 the residents layer already housed here, 3 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "statement": "4 on this card against an ordinary night's 4 beds: 3 the residents layer already housed here, 1 drawn against the order book's lodging buckets for beds that were standing empty.",
       "empty_note": "",
-      "keeper_persons": 1,
-      "keeper_owed": "T-1171 refused this head a drawn family — the eligibility refusals are in data/reconstruction/1835_modelled_families.json — so the card stands at one person. T-1179 converges it."
+      "keeper_persons": 3,
+      "keeper_owed": ""
     }
   }
 }

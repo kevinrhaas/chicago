@@ -1818,7 +1818,21 @@ function modelledFamilyHtml(block) {
     of the 1835 resident reconstruction programme, ${escapeHtml(String(block.ticket))}.
     ${escapeHtml(String(block.note || ''))}${
     block.seed ? ` Redrawn with the seed <code>${escapeHtml(String(block.seed))}</code>.` : ''}
-    </span></dd>${marriedHtml(block.married)}`;
+    </span></dd>${marriedHtml(block.married)}${rulingHtml(block.ruling)}`;
+}
+
+/**
+ * T-2021: a married house no woman in the town fits, and the ruling on it — given the
+ * whole family the model drew for it, or left standing alone, and why either way.
+ */
+function rulingHtml(ruling) {
+  if (!ruling || typeof ruling !== 'object') return '';
+  const heading = ruling.verdict === 'admitted' ? 'Why this family is seated'
+    : 'Why this house stands alone';
+  return `<dt>${heading}</dt><dd>${swatch('reconstructed')}
+    ${escapeHtml(String(ruling.what_happened || ''))}
+    <br><span class="res-why">Ruled by ${escapeHtml(String(ruling.ticket))}:
+    ${escapeHtml(words(ruling.verdict))}.</span></dd>`;
 }
 
 /**

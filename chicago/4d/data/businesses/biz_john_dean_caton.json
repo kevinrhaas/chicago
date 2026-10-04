@@ -30,60 +30,8 @@
     }
   ],
   "partners": [],
-  "staff": [
-    {
-      "name": "John Barnes",
-      "person_id": "rc_barnes_john",
-      "role": "clerk",
-      "occupation": "clerk",
-      "tier": "reconstructed",
-      "basis": "The staffing model puts 0 of this role in a law office at the typical band and 1 at the high end, on period_convention. The student-at-law, who read in an office rather than at a school. Analogue: the 1839 list's 11 students against 45 attorneys, a quarter of them. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#law_office.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
-      "seed": "rc_barnes_john:employment",
-      "replaceable_by": "a source naming where this person worked, which retires the draw"
-    }
-  ],
-  "staffing": {
-    "class": "law_office",
-    "reads_as": "a law office",
-    "principal_role": null,
-    "principal_is": null,
-    "hands": [
-      {
-        "role": "clerk",
-        "occupation": "clerk",
-        "household_relationship": "clerk",
-        "count_low": 0,
-        "count_typical": 0,
-        "count_high": 1,
-        "seats_drawn": 1,
-        "drawn": true,
-        "basis": "period_convention"
-      }
-    ],
-    "writes_no_person": true,
-    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
-    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
-    "shortfall": {
-      "typical_wanted": 0,
-      "seats_taken": 1,
-      "seats_against_the_band": 0,
-      "short_by": 0,
-      "by_role": [
-        {
-          "occupation": "clerk",
-          "household_relationship": "clerk",
-          "count_low": 0,
-          "count_typical": 0,
-          "count_high": 1,
-          "seats_drawn": 1,
-          "short_by": 0
-        }
-      ],
-      "statement": "The staffing model puts no hand about this kind of house at its typical band; this house carries 1.",
-      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
-      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
-    }
-  },
+  "staff": [],
+  "staffing": null,
   "locations": [
     {
       "kind": "premises",
