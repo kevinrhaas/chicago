@@ -1,0 +1,135 @@
+{
+  "_doc": "The hand-entered readings the 15 August 1812 evacuation route and battle zone are derived from, and NOTHING ELSE (T-0470). Every coordinate in data/terrain/1812_evacuation_route.geojson is computed from this file plus three committed lines by tools/derive_evacuation_1812.py, and its --check re-derives the file and refuses a hand edit. A reading here is a statement someone printed; it is never a conclusion this project reached. The conclusions - the route, the stations and the zone - are in the derived file, each with its confidence.",
+  "address_date": "1812-08-15",
+  "event": "The evacuation of the first Fort Dearborn on the morning of 15 August 1812 and the attack on its column on the lake shore south of the river mouth by Potawatomi and allied warriors.",
+  "review_required": true,
+  "review_note": "Held for review because this record locates a battle fought by Potawatomi and allied warriors, and every account it reads was written by the garrison's side or by settler historians - none by the Potawatomi. That is the Indigenous-history review T-0472 gates the 1812 interpretive scene on. This file is geography only: it places a route and an evidence-weighted zone, stages nobody, depicts nobody, and quotes the printed accounts verbatim (their words, not this project's) only where a distance or a landform is read from them.",
+  "what_this_does_not_claim": [
+    "a point where the battle happened - the output is a zone, and no pin is drawn inside it",
+    "where any phase of the fighting stood to the precision of a modern lot: the attack at the bank, the fight round the wagons in the rear, and Heald's withdrawal to 'a small elevation in the open prairie' are not separately located",
+    "the place of Heald's withdrawal at all: the only reading is 'out of shot of the bank', which gives a direction (inland) and no distance, so nothing is drawn for it",
+    "that the Eighteenth Street tradition is right or wrong: it is kept beside the distance reading, and the zone spans the two"
+  ],
+  "lines_used": {
+    "fort_anchor": "data/terrain/epochs/e1830_natural/shoreline.geojson § mouth_outlet_reading_band_1812.properties.fort_anchor_local - the station on the old channel's west bank nearest the fort site, the same one Swearingen's half mile is measured from (data/terrain/1812_mouth_readings.json § fort_anchor). The first fort is not yet seated on the ground (T-2050), so the march is measured from the fort SITE, which both forts share, and not from its gate.",
+    "river_leg": "data/terrain/epochs/e1830_natural/shoreline.geojson § channel_west_bank_1812, from the fort anchor to the adopted outlet station",
+    "shore_leg_to_twelfth": "data/terrain/epochs/e1830_natural/shoreline.geojson § lake_shore_south_of_outlet_1812, from the outlet to the first vertex on its declared seam row",
+    "shore_leg_below_twelfth": "data/terrain/epochs/e1834_harbor_cut/lake_shore_below_twelfth.geojson § lake_shore_below_twelfth, which the 1812 terrain spec carries (terrain_spec.json § shore_runs_1812.carried)",
+    "seam_row_local_n": -2159.9,
+    "seam_note": "Wright's 1834 run reaches the seam row and then follows the foot of his sheet eastward; that last stretch is the edge of the paper, not a shore, so the route leaves it at the row. Rees 1849 starts on the same row about 49 m further west, the post-pier erosion the e1834 trace records. The route steps across that gap and the step is counted in its length: it is inside every band below.",
+    "eighteenth_street_row": "data/traces/south_anchor_control.json § control.eighteenth_prairie - the OpenStreetMap crossing of East 18th Street and South Prairie Avenue in the local frame. A MODERN LOCATOR: no street existed in 1812, and the tradition read below names the street the trees stood in, so the street is where it is read."
+  },
+  "landform": {
+    "bank_back_from_water_m": 30.48,
+    "bank_back_from_water_quote": "The surface of the bank, a hundred feet or more back from the water, varied from ten to twenty feet in height above its level.",
+    "bank_source_id": "moses_kirkland_history_of_chicago_v1",
+    "bank_locator": "p. 60, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8878-8884",
+    "ridge_back_from_beach_m": 91.44,
+    "ridge_back_from_beach_quote": "a row of sand hills, or ridges, which ran between the prairie and the beach, parallel to the latter and distant from it about one hundred yards",
+    "ridge_source_id": "quaife_1913",
+    "ridge_locator": "p. 226 (archive.org item chicagooldnorthw00quai, djvu text lines 10286-10288)",
+    "zone_width_rule": "The zone is the strip from the waterline back to the ridge line - 100 yards, Quaife's figure and the wider of the two - because both readings put the attackers 'behind the bank' and the column on the beach in front of it, so the attack stood between the water and the ridge. The 1895 editors' 'a hundred feet or more' is the bank's near face and falls inside the strip. Offset due west, the land side, rather than square to the shore; where the shore runs about 13 degrees east of south that makes the strip about 2.5 per cent narrower measured square to it.",
+    "sand_hills_begin": [
+      {
+        "source_id": "moses_kirkland_history_of_chicago_v1",
+        "locator": "pp. 49-50, lines 7554-7566",
+        "quote": "The shore in those days seems to have been flat about as far south as the present Twelfth street, when began the low wave-washed and wind-swept sand-hills",
+        "note": "The 1895 editors' own inference ('seems'), not a witness."
+      },
+      {
+        "source_id": "quaife_1913",
+        "locator": "p. 226, lines 10286-10288",
+        "quote": "Below the mouth of the river began a row of sand hills, or ridges",
+        "note": "Quaife's synthesis of the accounts he lists in his Appendix II. It puts the start of the ridges at the mouth, about 1.6 km north of where the 1895 editors put it. A DISAGREEMENT, not reconciled here: both put the attack among the ridges, and both put it at about a mile and a half."
+      }
+    ]
+  },
+  "route": {
+    "readings": [
+      {
+        "source_id": "quaife_1913",
+        "locator": "p. 226, lines 10281-10284",
+        "quote": "The route taken was due south, parallel with the river until its mouth was reached and then along the beach, not far, probably, from the present Michigan Avenue, for most of the land to the east has been filled in since the beginning of modern Chicago.",
+        "note": "Quaife's synthesis (1913). His 'present Michigan Avenue' is a modern locator for a shore since filled, which is why the route is carried on the reconstructed shore and not on the avenue."
+      },
+      {
+        "source_id": "moses_kirkland_history_of_chicago_v1",
+        "locator": "p. 49, lines 7545-7550",
+        "quote": "Mrs. Kinzie's batteau kept along with the march as far as the river mouth; then about the present foot of Madison st.",
+        "note": "The editors' narrative (1895). It puts the column beside the river down to the natural mouth, which is the leg this route takes along the old channel's west bank."
+      }
+    ],
+    "confidence": "inferred",
+    "confidence_note": "Two printed narratives agree on the shape - down the river to its mouth, then along the beach - and neither is a witness. Where the line lies on the ground is the derived 1812 shore north of Twelfth Street (inferred) and the carried Rees 1849 shore south of it, below which the 1812 terrain spec writes every vertex conjectural."
+  },
+  "readings": [
+    {
+      "id": "heald_1812_report",
+      "role": "primary_adopted",
+      "kind": "distance_from_fort",
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "locator": "p. 50, lines 7583-7597, quoting Captain Nathan Heald's letter; the editors date it 'only ten weeks after the event' at p. 52, lines 7874-7875",
+      "author": "Captain Nathan Heald, commanding the garrison, a participant",
+      "written": "1812, about ten weeks after the event (per the editors)",
+      "quote": "We had proceeded about a mile and a half when it was discovered that the Indians were preparing to attack us from behind the bank. I immediately marched up, with the company, to the top of the bank when the action commenced",
+      "quote_note": "Machine OCR prints 'bad' for 'had' and 'hall' for 'half'; read as corrected. No page image was read.",
+      "value_m": 2414.016,
+      "value_note": "One and a half statute miles, exactly.",
+      "band_m": 402.336,
+      "band_note": "A quarter of a mile either side. Heald writes 'about' and states the distance in half miles, so the reading is taken to mean the nearest half mile and the band is the interval that rounds to it, 1.25 to 1.75 miles. That is this project's reading of 'about', graded inferred; a tighter band would claim a precision the letter does not.",
+      "measured_along": "the route, from the fort anchor",
+      "confidence": "inferred",
+      "confidence_note": "The commander's own figure, written within weeks - the strongest distance there is. Graded inferred and not documented because it reaches this project only as quoted in a tier-3 compilation's machine OCR; no record of the letter itself is held."
+    },
+    {
+      "id": "darius_heald_via_wentworth_1881",
+      "role": "corroborating_not_independent",
+      "kind": "distance_from_fort",
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "locator": "p. 52, lines 7846-7850, quoting Wentworth's 'Fort Dearborn' (Fergus' Historical Series No. 16) for the account of Darius Heald, the captain's son",
+      "author": "Darius Heald, recounting his parents' account, printed 1881",
+      "quote": "When the soldiers had proceeded about one and-a-half miles from the Fort they were surprised and surrounded by about 600 Indians who had formed in a horse-shoe or semi-circular shape upon the bluff. The troops were on the lake shore.",
+      "value_m": 2414.016,
+      "confidence": "inferred",
+      "confidence_note": "The same figure as the captain's, from his family sixty-nine years on. It agrees and it is not independent of him, so it adds no weight to the distance; it is kept for 'on the lake shore' and 'upon the bluff', which agree with the zone's shape."
+    },
+    {
+      "id": "quaife_1913_synthesis",
+      "role": "corroborating_not_independent",
+      "kind": "distance_from_fort",
+      "source_id": "quaife_1913",
+      "locator": "p. 226, lines 10291-10296; his footnote 595 at p. 225 (lines 10266-10269) says the account is 'the result of a study of all the known available sources'",
+      "quote": "When a distance of about a mile and a half had been traversed by the soldiers Captain Wells, who with his militia was some distance in advance, discovered that the Indians had prepared an ambush for the whites and were about to attack them from their vantage point behind the bank.",
+      "value_m": 2414.016,
+      "confidence": "inferred",
+      "confidence_note": "The later scholarship this corpus holds: it takes Heald's distance and names no street. It does not mention the Eighteenth Street tradition at the page read. Other later scholarship on the site has not been read into this project, and none is cited."
+    },
+    {
+      "id": "jordan_1812_letter",
+      "role": "alternative_not_adopted",
+      "kind": "distance_from_fort",
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "locator": "p. 59, lines 8736-8758, quoting Niles' Register of 8 May 1813 for a letter of Walter Jordan dated Fort Wayne, 19 October 1812",
+      "quote": "They had marched \"half a mile\" when they were attacked",
+      "value_m": 804.672,
+      "confidence": "conjectural",
+      "confidence_note": "Contemporary, and the editors print it among 'a few unmistakeable contemporary lies' (lines 8737-8738). Kept beside, not adopted: half a mile measured along the route ends at the river's natural outlet itself, before the beach every other account puts the attack on. Its station is drawn so the disagreement can be seen."
+    },
+    {
+      "id": "eighteenth_street_trees",
+      "role": "tradition_kept_beside",
+      "kind": "landmark",
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "locator": "p. 60, lines 8886-8910 (the two trees and Juliette Kinzie's statement through Mrs. Henry W. King); pp. 60-61, lines 8912-8942 (Isaac N. Arnold); p. 61, lines 8950-8957 (Mary Clark Williams); and the editors' own placing at p. 54, lines 8149-8154",
+      "quote": "When Eighteenth street came to be laid out there stood between its curb stones, two old cottonwood trees which were pointed out by earlier traditions as marking the battle-ground and named the \"Massacre trees,\" and they were therefore spared, although standing near the middle of the roadway.",
+      "also_quoted": [
+        "Arnold, who came in 1836: 'One of those trees is still standing in the street leading from Michigan avenue to the lake, and not very far from the track of the Illinois Central railroad. This tree was pointed out to me by both Mr. and Mrs. Kinzie as near the place where the attack began.'",
+        "Mary Clark Williams: 'In 1840 an Indian told her father that the massacre occurred on that spot.'",
+        "The editors: 'The attack, the charge, the subsequent advance, etc., seem all to point to about the spot where is now Eighteenth street'"
+      ],
+      "where_on_the_ground": "Eighteenth Street's row, east of Prairie Avenue to the shore. Arnold names the street ('leading from Michigan avenue to the lake') and puts the tree 'not very far from the track of the Illinois Central', which ran along the lake end; Prairie's committed crossing is taken as the locus's west limit for that reason. No easting is stated for either tree, so the locus is a line along the street and not a point.",
+      "confidence": "conjectural",
+      "confidence_note": "A tradition, recorded in the 1880s and 1890s, carried by the Kinzie family and by one unnamed Potawatomi witness relayed second-hand. Juliette Kinzie's 'saplings at the time' is a statement about the trees, not about the battle. It is the one reading that names a place, and it lies further south than the distance reading allows - see the derived file's disagreement - so it is kept beside the distance and neither is preferred."
+    }
+  ]
+}

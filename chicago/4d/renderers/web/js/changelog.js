@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1411, ts: '2026-10-04T06:51:20.363Z', date: 'Oct 4, 2026, 1:51 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
@@ -7,35 +7,47 @@ export const CHANGELOG = [ // newest first
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
     ] },
-  { v: 1410, ts: '2026-10-04T06:51:20.363Z', date: 'Oct 4, 2026, 1:51 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1409, ts: '2026-10-04T06:51:20.363Z', date: 'Oct 4, 2026, 1:51 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1408, ts: '2026-10-04T06:51:20.363Z', date: 'Oct 4, 2026, 1:51 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1407, ts: '2026-10-04T06:51:20.363Z', date: 'Oct 4, 2026, 1:51 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1406, ts: '2026-10-04T06:51:20.363Z', date: 'Oct 4, 2026, 1:51 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1405, ts: '2026-10-04T06:51:20.363Z', date: 'Oct 4, 2026, 1:51 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1405, ts: '2026-10-04T06:38:44.336Z', date: 'Oct 4, 2026, 1:38 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
+    items: [
+      'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',
+      'The zone runs along the 1812 shore from just south of Harrison Street down to Eighteenth Street, between the water and the sand ridge a hundred yards back. It is a strip of beach, not a pin.',
+      'Captain Heald, who led the garrison out of the fort on 15 August 1812, wrote that it had gone \u201cabout a mile and a half\u201d when it was attacked from behind the bank. Two cottonwoods later standing in Eighteenth Street were long remembered as marking the spot. Those two places are more than a kilometre apart, so the zone takes in both and does not choose.',
+      'The route the column took is mapped too: down the river to its old mouth near Madison Street, then south along the beach. It is not drawn in the 1812 view yet.',
     ] },
   { v: 1404, ts: '2026-10-04T06:05:14.950Z', date: 'Oct 4, 2026, 1:05 AM CT', title: 'The 1812 shore grows prairie, beach grass and two remembered cottonwoods', kind: 'feature',
     items: [

@@ -1,3 +1,46 @@
+## T-0470 — the 15 August 1812 route and battle zone, derived from the accounts (2026-10-04)
+
+**What a visitor sees:** the Go-to viewpoint `battle_reach_1812`, which said "the 1812
+ground, not yet located", now reads "The 1812 battle zone, looking north from near
+Eighteenth". It has not moved: it was already standing inside the zone, 157 m north of
+Eighteenth Street's row. The route and the zone are data; there is no 1812 scene to draw
+them in yet (T-2050 seats the first fort; T-0472 builds the interpretive scene).
+
+- **`data/terrain/1812_evacuation_readings.json`** holds the statements and nothing else.
+  The readings are Heald's own "about a mile and a half", read as quoted by Moses &
+  Kirkland 1895, p. 50. Darius Heald's 1881 account and Quaife 1913, p. 226, say the
+  same, and both are graded as not independent of him. Walter Jordan's contemporary
+  "half a mile" is kept beside it and not adopted; the 1895 editors class it among
+  "contemporary lies". The Eighteenth Street cottonwoods tradition comes from pp. 60-61
+  (Juliette Kinzie through Mrs. King, Isaac Arnold, Mary Clark Williams). The ridge is
+  "about one hundred yards" from the beach (Quaife) and the bank "a hundred feet or
+  more" back (p. 60).
+- **`tools/derive_evacuation_1812.py`** lays them along the route: the fort anchor
+  Swearingen's half mile is measured from, down the old channel's west bank to the
+  outlet, along the derived 1812 shore to the Twelfth Street seam, a 48.5 m step across
+  the two traces' disagreement there, then the carried Rees 1849 shore. It writes
+  `data/terrain/1812_evacuation_route.geojson`: the route, one station per distance
+  reading, the Eighteenth Street row, the trees' locus (a 143 m line along the street,
+  not a point) and `battle_zone_1812`. `check.sh` runs its `--check`.
+- **The disagreement, measured.** Heald's band (1.25-1.75 mi, the interval that rounds to
+  his half-mile figure) is 2,012-2,816 m along the route. Eighteenth Street is
+  3,870 m along (2.40 mi), 1,054 m beyond the band's south end. In a straight line from
+  the fort anchor it is 3,490 m (2.17 mi), still past the band. The traced waterline is
+  11 per cent longer than its chord between the outlet and Twelfth Street, and a walked
+  distance lies between the two figures. **The zone spans the two readings and prefers
+  neither, and no point inside it is claimed.**
+- **What is not drawn.** Heald's withdrawal to "a small elevation in the open prairie,
+  out of shot of the bank" has a direction and no distance. The two accounts also
+  disagree about where the sand hills began: the 1895 editors say at Twelfth Street,
+  Quaife says at the mouth. Both are recorded. Later scholarship beyond Quaife has not
+  been read into this project, and none is cited.
+- **Held for review.** The readings file and the zone carry `review_required` with their
+  reason: every account was written by the garrison's side or by settler historians.
+  Nothing is staged and no one is depicted.
+- **New text read.** Quaife 1913 was read from archive.org item `chicagooldnorthw00quai`
+  (djvu text, sha256 `3e0022fa…bd79`, lines 10256-10330). The text is not committed;
+  the readings file carries the line locators.
+
 ## T-2050 — the first fort seated in the 1812 scene (2026-10-04)
 
 Piece 3 of 3 of T-0469. **What a visitor sees:** /4d/1812/ opens the renderer on the first Fort

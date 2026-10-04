@@ -433,6 +433,13 @@
       "measured": "continuously",
       "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
     },
+    "derive_evacuation_1812.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-04",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its one output, changed no committed byte; `--check` reads and writes nothing in-tree.",
+      "placed": "after measure_shore_1812_harrison.py, beside the 1812 shore whose output it reads (T-0470)"
+    },
     "derive_shore_1812.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
