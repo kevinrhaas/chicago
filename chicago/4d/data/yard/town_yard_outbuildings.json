@@ -214,13 +214,35 @@
       "lot": "blk_south_water_wells_lot2",
       "belongs_to": "recon_1835_blk_south_water_wells_d1_05",
       "households": [],
+      "household_class": "labourer",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        389.88,
+        -48.65
+      ],
+      "bearing_deg": 0.34,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "slab"
+    },
+    {
+      "id": "privy_blk_south_water_wells_lot3",
+      "kind": "privy",
+      "lot": "blk_south_water_wells_lot3",
+      "belongs_to": "recon_1835_blk_south_water_wells_d2_06",
+      "households": [],
       "household_class": "merchant",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        389.66,
-        -48.57
+        389.61,
+        -56.78
       ],
-      "bearing_deg": 0.34,
+      "bearing_deg": -179.66,
       "along_m": 1.52,
       "depth_m": 1.22,
       "eave_m": 2.0,
@@ -231,18 +253,18 @@
       "finish": "whitewash"
     },
     {
-      "id": "stable_blk_south_water_wells_lot2",
+      "id": "stable_blk_south_water_wells_lot3",
       "kind": "stable",
-      "lot": "blk_south_water_wells_lot2",
-      "belongs_to": "recon_1835_blk_south_water_wells_d1_05",
+      "lot": "blk_south_water_wells_lot3",
+      "belongs_to": "recon_1835_blk_south_water_wells_d2_06",
       "households": [],
       "household_class": "merchant",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        369.97,
-        -47.35
+        369.9,
+        -58.0
       ],
-      "bearing_deg": 0.34,
+      "bearing_deg": -179.66,
       "along_m": 4.88,
       "depth_m": 3.66,
       "eave_m": 2.45,
@@ -253,28 +275,6 @@
       "finish": "board_and_batten",
       "stalls": 2,
       "kept_a_horse_because": "merchant"
-    },
-    {
-      "id": "privy_blk_south_water_wells_lot3",
-      "kind": "privy",
-      "lot": "blk_south_water_wells_lot3",
-      "belongs_to": "recon_1835_blk_south_water_wells_d2_06",
-      "households": [],
-      "household_class": "labourer",
-      "class_read_from": "fabric_basis.class (L330)",
-      "at_local_enu_m": [
-        389.84,
-        -56.7
-      ],
-      "bearing_deg": -179.66,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
-      "roof": "shed",
-      "weather": "fresh",
-      "confidence": "reconstructed",
-      "finish": "slab"
     },
     {
       "id": "privy_blk_south_water_wells_lot5",
