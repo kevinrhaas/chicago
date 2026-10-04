@@ -91,7 +91,8 @@ from family_bands import (eave_floor, eave_for_ridge,  # noqa: E402
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
 from house_front import bays_for, plan_for  # noqa: E402
-from inferred_occupancy import occupancy  # noqa: E402
+from inferred_occupancy import (keeper_assignments, keeper_refusals,  # noqa: E402
+                                occupancy)
 # T-1806. The H2 house here is a boarding house in the lodging model, so its upper
 # windows and stovepipes are sized from its beds by the H3's rule (L318, L324).
 from boarding_house_beds import (  # noqa: E402
@@ -112,6 +113,19 @@ CORRIDOR_LINE_WHY = (
 )
 
 OCCUPANCY = occupancy()
+# T-1691. The platted deal's keepers hand over a second block, `resident_assignment` —
+# `assigned` with the household id where tools/name_the_keepers_1835.py wrote a keeper,
+# `unassigned` with the reason where it refused one — exactly as generate_block_infill.py
+# has spent it since T-1638 and T-1675. Without it a keeper's prose would reach this
+# layer's roof and its id would not, and the deal's own adoptable() would read the roof as
+# held by a rival claim and seat the household elsewhere on its next re-derivation.
+ASSIGNMENTS = keeper_assignments()
+REFUSALS = keeper_refusals()
+if set(ASSIGNMENTS) & set(REFUSALS):
+    raise SystemExit("data/reconstruction/1835_roof_keepers.json writes and refuses the "
+                     "same roof(s): %s — re-run tools/name_the_keepers_1835.py --build"
+                     % ", ".join(sorted(set(ASSIGNMENTS) & set(REFUSALS))))
+ASSIGNMENTS = {**ASSIGNMENTS, **REFUSALS}
 FAMILIES = families()
 
 # T-1827. A WEST H2 IS A BOARDING HOUSE BY `FUNCTIONS` BELOW, EXCEPT WHERE THE PLATTED DEAL
@@ -836,6 +850,7 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
         "function": inferred(function, function_why),
         **({"occupants": OCCUPANCY[sid]} if sid in OCCUPANCY else {}),
         "reconstruction": reconstruction,
+        **({"resident_assignment": ASSIGNMENTS[sid]} if sid in ASSIGNMENTS else {}),
         "research_note": ("RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. "
                           "Aggregate mix follows the supplied specification; exact presence, "
                           "position, footprint, finish and instance-level form are interpretive."
