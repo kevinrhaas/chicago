@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1419, ts: '2026-10-04T11:06:42.838Z', date: 'Oct 4, 2026, 6:06 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
+  { v: 1420, ts: '2026-10-04T11:19:35.384Z', date: 'Oct 4, 2026, 6:19 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
     items: [
       'Twelve people known only from the post office\u2019s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
       'Constant Abbott, Alfred Churchill and Samuel Stout are now known to the town from 1 January 1834, not from April or July. A list printed in March 1834 names all three.',
       'Two people whose arrival year comes from a history of their own keep it. The post-office dates no longer overwrite it.',
       'Six more were looked at and left as they are, with the reason written down. In each, the same name is printed twice and only one printing is read. That is now its own question.',
+    ] },
+  { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the helper that keeps waiting changes up to date before they are merged.',
+      'That helper only rebuilt a change\u2019s derived records when it had something new to merge in. A change that was already up to date, but failing a check added after it was written, was reported as having nothing to do and left stuck until a person noticed.',
+      'It now looks at the change\u2019s own check result. If the check failed, it rebuilds the derived records and pushes only if something actually changed. If nothing changed, it says once on the change that the failure is the change\u2019s own.',
     ] },
   { v: 1418, ts: '2026-10-04T10:34:49.982Z', date: 'Oct 4, 2026, 5:34 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
     items: [
