@@ -1,15 +1,10 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
+  { v: 1408, ts: '2026-10-04T07:40:22.742Z', date: 'Oct 4, 2026, 2:40 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'The tool that tells a change which part of the browser checks to run sent edits to the People directory to the wrong part. The directory is checked in part 12, and the tool said part 13, so those checks were skipped.',
       'Three modules the person card is built from now name part 12 too, and the shared seat block no longer names a part that never reads it.',
       'The tool\u2019s own self-test now finds where each of eight modules is actually checked and fails if the map disagrees, so the same mistake cannot return unnoticed.',
-    ] },
-  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
   { v: 1407, ts: '2026-10-04T07:22:27.332Z', date: 'Oct 4, 2026, 2:22 AM CT', title: 'The 1812 view explains what happened there, and whose accounts say so', kind: 'feature',
     items: [
