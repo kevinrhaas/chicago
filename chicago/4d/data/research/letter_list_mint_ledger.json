@@ -405,35 +405,11 @@
    "reader": "T-2073"
   },
   {
-   "id": "hh_ambrose_joshua",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
    "id": "hh_beegle_a",
    "class": "rewritten",
    "keys": [
     "arrival.note",
     "persons[].letter_list_returns[]"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_bradford_harriet",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_chapman_chas_h",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
    ],
    "reader": "T-2073"
   },
@@ -491,14 +467,6 @@
    "reader": "T-2073"
   },
   {
-   "id": "hh_fitzgerald_thos",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
    "id": "hh_forster_jane",
    "class": "rewritten",
    "keys": [
@@ -528,22 +496,6 @@
    "class": "rewritten",
    "keys": [
     "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_murray_alonzo",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_neff_r_a",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
    ],
    "reader": "T-2073"
   },
@@ -578,14 +530,6 @@
    "keys": [
     "name",
     "persons[].name"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_simons_e",
-   "class": "rewritten",
-   "keys": [
-    "persons[].letter_list_only"
    ],
    "reader": "T-2073"
   },
