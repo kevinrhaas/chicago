@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1432, ts: '2026-10-04T14:56:13.412Z', date: 'Oct 4, 2026, 9:56 AM CT', title: 'The prairie ground has blades, thatch and shade underfoot', kind: 'change',
+    items: [
+      'Look down anywhere on the open prairie: the ground now shows blades of grass, last year\'s thatch between the tussocks, and the shade under them, lit by the sun the way the dirt roads are.',
+      'Lusher clumps show more blades and the wet ground near the water less. The beach sand stays bare.',
+      'The worn bank by the river and the strip of sand and dirt at the forks carry the same grass where they meet the prairie, so there is no seam.',
+      'The colour of every kind of ground is unchanged; only its surface is new. The grain is a reconstruction (Liberty L374).',
+    ] },
   { v: 1431, ts: '2026-10-04T14:32:09.029Z', date: 'Oct 4, 2026, 9:32 AM CT', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
     items: [
       'Open a house on the Lake Street blocks and its card now names the household living there, where 26 of them read \u201cAnonymous count-unit\u201d before. Two more on Randolph near Clinton do too.',
