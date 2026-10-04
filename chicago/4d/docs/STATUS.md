@@ -20,6 +20,13 @@ extent (trees.js places timber from the heightfield and asks the zone classifier
 dune), so they cannot have moved; no stem count was taken. The street corridors are inside the
 town wherever they run between blocks; of 79 streets, 26 lie wholly on town ground, 35 leave it
 as country roads, and 18 never reach it.
+
+**And the lookup it made expensive is fixed in the same PR.** The derived ring has 457 vertices,
+and flora.js tested a point against a polygon edge by edge: about 30 us per lookup against the old
+ring's 11, and the sward asks millions per deal. Desktop smoke part 10, whose census walks 82,000
+lookups at each of three tiers, ran past the 600 s foreground limit twice on the branch. flora.js
+now bins each ring's edges by northing once and reads one bin per point: 0.15 us a lookup, and the
+identical answer at 2.1 million points compared on the committed rings.
 ## T-1691 — the Lake Street blocks' roofs name their keepers (2026-10-04)
 
 `tools/name_the_keepers_1835.py` now runs over a third district, `lake` (of T-1201), and is
