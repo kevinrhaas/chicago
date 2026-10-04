@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1406, ts: '2026-10-04T07:05:37.820Z', date: 'Oct 4, 2026, 2:05 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a ticket is blocked, the ticket tool now writes its line in the queue\u2019s blocked list itself, and takes it out again when the ticket is unblocked or withdrawn. Before, that line was written by hand, so one blocked ticket went missing from the list and two stood in it twice.',
+      'The queue check now refuses a ticket listed twice there.',
+    ] },
   { v: 1405, ts: '2026-10-04T06:38:44.336Z', date: 'Oct 4, 2026, 1:38 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [
       'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',

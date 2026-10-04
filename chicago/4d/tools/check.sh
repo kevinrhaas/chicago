@@ -3432,6 +3432,15 @@ selftest "…and the measurement's own readers still parse what check.sh declare
 step "a queue line blocked on a finished ticket is refused, and a closed one's is not" \
   node tools/test_ticket_stale_block.mjs
 
+# And band 8b, which T-1518 made the home of every blocked ticket, is now WRITTEN BY
+# THE TOOL (T-1541). `block` used to drop the queue line and write nothing, so the
+# line T-1518's gate demands was hand-written: T-1479 stood in no band until a run's
+# gate caught it, and T-1532 and T-1536 each stood twice because two branches wrote
+# the same block. `block` writes the line once (a re-block replaces it), `unblock`,
+# `withdraw` and `done` take it out, and `check` refuses a band line standing twice.
+step "band 8b: block writes a blocked ticket's line once, unblock takes it out, a twice is refused" \
+  node tools/test_ticket_blocked_band.mjs
+
 # And the collision the lane's parallelism makes inevitable. `nextIdNum` scans
 # every origin ref before it mints, so a duplicate id is not a missing guard but
 # the window between minting and pushing — on 2026-09-10 PRs #1048 and #1049 each
