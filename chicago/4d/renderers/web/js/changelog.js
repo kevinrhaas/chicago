@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1447, ts: '2026-10-04T21:21:58.420Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
+  { v: 1448, ts: '2026-10-04T21:43:37.927Z', date: 'Oct 4, 2026, 4:43 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
     items: [
       'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
       'The rule changed once to make that true, so 729 reconstructed families show a different year today, and the town as a whole still came in the same proportions: about one in six in 1833, one in three in 1834 and the rest in 1835.',
       'Because a building\u2019s weathering follows how long its family has been here, 23 houses and shops look a season newer or older. Campbell\u2019s on the south side, for one, now has fresh clapboard and a new roof.',
+    ] },
+  { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+    items: [
+      'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
+      'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
+      'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
+      'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
+      'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
     ] },
   { v: 1446, ts: '2026-10-04T21:05:08.589Z', date: 'Oct 4, 2026, 4:05 PM CT', title: 'Fenced lots are closed all round, open where a house faces the street', kind: 'fix',
     items: [
