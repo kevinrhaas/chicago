@@ -1,11 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1444, ts: '2026-10-04T20:29:21.910Z', date: 'Oct 4, 2026, 3:29 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+  { v: 1445, ts: '2026-10-04T20:43:28.091Z', date: 'Oct 4, 2026, 3:43 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
     items: [
       'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
       'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
       'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
       'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
       'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
+    ] },
+  { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
+    items: [
+      'This note was first published on 19 September as release 971. Twenty-five minutes later a merge dropped it from this list and gave its number to the next release. It is back under a new number, and the list now refuses any change that drops a published note or moves its number.',
+      'That night three of six ruled arrival dates were written: Botsford, Eli B. Williams and Hibbard Porter belonged to the spring of 1833, and their cards said so. Those cards are rebuilt from newspapers and civic registers, which can only say a man was here by some day, and a date written by hand used to be dropped without complaint.',
+      'A ledger now carries such a reading to the card: the page, the identification that joins it to the card, and the bound it replaces. It cannot identify anybody or invent a page, the new date must be earlier than the old one, and it cannot raise the confidence: these three stay inferred.',
+      'If the registers later derive a different bound, the build stops and names the card and both dates, rather than writing a stale ruling over fresh evidence.',
+      'Hibbard Porter moved furthest: the registers placed him no earlier than the afternoon of the scene, and the compiler\u2019s list puts him in the town two years and four months before it.',
+      'The other three, from the Baptist meeting of 19 October 1833, waited: writing that page onto three cards would have dropped the ten other people it had admitted to the town the day before.',
     ] },
   { v: 1443, ts: '2026-10-04T19:07:50.251Z', date: 'Oct 4, 2026, 2:07 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
     items: [
