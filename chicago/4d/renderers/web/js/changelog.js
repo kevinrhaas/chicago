@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1444, ts: '2026-10-04T20:21:09.435Z', date: 'Oct 4, 2026, 3:21 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
+  { v: 1445, ts: '2026-10-04T20:52:44.497Z', date: 'Oct 4, 2026, 3:52 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
     items: [
       'The grass and flowers around you used to cost a long pause each time you turned a little or walked a step further. That pause is now about half as long, and the plants stand exactly where they did.',
       'On a slowed-down phone at Light detail, a slow turn now drops below 50 ms per frame for most of its steps. The worst frame of a turn fell from 127 ms to 70 ms, of a flight from 108 ms to 56 ms, and of a walk from 47 ms to 34 ms.',
       'On a desktop at Full detail, the worst pause in a turn fell from 70 ms to under 40 ms.',
       'More of the lag is still being worked on: the next step spreads this work over several frames, so no single frame has to wait for it.',
+    ] },
+  { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
+    items: [
+      'This note was first published on 19 September as release 971. Twenty-five minutes later a merge dropped it from this list and gave its number to the next release. It is back under a new number, and the list now refuses any change that drops a published note or moves its number.',
+      'That night three of six ruled arrival dates were written: Botsford, Eli B. Williams and Hibbard Porter belonged to the spring of 1833, and their cards said so. Those cards are rebuilt from newspapers and civic registers, which can only say a man was here by some day, and a date written by hand used to be dropped without complaint.',
+      'A ledger now carries such a reading to the card: the page, the identification that joins it to the card, and the bound it replaces. It cannot identify anybody or invent a page, the new date must be earlier than the old one, and it cannot raise the confidence: these three stay inferred.',
+      'If the registers later derive a different bound, the build stops and names the card and both dates, rather than writing a stale ruling over fresh evidence.',
+      'Hibbard Porter moved furthest: the registers placed him no earlier than the afternoon of the scene, and the compiler\u2019s list puts him in the town two years and four months before it.',
+      'The other three, from the Baptist meeting of 19 October 1833, waited: writing that page onto three cards would have dropped the ten other people it had admitted to the town the day before.',
     ] },
   { v: 1443, ts: '2026-10-04T19:07:50.251Z', date: 'Oct 4, 2026, 2:07 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
     items: [
