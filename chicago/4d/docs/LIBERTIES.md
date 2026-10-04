@@ -16782,15 +16782,22 @@ out from and the ground he calls sand-hills, measured off a heightfield derived 
 sentence was read. That does not fix the house's place; it does say the described ground is where the
 model has it.
 
-**The colour is attested and it is NOT built, which is this entry's one unpaid debt.** *"A small
+**The colour is attested, and since T-1724 it is built — the shade is the invention.** *"A small
 yellow house"* is the only statement any source reached makes about the painted finish of any
-dwelling in this town. No archetype in this project has a yellow finish — `frame_dwelling` accepts
-`unpainted`, `white`, `whitewash` and `red`, and `generators/common/materials.py` holds no yellow —
-so the house builds in unpainted clapboard. **White was refused as a substitute**: it is a different
-claim, and a wrong one, about the one appearance fact this building has. The record states no paint
-rather than the wrong paint, its `research_note` says so, and the finish is filed as its own ticket.
-This is the same shape as **L60** (the estray pen that had to take a roof it probably never had): an
-archetype's vocabulary short of a source, recorded rather than papered over.
+dwelling in this town. Until T-1724 no archetype here had a yellow — `frame_dwelling` accepted
+`unpainted`, `white`, `whitewash` and `red`, and `generators/common/materials.py` held no yellow —
+so the house stood in unpainted clapboard. **White was refused as a substitute** then and stays
+refused: it is a different claim, and a wrong one, about the one appearance fact this building has.
+The record now states `paint: yellow`, graded `attested` on Andreas's printing of Bonnell, and
+builds in a new `yellow_paint` finish. **The hue is Bonnell's; the value `#B68A22` (linear) is
+ours.** What bounds it: an oil coat, so a coating that hides the grain the way lead paint does, at
+lead paint's gloss give or take (roughness 0.65 against 0.60); a yellow a house painter of 1835
+could buy cheaply, which is yellow ochre ground in oil and let down with white lead, so a straw
+yellow rather than a chrome one; and clear of the programme's dealt `ochre` wash (`#A98B52`), so
+that the one colour a source states is never read as one the schedule dealt. No class in
+`tools/fabric_rule_1835.py` may deal it, exactly as no class may deal the Sauganash's white. **What
+would replace it:** any account that names the shade, or a paint-shop advertisement in the 1835
+*Chicago American* or *Democrat* pricing the yellows the town could buy.
 
 **No household is seated by either record, and both refusals are deliberate.** Bonnell names an
 occupant for each roof and both are graded `attested` on `occupants`; neither gets a
@@ -16824,7 +16831,7 @@ that gives Kimberly a street or a corner.
 against, and the archetype problem this one repeats), **L60** (an archetype's vocabulary short of a
 source), **L285** (the same class of invention on the same bank, one sentence per house),
 `docs/RESEARCH/north_bank_east_end_neighbours.md`, **T-1717** and its parent **T-1204**.
-**Recorded:** 2026-09-28.
+**Recorded:** 2026-09-28. **Revised:** 2026-10-04.
 
 ### L292 — Two invented cottages on the plat's last tier, and the two yard buildings dealt one to a lot
 

@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1397, ts: '2026-10-04T03:38:46.287Z', date: 'Oct 3, 2026, 10:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
+  { v: 1398, ts: '2026-10-04T03:58:19.406Z', date: 'Oct 3, 2026, 10:58 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
       'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
       'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',
       'Every one of these people is our reconstruction, not a record. No source names them, and none says these men married.',
+    ] },
+  { v: 1397, ts: '2026-10-04T03:36:03.066Z', date: 'Oct 3, 2026, 10:36 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
   { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [

@@ -29,7 +29,7 @@
  *
  * `materials.wall_finish()`'s order, verbatim: a stated coating wins, then the
  * record's `finish_key`, then bare stock. A COATING (`whitewash`, `red_oxide`,
- * `white_paint`, the three rows the sheet marks `coating: True`) hides the
+ * `white_paint`, `yellow_paint`, the rows the sheet marks `coating: True`) hides the
  * wood's colour and keeps its relief, so it lets 0.3 of the grain's albedo
  * through. Bare stock lets all of it through. 0.3 is the fabric proof's reading
  * of a weathered coat, and it is a reconstruction (L350).
@@ -38,7 +38,7 @@
  */
 
 /** `materials.FINISHES` rows with `coating=True`. */
-export const COATINGS = new Set(['whitewash', 'red_oxide', 'white_paint']);
+export const COATINGS = new Set(['whitewash', 'red_oxide', 'white_paint', 'yellow_paint']);
 
 /** `materials._PAINT_FINISH` — `paint` values that name a coating (ochre is a wash, not a coat). */
 const PAINT_FINISH = {
@@ -47,6 +47,7 @@ const PAINT_FINISH = {
   red: 'red_oxide',
   red_oxide: 'red_oxide',
   ochre: 'ochre',
+  yellow: 'yellow_paint',
 };
 
 /** How much of the wood's own albedo figure a finish lets through. */
