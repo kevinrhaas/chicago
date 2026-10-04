@@ -63,9 +63,9 @@ each layout's `elsewhere`, and they are not passed or failed here:
 - the drawer's Back and Close, 30x30, and its tabs, 37 px wide at 320 px;
 - the place card's `why` toggles, 19x17.
 
-The finding is written into T-2047, the acceptance report that names this section's
-successors. The queue was at 204 lines against its ceiling of 140, so no new line was
-filed.
+They are filed as **T-2061**, at the foot of band 9. The queue was over its ceiling, so
+it was filed with `--anyway` and its reason: T-2047, the report that names this section's
+successors, merged while this piece was in flight, so no live ticket owned the finding.
 
 **Not covered by this reading:** the emulated keyboard shrinks the layout viewport (the
 `resizes-content` case). The visual-viewport-only case is the gentler one and is not read
