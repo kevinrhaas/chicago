@@ -676,6 +676,11 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     What's-new tab and this project's release feed to Manager and the launcher.
     `tools/check.sh` runs the contract check as a step, so a plain `./tools/check.sh` after
     merging covers it.
+  - **A shipped entry keeps its place, its stamp and its number (T-1380).** When you resolve a
+    changelog conflict, the base's entries go back VERBATIM; only your branch's own entries
+    are re-stamped. `check-changelog.mjs` holds the working tree to its merge base with `dev`
+    and refuses an entry that was dropped, re-stamped or renumbered: measured over every dev
+    merge since 2026-08, that happened 25 times and read "contract OK" every time.
   - Nothing stamps after merge. The file is authored inside the app because the What's-new
     tab imports it; `publish.sh` mirrors it to `site/4d/js/changelog.js`, the URL
     Manager and the polecat.live launcher parse live, which must not move — and to

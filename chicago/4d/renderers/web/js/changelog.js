@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1442, ts: '2026-10-04T19:13:18.602Z', date: 'Oct 4, 2026, 2:13 PM CT', title: 'Six dates that would not stick', kind: 'fix',
+    items: [
+      'This note was first published on 19 September as release 971. Twenty-five minutes later a merge dropped it from this list and gave its number to the next release. It is back under a new number, and the list now refuses any change that drops a published note or moves its number.',
+      'That night three of six ruled arrival dates were written: Botsford, Eli B. Williams and Hibbard Porter belonged to the spring of 1833, and their cards said so. Those cards are rebuilt from newspapers and civic registers, which can only say a man was here by some day, and a date written by hand used to be dropped without complaint.',
+      'A ledger now carries such a reading to the card: the page, the identification that joins it to the card, and the bound it replaces. It cannot identify anybody or invent a page, the new date must be earlier than the old one, and it cannot raise the confidence: these three stay inferred.',
+      'If the registers later derive a different bound, the build stops and names the card and both dates, rather than writing a stale ruling over fresh evidence.',
+      'Hibbard Porter moved furthest: the registers placed him no earlier than the afternoon of the scene, and the compiler\u2019s list puts him in the town two years and four months before it.',
+      'The other three, from the Baptist meeting of 19 October 1833, waited: writing that page onto three cards would have dropped the ten other people it had admitted to the town the day before.',
+    ] },
   { v: 1441, ts: '2026-10-04T18:51:58.275Z', date: 'Oct 4, 2026, 1:51 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
     items: [
       'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',

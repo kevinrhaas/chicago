@@ -15,6 +15,7 @@
  * values. See polecat-platform docs/SHELL-API.md.
  */
 import { readFileSync } from 'node:fs';
+import { RETIRED, holdToBase } from './changelog-history.mjs';
 
 const FILE = new URL('../renderers/web/js/changelog.js', import.meta.url);
 const problems = [];
@@ -96,20 +97,9 @@ if (!shape.entries.length) problems.push('no entries found — the `{ v: N,` hea
 // mis-tags a release and makes two different entries indistinguishable to
 // every consumer at once.
 //
-// RETIRED numbers are the one sanctioned gap, and each says why. A number goes
-// here only when the entry it was stamped onto was a COPY of another entry and
-// was removed — never to make room for a dropped one, which is what the gap
-// check exists to catch. A shipped number is never re-used, so it is retired.
-const RETIRED = new Map([
-  // T-2083: the merge driver could not read the double-quoted title of v1397
-  // ("Kelsey's boarding-house on the sand hills is painted yellow"), so laps
-  // put it back on top as new and the stamper numbered each copy. Removed.
-  [1411, 'T-2083: a merge-driver copy of v1397'],
-  [1421, 'T-2083: a merge-driver copy of v1397'],
-  [1422, 'T-2083: a merge-driver copy of v1397'],
-  [1423, 'T-2083: a merge-driver copy of v1397'],
-  [1424, 'T-2083: a merge-driver copy of v1397'],
-]);
+// RETIRED numbers are the one sanctioned gap, and each says why; the map lives
+// in changelog-history.mjs, because the base check below must agree with this one
+// on which numbers may leave the file.
 {
   const numbered = shape.entries.filter((e) => e.v !== 'null').map((e) => ({ ...e, n: Number(e.v) }));
   for (const e of numbered) {
@@ -239,6 +229,17 @@ if (CHANGELOG?.[0] && Number(CHANGELOG[0].v) >= ENFORCE_FROM) {
         + 'copied by a merge. Delete the copy; if it was already stamped, retire its number in RETIRED');
     } else first.set(t, e.v);
   }
+}
+
+// A SHIPPED ENTRY STAYS, UNDER ITS NUMBER (T-1380). Everything above reads this
+// file alone, and the two worst things a merge has done to it leave nothing in the
+// file to read: an entry dropped with its number handed to the next release (v971,
+// 2026-09-19), and a shipped entry moved to another number (six times on dev,
+// 2026-09-23 to 10-04). Both show only against the base, so this asks it.
+if (Array.isArray(CHANGELOG)) {
+  const held = await holdToBase(CHANGELOG);
+  problems.push(...held.problems);
+  for (const w of held.warnings) console.warn(`  note  ${w}`);
 }
 
 let prev = Infinity;
