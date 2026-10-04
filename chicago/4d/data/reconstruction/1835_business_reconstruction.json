@@ -9,6 +9,16 @@
   "liberty": "docs/LIBERTIES.md § L254",
   "records": 47,
   "groups": {
+    "civic_church_school_and_press": {
+      "ticket": "T-1188",
+      "title": "the civic, church, school and press establishments",
+      "records": 0,
+      "by_class": {},
+      "by_street": {},
+      "by_roof": {},
+      "ids": [],
+      "proprietors_adopted": []
+    },
     "lodging_river_and_transport": {
       "ticket": "T-1187",
       "title": "lodging, the river and transport",
@@ -194,7 +204,7 @@
       ],
       "proprietors_adopted": [
         "rc_crandall_benjamin",
-        "rc_metcalf_nathaniel"
+        "rc_metcalf_george"
       ]
     },
     "uncounted_trades": {
