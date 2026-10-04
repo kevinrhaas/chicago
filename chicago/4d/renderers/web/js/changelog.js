@@ -1,20 +1,36 @@
 export const CHANGELOG = [ // newest first
-  { v: 1422, ts: '2026-10-04T11:06:41.007Z', date: 'Oct 4, 2026, 6:06 AM CT', title: 'Nothing you can see: the rebuild reads business locations in order', kind: 'chore',
+  { v: null, ts: '', title: 'Nothing you can see: the rebuild reads business locations in order', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'When two changes land together, a tool rebuilds the files derived from them, one step after another. The step that lists where each business stands ran before the step that rebuilds where each claim resolves, so it read the old answer.',
       'So after a seat moved, that step refused the business as if the data were wrong. When Haddock\u2019s Tavern moved one lot east, it refused Elmira Fowler\u2019s millinery, whose seat moved in the same change. A second step quietly wrote a stale table.',
       'The rebuild now runs them in the right order, and its check fails if a step is ever placed above a file it reads.',
     ] },
-  { v: 1421, ts: '2026-10-04T11:06:41.007Z', date: 'Oct 4, 2026, 6:06 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1420, ts: '2026-10-04T11:06:41.007Z', date: 'Oct 4, 2026, 6:06 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1420, ts: '2026-10-04T11:18:02.264Z', date: 'Oct 4, 2026, 6:18 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Four research reports were candidates to stop being kept in the project\u2019s history, because they change often. They stay: a count of 925 recent merges found that dropping them would not have avoided a single conflict.',
+      'So they remain readable on GitHub without building anything, and the reasoning is written beside the rule.',
     ] },
   { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
     items: [
