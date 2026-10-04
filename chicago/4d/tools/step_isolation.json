@@ -2677,6 +2677,9 @@
     "tools/deal_siding_stock.py": {
       "wrote": []
     },
+    "tools/derive_evacuation_1812.py": {
+      "wrote": []
+    },
     "tools/derive_hay_limits.py": {
       "wrote": []
     },
@@ -2690,9 +2693,6 @@
       "wrote": []
     },
     "tools/derive_resident_roles.py": {
-      "wrote": []
-    },
-    "tools/derive_evacuation_1812.py": {
       "wrote": []
     },
     "tools/derive_shore_1812.py": {
@@ -4133,6 +4133,9 @@
       "wrote": []
     },
     "tools/test_ticket_after.mjs": {
+      "wrote": []
+    },
+    "tools/test_ticket_blocked_band.mjs": {
       "wrote": []
     },
     "tools/test_ticket_claim_lock.mjs": {

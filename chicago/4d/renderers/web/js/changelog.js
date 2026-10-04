@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1418, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
@@ -7,50 +7,61 @@ export const CHANGELOG = [ // newest first
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
     ] },
-  { v: 1417, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1416, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1415, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1414, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1413, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1412, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1411, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1410, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1409, ts: '2026-10-04T07:59:12.454Z', date: 'Oct 4, 2026, 2:59 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a ticket is blocked, the ticket tool now writes its line in the queue\u2019s blocked list itself, and takes it out again when the ticket is unblocked or withdrawn. Before, that line was written by hand, so one blocked ticket went missing from the list and two stood in it twice.',
+      'The queue check now refuses a ticket listed twice there.',
     ] },
   { v: 1408, ts: '2026-10-04T07:40:22.742Z', date: 'Oct 4, 2026, 2:40 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
     items: [
