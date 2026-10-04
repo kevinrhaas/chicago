@@ -18,8 +18,9 @@ THE RULE, and every number in it is the record's own:
     committed plat (`data/traces/vectors/thompson_lots.json`, all five grids, alleys
     inside them), the footprint of every structure standing on the scene date
     (`data/structures/*.json`, first phase, rotated as placed), and the forks
-    polygon the record always carried (kept as `extent.seed_polygon`, so no ground
-    that was town before stops being town).
+    polygon the record carried until T-2084 (FORKS_SEED below, so no ground that
+    was town before stops being town; it lives here and not in the record because
+    the record ships to the browser and no renderer would read it).
   * HALO — the seeds grown by the grazed halo at the LOW end of the dossier's
     50-200 m (`docs/research/02-flora.md` § ZONE 10), the end the record already
     used. The street corridors and alleys between blocks are inside it by
@@ -81,6 +82,11 @@ SHORE = DATA / "flora" / "zones" / "z08_lakeshore.json"
 CELL_M = 4.0
 SIMPLIFY_M = 3.0
 PAD_M = HALO_M + 3 * CELL_M
+# z10_settled_town's hand-drawn extent until T-2084, "drawn around the eight
+# structures the 1835 scene actually places" at the forks, sources
+# chicagology_prefire278 and chicagology_prefire273. Kept whole as a seed.
+FORKS_SEED = [[-160, -14], [-146, -112], [-96, -150], [20, -176], [96, -186],
+              [164, -152], [186, -96], [168, -38], [104, 2], [10, 16], [-72, 10]]
 
 
 def load(path: Path):
@@ -254,7 +260,7 @@ def lake_line():
 def derive():
     zone = load(ZONE)
     shore_e, beach_m = lake_line()
-    seed = zone["extent"].get("seed_polygon") or zone["extent"]["polygon"]
+    seed = FORKS_SEED
     plat = load(PLAT)
     blocks = [(b["id"], b["boundary_local_enu_m"]) for b in plat["blocks"]
               if b.get("boundary_local_enu_m")]
@@ -299,13 +305,13 @@ def derive():
     allpts = [p for r in outers for p in r]
     extent = dict(zone["extent"])
     extent["kind"] = "polygon"
-    extent["seed_polygon"] = seed
     extent["polygon"] = [list(p) for p in outers[0]]
     extent["include_polygons"] = [[list(p) for p in r] for r in outers[1:]]
     extent["exclude_polygons"] = [[list(p) for p in r] for r in holes] + sedge
     extent["box"] = {"e": [math.floor(min(p[0] for p in allpts)), math.ceil(max(p[0] for p in allpts))],
                      "n": [math.floor(min(p[1] for p in allpts)), math.ceil(max(p[1] for p in allpts))]}
-    extent["derived_by"] = "tools/derive_settled_town_extent.py"
+    extent.pop("seed_polygon", None)
+    extent.pop("derived_by", None)
     if not extent["include_polygons"]:
         del extent["include_polygons"]
 
