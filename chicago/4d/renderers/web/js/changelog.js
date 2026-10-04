@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
+    items: [
+      'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',
+      'The zone runs along the 1812 shore from just south of Harrison Street down to Eighteenth Street, between the water and the sand ridge a hundred yards back. It is a strip of beach, not a pin.',
+      'Captain Heald, who led the garrison out of the fort on 15 August 1812, wrote that it had gone \u201cabout a mile and a half\u201d when it was attacked from behind the bank. Two cottonwoods later standing in Eighteenth Street were long remembered as marking the spot. Those two places are more than a kilometre apart, so the zone takes in both and does not choose.',
+      'The route the column took is mapped too: down the river to its old mouth near Madison Street, then south along the beach. It will be drawn when the 1812 scene is built.',
+    ] },
   { v: 1398, ts: '2026-10-04T03:54:13.850Z', date: 'Oct 3, 2026, 10:54 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
     items: [
       'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',

@@ -321,6 +321,14 @@ step "the 1812 pre-cut shore still re-derives from its readings (T-1242)" \
 step "the Harrison 1830 cross-check still measures what the 1812 shore quotes (T-1286)" \
   python3 tools/measure_shore_1812_harrison.py --check
 
+# T-0470. The 15 August 1812 route and battle zone are DERIVED, not drawn: the
+# readings (Heald's mile and a half, the Eighteenth Street tradition, the ridge
+# line) laid along the 1812 shore the step above checks. The zone spans the
+# readings' disagreement and claims no point; this holds the file to its readings
+# byte for byte, and refuses it if the shore moves out from under the stations.
+step "the 1812 evacuation route and battle zone re-derive from their readings (T-0470)" \
+  python3 tools/derive_evacuation_1812.py --check
+
 # T-2048. The first fort's one plan, Whistler's draught of 25 January 1808, read into a
 # register the first fort will be built from (T-2049). The raster is not committed, so
 # this holds what can be held without it: the scale is the 75 ft staff's arithmetic,

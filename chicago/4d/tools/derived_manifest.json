@@ -165,6 +165,21 @@
       ]
     },
     {
+      "why": "A DERIVATION FROM HAND-ENTERED READINGS (T-0470): the 15 August 1812 evacuation route and battle zone, laid from data/terrain/1812_evacuation_readings.json along the 1812 shore derive_shore_1812.py writes, the carried Rees 1849 shore below Twelfth Street and the Eighteenth Street row in data/traces/south_anchor_control.json. It reads that step's output, so it follows it. It changes no geometry anything else reads, and the file it writes is nothing but the derivation, so the manifest owns it: a conflict there is settled by deriving again.",
+      "command": [
+        "python3",
+        "tools/derive_evacuation_1812.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/terrain/1812_evacuation_route.geojson"
+      ],
+      "verify": [
+        "python3",
+        "tools/derive_evacuation_1812.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-1250): the four Prairie Avenue sheets' GCP files, fitted from picks written in the tool, the committed rasters under chicago/reference/ and data/traces/prairie_1904_control.json. It reads nothing another step writes, so it sits with the other readers at the head of the manifest; tools/trace_ic_edge_1904.py reads its output and follows it.",
       "command": [
         "python3",
