@@ -2385,6 +2385,20 @@ KEY_OWNERS: list[tuple[str, str, str]] = [
      "written_by_stage: attribute_fill_arrival"),
 ]
 
+# A key the mint owns on most cards and a later pass owns on some, told apart by the
+# mark that pass leaves on the card it wrote (T-2073). synthesize_resident_research.py
+# replaces the mint's `inferred` bound with the year an independently corroborated
+# source states (T-0482 on hh_orsemus_morrison, T-0486 on hh_woodworth_james_h) and
+# opens the note it writes on SYNTH_ARRIVAL; it runs after the mint, so a re-derivation
+# that puts the bound back is the pipeline working, not drift. `--gate`'s T-0425 rule
+# already leaves such a card alone by its note, and this reads the same mark.
+SYNTH_ARRIVAL = "YEAR PRECISION ONLY."
+CARD_OWNERS: list[tuple[str, str, object, str]] = [
+    ("arrival", "synthesize_resident_research.py",
+     lambda card: str((card.get("arrival") or {}).get("note") or "").startswith(SYNTH_ARRIVAL),
+     "a year a corroborated source states, written over the mint's bound after it"),
+]
+
 # The drift that stood when this check was first gated, row by row, each with the
 # ticket that reads it. A SHRINK-ONLY LEDGER: the check is red on drift that is not
 # here and red on a row whose drift no longer stands, and the one mode that writes it,
@@ -2399,7 +2413,12 @@ def normalise(path: str) -> str:
     return re.sub(r"\.?\[\d+\]", "[]", path)
 
 
-def owner_of(key: str) -> tuple[str, str]:
+def owner_of(key: str, card: dict | None = None) -> tuple[str, str]:
+    """Who owns `key`; `card`, the committed side, lets a CARD_OWNERS mark decide first."""
+    for prefix, owner, marks, why in CARD_OWNERS:
+        if card is not None and marks(card) and (
+                key == prefix or key.startswith(prefix + ".") or key.startswith(prefix + "[")):
+            return owner, why
     for prefix, owner, why in KEY_OWNERS:
         if key == prefix or key.startswith(prefix + ".") or key.startswith(prefix + "["):
             return owner, why
@@ -2460,7 +2479,7 @@ def owned_drift(files: dict, docs: dict) -> list[dict]:
         if old == new:
             continue
         keys = sorted({normalise(k) for k in leaves(old, new)})
-        owned = [k for k in keys if owner_of(k)[0] in (MINT, UNATTRIBUTED)]
+        owned = [k for k in keys if owner_of(k, old)[0] in (MINT, UNATTRIBUTED)]
         if owned:
             rows.append({"id": path.stem, "class": "rewritten", "keys": owned})
     for path in sorted(docs):
@@ -2484,6 +2503,14 @@ def ledger_problems(current: list[dict], ledger: dict) -> tuple[list[str], list[
     known = {key(r) for r in rows}
     standing = {key(r) for r in current}
     for r in rows:
+        # T-2073. A class's reader may hand a row on to the ticket that can actually
+        # settle it, and says so on the row: whom from, and why. A row carrying another
+        # reader with no such record is still a wrong reader.
+        handed = r.get("handed_on") or {}
+        if (handed.get("from") == READERS.get(r.get("class")) and str(handed.get("why") or "").strip()
+                and re.fullmatch(r"T-\d{4}", str(r.get("reader") or ""))
+                and r.get("reader") != handed.get("from")):
+            continue
         if READERS.get(r.get("class")) != r.get("reader"):
             problems.append(f"ledger row {r.get('id')} ({r.get('class')}) names reader "
                             f"{r.get('reader')!r}; the class is {READERS.get(r.get('class'))!r}'s")
@@ -2595,8 +2622,24 @@ def ownership_self_test() -> int:
         ("a key a later pass owns moves (note)", with_card(setp("note", "PROJECTED RESIDENT.")),
          ledger, False),
     ]
+    def synth_dated(card):
+        card["arrival"] = {"value": "1833", "confidence": "attested", "precision": "year",
+                           "sources": ["a_corroborating_source"],
+                           "note": f"{SYNTH_ARRIVAL} A source states arrival in 1833."}
+
+    cases.append(("an arrival a later pass dated from its own source (T-2073)",
+                  with_card(synth_dated), ledger, False))
     if ledger.get("rows"):
         cases.append(("a ledger row names the wrong reader", docs, wrong_reader, True))
+        first = (ledger.get("rows") or [])[0]
+        handed = {"from": READERS.get(first.get("class")), "why": "it settles there"}
+        for label, row, fires in (
+                ("a ledger row handed on, with whom from and why", dict(
+                    first, reader="T-9999", handed_on=handed), False),
+                ("a ledger row handed on with no reason", dict(
+                    first, reader="T-9999", handed_on=dict(handed, why="")), True)):
+            cases.append((label, docs, {**ledger, "rows": [row] + list(
+                ledger.get("rows") or [])[1:]}, fires))
     failed = 0
     for label, tree, led, should_fire in cases:
         fired = bool(owned_check(files, tree, led, quiet=True))
