@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
+  { v: 1414, ts: '2026-10-04T09:05:46.494Z', date: 'Oct 4, 2026, 4:05 AM CT', title: 'Nothing you can see: the gate asks git which files are build products', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the check that stops one gate step from changing files another step is reading.',
       'That check used to be handed a list of three folders and files it should ignore. It now asks git which files are ignored build products, such as the published copy of the site, and records the answer when the steps are measured.',
