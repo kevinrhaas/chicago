@@ -451,6 +451,9 @@ FLORA_MANIFEST_READS: dict[str, tuple[str, str]] = {
 FLORA_PALETTE_READS: dict[str, tuple[str, str]] = {
     "greens": ("mesh", "palette?.greens"),
     "dry_accent": ("mesh", "rgb(palette?.dry_accent)"),
+    # T-2085 — the dust glaze on the town's bare turf: the palette's dry ground
+    # tone, mixed into the bare share the ground paints on a turf community.
+    "ground.dry_rgb": ("mesh", "palette?.ground?.dry_rgb"),
 }
 
 # data/fauna HAS a reader as of ROADMAP K51, and every figure in it is `shown`.

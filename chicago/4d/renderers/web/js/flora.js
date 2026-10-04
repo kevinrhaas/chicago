@@ -53,6 +53,8 @@ import * as THREE from 'three';
 import { SHRUB_GRAIN, FAR_SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 import { softExtentWeight, ditherHash } from './lakeshore.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
+// T-2085: which community is short turf, and the box its extent can reach.
+import { isTurfCommunity, extentBounds } from './turf-tile.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
 const LEVEL = { attested: 0.0, inferred: 0.5, reconstructed: 1.0 };
@@ -343,6 +345,17 @@ const TUNE = {
    * and that only ever adds margin.)
    */
   step: { near: 0.6, mid: 3.0, forb: 3.0 },
+  /**
+   * T-2085 — SHORT TURF IS DRAWN BY THE GROUND, NOT BY CARDS. On a community
+   * `isTurfCommunity` selects (the settled town: a 0.05-0.20 m sward) the mid
+   * and far clump cards and their carries draw nothing — the terrain paints
+   * the turf's texture there — and the near tufts and the weeds stand only to
+   * `radius`, ragged by `fringe` so the edge is no circle. At `full` that is
+   * the near ring's own radius, so the walker's own ground is unchanged; the
+   * lower tiers take it in (MID, LOW). Which species grow, in what share, is
+   * untouched: this decides how far the turf is DRAWN as plants, nothing else.
+   */
+  turf: { radius: 7.6, fringe: 0.8 },
 };
 
 /**
@@ -801,6 +814,9 @@ const LOW = {
   // T-2014. Shallower on the phone, as its far band is: the sward's own far
   // band stops at 120 m here and the shrubs stop well inside it.
   farShrub: { radius: 70.0, ramp: 24.0 },
+  // T-2085: a slow phone in the town spends almost nothing on ground cover —
+  // the tufts at its feet and the texture beyond.
+  turf: { radius: 3.4, fringe: 0.5 },
   cap: { near: 600, mid: 900, forb: 260, head: 480, far: 190, farShrub: 900 },
 };
 
@@ -833,6 +849,7 @@ const MID = {
     minPx: 2.0,
   },
   farShrub: { radius: 105.0, ramp: 35.0 },
+  turf: { radius: 4.8, fringe: 0.6 },
   cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 300, farShrub: 2000 },
 };
 
@@ -1187,6 +1204,7 @@ export async function createFlora({
   const blocks = footprintCircles(footprints);
   const finder = zoneFinder(zones, terrain, water);
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
+  stats.turf = handTurfToGround(zones, finder, water, terrain, problems);
   if (stats.unzonedLandFraction >= 0.999) {
     // Not a tolerance: records exist, ground exists, and NOTHING matches — the
     // layer would draw an empty prairie while looking healthy. Any fraction
@@ -1287,7 +1305,8 @@ export async function createFlora({
 
   // ---- placement --------------------------------------------------------- //
 
-  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null };
+  const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null,
+    last: null };
   const waterY = terrain.heightfield?.meta?.water_surface_m ?? 0;
 
   // The lattice each layer is scattered on, and the ring the shader fades it
@@ -1301,6 +1320,19 @@ export async function createFlora({
     rings[layer] = ringsFor(tune[layer], step);
     rings[layer].head = headRingOf(rings[layer].fade);
   }
+  // T-2085. The near tufts and the weeds on short turf stand on rings of their
+  // own, built by `ringsFor` like every layer's, so a turf plant is placed at
+  // coverage zero past its edge and arrives through the same handover as any
+  // other — a cut instead of a ring would pop them in whole. Kept out of
+  // `rings` because the gate holds that to the three layers it names.
+  const turfBand = (band) => Math.min(band, tune.turf.radius * 0.3);
+  const turfRings = {
+    near: ringsFor({ ...tune.near, radius: Math.min(tune.turf.radius, tune.near.radius),
+      band: turfBand(tune.near.band) }, step),
+    forb: ringsFor({ ...tune.forb, radius: Math.min(tune.turf.radius, tune.forb.radius),
+      band: turfBand(tune.forb.band), fringe: tune.turf.fringe }, step),
+  };
+  turfRings.forb.head = headRingOf(turfRings.forb.fade);
   /** Which ring each rooted set is drawn on. A rosette is a forb. */
   const ringOfSet = {
     'flora-near': rings.near, 'flora-mid': rings.mid,
@@ -1424,9 +1456,11 @@ export async function createFlora({
         // vertex program collapses a plant outside its ring to a point, which
         // is what it already did for the annulus between the fade and the
         // lattice, so the frame pays nothing for them either.
-        const ring = slotRing(near, e, n, 0, _ring);
         const zone = finder(e, n);
         if (!zone || !zone.graminoids.length) return;
+        // T-2085: past the turf's own lattice nothing is dealt at all.
+        if (zone.turf && r > turfRings.near.lattice.outer) return;
+        const ring = slotRing(zone.turf ? turfRings.near : near, e, n, 0, _ring);
         // The community's own recorded matrix cover decides whether this slot
         // carries a plant — the same rule the forb layer has always applied to
         // its own recorded densities, on the field the matrix layer ignored.
@@ -1476,6 +1510,8 @@ export async function createFlora({
         if (r > mid.fade[0] + off + step) return;
         const zone = finder(e, n);
         if (!zone || !zone.graminoids.length) return;
+        // T-2085: on short turf the ground's texture is the mid band.
+        if (zone.turf) return;
         // A clump card stands for the same matrix the near tufts do, so it is
         // thinned by the same recorded cover — and by the same STRATIFIED draw.
         // Applying it to one layer and not the other would put a seam at the
@@ -1519,6 +1555,10 @@ export async function createFlora({
         if (r > f.fade[0] + off + step) return;
         const zone = finder(e, n);
         if (!zone || !zone.forbs.length) return;
+        // T-2085: the weeds on turf stand on the turf's forb ring.
+        const fr = zone.turf ? turfRings.forb : f;
+        const fo = zone.turf ? fringeOf(e, n, fr.fringe) : off;
+        if (zone.turf && r > fr.fade[0] + fo + step) return;
         // The forb layer's density is the zone's OWN summed density_per_ha, so a
         // sparse community stays sparse. `share` is the chance this lattice slot
         // is used at all — of the half of the community that may stand on this
@@ -1535,10 +1575,10 @@ export async function createFlora({
         if (crowdsTheWalker(sp, r, cone?.planes ? cone.eyeY - y : 0)) { if (c) c.row.rejWalker++; return; }
         countDraw(c, sp, wet);
         const set = sp.form === 'forb_basal_scape' ? rosetteSet : forbSet;
-        set.ring(ringAt(f.fade, off, _ring));
+        set.ring(ringAt(fr.fade, fo, _ring));
         const h = placeForb(set, sp, e, y, n, rng);
-        if (h > 0 && r <= f.head[0] + off + step) {
-          maybeHead(heads, sp, e, y, n, rng, h, ringAt(f.head, off, _headRing));
+        if (h > 0 && r <= fr.head[0] + fo + step) {
+          maybeHead(heads, sp, e, y, n, rng, h, ringAt(fr.head, fo, _headRing));
         }
       });
 
@@ -1615,6 +1655,7 @@ export async function createFlora({
           farSet.ring([outer, feather, inner, feather]);
           const zone = finder(e, n);
           if (!zone || !zone.graminoids.length) return;
+          if (zone.turf) return;
           const wet = water.isWater(e, n);
           // T-0209. THE FAR BAND DEALS THE WHOLE COMMUNITY, not just its grass.
           // Until this it dealt `graminoids` alone, so every flowering
@@ -1821,6 +1862,8 @@ export async function createFlora({
           if (r < handover - margin || r > edge + margin) return;
           const zone = finder(e, n);
           if (!zone || !zone.graminoids.length) return;
+          // T-2085: no carry on turf — past its own rings the ground carries it.
+          if (zone.turf) return;
           const wet = water.isWater(e, n);
           const sp = dealt(wet ? zone.wet.graminoids : zone.dry.graminoids,
             zone.matrixShare, u);
@@ -2135,14 +2178,19 @@ export async function createFlora({
       const turnedFar = centres.farShrubYaw === null
         || Math.abs(((yaw - centres.farShrubYaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
            > CONE_YAW_STEP;
+      // T-2085. How far the last frame carried the walker: the next one will
+      // carry it about as far, so the rebuild is taken a frame EARLY rather
+      // than a frame late. See `moved`.
+      const pace = centres.last ? Math.hypot(e - centres.last.e, n - centres.last.n) : 0;
+      centres.last = { e, n };
       let rebuilt = false;
-      if (coneChanged || turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step)) {
+      if (coneChanged || turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step, pace)) {
         for (const _ of rebuildFarShrubs(e, n, cone)) { /* synchronous */ }
         centres.farShrub = { e, n };
         centres.farShrubYaw = yaw;
         rebuilt = true;
       }
-      if (coneChanged || turned || moved(centres.near, e, n, step)) {
+      if (coneChanged || turned || moved(centres.near, e, n, step, pace)) {
         for (const _ of rebuildAll(e, n, cone)) { /* runtime synchronous path */ }
         centres.near = { e, n };
         centres.yaw = yaw;
@@ -2171,9 +2219,25 @@ function inertRig(group, stats) {
   };
 }
 
-function moved(centre, e, n, step) {
+/**
+ * Whether the walker has gone far enough from `centre` that the lattice has to
+ * be rebuilt. `ringsFor` insets every ring inside its lattice by exactly
+ * `step`, so the rebuild has to land while the walker is still within `step`
+ * of the old centre — and a test of `> step` alone only ever fires on the
+ * frame AFTER it has left, overshooting by up to one frame's move.
+ *
+ * T-2085. On the near ring that overshoot was not the 7 % of a ramp the smoke
+ * allowed for: since T-0093 its edge is a per-slot handover and the shader's
+ * band is `HARD`, so a tuft whose own boundary fell inside the overshoot
+ * arrived at 100 % — measured at 6.93 m on the arrival walk, at 0.15 m paces
+ * that crossed the 0.6 m step on the fifth pace and not the fourth. So the
+ * last frame's move is taken as the next one's and the rebuild fires a frame
+ * early. A move longer than the step is a jump, not a pace: it rebuilds on its
+ * own distance, and is not carried into the frame after it.
+ */
+function moved(centre, e, n, step, pace = 0) {
   if (!centre) return true;
-  return Math.hypot(e - centre.e, n - centre.n) > step;
+  return Math.hypot(e - centre.e, n - centre.n) + (pace <= step ? pace : 0) > step;
 }
 
 /** SUN_FALLBACK as a direction, in three's axes: +x east, +y up, -z north. */
@@ -2254,7 +2318,7 @@ function mergeTune(level) {
   const t = {
     near: { ...TUNE.near }, mid: { ...TUNE.mid }, forb: { ...TUNE.forb },
     far: { ...TUNE.far }, farShrub: { ...TUNE.farShrub },
-    cap: { ...TUNE.cap }, step: { ...TUNE.step },
+    cap: { ...TUNE.cap }, step: { ...TUNE.step }, turf: { ...TUNE.turf },
   };
   const preset = level === 'light' ? LOW : level === 'balanced' ? MID : null;
   if (preset) {
@@ -2264,6 +2328,7 @@ function mergeTune(level) {
     Object.assign(t.far, preset.far);
     Object.assign(t.farShrub, preset.farShrub);
     Object.assign(t.cap, preset.cap);
+    Object.assign(t.turf, preset.turf);
   }
   return t;
 }
@@ -2651,6 +2716,20 @@ function compileZones({ index, files }, terrain, problems, stats) {
     out.push({
       id: entry.id,
       zone: entry.zone,
+      /** T-2085. Short turf: drawn as near tufts and the ground's texture. */
+      turf: isTurfCommunity(rec),
+      /** ...and the recorded tones that texture is painted in (handTurfToGround). */
+      turfTones: isTurfCommunity(rec) ? {
+        sodDark: palette?.greens?.[0] ?? null,
+        sodLight: palette?.greens?.[2] ?? palette?.greens?.at?.(-1) ?? null,
+        // The manifest's copies of the record's two ground tones, which
+        // validate.py holds equal to it and terrain.js already paints the box
+        // zones from; the dust is the palette's own dry-glaze tone.
+        bare: entry.ground_rgb ?? null,
+        dust: palette?.ground?.dry_rgb ?? entry.ground_rgb ?? null,
+        wet: entry.ground_wet_rgb ?? null,
+        bareFraction: typeof cover.bare_soil_fraction === 'number' ? cover.bare_soil_fraction : 0,
+      } : null,
       extent: rec.extent ?? entry.extent ?? null,
       priority: rec.extent?.priority ?? entry.priority ?? 0,
       standsInWater: rec.extent?.kind === 'buffer' && rec.extent?.of === 'water'
@@ -3204,6 +3283,71 @@ async function waterField(terrain, checkpoint) {
 }
 
 /** Highest priority wins; a point that matches nothing gets nothing. */
+/**
+ * T-2085 — WHERE THE GROUND PAINTS TURF, asked of the placer itself.
+ *
+ * The mask is the zone finder's own answer, texel by texel, over the box the
+ * turf communities' extents can reach: the terrain paints turf exactly where
+ * the bands above have stopped drawing cards, and a community a later parcel
+ * re-draws (T-2084's derived extent) carries its ground with it, with nothing
+ * here to edit. Water is left out, so the channel bed stays the channel bed.
+ * One blur pass gives the edge a ramp of about one texel each side; the shader
+ * frays it. At most 256 texels a side, at no finer than 2 m.
+ */
+const TURF_MASK_MAX_PX = 256;
+const TURF_MASK_MIN_M = 2;
+function handTurfToGround(zones, finder, water, terrain, problems) {
+  const turf = zones.filter((z) => z.turf);
+  const out = { zones: turf.map((z) => z.id), painted: false, cellM: null, texels: 0 };
+  if (!turf.length || typeof terrain?.setTurf !== 'function') return out;
+  let box = null;
+  for (const z of turf) {
+    const b = extentBounds(z.extent);
+    if (!b) {
+      problems.push(`flora: turf community ${z.id} has no extent a mask can be cut from — `
+        + 'its cards are not drawn and its ground stays prairie');
+      continue;
+    }
+    box = box ? { e0: Math.min(box.e0, b.e0), e1: Math.max(box.e1, b.e1),
+      n0: Math.min(box.n0, b.n0), n1: Math.max(box.n1, b.n1) } : { ...b };
+  }
+  const tones = turf[0].turfTones;
+  if (!box || !tones || ![tones.sodDark, tones.sodLight, tones.bare, tones.dust, tones.wet]
+    .every((t) => Array.isArray(t) && t.length === 3)) {
+    if (box) problems.push(`flora: turf community ${turf[0].id} records no full set of tones`);
+    return out;
+  }
+  const cell = Math.max(TURF_MASK_MIN_M,
+    Math.max(box.e1 - box.e0, box.n1 - box.n0) / (TURF_MASK_MAX_PX - 4));
+  const w = Math.ceil((box.e1 - box.e0) / cell) + 4;
+  const h = Math.ceil((box.n1 - box.n0) / cell) + 4;
+  const e0 = box.e0 - 2 * cell;
+  const n0 = box.n0 - 2 * cell;
+  const raw = new Uint8Array(w * h);
+  for (let j = 0; j < h; j++) {
+    for (let i = 0; i < w; i++) {
+      const e = e0 + (i + 0.5) * cell;
+      const n = n0 + (j + 0.5) * cell;
+      if (finder(e, n)?.turf && !water.isWater(e, n)) { raw[j * w + i] = 255; out.texels++; }
+    }
+  }
+  const data = new Uint8Array(w * h);
+  for (let j = 1; j < h - 1; j++) {
+    for (let i = 1; i < w - 1; i++) {
+      let sum = 0;
+      for (let dj = -1; dj <= 1; dj++) for (let di = -1; di <= 1; di++) sum += raw[(j + dj) * w + i + di];
+      data[j * w + i] = Math.round(sum / 9);
+    }
+  }
+  out.cellM = cell;
+  out.painted = terrain.setTurf({
+    box: { e0, e1: e0 + w * cell, n0, n1: n0 + h * cell },
+    mask: { data, w, h },
+    ...tones,
+  });
+  return out;
+}
+
 function zoneFinder(zones, terrain, water) {
   return function find(e, n) {
     for (const z of zones) {

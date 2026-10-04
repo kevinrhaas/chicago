@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1436, ts: '2026-10-04T16:59:01.860Z', date: 'Oct 4, 2026, 11:59 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
+    items: [
+      'Across the town, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
+      'Past a few steps from you the turf is painted on the ground instead of being drawn as clumps of grass, so it no longer stands knee-high across the town.',
+      'Scene detail now reaches the town too: Full keeps the grass at your feet, Balanced and Light keep less of it, and the texture carries the rest.',
+      'At the in-town views the plants cost 59\u201377% fewer triangles at every setting, with no extra draw calls.',
+      'The pattern of the turf is a reconstruction. Its colours and how much ground lies bare come from the town\u2019s plant records. It is listed under Liberties.',
+    ] },
   { v: 1435, ts: '2026-10-04T16:11:51.956Z', date: 'Oct 4, 2026, 11:11 AM CT', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
     items: [
       'Step into the Western Hotel\'s wagon yard or a pound and the ground is now the same worn dirt as the road outside, grain and all, lit by the sun, where it used to be a blurry print of squares.',
