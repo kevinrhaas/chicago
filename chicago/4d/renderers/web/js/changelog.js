@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1406, ts: '2026-10-04T06:59:00.742Z', date: 'Oct 4, 2026, 1:59 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
+  { v: null, ts: '', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'The tool that tells a change which part of the browser checks to run sent edits to the People directory to the wrong part. The directory is checked in part 12, and the tool said part 13, so those checks were skipped.',
       'Three modules the person card is built from now name part 12 too, and the shared seat block no longer names a part that never reads it.',
       'The tool\u2019s own self-test now finds where each of eight modules is actually checked and fails if the map disagrees, so the same mistake cannot return unnoticed.',
+    ] },
+  { v: 1406, ts: '2026-10-04T07:06:15.901Z', date: 'Oct 4, 2026, 2:06 AM CT', title: 'The 1835 town can now be packed as one checked download', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. This is groundwork for running the town outside the browser, starting with the Unreal version.',
+      'One command now packs a version of the 1835 town into a single file: every building and its records, the ground and the water.',
+      'Every file in the package is fingerprinted. A copy with one changed byte, a missing file or an extra file is refused.',
+      'Packing the same version twice gives an identical file. The streets, trees, fences and other things drawn as the page loads are listed as not yet included.',
     ] },
   { v: 1405, ts: '2026-10-04T06:38:44.336Z', date: 'Oct 4, 2026, 1:38 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [
