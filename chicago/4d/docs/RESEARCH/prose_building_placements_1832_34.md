@@ -112,14 +112,20 @@ Franklin Street divides — block 21 `blk_south_water_market` and block 20 `blk_
 — and the unplatted river margin opposite, where this project has already refused building
 positions at every tolerance. Two candidate blocks, no lot, a 220 m face.
 
-**Refused on the carry.** Nothing dates the fabric and nothing follows it past October 1834, eight
-and a half months short of the scene date. An earlier page promotes no 1835 fact — the rule that
-refused all 23 of T-1624's.
+**Corrected by T-1690: the town already held this building, so the unit is no longer refused.**
+The ruling that stood here said no record names it. One does — `temple_building`, placed
+2026-08-11 from Andreas's *"small house of worship belonging to the First Baptist Church Society,
+on South Water Street, near Franklin"*, with *"the First Baptist meeting house"* among its names
+and Sproat's school in its upper storey. It is the same building under the same street and the
+same "near". It also already carried the fact the refusal said was missing: the Chicago American
+of 4 July 1835 calls School District No. 2's electors to *"the Baptist Meeting House"* on 11 July,
+ten days after the scene date, so the building is followed past October 1834 after all.
 
-**This is a gap the town ought to fill, and the gap is now a ticket.** No record and no exclusion
-names this building, so the reconstruction is missing an attested meeting house and school on a
-known street. **T-1690** owns placing it, on the reconstruction programme's own terms rather than
-as a carry from this page.
+So nothing is placed and no roof is added. Moses and Kirkland's page 79 is written onto the record
+as a corroboration of its keepers and of its locator, and page 348's 19 October 1834 Episcopal
+service under Rev. Isaac W. Hallam is written onto its use as a single dated use, not a tenancy.
+The ledger now reads this unit as **asserted** off `temple_building`'s keepers field, and the
+written refusal was deleted, because a ruling may only close a unit nothing else has closed.
 
 ### `bk_mose2_008` — Mark Beaubien's frame building near Mr. Noble's house
 
@@ -228,4 +234,6 @@ five buildings in the whole of Chicago — and that is a fact about the town and
 It placed no building, invented no coordinate, and moved no structure. The one record it changed
 gained a name, a keeper and a better argument for a date it already carried, at the grade it already
 carried it. Five readings are refused in writing with the block work recorded so nobody reads it a
-third time, and one new ticket — T-1690 — carries the building that ought to exist.
+third time, and one new ticket — T-1690 — carries the building that ought to exist. (T-1690 found
+it already standing as `temple_building`; see the correction under `bk_mose2_003`. Four refusals
+stand.)

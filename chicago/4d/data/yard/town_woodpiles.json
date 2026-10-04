@@ -10,17 +10,17 @@
   "dwellings": 299,
   "by_row": {
    "cabin": 41,
-   "cottage": 133,
+   "cottage": 132,
    "house": 53,
    "keeper": 18,
    "merchant": 28,
-   "shanty": 25
+   "shanty": 26
   },
   "by_class": {
    "keeper": 18,
-   "labourer": 72,
+   "labourer": 73,
    "merchant": 28,
-   "tradesman": 180
+   "tradesman": 179
   },
   "by_basis": {
    "default": 17,
@@ -30,10 +30,10 @@
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 273,
-   "cordwood": 299,
+   "chopping_block": 272,
+   "cordwood": 298,
    "log_heap": 41,
-   "slab_heap": 25
+   "slab_heap": 26
   },
   "piled": 298,
   "refused": 1
@@ -1487,8 +1487,8 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      716.58,
-      -90.5
+      742.5,
+      -90.72
      ],
      "bearing_deg": 180.0,
      "length_m": 2.44,
@@ -1500,8 +1500,8 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      713.79,
-      -90.5
+      739.71,
+      -90.72
      ],
      "bearing_deg": 180.0,
      "length_m": 2.44,
@@ -1513,8 +1513,8 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      717.35,
-      -88.79
+      743.27,
+      -89.01
      ],
      "bearing_deg": 180.0,
      "billets": 2,
@@ -4358,36 +4358,23 @@
    "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
    "name": "Reconstructed D2 rough plank dwelling or shanty #04",
    "function": "rough_plank_dwelling_or_shanty",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "shanty",
-   "row": "cottage",
-   "rule": "Y-W3",
+   "row": "shanty",
+   "rule": "Y-W1",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
-     "kind": "cordwood",
+     "kind": "slab_heap",
      "at_local_enu_m": [
-      752.08,
-      -91.5
+      726.16,
+      -90.94
      ],
-     "bearing_deg": 180.36,
-     "length_m": 1.69,
-     "depth_m": 0.61,
-     "height_m": 0.92,
-     "stick": "stove",
+     "bearing_deg": 180.35,
+     "pieces": 9,
      "seed": 306414899
-    },
-    {
-     "kind": "chopping_block",
-     "at_local_enu_m": [
-      751.69,
-      -90.09
-     ],
-     "bearing_deg": 180.36,
-     "billets": 2,
-     "seed": 330758088
     }
    ]
   },

@@ -414,41 +414,6 @@
       "note": "A SIDE LOT LINE — the west side of blk_south_water_dearborn_lot0 — and the fence on it is built ONCE: blk_south_water_dearborn_lot0 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "rear_blk_south_water_dearborn_lot1",
-      "path_local_enu_m": [
-        [
-          710.72,
-          -57.14
-        ],
-        [
-          716.7,
-          -57.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_south_water_dearborn_lot1",
-          "structures": [
-            "mansion_house",
-            "mansion_house_stable"
-          ],
-          "households": [
-            {
-              "id": "hh_haddock_edward",
-              "held_as": "home",
-              "at": "mansion_house"
-            },
-            {
-              "id": "hh_haddock_edward",
-              "held_as": "workplace",
-              "at": "mansion_house"
-            }
-          ]
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds mansion_house, mansion_house_stable — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
       "id": "side_blk_south_water_dearborn_lot0_blk_south_water_dearborn_lot2_e",
       "path_local_enu_m": [
         [
@@ -559,11 +524,11 @@
       "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds frederick_thomas_shop, recon_1835_blk_south_water_dearborn_a1_09, recon_1835_blk_south_water_dearborn_c1_08, recon_1835_blk_south_water_dearborn_c2_07 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
-      "id": "rear_blk_south_water_dearborn_lot1_1",
+      "id": "rear_blk_south_water_dearborn_lot1",
       "path_local_enu_m": [
         [
-          719.19,
-          -57.3
+          710.72,
+          -57.14
         ],
         [
           736.64,
@@ -573,6 +538,30 @@
       "belongs_to": [
         {
           "lot": "blk_south_water_dearborn_lot1",
+          "structures": [
+            "recon_1835_blk_south_water_dearborn_d2_04"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_dearborn_d2_04 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "rear_blk_south_water_dearborn_lot3",
+      "path_local_enu_m": [
+        [
+          736.64,
+          -57.62
+        ],
+        [
+          742.62,
+          -57.73
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_south_water_dearborn_lot3",
           "structures": [
             "mansion_house",
             "mansion_house_stable"
@@ -591,31 +580,7 @@
           ]
         }
       ],
-      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds mansion_house, mansion_house_stable — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_south_water_dearborn_lot3",
-      "path_local_enu_m": [
-        [
-          736.64,
-          -57.62
-        ],
-        [
-          762.56,
-          -58.09
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_south_water_dearborn_lot3",
-          "structures": [
-            "recon_1835_blk_south_water_dearborn_d2_04"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_dearborn_d2_04 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds mansion_house, mansion_house_stable — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_south_water_dearborn_lot2_blk_south_water_dearborn_lot4_e",
@@ -688,6 +653,41 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot4, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_dearborn_a3_06, recon_1835_blk_south_water_dearborn_c3_01, recon_1835_blk_south_water_dearborn_c3_02, recon_1835_blk_south_water_dearborn_d1_05 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "rear_blk_south_water_dearborn_lot3_1",
+      "path_local_enu_m": [
+        [
+          745.11,
+          -57.77
+        ],
+        [
+          762.56,
+          -58.09
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_south_water_dearborn_lot3",
+          "structures": [
+            "mansion_house",
+            "mansion_house_stable"
+          ],
+          "households": [
+            {
+              "id": "hh_haddock_edward",
+              "held_as": "home",
+              "at": "mansion_house"
+            },
+            {
+              "id": "hh_haddock_edward",
+              "held_as": "workplace",
+              "at": "mansion_house"
+            }
+          ]
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds mansion_house, mansion_house_stable — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_south_water_dearborn_lot5",
@@ -817,21 +817,10 @@
         {
           "lot": "blk_south_water_dearborn_lot1",
           "structures": [
-            "mansion_house",
-            "mansion_house_stable"
+            "recon_1835_blk_south_water_dearborn_d2_04"
           ],
-          "households": [
-            {
-              "id": "hh_haddock_edward",
-              "held_as": "home",
-              "at": "mansion_house"
-            },
-            {
-              "id": "hh_haddock_edward",
-              "held_as": "workplace",
-              "at": "mansion_house"
-            }
-          ]
+          "households": [],
+          "refused": "no_household_names_this_ground"
         }
       ],
       "note": "A SIDE LOT LINE — the west side of blk_south_water_dearborn_lot1 — and the fence on it is built ONCE: blk_south_water_dearborn_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
@@ -852,6 +841,15 @@
         {
           "lot": "blk_south_water_dearborn_lot1",
           "structures": [
+            "recon_1835_blk_south_water_dearborn_d2_04"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_south_water_dearborn_lot3",
+          "structures": [
             "mansion_house",
             "mansion_house_stable"
           ],
@@ -867,16 +865,7 @@
               "at": "mansion_house"
             }
           ],
-          "side": "south-west"
-        },
-        {
-          "lot": "blk_south_water_dearborn_lot3",
-          "structures": [
-            "recon_1835_blk_south_water_dearborn_d2_04"
-          ],
-          "households": [],
-          "side": "south-east",
-          "refused": "no_household_names_this_ground"
+          "side": "south-east"
         }
       ],
       "note": "A SIDE LOT LINE — the east side of blk_south_water_dearborn_lot1 — and the fence on it is built ONCE: blk_south_water_dearborn_lot1 and blk_south_water_dearborn_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — from the head of the yard, 3.048 m or more clear of the committed building that stands nearest the street and no more than 12.192 m from the rear line, back to the rear corner — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
@@ -897,11 +886,22 @@
         {
           "lot": "blk_south_water_dearborn_lot3",
           "structures": [
-            "recon_1835_blk_south_water_dearborn_d2_04"
+            "mansion_house",
+            "mansion_house_stable"
           ],
-          "households": [],
-          "side": "south-west",
-          "refused": "no_household_names_this_ground"
+          "households": [
+            {
+              "id": "hh_haddock_edward",
+              "held_as": "home",
+              "at": "mansion_house"
+            },
+            {
+              "id": "hh_haddock_edward",
+              "held_as": "workplace",
+              "at": "mansion_house"
+            }
+          ],
+          "side": "south-west"
         },
         {
           "lot": "blk_south_water_dearborn_lot5",

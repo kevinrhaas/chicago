@@ -40,15 +40,15 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 150,
+    "adopted_seats": 149,
     "written": 23,
-    "refused": 79,
+    "refused": 78,
     "owed": 48,
-    "refused_letter_list": 79,
+    "refused_letter_list": 78,
     "refused_no_source": 0,
     "refused_name_disagrees": 0,
-    "refused_on_the_card": 37,
-    "refused_with_a_household_left": 37
+    "refused_on_the_card": 36,
+    "refused_with_a_household_left": 36
   },
   "written": [
     {
@@ -520,35 +520,6 @@
       }
     },
     {
-      "household_id": "hh_clark_john_k",
-      "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
-      "block_id": "blk_south_water_dearborn",
-      "lot_id": "blk_south_water_dearborn#03",
-      "clause": "labourer_dwellings",
-      "family": "D2",
-      "district": "south",
-      "name": "The Clark household — a name the town's own records carry",
-      "sources": [
-        "chicago_american_1835",
-        "isa_public_domain_land_tract_sales"
-      ],
-      "occupants": {
-        "value": "The Clark household — a name the town's own records carry",
-        "confidence": "reconstructed",
-        "sources": [
-          "chicago_american_1835",
-          "isa_public_domain_land_tract_sales"
-        ],
-        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1638; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_south_water_dearborn#03, fronting lake, a standing roof of family D2 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
-      },
-      "resident_assignment": {
-        "status": "assigned",
-        "confidence": "reconstructed",
-        "note": "T-1638: seated by the placement policy's platted deal under its labourer_dwellings clause, on blk_south_water_dearborn#03 fronting lake — a standing anonymous roof of family D2 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-        "household_id": "hh_clark_john_k"
-      }
-    },
-    {
       "household_id": "hh_beaubien_charles_h",
       "structure_id": "recon_1835_blk_south_water_dearborn_h1_03",
       "block_id": "blk_south_water_dearborn",
@@ -573,6 +544,33 @@
         "confidence": "reconstructed",
         "note": "T-1638: seated by the placement policy's platted deal under its merchant_and_professional_dwellings clause, on blk_south_water_dearborn#05 fronting lake — a standing anonymous roof of family H1 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
         "household_id": "hh_beaubien_charles_h"
+      }
+    },
+    {
+      "household_id": "hh_forsythe_william",
+      "structure_id": "recon_1835_blk_south_water_franklin_d1_04",
+      "block_id": "blk_south_water_franklin",
+      "lot_id": "blk_south_water_franklin#06",
+      "clause": "labourer_dwellings",
+      "family": "D1",
+      "district": "south",
+      "name": "The Forsythe household — a name the town's own records carry",
+      "sources": [
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "occupants": {
+        "value": "The Forsythe household — a name the town's own records carry",
+        "confidence": "reconstructed",
+        "sources": [
+          "chicago_voter_lists_1833_1835_irad"
+        ],
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1638; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_south_water_franklin#06, fronting south_water, a standing roof of family D1 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+      },
+      "resident_assignment": {
+        "status": "assigned",
+        "confidence": "reconstructed",
+        "note": "T-1638: seated by the placement policy's platted deal under its labourer_dwellings clause, on blk_south_water_franklin#06 fronting south_water — a standing anonymous roof of family D1 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "household_id": "hh_forsythe_william"
       }
     },
     {
@@ -796,17 +794,6 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "north",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
-      "on_the_card": false
-    },
-    {
-      "household_id": "hh_dyer_sidney",
-      "structure_id": "recon_1835_blk_lake_market_d1_05",
-      "block_id": "blk_lake_market",
-      "lot_id": "blk_lake_market#05",
-      "clause": "labourer_dwellings",
-      "family": "D1",
-      "district": "south",
       "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
       "on_the_card": false
     },
@@ -1259,22 +1246,6 @@
       }
     },
     {
-      "household_id": "hh_gifford_hezekiah",
-      "structure_id": "recon_1835_blk_south_water_franklin_d1_04",
-      "block_id": "blk_south_water_franklin",
-      "lot_id": "blk_south_water_franklin#06",
-      "clause": "labourer_dwellings",
-      "family": "D1",
-      "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
-      "on_the_card": true,
-      "resident_assignment": {
-        "status": "unassigned",
-        "confidence": "reconstructed",
-        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_south_water_franklin#06 — a standing anonymous roof of family D1 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 14 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
-      }
-    },
-    {
       "household_id": "hh_boilvin_nicholas",
       "structure_id": "recon_1835_blk_south_water_franklin_d4_12",
       "block_id": "blk_south_water_franklin",
@@ -1535,7 +1506,7 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_folliott_jonathan",
+      "household_id": "hh_falker_j_b",
       "structure_id": "recon_1835_south_d1_003",
       "block_id": "blk_lake_franklin",
       "lot_id": "blk_lake_franklin#02",
@@ -1546,7 +1517,7 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_falker_j_b",
+      "household_id": "hh_dyer_sidney",
       "structure_id": "recon_1835_south_d1_010",
       "block_id": "blk_lake_lasalle",
       "lot_id": "blk_lake_lasalle#02",
@@ -1557,7 +1528,18 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_horr_raiph_c",
+      "household_id": "hh_folliott_jonathan",
+      "structure_id": "recon_1835_south_d1_018",
+      "block_id": "blk_lake_dearborn",
+      "lot_id": "blk_lake_dearborn#02",
+      "clause": "labourer_dwellings",
+      "family": "D1",
+      "district": "south",
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    },
+    {
+      "household_id": "hh_hasslen_daniel",
       "structure_id": "recon_1835_south_d1_021",
       "block_id": "blk_lake_franklin",
       "lot_id": "blk_lake_franklin#01",
@@ -1568,10 +1550,10 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_humphrey_fre_lemuel",
-      "structure_id": "recon_1835_south_d1_032",
-      "block_id": "blk_lake_clark",
-      "lot_id": "blk_lake_clark#07",
+      "household_id": "hh_horr_raiph_c",
+      "structure_id": "recon_1835_south_d1_033",
+      "block_id": "blk_lake_dearborn",
+      "lot_id": "blk_lake_dearborn#01",
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
@@ -1579,10 +1561,10 @@
       "on_the_card": false
     },
     {
-      "household_id": "hh_hasslen_daniel",
-      "structure_id": "recon_1835_south_d2_005",
+      "household_id": "hh_gifford_hezekiah",
+      "structure_id": "recon_1835_south_d2_024",
       "block_id": "blk_lake_wells",
-      "lot_id": "blk_lake_wells#00",
+      "lot_id": "blk_lake_wells#01",
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
@@ -1847,6 +1829,16 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
+      "household_id": "hh_clark_john_k",
+      "structure_id": "recon_1835_blk_lake_market_d1_05",
+      "block_id": "blk_lake_market",
+      "lot_id": "blk_lake_market#05",
+      "clause": "labourer_dwellings",
+      "family": "D1",
+      "district": "south",
+      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
+    },
+    {
       "household_id": "hh_bousque_bernard",
       "structure_id": "recon_1835_blk_lake_market_d3_03",
       "block_id": "blk_lake_market",
@@ -2017,20 +2009,10 @@
       "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
     },
     {
-      "household_id": "hh_forsythe_william",
-      "structure_id": "recon_1835_south_d1_018",
-      "block_id": "blk_lake_dearborn",
-      "lot_id": "blk_lake_dearborn#02",
-      "clause": "labourer_dwellings",
-      "family": "D1",
-      "district": "south",
-      "why": "outside the districts this pass has been run for (south_water, randolph); T-1200's successors carry their own"
-    },
-    {
       "household_id": "hh_hubbard_henry_g",
-      "structure_id": "recon_1835_south_d1_033",
-      "block_id": "blk_lake_dearborn",
-      "lot_id": "blk_lake_dearborn#01",
+      "structure_id": "recon_1835_south_d1_032",
+      "block_id": "blk_lake_clark",
+      "lot_id": "blk_lake_clark#07",
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
@@ -2038,9 +2020,9 @@
     },
     {
       "household_id": "hh_haighs_isaac",
-      "structure_id": "recon_1835_south_d2_024",
+      "structure_id": "recon_1835_south_d2_005",
       "block_id": "blk_lake_wells",
-      "lot_id": "blk_lake_wells#01",
+      "lot_id": "blk_lake_wells#00",
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",

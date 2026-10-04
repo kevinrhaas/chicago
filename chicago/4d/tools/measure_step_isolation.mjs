@@ -3,6 +3,8 @@
  * measure_step_isolation.mjs — what every gate step WRITES, measured rather than assumed.
  *
  *   node tools/measure_step_isolation.mjs --build     run the gate instrumented, write the file
+ *   node tools/measure_step_isolation.mjs --tool tools/x.py   measure one gated tool into it
+ *   node tools/measure_step_isolation.mjs --reclassify  re-ask git which writes are ignored
  *   node tools/measure_step_isolation.mjs --self-test prove the reader's own assertions fire
  *
  * WHY THIS EXISTS (T-1339, out of T-1336). check.sh runs its steps in a job pool over ONE
@@ -39,6 +41,25 @@ const ROOT = execFileSync('git', ['rev-parse', '--show-toplevel'], { cwd: APP, e
 const OUT = path.join(APP, 'tools', 'step_isolation.json');
 const PROBE = path.join(APP, 'tools', 'isolation_probe');
 
+const DOC = 'MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the '
+      + 'gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty '
+      + '`wrote` was measured and wrote nothing here; a tool absent from this file was never '
+      + 'measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. '
+      + 'Writes to a tempdir are not recorded and are not findings — that is the distinction the '
+      + 'measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at '
+      + 'measure time (T-2075): an ignored path is a build product and is listed under '
+      + '`wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the '
+      + 'audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored '
+      + 'build product is still SHARED STATE a concurrent step can read mid-write, and its '
+      + 'regeneration is idempotent rather than atomic: classifying it says which question the '
+      + 'gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit '
+      + 'gate and does not belong in one, the same call T-1302 made for writer_inventory.json. '
+      + 'WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to '
+      + 'it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED '
+      + 'tickets.json on a stale one — until T-1341 made it compare instead of write (probed both '
+      + 'ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is '
+      + 'weaker than saying no tool writes, and the difference is the conditional case.';
+
 /** A gate step's command, as check.sh declares it — the key both files agree on. */
 export function declaredSteps(checkSh) {
   const lines = checkSh.split('\n');
@@ -66,6 +87,45 @@ export function toolOf(command) {
   // \s-only boundary silently skipped it — caught by this tool's own self-test.
   const m = /(?:^|[\s'"])(?:python3|node)\s+(tools\/[A-Za-z0-9_.\-]+\.(?:py|mjs))(?:[\s'"]|$)/.exec(command);
   return m ? m[1] : null;
+}
+
+/**
+ * Split a tool's measured writes by asking git, not a list (T-2075, out of T-1345).
+ *
+ * A path `git check-ignore` claims is a BUILD PRODUCT — the site/ mirror, BOARD.md,
+ * tickets.json — and goes to `wrote_ignored`; anything else is a TREE MUTATION and goes to
+ * `wrote`, which the audit refuses. That replaced three hand-kept exemptions that all stated
+ * the same reason in prose while git already held it as a fact, and a prefix like `site/`
+ * excused tracked files too (site/index.html is committed). check-ignore never reports a
+ * TRACKED path as ignored, so a write to one can never be excused by this: the
+ * classification decides which question is asked, not whether one is.
+ *
+ * It runs once, here, at measure time, and the classification is written into the row, so
+ * the per-commit audit reads it and never shells out to git per path.
+ */
+export function splitWrites(paths, ignored) {
+  const wrote = []; const wroteIgnored = [];
+  for (const p of [...new Set(paths)].sort()) (ignored.has(p) ? wroteIgnored : wrote).push(p);
+  return { wrote, wrote_ignored: wroteIgnored };
+}
+
+export function ignoredBy(paths, root = ROOT) {
+  const list = [...new Set(paths)];
+  if (!list.length) return new Set();
+  // exit 0: some ignored, 1: none, anything else: git could not answer — refuse rather than
+  // read an empty answer as "nothing is ignored" or, worse, as "everything is".
+  const r = spawnSync('git', ['check-ignore', '--stdin', '-z'],
+    { cwd: root, input: list.join('\0') + '\0', encoding: 'utf8', maxBuffer: 1 << 28 });
+  if (r.status !== 0 && r.status !== 1) {
+    throw new Error(`git check-ignore failed (${r.status}): ${(r.stderr || '').trim()}`);
+  }
+  return new Set((r.stdout || '').split('\0').filter(Boolean));
+}
+
+function rowOf(wrote, by) {
+  const row = splitWrites([...wrote], ignoredBy([...wrote]));
+  if (by.size) row.wrote_by = [...by].sort();
+  return row;
 }
 
 function build() {
@@ -103,44 +163,25 @@ function build() {
   const tools = {};
   for (const t of [...byTool.keys()].sort()) {
     const v = byTool.get(t);
-    tools[t] = { wrote: [...v.wrote].sort() };
-    if (v.by.size) tools[t].wrote_by = [...v.by].sort();
+    tools[t] = rowOf(v.wrote, v.by);
   }
 
-  // EXEMPTIONS SURVIVE A REGENERATION. They are written by a person with a reason and the
-  // measurement must not silently drop them on the next --build; a rebuild that quietly
-  // reopened a decided question would be worse than no file.
-  let exempt = {};
-  try { exempt = JSON.parse(fs.readFileSync(OUT, 'utf8')).exempt || {}; } catch {}
-
   const doc = {
-    schema: 1,
-    _doc: 'MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the '
-      + 'gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty '
-      + '`wrote` was measured and wrote nothing here; a tool absent from this file was never '
-      + 'measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. '
-      + 'Writes to a tempdir are not recorded and are not findings — that is the distinction the '
-      + 'measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit '
-      + 'gate and does not belong in one, the same call T-1302 made for writer_inventory.json. '
-      + 'WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to '
-      + 'it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a '
-      + 'stale one, and measures clean here purely because the mirror was current when this ran '
-      + '(T-1341). So this file says no tool wrote on the tree it was measured on, which is '
-      + 'weaker than saying no tool writes, and the difference is the conditional case.',
+    schema: 2,
+    _doc: DOC,
     measured: new Date().toISOString().slice(0, 10),
     gate_verdict: verdict ? verdict[0] : 'UNKNOWN',
     declared_steps: steps.length,
-    exempt,
     tools,
   };
   fs.writeFileSync(OUT, JSON.stringify(doc, null, 2) + '\n');
-  const ex = Object.keys(exempt);
-  const live = (w) => !ex.some((p) => w.startsWith(p));
-  const dirty = Object.entries(tools).filter(([, v]) => v.wrote.some(live));
+  const dirty = Object.entries(tools).filter(([, v]) => v.wrote.length);
+  const built = Object.values(tools).reduce((n, v) => n + v.wrote_ignored.length, 0);
   console.log(`\nwrote ${path.relative(ROOT, OUT)} — ${Object.keys(tools).length} tool(s) measured, `
     + `${steps.length} step(s) declared, gate ${doc.gate_verdict}`);
-  for (const [t, v] of dirty) console.log(`  WRITES LIVE  ${t}  →  ${v.wrote.filter(live).slice(0, 3).join(', ')}`);
+  for (const [t, v] of dirty) console.log(`  WRITES LIVE  ${t}  →  ${v.wrote.slice(0, 3).join(', ')}`);
   if (!dirty.length) console.log('  none of them wrote the live tree');
+  console.log(`  ${built} write(s) to gitignored build products, classified by git check-ignore`);
   return 0;
 }
 
@@ -200,15 +241,56 @@ function buildOne(tool) {
       + 'measuring a single tool into it');
     return 1;
   }
-  doc.tools[tool] = { wrote: [...wrote].sort() };
-  if (by.size) doc.tools[tool].wrote_by = [...by].sort();
+  if ((doc.schema || 1) < 2) {
+    console.error(`${path.relative(ROOT, OUT)} is schema ${doc.schema || 1}, from before writes were `
+      + 'classified (T-2075) — run --build once to re-measure the whole gate');
+    return 1;
+  }
+  doc.tools[tool] = rowOf(wrote, by);
   doc.tools = Object.fromEntries(Object.keys(doc.tools).sort().map((k) => [k, doc.tools[k]]));
   doc.measured = new Date().toISOString().slice(0, 10);
   fs.writeFileSync(OUT, JSON.stringify(doc, null, 2) + '\n');
 
-  const live = [...wrote].filter((w) => !Object.keys(doc.exempt || {}).some((p) => w.startsWith(p)));
+  const live = doc.tools[tool].wrote;
   console.log(`\n${tool}: ${cmds.length} declared command(s) measured — `
     + (live.length ? `WRITES THE LIVE TREE: ${live.slice(0, 3).join(', ')}` : 'wrote nothing in-tree'));
+  return 0;
+}
+
+/**
+ * Re-ask git about every write already measured, without re-running the gate (T-2075).
+ *
+ * The WRITES are behaviour and only an instrumented run can measure them; the CLASSIFICATION
+ * is a fact about each path and the index, so it goes stale on its own whenever .gitignore
+ * changes or a file becomes tracked, with no tool's behaviour moving at all. A serial
+ * --build is past a run's 600 s foreground ceiling (timed out at 590 s on 2026-10-04 with
+ * the gate unfinished), so redoing the measurement to refresh the classification would be
+ * paying for the slow question to answer the cheap one. It reads a schema-1 row's `wrote`
+ * as unclassified, which is how the hand-kept exemption list was retired.
+ */
+function reclassify() {
+  let doc;
+  try { doc = JSON.parse(fs.readFileSync(OUT, 'utf8')); } catch {
+    console.error(`${path.relative(ROOT, OUT)} is missing — run --build`);
+    return 1;
+  }
+  const all = (r) => [...(r.wrote || []), ...(r.wrote_ignored || [])];
+  const ignored = ignoredBy(Object.values(doc.tools).flatMap(all));
+  for (const [t, r] of Object.entries(doc.tools)) {
+    const row = splitWrites(all(r), ignored);
+    if (r.wrote_by) row.wrote_by = r.wrote_by;
+    doc.tools[t] = row;
+  }
+  delete doc.exempt;
+  doc._doc = DOC;
+  doc.schema = 2;
+  doc.classified = new Date().toISOString().slice(0, 10);
+  const { tools, ...head } = doc;
+  fs.writeFileSync(OUT, JSON.stringify({ ...head, tools }, null, 2) + '\n');
+  const dirty = Object.entries(tools).filter(([, v]) => v.wrote.length);
+  console.log(`reclassified ${Object.keys(tools).length} row(s): ${ignored.size} path(s) gitignored, `
+    + `${dirty.length} tool(s) writing a tracked or unignored path`);
+  for (const [t, v] of dirty) console.log(`  WRITES LIVE  ${t}  →  ${v.wrote.slice(0, 3).join(', ')}`);
   return 0;
 }
 
@@ -253,6 +335,23 @@ function selfTest() {
   ok(declaredSteps(SH2).filter((x) => toolOf(x.command) === 'tools/nope.py').length === 0,
      'a tool no gate step runs selects nothing, so --tool refuses rather than minting an empty row');
 
+  // THE CLASSIFICATION, against the real index rather than a fixture: a fixture would prove
+  // only that the fixture agrees with itself. site/4d/ is ignored; site/index.html sits
+  // under the same `site/` prefix the hand-kept list used to excuse, and is tracked.
+  const probe = ['site/4d/index.html', 'chicago/4d/tickets/BOARD.md', 'chicago/4d/tickets/tickets.json',
+    'site/index.html', 'chicago/4d/tools/check.sh'];
+  const split = splitWrites(probe, ignoredBy(probe));
+  ok(split.wrote_ignored.includes('site/4d/index.html'), 'a write to the gitignored mirror is a build product');
+  ok(split.wrote_ignored.includes('chicago/4d/tickets/BOARD.md')
+       && split.wrote_ignored.includes('chicago/4d/tickets/tickets.json'),
+     'and so are BOARD.md and tickets.json — the two other retired exemptions, asked rather than listed');
+  ok(split.wrote.includes('site/index.html'),
+     'a TRACKED file under site/ is a tree mutation — the old `site/` prefix would have excused it');
+  ok(split.wrote.includes('chicago/4d/tools/check.sh'), 'a tracked tool is a tree mutation');
+  ok(splitWrites(['a', 'b', 'a'], new Set(['b'])).wrote.length === 1,
+     'a path written twice is one row entry, not two');
+  ok(ignoredBy([]).size === 0, 'no writes asks git nothing');
+
   console.log(bad ? `  self-test: ${bad} FAILURE(S)` : '  self-test: every assertion fires');
   return bad ? 1 : 0;
 }
@@ -268,6 +367,7 @@ else if (arg === '--tool') {
   const t = process.argv[3];
   if (!t) { console.error('usage: measure_step_isolation.mjs --tool tools/x.py'); process.exit(2); }
   process.exit(buildOne(t));
-} else if (arg === '--self-test') process.exit(selfTest());
-else { console.error('usage: measure_step_isolation.mjs --build | --tool <tools/x> | --self-test'); process.exit(2); }
+} else if (arg === '--reclassify') process.exit(reclassify());
+else if (arg === '--self-test') process.exit(selfTest());
+else { console.error('usage: measure_step_isolation.mjs --build | --tool <tools/x> | --reclassify | --self-test'); process.exit(2); }
 }

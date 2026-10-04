@@ -1,7 +1,8 @@
 """Every name the post office held a letter for becomes a resident (T-0378, T-0379).
 
     python3 tools/mint_letter_list_residents.py             write
-    python3 tools/mint_letter_list_residents.py --check     re-derive and diff
+    python3 tools/mint_letter_list_residents.py --check     re-derive and compare what the mint OWNS
+    python3 tools/mint_letter_list_residents.py --retire-ledger   drop ledger rows that no longer stand
     python3 tools/mint_letter_list_residents.py --report    the mint and every refusal
     python3 tools/mint_letter_list_residents.py --scale     what this pass did to the town
     python3 tools/mint_letter_list_residents.py --gate      the invariants the ruling owes
@@ -2051,6 +2052,8 @@ def return_bound_self_test() -> int:
 
 def self_test() -> int:
     """Break each invariant on a copy of the tree and require the gate to name it."""
+    if ownership_self_test():
+        return 1
     if name_reading_self_test():
         return 1
     if return_bound_self_test():
@@ -2273,6 +2276,291 @@ def self_test() -> int:
     return 0
 
 
+# WHAT THIS PASS OWNS, AND THE CHECK THAT COMPARES ONLY THAT (T-2070, out of T-1222).
+#
+# A byte-for-byte `--check` is the wrong contract for this pass, and T-0662 found out
+# why: it is NOT the last writer of the files it derives. The synthesis and the
+# ladder (`synthesize_resident_research.py`, `spend_ladder_rungs.py`) run after it and
+# rewrite the cohort's grade and note — the PROJECTED RESIDENT downgrade — and the
+# resident-research passes and the arrival and origin fill stage append their findings
+# to the same cards. Re-derived over the committed tree, the mint differs from it on
+# some 800 files, nearly all of them that later work, and a re-run would REVERT it:
+# grades back from `inferred` to `attested`, which is a confidence upgrade this
+# project forbids. So the gate cannot ask whether the mint would write these bytes. It
+# asks whether the mint would write THESE PEOPLE, under these ids, with what it
+# derives for them — and leaves every other key to the pass that owns it.
+#
+# THE TABLE IS THE RULING, KEY BY KEY. `MINT` rows are what this pass derives and
+# nothing after it writes, so a difference is the mint's own derivation having moved.
+# Every other row names the later pass that writes over the mint and the evidence for
+# saying so, and a difference there is that pass's work, held by that pass's gate. A
+# key on NEITHER kind of row is UNATTRIBUTED and counts as drift: an unowned key is a
+# finding, and defaulting it to "somebody else's" is how a pass drifts ungated.
+# `tools/letter_list_mint_drift.py` reads this same table for its report.
+MINT = "mint"
+UNATTRIBUTED = "UNATTRIBUTED"
+KEY_OWNERS: list[tuple[str, str, str]] = [
+    ("name", MINT,
+     "the household label the mint builds out of the read name"),
+    ("persons[].name", MINT,
+     "the person name as the register prints it, which is the mint's to read"),
+    ("persons[].id", MINT,
+     "the person id the mint derives from the name it reads"),
+    ("persons[].sex", MINT,
+     "a printed title is the mint's evidence for sex; carry_over() refuses to carry it"),
+    ("persons[].letter_list_only", MINT,
+     "the mint's own cohort flag"),
+    ("persons[].letter_list_returns", MINT,
+     "the dated returns of uncalled-for letters the mint counts the name in"),
+    ("arrival", MINT,
+     "the bound the mint derives from the earliest return; a ruled reading that "
+     "supersedes it is applied inside build() (supersede_arrival.py), so the derived "
+     "side already carries it"),
+    ("present_on_scene_date", MINT,
+     "the mint states the corpus's last dated appearance here; it moves with the returns"),
+    ("surname_collision", MINT,
+     "refusals 7 and 8 at mint time, said on the card instead of dropping it (T-0660)"),
+    ("persons[].grade", "synthesize_resident_research.py / spend_ladder_rungs.py",
+     "the PROJECTED RESIDENT downgrade and the ratified ladder's rungs, both after the mint"),
+    ("persons[].note", "synthesize_resident_research.py / spend_ladder_rungs.py",
+     "the same two passes prepend their prose to the note the mint wrote"),
+    ("persons[].sources", "the resident-research passes",
+     "a corroborating source appended to the card after the mint set the list"),
+    ("persons[].occupation", "the resident-research passes",
+     "the mint writes none_recorded; a later reading fills the trade it found"),
+    ("origin", "the arrival and origin fill stage (T-1169)",
+     "written_by_stage: attribute_fill_arrival; the mint writes Not attested."),
+    ("reason_for_coming", "the arrival and origin fill stage (T-1169)",
+     "written_by_stage: attribute_fill_arrival"),
+]
+
+# The drift that stood when this check was first gated, row by row, each with the
+# ticket that reads it. A SHRINK-ONLY LEDGER: the check is red on drift that is not
+# here and red on a row whose drift no longer stands, and the one mode that writes it,
+# `--retire-ledger`, only ever takes rows away. Nothing in this file adds one.
+LEDGER = DATA / "research" / "letter_list_mint_ledger.json"
+READERS = {"lost": "T-2071", "re-minted": "T-2071", "gained": "T-2072",
+           "rewritten": "T-2073"}
+
+
+def normalise(path: str) -> str:
+    """A leaf path with list indices flattened: persons.[0].note becomes persons[].note."""
+    return re.sub(r"\.?\[\d+\]", "[]", path)
+
+
+def owner_of(key: str) -> tuple[str, str]:
+    for prefix, owner, why in KEY_OWNERS:
+        if key == prefix or key.startswith(prefix + ".") or key.startswith(prefix + "["):
+            return owner, why
+    return UNATTRIBUTED, "no row of KEY_OWNERS claims this key"
+
+
+def leaves(a, b, prefix: str = "") -> list[str]:
+    """Every leaf path at which two documents differ."""
+    out: list[str] = []
+    if isinstance(a, dict) and isinstance(b, dict):
+        for key in sorted(set(a) | set(b)):
+            if key not in a or key not in b:
+                out.append(prefix + key)
+            elif a[key] != b[key]:
+                out += leaves(a[key], b[key], prefix + key + ".")
+        return out
+    if isinstance(a, list) and isinstance(b, list) and len(a) == len(b):
+        for index, (x, y) in enumerate(zip(a, b)):
+            if x != y:
+                out += leaves(x, y, f"{prefix}[{index}].")
+        return out
+    return [prefix.rstrip(".")]
+
+
+def fold(name) -> str:
+    """A name reduced to its bare word set, so 'Joseph Pothier' and 'Pothier, Joseph' meet."""
+    found = re.sub(r"[^a-z ]", " ", str(name or "").lower()).split()
+    return " ".join(sorted(w for w in found if len(w) > 1))
+
+
+def owned_drift(files: dict, docs: dict) -> list[dict]:
+    """Where the mint's derivation and the committed layer disagree on what the mint OWNS.
+
+    `files` is build()'s output and `docs` the committed households it was built over.
+    The manifest is not compared: rebuild_resident_index.py is its one owner (T-0715)
+    and gates it. Four classes: a household the mint would add under a name the layer
+    holds nowhere (`gained`), or under a name the layer already holds under another id
+    (`re-minted`); a committed card of this pass the mint no longer derives (`lost`);
+    and a card both hold whose mint-owned or unattributed keys moved (`rewritten`)."""
+    held: dict[str, list[str]] = {}
+    for path, doc in docs.items():
+        for person in doc.get("persons") or []:
+            held.setdefault(fold(person.get("name")), []).append(path.stem)
+    rows: list[dict] = []
+    for path, text in files.items():
+        if path == INDEX:
+            continue
+        new = json.loads(text)
+        old = docs.get(path)
+        if old is None:
+            name = (new.get("persons") or [{}])[0].get("name")
+            row = {"id": path.stem, "class": "gained", "name": name}
+            if fold(name) in held:
+                row["class"] = "re-minted"
+                row["already_in_the_layer_as"] = sorted(held[fold(name)])
+            rows.append(row)
+            continue
+        if old == new:
+            continue
+        keys = sorted({normalise(k) for k in leaves(old, new)})
+        owned = [k for k in keys if owner_of(k)[0] in (MINT, UNATTRIBUTED)]
+        if owned:
+            rows.append({"id": path.stem, "class": "rewritten", "keys": owned})
+    for path in sorted(docs):
+        if path not in files and minted_by(path, docs[path], "letter_list", PREFIX):
+            rows.append({"id": path.stem, "class": "lost",
+                         "name": (docs[path].get("persons") or [{}])[0].get("name")})
+    for row in rows:
+        row["reader"] = READERS[row["class"]]
+    return sorted(rows, key=lambda r: (r["class"], r["id"]))
+
+
+def ledger_problems(current: list[dict], ledger: dict) -> tuple[list[str], list[dict]]:
+    """Compare the drift that stands with the ledger: (problems, rows still standing).
+
+    A row matches on id and class, and a `rewritten` row on the exact set of keys too —
+    a card whose ledgered drift GREW has drifted again, and that is new drift."""
+    problems: list[str] = []
+    rows = ledger.get("rows") or []
+    def key(r):
+        return (r.get("class"), r.get("id"), tuple(r.get("keys") or ()))
+    known = {key(r) for r in rows}
+    standing = {key(r) for r in current}
+    for r in rows:
+        if READERS.get(r.get("class")) != r.get("reader"):
+            problems.append(f"ledger row {r.get('id')} ({r.get('class')}) names reader "
+                            f"{r.get('reader')!r}; the class is {READERS.get(r.get('class'))!r}'s")
+    for r in current:
+        if key(r) not in known:
+            what = ", ".join(r.get("keys") or ()) or r.get("name") or ""
+            problems.append(f"DRIFT: {r['class']} {r['id']} — {what} — on no ledger row; "
+                            f"the mint's derivation moved and nobody has read it")
+    stale = [r for r in rows if key(r) not in standing]
+    for r in stale:
+        problems.append(f"STALE: ledger row {r.get('class')} {r.get('id')} no longer "
+                        f"stands; run --retire-ledger and say in the PR what took it")
+    return problems, [r for r in rows if key(r) in standing]
+
+
+def load_ledger() -> dict:
+    return load(LEDGER) if LEDGER.exists() else {"rows": []}
+
+
+def owned_check(files: dict, docs: dict, ledger: dict, quiet: bool = False) -> int:
+    current = owned_drift(files, docs)
+    problems, standing = ledger_problems(current, ledger)
+    if problems:
+        if not quiet:
+            for p in problems:
+                print(f"   {p}")
+            print(f"   {len(problems)} problem(s): the mint-owned comparison is red")
+        return 1
+    if not quiet:
+        rewritten = {r["id"] for r in current if r["class"] == "rewritten"}
+        foreign = sum(1 for p, t in files.items()
+                      if p != INDEX and p in docs and p.stem not in rewritten
+                      and docs[p] != json.loads(t))
+        by_reader: dict[str, int] = {}
+        for r in standing:
+            by_reader[r["reader"]] = by_reader.get(r["reader"], 0) + 1
+        owed = ", ".join(f"{t} {n}" for t, n in sorted(by_reader.items())) or "none"
+        print(f"   OK: {len(files) - 1} letter-list household(s) derived; mint-owned keys "
+              f"agree wherever no ledger row says otherwise; {len(standing)} ledgered row(s) "
+              f"still to be read ({owed}); {foreign} more card(s) differ only in keys a later "
+              f"pass owns")
+    return 0
+
+
+def retire_ledger(files: dict, docs: dict) -> int:
+    """Take the rows whose drift no longer stands off the ledger. Never adds one."""
+    ledger = load_ledger()
+    _, standing = ledger_problems(owned_drift(files, docs), ledger)
+    gone = len(ledger.get("rows") or []) - len(standing)
+    ledger["rows"] = standing
+    LEDGER.write_text(dumps(ledger, 1), encoding="utf-8")
+    print(f"retired {gone} ledger row(s); {len(standing)} still stand")
+    return 0
+
+
+def ownership_self_test() -> int:
+    """Break the comparison on purpose, and require each break to fire — or not."""
+    docs = {p: load(p) for p in sorted(HOUSEHOLDS.glob("*.json"))}
+    files, *_ = build()
+    ledger = load_ledger()
+    if owned_check(files, docs, ledger, quiet=True):
+        print("   the committed tree does not pass the mint-owned check; fix that first")
+        return 1
+    ledgered = {r["id"] for r in ledger.get("rows") or []}
+    victim = next(p for p, t in sorted(files.items())
+                  if p != INDEX and p in docs and p.stem not in ledgered
+                  and docs[p].get("arrival") and (docs[p].get("persons") or [{}])[0].get("grade"))
+
+    def with_card(mutate):
+        copy = dict(docs)
+        card = json.loads(json.dumps(docs[victim]))
+        mutate(card)
+        copy[victim] = card
+        return copy
+
+    def setp(field, value):
+        def go(card):
+            card["persons"][0][field] = value
+        return go
+
+    def move_arrival(card):
+        card["arrival"]["value"] = "1799"
+
+    def unowned(card):
+        card["a_key_nobody_owns"] = True
+
+    def drop(_card):
+        pass
+
+    gone = dict(docs)
+    del gone[victim]
+    stray = dict(docs)
+    stray[HOUSEHOLDS / f"{PREFIX}nobody_derives_this.json"] = {
+        "id": f"{PREFIX}nobody_derives_this", "persons": [{"name": "Nobody Derives"}]}
+    stale = {**ledger, "rows": list(ledger.get("rows") or []) + [
+        {"id": victim.stem, "class": "rewritten", "keys": ["arrival.value"],
+         "reader": READERS["rewritten"]}]}
+    wrong_reader = {**ledger, "rows": [dict(r, reader="T-0000")
+                                       for r in (ledger.get("rows") or [])[:1]]
+                    + list(ledger.get("rows") or [])[1:]}
+    cases = [
+        ("a mint-owned key moves", with_card(move_arrival), ledger, True),
+        ("an unattributed key moves", with_card(unowned), ledger, True),
+        ("a card the mint derives is not committed", gone, ledger, True),
+        ("a committed card of this pass is no longer derived", stray, ledger, True),
+        ("a ledger row whose drift no longer stands", docs, stale, True),
+        ("a key a later pass owns moves (grade)", with_card(setp("grade", "inferred")),
+         ledger, False),
+        ("a key a later pass owns moves (note)", with_card(setp("note", "PROJECTED RESIDENT.")),
+         ledger, False),
+    ]
+    if ledger.get("rows"):
+        cases.append(("a ledger row names the wrong reader", docs, wrong_reader, True))
+    failed = 0
+    for label, tree, led, should_fire in cases:
+        fired = bool(owned_check(files, tree, led, quiet=True))
+        if fired == should_fire:
+            print(f"   {'caught' if should_fire else 'let through'}: {label}")
+        else:
+            failed += 1
+            print(f"   {'NOT CAUGHT' if should_fire else 'WRONGLY FIRED'}: {label}")
+    if failed:
+        print(f"   {failed} of the mint-owned comparison's cases misbehave")
+        return 1
+    print(f"   OK: all {len(cases)} of the mint-owned comparison's cases behave")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true",
@@ -2283,6 +2571,8 @@ def main() -> int:
                     help="what the owner's ruling did to the town, counted here (T-0379)")
     ap.add_argument("--gate", action="store_true",
                     help="prove the minted cohort is what the ruling permits")
+    ap.add_argument("--retire-ledger", action="store_true",
+                    help="take the ledger rows whose drift no longer stands off it (T-2070)")
     ap.add_argument("--self-test", action="store_true",
                     help="break each of the gate's assertions and require it to fire")
     args = ap.parse_args()
@@ -2300,20 +2590,13 @@ def main() -> int:
         docs = {p: load(p) for p in sorted(HOUSEHOLDS.glob("*.json"))}
         report(accepted, refusals, docs)
         return 0
-    if args.check:
-        drift = [p for p, text in files.items()
-                 if not p.exists() or p.read_text(encoding="utf-8") != text]
-        stale = [p for p in sorted(mine_paths)
-                 if p not in files]
-        for p in drift + stale:
-            print(f"   DRIFT: {p.relative_to(ROOT)}")
-        if drift or stale:
-            print(f"   {len(drift) + len(stale)} file(s) differ from what this pass "
-                  f"derives")
-            return 1
-        print(f"   OK: {len(accepted)} letter-list resident(s) minted from the register, "
-              f"{len(refusals)} candidate(s) refused")
-        return 0
+    if args.check or args.retire_ledger:
+        # Compared against the households build() itself read, so the two sides are
+        # one snapshot of the tree.
+        docs = {p: load(p) for p in sorted(HOUSEHOLDS.glob("*.json"))}
+        if args.retire_ledger:
+            return retire_ledger(files, docs)
+        return owned_check(files, docs, load_ledger())
 
     for p in sorted(mine_paths):
         if p not in files:
