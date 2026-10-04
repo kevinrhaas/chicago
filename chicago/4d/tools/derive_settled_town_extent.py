@@ -322,7 +322,7 @@ def derive():
     report = {"blocks": len(blocks), "structures": len(feet), "skipped": skipped,
               "rings": len(outers), "holes": len(holes),
               "vertices": sum(len(r) for r in outers + holes),
-              "area_ha": round(sum(area(r) for r in outers) / 1e4 + sum(area(r) for r in holes) / 1e4, 1),
+              "area_ha": round(math.fsum([area(r) for r in outers] + [area(r) for r in holes]) / 1e4, 1),
               "outside": [], "corridors": []}
     for sid, _, (e, n) in feet:
         if not inside(e, n):
