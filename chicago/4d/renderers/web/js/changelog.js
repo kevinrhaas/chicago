@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1428, ts: '2026-10-04T12:42:37.866Z', date: 'Oct 4, 2026, 7:42 AM CT', title: 'Nothing you can see: the house-seating passes rebuild with the rest', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The three passes that seat households on lots and record each household\u2019s address now rebuild automatically, in a measured order, when two changes are merged together.',
+      'Before this, a merge that moved a house could leave the address book and the seat lists out of step until someone rebuilt them by hand.',
+    ] },
   { v: 1427, ts: '2026-10-04T12:12:16.087Z', date: 'Oct 4, 2026, 7:12 AM CT', title: "What's-New lists the yellow boarding-house note once, not six times", kind: 'fix',
     items: [
       "The note that Kelsey’s boarding-house on the sand hills is painted yellow had been listed six times in What’s-New. It now appears once, under the day it shipped.",
