@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', title: 'Fenced lots are closed all round, open only where a house faces the street', kind: 'fix',
+    items: [
+      'Fly over any built block, the Clark Street blocks south of the river for one: a fenced lot is now fenced along both sides from the street back to the alley, where the fence used to stop partway and leave the lot open to its neighbours.',
+      'Where a house or store stands at the front of the lot, the street side stays open so you see the building. A lot with only a shed or privy at the back is fenced on the street too, with a cart gate.',
+      'Lots with no fence before still have none, so not every building is fenced.',
+      'Early Chicago let ringed hogs run loose in the streets, and a fence open on three sides keeps nothing out. Which lots are fenced, and how, is a reconstruction (Liberty L378).',
+    ] },
   { v: 1441, ts: '2026-10-04T18:51:58.275Z', date: 'Oct 4, 2026, 1:51 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
     items: [
       'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',

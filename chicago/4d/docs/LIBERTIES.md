@@ -21053,3 +21053,34 @@ corrections to the houses.
 the plat model's strip; a reading of the Lake Street houses' seating that moves them out of the
 strip lets those lanes run through.
 **Recorded:** 2026-10-04 (T-2095).
+
+### L378 — A fenced town lot is closed all round, open only on a street a building fronts
+**Decision:** every lot the yard-fence rule of L161 fences (`tools/generate_lot_line_fences.py`)
+is now enclosed on its whole perimeter instead of along its rear 40 ft. Both side lot lines carry
+fence from the street corner to the rear corner, the rear (alley) line keeps its cart gateway, and
+the street line is fenced too unless a building on the lot stands in its front half, in which case
+the street face is left open so the house or store is seen from the road. A lot whose buildings all
+stand in the back half has its street line fenced with a 10 ft street gateway. A committed wall on
+a lot line still stands in for the fence there, a doorway still breaks it, and a fence already
+standing along the line (a dooryard garden's pickets, a T-0069 street-lining fence) takes over only
+the span it shadows. Lots the rule refused, and every unimproved lot, stay unfenced.
+**Why:** the owner, 2026-10-04 (T-2102): *"you have fences nicely at the rear of the properties
+each lot area but the sides and front are open all across ... the half built fence seems odd if
+there is no facing of a building on that street"*. Nothing in the sources asked for the half fence:
+it was L161's 40 ft cap on the yard, applied to lots 150 to 180 ft deep. The evidence pulls the
+other way. Chicago's first town code, printed in the Chicago Democrat of 26 November 1833
+(`chicago_democrat_1833_11_26`), fines the owner of any hog found running at large in the town
+*without* a ring in its nose or a yoke on its neck, so ringed hogs were lawfully at large in the
+streets, and the town kept an estray pen (`andreas_1884_v1`). A fence open on two sides and the
+street keeps nothing out. Image 12 of the 2026-08-18 owner brief shows fences enclosing every
+property in view.
+**What is recorded and what is not:** no source names a fence on any of these lots, as L161 says.
+That an enclosed lot is closed all round is the ordinance's consequence; the "front half" test for
+a building that fronts its street, the choice to leave that street face open rather than paling the
+dooryard, and the street gateway are ours.
+**Consequence:** the lot-line fences grow from about 7.2 km to about 16.3 km of timber, nearly all
+of it on side lines. The three records' run count goes from 442 to 474.
+**How to resolve:** a Chicago or Cook County fence ordinance of the 1830s, or any lot description
+naming its fences, replaces the rule; a view showing open-fronted house lots on a street settles
+the front-half test.
+**Recorded:** 2026-10-04 (T-2102).
