@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1448, ts: '2026-10-04T21:54:31.346Z', date: 'Oct 4, 2026, 4:54 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+  { v: null, ts: '', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
     items: [
       'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
       'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
       'The front steps of 108 houses had the same fault at their base and are fixed too.',
       'Nothing new is drawn, so it costs nothing extra on a phone.',
+    ] },
+  { v: 1448, ts: '2026-10-04T21:40:47.295Z', date: 'Oct 4, 2026, 4:40 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
+    items: [
+      'The grass and flowers around you used to cost a long pause each time you turned a little or walked a step further. That pause is now about half as long, and the plants stand exactly where they did.',
+      'On a slowed-down phone at Light detail, a slow turn now drops below 50 ms per frame for most of its steps. The worst frame of a turn fell from 127 ms to 70 ms, of a flight from 108 ms to 56 ms, and of a walk from 47 ms to 34 ms.',
+      'On a desktop at Full detail, the worst pause in a turn fell from 70 ms to under 40 ms.',
+      'More of the lag is still being worked on: the next step spreads this work over several frames, so no single frame has to wait for it.',
     ] },
   { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
     items: [
