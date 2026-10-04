@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
+  { v: 1407, ts: '2026-10-04T07:38:51.592Z', date: 'Oct 4, 2026, 2:38 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'The tool that tells a change which part of the browser checks to run sent edits to the People directory to the wrong part. The directory is checked in part 12, and the tool said part 13, so those checks were skipped.',
