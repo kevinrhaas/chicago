@@ -413,8 +413,34 @@ def surname_is_first_token(name: str) -> bool:
     return not full_word(picked) and any(full_word(w) for w in parts)
 
 
+def comma_is_a_misset_stop(name: str) -> bool:
+    """Is the only comma in this printing the stop after a middle initial, mis-set? (T-2076)
+
+    `Augustus H, Conant` (Democrat, 9 July 1834) is printed `Augustus H. Conant` the
+    next week. Read as the office's surname-first mark, the comma makes `Augustus H`
+    the family name and the card `Conant Augustus H` — a surname-first card, which
+    `--gate` refuses (T-1217) under an id it also refuses (T-1218). A family name
+    cannot END in an initial, and a forename side cannot be one bare word that is
+    the family name the other printing gives: when the head of the comma ends in an
+    initial while a full word stands before it, and the tail is ONE full word, the
+    comma is a stop the scan misread and the printing is forename-first.
+
+    MEASURED over the letter-list pool on 2026-10-04: 1,952 distinct printings, and
+    this is true of exactly one, the line above. `surname()` and `display()` read the
+    comma as a space where it fires, and nothing else is moved, supplied or respelled.
+    """
+    if name.count(",") != 1 or "[" in name:
+        return False
+    head, _, tail = name.partition(",")
+    hw, tw = words(head), words(tail)
+    return (bool(hw) and not full_word(hw[-1]) and any(full_word(w) for w in hw)
+            and len(tw) == 1 and full_word(tw[0]))
+
+
 def surname(name: str) -> str:
     """The family name, lowercased, from either order the papers print it in."""
+    if comma_is_a_misset_stop(name):
+        name = name.replace(",", " ")
     parts = words(name)
     if not parts:
         return ""
@@ -484,7 +510,7 @@ def comma_is_not_the_divider(name: str) -> bool:
     T-1121 measured and refused — put the token `surname()` picked last, wherever it
     fell — moved 84.
     """
-    if "," not in name or "[" in name:
+    if "," not in name or "[" in name or comma_is_a_misset_stop(name):
         return False
     fam = surname(name)
     if not fam:
@@ -526,6 +552,10 @@ def display(name: str) -> str:
     column and in the gazetteer's `as_printed`, both of which this pass leaves
     alone. What changes is that the card stops asserting `8.` is a name.
     """
+    if comma_is_a_misset_stop(name):
+        # T-2076: not a divider and not an order mark; the card drops it, as T-1121
+        # drops a comma the reordering made untrue, and supplies no stop in its place.
+        return mark_unread(re.sub(r"\s+", " ", name.replace(",", " ")).strip(), name)
     if "," in name:
         if comma_is_not_the_divider(name):
             # T-1217. REORDER AROUND THE COMMA THE FAMILY NAME STANDS BEFORE,
@@ -1213,6 +1243,12 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
     )
 
     present = "present" if cand["last_seen"] >= SCENE_DATE else "uncertain"
+    # The printing that puts the letter on or after the scene date. A return's first
+    # printing usually is that one; where a later printing was read onto the same return
+    # (T-2076: 20 May and 1 July 1835 fall inside RETURN_GAP_DAYS) it is not, and citing
+    # the first would date a May issue "on or after the scene date".
+    waiting = next((c for c in groups[-1] if str(issue_date(c) or "") >= SCENE_DATE),
+                   groups[-1][0])
     doc = {
         "id": hid,
         "name": f"The {fam} household — {LETTER_LIST_NAME}",
@@ -1254,7 +1290,7 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
             "confidence": "inferred",
             "sources": list(sources),
             "note": ((f"A letter was still waiting for this name at "
-                      f"{issue_of(groups[-1][0])}, on or after the scene date, so the "
+                      f"{issue_of(waiting)}, on or after the scene date, so the "
                       f"corpus puts somebody expecting them at Chicago at "
                       f"{cand['last_seen']}.")
                      if present == "present" else
@@ -1371,8 +1407,12 @@ def onto_standing(accepted: list, docs: dict) -> list:
     renamed = ruled_renamings()
     out: list = []
     groups: dict[str, list] = {}
+    resolved: dict[str, str | None] = {}
     for cand, gaz in accepted:
-        pid = standing_person(cand, held)
+        # T-2076: a second printing is read onto whatever its accepted candidate reached.
+        pid = (resolved.get(cand["printing_of"]) if cand.get("printing_of")
+               else standing_person(cand, held))
+        resolved[cand["id"]] = pid
         if pid is None:
             out.append((cand, gaz, None))
         elif pid not in groups:
@@ -1412,6 +1452,64 @@ def onto_standing(accepted: list, docs: dict) -> list:
     return out
 
 
+def second_printings(accepted: list, refusals: list, register: dict | None = None,
+                     gazetteer: dict | None = None) -> tuple[list, list]:
+    """T-2076: hand back to the accepted list the refusals that are a PRINTING, not a person.
+
+    Refusals 7 and 8 keep one household to a family name, and `apply_refusals` keeps one
+    candidate to a card. Both are right about a second PERSON and wrong about a second
+    PRINTING. The papers print one man twice in a way the register cannot always join:
+    in both orders (`N. H. Palmer` in May, `Palmer N. H.` in July), or with the office's
+    count of letters waiting (`Elliot 3` in the 4 March 1834 reprint of the return that
+    printed `William Elliot`). The second printing then reached refusal 8 and was dropped,
+    and the card was derived from whichever printing ranked first and lost the other.
+
+    THE RULE IS NARROW ON PURPOSE. A refusal is a printing of an accepted candidate when
+    all three hold:
+      * the refusal is one of the two mint-time refusals (7, 8) — nothing else; a garbled
+        or out-of-town reading stays refused;
+      * the name it shows, the letter count stripped, is IDENTICAL to the accepted one's;
+      * the register does not aim it at a different person: either it is `enrich` of the
+        same target, or a `new_resident` the register never joined to anyone.
+    A trial that united every row the register aims at one card moved 85 cards, and a
+    reading of them found the compiler had grouped different people under one surname
+    (`Amanda Miner` and `Miner, Aaron`, five Smiths); this rule takes none of those, and
+    unites no two spellings either — that is a reading, and T-1218 gives it to the
+    ruling file. Everything else stays refused and `--report` names it with its reason.
+
+    The printing is not minted on its own: it rides beside the accepted candidate
+    (`printing_of`), and `onto_standing` reads the two as one card, mentions unioned.
+    `mint()` is left as it was, because report_letter_list_collisions.py and the 1834
+    concordance read its refusals as the refusal rules alone.
+    """
+    if register is None:
+        register = {p["id"]: p for p in load(REGISTER)["persons"]}
+    if gazetteer is None:
+        gazetteer = {p["id"]: p for p in load(GAZETTEER)["persons"]}
+
+    def shown(cand_or_name) -> str:
+        name = cand_or_name if isinstance(cand_or_name, str) else cand_or_name["name"]
+        counted = LETTER_COUNT.match(name)
+        return display(counted.group("name") if counted else name)
+
+    def target(cand: dict) -> str | None:
+        return cand.get("action_target") if cand.get("action") == "enrich" else None
+
+    leads: dict[str, dict] = {}
+    for cand, _gaz in accepted:
+        leads.setdefault(shown(cand), cand)
+    folded, kept = [], []
+    for row in refusals:
+        cid, name, _n, reason = row
+        cand = register.get(cid)
+        lead = leads.get(shown(name)) if cand and is_mint_time(reason) else None
+        if lead is None or target(cand) not in (None, target(lead)):
+            kept.append(row)
+            continue
+        folded.append((dict(cand, printing_of=lead["id"]), gazetteer[cid]))
+    return accepted + folded, kept
+
+
 def build(preload: dict | None = None):
     docs = ({p: json.loads(t) for p, t in preload.items() if p != INDEX}
             if preload is not None
@@ -1420,7 +1518,7 @@ def build(preload: dict | None = None):
              else load(INDEX))
 
     mine_paths = {p for p, doc in docs.items() if minted_by(p, doc, "letter_list", PREFIX)}
-    accepted, refusals = mint(docs, index)
+    accepted, refusals = second_printings(*mint(docs, index))
 
     files = {}
     seen: set[str] = set()
@@ -1989,6 +2087,8 @@ NAME_READING_CASES = (
     ("Mason Sabrina A.", "mason", "Sabrina A. Mason"),
     ("merrich J. B.", "merrich", "J. B. merrich"),
     ("Mills Joel C.", "mills", "Joel C. Mills"),
+    # --- a mis-set stop read as a comma after the middle initial (T-2076) ------
+    ("Augustus H, Conant", "conant", "Augustus H Conant"),
     ("Hhelps Theodore E.", "hhelps", "Theodore E. Hhelps"),
     ("Mabbet Benjamin F.", "mabbet", "Benjamin F. Mabbet"),
     ("Norton Wm. H.", "norton", "Wm. H. Norton"),
@@ -2807,6 +2907,38 @@ def standing_self_test() -> int:
            out["hh_crisey_william"][0]["name"] == "William Crisey")
     expect("a candidate nothing ties to a card still mints from its name",
            "person_nobody_held" in out and len(out) == 6)
+    # T-2076. A refusal that is a second PRINTING of an accepted candidate is read onto
+    # its card; a second PERSON, a second spelling or a non-mint-time refusal is not.
+    docs.update([card("hh_elliot_william", "elliot_william", "William Elliot")])
+    may = "chicago_democrat_1835_05_20#c013"
+    lead = cand("person_william_elliot", "William Elliot", "1834-01-28", jan, "elliot_william")
+    rows = {"person_william_elliot_3": cand("person_william_elliot_3", "William Elliot 3",
+                                            "1834-03-04", mar),
+            "person_elliot_w_other": cand("person_elliot_w_other", "William Elliot",
+                                          "1835-05-20", may, "elliot_other"),
+            "person_wm_elliott": cand("person_wm_elliott", "William Elliott",
+                                      "1834-03-04", mar),
+            "person_william_elliot_g": cand("person_william_elliot_g", "William Elliot",
+                                            "1834-03-04", mar)}
+    refused = [("person_william_elliot_3", "William Elliot", 1, "surname already minted"),
+               ("person_elliot_w_other", "William Elliot", 1, "surname already minted"),
+               ("person_wm_elliott", "William Elliott", 1, "surname already minted"),
+               ("person_william_elliot_g", "William Elliot", 1, "garbled")]
+    united, still = second_printings([lead], refused, {k: c for k, (c, _g) in rows.items()},
+                                     {k: g for k, (_c, g) in rows.items()})
+    expect("a counted reprint of an accepted name is read as its printing, not refused",
+           [c["id"] for c, _g in united] == ["person_william_elliot", "person_william_elliot_3"]
+           and united[1][0].get("printing_of") == "person_william_elliot")
+    expect("a same-name row the register aims at ANOTHER person stays refused",
+           "person_elliot_w_other" in [r[0] for r in still])
+    expect("a second spelling is a reading, not a printing, and stays refused",
+           "person_wm_elliott" in [r[0] for r in still])
+    expect("only refusals 7 and 8 give way; a garbled reading stays refused",
+           "person_william_elliot_g" in [r[0] for r in still] and len(still) == 3)
+    folded = {pin[0] if pin else c["id"]: (c, g) for c, g, pin in onto_standing(united, docs)}
+    expect("the card reads both printings of the name",
+           sorted(folded["hh_elliot_william"][1]["mentions"]) == [jan, mar]
+           and folded["hh_elliot_william"][0]["name"] == "William Elliot")
     del docs[HOUSEHOLDS / "hh_plumer_f.json"]
     try:
         onto_standing(accepted, docs)
@@ -2816,7 +2948,7 @@ def standing_self_test() -> int:
     if failed:
         print(f"   {len(failed)} of the standing-card cases misbehave")
         return 1
-    print("   OK: all 8 standing-card cases behave")
+    print("   OK: all 13 standing-card cases behave")
     return 0
 
 

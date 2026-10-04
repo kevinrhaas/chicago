@@ -1903,9 +1903,11 @@ def self_test() -> int:
     # this assertion that is not the count. T-2078 RESTATED IT FROM 936 TO 960: writing 37
     # letter-list households put 24 of them (and the cards their rulings re-graded, such as
     # hh_stiles_david) through the same adjudication, and every one was ruled `present`
-    # (38 and 961 until T-2071's concordance read hh_crissy_william onto hh_crisey_william).
+    # (38 and 961 until T-2071's concordance read hh_crissy_william onto hh_crisey_william;
+    # 960 until T-2076 read hh_palmer_n_h's 1 July 1835 printing onto his card, which
+    # settles him present on the card itself and leaves no uncertainty to rule on).
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 960)
+          len(ruled_present()) == 959)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",
