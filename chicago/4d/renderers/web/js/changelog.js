@@ -1,10 +1,11 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: '38 more people from the post office\u2019s letter lists join the town', kind: 'change',
+  { v: 1430, ts: '2026-10-04T14:48:44.394Z', date: 'Oct 4, 2026, 9:48 AM CT', title: '38 more people from the post office\u2019s letter lists join the town', kind: 'change',
     items: [
       'Open People: 38 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
       'Twenty-four were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
       'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
       'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
+      'To make room, some households already in town moved one house along on Randolph, Washington and South Water streets, and five houses on Randolph and South Water now name a different household as their keeper.',
     ] },
   { v: 1429, ts: '2026-10-04T13:21:35.973Z', date: 'Oct 4, 2026, 8:21 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [

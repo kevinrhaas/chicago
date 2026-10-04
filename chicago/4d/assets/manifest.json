@@ -1652,7 +1652,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32828,
-      "inputs_sha256": "5353988236ec6dcfbc2eee750487212d554db43233f7feaec1a8f0fd2ac4e42b",
+      "inputs_sha256": "f5fa8258cdec6b8bb4d752cd9ac710f462c45b6eef7c34d6fc7ff6aea1268991",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clark_d1_06"
@@ -2030,7 +2030,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32832,
-      "inputs_sha256": "14f6ac6ef5c6db94f516e86d2eaa41c43f6306d1af909e6efbadfb0c38e754d3",
+      "inputs_sha256": "2f3a4a091e941ac8f544d25ba4795db34bec31c4dab8a43f7e5649772c8c1970",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d1_10"
@@ -2039,7 +2039,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 65444,
-      "inputs_sha256": "e45e729420688201ac7583b440322a6fc020cab993d84bf5d04686fd1070997b",
+      "inputs_sha256": "150eff7698d3597c87a5dac3a992b7293a6884acd3a8ace4313837bffd47bdf0",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d2_05"
@@ -2336,7 +2336,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32816,
-      "inputs_sha256": "b317e4040ecd3b09e37ed7c44a8011b6e33c0581f0ae27f577b5d021d7e92310",
+      "inputs_sha256": "4e1050888c7af426418aca012e74e470d634a99e7b00cd04156d827434e43650",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_d1_05"
@@ -2642,7 +2642,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32836,
-      "inputs_sha256": "b0a8a2658a6e528eea447feb288519a2e9fdac5eb9b8e44566484ece96f2dfd8",
+      "inputs_sha256": "0f14df3f526606a155721aa11ccf5c4c426e54a12c9cf6e0fcbeec7f58ce9a19",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d1_05"
@@ -2660,7 +2660,7 @@
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 72620,
-      "inputs_sha256": "db8b163e906e705c3c459bb77064efb72d5999193332fa3443c395975b3e651b",
+      "inputs_sha256": "aa2b33e900e3c7886c936c162afba349c8cae6a1c69221b191a7a31e83bea5e0",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d2_06"
