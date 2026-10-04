@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+  { v: 1443, ts: '2026-10-04T19:59:03.475Z', date: 'Oct 4, 2026, 2:59 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
     items: [
       'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
       'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
