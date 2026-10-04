@@ -1,0 +1,2278 @@
+{
+ "_doc": "FROZEN — written once by tools/reconstruct_modelled_families.py --build on a tree that held no ruling, and read by every build after it. Do not hand-edit and do not regenerate: a later re-cut re-deals nobody. tools/build_order_book_1835.py reads `orders` as the cells the ruling orders.",
+ "id": "1835_family_ruling",
+ "ticket": "T-2021",
+ "of": "T-1171",
+ "ruled_on": "2026-10-03",
+ "the_question": "277 married houses the household model drew stand refused, because the order book had no woman left in the wife's cell and no woman the town holds fits them. Does the book order more women, or do the heads stand alone?",
+ "the_ruling": "Both, partitioned by the bounds the town model already carries. A refused house is given its WHOLE drawn family, the wife and children this stage drew for it by its own seeds and rules, in a seeded order, while the town the book converges to stays at or under the top of the model's population range AND the town's under-ten share stays at or under the top of the model's bracket. The first house that would break either stops the walk, and it and every house after it stand alone, each card saying so. Not wives alone: a house drawn at five to eight people seated as a childless couple would be a shape nobody drew. And not a packing: skipping a large family to look for a smaller one would choose houses by their shape.",
+ "the_bound": {
+  "the_town_model_range": [
+   2362,
+   3265
+  ],
+  "what_the_top_is": "the November 1835 town count",
+  "converged_before_the_ruling": 2605,
+  "room": 660,
+  "the_model_s_under_ten_bracket": [
+   0.2,
+   0.2702
+  ],
+  "under_ten_before_the_ruling": [
+   449,
+   2371
+  ],
+  "the_walk_stopped_at": {
+   "house": "hh_everts_hiram",
+   "bound": "the_under_ten_bracket",
+   "why": "its 3 kin, 2 of them under ten, would carry the town's under-ten share to 0.2703, past the model's 0.2702",
+   "rank": 157
+  }
+ },
+ "order": "seeded: houses taken by blake2s('<household>:family_ruling'), lowest first; the walk stops at the first house either bound refuses (a prefix, never a packing).",
+ "counts": {
+  "houses": 277,
+  "admitted": 156,
+  "standing_alone": 121,
+  "people_ordered": 508
+ },
+ "orders": {
+  "persons/female/10_19/north/family/none": 2,
+  "persons/female/10_19/south/family/none": 8,
+  "persons/female/10_19/west/family/none": 3,
+  "persons/female/20_29/north/family/none": 35,
+  "persons/female/20_29/south/family/none": 79,
+  "persons/female/20_29/west/family/none": 24,
+  "persons/female/30_39/north/family/none": 5,
+  "persons/female/30_39/south/family/none": 6,
+  "persons/female/30_39/west/family/none": 6,
+  "persons/female/40_49/west/family/none": 1,
+  "persons/female/under_10/north/family/none": 21,
+  "persons/female/under_10/south/family/none": 98,
+  "persons/female/under_10/west/family/none": 39,
+  "persons/male/10_19/north/family/none": 3,
+  "persons/male/10_19/south/family/none": 6,
+  "persons/male/10_19/west/family/none": 2,
+  "persons/male/under_10/north/family/none": 40,
+  "persons/male/under_10/south/family/none": 93,
+  "persons/male/under_10/west/family/none": 37
+ },
+ "houses": {
+  "hh_archer_william_b": {
+   "rank": 193,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_ballard_thomas": {
+   "rank": 144,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_ballingale_p": {
+   "rank": 274,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_barnard_j_b": {
+   "rank": 215,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_barnard_j_h": {
+   "rank": 110,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_barney_anne_maria": {
+   "rank": 94,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_baxley_j_m": {
+   "rank": 152,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_beaubien_charles_h": {
+   "rank": 213,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_beaubien_joseph": {
+   "rank": 205,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_beaubien_monique": {
+   "rank": 76,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_bell_william_a": {
+   "rank": 32,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_bennett_h_c": {
+   "rank": 138,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_blanshard_g": {
+   "rank": 275,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_bond_h": {
+   "rank": 81,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_botsford_j_k": {
+   "rank": 126,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_bourassa_lon": {
+   "rank": 188,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_bousque_bernard": {
+   "rank": 60,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_bradford_william_h": {
+   "rank": 214,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_brannen_w": {
+   "rank": 174,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_bread_a_o_t": {
+   "rank": 118,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_breed_a_o_t": {
+   "rank": 244,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_breese_judge_sidney": {
+   "rank": 9,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_brenin_mary": {
+   "rank": 35,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_bronson_arthur": {
+   "rank": 108,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_bruno_anne_franoise_apolline": {
+   "rank": 46,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_byram_thomas": {
+   "rank": 51,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_calhoun_samuel": {
+   "rank": 159,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_campbell_james_b": {
+   "rank": 206,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_carli_p_s": {
+   "rank": 185,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_carli_paul_j": {
+   "rank": 57,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_carpenter_abel_b": {
+   "rank": 250,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_carpenter_nathaniel": {
+   "rank": 104,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_carroll_patrick": {
+   "rank": 225,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_casy_honora": {
+   "rank": 42,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_chandler_catherine": {
+   "rank": 36,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_chapman_george": {
+   "rank": 70,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_chevallier_john_b": {
+   "rank": 252,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_choulet_claudia_pierrette": {
+   "rank": 272,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_clark_timothy_j": {
+   "rank": 84,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_clarke_l": {
+   "rank": 162,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_clarke_w_b": {
+   "rank": 153,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_clift_benjamin_h": {
+   "rank": 262,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_colewell_m": {
+   "rank": 175,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_cook_j_b": {
+   "rank": 146,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_cook_josiah_p": {
+   "rank": 100,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_coslet_godfrey": {
+   "rank": 56,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_curtin_david": {
+   "rank": 134,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_cusick_theodore": {
+   "rank": 11,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_daly_edward": {
+   "rank": 86,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_daniel_frederick": {
+   "rank": 72,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_dave_john": {
+   "rank": 155,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_davison_john_s": {
+   "rank": 229,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_dewey_s": {
+   "rank": 44,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_dill_frank": {
+   "rank": 59,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_dowd_james": {
+   "rank": 124,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_draper_joseph": {
+   "rank": 74,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_earlie_p_j": {
+   "rank": 34,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_eberling_marian": {
+   "rank": 183,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_enor_jacob": {
+   "rank": 19,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_everts_hiram": {
+   "rank": 157,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_filer_a": {
+   "rank": 39,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_finegan_bridget": {
+   "rank": 271,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_foote_john": {
+   "rank": 151,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_foote_star": {
+   "rank": 109,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_forster_bridget": {
+   "rank": 180,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_forsyth_william": {
+   "rank": 136,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_forsythe_william": {
+   "rank": 123,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_foster_john_n": {
+   "rank": 173,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_franchre_louis": {
+   "rank": 246,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_frauner_m": {
+   "rank": 230,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_gagnier_alexis": {
+   "rank": 50,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_galaher_thomas": {
+   "rank": 88,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_gale_stephen_f": {
+   "rank": 239,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_george_c": {
+   "rank": 89,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_gilbert_james": {
+   "rank": 75,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_grant_james": {
+   "rank": 103,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_green_j": {
+   "rank": 190,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_guisin_byran": {
+   "rank": 197,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_guy_josphine": {
+   "rank": 253,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_haddock_edward": {
+   "rank": 12,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 3,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_hall_george": {
+   "rank": 113,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_hamilton_amos_c": {
+   "rank": 25,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_hamilton_diana": {
+   "rank": 121,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_hapgood_dexter": {
+   "rank": 148,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_harman_isaac": {
+   "rank": 218,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_harmon_d": {
+   "rank": 245,
+   "verdict": "stands_alone",
+   "kin": 7,
+   "under_ten": 1,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_harrington_catherine": {
+   "rank": 199,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_hartzell_thomas": {
+   "rank": 154,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 1,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_hindlin_william": {
+   "rank": 96,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_hinton_isaac_t": {
+   "rank": 276,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_hogan_john": {
+   "rank": 232,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_hogue_william": {
+   "rank": 264,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_holcombe_miles": {
+   "rank": 137,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_hoyt_l_g": {
+   "rank": 176,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_hoyt_thomas": {
+   "rank": 166,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_hubbard_otis": {
+   "rank": 10,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_hugunin_hiram": {
+   "rank": 27,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_irwell_william": {
+   "rank": 129,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_jamison_l_t": {
+   "rank": 49,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_jolly_jacob": {
+   "rank": 66,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_jones_benjamin": {
+   "rank": 102,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_jones_d_e": {
+   "rank": 233,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_jones_willard": {
+   "rank": 172,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_judar_barbery": {
+   "rank": 259,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_juneau_solomon": {
+   "rank": 222,
+   "verdict": "stands_alone",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_keeney_g_w": {
+   "rank": 73,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_keeney_w": {
+   "rank": 8,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_kennicott_m_h": {
+   "rank": 139,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_kercheval_benjamin": {
+   "rank": 195,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_kimball_walter": {
+   "rank": 47,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_kimberly_ira": {
+   "rank": 45,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_king_byron": {
+   "rank": 226,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_king_hyram": {
+   "rank": 29,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_king_j_d": {
+   "rank": 13,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_king_nehemiah": {
+   "rank": 87,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 1,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_king_sherman": {
+   "rank": 217,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/40_49/south/family/none"
+  },
+  "hh_knight_john": {
+   "rank": 251,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_kripes_edward": {
+   "rank": 156,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_kurcheval_louis_c": {
+   "rank": 105,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_laframboise_claude": {
+   "rank": 216,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 0,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_laframboise_joseph": {
+   "rank": 7,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 2,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_laframboise_josette": {
+   "rank": 234,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_laird_george_w": {
+   "rank": 241,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_lavigne_jean_baptiste": {
+   "rank": 235,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_leonard_n": {
+   "rank": 54,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/30_39/north/family/none"
+  },
+  "hh_lincoln_solomon": {
+   "rank": 163,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_liton_robert_w": {
+   "rank": 210,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_long_john": {
+   "rank": 167,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_ltendre_baptiste": {
+   "rank": 191,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 1,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_lyon_william_f": {
+   "rank": 132,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_mallet_marie_louise": {
+   "rank": 38,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_marknoble_sen": {
+   "rank": 6,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_marksall_j_m": {
+   "rank": 224,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_marshall_j_a": {
+   "rank": 92,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_mason_matthias": {
+   "rank": 186,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_mather_thomas": {
+   "rank": 43,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_matthews_j_d": {
+   "rank": 82,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 1,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_mayo_michel": {
+   "rank": 40,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 5,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_mcburney_samuel": {
+   "rank": 17,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_mcgregor_ashor": {
+   "rank": 58,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_medera_genevive": {
+   "rank": 177,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 3,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_meeker_joseph": {
+   "rank": 248,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 1,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_meleney_patrick": {
+   "rank": 52,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 3,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_merill_isaac": {
+   "rank": 200,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_mgregor_a": {
+   "rank": 228,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_miller_catherine": {
+   "rank": 270,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_miller_george": {
+   "rank": 65,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_miller_samuel": {
+   "rank": 240,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_mills_john_a": {
+   "rank": 26,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 0,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/40_49/west/family/none"
+  },
+  "hh_molony_john": {
+   "rank": 143,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_montgomery_l_w": {
+   "rank": 62,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_more_ebenezer_s": {
+   "rank": 117,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_morin_william_w": {
+   "rank": 22,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 1,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/30_39/west/family/none"
+  },
+  "hh_morris_b_s": {
+   "rank": 41,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_morris_potily": {
+   "rank": 182,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_morrison_ordemus": {
+   "rank": 69,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_morrison_orsemus": {
+   "rank": 220,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_mosely_e_b": {
+   "rank": 231,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_mulford_e_h": {
+   "rank": 128,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 3,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_mulford_james_h": {
+   "rank": 189,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_murphy_n": {
+   "rank": 208,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_murray_catherine": {
+   "rank": 237,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_murray_patrick": {
+   "rank": 85,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_nadeau_monique": {
+   "rank": 178,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_nicole_l": {
+   "rank": 95,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/30_39/north/family/none"
+  },
+  "hh_noble_mark": {
+   "rank": 207,
+   "verdict": "stands_alone",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_noble_william_b": {
+   "rank": 77,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_ogleby_robert": {
+   "rank": 133,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_omarra_james": {
+   "rank": 161,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_ostrum_henry_j": {
+   "rank": 255,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 1,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_ouilmette_marie_louise": {
+   "rank": 31,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_outhet_daniel": {
+   "rank": 80,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_paine_william": {
+   "rank": 111,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_pallet_joseph": {
+   "rank": 20,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_panster_james": {
+   "rank": 53,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_payne_l_w": {
+   "rank": 256,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 1,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_payne_william": {
+   "rank": 160,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_peltier_jacquette": {
+   "rank": 3,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_pettit_c": {
+   "rank": 181,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_pixby_warren": {
+   "rank": 150,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/30_39/west/family/none"
+  },
+  "hh_pottier_jean": {
+   "rank": 112,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/30_39/north/family/none"
+  },
+  "hh_powell_reuben": {
+   "rank": 169,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_preman_catherine": {
+   "rank": 147,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_price_jeremiah": {
+   "rank": 125,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_ray_russell": {
+   "rank": 192,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_reed_s_w": {
+   "rank": 238,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_reed_thomas": {
+   "rank": 83,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_reynolds_joseph": {
+   "rank": 5,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_rhuns_henry": {
+   "rank": 223,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_rice_john": {
+   "rank": 28,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_rider_elia": {
+   "rank": 55,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_riffe_pierre": {
+   "rank": 115,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_robi_marguerite": {
+   "rank": 187,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_robinson_d_o": {
+   "rank": 198,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_roi_george_david": {
+   "rank": 221,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_rollins_charles": {
+   "rank": 149,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_rollins_john": {
+   "rank": 4,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_rose_ruel": {
+   "rank": 2,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_ross_niles": {
+   "rank": 209,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_rue_john_c": {
+   "rank": 79,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_russell_aaron": {
+   "rank": 236,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/40_49/south/family/none"
+  },
+  "hh_russell_p_t": {
+   "rank": 30,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_russell_samuel": {
+   "rank": 265,
+   "verdict": "stands_alone",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_ryan_thomas": {
+   "rank": 242,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_salisbury_stephen_m": {
+   "rank": 131,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_sanford_a_r": {
+   "rank": 194,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_saunders_william_w": {
+   "rank": 15,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/30_39/west/family/none"
+  },
+  "hh_saxton_l_c": {
+   "rank": 33,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_scarrett_isaac": {
+   "rank": 93,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_sct_martin": {
+   "rank": 141,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_shapley_major_l": {
+   "rank": 24,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_shedicer_christopher": {
+   "rank": 219,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_sheff_r": {
+   "rank": 212,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 3,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_skinner_e_f": {
+   "rank": 258,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_skinner_joseph": {
+   "rank": 142,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/30_39/north/family/none"
+  },
+  "hh_smith_l_w": {
+   "rank": 165,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_smith_lawrence": {
+   "rank": 260,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_smith_mathias": {
+   "rank": 64,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_smith_matthias": {
+   "rank": 116,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_smith_william_v": {
+   "rank": 119,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_smow_george_w": {
+   "rank": 16,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_snow_watson_m": {
+   "rank": 184,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 3,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_south_g": {
+   "rank": 261,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_spalding_l_f": {
+   "rank": 99,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_spence_james_c": {
+   "rank": 63,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_sproat_grenville": {
+   "rank": 204,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_stanley_j": {
+   "rank": 91,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_steele_ashbel": {
+   "rank": 78,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_stephenson_james_w": {
+   "rank": 211,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_stevens_l": {
+   "rank": 18,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_stewart_james": {
+   "rank": 61,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_stewart_r": {
+   "rank": 170,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_stoer_clement": {
+   "rank": 140,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_story_j_n": {
+   "rank": 203,
+   "verdict": "stands_alone",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_sweet_a": {
+   "rank": 227,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_sweet_alanson": {
+   "rank": 168,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_sweet_richard_m": {
+   "rank": 37,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_taylor_william": {
+   "rank": 196,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_thrall_e_l": {
+   "rank": 107,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/30_39/west/family/none"
+  },
+  "hh_trall_e_l": {
+   "rank": 67,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_troutman_james": {
+   "rank": 101,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_tuttle_j_b": {
+   "rank": 249,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_vale_john": {
+   "rank": 71,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/30_39/west/family/none"
+  },
+  "hh_vanderbogart_henry": {
+   "rank": 23,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_vanderbogert_henry": {
+   "rank": 179,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 2,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/30_39/north/family/none"
+  },
+  "hh_vardon_george": {
+   "rank": 21,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_vaughan_angeline": {
+   "rank": 127,
+   "verdict": "admitted",
+   "kin": 6,
+   "under_ten": 5,
+   "size_drawn": 7,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_vieau_jacob": {
+   "rank": 243,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_vieau_josette": {
+   "rank": 122,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_vieau_paul": {
+   "rank": 266,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_walker_george_h": {
+   "rank": 267,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_walker_james": {
+   "rank": 247,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/30_39/south/family/none"
+  },
+  "hh_walter_francis": {
+   "rank": 130,
+   "verdict": "admitted",
+   "kin": 7,
+   "under_ten": 6,
+   "size_drawn": 8,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_walters_william": {
+   "rank": 114,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_walton_henry": {
+   "rank": 48,
+   "verdict": "admitted",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_washburn_b_f": {
+   "rank": 1,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_waters_asury": {
+   "rank": 14,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/30_39/west/family/none"
+  },
+  "hh_wattles_john_w": {
+   "rank": 98,
+   "verdict": "admitted",
+   "kin": 5,
+   "under_ten": 2,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_weaver_betsy": {
+   "rank": 273,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_welch_michael_p": {
+   "rank": 97,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_wells_george": {
+   "rank": 263,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 0,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_welsh_john": {
+   "rank": 254,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_welsh_t": {
+   "rank": 201,
+   "verdict": "stands_alone",
+   "kin": 5,
+   "under_ten": 4,
+   "size_drawn": 6,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_wesencraft_charlotte": {
+   "rank": 145,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_wessencraft_charles": {
+   "rank": 120,
+   "verdict": "admitted",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_whistler_gwinthlean": {
+   "rank": 68,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_whittier_daniel": {
+   "rank": 269,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_wickham_john_c": {
+   "rank": 106,
+   "verdict": "admitted",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_wight_j_f": {
+   "rank": 90,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/30_39/north/family/none"
+  },
+  "hh_wilcox_d": {
+   "rank": 135,
+   "verdict": "admitted",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_williams_john_l": {
+   "rank": 202,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/north/family/none"
+  },
+  "hh_wilton_john_l": {
+   "rank": 171,
+   "verdict": "stands_alone",
+   "kin": 2,
+   "under_ten": 1,
+   "size_drawn": 3,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_wode_john": {
+   "rank": 164,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 2,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_woodworth_w": {
+   "rank": 257,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_wooley_jedidiah": {
+   "rank": 158,
+   "verdict": "stands_alone",
+   "kin": 3,
+   "under_ten": 2,
+   "size_drawn": 4,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  },
+  "hh_wright_amasa": {
+   "rank": 268,
+   "verdict": "stands_alone",
+   "kin": 4,
+   "under_ten": 3,
+   "size_drawn": 5,
+   "wife_cell": "persons/female/20_29/south/family/none"
+  },
+  "hh_wright_j": {
+   "rank": 277,
+   "verdict": "stands_alone",
+   "kin": 1,
+   "under_ten": 0,
+   "size_drawn": 2,
+   "wife_cell": "persons/female/20_29/west/family/none"
+  }
+ }
+}

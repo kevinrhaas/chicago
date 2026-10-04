@@ -34,8 +34,8 @@
     "households_ruled_present": 936,
     "households_evidenced_absent": 2,
     "households_reconstructed": 44,
-    "persons_total": 2383,
-    "persons_standing": 2381,
+    "persons_total": 2891,
+    "persons_standing": 2889,
     "persons_ruled_present": 942,
     "persons_present": 1402,
     "persons_present_attested": 411,
@@ -78,17 +78,17 @@
     "source": "data/reconstruction/1835_presence_rulings.json",
     "summed_into_known": true,
     "summed_by": "T-1463",
-    "persons_ruled_present": 1343,
+    "persons_ruled_present": 1851,
     "households_ruled_present": 936,
     "by_presence_tier": {
-      "reconstructed": 1125,
-      "inferred": 119,
-      "attested": 99
+      "reconstructed": 1484,
+      "inferred": 183,
+      "attested": 184
     },
     "by_residence_grade": {
       "inferred": 664,
       "attested": 278,
-      "reconstructed": 401
+      "reconstructed": 909
     },
     "what_known_takes": "the 826 attested and inferred; the 1 reconstructed is a fill",
     "persons_known_before_the_rulings": 460,
@@ -1279,6 +1279,31 @@
       ]
     },
     {
+      "ticket": "T-2021",
+      "records": 508,
+      "buckets": [
+        "persons/female/10_19/north/family/none",
+        "persons/female/10_19/south/family/none",
+        "persons/female/10_19/west/family/none",
+        "persons/female/20_29/north/family/none",
+        "persons/female/20_29/south/family/none",
+        "persons/female/20_29/west/family/none",
+        "persons/female/30_39/north/family/none",
+        "persons/female/30_39/south/family/none",
+        "persons/female/30_39/west/family/none",
+        "persons/female/40_49/west/family/none",
+        "persons/female/under_10/north/family/none",
+        "persons/female/under_10/south/family/none",
+        "persons/female/under_10/west/family/none",
+        "persons/male/10_19/north/family/none",
+        "persons/male/10_19/south/family/none",
+        "persons/male/10_19/west/family/none",
+        "persons/male/under_10/north/family/none",
+        "persons/male/under_10/south/family/none",
+        "persons/male/under_10/west/family/none"
+      ]
+    },
+    {
       "ticket": "T-1347",
       "records": 308,
       "buckets": [
@@ -1446,14 +1471,14 @@
     }
   ],
   "roster_offered": {
-    "total": 1779,
+    "total": 1778,
     "by_class": {
-      "R1_in_window_uncertain": 894,
+      "R1_in_window_uncertain": 881,
       "R2_in_window_single_source": 207,
       "R3_1834_return_or_muster": 28,
-      "R4_surname_only_census": 428,
+      "R4_surname_only_census": 427,
       "R5_later_only_backprojectable": 53,
-      "R6_native_metis_black": 169
+      "R6_native_metis_black": 182
     },
     "tickets": {
       "R1_in_window_uncertain": "T-1172",
@@ -1467,7 +1492,7 @@
   "totals": {
     "persons_target": 2543,
     "persons_known": 1402,
-    "persons_to_reconstruct": 1533,
+    "persons_to_reconstruct": 2041,
     "households_target": 644,
     "households_known": 82,
     "households_known_records": 1375,
@@ -1479,9 +1504,9 @@
     "roofs_target": 668,
     "roofs_standing": 546,
     "roofs_to_build": 140,
-    "persons_standing": 2381,
+    "persons_standing": 2889,
     "persons_still_owed": 224,
-    "persons_when_the_book_is_filled": 2605,
+    "persons_when_the_book_is_filled": 3113,
     "persons_target_range": [
       2362,
       3265
@@ -1877,15 +1902,15 @@
     {
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
-      "persons_standing_in_the_layer": 2381,
+      "persons_standing_in_the_layer": 2889,
       "persons_still_owed": 224,
-      "converges_to": 2605,
+      "converges_to": 3113,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 224 still owed is 2,605, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 62 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,889 standing plus 224 still owed is 3,113, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,889 + 843 = 3,732, and the book was ordering a replacement for 826 people already in the layer. It is 570 above the model's 2,543 point, and that surplus is the 386 people drawn into 45 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -1970,13 +1995,14 @@
           "target": 32,
           "known_attested": 5,
           "known_inferred": 12,
-          "to_reconstruct": 24,
-          "filled": 24,
+          "to_reconstruct": 26,
+          "filled": 26,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 26,
+          "drawn_here": 28,
           "refamilied_out": 2,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 2
         },
         {
           "key": "persons/female/10_19/north/lodging/trade",
@@ -2026,13 +2052,14 @@
           "target": 76,
           "known_attested": 13,
           "known_inferred": 30,
-          "to_reconstruct": 55,
-          "filled": 55,
+          "to_reconstruct": 63,
+          "filled": 63,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 61,
+          "drawn_here": 69,
           "refamilied_out": 6,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 8
         },
         {
           "key": "persons/female/10_19/south/lodging/none",
@@ -2065,13 +2092,14 @@
           "target": 28,
           "known_attested": 4,
           "known_inferred": 11,
-          "to_reconstruct": 21,
-          "filled": 21,
+          "to_reconstruct": 24,
+          "filled": 24,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 24,
+          "drawn_here": 27,
           "refamilied_out": 3,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 3
         },
         {
           "key": "persons/female/10_19/west/lodging/none",
@@ -2123,13 +2151,14 @@
           "target": 34,
           "known_attested": 5,
           "known_inferred": 13,
-          "to_reconstruct": 26,
-          "filled": 26,
+          "to_reconstruct": 61,
+          "filled": 61,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 28,
+          "drawn_here": 63,
           "refamilied_out": 2,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 35
         },
         {
           "key": "persons/female/20_29/north/lodging/trade",
@@ -2203,13 +2232,14 @@
           "target": 82,
           "known_attested": 13,
           "known_inferred": 33,
-          "to_reconstruct": 64,
-          "filled": 64,
+          "to_reconstruct": 143,
+          "filled": 143,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 66,
+          "drawn_here": 145,
           "refamilied_out": 2,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 79
         },
         {
           "key": "persons/female/20_29/south/lodging/trade",
@@ -2283,13 +2313,14 @@
           "target": 30,
           "known_attested": 5,
           "known_inferred": 11,
-          "to_reconstruct": 20,
-          "filled": 20,
+          "to_reconstruct": 44,
+          "filled": 44,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 25,
+          "drawn_here": 49,
           "refamilied_out": 5,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 24
         },
         {
           "key": "persons/female/20_29/west/lodging/trade",
@@ -2361,13 +2392,14 @@
           "target": 16,
           "known_attested": 3,
           "known_inferred": 6,
-          "to_reconstruct": 11,
-          "filled": 11,
+          "to_reconstruct": 16,
+          "filled": 16,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 13,
+          "drawn_here": 18,
           "refamilied_out": 2,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 5
         },
         {
           "key": "persons/female/30_39/north/lodging/trade",
@@ -2439,13 +2471,14 @@
           "target": 38,
           "known_attested": 6,
           "known_inferred": 16,
-          "to_reconstruct": 27,
-          "filled": 27,
+          "to_reconstruct": 33,
+          "filled": 33,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 31,
+          "drawn_here": 37,
           "refamilied_out": 4,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 6
         },
         {
           "key": "persons/female/30_39/south/lodging/trade",
@@ -2517,13 +2550,14 @@
           "target": 14,
           "known_attested": 2,
           "known_inferred": 6,
-          "to_reconstruct": 9,
-          "filled": 9,
+          "to_reconstruct": 15,
+          "filled": 15,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 12,
+          "drawn_here": 18,
           "refamilied_out": 3,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 6
         },
         {
           "key": "persons/female/30_39/west/lodging/trade",
@@ -2751,12 +2785,13 @@
           "target": 5,
           "known_attested": 1,
           "known_inferred": 1,
-          "to_reconstruct": 3,
-          "filled": 3,
+          "to_reconstruct": 4,
+          "filled": 4,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 4,
-          "refamilied_out": 1
+          "drawn_here": 5,
+          "refamilied_out": 1,
+          "ordered_by_the_family_ruling": 1
         },
         {
           "key": "persons/female/40_49/west/lodging/trade",
@@ -3040,13 +3075,14 @@
           "target": 55,
           "known_attested": 9,
           "known_inferred": 20,
-          "to_reconstruct": 41,
-          "filled": 41,
+          "to_reconstruct": 62,
+          "filled": 62,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 45,
+          "drawn_here": 66,
           "refamilied_out": 4,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 21
         },
         {
           "key": "persons/female/under_10/north/lodging/none",
@@ -3079,13 +3115,14 @@
           "target": 132,
           "known_attested": 22,
           "known_inferred": 53,
-          "to_reconstruct": 100,
-          "filled": 100,
+          "to_reconstruct": 198,
+          "filled": 198,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 107,
+          "drawn_here": 205,
           "refamilied_out": 7,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 98
         },
         {
           "key": "persons/female/under_10/south/lodging/none",
@@ -3118,13 +3155,14 @@
           "target": 49,
           "known_attested": 8,
           "known_inferred": 18,
-          "to_reconstruct": 34,
-          "filled": 34,
+          "to_reconstruct": 73,
+          "filled": 73,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 40,
+          "drawn_here": 79,
           "refamilied_out": 6,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 39
         },
         {
           "key": "persons/female/under_10/west/lodging/none",
@@ -3157,13 +3195,14 @@
           "target": 37,
           "known_attested": 6,
           "known_inferred": 14,
-          "to_reconstruct": 28,
-          "filled": 28,
+          "to_reconstruct": 31,
+          "filled": 31,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 30,
+          "drawn_here": 33,
           "refamilied_out": 2,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 3
         },
         {
           "key": "persons/male/10_19/north/lodging/trade",
@@ -3216,13 +3255,14 @@
           "target": 88,
           "known_attested": 14,
           "known_inferred": 35,
-          "to_reconstruct": 65,
-          "filled": 65,
+          "to_reconstruct": 71,
+          "filled": 71,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 71,
+          "drawn_here": 77,
           "refamilied_out": 6,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 6
         },
         {
           "key": "persons/male/10_19/south/lodging/trade",
@@ -3274,13 +3314,14 @@
           "target": 33,
           "known_attested": 5,
           "known_inferred": 13,
-          "to_reconstruct": 23,
-          "filled": 23,
+          "to_reconstruct": 25,
+          "filled": 25,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 26,
+          "drawn_here": 28,
           "refamilied_out": 3,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 2
         },
         {
           "key": "persons/male/10_19/west/lodging/trade",
@@ -3356,7 +3397,7 @@
           "known_inferred": 22,
           "to_reconstruct": 27,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3429,7 +3470,7 @@
           "known_inferred": 56,
           "to_reconstruct": 61,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3504,7 +3545,7 @@
           "known_inferred": 19,
           "to_reconstruct": 25,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3579,7 +3620,7 @@
           "known_inferred": 13,
           "to_reconstruct": 16,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3654,7 +3695,7 @@
           "known_inferred": 33,
           "to_reconstruct": 36,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3729,7 +3770,7 @@
           "known_inferred": 11,
           "to_reconstruct": 14,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3804,7 +3845,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3879,7 +3920,7 @@
           "known_inferred": 9,
           "to_reconstruct": 11,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3952,7 +3993,7 @@
           "known_inferred": 4,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4026,7 +4067,7 @@
           "known_inferred": 2,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4101,7 +4142,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4174,7 +4215,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4226,13 +4267,14 @@
           "target": 62,
           "known_attested": 10,
           "known_inferred": 24,
-          "to_reconstruct": 44,
-          "filled": 44,
+          "to_reconstruct": 84,
+          "filled": 84,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 51,
+          "drawn_here": 91,
           "refamilied_out": 7,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 40
         },
         {
           "key": "persons/male/under_10/north/lodging/none",
@@ -4265,13 +4307,14 @@
           "target": 148,
           "known_attested": 25,
           "known_inferred": 59,
-          "to_reconstruct": 109,
-          "filled": 109,
+          "to_reconstruct": 202,
+          "filled": 202,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 119,
+          "drawn_here": 212,
           "refamilied_out": 10,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 93
         },
         {
           "key": "persons/male/under_10/south/lodging/none",
@@ -4304,13 +4347,14 @@
           "target": 55,
           "known_attested": 9,
           "known_inferred": 20,
-          "to_reconstruct": 34,
-          "filled": 34,
+          "to_reconstruct": 71,
+          "filled": 71,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 43,
+          "drawn_here": 80,
           "refamilied_out": 9,
-          "recut_refused": true
+          "recut_refused": true,
+          "ordered_by_the_family_ruling": 37
         },
         {
           "key": "persons/male/under_10/west/lodging/none",
@@ -4433,7 +4477,7 @@
           "known": 12,
           "to_reconstruct": 111,
           "filled": 8,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
         {
@@ -4446,7 +4490,7 @@
           "known": 41,
           "to_reconstruct": 217,
           "filled": 15,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
@@ -4459,7 +4503,7 @@
           "known": 7,
           "to_reconstruct": 103,
           "filled": 10,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
         {
@@ -4524,7 +4568,7 @@
           "known": 0,
           "to_reconstruct": 6,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the north division"
         },
         {
@@ -4537,7 +4581,7 @@
           "known": 10,
           "to_reconstruct": 51,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the south division"
         },
         {
@@ -4550,7 +4594,7 @@
           "known": 0,
           "to_reconstruct": 9,
           "filled": 0,
-          "owning_ticket": "T-2021",
+          "owning_ticket": "T-2043",
           "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the west division"
         },
         {
@@ -6402,6 +6446,139 @@
       "ticket": "T-1171",
       "stage": "modelled_families",
       "records": 20,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/north/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 2,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/south/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 8,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/west/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 3,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 35,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/south/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 79,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/west/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 24,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 5,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/south/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 6,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/west/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 6,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/west/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 1,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/north/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 21,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/south/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 98,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/west/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 39,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/north/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 3,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 6,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/west/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 2,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/north/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 40,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/south/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 93,
+      "by": "tools/reconstruct_modelled_families.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/west/family/none",
+      "ticket": "T-2021",
+      "stage": "modelled_families",
+      "records": 37,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A hundred and fifty-six lone men in the 1835 town now have families', kind: 'change',
+    items: [
+      'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
+      'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',
+      'Every one of these people is our reconstruction, not a record. No source names them, and none says these men married.',
+    ] },
   { v: 1390, ts: '2026-10-03T23:24:44.264Z', date: 'Oct 3, 2026, 6:24 PM CT', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
     items: [
       'Open Jaunts and pick Look Before You Buy a Lot: it now recommends riding, and takes about three and a half minutes instead of seven on foot.',

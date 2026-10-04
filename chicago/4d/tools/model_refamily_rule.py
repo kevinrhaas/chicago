@@ -330,6 +330,12 @@ def held_roster(doc: dict, by_id: dict) -> list:
             stage = rc.get("stage") if isinstance(rc, dict) else None
             band = person.get("age_band")
             low = band.get("low") if isinstance(band, dict) else None
+            if stage == "modelled_families" and rc.get("ticket") == "T-2021":
+                # ORDERED APART, NOT HELD (T-2021). The family ruling's people fill the
+                # orders the ruling itself added to their cells, after the re-cut has
+                # read the book, so the book's `drawn_here` on a refused cell does not
+                # count them and neither may this roster: nobody held them.
+                continue
             if stage == "modelled_families":
                 seed = band.get("seed", "") if isinstance(band, dict) else ""
                 which = seed.rsplit(":", 1)[-1].replace("_age_bands_1840", "")

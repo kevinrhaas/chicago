@@ -151,7 +151,14 @@ HOUSEHOLD_TYPES = (
 # decides whether the book orders more women or the heads stand alone, and the men and
 # houses still owed here are the same question. The modelled-families STAGE keeps its
 # own ticket, T-1171, on its fills; that is who drew, not who is owed.
-FAMILY_OWNER = "T-2021"
+# SWEPT AGAIN ON T-2021's CLOSE (2026-10-03). The ruling ordered more women — exactly what
+# the houses it admitted drew — and did NOT discharge the men and the family and store
+# households these rows still order: those are a reconciliation against the head records
+# awaiting a household, which is T-2043's. A row that still owes work may not name a
+# ticket that is finished.
+FAMILY_OWNER = "T-2043"
+# …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
+FAMILY_RULING_TICKET = "T-2021"
 
 # Which ticket fills a person bucket. Read top-down; the first rule that matches
 # owns the cell. Written here rather than in prose so the book can be audited
@@ -839,6 +846,12 @@ def load(root: Path = ROOT) -> dict:
         if not path.exists():
             raise Fault(f"the order book's input {path.name} is missing — it cannot be built without it")
         out[key] = json.loads(path.read_text(encoding="utf-8"))
+    # T-2021's FAMILY RULING, the one input that may be absent: it is written once, by the
+    # modelled-families stage, on the first build of a tree that held none. Until then the
+    # book orders nothing for it.
+    ruling = root / "data" / "reconstruction" / "1835_family_ruling.json"
+    out["family_ruling"] = (json.loads(ruling.read_text(encoding="utf-8"))
+                            if ruling.exists() else {})
     return out
 
 
@@ -2905,8 +2918,13 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         # book writes `drawn_here` on exactly the buckets a move touched, precisely so the
         # draw stays readable underneath the move; it is preferred here. Found when the
         # re-family programme settled and the order book could no longer rebuild itself.
+        # LESS WHAT T-2021's RULING ADDED: it is ordered and filled apart, after this
+        # yardstick is read (`family_ruling_orders`), so it is no part of the order the
+        # quota's own work was drawn against.
         committed_order = {
-            b["key"]: b.get("drawn_here", b.get("to_reconstruct", b.get("to_build")))
+            b["key"]: (lambda v: v - b.get("ordered_by_the_family_ruling", 0)
+                       if v is not None else None)(
+                b.get("drawn_here", b.get("to_reconstruct", b.get("to_build"))))
             for fam in json.loads(BOOK.read_text(encoding="utf-8"))["bucket_families"]
             for b in fam["buckets"]}
     recut_refusals = []
@@ -2923,11 +2941,19 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     # number, so the one gate that is supposed to refuse an overfilled bucket could not
     # have seen an overfill made by two tickets between them.
     counted = Counter()
+    # THE RULING'S FILLS ARE COUNTED APART (T-2021). The family ruling orders exactly what
+    # its houses drew, so its cells are an order and a fill of the same size, added AFTER
+    # the re-cut and the overfill gate have read the quota. Folded into `counted` they would
+    # read to the re-cut as a draw past the order every refused cell was drawn against.
+    ruled_fills = Counter()
     # WHO DREW, NOT JUST HOW MANY. The re-cut below spends a bucket's remainder only where
     # every stage that has drawn there is stable under a quota change, so it needs the
     # tickets and not only the counter — see `REMAINDER_STABLE_STAGES`.
     drawn_by: dict[str, set] = {}
     for fill in fills:
+        if fill.get("ticket") == FAMILY_RULING_TICKET:
+            ruled_fills[fill["bucket"]] += int(fill.get("records") or 0)
+            continue
         counted[fill["bucket"]] += int(fill.get("records") or 0)
         if int(fill.get("records") or 0):
             drawn_by.setdefault(fill["bucket"], set()).add(fill.get("ticket") or "")
@@ -3051,6 +3077,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                     b["recut_refused"] = True
                 else:
                     raise Fault(f"the bucket {b['key']} is overfilled: {b['filled']} of {todo}")
+
+    family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills)
 
     spent = Counter()
     for fill in fills:
@@ -3233,6 +3261,34 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     if len(doc["bucket_families"]) != 5:
         raise Fault("the order book is five bucket families; fewer is a book with a hole in it")
     return doc
+
+
+def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter) -> None:
+    """T-2021: the cells the family ruling orders, and what its houses filled. In place.
+
+    The ruling (`data/reconstruction/1835_family_ruling.json`, frozen) gave each married
+    house it admitted the whole family the household model drew for it, and wrote down the
+    cells those people fall in. Each is an ORDER here — `to_reconstruct` rises by it and
+    `ordered_by_the_family_ruling` says so — and the ruling's fills fill it. So no cell is
+    overfilled and none is left owing, and the town the book converges to rises by exactly
+    the people the ruling seated, which the ruling itself held under the count. A fill the
+    ruling did not order, or one past it, is a FAULT: that would be the ruling's ticket
+    drawing past its own word."""
+    orders = {k: int(v) for k, v in (ruling.get("orders") or {}).items()}
+    by_key = {b["key"]: b for b in buckets}
+    for key in sorted(set(orders) | set(ruled_fills)):
+        b = by_key.get(key)
+        if b is None:
+            raise Fault(f"the family ruling orders into {key}, which is not a person bucket")
+        order, filled = orders.get(key, 0), ruled_fills.get(key, 0)
+        if filled > order:
+            raise Fault(f"{FAMILY_RULING_TICKET} fills {filled} in {key} where its ruling "
+                        f"orders {order}")
+        b["ordered_by_the_family_ruling"] = order
+        b["to_reconstruct"] = (b["to_reconstruct"] or 0) + order
+        b["filled"] += filled
+        if "drawn_here" in b:
+            b["drawn_here"] += filled
 
 
 def converges_inside_the_model(doc: dict) -> str:

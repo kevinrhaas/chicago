@@ -1,3 +1,22 @@
+## T-2021 — the married houses no woman in the town fits, ruled on (2026-10-03) — WIP, see PR
+
+**What a visitor sees:** 156 married houses in the People directory now hold the wife and children
+the household model drew for them (508 people), and 121 stand alone with a card that says why.
+
+- **The ruling.** In a seeded order, each of the 277 refused houses is given the whole family this
+  stage drew for it and refused, while the town the order book converges to stays at or under
+  3,265 AND the under-ten share at or under the model's 0.2702. The walk stops at the first house
+  either bound refuses (a prefix, never a packing). It stopped at house 157 on the under-ten
+  bracket. Frozen in `data/reconstruction/1835_family_ruling.json`.
+- **Measured:** town converges 2,605 → 3,113; under-ten share 0.1894 → 0.2699; adult sex ratio
+  435.4 → 282.4 (the model's 120.9–150.0 is still not met, and the measurement says why).
+- **The book** orders exactly the ruling's cells (`ordered_by_the_family_ruling`), filled under
+  T-2021, counted apart from the re-cut. The family rows still owed name **T-2043**.
+- **NOT YET GREEN.** After two full `rederive.mjs --run` passes, `check.sh` still reports
+  downstream stages (readmissions, transients, Native and Metis, church register, staffing join,
+  boarders, sidecars) not re-deriving, and 9 structure records whose occupancy moved read stale
+  against their meshes. The PR carries the reason on its `resume` comment.
+
 ## T-2053 — three jaunts just over six minutes brought inside it (2026-10-03)
 
 **What a visitor sees:** Look Before You Buy a Lot now recommends a ride on horseback,

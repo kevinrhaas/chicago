@@ -12716,8 +12716,11 @@ instruction — and the size is seated as a wife and children: 84 wives and 212 
 the sources do not name. Thirty-five of the hundred and nineteen drew a house of one and hold no
 kin at all, so the drawn people stand on 84 cards.
 
-**Scope:** `residents.persons[modelled_families]` — 295 people in 84 households, every one of
-them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
+**Scope:** `residents.persons[modelled_families]` — 803 people in 240 households, every one of
+them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2021 GREW IT FROM
+295 IN 84 TO 803 IN 240 on 2026-10-03**, by ruling on the married houses the order book had
+refused a wife: 156 of them are given the whole family this stage drew for them, 508 people
+(below, THE RULING). **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
 
 **What is invented, stated plainly.** That these men were married at all; how many children each
 had; every child's age band and sex; every forename. The surname is the head's own, the forename
@@ -12775,7 +12778,9 @@ goes before anybody is moved: 91 of the 368 houses could take the wife and child
 T-1174's woman-headed houses by this stage's own spacing rule and child cap, and 277 can take no
 woman the town holds. T-2021 rules on the rest. The measurement is printed against the model in
 `data/reconstruction/1835_modelled_families.json` (`re_housing`) and says so rather than reading
-as a target reached.
+as a target reached. After the ruling below it stands at 282.4, still not met, and the
+measurement says why: the wives move it, and the children who come with them stop the walk
+long before it gets there.
 
 **THE MARRIAGES, made 2026-10-03 (T-2020).** The 91 moves are made, exactly the pairs T-2019
 measured and no others. Each woman-headed house folds into the married house it was paired with:
@@ -12793,11 +12798,38 @@ figure T-2019 printed, and the stage's `--check` refuses any other. Her card's h
 are kept in `data/reconstruction/1835_folded_houses.json` so the fold re-derives. Each moved
 person carries `folded_in`, naming the house they were dealt in. The household card prints both.
 
+**THE RULING, made 2026-10-03 (T-2021).** 277 married houses were still refused after the
+moves: the book had no woman left in the wife's cell and no woman the town holds fit them. The
+question was whether the book orders more women or the heads stand alone, and the answer is
+both, partitioned by two bounds the town model already carries. In a seeded order
+(`blake2s('<household>:family_ruling')`), each house is given the WHOLE family this stage drew
+for it and refused — the same wife and children, the same bands, the same seeds — while the
+town the order book converges to stays at or under 3,265 (the top of the model's range, the
+November 1835 town count) AND the town's under-ten share stays at or under the model's
+0.2702. The walk stops at the first house either bound refuses, and that house and every one
+after it stand alone. It stopped at house 157 of 277 on the under-ten bracket: **156 houses
+are admitted, 508 people (156 wives, 352 children), and 121 stand alone.** The town the book
+converges to goes from 2,605 to 3,113, the under-ten share from 0.1894 to 0.2699, and the
+adult sex ratio from 435.4 to 282.4. **What is invented, stated plainly:** the marriages and
+every one of these people, at the `reconstructed` tier, as above. A forename that would give
+one of them a full name somebody else in the town already bears steps on to the next in the
+pool, as it already steps past a name the family bears. **Why not wives alone:** a house the
+model drew at five to eight people seated as a childless couple would be a shape nobody drew.
+**Why a prefix and not a packing:** skipping a large family to look for a smaller one that fits
+would choose houses by their shape, and the admitted families would stop being a sample of
+what the model drew. **What standing alone means:** nothing about the man. The card says the
+ruling turned his house away and why, and does not claim he kept no wife. The ruling is FROZEN
+in `data/reconstruction/1835_family_ruling.json`, with the cells its people fill. The order
+book reads those cells as orders, so it orders exactly what the admitted houses drew and no
+cell is overfilled or left owing. A later re-cut re-deals nobody: a house the ruling admitted
+that is no longer refused fails `--check` by name.
+
 Related: tickets **T-1171**, from **T-1167**; **T-1161**'s town model and **T-1166**'s order book
 are the two files it draws against. **Recorded:** 2026-09-18.
 **Restated:** 2026-09-21 (T-1369), when the evidence-only refusal was added and the counts,
 the refusal tallies and the sex-ratio reading were brought back to the ledger; 2026-10-03
-(T-2020), when the 91 marriages were made.
+(T-2020), when the 91 marriages were made; 2026-10-03 (T-2021), when the ruling admitted 156
+houses and 121 were left standing alone.
 
 ### L245 — "Some hundreds more" is read as a band of 200 to 900, and the transient crowd of 1 July 1835 is bounded by it
 

@@ -408,11 +408,11 @@
  },
  "counts": {
   "households": 1421,
-  "persons": 2383,
+  "persons": 2891,
   "by_grade": {
    "attested": 412,
    "inferred": 992,
-   "reconstructed": 979
+   "reconstructed": 1487
   },
   "letter_list_only": 736,
   "projected_residents": 723,
@@ -1571,9 +1571,10 @@
    "head": "ballard_thomas",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -1722,9 +1723,10 @@
    "head": "barnard_j_h",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -1738,9 +1740,10 @@
    "head": "barney_anne_maria",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -1935,9 +1938,10 @@
    "head": "baxley_j_m",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -2264,9 +2268,10 @@
    "head": "beaubien_monique",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -2431,9 +2436,10 @@
    "head": "bell_william_a",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -2548,9 +2554,10 @@
    "head": "bennett_h_c",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -3151,9 +3158,10 @@
    "head": "bond_h",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -3251,9 +3259,10 @@
    "head": "botsford_j_k",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -3417,9 +3426,10 @@
    "head": "bousque_bernard",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -3613,9 +3623,10 @@
    "head": "bread_a_o_t",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -3645,9 +3656,10 @@
    "head": "breese_judge_sidney",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -3661,9 +3673,10 @@
    "head": "brenin_mary",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -3827,9 +3840,10 @@
    "head": "bronson_arthur",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -4041,9 +4055,10 @@
    "head": "bruno_anne_franoise_apolline",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -4414,9 +4429,10 @@
    "head": "byram_thomas",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -4610,9 +4626,10 @@
    "head": "carli_paul_j",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -4643,9 +4660,10 @@
    "head": "carpenter_nathaniel",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -4806,9 +4824,10 @@
    "head": "casy_honora",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -4938,9 +4957,10 @@
    "head": "chandler_catherine",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -5020,9 +5040,10 @@
    "head": "chapman_george",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -5536,9 +5557,10 @@
    "head": "clark_timothy_j",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -5583,9 +5605,10 @@
    "head": "clarke_w_b",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -6029,9 +6052,10 @@
    "head": "cook_j_b",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -6062,9 +6086,10 @@
    "head": "cook_josiah_p",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -6144,9 +6169,10 @@
    "head": "coslet_godfrey",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -6377,9 +6403,10 @@
    "head": "curtin_david",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -6477,9 +6504,10 @@
    "head": "cusick_theodore",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -6545,9 +6573,10 @@
    "head": "daly_edward",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -6595,9 +6624,10 @@
    "head": "daniel_frederick",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -6663,9 +6693,10 @@
    "head": "dave_john",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -7029,9 +7060,10 @@
    "head": "dewey_s",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -7096,9 +7128,10 @@
    "head": "dill_frank",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -7431,9 +7464,10 @@
    "head": "dowd_james",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -7516,9 +7550,10 @@
    "head": "draper_joseph",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -7735,9 +7770,10 @@
    "head": "earlie_p_j",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -7952,9 +7988,10 @@
    "head": "enor_jacob",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -8305,9 +8342,10 @@
    "head": "filer_a",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -8586,9 +8624,10 @@
    "head": "foote_john",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -8603,9 +8642,10 @@
    "head": "foote_star",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -8752,9 +8792,10 @@
    "head": "forsyth_william",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -8768,9 +8809,10 @@
    "head": "forsythe_william",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -9051,9 +9093,10 @@
    "head": "gagnier_alexis",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -9082,9 +9125,10 @@
    "head": "galaher_thomas",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -9213,9 +9257,10 @@
    "head": "george_c",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -9280,9 +9325,10 @@
    "head": "gilbert_james",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -9596,9 +9642,10 @@
    "head": "grant_james",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -9808,9 +9855,10 @@
    "file": "households/hh_haddock_edward.json",
    "head": "haddock_edward",
    "division": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": "mansion_house",
    "works_at": "mansion_house",
@@ -9893,9 +9941,10 @@
    "head": "hall_george",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -9909,9 +9958,10 @@
    "head": "hamilton_amos_c",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -9925,9 +9975,10 @@
    "head": "hamilton_diana",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -10006,9 +10057,10 @@
    "head": "hapgood_dexter",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -10220,9 +10272,10 @@
    "head": "hartzell_thomas",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -10557,9 +10610,10 @@
    "head": "hindlin_william",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -10751,9 +10805,10 @@
    "head": "holcombe_miles",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -11152,9 +11207,10 @@
    "head": "hubbard_otis",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -11185,9 +11241,10 @@
    "head": "hugunin_hiram",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -11629,9 +11686,10 @@
    "head": "irwell_william",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -11730,9 +11788,10 @@
    "head": "jamison_l_t",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -11949,9 +12008,10 @@
    "head": "jolly_jacob",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -11997,9 +12057,10 @@
    "file": "households/hh_jones_benjamin.json",
    "head": "jones_benjamin",
    "division": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": "h_jones_store",
@@ -12211,9 +12272,10 @@
    "head": "keeney_g_w",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -12227,9 +12289,10 @@
    "head": "keeney_w",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -12276,9 +12339,10 @@
    "head": "kennicott_m_h",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -12476,9 +12540,10 @@
    "file": "households/hh_kimball_walter.json",
    "head": "kimball_walter",
    "division": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": "chicago_democrat_office",
@@ -12493,9 +12558,10 @@
    "head": "kimberly_ira",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -12593,9 +12659,10 @@
    "head": "king_hyram",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -12609,9 +12676,10 @@
    "head": "king_j_d",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -12625,9 +12693,10 @@
    "head": "king_nehemiah",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -12975,9 +13044,10 @@
    "head": "kripes_edward",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -13008,9 +13078,10 @@
    "head": "kurcheval_louis_c",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -13088,9 +13159,10 @@
    "head": "laframboise_joseph",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -13550,9 +13622,10 @@
    "head": "leonard_n",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -14136,9 +14209,10 @@
    "head": "lyon_william_f",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -14270,9 +14344,10 @@
    "head": "mallet_marie_louise",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -14336,9 +14411,10 @@
    "head": "marknoble_sen",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -14382,9 +14458,10 @@
    "head": "marshall_j_a",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -14464,9 +14541,10 @@
    "head": "mather_thomas",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -14480,9 +14558,10 @@
    "head": "matthews_j_d",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -14611,9 +14690,10 @@
    "head": "mayo_michel",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -14627,9 +14707,10 @@
    "head": "mcburney_samuel",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -14677,9 +14758,10 @@
    "head": "mcgregor_ashor",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -14808,9 +14890,10 @@
    "head": "meleney_patrick",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -15006,9 +15089,10 @@
    "head": "miller_george",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -15073,9 +15157,10 @@
    "head": "mills_john_a",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -15274,9 +15359,10 @@
    "head": "molony_john",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -15289,9 +15375,10 @@
    "head": "montgomery_l_w",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -15354,9 +15441,10 @@
    "head": "more_ebenezer_s",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -15404,9 +15492,10 @@
    "head": "morin_william_w",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -15453,9 +15542,10 @@
    "head": "morris_b_s",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -15518,9 +15608,10 @@
    "head": "morrison_ordemus",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -15633,9 +15724,10 @@
    "file": "households/hh_mulford_e_h.json",
    "head": "mulford_e_h",
    "division": "south",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -15798,9 +15890,10 @@
    "head": "murray_patrick",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -16032,9 +16125,10 @@
    "head": "nicole_l",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -16113,9 +16207,10 @@
    "head": "noble_william_b",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -16263,9 +16358,10 @@
    "head": "ogleby_robert",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -16429,9 +16525,10 @@
    "head": "ouilmette_marie_louise",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -16445,9 +16542,10 @@
    "head": "outhet_daniel",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -16577,9 +16675,10 @@
    "head": "paine_william",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -16594,9 +16693,10 @@
    "head": "pallet_joseph",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -16643,9 +16743,10 @@
    "head": "panster_james",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -16942,9 +17043,10 @@
    "head": "peltier_jacquette",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -17160,9 +17262,10 @@
    "head": "pixby_warren",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -17358,9 +17461,10 @@
    "head": "pottier_jean",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -17474,9 +17578,10 @@
    "head": "preman_catherine",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -17524,9 +17629,10 @@
    "head": "price_jeremiah",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -18348,9 +18454,10 @@
    "head": "reed_thomas",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -18482,9 +18589,10 @@
    "head": "reynolds_joseph",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -18514,9 +18622,10 @@
    "head": "rice_john",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -18598,9 +18707,10 @@
    "head": "rider_elia",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -18614,9 +18724,10 @@
    "head": "riffe_pierre",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -18927,9 +19038,10 @@
    "head": "rollins_charles",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -18943,9 +19055,10 @@
    "head": "rollins_john",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -18993,9 +19106,10 @@
    "head": "rose_ruel",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -19042,9 +19156,10 @@
    "head": "rue_john_c",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -19090,9 +19205,10 @@
    "head": "russell_p_t",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -19205,9 +19321,10 @@
    "head": "salisbury_stephen_m",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -19390,9 +19507,10 @@
    "head": "saunders_william_w",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -19423,9 +19541,10 @@
    "head": "saxton_l_c",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -19456,9 +19575,10 @@
    "head": "scarrett_isaac",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -19588,9 +19708,10 @@
    "head": "sct_martin",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -19688,9 +19809,10 @@
    "head": "shapley_major_l",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -20137,9 +20259,10 @@
    "head": "skinner_joseph",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -20285,9 +20408,10 @@
    "head": "smith_mathias",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -20301,9 +20425,10 @@
    "head": "smith_matthias",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -20334,9 +20459,10 @@
    "head": "smith_william_v",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -20350,9 +20476,10 @@
    "head": "smow_george_w",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -20465,9 +20592,10 @@
    "head": "spalding_l_f",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -20481,9 +20609,10 @@
    "head": "spence_james_c",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -20695,9 +20824,10 @@
    "head": "stanley_j",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -20812,9 +20942,10 @@
    "file": "households/hh_steele_ashbel.json",
    "head": "steele_ashbel",
    "division": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -20895,9 +21026,10 @@
    "head": "stevens_l",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -20928,9 +21060,10 @@
    "head": "stewart_james",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -21043,9 +21176,10 @@
    "head": "stoer_clement",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -21327,9 +21461,10 @@
    "head": "sweet_richard_m",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -21621,9 +21756,10 @@
    "head": "thrall_e_l",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -21805,9 +21941,10 @@
    "head": "trall_e_l",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -21870,9 +22007,10 @@
    "head": "troutman_james",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -22035,9 +22173,10 @@
    "head": "vale_john",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -22051,9 +22190,10 @@
    "head": "vanderbogart_henry",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -22169,9 +22309,10 @@
    "head": "vardon_george",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -22252,9 +22393,10 @@
    "head": "vaughan_angeline",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 7,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -22334,9 +22476,10 @@
    "head": "vieau_josette",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -22562,9 +22705,10 @@
    "head": "walter_francis",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 8,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 7
    },
    "lives_at": null,
    "works_at": null,
@@ -22577,9 +22721,10 @@
    "file": "households/hh_walters_william.json",
    "head": "walters_william",
    "division": "west",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 2
    },
    "lives_at": "wolf_point_tavern",
    "works_at": "wolf_point_tavern",
@@ -22594,9 +22739,10 @@
    "head": "walton_henry",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 3,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 2
    },
    "lives_at": null,
    "works_at": null,
@@ -22678,9 +22824,10 @@
    "head": "washburn_b_f",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -22712,9 +22859,10 @@
    "head": "waters_asury",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -22744,9 +22892,10 @@
    "head": "wattles_john_w",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,
@@ -22827,9 +22976,10 @@
    "head": "welch_michael_p",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -23009,9 +23159,10 @@
    "head": "wesencraft_charlotte",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -23026,9 +23177,10 @@
    "head": "wessencraft_charles",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 4,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 3
    },
    "lives_at": null,
    "works_at": null,
@@ -23111,9 +23263,10 @@
    "head": "whistler_gwinthlean",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "inferred": 1
+    "inferred": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -23209,9 +23362,10 @@
    "head": "wickham_john_c",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 1,
+   "persons": 5,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 4
    },
    "lives_at": null,
    "works_at": null,
@@ -23225,9 +23379,10 @@
    "head": "wight_j_f",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -23241,9 +23396,10 @@
    "head": "wilcox_d",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 2,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 1
    },
    "lives_at": null,
    "works_at": null,
