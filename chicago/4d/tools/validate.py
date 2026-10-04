@@ -425,6 +425,56 @@ def check_range(where: str, rng: dict, source_ids: set, rep: Report) -> tuple:
 # semantic: scenes resolve against phases
 # --------------------------------------------------------------------------
 
+def check_scene_cards(scene: dict, source_ids: set, rep: Report) -> None:
+    """A scene's interpretive cards keep the confidence contract (T-0472).
+
+    The card's `text` is this project's prose; its `quotes` are a source's words, and
+    each must name a source record that resolves. `documented` needs a quote,
+    `inferred` and `conjectural` need their reasoning, and a card that quotes nothing
+    is `kind: project` - what the reconstruction does, never a claim about the past.
+    A flagged card must give its reason in its own `review_note`, in one sentence that
+    both refers to the flag and names the subject the standing constraint is about:
+    the same reading tools/measure_review_constraint.py holds a structure's card to.
+    """
+    from review_constraint import CONSTRAINT_SUBJECT, reason_sentence  # noqa: PLC0415
+
+    where = f"scene {scene.get('id', '?')}"
+    seen: set[str] = set()
+    for card in scene.get("cards", []) or []:
+        if not isinstance(card, dict):
+            continue
+        cid = card.get("id", "?")
+        at = f"{where} card {cid}"
+        if cid in seen:
+            rep.error(at, "duplicate card id")
+        seen.add(cid)
+        quotes = card.get("quotes") or []
+        for q in quotes:
+            if q.get("source_id") not in source_ids:
+                rep.error(at, f"quotes source '{q.get('source_id')}', which does not "
+                              f"resolve in data/sources/")
+        conf = card.get("confidence")
+        if card.get("kind") == "project":
+            if quotes or conf:
+                rep.error(at, "a `project` card states what this reconstruction does and "
+                              "quotes nothing; a card with evidence is evidence, "
+                              "terminology or conflict, and carries a confidence")
+        elif not quotes or not conf:
+            rep.error(at, f"a card of kind `{card.get('kind')}` makes a claim about the past and "
+                          f"needs both quotes and a confidence")
+        elif conf in ("inferred", "conjectural") and not card.get("confidence_note"):
+            rep.error(at, f"confidence '{conf}' needs a confidence_note stating the reasoning")
+        if card.get("review_required"):
+            sentence = reason_sentence(card.get("review_note") or "")
+            if not sentence or not CONSTRAINT_SUBJECT.search(sentence):
+                rep.error(at, "carries review_required and its review_note does not say "
+                              "why in one sentence that refers to the flag and names the "
+                              "subject AGENTS.md's standing constraint is about")
+        elif card.get("review_note"):
+            rep.error(at, "has a review_note and no review_required: a reason for a flag "
+                          "that is not set")
+
+
 def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict, rep: Report,
                    households: dict | None = None) -> None:
     sid = scene.get("id", "?")
@@ -481,6 +531,13 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
             if p.get("review_required"):
                 blocked.append(hid)
                 break
+
+    # A scene's own interpretive cards (T-0472) carry the same flag: a card naming an
+    # event the standing constraint covers holds the scene back exactly as a building
+    # would, and a card is never made safe to release by being prose rather than mesh.
+    for card in scene.get("cards", []) or []:
+        if isinstance(card, dict) and card.get("review_required"):
+            blocked.append(f"card {card.get('id')}")
 
     if scene.get("released") and blocked:
         rep.error(where, f"released is true but these records carry review_required: "
@@ -6311,6 +6368,7 @@ def main() -> int:
     # scenes
     for name, sc in scenes.items():
         validate_scene(sc, structures, epochs, exclusions, rep, households=households)
+        check_scene_cards(sc, source_ids, rep)
 
     # what we invented has to be written down, not merely tagged — and so does
     # what we recorded and never built, which is the same standard read backwards

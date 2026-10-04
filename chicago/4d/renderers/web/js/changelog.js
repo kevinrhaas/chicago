@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1404, ts: '2026-10-04T06:24:48.871Z', date: 'Oct 4, 2026, 1:24 AM CT', title: 'The 1812 view explains what happened there, and whose accounts say so', kind: 'feature',
+    items: [
+      'Open the 1812 door: the welcome now says \u201cThe first Fort Dearborn\u201d and has a fold, About 1812, with five short cards. Each quotes the sources it rests on, and says who wrote them and where they were printed.',
+      'One card covers the two names for 15 August 1812, the Battle of Fort Dearborn and the Fort Dearborn Massacre. Another covers the two answers to where the attack happened, which do not agree. A third covers whose accounts these are: all were written by the garrison\u2019s side or by settler historians, and none by the Potawatomi.',
+      'Three cards are marked as held for review by Native scholars or community organisations, and each says why. The 1812 view stays unreleased until that review. No people are shown, and the last card says why.',
+    ] },
   { v: 1403, ts: '2026-10-04T05:35:08.992Z', date: 'Oct 4, 2026, 12:35 AM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
