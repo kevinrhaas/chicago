@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
+  { v: 1453, ts: '2026-10-04T23:52:32.751Z', date: 'Oct 4, 2026, 6:52 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
     items: [
       'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
       'On a slowed-down phone at Light detail, the worst frame of a slow turn fell from 70 ms to 16 ms, of a flight from 56 ms to 15 ms, and of a walk from 34 ms to 23 ms. No frame of those moves takes longer than 33 ms any more.',
