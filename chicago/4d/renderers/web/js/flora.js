@@ -1201,7 +1201,7 @@ export async function createFlora({
   };
 
   const water = await waterField(terrain, checkpoint);
-  const blocks = footprintCircles(footprints);
+  const blocks = circleGrid(footprintCircles(footprints));
   const finder = zoneFinder(zones, terrain, water);
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
   stats.turf = handTurfToGround(zones, finder, water, terrain, problems);
@@ -1355,7 +1355,11 @@ export async function createFlora({
     // entitled to the riverbed under a dock as a bluestem is to the soil under a
     // walk, and neither may come up through the planks. Owner-reported twice:
     // reeds through the dock decks, sward through the sidewalks (T-0085/T-0124).
-    for (const b of blocks) {
+    // T-2096: only the floors whose circle reaches this slot's cell are asked.
+    // The whole list was walked for every slot of every rebuild, and it was the
+    // largest single cost of a turn in place (tools/measure_walk_frames.mjs).
+    const near = blocks.at(e, n);
+    if (near) for (const b of near) {
       const dx = e - b.e;
       const dz = n - b.n;
       if (dx * dx + dz * dz < b.r2 && pointInPolygon(b.pts, e, n)) return null;
@@ -3510,6 +3514,39 @@ function footprintCircles(footprints) {
   });
 }
 
+/**
+ * T-2096. The floor circles bucketed on a world grid, so `station` asks only
+ * the ones that can contain the slot. Every circle is filed in every cell its
+ * bounding square touches, and a point inside a circle is inside that square,
+ * so the bucket holds every circle the full list would have matched: the answer
+ * is the same and only the misses are no longer paid for.
+ */
+const CIRCLE_CELL_M = 8;
+function circleGrid(circles) {
+  const cells = new Map();
+  const key = (i, j) => (i + 32768) * 65536 + (j + 32768);
+  for (const b of circles) {
+    const r = Math.sqrt(b.r2);
+    const i0 = Math.floor((b.e - r) / CIRCLE_CELL_M);
+    const i1 = Math.floor((b.e + r) / CIRCLE_CELL_M);
+    const j0 = Math.floor((b.n - r) / CIRCLE_CELL_M);
+    const j1 = Math.floor((b.n + r) / CIRCLE_CELL_M);
+    for (let i = i0; i <= i1; i++) {
+      for (let j = j0; j <= j1; j++) {
+        const k = key(i, j);
+        const list = cells.get(k);
+        if (list) list.push(b); else cells.set(k, [b]);
+      }
+    }
+  }
+  return {
+    size: circles.length,
+    at(e, n) {
+      return cells.get(key(Math.floor(e / CIRCLE_CELL_M), Math.floor(n / CIRCLE_CELL_M)));
+    },
+  };
+}
+
 /* -------------------------------------------------------------------------- */
 /* the lattice                                                                 */
 /* -------------------------------------------------------------------------- */
@@ -3929,8 +3966,32 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
   // start would put it back where K49(f) left it.
   const globalShift = hash3(salt, STRAT_SALT, 0x9e3779b9) / 4294967296;
   yield { done: 0, total: r1 - r0 + 1 };
+  // T-2096. A cell no slot of which can pass the ring or the cone test below is
+  // skipped before its slots are hashed. Each slot's stream is seeded from its
+  // own cell and index, so skipping a cell moves no other slot: the plants
+  // dealt are exactly the ones the per-slot tests would have kept. Three
+  // quarters of the bounding square is outside a walker's cone, and hashing it
+  // was most of what a rebuild spent before a single plant was asked about.
+  const halfDiag = cell * Math.SQRT1_2;
   for (let r = r0; r <= r1; r++) {
+    const ny0 = r * cell - camN, ny1 = (r + 1) * cell - camN;
+    const ny = ny0 > 0 ? ny0 : ny1 < 0 ? -ny1 : 0;
+    const fy = Math.max(Math.abs(ny0), Math.abs(ny1));
     for (let c = c0; c <= c1; c++) {
+      const nx0 = c * cell - camE, nx1 = (c + 1) * cell - camE;
+      const nx = nx0 > 0 ? nx0 : nx1 < 0 ? -nx1 : 0;
+      if (nx * nx + ny * ny > rr) continue;
+      const fx = Math.max(Math.abs(nx0), Math.abs(nx1));
+      if (fx * fx + fy * fy < ri) continue;
+      if (cone) {
+        const ce = (c + 0.5) * cell - camE, cn = (r + 0.5) * cell - camN;
+        const cd = Math.hypot(ce, cn);
+        if (cd - halfDiag > CONE_KEEP_M) {
+          const low = cone.cos >= 0 ? (cd - halfDiag) * cone.cos : (cd + halfDiag) * cone.cos;
+          if (ce * cone.fe + cn * cone.fn + halfDiag
+            < low - 2 * (cone.margin ?? 0) - 1e-6) continue;
+        }
+      }
       const cellSeed = hash3(c, r, salt);
       // ROADMAP K49(b). One rotation per 16×16-cell block of the WORLD lattice —
       // and, K49(d), one permutation key per the same block.
