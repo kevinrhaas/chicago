@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
+  { v: 1450, ts: '2026-10-04T22:23:12.700Z', date: 'Oct 4, 2026, 5:23 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
       'Neither is the slowest view. That is still a back yard on Washington Street.',
