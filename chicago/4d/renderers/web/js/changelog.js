@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1400, ts: '2026-10-04T04:29:40.593Z', date: 'Oct 3, 2026, 11:29 PM CT', title: 'The 1835 town opens on an iPhone again', kind: 'fix',
+    items: [
+      'On a phone, opening 1835 could close the browser tab before the town appeared, because the page held far more memory than a phone allows. It now uses about a third as much once the town has loaded, and the town itself is unchanged.',
+      'The extra memory was left over from laying the plank walks, fences, trees and yard goods, which was kept after those pieces had been built.',
+    ] },
   { v: 1399, ts: '2026-10-04T04:12:17.062Z', date: 'Oct 3, 2026, 11:12 PM CT', title: 'Nothing you can see: rebuilding the research no longer stops half-finished', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
