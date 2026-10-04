@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1428, ts: '2026-10-04T12:53:21.353Z', date: 'Oct 4, 2026, 7:53 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
       'Held sideways, Starting At\u2026 now scrolls instead of drawing Tap to enter Chicago over the list of places.',
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
+    ] },
+  { v: 1428, ts: '2026-10-04T12:42:37.866Z', date: 'Oct 4, 2026, 7:42 AM CT', title: 'Nothing you can see: the house-seating passes rebuild with the rest', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The three passes that seat households on lots and record each household\u2019s address now rebuild automatically, in a measured order, when two changes are merged together.',
+      'Before this, a merge that moved a house could leave the address book and the seat lists out of step until someone rebuilt them by hand.',
     ] },
   { v: 1427, ts: '2026-10-04T12:12:16.087Z', date: 'Oct 4, 2026, 7:12 AM CT', title: "What's-New lists the yellow boarding-house note once, not six times", kind: 'fix',
     items: [
