@@ -1,0 +1,1954 @@
+{
+  "scope": "Published paired plank review across full, balanced and light, desktop1280x800 and touch mobile390x780, DPR1. Four owner-relevant poses each sampled at three half-metre camera steps, gap filter off/on at every step. Production api.step renders held animation. This is visual/material/draw attribution evidence, not normal-loop FPS or complete release smoke coverage.",
+  "errors": [],
+  "tiers": {
+    "full": {
+      "errors": [],
+      "poses": {
+        "river-walk-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1462932,
+            "drawCalls": 156,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1462592,
+            "drawCalls": 156,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1463044,
+            "drawCalls": 156,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "river-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1438844,
+            "drawCalls": 155,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1438504,
+            "drawCalls": 155,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1433733,
+            "drawCalls": 154,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "outer-lot-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 460,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1693945,
+            "drawCalls": 170,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 460.5,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1693945,
+            "drawCalls": 170,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 461,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1693237,
+            "drawCalls": 170,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "distant-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 200,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1977700,
+            "drawCalls": 217,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 200.5,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1977772,
+            "drawCalls": 217,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 201,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1977748,
+            "drawCalls": 217,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "river-walk-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1382221,
+            "drawCalls": 141,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1381861,
+            "drawCalls": 141,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1382333,
+            "drawCalls": 141,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "river-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1373522,
+            "drawCalls": 142,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1372986,
+            "drawCalls": 142,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1373002,
+            "drawCalls": 142,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "outer-lot-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 460,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1588804,
+            "drawCalls": 156,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 460.5,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1588804,
+            "drawCalls": 156,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 461,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1586441,
+            "drawCalls": 156,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "distant-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 200,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1969754,
+            "drawCalls": 203,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 200.5,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1970062,
+            "drawCalls": 203,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 201,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1969041,
+            "drawCalls": 202,
+            "reachM": null,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ]
+      },
+      "reachControls": {}
+    },
+    "balanced": {
+      "errors": [],
+      "poses": {
+        "river-walk-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1291877,
+            "drawCalls": 153,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1291537,
+            "drawCalls": 153,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1291797,
+            "drawCalls": 153,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "river-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1271254,
+            "drawCalls": 151,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1270914,
+            "drawCalls": 151,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1265936,
+            "drawCalls": 150,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "outer-lot-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 460,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1461378,
+            "drawCalls": 169,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 460.5,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1461378,
+            "drawCalls": 169,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 461,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1460701,
+            "drawCalls": 169,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "distant-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 200,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1688650,
+            "drawCalls": 205,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 200.5,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1688722,
+            "drawCalls": 205,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 201,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1688718,
+            "drawCalls": 205,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "river-walk-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1215130,
+            "drawCalls": 139,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1214770,
+            "drawCalls": 139,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 1215050,
+            "drawCalls": 139,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "river-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1211727,
+            "drawCalls": 140,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1211191,
+            "drawCalls": 140,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 1211049,
+            "drawCalls": 140,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "outer-lot-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 460,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1378732,
+            "drawCalls": 155,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 460.5,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1378732,
+            "drawCalls": 155,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 461,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 1377089,
+            "drawCalls": 155,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ],
+        "distant-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 200,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1616818,
+            "drawCalls": 190,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 200.5,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1617126,
+            "drawCalls": 190,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 201,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 1615004,
+            "drawCalls": 190,
+            "reachM": 800,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 113,
+              "eligibleTriangles": 107532,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 0
+            }
+          }
+        ]
+      },
+      "reachControls": {}
+    },
+    "light": {
+      "errors": [],
+      "poses": {
+        "river-walk-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 675541,
+            "drawCalls": 73,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 3
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 675533,
+            "drawCalls": 73,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 3
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 675538,
+            "drawCalls": 73,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 3
+            }
+          }
+        ],
+        "river-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 664520,
+            "drawCalls": 70,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 3
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 664512,
+            "drawCalls": 70,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 3
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 659662,
+            "drawCalls": 68,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 3
+            }
+          }
+        ],
+        "outer-lot-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 460,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 746590,
+            "drawCalls": 78,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 5,
+              "triangles": 3252,
+              "drawCalls": 1,
+              "indexUpdates": 4
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 460.5,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 746952,
+            "drawCalls": 78,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 5,
+              "triangles": 3252,
+              "drawCalls": 1,
+              "indexUpdates": 4
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 461,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 747583,
+            "drawCalls": 78,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 5,
+              "triangles": 3252,
+              "drawCalls": 1,
+              "indexUpdates": 4
+            }
+          }
+        ],
+        "distant-flight-desktop": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 200,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 836472,
+            "drawCalls": 64,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 26,
+              "triangles": 19418,
+              "drawCalls": 1,
+              "indexUpdates": 5
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 200.5,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 836226,
+            "drawCalls": 64,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 26,
+              "triangles": 19418,
+              "drawCalls": 1,
+              "indexUpdates": 5
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 201,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 836182,
+            "drawCalls": 64,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 26,
+              "triangles": 19418,
+              "drawCalls": 1,
+              "indexUpdates": 5
+            }
+          }
+        ],
+        "river-walk-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 621395,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 2
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 621341,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 2
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -3
+            },
+            "triangles": 621366,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 2
+            }
+          }
+        ],
+        "river-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 550,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 616344,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 2
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 550.5,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 616114,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 2
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 551,
+              "local_n": 14.8,
+              "yaw_deg": 90,
+              "pitch_deg": -20,
+              "altitude_m": 35
+            },
+            "triangles": 615687,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 0,
+              "triangles": 0,
+              "drawCalls": 0,
+              "indexUpdates": 2
+            }
+          }
+        ],
+        "outer-lot-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 460,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 696380,
+            "drawCalls": 73,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 3,
+              "triangles": 2234,
+              "drawCalls": 1,
+              "indexUpdates": 3
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 460.5,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 696722,
+            "drawCalls": 73,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 3,
+              "triangles": 2234,
+              "drawCalls": 1,
+              "indexUpdates": 3
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 461,
+              "local_n": -20,
+              "yaw_deg": 70,
+              "pitch_deg": -15,
+              "altitude_m": 12
+            },
+            "triangles": 697088,
+            "drawCalls": 73,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 3,
+              "triangles": 2234,
+              "drawCalls": 1,
+              "indexUpdates": 3
+            }
+          }
+        ],
+        "distant-flight-mobile": [
+          {
+            "frame": 0,
+            "pose": {
+              "local_e": 200,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 812055,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 21,
+              "triangles": 15286,
+              "drawCalls": 1,
+              "indexUpdates": 4
+            }
+          },
+          {
+            "frame": 1,
+            "pose": {
+              "local_e": 200.5,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 812045,
+            "drawCalls": 67,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 21,
+              "triangles": 15286,
+              "drawCalls": 1,
+              "indexUpdates": 4
+            }
+          },
+          {
+            "frame": 2,
+            "pose": {
+              "local_e": 201,
+              "local_n": -100,
+              "yaw_deg": 65,
+              "pitch_deg": -25,
+              "altitude_m": 100
+            },
+            "triangles": 811191,
+            "drawCalls": 65,
+            "reachM": 250,
+            "sharedGapFilterMaterials": 1,
+            "gapToggleTriangleDelta": 0,
+            "gapToggleCallDelta": 0,
+            "farWalkTops": {
+              "candidateChunks": 113,
+              "candidateTriangles": 107532,
+              "eligibleChunks": 63,
+              "eligibleTriangles": 57266,
+              "activeChunks": 21,
+              "triangles": 15286,
+              "drawCalls": 1,
+              "indexUpdates": 4
+            }
+          }
+        ]
+      },
+      "reachControls": {
+        "reach-control-desktop": {
+          "triangles": 993698,
+          "drawCalls": 126,
+          "priorReachM": 250,
+          "reachM": null
+        },
+        "reach-control-mobile": {
+          "triangles": 928223,
+          "drawCalls": 111,
+          "priorReachM": 250,
+          "reachM": null
+        }
+      }
+    }
+  },
+  "publishedFingerprintsAtReviewEnd": {
+    "flora.js": "378715bad1095c4aac9895e6de404241389823f53b3d2e2b53a669500b7d0561",
+    "frontage.js": "34693666d21a9b90767bd1bc7a653010306e9ab032414b7b445e44681f6aa374",
+    "main.js": "8eacad7b95327696e23dfec6d5f320c34d0bcd79b6c05ce2b2f98d22104dcf18",
+    "terrain.js": "26fcc3ac0c689922e652f248f95e2e3a62c046884ccff0363a089d1a3ccb7e68",
+    "terrain-base.js": "559f9a980f9d2089d20fd5fad510304f0997384a0ef93382d3edb08493ca91ce"
+  },
+  "manuallyReviewedLightDistantViews": {
+    "samePoseComparison": "Filtered frame2 and reach-disabled control use E201/N-100/yaw65/pitch-25/altitude100 in each viewport. Lot-side plank coverage visually agrees; far fences intentionally differ because the control disables furniture reach.",
+    "beforeComparison": "Also reviewed the prior no-far-top light desktop frame and its reach-disabled control: the prior partial long lot-side plank runs are retained by the new normal-reach view.",
+    "savedImages": [
+      "after-light-desktop-distant-plank-tops.jpg",
+      "after-light-mobile-distant-plank-tops.jpg"
+    ]
+  }
+}

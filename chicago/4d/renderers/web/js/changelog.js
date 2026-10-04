@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1396, ts: '2026-10-04T03:23:26.795Z', date: 'Oct 3, 2026, 10:23 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
+  { v: 1397, ts: '2026-10-04T03:38:46.287Z', date: 'Oct 3, 2026, 10:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
       'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
       'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',
       'Every one of these people is our reconstruction, not a record. No source names them, and none says these men married.',
+    ] },
+  { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+    items: [
+      'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
+      'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
     ] },
   { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
     items: [
