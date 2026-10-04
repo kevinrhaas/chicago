@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1442, ts: '2026-10-04T18:58:46.505Z', date: 'Oct 4, 2026, 1:58 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
+  { v: null, ts: '', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
     items: [
       'Walk up Franklin Street to the river: Newberry & Dole\u2019s forwarding and commission warehouse no longer stands across the end of the street and in South Water Street. It now sits back in the corner west of Franklin and south of South Water, still facing the river.',
       'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
       'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L378).',
+    ] },
+  { v: 1442, ts: '2026-10-04T18:53:07.735Z', date: 'Oct 4, 2026, 1:53 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+    items: [
+      'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
+      'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
+      'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
     ] },
   { v: 1441, ts: '2026-10-04T18:51:58.275Z', date: 'Oct 4, 2026, 1:51 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
     items: [
