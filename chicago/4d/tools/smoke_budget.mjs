@@ -341,6 +341,7 @@ const COVERAGE = [
   ['renderers/web/js/flora.js', [10, 11], 'the flora census, and the boundary it fades at'],
   ['renderers/web/js/plants.js', [10, 11], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10], 'the horizon timber'],
+  ['renderers/web/js/tree-surface.js', [10], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
   ['renderers/web/js/shrub-grain.js', [10, 11], 'the sward\'s grain'],
   ['renderers/web/js/fauna.js', [10, 13], 'the wildlife, drawn and in the panel'],
   ['renderers/web/js/streets.js', [2, 7, 8, 10, 11], 'the street edge, the roads read from two stations in part 7 and one in part 8 with the aid, and the street names'],
