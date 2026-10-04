@@ -32,7 +32,8 @@
   "bucket": "the model row the value is drawn from, e.g. `household_size` or `sex_ratio`",
   "algorithm": "blake2s(seed.encode('utf-8'), digest_size=8) read as a big-endian integer",
   "note": "The seed is a STRING a reader can retype, not a run counter. Two runs of the same stage over the same layer draw the same values; a stage that renumbered its households would redraw them, which is why the id scheme forbids reordering a collision suffix.",
-  "attribute_fill": "<person_id>:<bucket>. An ATTRIBUTE fill seeds by the PERSON: two people share a household id and would otherwise draw the same value. T-1304 uses `sex_ratio` and `age_bands_1840` as its buckets."
+  "attribute_fill": "<person_id>:<bucket>. An ATTRIBUTE fill seeds by the PERSON: two people share a household id and would otherwise draw the same value. T-1304 uses `sex_ratio` and `age_bands_1840` as its buckets.",
+  "quantile_walk": "T-2107. The ARRIVAL YEAR is drawn by the seed's QUANTILE, not its remainder: `(draw * total) >> 64` walked through the table's cumulative counts in year order (reconstruct_residents_1835.pick_quantile). A remainder modulo the total redraws every card the moment the total moves by one, and the arrival table is rebuilt from the cards it draws (T-1363's cycle), so three known bounds moving 1835 -> 1834 redrew 278 cards and re-cut the fabric town-wide (T-2076, PR #421). Under the quantile walk a card keeps its place in [0, 1) whatever the table says, so an edit that moves k people across one year boundary moves about k / total of the cards, and only to the neighbouring year; the self-test replays that edit. Changing the rule redrew 729 cards once, on 2026-10-04. Other buckets still use the remainder walk (`pick`)."
  },
  "naming_rule": {
   "pools": "data/reconstruction/1835_invented_name_pools.json",
