@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1418, ts: '2026-10-04T10:32:30.937Z', date: 'Oct 4, 2026, 5:32 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
+  { v: 1419, ts: '2026-10-04T11:06:42.838Z', date: 'Oct 4, 2026, 6:06 AM CT', title: 'Twelve post-office names now date from every printing that holds them', kind: 'change',
     items: [
       'Twelve people known only from the post office\u2019s lists of uncalled-for letters now carry the dates of every printing that names them, including some the records had missed.',
       'Constant Abbott, Alfred Churchill and Samuel Stout are now known to the town from 1 January 1834, not from April or July. A list printed in March 1834 names all three.',
       'Two people whose arrival year comes from a history of their own keep it. The post-office dates no longer overwrite it.',
       'Six more were looked at and left as they are, with the reason written down. In each, the same name is printed twice and only one printing is read. That is now its own question.',
+    ] },
+  { v: 1418, ts: '2026-10-04T10:34:49.982Z', date: 'Oct 4, 2026, 5:34 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
+    items: [
+      'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
+      'Its Evidence panel no longer shows the 1835 town\u2019s City, wildlife, plants, not-here, open-questions, population and order-book topics.',
+      'Go to no longer lists 286 firms of 1835 that could not be reached from 1904.',
+      'The 1835 scene keeps every section it had.',
     ] },
   { v: 1417, ts: '2026-10-04T10:19:51.514Z', date: 'Oct 4, 2026, 5:19 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
     items: [

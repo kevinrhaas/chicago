@@ -15782,6 +15782,29 @@ for (const [label, viewport, touch] of [
           && at.grid.eighteenth === 'macadam (crushed limestone) (attested)'
           && /cement/.test(at.grid.walk ?? '') && /reconstructed/.test(at.grid.walk ?? ''),
           JSON.stringify({ census: at.grid?.census, prairie: at.grid?.prairie, eighteenth: at.grid?.eighteenth, walk: at.grid?.walk }));
+        // T-1740 — the drawer follows the scene's layers list as the drawn layers do:
+        // 1904 lists no residents, firms, fauna, flora or exclusions, so it offers
+        // no People or Firms section, no Evidence tile for any of the seven 1835
+        // topics, and no 1835 firm in Go to — and the sections it does carry stay.
+        const drawer = await page.evaluate(() => {
+          const a = window.__chicago4d;
+          const tabs = [...document.querySelectorAll('.panel-tab')].filter((t) => !t.hidden).map((t) => t.dataset.tab);
+          const tiles = [...document.querySelectorAll('#evidence-hub .ev-tile')].map((t) => t.dataset.topic);
+          const firms = (a.destinations?.targets ?? []).filter((t) => t.kind === 'business' && !t.derived_from).length;
+          a.hud?.selectTab?.('people');
+          const tab = a.hud?.tab ?? null;
+          a.hud?.selectTab?.('goto');
+          return { tabs, tiles, firms, tab, mounted: ['residents', 'people', 'businesses', 'fauna', 'plants', 'exclusions', 'population', 'orderBook']
+            .filter((k) => a[k] != null) };
+        });
+        const gone = ['city', 'fauna', 'plants', 'exclusions', 'uncertain', 'population', 'orderbook'];
+        check(`${label}: the 1904 drawer offers none of the 1835 town's sections — no People, no Firms, no 1835 Evidence topic, no 1835 firm in Go to (T-1740)`,
+          !drawer.tabs.includes('people') && !drawer.tabs.includes('businesses')
+          && ['goto', 'travel', 'evidence', 'settings', 'controls', 'whatsnew'].every((t) => drawer.tabs.includes(t))
+          && gone.every((t) => !drawer.tiles.includes(t))
+          && ['grades', 'liberties', 'ground'].every((t) => drawer.tiles.includes(t))
+          && drawer.firms === 0 && drawer.tab !== 'people' && drawer.mounted.length === 0,
+          JSON.stringify(drawer));
         check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
           at.problems.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
