@@ -1987,11 +1987,12 @@ async function boot() {
   // do not reach them, for the reason given there.
   const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
   // T-2086 — THE KEPT YARDS. The forb layer alone stands back inside a lot's
-  // kept ring (the yard layer carries the record); the strip along the lot
-  // lines, the back corners and the foot of an outbuilding keep their weeds.
+  // kept ring (the yard layer carries the record), and a stated share of its
+  // weeds is re-seated in the strip along the lot lines; the back corners and
+  // the foot of an outbuilding keep theirs where they stood.
   const kept = keptGround((yard.records ?? []).find((r) => r.id === 'town_kept_ground') ?? null);
   api.keptGround = kept;
-  const forbBlocked = kept.blocksForb;
+  const forbSeat = kept.forbSeat;
 
   let floraUnits = 0, floraDone = 0, treeDone = 0;
   const plantingProgress = (done, total) => {
@@ -2002,7 +2003,7 @@ async function boot() {
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-    growthBlocked: swardBlocked, forbBlocked,
+    growthBlocked: swardBlocked, forbSeat,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
@@ -2067,7 +2068,7 @@ async function boot() {
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-          growthBlocked: swardBlocked, forbBlocked,
+          growthBlocked: swardBlocked, forbSeat,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
@@ -2168,7 +2169,7 @@ async function boot() {
       flora.dispose?.();
       flora = await createFlora({
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-        growthBlocked: swardBlocked, forbBlocked,
+        growthBlocked: swardBlocked, forbSeat,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);

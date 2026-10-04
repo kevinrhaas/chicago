@@ -18,12 +18,14 @@
     "sources": [],
     "note": "RECONSTRUCTED (T-2086, docs/LIBERTIES.md L376). No source describes where on an 1835 Chicago lot the ground was short and where the weeds stood. The owner asked on 2026-10-04 for a town 'less weedy ... in front of stores and houses, and in the house back yards' without cutting 'the beautiful plants and grass and flowers'. What bounds the reconstruction is the zone record's own grazing evidence (the town's code of 7 Nov 1833 against wandering pigs; cattle on the unfenced commons) and the plain mechanics of a used yard: ground a household walks, and its stock crops, is short; a fence line, a back corner and the foot of a wall are where scythe, hoof and foot do not reach. Cropped, not mown: a striped lawn is not 1835."
   },
+  "strip_m": 0.762,
+  "moved_share": 0.35,
   "rule": {
-    "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb",
+    "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
     "paths": "239 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it keeps the zone's planting",
-    "reader": "renderers/web/js/flora.js, through main.js forbBlocked"
+    "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 183,

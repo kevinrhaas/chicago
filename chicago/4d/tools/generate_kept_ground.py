@@ -19,9 +19,13 @@ wall. So for every improved platted lot this writes:
 
   1. **the kept ring** — the lot polygon pulled in `STRIP_M` from every one of its lot lines,
      with its two REAR corners cut back `CORNER_M` along each line. Inside it the flora layer
-     plants the zone's low layer and no forb; outside it, in the strip and the corners, the
-     zone grows exactly as it did. `renderers/web/js/flora.js` reads this through `main.js`'s
-     `forbBlocked` and nothing else: the decision of WHICH ground is kept is here, in data;
+     plants the zone's low layer and no forb in place; outside it, in the strip and the
+     corners, the zone grows exactly as it did. The weeds are MOVED, not only cut: of the
+     forb slots the ring turns out, `MOVED_SHARE` are re-seated in the strip beside the
+     nearest lot line, so the fence foot carries the dense weedy fringe a real one does and
+     the town's forb count does not rise. `renderers/web/js/flora.js` reads this through
+     `main.js`'s `forbSeat` and nothing else: WHICH ground is kept, how wide the strip is and
+     how many weeds it takes are stated here, in data;
   2. **refuges** — the foot of every outbuilding on the lot (the privies and stables of
      `data/yard/town_yard_outbuildings.json`, and every committed building standing behind
      the front one) grown by `REFUGE_M`. A forb in a refuge stands even inside the kept ring;
@@ -72,6 +76,7 @@ REFUGE_M = 0.610      # 2 ft of weeds round the foot of an outbuilding wall
 PATH_W_M = 0.914      # 3 ft — one person's worn way, not a cart's
 PATH_CLEAR_M = 0.15   # a path stops this far off the walls it joins
 MIN_PATH_M = 1.5      # shorter than this it is a doorstep, not a path
+MOVED_SHARE = 0.35    # of the forbs the kept ring turns out, the share re-seated in the strip
 
 
 def r2(p) -> list[float]:
@@ -296,18 +301,21 @@ def kept_record(lots, refused, n_paths) -> dict:
         "coordinates": "Local East-North-Up metres from data/datum.json's origin.",
         "existence": {"value": True, "confidence": "reconstructed", "sources": [],
                       "note": EXISTENCE_NOTE},
+        "strip_m": STRIP_M,
+        "moved_share": MOVED_SHARE,
         "rule": {
             "kept_ring": f"the improved lot's polygon pulled in {STRIP_M} m (2½ ft) from every "
                          f"lot line, its two rear corners cut back {CORNER_M} m (8 ft) along "
                          "each line; inside it the flora layer plants the zone's low layer "
-                         "and no forb",
+                         f"and no forb in place, and re-seats {MOVED_SHARE:.0%} of the forbs "
+                         "it turns out in the strip beside the nearest lot line",
             "refuges": f"every outbuilding's walls grown by {REFUGE_M} m (2 ft); a forb there "
                        "stands even inside the kept ring",
             "paths": f"{n_paths} worn path(s), {PATH_W_M} m (3 ft) wide, house back wall to "
                      "outbuilding wall — written to data/enclosures/town_yard_paths.json",
             "vacant_lots": "a platted lot with no building is not a yard and is not listed; "
                            "it keeps the zone's planting",
-            "reader": "renderers/web/js/flora.js, through main.js forbBlocked",
+            "reader": "renderers/web/js/flora.js, through main.js forbSeat",
         },
         "counts": {"lots": len(lots), "refused": len(refused),
                    "refuges": sum(len(x["refuges_local_enu_m"]) for x in lots),
