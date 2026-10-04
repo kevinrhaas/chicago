@@ -1,3 +1,39 @@
+## T-2050 — the first fort seated in the 1812 scene (2026-10-04)
+
+Piece 3 of 3 of T-0469. **What a visitor sees:** /4d/1812/ opens the renderer on the first Fort
+Dearborn instead of the "reconstruction pending" page: the fourteen records T-2049 built, baked
+for the first time, on the e1830_natural ground (the pre-cut mouth, the river turned south behind
+the spit). The scene is `released: false`, draws no person, and lists only `terrain`, `water` and
+`structures` — every other layer is written for 1 July 1835 and none of it is true in 1812.
+
+**The seat is one origin and one bearing.** The staff's foot (the register's parade centre, within
+a foot of both picket rows' centres) stands at local E +1152, N +221, the Wright 1834 reading of
+the fort site — the SITE, which Kinzie says both forts shared, not the second fort's plan. The
+frame's north is grid north, the register's own inference that the sheet's right is east; the
+second fort's 8 degrees is Harrison's reading of THAT fort and is not borrowed. Each record's
+origin is its box's corner after its facing (the ranges, magazine and north-east small house
+face the parade or the south, as their records say). A check, not a fit: seated so, the outward
+row's west side is ~124 ft from the 1812 river; the draught's red-ink "122 feet to River" is a
+figure of that size.
+
+**How it is held.** `tools/read_whistler_1808.py --check` now refuses a record not at the point
+and rotation the seat gives its box (0.01 m), any second-fort phase opening inside 1803-08-17..
+1812-08-16, a scene resolving both forts or only some of the first fort's records, and an 1812
+scene that does not resolve all fourteen. `validate.py` measures each phase's ground contact on
+the ground of the scene that resolves it — before this, the heightfield was "the first epoch in
+sorted order", and e1830_natural sorting first would have stood every 1835 record on 1812 ground.
+
+**Exclusions.** `fort_dearborn_first_1803`, `fort_dearborn_sally_port` and
+`fort_dearborn_artillery_pieces_1812` stay as the 1835 guards they are, and each now says where
+the feature lives in 1812: the fourteen records; the register's index no. 33, omitted by the
+drafter; the blockhouse records, which carry Wilson's guns and build none.
+
+**Not done here, and why.** The factor's house, the gardens and the outbuildings in this ticket's
+title: the register reads the Factors House and the House in Factors Dept. as `not_located`, and
+the agent's and interpreter's houses, the stables and the gardens as drawn "without any Regular
+rule" (`sheet_only`), so the draught does not place any of them to scale. They are T-2062 rather
+than placed by eye.
+
 ## T-2049 — the first fort's fourteen structure records, built from the 1808 register (2026-10-04)
 
 Piece 2 of 3 of T-0469. **Nothing a visitor can see changed, and that is the honest state:** the

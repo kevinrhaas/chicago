@@ -20,14 +20,17 @@
         "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
       },
       "position": {
-        "utm_e": null,
-        "utm_n": null,
-        "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'north range, west room + north range, east room'): E +0.0..+24.8 ft, N +33.6..+45.6 ft of the flagstaff's foot, facing south onto the parade. NOT YET SEATED ON THE GROUND: the fort's place and its bearing to true north are T-2050's.",
+        "utm_e": 448232.26,
+        "utm_n": 4637630.7,
+        "rotation_deg": 180.0,
+        "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'north range, west room + north range, east room'): E +0.0..+24.8 ft, N +33.6..+45.6 ft of the flagstaff's foot, facing south onto the parade. SEATED (T-2050) with the whole frame: the staff's foot at local E +1152.0, N +221.0, the frame's north on grid north; this record's origin is the box's NE corner, the footprint turned 180 degrees so its front faces south.",
         "confidence": "inferred",
         "sources": [
-          "whistler_1808_fort_dearborn_draught"
+          "chicagology_prefire052",
+          "whistler_1808_fort_dearborn_draught",
+          "wright_1834"
         ],
-        "note": "PLACED IN THE FORT'S OWN FRAME AND NOWHERE ELSE YET. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. 'East' is the sheet's right, which the register infers from the lake lettered down that margin; the sheet has no north arrow. The utm fields stay null until T-2050 seats the whole frame with one origin and one bearing, which is the only way the fort can be placed without moving one building against another."
+        "note": "SEATED WITH ONE ORIGIN AND ONE BEARING FOR ALL FOURTEEN (T-2050), so no building moves against another. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. THE ORIGIN: the staff's foot, which the register finds at the centre of the parade and within about a foot of the centre of both picket rows, is set on the fort site at local E +1152, N +221 - the Wright 1834 reading of the fort's place that docs/ROADMAP.md S5a cross-checks to 35 m against the modern landmark. That is the SITE, not the second fort's plan: John H. Kinzie (quoted on chicagology_prefire052) says the first fort 'stood upon the same ground as the last Fort' and 'was differently constructed', so the place carries over and nothing of the 1816 geometry does. THE BEARING: the frame's north is set on grid north, which is the register's own inference that the sheet's right is east, from the lake lettered down that margin; the sheet has no north arrow, so the bearing is inferred and adds nothing to it. The second fort's 8 degrees, read off Harrison 1830, is that fort's and is not borrowed. Grid and true north differ here by under half a degree. A CHECK, NOT A FIT: seated so, the outward row's west side stands about 124 ft from the 1812 river (data/terrain/epochs/e1830_natural/river.geojson) and the north-west blockhouse about 65 ft from it; the draught's red-ink '122 feet to River' from the west side and Wilson's '80 feet' from the north-west corner are figures of that size. Carry the datum's +/-20 m on the whole frame."
       },
       "footprint": {
         "polygon": [

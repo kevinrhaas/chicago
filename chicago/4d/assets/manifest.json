@@ -225,6 +225,132 @@
       "phase_id": "stable_1834",
       "structure_id": "exchange_coffee_house_stable"
     },
+    "first_fort_dearborn_blockhouse_nw__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 56952,
+      "inputs_sha256": "ec41e1417cebd6ba5c7692c798e36288eacb971a9aeeb3af27373b685540597e",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_blockhouse_nw"
+    },
+    "first_fort_dearborn_blockhouse_se__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 56660,
+      "inputs_sha256": "d143db3feda030d71085613d7f1b0bcb035c0773b85ff17fbffcbf56b2dc836d",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_blockhouse_se"
+    },
+    "first_fort_dearborn_commanding_officers_barracks__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 62680,
+      "inputs_sha256": "15b10c9c96785fa7a21412088fbf551dd941c3988113ad83d078193ba6f1e25b",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_commanding_officers_barracks"
+    },
+    "first_fort_dearborn_flagstaff__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 3088,
+      "inputs_sha256": "45d48548748d91345e76f8090d2bb11cb26d13ec5dd77dccd78a1df6e85b0a1a",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_flagstaff"
+    },
+    "first_fort_dearborn_magazine__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 6296,
+      "inputs_sha256": "3b04e380d2796ba123b45dd84b8542792e7a98c7b7f1c4c15b8963e5d7e46313",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_magazine"
+    },
+    "first_fort_dearborn_north_range__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 58580,
+      "inputs_sha256": "947e1cabf81051e48e24653ca59342034e0bd410a0869e0de6fb5f021608b579",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_north_range"
+    },
+    "first_fort_dearborn_officers_barracks__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 63440,
+      "inputs_sha256": "384440e6190b59d83e49f2f7bc5f012b58a2ef6154f6843caa7f0ca38f9b947f",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_officers_barracks"
+    },
+    "first_fort_dearborn_parade__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 2244,
+      "inputs_sha256": "66f31b39c870ad626651ce86bff78e5c825a276fcef1acf1654d5cb743f00cec",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_parade"
+    },
+    "first_fort_dearborn_pickets_inner__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 397932,
+      "inputs_sha256": "68c04820a279cac3424d6518683a1f003bb9e12b950ac7190ab2f5bb0bf5719f",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_pickets_inner"
+    },
+    "first_fort_dearborn_pickets_outer__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 483268,
+      "inputs_sha256": "c6d1ca5c29454019a8c06d72ddf784a1902ad0db5f9622605f120e6e359c4430",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_pickets_outer"
+    },
+    "first_fort_dearborn_small_house_ne__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 62052,
+      "inputs_sha256": "568ffabfee755537383398db8880b31e3b56fc372530b09e61de68b5b62a7721",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_small_house_ne"
+    },
+    "first_fort_dearborn_small_house_sw__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 40608,
+      "inputs_sha256": "67671c0fdcd8aef9fb342af351d18edc055b50c051d3f8e225dabecb5b1b615c",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_small_house_sw"
+    },
+    "first_fort_dearborn_soldiers_barracks_se__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 57816,
+      "inputs_sha256": "5c5a8ea72b3546f3a60052034ffe22304655cec2c609fce2f00176f674f2c9d9",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_soldiers_barracks_se"
+    },
+    "first_fort_dearborn_soldiers_barracks_sw__first_fort_1803.glb": {
+      "archetype": "fort_structure",
+      "baked_ao": false,
+      "bytes": 57504,
+      "inputs_sha256": "bbd3613fce62c7445857f8f4d3839ebd7c43c81fa12c34db8eebd39e190c9027",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_dearborn_soldiers_barracks_sw"
+    },
     "first_presbyterian_church__frame_1834.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,

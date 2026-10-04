@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The first Fort Dearborn stands in an 1812 view', kind: 'feature',
+    items: [
+      'Open the 1812 door on the front page: it now shows the first Fort Dearborn as it stood in the summer of 1812, two weeks before it was evacuated and burned. Until now that door said the year was still being surveyed.',
+      'You see the double row of pickets, the two blockhouses at opposite corners, the four barracks ranges facing the parade, the brick magazine, two small houses and the 75-foot flagstaff. Their plans come from the drawing the fort\u2019s commander made in 1808. Their heights and roofs are our reconstruction (liberty L370).',
+      'The fort stands on the same ground as the 1835 fort, on the river and shore as they were before the harbour was cut. Its plan is turned to face north as the 1808 drawing implies, not borrowed from the later fort.',
+      'The 1812 view and the 1835 view can never show both forts at once. No people are shown in 1812: the history of that August is still under review.',
+    ] },
   { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
     items: [
       'Nothing you can see changes yet. The first Fort Dearborn, which stood from 1803 until it was burned on 16 August 1812, now has a record for each of its fourteen parts, measured from the plan its commandant drew in 1808.',
