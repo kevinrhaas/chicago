@@ -396,15 +396,15 @@ The roster offers 1,814 names the corpus printed and this project withheld. Each
 
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
-- offered ground: 1,387
-- seated: 251 — 222 by adopting a roof that already stands, 29 by asking for one
-- still on no ground at all: 1,136
-- of the 546 roofs the town already has, 222 now carry a reconstructed household
+- offered ground: 1,425
+- seated: 249 — 220 by adopting a roof that already stands, 29 by asking for one
+- still on no ground at all: 1,176
+- of the 546 roofs the town already has, 220 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,387 | 178 | 149 | 29 | 1,209 |
-| The ground the plat does not draw | T-1614 | 1,209 | 73 | 73 | 0 | 1,136 |
+| The committed plat | T-1613 | 1,425 | 176 | 147 | 29 | 1,249 |
+| The ground the plat does not draw | T-1614 | 1,249 | 73 | 73 | 0 | 1,176 |
 
 29 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_washington_market, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -413,20 +413,20 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_adams_elizabeth` | `blk_indiana_north_cass` | `blk_indiana_north_cass#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_albee_clark_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_allen_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#10` | D7 | `merchant_and_professional_dwellings` |
-| `hh_beaubien_monique` | `blk_washington_dearborn` | `blk_washington_dearborn#06` | D7 | `merchant_and_professional_dwellings` |
-| `hh_beddlecome_ash` | `blk_washington_dearborn` | `blk_washington_dearborn#00` | D7 | `merchant_and_professional_dwellings` |
-| `hh_beech_reuben` | `blk_washington_dearborn` | `blk_washington_dearborn#04` | H2 | `merchant_and_professional_dwellings` |
-| `hh_benediet_loma` | `blk_washington_market` | `blk_washington_market#06` | D7 | `merchant_and_professional_dwellings` |
-| `hh_bennet_lyman` | `blk_washington_market` | `blk_washington_market#00` | H1 | `merchant_and_professional_dwellings` |
-| `hh_baily_john` | `blk_indiana_north_cass` | `blk_indiana_north_cass#07` | D3 | `tradesman_dwellings` |
-| `hh_barber_beta_l` | `blk_indiana_north_cass` | `blk_indiana_north_cass#06` | D4 | `tradesman_dwellings` |
-| `hh_barnard_j_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D5 | `tradesman_dwellings` |
-| `hh_beach_william_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D6 | `tradesman_dwellings` |
-| `hh_beaubien_john_s` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#07` | D3 | `tradesman_dwellings` |
-| `hh_beaubien_susan` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#06` | D3 | `tradesman_dwellings` |
-| `hh_bennett_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
-| `hh_bigelow_david` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#02` | D4 | `tradesman_dwellings` |
-| `hh_blaisdell_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
+| `hh_beaubien_george` | `blk_washington_dearborn` | `blk_washington_dearborn#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_beaubien_monique` | `blk_washington_dearborn` | `blk_washington_dearborn#00` | D7 | `merchant_and_professional_dwellings` |
+| `hh_beddlecome_ash` | `blk_washington_dearborn` | `blk_washington_dearborn#04` | H2 | `merchant_and_professional_dwellings` |
+| `hh_beech_reuben` | `blk_washington_market` | `blk_washington_market#06` | D7 | `merchant_and_professional_dwellings` |
+| `hh_benediet_loma` | `blk_washington_market` | `blk_washington_market#00` | H1 | `merchant_and_professional_dwellings` |
+| `hh_bailly_joseph` | `blk_indiana_north_cass` | `blk_indiana_north_cass#07` | D3 | `tradesman_dwellings` |
+| `hh_baily_john` | `blk_indiana_north_cass` | `blk_indiana_north_cass#06` | D4 | `tradesman_dwellings` |
+| `hh_barber_beta_l` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D5 | `tradesman_dwellings` |
+| `hh_barnard_j_h` | `blk_indiana_north_cass` | `blk_indiana_north_cass#02` | D6 | `tradesman_dwellings` |
+| `hh_barnes_wheeler` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#07` | D3 | `tradesman_dwellings` |
+| `hh_beach_william_h` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#06` | D3 | `tradesman_dwellings` |
+| `hh_beadieston_ste` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
+| `hh_beaubien_john_s` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#02` | D4 | `tradesman_dwellings` |
+| `hh_beaubien_susan` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
 | `hh_borum_richard` | `blk_west_lake_canal` | `blk_west_lake_canal#03` | D4 | `tradesman_dwellings` |
 | `hh_bourassa_jean_baptiste` | `blk_west_lake_canal` | `blk_west_lake_canal#02` | D5 | `tradesman_dwellings` |
 | `hh_casy_honora` | `blk_washington_clark` | `blk_washington_clark#03` | D3 | `tradesman_dwellings` |
@@ -440,7 +440,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_barre_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D2 | `labourer_dwellings` |
 | `hh_bruno_anne_franoise_apolline` | `blk_west_lake_canal` | `blk_west_lake_canal#08` | D2 | `labourer_dwellings` |
 
-1,136 of the 1,387 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,176 of the 1,425 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
