@@ -323,6 +323,17 @@ FINISHES: dict[str, Finish] = {
              "building — the Sauganash, 'a pretentious white two-story building'. "
              "0.60 is the sheet's number and the point of it: the only smooth wall in "
              "Chicago, which is why its neighbours' plainness reads."),
+    "yellow_paint": Finish(
+        key="yellow_paint", rgba=hex_rgba("#B68A22"), roughness=0.65, coating=True,
+        tier="attested",
+        note="Yellow oil paint, and ATTESTED for exactly one building — Kelsey's "
+             "boarding-house on the sand hills, 'a small yellow house' (Bonnell, quoted "
+             "by Andreas). The HUE is the source's; the VALUE is not, and no source "
+             "states one: a straw yellow of the kind yellow ochre ground in oil with "
+             "white lead gives, the cheapest yellow a house painter could buy, kept "
+             "clear of the `ochre` wash so the one stated colour does not read as a "
+             "dealt finish. 0.65 sits beside lead paint's 0.60 because it is the same "
+             "kind of coat. L291 owns the invention (T-1724)."),
     "unpainted": Finish(
         key="unpainted", rgba=(0.52, 0.44, 0.34, 1.0), tier="reconstructed",
         note="The archetypes' own committed unpainted tone, measured in §1 across 94 "
@@ -613,6 +624,7 @@ _PAINT_FINISH = {
     "red": "red_oxide",
     "red_oxide": "red_oxide",
     "ochre": "ochre",
+    "yellow": "yellow_paint",
 }
 
 
