@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1397, ts: '2026-10-04T03:36:03.066Z', date: 'Oct 3, 2026, 10:36 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
   { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
