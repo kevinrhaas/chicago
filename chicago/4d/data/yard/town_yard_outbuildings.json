@@ -248,7 +248,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -270,7 +270,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -700,7 +700,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -722,7 +722,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -768,7 +768,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1122,7 +1122,7 @@
       "eave_m": 1.85,
       "head_m": 2.05,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "slab"
     },
@@ -1166,7 +1166,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1344,7 +1344,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -1544,7 +1544,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1764,7 +1764,7 @@
       "eave_m": 1.85,
       "head_m": 2.05,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "slab"
     },
