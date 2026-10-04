@@ -1,8 +1,8 @@
 {
- "id": "hh_rc_metcalf_david",
- "name": "The post sutler's household — David Metcalf",
+ "id": "hh_rc_metcalf_alvah",
+ "name": "The post sutler's household — Alvah Metcalf",
  "division": "fort",
- "head": "rc_metcalf_david",
+ "head": "rc_metcalf_alvah",
  "source_pass": "reconstructed_garrison",
  "arrival": {
   "value": "1835-07-01",
@@ -11,7 +11,7 @@
   "note": "A BOUND THE HYPOTHESIS CARRIES, NOT A READING. No source names these people, so none dates their coming. What the record says is that the post was held on 1835-07-01 — that is the whole of what this stage claims — and a soldier at a held post arrived not later than the day. A company of the 5th Infantry moved on orders and the year below is DRAWN by the programme's arrival stage, not read off a return."
  },
  "arrival_year": {
-  "value": 1834,
+  "value": 1835,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -20,7 +20,7 @@
    "id": "arrival",
    "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
   },
-  "seed": "hh_rc_metcalf_david:arrival_year",
+  "seed": "hh_rc_metcalf_alvah:arrival_year",
   "replaceable_by": {
    "kind": "person",
    "match": "a dated source that says which year this household came to Chicago"
@@ -33,7 +33,7 @@
   "note": "Not claimed. The establishment says how many men a company held on the scene date and nothing about how they travelled to the post."
  },
  "origin": {
-  "value": "New England",
+  "value": "England",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
@@ -42,7 +42,7 @@
    "id": "origin",
    "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
   },
-  "seed": "hh_rc_metcalf_david:origin_region",
+  "seed": "hh_rc_metcalf_alvah:origin_region",
   "replaceable_by": {
    "kind": "person",
    "match": "a source that says where this household came from"
@@ -50,14 +50,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -111,8 +111,8 @@
  },
  "persons": [
   {
-   "id": "rc_metcalf_david",
-   "name": "David Metcalf",
+   "id": "rc_metcalf_alvah",
+   "name": "Alvah Metcalf",
    "relationship": "head",
    "grade": "reconstructed",
    "sex": "male",
@@ -150,7 +150,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "David Metcalf",
+    "value": "Alvah Metcalf",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -158,7 +158,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. A trader at a United States post; the pool is the town's own and the weighting is the stage's."
     },
-    "seed": "garrison/sutler:given_name",
+    "seed": "garrison/sutler:given_name#1",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"

@@ -27,11 +27,11 @@ rows they were, read now off what the pass says rather than off who it drops.
 ## The two readings, over the same pool
 
 * the pool the register offers this pass: **1856** candidates
-* accepted under the pre-T-0638 reading: **772**
+* accepted under the pre-T-0638 reading: **782**
 * accepted under the corrected reading: **784**
-* standing records a mint-time refusal lands on, corrected reading: **79**; pre-T-0638 reading: **70**
+* standing records a mint-time refusal lands on, corrected reading: **79**; pre-T-0638 reading: **80**
 * THE COLLISIONS THIS FAULT UNCOVERED — said under the corrected reading and not under the old one: **9**
-* candidates the correction ADMITS that the old reading refused: **12**
+* candidates the correction ADMITS that the old reading refused: **2**
 
 ## The collisions — what the paper printed, and who holds the surname instead
 
@@ -70,7 +70,7 @@ and they are why the owner answered it with (c) — keep both, say the collision
 
 ## The committed cohort against its own derivation
 
-The tree holds **743** letter-list households. The pass, run today
+The tree holds **781** letter-list households. The pass, run today
 against that same tree, derives **784**. `check.sh` runs this pass's
 `--gate` and not its `--check`, so the gap has never been red. Under the ruling the
 mint-time causes are gone from this table by construction — a standing record is no
@@ -98,16 +98,6 @@ The other half of the same diff, and none of them is committed today.
 |---|---|---|---|---|
 | `Augustus H, Conant` | Conant Augustus H | `h` | `augustus` | 1 |
 | `Daniel B. Clevinger 4` | B. Clevinger [?] Daniel | `4` | `daniel` | 1 |
-| `Loweley. Watere e` | Watere e Loweley | `e` | `loweley` | 1 |
-| `Nett Robert A.` | Robert A. Nett | `a` | `nett` | 1 |
-| `Nicholson Joshua F.` | Joshua F. Nicholson | `f` | `nicholson` | 1 |
-| `Orisbee Edgar I..` | Edgar I.. Orisbee | `i` | `orisbee` | 1 |
-| `Ormshee S. B.` | S. B. Ormshee | `b` | `ormshee` | 1 |
-| `Osborn B.` | B. Osborn | `b` | `osborn` | 1 |
-| `Pedrick Robert c.` | Robert c. Pedrick | `c` | `pedrick` | 1 |
-| `Root Ez c.` | Ez c. Root | `c` | `root` | 1 |
-| `Swanwick F.` | F. Swanwick | `f` | `swanwick` | 1 |
-| `Timothy B.` | B. Timothy | `b` | `timothy` | 1 |
 
 ## A residual fault in the corrected reading
 

@@ -11,10 +11,10 @@
   "proposed_not_written": 864
  },
  "counts": {
-  "person_records": 2891,
+  "person_records": 2929,
   "carried_by_the_civic_mint": 511,
   "rungs_spent": 810,
-  "conflicts_for_the_owner": 79,
+  "conflicts_for_the_owner": 117,
   "spent_by_rule": {
    "G1a": 22,
    "G1b": 92,
@@ -24,8 +24,8 @@
    "G3": 631
   },
   "conflicts_by_kind": {
-   "abstention": 43,
-   "downgrade": 35,
+   "abstention": 46,
+   "downgrade": 70,
    "subtype": 1
   }
  },
@@ -7389,6 +7389,21 @@
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
+   "person_id": "bacon_richani",
+   "household_id": "hh_bacon_richani",
+   "name": "Richani jr. Bacon",
+   "identity": "id_bacon_richani",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "bailey_bennet",
    "household_id": "hh_bailey_bennet",
    "name": "Bennet Bailey",
@@ -7400,6 +7415,21 @@
    "proposed": {
     "grade": "inferred",
     "resident_subtype": null
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "barnes_wheeler",
+   "household_id": "hh_barnes_wheeler",
+   "name": "Wheeler Barnes",
+   "identity": "id_barnes_wheeler",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
    },
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
@@ -7644,6 +7674,21 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "crandall_beman",
+   "household_id": "hh_crandall_beman",
+   "name": "Beman Crandall",
+   "identity": "id_crandall_beman",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "crisey_william",
    "household_id": "hh_crisey_william",
    "name": "William Crisey",
@@ -7657,6 +7702,21 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "crissy_william",
+   "household_id": "hh_crissy_william",
+   "name": "William Crissy",
+   "identity": "id_crissy_william",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "daniel_b_clevinger_4",
@@ -7687,6 +7747,21 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "dickinson_alexander",
+   "household_id": "hh_dickinson_alexander",
+   "name": "Alexander Dickinson",
+   "identity": "id_dickinson_alexander",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "doolittle_ehjah",
@@ -7726,6 +7801,21 @@
    "rule": "G5",
    "grade": "attested",
    "resident_subtype": null,
+   "kind": "abstention",
+   "proposed": {
+    "grade": null,
+    "resident_subtype": null
+   },
+   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "eliphalet_atkins_2",
+   "household_id": "hh_eliphalet_atkins_2",
+   "name": "Atkins [?] Eliphalet",
+   "identity": "id_eliphalet_atkins",
+   "rule": "G5",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
    "kind": "abstention",
    "proposed": {
     "grade": null,
@@ -7822,6 +7912,21 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "haight_d_s",
+   "household_id": "hh_haight_d_s",
+   "name": "D. S. Haight",
+   "identity": "id_haight_d_s",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "hall_benjamin",
@@ -7959,6 +8064,51 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "julius_perrin_2",
+   "household_id": "hh_julius_perrin_2",
+   "name": "Perrin [?] Julius",
+   "identity": "id_julius_perrin",
+   "rule": "G5",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "abstention",
+   "proposed": {
+    "grade": null,
+    "resident_subtype": null
+   },
+   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "kerchevel_lewis",
+   "household_id": "hh_kerchevel_lewis",
+   "name": "Lewis Kerchevel",
+   "identity": "id_kerchevel_lewis",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "killigoss_isaac",
+   "household_id": "hh_killigoss_isaac",
+   "name": "Isaac Killigoss",
+   "identity": "id_killigoss_isaac",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "kingston_paul",
    "household_id": "hh_kingston_paul",
    "name": "Paul Kingston",
@@ -8064,6 +8214,36 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "loweley_watere_e",
+   "household_id": "hh_loweley_watere_e",
+   "name": "Watere e Loweley",
+   "identity": "id_loweley_watere_e",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "mackel_james",
+   "household_id": "hh_mackel_james",
+   "name": "James Mackel",
+   "identity": "id_mackel_james",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "matthews_james_g",
    "household_id": "hh_matthews_james_g",
    "name": "James G. Matthews",
@@ -8071,6 +8251,21 @@
    "rule": "G3",
    "grade": "attested",
    "resident_subtype": null,
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "mcarty_n",
+   "household_id": "hh_mcarty_n",
+   "name": "N. M'Carty",
+   "identity": "id_mcarty_n",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
    "kind": "downgrade",
    "proposed": {
     "grade": "inferred",
@@ -8094,6 +8289,21 @@
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
+   "person_id": "mdaniel_a",
+   "household_id": "hh_mdaniel_a",
+   "name": "A. M'Daniel",
+   "identity": "id_mdaniel_a",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "meeker_joseph",
    "household_id": "hh_meeker_joseph",
    "name": "Joseph Meeker",
@@ -8109,6 +8319,21 @@
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
+   "person_id": "meriams_mary",
+   "household_id": "hh_meriams_mary",
+   "name": "Mary Meriams",
+   "identity": "id_meriams_mary",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "mitchell_henry",
    "household_id": "hh_mitchell_henry",
    "name": "Henry Mitchell",
@@ -8120,6 +8345,21 @@
    "proposed": {
     "grade": "inferred",
     "resident_subtype": null
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "monreou_john",
+   "household_id": "hh_monreou_john",
+   "name": "John Monreou",
+   "identity": "id_monreou_john",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
    },
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
@@ -8154,6 +8394,21 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "natta_j_v",
+   "household_id": "hh_natta_j_v",
+   "name": "J. V. Natta",
+   "identity": "id_natta_j_v",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "nelts_wm",
    "household_id": "hh_nelts_wm",
    "name": "Wm. Nelts",
@@ -8167,6 +8422,36 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "nett_robert_a",
+   "household_id": "hh_nett_robert_a",
+   "name": "Robert A. Nett",
+   "identity": "id_nett_robert_a",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "nicholson_joshua_f",
+   "household_id": "hh_nicholson_joshua_f",
+   "name": "Joshua F. Nicholson",
+   "identity": "id_nicholson_joshua_f",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "noble_mark",
@@ -8199,6 +8484,36 @@
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
+   "person_id": "orisbee_edgar_i",
+   "household_id": "hh_orisbee_edgar_i",
+   "name": "Edgar I.. Orisbee",
+   "identity": "id_orisbee_edgar_i",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "ormshee_s_b",
+   "household_id": "hh_ormshee_s_b",
+   "name": "S. B. Ormshee",
+   "identity": "id_ormshee_s_b",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "orsemus_morrison",
    "household_id": "hh_orsemus_morrison",
    "name": "Morrison Orsemus",
@@ -8206,6 +8521,21 @@
    "rule": "G3",
    "grade": "attested",
    "resident_subtype": null,
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "osborn_b",
+   "household_id": "hh_osborn_b",
+   "name": "B. Osborn",
+   "identity": "id_osborn_b",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
    "kind": "downgrade",
    "proposed": {
     "grade": "inferred",
@@ -8244,6 +8574,21 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "pedrick_robert_c",
+   "household_id": "hh_pedrick_robert_c",
+   "name": "Robert c. Pedrick",
+   "identity": "id_pedrick_robert_c",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "perry_a_8",
    "household_id": "hh_perry_a_8",
    "name": "A. [?] Perry",
@@ -8272,6 +8617,21 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "poel_green",
+   "household_id": "hh_poel_green",
+   "name": "Green Poel",
+   "identity": "id_poel_green",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "porter_eliza_chappel",
@@ -8364,6 +8724,21 @@
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
+   "person_id": "richey_thos_h",
+   "household_id": "hh_richey_thos_h",
+   "name": "Thos. H. Richey",
+   "identity": "id_richey_thomas_h",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "robinson_catherine",
    "household_id": "hh_robinson_alexander",
    "name": "Catherine Chevalier Robinson",
@@ -8394,6 +8769,36 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "root_ez_c",
+   "household_id": "hh_root_ez_c",
+   "name": "Ez c. Root",
+   "identity": "id_root_ez_c",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "sawyer_james_a",
+   "household_id": "hh_sawyer_james_a",
+   "name": "James A. Sawyer",
+   "identity": "id_sawyer_james_a",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "sen_elijah_wentworth",
    "household_id": "hh_sen_elijah_wentworth",
    "name": "Elijah Wentworth sen.",
@@ -8401,6 +8806,21 @@
    "rule": "G3",
    "grade": "attested",
    "resident_subtype": null,
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "sheldon_oliveann",
+   "household_id": "hh_sheldon_oliveann",
+   "name": "Oliveann Sheldon",
+   "identity": "id_sheldon_oliveann",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
    "kind": "downgrade",
    "proposed": {
     "grade": "inferred",
@@ -8424,6 +8844,21 @@
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
+   "person_id": "stiles_david",
+   "household_id": "hh_stiles_david",
+   "name": "David Stiles",
+   "identity": "id_stiles_david",
+   "rule": "G2e",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": null
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "stow_william_h",
    "household_id": "hh_stow_william_h",
    "name": "William H. Stow",
@@ -8437,6 +8872,21 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "swanwick_f",
+   "household_id": "hh_swanwick_f",
+   "name": "F. Swanwick",
+   "identity": "id_swanwick_f",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "taylor_augustine",
@@ -8461,6 +8911,66 @@
    "rule": "G5",
    "grade": "inferred",
    "resident_subtype": null,
+   "kind": "abstention",
+   "proposed": {
+    "grade": null,
+    "resident_subtype": null
+   },
+   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "thorn_platt",
+   "household_id": "hh_thorn_platt",
+   "name": "Platt Thorn",
+   "identity": "id_thorn_platt",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "timothy_b",
+   "household_id": "hh_timothy_b",
+   "name": "B. Timothy",
+   "identity": "id_timothy_b",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "vanderwerker_adam",
+   "household_id": "hh_vanderwerker_adam",
+   "name": "Adam Vanderwerker",
+   "identity": "id_vanderwerker_adam",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "vanzandt_w_2",
+   "household_id": "hh_vanzandt_w_2",
+   "name": "Vanzandt [?] W.",
+   "identity": "id_vanzandt_w",
+   "rule": "G5",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
    "kind": "abstention",
    "proposed": {
     "grade": null,
@@ -8499,6 +9009,51 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
+   "person_id": "weed_sally",
+   "household_id": "hh_weed_sally",
+   "name": "Sally Weed",
+   "identity": "id_weed_sally",
+   "rule": "G2e",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": null
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "whitcomb_aaron",
+   "household_id": "hh_whitcomb_aaron",
+   "name": "Aaron Whitcomb",
+   "identity": "id_whitcomb_aaron",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "willaee_philip",
+   "household_id": "hh_willaee_philip",
+   "name": "Philip Willaee",
+   "identity": "id_willaee_philip",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
    "person_id": "woodworth_james_h",
    "household_id": "hh_woodworth_james_h",
    "name": "James H. Woodworth",
@@ -8510,6 +9065,21 @@
    "proposed": {
     "grade": "inferred",
     "resident_subtype": null
+   },
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
+  },
+  {
+   "person_id": "wrickey_thomas_h",
+   "household_id": "hh_wrickey_thomas_h",
+   "name": "Thomas H. Wrickey",
+   "identity": "id_wrickey_thomas_h",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident",
+   "kind": "downgrade",
+   "proposed": {
+    "grade": "inferred",
+    "resident_subtype": "projected_resident"
    },
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   }

@@ -136,14 +136,14 @@
     "fronts": "washington",
     "sequence": 4,
     "finish_key": "mixed_patch",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "roof_condition": "patched",
+    "age_state": "older_frontier",
     "fabric_basis": {
       "rule": "F-L",
       "class": "labourer",
       "by": "keeper",
       "household": "hh_austin_w_g",
-      "words": "hewn logs under a weathered roof — The Austin household's, in Chicago since 1834 (rule F-L)"
+      "words": "hewn logs under a patched roof — The Austin household's, in Chicago since 1818 (rule F-L)"
     }
   },
   "resident_assignment": {

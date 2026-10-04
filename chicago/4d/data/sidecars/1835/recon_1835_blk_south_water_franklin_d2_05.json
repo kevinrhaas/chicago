@@ -240,22 +240,22 @@
     "stands_on": "street",
     "fronts": "lake",
     "sequence": 5,
-    "finish_key": "fresh_timber",
-    "roof_condition": "fresh",
-    "age_state": "new",
+    "finish_key": "mixed_patch",
+    "roof_condition": "weathered",
+    "age_state": "recent",
     "fabric_basis": {
       "rule": "F-L",
       "class": "labourer",
       "by": "keeper",
       "household": "hh_cass_lewis",
-      "words": "new-sawn boards under a new roof — The Cass household's, in Chicago since 1835 (rule F-L)"
+      "words": "patched boards under a weathered roof — The Cass household's, in Chicago since 1834 (rule F-L)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "labourer",
-    "age_state": "new",
-    "weather_years": 0.5,
+    "age_state": "recent",
+    "weather_years": 1.5,
     "weather_rate": 1.0,
     "lay_m": 0.008,
     "confidence": "reconstructed"

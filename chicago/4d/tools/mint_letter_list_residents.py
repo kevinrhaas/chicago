@@ -2390,7 +2390,7 @@ KEY_OWNERS: list[tuple[str, str, str]] = [
 # here and red on a row whose drift no longer stands, and the one mode that writes it,
 # `--retire-ledger`, only ever takes rows away. Nothing in this file adds one.
 LEDGER = DATA / "research" / "letter_list_mint_ledger.json"
-READERS = {"lost": "T-2071", "re-minted": "T-2071", "gained": "T-2078",
+READERS = {"lost": "T-2071", "re-minted": "T-2071", "gained": "T-2076",
            "rewritten": "T-2073"}
 
 

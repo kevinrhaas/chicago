@@ -37,16 +37,16 @@
   "dated_by_the_1879_registry": 159,
   "arrival_at_or_before_1835": 70,
   "OS1": 39,
-  "OS2A": 7,
-  "OS2": 1,
-  "OS3": 117,
-  "OS4": 9,
-  "OS5": 154,
-  "merged": 46,
-  "probable": 1,
-  "candidate": 9,
-  "refused": 117,
-  "unmatched": 154
+  "OS2A": 6,
+  "OS2": 2,
+  "OS3": 120,
+  "OS4": 10,
+  "OS5": 150,
+  "merged": 45,
+  "probable": 2,
+  "candidate": 10,
+  "refused": 120,
+  "unmatched": 150
  },
  "people": [
   {
@@ -3604,7 +3604,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 1 bearer(s) of 'osborn', none with the forename initial 'a'; same surname, different forename initial never merges"
+    "why": "the residents layer has 2 bearer(s) of 'osborn', none with the forename initial 'a'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -3634,17 +3634,17 @@
    "places_in_1835": false,
    "places_in_1835_why": "the club's criterion is residence in Chicago before 1 January 1840 and majority by then, and the year in the DATE OF ARRIVAL column is what the man himself said in 1879. A self-reported arrival year at or before 1835 is a dated recollection and not a residence on 1 July 1835: under the ratified ladder (T-0513) it corroborates and enriches, and minting waits on a contemporary source (T-0514).",
    "residents_layer": {
-    "rule": "OS2A",
-    "outcome": "merged",
-    "person_id": "osborn_wm",
-    "household_id": "hh_osborn_wm",
-    "resident_name": "Wm. Osborn",
-    "resident_grade": "inferred",
-    "why": "one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'william' — the discriminator the roster's initials do not supply"
+    "rule": "OS4",
+    "outcome": "candidate",
+    "person_id": null,
+    "candidates": [
+     "osborn_wm"
+    ],
+    "why": "1 bearers of 'osborn' share the forename initial 'w'; the roster does not discriminate between them"
    },
    "proposed": {
-    "rung": "no_change",
-    "reason": "the person is already in the residents layer at grade 'inferred'. This source is a later recollection: it corroborates and dates, and under the ratified ladder it cannot lift a rung by itself. The citation goes on the record; the grade is T-0515's to revisit with a contemporary second source. What this roll adds that the 1882 one could not: the man's own date of arrival, 1834, May 1, registered in his own hand in 1879. That is a DATED RECOLLECTION and it is worth what the ladder says a recollection is worth — it is not a contemporary record of 1834."
+    "rung": "not_a_resident_on_this_evidence",
+    "reason": "the club's criterion is residence in Chicago prior to 1 January 1840 and majority by then — which does not place the person in the town on 1 July 1835. '1839/1840 alone is never a 1835 resident (later evidence only)'; a reception roster of 1882 is weaker still. Minting waits on a contemporary source (T-0514). This man is NOT in the residents layer and registered 1834, May 1 as his date of arrival in 1879. That is a lead for T-0514 to run down in a contemporary record — it is not a mint."
    }
   },
   {
@@ -4237,10 +4237,10 @@
    "places_in_1835": false,
    "places_in_1835_why": "the club's criterion is residence in Chicago before 1 January 1840 and majority by then, and the year in the DATE OF ARRIVAL column is what the man himself said in 1879. A self-reported arrival year at or before 1835 is a dated recollection and not a residence on 1 July 1835: under the ratified ladder (T-0513) it corroborates and enriches, and minting waits on a contemporary source (T-0514).",
    "residents_layer": {
-    "rule": "OS5",
-    "outcome": "unmatched",
+    "rule": "OS3",
+    "outcome": "refused",
     "person_id": null,
-    "why": "no bearer of the surname 'sawyer' in the residents layer"
+    "why": "the residents layer has 1 bearer(s) of 'sawyer', none with the forename initial 's'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -6220,14 +6220,18 @@
    "places_in_1835": false,
    "places_in_1835_why": "the roster's only claim about time is the club's criterion: resident before 1 January 1840 and of age by then.",
    "residents_layer": {
-    "rule": "OS5",
-    "outcome": "unmatched",
+    "rule": "OS2",
+    "outcome": "probable",
     "person_id": null,
-    "why": "no bearer of the surname 'dickinson' in the residents layer"
+    "probable_person_id": "dickinson_alexander",
+    "household_id": "hh_dickinson_alexander",
+    "resident_name": "Alexander Dickinson",
+    "resident_grade": "attested",
+    "why": "one bearer of the surname in the whole residents layer and the forename initial agrees, but neither side spells the forename out and nothing discriminates. PROBABLE, NOT MERGED: no record is written on it"
    },
    "proposed": {
-    "rung": "not_a_resident_on_this_evidence",
-    "reason": "the club's criterion is residence in Chicago prior to 1 January 1840 and majority by then — which does not place the person in the town on 1 July 1835. '1839/1840 alone is never a 1835 resident (later evidence only)'; a reception roster of 1882 is weaker still. Minting waits on a contemporary source (T-0514)."
+    "rung": "no_change",
+    "reason": "a probable identity is not an identity. The row is a proposal for the cross-source identity master (T-0513); nothing is written on a resident record from it."
    }
   },
   {
@@ -8142,10 +8146,10 @@
    "places_in_1835": false,
    "places_in_1835_why": "the roster's only claim about time is the club's criterion: resident before 1 January 1840 and of age by then.",
    "residents_layer": {
-    "rule": "OS5",
-    "outcome": "unmatched",
+    "rule": "OS3",
+    "outcome": "refused",
     "person_id": null,
-    "why": "no bearer of the surname 'sawyer' in the residents layer"
+    "why": "the residents layer has 1 bearer(s) of 'sawyer', none with the forename initial 's'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -9084,10 +9088,10 @@
    "places_in_1835": false,
    "places_in_1835_why": "a death in 1881 or 1882 says nothing about 1835 beyond the club's pre-1840 criterion.",
    "residents_layer": {
-    "rule": "OS5",
-    "outcome": "unmatched",
+    "rule": "OS3",
+    "outcome": "refused",
     "person_id": null,
-    "why": "no bearer of the surname 'barnes' in the residents layer"
+    "why": "the residents layer has 1 bearer(s) of 'barnes', none with the forename initial 'j'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",

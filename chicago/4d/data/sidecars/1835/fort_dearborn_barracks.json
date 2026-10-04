@@ -205,8 +205,8 @@
       "research_note": "A MARRIED SOLDIER'S HOUSEHOLD AT FORT DEARBORN. NOBODY HERE IS NAMED BY ANY SOURCE. The Army's own regulations quarter, pay and settle the accounts of the washerwomen of a company without printing how many a company was allowed; four a company is the figure this project states, carried as an instruction and graded reconstructed like everything else on this card. The woman is written as the soldier's wife because an unattached woman living at a post is the stronger of the two claims and no source supports either. A post return or a chaplain's register for the Chicago post retires the card whole. No figure is drawn (docs/LIBERTIES.md L1)."
     },
     {
-      "household": "hh_rc_eastman_james",
-      "name": "A married soldier's household of the second company — James Eastman, Maria Wadsworth and their children",
+      "household": "hh_rc_eastman_reuben",
+      "name": "A married soldier's household of the second company — Reuben Eastman, Maria Leland and their children",
       "division": "fort",
       "relation": "lived here",
       "why": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
@@ -214,28 +214,61 @@
       "basis": "",
       "persons": [
         {
-          "name": "James Eastman",
+          "name": "Reuben Eastman",
           "relationship": "head",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Maria Wadsworth",
+          "name": "Maria Leland",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "laundress",
+          "note": "A LAUNDRESS OF THE SECOND COMPANY, married into the household this card is headed by — `relationship` says where she stands inside it, and no source is being quoted about anybody. Nobody named her. What is claimed is that a held post of two companies had washerwomen at it, because its own regulations quarter them, pay them and rule on their accounts."
+        }
+      ],
+      "research_note": "A MARRIED SOLDIER'S HOUSEHOLD AT FORT DEARBORN. NOBODY HERE IS NAMED BY ANY SOURCE. The Army's own regulations quarter, pay and settle the accounts of the washerwomen of a company without printing how many a company was allowed; four a company is the figure this project states, carried as an instruction and graded reconstructed like everything else on this card. The woman is written as the soldier's wife because an unattached woman living at a post is the stronger of the two claims and no source supports either. A post return or a chaplain's register for the Chicago post retires the card whole. No figure is drawn (docs/LIBERTIES.md L1)."
+    },
+    {
+      "household": "hh_rc_fisk_erastus",
+      "name": "A married soldier's household of the second company — Erastus Fisk, Lucy Hastings and their children",
+      "division": "fort",
+      "relation": "lived here",
+      "why": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
+      "sources": [],
+      "basis": "",
+      "persons": [
+        {
+          "name": "Erastus Fisk",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "soldier",
+          "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
+        },
+        {
+          "name": "Lucy Hastings",
           "relationship": "wife",
           "grade": "reconstructed",
           "occupation": "laundress",
           "note": "A LAUNDRESS OF THE SECOND COMPANY, married into the household this card is headed by — `relationship` says where she stands inside it, and no source is being quoted about anybody. Nobody named her. What is claimed is that a held post of two companies had washerwomen at it, because its own regulations quarter them, pay them and rule on their accounts."
         },
         {
-          "name": "Silas Dickinson",
+          "name": "Eliza Stebbins",
           "relationship": "child",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "A SOLDIER'S CHILD. Drawn, not counted: the Army's returns counted women and children at a post and this project has read none of them."
         },
         {
-          "name": "Levi Lyman",
+          "name": "Henry Nash",
+          "relationship": "child",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "A SOLDIER'S CHILD. Drawn, not counted: the Army's returns counted women and children at a post and this project has read none of them."
+        },
+        {
+          "name": "Phebe Fairbanks",
           "relationship": "child",
           "grade": "reconstructed",
           "occupation": "none_recorded",
@@ -254,7 +287,7 @@
       "basis": "",
       "persons": [
         {
-          "name": "James Parmelee",
+          "name": "James Metcalf",
           "relationship": "head",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -275,14 +308,14 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Otis Nichols",
+          "name": "Otis Wadsworth",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Lemuel Leland",
+          "name": "Lemuel Newell",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -296,28 +329,28 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Samuel Nash",
+          "name": "Eli Eastman",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Luther Hastings",
+          "name": "Luther Nichols",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Levi Barnes",
+          "name": "Hiram Chapin",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Lemuel Hastings",
+          "name": "Elisha Stebbins",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -331,21 +364,21 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Chauncey Bacon",
+          "name": "Levi Newell",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "William Bacon",
+          "name": "William Ingalls",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "George Metcalf",
+          "name": "Warren Parmelee",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -359,7 +392,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Nathaniel Lyman",
+          "name": "Nathaniel Nichols",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -387,14 +420,14 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Eli Bardwell",
+          "name": "Luther Thayer",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Levi Newell",
+          "name": "Asa Stebbins",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -415,21 +448,21 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Willard Newell",
+          "name": "Orrin Leland",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Amos Fisk",
+          "name": "William Wadsworth",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Otis Whitcomb",
+          "name": "William Fairbanks",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -443,14 +476,14 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Horace Eastman",
+          "name": "Amos Newell",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Henry Stebbins",
+          "name": "Levi Nash",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -464,7 +497,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Chauncey Dickinson",
+          "name": "Chauncey Lyman",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -478,14 +511,14 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Lemuel Fisk",
+          "name": "Asa Fisk",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Charles Stiles",
+          "name": "Henry Stebbins",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -513,21 +546,21 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Erastus Nichols",
+          "name": "Erastus Nash",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Silas Kellogg",
+          "name": "Silas Nichols",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Nathaniel Eastman",
+          "name": "Nathaniel Parmelee",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -541,7 +574,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Ezra Wadsworth",
+          "name": "Alanson Thayer",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -562,21 +595,21 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Alanson Wadsworth",
+          "name": "Alanson Newell",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Henry Chapin",
+          "name": "Hiram Hastings",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Amos Dickinson",
+          "name": "Luther Bardwell",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -595,14 +628,14 @@
       "basis": "",
       "persons": [
         {
-          "name": "Lemuel Crandall",
+          "name": "Lemuel Bardwell",
           "relationship": "head",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Ira Wadsworth",
+          "name": "Ira Ingalls",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -616,7 +649,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Nathaniel Nichols",
+          "name": "Nathaniel Kellogg",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -658,7 +691,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Orrin Hastings",
+          "name": "William Nichols",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -672,13 +705,6 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Henry Parmelee",
-          "relationship": "household_member",
-          "grade": "reconstructed",
-          "occupation": "soldier",
-          "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
-        },
-        {
           "name": "Henry Eastman",
           "relationship": "household_member",
           "grade": "reconstructed",
@@ -686,7 +712,14 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Amos Barnes",
+          "name": "James Hastings",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "soldier",
+          "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
+        },
+        {
+          "name": "Amos Ingalls",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -700,7 +733,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Orrin Fairbanks",
+          "name": "Lemuel Nichols",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -721,7 +754,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Rufus Sawyer",
+          "name": "Rufus Fairbanks",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -742,7 +775,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Alvah Lyman",
+          "name": "Alvah Nash",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -763,7 +796,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Ezra Stiles",
+          "name": "Alanson Lyman",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -777,7 +810,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Eli Barnes",
+          "name": "Eli Thayer",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -791,14 +824,14 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Amos Sheldon",
+          "name": "Otis Nichols",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Lemuel Metcalf",
+          "name": "Lemuel Fisk",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -833,7 +866,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Elisha Bardwell",
+          "name": "Elisha Fairbanks",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -854,7 +887,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Harvey Fairbanks",
+          "name": "Harvey Lyman",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -875,7 +908,7 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Levi Nash",
+          "name": "Levi Stebbins",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -889,28 +922,28 @@
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "David Fisk",
+          "name": "David Ingalls",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Abner Lyman",
+          "name": "Abner Wadsworth",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Willard Leland",
+          "name": "Seth Fisk",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
           "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
         },
         {
-          "name": "Jared Kellogg",
+          "name": "Jared Wadsworth",
           "relationship": "household_member",
           "grade": "reconstructed",
           "occupation": "soldier",
@@ -972,39 +1005,6 @@
         },
         {
           "name": "Martin Corrigan",
-          "relationship": "child",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "A SOLDIER'S CHILD. Drawn, not counted: the Army's returns counted women and children at a post and this project has read none of them."
-        }
-      ],
-      "research_note": "A MARRIED SOLDIER'S HOUSEHOLD AT FORT DEARBORN. NOBODY HERE IS NAMED BY ANY SOURCE. The Army's own regulations quarter, pay and settle the accounts of the washerwomen of a company without printing how many a company was allowed; four a company is the figure this project states, carried as an instruction and graded reconstructed like everything else on this card. The woman is written as the soldier's wife because an unattached woman living at a post is the stronger of the two claims and no source supports either. A post return or a chaplain's register for the Chicago post retires the card whole. No figure is drawn (docs/LIBERTIES.md L1)."
-    },
-    {
-      "household": "hh_rc_sheldon_erastus",
-      "name": "A married soldier's household of the second company — Erastus Sheldon, Lucy Dickinson and their children",
-      "division": "fort",
-      "relation": "lived here",
-      "why": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card.",
-      "sources": [],
-      "basis": "",
-      "persons": [
-        {
-          "name": "Erastus Sheldon",
-          "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "soldier",
-          "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
-        },
-        {
-          "name": "Lucy Dickinson",
-          "relationship": "wife",
-          "grade": "reconstructed",
-          "occupation": "laundress",
-          "note": "A LAUNDRESS OF THE SECOND COMPANY, married into the household this card is headed by — `relationship` says where she stands inside it, and no source is being quoted about anybody. Nobody named her. What is claimed is that a held post of two companies had washerwomen at it, because its own regulations quarter them, pay them and rule on their accounts."
-        },
-        {
-          "name": "Eliza Sawyer",
           "relationship": "child",
           "grade": "reconstructed",
           "occupation": "none_recorded",

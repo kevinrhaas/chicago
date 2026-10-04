@@ -10614,7 +10614,7 @@ tickets **T-0373** (this), **T-0368**, **T-0376**, **T-0378**, **T-0374**, **T-0
 **Recorded:** 2026-08-29.
 
 ### L214 — Three quarters of this town's people are a name on a post-office list and nothing else
-**Scope:** `residents.persons[letter_list_only]` — 736 people
+**Scope:** `residents.persons[letter_list_only]` — 774 people
 **Decision:** on 2026-08-30 the owner ruled that EVERY name the post office's lists of
 uncalled-for letters yield, and the mint's refusals admit, joins the town. 712 names were
 minted on that ruling, beside the 15 L207 already held, and the reconstruction went from 244
@@ -12935,8 +12935,20 @@ here can be mistaken for research. R4 (a family for a head the town already hold
 T-1170's and R6 (the Native, Métis and Black cohorts, which carry their own review) is
 T-1177's; neither is spent here.
 
+**And thirty-eight more, written as the mint now derives them (T-2078).** Re-deriving the mint
+over the extractions as they stand admits 39 names no committed card held: 24 off the 1 January
+1834 return completed from its page image, 13 off the list of 1 July 1835 read through OCR and
+kept as printed (`register_letter_list_suspicions.py` is where a doubtful reading is answered),
+and 2 more 1834 printings. 38 are written, each the mint's own card, byte for byte, with the
+same flag, the same refusals passed and the same ten gate assertions. The 39th, `Conant
+Augustus H`, is printed surname first and the mint reads it given-first, so `--gate` refuses
+it; it stays on the mint's ledger for the name-order reading (T-1217). Their surnames moved three invented
+garrison names (L251 is that draw) and shrank one lodging order under a
+head the re-family programme had already landed; the order book holds that order by name
+(T-1459's ruling) rather than moving her back.
+
 **What it leaves open.** The order book models 643 households in the town and the layer now
-reads 1,133 present. The two counts are not in the same unit — 736 of the layer's households
+reads 1,133 present. The two counts are not in the same unit — 774 of the layer's households
 are letter-list CONTAINERS holding one person and arguing for a person rather than a
 dwelling — and reconciling them is T-1171's and T-1179's.
 

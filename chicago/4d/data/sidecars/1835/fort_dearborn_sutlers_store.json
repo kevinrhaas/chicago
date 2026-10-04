@@ -122,8 +122,8 @@
   },
   "residents": [
     {
-      "household": "hh_rc_metcalf_david",
-      "name": "The post sutler's household — David Metcalf",
+      "household": "hh_rc_metcalf_alvah",
+      "name": "The post sutler's household — Alvah Metcalf",
       "division": "fort",
       "relation": "lived here",
       "why": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented.",
@@ -131,7 +131,7 @@
       "basis": "",
       "persons": [
         {
-          "name": "David Metcalf",
+          "name": "Alvah Metcalf",
           "relationship": "head",
           "grade": "reconstructed",
           "occupation": "sutler",

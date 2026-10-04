@@ -5,12 +5,12 @@
   "source_id": "st_cyr_register_ichr_v4",
   "pass": "T-0573",
   "target": "data/residents/households/*.json — every named person, at every grade",
-  "targets_examined": 1404,
+  "targets_examined": 1442,
   "rule": "Surnames must fold equal after case and punctuation are dropped, AND the forenames must agree initial for initial in one direction or the other. A surname-only agreement is always a refusal. A row the page prints without a forename is reported no_forename, carried and never matched.",
   "counts": {
     "candidate": 35,
-    "refusal": 106,
-    "unmatched": 381,
+    "refusal": 107,
+    "unmatched": 380,
     "no_forename": 4,
     "ruled_no_town_change": 5
   },
@@ -3883,9 +3883,15 @@
       "role": "witness",
       "describes_date": "1838-01-10",
       "scene_year": false,
-      "outcome": "unmatched",
-      "residents": [],
-      "rule": "No person in data/residents/ carries a surname folding to 'sawyer'. NOT THE SCENE YEAR: this reading is dated 1838-01-10 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches."
+      "outcome": "refusal",
+      "residents": [
+        {
+          "person_id": "sawyer_james_a",
+          "name": "James A. Sawyer",
+          "grade": "attested"
+        }
+      ],
+      "rule": "The surname folds equal but no forename agrees initial for initial: 'Mary Sawyer' against 'James A. Sawyer'. A surname-only agreement is always a refusal. NOT THE SCENE YEAR: this reading is dated 1838-01-10 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches."
     },
     {
       "record_id": "st_cyr_marriage_073_1",

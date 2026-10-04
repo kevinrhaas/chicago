@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1420, ts: '2026-10-04T12:07:00.923Z', date: 'Oct 4, 2026, 7:07 AM CT', title: '38 more people from the post office\u2019s letter lists join the town', kind: 'change',
+    items: [
+      'Open People: 38 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
+      'Twenty-four were read from the page image of the 1 January 1834 list. Thirteen come from the July 1835 list, read through OCR, and keep their spelling as printed.',
+      'Three made-up soldiers\u2019 households at the fort have new invented names, because real people in the town now carry their old family names. A few other made-up households were renamed for the same reason.',
+      'One more name, \u201cConant Augustus H\u201d, waits: it is printed family name first and the tool would show it backwards.',
+    ] },
   { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the helper that keeps waiting changes up to date before they are merged.',
