@@ -44,8 +44,8 @@ started. Take both `full` cells as one reading each, not a ranking.
 ## 3. The ceiling: the worst stand, every tier, in milliseconds per machine
 
 The worst 1835 stand at every tier and viewport is still T-2084's back yard on Washington
-and Wells (T-2099). `--gate` read it on three CPUs the same evening: this steward runner and
-two GitHub-hosted runners that `chicago-4d-frame-time.yml` happened to land on. Frame ms,
+and Wells (T-2099). `--gate` read it on several CPUs the same evening: this steward runner and
+the GitHub-hosted runners that `chicago-4d-frame-time.yml` happened to land on. Frame ms,
 with the frame in bare screens after it:
 
 | tier | EPYC 9V74 desktop | EPYC 7763 desktop | EPYC 9V74 phone | EPYC 7763 phone | Xeon 8573C phone |
@@ -60,18 +60,24 @@ the frame by a bare screen (every layer hidden: clear and sky, one call) timed i
 page, so a faster or slower runner would cancel out. On the two GitHub-hosted CPUs it nearly
 did: their milliseconds differ by up to 30 %, and their ratios agree within 4 %. The EPYC
 9V74 draws the bare screen quickly and the town slowly, so it reads the ratio about a third
-higher. A unit that is machine-free on two CPUs out of three is not machine-free. The ratio
-is still printed, as `bare screens`, and it is not gated.
+higher. A fourth CPU then turned up: the EPYC 9V45, whose phone frames read 4654 / 3393 / 1982 ms at
+79.8 / 58.8 / 36.3 bare screens. Across the four CPUs the phone's `full` frame reads 80 to 144
+bare screens. A unit that spread is not machine-free. The ratio is still printed, as
+`bare screens`, and it is not gated.
+
+Milliseconds on ONE CPU hold steady. The EPYC 7763's desktop `full` frame read 12331,
+12440 and 12308 ms in three runs, `balanced` 9397–9479 and `light` 6162–6184, a spread of
+1 % or less. A 10 % margin therefore catches a real regression without flaking.
 
 So **the ceiling is in milliseconds, and it belongs to one machine.**
 `tools/still_frame_ceilings.json` keeps ceilings per CPU model and core count. Each is set by
 the rule *that machine's own reading plus 10 %, rounded up to 250 ms*:
 
-| tier | 9V74 desktop | 9V74 phone | 7763 desktop | 7763 phone | 8573C phone |
-|---|---:|---:|---:|---:|---:|
-| full | 15500 | 11250 | 13750 | 9500 | 7250 |
-| balanced | 11750 | 8000 | 10500 | 7000 | 5500 |
-| light | 7500 | 4750 | 7000 | 4250 | 3250 |
+| tier | 9V74 desktop | 9V74 phone | 7763 desktop | 7763 phone | 8573C phone | 9V45 phone |
+|---|---:|---:|---:|---:|---:|---:|
+| full | 15500 | 11250 | 13750 | 9500 | 7250 | 5250 |
+| balanced | 11750 | 8000 | 10500 | 7000 | 5500 | 3750 |
+| light | 7500 | 4750 | 7000 | 4250 | 3250 | 2250 |
 
 A machine, or a viewport of one, with no number is read and warned about (`::warning`).
 It is never failed on another machine's numbers, and `--strict` fails it. A red that only

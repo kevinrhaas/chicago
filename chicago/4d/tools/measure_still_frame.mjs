@@ -71,8 +71,9 @@
  * on another machine's numbers; `--strict` fails it. The frame is also printed
  * in BARE SCREENS (over a frame with every layer hidden, timed in the same
  * page), which was the first design for a machine-free unit and is NOT gated:
- * of three CPUs read on 2026-10-04, two agreed on it within 4 % and the third
- * read it a third higher (docs/measurements/T-2111-still-frame-ceiling.md). `.github/workflows/chicago-4d-frame-time.yml`
+ * four CPUs read on 2026-10-04 put one frame at 80 to 144 bare screens, where
+ * one CPU read its own milliseconds three times within 1 %
+ * (docs/measurements/T-2111-still-frame-ceiling.md). `.github/workflows/chicago-4d-frame-time.yml`
  * runs the gate.
  */
 import http from 'node:http';
@@ -461,7 +462,7 @@ for (const pass of passes) {
 // against the number written in `still_frame_ceilings.json` for THIS machine and
 // viewport. A machine (or a viewport of one) the file has no number for is read
 // and warned about — its milliseconds are not another machine's — and fails
-// only under `--strict`. GitHub's runner pool is several CPUs (three seen in one
+// only under `--strict`. GitHub's runner pool is several CPUs (four seen in one
 // evening), and a red that only means "a new CPU" would teach people to ignore it.
 const CPU = { model: os.cpus()[0]?.model?.trim() || 'unknown', cores: os.cpus().length };
 console.log(`\nmachine: ${CPU.model}, ${CPU.cores} core(s)`);
