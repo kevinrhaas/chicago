@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1410, ts: '2026-10-04T08:07:06.955Z', date: 'Oct 4, 2026, 3:07 AM CT', title: 'The Baptist meeting house card names its first Episcopal service', kind: 'feature',
+    items: [
+      'Open the Temple Building on South Water Street near Franklin, the town\u2019s Baptist meeting house. Its card now records that on Sunday 19 October 1834 the Rev. Isaac W. Hallam held Episcopal services in it.',
+      'The card also cites a second history, Moses and Kirkland\u2019s of 1895, which puts Sproat\u2019s boys\u2019 school in \u201cthe First Baptist church, a small frame building located on South Water street near Franklin\u201d. That is this building, and it gains that name.',
+      'No building was added and none moved. A research note had asked for this meeting house to be placed, not knowing the town already had it.',
+    ] },
   { v: 1409, ts: '2026-10-04T07:47:00.261Z', date: 'Oct 4, 2026, 2:47 AM CT', title: 'Nothing you can see: blocked tickets are listed once, by the ticket tool itself', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
