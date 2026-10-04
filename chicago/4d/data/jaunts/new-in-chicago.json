@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "new-in-chicago",
-  "content_version": 4,
+  "content_version": 5,
   "title": "New in Chicago",
   "premise": "Find your bearings, a bed and a practical next step on an imagined first day in town.",
   "category": "Orientation",
@@ -11,7 +11,7 @@
     "text": "It is your first day in town. Five exterior stops, from the forks to South Water Street, give you bearings, a supply shop, a town map notice and a bed to ask about. This outing is a narrative reconstruction; no conversation, booking or purchase is claimed as history.",
     "read_s": 16
   },
-  "default_mode": "walk",
+  "default_mode": "horse",
   "allowed_modes": [
     "walk",
     "wagon",
@@ -312,7 +312,7 @@
     },
     {
       "id": "outing",
-      "text": "The visitor’s first-day errand, the reading of the map notice, the boarding choice, the cost-or-convenience preference, the endings, the route note, timing inputs and the Finding Your Feet keepsake are invented connective narrative, not historical events.",
+      "text": "The visitor’s first-day errand, the reading of the map notice, the boarding choice, the cost-or-convenience preference, the endings, the route note, the ride on horseback (the recommended mode), timing inputs and the Finding Your Feet keepsake are invented connective narrative, not historical events.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-new-in-chicago"
@@ -343,7 +343,7 @@
       "evidence": [
         "continuity"
       ],
-      "story": "Walk the river street toward the stores and find where everyday things are sold.",
+      "story": "Ride the river street toward the stores and find where everyday things are sold.",
       "story_evidence": [
         "outing"
       ]

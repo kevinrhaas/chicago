@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "id": "materials-for-a-roof",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Materials for a Roof",
   "premise": "Draw up a builder's list for one small roof: what comes by lake at Newberry & Dole's, nails or nail rods at Peck's corner, brick or none at the town's first brickyard, and a look at the Lake House site.",
   "category": "Building trades",
   "scene": "1835",
   "opening": {
-    "text": "You are putting up a small frame house this summer, and the roof is next. See what comes in by lake at a forwarding house, choose the ironwork at Peck's corner, look in at the town's first brickyard, and end at the biggest building in hand: the Lake House. Your house and your list are invented; the trades are documented.",
-    "read_s": 20
+    "text": "You are putting up a small frame house, and the roof is next. See what comes in by lake, choose the ironwork at Peck's corner, look in at the first brickyard and end at the Lake House. Your house and list are invented; the trades are documented.",
+    "read_s": 16
   },
   "default_mode": "horse",
   "allowed_modes": [
@@ -39,8 +39,8 @@
         "kind": "structure",
         "id": "newberry_dole_warehouse"
       },
-      "text": "Start at Newberry & Dole's warehouse on the river. In the Democrat of 1 July 1835 they advertise storage, forwarding and commission, agents for the Merchants' Line: what the town cannot make comes in by lake through houses like theirs. Which bank it stood on is disputed.",
-      "read_s": 28,
+      "text": "Start at Newberry & Dole's warehouse on the river. In the Democrat of 1 July 1835 they advertise storage, forwarding and commission, agents for the Merchants' Line. Which bank it stood on is disputed.",
+      "read_s": 21,
       "action_s": 5,
       "links": [
         {
@@ -79,8 +79,8 @@
         "kind": "structure",
         "id": "peck_store"
       },
-      "text": "Along South Water Street to Peck's corner at LaSalle. In June 1834 he had just received a full stock from New York, and that September his notice offered nails, nail rods, bar iron and English blister and cast steel. A roof wants nails: choose how to buy them.",
-      "read_s": 28,
+      "text": "Along South Water Street to Peck's corner at LaSalle. His notice of September 1834 offered nails, nail rods, bar iron and English blister and cast steel. A roof wants nails: choose how to buy them.",
+      "read_s": 21,
       "action_s": 10,
       "links": [
         {
@@ -147,8 +147,8 @@
         "kind": "structure",
         "id": "brickyard_north_side"
       },
-      "text": "Over the river to the North Side, where Andreas puts Tyler K. Blodgett's brickyard of spring 1833, between Dearborn and Clark and not far from the bank, with Henry S. Lampman the town's first brickmaker. Who worked it in July 1835 is not recorded; one drying shed stands for the whole yard.",
-      "read_s": 30,
+      "text": "Over the river to the North Side, where Andreas puts Tyler K. Blodgett's brickyard of spring 1833 near the bank, with Henry S. Lampman the town's first brickmaker. Who worked it in July 1835 is not recorded; one shed stands for the yard.",
+      "read_s": 26,
       "action_s": 10,
       "links": [
         {
@@ -214,8 +214,8 @@
         "kind": "structure",
         "id": "lake_house_construction"
       },
-      "text": "East along the bank to Rush Street and the Lake House. Andreas describes the finished hotel: brick, three storeys and a basement, opened in autumn 1836. That ground was broken in 1835 rests on modern compilations, so this one-storey roofless shell is our reconstruction of the site. Look from the street.",
-      "read_s": 30,
+      "text": "East along the bank to Rush Street and the Lake House. Andreas describes the finished hotel, brick and three storeys, opened in autumn 1836. That ground was broken in 1835 rests on modern compilations, so this roofless shell is our reconstruction. Look from the street.",
+      "read_s": 27,
       "action_s": 5,
       "links": [
         {
