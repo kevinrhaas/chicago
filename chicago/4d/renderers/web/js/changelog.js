@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A hundred and fifty-six lone men in the 1835 town now have families', kind: 'change',
+  { v: 1394, ts: '2026-10-04T02:29:40.433Z', date: 'Oct 3, 2026, 9:29 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
       'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
       'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',

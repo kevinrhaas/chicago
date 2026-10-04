@@ -1,4 +1,4 @@
-## T-2021 — the married houses no woman in the town fits, ruled on (2026-10-03) — WIP, see PR
+## T-2021 — the married houses no woman in the town fits, ruled on (2026-10-03)
 
 **What a visitor sees:** 156 married houses in the People directory now hold the wife and children
 the household model drew for them (508 people), and 121 stand alone with a card that says why.
@@ -12,10 +12,18 @@ the household model drew for them (508 people), and 121 stand alone with a card 
   435.4 → 282.4 (the model's 120.9–150.0 is still not met, and the measurement says why).
 - **The book** orders exactly the ruling's cells (`ordered_by_the_family_ruling`), filled under
   T-2021, counted apart from the re-cut. The family rows still owed name **T-2043**.
-- **NOT YET GREEN.** After two full `rederive.mjs --run` passes, `check.sh` still reports
-  downstream stages (readmissions, transients, Native and Metis, church register, staffing join,
-  boarders, sidecars) not re-deriving, and 9 structure records whose occupancy moved read stale
-  against their meshes. The PR carries the reason on its `resume` comment.
+- **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
+  past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
+  re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first
+  initial: a drawn child displacing a read man. The ruling now also steps past the initial of every
+  roster name that stage mints (six of its 508 forenames moved; 121 re-admissions stand, as before).
+  The boarders lose three: the ruling seats seven more people in lodging places before that stage
+  deals, Edward Haddock's family now fills the Mansion House, whose lodging card retires, and one
+  keeper's child is refused for the name pool (L252 restated, 150 in 23 to 147 in 22).
+- **How it was re-derived.** Seven stages the rebuild manifest does not list (re-admissions,
+  transients, Native and Metis, church register, boarders, the staffing join's three tools, door
+  aprons) were rebuilt by hand around two `rederive.mjs --run` passes until a further pass changed
+  nothing; nine structures whose occupancy moved were rebaked with `bake.sh --only`.
 
 ## T-2056 — four horse jaunts just over six minutes brought inside it (2026-10-03)
 

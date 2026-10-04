@@ -61,11 +61,11 @@ The research spend was, correctly, conservative. This page does not overturn one
 | class / rule | rows |
 |---|---:|
 | `R0_ineligible/already_carried_as_present` | 1054 |
-| `R0_ineligible/carried_by_the_cards_own_row` | 1277 |
+| `R0_ineligible/carried_by_the_cards_own_row` | 1276 |
 | `R0_ineligible/carried_under_a_crosswalk_merged_name` | 162 |
 | `R0_ineligible/earlier_than_the_window` | 146 |
 | `R0_ineligible/forename_printed_surname_lost` | 1 |
-| `R0_ineligible/later_only_and_not_backprojectable` | 9796 |
+| `R0_ineligible/later_only_and_not_backprojectable` | 9797 |
 | `R0_ineligible/ledger_a_sale_is_never_a_residence` | 413 |
 | `R0_ineligible/ledger_earlier_evidence_adds_no_1835_fact` | 19 |
 | `R0_ineligible/ledger_identity_refused_in_the_crosswalk` | 11 |
