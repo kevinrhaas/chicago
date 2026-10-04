@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1448, ts: '2026-10-04T21:40:47.295Z', date: 'Oct 4, 2026, 4:40 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
+    items: [
+      'The grass and flowers around you used to cost a long pause each time you turned a little or walked a step further. That pause is now about half as long, and the plants stand exactly where they did.',
+      'On a slowed-down phone at Light detail, a slow turn now drops below 50 ms per frame for most of its steps. The worst frame of a turn fell from 127 ms to 70 ms, of a flight from 108 ms to 56 ms, and of a walk from 47 ms to 34 ms.',
+      'On a desktop at Full detail, the worst pause in a turn fell from 70 ms to under 40 ms.',
+      'More of the lag is still being worked on: the next step spreads this work over several frames, so no single frame has to wait for it.',
+    ] },
   { v: 1447, ts: '2026-10-04T21:21:41.562Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
     items: [
       'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
