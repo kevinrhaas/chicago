@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1429, ts: '2026-10-04T13:42:33.829Z', date: 'Oct 4, 2026, 8:42 AM CT', title: 'Lake Street\u2019s houses now name the households living in them', kind: 'change',
+    items: [
+      'Open a house on the Lake Street blocks and its card now names the household living there, where 26 of them read \u201cAnonymous count-unit\u201d before. Two more on Randolph near Clinton do too.',
+      'Eighteen other Lake Street houses say on their card why nobody is named: the household placed there is known only from the post office\u2019s letter lists, and a name on a letter is not an address.',
+      'Twenty-one of the newly named houses now show how long their household has been in town. The Baxleys, here since 1834, have a weathered cottage, not a new-sawn one.',
+      'Which household lives in which house is still this project\u2019s reconstruction, and each card says so. No source places these families on these lots.',
+    ] },
   { v: 1428, ts: '2026-10-04T12:42:37.866Z', date: 'Oct 4, 2026, 7:42 AM CT', title: 'Nothing you can see: the house-seating passes rebuild with the rest', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
