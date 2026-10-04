@@ -183,6 +183,21 @@ const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], uv: [], seam: []
   walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
 
 /**
+ * DROP A BUFFER'S SCRATCH ONCE ITS GEOMETRY HOLDS A COPY (T-2063). The arrays
+ * above are plain JS number arrays — 8 bytes a component plus growth slack,
+ * twice what the Float32Array three copies them into costs — and they did not
+ * die with the build: `pickAt` and `dispose` close over this function's scope,
+ * and the inline builder arrows put `buf` and `named` in that same scope, so
+ * every board ever laid stayed reachable for the life of the page. Measured at
+ * 390x780 on 1835: about 190 MB of live JS heap, which is what pushed an
+ * iPhone's tab past the memory it is allowed and got it killed. Only
+ * `walkTopRanges` is read after this, so only it survives.
+ */
+function releaseTimberBuf(buf) {
+  buf.pos = buf.nrm = buf.conf = buf.col = buf.uv = buf.seam = null;
+}
+
+/**
  * Lay `build` into `buf` in `walk`'s tone, board by board, and hand the buffer
  * back in the fences' and posts' `TIMBER` afterwards.
  */
@@ -1743,6 +1758,7 @@ export async function createFrontage({
   geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv, 2));
   geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam));
   geo.computeBoundingSphere();
+  releaseTimberBuf(buf);
 
   const mat = new THREE.MeshStandardMaterial({
     // The colour is on the vertex since T-1800: the walks carry their owners'
@@ -1841,6 +1857,7 @@ export async function createFrontage({
     cgeo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
     cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam));
     cgeo.computeBoundingSphere();
+    releaseTimberBuf(chunk.buf);
     const cmesh = new THREE.Mesh(cgeo, mat);
     cmesh.renderOrder = 1;                 // same street-decal ordering as above
     cmesh.name = 'frontage-chunk';

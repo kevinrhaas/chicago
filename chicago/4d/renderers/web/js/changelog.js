@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1397, ts: '2026-10-04T04:03:23.102Z', date: 'Oct 3, 2026, 11:03 PM CT', title: 'The 1835 town opens on an iPhone again', kind: 'fix',
+    items: [
+      'On a phone, opening 1835 could close the browser tab before the town appeared, because the page held far more memory than a phone allows. It now uses about a third as much once the town has loaded, and the town itself is unchanged.',
+      'The extra memory was left over from laying the plank walks, fences, trees and yard goods, which was kept after those pieces had been built.',
+    ] },
   { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
