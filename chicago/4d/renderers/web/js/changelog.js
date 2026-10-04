@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1451, ts: '2026-10-04T22:48:32.508Z', date: 'Oct 4, 2026, 5:48 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
+  { v: null, ts: '', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
       'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
       'Fly up over the town. The flat dark slab on the far horizon is gone too. From the air the trees you see are the town\u2019s own.',
       'Nearer woods now fade out of the far treeline smoothly instead of standing tall right up to where they stopped. Where a stretch of far woods ends, it tapers off.',
       'How the far treeline is drawn is our reconstruction. The Liberties page explains it (L380).',
+    ] },
+  { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Neither is the slowest view. That is still a back yard on Washington Street.',
+      'The welcome screen redraws the whole town again and again while you read it, even though the picture never changes. A phone spends its effort on a menu, and making it draw once is the next fix.',
+      'Each Scene detail setting now has a time limit at that back yard. A change that makes every frame slower is caught before it ships.',
     ] },
   { v: 1450, ts: '2026-10-04T22:20:07.096Z', date: 'Oct 4, 2026, 5:20 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
     items: [
