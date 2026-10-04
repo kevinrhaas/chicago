@@ -6,6 +6,8 @@
  *        [--stands a,b] [--sharpness 1,1.5,2] [--attribute | --attribute-at id]
  *        [--probe] [--capture dir]
  *        [--frames N] [--warmup N] [--throttle N] [--json out.json]
+ *        [--arrival [seconds]] [--jaunt id]
+ *   node tools/measure_still_frame.mjs --gate [--only desktop|mobile]
  *
  * The owner, 2026-10-04: "that lag is all over not just walking". T-2096 owns the
  * cost of MOVING (rebuilds fired by a walk, a turn, a flight). This reads the
@@ -49,10 +51,36 @@
  * touch, so the renderer boots the way it does on the owner's phone — coarse
  * pointer, low-spec shadows, Image sharpness Medium = 1.5 — with the CPU
  * throttled `--throttle` times (default 4) through the DevTools protocol.
+ *
+ * THE ARRIVAL SCREEN AND A JAUNT VIEW (T-2111). The arrival and the welcome are
+ * a menu laid over the town, and the town under them is the landing view: the
+ * `landing` row IS the arrival screen's frame, read with the gate up (the
+ * renderer holds the walk while it is). What the landing row cannot say is how
+ * OFTEN that frame is drawn, so `--arrival [s]` (default 15) leaves the loop
+ * running for that long before anything is timed and counts the frames drawn
+ * and whether the picture changed between the first and the last of them. A
+ * jaunt view is read at the `jaunt` stand: the outing is started for real
+ * (`--jaunt id`, default the year's featured one) and timed at its first stop,
+ * with its panel up; later tiers return to the pose it stood at.
+ *
+ * `--gate` HOLDS THE CEILING (T-2111): a still-frame time ceiling per tier at
+ * the worst stand, beside T-1975's triangle ceilings (`DETAIL` in `main.js`),
+ * written down in `tools/still_frame_ceilings.json` with the reading it was set
+ * on. A millisecond on a software rasteriser is the MACHINE's, so the ceilings
+ * are kept per machine (CPU model and core count, printed on every reading) and
+ * a machine with no ceilings of its own is read and warned about, never failed
+ * on another machine's numbers; `--strict` fails it. The frame is also printed
+ * in BARE SCREENS (over a frame with every layer hidden, timed in the same
+ * page), which was the first design for a machine-free unit and is NOT gated:
+ * four CPUs read on 2026-10-04 put one frame at 80 to 144 bare screens, where
+ * one CPU read its own milliseconds three times within 1 %
+ * (docs/measurements/T-2111-still-frame-ceiling.md). `.github/workflows/chicago-4d-frame-time.yml`
+ * runs the gate.
  */
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
@@ -88,12 +116,23 @@ const captureDir = argAt('--capture');
 const attributeAt = argAt('--attribute-at');
 const jsonOut = argAt('--json');
 const ONLY = argAt('--only') || 'both';
-const YEAR = argAt('--year') || '1835';
-const TIERS = list('--tiers', 'full,balanced,light');
+// THE GATE TAKES ITS YEAR, STAND AND TIERS FROM THE CEILINGS FILE, so what is
+// held is what was written down and not whatever the command line said.
+const GATE = process.argv.includes('--gate');
+const CEILINGS_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'still_frame_ceilings.json');
+const CEILINGS = GATE ? JSON.parse(fs.readFileSync(CEILINGS_PATH, 'utf8')) : null;
+const YEAR = CEILINGS?.year || argAt('--year') || '1835';
+const TIERS = CEILINGS ? CEILINGS.tiers : list('--tiers', 'full,balanced,light');
 const FRAMES = Number(argAt('--frames') || 2);
 const WARMUP = Number(argAt('--warmup') || 0);
 const THROTTLE = Number(argAt('--throttle') || 4);
 const SHARPNESS = argAt('--sharpness') ? list('--sharpness', '').map(Number) : null;
+// `--arrival` alone is 15 s; a number after it is the window.
+const ARRIVAL = process.argv.includes('--arrival')
+  ? (Number(argAt('--arrival')) > 0 ? Number(argAt('--arrival')) : 15) : 0;
+// The outing a jaunt view is read in: the year's featured one, its first stop.
+const JAUNT = argAt('--jaunt')
+  || ({ 1835: 'fort-dearborn-errand', 1904: 'prairie-avenue-orientation' })[YEAR] || null;
 
 // THE STANDS ARE `measure_detail_ceilings.mjs`'s, COPIED for the reason it copies
 // them from the smoke: the gate's six downtown stands (T-0135's five and T-2015's
@@ -116,8 +155,12 @@ const STANDS_1835 = [
   { id: 'from_above', kind: 'anchor', target: 'from_above', aerial: true },
 ];
 const LANDING = [{ id: 'landing', kind: 'landing' }];
-const standFilter = argAt('--stands')?.split(',').filter(Boolean) ?? null;
-const STANDS = (YEAR === '1835' ? [...LANDING, ...STANDS_1835] : LANDING)
+// LAST, because starting an outing closes the welcome: every stand before it is
+// read with the gate up, as a visitor first sees the town.
+const JAUNT_STAND = JAUNT ? [{ id: 'jaunt', kind: 'jaunt', jaunt: JAUNT }] : [];
+const standFilter = CEILINGS ? [CEILINGS.stand]
+  : argAt('--stands')?.split(',').filter(Boolean) ?? null;
+const STANDS = [...LANDING, ...(YEAR === '1835' ? STANDS_1835 : []), ...JAUNT_STAND]
   .filter((st) => !standFilter || standFilter.includes(st.id));
 
 const VIEWPORTS = [
@@ -178,9 +221,28 @@ for (const vp of VIEWPORTS) {
     await cdp.send('Emulation.setCPUThrottlingRate', { rate: THROTTLE });
   }
   const seen = await page.evaluate(async ({ stands, tiers, frames, warmup, sharpness,
-    attribute, attributeAt, probe, capture, label }) => {
+    attribute, attributeAt, probe, capture, label, arrival, gate }) => {
     const a = window.__chicago4d;
     const r = a.renderer;
+    // THE ARRIVAL SCREEN, read while the page is as a visitor first sees it: the
+    // loop running, the welcome up, nothing touched. How many frames the renderer
+    // draws in the window, and whether the last of them is the picture the first
+    // one was (the signature `capture()` reads back inside the frame it drew).
+    let arrivalRead = null;
+    if (arrival > 0) {
+      const sigA = await a.capture(12);
+      const f0 = r.info.render.frame; const t0 = performance.now();
+      await new Promise((res) => setTimeout(res, arrival * 1000));
+      const f1 = r.info.render.frame; const t1 = performance.now();
+      const sigB = await a.capture(12);
+      const same = JSON.stringify(sigA) === JSON.stringify(sigB);
+      arrivalRead = { welcome: a.welcome?.state ?? null,
+        gateUp: !document.getElementById('gate')?.hidden,
+        seconds: Math.round((t1 - t0) / 100) / 10, framesDrawn: f1 - f0,
+        perSecond: Math.round(((f1 - f0) / ((t1 - t0) / 1000)) * 100) / 100,
+        pictureUnchanged: same };
+      console.log(`still-frame ${label} arrival ${JSON.stringify(arrivalRead)}`);
+    }
     r.setAnimationLoop(null);
     a.setAnimationHold(true);
     const gl = r.getContext();
@@ -190,6 +252,7 @@ for (const vp of VIEWPORTS) {
     const timerQuery = !!gl.getExtension('EXT_disjoint_timer_query_webgl2');
     const px = new Uint8Array(4);
     const fenced = () => { gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); };
+    let jaunt = null;
     const settle = () => { for (let i = 0; i < 2; i++) { a.step(); fenced(); } };
     // One reading: `warmup` frames thrown away (a program compiled, a shadow map
     // allocated), then `frames` timed. Medians, because one GC pause in six
@@ -213,7 +276,28 @@ for (const vp of VIEWPORTS) {
     const round = (o) => Object.fromEntries(Object.entries(o)
       .map(([k, v]) => [k, typeof v === 'number' ? Math.round(v * 10) / 10 : v]));
     const landing = { ...a.walker.state };
-    const place = (st) => {
+    // A JAUNT VIEW: the outing started for real and stepped to its first stop.
+    // The loop is stopped, so the ride is driven here — `travel.simulate` for the
+    // walk to the stop, a frame at a time otherwise, and both bounded. The pose
+    // it stood at is kept, so the next tier is read from exactly there.
+    let jauntPose = null;
+    const place = async (st) => {
+      if (st.kind === 'jaunt') {
+        if (jauntPose) { a.walker.teleport(jauntPose); return; }
+        if (!(await a.jaunts.start(st.jaunt))) throw new Error(`jaunt ${st.jaunt} did not start`);
+        for (let i = 0; i < 40 && a.jaunts.state?.phase !== 'atStop'; i++) {
+          if (a.travel.state.phase !== 'idle') a.travel.simulate(600);
+          a.step(); fenced();
+          await new Promise((res) => setTimeout(res, 100));
+        }
+        const js = a.jaunts.state;
+        if (js?.phase !== 'atStop') throw new Error(`jaunt ${st.jaunt} stuck in ${js?.phase}`);
+        jauntPose = { local_e: a.walker.state.e, local_n: a.walker.state.n,
+          yaw_deg: a.player.bearingDeg, pitch_deg: a.player.pitchDeg,
+          ...(a.player.flying ? { altitude_m: a.player.altitude } : {}) };
+        jaunt = { id: js.jaunt?.id, stop: js.stopIndex, ...jauntPose };
+        return;
+      }
       if (st.kind === 'landing') {
         a.setFly(false);
         a.walker.teleport({ local_e: landing.e, local_n: landing.n,
@@ -324,7 +408,7 @@ for (const vp of VIEWPORTS) {
       await a.setDetail(level);
       settle();
       for (const st of stands) {
-        place(st);
+        await place(st);
         settle();
         for (const q of (sharpness || [null])) {
           if (q !== null) { r.setPixelRatio(Math.min(dpr, q)); settle(); }
@@ -449,15 +533,31 @@ for (const vp of VIEWPORTS) {
             }
             settle();
           }
+          if (gate) {
+            // THE BARE SCREEN this frame is gated in units of: every layer hidden,
+            // timed in the same page at the same pixel ratio, more frames than the
+            // whole because it is the denominator and a short one.
+            const layers = a.scene3d.children.filter((c) => c.name && c.name !== 'sky'
+              && !c.isLight && c.visible);
+            for (const layer of layers) layer.visible = false;
+            settle();
+            const fr = frames; frames = 5;
+            row.bare = round(time());
+            frames = fr;
+            for (const layer of layers) layer.visible = true;
+            settle();
+            row.screens = Math.round((row.frame / row.bare.frame) * 10) / 10;
+          }
           console.log(`still-frame ${label} ${JSON.stringify({ ...row, png: undefined })}`);
           rows.push(row);
           if (q !== null) { r.setPixelRatio(ratioWas); }
         }
       }
     }
-    return { device, timerQuery, dpr, lowSpecShadows: shadowTypeWas !== 2, rows };
+    return { device, timerQuery, dpr, lowSpecShadows: shadowTypeWas !== 2, arrival: arrivalRead,
+             jaunt, rows };
   }, { stands: STANDS, tiers: TIERS, frames: FRAMES, warmup: WARMUP, sharpness: SHARPNESS,
-       attribute, attributeAt, probe, capture: !!captureDir, label: vp.label });
+       attribute, attributeAt, probe, capture: !!captureDir, label: vp.label, arrival: ARRIVAL, gate: GATE });
   if (captureDir) {
     fs.mkdirSync(captureDir, { recursive: true });
     for (const row of seen.rows) {
@@ -480,6 +580,17 @@ for (const pass of passes) {
   console.log(`device: ${pass.device} · timer query: ${pass.timerQuery ? 'yes' : 'no'} · `
     + `dpr ${pass.dpr} · shadows ${pass.lowSpecShadows ? 'PCF (low-spec)' : 'PCFSoft'}`);
   for (const e of pass.errors) { bad++; console.log(`  PAGEERROR  ${e}`); }
+  if (pass.arrival) {
+    const ar = pass.arrival;
+    console.log(`arrival screen (welcome ${ar.welcome}, gate ${ar.gateUp ? 'up' : 'down'}): `
+      + `${ar.framesDrawn} frame(s) drawn in ${ar.seconds} s with nothing touched, `
+      + `${ar.perSecond}/s; the picture ${ar.pictureUnchanged ? 'did NOT change' : 'changed'}`);
+  }
+  if (pass.jaunt) {
+    console.log(`jaunt view: ${pass.jaunt.id}, stop ${pass.jaunt.stop + 1}, at `
+      + `(${pass.jaunt.local_e.toFixed(1)}, ${pass.jaunt.local_n.toFixed(1)}) facing `
+      + `${pass.jaunt.yaw_deg.toFixed(0)}°`);
+  }
   console.log(`${'tier'.padEnd(9)}${'stand'.padEnd(24)}${'px'.padStart(5)}`
     + `${'frame ms'.padStart(10)}${'cpu ms'.padStart(9)}${'worst'.padStart(8)}`
     + `${'triangles'.padStart(12)}${'calls'.padStart(7)}`);
@@ -487,7 +598,8 @@ for (const pass of passes) {
     console.log(`${row.level.padEnd(9)}${row.stand.padEnd(24)}${String(row.pixelRatio).padStart(5)}`
       + `${row.frame.toFixed(1).padStart(10)}${row.cpu.toFixed(1).padStart(9)}`
       + `${row.worst.toFixed(1).padStart(8)}${row.triangles.toLocaleString().padStart(12)}`
-      + `${String(row.calls).padStart(7)}`);
+      + `${String(row.calls).padStart(7)}`
+      + (row.bare ? `   bare screen ${row.bare.frame.toFixed(1)} ms → ${row.screens} screens` : ''));
     if (row.empty) {
       console.log(`${''.padEnd(13)}${'(nothing drawn)'.padEnd(22)}${row.empty.frame.toFixed(1).padStart(8)} ms`
         + `   the parts alone sum to ${row.sum} ms against the whole frame's ${row.frame.toFixed(0)}`);
@@ -500,10 +612,48 @@ for (const pass of passes) {
     }
   }
 }
+// THE CEILING (T-2111). Each tier's frame at the worst stand, in milliseconds,
+// against the number written in `still_frame_ceilings.json` for THIS machine and
+// viewport. A machine (or a viewport of one) the file has no number for is read
+// and warned about — its milliseconds are not another machine's — and fails
+// only under `--strict`. GitHub's runner pool is several CPUs (four seen in one
+// evening), and a red that only means "a new CPU" would teach people to ignore it.
+const CPU = { model: os.cpus()[0]?.model?.trim() || 'unknown', cores: os.cpus().length };
+console.log(`\nmachine: ${CPU.model}, ${CPU.cores} core(s)`);
+if (GATE) {
+  let unheld = 0;
+  const machine = CEILINGS.machines.find((m) => m.cpu === CPU.model && m.cores === CPU.cores);
+  console.log(`\n================  the still-frame ceiling (${path.basename(CEILINGS_PATH)})  ================`);
+  console.log(`year ${YEAR}, stand ${CEILINGS.stand}; ceilings for `
+    + (machine ? `${machine.cpu}, ${machine.cores} cores (${machine.where})` : 'THIS MACHINE: none'));
+  for (const pass of passes) {
+    const vp = pass.viewport.startsWith('phone') ? 'mobile' : 'desktop';
+    for (const row of pass.rows) {
+      const ceiling = machine?.tiers[row.level]?.[vp];
+      const held = typeof ceiling === 'number';
+      const ok = held && row.frame <= ceiling;
+      if (held && !ok) bad++;
+      if (!held) unheld++;
+      console.log(`  ${ok ? 'ok  ' : held ? 'FAIL' : '--  '}  ${vp.padEnd(8)} ${row.level.padEnd(9)} `
+        + `${row.frame.toFixed(0).padStart(7)} ms  (ceiling ${ceiling ?? 'NONE'})`
+        + `   ${row.screens} bare screens of ${row.bare.frame.toFixed(1)} ms, `
+        + `${row.triangles.toLocaleString()} triangles`);
+    }
+  }
+  if (unheld) {
+    console.log(`::warning title=still-frame ceiling::${unheld} reading(s) with no ceiling for `
+      + `${CPU.model} (${CPU.cores} cores) in ${path.basename(CEILINGS_PATH)}: read, not held. `
+      + "Add this machine's reading by the file's rule.");
+    if (process.argv.includes('--strict')) bad += unheld;
+  }
+  console.log(bad ? `\nTHE CEILING IS BROKEN: ${bad} reading(s) over or unbudgeted. A parcel that `
+    + 'makes every frame slower argues its own number in still_frame_ceilings.json, '
+    + 'with the reading, in the same commit.' : unheld ? '' : '\nevery tier under its ceiling');
+}
 if (jsonOut) {
-  fs.writeFileSync(jsonOut, `${JSON.stringify({ ticket: 'T-2099',
+  fs.writeFileSync(jsonOut, `${JSON.stringify({ ticket: GATE || ARRIVAL || JAUNT_STAND.length ? 'T-2111' : 'T-2099',
     tree: wantSource ? 'source' : 'published', year: YEAR, frames: FRAMES, warmup: WARMUP,
-    throttle: THROTTLE, passes }, null, 2)}\n`);
+    throttle: THROTTLE, machine: CPU, passes }, null, 2)}\n`);
   console.log(`\nwritten ${jsonOut}`);
 }
 process.exit(bad ? 1 : 0);
