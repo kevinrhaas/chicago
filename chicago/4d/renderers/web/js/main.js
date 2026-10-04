@@ -667,7 +667,12 @@ const DETAIL_DECLARED = {
   // to the foliage upgrade. The owner explicitly authorized measured raises.
   // Receipt: docs/RESEARCH/vegetation-quality/integrated-ceilings.json.
   // The ordinary animation-loop smoke remains the release gate.
-  full:     { triangles: 2475000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-2035/T-2037: persistent same-root clumps retain visible plants during
+  // motion. Integrated desktop six-stand maxima after zero-area tip removal:
+  // full 2,820,988 +18,059 ->2,840,000; balanced 2,127,277 +16,806 ->2,145,000.
+  // The owner authorized measured increases at 16:35 CDT, 2026-10-03.
+  // Draw-call limits remain unchanged; these costs are not an FPS benchmark.
+  full:     { triangles: 2840000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -676,7 +681,12 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '2,475,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+              measured: '2,840,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
+                + 'at 16:35 CDT. Integrated dev a9c98af7, six published desktop '
+                + 'stands after zero-area tuft-tip removal: worst 2,820,988 and '
+                + '282 calls at west prairie; +18,059 rounded up to 5,000. '
+                + 'Same-root vegetation carries remain visible during motion. '
+                + 'Previously 2,475,000 set 2026-10-03 (T-2015), including dev b06a063a: '
                 + 'six published stands, worst 2,456,812 at west prairie, 1280x800; '
                 + 'the defended 18,059 rounded up to 5,000. Before it: '
                 + '2,140,000 set 2026-10-03 (T-0192) for the seven cross '
@@ -785,11 +795,16 @@ const DETAIL_DECLARED = {
   // reading and the rule are in the block above `full`.
   // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
   // same rule — the reading is in the block above `full`.
-  balanced: { triangles: 1880000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2145000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,880,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+              measured: '2,145,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
+                + 'at 16:35 CDT. Integrated dev a9c98af7, six published desktop '
+                + 'stands after zero-area tuft-tip removal: worst 2,127,277 and '
+                + '248 calls at west prairie; +16,806 rounded up to 5,000. '
+                + 'Same-root carries and exact distant walk tops remain visible. '
+                + 'Previously 1,880,000 set 2026-10-03 (T-2015), including dev b06a063a: '
                 + 'six published stands, worst 1,860,932 at west prairie, 1280x800; '
                 + 'the defended 16,806 rounded up to 5,000. Before it: '
                 + '1,820,000 set 2026-10-03 (T-0192) for the seven cross '
@@ -869,7 +884,13 @@ const DETAIL_DECLARED = {
   // keep-825,000 guidance; light remains the least expensive rung.
   // Final b06a063a integration reads 885,447 at desktop prairie and 790,681
   // at narrow prairie; the initial 910,000 ceiling still carries both.
-  light:    { triangles: 910000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-2035/T-2037, 2026-10-03: the owner again authorized a measured increase
+  // at 16:35 CDT. Same-root grass carries and exact distant walk tops cost
+  // 1,015,035 at desktop prairie and 920,708 at mobile prairie after deleting
+  // zero-area tuft-tip triangles. Retain the prior 21,933 margin, rounded up
+  // to 5,000: 1,040,000. This knowingly raises the weak-device triangle budget;
+  // it does not establish consumer FPS. The separate 90-call cap is unchanged.
+  light:    { triangles: 1040000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -889,7 +910,14 @@ const DETAIL_DECLARED = {
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '910,000 set 2026-10-03 (T-2015), explicitly authorized by '
+              measured: '1,040,000 set 2026-10-03 (T-2035/T-2037), explicitly authorized '
+                + 'by the owner at 16:35 CDT. Published six-stand worst after dev '
+                + 'a9c98af7 and zero-area tuft-tip removal: desktop 1,015,035 and '
+                + 'mobile 920,708, both at west prairie; maximum calls 77/75. '
+                + 'Preserves a 21,933 triangle margin rounded up to 5,000; '
+                + '90 calls unchanged. Same-root carries and exact far walk tops '
+                + 'remain visible; this is not a consumer frame-rate claim. '
+                + 'Previously 910,000 set 2026-10-03 (T-2015), explicitly authorized by '
                 + 'the owner. Published six-stand worst 887,259 at west prairie after '
                 + 'full -> light; +21,933 rounded up to 5,000. Existing-view geometry '
                 + 'decreases versus baseline; density, reach and 90 calls are unchanged. '
@@ -1820,7 +1848,7 @@ async function boot() {
         // The merged far batches (T-0146) are drawn FROM these chunks, not
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
-        if (o.userData.farMerged) return;
+        if (o.userData.farMerged || o.userData.farWalkTops) return;
         if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
         const sph = o.geometry.boundingSphere?.clone();
         if (!sph) return;
@@ -1901,6 +1929,11 @@ async function boot() {
     // After the reach and never before it: a cluster with a member the reach is
     // holding back is left chunked, which is read off the flag just written.
     farMerge.update();
+    // Ground-hugging walk tops survive only their source chunk's reach cull.
+    // The tier exclusion is explicit: a stale cull flag must not resurrect a
+    // cross-street walk after switching to light.
+    frontage.updateFarWalks?.(camera,
+      (DETAIL[detailLevel] ?? DETAIL.full).crossStreetWalks !== false);
   }
   applyFurnitureReach(detailLevel);
   /** T-1976 — the ground's half of the tier: how far the detailed tiles reach
@@ -3408,6 +3441,8 @@ async function boot() {
   // be written: anything on the harness whose answer changes after boot is
   // defined HERE. A getter in the literal above is a frozen snapshot.
   Object.defineProperties(api, {
+    /** T-2037, harness-only: exact deck tops currently replacing reach-culled chunks. */
+    farWalkTops: { get: () => frontage.farWalkTops ?? null, enumerable: true },
     /** The level the visitor is actually on, now rather than at boot (T-0115). */
     detail: { get: () => detailLevel, enumerable: true },
     /** The ride in progress — phase, destination, distance left — live. */
@@ -3443,7 +3478,7 @@ async function boot() {
             // furniture of their own, and they never cast (T-0146). Counting
             // them would put a non-caster into both sides of the bar
             // `casting === meshes - groundHugging` and quietly weaken it.
-            if (o.userData.farMerged) return;
+            if (o.userData.farMerged || o.userData.farWalkTops) return;
             meshes += 1;
             if (o.userData.groundHugging) groundHugging += 1;
             if (o.castShadow) casting += 1;
@@ -3471,7 +3506,7 @@ async function boot() {
           if (!group) continue;
           group.traverse((o) => {
             if (!o.isMesh) return;
-            if (o.userData.farMerged) return;
+            if (o.userData.farMerged || o.userData.farWalkTops) return;
             meshes += 1;
             // `reachCulled` and not `!visible`: since T-0146 a chunk can also be
             // invisible because its cluster is being drawn as one mesh, and

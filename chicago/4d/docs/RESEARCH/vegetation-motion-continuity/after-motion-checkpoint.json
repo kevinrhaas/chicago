@@ -1,0 +1,151 @@
+{
+  "incomplete": true,
+  "source": "vegetation_motion_review.mjs",
+  "mode": "Every placement tick sampled; saved frames rendered; separate cost gates required",
+  "routes": {
+    "verge-full-desktop": {
+      "frames": 32,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1837697,
+      "maxCalls": 214,
+      "shortfalls": {}
+    },
+    "reeds-full-desktop": {
+      "frames": 32,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1480557,
+      "maxCalls": 158,
+      "shortfalls": {}
+    },
+    "flight-full-desktop": {
+      "frames": 24,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1869920,
+      "maxCalls": 193,
+      "shortfalls": {}
+    },
+    "strafe-full-desktop": {
+      "frames": 24,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1820832,
+      "maxCalls": 117,
+      "shortfalls": {}
+    },
+    "reverse-full-desktop": {
+      "frames": 24,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1837769,
+      "maxCalls": 214,
+      "shortfalls": {}
+    },
+    "prairie-down-full-desktop": {
+      "frames": 12,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1514156,
+      "maxCalls": 32,
+      "shortfalls": {}
+    },
+    "downward-full-desktop": {
+      "frames": 12,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1616313,
+      "maxCalls": 122,
+      "shortfalls": {}
+    },
+    "verge-balanced-desktop": {
+      "frames": 32,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1567027,
+      "maxCalls": 204,
+      "shortfalls": {}
+    },
+    "reeds-balanced-desktop": {
+      "frames": 32,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1302965,
+      "maxCalls": 154,
+      "shortfalls": {}
+    },
+    "flight-balanced-desktop": {
+      "frames": 24,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1561149,
+      "maxCalls": 191,
+      "shortfalls": {}
+    },
+    "strafe-balanced-desktop": {
+      "frames": 24,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1412593,
+      "maxCalls": 117,
+      "shortfalls": {}
+    },
+    "reverse-balanced-desktop": {
+      "frames": 24,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1570079,
+      "maxCalls": 204,
+      "shortfalls": {}
+    },
+    "prairie-down-balanced-desktop": {
+      "frames": 12,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1029721,
+      "maxCalls": 32,
+      "shortfalls": {}
+    },
+    "downward-balanced-desktop": {
+      "frames": 12,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 1280744,
+      "maxCalls": 118,
+      "shortfalls": {}
+    },
+    "verge-light-desktop": {
+      "frames": 32,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 792771,
+      "maxCalls": 74,
+      "shortfalls": {}
+    },
+    "reeds-light-desktop": {
+      "frames": 32,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 685431,
+      "maxCalls": 74,
+      "shortfalls": {}
+    },
+    "flight-light-desktop": {
+      "frames": 24,
+      "jumps": 36,
+      "identityErrors": 0,
+      "maxTriangles": 694991,
+      "maxCalls": 78,
+      "shortfalls": {}
+    },
+    "strafe-light-desktop": {
+      "frames": 24,
+      "jumps": 0,
+      "identityErrors": 0,
+      "maxTriangles": 664188,
+      "maxCalls": 50,
+      "shortfalls": {}
+    }
+  }
+}

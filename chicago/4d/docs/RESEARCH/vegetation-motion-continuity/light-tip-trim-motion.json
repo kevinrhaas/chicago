@@ -1,0 +1,148 @@
+{
+  "scope": "Post-degenerate-tip-trim focused light-tier motion rerun, three routes in desktop1280x800 and touch mobile390x780, DPR1. Every production placement tick sampled; only selected frames rendered. This is continuity/identity/cap evidence, not a normal-loop performance or complete smoke claim.",
+  "detail": "light",
+  "sparseRender": true,
+  "errors": [],
+  "routes": {
+    "verge-light-desktop": {
+      "placementFrames": 32,
+      "renderedFrames": 9,
+      "startPose": {
+        "local_e": 305,
+        "local_n": 0.6,
+        "yaw_deg": 84,
+        "pitch_deg": -8
+      },
+      "endPose": {
+        "local_e": 312.75,
+        "local_n": 0.6,
+        "yaw_deg": 84,
+        "pitch_deg": -8
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "shortfalls": [],
+      "maxRenderedTriangles": 796655,
+      "maxRenderedCalls": 75
+    },
+    "flight-light-desktop": {
+      "placementFrames": 24,
+      "renderedFrames": 7,
+      "startPose": {
+        "local_e": 170,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "endPose": {
+        "local_e": 187.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "shortfalls": [],
+      "maxRenderedTriangles": 683016,
+      "maxRenderedCalls": 79
+    },
+    "prairie-down-light-desktop": {
+      "placementFrames": 12,
+      "renderedFrames": 4,
+      "startPose": {
+        "local_e": -400,
+        "local_n": -700,
+        "yaw_deg": 0,
+        "pitch_deg": -80,
+        "altitude_m": 18
+      },
+      "endPose": {
+        "local_e": -397.25,
+        "local_n": -700,
+        "yaw_deg": 0,
+        "pitch_deg": -80,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "shortfalls": [],
+      "maxRenderedTriangles": 446545,
+      "maxRenderedCalls": 29
+    },
+    "verge-light-mobile": {
+      "placementFrames": 32,
+      "renderedFrames": 9,
+      "startPose": {
+        "local_e": 305,
+        "local_n": 0.6,
+        "yaw_deg": 84,
+        "pitch_deg": -8
+      },
+      "endPose": {
+        "local_e": 312.75,
+        "local_n": 0.6,
+        "yaw_deg": 84,
+        "pitch_deg": -8
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "shortfalls": [],
+      "maxRenderedTriangles": 735169,
+      "maxRenderedCalls": 72
+    },
+    "flight-light-mobile": {
+      "placementFrames": 24,
+      "renderedFrames": 7,
+      "startPose": {
+        "local_e": 170,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "endPose": {
+        "local_e": 187.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "shortfalls": [],
+      "maxRenderedTriangles": 819453,
+      "maxRenderedCalls": 75
+    },
+    "prairie-down-light-mobile": {
+      "placementFrames": 12,
+      "renderedFrames": 4,
+      "startPose": {
+        "local_e": -400,
+        "local_n": -700,
+        "yaw_deg": 0,
+        "pitch_deg": -80,
+        "altitude_m": 18
+      },
+      "endPose": {
+        "local_e": -397.25,
+        "local_n": -700,
+        "yaw_deg": 0,
+        "pitch_deg": -80,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "shortfalls": [],
+      "maxRenderedTriangles": 461241,
+      "maxRenderedCalls": 30
+    }
+  },
+  "publishedGeometryFingerprints": {
+    "flora.js": "378715bad1095c4aac9895e6de404241389823f53b3d2e2b53a669500b7d0561",
+    "frontage.js": "34693666d21a9b90767bd1bc7a653010306e9ab032414b7b445e44681f6aa374",
+    "terrain.js": "26fcc3ac0c689922e652f248f95e2e3a62c046884ccff0363a089d1a3ccb7e68",
+    "terrain-base.js": "559f9a980f9d2089d20fd5fad510304f0997384a0ef93382d3edb08493ca91ce"
+  }
+}
