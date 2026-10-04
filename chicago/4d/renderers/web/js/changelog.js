@@ -1,10 +1,30 @@
 export const CHANGELOG = [ // newest first
-  { v: 1449, ts: '2026-10-04T22:36:06.900Z', date: 'Oct 4, 2026, 5:36 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+  { v: 1452, ts: '2026-10-04T23:36:53.640Z', date: 'Oct 4, 2026, 6:36 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
     items: [
       'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
       'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
       'The front steps of 108 houses had the same fault at their base and are fixed too.',
       'Nothing new is drawn, so it costs nothing extra on a phone.',
+    ] },
+  { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Neither is the slowest view. That is still a back yard on Washington Street.',
+      'The welcome screen redraws the whole town again and again while you read it, even though the picture never changes. A phone spends its effort on a menu, and making it draw once is the next fix.',
+      'Each Scene detail setting now has a time limit at that back yard. A change that makes every frame slower is caught before it ships.',
+    ] },
+  { v: 1450, ts: '2026-10-04T22:20:07.096Z', date: 'Oct 4, 2026, 5:20 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
+    items: [
+      'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
+      'The rule changed once to make that true, so 729 reconstructed families show a different year today, and the town as a whole still came in the same proportions: about one in six in 1833, one in three in 1834 and the rest in 1835.',
+      'Because a building\u2019s weathering follows how long its family has been here, 23 houses and shops look a season newer or older. Campbell\u2019s on the south side, for one, now has fresh clapboard and a new roof.',
+    ] },
+  { v: 1449, ts: '2026-10-04T21:51:03.440Z', date: 'Oct 4, 2026, 4:51 PM CT', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. 1904\u2019s Glessner house windows draw the whole scene a second time every frame, and that is about half of each frame there.',
+      'Two cheaper kinds of glass are ready to try. Either one makes the 1904 landing about twice as fast to draw, on a phone and on a desktop.',
+      'Add &glass=clear or &glass=dark to the address of the 1904 scene to compare them. Clear looks almost the same as today. Dark makes every pane a darker plate.',
+      'The owner will choose which one ships.',
     ] },
   { v: 1448, ts: '2026-10-04T21:40:47.295Z', date: 'Oct 4, 2026, 4:40 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
     items: [

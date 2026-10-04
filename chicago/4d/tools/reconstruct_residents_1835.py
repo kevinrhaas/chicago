@@ -300,6 +300,38 @@ def pick(seed: str, rows) -> str:
     return rows[-1][0]
 
 
+def pick_quantile(seed: str, rows) -> str:
+    """One label from `[(label, weight), ...]`, by the seed's QUANTILE (T-2107).
+
+    `pick()` reduces the seed's integer modulo the table's total, so the label a card
+    draws depends on the total itself: move ONE person between two rows of a 2,967-person
+    table and the total is unchanged, but move one in or out and every card's remainder
+    lands somewhere else. That is how three known bounds moving from 1835 to 1834 (a
+    0.2-point shift, T-2076's PR #421) redrew 278 cards' arrival years, and because the
+    town model is rebuilt from a profile of those very cards (the cycle T-1363 names),
+    every redraw fed the next table and the cascade re-cut the fabric town-wide.
+
+    This walk reads the seed as a fixed point `u` in [0, 1) — `draw(seed)` over 2^64,
+    held in integers as `(draw * total) >> 64` so it is exact on every machine — and
+    takes the label whose CUMULATIVE share first passes it: inverse-CDF sampling. A card
+    keeps its `u` whatever the table says, so a table that moves `k` people across one
+    boundary moves only the cards whose `u` lies in that band — about `k / total` of
+    them — and only to the neighbouring label. The rows are sorted by label exactly as
+    `pick()` sorts them, so for years the walk is chronological and "neighbouring" means
+    the adjacent year.
+    """
+    rows = sorted(((label, int(w)) for label, w in rows if int(w) > 0), key=lambda r: r[0])
+    total = sum(w for _, w in rows)
+    if total <= 0:
+        raise ValueError(f"nothing to draw from for seed {seed!r}")
+    n = (draw(seed) * total) >> 64
+    for label, w in rows:
+        if n < w:
+            return label
+        n -= w
+    return rows[-1][0]
+
+
 def old_settler_facts() -> dict:
     """`{household_id: row}` for the roll's rows the crosswalk MERGED into this layer.
 
@@ -472,7 +504,7 @@ def plan_household(hh: dict, recipe: dict, years: list, regions: list, pools: di
     elif bound is not None:
         rows = [(str(r["year"]), r["people"]) for r in years if r["year"] <= bound]
         seed = seed_for(hid, "arrival_year")
-        drawn = int(pick(seed, rows))
+        drawn = int(pick_quantile(seed, rows))
         # A REFUSAL THE CARD KEEPS. Three merged Old Settlers registered an arrival
         # LATER than the scene — Adams 1837, Campbell 1836, Couch 1836 — while the
         # contemporary evidence that put them in this layer bounds them at or before
@@ -1596,6 +1628,41 @@ def arrival_stage_self_test() -> int:
             "pick() is reading the table's order and not its labels")
     else:
         ok("re-ordering a model table draws exactly the same values")
+
+    # --- a small table edit moves only the cards near a boundary (T-2107) --
+    # T-2076's reading: three known bounds moved 1835 -> 1834 and 278 cards redrew.
+    # Replay that edit, and the harder one where the total moves too, over 1,196
+    # households (the drawn leg's size) and count who moves and where.
+    def nudged(table, moves):
+        out = [dict(r) for r in table]
+        for r in out:
+            r["people"] = r["people"] + moves.get(r["year"], 0)
+        return out
+
+    def year_of(hh, table):
+        return plan_household(hh, recipe, table, regions, pools, None)["arrival_year"]["value"]
+
+    cohort = [household(f"hh_test_{n}", "1835-06-30", "not_later_than") for n in range(1196)]
+    total = sum(r["people"] for r in years if r["year"] <= 1835)
+    for label, moves in (("three people moved from 1835 to 1834", {1835: -3, 1834: +3}),
+                         ("three people taken off 1835", {1835: -3})):
+        edited = nudged(years, moves)
+        moved = [(hh["id"], year_of(hh, years), year_of(hh, edited)) for hh in cohort]
+        moved = [m for m in moved if m[1] != m[2]]
+        # a card's quantile shifts by at most 3/total of the table, so the expected
+        # mover count is ~1196 * 3 / total; allow 4x for the seeds' own scatter
+        ceiling = max(4, round(4 * len(cohort) * 3 / total))
+        stray = [m for m in moved if {m[1], m[2]} != {1834, 1835}]
+        if stray:
+            bad(f"{label} moves cards only across the 1834/1835 boundary",
+                f"{len(stray)} moved elsewhere, e.g. {stray[0]}")
+        elif len(moved) > ceiling:
+            bad(f"{label} moves only the cards near the boundary",
+                f"{len(moved)} of {len(cohort)} moved, over the ceiling of {ceiling} - the "
+                f"draw is reading the table's total, not the seed's quantile")
+        else:
+            ok(f"{label} moves {len(moved)} of {len(cohort)} cards (ceiling {ceiling}), "
+               f"each only to the neighbouring year")
 
     # --- every block the stage writes survives validate.py's tier contract -
     probes = [
