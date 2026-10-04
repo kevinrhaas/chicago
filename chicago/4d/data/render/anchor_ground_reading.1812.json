@@ -54,14 +54,27 @@
       "deck_m": null,
       "margin_m": 107.5,
       "inside_a_roof": null
+    },
+    {
+      "id": "eighteenth_street_shore",
+      "local_e": 1495,
+      "local_n": -3185,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 2.865,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 45,
+      "inside_a_roof": null
     }
   ],
   "totals": {
-    "anchors": 3,
+    "anchors": 4,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,
     "on_a_deck": 0,
-    "southernmost_n": 60
+    "southernmost_n": -3185
   }
 }

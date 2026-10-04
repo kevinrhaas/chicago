@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1404, ts: '2026-10-04T06:05:14.950Z', date: 'Oct 4, 2026, 1:05 AM CT', title: 'The 1812 shore grows prairie, beach grass and two remembered cottonwoods', kind: 'feature',
+    items: [
+      'Open 1812 and the fort no longer stands on bare ground: the prairie, the sedge and marsh by the river, the river timber and the sand prairie and beach grass along the lake now grow there, from the same plant records as 1835.',
+      'Nothing the town planted comes with them. The 1835 dooryard trees, the rows of poplars, the town\u2019s trampled weeds and the trees by the later fort stay in 1835.',
+      'Walk south down the shore to the later Eighteenth Street and two young cottonwoods stand together on the bank. A family tradition, written down in 1895, remembered them as saplings at the time of the battle of 15 August 1812.',
+      'Their existence rests on that tradition; where they stand and how tall they are is our reconstruction (liberty L372). They do not mark where the fighting was.',
+    ] },
   { v: 1403, ts: '2026-10-04T05:35:08.992Z', date: 'Oct 4, 2026, 12:35 AM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
