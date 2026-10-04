@@ -31,6 +31,7 @@
 .jaunt-bar-label span, .jaunt-bar-label small { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .jaunt-bar-label small { font-size: .78rem; opacity: .8; }
 .jaunt-bar [data-action=bar-next] { flex: none; padding: 8px 14px; }
+.jaunt-bar > button:not(.jaunt-bar-label) { flex: none; min-width: 44px; }
 .jaunt-session-note { border: 1px solid currentColor; border-radius: 10px; padding: 12px; margin: 10px 0; }
 .jaunt-links { display: flex; flex-wrap: wrap; gap: 6px; }
 .jaunt-links button { border-radius: 999px; }
@@ -72,6 +73,30 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
   .jaunt-panel:not(.jaunt-detail) { top: calc(58px + env(safe-area-inset-top)); }
   .jaunt-body { padding: 8px 12px; }
 }
+/* T-2046: layouts. On a phone held upright the HUD wraps to a second row of chips that
+   ends near 92px, so a card or drawer opened from a stop starts where the panel does and
+   leaves that row uncovered. Held sideways (390px tall) a stacked panel had 171px, all of
+   it taken by the controls, and the stop's own text and links were clipped to nothing:
+   there the controls stand in a column to the right of the story instead of under it,
+   in the same order focus takes. Both edges
+   take the landscape notch's side insets. */
+@media (max-width: 900px) and (min-height: 501px) {
+  html[data-jaunt-active] #popup:not([hidden]), html[data-jaunt-active] #panel:not([hidden]) { top: calc(100px + env(safe-area-inset-top)); }
+}
+@media (max-width: 900px) {
+  .jaunt-panel { left: max(8px, env(safe-area-inset-left)); right: max(8px, env(safe-area-inset-right)); }
+  html[data-jaunt-active] #popup:not([hidden]), html[data-jaunt-active] #panel:not([hidden]) {
+    left: max(8px, env(safe-area-inset-left)); right: max(8px, env(safe-area-inset-right)); }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .jaunt-panel:not(.jaunt-collapsed) { flex-direction: row; width: auto; max-height: none;
+    left: max(8px, env(safe-area-inset-left)); right: max(8px, env(safe-area-inset-right));
+    bottom: calc(var(--jaunt-floor, 80px) + env(safe-area-inset-bottom)); }
+  .jaunt-panel:not(.jaunt-collapsed) .jaunt-body { flex: 1; min-width: 0; }
+  .jaunt-panel:not(.jaunt-collapsed) .jaunt-controls { flex: none; width: min(300px, 42%);
+    align-content: start; overflow-y: auto; border-top: 0; border-left: 1px solid #64716e; }
+  .jaunt-panel:not(.jaunt-collapsed) .jaunt-collapse { right: calc(min(300px, 42%) + 6px); }
+}
 @media (max-width: 340px) {
   .jaunt-resources { display: grid; grid-template-columns: 1fr 1fr; }
   .jaunt-resources li { white-space: normal; }
@@ -111,9 +136,3 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-window-nav { display: flex; flex-wrap: wrap; gap: 8px; }
 .jaunt-card button { margin: 4px 4px 0 0; }
 .jaunt-card select { width: 100%; }
-.gate.welcome-compact[data-region="jaunts"] .gate-eyebrow,
-.gate.welcome-compact[data-region="jaunts"] h1,
-.gate.welcome-compact[data-region="jaunts"] .welcome-actions { display: none; }
-.gate.welcome-compact[data-region="jaunts"] .welcome-region { margin-top: 0; }
-/* First entry must not shrink the menu on return and hide its restored focus. */
-.gate[data-region="jaunts"] #welcome-close[hidden] { display: block; visibility: hidden; }
