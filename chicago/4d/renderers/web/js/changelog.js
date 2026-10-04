@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1420, ts: '2026-10-04T11:18:02.264Z', date: 'Oct 4, 2026, 6:18 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Four research reports were candidates to stop being kept in the project\u2019s history, because they change often. They stay: a count of 925 recent merges found that dropping them would not have avoided a single conflict.',
+      'So they remain readable on GitHub without building anything, and the reasoning is written beside the rule.',
+    ] },
   { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the helper that keeps waiting changes up to date before they are merged.',
