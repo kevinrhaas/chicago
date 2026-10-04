@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1406, ts: '2026-10-04T06:59:00.742Z', date: 'Oct 4, 2026, 1:59 AM CT', title: 'Nothing you can see: People directory checks now run', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The tool that tells a change which part of the browser checks to run sent edits to the People directory to the wrong part. The directory is checked in part 12, and the tool said part 13, so those checks were skipped.',
+      'Three modules the person card is built from now name part 12 too, and the shared seat block no longer names a part that never reads it.',
+      'The tool\u2019s own self-test now finds where each of eight modules is actually checked and fails if the map disagrees, so the same mistake cannot return unnoticed.',
+    ] },
   { v: 1405, ts: '2026-10-04T06:38:44.336Z', date: 'Oct 4, 2026, 1:38 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [
       'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',
