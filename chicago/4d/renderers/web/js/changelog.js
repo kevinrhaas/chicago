@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1442, ts: '2026-10-04T18:53:07.735Z', date: 'Oct 4, 2026, 1:53 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+    items: [
+      'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
+      'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
+      'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
+    ] },
   { v: 1441, ts: '2026-10-04T18:51:58.275Z', date: 'Oct 4, 2026, 1:51 PM CT', title: 'The alleys behind the houses are worn lanes', kind: 'change',
     items: [
       'Walk into the alley behind any built block, between Wells and LaSalle south of Randolph for one: a lane of worn earth now runs down its middle, the same dirt as the road, with short turf left along the fences.',

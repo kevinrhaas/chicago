@@ -19098,6 +19098,19 @@ dimensions replaces the walk-side bound.
 
 **Ticket:** T-1811 (piece 1 of T-1770).
 
+**Revised:** 2026-10-04 (T-2094, piece 1 of T-2087) — the omission above is answered for the
+town. In every opened street's corridor inside a turf community (the settled town), nothing
+taller than that community's own low layer stands past the cleared track: not on the worked
+roadway, and not on the verge between it and the lot line. The cap is read off the zone record,
+the tallest of its matrix and ground species (Poa, plantain, knotweed and clover to 0.25 m), so
+the lamb's-quarters, ragweed, dock and vervain to 1.2 m are gone from the street, and the
+ground there is T-2085's cropped turf grading into the roadway's dirt. A few weeds are kept
+where nothing treads: within 2.6 m of the corridor's edge (a 1.83 m walk, its 0.2 m clearance
+and the half metre at its street edge), in 1.5 m patches a positional hash keeps at 0.22. The
+trampling, the band and the share are all ours; no source describes a Chicago street verge in
+1835. A street that runs out across open prairie keeps its prairie, because the cap belongs to
+the ground's community and not to the street.
+
 **Recorded:** 2026-10-01 (T-1811).
 
 ### L337 — The prairie grows in stands: an invented growth field under the ground and the near sward
