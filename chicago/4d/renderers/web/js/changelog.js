@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
+  { v: 1398, ts: '2026-10-04T04:08:19.433Z', date: 'Oct 3, 2026, 11:08 PM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
       'Boots, Leather and the Road now views Miller\u2019s tannery across the North Branch from Wolf Point, without riding over the river to it. Its stops read a little shorter, and the ride takes just under six minutes, down from almost eight.',
