@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1446, ts: '2026-10-04T21:21:39.361Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
+  { v: null, ts: '', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
     items: [
       'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
       'The rule changed once to make that true, so 729 reconstructed families show a different year today, and the town as a whole still came in the same proportions: about one in six in 1833, one in three in 1834 and the rest in 1835.',
       'Because a building\u2019s weathering follows how long its family has been here, 23 houses and shops look a season newer or older. Campbell\u2019s on the south side, for one, now has fresh clapboard and a new roof.',
+    ] },
+  { v: 1446, ts: '2026-10-04T21:05:08.589Z', date: 'Oct 4, 2026, 4:05 PM CT', title: 'Fenced lots are closed all round, open where a house faces the street', kind: 'fix',
+    items: [
+      'Fly over any built block, the Clark Street blocks south of the river for one: a fenced lot is now fenced along both sides from the street back to the alley, where the fence used to stop partway and leave the lot open to its neighbours.',
+      'Where a house or store stands at the front of the lot, the street side stays open so you see the building. A lot with only a shed or privy at the back is fenced on the street too, with a cart gate.',
+      'Lots with no fence before still have none, so not every building is fenced.',
+      'Early Chicago let ringed hogs run loose in the streets, and a fence open on three sides keeps nothing out. Which lots are fenced, and how, is a reconstruction (Liberty L379).',
     ] },
   { v: 1445, ts: '2026-10-04T20:41:19.184Z', date: 'Oct 4, 2026, 3:41 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
     items: [
