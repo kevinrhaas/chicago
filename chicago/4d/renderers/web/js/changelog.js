@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+  { v: 1440, ts: '2026-10-04T18:26:43.590Z', date: 'Oct 4, 2026, 1:26 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
     items: [
       'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
       'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
