@@ -6,6 +6,8 @@
  *                                            [--json out.json] [--against DIR]
  *                                            [--stepped] [--south] [--town]
  *                                            [--flora] [--shots DIR]
+ *                                            [--stands a,b] [--levels a,b]
+ *                                            [--mirror DIR [--tree NAME]]
  *
  * `tools/smoke_renderer.mjs` already walks this sweep and holds each tier to its
  * ceiling — that is the GATE and this is not it. The problem is where the sweep
@@ -225,6 +227,13 @@ const TOWN = [
 // `--flora` is about that long (T-2084). A verdict over a filtered set is printed
 // only for the groups that are still whole.
 const standFilter = argAt('--stands')?.split(',').filter(Boolean) ?? null;
+// T-2092. `--levels a,b` keeps only the named tiers, and `--mirror DIR` (with
+// `--tree NAME` to label it) reads a published mirror other than this checkout's —
+// so a reading too big for one 600 s call can be cut by tier and by tree and taken
+// as several calls, each of which finishes and writes its own JSON.
+const levelFilter = argAt('--levels')?.split(',').filter(Boolean) ?? null;
+const mirrorDir = argAt('--mirror');
+const treeName = argAt('--tree');
 const STANDS = [...DOWNTOWN, ...(wantSouth ? SOUTH : []), ...(wantTown ? TOWN : [])]
   .filter((st) => !standFilter || standFilter.includes(st.id));
 
@@ -403,7 +412,7 @@ async function sweep(browser, root, entry, port, treeLabel) {
     await page.waitForFunction(() => window.__chicago4d?.ready === true,
       null, { timeout: 300_000 });
     const seen = await page.evaluate(async ({ stands, price, budgetStandIds, stepped,
-      floraShare }) => {
+      floraShare, levels }) => {
       const a = window.__chicago4d;
       if (stepped) a.renderer.setAnimationLoop(null);
       const settle = stepped
@@ -415,7 +424,7 @@ async function sweep(browser, root, entry, port, treeLabel) {
         ...stands.filter((s) => s.kind === 'frame')];
       const started = a.detail;
       const rows = [];
-      for (const level of a.detailOrder) {
+      for (const level of a.detailOrder.filter((l) => !levels || levels.includes(l))) {
         await a.setDetail(level);
         await settle();
         const atStands = [];
@@ -504,7 +513,7 @@ async function sweep(browser, root, entry, port, treeLabel) {
       await a.setDetail(started);
       return rows;
     }, { stands: STANDS, price: wantPrice, budgetStandIds: DOWNTOWN.map((s) => s.id),
-      stepped: wantStepped, floraShare: wantFlora });
+      stepped: wantStepped, floraShare: wantFlora, levels: levelFilter });
     // T-2084. The heap after a forced collection, so the reading is the scene's
     // own retained size and not whatever garbage the sweep left behind.
     const heap = await page.evaluate(() => {
@@ -513,15 +522,32 @@ async function sweep(browser, root, entry, port, treeLabel) {
     });
     if (shotsDir && wantTown) {
       fs.mkdirSync(shotsDir, { recursive: true });
+      // Into the town first, the way the smoke's `enterTown` does it: the gate and
+      // the welcome are HTML over the canvas, so the counters above never saw them,
+      // but a capture taken with them up is a picture of the welcome (T-2092).
+      await page.evaluate(async () => {
+        const gate = document.getElementById('gate');
+        if (gate && !gate.hasAttribute('hidden')) {
+          if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
+          else document.getElementById('gate-btn')?.click();
+          await new Promise((r) => setTimeout(r, 150));
+        }
+        const help = document.getElementById('control-help');
+        if (help && !help.hasAttribute('hidden')) document.getElementById('control-help-gotit')?.click();
+      });
       for (const st of TOWN) {
-        await page.evaluate(async (pose) => {
+        // Under `--stepped` the animation loop is off, so a capture waited on two
+        // animation frames would show whichever stand the sweep drew last; step the
+        // production loop instead (T-2092).
+        await page.evaluate(async ({ pose, stepped }) => {
           const a = window.__chicago4d;
           a.setFly(false);
           a.walker.teleport(pose);
-          await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-        }, st.pose);
+          if (stepped) { a.step(); a.step(); a.renderer.getContext().finish(); }
+          else await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        }, { pose: st.pose, stepped: wantStepped });
         const tag = `${treeLabel.replace(/\W+/g, '_')}-${vp.label.split(' ')[0]}-${st.id}`;
-        await page.screenshot({ path: path.join(shotsDir, `${tag}.png`) });
+        await page.screenshot({ path: path.join(shotsDir, `${tag}.png`), timeout: 180_000 });
       }
     }
     passes.push({ viewport: vp.label, seen, errors, heap });
@@ -654,7 +680,7 @@ const browser = await chromium.launch({
 
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/4d');
+  : path.resolve(mirrorDir ?? path.resolve(HERE, '../../../site/4d'));
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
   console.error(`no published mirror at ${ROOT} — run tools/publish.sh first`);
@@ -662,7 +688,7 @@ if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
 }
 const basePort = Number(process.env.DETAIL_PORT || 4198);
 const results = [await sweep(browser, ROOT, ENTRY, basePort,
-  wantSource ? 'source tree' : 'this tree')];
+  treeName ?? (wantSource ? 'source tree' : 'this tree'))];
 if (against) {
   const other = path.resolve(against);
   const otherEntry = fs.existsSync(path.join(other, 'walk', 'index.html'))

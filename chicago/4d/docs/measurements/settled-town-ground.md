@@ -16,4 +16,4 @@ Read 2026-10-04 at 1280x800 with `node tools/measure_detail_ceilings.mjs --town 
 
 Every flora total falls and no draw-call count rises; `light` stays under its 90-call floor at all three poses.
 
-**Not read here** (T-2092): 390x780, T-0135's five stands, the phone heap, and before/after captures. On this runner one tier at eight stands with `--flora` costs the whole 600 s foreground call, so the full reading is its own run.
+**Not read here** (T-2092): 390x780, T-0135's five stands, the phone heap, and before/after captures. On this runner one tier at eight stands with `--flora` costs the whole 600 s foreground call, so the full reading is its own run: `settled-town-ground-both-viewports.md`.

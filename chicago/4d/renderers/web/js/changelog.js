@@ -1,9 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1438, ts: '2026-10-04T18:01:37.929Z', date: 'Oct 4, 2026, 1:01 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
+  { v: null, ts: '', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
     items: [
       'Walk up Franklin Street to the river: Newberry & Dole\u2019s forwarding and commission warehouse no longer stands across the end of the street and in South Water Street. It now sits back in the corner west of Franklin and south of South Water, still facing the river.',
       'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
-      'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L376).',
+      'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L377).',
+    ] },
+  { v: 1439, ts: '2026-10-04T18:11:34.742Z', date: 'Oct 4, 2026, 1:11 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The short town ground from the last release was measured at phone and desktop size, at every Scene detail setting, against the version that is live today.',
+      'On a phone every standard view stays inside its drawing budget at every setting.',
+    ] },
+  { v: 1438, ts: '2026-10-04T17:47:42.763Z', date: 'Oct 4, 2026, 12:47 PM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
+    items: [
+      'Walk into a house yard and the middle of it is now short, cropped ground: the tall lamb\'s-quarters, ragweed, dock and vervain no longer stand in the open where people and animals walked every day.',
+      'The weeds and flowers are still in town, gathered where scythe, hoof and foot did not reach: a strip along every lot line, the lot\'s back corners and the foot of each privy and stable.',
+      'A worn earth path now runs from each house\'s back wall to its privy, stable or shed, 239 of them across 183 lots.',
+      'Empty lots are unchanged for now. Where the ground is kept and where the paths run is a reconstruction (Liberty L376).',
     ] },
   { v: 1437, ts: '2026-10-04T17:29:51.479Z', date: 'Oct 4, 2026, 12:29 PM CT', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
     items: [
