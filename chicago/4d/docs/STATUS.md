@@ -1,3 +1,60 @@
+## T-2056 — four horse jaunts just over six minutes brought inside it (2026-10-03)
+
+**What a visitor sees:** A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and
+Materials for a Roof each read shorter at every stop and now fit inside six minutes on
+horseback. Piece 6 of 6 of T-2041.
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only sunday-circuit,schoolday-errand,work-on-waterfront,materials-for-a-roof`:**
+  sunday-circuit 6.55 → **5.78 min** (Fly 2.37, Instantly 1.23); schoolday-errand 6.35 →
+  **5.65** (Fly 3.35, Instantly 2.28); work-on-waterfront 6.23 → **5.70** (Fly 3.68, Instantly
+  2.77); materials-for-a-roof 6.07 → **5.65** (Fly 3.35, Instantly 2.35). At 1280×800,
+  recommended mode only: 5.73, 5.60, 5.52, 5.68. Zero page errors. `docs/measurements/jaunt-timing.*`
+  carry the new rows merged into the committed library reading (`--merge`; the 1280×800 column
+  kept from the committed table, with these four taken fresh); the other 22 rows were not
+  re-ridden. 3 jaunts remain over the band, all owned by T-2055.
+- **Why this lever.** All four already recommend Horse, the fastest ground pace, so a change
+  of mode can only slow them. The cost was reading: 120–198 s of each path. The opening and
+  every stop text are re-cut (each stop stays inside the 25–60 word rule), and every `read_s`
+  is scaled by its own passage's authored rate — `round(old × new words / old words)` — so no
+  reading speed was raised to buy time. `action_s`, the stops, routes, choices and endings
+  are unchanged. A Sunday Circuit, the tightest (393 s, 273 of them riding across the South
+  Branch and back to the Walker meeting house), takes the deepest cut: 120 s of reading to 74.
+- **What the texts still say:** every invention named as invented (the neighbour and the
+  visit; the household and its question; the errand and the chit; the house and its list),
+  every placement and dispute (the Walker placeholder, the disputed Newberry & Dole bank,
+  the uncredited 1835 groundbreaking, Chappel's contested site), and the 7 July meeting as
+  called rather than held. Detail dropped from the narration — the schooner Illinois at the
+  wharf, St. Mary's lumber by scow, Hamilton's nineteen years in his house — keeps its claim
+  in each jaunt's evidence. `content_version` is bumped on all four, so a saved session is
+  discarded with the runtime's usual note.
+- **Liberties:** unchanged. No invention was added or widened; the re-cut only removes words.
+
+## T-2052 — News Before Breakfast and New in Chicago brought inside six minutes (2026-10-03)
+
+**What a visitor sees:** both jaunts now recommend a ride on horseback, and News Before
+Breakfast ends at the first Tremont House at Lake and Dearborn instead of the Exchange Coffee
+House at Lake and Wells. Fix half of T-2051's reading (piece 2 of 6 of T-2041).
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only news-before-breakfast,new-in-chicago`:**
+  news-before-breakfast 17.65 → **5.70 min** (Fly 4.25, Instantly 3.40); new-in-chicago 10.42 →
+  **4.04 min** (Fly 2.90, Instantly 2.10). Zero page errors. `docs/measurements/jaunt-timing.*`
+  carry the new rows merged into T-2051's library reading (`--merge`); the other 24 rows are
+  not re-ridden here. With T-2054's two and T-2053's three also in band, 7 jaunts remain over it, owned by T-2055 and T-2056.
+- **Why a pace change, and why it is not enough alone.** Walking is 1.45 m/s. On News Before
+  Breakfast the Democrat-to-American leg is about two minutes on foot by itself, so no choice of
+  stops fits 204 s of reading inside six minutes on foot; on horseback the briefed route still read
+  about 6.6 because breakfast was 530 m back west. The Tremont is the nearest attested public house
+  to the American's office (about 80 m), so it is the stop that moves. New in Chicago's long leg is
+  the forks to LaSalle, which every order of its five stops crosses, so there the mode alone is
+  the lever.
+- **What was not touched:** the estimate formula, every `read_s` and `action_s`, and every printed
+  item quoted. Text changed only where it named walking. `content_version` is bumped on both, so a
+  saved session from the walking version is discarded with the runtime's usual note.
+- **Margin:** News Before Breakfast is 18 s inside the band. A longer stop text there would need
+  its own re-timing.
+- **Liberties:** L-jaunt-news-breakfast and L-jaunt-new-in-chicago each gain a **Revised** line
+  (append-only): the ride is invented like the rest of each outing.
+
 ## T-2053 — three jaunts just over six minutes brought inside it (2026-10-03)
 
 **What a visitor sees:** Look Before You Buy a Lot now recommends a ride on horseback,
@@ -27,6 +84,7 @@ south gate with four stops instead of five. Piece 3 of 6 of T-2041.
   runtime's usual note.
 - **Liberties:** L-jaunt-inspect-a-lot, L-jaunt-shopping-south-water and
   L-jaunt-fort-dearborn-errand each gain a **Revised** line (append-only).
+
 
 ## T-2054 — Outfit for the West and Freight for the Store brought inside six minutes (2026-10-03)
 
@@ -89,6 +147,7 @@ from it and T-2050 seats it in the 1812 scene, which does not exist yet.
   No guard house, wicket gate or stores 14 and 15: their numerals are not legible.
 - **Gated.** `tools/read_whistler_1808.py --check` in `check.sh`. It holds the scale's arithmetic,
   every foot against its pixel box, the 34-number index, and the cross-checks the file says hold.
+
 ## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
 
 **One stop's wording changed; the rest is a gate.** `compile_jaunts.py` proves a jaunt is
@@ -120,7 +179,6 @@ same jaunt already does with the land-sale figure it cannot read (content_versio
 **Unverified, and said so.** An invented sentence describing an unnamed person's appearance
 is not detected; no lexicon for it would spare "a wet street has told you enough". The
 library's shape (T-2039) and timing (T-2041) are other pieces of T-1271.
-
 
 ## T-2051 — every jaunt's primary path ridden and timed, measurement half of T-2041 (2026-10-03)
 

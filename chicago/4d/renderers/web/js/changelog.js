@@ -1,8 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1391, ts: '2026-10-04T01:22:37.111Z', date: 'Oct 3, 2026, 8:22 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+  { v: 1394, ts: '2026-10-04T01:22:51.893Z', date: 'Oct 3, 2026, 8:22 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
     items: [
       'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
       'If loading fails on a phone, the Retry screen shows the touch hints too.',
+    ] },
+  { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and Materials for a Roof now each take about five and a half to six minutes on horseback, down from just over six.',
+      'Each stop reads shorter. The places, the route, the choices and the endings are unchanged.',
+      'Every stop still says what is invented and where a place is uncertain.',
+    ] },
+  { v: 1392, ts: '2026-10-04T00:09:05.510Z', date: 'Oct 3, 2026, 7:09 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
+    items: [
+      'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',
+      'New in Chicago also recommends riding now, and takes about four minutes instead of ten and a half. Its five stops are unchanged.',
+      'You can still choose to walk either one. The ride and the Tremont breakfast are our reconstruction (liberties L-jaunt-news-breakfast and L-jaunt-new-in-chicago).',
+    ] },
+  { v: 1391, ts: '2026-10-03T23:41:06.651Z', date: 'Oct 3, 2026, 6:41 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Every build now walks the path a visitor takes, on a phone and on a desktop: the year counting down to 1835, the welcome, Starting At…, a jaunt with its place card and source, a change of travel mode, the Jaunts menu and Resume, End, a second jaunt, and Explore on my own.',
+      'It found nothing broken. End returns to the menu in under a millisecond, and the Sources count matches the published catalog.',
     ] },
   { v: 1390, ts: '2026-10-03T23:24:44.264Z', date: 'Oct 3, 2026, 6:24 PM CT', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
     items: [
