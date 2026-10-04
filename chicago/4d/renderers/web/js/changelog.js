@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1418, ts: '2026-10-04T10:47:16.019Z', date: 'Oct 4, 2026, 5:47 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Four research reports were candidates to stop being kept in the project\u2019s history, because they change often. They stay: a count of 925 recent merges found that dropping them would not have avoided a single conflict.',
+      'So they remain readable on GitHub without building anything, and the reasoning is written beside the rule.',
+    ] },
   { v: 1417, ts: '2026-10-04T10:19:51.514Z', date: 'Oct 4, 2026, 5:19 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
     items: [
       'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
