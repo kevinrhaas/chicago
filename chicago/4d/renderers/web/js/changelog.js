@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Six dates that would not stick', kind: 'fix',
+  { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
     items: [
       'This note was first published on 19 September as release 971. Twenty-five minutes later a merge dropped it from this list and gave its number to the next release. It is back under a new number, and the list now refuses any change that drops a published note or moves its number.',
       'That night three of six ruled arrival dates were written: Botsford, Eli B. Williams and Hibbard Porter belonged to the spring of 1833, and their cards said so. Those cards are rebuilt from newspapers and civic registers, which can only say a man was here by some day, and a date written by hand used to be dropped without complaint.',
